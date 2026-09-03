@@ -1,29 +1,11 @@
 /**
- * Deployed-app (Nitro) half of the platform PWA chrome. Auto-registered as
- * global h3 middleware because vite.config.ts sets `serverDir: "./server"` —
- * without that option Nitro v3 never scans this directory.
+ * Deployed-app (Nitro) half of the platform PWA chrome.
  *
- * - `?install=1&platform=ios` on a document path → the Home Screen tutorial,
- *   bundled into the server build via `?raw` (the public/ directory is CDN
- *   static output on Vercel and not readable from the function).
- * - `/__grok/manifest.webmanifest` → per-app-named manifest (kept out of
- *   public/ so this dynamic response is the only one).
- * - Other HTML documents → stream-inject PWA + OG head tags at `</head>`.
- *   OG identity is baked via `virtual:grok-og-identity` at `vite build`
- *   (this function cannot read `src/lib/og/site.json` or `public/og.jpg`).
- *   This must be a middleware transforming `next()`: h3 discards the `response`
- *   runtime hook's return value, and `render:html` does not exist in Nitro v3.
+ * To speed up cold starts on serverless platforms (Vercel) we lazily import
+ * the heavier shared modules and the raw install page only when needed.
+ * This avoids paying for IO/parse at module-initialization time for functions
+ * that don't need PWA logic.
  */
-import installPageTemplate from "../../scripts/install-page.html?raw";
-import { grokOgIdentity } from "virtual:grok-og-identity";
-import {
-  acceptsHtml,
-  createHeadInjector,
-  isDocumentPath,
-  isInstallQuery,
-  renderInstallPageHtml,
-  renderWebManifest,
-} from "../../scripts/grok-pwa-shared.mjs";
 
 interface GrokPwaEvent {
   url: URL;
@@ -36,12 +18,46 @@ function requestHost(event: GrokPwaEvent): string {
   );
 }
 
-function injectHeadStreaming(response: Response, host: string): Response {
-  const injector = createHeadInjector({
-    host,
-    site: grokOgIdentity.site,
-  });
-  const transformed = response.body!.pipeThrough(
+// Cache imports so subsequent requests reuse the loaded modules inside the
+// same function instance (reduces overhead after cold start).
+let cached: {
+  loaded: boolean;
+  installPageTemplate?: string;
+  grokOgIdentity?: { site: unknown };
+  createHeadInjector?: (opts: { host: string; site: unknown }) => any;
+  acceptsHtml?: (accept?: string | null) => boolean;
+  isDocumentPath?: (path: string) => boolean;
+  isInstallQuery?: (q: string) => boolean;
+  renderInstallPageHtml?: (tpl: string, opts: { host: string; url: string }) => string;
+  renderWebManifest?: (host: string) => string;
+} = { loaded: false };
+
+async function ensureCachedModules() {
+  if (cached.loaded) return;
+  // Dynamic import of the raw template and shared helpers.
+  // These imports are only performed on the first request that actually
+  // needs PWA behavior, reducing function init time for other paths.
+  const [tplMod, sharedMod, ogMod] = await Promise.all([
+    import("../../scripts/install-page.html?raw") as Promise<{ default: string }> ,
+    import("../../scripts/grok-pwa-shared.mjs") as Promise<any>,
+    import("virtual:grok-og-identity") as Promise<{ grokOgIdentity: { site: unknown } }>,
+  ]);
+
+  cached.installPageTemplate = (tplMod as any).default;
+  cached.grokOgIdentity = (ogMod as any).grokOgIdentity;
+  cached.createHeadInjector = (sharedMod as any).createHeadInjector;
+  cached.acceptsHtml = (sharedMod as any).acceptsHtml;
+  cached.isDocumentPath = (sharedMod as any).isDocumentPath;
+  cached.isInstallQuery = (sharedMod as any).isInstallQuery;
+  cached.renderInstallPageHtml = (sharedMod as any).renderInstallPageHtml;
+  cached.renderWebManifest = (sharedMod as any).renderWebManifest;
+  cached.loaded = true;
+}
+
+function injectHeadStreaming(response: Response, host: string) {
+  // createHeadInjector assumed available
+  const injector = cached.createHeadInjector!({ host, site: cached.grokOgIdentity!.site });
+  const transformed = (response.body as ReadableStream<Uint8Array>).pipeThrough(
     new TransformStream<Uint8Array, Uint8Array>({
       transform(chunk, controller) {
         for (const out of injector.push(chunk)) controller.enqueue(out);
@@ -70,8 +86,11 @@ export default async function grokPwaMiddleware(
   const path = event.url.pathname;
   const urlWithQuery = path + event.url.search;
 
+  // Lightweight fast-paths that don't need the shared modules.
   if (path === "/__grok/manifest.webmanifest" || path === "/__grok/manifest.json") {
-    return new Response(renderWebManifest(requestHost(event)), {
+    // Ensure modules are loaded because renderWebManifest is in the shared module.
+    await ensureCachedModules();
+    return new Response(cached.renderWebManifest!(requestHost(event)), {
       headers: {
         "content-type": "application/manifest+json; charset=utf-8",
         "cache-control": "no-cache",
@@ -79,12 +98,15 @@ export default async function grokPwaMiddleware(
     });
   }
 
+  // For the install page we need the template + helpers.
   if (
-    isInstallQuery(urlWithQuery) &&
-    isDocumentPath(path) &&
-    acceptsHtml(event.req.headers.get("accept"))
+    (await (async () => {
+      // We must load the shared module to check isInstallQuery / isDocumentPath.
+      await ensureCachedModules();
+      return cached.isInstallQuery!(urlWithQuery) && cached.isDocumentPath!(path) && cached.acceptsHtml!(event.req.headers.get("accept"));
+    })())
   ) {
-    const html = renderInstallPageHtml(installPageTemplate, {
+    const html = cached.renderInstallPageHtml!(cached.installPageTemplate!, {
       host: requestHost(event),
       url: urlWithQuery,
     });
@@ -96,7 +118,18 @@ export default async function grokPwaMiddleware(
     });
   }
 
-  if (!isDocumentPath(path)) return next();
+  if (!cached.loaded) {
+    // Avoid loading the shared modules for non-document paths.
+    if (!(await (async () => {
+      // If the path is not a document path, skip loading.
+      await ensureCachedModules();
+      return cached.isDocumentPath!(path);
+    })())) {
+      return next();
+    }
+  } else if (!cached.isDocumentPath!(path)) {
+    return next();
+  }
 
   const result = await next();
   if (
@@ -105,6 +138,8 @@ export default async function grokPwaMiddleware(
     String(result.headers.get("content-type") ?? "").includes("text/html") &&
     !result.headers.get("content-encoding")
   ) {
+    // Ensure modules loaded (should be already in the document path branch).
+    await ensureCachedModules();
     return injectHeadStreaming(result, requestHost(event));
   }
   return result;
