@@ -1,0 +1,115 @@
+OPTIMUS V2 — COMMANDE DE DÉVELOPPEMENT
+
+Contexte : Optimus = plateforme de formation médicale, actuellement Python + Textual/Termux. Quiz fonctionnel + licences + import de decks JSON avec validation stricte déjà fonctionnels. NE PAS casser l’existant. Avant modification : auditer le code actuel puis travailler progressivement avec tests.
+
+OBJECTIF :
+Application médicale fluide, solide, modulaire, offline-first, future Android/iOS. Structure : année > matière > chapitre > compétence > deck > question.
+
+PÉDAGOGIE :
+Sémiologie → orientation diagnostique → diagnostic → prise en charge → cas clinique → situation complexe. Ajouter progression, Mastery, répétition espacée et parcours adaptatif.
+
+DECK :
+schema_version, deck_id, version, metadata, questions, sources, integrity, signature, access_policy. Sources obligatoires et versionnées. Import : JSON → validation → questions/réponses → sources → doublons → hash → signature → acceptation. Signature recommandée Ed25519 (clé privée serveur, clé publique app).
+
+ARCHITECTURE :
+UI / Core / Content / Storage / Identity / Licensing / Gamification / Sync séparés. Textual = UI seulement. Préparer remplacement futur par UI mobile.
+
+OFFLINE :
+Après téléchargement, quiz, cas, calculateurs, progression, XP, Mastery et révisions fonctionnent sans Internet. Internet sert à : mises à jour, nouveaux decks, synchronisation, sauvegarde, licences et classement. Ne jamais imposer une connexion quotidienne. Prévoir période de grâce pour vérification des licences.
+
+IDENTITÉ :
+Pas de login obligatoire.
+GUEST → ACCOUNT FREE → PRO.
+
+Guest : decks gratuits + apprentissage offline + progression locale.
+Free : + Optimus ID, cloud sync, backup, profil, classement.
+Pro : + decks premium, cas avancés, examens blancs, statistiques/parcours avancés.
+
+Optimus ID exemple : OM-7F4A92C1. Séparer user_id/device_id/session/entitlements.
+
+MODULES PAYANTS :
+Séparer CONTENU et DROIT D’ACCÈS. Utiliser Entitlements, pas simplement premium=true.
+Flux : achat → validation serveur/store → entitlement → téléchargement → stockage local → utilisation offline.
+Prévoir achat de deck individuel + abonnement/Pass étudiant. Monétisation discrète, sans publicité agressive ni blocage artificiel.
+Respecter les règles officielles Google Play/iOS pour les contenus numériques.
+
+PROGRESSION :
+Progression ≠ Mastery.
+Mastery basé sur exactitude, difficulté, répétitions, erreurs et rétention.
+Répétition espacée : last_review, next_review, stability, difficulty, repetitions, successes, failures.
+
+DASHBOARD :
+XP, niveau, streak, progression, questions du jour, révisions, cas, Mastery, forces/faiblesses, missions personnalisées.
+
+GAMIFICATION :
+XP, niveaux, badges, streak.
+XP = motivation ; Mastery = compétence.
+Ligues : Bronze → Argent → Or → Platine → Diamant → Master.
+
+CLASSEMENT :
+Mondial/national/année/matière/faculté optionnelle + hebdomadaire/mensuel.
+Calcul serveur. Ne pas utiliser seulement nombre de questions.
+Prévoir anti-triche et validation des événements.
+Offline : progression locale. Online : synchronisation + leaderboard.
+
+SYNCHRO :
+File locale d’événements : QUESTION_ANSWERED, REVIEW_COMPLETED, CASE_COMPLETED, ACHIEVEMENT_UNLOCKED. Synchronisation idempotente + gestion conflits multi-appareils.
+
+PROFIL :
+Photo de couverture + avatar + nom + Optimus ID + année + pays optionnel + niveau + XP + streak + ligue + Mastery.
+Menus : Progression, Badges, Decks, Activité, Modifier profil, Compte/Sécurité, Optimus Pro, Synchronisation, Paramètres, Soutenir le développeur, Contact, À propos.
+
+COUVERTURES :
+Photo personnelle ou couvertures Optimus/médicales/Madagascar. Compression automatique. Optionnelle.
+
+IDENTITÉ MALGACHE 🇲🇬 :
+Optimus doit clairement montrer son origine sans surcharge touristique.
+Utiliser subtilement : silhouette de Madagascar, baobab, lémurien, Hautes Terres, motifs malgaches, couleurs inspirées du drapeau.
+Principalement dans branding, accueil, profil, couvertures, badges et À propos. Interface médicale reste professionnelle.
+
+À PROPOS :
+OPTIMUS
+« Apprendre. Raisonner. Progresser. »
+🇲🇬 Développé à Madagascar
+Illustration originale/libre de droits inspirée de Madagascar.
+Développeur : Fetra Mandresy
+Contact : à définir
+❤️ Soutenir le développeur
+Contact / Signaler problème / Proposer correction
+Sources / Conditions / Confidentialité / Open source
+Version + Build
+© 2026 Optimus — Made in Madagascar 🇲🇬
+
+DON :
+Séparer « Optimus Pro » et « Soutenir le développeur ». Don volontaire. Prévoir moyens adaptés aux plateformes/pays et respecter règles des stores.
+
+CONTACT :
+Nous contacter / problème / correction médicale / proposition de deck / suggestion. Offline : message conservé localement puis envoyé à la reconnexion.
+
+STOCKAGE :
+SQLite local : users, devices, decks, questions, answers, attempts, mastery, reviews, progress, achievements, entitlements, sync_queue, settings.
+Serveur futur : API + PostgreSQL + stockage decks + auth + licences + achats + sync + leaderboard + audit logs.
+
+SÉCURITÉ :
+HTTPS/TLS, tokens sécurisés, Android Keystore/iOS Keychain, validation serveur, signature decks/licences, aucune clé privée dans l’app, aucun mot de passe en clair. S’inspirer OWASP MASVS.
+
+ROADMAP :
+1 Audit + stabilisation import.
+2 Refactoring Core/UI.
+3 SQLite + progression/Mastery.
+4 Guest + Optimus ID + comptes.
+5 Licences/Entitlements offline.
+6 XP/niveaux/badges.
+7 Années/matières/compétences.
+8 Cas cliniques/raisonnement.
+9 API/serveur/sync.
+10 Leaderboard/ligues/anti-triche.
+11 Premium/paiements.
+12 Android/iOS.
+
+RÈGLE :
+Ne pas tout coder en même temps. Analyser → proposer → modifier → tester → valider. Priorité : stabilité > simplicité > modularité > sécurité > évolutivité.
+
+VISION :
+Optimus = « coach numérique de formation médicale », pas simple banque de QCM.
+Offline-first, contenus téléchargeables, progression intelligente, cas cliniques, Mastery, gamification, identité malgache et modèle économique durable.

@@ -1,0 +1,244 @@
+[
+  {
+    "id": "DX-THORAX-001",
+    "title": "Douleur thoracique — démarche",
+    "specialty": "Urgences / Cardiologie",
+    "vignette": "Homme de 58 ans, tabagique, douleur thoracique depuis 2 heures. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément le plus discriminant d'une origine coronarienne est :",
+        "choices": [
+          "Une douleur de pointe, un second, reproduite par la palpation",
+          "Une constrictive rétro-sternale, effort ou repos, sueurs, nausées, irradiation",
+          "Une brûlure post-prandiale isolée depuis des années",
+          "Une douleur en coup de poignard, maximal d'emblée, syncopale"
+        ],
+        "correct": 1,
+        "explanation": "Le terrain + le type constrictif + les végétatifs orientent vers un SCA. Le coup de poignard syncopal évoque plutôt dissection ou EP. La palpation rassure vers la paroi."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Quel signe, s'il est présent, change immédiatement la piste ?",
+        "choices": [
+          "Une asymétrie tensionnelle et un souffle aortique nouveau",
+          "Un dermographisme",
+          "Des varicosités des membres inférieurs isolées",
+          "Un tremblement fin des extrémités"
+        ],
+        "correct": 0,
+        "explanation": "Asymétrie tensionnelle + souffle = dissection aortique jusqu'à preuve du contraire — une filière SCA seule serait une erreur."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Douleur constrictive, sueurs, ECG encore en cours, examen vasculaire symétrique :",
+        "choices": [
+          "Syndrome coronarien aigu jusqu'à preuve du contraire",
+          "Migraine basilaire",
+          "Colique hépatique",
+          "Crise d'angoisse d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (SCA probable) avant de figer le diagnostic. L'angoisse est un diagnostic d'élimination."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois diagnostics à ne jamais rater devant une douleur thoracique sont :",
+        "choices": [
+          "SCA, dissection aortique, embolie pulmonaire",
+          "RGO, anxiété, contracture",
+          "Zona, mastodynie, otite",
+          "Anémie, fièvre, constipation"
+        ],
+        "correct": 0,
+        "explanation": "Les trois tueur : coronaire, aorte, EP. Les causes bénignes existent mais se placent après l'élimination des urgences."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le premier examen, au lit, en moins de 10 minutes :",
+        "choices": [
+          "ECG 12 dérivations (± V3R V4R V7–V9 si inférieur)",
+          "Coronarographie d'emblée sans ECG",
+          "IRM cardiaque",
+          "Holter de 24 h"
+        ],
+        "correct": 0,
+        "explanation": "L'ECG est immédiat. Il trie STEMI (salle) vs le reste (troponine, angio-TDM si dissection/EP)."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Un sus-ST convexe en V1–V4 avec miroir inférieur signifie :",
+        "choices": [
+          "STEMI antérieur — filière de reperfusion",
+          "Repolarisation précoce du sportif",
+          "Péricardite certaine",
+          "Bloc de branche droit isolé"
+        ],
+        "correct": 0,
+        "explanation": "Sus-ST territorial + miroir = occlusion coronaire aiguë. On n'attend pas la troponine pour appeler la salle."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "STEMI antérieur, occlusion probable de l'IVA",
+          "Angor stable d'effort",
+          "Péricardite virale",
+          "EP proximale"
+        ],
+        "correct": 0,
+        "explanation": "Clinique + ECG territorial. L'angor stable n'a pas de sus-ST. La péricardite n'a pas de miroir."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "L'action qui change le pronostic dans la minute :",
+        "choices": [
+          "Appel de la filière de reperfusion (angioplastie primaire) + aspirine",
+          "Antalgique seul et sortie",
+          "Test d'effort le lendemain",
+          "Scanner à 48 h"
+        ],
+        "correct": 0,
+        "explanation": "Temps = myocarde. Filière 15 / USIC, aspirine, P2Y12, anticoagulation, PCI primaire."
+      }
+    ],
+    "synthesis": "Patient → interrogatoire (type, terrain) → examen (dissection ?) → syndrome SCA → hypothèses vitales → ECG immédiat → STEMI → reperfusion. Le QCM isolé saute ces étapes ; la démarche les force."
+  },
+  {
+    "id": "DX-FIEVRE-001",
+    "title": "Fièvre — démarche",
+    "specialty": "Infectiologie / Urgences",
+    "vignette": "Homme de 22 ans, fièvre 40 °C, céphalées, photophobie. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l’interrogatoire ?",
+        "prompt": "L’élément le plus urgent à faire préciser est :",
+        "choices": [
+          "La marque de son oreiller",
+          "Un voyage, un contage, une éruption, une vaccination, une prise d’AINS, un purpura",
+          "Son groupe sanguin",
+          "Sa consommation de café"
+        ],
+        "correct": 1,
+        "explanation": "Terrain, voyage (palu), purpura (méningocoque), immunosuppression, vaccins : ce sont les questions qui changent la filière."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l’examen ?",
+        "prompt": "Quel signe, s’il est présent, impose une filière « méningite / purpura fulminans » immédiate ?",
+        "choices": [
+          "Un purpura extensif qui ne s’efface pas à la vitropression",
+          "Un érythème solaire",
+          "Des adénopathies cervicales isolées depuis 2 ans",
+          "Un dermographisme"
+        ],
+        "correct": 0,
+        "explanation": "Purpura fébrile = céfotaxime / ceftriaxone immédiate, avant même le scanner. On ne retarde pas l’ATB."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Fièvre, céphalées, photophobie, nuque raide, pas de purpura :",
+        "choices": [
+          "Syndrome méningé fébrile jusqu’à preuve du contraire",
+          "Migraine ophtalmique d’emblée",
+          "Sinusite chronique",
+          "Coup de chaleur certain"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (méningé) avant le germe. La PL (après éliminer un FOC) viendra ensuite."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois urgences à ne jamais rater devant une fièvre + céphalées sont :",
+        "choices": [
+          "Méningite bactérienne, paludisme, pyélonéphrite obstructive / sepsis",
+          "Rhinite, asthénie, décalage de fuseau",
+          "Caries, acné, conjonctivite",
+          "Allergie alimentaire, RGO, constipation"
+        ],
+        "correct": 0,
+        "explanation": "Les tueurs : méningocoque / pneumocoque, palu, sepsis urinaire. Le reste se discute après."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "En l’absence de signe de FOC, l’examen clé du syndrome méningé est :",
+        "choices": [
+          "La ponction lombaire (après hémocultures, ATB si purpura/gravité)",
+          "Une IRM cérébrale d’emblée",
+          "Un Holter-ECG",
+          "Un test d’effort"
+        ],
+        "correct": 0,
+        "explanation": "PL diagnostique. Si purpura ou gravité : ATB d’abord. Scanner seulement si FOC / trouble de conscience / immunodépression selon les reco."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Un LCR trouble, PNN, protéinorachie élevée, glycorachie basse signifie :",
+        "choices": [
+          "Méningite bactérienne probable — ATB + corticoïde selon le germe",
+          "Méningite virale certaine",
+          "Hémorragie méningée",
+          "Normalité du LCR"
+        ],
+        "correct": 0,
+        "explanation": "Profil bactérien. Dexaméthasone si pneumocoque suspecté, ATB adaptée, isolement gouttelettes si méningocoque."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Méningite bactérienne aiguë, germe à documenter",
+          "Migraine avec aura",
+          "Accès palustre certain sans frottis",
+          "Sinusite maxillaire isolée"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic syndromique + LCR suffit pour traiter. Le germe vient des cultures / PCR."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "L’action qui change le pronostic dans la minute, s’il apparaît un purpura :",
+        "choices": [
+          "Ceftriaxone (ou céfotaxime) IV immédiate, puis transfert",
+          "Attendre le LCR pour commencer",
+          "Aspirine seule",
+          "Sortie avec paracétamol"
+        ],
+        "correct": 0,
+        "explanation": "Purpura fulminans : ATB immédiate, remplissage, transfert réa. Chaque minute compte."
+      }
+    ],
+    "synthesis": "Patient → voyage / purpura / nuque → syndrome méningé → hypothèses vitales (méningocoque, palu, sepsis) → ATB si gravité puis PL → profil bactérien → traitement et déclaration."
+  }
+]

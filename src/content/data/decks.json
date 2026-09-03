@@ -1,0 +1,2707 @@
+[
+  {
+    "schemaVersion": 2,
+    "id": "pharmaco",
+    "version": "2.0.0",
+    "title": "Pharmacologie",
+    "subtitle": "Mécanismes, doses, antidotes",
+    "subject": "Pharmacologie",
+    "specialty": "Thérapeutique",
+    "studyYear": 2,
+    "difficulty": "intermediate",
+    "competencies": [
+      "recognize",
+      "management",
+      "diagnosis"
+    ],
+    "icon": "pill",
+    "questions": [
+      {
+        "id": "ph-1",
+        "prompt": "Quel est le mécanisme principal du furosémide ?",
+        "choices": [
+          "Inhibition de l'anhydrase carbonique proximale",
+          "Blocage du cotransporteur NKCC2 de l'anse de Henlé",
+          "Antagonisme des récepteurs minéralocorticoïdes",
+          "Inhibition du canal ENaC du tube collecteur"
+        ],
+        "correct": 1,
+        "explanation": "Le furosémide est un diurétique de l'anse : il inhibe le cotransporteur Na-K-2Cl (NKCC2) de la branche large ascendante, d'où une natriurèse puissante et une hypokaliémie.",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          },
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ph-2",
+        "prompt": "La toux sèche sous IEC s'explique principalement par :",
+        "choices": [
+          "Un bronchospasme allergique aux sulfamides",
+          "Une accumulation de bradykinine",
+          "Une hyperkaliémie irritant le nerf vague",
+          "Un reflux gastro-œsophagien iatrogène"
+        ],
+        "correct": 1,
+        "explanation": "Les IEC diminuent la dégradation de la bradykinine, qui sensibilise le réflexe de toux. Un sartan, qui n'affecte pas cette voie, est souvent substitué.",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          },
+          {
+            "title": "ANSM",
+            "citation": "Résumés des caractéristiques du produit."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ph-3",
+        "prompt": "Chez l'adulte sans facteur de risque, la dose maximale quotidienne de paracétamol est :",
+        "choices": [
+          "2 g",
+          "3 g",
+          "4 g",
+          "6 g"
+        ],
+        "correct": 2,
+        "explanation": "La dose usuelle maximale est de 4 g/24 h (1 g par prise, intervalle ≥ 4–6 h). Au-delà, le métabolite toxique NAPQI sature le glutathion hépatique.",
+        "sources": [
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          },
+          {
+            "title": "ANSM",
+            "citation": "Résumés des caractéristiques du produit."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ph-4",
+        "prompt": "Quel est l'antidote spécifique des morphiniques ?",
+        "choices": [
+          "Flumazénil",
+          "N-acétylcystéine",
+          "Naloxone",
+          "Fomépizole"
+        ],
+        "correct": 2,
+        "explanation": "La naloxone est un antagoniste compétitif des récepteurs µ. Le flumazénil antagonise les benzodiazépines ; la NAC le paracétamol ; le fomépizole les alcools toxiques.",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ph-5",
+        "prompt": "La metformine est contre-indiquée lorsque le DFG est inférieur à :",
+        "choices": [
+          "60 mL/min/1,73 m²",
+          "45 mL/min/1,73 m²",
+          "30 mL/min/1,73 m²",
+          "15 mL/min/1,73 m²"
+        ],
+        "correct": 2,
+        "explanation": "Sous 30 mL/min, le risque d'acidose lactique devient inacceptable. Entre 30 et 45, la dose est réduite et la prescription réévaluée.",
+        "sources": [
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          },
+          {
+            "title": "ANSM",
+            "citation": "Résumés des caractéristiques du produit."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ph-6",
+        "prompt": "Le suivi biologique de la warfarine repose sur :",
+        "choices": [
+          "Le TCA",
+          "L'INR",
+          "Les D-dimères",
+          "L'anti-Xa"
+        ],
+        "correct": 1,
+        "explanation": "La warfarine inhibe la vitamine K époxyde réductase. L'INR cible dépend de l'indication (souvent 2–3). Les AOD se suivent autrement (anti-Xa pour certains).",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ph-7",
+        "prompt": "Un bêtabloquant non cardiosélectif est particulièrement dangereux en cas de :",
+        "choices": [
+          "Hypothyroïdie",
+          "Asthme",
+          "Migraine",
+          "Glaucome à angle ouvert"
+        ],
+        "correct": 1,
+        "explanation": "Le blocage des récepteurs β2 bronchiques peut déclencher un bronchospasme sévère. Les β1-sélectifs restent à manier avec une extrême prudence.",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          },
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ph-8",
+        "prompt": "Les benzodiazépines potentialisent principalement :",
+        "choices": [
+          "Les récepteurs NMDA du glutamate",
+          "Les canaux sodiques voltage-dépendants",
+          "La transmission GABAergique via GABA-A",
+          "Les récepteurs nicotiniques neuronaux"
+        ],
+        "correct": 2,
+        "explanation": "Elles se lient au site allostérique du récepteur GABA-A et augmentent la fréquence d'ouverture du canal chlore. L'antidote est le flumazénil.",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ph-9",
+        "prompt": "Quelle statine est un inhibiteur de l'HMG-CoA réductase dont l'effet indésirable musculaire majeur est :",
+        "choices": [
+          "La rhabdomyolyse",
+          "La myasthénie congénitale",
+          "La dermatomyosite juvénile",
+          "La paralysie périodique hypokaliémique"
+        ],
+        "correct": 0,
+        "explanation": "Les statines peuvent provoquer myalgies, élévation des CPK, rarement rhabdomyolyse — surtout en association avec les inhibiteurs puissants du CYP3A4.",
+        "sources": [
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          },
+          {
+            "title": "ANSM",
+            "citation": "Résumés des caractéristiques du produit."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ph-10",
+        "prompt": "L'aspirine à dose antiagrégante agit par :",
+        "choices": [
+          "Inhibition réversible de la COX-2 plaquettaire",
+          "Acétylation irréversible de la COX-1 plaquettaire",
+          "Antagonisme du récepteur P2Y12",
+          "Blocage de la GPIIb/IIIa"
+        ],
+        "correct": 1,
+        "explanation": "L'aspirine acétyle de façon irréversible la COX-1, supprimant le thromboxane A2 pour la durée de vie de la plaquette (7–10 jours).",
+        "sources": [
+          {
+            "title": "Goodman & Gilman",
+            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "recognize"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Goodman & Gilman",
+        "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
+      },
+      {
+        "title": "Vidal",
+        "citation": "Monographies thérapeutiques, éd. 2024."
+      },
+      {
+        "title": "ANSM",
+        "citation": "Résumés des caractéristiques du produit."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — urgences vitales."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      }
+    ],
+    "deck_id": "pharmaco",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "free",
+      "entitlement": "OPTIMUS_FREE"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio",
+    "version": "2.0.0",
+    "title": "Cardiologie",
+    "subtitle": "SCA, IC, rythme, valves",
+    "subject": "Cardiologie",
+    "specialty": "Clinique",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "semiology",
+      "diagnosis",
+      "management",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "questions": [
+      {
+        "id": "ca-1",
+        "prompt": "Devant un SCA ST+ de moins de 12 h, la priorité est :",
+        "choices": [
+          "Un test d'effort le lendemain",
+          "Une reperfusion immédiate (angioplastie primaire ou thrombolyse)",
+          "Un Holter de 24 h avant toute décision",
+          "Une coronarographie élective à J5"
+        ],
+        "correct": 1,
+        "explanation": "Le sus-décalage persistant traduit une occlusion coronaire aiguë. Chaque minute compte : angioplastie primaire si délai acceptable, sinon fibrinolysis.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ca-2",
+        "prompt": "Le score CHA₂DS₂-VASc sert à estimer :",
+        "choices": [
+          "Le risque hémorragique sous AOD",
+          "Le risque thromboembolique de la FA",
+          "La sévérité d'une sténose aortique",
+          "Le pronostic du choc cardiogénique"
+        ],
+        "correct": 1,
+        "explanation": "Il guide l'indication d'anticoagulation au long cours dans la fibrillation atriale. Le risque hémorragique se score plutôt par HAS-BLED.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the diagnosis and management of atrial fibrillation, 2024."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ca-3",
+        "prompt": "La quadrithérapie de fond de l'IC à FEVG réduite associe :",
+        "choices": [
+          "Digoxine, amiodarone, thiazidique, ivabradine",
+          "IEC/ARNI, bêtabloquant, antagoniste minéralocorticoïde, iSGLT2",
+          "Inhibiteur calcique, nitrate, aspirine, statine",
+          "Dobutamine, noradrénaline, lévosimendan, milrinone"
+        ],
+        "correct": 1,
+        "explanation": "Les quatre piliers (ARNI ou IEC, BB evidence-based, MRA, iSGLT2) réduisent mortalité et hospitalisations. Ils se titrent dès la phase de compensation.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ca-4",
+        "prompt": "La triade classique du rétrécissement aortique serré symptomatique est :",
+        "choices": [
+          "Fièvre, souffle, hémocultures",
+          "Angor, dyspnée, syncope d'effort",
+          "Œdèmes, turgescence jugulaire, hépatalgie",
+          "Palpitations, déficit focal, céphalée"
+        ],
+        "correct": 1,
+        "explanation": "L'obstruction fixe à l'éjection limite le débit d'effort : angor, dyspnée, syncope. Une fois symptomatique, le pronostic sans remplacement valvulaire est sombre.",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "ca-5",
+        "prompt": "Le biomarqueur de référence pour diagnostiquer un infarctus non ST+ est :",
+        "choices": [
+          "BNP",
+          "CRP ultrasensible",
+          "Troponine cardiaque",
+          "Myoglobine seule"
+        ],
+        "correct": 2,
+        "explanation": "La troponine ultrasensible, cinétique, définit la nécrose myocardique. Le BNP évalue la contrainte pariétale / l'insuffisance cardiaque.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ca-6",
+        "prompt": "Le seuil diagnostique usuel d'hypertension artérielle au cabinet est :",
+        "choices": [
+          "130/80 mmHg",
+          "135/85 mmHg",
+          "140/90 mmHg",
+          "160/100 mmHg"
+        ],
+        "correct": 2,
+        "explanation": "Au cabinet : ≥ 140/90 mmHg, confirmé. En MAPA, les seuils sont plus bas (typiquement 130/80 sur 24 h).",
+        "sources": [
+          {
+            "title": "HAS / SFHTA",
+            "citation": "Prise en charge de l'hypertension artérielle de l'adulte, 2016–2022."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ca-7",
+        "prompt": "Après pose d'un stent coronaire, la double antiagrégation (DAPT) associe classiquement :",
+        "choices": [
+          "Aspirine + clopidogrel/prasugrel/ticagrelor",
+          "Héparine + warfarine",
+          "Aspirine + rivaroxaban à dose curative",
+          "Tirofiban au long cours"
+        ],
+        "correct": 0,
+        "explanation": "Aspirine + inhibiteur P2Y12. La durée (souvent 1–12 mois) dépend du risque ischémique et hémorragique, et du contexte SCA vs stable.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ca-8",
+        "prompt": "En choc cardiogénique, le signe clinique le plus évocateur d'hypoperfusion tissulaire est :",
+        "choices": [
+          "Une hypertension isolée",
+          "Des marbrures avec oligurie et confusion",
+          "Un souffle diastolique d'IA",
+          "Un pouls irrégulier sans hypotension"
+        ],
+        "correct": 1,
+        "explanation": "Le choc associe hypotension (ou besoin de vasopresseurs) et hypoperfusion : marbrures, oligurie, lactates, encéphalopathie. Ce n'est pas qu'un chiffre de pression.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "ca-ic-1",
+        "prompt": "Un NT-proBNP à 4 200 ng/L chez un dyspnéique oriente surtout vers :",
+        "choices": [
+          "Une origine pulmonaire isolée",
+          "Une insuffisance cardiaque probable",
+          "Une anémie ferriprive",
+          "Un asthme d'effort"
+        ],
+        "correct": 1,
+        "explanation": "Un NT-proBNP élevé a une forte valeur prédictive positive d'insuffisance cardiaque, à corréler à la clinique et à l'échocardiographie.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ca-ic-2",
+        "prompt": "En congestion sans choc, le diurétique de première intention est :",
+        "choices": [
+          "Hydrochlorothiazide oral",
+          "Furosémide IV",
+          "Spironolactone IV",
+          "Mannitol"
+        ],
+        "correct": 1,
+        "explanation": "Le diurétique de l'anse IV reste la pierre angulaire de la décongestion aiguë ESC 2023.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Heart Failure Guidelines, 2023.",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      },
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the diagnosis and management of atrial fibrillation, 2024."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+      },
+      {
+        "title": "HAS / SFHTA",
+        "citation": "Prise en charge de l'hypertension artérielle de l'adulte, 2016–2022."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — urgences vitales."
+      }
+    ],
+    "deck_id": "cardio",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PRO"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "neuro",
+    "version": "2.0.0",
+    "title": "Neurologie",
+    "subtitle": "AVC, épilepsie, dégénératif",
+    "subject": "Neurologie",
+    "specialty": "Clinique",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "semiology",
+      "diagnosis",
+      "management",
+      "clinical_reasoning"
+    ],
+    "icon": "brain",
+    "questions": [
+      {
+        "id": "ne-1",
+        "prompt": "Devant une hémiparésie brutale de moins de 4 h 30, le premier examen d'imagerie est :",
+        "choices": [
+          "Une IRM du rachis cervical",
+          "Un scanner cérébral (ou IRM) en urgence pour trier thrombolyse",
+          "Un EEG de 24 h",
+          "Une radiographie du crâne"
+        ],
+        "correct": 1,
+        "explanation": "Il faut exclure l'hémorragie et quantifier l'ischémie. La fenêtre de thrombolyse IV est classiquement 4 h 30 ; la thrombectomie peut aller au-delà selon l'imagerie.",
+        "sources": [
+          {
+            "title": "AHA / ASA",
+            "citation": "Guidelines for the early management of patients with acute ischemic stroke."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ne-2",
+        "prompt": "La maladie de Parkinson idiopathique est liée à une dégénérescence de :",
+        "choices": [
+          "La corne antérieure de la moelle",
+          "La substance noire pars compacta",
+          "Le cervelet vermien",
+          "Le noyau rouge"
+        ],
+        "correct": 1,
+        "explanation": "Perte des neurones dopaminergiques nigro-striataux. La L-dopa reste le traitement symptomatique le plus efficace des signes moteurs.",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ne-3",
+        "prompt": "Un état de mal convulsif généralisé se définit, entre autres, par une crise de plus de :",
+        "choices": [
+          "30 secondes",
+          "2 minutes",
+          "5 minutes",
+          "30 minutes"
+        ],
+        "correct": 2,
+        "explanation": "Le seuil opérationnel actuel est 5 minutes (et 30 min pour le risque de lésions irréversibles). La première ligne est une benzodiazépine.",
+        "sources": [
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ne-4",
+        "prompt": "Le signe de Babinski traduit une atteinte :",
+        "choices": [
+          "Du neurone moteur périphérique",
+          "De la voie pyramidale (faisceau corticospinal)",
+          "Du cordon postérieur",
+          "Du système extrapyramidal"
+        ],
+        "correct": 1,
+        "explanation": "Extension du hallux à la stimulation plantaire = syndrome pyramidal. Il s'accompagne souvent d'un déficit, d'une hyperréflexie et d'un clonus.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "ne-5",
+        "prompt": "Dans le syndrome de Guillain-Barré, le LCR montre classiquement :",
+        "choices": [
+          "Une pléiocytose à PNN sans hyperprotéinorachie",
+          "Une dissociation albumino-cytologique",
+          "Des bandes oligoclonales isolées",
+          "Une hypoglycorachie franche"
+        ],
+        "correct": 1,
+        "explanation": "Protéinorachie élevée, cellularité normale ou quasi normale. Cliniquement : déficit moteur ascendant, aréflexie, parfois dysautonomie.",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      },
+      {
+        "id": "ne-6",
+        "prompt": "Le traitement de première intention d'une crise de myasthénie grave respiratoire est :",
+        "choices": [
+          "Une corticothérapie orale seule à domicile",
+          "La prise en charge ventilatoire ± échanges plasmatiques ou IVIG",
+          "La L-dopa à forte dose",
+          "Un anti-épileptique d'emblée"
+        ],
+        "correct": 1,
+        "explanation": "L'urgence est ventilatoire (CV, gaz du sang, déglutition). Les échanges ou les IgIV traitent la crise ; les anticholinestérasiques ne suffisent pas.",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ne-7",
+        "prompt": "Un score de Glasgow à 7 impose en priorité :",
+        "choices": [
+          "Un avis psychiatrique",
+          "La protection des voies aériennes",
+          "Une ponction lombaire immédiate",
+          "Un test au Tensilon"
+        ],
+        "correct": 1,
+        "explanation": "GCS ≤ 8 = indication classique d'intubation pour protéger les VAS. L'étiologie se cherche en parallèle (glycémie, naloxone, imagerie).",
+        "sources": [
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ne-8",
+        "prompt": "Les bandes oligoclonales IgG dans le LCR orientent surtout vers :",
+        "choices": [
+          "Une sclérose en plaques",
+          "Une hémorragie méningée",
+          "Un abcès cérébral pyogène",
+          "Une hydrocéphalie à pression normale"
+        ],
+        "correct": 0,
+        "explanation": "Elles témoignent d'une synthèse intrathécale d'IgG, très fréquente dans la SEP, non spécifiques. Le diagnostic de SEP reste clinico-IRM (McDonald).",
+        "sources": [
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ],
+    "sources": [
+      {
+        "title": "AHA / ASA",
+        "citation": "Guidelines for the early management of patients with acute ischemic stroke."
+      },
+      {
+        "title": "Collège de Neurologie",
+        "citation": "Référentiel national DES / EDN de neurologie."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — urgences vitales."
+      },
+      {
+        "title": "Bates",
+        "citation": "Guide de l'examen clinique, 13e éd."
+      },
+      {
+        "title": "ERC / ILCOR",
+        "citation": "European Resuscitation Council Guidelines, 2021."
+      }
+    ],
+    "deck_id": "neuro",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "NEURO_PRO"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio",
+    "version": "2.0.0",
+    "title": "Infectiologie",
+    "subtitle": "Sepsis, ATB, tropical",
+    "subject": "Infectiologie",
+    "specialty": "Clinique",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "recognize",
+      "diagnosis",
+      "management"
+    ],
+    "icon": "bug",
+    "questions": [
+      {
+        "id": "in-1",
+        "prompt": "Selon Sepsis-3, le sepsis est :",
+        "choices": [
+          "Toute fièvre supérieure à 38,5 °C",
+          "Une dysfonction d'organe menaçante due à une réponse dérégulée à l'infection",
+          "Une bactériémie documentée",
+          "Un syndrome inflammatoire isolé (CRP > 50)"
+        ],
+        "correct": 1,
+        "explanation": "Le sepsis n'est plus « SIRS + infection ». C'est une dysfonction d'organe (Δ SOFA ≥ 2) secondaire à l'infection. Le choc septique y ajoute vasopresseurs et lactates.",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "in-2",
+        "prompt": "Avant toute antibiothérapie d'une endocardite suspectée, il faut :",
+        "choices": [
+          "Poser d'emblée un cathéter central",
+          "Prélever plusieurs hémocultures",
+          "Débuter une corticothérapie",
+          "Réaliser une scintigraphie osseuse"
+        ],
+        "correct": 1,
+        "explanation": "Les hémocultures (idéalement 3 séries, sites différents) sont le pilier diagnostique (critères de Duke). L'ATB ne doit pas les précéder hors choc.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "in-3",
+        "prompt": "Le paludisme grave à P. falciparum se traite en première intention par :",
+        "choices": [
+          "Chloroquine orale",
+          "Artésunate IV",
+          "Doxycycline seule",
+          "Métronidazole"
+        ],
+        "correct": 1,
+        "explanation": "L'artésunate IV a supplanté la quinine dans le paludisme grave. La chloroquine est inefficace sur la plupart des falciparum.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd."
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "in-4",
+        "prompt": "Un purpura fébrile extensif chez un adolescent évoque en premier :",
+        "choices": [
+          "Une purpura rhumatoïde isolé",
+          "Un purpura fulminans à méningocoque",
+          "Une thrombopénie immune chronique",
+          "Une carence en vitamine C"
+        ],
+        "correct": 1,
+        "explanation": "Urgence vitale : ceftriaxone (ou céfotaxime) immédiate, même avant le transfert, et notification. Ne pas attendre le LCR si le tableau est franc.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "in-5",
+        "prompt": "Le traitement standard d'une tuberculose pulmonaire sensible dure classiquement :",
+        "choices": [
+          "10 jours",
+          "6 semaines",
+          "6 mois",
+          "24 mois"
+        ],
+        "correct": 2,
+        "explanation": "2 mois RHZE puis 4 mois RH (6 mois au total) pour une forme pulmonaire sensible. Les résistances et localisations extra-pulmonaires modifient le schéma.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "in-6",
+        "prompt": "La colite à Clostridioides difficile est particulièrement associée à :",
+        "choices": [
+          "L'amoxicilline et la clindamycine, entre autres",
+          "Les inhibiteurs de la pompe à protons uniquement",
+          "Les vaccins vivants",
+          "Le paracétamol au long cours"
+        ],
+        "correct": 0,
+        "explanation": "Tout ATB peut sélectionner C. difficile ; clindamycine, céphalosporines, fluoroquinolones et amoxicilline sont souvent citées. Traitement : fidaxomicine ou vancomycine orale.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          },
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "in-7",
+        "prompt": "Le score CURB-65 évalue :",
+        "choices": [
+          "La gravité d'une pneumonie communautaire",
+          "Le risque d'endocardite sur pacemaker",
+          "La réponse au BCG",
+          "La cirrhose Child-Pugh"
+        ],
+        "correct": 0,
+        "explanation": "Confusion, Urea, Respiratory rate, Blood pressure, âge ≥ 65 ans. Il aide à décider ambulatoire vs hospitalisation, en plus du jugement clinique.",
+        "sources": [
+          {
+            "title": "SPLF",
+            "citation": "Prise en charge des infections respiratoires basses de l'adulte."
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "in-8",
+        "prompt": "Un vaccin vivant atténué est contre-indiqué en cas de :",
+        "choices": [
+          "Allaitement maternel exclusif",
+          "Immunodépression sévère",
+          "Antécédent de grippe",
+          "Vaccination antigrippale l'année précédente"
+        ],
+        "correct": 1,
+        "explanation": "ROR, varicelle, fièvre jaune, BCG : contre-indiqués si immunodépression profonde (dont certains biothérapies). Les vaccins inactivés restent possibles.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "Collège d'Infectiologie",
+        "citation": "Référentiel Pilly / CMIT."
+      },
+      {
+        "title": "OMS",
+        "citation": "Guidelines for the treatment of malaria, 3e éd."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — urgences vitales."
+      },
+      {
+        "title": "Vidal",
+        "citation": "Monographies thérapeutiques, éd. 2024."
+      },
+      {
+        "title": "SPLF",
+        "citation": "Prise en charge des infections respiratoires basses de l'adulte."
+      }
+    ],
+    "deck_id": "infectio",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PRO"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "anatomie",
+    "version": "2.0.0",
+    "title": "Anatomie",
+    "subtitle": "Repères utiles au lit du malade",
+    "subject": "Anatomie",
+    "specialty": "Fondamental",
+    "studyYear": 1,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology"
+    ],
+    "icon": "bone",
+    "questions": [
+      {
+        "id": "an-1",
+        "prompt": "Le polygone de Willis est :",
+        "choices": [
+          "Un anastomose artérielle de la base du crâne",
+          "Un plexus veineux épidural",
+          "Un ganglion parasympathique orbitaire",
+          "Un ligament de la nuque"
+        ],
+        "correct": 0,
+        "explanation": "Il unit les systèmes carotidiens internes et vertébro-basilaire (communicantes antérieure et postérieures). C'est un enjeu majeur des AVC et anévrismes.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "an-2",
+        "prompt": "Une mydriase unilatérale aréactive avec ptosis évoque une atteinte du :",
+        "choices": [
+          "Nerf II",
+          "Nerf III",
+          "Nerf IV",
+          "Nerf VI"
+        ],
+        "correct": 1,
+        "explanation": "Le III innerve la plupart des muscles extra-oculaires, le releveur et le sphincter irien parasympathique. Une compression (anévrisme PCom) est une urgence.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "an-3",
+        "prompt": "La veine porte se forme par la réunion de :",
+        "choices": [
+          "La veine cave inférieure et la veine azygos",
+          "La veine mésentérique supérieure et la veine splénique",
+          "Les veines sus-hépatiques et la veine cave",
+          "L'artère hépatique et le canal cholédoque"
+        ],
+        "correct": 1,
+        "explanation": "VMS + splénique (± mésentérique inférieure). L'hypertension portale (cirrhose) ouvre les anastomoses porto-caves (varices œsophagiennes).",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "an-4",
+        "prompt": "La valve mitrale sépare :",
+        "choices": [
+          "L'oreillette droite et le ventricule droit",
+          "L'oreillette gauche et le ventricule gauche",
+          "Le ventricule gauche et l'aorte",
+          "Le ventricule droit et l'artère pulmonaire"
+        ],
+        "correct": 1,
+        "explanation": "Mitrale = AV gauche. Tricuspide = AV droit. Aortique et pulmonaire sont sigmoïdes. Un souffle holosystolique irradiant à l'aisselle = IM jusqu'à preuve du contraire.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "an-5",
+        "prompt": "Le triangle de Scarpa (fémoral) contient, de dehors en dedans :",
+        "choices": [
+          "Veine, artère, nerf",
+          "Nerf, artère, veine",
+          "Artère, nerf, veine",
+          "Nerf, veine, artère"
+        ],
+        "correct": 1,
+        "explanation": "VAN de dehors en dedans : nerf, artère, veine fémorale (puis lymphatiques). Repère d'abord vasculaire et de l'anesthésie locorégionale.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "an-6",
+        "prompt": "Les segments hépatiques de Couinaud sont au nombre de :",
+        "choices": [
+          "4",
+          "6",
+          "8",
+          "12"
+        ],
+        "correct": 2,
+        "explanation": "Huit segments fonctionnels selon la distribution portal et sus-hépatique. Le I est le lobe de Spiegel. Base de la chirurgie hépatique.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      },
+      {
+        "id": "an-7",
+        "prompt": "Le faisceau corticospinal croise principalement :",
+        "choices": [
+          "Au niveau du corps calleux",
+          "À la décussation pyramidale du bulbe",
+          "Dans le thalamus",
+          "Au cone terminal"
+        ],
+        "correct": 1,
+        "explanation": "Environ 90 % des fibres croisent dans les pyramides bulbaires et descendent en cordon latéral controlatéral — d'où l'hémiplégie controlatérale d'une lésion capsulaire.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          },
+          {
+            "title": "Collège de Neurologie",
+            "citation": "Référentiel national DES / EDN de neurologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "an-8",
+        "prompt": "Le médiastin moyen contient notamment :",
+        "choices": [
+          "Le thymus entier et l'œsophage thoracique",
+          "Le cœur, la trachée, les gros vaisseaux de la base",
+          "La chaîne sympathique thoracique",
+          "Les surrénales"
+        ],
+        "correct": 1,
+        "explanation": "Médiastin antérieur : thymus, graisse. Moyen : cœur, péricarde, trachée, nœuds. Postérieur : œsophage, aorte descendante, canal thoracique.",
+        "sources": [
+          {
+            "title": "Gray's Anatomy",
+            "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gray's Anatomy",
+        "citation": "The Anatomical Basis of Clinical Practice, 42e éd."
+      },
+      {
+        "title": "Collège de Neurologie",
+        "citation": "Référentiel national DES / EDN de neurologie."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      }
+    ],
+    "deck_id": "anatomie",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "free",
+      "entitlement": "OPTIMUS_FREE"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "urgences",
+    "version": "2.0.0",
+    "title": "Urgences",
+    "subtitle": "Les gestes qui sauvent",
+    "subject": "Urgences",
+    "specialty": "Aigu",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "recognize",
+      "diagnosis",
+      "management",
+      "clinical_reasoning"
+    ],
+    "icon": "zap",
+    "questions": [
+      {
+        "id": "ur-1",
+        "prompt": "En ACR adulte, l'adrénaline IV/IO se répète toutes les :",
+        "choices": [
+          "30 secondes",
+          "1 minute",
+          "3 à 5 minutes",
+          "10 minutes"
+        ],
+        "correct": 2,
+        "explanation": "1 mg toutes les 3–5 minutes pendant la RCP, en plus de compressions de qualité et d'une défibrillation précoce si rythme choquable.",
+        "sources": [
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ur-2",
+        "prompt": "Le traitement de première ligne d'un choc anaphylactique est :",
+        "choices": [
+          "Méthylprednisolone IV",
+          "Adrénaline intramusculaire",
+          "Salbutamol nébulisé seul",
+          "Dexchlorphéniramine orale"
+        ],
+        "correct": 1,
+        "explanation": "Adrénaline IM (face antérolatérale de cuisse), 0,5 mg adulte, répétée si besoin. Les corticoïdes et antihistaminiques sont adjuvants, jamais premiers.",
+        "sources": [
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ur-3",
+        "prompt": "Un pneumothorax suffocant se décomprime en urgence :",
+        "choices": [
+          "Par une thoracotomie de sauvetage d'emblée",
+          "Par exsufflation à l'aiguille puis drainage",
+          "Par oxygénothérapie nasale seule",
+          "Par une fibroscopie bronchique"
+        ],
+        "correct": 1,
+        "explanation": "Détresse + distension + jugulaires : aiguille (2e EIC medioclaviculaire ou 5e EIC Ligne médio-axillaire) puis drain. Ne pas attendre le cliché.",
+        "sources": [
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          },
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "ur-4",
+        "prompt": "Une hypoglycémie sévère avec troubles de conscience se traite par :",
+        "choices": [
+          "Insuline rapide",
+          "Glucose IV (G30 %) ou glucagon IM si pas d'abord",
+          "Metformine",
+          "Jeûne prolongé"
+        ],
+        "correct": 1,
+        "explanation": "Resucrage IV immédiat. Le glucagon est une alternative si voie veineuse impossible (moins efficace si les stocks hépatiques sont vides).",
+        "sources": [
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          },
+          {
+            "title": "Vidal",
+            "citation": "Monographies thérapeutiques, éd. 2024."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "ur-5",
+        "prompt": "En hémorragie de membre compressible, le premier geste est :",
+        "choices": [
+          "Un remplissage massif avant tout",
+          "Une compression directe, voire un garrot proximal",
+          "Un scanner corps entier",
+          "Une suture au fil résorbable"
+        ],
+        "correct": 1,
+        "explanation": "Masser, comprimer, garrot si besoin. Le contrôle de l'hémorragie précède le reste du ABC en trauma (approche MARCH / ATLS).",
+        "sources": [
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          },
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ur-6",
+        "prompt": "Un ECG doit être réalisé devant une douleur thoracique évocatrice en moins de :",
+        "choices": [
+          "10 minutes",
+          "45 minutes",
+          "2 heures",
+          "24 heures"
+        ],
+        "correct": 0,
+        "explanation": "Objectif < 10 min à l'arrivée. C'est le seul moyen de ne pas rater un ST+ dont la filière de reperfusion est minute-dépendante.",
+        "sources": [
+          {
+            "title": "ESC",
+            "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ur-7",
+        "prompt": "La formule de Parkland pour les brûlures évalue le volume de cristalloïdes des 24 premières heures à :",
+        "choices": [
+          "1 mL × kg × % surface brûlée",
+          "4 mL × kg × % surface brûlée",
+          "10 mL/kg fixe",
+          "20 mL/kg de colloïdes"
+        ],
+        "correct": 1,
+        "explanation": "4 mL × kg × % SC brûlée (2e et 3e degrés), la moitié en 8 h à partir de l'heure de la brûlure, le reste en 16 h. On ajuste sur la diurèse.",
+        "sources": [
+          {
+            "title": "SFAR",
+            "citation": "Recommandations formalisées d'experts — urgences vitales."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ur-8",
+        "prompt": "Un corps étranger des VAS avec victime inconsciente impose :",
+        "choices": [
+          "Une série de claques dorsales uniquement",
+          "Le début de la RCP (compressions) après avoir appelé à l'aide",
+          "De faire boire de l'eau",
+          "Un scanner cervical avant tout geste"
+        ],
+        "correct": 1,
+        "explanation": "Inconscient = RCP. Les compressions thoraciques peuvent expulser le corps étranger. Pas de finger sweep à l'aveugle.",
+        "sources": [
+          {
+            "title": "ERC / ILCOR",
+            "citation": "European Resuscitation Council Guidelines, 2021."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ERC / ILCOR",
+        "citation": "European Resuscitation Council Guidelines, 2021."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — urgences vitales."
+      },
+      {
+        "title": "Vidal",
+        "citation": "Monographies thérapeutiques, éd. 2024."
+      },
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      }
+    ],
+    "deck_id": "urgences",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "URGENCES_PRO"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "physio",
+    "version": "2.0.0",
+    "title": "Physiologie",
+    "subtitle": "Ce qui fait tourner la machine",
+    "subject": "Physiologie",
+    "specialty": "Fondamental",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology"
+    ],
+    "icon": "activity",
+    "questions": [
+      {
+        "id": "py-1",
+        "prompt": "La loi de Frank–Starling décrit :",
+        "choices": [
+          "La relation inverse fréquence–force",
+          "L'augmentation du volume d'éjection quand la précharge augmente",
+          "La vasoconstriction hypoxique pulmonaire",
+          "Le recrutement alvéolaire"
+        ],
+        "correct": 1,
+        "explanation": "Plus le sarcomère est étiré (dans une certaine limite), plus la force de contraction est grande. C'est le fondement de la précharge.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "py-2",
+        "prompt": "L'aldostérone agit principalement sur :",
+        "choices": [
+          "La réabsorption de Na⁺ et la sécrétion de K⁺ au tube collecteur",
+          "La filtration glomérulaire directe",
+          "La synthèse d'érythropoïétine",
+          "La lipolyse adipocytaire"
+        ],
+        "correct": 0,
+        "explanation": "Minéralocorticoïde : ENaC et Na/K-ATPase du tube collecteur. Conséquence : rétention hydrosodée, hypokaliémie, alcalose métabolique.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "py-3",
+        "prompt": "Un déplacement vers la droite de la courbe de dissociation de l'Hb (effet Bohr) favorise :",
+        "choices": [
+          "La fixation d'O₂ au poumon uniquement",
+          "La libération d'O₂ aux tissus",
+          "La formation de carboxyhémoglobine",
+          "L'inhibition de la 2,3-DPG"
+        ],
+        "correct": 1,
+        "explanation": "Acidose, hypercapnie, fièvre, 2,3-DPG : la Hb lâche plus facilement l'oxygène. L'inverse (alcalose, hypothermie) la retient.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "py-4",
+        "prompt": "Le DFG d'un adulte jeune est de l'ordre de :",
+        "choices": [
+          "30 mL/min",
+          "60 mL/min",
+          "120 mL/min",
+          "300 mL/min"
+        ],
+        "correct": 2,
+        "explanation": "Environ 125 mL/min/1,73 m² (180 L/j). 99 % est réabsorbé. La créatinine estime le DFG, imparfaitement chez le sujet âgé ou sarcopénique.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "py-5",
+        "prompt": "La phase 0 du potentiel d'action ventriculaire correspond à :",
+        "choices": [
+          "L'entrée massive de Na⁺",
+          "La sortie de K⁺",
+          "L'entrée lente de Ca²⁺ exclusive",
+          "La pompe Na/K uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Dépolarisation rapide par canaux Na⁺ voltage-dépendants. Les antiarythmiques de classe I les bloquent. Le calcium domine le plateau (phase 2).",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "py-6",
+        "prompt": "Les barorécepteurs du sinus carotidien répondent à :",
+        "choices": [
+          "L'hypoxie isolée",
+          "L'étirement artériel (pression)",
+          "Le pH veineux",
+          "L'osmolarité plasmatique"
+        ],
+        "correct": 1,
+        "explanation": "Mécanorécepteurs : une hausse de pression augmente leur décharge, d'où bradycardie et vasodilatation via le noyau du tractus solitaire.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "py-7",
+        "prompt": "L'ADH (vasopressine) augmente la perméabilité à l'eau du tube collecteur via :",
+        "choices": [
+          "Les aquaporines 2",
+          "Le cotransporteur NKCC2",
+          "Le canal ENaC uniquement",
+          "La pompe à protons gastrique"
+        ],
+        "correct": 0,
+        "explanation": "Récepteur V2 → AMPc → insertion d'AQP2. En excès : hyponatrémie de dilution. En défaut : diabète insipide.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "recognize"
+      },
+      {
+        "id": "py-8",
+        "prompt": "La vasoconstroconstriction hypoxique pulmonaire a pour effet de :",
+        "choices": [
+          "Augmenter le shunt vrai",
+          "Orienter le sang vers les zones mieux ventilées",
+          "Dilater les artérioles systémiques",
+          "Bloquer la production de surfactant"
+        ],
+        "correct": 1,
+        "explanation": "Mécanisme unique au poumon : l'hypoxie alvéolaire constrict les artérioles adjacentes, optimisant le rapport V/Q. Chronique, elle mène au cœur pulmonaire.",
+        "sources": [
+          {
+            "title": "Guyton & Hall",
+            "citation": "Textbook of Medical Physiology, 14e éd."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Guyton & Hall",
+        "citation": "Textbook of Medical Physiology, 14e éd."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      }
+    ],
+    "deck_id": "physio",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "free",
+      "entitlement": "OPTIMUS_FREE"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "semio",
+    "version": "2.0.0",
+    "title": "Sémiologie",
+    "subtitle": "Signes, manœuvres, langage clinique",
+    "subject": "Sémiologie",
+    "specialty": "Clinique",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "clinical_reasoning"
+    ],
+    "icon": "stethoscope",
+    "questions": [
+      {
+        "id": "se-1",
+        "prompt": "Le signe de Murphy oriente vers :",
+        "choices": [
+          "Une appendicite",
+          "Une cholécystite aiguë",
+          "Une pyélonéphrite",
+          "Une pancréatite caudale"
+        ],
+        "correct": 1,
+        "explanation": "Interruption inspiratoire à la palpation de l'hypochondre droit : vésicule inflammatoire qui descend et heurte les doigts.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "se-2",
+        "prompt": "Le point de McBurney correspond à :",
+        "choices": [
+          "L'union 1/3 externe – 2/3 internes de la ligne ombilic–épine iliaque antérosupérieure droite",
+          "L'hypochondre gauche",
+          "L'angle costovertébral",
+          "La fosse ischio-rectale"
+        ],
+        "correct": 0,
+        "explanation": "Repère classique de l'appendicite. Associé à la défense, au psoïtis, au toucher rectal douloureux selon la position de l'appendice.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "se-3",
+        "prompt": "Le pouls paradoxal se définit par :",
+        "choices": [
+          "Une irrégularité respiratoire du pouls",
+          "Une chute inspiratoire exagérée de la pression systolique (> 10 mmHg)",
+          "Un dédoublement du B2",
+          "Une alternance électrique"
+        ],
+        "correct": 1,
+        "explanation": "Classique de la tamponnade et de l'asthme grave. L'inspiration augmente le retour droit et « vole » le VG dans un péricarde inextensible.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "se-4",
+        "prompt": "L'astérixis (flapping tremor) évoque surtout :",
+        "choices": [
+          "Une maladie de Parkinson",
+          "Une encéphalopathie métabolique (hépatique, CO₂)",
+          "Une chorée de Huntington",
+          "Un tremblement essentiel"
+        ],
+        "correct": 1,
+        "explanation": "Perte brève du tonus d'attitude des poignets en dorsiflexion. Encéphalopathie hépatique, hypercapnie, iatrogénie (AED).",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "se-5",
+        "prompt": "Un B3 protodiastolique chez un adulte de 60 ans oriente vers :",
+        "choices": [
+          "Un cœur normal d'athlète uniquement",
+          "Une insuffisance cardiaque à pression de remplissage élevée",
+          "Un bloc de branche droit isolé",
+          "Une péricardite sèche"
+        ],
+        "correct": 1,
+        "explanation": "Le galop B3 traduit un remplissage rapide dans un VG non compliant ou dilaté. Physiologique chez l'enfant et le sportif jeune, pathologique après 40 ans.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "se-6",
+        "prompt": "La matité déclive et mobile d'un flanc évoque :",
+        "choices": [
+          "Un pneumopéritoine",
+          "Un ascite",
+          "Un emphysème sous-cutané",
+          "Une splénomégalie isolée"
+        ],
+        "correct": 1,
+        "explanation": "L'ascite se cherche par matité déclive, vague ascitique, et parfois le signe du glaçon. Confirmée par échographie et ponction.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "se-7",
+        "prompt": "Des hémorragies sous-unguéales en flammèches font chercher :",
+        "choices": [
+          "Une endocardite infectieuse (parmi d'autres causes)",
+          "Un psoriasis exclusif",
+          "Un déficit en fer isolé",
+          "Une onychomycose"
+        ],
+        "correct": 0,
+        "explanation": "Signes cutanés d'endocardite : flammèches, nodules d'Osler, érythème de Janeway, taches de Roth. Aucun n'est pathognomonique, tous sont des pistes.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "se-8",
+        "prompt": "La turgescence jugulaire avec reflux hépato-jugulaire positif traduit :",
+        "choices": [
+          "Une hypovolémie",
+          "Une élévation de la pression veineuse centrale",
+          "Une sténose carotidienne",
+          "Un syndrome de la veine cave supérieure uniquement"
+        ],
+        "correct": 1,
+        "explanation": "Signe de cœur droit / tamponnade / embolie massive. Le reflux hépato-jugulaire distingue une PVC élevée d'une simple visibilité veineuse.",
+        "sources": [
+          {
+            "title": "Bates",
+            "citation": "Guide de l'examen clinique, 13e éd."
+          },
+          {
+            "title": "Collège de Cardiologie",
+            "citation": "Référentiel national DES / EDN de cardiologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bates",
+        "citation": "Guide de l'examen clinique, 13e éd."
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national DES / EDN de cardiologie."
+      },
+      {
+        "title": "Collège d'Infectiologie",
+        "citation": "Référentiel Pilly / CMIT."
+      }
+    ],
+    "deck_id": "semio",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "free",
+      "entitlement": "OPTIMUS_FREE"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation diagnostique"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      },
+      {
+        "id": "clinical_reasoning",
+        "title": "Cas / raisonnement"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "schema_version": 2,
+    "id": "dermato",
+    "deck_id": "dermato",
+    "version": "2.0.0",
+    "title": "Dermatologie",
+    "subtitle": "Lésions élémentaires et urgences cutanées",
+    "subject": "Dermatologie",
+    "specialty": "Clinique",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnosis",
+      "management"
+    ],
+    "icon": "scan",
+    "questions": [
+      {
+        "id": "de-1",
+        "prompt": "Une lésion plane, non palpable, de moins de 1 cm est :",
+        "choices": [
+          "Une papule",
+          "Une macule",
+          "Une vésicule",
+          "Un nodule"
+        ],
+        "correct": 1,
+        "explanation": "La macule est une tache plane. La papule est palpable (< 1 cm), la vésicule liquidienne, le nodule dermohypodermique.",
+        "sources": [
+          {
+            "title": "Collège de Dermatologie",
+            "citation": "Référentiel national DES / EDN de dermatologie."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "de-2",
+        "prompt": "Un purpura ne s'efface pas à la vitropression. Cela signifie que :",
+        "choices": [
+          "Il s'agit d'une simple érythème vasomoteur",
+          "Il y a une extravasation de globules rouges dans le derme",
+          "C'est toujours une allergie médicamenteuse",
+          "Il faut d'abord appliquer des dermocorticoïdes"
+        ],
+        "correct": 1,
+        "explanation": "Le purpura correspond à du sang extravasé : il ne blanchit pas. Un purpura fébrile extensif est une urgence (méningocoque).",
+        "sources": [
+          {
+            "title": "Harrison's",
+            "citation": "Principles of Internal Medicine, 21e éd."
+          },
+          {
+            "title": "Collège de Dermatologie",
+            "citation": "Sémiologie cutanée."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "de-3",
+        "prompt": "La règle de Melanoma ABCDE, le E correspond à :",
+        "choices": [
+          "Érythème",
+          "Évolution (modification)",
+          "Épiderme",
+          "Excoriation"
+        ],
+        "correct": 1,
+        "explanation": "Asymétrie, Bords irréguliers, Couleur hétérogène, Diamètre > 6 mm, Évolution. Toute lésion pigmentée qui change se fait biopsier.",
+        "sources": [
+          {
+            "title": "HAS",
+            "citation": "Dépistage et diagnostic du mélanome."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "de-4",
+        "prompt": "Un syndrome de Lyell (nécrolyse épidermique toxique) impose en premier :",
+        "choices": [
+          "Une corticothérapie orale à domicile",
+          "L'arrêt du médicament suspect et un transfert type brûlé",
+          "Une photothérapie UVB",
+          "Un traitement d'emblée par rituximab"
+        ],
+        "correct": 1,
+        "explanation": "Urgence vitale : arrêt immédiat de l'agent causal (allopurinol, antiépileptiques aromatiques, sulfamides…), réanimation cutanée, avis dermatologique.",
+        "sources": [
+          {
+            "title": "ANSM",
+            "citation": "Toxidermies graves — nécrolyse épidermique."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "de-5",
+        "prompt": "Le traitement de première intention d'une impétigo localisé peu étendu est :",
+        "choices": [
+          "Une cycline orale d'emblée",
+          "Un antibiotique topique (acide fusidique ou mupirocine) après toilette",
+          "Un dermocorticoïde fort",
+          "Une ivermectine unique"
+        ],
+        "correct": 1,
+        "explanation": "Impétigo peu étendu : hygiène + ATB topique. Formes étendues ou bullantes : ATB oral (pristinamycine / amox-clav selon le contexte).",
+        "sources": [
+          {
+            "title": "SPILF / SFD",
+            "citation": "Prise en charge des infections cutanées bactériennes."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "de-6",
+        "prompt": "Le signe de Nikolsky positif évoque notamment :",
+        "choices": [
+          "Un psoriasis en plaques stable",
+          "Un pemphigus vulgaire ou une nécrolyse épidermique",
+          "Un eczéma de contact",
+          "Une teigne tondante"
+        ],
+        "correct": 1,
+        "explanation": "Décollement épidermique au frottement d'une peau d'apparence saine : acantholyse (pemphigus) ou nécrose (Lyell/SJS).",
+        "sources": [
+          {
+            "title": "Collège de Dermatologie",
+            "citation": "Bulloses auto-immunes et toxidermies."
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "de-7",
+        "prompt": "Une dermatite atopique de l'enfant se traite en fond par :",
+        "choices": [
+          "Des antibiotiques cycliques",
+          "Des émollients quotidiens et des dermocorticoïdes des poussées",
+          "Une éviction totale du soleil à vie",
+          "La chirurgie des plis"
+        ],
+        "correct": 1,
+        "explanation": "La barrière cutanée d'abord (émollients), puis les dermocorticoïdes (ou inhibiteurs de calcineurine) sur les poussées inflammatoires.",
+        "sources": [
+          {
+            "title": "HAS",
+            "citation": "Dermatite atopique de l'enfant — parcours de soins."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "de-8",
+        "prompt": "Un érythème migrant après piqûre de tique oriente vers :",
+        "choices": [
+          "Une maladie de Lyme précoce, à traiter par doxycycline (sauf exceptions)",
+          "Une urticaire cholinergique",
+          "Un érythème noueux streptococcique",
+          "Une roséole infantile"
+        ],
+        "correct": 0,
+        "explanation": "L'érythème migrant est clinique : pas besoin de sérologie pour traiter. Doxycycline 14 j chez l'adulte ; amoxicilline si grossesse / jeune enfant.",
+        "sources": [
+          {
+            "title": "HAS / SPILF",
+            "citation": "Borréliose de Lyme — recommandations 2018–2022."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Collège de Dermatologie",
+        "citation": "Référentiel national DES / EDN de dermatologie."
+      }
+    ],
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "DERMATO_PRO"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "semiology",
+        "title": "Sémiologie"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "schema_version": 2,
+    "id": "tropical",
+    "deck_id": "TROPICAL-MG-001",
+    "version": "2.0.0",
+    "title": "Médecine tropicale",
+    "subtitle": "Paludisme, vecteurs, urgences de l’océan Indien",
+    "subject": "Infectiologie",
+    "specialty": "Clinique",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "recognize",
+      "diagnostic_orientation",
+      "diagnosis",
+      "management"
+    ],
+    "icon": "globe",
+    "questions": [
+      {
+        "id": "tm-1",
+        "prompt": "Devant une fièvre au retour de la côte Est de Madagascar, le premier diagnostic à ne pas rater est :",
+        "choices": [
+          "Une virose banale d'hiver",
+          "Un paludisme à P. falciparum jusqu'à preuve du contraire",
+          "Une pharyngite streptococcique",
+          "Une migraine fébrile"
+        ],
+        "correct": 1,
+        "explanation": "Toute fièvre au retour d'une zone d'endémie palustre est un paludisme jusqu'à preuve du contraire. Le TDR / frottis-goutte épaisse est urgent, surtout avant J21.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "organization": "OMS",
+            "year": 2015
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tm-2",
+        "prompt": "Le paludisme grave à P. falciparum se traite en première intention par :",
+        "choices": [
+          "Chloroquine orale",
+          "Artésunate IV (puis relais oral)",
+          "Doxycycline seule",
+          "Quinine intramusculaire de routine"
+        ],
+        "correct": 1,
+        "explanation": "L'OMS recommande l'artésunate IV dans le paludisme grave, puis un relais par CTA. La chloroquine n'a plus sa place sur P. falciparum résistant.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "organization": "OMS",
+            "year": 2015
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "tm-3",
+        "prompt": "Un TDR paludisme négatif devant une forte suspicion clinique doit faire :",
+        "choices": [
+          "Éliminer définitivement le diagnostic",
+          "Répéter frottis / goutte épaisse et traiter si le tableau est grave",
+          "Prescrire d'emblée une corticothérapie",
+          "Rassurer et renvoyer à domicile sans surveillance"
+        ],
+        "correct": 1,
+        "explanation": "Un TDR peut être faussement négatif (faible parasitémie, P. vivax/ovale, défaut de kit). La clinique prime : répéter le prélèvement, traiter si gravité.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "organization": "OMS",
+            "year": 2015
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tm-4",
+        "prompt": "La bilharziose (schistosomiase) se traite classiquement par :",
+        "choices": [
+          "Praziquantel",
+          "Albendazole seul",
+          "Artésunate",
+          "Métronidazole"
+        ],
+        "correct": 0,
+        "explanation": "Le praziquantel reste le traitement de référence des schistosomoses. L'albendazole cible d'autres helminthes ; l'artésunate le paludisme.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          },
+          {
+            "title": "OMS",
+            "citation": "Schistosomiasis — treatment guidelines.",
+            "organization": "OMS"
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "tm-5",
+        "prompt": "Une suspicion de peste (fièvre, adénopathie douloureuse, contexte épidémiologique malgache) impose :",
+        "choices": [
+          "Une simple surveillance ambulatoire",
+          "Isolement, prélèvements, antibiothérapie urgente (aminoside / fluoroquinolone selon proto) et alerte sanitaire",
+          "Une corticothérapie d'emblée",
+          "Un traitement d'épreuve par artésunate seul"
+        ],
+        "correct": 1,
+        "explanation": "La peste est une urgence médico-sanitaire. Isolement gouttelettes, prélèvements avant ATB si possible sans retarder, traitement et déclaration.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          },
+          {
+            "title": "OMS",
+            "citation": "Plague — WHO guidelines and Madagascar epidemiological updates.",
+            "organization": "OMS"
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "recognize"
+      },
+      {
+        "id": "tm-6",
+        "prompt": "Après morsure par un animal suspect à Madagascar, la priorité est :",
+        "choices": [
+          "Suture hermétique immédiate sans lavage",
+          "Lavage abondant, vaccination antirabique ± immunoglobulines selon le risque",
+          "Antibiothérapie seule",
+          "Surveillance de 3 mois sans prophylaxie"
+        ],
+        "correct": 1,
+        "explanation": "La rage est toujours mortelle une fois déclarée. Lavage savon/eau, vaccination (protocole Essen ou accéléré) et Ig si catégorie III.",
+        "sources": [
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          },
+          {
+            "title": "OMS",
+            "citation": "WHO expert consultation on rabies.",
+            "organization": "OMS"
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "tm-7",
+        "prompt": "Dengue vs paludisme en zone tropicale : l'élément le plus discriminant en urgence est :",
+        "choices": [
+          "Le caractère de la fièvre uniquement",
+          "Le frottis / TDR paludisme (à faire systématiquement) avant d'incriminer une arbovirose",
+          "La présence de myalgies",
+          "Un test de tourniquet isolé"
+        ],
+        "correct": 1,
+        "explanation": "Les deux coexistent. On n'attribue jamais une fièvre tropicale à une dengue sans avoir cherché le paludisme, qui tue plus vite.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "organization": "OMS",
+            "year": 2015
+          },
+          {
+            "title": "Collège d'Infectiologie",
+            "citation": "Référentiel Pilly / CMIT.",
+            "organization": "CMIT"
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "tm-8",
+        "prompt": "La chimioprophylaxie palustre n'est pas un vaccin. Chez un voyageur vers la côte malgache, on associe surtout :",
+        "choices": [
+          "Rien si le séjour est court",
+          "Moustiquaire + répulsif + prophylaxie médicamenteuse adaptée + TDR si fièvre au retour",
+          "Chloroquine seule partout",
+          "Vaccin antipaludique obligatoire"
+        ],
+        "correct": 1,
+        "explanation": "Prévention combinée : mécano (moustiquaire, vêtements) + chimique (atovaquone-proguanil, doxycycline ou méfloquine selon le profil) + conduite à tenir si fièvre.",
+        "sources": [
+          {
+            "title": "OMS",
+            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "organization": "OMS",
+            "year": 2015
+          },
+          {
+            "title": "BEH / Santé publique France",
+            "citation": "Recommandations sanitaires pour les voyageurs."
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      }
+    ],
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Guidelines for the treatment of malaria, 3e éd.",
+        "organization": "OMS",
+        "year": 2015
+      },
+      {
+        "title": "Collège d'Infectiologie",
+        "citation": "Référentiel Pilly / CMIT.",
+        "organization": "CMIT"
+      }
+    ],
+    "access_policy": {
+      "tier": "free",
+      "entitlement": "OPTIMUS_FREE"
+    },
+    "integrity": {
+      "algo": "sha256",
+      "note": "builtin"
+    },
+    "signature": {
+      "algo": "ed25519",
+      "status": "builtin"
+    },
+    "chapters": [
+      {
+        "id": "recognize",
+        "title": "Reconnaître"
+      },
+      {
+        "id": "diagnostic_orientation",
+        "title": "Orientation"
+      },
+      {
+        "id": "diagnosis",
+        "title": "Diagnostic"
+      },
+      {
+        "id": "management",
+        "title": "Prise en charge"
+      }
+    ]
+  }
+]

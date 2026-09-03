@@ -1,0 +1,405 @@
+[
+  {
+    "id": "CARDIO-IC-001",
+    "title": "Dyspnée et œdèmes",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 68 ans, dyspnée d'effort, orthopnée, œdèmes des membres inférieurs.",
+    "patient": {
+      "age": 68,
+      "sex": "M",
+      "context": "Ancien fumeur, HTA, diabète de type 2."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Dyspnée d'effort depuis 3 semaines, majorée, orthopnée à 3 oreillers, prise de 4 kg."
+      },
+      {
+        "kind": "reveal",
+        "title": "Histoire",
+        "body": "Infarctus inférieur il y a 6 ans, stent. IEC et statine irrégulièrement pris. Pas de douleur thoracique actuelle. Pas de fièvre."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 148/92, FC 98 régulière, SpO2 91 % air. Turgescence jugulaire, crépitants bibasaux, œdèmes malléolaires, B3. Pas de souffle franc."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "NT-proBNP 4 200 ng/L. Créatinine 112 µmol/L. K+ 4,1. Troponine hs légèrement élevée, plateau. Hb 13,2 g/dL."
+      },
+      {
+        "kind": "reveal",
+        "title": "Imagerie",
+        "body": "Radio : cardiomégalie, redistrib. vasculaire, petit épanchement droit. ECG : RS, séquelles inférieures, pas de sus-ST."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le syndrome clinique le plus cohérent est :",
+        "choices": [
+          "Embolie pulmonaire isolée",
+          "Insuffisance cardiaque congestive gauche et droite",
+          "Pneumonie franche lobaire aiguë",
+          "Crise d'asthme du sujet âgé"
+        ],
+        "correct": 1,
+        "explanation": "Orthopnée, crépitants, B3, turgescence jugulaire et œdèmes : congestion pulmonaire et systémique. Le NT-proBNP très élevé conforte le diagnostic."
+      },
+      {
+        "kind": "question",
+        "prompt": "Première mesure thérapeutique aux urgences, hors oxygène :",
+        "choices": [
+          "Bêtabloquant IV d'emblée",
+          "Diurétique de l'anse IV",
+          "Remplissage par cristalloïdes",
+          "Digitalique d'emblée"
+        ],
+        "correct": 1,
+        "explanation": "En congestion sans choc, le furosémide IV est la pierre angulaire. Les bêtabloquants IV n'ont pas leur place à la phase congestive aiguë."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour classer l'insuffisance cardiaque, l'examen clé est :",
+        "choices": [
+          "Scanner thoracique injecté",
+          "Échocardiographie (FEVG, pressions, valves)",
+          "Test d'effort d'emblée",
+          "Holter-ECG de 7 jours"
+        ],
+        "correct": 1,
+        "explanation": "L'écho classe HFrEF / HFmrEF / HFpEF, cherche une cause (ischémique, valvulaire) et guide le traitement de fond ESC 2023."
+      }
+    ],
+    "diagnosis": "Poussée d'insuffisance cardiaque congestive sur cardiopathie ischémique chronique, probablement HFrEF à confirmer.",
+    "management": "O2, furosémide IV, restriction sodée, stop AINS s'il y en a, reprise/optimisation du traitement de fond (ARNI ou IEC, bêtabloquant une fois euvolémique, iSGLT2, antiminéralocorticoïde) selon la FEVG. Coronarographie si instabilité ou ischémie.",
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023.",
+        "organization": "ESC",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "id": "NEURO-AVC-001",
+    "title": "Déficit brutal",
+    "specialty": "Neurologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 74 ans, hémiparesie droite et aphasie au réveil.",
+    "patient": {
+      "age": 74,
+      "sex": "F",
+      "context": "FA connue, warfarine parfois oubliée. HTA."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Réveil à 8 h avec hémiparesie droite et langage réduit. Dernière fois vue normale : 23 h la veille (wake-up stroke)."
+      },
+      {
+        "kind": "reveal",
+        "title": "Histoire",
+        "body": "FA permanente. INR récent inconnu. Pas de traumatisme. Pas de convulsion observée. Traitement : warfarine, ramipril."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "NIHSS 14. Aphasia de Broca, hémiparesie proportionnelle droite, hémianopsie latérale homonyme droite. Glasgow 15. TA 178/94. Glycémie 1,3 g/L."
+      },
+      {
+        "kind": "reveal",
+        "title": "Imagerie",
+        "body": "TDM sans injection : pas d'hémorragie. Signe de la sylvienne hyperdense gauche. Angio-TDM : occlusion M1 gauche. Pas de mismatch encore lu (IRM/perfusion en cours)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le territoire le plus probable est :",
+        "choices": [
+          "Artère cérébrale postérieure droite",
+          "Sylvienne superficielle et profonde gauche (M1)",
+          "Lacunaire capsulaire isolé",
+          "Vertébro-basilaire"
+        ],
+        "correct": 1,
+        "explanation": "Aphasie + hémiparesie proportionnelle + HLH = sylvienne totale gauche. L'occlusion M1 à l'angio le confirme."
+      },
+      {
+        "kind": "question",
+        "prompt": "La thrombolyse IV d'emblée est :",
+        "choices": [
+          "Indiquée sans réserve (délai < 4 h 30 certain)",
+          "Contre-indiquée : heure de début inconnue et anticoagulation",
+          "Indiquée dès que le NIHSS dépasse 10",
+          "Remplacée par l'aspirine seule"
+        ],
+        "correct": 1,
+        "explanation": "Wake-up stroke : l'heure de début est le coucher. Une anticoagulation (warfarine) avec INR inconnu contre-indique l'altéplase jusqu'à preuve d'INR bas et imagerie de pénombre (IRM DWI/FLAIR ou perfusion)."
+      },
+      {
+        "kind": "question",
+        "prompt": "La décision prioritaire maintenant est :",
+        "choices": [
+          "Thrombectomie mécanique si fenêtre et équipe disponibles",
+          "Héparine non fractionnée d'emblée",
+          "Abaisser la TA sous 140 systolique avant tout",
+          "Lumière de la chambre et surveillance 24 h"
+        ],
+        "correct": 0,
+        "explanation": "Occlusion proximale M1, NIHSS 14 : la thrombectomie est le traitement de reperfusion de référence jusqu'à 6 h, et au-delà si mismatch. La TA n'est baissée agressivement que si thrombolyse ou > 220."
+      }
+    ],
+    "diagnosis": "AVC ischémique sylvien gauche par occlusion M1, wake-up stroke, sur FA (cardio-embolique probable).",
+    "management": "Filière UNV, imagerie de pénombre, thrombectomie si éligible, pas de thrombolyse tant que l'INR et la fenêtre ne sont pas clarifiés. Puis AOD après contrôle hémorragique, rééducation précoce.",
+    "sources": [
+      {
+        "title": "AHA / ASA",
+        "citation": "Guidelines for the early management of patients with acute ischemic stroke.",
+        "organization": "AHA"
+      },
+      {
+        "title": "HAS",
+        "citation": "Accident vasculaire cérébral : prise en charge précoce, actualisation.",
+        "organization": "HAS"
+      }
+    ]
+  },
+  {
+    "id": "INF-PAC-001",
+    "title": "Fièvre et douleur thoracique",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Homme de 54 ans, fièvre, toux, douleur basithoracique droite.",
+    "patient": {
+      "age": 54,
+      "sex": "M",
+      "context": "Tabac 20 PA, pas de comorbidité connue."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fièvre 39 °C depuis 48 h, toux productive rouillée, point de côté droit inspiratoire."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "FR 28, SpO2 90 % air, TA 118/70, FC 108. Matité et souffle tubaire base droite. Pas de souffle cardiaque. Pas de purpura."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie / radio",
+        "body": "GB 17 G/L, CRP 240. Urée 8,2. Radio : foyer alvéolaire lobaire inférieur droit, pas d'épanchement franc. Antigène urinaire pneumocoque positif."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic de travail est :",
+        "choices": [
+          "Embolie pulmonaire fébrile",
+          "Pneumonie communautaire à pneumocoque",
+          "Tuberculose cavitaire",
+          "Péricardite virale"
+        ],
+        "correct": 1,
+        "explanation": "Syndrome de foyer, radio lobaire, antigène urinaire pneumocoque : PAC à S. pneumoniae jusqu'à preuve du contraire."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le score le plus utile ici pour décider de l'hospitalisation est :",
+        "choices": [
+          "Wells",
+          "CURB-65 / CRB-65",
+          "CHA2DS2-VASc",
+          "Child-Pugh"
+        ],
+        "correct": 1,
+        "explanation": "CURB-65 (confusion, urée, FR, TA, âge) oriente ambulatoire vs hospit. Ici FR 28 et urée 8,2 : au moins 1–2 points, hospit. raisonnable, d'autant que SpO2 90 %."
+      },
+      {
+        "kind": "question",
+        "prompt": "Antibiothérapie probabiliste de première intention, hors allergie, forme hospitalisée non grave :",
+        "choices": [
+          "Amoxicilline ± macrolide selon gravité / atypiques",
+          "Ciprofloxacine seule",
+          "Vancomycine + amikacine",
+          "Ceftriaxone + métronidazole d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "PAC non grave : amoxicilline (pneumocoque). Un macrolide s'ajoute si atypiques suspectés ou forme plus grave. Les anti-anaérobies ne sont pas de première intention ici."
+      }
+    ],
+    "diagnosis": "Pneumonie communautaire lobaire inférieure droite à pneumocoque, hypoxémiante.",
+    "management": "O2, amoxicilline (ou association si gravité), hydratation, prévention thrombo-embolique, contrôle à 48–72 h, vaccination ultérieure.",
+    "sources": [
+      {
+        "title": "CMIT / Pilly",
+        "citation": "Référentiel d'infectiologie — pneumonie communautaire."
+      },
+      {
+        "title": "SPLF",
+        "citation": "Prise en charge des infections respiratoires basses de l'adulte.",
+        "organization": "SPLF"
+      }
+    ]
+  },
+  {
+    "id": "CARDIO-SCA-001",
+    "title": "Douleur thoracique",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 61 ans, douleur constrictive, sueurs, ECG en cours.",
+    "patient": {
+      "age": 61,
+      "sex": "M",
+      "context": "Tabac, LDL inconnu, père infarctus à 54 ans."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Douleur rétro-sternale constrictive depuis 40 minutes, irradiation mâchoire, nausées, sueurs."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Patient anxieux, TA 108/68, FC 92, SpO2 96 %. Auscultation libre, pas de souffle, pas de turgescence jugulaire. Pouls symétriques."
+      },
+      {
+        "kind": "reveal",
+        "title": "ECG / bio",
+        "body": "Sus-décalage ST en V1–V4, miroir inférieur. Troponine en cours. Cliché thorax normal."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic ECG est :",
+        "choices": [
+          "SCA ST+ antérieur (STEMI)",
+          "Péricardite aiguë",
+          "SCA ST−",
+          "TV soutenue"
+        ],
+        "correct": 0,
+        "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
+      },
+      {
+        "kind": "question",
+        "prompt": "La stratégie de reperfusion de référence, si le délai porte-à-ballon est court :",
+        "choices": [
+          "Thrombolyse systématique",
+          "Angioplastie primaire",
+          "Héparine seule et surveillance",
+          "Test d'effort à J2"
+        ],
+        "correct": 1,
+        "explanation": "Angioplastie primaire si réalisable dans les délais ESC. Thrombolyse seulement si PCI impossible à temps."
+      },
+      {
+        "kind": "question",
+        "prompt": "Double antiagrégation : association typique avant la salle :",
+        "choices": [
+          "Aspirine + ticagrélor ou prasugrel (selon profil)",
+          "Aspirine seule",
+          "Clopidogrel + AOD",
+          "Aspirine + warfarine"
+        ],
+        "correct": 0,
+        "explanation": "Aspirine 150–300 mg + inhibiteur P2Y12 puissant, sauf si haut risque hémorragique ou indication particulière au clopidogrel."
+      }
+    ],
+    "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
+    "management": "Filière 15 / USIC, aspirine + P2Y12, anticoagulation, angioplastie primaire, puis bêtabloquant, IEC/ARNI, statine haute intensité, iSGLT2, réadaptation.",
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the management of acute coronary syndromes, 2023.",
+        "organization": "ESC",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "id": "TROP-PALU-001",
+    "title": "Fièvre au retour de Toamasina",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Femme de 29 ans, fièvre, frissons, retour de la côte Est malgache il y a 8 jours.",
+    "patient": {
+      "age": 29,
+      "sex": "F",
+      "context": "Voyage à Toamasina 3 semaines, moustiquaire irrégulière, pas de prophylaxie. G1P0, 12 SA."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fièvre 39,4 °C, céphalées, myalgies, vomissements depuis 36 h. Pas de diarrhée. Pas de toux."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 98/62, FC 118, FR 22, SpO2 97 %, T 39,2. Consciente, pas de raideur de nuque, splénomégalie modérée, pas de purpura. Utérus sans métrorragie."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Hb 9,8 g/dL, plaquettes 72 G/L, GB 4,1. Créatinine 88. Glycémie 0,62 g/L. TDR paludisme positif P. falciparum. β-hCG positive (grossesse connue)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic de travail est :",
+        "choices": [
+          "Grippe saisonnière",
+          "Paludisme à P. falciparum, forme non d’emblée cérébrale mais critères de gravité à chercher",
+          "Pyélonéphrite simple",
+          "Dengue certaine sans autre recherche"
+        ],
+        "correct": 1,
+        "explanation": "TDR positif + fièvre au retour d’endémie = paludisme. La grossesse, l’hypoglycémie, la thrombopénie et le terrain imposent de chercher les signes de gravité OMS."
+      },
+      {
+        "kind": "question",
+        "prompt": "Parmi les éléments suivants, lequel est un critère de paludisme grave OMS ?",
+        "choices": [
+          "Céphalée isolée",
+          "Hypoglycémie (ici 0,62 g/L)",
+          "Fièvre à 39 °C",
+          "Splénomégalie"
+        ],
+        "correct": 1,
+        "explanation": "L’hypoglycémie est un critère de gravité. La grossesse augmente le risque de forme grave. Céphalée et splénomégalie sont fréquentes sans définir la gravité."
+      },
+      {
+        "kind": "question",
+        "prompt": "Traitement de première intention ici :",
+        "choices": [
+          "Chloroquine orale",
+          "Artésunate IV, puis relais CTA, avis obstétrical",
+          "Quinine IM à domicile",
+          "Doxycycline seule (contre-indiquée de toute façon au 1er trimestre)"
+        ],
+        "correct": 1,
+        "explanation": "Grossesse + hypoglycémie : traiter comme une forme grave — artésunate IV (y compris au 1er trimestre selon OMS récente), correction du sucre, hospitalisation."
+      }
+    ],
+    "diagnosis": "Paludisme à P. falciparum chez une femme enceinte, au moins un critère de gravité (hypoglycémie), retour de Toamasina.",
+    "management": "Hospitalisation, artésunate IV, resucrage, surveillance neurologique et obstétricale, relais CTA, pas de doxycycline. Déclaration, éducation moustiquaire.",
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Guidelines for the treatment of malaria — including pregnancy.",
+        "organization": "OMS",
+        "year": 2015
+      }
+    ],
+    "access": "free"
+  }
+]
