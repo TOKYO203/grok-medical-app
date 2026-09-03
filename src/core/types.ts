@@ -23,6 +23,37 @@ export type DeckDifficulty = "intro" | "intermediate" | "advanced";
 export type AccessTier = "free" | "pro";
 export type AccountTier = "guest" | "free" | "pro";
 
+export type StudyLevel =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | "intern"
+  | "resident"
+  | "junior"
+  | "senior"
+  | "consultant"
+  | "attending"
+  | "other";
+
+export const STUDY_LEVEL_LABEL: Record<StudyLevel, string> = {
+  1: "1ère année",
+  2: "2ème année",
+  3: "3ème année",
+  4: "4ème année",
+  5: "5ème année",
+  6: "6ème année",
+  intern: "Interne",
+  resident: "Résident",
+  junior: "Médecin junior",
+  senior: "Médecin senior",
+  consultant: "Consultant",
+  attending: "Chef de clinique / Attending",
+  other: "Autre",
+};
+
 export type Source = {
   title: string;
   citation: string;
@@ -62,6 +93,8 @@ export type Deck = {
   subject: string;
   specialty: string;
   studyYear: number;
+  // new optional, non-breaking field: studyLevel allows granular levels beyond numeric years
+  studyLevel?: StudyLevel;
   difficulty: DeckDifficulty;
   competencies: Competency[];
   icon: string;
@@ -127,6 +160,8 @@ export type Profile = {
   deviceId: string;
   tier: AccountTier;
   studyYear: number;
+  // new optional studyLevel for professionals
+  studyLevel?: StudyLevel;
   country: string;
   faculty: string;
   goal: string;
@@ -152,6 +187,8 @@ export type ClinicalCase = {
   title: string;
   specialty: string;
   studyYear: number;
+  // optional new field
+  studyLevel?: StudyLevel;
   difficulty: string;
   summary: string;
   patient: { age: number; sex: string; context: string };
