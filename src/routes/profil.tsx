@@ -8,7 +8,8 @@ import { BADGE_CATALOG } from "@/content/badges";
 import { YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { currentLeague, useOptimus } from "@/state/store";
-import type { CoverId } from "@/core/types";
+import type { CoverId, StudyLevel } from "@/core/types";
+import { STUDY_LEVEL_LABEL } from "@/core/types";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -113,6 +114,28 @@ function ProfilPage() {
               </option>
             ))}
           </select>
+
+          <label className="block text-xs font-medium text-muted" htmlFor="studyLevel">
+            Niveau / Statut professionnel (optionnel)
+          </label>
+          <select
+            id="studyLevel"
+            className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
+            value={String(profile.studyLevel ?? "")}
+            onChange={(e) => {
+              const raw = e.target.value;
+              const v = /^\d+$/.test(raw) ? Number(raw) : (raw as StudyLevel);
+              update({ studyLevel: (raw === "" ? undefined : (v as any)) });
+            }}
+          >
+            <option value="">-- Choisir un niveau --</option>
+            {Object.entries(STUDY_LEVEL_LABEL).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
+
           <label className="block text-xs font-medium text-muted" htmlFor="faculty">
             Faculté (optionnel)
           </label>
@@ -178,8 +201,8 @@ function ProfilPage() {
           {profile.tier === "guest"
             ? "Invité — progression locale. Un compte Free crée un Optimus ID durable."
             : profile.tier === "free"
-              ? "Compte Free — sync et classement prêts, serveur à brancher."
-              : "Optimus Pro actif sur cet appareil."}
+            ? "Compte Free — sync et classement prêts, serveur à brancher."
+            : "Optimus Pro actif sur cet appareil."}
         </p>
         {profile.tier === "guest" ? (
           <Button className="mt-3" onClick={() => createFree(name || "Étudiant")}>
@@ -197,6 +220,12 @@ function ProfilPage() {
         </Button>
 
         <nav className="mt-8 grid gap-1 text-sm">
+          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/publications">
+            Publications
+          </Link>
+          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/surveys">
+            Sondages
+          </Link>
           <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/pro">
             Optimus Pro
           </Link>
