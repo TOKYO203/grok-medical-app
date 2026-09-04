@@ -35,15 +35,27 @@ function ProfilPage() {
   const lvl = levelInfo(xp);
   const league = currentLeague(weeklyXp);
   const pending = queue.filter((e) => !e.synced).length;
+
+  // defensive: if profile not loaded yet, show a lightweight shell
+  if (!profile) {
+    return (
+      <Shell title="Profil">
+        <Page>
+          <p className="text-sm text-muted">Chargement du profil…</p>
+        </Page>
+      </Shell>
+    );
+  }
+
   const [localName, setLocalName] = useState(profile.displayName);
   const [localStudyYear, setLocalStudyYear] = useState<number | undefined>(profile.studyYear ?? undefined);
-  const [localStudyLevel, setLocalStudyLevel] = useState<string | number | undefined>(
-    profile.studyLevel ?? undefined,
-  );
+  const [localStudyLevel, setLocalStudyLevel] = useState<string | number | undefined>(profile.studyLevel ?? undefined);
   const [localFaculty, setLocalFaculty] = useState(profile.faculty ?? "");
   const [showSaved, setShowSaved] = useState(false);
-  const saveTimerRef = useRef<number | null>(null);
-  const hideTimerRef = useRef<number | null>(null);
+
+  // useRef with proper timeout type so TS is happy in both browser/node
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // keep local state in sync if profile updates from elsewhere
   useEffect(() => {
@@ -55,18 +67,17 @@ function ProfilPage() {
 
   function scheduleAutoSave() {
     if (saveTimerRef.current) {
-      clearTimeout(saveTimerRef.current);
+      clearTimeout(saveTimerRef.current as unknown as number);
     }
     // schedule save in 10s
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    saveTimerRef.current = window.setTimeout(() => {
+    saveTimerRef.current = setTimeout(() => {
       void saveIfDirty();
     }, 10000);
   }
 
   async function saveIfDirty() {
     if (saveTimerRef.current) {
-      clearTimeout(saveTimerRef.current);
+      clearTimeout(saveTimerRef.current as unknown as number);
       saveTimerRef.current = null;
     }
 
@@ -83,8 +94,8 @@ function ProfilPage() {
     try {
       await update(payload);
       setShowSaved(true);
-      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
-      hideTimerRef.current = window.setTimeout(() => setShowSaved(false), 2200);
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current as unknown as number);
+      hideTimerRef.current = setTimeout(() => setShowSaved(false), 2200);
       return true;
     } catch (e) {
       // errors handled in store, but show a visual indicator in case
@@ -132,7 +143,10 @@ function ProfilPage() {
   return (
     <Shell title="Profil">
       <div
-        className={cn("relative h-36 overflow-hidden md:h-44", profile.cover !== "custom" && (COVERS.find((c) => c.id === profile.cover)?.className ?? ""))}
+        className={cn(
+          "relative h-36 overflow-hidden md:h-44",
+          profile.cover !== "custom" && (COVERS.find((c) => c.id === profile.cover)?.className ?? ""),
+        )}
         style={
           profile.cover === "custom" && profile.coverDataUrl
             ? { backgroundImage: `url(${profile.coverDataUrl})`, backgroundSize: "cover", backgroundPosition: "center" }
@@ -145,7 +159,7 @@ function ProfilPage() {
       <Page className="-mt-10">
         <div className="flex items-end gap-3">
           <div className="flex size-16 items-center justify-center rounded-[var(--radius-lg)] bg-primary-soft font-display text-2xl text-primary shadow-[var(--shadow-border)]">
-            {(profile.displayName[0] ?? "O").toUpperCase()}
+            {(profile.displayName?.[0] ?? "O").toUpperCase()}
           </div>
           <div className="min-w-0 flex-1 pb-1">
             <h1 className="truncate font-display text-2xl font-medium tracking-tight">{profile.displayName}</h1>
