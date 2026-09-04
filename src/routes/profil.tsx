@@ -11,7 +11,7 @@ import { currentLeague, useOptimus } from "@/state/store";
 import type { CoverId, StudyLevel } from "@/core/types";
 import { STUDY_LEVEL_LABEL } from "@/core/types";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/profil")({ component: ProfilPage });
 
@@ -35,36 +35,104 @@ function ProfilPage() {
   const lvl = levelInfo(xp);
   const league = currentLeague(weeklyXp);
   const pending = queue.filter((e) => !e.synced).length;
-  const [name, setName] = useState(profile.displayName);
-  const coverClass = COVERS.find((c) => c.id === profile.cover)?.className ?? "cover-hautes-terres";
+  const [localName, setLocalName] = useState(profile.displayName);
+  const [localStudyYear, setLocalStudyYear] = useState<number | undefined>(profile.studyYear ?? undefined);
+  const [localStudyLevel, setLocalStudyLevel] = useState<string | number | undefined>(
+    profile.studyLevel ?? undefined,
+  );
+  const [localFaculty, setLocalFaculty] = useState(profile.faculty ?? "");
+  const [showSaved, setShowSaved] = useState(false);
+  const saveTimerRef = useRef<number | null>(null);
+  const hideTimerRef = useRef<number | null>(null);
 
-  function onCoverFile(file: File) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const w = 1200;
-        const h = 400;
-        canvas.width = w;
-        canvas.height = h;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-        const scale = Math.max(w / img.width, h / img.height);
-        const sw = img.width * scale;
-        const sh = img.height * scale;
-        ctx.drawImage(img, (w - sw) / 2, (h - sh) / 2, sw, sh);
-        update({ cover: "custom", coverDataUrl: canvas.toDataURL("image/jpeg", 0.72) });
-      };
-      img.src = String(reader.result);
-    };
-    reader.readAsDataURL(file);
+  // keep local state in sync if profile updates from elsewhere
+  useEffect(() => {
+    setLocalName(profile.displayName);
+    setLocalStudyYear(profile.studyYear ?? undefined);
+    setLocalStudyLevel(profile.studyLevel ?? undefined);
+    setLocalFaculty(profile.faculty ?? "");
+  }, [profile.displayName, profile.studyYear, profile.studyLevel, profile.faculty]);
+
+  function scheduleAutoSave() {
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+    }
+    // schedule save in 10s
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    saveTimerRef.current = window.setTimeout(() => {
+      void saveIfDirty();
+    }, 10000);
   }
+
+  async function saveIfDirty() {
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+      saveTimerRef.current = null;
+    }
+
+    const payload: any = {};
+    if ((localName || "").trim() !== (profile.displayName || "")) payload.displayName = (localName || "").trim();
+    // studyYear stored as number
+    if ((localStudyYear ?? null) !== (profile.studyYear ?? null)) payload.studyYear = localStudyYear ?? null;
+    // studyLevel can be number or string
+    if ((localStudyLevel ?? null) !== (profile.studyLevel ?? null)) payload.studyLevel = localStudyLevel ?? null;
+    if ((localFaculty || "") !== (profile.faculty || "")) payload.faculty = localFaculty || null;
+
+    if (Object.keys(payload).length === 0) return false;
+
+    try {
+      await update(payload);
+      setShowSaved(true);
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = window.setTimeout(() => setShowSaved(false), 2200);
+      return true;
+    } catch (e) {
+      // errors handled in store, but show a visual indicator in case
+      // eslint-disable-next-line no-console
+      console.error("Auto-save failed", e);
+      return false;
+    }
+  }
+
+  function onStudyLevelChange(raw: string) {
+    // raw may be numeric string or key
+    const v = /^\d+$/.test(raw) ? Number(raw) : raw;
+    setLocalStudyLevel(v as any);
+
+    const isRole = !/^\d+$/.test(String(raw));
+    if (isRole) {
+      // when selecting a role, clear year locally and persist
+      setLocalStudyYear(undefined);
+    }
+
+    scheduleAutoSave();
+  }
+
+  function onStudyYearChange(val: string) {
+    const n = Number(val);
+    if (Number.isNaN(n)) {
+      setLocalStudyYear(undefined);
+    } else {
+      setLocalStudyYear(n);
+    }
+    scheduleAutoSave();
+  }
+
+  function onNameBlur() {
+    void saveIfDirty();
+  }
+
+  function onFacultyChange(val: string) {
+    setLocalFaculty(val);
+    scheduleAutoSave();
+  }
+
+  const isRoleSelected = typeof localStudyLevel === "string" && localStudyLevel !== "";
 
   return (
     <Shell title="Profil">
       <div
-        className={cn("relative h-36 overflow-hidden md:h-44", profile.cover !== "custom" && coverClass)}
+        className={cn("relative h-36 overflow-hidden md:h-44", profile.cover !== "custom" && (COVERS.find((c) => c.id === profile.cover)?.className ?? ""))}
         style={
           profile.cover === "custom" && profile.coverDataUrl
             ? { backgroundImage: `url(${profile.coverDataUrl})`, backgroundSize: "cover", backgroundPosition: "center" }
@@ -95,25 +163,35 @@ function ProfilPage() {
           </label>
           <Input
             id="display-name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onBlur={() => update({ displayName: name.trim() || profile.displayName })}
+            value={localName}
+            onChange={(e) => {
+              setLocalName(e.target.value);
+              scheduleAutoSave();
+            }}
+            onBlur={onNameBlur}
           />
-          <label className="block text-xs font-medium text-muted" htmlFor="year">
-            Année
-          </label>
-          <select
-            id="year"
-            className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-            value={profile.studyYear}
-            onChange={(e) => update({ studyYear: Number(e.target.value) })}
-          >
-            {YEARS.map((y) => (
-              <option key={y.year} value={y.year}>
-                {y.label}
-              </option>
-            ))}
-          </select>
+
+          {/* Year - hidden when a professional role is selected */}
+          {!isRoleSelected ? (
+            <>
+              <label className="block text-xs font-medium text-muted" htmlFor="year">
+                Année
+              </label>
+              <select
+                id="year"
+                className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
+                value={localStudyYear ?? ""}
+                onChange={(e) => onStudyYearChange(e.target.value)}
+              >
+                <option value="">-- Choisir une année --</option>
+                {YEARS.map((y) => (
+                  <option key={y.year} value={String(y.year)}>
+                    {y.label}
+                  </option>
+                ))}
+              </select>
+            </>
+          ) : null}
 
           <label className="block text-xs font-medium text-muted" htmlFor="studyLevel">
             Niveau / Statut professionnel (optionnel)
@@ -121,19 +199,26 @@ function ProfilPage() {
           <select
             id="studyLevel"
             className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-            value={String(profile.studyLevel ?? "")}
-            onChange={(e) => {
-              const raw = e.target.value;
-              const v = /^\d+$/.test(raw) ? Number(raw) : (raw as StudyLevel);
-              update({ studyLevel: (raw === "" ? undefined : (v as any)) });
-            }}
+            value={String(localStudyLevel ?? "")}
+            onChange={(e) => onStudyLevelChange(e.target.value)}
           >
             <option value="">-- Choisir un niveau --</option>
-            {Object.entries(STUDY_LEVEL_LABEL).map(([key, label]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
+            <optgroup label="Années">
+              {YEARS.map((y) => (
+                <option key={`y-${y.year}`} value={String(y.year)}>
+                  {y.label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Autre">
+              {Object.entries(STUDY_LEVEL_LABEL)
+                .filter(([key]) => !/^\d+$/.test(key))
+                .map(([key, label]) => (
+                  <option key={key} value={key}>
+                    {label}
+                  </option>
+                ))}
+            </optgroup>
           </select>
 
           <label className="block text-xs font-medium text-muted" htmlFor="faculty">
@@ -141,9 +226,12 @@ function ProfilPage() {
           </label>
           <Input
             id="faculty"
-            value={profile.faculty}
+            value={localFaculty}
             placeholder="Ex. Antananarivo"
-            onChange={(e) => update({ faculty: e.target.value })}
+            onChange={(e) => {
+              onFacultyChange(e.target.value);
+            }}
+            onBlur={() => void saveIfDirty()}
           />
         </div>
 
@@ -172,7 +260,28 @@ function ProfilPage() {
             className="hidden"
             onChange={(e) => {
               const f = e.target.files?.[0];
-              if (f) onCoverFile(f);
+              if (f) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                  const img = new Image();
+                  img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    const w = 1200;
+                    const h = 400;
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext("2d");
+                    if (!ctx) return;
+                    const scale = Math.max(w / img.width, h / img.height);
+                    const sw = img.width * scale;
+                    const sh = img.height * scale;
+                    ctx.drawImage(img, (w - sw) / 2, (h - sh) / 2, sw, sh);
+                    update({ cover: "custom", coverDataUrl: canvas.toDataURL("image/jpeg", 0.72) });
+                  };
+                  img.src = String(reader.result);
+                };
+                reader.readAsDataURL(f);
+              }
             }}
           />
         </label>
@@ -205,7 +314,7 @@ function ProfilPage() {
             : "Optimus Pro actif sur cet appareil."}
         </p>
         {profile.tier === "guest" ? (
-          <Button className="mt-3" onClick={() => createFree(name || "Étudiant")}>
+          <Button className="mt-3" onClick={() => createFree(localName || "Étudiant")}>
             Créer un compte Free
           </Button>
         ) : null}
@@ -215,9 +324,12 @@ function ProfilPage() {
           File locale : {pending} événement{pending > 1 ? "s" : ""} en attente. Hors-ligne d’abord — pas de connexion
           quotidienne exigée.
         </p>
-        <Button className="mt-3" variant="secondary" size="sm" onClick={markSynced} disabled={pending === 0}>
-          Marquer comme synchronisé (démo)
-        </Button>
+        <div className="flex gap-2 items-center">
+          <Button className="mt-3" variant="secondary" size="sm" onClick={markSynced} disabled={pending === 0}>
+            Marquer comme synchronisé (démo)
+          </Button>
+          <span className="ml-3 text-xs text-muted">{pending} en file</span>
+        </div>
 
         <nav className="mt-8 grid gap-1 text-sm">
           <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/publications">
@@ -242,6 +354,13 @@ function ProfilPage() {
             À propos
           </Link>
         </nav>
+
+        {/* simple toast */}
+        {showSaved ? (
+          <div className="fixed right-4 bottom-6 rounded bg-card px-4 py-2 shadow-[var(--shadow-border)]">
+            <p className="text-sm">Enregistré</p>
+          </div>
+        ) : null}
       </Page>
     </Shell>
   );
