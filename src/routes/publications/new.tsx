@@ -1,10 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Page, Shell } from "@/components/shell";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const Route = createFileRoute("/publications/new")({ component: NewPublication });
 
 function NewPublication() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,14 +40,17 @@ function NewPublication() {
         <h1 className="font-display text-2xl">Nouvelle publication</h1>
         <form className="mt-4 space-y-3" onSubmit={submit}>
           <label className="block text-xs text-muted">Titre</label>
-          <input className="w-full rounded px-3 py-2 bg-secondary" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <Input value={title} onChange={(e: any) => setTitle(e.target.value)} />
+
           <label className="block text-xs text-muted">Résumé / Corps (markdown)</label>
           <textarea className="w-full rounded px-3 py-2 bg-secondary" rows={6} value={summary} onChange={(e) => setSummary(e.target.value)} />
+
           <div className="flex gap-2">
-            <button className="btn" type="submit" disabled={loading}>{loading ? 'Envoi...' : 'Créer'}</button>
-            <Link to="/publications" className="btn-ghost">Annuler</Link>
+            <Button type="submit" disabled={loading}>{loading ? 'Envoi...' : 'Créer'}</Button>
+            <Button variant="ghost" onClick={() => navigate({ to: '/publications' })}>Annuler</Button>
           </div>
         </form>
+
         {error ? <p className="mt-4 text-sm text-danger">Erreur: {error}</p> : null}
         {result ? (
           <div className="mt-4 rounded bg-card p-3">
