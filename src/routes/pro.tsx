@@ -1,13 +1,46 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { KeyRound, PackageCheck, ShieldCheck, Smartphone } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/pro")({ component: ProPage });
 
 function ProPage() {
   const profile = useOptimus((s) => s.profile);
+  const activatePro = useOptimus((s) => s.activatePro);
+  const grantEntitlement = useOptimus((s) => s.grantEntitlement);
   const entitlements = useOptimus((s) => s.entitlements);
+  const [activationKey, setActivationKey] = useState("");
+  const [activating, setActivating] = useState(false);
+
+  async function activate() {
+    setActivating(true);
+    try {
+      const response = await fetch("/api/licenses/activate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          key: activationKey,
+          optimusId: profile.optimusId,
+          deviceId: profile.deviceId,
+        }),
+      });
+      const result = (await response.json()) as { error?: string; product?: string };
+      if (!response.ok || !result.product) throw new Error(result.error || "Activation impossible.");
+      if (result.product === "OPTIMUS_PRO") activatePro();
+      else grantEntitlement(result.product);
+      setActivationKey("");
+      toast.success("Accès Premium activé sur cet appareil");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Activation impossible.");
+    } finally {
+      setActivating(false);
+    }
+  }
 
   return (
     <Shell title="Pro">
@@ -28,6 +61,21 @@ function ProPage() {
                   <h2 className="font-medium">Clé d’activation</h2>
                   <p className="mt-1 text-sm text-muted">Accès Optimus Pro sur cet appareil, lié à votre identifiant.</p>
                   <p className="mt-3 font-mono text-xs text-subtle">Votre ID : {profile.optimusId}</p>
+                  <label className="mt-4 block text-xs font-medium text-muted" htmlFor="activation-key">
+                    Clé reçue après paiement
+                  </label>
+                  <Input
+                    id="activation-key"
+                    className="mt-2 font-mono uppercase"
+                    autoComplete="off"
+                    spellCheck={false}
+                    placeholder="OPT-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"
+                    value={activationKey}
+                    onChange={(event) => setActivationKey(event.target.value)}
+                  />
+                  <Button className="mt-2 w-full" disabled={activationKey.trim().length < 33 || activating} onClick={() => void activate()}>
+                    {activating ? "Vérification…" : "Activer ma clé"}
+                  </Button>
                 </div>
               </div>
             </section>
