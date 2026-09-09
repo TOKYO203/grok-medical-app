@@ -32,7 +32,7 @@ export function QuizPlayer({
   const order = useMemo(() => {
     if (!item) return [];
     return item.question.choices.map((_, i) => i);
-  }, [item?.question.id]);
+  }, [item]);
 
   if (items.length === 0) {
     return <p className="text-sm text-muted">Aucune question dans cette session.</p>;

@@ -1,14 +1,13 @@
-import { defineEventHandler, readBody } from "h3";
+import { defineEventHandler, getMethod, getRouterParam, readBody, setResponseStatus } from "h3";
 import { getSql } from "@/lib/db";
 
 export default defineEventHandler(async (event) => {
-  const method = (event.node.req.method || "GET").toUpperCase();
-  const params = (event.context && (event.context as any).params) || {};
-  const slug = params.slug || null;
+  const method = getMethod(event).toUpperCase();
+  const slug = getRouterParam(event, "slug") ?? null;
   const sql = await getSql();
 
   if (!slug) {
-    event.node.res.statusCode = 400;
+    setResponseStatus(event, 400);
     return { error: "missing slug" };
   }
 
@@ -52,7 +51,6 @@ export default defineEventHandler(async (event) => {
     }
 
     // If status -> published, set published_at
-    const statusIdx = Object.keys(body).indexOf("status");
     const willPublish = body.status === "published";
     if (willPublish) {
       sets.push(`published_at = now()`);
@@ -64,6 +62,6 @@ export default defineEventHandler(async (event) => {
     return res[0] ?? null;
   }
 
-  event.node.res.statusCode = 405;
+  setResponseStatus(event, 405);
   return { error: "Method Not Allowed" };
 });

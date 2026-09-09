@@ -1,17 +1,17 @@
-import { defineEventHandler, readBody } from "h3";
+import { defineEventHandler, getMethod, readBody, setResponseStatus } from "h3";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const DEFAULT_BUCKET = process.env.SUPABASE_PUBLIC_BUCKET || "public";
 
 export default defineEventHandler(async (event) => {
-  if ((event.node.req.method || "POST").toUpperCase() !== "POST") {
-    event.node.res.statusCode = 405;
+  if (getMethod(event).toUpperCase() !== "POST") {
+    setResponseStatus(event, 405);
     return { error: "Method Not Allowed" };
   }
 
   if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
-    event.node.res.statusCode = 500;
+    setResponseStatus(event, 500);
     return { error: "Supabase storage not configured" };
   }
 
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   const bucket = String(body.bucket || DEFAULT_BUCKET);
 
   if (!contentBase64) {
-    event.node.res.statusCode = 400;
+    setResponseStatus(event, 400);
     return { error: "contentBase64 is required" };
   }
 
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
     });
     if (!resp.ok) {
       const text = await resp.text();
-      event.node.res.statusCode = 502;
+      setResponseStatus(event, 502);
       return { error: "upload_failed", detail: text };
     }
 
@@ -49,7 +49,7 @@ export default defineEventHandler(async (event) => {
     const publicUrl = `${SUPABASE_URL.replace(/\/+$/, "")}/storage/v1/object/public/${encodeURIComponent(bucket)}/${encodeURIComponent(key)}`;
     return { bucket, key, publicUrl };
   } catch (err: any) {
-    event.node.res.statusCode = 500;
+    setResponseStatus(event, 500);
     return { error: "upload_error", message: err?.message ?? String(err) };
   }
 });

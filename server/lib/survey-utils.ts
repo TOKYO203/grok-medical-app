@@ -1,4 +1,3 @@
-import { getSql } from '@/lib/db';
 import { defineEventHandler } from 'h3';
 import crypto from 'crypto';
 
@@ -24,6 +23,4 @@ export async function recentResponseExists(sql: any, surveyId: string, ipHash: s
   return n > 0;
 }
 
-export default defineEventHandler(async (event) => {
-  return { ok: true };
-});
+export default defineEventHandler(() => ({ ok: true }));

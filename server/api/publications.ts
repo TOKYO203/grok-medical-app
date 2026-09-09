@@ -1,4 +1,4 @@
-import { defineEventHandler, getQuery, readBody } from 'h3';
+import { defineEventHandler, getMethod, getQuery, readBody, setResponseStatus } from 'h3';
 import { getSql } from '@/lib/db';
 
 function slugify(text: string) {
@@ -12,7 +12,7 @@ function slugify(text: string) {
 }
 
 export default defineEventHandler(async (event) => {
-  const method = (event.node.req.method || 'GET').toUpperCase();
+  const method = getMethod(event).toUpperCase();
   const sql = await getSql();
 
   if (method === 'GET') {
@@ -61,6 +61,6 @@ export default defineEventHandler(async (event) => {
   }
 
   // other methods not implemented yet
-  event.node.res.statusCode = 405;
+  setResponseStatus(event, 405);
   return { error: 'Method Not Allowed' };
 });
