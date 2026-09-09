@@ -71,17 +71,17 @@
           "Holter-ECG de 7 jours"
         ],
         "correct": 1,
-        "explanation": "L'écho classe HFrEF / HFmrEF / HFpEF, cherche une cause (ischémique, valvulaire) et guide le traitement de fond ESC 2023."
+        "explanation": "L’échocardiographie mesure la FEVG, recherche une cause ischémique ou valvulaire et guide le traitement. L’ESC 2026 distingue notamment l’IC à FEVG réduite (< 50 %) de l’IC à FEVG préservée (≥ 50 %)."
       }
     ],
     "diagnosis": "Poussée d'insuffisance cardiaque congestive sur cardiopathie ischémique chronique, probablement HFrEF à confirmer.",
-    "management": "O2, furosémide IV, restriction sodée, stop AINS s'il y en a, reprise/optimisation du traitement de fond (ARNI ou IEC, bêtabloquant une fois euvolémique, iSGLT2, antiminéralocorticoïde) selon la FEVG. Coronarographie si instabilité ou ischémie.",
+    "management": "Oxygène si hypoxémie, furosémide IV avec surveillance de la réponse, arrêt des AINS éventuels et recherche du facteur déclenchant. Après stabilisation, optimisation du traitement de fond selon la FEVG, la fonction rénale, la pression artérielle et les comorbidités. Coronarographie si instabilité ou ischémie.",
     "sources": [
       {
         "title": "ESC",
-        "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023.",
+        "citation": "Guidelines for the management of heart failure, 2026.",
         "organization": "ESC",
-        "year": 2023
+        "year": 2026
       }
     ]
   },
@@ -213,12 +213,7 @@
       {
         "kind": "question",
         "prompt": "Le score le plus utile ici pour décider de l'hospitalisation est :",
-        "choices": [
-          "Wells",
-          "CURB-65 / CRB-65",
-          "CHA2DS2-VASc",
-          "Child-Pugh"
-        ],
+        "choices": ["Wells", "CURB-65 / CRB-65", "CHA2DS2-VASc", "Child-Pugh"],
         "correct": 1,
         "explanation": "CURB-65 (confusion, urée, FR, TA, âge) oriente ambulatoire vs hospit. Ici FR 28 et urée 8,2 : au moins 1–2 points, hospit. raisonnable, d'autant que SpO2 90 %."
       },
@@ -280,12 +275,7 @@
       {
         "kind": "question",
         "prompt": "Le diagnostic ECG est :",
-        "choices": [
-          "SCA ST+ antérieur (STEMI)",
-          "Péricardite aiguë",
-          "SCA ST−",
-          "TV soutenue"
-        ],
+        "choices": ["SCA ST+ antérieur (STEMI)", "Péricardite aiguë", "SCA ST−", "TV soutenue"],
         "correct": 0,
         "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
       },
@@ -315,7 +305,7 @@
       }
     ],
     "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
-    "management": "Filière 15 / USIC, aspirine + P2Y12, anticoagulation, angioplastie primaire, puis bêtabloquant, IEC/ARNI, statine haute intensité, iSGLT2, réadaptation.",
+    "management": "Filière d’urgence / USIC, traitement antithrombotique adapté et angioplastie primaire sans délai inutile. Puis prévention secondaire individualisée : statine à haute intensité, contrôle des facteurs de risque, bêtabloquant et IEC/ARA2 selon les indications, réadaptation cardiaque.",
     "sources": [
       {
         "title": "ESC",
@@ -351,7 +341,7 @@
       {
         "kind": "reveal",
         "title": "Biologie",
-        "body": "Hb 9,8 g/dL, plaquettes 72 G/L, GB 4,1. Créatinine 88. Glycémie 0,62 g/L. TDR paludisme positif P. falciparum. β-hCG positive (grossesse connue)."
+        "body": "Hb 9,8 g/dL, plaquettes 72 G/L, GB 4,1. Créatinine 88 µmol/L. Glycémie 0,35 g/L. TDR paludisme positif à P. falciparum. β-hCG positive (grossesse connue)."
       },
       {
         "kind": "question",
@@ -370,12 +360,12 @@
         "prompt": "Parmi les éléments suivants, lequel est un critère de paludisme grave OMS ?",
         "choices": [
           "Céphalée isolée",
-          "Hypoglycémie (ici 0,62 g/L)",
+          "Hypoglycémie sévère (ici 0,35 g/L)",
           "Fièvre à 39 °C",
           "Splénomégalie"
         ],
         "correct": 1,
-        "explanation": "L’hypoglycémie est un critère de gravité. La grossesse augmente le risque de forme grave. Céphalée et splénomégalie sont fréquentes sans définir la gravité."
+        "explanation": "Une glycémie < 2,2 mmol/L, soit environ 0,40 g/L, est un critère OMS de paludisme grave. La valeur de 0,35 g/L impose une correction immédiate ; la grossesse augmente aussi le risque de complications."
       },
       {
         "kind": "question",
@@ -387,7 +377,7 @@
           "Doxycycline seule (contre-indiquée de toute façon au 1er trimestre)"
         ],
         "correct": 1,
-        "explanation": "Grossesse + hypoglycémie : traiter comme une forme grave — artésunate IV (y compris au 1er trimestre selon OMS récente), correction du sucre, hospitalisation."
+        "explanation": "La présence d’un critère de gravité impose l’artésunate parentéral, y compris pendant la grossesse, avec correction immédiate de l’hypoglycémie, hospitalisation et surveillance rapprochée."
       }
     ],
     "diagnosis": "Paludisme à P. falciparum chez une femme enceinte, au moins un critère de gravité (hypoglycémie), retour de Toamasina.",
@@ -395,9 +385,9 @@
     "sources": [
       {
         "title": "OMS",
-        "citation": "Guidelines for the treatment of malaria — including pregnancy.",
+        "citation": "WHO guidelines for malaria, 13 August 2025.",
         "organization": "OMS",
-        "year": 2015
+        "year": 2025
       }
     ],
     "access": "free"

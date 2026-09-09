@@ -1,7 +1,16 @@
 import decksJson from "./data/decks.json";
 import casesJson from "./data/cases.json";
 import diagnosticsJson from "./data/diagnostics.json";
-import type { AccessPolicy, ClinicalCase, Competency, Deck, DeckDifficulty, DiagnosticCase, Question } from "@/core/types";
+import type {
+  AccessPolicy,
+  ClinicalCase,
+  Competency,
+  Deck,
+  DeckDifficulty,
+  DiagnosticCase,
+  Question,
+} from "@/core/types";
+import { enrichSources } from "@/content/source-registry";
 
 function asDeck(raw: (typeof decksJson)[number]): Deck {
   return {
@@ -23,18 +32,24 @@ function asDeck(raw: (typeof decksJson)[number]): Deck {
       choices: q.choices,
       correct: q.correct,
       explanation: q.explanation,
-      sources: q.sources ?? [],
+      sources: enrichSources(q.sources ?? []),
       difficulty: (q.difficulty as Question["difficulty"]) ?? "base",
       competency: (q.competency as Competency) ?? "diagnosis",
     })),
-    sources: raw.sources ?? [],
-    access_policy: (raw.access_policy as AccessPolicy) ?? { tier: "free", entitlement: "OPTIMUS_FREE" },
+    sources: enrichSources(raw.sources ?? []),
+    access_policy: (raw.access_policy as AccessPolicy) ?? {
+      tier: "free",
+      entitlement: "OPTIMUS_FREE",
+    },
     chapters: raw.chapters ?? [],
   };
 }
 
 export const BUILTIN_DECKS: Deck[] = decksJson.map(asDeck);
-export const CLINICAL_CASES = casesJson as ClinicalCase[];
+export const CLINICAL_CASES: ClinicalCase[] = casesJson.map((clinical) => ({
+  ...clinical,
+  sources: enrichSources(clinical.sources ?? []),
+})) as ClinicalCase[];
 export const DIAGNOSTIC_CASES = diagnosticsJson as DiagnosticCase[];
 
 export function getBuiltinDeck(id: string): Deck | undefined {

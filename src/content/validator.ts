@@ -8,16 +8,32 @@ const sourceSchema = z.object({
   organization: z.string().trim().optional(),
   year: z.number().int().min(1900).max(2100).optional(),
   version: z.string().trim().optional(),
-  url: z.string().trim().optional(),
-  doi: z.string().trim().optional(),
-  verifiedAt: z.string().trim().optional(),
+  url: z
+    .string()
+    .trim()
+    .url("Le lien de la source est invalide")
+    .refine((value) => value.startsWith("https://"), "Le lien de la source doit utiliser HTTPS")
+    .optional(),
+  doi: z
+    .string()
+    .trim()
+    .regex(/^10\.\d{4,9}\/[\w.()/:;-]+$/i, "Le DOI de la source est invalide")
+    .optional(),
+  verifiedAt: z
+    .string()
+    .trim()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "La date de vérification doit suivre le format AAAA-MM-JJ")
+    .optional(),
 });
 
 const questionSchema = z
   .object({
     id: z.string().trim().min(1).optional(),
     prompt: z.string().trim().min(8, "L'énoncé de la question est trop court"),
-    choices: z.array(z.string().trim().min(1)).min(2, "Au moins deux choix").max(6, "Six choix maximum"),
+    choices: z
+      .array(z.string().trim().min(1))
+      .min(2, "Au moins deux choix")
+      .max(6, "Six choix maximum"),
     correct: z.union([z.number().int(), z.string()]).optional(),
     answer: z.union([z.number().int(), z.string()]).optional(),
     explanation: z.string().trim().min(8, "Une explication est obligatoire"),
@@ -28,13 +44,23 @@ const questionSchema = z
   .superRefine((q, ctx) => {
     const raw = q.correct ?? q.answer;
     if (raw === undefined || raw === null || raw === "") {
-      ctx.addIssue({ code: "custom", message: "La réponse correcte est obligatoire", path: ["correct"] });
+      ctx.addIssue({
+        code: "custom",
+        message: "La réponse correcte est obligatoire",
+        path: ["correct"],
+      });
       return;
     }
     const index =
-      typeof raw === "number" ? raw : q.choices.findIndex((c) => c.toLowerCase() === String(raw).trim().toLowerCase());
+      typeof raw === "number"
+        ? raw
+        : q.choices.findIndex((c) => c.toLowerCase() === String(raw).trim().toLowerCase());
     if (index < 0 || index >= q.choices.length) {
-      ctx.addIssue({ code: "custom", message: "La réponse correcte ne correspond à aucun choix", path: ["correct"] });
+      ctx.addIssue({
+        code: "custom",
+        message: "La réponse correcte ne correspond à aucun choix",
+        path: ["correct"],
+      });
     }
   });
 
@@ -111,11 +137,17 @@ function resolveCorrect(raw: number | string | undefined, choices: string[]): nu
   return choices.findIndex((c) => c.toLowerCase() === String(raw).trim().toLowerCase());
 }
 
-export type ImportStep =
-  | { id: string; label: string; ok: boolean; detail: string };
+export type ImportStep = { id: string; label: string; ok: boolean; detail: string };
 
 export type ImportResult =
-  | { ok: true; deck: Deck; hash: string; entitlement: string | null; steps: ImportStep[]; warnings: string[] }
+  | {
+      ok: true;
+      deck: Deck;
+      hash: string;
+      entitlement: string | null;
+      steps: ImportStep[];
+      warnings: string[];
+    }
   | { ok: false; steps: ImportStep[]; error: string };
 
 function toHex(buffer: ArrayBuffer): string {
@@ -159,11 +191,21 @@ export async function importDeckJson(
 
   if (premium) {
     if (!d.license || !d.signature || !d.access_policy || !optimusId || !publicKey) {
-      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Licence Premium incomplète" });
+      steps.push({
+        id: "signature",
+        label: "Signature",
+        ok: false,
+        detail: "Licence Premium incomplète",
+      });
       return { ok: false, steps, error: "Ce Deck Premium ne possède pas une licence vérifiable." };
     }
     if (d.license.optimus_id.toUpperCase() !== optimusId.toUpperCase()) {
-      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Optimus ID différent" });
+      steps.push({
+        id: "signature",
+        label: "Signature",
+        ok: false,
+        detail: "Optimus ID différent",
+      });
       return { ok: false, steps, error: "Ce Deck a été préparé pour un autre Optimus ID." };
     }
     if (d.license.product !== d.access_policy.entitlement) {
@@ -174,13 +216,26 @@ export async function importDeckJson(
       steps.push({ id: "signature", label: "Signature", ok: false, detail: "Licence expirée" });
       return { ok: false, steps, error: "La licence de ce Deck a expiré." };
     }
-    const verified = await verifyDeckSignature(parsed as Record<string, unknown>, d.signature.value, publicKey);
+    const verified = await verifyDeckSignature(
+      parsed as Record<string, unknown>,
+      d.signature.value,
+      publicKey,
+    );
     if (!verified) {
       steps.push({ id: "signature", label: "Signature", ok: false, detail: "Signature invalide" });
-      return { ok: false, steps, error: "La signature du Deck est invalide ou son contenu a été modifié." };
+      return {
+        ok: false,
+        steps,
+        error: "La signature du Deck est invalide ou son contenu a été modifié.",
+      };
     }
     entitlement = d.access_policy.entitlement;
-    steps.push({ id: "signature", label: "Signature", ok: true, detail: `Deck authentique · ${d.license.optimus_id}` });
+    steps.push({
+      id: "signature",
+      label: "Signature",
+      ok: true,
+      detail: `Deck authentique · ${d.license.optimus_id}`,
+    });
   }
   const questions: Question[] = [];
   const seenPrompts = new Set<string>();
@@ -210,12 +265,20 @@ export async function importDeckJson(
     ok: questions.length > 0,
     detail: `${questions.length} question${questions.length > 1 ? "s" : ""} acceptée${questions.length > 1 ? "s" : ""}`,
   });
+  const linkedQuestions = questions.filter((question) =>
+    question.sources.some((source) => Boolean(source.url || source.doi)),
+  ).length;
   steps.push({
     id: "sources",
     label: "Sources",
     ok: true,
-    detail: "Chaque question porte au moins une référence",
+    detail: `Chaque question est référencée · ${linkedQuestions}/${questions.length} avec lien direct`,
   });
+  if (linkedQuestions < questions.length) {
+    warnings.push(
+      `${questions.length - linkedQuestions} question(s) ont une référence bibliographique sans lien direct.`,
+    );
+  }
   steps.push({
     id: "doublons",
     label: "Doublons",
@@ -230,10 +293,17 @@ export async function importDeckJson(
     warnings.push("Un deck avec le même identifiant existe déjà — il sera remplacé.");
   }
 
-  const hash = await sha256Hex(JSON.stringify({ title, questions: questions.map((q) => q.prompt) }));
+  const hash = await sha256Hex(
+    JSON.stringify({ title, questions: questions.map((q) => q.prompt) }),
+  );
   steps.push({ id: "hash", label: "Intégrité", ok: true, detail: `SHA-256 ${hash.slice(0, 12)}…` });
   if (!premium) {
-    steps.push({ id: "signature", label: "Signature", ok: true, detail: "Deck personnel non signé" });
+    steps.push({
+      id: "signature",
+      label: "Signature",
+      ok: true,
+      detail: "Deck personnel non signé",
+    });
     warnings.push("Ce Deck personnel n'est pas certifié par Optimus.");
   }
 
@@ -265,6 +335,11 @@ export async function importDeckJson(
     imported: true,
   };
 
-  steps.push({ id: "accept", label: "Acceptation", ok: true, detail: "Deck prêt à être étudié hors-ligne" });
+  steps.push({
+    id: "accept",
+    label: "Acceptation",
+    ok: true,
+    detail: "Deck prêt à être étudié hors-ligne",
+  });
   return { ok: true, deck, hash, entitlement, steps, warnings };
 }

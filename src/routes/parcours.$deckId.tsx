@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, Play } from "lucide-react";
+import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
@@ -225,20 +226,16 @@ function DeckPage() {
           </ol>
         </section>
 
-        {deck.sources.length > 0 ? (
-          <details className="mt-8 rounded-[var(--radius-lg)] bg-secondary p-4">
-            <summary className="cursor-pointer text-sm font-medium">
-              Sources médicales vérifiées ({deck.sources.length})
-            </summary>
-            <ul className="mt-3 space-y-2">
-              {deck.sources.map((source, index) => (
-                <li key={index} className="text-xs leading-relaxed text-muted">
-                  <span className="font-medium text-fg/80">{source.title}</span> — {source.citation}
-                </li>
-              ))}
-            </ul>
-          </details>
-        ) : null}
+        <ContentTrustCard
+          sources={deck.sources}
+          report={{
+            contentType: "deck",
+            contentId: deck.id,
+            deckId: deck.id,
+            deckVersion: deck.version,
+            label: `${deck.title} — ${deck.subtitle}`,
+          }}
+        />
       </Page>
     </Shell>
   );

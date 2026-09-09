@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Check, X } from "lucide-react";
-import { SourcesList } from "@/components/quiz-player";
+import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { getCase } from "@/content/catalog";
@@ -46,10 +46,13 @@ function CasePlay() {
           <ArrowLeft className="size-4" />
           Cas
         </Link>
-        <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{clinical.specialty}</p>
+        <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+          {clinical.specialty}
+        </p>
         <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">{clinical.title}</h1>
         <p className="mt-2 text-sm text-muted">
-          {clinical.patient.sex === "F" ? "Femme" : "Homme"}, {clinical.patient.age} ans — {clinical.patient.context}
+          {clinical.patient.sex === "F" ? "Femme" : "Homme"}, {clinical.patient.age} ans —{" "}
+          {clinical.patient.context}
         </p>
 
         {finished ? (
@@ -61,7 +64,15 @@ function CasePlay() {
             <p className="mt-2 text-sm leading-relaxed">{clinical.diagnosis}</p>
             <h2 className="mt-6 font-display text-xl font-medium">Prise en charge</h2>
             <p className="mt-2 text-sm leading-relaxed">{clinical.management}</p>
-            <SourcesList sources={clinical.sources} />
+            <MedicalSources sources={clinical.sources} />
+            <ReportContentError
+              target={{
+                contentType: "clinical_case",
+                contentId: clinical.id,
+                label: `${clinical.title} — synthèse finale`,
+              }}
+              className="mt-3 w-full"
+            />
             <Button
               className="mt-6 w-full"
               onClick={() => {
@@ -74,7 +85,9 @@ function CasePlay() {
           </div>
         ) : step?.kind === "reveal" ? (
           <div className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{step.title}</p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              {step.title}
+            </p>
             <p className="mt-3 text-sm leading-relaxed">{step.body}</p>
             <Button className="mt-5 w-full" onClick={() => setCursor((c) => c + 1)}>
               Continuer
@@ -106,10 +119,14 @@ function CasePlay() {
                         revealed && !isCorrect && !isPicked && "bg-card opacity-60",
                       )}
                     >
-                      <span className="font-mono text-xs text-muted">{String.fromCharCode(65 + i)}</span>
+                      <span className="font-mono text-xs text-muted">
+                        {String.fromCharCode(65 + i)}
+                      </span>
                       <span className="flex-1">{choice}</span>
                       {revealed && isCorrect ? <Check className="size-4 text-primary" /> : null}
-                      {revealed && isPicked && !isCorrect ? <X className="size-4 text-danger" /> : null}
+                      {revealed && isPicked && !isCorrect ? (
+                        <X className="size-4 text-danger" />
+                      ) : null}
                     </button>
                   </li>
                 );
@@ -118,6 +135,14 @@ function CasePlay() {
             {picked !== null ? (
               <div className="mt-4 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
                 <p className="text-sm leading-relaxed">{step.explanation}</p>
+                <ReportContentError
+                  target={{
+                    contentType: "clinical_case",
+                    contentId: `${clinical.id}:step-${cursor + 1}`,
+                    label: step.prompt,
+                  }}
+                  className="mt-2 w-full"
+                />
                 <Button
                   className="mt-4 w-full"
                   onClick={() => {

@@ -9,11 +9,7 @@
     "specialty": "Thérapeutique",
     "studyYear": 2,
     "difficulty": "intermediate",
-    "competencies": [
-      "recognize",
-      "management",
-      "diagnosis"
-    ],
+    "competencies": ["recognize", "management", "diagnosis"],
     "icon": "pill",
     "questions": [
       {
@@ -67,12 +63,7 @@
       {
         "id": "ph-3",
         "prompt": "Chez l'adulte sans facteur de risque, la dose maximale quotidienne de paracétamol est :",
-        "choices": [
-          "2 g",
-          "3 g",
-          "4 g",
-          "6 g"
-        ],
+        "choices": ["2 g", "3 g", "4 g", "6 g"],
         "correct": 2,
         "explanation": "La dose usuelle maximale est de 4 g/24 h (1 g par prise, intervalle ≥ 4–6 h). Au-delà, le métabolite toxique NAPQI sature le glutathion hépatique.",
         "sources": [
@@ -91,12 +82,7 @@
       {
         "id": "ph-4",
         "prompt": "Quel est l'antidote spécifique des morphiniques ?",
-        "choices": [
-          "Flumazénil",
-          "N-acétylcystéine",
-          "Naloxone",
-          "Fomépizole"
-        ],
+        "choices": ["Flumazénil", "N-acétylcystéine", "Naloxone", "Fomépizole"],
         "correct": 2,
         "explanation": "La naloxone est un antagoniste compétitif des récepteurs µ. Le flumazénil antagonise les benzodiazépines ; la NAC le paracétamol ; le fomépizole les alcools toxiques.",
         "sources": [
@@ -139,12 +125,7 @@
       {
         "id": "ph-6",
         "prompt": "Le suivi biologique de la warfarine repose sur :",
-        "choices": [
-          "Le TCA",
-          "L'INR",
-          "Les D-dimères",
-          "L'anti-Xa"
-        ],
+        "choices": ["Le TCA", "L'INR", "Les D-dimères", "L'anti-Xa"],
         "correct": 1,
         "explanation": "La warfarine inhibe la vitamine K époxyde réductase. L'INR cible dépend de l'indication (souvent 2–3). Les AOD se suivent autrement (anti-Xa pour certains).",
         "sources": [
@@ -163,12 +144,7 @@
       {
         "id": "ph-7",
         "prompt": "Un bêtabloquant non cardiosélectif est particulièrement dangereux en cas de :",
-        "choices": [
-          "Hypothyroïdie",
-          "Asthme",
-          "Migraine",
-          "Glaucome à angle ouvert"
-        ],
+        "choices": ["Hypothyroïdie", "Asthme", "Migraine", "Glaucome à angle ouvert"],
         "correct": 1,
         "explanation": "Le blocage des récepteurs β2 bronchiques peut déclencher un bronchospasme sévère. Les β1-sélectifs restent à manier avec une extrême prudence.",
         "sources": [
@@ -323,19 +299,14 @@
   {
     "schemaVersion": 2,
     "id": "cardio",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Cardiologie",
     "subtitle": "SCA, IC, rythme, valves",
     "subject": "Cardiologie",
     "specialty": "Clinique",
     "studyYear": 5,
     "difficulty": "advanced",
-    "competencies": [
-      "semiology",
-      "diagnosis",
-      "management",
-      "clinical_reasoning"
-    ],
+    "competencies": ["semiology", "diagnosis", "management", "clinical_reasoning"],
     "icon": "heart",
     "questions": [
       {
@@ -348,7 +319,7 @@
           "Une coronarographie élective à J5"
         ],
         "correct": 1,
-        "explanation": "Le sus-décalage persistant traduit une occlusion coronaire aiguë. Chaque minute compte : angioplastie primaire si délai acceptable, sinon fibrinolysis.",
+        "explanation": "Le sus-décalage persistant traduit une occlusion coronaire aiguë. Chaque minute compte : angioplastie primaire si elle est accessible dans le délai recommandé, sinon fibrinolyse en l’absence de contre-indication.",
         "sources": [
           {
             "title": "ESC",
@@ -364,7 +335,7 @@
       },
       {
         "id": "ca-2",
-        "prompt": "Le score CHA₂DS₂-VASc sert à estimer :",
+        "prompt": "Le score CHA₂DS₂-VA, recommandé par l’ESC en 2024, sert à estimer :",
         "choices": [
           "Le risque hémorragique sous AOD",
           "Le risque thromboembolique de la FA",
@@ -372,7 +343,7 @@
           "Le pronostic du choc cardiogénique"
         ],
         "correct": 1,
-        "explanation": "Il guide l'indication d'anticoagulation au long cours dans la fibrillation atriale. Le risque hémorragique se score plutôt par HAS-BLED.",
+        "explanation": "Le CHA₂DS₂-VA estime le risque thromboembolique de la fibrillation atriale. L’ESC 2024 retire le sexe du score décisionnel ; le risque hémorragique s’évalue séparément et ne doit pas, à lui seul, faire renoncer à l’anticoagulation.",
         "sources": [
           {
             "title": "ESC",
@@ -400,7 +371,7 @@
         "sources": [
           {
             "title": "ESC",
-            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+            "citation": "Guidelines for the management of heart failure, 2026."
           },
           {
             "title": "Collège de Cardiologie",
@@ -427,8 +398,8 @@
             "citation": "Principles of Internal Medicine, 21e éd."
           },
           {
-            "title": "Collège de Cardiologie",
-            "citation": "Référentiel national DES / EDN de cardiologie."
+            "title": "ESC",
+            "citation": "Guidelines for the management of valvular heart disease, 2025."
           }
         ],
         "difficulty": "base",
@@ -437,12 +408,7 @@
       {
         "id": "ca-5",
         "prompt": "Le biomarqueur de référence pour diagnostiquer un infarctus non ST+ est :",
-        "choices": [
-          "BNP",
-          "CRP ultrasensible",
-          "Troponine cardiaque",
-          "Myoglobine seule"
-        ],
+        "choices": ["BNP", "CRP ultrasensible", "Troponine cardiaque", "Myoglobine seule"],
         "correct": 2,
         "explanation": "La troponine ultrasensible, cinétique, définit la nécrose myocardique. Le BNP évalue la contrainte pariétale / l'insuffisance cardiaque.",
         "sources": [
@@ -461,12 +427,7 @@
       {
         "id": "ca-6",
         "prompt": "Le seuil diagnostique usuel d'hypertension artérielle au cabinet est :",
-        "choices": [
-          "130/80 mmHg",
-          "135/85 mmHg",
-          "140/90 mmHg",
-          "160/100 mmHg"
-        ],
+        "choices": ["130/80 mmHg", "135/85 mmHg", "140/90 mmHg", "160/100 mmHg"],
         "correct": 2,
         "explanation": "Au cabinet : ≥ 140/90 mmHg, confirmé. En MAPA, les seuils sont plus bas (typiquement 130/80 sur 24 h).",
         "sources": [
@@ -516,7 +477,7 @@
         "sources": [
           {
             "title": "ESC",
-            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+            "citation": "Guidelines for the management of heart failure, 2026."
           },
           {
             "title": "SFAR",
@@ -540,9 +501,9 @@
         "sources": [
           {
             "title": "ESC",
-            "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023.",
+            "citation": "Guidelines for the management of heart failure, 2026.",
             "organization": "ESC",
-            "year": 2023
+            "year": 2026
           }
         ],
         "difficulty": "base",
@@ -551,19 +512,14 @@
       {
         "id": "ca-ic-2",
         "prompt": "En congestion sans choc, le diurétique de première intention est :",
-        "choices": [
-          "Hydrochlorothiazide oral",
-          "Furosémide IV",
-          "Spironolactone IV",
-          "Mannitol"
-        ],
+        "choices": ["Hydrochlorothiazide oral", "Furosémide IV", "Spironolactone IV", "Mannitol"],
         "correct": 1,
-        "explanation": "Le diurétique de l'anse IV reste la pierre angulaire de la décongestion aiguë ESC 2023.",
+        "explanation": "Le diurétique de l'anse IV est le traitement initial de la congestion en l’absence de choc. La réponse clinique, la diurèse, la fonction rénale et les électrolytes doivent être surveillés.",
         "sources": [
           {
             "title": "ESC",
-            "citation": "Heart Failure Guidelines, 2023.",
-            "year": 2023
+            "citation": "Guidelines for the management of heart failure, 2026.",
+            "year": 2026
           }
         ],
         "difficulty": "base",
@@ -589,7 +545,11 @@
       },
       {
         "title": "ESC",
-        "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023."
+        "citation": "Guidelines for the management of valvular heart disease, 2025."
+      },
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the management of heart failure, 2026."
       },
       {
         "title": "HAS / SFHTA",
@@ -651,12 +611,7 @@
     "specialty": "Clinique",
     "studyYear": 5,
     "difficulty": "advanced",
-    "competencies": [
-      "semiology",
-      "diagnosis",
-      "management",
-      "clinical_reasoning"
-    ],
+    "competencies": ["semiology", "diagnosis", "management", "clinical_reasoning"],
     "icon": "brain",
     "questions": [
       {
@@ -710,12 +665,7 @@
       {
         "id": "ne-3",
         "prompt": "Un état de mal convulsif généralisé se définit, entre autres, par une crise de plus de :",
-        "choices": [
-          "30 secondes",
-          "2 minutes",
-          "5 minutes",
-          "30 minutes"
-        ],
+        "choices": ["30 secondes", "2 minutes", "5 minutes", "30 minutes"],
         "correct": 2,
         "explanation": "Le seuil opérationnel actuel est 5 minutes (et 30 min pour le risque de lésions irréversibles). La première ligne est une benzodiazépine.",
         "sources": [
@@ -922,18 +872,14 @@
   {
     "schemaVersion": 2,
     "id": "infectio",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Infectiologie",
     "subtitle": "Sepsis, ATB, tropical",
     "subject": "Infectiologie",
     "specialty": "Clinique",
     "studyYear": 4,
     "difficulty": "intermediate",
-    "competencies": [
-      "recognize",
-      "diagnosis",
-      "management"
-    ],
+    "competencies": ["recognize", "diagnosis", "management"],
     "icon": "bug",
     "questions": [
       {
@@ -987,18 +933,13 @@
       {
         "id": "in-3",
         "prompt": "Le paludisme grave à P. falciparum se traite en première intention par :",
-        "choices": [
-          "Chloroquine orale",
-          "Artésunate IV",
-          "Doxycycline seule",
-          "Métronidazole"
-        ],
+        "choices": ["Chloroquine orale", "Artésunate IV", "Doxycycline seule", "Métronidazole"],
         "correct": 1,
         "explanation": "L'artésunate IV a supplanté la quinine dans le paludisme grave. La chloroquine est inefficace sur la plupart des falciparum.",
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd."
+            "citation": "WHO guidelines for malaria, 13 August 2025."
           },
           {
             "title": "Collège d'Infectiologie",
@@ -1035,12 +976,7 @@
       {
         "id": "in-5",
         "prompt": "Le traitement standard d'une tuberculose pulmonaire sensible dure classiquement :",
-        "choices": [
-          "10 jours",
-          "6 semaines",
-          "6 mois",
-          "24 mois"
-        ],
+        "choices": ["10 jours", "6 semaines", "6 mois", "24 mois"],
         "correct": 2,
         "explanation": "2 mois RHZE puis 4 mois RH (6 mois au total) pour une forme pulmonaire sensible. Les résistances et localisations extra-pulmonaires modifient le schéma.",
         "sources": [
@@ -1140,7 +1076,7 @@
       },
       {
         "title": "OMS",
-        "citation": "Guidelines for the treatment of malaria, 3e éd."
+        "citation": "WHO guidelines for malaria, 13 August 2025."
       },
       {
         "title": "SFAR",
@@ -1206,10 +1142,7 @@
     "specialty": "Fondamental",
     "studyYear": 1,
     "difficulty": "intro",
-    "competencies": [
-      "recognize",
-      "semiology"
-    ],
+    "competencies": ["recognize", "semiology"],
     "icon": "bone",
     "questions": [
       {
@@ -1235,12 +1168,7 @@
       {
         "id": "an-2",
         "prompt": "Une mydriase unilatérale aréactive avec ptosis évoque une atteinte du :",
-        "choices": [
-          "Nerf II",
-          "Nerf III",
-          "Nerf IV",
-          "Nerf VI"
-        ],
+        "choices": ["Nerf II", "Nerf III", "Nerf IV", "Nerf VI"],
         "correct": 1,
         "explanation": "Le III innerve la plupart des muscles extra-oculaires, le releveur et le sphincter irien parasympathique. Une compression (anévrisme PCom) est une urgence.",
         "sources": [
@@ -1327,12 +1255,7 @@
       {
         "id": "an-6",
         "prompt": "Les segments hépatiques de Couinaud sont au nombre de :",
-        "choices": [
-          "4",
-          "6",
-          "8",
-          "12"
-        ],
+        "choices": ["4", "6", "8", "12"],
         "correct": 2,
         "explanation": "Huit segments fonctionnels selon la distribution portal et sus-hépatique. Le I est le lobe de Spiegel. Base de la chirurgie hépatique.",
         "sources": [
@@ -1458,23 +1381,13 @@
     "specialty": "Aigu",
     "studyYear": 6,
     "difficulty": "advanced",
-    "competencies": [
-      "recognize",
-      "diagnosis",
-      "management",
-      "clinical_reasoning"
-    ],
+    "competencies": ["recognize", "diagnosis", "management", "clinical_reasoning"],
     "icon": "zap",
     "questions": [
       {
         "id": "ur-1",
         "prompt": "En ACR adulte, l'adrénaline IV/IO se répète toutes les :",
-        "choices": [
-          "30 secondes",
-          "1 minute",
-          "3 à 5 minutes",
-          "10 minutes"
-        ],
+        "choices": ["30 secondes", "1 minute", "3 à 5 minutes", "10 minutes"],
         "correct": 2,
         "explanation": "1 mg toutes les 3–5 minutes pendant la RCP, en plus de compressions de qualité et d'une défibrillation précoce si rythme choquable.",
         "sources": [
@@ -1585,12 +1498,7 @@
       {
         "id": "ur-6",
         "prompt": "Un ECG doit être réalisé devant une douleur thoracique évocatrice en moins de :",
-        "choices": [
-          "10 minutes",
-          "45 minutes",
-          "2 heures",
-          "24 heures"
-        ],
+        "choices": ["10 minutes", "45 minutes", "2 heures", "24 heures"],
         "correct": 0,
         "explanation": "Objectif < 10 min à l'arrivée. C'est le seul moyen de ne pas rater un ST+ dont la filière de reperfusion est minute-dépendante.",
         "sources": [
@@ -1720,10 +1628,7 @@
     "specialty": "Fondamental",
     "studyYear": 2,
     "difficulty": "intro",
-    "competencies": [
-      "recognize",
-      "semiology"
-    ],
+    "competencies": ["recognize", "semiology"],
     "icon": "activity",
     "questions": [
       {
@@ -1793,12 +1698,7 @@
       {
         "id": "py-4",
         "prompt": "Le DFG d'un adulte jeune est de l'ordre de :",
-        "choices": [
-          "30 mL/min",
-          "60 mL/min",
-          "120 mL/min",
-          "300 mL/min"
-        ],
+        "choices": ["30 mL/min", "60 mL/min", "120 mL/min", "300 mL/min"],
         "correct": 2,
         "explanation": "Environ 125 mL/min/1,73 m² (180 L/j). 99 % est réabsorbé. La créatinine estime le DFG, imparfaitement chez le sujet âgé ou sarcopénique.",
         "sources": [
@@ -1964,11 +1864,7 @@
     "specialty": "Clinique",
     "studyYear": 3,
     "difficulty": "intermediate",
-    "competencies": [
-      "semiology",
-      "diagnostic_orientation",
-      "clinical_reasoning"
-    ],
+    "competencies": ["semiology", "diagnostic_orientation", "clinical_reasoning"],
     "icon": "stethoscope",
     "questions": [
       {
@@ -2227,22 +2123,13 @@
     "specialty": "Clinique",
     "studyYear": 4,
     "difficulty": "intermediate",
-    "competencies": [
-      "semiology",
-      "diagnosis",
-      "management"
-    ],
+    "competencies": ["semiology", "diagnosis", "management"],
     "icon": "scan",
     "questions": [
       {
         "id": "de-1",
         "prompt": "Une lésion plane, non palpable, de moins de 1 cm est :",
-        "choices": [
-          "Une papule",
-          "Une macule",
-          "Une vésicule",
-          "Un nodule"
-        ],
+        "choices": ["Une papule", "Une macule", "Une vésicule", "Un nodule"],
         "correct": 1,
         "explanation": "La macule est une tache plane. La papule est palpable (< 1 cm), la vésicule liquidienne, le nodule dermohypodermique.",
         "sources": [
@@ -2281,12 +2168,7 @@
       {
         "id": "de-3",
         "prompt": "La règle de Melanoma ABCDE, le E correspond à :",
-        "choices": [
-          "Érythème",
-          "Évolution (modification)",
-          "Épiderme",
-          "Excoriation"
-        ],
+        "choices": ["Érythème", "Évolution (modification)", "Épiderme", "Excoriation"],
         "correct": 1,
         "explanation": "Asymétrie, Bords irréguliers, Couleur hétérogène, Diamètre > 6 mm, Évolution. Toute lésion pigmentée qui change se fait biopsier.",
         "sources": [
@@ -2437,19 +2319,14 @@
     "schema_version": 2,
     "id": "tropical",
     "deck_id": "TROPICAL-MG-001",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Médecine tropicale",
     "subtitle": "Paludisme, vecteurs, urgences de l’océan Indien",
     "subject": "Infectiologie",
     "specialty": "Clinique",
     "studyYear": 4,
     "difficulty": "intermediate",
-    "competencies": [
-      "recognize",
-      "diagnostic_orientation",
-      "diagnosis",
-      "management"
-    ],
+    "competencies": ["recognize", "diagnostic_orientation", "diagnosis", "management"],
     "icon": "globe",
     "questions": [
       {
@@ -2466,9 +2343,9 @@
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2015
+            "year": 2025
           },
           {
             "title": "Collège d'Infectiologie",
@@ -2493,9 +2370,9 @@
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2015
+            "year": 2025
           }
         ],
         "difficulty": "base",
@@ -2515,9 +2392,9 @@
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2015
+            "year": 2025
           },
           {
             "title": "Collège d'Infectiologie",
@@ -2531,12 +2408,7 @@
       {
         "id": "tm-4",
         "prompt": "La bilharziose (schistosomiase) se traite classiquement par :",
-        "choices": [
-          "Praziquantel",
-          "Albendazole seul",
-          "Artésunate",
-          "Métronidazole"
-        ],
+        "choices": ["Praziquantel", "Albendazole seul", "Artésunate", "Métronidazole"],
         "correct": 0,
         "explanation": "Le praziquantel reste le traitement de référence des schistosomoses. L'albendazole cible d'autres helminthes ; l'artésunate le paludisme.",
         "sources": [
@@ -2620,9 +2492,9 @@
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2015
+            "year": 2025
           },
           {
             "title": "Collège d'Infectiologie",
@@ -2647,9 +2519,9 @@
         "sources": [
           {
             "title": "OMS",
-            "citation": "Guidelines for the treatment of malaria, 3e éd.",
+            "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2015
+            "year": 2025
           },
           {
             "title": "BEH / Santé publique France",
@@ -2663,9 +2535,9 @@
     "sources": [
       {
         "title": "OMS",
-        "citation": "Guidelines for the treatment of malaria, 3e éd.",
+        "citation": "WHO guidelines for malaria, 13 August 2025.",
         "organization": "OMS",
-        "year": 2015
+        "year": 2025
       },
       {
         "title": "Collège d'Infectiologie",

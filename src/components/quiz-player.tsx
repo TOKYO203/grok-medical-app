@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Check, X } from "lucide-react";
+import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import type { Question, Source } from "@/core/types";
+import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
 import { cn } from "@/lib/utils";
 
 export type QuizItem = {
   question: Question;
   deckTitle?: string;
+  deckId?: string;
+  deckVersion?: string;
 };
 
 const QUESTION_ARM_DELAY_MS = 500;
@@ -156,7 +159,17 @@ export function QuizPlayer({
               : "Incorrect — à revoir bientôt"}
           </p>
           <p className="mt-2 text-sm leading-relaxed text-fg">{q.explanation}</p>
-          <SourcesList sources={q.sources} />
+          <MedicalSources sources={q.sources} compact />
+          <ReportContentError
+            target={{
+              contentType: "question",
+              contentId: q.id,
+              deckId: item.deckId,
+              deckVersion: item.deckVersion,
+              label: q.prompt,
+            }}
+            className="mt-2 w-full"
+          />
           <Button className="mt-4 w-full" onClick={next}>
             {index === sessionItems.length - 1 ? "Voir mes résultats" : "Question suivante"}
             <ArrowRight className="size-4" />
@@ -164,19 +177,5 @@ export function QuizPlayer({
         </div>
       ) : null}
     </div>
-  );
-}
-
-export function SourcesList({ sources }: { sources: Source[] }) {
-  if (!sources.length) return null;
-  return (
-    <ul className="mt-3 space-y-1">
-      {sources.map((s, i) => (
-        <li key={`${s.title}-${i}`} className="text-xs leading-relaxed text-muted">
-          <span className="font-medium text-fg/80">{s.title}</span>
-          {s.year ? ` · ${s.year}` : ""} — {s.citation}
-        </li>
-      ))}
-    </ul>
   );
 }
