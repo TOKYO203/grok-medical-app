@@ -1,7 +1,18 @@
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Flame, Lock, RotateCcw, Sparkles, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Calculator,
+  ClipboardCheck,
+  Flame,
+  Lock,
+  RotateCcw,
+  Sparkles,
+  Trophy,
+  Upload,
+  Zap,
+} from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
@@ -84,10 +95,16 @@ function Dashboard() {
             {profile.tier === "guest" ? "Invité" : profile.optimusId}
           </p>
           <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">
-            Bonjour{profile.displayName && profile.displayName !== "Invité" ? `, ${profile.displayName}` : ""}
+            Bonjour
+            {profile.displayName && profile.displayName !== "Invité"
+              ? `, ${profile.displayName}`
+              : ""}
           </h1>
           <p className="mt-1 text-sm text-muted">
-            {(profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ?? YEARS_SHORT[profile.studyYear] ?? "Cursus"} · {band.label} · ligue {league.label}
+            {(profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
+              YEARS_SHORT[profile.studyYear] ??
+              "Cursus"}{" "}
+            · {band.label} · ligue {league.label}
           </p>
         </div>
         <Link
@@ -98,169 +115,180 @@ function Dashboard() {
         </Link>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-2">
-        <StatChip icon={<Flame className="size-4 text-primary" />} label="Série" value={String(streak)} />
-        <StatChip icon={<Zap className="size-4 text-primary" />} label="XP" value={formatInt(xp)} />
-        <StatChip icon={<Sparkles className="size-4 text-primary" />} label="Niv." value={`${lvl.level}`} />
-      </div>
-
-      <div className="mt-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-muted">
-            Niveau {lvl.level} · {lvl.title}
-          </span>
-          <span className="font-mono text-xs tabular-nums text-muted">
-            {lvl.xpInto}/{lvl.xpForNext}
-          </span>
-        </div>
-        <Progress className="mt-2" value={lvl.progress} />
-        <div className="mt-3 flex items-center justify-between text-sm">
-          <span className="text-muted">Mastery globale</span>
-          <span className="font-mono tabular-nums">{mastery}%</span>
-        </div>
-        <Progress className="mt-2" value={mastery} barClassName="bg-fg/70" />
-      </div>
-
-      <div className="mt-8">
-        <SectionTitle kicker="Aujourd’hui" title="Questions du jour" />
-        <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-muted">
-              {daily.answered}/{dailyGoal} · {daily.xp} XP
+      <section className="mt-6 rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
+              Priorité du jour
             </p>
-            <span className="text-xs text-subtle">Objectif quotidien</span>
+            <h2 className="mt-1 font-display text-2xl font-medium tracking-tight">
+              {daily.answered >= dailyGoal
+                ? "Objectif atteint"
+                : daily.answered > 0
+                  ? "Continuez votre session"
+                  : "Commencez votre session"}
+            </h2>
+            <p className="mt-1 text-sm text-muted">
+              {daily.answered}/{dailyGoal} questions · {daily.xp} XP gagnés aujourd’hui
+            </p>
           </div>
-          <Progress className="mt-3" value={dailyPct} />
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-fg">
+            <Zap className="size-5" />
+          </span>
+        </div>
+        <Progress className="mt-4 bg-bg/50" value={dailyPct} />
+        {todayItems.length > 0 ? (
           <Link to="/revue" search={{ mode: "today" }} className="mt-4 block">
-            <Button className="w-full" disabled={todayItems.length === 0}>
-              {todayItems.length === 0 ? "Rien de dû — explorer un deck" : `Session adaptative · ${todayItems.length} items`}
+            <Button className="w-full">
+              {daily.answered > 0
+                ? "Reprendre ma session"
+                : `Commencer · ${todayItems.length} questions`}
             </Button>
           </Link>
-        </div>
-      </div>
+        ) : (
+          <Link to="/parcours" className="mt-4 block">
+            <Button className="w-full">Explorer un Deck</Button>
+          </Link>
+        )}
+      </section>
 
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        <Link
-          to="/revue"
-          className="flex items-center justify-between rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
-        >
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Révisions</p>
-            <p className="mt-1 font-display text-2xl tabular-nums">{dueCount}</p>
-            <p className="text-sm text-muted">cartes dues</p>
-          </div>
-          <RotateCcw className="size-5 text-primary" />
-        </Link>
-        <Link
-          to="/cas"
-          className="flex items-center justify-between rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
-        >
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Cas cliniques</p>
-            <p className="mt-1 font-display text-2xl tabular-nums">{CLINICAL_CASES.length}</p>
-            <p className="text-sm text-muted">dossiers à raisonner</p>
-          </div>
-          <Sparkles className="size-5 text-primary" />
-        </Link>
-      </div>
-
-      {weak && strong ? (
-        <div className="mt-8">
-          <SectionTitle kicker="Compétences" title="Forces et faiblesses" />
-          <div className="space-y-2">
-            {comps.map((c) => (
-              <div key={c.id} className="flex items-center gap-3">
-                <p className="w-32 shrink-0 text-sm text-muted">{c.label}</p>
-                <Progress className="flex-1" value={c.score} />
-                <span className="w-10 text-right font-mono text-xs tabular-nums text-muted">{c.score}</span>
-              </div>
-            ))}
-          </div>
-          {weak.score < 70 && featured ? (
-            <div className="mt-4 rounded-[var(--radius-lg)] bg-secondary p-4">
-              <p className="text-sm font-medium">Mission du jour</p>
-              <p className="mt-1 text-sm text-muted">
-                Point faible : {weak.label.toLowerCase()}. Une session ciblée sur {featured.title}.
-              </p>
-              <Link
-                to="/learn/$deckId"
-                params={{ deckId: featured.id }}
-                search={{ lesson: 3 }}
-                className="mt-3 inline-block"
-              >
-                <Button size="sm">Lancer la mission</Button>
+      {featured ? (
+        <section className="mt-8">
+          <SectionTitle
+            kicker="Votre parcours"
+            title="Continuer à apprendre"
+            action={
+              <Link to="/parcours" className="text-sm text-muted hover:text-fg">
+                Tout voir
               </Link>
-            </div>
-          ) : null}
-        </div>
+            }
+          />
+          <Link
+            to="/parcours/$deckId"
+            params={{ deckId: featured.id }}
+            className="flex items-center gap-4 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+          >
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-secondary text-primary">
+              <DeckIcon name={featured.icon} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate font-medium">{featured.title}</span>
+              <span className="mt-0.5 block truncate text-sm text-muted">{featured.subtitle}</span>
+            </span>
+            <ArrowRight className="size-5 shrink-0 text-muted" />
+          </Link>
+        </section>
       ) : null}
 
-      <div className="mt-8">
-        <SectionTitle
-          kicker="Parcours"
-          title="Continuer"
-          action={
-            <Link to="/parcours" className="text-sm text-muted hover:text-fg">
-              Tous
-            </Link>
-          }
-        />
-        <div className="grid gap-2 sm:grid-cols-2">
-          {unlocked.slice(0, 4).map((d) => (
-            <Link
-              key={d.id}
-              to="/parcours/$deckId"
-              params={{ deckId: d.id }}
-              className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]"
-            >
-              <span className="flex size-10 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary">
-                <DeckIcon name={d.icon} />
-              </span>
-              <span className="min-w-0">
-                <p className="truncate text-sm font-medium">{d.title}</p>
-                <p className="truncate text-xs text-muted">{d.subtitle}</p>
-              </span>
-            </Link>
-          ))}
+      <section className="mt-8">
+        <SectionTitle kicker="Accès rapide" title="Que voulez-vous faire ?" />
+        <div className="grid grid-cols-2 gap-3">
+          <QuickAction
+            to="/revue"
+            icon={<RotateCcw className="size-5" />}
+            label="Réviser"
+            detail={`${dueCount} carte${dueCount > 1 ? "s" : ""} due${dueCount > 1 ? "s" : ""}`}
+          />
+          <QuickAction
+            to="/cas"
+            icon={<Sparkles className="size-5" />}
+            label="Cas cliniques"
+            detail={`${CLINICAL_CASES.length} dossiers`}
+          />
+          <QuickAction
+            to="/examen"
+            icon={<ClipboardCheck className="size-5" />}
+            label="Examen blanc"
+            detail="Se tester"
+          />
+          <QuickAction
+            to="/calculateurs"
+            icon={<Calculator className="size-5" />}
+            label="Calculateurs"
+            detail="Outils cliniques"
+          />
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <SectionTitle kicker="Vue d’ensemble" title="Votre progression" />
+        <div className="grid grid-cols-3 gap-2">
+          <StatChip
+            icon={<Flame className="size-4 text-primary" />}
+            label="Série"
+            value={String(streak)}
+          />
+          <StatChip
+            icon={<Zap className="size-4 text-primary" />}
+            label="XP"
+            value={formatInt(xp)}
+          />
+          <StatChip
+            icon={<Sparkles className="size-4 text-primary" />}
+            label="Niv."
+            value={`${lvl.level}`}
+          />
+        </div>
+        <div className="mt-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted">
+              Niveau {lvl.level} · {lvl.title}
+            </span>
+            <span className="font-mono text-xs tabular-nums text-muted">
+              {lvl.xpInto}/{lvl.xpForNext}
+            </span>
+          </div>
+          <Progress className="mt-2" value={lvl.progress} />
+          <div className="mt-4 flex items-center justify-between text-sm">
+            <span className="text-muted">Maîtrise globale</span>
+            <span className="font-mono tabular-nums">{mastery}%</span>
+          </div>
+          <Progress className="mt-2" value={mastery} barClassName="bg-fg/70" />
+
+          {mastery > 0 && weak && strong ? (
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <div className="rounded-[var(--radius-md)] bg-secondary p-3">
+                <p className="text-[11px] uppercase tracking-wider text-muted">À renforcer</p>
+                <p className="mt-1 truncate text-sm font-medium">{weak.label}</p>
+              </div>
+              <div className="rounded-[var(--radius-md)] bg-secondary p-3">
+                <p className="text-[11px] uppercase tracking-wider text-muted">Point fort</p>
+                <p className="mt-1 truncate text-sm font-medium">{strong.label}</p>
+              </div>
+            </div>
+          ) : (
+            <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
+              Votre profil de maîtrise apparaîtra après votre première session.
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <SectionTitle kicker="Plus" title="Outils et accès" />
+        <div className="flex flex-wrap gap-2">
+          <Link to="/classement">
+            <Button variant="secondary" size="sm">
+              <Trophy className="size-4" />
+              Classement
+            </Button>
+          </Link>
+          <Link to="/import">
+            <Button variant="secondary" size="sm">
+              <Upload className="size-4" />
+              Importer un Deck
+            </Button>
+          </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
-            <Link
-              to="/pro"
-              className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-3 text-muted shadow-[var(--shadow-border)]"
-            >
-              <span className="flex size-10 items-center justify-center rounded-[var(--radius-sm)] bg-secondary">
+            <Link to="/pro">
+              <Button variant="secondary" size="sm">
                 <Lock className="size-4" />
-              </span>
-              <span>
-                <p className="text-sm font-medium text-fg">Decks Pro</p>
-                <p className="text-xs">Cardiologie, cas avancés, examens blancs</p>
-              </span>
+                Offres Premium
+              </Button>
             </Link>
           ) : null}
         </div>
-      </div>
-
-      <div className="mt-8 flex flex-wrap gap-2">
-        <Link to="/examen">
-          <Button variant="secondary" size="sm">
-            Examen blanc
-          </Button>
-        </Link>
-        <Link to="/calculateurs">
-          <Button variant="secondary" size="sm">
-            Calculateurs
-          </Button>
-        </Link>
-        <Link to="/classement">
-          <Button variant="secondary" size="sm">
-            Classement
-          </Button>
-        </Link>
-        <Link to="/import">
-          <Button variant="secondary" size="sm">
-            Importer un deck
-          </Button>
-        </Link>
-      </div>
+      </section>
     </Page>
   );
 }
@@ -281,6 +309,31 @@ function initials(name: string): string {
     .slice(0, 2)
     .map((p) => p[0]?.toUpperCase() ?? "")
     .join("");
+}
+
+function QuickAction({
+  to,
+  icon,
+  label,
+  detail,
+}: {
+  to: "/revue" | "/cas" | "/examen" | "/calculateurs";
+  icon: ReactNode;
+  label: string;
+  detail: string;
+}) {
+  return (
+    <Link
+      to={to}
+      className="min-w-0 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+    >
+      <span className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary">
+        {icon}
+      </span>
+      <span className="mt-3 block truncate text-sm font-medium">{label}</span>
+      <span className="mt-0.5 block truncate text-xs text-muted">{detail}</span>
+    </Link>
+  );
 }
 
 function StatChip({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
