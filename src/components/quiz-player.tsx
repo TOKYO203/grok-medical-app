@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, X } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import type { Question, Source } from "@/core/types";
@@ -158,7 +158,8 @@ export function QuizPlayer({
           <p className="mt-2 text-sm leading-relaxed text-fg">{q.explanation}</p>
           <SourcesList sources={q.sources} />
           <Button className="mt-4 w-full" onClick={next}>
-            Continuer
+            {index === sessionItems.length - 1 ? "Voir mes résultats" : "Question suivante"}
+            <ArrowRight className="size-4" />
           </Button>
         </div>
       ) : null}
