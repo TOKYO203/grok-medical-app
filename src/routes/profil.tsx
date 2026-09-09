@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { BADGE_CATALOG } from "@/content/badges";
-import { YEARS } from "@/content/catalog";
+import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { currentLeague, useOptimus } from "@/state/store";
-import type { CoverId } from "@/core/types";
+import type { CoverId, StudyLevel } from "@/core/types";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -104,14 +104,31 @@ function ProfilPage() {
           <select
             id="year"
             className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-            value={profile.studyYear}
-            onChange={(e) => update({ studyYear: Number(e.target.value) })}
+            value={String(profile.studyLevel ?? profile.studyYear)}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (/^[1-6]$/.test(value)) {
+                const studyYear = Number(value);
+                update({ studyYear, studyLevel: studyYear as StudyLevel });
+              } else {
+                update({ studyYear: 0, studyLevel: value as StudyLevel });
+              }
+            }}
           >
-            {YEARS.map((y) => (
-              <option key={y.year} value={y.year}>
-                {y.label}
-              </option>
-            ))}
+            <optgroup label="Études médicales">
+              {YEARS.map((y) => (
+                <option key={y.year} value={y.year}>
+                  {y.label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Autres">
+              {PROFESSIONAL_LEVELS.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label}
+                </option>
+              ))}
+            </optgroup>
           </select>
           <label className="block text-xs font-medium text-muted" htmlFor="faculty">
             Faculté (optionnel)

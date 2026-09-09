@@ -58,6 +58,12 @@ export const YEARS = [
   { year: 6, label: "6e année", focus: "Urgences, internat" },
 ] as const;
 
+export const PROFESSIONAL_LEVELS = [
+  { id: "intern", label: "Interne", focus: "Internat et gardes" },
+  { id: "junior", label: "Médecin junior", focus: "Début de pratique" },
+  { id: "senior", label: "Médecin senior", focus: "Pratique confirmée" },
+] as const;
+
 export const GOALS = [
   { id: "edn", label: "EDN / collèges" },
   { id: "internat", label: "Internat qualifiant" },

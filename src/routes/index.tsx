@@ -8,7 +8,7 @@ import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { CLINICAL_CASES } from "@/content/catalog";
-import { COMPETENCIES, COMPETENCY_LABEL } from "@/core/types";
+import { COMPETENCIES, COMPETENCY_LABEL, STUDY_LEVEL_LABEL } from "@/core/types";
 import { competencyMastery, globalMastery, masteryBand } from "@/core/mastery";
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
@@ -87,7 +87,7 @@ function Dashboard() {
             Bonjour{profile.displayName && profile.displayName !== "Invité" ? `, ${profile.displayName}` : ""}
           </h1>
           <p className="mt-1 text-sm text-muted">
-            {YEARS_SHORT[profile.studyYear] ?? "Cursus"} · {band.label} · ligue {league.label}
+            {(profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ?? YEARS_SHORT[profile.studyYear] ?? "Cursus"} · {band.label} · ligue {league.label}
           </p>
         </div>
         <Link

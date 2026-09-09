@@ -37,6 +37,7 @@ const defaultProfile = (): Profile => ({
   deviceId: "device-local",
   tier: "guest",
   studyYear: 5,
+  studyLevel: 5,
   country: "Madagascar",
   faculty: "",
   goal: "edn",
