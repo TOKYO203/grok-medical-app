@@ -53,3 +53,17 @@ test("the severe malaria case uses the WHO hypoglycaemia threshold consistently"
   assert.match(serialized, /< 2,2 mmol\/L/);
   assert.doesNotMatch(serialized, /0,62 g\/L/);
 });
+
+test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
+  const neuro = decks.find((deck) => deck.id === "neuro");
+  const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
+  assert.equal(neuro?.version, "2.1.0");
+  assert.ok(stroke, "stroke case missing");
+
+  const serialized = JSON.stringify([neuro, stroke]);
+  assert.match(serialized, /2026 Guideline for the Early Management/);
+  assert.match(serialized, /jusqu'à 24 h/);
+  assert.match(serialized, /dernière normalité/);
+  assert.doesNotMatch(serialized, /l'heure de début est le coucher/i);
+  assert.doesNotMatch(serialized, /Contre-indiquée : heure de début inconnue/i);
+});

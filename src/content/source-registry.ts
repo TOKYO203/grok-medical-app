@@ -66,6 +66,19 @@ const SOURCE_RULES: SourceRule[] = [
       verifiedAt: REVIEW_DATE,
     },
   },
+  {
+    matches: (source) =>
+      source.title === "AHA / ASA" &&
+      source.citation.includes("2026 Guideline for the Early Management"),
+    metadata: {
+      organization: "American Heart Association / American Stroke Association",
+      year: 2026,
+      version: "2026",
+      url: "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke",
+      doi: "10.1161/STR.0000000000000513",
+      verifiedAt: REVIEW_DATE,
+    },
+  },
 ];
 
 export function enrichSource(source: Source): Source {
