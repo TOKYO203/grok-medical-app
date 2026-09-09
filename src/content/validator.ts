@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { COMPETENCIES, type Deck, type Question } from "@/core/types";
+import { verifyDeckSignature } from "@/content/deck-signature";
 
 const sourceSchema = z.object({
   title: z.string().trim().min(1, "Chaque source doit avoir un titre"),
@@ -52,6 +53,26 @@ const deckSchema = z
     studyYear: z.number().int().optional(),
     difficulty: z.enum(["intro", "intermediate", "advanced", "base", "avance"]).optional(),
     competencies: z.array(z.enum(COMPETENCIES)).optional(),
+    access_policy: z
+      .object({
+        tier: z.enum(["free", "pro"]),
+        entitlement: z.string().trim().min(1),
+      })
+      .optional(),
+    license: z
+      .object({
+        optimus_id: z.string().trim().min(1),
+        product: z.string().trim().min(1),
+        expires_at: z.string().datetime().nullable().optional(),
+      })
+      .optional(),
+    signature: z
+      .object({
+        algorithm: z.literal("Ed25519"),
+        key_id: z.string().trim().min(1),
+        value: z.string().trim().min(32),
+      })
+      .optional(),
     questions: z.array(questionSchema).min(1, "Le deck doit contenir au moins une question"),
     sources: z.array(sourceSchema).optional(),
     metadata: z
@@ -94,7 +115,7 @@ export type ImportStep =
   | { id: string; label: string; ok: boolean; detail: string };
 
 export type ImportResult =
-  | { ok: true; deck: Deck; hash: string; steps: ImportStep[]; warnings: string[] }
+  | { ok: true; deck: Deck; hash: string; entitlement: string | null; steps: ImportStep[]; warnings: string[] }
   | { ok: false; steps: ImportStep[]; error: string };
 
 function toHex(buffer: ArrayBuffer): string {
@@ -106,7 +127,12 @@ export async function sha256Hex(text: string): Promise<string> {
   return toHex(await crypto.subtle.digest("SHA-256", encoded));
 }
 
-export async function importDeckJson(rawText: string, existingIds: string[]): Promise<ImportResult> {
+export async function importDeckJson(
+  rawText: string,
+  existingIds: string[],
+  optimusId?: string,
+  publicKey?: string,
+): Promise<ImportResult> {
   const steps: ImportStep[] = [];
   const warnings: string[] = [];
 
@@ -128,6 +154,34 @@ export async function importDeckJson(rawText: string, existingIds: string[]): Pr
   steps.push({ id: "schema", label: "Schéma", ok: true, detail: "Champs obligatoires présents" });
 
   const d = schema.data;
+  const premium = d.access_policy?.tier === "pro" || Boolean(d.license || d.signature);
+  let entitlement: string | null = null;
+
+  if (premium) {
+    if (!d.license || !d.signature || !d.access_policy || !optimusId || !publicKey) {
+      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Licence Premium incomplète" });
+      return { ok: false, steps, error: "Ce Deck Premium ne possède pas une licence vérifiable." };
+    }
+    if (d.license.optimus_id.toUpperCase() !== optimusId.toUpperCase()) {
+      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Optimus ID différent" });
+      return { ok: false, steps, error: "Ce Deck a été préparé pour un autre Optimus ID." };
+    }
+    if (d.license.product !== d.access_policy.entitlement) {
+      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Licence incohérente" });
+      return { ok: false, steps, error: "Le produit indiqué ne correspond pas au Deck." };
+    }
+    if (d.license.expires_at && Date.parse(d.license.expires_at) <= Date.now()) {
+      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Licence expirée" });
+      return { ok: false, steps, error: "La licence de ce Deck a expiré." };
+    }
+    const verified = await verifyDeckSignature(parsed as Record<string, unknown>, d.signature.value, publicKey);
+    if (!verified) {
+      steps.push({ id: "signature", label: "Signature", ok: false, detail: "Signature invalide" });
+      return { ok: false, steps, error: "La signature du Deck est invalide ou son contenu a été modifié." };
+    }
+    entitlement = d.access_policy.entitlement;
+    steps.push({ id: "signature", label: "Signature", ok: true, detail: `Deck authentique · ${d.license.optimus_id}` });
+  }
   const questions: Question[] = [];
   const seenPrompts = new Set<string>();
   let dupes = 0;
@@ -178,13 +232,10 @@ export async function importDeckJson(rawText: string, existingIds: string[]): Pr
 
   const hash = await sha256Hex(JSON.stringify({ title, questions: questions.map((q) => q.prompt) }));
   steps.push({ id: "hash", label: "Intégrité", ok: true, detail: `SHA-256 ${hash.slice(0, 12)}…` });
-  steps.push({
-    id: "signature",
-    label: "Signature",
-    ok: true,
-    detail: "Signature Ed25519 recommandée — absente, deck accepté en local (non authentifié)",
-  });
-  warnings.push("Sans signature serveur Ed25519, ce deck est accepté localement mais n'est pas authentifié.");
+  if (!premium) {
+    steps.push({ id: "signature", label: "Signature", ok: true, detail: "Deck personnel non signé" });
+    warnings.push("Ce Deck personnel n'est pas certifié par Optimus.");
+  }
 
   const difficultyRaw = d.difficulty ?? d.metadata?.difficulty ?? "intermediate";
   const difficulty =
@@ -209,11 +260,11 @@ export async function importDeckJson(rawText: string, existingIds: string[]): Pr
     icon: "book",
     questions,
     sources: d.sources ?? [],
-    access_policy: { tier: "free", entitlement: "OPTIMUS_FREE" },
+    access_policy: d.access_policy ?? { tier: "free", entitlement: "OPTIMUS_FREE" },
     chapters: [],
     imported: true,
   };
 
   steps.push({ id: "accept", label: "Acceptation", ok: true, detail: "Deck prêt à être étudié hors-ligne" });
-  return { ok: true, deck, hash, steps, warnings };
+  return { ok: true, deck, hash, entitlement, steps, warnings };
 }

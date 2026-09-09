@@ -12,6 +12,8 @@
     "postbuild:assets": "node scripts/copy-pglite-assets.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "license:issue": "node scripts/issue-activation-key.mjs",
+    "deck:sign": "node scripts/sign-deck.mjs",
+    "deck:keys": "node scripts/generate-deck-signing-keys.mjs",
     "build:dev": "node scripts/with-app-env.mjs vite build --mode development",
     "preview": "node scripts/with-app-env.mjs vite preview",
     "preview:restart": "node scripts/preview.mjs restart",

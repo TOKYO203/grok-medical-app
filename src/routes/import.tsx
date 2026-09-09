@@ -39,14 +39,22 @@ function ImportPage() {
   const [steps, setSteps] = useState<ImportStep[]>([]);
   const [warnings, setWarnings] = useState<string[]>([]);
   const importDeck = useOptimus((s) => s.importDeck);
+  const grantEntitlement = useOptimus((s) => s.grantEntitlement);
+  const profile = useOptimus((s) => s.profile);
   const decks = useAllDecks();
 
   async function run() {
-    const result = await importDeckJson(text, decks.map((d) => d.id));
+    const result = await importDeckJson(
+      text,
+      decks.map((d) => d.id),
+      profile.optimusId,
+      import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
+    );
     setSteps(result.steps);
     if (result.ok) {
       setWarnings(result.warnings);
       importDeck(result.deck);
+      if (result.entitlement) grantEntitlement(result.entitlement);
       toast.success(`${result.deck.title} accepté`);
     } else {
       setWarnings([]);
