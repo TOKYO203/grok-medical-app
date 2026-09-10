@@ -127,7 +127,7 @@ function Dashboard() {
         </Link>
       </div>
 
-      <section className="mt-6 overflow-hidden rounded-[var(--radius-xl)] bg-primary p-5 text-primary-fg shadow-[var(--shadow-md)]">
+      <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
         <div className="flex items-center gap-5">
           <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
           <div className="min-w-0 flex-1">

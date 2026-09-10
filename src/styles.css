@@ -14,8 +14,8 @@
   --color-subtle: #6b756f;
   --color-border: color-mix(in oklab, var(--color-fg) 12%, transparent);
   --color-border-strong: color-mix(in oklab, var(--color-fg) 22%, transparent);
-  --color-primary: #3d8f6b;
-  --color-primary-fg: #07140e;
+  --color-primary: #4dae82;
+  --color-primary-fg: #06120d;
   --color-primary-soft: color-mix(in oklab, var(--color-primary) 18%, transparent);
   --color-accent: #c45c4a;
   --color-paper: #e7ede8;
@@ -39,6 +39,7 @@
 
   --shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--color-fg) 12%, transparent);
   --shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
+  --shadow-md: 0 24px 64px -32px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.08);
 
   --motion-stagger: 40ms;
   --motion-micro: 80ms;
@@ -58,7 +59,11 @@
 
   body {
     min-height: 100dvh;
-    background: var(--color-bg);
+    background:
+      radial-gradient(70rem 34rem at 85% -8%, rgb(77 174 130 / 0.1), transparent 60%),
+      radial-gradient(42rem 28rem at -12% 45%, rgb(61 143 107 / 0.06), transparent 65%),
+      var(--color-bg);
+    background-attachment: fixed;
     color: var(--color-fg);
     font-family: var(--font-sans);
   }
@@ -86,6 +91,52 @@
   }
 }
 
+@layer components {
+  .premium-hero {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 88% 12%, rgb(255 255 255 / 0.2), transparent 28%),
+      radial-gradient(circle at 14% 120%, rgb(7 20 14 / 0.28), transparent 42%),
+      linear-gradient(135deg, #4dae82 0%, #2f7f5d 100%);
+  }
+
+  .premium-hero::after {
+    position: absolute;
+    z-index: -1;
+    top: -4.5rem;
+    right: -3.5rem;
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: 999px;
+    content: "";
+  }
+}
+
+@keyframes page-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > * {
+  animation: page-reveal var(--motion-medium) var(--ease-out) both;
+}
+
+main > :nth-child(2) {
+  animation-delay: var(--motion-stagger);
+}
+
+main > :nth-child(3) {
+  animation-delay: calc(var(--motion-stagger) * 2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -98,19 +149,31 @@
 
 .cover-hautes-terres {
   background:
-    radial-gradient(120% 80% at 80% 120%, color-mix(in oklab, var(--color-primary) 35%, transparent), transparent 55%),
+    radial-gradient(
+      120% 80% at 80% 120%,
+      color-mix(in oklab, var(--color-primary) 35%, transparent),
+      transparent 55%
+    ),
     linear-gradient(180deg, #1a2a22 0%, #0e1612 100%);
 }
 
 .cover-baobab {
   background:
-    radial-gradient(60% 50% at 20% 110%, color-mix(in oklab, #c4a35a 22%, transparent), transparent 50%),
+    radial-gradient(
+      60% 50% at 20% 110%,
+      color-mix(in oklab, #c4a35a 22%, transparent),
+      transparent 50%
+    ),
     linear-gradient(165deg, #152019 0%, #0c1110 70%);
 }
 
 .cover-canal {
   background:
-    radial-gradient(90% 70% at 100% 0%, color-mix(in oklab, #3a6e78 40%, transparent), transparent 50%),
+    radial-gradient(
+      90% 70% at 100% 0%,
+      color-mix(in oklab, #3a6e78 40%, transparent),
+      transparent 50%
+    ),
     linear-gradient(180deg, #102018 0%, #0c1110 100%);
 }
 
