@@ -55,3 +55,21 @@ preuves d’activation, ainsi que les clés Deck séparées pour les fichiers Pr
 
 À chaque démarrage, un Deck Premium importé est revérifié puis reconstruit depuis son enveloppe
 signée. Une copie modifiée, expirée ou vérifiée avec une autre clé reste verrouillée.
+
+Pour une livraison Premium résistante à la copie, l’acheteur ouvre **Importer un Deck** et copie sa
+demande d’achat sécurisée. Enregistrez cette demande dans `demande-appareil.json`, puis générez le
+fichier à lui envoyer :
+
+```bash
+npm run deck:encrypt -- \
+  --input deck-source.json \
+  --output deck-client.json \
+  --request demande-appareil.json \
+  --product NEURO_DECK_01 \
+  --days 365
+```
+
+Le contenu est chiffré en AES-256-GCM. Sa clé est elle-même protégée par la clé RSA non exportable
+de l’appareil, et l’ensemble est signé en Ed25519. L’application ne conserve que l’enveloppe
+chiffrée et ses métadonnées sur le disque — jamais les questions en clair — puis reconstruit le
+contenu en mémoire après vérification.

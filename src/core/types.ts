@@ -84,7 +84,7 @@ export type AccessPolicy = {
 };
 
 export type DeckImportProof = {
-  format: "optimus-signed-v1";
+  format: "optimus-signed-v1" | "optimus-encrypted-v1";
   envelope: string;
 };
 

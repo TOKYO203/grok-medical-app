@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { BUILTIN_DECKS } from "@/content/catalog";
+import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
 import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
 import { revalidateImportedDeck } from "@/content/validator";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
@@ -24,7 +25,10 @@ import { todayKey, uid } from "@/lib/utils";
 function makeOptimusId(): string {
   const bytes = new Uint8Array(4);
   crypto.getRandomValues(bytes);
-  const hex = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("").toUpperCase();
+  const hex = [...bytes]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
   return `OM-${hex}`;
 }
 
@@ -133,7 +137,10 @@ function unlockBadges(state: PersistShape): BadgeId[] {
     if (qs.length >= 6) {
       const acc =
         qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0), 0) /
-        Math.max(1, qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0) + (seen[q.id]?.wrong ?? 0), 0));
+        Math.max(
+          1,
+          qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0) + (seen[q.id]?.wrong ?? 0), 0),
+        );
       if (acc >= 0.9) add("cardio90");
     }
   }
@@ -165,16 +172,20 @@ function isStoredDeck(value: unknown): value is Deck {
 
 function restoreStoredDecks(value: unknown): Deck[] {
   if (!Array.isArray(value)) return [];
-  return value.filter(isStoredDeck).map((deck) =>
-    deck.imported && (deck.importProof || deck.access_policy.tier === "pro")
-      ? { ...deck, importVerified: false }
-      : deck,
-  );
+  return value
+    .filter(isStoredDeck)
+    .map((deck) =>
+      deck.imported && (deck.importProof || deck.access_policy.tier === "pro")
+        ? { ...deck, importVerified: false }
+        : deck,
+    );
 }
 
 function deckForPersistence(deck: Deck): Deck {
   const { importVerified: _importVerified, ...persisted } = deck;
-  return persisted;
+  return deck.importProof?.format === "optimus-encrypted-v1"
+    ? { ...persisted, questions: [], sources: [], chapters: [] }
+    : persisted;
 }
 
 function receiptEntitlement(receipt: LicenseReceipt): Entitlement {
@@ -276,12 +287,20 @@ export const useOptimus = create<OptimusState>()(
           freeEntitlement(),
           ...(licensePublicKey ? verified.map(receiptEntitlement) : []),
         ];
+        const needsDeviceKey = state.importedDecks.some(
+          (deck) => deck.importProof?.format === "optimus-encrypted-v1",
+        );
+        const encryptionIdentity = needsDeviceKey ? await getDeviceEncryptionIdentity(false) : null;
+        const deckDevice = encryptionIdentity
+          ? { ...encryptionIdentity, deviceId: state.profile.deviceId }
+          : undefined;
         const importedDecks = await Promise.all(
           state.importedDecks.map((deck) =>
             revalidateImportedDeck(
               deck,
               state.profile.optimusId,
               import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
+              deckDevice,
             ),
           ),
         );
@@ -374,7 +393,8 @@ export const useOptimus = create<OptimusState>()(
               : { key: today, answered: 1, xp };
           const weeklyXp = s.weeklyKey === wk ? s.weeklyXp + xp : xp;
           const streak = bumpStreak(s.lastActiveDay, today, s.streak || 0);
-          const reviewsSucceeded = mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
+          const reviewsSucceeded =
+            mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
           const event: SyncEvent = {
             id: uid("evt"),
             type: mode === "revue" ? "REVIEW_COMPLETED" : "QUESTION_ANSWERED",
@@ -419,7 +439,8 @@ export const useOptimus = create<OptimusState>()(
           const deckProg: DeckProgress = progress[deckId]
             ? { ...progress[deckId], completedLessons: [...progress[deckId].completedLessons] }
             : { seen: {}, completedLessons: [] };
-          if (!deckProg.completedLessons.includes(lessonIndex)) deckProg.completedLessons.push(lessonIndex);
+          if (!deckProg.completedLessons.includes(lessonIndex))
+            deckProg.completedLessons.push(lessonIndex);
           progress[deckId] = deckProg;
           return { progress };
         }),
@@ -453,7 +474,10 @@ export const useOptimus = create<OptimusState>()(
         }),
       enqueue: (type, payload) =>
         set((s) => ({
-          syncQueue: [...s.syncQueue, { id: uid("evt"), type, payload, createdAt: Date.now(), synced: false }],
+          syncQueue: [
+            ...s.syncQueue,
+            { id: uid("evt"), type, payload, createdAt: Date.now(), synced: false },
+          ],
         })),
       markQueueSynced: () =>
         set((s) => ({
@@ -462,7 +486,13 @@ export const useOptimus = create<OptimusState>()(
         })),
       addContact: (kind, body) =>
         set((s) => {
-          const draft: ContactDraft = { id: uid("msg"), kind, body, createdAt: Date.now(), sent: false };
+          const draft: ContactDraft = {
+            id: uid("msg"),
+            kind,
+            body,
+            createdAt: Date.now(),
+            sent: false,
+          };
           return {
             contacts: [...s.contacts, draft],
             syncQueue: [
@@ -477,11 +507,18 @@ export const useOptimus = create<OptimusState>()(
             ],
           };
         }),
-      resetLocal: () => set({ ...persistDefaults, hydrated: true, profile: { ...defaultProfile(), onboarded: false } }),
+      resetLocal: () =>
+        set({
+          ...persistDefaults,
+          hydrated: true,
+          profile: { ...defaultProfile(), onboarded: false },
+        }),
     }),
     {
       name: "optimus-v2",
-      storage: createJSONStorage(() => (typeof window === "undefined" ? memoryStorage : localStorage)),
+      storage: createJSONStorage(() =>
+        typeof window === "undefined" ? memoryStorage : localStorage,
+      ),
       partialize: (s): PersistShape => ({
         ...pickPersist(s),
         importedDecks: s.importedDecks.map(deckForPersistence),
@@ -529,7 +566,8 @@ export function hasAccess(deck: Deck, entitlements: Entitlement[], _tier: Accoun
     return (
       deck.importVerified === true &&
       (deck.importLicenseExpiresAt === null ||
-        (typeof deck.importLicenseExpiresAt === "number" && deck.importLicenseExpiresAt > Date.now()))
+        (typeof deck.importLicenseExpiresAt === "number" &&
+          deck.importLicenseExpiresAt > Date.now()))
     );
   }
   if (deck.access_policy.tier === "free") return true;

@@ -1,5 +1,10 @@
 import { z } from "zod";
 import { COMPETENCIES, type Deck, type Question } from "../core/types.ts";
+import {
+  decryptDeckCipher,
+  type DeviceEncryptionIdentity,
+  type EncryptedDeckCipher,
+} from "./device-encryption.ts";
 import { verifyDeckSignature } from "./deck-signature.ts";
 
 const sourceSchema = z.object({
@@ -121,6 +126,39 @@ const deckSchema = z
     }
   });
 
+const encryptedDeckSchema = z.object({
+  format: z.literal("optimus-encrypted-v1"),
+  schema_version: z.literal(1),
+  deck: z.object({
+    deck_id: z.string().trim().min(1),
+    title: z.string().trim().min(2),
+    version: z.string().trim().min(1),
+  }),
+  access_policy: z.object({
+    tier: z.literal("pro"),
+    entitlement: z.string().trim().min(1),
+  }),
+  license: z.object({
+    optimus_id: z.string().trim().min(1),
+    device_id: z.string().trim().min(1),
+    device_key_id: z.string().trim().min(1),
+    product: z.string().trim().min(1),
+    expires_at: z.string().datetime().nullable(),
+  }),
+  encryption: z.object({
+    algorithm: z.literal("AES-256-GCM"),
+    key_wrap: z.literal("RSA-OAEP-256"),
+    iv: z.string().trim().min(16),
+    wrapped_key: z.string().trim().min(128),
+    ciphertext: z.string().trim().min(32),
+  }),
+  signature: z.object({
+    algorithm: z.literal("Ed25519"),
+    key_id: z.literal("optimus-decks-v1"),
+    value: z.string().trim().min(64),
+  }),
+});
+
 function slugify(value: string): string {
   return value
     .normalize("NFD")
@@ -164,6 +202,7 @@ export async function importDeckJson(
   existingIds: string[],
   optimusId?: string,
   publicKey?: string,
+  device?: DeviceEncryptionIdentity & { deviceId: string },
 ): Promise<ImportResult> {
   const steps: ImportStep[] = [];
   const warnings: string[] = [];
@@ -175,6 +214,22 @@ export async function importDeckJson(
   } catch {
     steps.push({ id: "json", label: "JSON", ok: false, detail: "JSON invalide" });
     return { ok: false, steps, error: "Le fichier n'est pas un JSON valide." };
+  }
+
+  if (
+    parsed &&
+    typeof parsed === "object" &&
+    (parsed as Record<string, unknown>).format === "optimus-encrypted-v1"
+  ) {
+    return importEncryptedDeckJson(
+      rawText,
+      parsed,
+      existingIds,
+      optimusId,
+      publicKey,
+      device,
+      steps,
+    );
   }
 
   const schema = deckSchema.safeParse(parsed);
@@ -357,6 +412,7 @@ export async function revalidateImportedDeck(
   deck: Deck,
   optimusId: string,
   publicKey?: string,
+  device?: DeviceEncryptionIdentity & { deviceId: string },
 ): Promise<Deck> {
   if (!deck.imported) return deck;
 
@@ -364,18 +420,147 @@ export async function revalidateImportedDeck(
   if (!deck.importProof) {
     return deck.access_policy.tier === "free" ? deck : locked;
   }
-  if (
-    !publicKey ||
-    deck.importProof.format !== "optimus-signed-v1" ||
-    !deck.importProof.envelope
-  ) {
+  if (!publicKey || !deck.importProof.envelope) {
     return locked;
   }
+  if (deck.importProof.format === "optimus-encrypted-v1" && !device) return locked;
 
   try {
-    const result = await importDeckJson(deck.importProof.envelope, [], optimusId, publicKey);
+    const result = await importDeckJson(
+      deck.importProof.envelope,
+      [],
+      optimusId,
+      publicKey,
+      device,
+    );
     return result.ok ? result.deck : locked;
   } catch {
     return locked;
   }
+}
+
+async function importEncryptedDeckJson(
+  rawText: string,
+  parsed: unknown,
+  existingIds: string[],
+  optimusId: string | undefined,
+  publicKey: string | undefined,
+  device: (DeviceEncryptionIdentity & { deviceId: string }) | undefined,
+  steps: ImportStep[],
+): Promise<ImportResult> {
+  const schema = encryptedDeckSchema.safeParse(parsed);
+  if (!schema.success) {
+    const message = schema.error.issues[0]?.message ?? "Format chiffré invalide";
+    steps.push({ id: "schema", label: "Format chiffré", ok: false, detail: message });
+    return { ok: false, steps, error: `Le fichier Premium est incomplet : ${message}.` };
+  }
+  steps.push({
+    id: "schema",
+    label: "Format chiffré",
+    ok: true,
+    detail: "Enveloppe Optimus v1 reconnue",
+  });
+
+  const encrypted = schema.data;
+  if (!optimusId || encrypted.license.optimus_id.toUpperCase() !== optimusId.toUpperCase()) {
+    steps.push({ id: "owner", label: "Propriétaire", ok: false, detail: "Optimus ID différent" });
+    return { ok: false, steps, error: "Ce Deck a été préparé pour un autre Optimus ID." };
+  }
+  if (
+    encrypted.license.product !== encrypted.access_policy.entitlement ||
+    (encrypted.license.expires_at && Date.parse(encrypted.license.expires_at) <= Date.now())
+  ) {
+    steps.push({
+      id: "license",
+      label: "Licence",
+      ok: false,
+      detail: "Licence invalide ou expirée",
+    });
+    return { ok: false, steps, error: "La licence de ce Deck est invalide ou expirée." };
+  }
+  if (
+    !device ||
+    encrypted.license.device_id !== device.deviceId ||
+    encrypted.license.device_key_id !== device.keyId
+  ) {
+    steps.push({ id: "device", label: "Appareil", ok: false, detail: "Appareil non autorisé" });
+    return { ok: false, steps, error: "Ce Deck Premium est verrouillé sur un autre appareil." };
+  }
+  steps.push({
+    id: "device",
+    label: "Appareil",
+    ok: true,
+    detail: "Clé privée locale reconnue",
+  });
+
+  if (
+    !publicKey ||
+    !(await verifyDeckSignature(
+      parsed as Record<string, unknown>,
+      encrypted.signature.value,
+      publicKey,
+    ))
+  ) {
+    steps.push({ id: "signature", label: "Signature", ok: false, detail: "Signature invalide" });
+    return {
+      ok: false,
+      steps,
+      error: "Le fichier chiffré a été modifié ou n'est pas authentique.",
+    };
+  }
+  steps.push({
+    id: "signature",
+    label: "Signature",
+    ok: true,
+    detail: `Deck authentique · ${encrypted.license.optimus_id}`,
+  });
+
+  let decrypted: string;
+  try {
+    decrypted = await decryptDeckCipher(
+      encrypted.encryption as EncryptedDeckCipher,
+      device.privateKey,
+    );
+  } catch {
+    steps.push({ id: "decryption", label: "Déchiffrement", ok: false, detail: "Clé refusée" });
+    return {
+      ok: false,
+      steps,
+      error: "Impossible d'ouvrir ce Deck : la clé de cet appareil ne correspond pas.",
+    };
+  }
+  steps.push({
+    id: "decryption",
+    label: "Déchiffrement",
+    ok: true,
+    detail: "Contenu ouvert uniquement sur cet appareil",
+  });
+
+  const inner = await importDeckJson(decrypted, existingIds, optimusId, publicKey, device);
+  const innerSteps = inner.steps.map((step) => ({ ...step, id: `contenu-${step.id}` }));
+  if (!inner.ok) return { ...inner, steps: [...steps, ...innerSteps] };
+
+  if (
+    inner.deck.id !== encrypted.deck.deck_id ||
+    inner.deck.title !== encrypted.deck.title ||
+    inner.deck.version !== encrypted.deck.version ||
+    inner.entitlement !== encrypted.access_policy.entitlement
+  ) {
+    steps.push({ id: "binding", label: "Cohérence", ok: false, detail: "Métadonnées différentes" });
+    return {
+      ok: false,
+      steps: [...steps, ...innerSteps],
+      error: "Le contenu ne correspond pas aux métadonnées du fichier chiffré.",
+    };
+  }
+
+  return {
+    ...inner,
+    deck: {
+      ...inner.deck,
+      importProof: { format: "optimus-encrypted-v1", envelope: rawText },
+      importVerified: true,
+    },
+    steps: [...steps, ...innerSteps],
+  };
 }
