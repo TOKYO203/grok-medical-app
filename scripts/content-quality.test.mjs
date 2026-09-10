@@ -57,7 +57,7 @@ test("the severe malaria case uses the WHO hypoglycaemia threshold consistently"
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
-  assert.equal(neuro?.version, "2.1.0");
+  assert.equal(neuro?.version, "2.2.0");
   assert.ok(stroke, "stroke case missing");
 
   const serialized = JSON.stringify([neuro, stroke]);
@@ -66,4 +66,24 @@ test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   assert.match(serialized, /dernière normalité/);
   assert.doesNotMatch(serialized, /l'heure de début est le coucher/i);
   assert.doesNotMatch(serialized, /Contre-indiquée : heure de début inconnue/i);
+});
+
+test("reviewed neurological emergencies preserve operational priorities", () => {
+  const neuro = decks.find((deck) => deck.id === "neuro");
+  const seizure = neuro?.questions.find((question) => question.id === "ne-3");
+  const myasthenia = neuro?.questions.find((question) => question.id === "ne-6");
+
+  assert.equal(seizure?.choices[seizure.correct], "5 minutes");
+  assert.match(seizure?.explanation ?? "", /t1 = 5 minutes/);
+  assert.match(seizure?.explanation ?? "", /t2 = 30 minutes/);
+  assert.deepEqual(
+    seizure?.sources.map((source) => source.title),
+    ["ILAE", "American Epilepsy Society"],
+  );
+
+  assert.match(myasthenia?.explanation ?? "", /surveillance en soins intensifs/);
+  assert.match(myasthenia?.explanation ?? "", /échanges plasmatiques/);
+  assert.match(myasthenia?.explanation ?? "", /immunoglobulines IV/);
+  assert.ok(myasthenia?.sources.some((source) => source.title === "MGFA"));
+  assert.doesNotMatch(JSON.stringify([seizure, myasthenia]), /lésions irréversibles/);
 });

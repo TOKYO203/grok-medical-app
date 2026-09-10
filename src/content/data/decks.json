@@ -604,7 +604,7 @@
   {
     "schemaVersion": 2,
     "id": "neuro",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Neurologie",
     "subtitle": "AVC, épilepsie, dégénératif",
     "subject": "Neurologie",
@@ -664,18 +664,18 @@
       },
       {
         "id": "ne-3",
-        "prompt": "Un état de mal convulsif généralisé se définit, entre autres, par une crise de plus de :",
+        "prompt": "Pour un état de mal tonico-clonique, à partir de quel délai faut-il débuter le traitement en urgence ?",
         "choices": ["30 secondes", "2 minutes", "5 minutes", "30 minutes"],
         "correct": 2,
-        "explanation": "Le seuil opérationnel actuel est 5 minutes (et 30 min pour le risque de lésions irréversibles). La première ligne est une benzodiazépine.",
+        "explanation": "Pour l'état de mal tonico-clonique, le repère opérationnel t1 = 5 minutes indique le moment où le traitement doit commencer ; t2 = 30 minutes correspond au délai au-delà duquel des conséquences à long terme peuvent apparaître. Une benzodiazépine à dose adéquate constitue le traitement médicamenteux initial, en parallèle des mesures de réanimation et de la recherche de la cause.",
         "sources": [
           {
-            "title": "Collège de Neurologie",
-            "citation": "Référentiel national DES / EDN de neurologie."
+            "title": "ILAE",
+            "citation": "A definition and classification of status epilepticus — Report of the ILAE Task Force, 2015."
           },
           {
-            "title": "SFAR",
-            "citation": "Recommandations formalisées d'experts — urgences vitales."
+            "title": "American Epilepsy Society",
+            "citation": "Evidence-Based Guideline: Treatment of Convulsive Status Epilepticus in Children and Adults, 2016."
           }
         ],
         "difficulty": "base",
@@ -731,19 +731,19 @@
       },
       {
         "id": "ne-6",
-        "prompt": "Le traitement de première intention d'une crise de myasthénie grave respiratoire est :",
+        "prompt": "Devant une crise myasthénique avec atteinte respiratoire, la priorité est :",
         "choices": [
-          "Une corticothérapie orale seule à domicile",
-          "La prise en charge ventilatoire ± échanges plasmatiques ou IVIG",
+          "Augmenter uniquement la pyridostigmine à domicile",
+          "Sécuriser la ventilation en soins intensifs et engager des échanges plasmatiques ou des IgIV",
           "La L-dopa à forte dose",
-          "Un anti-épileptique d'emblée"
+          "Administrer de l'oxygène seul jusqu'à disparition de la faiblesse"
         ],
         "correct": 1,
-        "explanation": "L'urgence est ventilatoire (CV, gaz du sang, déglutition). Les échanges ou les IgIV traitent la crise ; les anticholinestérasiques ne suffisent pas.",
+        "explanation": "La crise myasthénique est une défaillance respiratoire et/ou bulbaire potentiellement mortelle. Elle impose une surveillance en soins intensifs, l'évaluation répétée de la ventilation et une assistance non invasive ou une intubation si nécessaire. Les échanges plasmatiques ou les immunoglobulines IV sont les traitements immunomodulateurs rapides ; les anticholinestérasiques seuls ne suffisent pas.",
         "sources": [
           {
-            "title": "Harrison's",
-            "citation": "Principles of Internal Medicine, 21e éd."
+            "title": "MGFA",
+            "citation": "International Consensus Guidance for Management of Myasthenia Gravis, 2016."
           },
           {
             "title": "Collège de Neurologie",
@@ -806,6 +806,18 @@
       {
         "title": "AHA / ASA",
         "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+      },
+      {
+        "title": "ILAE",
+        "citation": "A definition and classification of status epilepticus — Report of the ILAE Task Force, 2015."
+      },
+      {
+        "title": "American Epilepsy Society",
+        "citation": "Evidence-Based Guideline: Treatment of Convulsive Status Epilepticus in Children and Adults, 2016."
+      },
+      {
+        "title": "MGFA",
+        "citation": "International Consensus Guidance for Management of Myasthenia Gravis, 2016."
       },
       {
         "title": "Collège de Neurologie",

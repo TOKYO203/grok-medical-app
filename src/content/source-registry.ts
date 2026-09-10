@@ -1,6 +1,7 @@
 import type { Source } from "@/core/types";
 
 const REVIEW_DATE = "2026-09-09";
+const NEURO_REVIEW_DATE = "2026-09-10";
 
 type SourceRule = {
   matches: (source: Source) => boolean;
@@ -77,6 +78,43 @@ const SOURCE_RULES: SourceRule[] = [
       url: "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke",
       doi: "10.1161/STR.0000000000000513",
       verifiedAt: REVIEW_DATE,
+    },
+  },
+  {
+    matches: (source) =>
+      source.title === "ILAE" && source.citation.includes("definition and classification"),
+    metadata: {
+      organization: "International League Against Epilepsy",
+      year: 2015,
+      version: "ILAE 2015",
+      url: "https://pubmed.ncbi.nlm.nih.gov/26336950/",
+      doi: "10.1111/epi.13121",
+      verifiedAt: NEURO_REVIEW_DATE,
+    },
+  },
+  {
+    matches: (source) =>
+      source.title === "American Epilepsy Society" &&
+      source.citation.includes("Treatment of Convulsive Status Epilepticus"),
+    metadata: {
+      organization: "American Epilepsy Society",
+      year: 2016,
+      version: "AES 2016",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4749120/",
+      doi: "10.5698/1535-7597-16.1.48",
+      verifiedAt: NEURO_REVIEW_DATE,
+    },
+  },
+  {
+    matches: (source) =>
+      source.title === "MGFA" && source.citation.includes("International Consensus Guidance"),
+    metadata: {
+      organization: "Myasthenia Gravis Foundation of America",
+      year: 2016,
+      version: "Consensus international 2016",
+      url: "https://myasthenia.org/myasthenia-gravis-treatments/",
+      doi: "10.1212/WNL.0000000000002790",
+      verifiedAt: NEURO_REVIEW_DATE,
     },
   },
 ];
