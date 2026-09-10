@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowRight,
   Calculator,
+  ChevronRight,
   ClipboardCheck,
   Flame,
   Lock,
@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { CLINICAL_CASES } from "@/content/catalog";
 import { COMPETENCIES, COMPETENCY_LABEL, STUDY_LEVEL_LABEL } from "@/core/types";
-import { competencyMastery, globalMastery, masteryBand } from "@/core/mastery";
+import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "@/core/mastery";
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
@@ -83,9 +83,21 @@ function Dashboard() {
       (s) => d.subject.toLowerCase().includes(s.toLowerCase()) || d.title.includes(s),
     ),
   );
-  const featured = priority[0] ?? unlocked[0];
+  const resumed = unlocked
+    .map((deck) => ({
+      deck,
+      lastReview: Math.max(
+        0,
+        ...Object.values(progress[deck.id]?.seen ?? {}).map((item) => item.lastReview ?? 0),
+      ),
+    }))
+    .sort((a, b) => b.lastReview - a.lastReview)
+    .find((item) => item.lastReview > 0)?.deck;
+  const featured = resumed ?? priority[0] ?? unlocked[0];
+  const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
   const dailyGoal = 10;
   const dailyPct = Math.min(100, Math.round((daily.answered / dailyGoal) * 100));
+  const remaining = Math.max(0, dailyGoal - daily.answered);
 
   return (
     <Page>
@@ -115,48 +127,66 @@ function Dashboard() {
         </Link>
       </div>
 
-      <section className="mt-6 rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
-              Priorité du jour
+      <section className="mt-6 overflow-hidden rounded-[var(--radius-xl)] bg-primary p-5 text-primary-fg shadow-[var(--shadow-md)]">
+        <div className="flex items-center gap-5">
+          <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] opacity-75">
+              Session du jour
             </p>
             <h2 className="mt-1 font-display text-2xl font-medium tracking-tight">
-              {daily.answered >= dailyGoal
+              {remaining === 0
                 ? "Objectif atteint"
                 : daily.answered > 0
-                  ? "Continuez votre session"
-                  : "Commencez votre session"}
+                  ? `${remaining} question${remaining > 1 ? "s" : ""} restante${remaining > 1 ? "s" : ""}`
+                  : "Prêt pour 10 minutes ?"}
             </h2>
-            <p className="mt-1 text-sm text-muted">
-              {daily.answered}/{dailyGoal} questions · {daily.xp} XP gagnés aujourd’hui
+            <p className="mt-1 text-sm opacity-75">
+              {daily.xp > 0
+                ? `${daily.xp} XP gagnés aujourd’hui`
+                : "Une courte session, puis c’est fait."}
             </p>
           </div>
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-fg">
-            <Zap className="size-5" />
-          </span>
         </div>
-        <Progress className="mt-4 bg-bg/50" value={dailyPct} />
         {todayItems.length > 0 ? (
           <Link to="/revue" search={{ mode: "today" }} className="mt-4 block">
-            <Button className="w-full">
+            <Button className="w-full bg-bg text-fg hover:bg-bg/90">
               {daily.answered > 0
-                ? "Reprendre ma session"
+                ? "Continuer la session"
                 : `Commencer · ${todayItems.length} questions`}
+              <ChevronRight className="size-4" />
             </Button>
           </Link>
         ) : (
           <Link to="/parcours" className="mt-4 block">
-            <Button className="w-full">Explorer un Deck</Button>
+            <Button className="w-full bg-bg text-fg hover:bg-bg/90">Explorer un Deck</Button>
           </Link>
         )}
       </section>
 
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        <StatChip
+          icon={<Flame className="size-4 text-primary" />}
+          label="Série"
+          value={`${streak} j`}
+        />
+        <StatChip
+          icon={<Zap className="size-4 text-primary" />}
+          label="Aujourd’hui"
+          value={`${daily.xp} XP`}
+        />
+        <StatChip
+          icon={<Sparkles className="size-4 text-primary" />}
+          label="Niveau"
+          value={`${lvl.level}`}
+        />
+      </div>
+
       {featured ? (
-        <section className="mt-8">
+        <section className="mt-7">
           <SectionTitle
-            kicker="Votre parcours"
-            title="Continuer à apprendre"
+            kicker="Prochaine étape"
+            title={resumed ? "Reprendre votre Deck" : "Deck conseillé"}
             action={
               <Link to="/parcours" className="text-sm text-muted hover:text-fg">
                 Tout voir
@@ -166,16 +196,24 @@ function Dashboard() {
           <Link
             to="/parcours/$deckId"
             params={{ deckId: featured.id }}
-            className="flex items-center gap-4 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+            className="group block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
           >
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-secondary text-primary">
-              <DeckIcon name={featured.icon} />
+            <span className="flex items-center gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft text-primary">
+                <DeckIcon name={featured.icon} />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate font-medium">{featured.title}</span>
+                <span className="mt-0.5 block truncate text-sm text-muted">
+                  {featured.subtitle}
+                </span>
+              </span>
+              <ChevronRight className="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
             </span>
-            <span className="min-w-0 flex-1">
-              <span className="block truncate font-medium">{featured.title}</span>
-              <span className="mt-0.5 block truncate text-sm text-muted">{featured.subtitle}</span>
+            <span className="mt-4 flex items-center gap-3">
+              <Progress className="h-1.5 flex-1" value={featuredProgress} />
+              <span className="font-mono text-xs tabular-nums text-muted">{featuredProgress}%</span>
             </span>
-            <ArrowRight className="size-5 shrink-0 text-muted" />
           </Link>
         </section>
       ) : null}
@@ -211,32 +249,13 @@ function Dashboard() {
       </section>
 
       <section className="mt-8">
-        <SectionTitle kicker="Vue d’ensemble" title="Votre progression" />
-        <div className="grid grid-cols-3 gap-2">
-          <StatChip
-            icon={<Flame className="size-4 text-primary" />}
-            label="Série"
-            value={String(streak)}
-          />
-          <StatChip
-            icon={<Zap className="size-4 text-primary" />}
-            label="XP"
-            value={formatInt(xp)}
-          />
-          <StatChip
-            icon={<Sparkles className="size-4 text-primary" />}
-            label="Niv."
-            value={`${lvl.level}`}
-          />
-        </div>
-        <div className="mt-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+        <SectionTitle kicker="Progression" title="Votre niveau clinique" />
+        <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted">
               Niveau {lvl.level} · {lvl.title}
             </span>
-            <span className="font-mono text-xs tabular-nums text-muted">
-              {lvl.xpInto}/{lvl.xpForNext}
-            </span>
+            <span className="font-mono text-xs tabular-nums text-muted">{formatInt(xp)} XP</span>
           </div>
           <Progress className="mt-2" value={lvl.progress} />
           <div className="mt-4 flex items-center justify-between text-sm">
@@ -344,6 +363,58 @@ function StatChip({ icon, label, value }: { icon: ReactNode; label: string; valu
         <p className="text-[11px] font-medium uppercase tracking-wider text-muted">{label}</p>
         <p className="truncate font-mono text-sm tabular-nums">{value}</p>
       </div>
+    </div>
+  );
+}
+
+function DailyProgress({
+  value,
+  answered,
+  goal,
+}: {
+  value: number;
+  answered: number;
+  goal: number;
+}) {
+  const radius = 28;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (value / 100) * circumference;
+
+  return (
+    <div
+      className="relative size-[4.5rem] shrink-0"
+      role="progressbar"
+      aria-label="Objectif quotidien"
+      aria-valuemin={0}
+      aria-valuemax={goal}
+      aria-valuenow={Math.min(answered, goal)}
+    >
+      <svg className="size-full -rotate-90" viewBox="0 0 72 72" aria-hidden="true">
+        <circle
+          cx="36"
+          cy="36"
+          r={radius}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="6"
+          className="opacity-20"
+        />
+        <circle
+          cx="36"
+          cy="36"
+          r={radius}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+        />
+      </svg>
+      <span className="absolute inset-0 flex flex-col items-center justify-center leading-none">
+        <strong className="font-display text-xl font-medium">{answered}</strong>
+        <span className="mt-1 text-[11px] opacity-70">sur {goal}</span>
+      </span>
     </div>
   );
 }
