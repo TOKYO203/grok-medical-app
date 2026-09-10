@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { BUILTIN_DECKS } from "@/content/catalog";
 import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
+import { revalidateImportedDeck } from "@/content/validator";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { applyReview, emptyStats } from "@/core/spaced-repetition";
 import { leagueFromWeeklyXp, type LeagueId } from "@/core/scoring";
@@ -150,6 +151,32 @@ function freeEntitlement(): Entitlement {
   return { id: "ent-free", product: "OPTIMUS_FREE", issuedAt: 0, expiresAt: null };
 }
 
+function isStoredDeck(value: unknown): value is Deck {
+  if (!value || typeof value !== "object") return false;
+  const deck = value as Partial<Deck>;
+  return (
+    typeof deck.id === "string" &&
+    typeof deck.title === "string" &&
+    Array.isArray(deck.questions) &&
+    Boolean(deck.access_policy) &&
+    (deck.access_policy?.tier === "free" || deck.access_policy?.tier === "pro")
+  );
+}
+
+function restoreStoredDecks(value: unknown): Deck[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter(isStoredDeck).map((deck) =>
+    deck.imported && (deck.importProof || deck.access_policy.tier === "pro")
+      ? { ...deck, importVerified: false }
+      : deck,
+  );
+}
+
+function deckForPersistence(deck: Deck): Deck {
+  const { importVerified: _importVerified, ...persisted } = deck;
+  return persisted;
+}
+
 function receiptEntitlement(receipt: LicenseReceipt): Entitlement {
   return {
     id: `lic-${receipt.signature.value.slice(0, 16)}`,
@@ -206,6 +233,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     ...saved,
     ...runtimeActions,
     profile,
+    importedDecks: restoreStoredDecks(saved.importedDecks),
     entitlements: [freeEntitlement()],
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     hydrated: false,
@@ -226,36 +254,42 @@ export const useOptimus = create<OptimusState>()(
       finishHydration: () => set({ hydrated: true }),
       restoreLicenses: async () => {
         const state = get();
-        const publicKey = import.meta.env.VITE_LICENSE_SIGNING_PUBLIC_KEY;
-        if (!publicKey) {
-          set((current) => ({
-            entitlements: [freeEntitlement()],
-            profile: {
-              ...current.profile,
-              tier: current.profile.optimusId === "OM-GUEST" ? "guest" : "free",
-            },
-            hydrated: true,
-          }));
-          return;
-        }
+        const licensePublicKey = import.meta.env.VITE_LICENSE_SIGNING_PUBLIC_KEY;
+        const candidateReceipts = state.licenseReceipts.filter(isLicenseReceipt);
         const verified: LicenseReceipt[] = [];
-        for (const receipt of state.licenseReceipts) {
-          if (
-            await verifyLicenseReceipt(
-              receipt,
-              publicKey,
-              state.profile.optimusId,
-              state.profile.deviceId,
-            )
-          ) {
-            verified.push(receipt);
+        if (licensePublicKey) {
+          for (const receipt of candidateReceipts) {
+            if (
+              await verifyLicenseReceipt(
+                receipt,
+                licensePublicKey,
+                state.profile.optimusId,
+                state.profile.deviceId,
+              )
+            ) {
+              verified.push(receipt);
+            }
           }
         }
-        const entitlements = [freeEntitlement(), ...verified.map(receiptEntitlement)];
+        const licenseReceipts = licensePublicKey ? verified : candidateReceipts;
+        const entitlements = [
+          freeEntitlement(),
+          ...(licensePublicKey ? verified.map(receiptEntitlement) : []),
+        ];
+        const importedDecks = await Promise.all(
+          state.importedDecks.map((deck) =>
+            revalidateImportedDeck(
+              deck,
+              state.profile.optimusId,
+              import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
+            ),
+          ),
+        );
         const pro = hasEntitlement("OPTIMUS_PRO", entitlements);
         set((current) => ({
-          licenseReceipts: verified,
+          licenseReceipts,
           entitlements,
+          importedDecks,
           profile: {
             ...current.profile,
             tier: pro ? "pro" : current.profile.optimusId === "OM-GUEST" ? "guest" : "free",
@@ -450,6 +484,7 @@ export const useOptimus = create<OptimusState>()(
       storage: createJSONStorage(() => (typeof window === "undefined" ? memoryStorage : localStorage)),
       partialize: (s): PersistShape => ({
         ...pickPersist(s),
+        importedDecks: s.importedDecks.map(deckForPersistence),
         entitlements: [freeEntitlement()],
       }),
       onRehydrateStorage: () => (state) => {
@@ -489,8 +524,15 @@ export function useAllDecks(): Deck[] {
 }
 
 export function hasAccess(deck: Deck, entitlements: Entitlement[], _tier: AccountTier): boolean {
+  if (deck.imported) {
+    if (!deck.importProof && deck.access_policy.tier === "free") return true;
+    return (
+      deck.importVerified === true &&
+      (deck.importLicenseExpiresAt === null ||
+        (typeof deck.importLicenseExpiresAt === "number" && deck.importLicenseExpiresAt > Date.now()))
+    );
+  }
   if (deck.access_policy.tier === "free") return true;
-  if (deck.imported) return true;
   const product = deck.access_policy.entitlement;
   return hasEntitlement(product, entitlements) || hasEntitlement("OPTIMUS_PRO", entitlements);
 }

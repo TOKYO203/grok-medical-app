@@ -52,3 +52,6 @@ npm run license:issue -- --optimus-id OM-A1B2C3D4 --product NEURO_PRO --days 365
 
 Le déploiement attend `LICENSE_SIGNING_PRIVATE_KEY` et `VITE_LICENSE_SIGNING_PUBLIC_KEY` pour les
 preuves d’activation, ainsi que les clés Deck séparées pour les fichiers Premium signés.
+
+À chaque démarrage, un Deck Premium importé est revérifié puis reconstruit depuis son enveloppe
+signée. Une copie modifiée, expirée ou vérifiée avec une autre clé reste verrouillée.

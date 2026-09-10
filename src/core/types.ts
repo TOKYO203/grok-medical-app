@@ -83,6 +83,11 @@ export type AccessPolicy = {
   entitlement: string;
 };
 
+export type DeckImportProof = {
+  format: "optimus-signed-v1";
+  envelope: string;
+};
+
 export type Deck = {
   id: string;
   deck_id: string;
@@ -103,6 +108,9 @@ export type Deck = {
   access_policy: AccessPolicy;
   chapters: Chapter[];
   imported?: boolean;
+  importProof?: DeckImportProof;
+  importVerified?: boolean;
+  importLicenseExpiresAt?: number | null;
 };
 
 export type ReviewStats = {

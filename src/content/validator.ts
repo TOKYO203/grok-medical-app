@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { COMPETENCIES, type Deck, type Question } from "@/core/types";
-import { verifyDeckSignature } from "@/content/deck-signature";
+import { COMPETENCIES, type Deck, type Question } from "../core/types.ts";
+import { verifyDeckSignature } from "./deck-signature.ts";
 
 const sourceSchema = z.object({
   title: z.string().trim().min(1, "Chaque source doit avoir un titre"),
@@ -333,6 +333,15 @@ export async function importDeckJson(
     access_policy: d.access_policy ?? { tier: "free", entitlement: "OPTIMUS_FREE" },
     chapters: [],
     imported: true,
+    importProof: premium
+      ? { format: "optimus-signed-v1", envelope: JSON.stringify(parsed) }
+      : undefined,
+    importVerified: premium || undefined,
+    importLicenseExpiresAt: premium
+      ? d.license?.expires_at
+        ? Date.parse(d.license.expires_at)
+        : null
+      : undefined,
   };
 
   steps.push({
@@ -342,4 +351,31 @@ export async function importDeckJson(
     detail: "Deck prêt à être étudié hors-ligne",
   });
   return { ok: true, deck, hash, entitlement, steps, warnings };
+}
+
+export async function revalidateImportedDeck(
+  deck: Deck,
+  optimusId: string,
+  publicKey?: string,
+): Promise<Deck> {
+  if (!deck.imported) return deck;
+
+  const locked = { ...deck, importVerified: false };
+  if (!deck.importProof) {
+    return deck.access_policy.tier === "free" ? deck : locked;
+  }
+  if (
+    !publicKey ||
+    deck.importProof.format !== "optimus-signed-v1" ||
+    !deck.importProof.envelope
+  ) {
+    return locked;
+  }
+
+  try {
+    const result = await importDeckJson(deck.importProof.envelope, [], optimusId, publicKey);
+    return result.ok ? result.deck : locked;
+  } catch {
+    return locked;
+  }
 }
