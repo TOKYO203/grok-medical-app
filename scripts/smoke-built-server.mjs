@@ -8,7 +8,7 @@ const builtApp = await import(pathToFileURL(entry).href);
 
 assert.equal(typeof builtApp.default?.fetch, "function", "Nitro fetch handler is missing");
 
-for (const pathname of ["/", "/parcours/neuro"]) {
+for (const pathname of ["/", "/parcours/neuro", "/pro"]) {
   const response = await builtApp.default.fetch(new Request(`http://localhost${pathname}`));
   const body = await response.text();
 
@@ -17,4 +17,4 @@ for (const pathname of ["/", "/parcours/neuro"]) {
   assert.match(body, /Optimus/);
 }
 
-console.log("[smoke] built server: / and /parcours/neuro returned HTTP 200");
+console.log("[smoke] built server: /, /parcours/neuro and /pro returned HTTP 200");
