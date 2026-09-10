@@ -57,7 +57,7 @@ test("the severe malaria case uses the WHO hypoglycaemia threshold consistently"
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
-  assert.equal(neuro?.version, "2.2.0");
+  assert.equal(neuro?.version, "2.3.0");
   assert.ok(stroke, "stroke case missing");
 
   const serialized = JSON.stringify([neuro, stroke]);
@@ -86,4 +86,24 @@ test("reviewed neurological emergencies preserve operational priorities", () => 
   assert.match(myasthenia?.explanation ?? "", /immunoglobulines IV/);
   assert.ok(myasthenia?.sources.some((source) => source.title === "MGFA"));
   assert.doesNotMatch(JSON.stringify([seizure, myasthenia]), /lésions irréversibles/);
+});
+
+test("reviewed Guillain-Barré and severe head injury content fails safely", () => {
+  const neuro = decks.find((deck) => deck.id === "neuro");
+  const guillainBarre = neuro?.questions.find((question) => question.id === "ne-5");
+  const severeHeadInjury = neuro?.questions.find((question) => question.id === "ne-7");
+
+  assert.match(guillainBarre?.choices[guillainBarre.correct] ?? "", /peut manquer au début/);
+  assert.match(guillainBarre?.explanation ?? "", /première semaine/);
+  assert.match(guillainBarre?.explanation ?? "", /surveillance respiratoire/);
+  assert.ok(guillainBarre?.sources.some((source) => source.title === "EAN / PNS"));
+  assert.doesNotMatch(guillainBarre?.explanation ?? "", /exclut le diagnostic/);
+
+  assert.match(severeHeadInjury?.prompt ?? "", /traumatisme crânien/);
+  assert.match(severeHeadInjury?.choices[severeHeadInjury.correct] ?? "", /stabiliser ABC/);
+  assert.match(severeHeadInjury?.explanation ?? "", /GCS < 9/);
+  assert.match(severeHeadInjury?.explanation ?? "", /facteurs confondants réversibles/);
+  assert.ok(
+    severeHeadInjury?.sources.some((source) => source.title === "Brain Trauma Foundation"),
+  );
 });

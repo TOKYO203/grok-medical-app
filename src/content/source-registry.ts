@@ -117,6 +117,31 @@ const SOURCE_RULES: SourceRule[] = [
       verifiedAt: NEURO_REVIEW_DATE,
     },
   },
+  {
+    matches: (source) =>
+      source.title === "EAN / PNS" && source.citation.includes("Guillain-Barré syndrome"),
+    metadata: {
+      organization: "European Academy of Neurology / Peripheral Nerve Society",
+      year: 2023,
+      version: "EAN / PNS 2023",
+      url: "https://pubmed.ncbi.nlm.nih.gov/37814552/",
+      doi: "10.1111/jns.12575",
+      verifiedAt: NEURO_REVIEW_DATE,
+    },
+  },
+  {
+    matches: (source) =>
+      source.title === "Brain Trauma Foundation" &&
+      source.citation.includes("Prehospital Guidelines"),
+    metadata: {
+      organization: "Brain Trauma Foundation",
+      year: 2023,
+      version: "3rd Edition",
+      url: "https://braintrauma.org/coma/guidelines/pre-hospital",
+      doi: "10.1080/10903127.2023.2187905",
+      verifiedAt: NEURO_REVIEW_DATE,
+    },
+  },
 ];
 
 export function enrichSource(source: Source): Source {

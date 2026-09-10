@@ -604,7 +604,7 @@
   {
     "schemaVersion": 2,
     "id": "neuro",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "title": "Neurologie",
     "subtitle": "AVC, épilepsie, dégénératif",
     "subject": "Neurologie",
@@ -707,19 +707,19 @@
       },
       {
         "id": "ne-5",
-        "prompt": "Dans le syndrome de Guillain-Barré, le LCR montre classiquement :",
+        "prompt": "Au cours de la première semaine d'un syndrome de Guillain-Barré suspecté, quelle affirmation sur le LCR est correcte ?",
         "choices": [
-          "Une pléiocytose à PNN sans hyperprotéinorachie",
-          "Une dissociation albumino-cytologique",
-          "Des bandes oligoclonales isolées",
-          "Une hypoglycorachie franche"
+          "Une protéinorachie normale exclut le diagnostic",
+          "Une dissociation albumino-cytologique est évocatrice, mais peut manquer au début",
+          "Une pléiocytose importante confirme le diagnostic",
+          "La ponction lombaire remplace l'évaluation respiratoire"
         ],
         "correct": 1,
-        "explanation": "Protéinorachie élevée, cellularité normale ou quasi normale. Cliniquement : déficit moteur ascendant, aréflexie, parfois dysautonomie.",
+        "explanation": "La dissociation albumino-cytologique — protéinorachie élevée avec cellularité normale ou peu élevée — soutient le diagnostic, mais la protéinorachie peut rester normale durant la première semaine. Une pléiocytose marquée doit faire rechercher un autre diagnostic. La surveillance respiratoire, bulbaire et dysautonomique reste prioritaire et ne dépend pas du résultat de la ponction lombaire.",
         "sources": [
           {
-            "title": "Harrison's",
-            "citation": "Principles of Internal Medicine, 21e éd."
+            "title": "EAN / PNS",
+            "citation": "European Academy of Neurology / Peripheral Nerve Society Guideline on diagnosis and treatment of Guillain-Barré syndrome, 2023."
           },
           {
             "title": "Collège de Neurologie",
@@ -727,7 +727,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "semiology"
+        "competency": "diagnosis"
       },
       {
         "id": "ne-6",
@@ -755,23 +755,19 @@
       },
       {
         "id": "ne-7",
-        "prompt": "Un score de Glasgow à 7 impose en priorité :",
+        "prompt": "Après un traumatisme crânien, un patient présente un score de Glasgow à 7. Quelle est la priorité immédiate ?",
         "choices": [
           "Un avis psychiatrique",
-          "La protection des voies aériennes",
+          "Évaluer et stabiliser ABC, puis sécuriser les voies aériennes avec une équipe expérimentée",
           "Une ponction lombaire immédiate",
           "Un test au Tensilon"
         ],
         "correct": 1,
-        "explanation": "GCS ≤ 8 = indication classique d'intubation pour protéger les VAS. L'étiologie se cherche en parallèle (glycémie, naloxone, imagerie).",
+        "explanation": "Dans un traumatisme crânien sévère avec GCS < 9, les voies aériennes, l'oxygénation et la ventilation sont évaluées et stabilisées avant de répéter le score ; une voie aérienne définitive doit être envisagée immédiatement par une équipe expérimentée. Il faut éviter hypoxie, hypotension et hyperventilation, tout en recherchant les facteurs confondants réversibles comme l'hypoglycémie, l'intoxication ou la phase post-critique.",
         "sources": [
           {
-            "title": "ERC / ILCOR",
-            "citation": "European Resuscitation Council Guidelines, 2021."
-          },
-          {
-            "title": "SFAR",
-            "citation": "Recommandations formalisées d'experts — urgences vitales."
+            "title": "Brain Trauma Foundation",
+            "citation": "Prehospital Guidelines for the Management of Traumatic Brain Injury, 3rd Edition, 2023."
           }
         ],
         "difficulty": "base",
@@ -820,6 +816,14 @@
         "citation": "International Consensus Guidance for Management of Myasthenia Gravis, 2016."
       },
       {
+        "title": "EAN / PNS",
+        "citation": "European Academy of Neurology / Peripheral Nerve Society Guideline on diagnosis and treatment of Guillain-Barré syndrome, 2023."
+      },
+      {
+        "title": "Brain Trauma Foundation",
+        "citation": "Prehospital Guidelines for the Management of Traumatic Brain Injury, 3rd Edition, 2023."
+      },
+      {
         "title": "Collège de Neurologie",
         "citation": "Référentiel national DES / EDN de neurologie."
       },
@@ -828,16 +832,8 @@
         "citation": "Principles of Internal Medicine, 21e éd."
       },
       {
-        "title": "SFAR",
-        "citation": "Recommandations formalisées d'experts — urgences vitales."
-      },
-      {
         "title": "Bates",
         "citation": "Guide de l'examen clinique, 13e éd."
-      },
-      {
-        "title": "ERC / ILCOR",
-        "citation": "European Resuscitation Council Guidelines, 2021."
       }
     ],
     "deck_id": "neuro",
@@ -2330,7 +2326,7 @@
     "schemaVersion": 2,
     "schema_version": 2,
     "id": "tropical",
-    "deck_id": "TROPICAL-MG-001",
+    "deck_id": "tropical",
     "version": "2.1.0",
     "title": "Médecine tropicale",
     "subtitle": "Paludisme, vecteurs, urgences de l’océan Indien",
