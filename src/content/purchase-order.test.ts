@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  advancePurchase,
   fulfillmentRequestMessage,
   orderAmount,
   orderProduct,
   paymentRequestMessage,
   PREMIUM_SPECIALTIES,
+  purchaseStatusRank,
   type PremiumOrder,
 } from "./purchase-order.ts";
 
@@ -29,6 +31,29 @@ test("Premium pricing and product codes remain aligned with the selected offer",
       );
     }
   }
+});
+
+test("purchase tracking is monotonic and keeps canonical order details", () => {
+  const created = advancePurchase(order, "created", undefined, false, 100);
+  const pending = advancePurchase(order, "verification_pending", created, true, 200);
+  const staleUpdate = advancePurchase(order, "instructions_requested", pending, false, 300);
+
+  assert.equal(created.amount, 3_000);
+  assert.equal(created.label, "Neurologie · Deck 3/10");
+  assert.equal(created.product, "NEURO_DECK_03");
+  assert.equal(staleUpdate.status, "verification_pending");
+  assert.equal(staleUpdate.proofAttached, true);
+  assert.equal(staleUpdate.createdAt, 100);
+  assert.ok(purchaseStatusRank("delivered") > purchaseStatusRank(staleUpdate.status));
+});
+
+test("changing the product under one reference resets its progress", () => {
+  const pending = advancePurchase(order, "verification_pending", undefined, true, 100);
+  const changed = advancePurchase({ ...order, deckNumber: 4 }, "created", pending, false, 200);
+
+  assert.equal(changed.product, "NEURO_DECK_04");
+  assert.equal(changed.status, "created");
+  assert.equal(changed.createdAt, 200);
 });
 
 test("payment and fulfillment messages carry the exact order and device binding", () => {

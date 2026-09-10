@@ -9,11 +9,31 @@ export const PREMIUM_SPECIALTIES = [
 export type PremiumOffer = "deck" | "specialty";
 export type PremiumSpecialtyId = (typeof PREMIUM_SPECIALTIES)[number]["id"];
 
+export const PURCHASE_STATUSES = [
+  "created",
+  "instructions_requested",
+  "proof_ready",
+  "verification_pending",
+  "delivered",
+] as const;
+
+export type PurchaseStatus = (typeof PURCHASE_STATUSES)[number];
+
 export type PremiumOrder = {
   reference: string;
   offer: PremiumOffer;
   specialty: PremiumSpecialtyId;
   deckNumber: number;
+};
+
+export type PremiumPurchase = PremiumOrder & {
+  product: string;
+  label: string;
+  amount: number;
+  status: PurchaseStatus;
+  proofAttached: boolean;
+  createdAt: number;
+  updatedAt: number;
 };
 
 export type PurchaseDeviceRequest = {
@@ -41,6 +61,36 @@ export function orderLabel(order: PremiumOrder): string {
   return order.offer === "specialty"
     ? `${specialty.label} · spécialité complète (10 Decks)`
     : `${specialty.label} · Deck ${order.deckNumber}/10`;
+}
+
+export function purchaseStatusRank(status: PurchaseStatus): number {
+  return PURCHASE_STATUSES.indexOf(status);
+}
+
+export function advancePurchase(
+  order: PremiumOrder,
+  status: PurchaseStatus,
+  previous?: PremiumPurchase,
+  proofAttached = false,
+  now = Date.now(),
+): PremiumPurchase {
+  const product = orderProduct(order);
+  const sameProduct = previous?.reference === order.reference && previous.product === product;
+  const nextStatus =
+    sameProduct && purchaseStatusRank(previous.status) > purchaseStatusRank(status)
+      ? previous.status
+      : status;
+
+  return {
+    ...order,
+    product,
+    label: orderLabel(order),
+    amount: orderAmount(order),
+    status: nextStatus,
+    proofAttached: Boolean((sameProduct && previous.proofAttached) || proofAttached),
+    createdAt: sameProduct ? previous.createdAt : now,
+    updatedAt: now,
+  };
 }
 
 export function paymentRequestMessage(order: PremiumOrder, optimusId: string): string {

@@ -68,6 +68,7 @@ function ProfilPage() {
   const weeklyXp = useOptimus((state) => state.weeklyXp);
   const badges = useOptimus((state) => state.badges);
   const queue = useOptimus((state) => state.syncQueue);
+  const purchases = useOptimus((state) => state.purchases);
   const markSynced = useOptimus((state) => state.markQueueSynced);
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
@@ -75,6 +76,7 @@ function ProfilPage() {
   const level = levelInfo(xp);
   const league = currentLeague(weeklyXp);
   const pending = queue.filter((event) => !event.synced).length;
+  const pendingPurchases = purchases.filter((purchase) => purchase.status !== "delivered").length;
   const selectedCover = COVERS.find((cover) => cover.id === profile.cover);
   const coverClass = profile.cover === "custom" ? undefined : selectedCover?.className;
   const coverStyle: CSSProperties | undefined =
@@ -347,6 +349,18 @@ function ProfilPage() {
               to="/pro"
             />
             <ProfileMenuLink
+              emoji="🧾"
+              label="Mes achats"
+              detail={
+                purchases.length === 0
+                  ? "Commandes et livraisons"
+                  : pendingPurchases > 0
+                    ? `${pendingPurchases} en cours`
+                    : `${purchases.length} livré${purchases.length > 1 ? "s" : ""}`
+              }
+              to="/achats"
+            />
+            <ProfileMenuLink
               emoji="🏆"
               label="Classement"
               detail={`Ligue ${league.label}`}
@@ -445,7 +459,15 @@ function ProfileMenuLink({
   emoji: ReactNode;
   label: string;
   detail: string;
-  to: "/parcours" | "/pro" | "/classement" | "/import" | "/contact" | "/soutenir" | "/a-propos";
+  to:
+    | "/parcours"
+    | "/pro"
+    | "/achats"
+    | "/classement"
+    | "/import"
+    | "/contact"
+    | "/soutenir"
+    | "/a-propos";
   last?: boolean;
 }) {
   return (

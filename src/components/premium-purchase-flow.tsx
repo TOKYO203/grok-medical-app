@@ -25,7 +25,9 @@ import {
   PREMIUM_SPECIALTIES,
   type PremiumOffer,
   type PremiumOrder,
+  type PremiumPurchase,
   type PremiumSpecialtyId,
+  type PurchaseStatus,
 } from "@/content/purchase-order";
 import type { Profile } from "@/core/types";
 import { cn } from "@/lib/utils";
@@ -58,26 +60,34 @@ async function shareOrCopy(title: string, text: string, files: File[] = []): Pro
 
 export function PremiumPurchaseFlow({
   profile,
+  initialPurchase,
   onRemember,
+  onPurchaseStatus,
 }: {
   profile: Profile;
+  initialPurchase?: PremiumPurchase;
   onRemember: (message: string) => void;
+  onPurchaseStatus: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
 }) {
-  const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [offer, setOffer] = useState<PremiumOffer>("specialty");
-  const [specialty, setSpecialty] = useState<PremiumSpecialtyId>("neurologie");
-  const [deckNumber, setDeckNumber] = useState(1);
-  const [reference, setReference] = useState("");
+  const [step, setStep] = useState<1 | 2 | 3>(() =>
+    initialPurchase?.status === "created" ? 2 : initialPurchase ? 3 : 1,
+  );
+  const [offer, setOffer] = useState<PremiumOffer>(initialPurchase?.offer ?? "specialty");
+  const [specialty, setSpecialty] = useState<PremiumSpecialtyId>(
+    initialPurchase?.specialty ?? "neurologie",
+  );
+  const [deckNumber, setDeckNumber] = useState(initialPurchase?.deckNumber ?? 1);
+  const [reference, setReference] = useState(initialPurchase?.reference ?? "");
   const [proof, setProof] = useState<File | null>(null);
   const [deviceIdentity, setDeviceIdentity] = useState<DeviceEncryptionIdentity | null>(null);
   const [sending, setSending] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(initialPurchase?.status === "verification_pending");
 
   const order: PremiumOrder = { reference, offer, specialty, deckNumber };
 
   useEffect(() => {
-    setReference(makeReference());
-  }, []);
+    if (!initialPurchase) setReference(makeReference());
+  }, [initialPurchase]);
 
   useEffect(() => {
     if (profile.optimusId === "OM-GUEST") return;
@@ -90,6 +100,7 @@ export function PremiumPurchaseFlow({
       const outcome = await shareOrCopy("Demande de paiement Optimus", message);
       if (outcome === "cancelled") return;
       onRemember(message);
+      onPurchaseStatus(order, "instructions_requested");
       toast.success(
         outcome === "shared"
           ? "Demande partagée"
@@ -117,6 +128,7 @@ export function PremiumPurchaseFlow({
         toast.success("Commande copiée — joignez manuellement votre preuve de paiement");
         return;
       }
+      onPurchaseStatus(order, "verification_pending", true);
       setSubmitted(true);
       toast.success("Commande et preuve partagées");
     } catch {
@@ -154,6 +166,9 @@ export function PremiumPurchaseFlow({
         </p>
         <Link to="/import" className="mt-4 inline-block text-sm font-medium text-primary">
           J’ai reçu mon Deck →
+        </Link>
+        <Link to="/achats" className="ml-4 inline-block text-sm font-medium text-primary">
+          Suivre la commande →
         </Link>
       </section>
     );
@@ -229,7 +244,14 @@ export function PremiumPurchaseFlow({
               Aucun paiement maintenant : la disponibilité du contenu contrôlé sera confirmée avant
               l’envoi des coordonnées Mobile Money.
             </p>
-            <Button className="mt-4 w-full" disabled={!reference} onClick={() => setStep(2)}>
+            <Button
+              className="mt-4 w-full"
+              disabled={!reference}
+              onClick={() => {
+                onPurchaseStatus(order, "created");
+                setStep(2);
+              }}
+            >
               Continuer · {orderAmount(order).toLocaleString("fr-FR")} Ar
             </Button>
           </div>
@@ -257,7 +279,14 @@ export function PremiumPurchaseFlow({
               Demander les instructions
             </Button>
           </div>
-          <Button className="w-full" variant="secondary" onClick={() => setStep(3)}>
+          <Button
+            className="w-full"
+            variant="secondary"
+            onClick={() => {
+              onPurchaseStatus(order, "instructions_requested");
+              setStep(3);
+            }}
+          >
             J’ai reçu les instructions et payé
           </Button>
           <BackButton onClick={() => setStep(1)} />
@@ -298,7 +327,12 @@ export function PremiumPurchaseFlow({
                 className="sr-only"
                 type="file"
                 accept="image/*,application/pdf"
-                onChange={(event) => loadProof(event, setProof)}
+                onChange={(event) =>
+                  loadProof(event, (file) => {
+                    setProof(file);
+                    if (file) onPurchaseStatus(order, "proof_ready", true);
+                  })
+                }
               />
             </label>
             <p className="mt-3 text-xs text-muted">

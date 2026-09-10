@@ -4,6 +4,18 @@ import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { BUILTIN_DECKS } from "@/content/catalog";
 import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
 import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
+import {
+  advancePurchase,
+  orderAmount,
+  orderLabel,
+  orderProduct,
+  PREMIUM_SPECIALTIES,
+  PURCHASE_STATUSES,
+  type PremiumOrder,
+  type PremiumPurchase,
+  type PremiumSpecialtyId,
+  type PurchaseStatus,
+} from "@/content/purchase-order";
 import { revalidateImportedDeck } from "@/content/validator";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { applyReview, emptyStats } from "@/core/spaced-repetition";
@@ -75,6 +87,7 @@ type PersistShape = {
   reviewsSucceeded: number;
   syncQueue: SyncEvent[];
   contacts: ContactDraft[];
+  purchases: PremiumPurchase[];
 };
 
 export type OptimusState = PersistShape & {
@@ -99,6 +112,7 @@ export type OptimusState = PersistShape & {
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
   markQueueSynced: () => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
+  upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
   resetLocal: () => void;
 };
 
@@ -181,6 +195,63 @@ function restoreStoredDecks(value: unknown): Deck[] {
     );
 }
 
+function restorePurchases(value: unknown): PremiumPurchase[] {
+  if (!Array.isArray(value)) return [];
+  const specialtyIds = new Set<string>(PREMIUM_SPECIALTIES.map((specialty) => specialty.id));
+  const statuses = new Set<string>(PURCHASE_STATUSES);
+
+  return value.flatMap((candidate) => {
+    if (!candidate || typeof candidate !== "object") return [];
+    const purchase = candidate as Partial<PremiumPurchase>;
+    const deckNumber = Number(purchase.deckNumber);
+    if (
+      typeof purchase.reference !== "string" ||
+      purchase.reference.length < 6 ||
+      (purchase.offer !== "deck" && purchase.offer !== "specialty") ||
+      !specialtyIds.has(purchase.specialty ?? "") ||
+      !Number.isInteger(deckNumber) ||
+      deckNumber < 1 ||
+      deckNumber > 10 ||
+      typeof purchase.status !== "string" ||
+      !statuses.has(purchase.status) ||
+      typeof purchase.createdAt !== "number" ||
+      !Number.isFinite(purchase.createdAt) ||
+      typeof purchase.updatedAt !== "number" ||
+      !Number.isFinite(purchase.updatedAt)
+    ) {
+      return [];
+    }
+    const order: PremiumOrder = {
+      reference: purchase.reference,
+      offer: purchase.offer,
+      specialty: purchase.specialty as PremiumSpecialtyId,
+      deckNumber,
+    };
+    return [
+      {
+        ...order,
+        product: orderProduct(order),
+        label: orderLabel(order),
+        amount: orderAmount(order),
+        status: purchase.status as PurchaseStatus,
+        proofAttached: purchase.proofAttached === true,
+        createdAt: purchase.createdAt,
+        updatedAt: purchase.updatedAt,
+      },
+    ];
+  });
+}
+
+function deliverPurchases(purchases: PremiumPurchase[], products: Iterable<string>) {
+  const delivered = new Set(products);
+  if (delivered.size === 0) return purchases;
+  return purchases.map((purchase) =>
+    delivered.has(purchase.product) && purchase.status !== "delivered"
+      ? advancePurchase(purchase, "delivered", purchase, purchase.proofAttached)
+      : purchase,
+  );
+}
+
 function deckForPersistence(deck: Deck): Deck {
   const { importVerified: _importVerified, ...persisted } = deck;
   return deck.importProof?.format === "optimus-encrypted-v1"
@@ -224,6 +295,7 @@ const persistDefaults: PersistShape = {
   reviewsSucceeded: 0,
   syncQueue: [],
   contacts: [],
+  purchases: [],
 };
 
 function mergePersistedState(persistedState: unknown, currentState: OptimusState): OptimusState {
@@ -247,6 +319,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     importedDecks: restoreStoredDecks(saved.importedDecks),
     entitlements: [freeEntitlement()],
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
+    purchases: restorePurchases(saved.purchases),
     hydrated: false,
   } as OptimusState;
 }
@@ -305,6 +378,12 @@ export const useOptimus = create<OptimusState>()(
           ),
         );
         const pro = hasEntitlement("OPTIMUS_PRO", entitlements);
+        const deliveredProducts = [
+          ...verified.map((receipt) => receipt.payload.product),
+          ...importedDecks
+            .filter((deck) => deck.importVerified === true)
+            .map((deck) => deck.access_policy.entitlement),
+        ];
         set((current) => ({
           licenseReceipts,
           entitlements,
@@ -313,6 +392,7 @@ export const useOptimus = create<OptimusState>()(
             ...current.profile,
             tier: pro ? "pro" : current.profile.optimusId === "OM-GUEST" ? "guest" : "free",
           },
+          purchases: deliverPurchases(current.purchases, deliveredProducts),
           hydrated: true,
         }));
       },
@@ -368,13 +448,21 @@ export const useOptimus = create<OptimusState>()(
             ...current.profile,
             tier: hasEntitlement("OPTIMUS_PRO", entitlements) ? "pro" : "free",
           },
+          purchases: deliverPurchases(current.purchases, [receipt.payload.product]),
         }));
         return true;
       },
       importDeck: (deck) =>
         set((s) => {
           const importedDecks = [...s.importedDecks.filter((d) => d.id !== deck.id), deck];
-          return { importedDecks, badges: unlockBadges({ ...s, importedDecks }) };
+          return {
+            importedDecks,
+            badges: unlockBadges({ ...s, importedDecks }),
+            purchases:
+              deck.importVerified === true
+                ? deliverPurchases(s.purchases, [deck.access_policy.entitlement])
+                : s.purchases,
+          };
         }),
       recordAnswer: ({ deckId, questionId, ok, xp, mode }) =>
         set((s) => {
@@ -420,6 +508,7 @@ export const useOptimus = create<OptimusState>()(
             diagnosticsCompleted: s.diagnosticsCompleted,
             syncQueue: [...s.syncQueue, event],
             contacts: s.contacts,
+            purchases: s.purchases,
           };
           const badges = unlockBadges(next);
           const extraEvents: SyncEvent[] = badges
@@ -507,6 +596,17 @@ export const useOptimus = create<OptimusState>()(
             ],
           };
         }),
+      upsertPurchase: (order, status, proofAttached = false) =>
+        set((s) => {
+          const previous = s.purchases.find((purchase) => purchase.reference === order.reference);
+          const purchase = advancePurchase(order, status, previous, proofAttached);
+          return {
+            purchases: [
+              purchase,
+              ...s.purchases.filter((saved) => saved.reference !== order.reference),
+            ],
+          };
+        }),
       resetLocal: () =>
         set({
           ...persistDefaults,
@@ -551,6 +651,7 @@ function pickPersist(s: PersistShape): PersistShape {
     reviewsSucceeded: s.reviewsSucceeded,
     syncQueue: s.syncQueue,
     contacts: s.contacts,
+    purchases: s.purchases,
   };
 }
 

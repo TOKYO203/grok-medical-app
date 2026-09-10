@@ -8,13 +8,21 @@ import { Input } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/pro")({ component: ProPage });
+export const Route = createFileRoute("/pro")({
+  validateSearch: (search: Record<string, unknown>): { order?: string } =>
+    typeof search.order === "string" ? { order: search.order } : {},
+  component: ProPage,
+});
 
 function ProPage() {
   const profile = useOptimus((s) => s.profile);
   const activateLicense = useOptimus((s) => s.activateLicense);
   const entitlements = useOptimus((s) => s.entitlements);
   const addContact = useOptimus((s) => s.addContact);
+  const upsertPurchase = useOptimus((s) => s.upsertPurchase);
+  const purchases = useOptimus((s) => s.purchases);
+  const { order: orderReference } = Route.useSearch();
+  const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
 
@@ -51,7 +59,12 @@ function ProPage() {
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
           Accès Premium
         </p>
-        <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">Optimus Pro</h1>
+        <div className="mt-1 flex items-center justify-between gap-3">
+          <h1 className="font-display text-3xl font-medium tracking-tight">Optimus Pro</h1>
+          <Link to="/achats" className="shrink-0 text-sm font-medium text-primary">
+            Mes achats →
+          </Link>
+        </div>
         <p className="mt-2 text-sm text-muted">
           Payez localement par Mobile Money, puis choisissez la façon dont vous souhaitez recevoir
           votre contenu.
@@ -60,7 +73,9 @@ function ProPage() {
           <div className="mt-6 space-y-3">
             <PremiumPurchaseFlow
               profile={profile}
+              initialPurchase={initialPurchase}
               onRemember={(message) => addContact("deck", message)}
+              onPurchaseStatus={upsertPurchase}
             />
 
             <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
