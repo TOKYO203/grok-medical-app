@@ -8,10 +8,12 @@ const ASSETS = ["pglite.data", "pglite.wasm", "initdb.wasm"];
 
 export function copyPgliteAssets(root) {
   const sourceDir = join(root, "node_modules/@electric-sql/pglite/dist");
-  const targetDir = join(root, ".vercel/output/functions/__server.func/_libs");
+  const functionDir = join(root, ".vercel/output/functions/__server.func");
+  const chunkedLibDir = join(functionDir, "_libs");
+  const targetDir = existsSync(chunkedLibDir) ? chunkedLibDir : functionDir;
 
-  if (!existsSync(targetDir)) {
-    throw new Error(`Nitro output directory is missing: ${targetDir}`);
+  if (!existsSync(join(functionDir, "index.mjs"))) {
+    throw new Error(`Nitro function bundle is missing: ${functionDir}`);
   }
 
   mkdirSync(targetDir, { recursive: true });

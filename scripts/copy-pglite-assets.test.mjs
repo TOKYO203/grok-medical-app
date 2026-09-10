@@ -5,20 +5,30 @@ import { join } from "node:path";
 import test from "node:test";
 import { copyPgliteAssets } from "./copy-pglite-assets.mjs";
 
-test("copies every PGLite runtime asset into the Nitro function bundle", () => {
+function createFixture(layout) {
   const root = mkdtempSync(join(tmpdir(), "pglite-assets-"));
   const source = join(root, "node_modules/@electric-sql/pglite/dist");
-  const target = join(root, ".vercel/output/functions/__server.func/_libs");
+  const functionDir = join(root, ".vercel/output/functions/__server.func");
+  const target = layout === "chunked" ? join(functionDir, "_libs") : functionDir;
   mkdirSync(source, { recursive: true });
   mkdirSync(target, { recursive: true });
+  writeFileSync(join(functionDir, "index.mjs"), "export default {};");
 
   for (const asset of ["pglite.data", "pglite.wasm", "initdb.wasm"]) {
     writeFileSync(join(source, asset), asset);
   }
 
-  copyPgliteAssets(root);
+  return { root, target };
+}
 
-  for (const asset of ["pglite.data", "pglite.wasm", "initdb.wasm"]) {
-    assert.equal(existsSync(join(target, asset)), true);
-  }
-});
+for (const layout of ["chunked", "inlined"]) {
+  test(`copies every PGLite runtime asset into the ${layout} Nitro bundle`, () => {
+    const { root, target } = createFixture(layout);
+
+    copyPgliteAssets(root);
+
+    for (const asset of ["pglite.data", "pglite.wasm", "initdb.wasm"]) {
+      assert.equal(existsSync(join(target, asset)), true);
+    }
+  });
+}

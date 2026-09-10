@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "node scripts/with-app-env.mjs vite dev --host 0.0.0.0 --port 8080",
-    "build": "node scripts/with-app-env.mjs vite build && npm run postbuild:assets && npm run db:migrate",
+    "build": "node scripts/with-app-env.mjs vite build && npm run postbuild:assets && npm run db:migrate && npm run postbuild:smoke",
     "postbuild:assets": "node scripts/copy-pglite-assets.mjs",
+    "postbuild:smoke": "node scripts/smoke-built-server.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "license:issue": "node scripts/issue-activation-key.mjs",
     "license:keys": "node scripts/generate-license-signing-keys.mjs",
