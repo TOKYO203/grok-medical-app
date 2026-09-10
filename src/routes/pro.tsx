@@ -11,8 +11,7 @@ export const Route = createFileRoute("/pro")({ component: ProPage });
 
 function ProPage() {
   const profile = useOptimus((s) => s.profile);
-  const activatePro = useOptimus((s) => s.activatePro);
-  const grantEntitlement = useOptimus((s) => s.grantEntitlement);
+  const activateLicense = useOptimus((s) => s.activateLicense);
   const entitlements = useOptimus((s) => s.entitlements);
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
@@ -30,11 +29,12 @@ function ProPage() {
           deviceId: profile.deviceId,
         }),
       });
-      const result = (await response.json()) as { error?: string; product?: string };
-      if (!response.ok || !result.product)
+      const result = (await response.json()) as { error?: string; receipt?: unknown };
+      if (!response.ok || !result.receipt)
         throw new Error(result.error || "Activation impossible.");
-      if (result.product === "OPTIMUS_PRO") activatePro();
-      else grantEntitlement(result.product);
+      if (!(await activateLicense(result.receipt))) {
+        throw new Error("La preuve d'activation reçue est invalide.");
+      }
       setActivationKey("");
       toast.success("Accès Premium activé sur cet appareil");
     } catch (error) {

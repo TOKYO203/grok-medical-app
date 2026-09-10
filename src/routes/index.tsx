@@ -32,11 +32,11 @@ export const Route = createFileRoute("/")({ component: Home });
 function Home() {
   const onboarded = useOptimus((s) => s.profile.onboarded);
   const hydrated = useOptimus((s) => s.hydrated);
-  const markHydrated = useOptimus((s) => s.markHydrated);
+  const finishHydration = useOptimus((s) => s.finishHydration);
   useEffect(() => {
-    const t = window.setTimeout(() => markHydrated(), 80);
-    return () => window.clearTimeout(t);
-  }, [markHydrated]);
+    const fallback = window.setTimeout(() => finishHydration(), 250);
+    return () => window.clearTimeout(fallback);
+  }, [finishHydration]);
   if (!hydrated) {
     return (
       <div className="flex min-h-dvh items-center justify-center bg-bg text-muted">

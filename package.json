@@ -12,6 +12,7 @@
     "postbuild:assets": "node scripts/copy-pglite-assets.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "license:issue": "node scripts/issue-activation-key.mjs",
+    "license:keys": "node scripts/generate-license-signing-keys.mjs",
     "deck:sign": "node scripts/sign-deck.mjs",
     "deck:keys": "node scripts/generate-deck-signing-keys.mjs",
     "build:dev": "node scripts/with-app-env.mjs vite build --mode development",
@@ -20,7 +21,7 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/content/license-receipt.test.ts src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

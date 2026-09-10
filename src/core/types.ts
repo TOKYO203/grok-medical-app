@@ -129,6 +129,24 @@ export type Entitlement = {
   expiresAt: number | null;
 };
 
+export type LicenseReceiptPayload = {
+  version: 1;
+  product: string;
+  optimusId: string;
+  deviceId: string;
+  issuedAt: string;
+  expiresAt: string | null;
+};
+
+export type LicenseReceipt = {
+  payload: LicenseReceiptPayload;
+  signature: {
+    algorithm: "Ed25519";
+    keyId: "optimus-license-v1";
+    value: string;
+  };
+};
+
 export type SyncEventType =
   | "QUESTION_ANSWERED"
   | "REVIEW_COMPLETED"

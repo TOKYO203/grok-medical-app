@@ -3,7 +3,7 @@ import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { pickExamQuestions, questionXp } from "@/core/quiz-engine";
-import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
+import { hasAccess, hasEntitlement, useAllDecks, useOptimus } from "@/state/store";
 import { useMemo, useState } from "react";
 
 export const Route = createFileRoute("/examen")({ component: ExamPage });
@@ -29,7 +29,7 @@ function ExamPage() {
     return m;
   }, [unlocked]);
 
-  const locked = profile.tier !== "pro" && !entitlements.some((e) => e.product === "OPTIMUS_PRO");
+  const locked = !hasEntitlement("OPTIMUS_PRO", entitlements);
 
   return (
     <Shell title="Examen blanc">

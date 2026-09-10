@@ -39,7 +39,6 @@ function ImportPage() {
   const [steps, setSteps] = useState<ImportStep[]>([]);
   const [warnings, setWarnings] = useState<string[]>([]);
   const importDeck = useOptimus((s) => s.importDeck);
-  const grantEntitlement = useOptimus((s) => s.grantEntitlement);
   const profile = useOptimus((s) => s.profile);
   const decks = useAllDecks();
 
@@ -54,7 +53,6 @@ function ImportPage() {
     if (result.ok) {
       setWarnings(result.warnings);
       importDeck(result.deck);
-      if (result.entitlement) grantEntitlement(result.entitlement);
       toast.success(`${result.deck.title} accepté`);
     } else {
       setWarnings([]);
