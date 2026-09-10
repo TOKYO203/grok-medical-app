@@ -6,13 +6,20 @@ import { isMainModule } from "./with-app-env.mjs";
 
 const ASSETS = ["pglite.data", "pglite.wasm", "initdb.wasm"];
 
-export function copyPgliteAssets(root) {
+export function copyPgliteAssets(
+  root,
+  { provider = process.env.NETLIFY === "true" ? "netlify" : "vercel" } = {},
+) {
   const sourceDir = join(root, "node_modules/@electric-sql/pglite/dist");
-  const functionDir = join(root, ".vercel/output/functions/__server.func");
+  const functionDir =
+    provider === "netlify"
+      ? join(root, ".netlify/functions-internal/server")
+      : join(root, ".vercel/output/functions/__server.func");
+  const entryFile = provider === "netlify" ? "main.mjs" : "index.mjs";
   const chunkedLibDir = join(functionDir, "_libs");
   const targetDir = existsSync(chunkedLibDir) ? chunkedLibDir : functionDir;
 
-  if (!existsSync(join(functionDir, "index.mjs"))) {
+  if (!existsSync(join(functionDir, entryFile))) {
     throw new Error(`Nitro function bundle is missing: ${functionDir}`);
   }
 

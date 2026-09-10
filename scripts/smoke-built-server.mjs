@@ -3,13 +3,19 @@ import assert from "node:assert/strict";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-const entry = resolve(".vercel/output/functions/__server.func/index.mjs");
+const isNetlify = process.env.NETLIFY === "true";
+const entry = resolve(
+  isNetlify
+    ? ".netlify/functions-internal/server/main.mjs"
+    : ".vercel/output/functions/__server.func/index.mjs",
+);
 const builtApp = await import(pathToFileURL(entry).href);
+const fetchBuiltApp = isNetlify ? builtApp.default : builtApp.default?.fetch;
 
-assert.equal(typeof builtApp.default?.fetch, "function", "Nitro fetch handler is missing");
+assert.equal(typeof fetchBuiltApp, "function", "Nitro fetch handler is missing");
 
 for (const pathname of ["/", "/parcours/neuro", "/pro", "/achats"]) {
-  const response = await builtApp.default.fetch(new Request(`http://localhost${pathname}`));
+  const response = await fetchBuiltApp(new Request(`http://localhost${pathname}`));
   const body = await response.text();
 
   assert.equal(response.status, 200, `${pathname} returned HTTP ${response.status}`);
