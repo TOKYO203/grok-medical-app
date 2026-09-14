@@ -119,8 +119,7 @@ function CasPage() {
             </span>
           </div>
           <p className="mt-1 max-w-lg text-sm leading-relaxed text-muted">
-            Du symptôme à la prise en charge en huit décisions. Catalogue Premium établi à partir
-            du programme d’orientation diagnostique transmis.
+            Du symptôme à la prise en charge en huit décisions. Catalogue Premium des 43 chapitres du programme d’orientation diagnostique transmis.
           </p>
           <label className="relative mt-4 block">
             <Search className="pointer-events-none absolute left-3 top-3.5 size-4 text-muted" />
@@ -187,10 +186,6 @@ function CasPage() {
               Aucun item ne correspond à cette recherche.
             </p>
           ) : null}
-          <p className="mt-4 text-xs leading-relaxed text-subtle">
-            42 items sont lisibles sur le document reçu. Le 43e est masqué sur l’image et sera ajouté
-            dès réception de la page complète.
-          </p>
         </section>
         <Link to="/calculateurs" className="mt-8 inline-block text-sm text-muted hover:text-fg">
           Calculateurs cliniques →
