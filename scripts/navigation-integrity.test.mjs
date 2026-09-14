@@ -56,3 +56,14 @@ test("download links point to files shipped in public", async () => {
     }
   }
 });
+
+
+test("every Deck curriculum step links to learning or its free preview", () => {
+  const deckRoute = routeSources.find(({ file }) => file === "parcours.$deckId.tsx");
+  assert.ok(deckRoute, "missing Deck detail route");
+  assert.match(
+    deckRoute.source,
+    /preview:\s*!open,[\s\S]*mode:\s*open\s*\?\s*"lesson"\s*:\s*"preview"/,
+    "locked curriculum steps must open the free preview instead of acting like dead cards",
+  );
+});
