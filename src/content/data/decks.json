@@ -1382,7 +1382,7 @@
   {
     "schemaVersion": 2,
     "id": "urgences",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Urgences",
     "subtitle": "Les gestes qui sauvent",
     "subject": "Urgences",
@@ -1401,7 +1401,9 @@
         "sources": [
           {
             "title": "ERC / ILCOR",
-            "citation": "European Resuscitation Council Guidelines, 2021."
+            "citation": "Resuscitation Council UK Guidelines, 2025 — Adult advanced life support.",
+            "url": "https://www.resus.org.uk/library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
@@ -1421,7 +1423,9 @@
         "sources": [
           {
             "title": "ERC / ILCOR",
-            "citation": "European Resuscitation Council Guidelines, 2021."
+            "citation": "Resuscitation Council UK — Emergency treatment of anaphylaxis.",
+            "url": "https://www.resus.org.uk/library/additional-guidance/guidance-anaphylaxis",
+            "verifiedAt": "2026-09-14"
           },
           {
             "title": "SFAR",
@@ -1524,19 +1528,21 @@
       },
       {
         "id": "ur-7",
-        "prompt": "La formule de Parkland pour les brûlures évalue le volume de cristalloïdes des 24 premières heures à :",
+        "prompt": "Chez l'adulte avec une brûlure ≥ 20 % de la surface corporelle, quel volume initial sur 24 h recommande l'ABA avant titration clinique ?",
         "choices": [
-          "1 mL × kg × % surface brûlée",
+          "2 mL × kg × % surface brûlée",
           "4 mL × kg × % surface brûlée",
           "10 mL/kg fixe",
           "20 mL/kg de colloïdes"
         ],
-        "correct": 1,
-        "explanation": "4 mL × kg × % SC brûlée (2e et 3e degrés), la moitié en 8 h à partir de l'heure de la brûlure, le reste en 16 h. On ajuste sur la diurèse.",
+        "correct": 0,
+        "explanation": "L'ABA recommande de débuter à 2 mL × kg × % de surface corporelle brûlée chez l'adulte avec ≥ 20 % de surface atteinte, puis d'ajuster heure par heure selon la réponse, notamment la diurèse. La formule historique de Parkland utilise 4 mL/kg/%, mais ne doit pas être appliquée comme un volume fixe automatique.",
         "sources": [
           {
-            "title": "SFAR",
-            "citation": "Recommandations formalisées d'experts — urgences vitales."
+            "title": "American Burn Association",
+            "citation": "Clinical Practice Guidelines on Burn Shock Resuscitation. Journal of Burn Care & Research, 2024;45(3):565–589.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "avance",
