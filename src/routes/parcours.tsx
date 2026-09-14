@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Layers3, Lock } from "lucide-react";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
@@ -12,10 +12,15 @@ import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 export const Route = createFileRoute("/parcours")({ component: ParcoursPage });
 
 function ParcoursPage() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const decks = useAllDecks();
   const progress = useOptimus((s) => s.progress);
   const entitlements = useOptimus((s) => s.entitlements);
   const profile = useOptimus((s) => s.profile);
+
+  if (pathname !== "/parcours" && pathname !== "/parcours/") {
+    return <Outlet />;
+  }
 
   const available = decks
     .filter((deck) => hasAccess(deck, entitlements, profile.tier))
@@ -110,7 +115,7 @@ function ParcoursPage() {
                     key={deck.id}
                     to="/parcours/$deckId"
                     params={{ deckId: deck.id }}
-                    className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+                    className="min-w-0 touch-manipulation rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-all hover:bg-secondary active:scale-[0.99]"
                   >
                     <div className="flex items-start gap-3">
                       <span className="flex size-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary">
@@ -172,7 +177,7 @@ function ParcoursPage() {
                   key={deck.id}
                   to="/parcours/$deckId"
                   params={{ deckId: deck.id }}
-                  className="flex items-start gap-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+                  className="min-w-0 touch-manipulation flex items-start gap-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-all hover:bg-secondary active:scale-[0.99]"
                 >
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-muted">
                     <Lock className="size-4" />
