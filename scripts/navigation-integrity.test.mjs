@@ -78,17 +78,17 @@ test("parent routes render their dynamic child pages", () => {
 });
 
 
-test("diagnostic program keeps the 42 visible source items ordered and uniquely identified", async () => {
+test("diagnostic program keeps all 43 source items ordered and uniquely identified", async () => {
   const topics = JSON.parse(
     await readFile(new URL("../src/content/data/diagnostic-topics.json", import.meta.url), "utf8"),
   );
   const diagnostics = JSON.parse(
     await readFile(new URL("../src/content/data/diagnostics.json", import.meta.url), "utf8"),
   );
-  assert.equal(topics.length, 42);
+  assert.equal(topics.length, 43);
   assert.deepEqual(
     topics.map((topic) => topic.number),
-    Array.from({ length: 42 }, (_, index) => index + 1),
+    Array.from({ length: 43 }, (_, index) => index + 1),
   );
   assert.equal(new Set(topics.map((topic) => topic.id)).size, topics.length);
   const diagnosticIds = new Set(diagnostics.map((diagnostic) => diagnostic.id));
