@@ -68,12 +68,30 @@ test("reviewed emergency content avoids automatic burn over-resuscitation", () =
   const emergencies = decks.find((deck) => deck.id === "urgences");
   const burn = emergencies?.questions.find((question) => question.id === "ur-7");
 
-  assert.equal(emergencies?.version, "2.1.0");
+  assert.equal(emergencies?.version, "2.2.0");
   assert.equal(burn?.choices[burn.correct], "2 mL × kg × % surface brûlée");
   assert.match(burn?.prompt ?? "", /≥ 20 %/);
   assert.match(burn?.explanation ?? "", /ajuster heure par heure/);
   assert.match(burn?.explanation ?? "", /Parkland utilise 4 mL/);
   assert.ok(burn?.sources.some((source) => source.url?.includes("pubmed.ncbi.nlm.nih.gov")));
+});
+
+test("reviewed first-aid content teaches safe bleeding and choking actions", () => {
+  const emergencies = decks.find((deck) => deck.id === "urgences");
+  const bleeding = emergencies?.questions.find((question) => question.id === "ur-5");
+  const choking = emergencies?.questions.find((question) => question.id === "ur-8");
+
+  assert.match(bleeding?.choices[bleeding.correct] ?? "", /pression manuelle directe/i);
+  assert.match(bleeding?.explanation ?? "", /5 à 7 cm/);
+  assert.match(bleeding?.explanation ?? "", /ne pas le desserrer/i);
+  assert.doesNotMatch(bleeding?.explanation ?? "", /Masser/);
+  assert.match(choking?.explanation ?? "", /commencer la RCP sans délai/);
+  assert.match(choking?.explanation ?? "", /objet clairement visible/);
+  assert.ok(
+    [bleeding, choking].every((question) =>
+      question?.sources.some((source) => source.url?.includes("resus.org.uk")),
+    ),
+  );
 });
 
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
