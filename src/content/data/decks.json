@@ -2131,7 +2131,7 @@
     "schema_version": 2,
     "id": "dermato",
     "deck_id": "dermato",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Dermatologie",
     "subtitle": "Lésions élémentaires et urgences cutanées",
     "subject": "Dermatologie",
@@ -2277,19 +2277,21 @@
       },
       {
         "id": "de-8",
-        "prompt": "Un érythème migrant après piqûre de tique oriente vers :",
+        "prompt": "Un érythème migrant typique après exposition aux tiques oriente vers :",
         "choices": [
-          "Une maladie de Lyme précoce, à traiter par doxycycline (sauf exceptions)",
+          "Une borréliose de Lyme précoce, diagnostiquée cliniquement et traitée sans attendre une sérologie",
           "Une urticaire cholinergique",
           "Un érythème noueux streptococcique",
           "Une roséole infantile"
         ],
         "correct": 0,
-        "explanation": "L'érythème migrant est clinique : pas besoin de sérologie pour traiter. Doxycycline 14 j chez l'adulte ; amoxicilline si grossesse / jeune enfant.",
+        "explanation": "Un érythème migrant typique est un diagnostic clinique : la sérologie peut être négative au début et ne doit pas retarder l'antibiothérapie. Le choix de la doxycycline ou de l'amoxicilline et la durée dépendent de l'âge, de la grossesse, de la forme clinique et du protocole national en vigueur.",
         "sources": [
           {
-            "title": "HAS / SPILF",
-            "citation": "Borréliose de Lyme — recommandations 2018–2022."
+            "title": "HAS",
+            "citation": "Borréliose de Lyme — recommandations de bonne pratique, 2025.",
+            "url": "https://www.has-sante.fr/jcms/p_3572510/fr/borreliose-de-lyme",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
