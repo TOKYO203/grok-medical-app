@@ -880,7 +880,7 @@
   {
     "schemaVersion": 2,
     "id": "infectio",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Infectiologie",
     "subtitle": "Sepsis, ATB, tropical",
     "subject": "Infectiologie",
@@ -961,7 +961,7 @@
         "id": "in-4",
         "prompt": "Un purpura fébrile extensif chez un adolescent évoque en premier :",
         "choices": [
-          "Une purpura rhumatoïde isolé",
+          "Un purpura rhumatoïde isolé",
           "Un purpura fulminans à méningocoque",
           "Une thrombopénie immune chronique",
           "Une carence en vitamine C"
@@ -983,18 +983,21 @@
       },
       {
         "id": "in-5",
-        "prompt": "Le traitement standard d'une tuberculose pulmonaire sensible dure classiquement :",
-        "choices": ["10 jours", "6 semaines", "6 mois", "24 mois"],
+        "prompt": "Concernant la durée du traitement d'une tuberculose pulmonaire sensible, quelle proposition est exacte ?",
+        "choices": [
+          "Dix jours suffisent après disparition de la fièvre",
+          "Toute tuberculose impose exactement six mois, sans exception",
+          "Le schéma 2HRZE/4HR dure six mois, mais un schéma de quatre mois peut convenir à certains patients éligibles",
+          "Une monothérapie par rifampicine pendant quatre mois est suffisante"
+        ],
         "correct": 2,
-        "explanation": "2 mois RHZE puis 4 mois RH (6 mois au total) pour une forme pulmonaire sensible. Les résistances et localisations extra-pulmonaires modifient le schéma.",
+        "explanation": "Le schéma de référence 2HRZE/4HR dure six mois. Selon l'OMS, certains adultes et adolescents d'au moins 12 ans atteints d'une tuberculose pulmonaire sensible peuvent recevoir un schéma de quatre mois associant notamment rifapentine et moxifloxacine. L'éligibilité, les résistances, l'âge et la localisation doivent être vérifiés dans le programme national : on ne raccourcit jamais le traitement de façon improvisée.",
         "sources": [
           {
-            "title": "Collège d'Infectiologie",
-            "citation": "Référentiel Pilly / CMIT."
-          },
-          {
-            "title": "Harrison's",
-            "citation": "Principles of Internal Medicine, 21e éd."
+            "title": "Organisation mondiale de la Santé",
+            "citation": "WHO consolidated guidelines on tuberculosis, Module 4: treatment and care, 2025.",
+            "url": "https://www.who.int/publications/i/item/9789240107243",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
