@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, HeartHandshake, ShieldCheck } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 
 export const Route = createFileRoute("/soutenir")({ component: SupportPage });
 
@@ -36,11 +36,9 @@ function SupportPage() {
               </p>
             </div>
           </div>
-          <Link to="/contact" className="mt-5 block">
-            <Button className="w-full" size="lg">
-              Demander les coordonnées
-              <ArrowRight className="size-4" />
-            </Button>
+          <Link to="/contact" className={buttonVariants({ size: "lg", className: "mt-5 w-full" })}>
+            Demander les coordonnées
+            <ArrowRight className="size-4" />
           </Link>
         </section>
         <Link to="/pro" className="mt-8 inline-block text-sm text-muted hover:text-fg">
