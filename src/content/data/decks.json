@@ -1872,7 +1872,7 @@
   {
     "schemaVersion": 2,
     "id": "semio",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Sémiologie",
     "subtitle": "Signes, manœuvres, langage clinique",
     "subject": "Sémiologie",
@@ -1976,23 +1976,25 @@
       },
       {
         "id": "se-5",
-        "prompt": "Un B3 protodiastolique chez un adulte de 60 ans oriente vers :",
+        "prompt": "Chez un adulte de 60 ans, un B3 protodiastolique fait rechercher en priorité :",
         "choices": [
           "Un cœur normal d'athlète uniquement",
-          "Une insuffisance cardiaque à pression de remplissage élevée",
+          "Une surcharge volumique ou une insuffisance cardiaque",
           "Un bloc de branche droit isolé",
           "Une péricardite sèche"
         ],
         "correct": 1,
-        "explanation": "Le galop B3 traduit un remplissage rapide dans un VG non compliant ou dilaté. Physiologique chez l'enfant et le sportif jeune, pathologique après 40 ans.",
+        "explanation": "Le B3 survient pendant le remplissage ventriculaire rapide. Chez un adulte de 60 ans, il soutient notamment une surcharge volumique, des pressions de remplissage élevées ou une insuffisance cardiaque, sans suffire seul au diagnostic. La diminution de compliance ventriculaire est plus classiquement associée au B4.",
         "sources": [
           {
             "title": "Bates",
             "citation": "Guide de l'examen clinique, 13e éd."
           },
           {
-            "title": "Collège de Cardiologie",
-            "citation": "Référentiel national DES / EDN de cardiologie."
+            "title": "AHA / ACC / HFSA",
+            "citation": "2022 Guideline for the Management of Heart Failure.",
+            "url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001063",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
@@ -2003,7 +2005,7 @@
         "prompt": "La matité déclive et mobile d'un flanc évoque :",
         "choices": [
           "Un pneumopéritoine",
-          "Un ascite",
+          "Une ascite",
           "Un emphysème sous-cutané",
           "Une splénomégalie isolée"
         ],
