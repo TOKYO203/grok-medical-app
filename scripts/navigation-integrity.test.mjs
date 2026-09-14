@@ -67,3 +67,12 @@ test("every Deck curriculum step links to learning or its free preview", () => {
     "locked curriculum steps must open the free preview instead of acting like dead cards",
   );
 });
+
+
+test("parent routes render their dynamic child pages", () => {
+  for (const file of ["parcours.tsx", "cas.tsx"]) {
+    const route = routeSources.find((source) => source.file === file);
+    assert.ok(route, `missing parent route ${file}`);
+    assert.match(route.source, /return <Outlet \/>/, `${file}: dynamic child routes need an Outlet`);
+  }
+});
