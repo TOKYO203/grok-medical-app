@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Lock, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, Lock, Search, Sparkles } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
+import diagnosticTopics from "@/content/data/diagnostic-topics.json";
 import { hasEntitlement, useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
@@ -12,6 +14,11 @@ function CasPage() {
   const done = useOptimus((s) => s.casesCompleted);
   const dxDone = useOptimus((s) => s.diagnosticsCompleted);
   const entitlements = useOptimus((s) => s.entitlements);
+  const [diagnosticQuery, setDiagnosticQuery] = useState("");
+  const normalizedQuery = normalizeSearch(diagnosticQuery);
+  const visibleDiagnosticTopics = diagnosticTopics.filter((topic) =>
+    normalizeSearch(`${topic.title} ${topic.specialty}`).includes(normalizedQuery),
+  );
 
   if (pathname !== "/cas" && pathname !== "/cas/") {
     return <Outlet />;
@@ -99,25 +106,92 @@ function CasPage() {
             );
           })}
         </div>
-        <h2 className="mt-10 font-display text-xl font-medium">Démarche diagnostique</h2>
-        <p className="mt-1 text-sm text-muted">Huit étapes, une à la fois.</p>
-        <div className="mt-3 space-y-2">
-          {DIAGNOSTIC_CASES.map((d) => (
-            <Link
-              key={d.id}
-              to="/demarche/$id"
-              params={{ id: d.id }}
-              className="block min-w-0 touch-manipulation rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-transform active:scale-[0.99]"
-            >
-              <p className="text-xs uppercase tracking-wider text-muted">{d.specialty}</p>
-              <p className="mt-1 font-medium">{d.title}</p>
-              <p className="mt-1 text-sm text-muted">{d.vignette}</p>
-              <p className="mt-2 text-[11px] uppercase tracking-wider text-subtle">
-                {dxDone.includes(d.id) ? "fait" : "8 étapes"}
+        <section className="mt-10">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+                Programme Internat
               </p>
-            </Link>
-          ))}
-        </div>
+              <h2 className="font-display text-xl font-medium">Démarche diagnostique devant…</h2>
+            </div>
+            <span className="shrink-0 text-xs text-muted">
+              {visibleDiagnosticTopics.length}/{diagnosticTopics.length}
+            </span>
+          </div>
+          <p className="mt-1 max-w-lg text-sm leading-relaxed text-muted">
+            Du symptôme à la prise en charge en huit décisions. Catalogue Premium établi à partir
+            du programme d’orientation diagnostique transmis.
+          </p>
+          <label className="relative mt-4 block">
+            <Search className="pointer-events-none absolute left-3 top-3.5 size-4 text-muted" />
+            <span className="sr-only">Rechercher une démarche diagnostique</span>
+            <input
+              type="search"
+              value={diagnosticQuery}
+              onChange={(event) => setDiagnosticQuery(event.target.value)}
+              placeholder="Rechercher : dyspnée, hématurie, grossesse…"
+              className="h-11 w-full rounded-[var(--radius-md)] bg-card pl-10 pr-3 text-sm shadow-[var(--shadow-border)] outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+            />
+          </label>
+          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+            {visibleDiagnosticTopics.map((topic) => {
+              const diagnostic = topic.routeId
+                ? DIAGNOSTIC_CASES.find((item) => item.id === topic.routeId)
+                : undefined;
+              const cardContent = (
+                <>
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted">
+                    {topic.number}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-medium leading-snug">{topic.title}</span>
+                    <span className="mt-1 block text-xs text-muted">{topic.specialty}</span>
+                    <span className="mt-2 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-primary">
+                      {diagnostic ? (
+                        <>
+                          <Lock className="size-3" />
+                          {dxDone.includes(diagnostic.id) ? "Terminé" : "Premium · aperçu disponible"}
+                        </>
+                      ) : (
+                        <>
+                          <Clock3 className="size-3" />
+                          Programme Premium · en préparation
+                        </>
+                      )}
+                    </span>
+                  </span>
+                  {diagnostic ? <ArrowRight className="size-4 shrink-0 text-subtle" /> : null}
+                </>
+              );
+              return diagnostic ? (
+                <Link
+                  key={topic.id}
+                  to="/demarche/$id"
+                  params={{ id: diagnostic.id }}
+                  className="flex min-h-28 touch-manipulation items-start gap-3 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-all hover:bg-secondary active:scale-[0.99]"
+                >
+                  {cardContent}
+                </Link>
+              ) : (
+                <div
+                  key={topic.id}
+                  className="flex min-h-28 items-start gap-3 rounded-[var(--radius-xl)] bg-card/70 p-4 shadow-[var(--shadow-border)]"
+                >
+                  {cardContent}
+                </div>
+              );
+            })}
+          </div>
+          {visibleDiagnosticTopics.length === 0 ? (
+            <p className="mt-4 rounded-[var(--radius-lg)] bg-card p-4 text-sm text-muted">
+              Aucun item ne correspond à cette recherche.
+            </p>
+          ) : null}
+          <p className="mt-4 text-xs leading-relaxed text-subtle">
+            42 items sont lisibles sur le document reçu. Le 43e est masqué sur l’image et sera ajouté
+            dès réception de la page complète.
+          </p>
+        </section>
         <Link to="/calculateurs" className="mt-8 inline-block text-sm text-muted hover:text-fg">
           Calculateurs cliniques →
         </Link>
@@ -145,4 +219,13 @@ function hasCaseAccess(
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
     hasEntitlement(`${specialtyCode(clinical.specialty)}_PACK_10`, entitlements)
   );
+}
+
+
+function normalizeSearch(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
 }
