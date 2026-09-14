@@ -74,6 +74,21 @@ de l'appareil, et l'ensemble est signé en Ed25519. L'application ne conserve qu
 chiffrée et ses métadonnées sur le disque — jamais les questions en clair — puis reconstruit le
 contenu en mémoire après vérification.
 
+## 🔒 Configuration sécurité production
+
+Les opérations éditoriales sensibles sont **fail-closed** : sans authentification et sans liste
+d'éditeurs configurée, aucune création ou modification de publication/enquête ni aucun upload
+éditorial n'est autorisé.
+
+Variables serveur à configurer dans le gestionnaire de secrets du déploiement :
+
+- `CONTENT_EDITOR_USER_IDS` : identifiants Better Auth autorisés à administrer les publications et enquêtes, séparés par des virgules. Ne jamais utiliser une valeur générique ou un identifiant fourni par le client.
+- `RESPONSE_SALT` : secret aléatoire long utilisé uniquement côté serveur pour pseudonymiser l'adresse IP de l'anti-doublon des enquêtes. Il est obligatoire en production ; aucun `default_salt` n'est accepté.
+- `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `SUPABASE_PUBLIC_BUCKET` : configuration du stockage éditorial. La clé de service reste strictement côté serveur ; le client ne choisit jamais le bucket.
+
+Les uploads éditoriaux sont limités à 8 Mo et aux formats PDF, JPEG, PNG et WebP avec contrôle
+d'extension, type déclaré et signature de fichier.
+
 ## Statut éditorial V1
 
 Le registre `src/content/data/editorial-registry.json` distingue désormais la disponibilité d'un
@@ -83,6 +98,6 @@ structure, les réponses et les métadonnées ont passé les garde-fous automati
 `fully_reviewed` autorise à présenter tout le Deck comme médicalement revu.
 
 Avant une mise en production commerciale, exécuter `npm run release:check`, configurer les clés de
-signature côté déploiement et confirmer le canal Mobile Money officiel. Ces trois conditions sont
-indépendantes : un build vert ne remplace ni la revue médicale complète ni la configuration
-opérateur.
+signature côté déploiement, configurer les variables de sécurité ci-dessus et confirmer le canal
+Mobile Money officiel. Ces conditions sont indépendantes : un build vert ne remplace ni la revue
+médicale complète ni la configuration opérateur ni le durcissement des accès serveur.
