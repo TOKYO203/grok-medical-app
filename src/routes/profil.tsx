@@ -1,6 +1,31 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Camera, ChevronRight, Pencil } from "lucide-react";
+import {
+  Award,
+  BookOpen,
+  Brain,
+  BriefcaseMedical,
+  Camera,
+  ChevronRight,
+  ClipboardList,
+  Download,
+  Flame,
+  GraduationCap,
+  HeartPulse,
+  HelpCircle,
+  Info,
+  Landmark,
+  MapPin,
+  Medal,
+  Pencil,
+  Search,
+  ShieldCheck,
+  Star,
+  Stethoscope,
+  Trophy,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,46 +42,43 @@ export const Route = createFileRoute("/profil")({ component: ProfilPage });
 const COVERS: {
   id: CoverId;
   label: string;
-  emoji: string;
   image?: string;
   className?: string;
 }[] = [
   {
     id: "hautes-terres",
     label: "Hautes Terres",
-    emoji: "🌄",
     image: "/profile-covers/hautes-terres.webp",
   },
   {
     id: "baobab",
     label: "Allée des Baobabs",
-    emoji: "🌳",
     image: "/profile-covers/baobabs.webp",
   },
-  { id: "canal", label: "Canal des Pangalanes", emoji: "🌊", className: "cover-canal" },
-  { id: "clinique", label: "Clinique", emoji: "🏥", className: "cover-clinique" },
+  { id: "canal", label: "Canal des Pangalanes", className: "cover-canal" },
+  { id: "clinique", label: "Clinique", className: "cover-clinique" },
 ];
 
-const AVATARS = [
-  { id: "stethoscope", emoji: "🩺", label: "Stéthoscope" },
-  { id: "doctor", emoji: "🧑‍⚕️", label: "Médecin" },
-  { id: "brain", emoji: "🧠", label: "Cerveau" },
-  { id: "heart", emoji: "🫀", label: "Cœur" },
-  { id: "books", emoji: "📚", label: "Études" },
-  { id: "madagascar", emoji: "🇲🇬", label: "Madagascar" },
-] as const;
+const AVATARS: { id: string; icon: LucideIcon; label: string }[] = [
+  { id: "stethoscope", icon: Stethoscope, label: "Clinique" },
+  { id: "doctor", icon: BriefcaseMedical, label: "Médecin" },
+  { id: "brain", icon: Brain, label: "Neurologie" },
+  { id: "heart", icon: HeartPulse, label: "Cardiologie" },
+  { id: "books", icon: BookOpen, label: "Études médicales" },
+  { id: "madagascar", icon: Landmark, label: "Madagascar" },
+];
 
-const BADGE_EMOJI: Record<string, string> = {
-  streak7: "🔥",
-  q100: "💯",
-  firstCase: "🩺",
-  cardio90: "🫀",
-  modules5: "🎓",
-  firstImport: "📚",
-  diagnostic: "🔎",
-  reviewer: "🧠",
-  tropical: "🌴",
-  exam: "🏆",
+const BADGE_ICONS: Record<string, LucideIcon> = {
+  streak7: Flame,
+  q100: Award,
+  firstCase: Stethoscope,
+  cardio90: HeartPulse,
+  modules5: GraduationCap,
+  firstImport: Download,
+  diagnostic: Search,
+  reviewer: Brain,
+  tropical: Medal,
+  exam: Trophy,
 };
 
 function ProfilPage() {
@@ -85,6 +107,7 @@ function ProfilPage() {
         ? coverImageStyle(selectedCover.image)
         : undefined;
   const avatar = AVATARS.find((item) => item.id === profile.avatar) ?? AVATARS[0];
+  const AvatarIcon = avatar.icon;
   const studyLabel =
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
@@ -145,9 +168,9 @@ function ProfilPage() {
             type="button"
             onClick={() => setEditing(true)}
             aria-label="Changer l’avatar"
-            className="relative flex size-24 items-center justify-center rounded-full border-4 border-bg bg-primary-soft text-4xl shadow-[var(--shadow-border)]"
+            className="relative flex size-24 items-center justify-center rounded-full border-4 border-bg bg-primary-soft text-primary shadow-[var(--shadow-md)]"
           >
-            {avatar.emoji}
+            <AvatarIcon className="size-10" strokeWidth={1.6} />
             <span className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full border-2 border-bg bg-primary text-primary-fg">
               <Pencil className="size-3.5" />
             </span>
@@ -164,10 +187,14 @@ function ProfilPage() {
           </h1>
           <p className="mt-0.5 font-mono text-xs text-muted">{profile.optimusId}</p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
-            <span>🎓 {studyLabel}</span>
-            <span>📍 {profile.faculty || profile.country}</span>
-            <span>
-              🔥 Série de {streak} jour{streak !== 1 ? "s" : ""}
+            <span className="inline-flex items-center gap-1.5">
+              <GraduationCap className="size-4" /> {studyLabel}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="size-4" /> {profile.faculty || profile.country}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Flame className="size-4" /> Série de {streak} jour{streak !== 1 ? "s" : ""}
             </span>
           </div>
         </div>
@@ -183,9 +210,11 @@ function ProfilPage() {
           <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
             <SectionTitle kicker="Personnalisation" title="Modifier mon profil" />
 
-            <p className="text-xs font-medium text-muted">Avatar emoji</p>
+            <p className="text-xs font-medium text-muted">Identité visuelle</p>
             <div className="mt-2 grid grid-cols-6 gap-2">
-              {AVATARS.map((item) => (
+              {AVATARS.map((item) => {
+                const Icon = item.icon;
+                return (
                 <button
                   key={item.id}
                   type="button"
@@ -194,13 +223,14 @@ function ProfilPage() {
                   aria-pressed={profile.avatar === item.id}
                   onClick={() => update({ avatar: item.id })}
                   className={cn(
-                    "flex aspect-square items-center justify-center rounded-full bg-secondary text-2xl",
+                    "flex aspect-square items-center justify-center rounded-full bg-secondary text-primary",
                     profile.avatar === item.id && "ring-2 ring-primary",
                   )}
                 >
-                  {item.emoji}
+                  <Icon className="size-6" strokeWidth={1.7} />
                 </button>
-              ))}
+                );
+              })}
             </div>
 
             <div className="mt-5 space-y-2">
@@ -272,7 +302,7 @@ function ProfilPage() {
                 >
                   <span className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
                   <span className="absolute inset-x-2 bottom-2 font-medium">
-                    {cover.emoji} {cover.label}
+                    {cover.label}
                   </span>
                 </button>
               ))}
@@ -309,6 +339,7 @@ function ProfilPage() {
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {BADGE_CATALOG.map((badge) => {
               const earned = badges.includes(badge.id);
+              const BadgeIcon = BADGE_ICONS[badge.id] ?? Award;
               return (
                 <div
                   key={badge.id}
@@ -317,8 +348,8 @@ function ProfilPage() {
                     earned ? "bg-card" : "bg-secondary opacity-45",
                   )}
                 >
-                  <span className="text-2xl" aria-hidden="true">
-                    {BADGE_EMOJI[badge.id] ?? "🏅"}
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary" aria-hidden="true">
+                    <BadgeIcon className="size-5" strokeWidth={1.7} />
                   </span>
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium">{badge.title}</p>
@@ -336,19 +367,19 @@ function ProfilPage() {
           <SectionTitle kicker="Navigation" title="Mon espace" />
           <nav className="overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
             <ProfileMenuLink
-              emoji="📚"
+              icon={BookOpen}
               label="Mes parcours"
               detail="Decks et progression"
               to="/parcours"
             />
             <ProfileMenuLink
-              emoji="⭐"
+              icon={Star}
               label="Optimus Premium"
               detail={profile.tier === "pro" ? "Accès actif" : "Decks dès 3 000 Ar"}
               to="/pro"
             />
             <ProfileMenuLink
-              emoji="🧾"
+              icon={ClipboardList}
               label="Mes achats"
               detail={
                 purchases.length === 0
@@ -360,31 +391,31 @@ function ProfilPage() {
               to="/achats"
             />
             <ProfileMenuLink
-              emoji="🏆"
+              icon={Trophy}
               label="Classement"
               detail={`Ligue ${league.label}`}
               to="/classement"
             />
             <ProfileMenuLink
-              emoji="📥"
+              icon={Download}
               label="Importer un Deck"
               detail="Ajouter un contenu protégé"
               to="/import"
             />
             <ProfileMenuLink
-              emoji="💬"
+              icon={HelpCircle}
               label="Aide et contact"
               detail="Question, idée ou correction"
               to="/contact"
             />
             <ProfileMenuLink
-              emoji="❤️"
+              icon={HeartPulse}
               label="Soutenir le projet"
               detail="Encourager le développeur"
               to="/soutenir"
             />
             <ProfileMenuLink
-              emoji="ℹ️"
+              icon={Info}
               label="À propos"
               detail="Optimus et ses valeurs"
               to="/a-propos"
@@ -398,11 +429,14 @@ function ProfilPage() {
             Compte et données
           </p>
           <p className="mt-2 text-sm font-medium">
-            {profile.tier === "guest"
-              ? "👤 Profil invité"
-              : profile.tier === "free"
-                ? "✅ Compte Optimus Free"
-                : "⭐ Optimus Premium actif"}
+            <span className="inline-flex items-center gap-2">
+              <ShieldCheck className="size-4 text-primary" />
+              {profile.tier === "guest"
+                ? "Profil invité"
+                : profile.tier === "free"
+                  ? "Compte Optimus Free"
+                  : "Optimus Premium actif"}
+            </span>
           </p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
             {profile.tier === "guest"
@@ -438,13 +472,13 @@ function ProfileStat({
 }
 
 function ProfileMenuLink({
-  emoji,
+  icon: Icon,
   label,
   detail,
   to,
   last = false,
 }: {
-  emoji: ReactNode;
+  icon: LucideIcon;
   label: string;
   detail: string;
   to:
@@ -466,8 +500,8 @@ function ProfileMenuLink({
         !last && "border-b border-border",
       )}
     >
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-xl">
-        {emoji}
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+        <Icon className="size-5" strokeWidth={1.7} />
       </span>
       <span className="min-w-0 flex-1">
         <span className="block text-sm font-medium">{label}</span>
