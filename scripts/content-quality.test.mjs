@@ -128,6 +128,21 @@ test("reviewed erythema migrans content does not delay treatment for serology", 
   assert.ok(erythemaMigrans?.sources.some((source) => source.url?.includes("has-sante.fr")));
 });
 
+test("reviewed third heart sound content distinguishes orientation from diagnosis", () => {
+  const semiology = decks.find((deck) => deck.id === "semio");
+  const thirdHeartSound = semiology?.questions.find((question) => question.id === "se-5");
+  const ascites = semiology?.questions.find((question) => question.id === "se-6");
+
+  assert.equal(semiology?.version, "2.1.0");
+  assert.match(thirdHeartSound?.prompt ?? "", /fait rechercher en priorité/);
+  assert.match(thirdHeartSound?.choices[thirdHeartSound.correct] ?? "", /surcharge volumique/);
+  assert.match(thirdHeartSound?.explanation ?? "", /sans suffire seul au diagnostic/);
+  assert.match(thirdHeartSound?.explanation ?? "", /B4/);
+  assert.ok(thirdHeartSound?.sources.some((source) => source.url?.includes("ahajournals.org")));
+  assert.ok(ascites?.choices.includes("Une ascite"));
+  assert.ok(!ascites?.choices.includes("Un ascite"));
+});
+
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
