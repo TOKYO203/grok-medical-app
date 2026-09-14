@@ -55,7 +55,8 @@ test("survey administration and results require editor authorization", () => {
   assert.match(surveys, /editor\.id/);
   assert.doesNotMatch(surveys, /body\.created_by|data\.created_by/);
   assert.match(results, /requireContentEditor\(event\)/);
-  assert.doesNotMatch(results, /respondent_id, metadata/);
+  assert.doesNotMatch(results, /select[^\n]*respondent_id/i);
+  assert.doesNotMatch(results, /select[^\n]*metadata/i);
 });
 
 test("survey submissions enforce opening, consent and server-derived identity", () => {
