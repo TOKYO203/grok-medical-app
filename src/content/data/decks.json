@@ -1382,7 +1382,7 @@
   {
     "schemaVersion": 2,
     "id": "urgences",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Urgences",
     "subtitle": "Les gestes qui sauvent",
     "subject": "Urgences",
@@ -1485,23 +1485,21 @@
       },
       {
         "id": "ur-5",
-        "prompt": "En hémorragie de membre compressible, le premier geste est :",
+        "prompt": "Devant une hémorragie externe grave d'un membre, le premier geste de contrôle est :",
         "choices": [
           "Un remplissage massif avant tout",
-          "Une compression directe, voire un garrot proximal",
+          "Une pression manuelle directe ferme sur la plaie",
           "Un scanner corps entier",
           "Une suture au fil résorbable"
         ],
         "correct": 1,
-        "explanation": "Masser, comprimer, garrot si besoin. Le contrôle de l'hémorragie précède le reste du ABC en trauma (approche MARCH / ATLS).",
+        "explanation": "Alerter et appliquer immédiatement une pression manuelle directe ferme sur la plaie. Si une hémorragie de membre menaçant la vie n'est pas contrôlée ainsi, poser rapidement un garrot 5 à 7 cm au-dessus de la lésion, hors articulation, noter l'heure et ne pas le desserrer soi-même.",
         "sources": [
           {
-            "title": "ERC / ILCOR",
-            "citation": "European Resuscitation Council Guidelines, 2021."
-          },
-          {
-            "title": "SFAR",
-            "citation": "Recommandations formalisées d'experts — urgences vitales."
+            "title": "Resuscitation Council UK",
+            "citation": "2025 Resuscitation Guidelines — First Aid: control of life-threatening bleeding.",
+            "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/first-aid-guidelines",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
@@ -1558,11 +1556,13 @@
           "Un scanner cervical avant tout geste"
         ],
         "correct": 1,
-        "explanation": "Inconscient = RCP. Les compressions thoraciques peuvent expulser le corps étranger. Pas de finger sweep à l'aveugle.",
+        "explanation": "Si la victime devient inconsciente, appeler les secours et commencer la RCP sans délai. Retirer uniquement un objet clairement visible dans la bouche : ne jamais effectuer de balayage digital à l'aveugle.",
         "sources": [
           {
-            "title": "ERC / ILCOR",
-            "citation": "European Resuscitation Council Guidelines, 2021."
+            "title": "Resuscitation Council UK",
+            "citation": "2025 Resuscitation Guidelines — choking guidance.",
+            "url": "https://www.resus.org.uk/additional-guidance/guidance-choking",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
