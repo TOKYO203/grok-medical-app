@@ -6,7 +6,10 @@ export function hashString(value: string) {
 }
 
 export function getClientIp(event: H3Event): string | null {
-  const headers = event.node.req.headers;
+  const request = event.node?.req;
+  if (!request) return null;
+
+  const headers = request.headers;
   const forwarded = headers["x-forwarded-for"];
   if (forwarded) {
     const value = Array.isArray(forwarded) ? forwarded[0] : forwarded;
@@ -20,7 +23,7 @@ export function getClientIp(event: H3Event): string | null {
     if (value?.trim()) return value.trim();
   }
 
-  return event.node.req.socket?.remoteAddress ?? null;
+  return request.socket?.remoteAddress ?? null;
 }
 
 export async function recentResponseExists(
