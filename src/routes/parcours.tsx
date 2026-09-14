@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Layers3, Lock } from "lucide-react";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { YEARS } from "@/content/catalog";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
@@ -161,8 +161,8 @@ function ParcoursPage() {
                   </p>
                 </div>
               </div>
-              <Link to="/pro" className="mt-4 block">
-                <Button className="w-full">Voir les offres Premium</Button>
+              <Link to="/pro" className={buttonVariants({ className: "mt-4 w-full" })}>
+                Voir les offres Premium
               </Link>
             </div>
 
