@@ -105,6 +105,7 @@ export default defineEventHandler(async (event) => {
   const uploadUrl = `${SUPABASE_URL.replace(/\/+$/, "")}/storage/v1/object/${encodeURIComponent(DEFAULT_BUCKET)}/${encodeURIComponent(key)}`;
 
   try {
+    const uploadBody = new Blob([Uint8Array.from(buffer)], { type: contentType });
     const response = await fetch(uploadUrl, {
       method: "PUT",
       headers: {
@@ -112,7 +113,7 @@ export default defineEventHandler(async (event) => {
         "x-upsert": "false",
         "Content-Type": contentType,
       },
-      body: buffer,
+      body: uploadBody,
     });
 
     if (!response.ok) {
