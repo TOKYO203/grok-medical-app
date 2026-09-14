@@ -110,7 +110,6 @@ export type OptimusState = PersistShape & {
   completeCase: (caseId: string, xp: number) => void;
   completeDiagnostic: (id: string, xp: number) => void;
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
-  markQueueSynced: () => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
   upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
   resetLocal: () => void;
@@ -567,11 +566,6 @@ export const useOptimus = create<OptimusState>()(
             ...s.syncQueue,
             { id: uid("evt"), type, payload, createdAt: Date.now(), synced: false },
           ],
-        })),
-      markQueueSynced: () =>
-        set((s) => ({
-          syncQueue: s.syncQueue.map((e) => ({ ...e, synced: true })),
-          contacts: s.contacts.map((c) => ({ ...c, sent: true })),
         })),
       addContact: (kind, body) =>
         set((s) => {
