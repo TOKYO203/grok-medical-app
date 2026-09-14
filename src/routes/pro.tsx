@@ -6,11 +6,21 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
+import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/pro")({
-  validateSearch: (search: Record<string, unknown>): { order?: string } =>
-    typeof search.order === "string" ? { order: search.order } : {},
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { order?: string; specialty?: PremiumSpecialtyId } => {
+    const specialty = PREMIUM_SPECIALTIES.some((item) => item.id === search.specialty)
+      ? (search.specialty as PremiumSpecialtyId)
+      : undefined;
+    return {
+      ...(typeof search.order === "string" ? { order: search.order } : {}),
+      ...(specialty ? { specialty } : {}),
+    };
+  },
   component: ProPage,
 });
 
@@ -21,7 +31,7 @@ function ProPage() {
   const addContact = useOptimus((s) => s.addContact);
   const upsertPurchase = useOptimus((s) => s.upsertPurchase);
   const purchases = useOptimus((s) => s.purchases);
-  const { order: orderReference } = Route.useSearch();
+  const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
@@ -74,6 +84,7 @@ function ProPage() {
             <PremiumPurchaseFlow
               profile={profile}
               initialPurchase={initialPurchase}
+              initialSpecialty={specialty}
               onRemember={(message) => addContact("deck", message)}
               onPurchaseStatus={upsertPurchase}
             />
