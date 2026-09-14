@@ -36,7 +36,7 @@ test("reviewed cardiology and malaria content uses the current source versions",
   const tropical = decks.find((deck) => deck.id === "tropical");
   const infectio = decks.find((deck) => deck.id === "infectio");
   assert.equal(cardio?.version, "2.1.0");
-  assert.equal(tropical?.version, "2.1.0");
+  assert.equal(tropical?.version, "2.2.0");
   assert.equal(infectio?.version, "2.1.0");
 
   const reviewed = JSON.stringify([cardio, tropical, infectio, cases]);
