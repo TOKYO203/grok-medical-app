@@ -57,11 +57,22 @@ test("the severe malaria case uses the WHO hypoglycaemia threshold consistently"
 test("reviewed paracetamol content teaches the safe self-medication ceiling", () => {
   const pharmaco = decks.find((deck) => deck.id === "pharmaco");
   const paracetamol = pharmaco?.questions.find((question) => question.id === "ph-3");
-  assert.equal(pharmaco?.version, "2.1.0");
+  assert.equal(pharmaco?.version, "2.2.0");
   assert.equal(paracetamol?.choices[paracetamol.correct], "3 g");
   assert.match(paracetamol?.prompt ?? "", /sans avis médical/i);
   assert.match(paracetamol?.explanation ?? "", /Seul un médecin/i);
   assert.ok(paracetamol?.sources.some((source) => source.url?.includes("ansm.sante.fr")));
+});
+
+test("reviewed naloxone content keeps ventilation and monitoring central", () => {
+  const pharmacology = decks.find((deck) => deck.id === "pharmaco");
+  const naloxone = pharmacology?.questions.find((question) => question.id === "ph-4");
+
+  assert.equal(naloxone?.choices[naloxone.correct], "Naloxone");
+  assert.match(naloxone?.explanation ?? "", /ventilation assistée/);
+  assert.match(naloxone?.explanation ?? "", /peut récidiver/);
+  assert.doesNotMatch(naloxone?.explanation ?? "", /réveil complet comme seul objectif/i);
+  assert.ok(naloxone?.sources.some((source) => source.url?.includes("who.int")));
 });
 
 test("reviewed emergency content avoids automatic burn over-resuscitation", () => {
