@@ -14,7 +14,7 @@ import {
 import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { YEARS } from "@/content/catalog";
 import { LESSONS } from "@/core/quiz-engine";
 import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
@@ -123,28 +123,27 @@ function DeckPage() {
                       ? { lesson: 0, preview: false, mode: "revue" }
                       : { lesson: nextLesson.index, preview: false, mode: "lesson" }
                   }
-                  className={progression > 0 ? "block" : "block sm:col-span-2"}
+                  className={buttonVariants({
+                    size: "lg",
+                    className: `w-full bg-bg text-fg hover:bg-bg/90 ${progression > 0 ? "" : "sm:col-span-2"}`,
+                  })}
                 >
-                  <Button size="lg" className="w-full bg-bg text-fg hover:bg-bg/90">
-                    <Play className="size-4 fill-current" />
-                    {allLessonsDone
-                      ? "Réviser ce Deck"
-                      : progression > 0
-                        ? `Reprendre · Étape ${nextLesson.index + 1}`
-                        : "Commencer ce Deck"}
-                  </Button>
+                  <Play className="size-4 fill-current" />
+                  {allLessonsDone
+                    ? "Réviser ce Deck"
+                    : progression > 0
+                      ? `Reprendre · Étape ${nextLesson.index + 1}`
+                      : "Commencer ce Deck"}
                 </Link>
                 {progression > 0 ? (
                   <Link
                     to="/learn/$deckId"
                     params={{ deckId: deck.id }}
                     search={{ lesson: 0, preview: false, mode: "revue" }}
-                    className="block"
+                    className={buttonVariants({ variant: "secondary", size: "lg", className: "w-full" })}
                   >
-                    <Button size="lg" variant="secondary" className="w-full">
-                      <RotateCcw className="size-4" />
-                      Réviser mes erreurs
-                    </Button>
+                    <RotateCcw className="size-4" />
+                    Réviser mes erreurs
                   </Link>
                 ) : null}
               </div>
@@ -163,14 +162,12 @@ function DeckPage() {
                   to="/learn/$deckId"
                   params={{ deckId: deck.id }}
                   search={{ lesson: 0, preview: true, mode: "preview" }}
-                  className="block"
+                  className={buttonVariants({ className: "w-full bg-bg text-fg hover:bg-bg/90" })}
                 >
-                  <Button className="w-full bg-bg text-fg hover:bg-bg/90">Essayer l’aperçu</Button>
+                  Essayer l’aperçu
                 </Link>
-                <Link to="/pro" className="block">
-                  <Button variant="secondary" className="w-full">
-                    Voir les offres · dès 3 000 Ar
-                  </Button>
+                <Link to="/pro" className={buttonVariants({ variant: "secondary", className: "w-full" })}>
+                  Voir les offres · dès 3 000 Ar
                 </Link>
               </div>
             </div>
