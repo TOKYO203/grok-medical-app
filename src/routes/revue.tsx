@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
 import { Page, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { pickTodayQuestions, questionXp } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
@@ -56,8 +56,8 @@ function RevuePage() {
         {items.length === 0 ? (
           <div className="mt-10 rounded-[var(--radius-xl)] bg-card p-6 shadow-[var(--shadow-border)]">
             <p className="text-sm text-muted">Rien à réviser pour l’instant. Avancez un deck, les échéances suivront.</p>
-            <Link to="/parcours" className="mt-4 inline-block">
-              <Button>Ouvrir le parcours</Button>
+            <Link to="/parcours" className={buttonVariants({ className: "mt-4" })}>
+              Ouvrir le parcours
             </Link>
           </div>
         ) : (
