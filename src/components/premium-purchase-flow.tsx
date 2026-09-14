@@ -61,11 +61,13 @@ async function shareOrCopy(title: string, text: string, files: File[] = []): Pro
 export function PremiumPurchaseFlow({
   profile,
   initialPurchase,
+  initialSpecialty,
   onRemember,
   onPurchaseStatus,
 }: {
   profile: Profile;
   initialPurchase?: PremiumPurchase;
+  initialSpecialty?: PremiumSpecialtyId;
   onRemember: (message: string) => void;
   onPurchaseStatus: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
 }) {
@@ -74,7 +76,7 @@ export function PremiumPurchaseFlow({
   );
   const [offer, setOffer] = useState<PremiumOffer>(initialPurchase?.offer ?? "specialty");
   const [specialty, setSpecialty] = useState<PremiumSpecialtyId>(
-    initialPurchase?.specialty ?? "neurologie",
+    initialPurchase?.specialty ?? initialSpecialty ?? "neurologie",
   );
   const [deckNumber, setDeckNumber] = useState(initialPurchase?.deckNumber ?? 1);
   const [reference, setReference] = useState(initialPurchase?.reference ?? "");
