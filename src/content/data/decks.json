@@ -2327,7 +2327,7 @@
     "schema_version": 2,
     "id": "tropical",
     "deck_id": "tropical",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Médecine tropicale",
     "subtitle": "Paludisme, vecteurs, urgences de l’océan Indien",
     "subject": "Infectiologie",
@@ -2366,21 +2366,23 @@
       },
       {
         "id": "tm-2",
-        "prompt": "Le paludisme grave à P. falciparum se traite en première intention par :",
+        "prompt": "Après au moins 24 heures d’artésunate parentéral pour un paludisme grave, le patient est stabilisé et tolère la voie orale. Quelle est la suite recommandée ?",
         "choices": [
-          "Chloroquine orale",
-          "Artésunate IV (puis relais oral)",
-          "Doxycycline seule",
-          "Quinine intramusculaire de routine"
+          "Arrêter tout traitement antipaludique",
+          "Compléter par une cure entière de CTA pendant 3 jours",
+          "Poursuivre obligatoirement l’artésunate IV pendant 7 jours",
+          "Relayer par une doxycycline seule"
         ],
         "correct": 1,
-        "explanation": "L'OMS recommande l'artésunate IV dans le paludisme grave, puis un relais par CTA. La chloroquine n'a plus sa place sur P. falciparum résistant.",
+        "explanation": "Après au moins 24 heures de traitement parentéral et dès que la voie orale est tolérée, l’OMS recommande de compléter le traitement par une cure entière de trois jours d’une combinaison thérapeutique à base d’artémisinine (CTA).",
         "sources": [
           {
             "title": "OMS",
             "citation": "WHO guidelines for malaria, 13 August 2025.",
             "organization": "OMS",
-            "year": 2025
+            "year": 2025,
+            "url": "https://www.who.int/teams/global-malaria-programme/guidelines-for-malaria",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
