@@ -54,6 +54,16 @@ test("the severe malaria case uses the WHO hypoglycaemia threshold consistently"
   assert.doesNotMatch(serialized, /0,62 g\/L/);
 });
 
+test("reviewed paracetamol content teaches the safe self-medication ceiling", () => {
+  const pharmaco = decks.find((deck) => deck.id === "pharmaco");
+  const paracetamol = pharmaco?.questions.find((question) => question.id === "ph-3");
+  assert.equal(pharmaco?.version, "2.1.0");
+  assert.equal(paracetamol?.choices[paracetamol.correct], "3 g");
+  assert.match(paracetamol?.prompt ?? "", /sans avis médical/i);
+  assert.match(paracetamol?.explanation ?? "", /Seul un médecin/i);
+  assert.ok(paracetamol?.sources.some((source) => source.url?.includes("ansm.sante.fr")));
+});
+
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
