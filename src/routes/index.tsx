@@ -16,7 +16,7 @@ import {
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { CLINICAL_CASES } from "@/content/catalog";
 import { COMPETENCIES, COMPETENCY_LABEL, STUDY_LEVEL_LABEL } from "@/core/types";
@@ -149,17 +149,22 @@ function Dashboard() {
           </div>
         </div>
         {todayItems.length > 0 ? (
-          <Link to="/revue" search={{ mode: "today" }} className="mt-4 block">
-            <Button className="w-full bg-bg text-fg hover:bg-bg/90">
+          <Link
+            to="/revue"
+            search={{ mode: "today" }}
+            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
+          >
               {daily.answered > 0
                 ? "Continuer la session"
                 : `Commencer · ${todayItems.length} questions`}
               <ChevronRight className="size-4" />
-            </Button>
           </Link>
         ) : (
-          <Link to="/parcours" className="mt-4 block">
-            <Button className="w-full bg-bg text-fg hover:bg-bg/90">Explorer un Deck</Button>
+          <Link
+            to="/parcours"
+            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
+          >
+            Explorer un Deck
           </Link>
         )}
       </section>
@@ -286,24 +291,18 @@ function Dashboard() {
       <section className="mt-8">
         <SectionTitle kicker="Plus" title="Outils et accès" />
         <div className="flex flex-wrap gap-2">
-          <Link to="/classement">
-            <Button variant="secondary" size="sm">
-              <Trophy className="size-4" />
-              Classement
-            </Button>
+          <Link to="/classement" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+            <Trophy className="size-4" />
+            Classement
           </Link>
-          <Link to="/import">
-            <Button variant="secondary" size="sm">
-              <Upload className="size-4" />
-              Importer un Deck
-            </Button>
+          <Link to="/import" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+            <Upload className="size-4" />
+            Importer un Deck
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
-            <Link to="/pro">
-              <Button variant="secondary" size="sm">
-                <Lock className="size-4" />
-                Offres Premium
-              </Button>
+            <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+              <Lock className="size-4" />
+              Offres Premium
             </Link>
           ) : null}
         </div>
