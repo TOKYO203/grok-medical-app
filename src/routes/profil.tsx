@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Camera, ChevronRight, Pencil, RefreshCw } from "lucide-react";
+import { Camera, ChevronRight, Pencil } from "lucide-react";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,7 +69,6 @@ function ProfilPage() {
   const badges = useOptimus((state) => state.badges);
   const queue = useOptimus((state) => state.syncQueue);
   const purchases = useOptimus((state) => state.purchases);
-  const markSynced = useOptimus((state) => state.markQueueSynced);
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
 
@@ -408,24 +407,13 @@ function ProfilPage() {
           <p className="mt-1 text-xs leading-relaxed text-muted">
             {profile.tier === "guest"
               ? "Votre progression reste sur cet appareil. Créez votre Optimus ID pour la conserver."
-              : `${pending} changement${pending !== 1 ? "s" : ""} en attente de synchronisation.`}
+              : `${pending} changement${pending !== 1 ? "s" : ""} conservé${pending !== 1 ? "s" : ""} localement sur cet appareil.`}
           </p>
           {profile.tier === "guest" ? (
             <Button className="mt-3" onClick={() => createFree(name || "Étudiant")}>
               Créer mon compte Free
             </Button>
-          ) : (
-            <Button
-              className="mt-3"
-              variant="secondary"
-              size="sm"
-              onClick={markSynced}
-              disabled={pending === 0}
-            >
-              <RefreshCw className="size-4" />
-              {pending === 0 ? "Tout est synchronisé" : "Synchroniser maintenant"}
-            </Button>
-          )}
+          ) : null}
         </section>
       </Page>
     </Shell>
