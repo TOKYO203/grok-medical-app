@@ -53,6 +53,34 @@ test("every published Deck has one stable editorial landmark", () => {
   }
 });
 
+test("medical review claims reference real questions and remain explicit", () => {
+  const allowedStatuses = new Set(["structural_only", "priority_items_reviewed", "fully_reviewed"]);
+
+  for (const landmark of registry.decks) {
+    const deck = decks.find((candidate) => candidate.id === landmark.deck_id);
+    const review = landmark.medical_review;
+    assert.ok(review, `${landmark.deck_id}: missing medical review status`);
+    assert.ok(allowedStatuses.has(review.status), `${landmark.deck_id}: invalid review status`);
+
+    const questionIds = new Set(deck.questions.map((question) => question.id));
+    for (const questionId of review.items) {
+      assert.ok(questionIds.has(questionId), `${landmark.deck_id}: unknown reviewed item ${questionId}`);
+    }
+
+    if (review.status === "structural_only") {
+      assert.equal(review.verified_at, null);
+      assert.deepEqual(review.items, []);
+    } else {
+      assert.match(review.verified_at, /^\d{4}-\d{2}-\d{2}$/);
+      assert.ok(review.items.length > 0, `${landmark.deck_id}: review claim has no items`);
+    }
+
+    if (review.status === "fully_reviewed") {
+      assert.deepEqual(new Set(review.items), questionIds);
+    }
+  }
+});
+
 test("future Deck numbers remain sequential inside each collection", () => {
   const groups = Map.groupBy(registry.decks, (deck) => deck.code);
   for (const [code, entries] of groups) {
