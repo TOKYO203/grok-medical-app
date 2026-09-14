@@ -1,0 +1,58 @@
+import assert from "node:assert/strict";
+import { access, readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
+import test from "node:test";
+
+const routesDirectory = new URL("../src/routes/", import.meta.url);
+const routeFiles = (await readdir(routesDirectory)).filter((file) => file.endsWith(".tsx"));
+const routeSources = await Promise.all(
+  routeFiles.map(async (file) => ({
+    file,
+    source: await readFile(new URL(file, routesDirectory), "utf8"),
+  })),
+);
+const componentsDirectory = new URL("../src/components/", import.meta.url);
+const componentFiles = (await readdir(componentsDirectory)).filter((file) => file.endsWith(".tsx"));
+const componentSources = await Promise.all(
+  componentFiles.map(async (file) => ({
+    file: `components/${file}`,
+    source: await readFile(new URL(file, componentsDirectory), "utf8"),
+  })),
+);
+const sources = [...routeSources, ...componentSources];
+
+const declaredRoutes = new Set(["/"]);
+for (const { source } of routeSources) {
+  for (const match of source.matchAll(/createFileRoute\("([^"]+)"\)/g)) {
+    declaredRoutes.add(match[1]);
+  }
+}
+
+test("every literal internal navigation target names a declared route", () => {
+  for (const { file, source } of sources) {
+    for (const match of source.matchAll(/\bto="([^"]+)"/g)) {
+      assert.ok(declaredRoutes.has(match[1]), `${file}: unknown route ${match[1]}`);
+    }
+  }
+});
+
+test("links never contain nested buttons", () => {
+  for (const { file, source } of sources) {
+    assert.doesNotMatch(
+      source,
+      /<Link\b(?:(?!<\/Link>)[\s\S])*?<Button\b/,
+      `${file}: use one styled Link instead of nested interactive elements`,
+    );
+  }
+});
+
+test("download links point to files shipped in public", async () => {
+  for (const { file, source } of sources) {
+    for (const match of source.matchAll(/\bhref="(\/[^"?#]+)"/g)) {
+      await assert.doesNotReject(
+        access(join(new URL("../public/", import.meta.url).pathname, match[1])),
+        `${file}: missing public asset ${match[1]}`,
+      );
+    }
+  }
+});
