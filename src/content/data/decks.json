@@ -2,7 +2,7 @@
   {
     "schemaVersion": 2,
     "id": "pharmaco",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Pharmacologie",
     "subtitle": "Mécanismes, doses, antidotes",
     "subject": "Pharmacologie",
@@ -62,18 +62,18 @@
       },
       {
         "id": "ph-3",
-        "prompt": "Chez l'adulte sans facteur de risque, la dose maximale quotidienne de paracétamol est :",
+        "prompt": "En automédication chez l’adulte de 50 kg ou plus, sans facteur de risque particulier, quelle dose quotidienne maximale de paracétamol ne faut-il pas dépasser sans avis médical ?",
         "choices": ["2 g", "3 g", "4 g", "6 g"],
-        "correct": 2,
-        "explanation": "La dose usuelle maximale est de 4 g/24 h (1 g par prise, intervalle ≥ 4–6 h). Au-delà, le métabolite toxique NAPQI sature le glutathion hépatique.",
+        "correct": 1,
+        "explanation": "L’ANSM recommande de ne jamais dépasser soi-même 3 g par jour, avec au maximum 1 g par prise et au moins 4 heures entre les prises. Seul un médecin peut, si nécessaire, augmenter la dose sans dépasser 4 g par jour. Des limites plus basses s’appliquent notamment en dessous de 50 kg ou en présence de facteurs de risque hépatique.",
         "sources": [
           {
-            "title": "Vidal",
-            "citation": "Monographies thérapeutiques, éd. 2024."
-          },
-          {
             "title": "ANSM",
-            "citation": "Résumés des caractéristiques du produit."
+            "citation": "Dossier thématique — Le paracétamol : règles de bon usage.",
+            "organization": "Agence nationale de sécurité du médicament et des produits de santé",
+            "year": 2024,
+            "url": "https://ansm.sante.fr/dossiers-thematiques/medicaments-de-la-douleur/le-paracetamol",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
