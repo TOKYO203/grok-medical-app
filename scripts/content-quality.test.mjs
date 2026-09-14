@@ -117,6 +117,17 @@ test("reviewed tuberculosis content distinguishes standard and shorter regimens"
   assert.ok(tuberculosis?.sources.some((source) => source.url?.includes("who.int")));
 });
 
+test("reviewed erythema migrans content does not delay treatment for serology", () => {
+  const dermatology = decks.find((deck) => deck.id === "dermato");
+  const erythemaMigrans = dermatology?.questions.find((question) => question.id === "de-8");
+
+  assert.equal(dermatology?.version, "2.1.0");
+  assert.match(erythemaMigrans?.choices[erythemaMigrans.correct] ?? "", /sans attendre une sérologie/);
+  assert.match(erythemaMigrans?.explanation ?? "", /diagnostic clinique/);
+  assert.match(erythemaMigrans?.explanation ?? "", /protocole national/);
+  assert.ok(erythemaMigrans?.sources.some((source) => source.url?.includes("has-sante.fr")));
+});
+
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
