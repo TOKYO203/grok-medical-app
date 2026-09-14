@@ -64,6 +64,18 @@ test("reviewed paracetamol content teaches the safe self-medication ceiling", ()
   assert.ok(paracetamol?.sources.some((source) => source.url?.includes("ansm.sante.fr")));
 });
 
+test("reviewed emergency content avoids automatic burn over-resuscitation", () => {
+  const emergencies = decks.find((deck) => deck.id === "urgences");
+  const burn = emergencies?.questions.find((question) => question.id === "ur-7");
+
+  assert.equal(emergencies?.version, "2.1.0");
+  assert.equal(burn?.choices[burn.correct], "2 mL × kg × % surface brûlée");
+  assert.match(burn?.prompt ?? "", /≥ 20 %/);
+  assert.match(burn?.explanation ?? "", /ajuster heure par heure/);
+  assert.match(burn?.explanation ?? "", /Parkland utilise 4 mL/);
+  assert.ok(burn?.sources.some((source) => source.url?.includes("pubmed.ncbi.nlm.nih.gov")));
+});
+
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
   const neuro = decks.find((deck) => deck.id === "neuro");
   const stroke = cases.find((clinical) => clinical.id === "NEURO-AVC-001");
