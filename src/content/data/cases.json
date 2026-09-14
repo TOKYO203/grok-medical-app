@@ -71,17 +71,17 @@
           "Holter-ECG de 7 jours"
         ],
         "correct": 1,
-        "explanation": "L'écho classe HFrEF / HFmrEF / HFpEF, cherche une cause (ischémique, valvulaire) et guide le traitement de fond ESC 2023."
+        "explanation": "L’échocardiographie mesure la FEVG, recherche une cause ischémique ou valvulaire et guide le traitement. L’ESC 2026 distingue notamment l’IC à FEVG réduite (< 50 %) de l’IC à FEVG préservée (≥ 50 %)."
       }
     ],
     "diagnosis": "Poussée d'insuffisance cardiaque congestive sur cardiopathie ischémique chronique, probablement HFrEF à confirmer.",
-    "management": "O2, furosémide IV, restriction sodée, stop AINS s'il y en a, reprise/optimisation du traitement de fond (ARNI ou IEC, bêtabloquant une fois euvolémique, iSGLT2, antiminéralocorticoïde) selon la FEVG. Coronarographie si instabilité ou ischémie.",
+    "management": "Oxygène si hypoxémie, furosémide IV avec surveillance de la réponse, arrêt des AINS éventuels et recherche du facteur déclenchant. Après stabilisation, optimisation du traitement de fond selon la FEVG, la fonction rénale, la pression artérielle et les comorbidités. Coronarographie si instabilité ou ischémie.",
     "sources": [
       {
         "title": "ESC",
-        "citation": "Guidelines for the diagnosis and treatment of acute and chronic heart failure, 2023.",
+        "citation": "Guidelines for the management of heart failure, 2026.",
         "organization": "ESC",
-        "year": 2023
+        "year": 2026
       }
     ]
   },
@@ -101,7 +101,7 @@
       {
         "kind": "reveal",
         "title": "Motif",
-        "body": "Réveil à 8 h avec hémiparesie droite et langage réduit. Dernière fois vue normale : 23 h la veille (wake-up stroke)."
+        "body": "Réveil à 8 h avec hémiparesie droite et langage réduit. Dernière fois vue normale à 23 h la veille ; l'heure réelle de début est inconnue (AVC au réveil)."
       },
       {
         "kind": "reveal",
@@ -111,12 +111,12 @@
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "NIHSS 14. Aphasia de Broca, hémiparesie proportionnelle droite, hémianopsie latérale homonyme droite. Glasgow 15. TA 178/94. Glycémie 1,3 g/L."
+        "body": "NIHSS 14. Aphasie de Broca, hémiparesie proportionnelle droite, hémianopsie latérale homonyme droite. Glasgow 15. TA 178/94. Glycémie 1,3 g/L."
       },
       {
         "kind": "reveal",
         "title": "Imagerie",
-        "body": "TDM sans injection : pas d'hémorragie. Signe de la sylvienne hyperdense gauche. Angio-TDM : occlusion M1 gauche. Pas de mismatch encore lu (IRM/perfusion en cours)."
+        "body": "TDM sans injection : pas d'hémorragie. Signe de la sylvienne hyperdense gauche. Angio-TDM : occlusion M1 gauche. Imagerie avancée en cours pour apprécier le tissu encore sauvable."
       },
       {
         "kind": "question",
@@ -132,15 +132,15 @@
       },
       {
         "kind": "question",
-        "prompt": "La thrombolyse IV d'emblée est :",
+        "prompt": "Concernant la thrombolyse IV, la conduite correcte est :",
         "choices": [
-          "Indiquée sans réserve (délai < 4 h 30 certain)",
-          "Contre-indiquée : heure de début inconnue et anticoagulation",
-          "Indiquée dès que le NIHSS dépasse 10",
-          "Remplacée par l'aspirine seule"
+          "L'administrer immédiatement : le réveil fixe le début des symptômes",
+          "Vérifier sans délai l'INR et les critères d'imagerie avant de décider",
+          "L'exclure définitivement car il s'agit d'un AVC au réveil",
+          "La remplacer par l'aspirine avant la thrombectomie"
         ],
         "correct": 1,
-        "explanation": "Wake-up stroke : l'heure de début est le coucher. Une anticoagulation (warfarine) avec INR inconnu contre-indique l'altéplase jusqu'à preuve d'INR bas et imagerie de pénombre (IRM DWI/FLAIR ou perfusion)."
+        "explanation": "23 h est l'heure de dernière normalité, pas l'heure de début. Un AVC au réveil peut rester éligible à une thrombolyse en fenêtre étendue si l'imagerie avancée est favorable. Sous warfarine, l'INR doit être obtenu en urgence et satisfaire le protocole d'éligibilité ; aucun thrombolytique n'est administré tant qu'il est inconnu."
       },
       {
         "kind": "question",
@@ -152,16 +152,17 @@
           "Lumière de la chambre et surveillance 24 h"
         ],
         "correct": 0,
-        "explanation": "Occlusion proximale M1, NIHSS 14 : la thrombectomie est le traitement de reperfusion de référence jusqu'à 6 h, et au-delà si mismatch. La TA n'est baissée agressivement que si thrombolyse ou > 220."
+        "explanation": "Occlusion M1 avec déficit invalidant : l'évaluation pour thrombectomie est urgente et ne doit pas attendre l'effet d'une éventuelle thrombolyse. Certains patients restent éligibles jusqu'à 24 h selon le délai, l'autonomie antérieure et l'imagerie. Une baisse intensive de la pression systolique sous 140 mmHg après reperfusion n'améliore pas le pronostic et peut être nocive."
       }
     ],
     "diagnosis": "AVC ischémique sylvien gauche par occlusion M1, wake-up stroke, sur FA (cardio-embolique probable).",
-    "management": "Filière UNV, imagerie de pénombre, thrombectomie si éligible, pas de thrombolyse tant que l'INR et la fenêtre ne sont pas clarifiés. Puis AOD après contrôle hémorragique, rééducation précoce.",
+    "management": "Alerte AVC et filière UNV immédiates, INR urgent, imagerie de sélection et thrombectomie sans délai si éligible. La thrombolyse n'est décidée qu'après vérification de l'imagerie et de l'anticoagulation, sans retarder la thrombectomie. Après imagerie de contrôle, la reprise d'une anticoagulation est individualisée selon la taille de l'infarctus, le risque hémorragique et la cardiopathie ; rééducation et prévention secondaire précoces.",
     "sources": [
       {
         "title": "AHA / ASA",
-        "citation": "Guidelines for the early management of patients with acute ischemic stroke.",
-        "organization": "AHA"
+        "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke.",
+        "organization": "American Heart Association / American Stroke Association",
+        "year": 2026
       },
       {
         "title": "HAS",
@@ -213,12 +214,7 @@
       {
         "kind": "question",
         "prompt": "Le score le plus utile ici pour décider de l'hospitalisation est :",
-        "choices": [
-          "Wells",
-          "CURB-65 / CRB-65",
-          "CHA2DS2-VASc",
-          "Child-Pugh"
-        ],
+        "choices": ["Wells", "CURB-65 / CRB-65", "CHA2DS2-VASc", "Child-Pugh"],
         "correct": 1,
         "explanation": "CURB-65 (confusion, urée, FR, TA, âge) oriente ambulatoire vs hospit. Ici FR 28 et urée 8,2 : au moins 1–2 points, hospit. raisonnable, d'autant que SpO2 90 %."
       },
@@ -280,12 +276,7 @@
       {
         "kind": "question",
         "prompt": "Le diagnostic ECG est :",
-        "choices": [
-          "SCA ST+ antérieur (STEMI)",
-          "Péricardite aiguë",
-          "SCA ST−",
-          "TV soutenue"
-        ],
+        "choices": ["SCA ST+ antérieur (STEMI)", "Péricardite aiguë", "SCA ST−", "TV soutenue"],
         "correct": 0,
         "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
       },
@@ -315,7 +306,7 @@
       }
     ],
     "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
-    "management": "Filière 15 / USIC, aspirine + P2Y12, anticoagulation, angioplastie primaire, puis bêtabloquant, IEC/ARNI, statine haute intensité, iSGLT2, réadaptation.",
+    "management": "Filière d’urgence / USIC, traitement antithrombotique adapté et angioplastie primaire sans délai inutile. Puis prévention secondaire individualisée : statine à haute intensité, contrôle des facteurs de risque, bêtabloquant et IEC/ARA2 selon les indications, réadaptation cardiaque.",
     "sources": [
       {
         "title": "ESC",
@@ -351,7 +342,7 @@
       {
         "kind": "reveal",
         "title": "Biologie",
-        "body": "Hb 9,8 g/dL, plaquettes 72 G/L, GB 4,1. Créatinine 88. Glycémie 0,62 g/L. TDR paludisme positif P. falciparum. β-hCG positive (grossesse connue)."
+        "body": "Hb 9,8 g/dL, plaquettes 72 G/L, GB 4,1. Créatinine 88 µmol/L. Glycémie 0,35 g/L. TDR paludisme positif à P. falciparum. β-hCG positive (grossesse connue)."
       },
       {
         "kind": "question",
@@ -370,12 +361,12 @@
         "prompt": "Parmi les éléments suivants, lequel est un critère de paludisme grave OMS ?",
         "choices": [
           "Céphalée isolée",
-          "Hypoglycémie (ici 0,62 g/L)",
+          "Hypoglycémie sévère (ici 0,35 g/L)",
           "Fièvre à 39 °C",
           "Splénomégalie"
         ],
         "correct": 1,
-        "explanation": "L’hypoglycémie est un critère de gravité. La grossesse augmente le risque de forme grave. Céphalée et splénomégalie sont fréquentes sans définir la gravité."
+        "explanation": "Une glycémie < 2,2 mmol/L, soit environ 0,40 g/L, est un critère OMS de paludisme grave. La valeur de 0,35 g/L impose une correction immédiate ; la grossesse augmente aussi le risque de complications."
       },
       {
         "kind": "question",
@@ -387,7 +378,7 @@
           "Doxycycline seule (contre-indiquée de toute façon au 1er trimestre)"
         ],
         "correct": 1,
-        "explanation": "Grossesse + hypoglycémie : traiter comme une forme grave — artésunate IV (y compris au 1er trimestre selon OMS récente), correction du sucre, hospitalisation."
+        "explanation": "La présence d’un critère de gravité impose l’artésunate parentéral, y compris pendant la grossesse, avec correction immédiate de l’hypoglycémie, hospitalisation et surveillance rapprochée."
       }
     ],
     "diagnosis": "Paludisme à P. falciparum chez une femme enceinte, au moins un critère de gravité (hypoglycémie), retour de Toamasina.",
@@ -395,9 +386,9 @@
     "sources": [
       {
         "title": "OMS",
-        "citation": "Guidelines for the treatment of malaria — including pregnancy.",
+        "citation": "WHO guidelines for malaria, 13 August 2025.",
         "organization": "OMS",
-        "year": 2015
+        "year": 2025
       }
     ],
     "access": "free"

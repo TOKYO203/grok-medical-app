@@ -83,6 +83,11 @@ export type AccessPolicy = {
   entitlement: string;
 };
 
+export type DeckImportProof = {
+  format: "optimus-signed-v1" | "optimus-encrypted-v1";
+  envelope: string;
+};
+
 export type Deck = {
   id: string;
   deck_id: string;
@@ -103,6 +108,9 @@ export type Deck = {
   access_policy: AccessPolicy;
   chapters: Chapter[];
   imported?: boolean;
+  importProof?: DeckImportProof;
+  importVerified?: boolean;
+  importLicenseExpiresAt?: number | null;
 };
 
 export type ReviewStats = {
@@ -127,6 +135,24 @@ export type Entitlement = {
   product: string;
   issuedAt: number;
   expiresAt: number | null;
+};
+
+export type LicenseReceiptPayload = {
+  version: 1;
+  product: string;
+  optimusId: string;
+  deviceId: string;
+  issuedAt: string;
+  expiresAt: string | null;
+};
+
+export type LicenseReceipt = {
+  payload: LicenseReceiptPayload;
+  signature: {
+    algorithm: "Ed25519";
+    keyId: "optimus-license-v1";
+    value: string;
+  };
 };
 
 export type SyncEventType =

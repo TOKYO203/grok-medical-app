@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const AProposRoute = AProposRouteImport.update({
   id: '/a-propos',
   path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AchatsRoute = AchatsRouteImport.update({
+  id: '/achats',
+  path: '/achats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculateursRoute = CalculateursRouteImport.update({
@@ -116,6 +122,7 @@ const ParcoursDeckIdRoute = ParcoursDeckIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -195,6 +205,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -214,6 +225,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -234,6 +246,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  AchatsRoute: typeof AchatsRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
@@ -263,6 +276,13 @@ declare module '@tanstack/react-router' {
       path: '/a-propos'
       fullPath: '/a-propos'
       preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/achats': {
+      id: '/achats'
+      path: '/achats'
+      fullPath: '/achats'
+      preLoaderRoute: typeof AchatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculateurs': {
@@ -398,6 +418,7 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  AchatsRoute: AchatsRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,

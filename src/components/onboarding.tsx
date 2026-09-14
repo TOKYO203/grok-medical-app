@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { GOALS, YEARS } from "@/content/catalog";
+import { ChevronDown } from "lucide-react";
+import { GOALS, PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
+import type { StudyLevel } from "@/core/types";
 import { MadagascarMark, Wordmark } from "@/components/brand/marks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +13,8 @@ export function Onboarding() {
   const complete = useOptimus((s) => s.completeOnboarding);
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
-  const [year, setYear] = useState(5);
+  const [level, setLevel] = useState<StudyLevel>(5);
+  const [otherOpen, setOtherOpen] = useState(false);
   const [goal, setGoal] = useState("edn");
   const [subjects, setSubjects] = useState<string[]>(["Cardiologie"]);
 
@@ -22,7 +25,8 @@ export function Onboarding() {
   function finish() {
     complete({
       displayName: name.trim() || "Invité",
-      studyYear: year,
+      studyYear: typeof level === "number" ? level : 0,
+      studyLevel: level,
       goal,
       prioritySubjects: subjects,
       onboarded: true,
@@ -54,21 +58,53 @@ export function Onboarding() {
         ) : null}
         {step === 1 ? (
           <div className="mt-10 flex flex-1 flex-col">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Année d’étude</p>
-            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Où en êtes-vous ?</h2>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Votre profil</p>
+            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Quel est votre niveau actuel ?</h2>
             <div className="mt-6 grid grid-cols-2 gap-2">
               {YEARS.map((y) => (
                 <button
                   key={y.year}
                   type="button"
-                  onClick={() => setYear(y.year)}
-                  className={`rounded-[var(--radius-lg)] px-3 py-3 text-left shadow-[var(--shadow-border)] ${year === y.year ? "bg-primary-soft" : "bg-card"}`}
+                  onClick={() => {
+                    setLevel(y.year);
+                    setOtherOpen(false);
+                  }}
+                  aria-pressed={level === y.year}
+                  className={`rounded-[var(--radius-lg)] px-3 py-3 text-left shadow-[var(--shadow-border)] ${level === y.year ? "bg-primary-soft" : "bg-card"}`}
                 >
                   <p className="text-sm font-medium">{y.label}</p>
                   <p className="mt-1 text-xs text-muted">{y.focus}</p>
                 </button>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={() => setOtherOpen((open) => !open)}
+              aria-expanded={otherOpen}
+              className={`mt-2 flex w-full items-center justify-between rounded-[var(--radius-lg)] px-3 py-3 text-left shadow-[var(--shadow-border)] ${typeof level === "string" ? "bg-primary-soft" : "bg-card"}`}
+            >
+              <span>
+                <span className="block text-sm font-medium">Autres</span>
+                <span className="mt-1 block text-xs text-muted">Interne ou médecin en exercice</span>
+              </span>
+              <ChevronDown className={`size-4 text-muted transition-transform ${otherOpen ? "rotate-180" : ""}`} />
+            </button>
+            {otherOpen ? (
+              <div className="mt-2 grid gap-2" aria-label="Profils professionnels">
+                {PROFESSIONAL_LEVELS.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setLevel(item.id)}
+                    aria-pressed={level === item.id}
+                    className={`flex min-h-12 items-center justify-between rounded-[var(--radius-md)] px-4 text-left shadow-[var(--shadow-border)] ${level === item.id ? "bg-primary text-primary-fg" : "bg-secondary"}`}
+                  >
+                    <span className="text-sm font-medium">{item.label}</span>
+                    <span className={`text-xs ${level === item.id ? "text-primary-fg/75" : "text-muted"}`}>{item.focus}</span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
             <Button className="mt-auto" onClick={() => setStep(2)}>
               Continuer
             </Button>

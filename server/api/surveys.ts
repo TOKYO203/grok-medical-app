@@ -1,8 +1,8 @@
-import { defineEventHandler, readBody, getQuery } from "h3";
+import { defineEventHandler, readBody, getQuery, getMethod, setResponseStatus } from "h3";
 import { getSql } from "@/lib/db";
 
 export default defineEventHandler(async (event) => {
-  const method = (event.node.req.method || "GET").toUpperCase();
+  const method = getMethod(event).toUpperCase();
   const sql = await getSql();
 
   if (method === "GET") {
@@ -47,6 +47,6 @@ export default defineEventHandler(async (event) => {
     return survey;
   }
 
-  event.node.res.statusCode = 405;
+  setResponseStatus(event, 405);
   return { error: "Method Not Allowed" };
 });

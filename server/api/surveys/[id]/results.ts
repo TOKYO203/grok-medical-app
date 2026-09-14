@@ -1,33 +1,31 @@
-import { defineEventHandler, getQuery } from 'h3';
+import { defineEventHandler, getRouterParam, setResponseStatus } from 'h3';
 import { getSql } from '@/lib/db';
 
 function sum(arr: number[]) { return arr.reduce((a,b) => a+b, 0); }
 
 export default defineEventHandler(async (event) => {
-  const params = (event.context as any)?.params || {};
-  const surveyId = params.id;
-  const q = getQuery(event) as Record<string,string>;
+  const surveyId = getRouterParam(event, 'id');
 
   if (!surveyId) {
-    event.node.res.statusCode = 400;
+    setResponseStatus(event, 400);
     return { error: 'missing survey id' };
   }
 
   const sql = await getSql();
-  const surveys = await sql.query('select * from surveys where id = $1 limit 1', [surveyId]);
+  const surveys = await sql.query<Record<string, any>>('select * from surveys where id = $1 limit 1', [surveyId]);
   const survey = surveys[0] ?? null;
   if (!survey) {
-    event.node.res.statusCode = 404;
+    setResponseStatus(event, 404);
     return { error: 'survey not found' };
   }
 
   // load questions
-  const questions = await sql.query('select * from survey_questions where survey_id = $1 order by position', [surveyId]);
+  const questions = await sql.query<Record<string, any>>('select * from survey_questions where survey_id = $1 order by position', [surveyId]);
   const qmap: Record<string, any> = {};
   for (const qq of questions) qmap[qq.id] = qq;
 
   // load responses
-  const rows = await sql.query('select id, submitted_at, answers, metadata from survey_responses where survey_id = $1', [surveyId]);
+  const rows = await sql.query<Record<string, any>>('select id, submitted_at, answers, metadata from survey_responses where survey_id = $1', [surveyId]);
 
   // parse and aggregate
   const aggregates: Record<string, any> = {};
@@ -42,7 +40,7 @@ export default defineEventHandler(async (event) => {
 
   for (const r of rows) {
     let answers: any[] = [];
-    try { answers = JSON.parse(r.answers as string); } catch (e) { continue; }
+    try { answers = JSON.parse(r.answers as string); } catch { continue; }
     for (const a of answers) {
       const qid = a.questionId || a.question_id || a.id;
       if (!qid || !aggregates[qid]) continue;
@@ -78,7 +76,12 @@ export default defineEventHandler(async (event) => {
     }
     if (entry.counts) {
       const total = entry.totalResponses || 0;
-      entry.breakdown = Object.fromEntries(Object.entries(entry.counts).map(([k,v]) => [k, { count: v, percent: total ? (v/total*100) : 0 }]));
+      entry.breakdown = Object.fromEntries(
+        Object.entries(entry.counts as Record<string, number>).map(([k, v]) => [
+          k,
+          { count: v, percent: total ? (v / total) * 100 : 0 },
+        ]),
+      );
     }
   }
 

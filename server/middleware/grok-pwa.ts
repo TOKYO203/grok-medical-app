@@ -20,7 +20,7 @@ function requestHost(event: GrokPwaEvent): string {
 
 // Cache imports so subsequent requests reuse the loaded modules inside the
 // same function instance (reduces overhead after cold start).
-let cached: {
+const cached: {
   loaded: boolean;
   installPageTemplate?: string;
   grokOgIdentity?: { site: unknown };

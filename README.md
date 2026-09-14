@@ -9,14 +9,15 @@ Application web médicale gamifiée pour l'apprentissage des cas cliniques, des 
 - 🏆 Suivi de progression, XP, niveaux et badges
 - 👥 Mode multijoueur en pair-à-pair (WebRTC)
 - 📊 Tableau de classement
-- 🔐 Authentification par email/mot de passe (Supabase)
+- 🔐 Authentification et données utilisateur isolées côté serveur
+- 🛡️ Activation Premium liée à l’Optimus ID et à l’appareil
 - 📱 Progressive Web App (PWA) installable
 
 ## 🛠️ Technologies
 
 - **Frontend** : React, TypeScript, Vite, TanStack Start, Tailwind CSS
-- **Backend** : Supabase (PostgreSQL, Auth, Storage)
-- **Tests** : Node.js test runner, Vitest
+- **Backend** : PostgreSQL/Neon, avec PGLite pour la prévisualisation locale
+- **Tests** : Node.js test runner
 - **CI/CD** : GitHub Actions
 
 ## 🚀 Installation locale
@@ -29,7 +30,59 @@ git clone https://github.com/TOKYO203/grok-medical-app.git
 cd grok-medical-app
 
 # Installer les dépendances
-npm install
+npm ci
 
 # Lancer le serveur de développement
 npm run dev
+```
+
+## 🔑 Activation Premium sécurisée
+
+Les clés de licence et les Decks utilisent deux paires Ed25519 distinctes. Les clés privées ne
+doivent jamais être ajoutées au dépôt.
+
+```bash
+# À exécuter une seule fois, puis à conserver dans le gestionnaire de secrets du déploiement
+npm run license:keys
+npm run deck:keys
+
+# Après un paiement confirmé
+npm run license:issue -- --optimus-id OM-A1B2C3D4 --product NEURO_PRO --days 365
+```
+
+Le déploiement attend `LICENSE_SIGNING_PRIVATE_KEY` et `VITE_LICENSE_SIGNING_PUBLIC_KEY` pour les
+preuves d’activation, ainsi que les clés Deck séparées pour les fichiers Premium signés.
+
+À chaque démarrage, un Deck Premium importé est revérifié puis reconstruit depuis son enveloppe
+signée. Une copie modifiée, expirée ou vérifiée avec une autre clé reste verrouillée.
+
+Pour une livraison Premium résistante à la copie, l’acheteur ouvre **Importer un Deck** et copie sa
+demande d’achat sécurisée. Enregistrez cette demande dans `demande-appareil.json`, puis générez le
+fichier à lui envoyer :
+
+```bash
+npm run deck:encrypt -- \
+  --input deck-source.json \
+  --output deck-client.json \
+  --request demande-appareil.json \
+  --product NEURO_DECK_01 \
+  --days 365
+```
+
+Le contenu est chiffré en AES-256-GCM. Sa clé est elle-même protégée par la clé RSA non exportable
+de l'appareil, et l'ensemble est signé en Ed25519. L'application ne conserve que l'enveloppe
+chiffrée et ses métadonnées sur le disque — jamais les questions en clair — puis reconstruit le
+contenu en mémoire après vérification.
+
+## Statut éditorial V1
+
+Le registre `src/content/data/editorial-registry.json` distingue désormais la disponibilité d'un
+Deck (`published`) de son niveau réel de revue médicale. `priority_items_reviewed` signifie que les
+questions à plus fort risque identifiées ont été revues ; `structural_only` signifie que seuls la
+structure, les réponses et les métadonnées ont passé les garde-fous automatiques. Seul
+`fully_reviewed` autorise à présenter tout le Deck comme médicalement revu.
+
+Avant une mise en production commerciale, exécuter `npm run release:check`, configurer les clés de
+signature côté déploiement et confirmer le canal Mobile Money officiel. Ces trois conditions sont
+indépendantes : un build vert ne remplace ni la revue médicale complète ni la configuration
+opérateur.
