@@ -76,3 +76,24 @@ test("parent routes render their dynamic child pages", () => {
     assert.match(route.source, /return <Outlet \/>/, `${file}: dynamic child routes need an Outlet`);
   }
 });
+
+
+test("diagnostic program keeps the 42 visible source items ordered and uniquely identified", async () => {
+  const topics = JSON.parse(
+    await readFile(new URL("../src/content/data/diagnostic-topics.json", import.meta.url), "utf8"),
+  );
+  const diagnostics = JSON.parse(
+    await readFile(new URL("../src/content/data/diagnostics.json", import.meta.url), "utf8"),
+  );
+  assert.equal(topics.length, 42);
+  assert.deepEqual(
+    topics.map((topic) => topic.number),
+    Array.from({ length: 42 }, (_, index) => index + 1),
+  );
+  assert.equal(new Set(topics.map((topic) => topic.id)).size, topics.length);
+  const diagnosticIds = new Set(diagnostics.map((diagnostic) => diagnostic.id));
+  for (const topic of topics.filter((item) => item.routeId)) {
+    assert.ok(diagnosticIds.has(topic.routeId), `unknown diagnostic route ${topic.routeId}`);
+    assert.equal(topic.status, "available");
+  }
+});
