@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Page, Shell } from "@/components/shell";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import { useOptimus } from "@/state/store";
@@ -6,8 +6,14 @@ import { useOptimus } from "@/state/store";
 export const Route = createFileRoute("/cas")({ component: CasPage });
 
 function CasPage() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const done = useOptimus((s) => s.casesCompleted);
   const dxDone = useOptimus((s) => s.diagnosticsCompleted);
+
+  if (pathname !== "/cas" && pathname !== "/cas/") {
+    return <Outlet />;
+  }
+
   return (
     <Shell title="Cas">
       <Page>
@@ -23,7 +29,7 @@ function CasPage() {
               key={c.id}
               to="/cas/$caseId"
               params={{ caseId: c.id }}
-              className="block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
+              className="block min-w-0 touch-manipulation rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-transform active:scale-[0.99]"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -46,7 +52,7 @@ function CasPage() {
               key={d.id}
               to="/demarche/$id"
               params={{ id: d.id }}
-              className="block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
+              className="block min-w-0 touch-manipulation rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-transform active:scale-[0.99]"
             >
               <p className="text-xs uppercase tracking-wider text-muted">{d.specialty}</p>
               <p className="mt-1 font-medium">{d.title}</p>
