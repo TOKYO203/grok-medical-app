@@ -213,32 +213,31 @@ function DeckPage() {
                     <span className="mt-0.5 block text-xs text-muted">{lesson.detail}</span>
                   </span>
                   <span className="shrink-0 text-[11px] font-medium uppercase tracking-wider text-subtle">
-                    {!open ? "Inclus" : done ? "Terminé" : isNext ? "À suivre" : "À venir"}
+                    {!open ? "Aperçu" : done ? "Terminé" : isNext ? "À suivre" : "À venir"}
                   </span>
-                  {open ? <ArrowRight className="size-4 shrink-0 text-subtle" /> : null}
+                  <ArrowRight className="size-4 shrink-0 text-subtle" />
                 </>
               );
 
               return (
                 <li key={lesson.index}>
-                  {open ? (
-                    <Link
-                      to="/learn/$deckId"
-                      params={{ deckId: deck.id }}
-                      search={{ lesson: lesson.index, preview: false, mode: "lesson" }}
-                      className={`relative flex items-center gap-3 rounded-[var(--radius-lg)] p-4 transition-all hover:-translate-y-0.5 ${
-                        isNext
-                          ? "bg-primary-soft shadow-[var(--shadow-md)] ring-1 ring-primary/25"
-                          : "bg-card shadow-[var(--shadow-border)] hover:bg-secondary"
-                      }`}
-                    >
-                      {content}
-                    </Link>
-                  ) : (
-                    <div className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
-                      {content}
-                    </div>
-                  )}
+                  <Link
+                    to="/learn/$deckId"
+                    params={{ deckId: deck.id }}
+                    search={{
+                      lesson: lesson.index,
+                      preview: !open,
+                      mode: open ? "lesson" : "preview",
+                    }}
+                    aria-label={`${open ? "Ouvrir" : "Aperçu gratuit de"} l’étape ${lesson.title}`}
+                    className={`relative flex items-center gap-3 rounded-[var(--radius-lg)] p-4 transition-all hover:-translate-y-0.5 ${
+                      isNext && open
+                        ? "bg-primary-soft shadow-[var(--shadow-md)] ring-1 ring-primary/25"
+                        : "bg-card shadow-[var(--shadow-border)] hover:bg-secondary"
+                    }`}
+                  >
+                    {content}
+                  </Link>
                 </li>
               );
             })}
