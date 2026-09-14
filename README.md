@@ -70,6 +70,19 @@ npm run deck:encrypt -- \
 ```
 
 Le contenu est chiffré en AES-256-GCM. Sa clé est elle-même protégée par la clé RSA non exportable
-de l’appareil, et l’ensemble est signé en Ed25519. L’application ne conserve que l’enveloppe
+de l'appareil, et l'ensemble est signé en Ed25519. L'application ne conserve que l'enveloppe
 chiffrée et ses métadonnées sur le disque — jamais les questions en clair — puis reconstruit le
 contenu en mémoire après vérification.
+
+## Statut éditorial V1
+
+Le registre `src/content/data/editorial-registry.json` distingue désormais la disponibilité d'un
+Deck (`published`) de son niveau réel de revue médicale. `priority_items_reviewed` signifie que les
+questions à plus fort risque identifiées ont été revues ; `structural_only` signifie que seuls la
+structure, les réponses et les métadonnées ont passé les garde-fous automatiques. Seul
+`fully_reviewed` autorise à présenter tout le Deck comme médicalement revu.
+
+Avant une mise en production commerciale, exécuter `npm run release:check`, configurer les clés de
+signature côté déploiement et confirmer le canal Mobile Money officiel. Ces trois conditions sont
+indépendantes : un build vert ne remplace ni la revue médicale complète ni la configuration
+opérateur.
