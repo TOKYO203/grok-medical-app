@@ -2,7 +2,7 @@
   {
     "schemaVersion": 2,
     "id": "pharmaco",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Pharmacologie",
     "subtitle": "Mécanismes, doses, antidotes",
     "subject": "Pharmacologie",
@@ -84,15 +84,13 @@
         "prompt": "Quel est l'antidote spécifique des morphiniques ?",
         "choices": ["Flumazénil", "N-acétylcystéine", "Naloxone", "Fomépizole"],
         "correct": 2,
-        "explanation": "La naloxone est un antagoniste compétitif des récepteurs µ. Le flumazénil antagonise les benzodiazépines ; la NAC le paracétamol ; le fomépizole les alcools toxiques.",
+        "explanation": "La naloxone antagonise les récepteurs opioïdes, mais ne remplace jamais la prise en charge des voies aériennes ni la ventilation assistée. En surdosage suspecté, priorité à l'oxygénation et à la ventilation, administration de naloxone selon le protocole disponible, puis surveillance prolongée car la dépression respiratoire peut récidiver après son effet.",
         "sources": [
           {
-            "title": "Goodman & Gilman",
-            "citation": "The Pharmacological Basis of Therapeutics, 13e éd."
-          },
-          {
-            "title": "SFAR",
-            "citation": "Recommandations formalisées d'experts — urgences vitales."
+            "title": "Organisation mondiale de la Santé",
+            "citation": "Opioid overdose — Fact sheet, 2025.",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose",
+            "verifiedAt": "2026-09-14"
           }
         ],
         "difficulty": "base",
