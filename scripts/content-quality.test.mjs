@@ -37,7 +37,7 @@ test("reviewed cardiology and malaria content uses the current source versions",
   const infectio = decks.find((deck) => deck.id === "infectio");
   assert.equal(cardio?.version, "2.1.0");
   assert.equal(tropical?.version, "2.2.0");
-  assert.equal(infectio?.version, "2.1.0");
+  assert.equal(infectio?.version, "2.2.0");
 
   const reviewed = JSON.stringify([cardio, tropical, infectio, cases]);
   assert.doesNotMatch(reviewed, /Heart Failure Guidelines, 2023/);
@@ -92,6 +92,18 @@ test("reviewed first-aid content teaches safe bleeding and choking actions", () 
       question?.sources.some((source) => source.url?.includes("resus.org.uk")),
     ),
   );
+});
+
+test("reviewed tuberculosis content distinguishes standard and shorter regimens", () => {
+  const infectiousDiseases = decks.find((deck) => deck.id === "infectio");
+  const tuberculosis = infectiousDiseases?.questions.find((question) => question.id === "in-5");
+
+  assert.equal(infectiousDiseases?.version, "2.2.0");
+  assert.match(tuberculosis?.choices[tuberculosis.correct] ?? "", /2HRZE\/4HR/);
+  assert.match(tuberculosis?.choices[tuberculosis.correct] ?? "", /quatre mois/);
+  assert.match(tuberculosis?.explanation ?? "", /rifapentine et moxifloxacine/);
+  assert.match(tuberculosis?.explanation ?? "", /programme national/);
+  assert.ok(tuberculosis?.sources.some((source) => source.url?.includes("who.int")));
 });
 
 test("reviewed stroke content uses the 2026 AHA/ASA guidance safely", () => {
