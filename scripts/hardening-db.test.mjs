@@ -5,6 +5,7 @@ import { PGlite } from "@electric-sql/pglite";
 
 const migration0006 = await readFile(new URL("../migrations/0006_user_identity_text.sql", import.meta.url), "utf8");
 const migration0007 = await readFile(new URL("../migrations/0007_api_rate_limits.sql", import.meta.url), "utf8");
+const migration0008 = await readFile(new URL("../migrations/0008_optimus_user_state.sql", import.meta.url), "utf8");
 
 test("0006 converts Better Auth identity columns to text without losing existing UUID values", async () => {
   const db = new PGlite();
@@ -65,6 +66,54 @@ test("0007 provides an atomic shared counter for fixed-window rate limiting", as
       );
       assert.equal(Number(result.rows[0]?.request_count), expected);
     }
+  } finally {
+    await db.close();
+  }
+});
+
+test("0008 isolates one revisioned Optimus snapshot per authenticated user", async () => {
+  const db = new PGlite();
+  await db.waitReady;
+  try {
+    await db.exec(migration0008);
+    const state = JSON.stringify({ version: 1, profile: { optimusId: "OM-A1B2C3D4" } });
+
+    const inserted = await db.query(
+      `insert into optimus_user_state (user_id, optimus_id, state)
+       values ($1, $2, $3::jsonb)
+       returning user_id, optimus_id, revision`,
+      ["auth-user-1", "OM-A1B2C3D4", state],
+    );
+    assert.equal(inserted.rows[0]?.user_id, "auth-user-1");
+    assert.equal(inserted.rows[0]?.optimus_id, "OM-A1B2C3D4");
+    assert.equal(Number(inserted.rows[0]?.revision), 1);
+
+    const updated = await db.query(
+      `update optimus_user_state
+          set state = $2::jsonb, revision = revision + 1, updated_at = now()
+        where user_id = $1 and revision = 1
+        returning revision`,
+      ["auth-user-1", state],
+    );
+    assert.equal(Number(updated.rows[0]?.revision), 2);
+
+    const stale = await db.query(
+      `update optimus_user_state
+          set revision = revision + 1
+        where user_id = $1 and revision = 1
+        returning revision`,
+      ["auth-user-1"],
+    );
+    assert.equal(stale.rows.length, 0, "a stale revision must not overwrite the newer snapshot");
+
+    await assert.rejects(
+      db.query(
+        `insert into optimus_user_state (user_id, optimus_id, state)
+         values ($1, $2, $3::jsonb)`,
+        ["auth-user-2", "OM-A1B2C3D4", state],
+      ),
+      /unique|duplicate/i,
+    );
   } finally {
     await db.close();
   }
