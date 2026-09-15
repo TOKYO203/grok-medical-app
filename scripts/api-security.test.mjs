@@ -40,9 +40,15 @@ test("editor privileges are fail-closed and configured server-side", () => {
   assert.match(routeAuth, /throw new ApiAuthError\(403, "Forbidden"\)/);
 });
 
-test("forwarded client IP headers are opt-in rather than trusted by default", () => {
+test("client IP resolution trusts platform-owned headers and keeps generic forwarding opt-in", () => {
+  assert.match(clientIp, /process\.env\.VERCEL === "1"/);
+  assert.match(clientIp, /x-vercel-forwarded-for/);
+  assert.match(clientIp, /process\.env\.NETLIFY === "true"/);
+  assert.match(clientIp, /x-nf-client-connection-ip/);
   assert.match(clientIp, /TRUST_PROXY_HEADERS === "true"/);
   assert.match(clientIp, /getRequestIP\(event, \{ xForwardedFor: trustForwarded \}\)/);
+  assert.match(clientIp, /value\.includes\(","\)/);
+  assert.match(clientIp, /isIP\(value\) === 0/);
 });
 
 test("persistent rate limiter pseudonymizes subjects and fails closed without a production salt", () => {
