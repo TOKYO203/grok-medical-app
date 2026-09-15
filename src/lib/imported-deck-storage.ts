@@ -117,6 +117,11 @@ async function readImportedDecks(ownerId: string): Promise<Deck[]> {
 }
 
 export async function loadImportedDecks(ownerId: string): Promise<Deck[]> {
+  // IndexedDB is intentionally client-only. During SSR there is no durable
+  // browser storage to restore, so render with the persisted runtime state and
+  // let the browser hydration pass perform the actual IndexedDB migration.
+  if (typeof window === "undefined") return [];
+
   const owner = normalizeOwner(ownerId);
   const owned = await readImportedDecks(owner);
   if (owner === GUEST_OWNER) return owned;
