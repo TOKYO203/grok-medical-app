@@ -8,6 +8,10 @@ const controls = readFileSync(
   "utf8",
 );
 const quiz = readFileSync(new URL("../src/components/quiz-player.tsx", import.meta.url), "utf8");
+const milestones = readFileSync(
+  new URL("../src/components/experience-milestone-bridge.tsx", import.meta.url),
+  "utf8",
+);
 const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
@@ -41,6 +45,14 @@ test("quiz emits distinct correct incorrect and completion feedback", () => {
   assert.match(quiz, /emitExperienceFeedback\("complete"/);
   assert.match(quiz, /optimus-answer-correct/);
   assert.match(quiz, /optimus-answer-incorrect/);
+});
+
+test("milestones combine sensory cues with restrained visual celebration", () => {
+  assert.match(milestones, /toast\.success\("Badge débloqué"/);
+  assert.match(milestones, /toast\.success\("Niveau supérieur"/);
+  assert.match(milestones, /toast\.success\("Optimus Premium activé"/);
+  assert.match(milestones, /emitExperienceFeedback\("premium"/);
+  assert.match(milestones, /emitExperienceFeedback\("badge"/);
 });
 
 test("motion feedback keeps the system reduced-motion escape hatch", () => {
