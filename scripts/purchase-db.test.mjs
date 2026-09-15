@@ -64,7 +64,7 @@ test("purchase migrations preserve request idempotency and ordered audit states"
       db.query("update purchase_orders set status = 'invented' where reference = $1", [
         "CMD-TEST-A1B2C3D4",
       ]),
-      /check|violates/i,
+      /invalid purchase status transition|check|violates/i,
     );
   } finally {
     await db.close();
