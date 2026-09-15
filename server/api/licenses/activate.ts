@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { defineEventHandler, getMethod, readBody, setHeader, setResponseStatus } from "h3";
 import { getSql } from "@/lib/db";
 import { signLicenseReceipt } from "@/content/license-receipt.server";
+import { getClientIp } from "../../lib/client-ip";
+import { applyRateLimitHeaders, consumeRateLimit } from "../../lib/rate-limit";
 
 type ActivationBody = {
   key?: unknown;
@@ -47,6 +49,26 @@ export default defineEventHandler(async (event) => {
   ) {
     setResponseStatus(event, 400);
     return { error: "Clé ou identifiant invalide." };
+  }
+
+  const clientIp = getClientIp(event);
+  const subject = clientIp || `${optimusId}:${deviceId.toLowerCase()}`;
+  try {
+    const decision = await consumeRateLimit({
+      scope: "license-activate",
+      subject,
+      limit: 8,
+      windowSeconds: 60,
+    });
+    applyRateLimitHeaders(event, decision);
+    if (!decision.allowed) {
+      setResponseStatus(event, 429);
+      return { error: "Trop de tentatives. Réessayez plus tard." };
+    }
+  } catch (error) {
+    console.error("[licenses] rate limiter unavailable", error);
+    setResponseStatus(event, 503);
+    return { error: "Le service d'activation sécurisée est temporairement indisponible." };
   }
 
   const privateKey = process.env.LICENSE_SIGNING_PRIVATE_KEY?.trim();
