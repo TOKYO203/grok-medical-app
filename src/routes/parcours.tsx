@@ -175,7 +175,7 @@ function ParcoursPage() {
         {premium.length > 0 ? (
           <section className="mt-10">
             <SectionTitle kicker="Premium" title="Aller plus loin" />
-            <div className="premium-hero rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
+            <div className="premium-hero overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
               <div className="flex items-start gap-3">
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-bg/20 text-primary-fg shadow-[var(--shadow-border)]">
                   <Layers3 className="size-5" />
