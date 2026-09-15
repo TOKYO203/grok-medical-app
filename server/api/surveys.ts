@@ -47,9 +47,9 @@ function safeLimit(value: unknown): number {
 
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
-  const sql = await getSql();
 
   if (method === "GET") {
+    const sql = await getSql();
     const q = getQuery(event) as Record<string, string>;
     const limit = safeLimit(q.limit);
     return sql.query(
@@ -85,6 +85,7 @@ export default defineEventHandler(async (event) => {
         return { error: "invalid_survey", issues: parsed.error.flatten() };
       }
 
+      const sql = await getSql();
       const data = parsed.data;
       const rows = await sql.query<Record<string, unknown>>(
         `insert into surveys (
