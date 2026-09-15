@@ -1,6 +1,7 @@
 import { defineEventHandler, getMethod, getQuery, readBody, setResponseStatus } from "h3";
 import { z } from "zod";
 import { getSql } from "@/lib/db";
+import { applyRateLimitHeaders, consumeRateLimit } from "../lib/rate-limit";
 import { apiAuthFailure, requireContentEditor } from "../lib/route-auth";
 
 const publicationSchema = z.object({
@@ -66,6 +67,18 @@ export default defineEventHandler(async (event) => {
   if (method === "POST") {
     try {
       const editor = await requireContentEditor(event);
+      const decision = await consumeRateLimit({
+        scope: "publication-create",
+        subject: editor.id,
+        limit: 30,
+        windowSeconds: 60,
+      });
+      applyRateLimitHeaders(event, decision);
+      if (!decision.allowed) {
+        setResponseStatus(event, 429);
+        return { error: "rate_limited" };
+      }
+
       const parsed = publicationSchema.safeParse(await readBody(event));
       if (!parsed.success) {
         setResponseStatus(event, 400);
@@ -113,7 +126,9 @@ export default defineEventHandler(async (event) => {
         setResponseStatus(event, authError.statusCode);
         return { error: authError.message };
       }
-      throw error;
+      console.error("[publications] create failed", error);
+      setResponseStatus(event, 503);
+      return { error: "publication_service_unavailable" };
     }
   }
 
