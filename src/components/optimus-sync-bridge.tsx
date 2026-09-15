@@ -41,7 +41,6 @@ function buildSnapshot(state: OptimusState): OptimusSyncSnapshot {
     casesCompleted: state.casesCompleted,
     diagnosticsCompleted: state.diagnosticsCompleted,
     reviewsSucceeded: state.reviewsSucceeded,
-    purchases: state.purchases,
   });
 }
 
@@ -70,7 +69,6 @@ function applySnapshot(snapshot: OptimusSyncSnapshot): void {
     casesCompleted: snapshot.casesCompleted,
     diagnosticsCompleted: snapshot.diagnosticsCompleted,
     reviewsSucceeded: snapshot.reviewsSucceeded,
-    purchases: snapshot.purchases as OptimusState["purchases"],
   }));
 }
 
@@ -91,8 +89,8 @@ function saveLocalOwner(userId: string): void {
 }
 
 /**
- * Bridges the existing offline-first Zustand state with an authenticated server snapshot.
- * Device-bound Premium material deliberately remains local.
+ * Bridges offline-first learning state with an authenticated server snapshot.
+ * Commerce, entitlements, device keys and Premium content deliberately use separate stores.
  */
 export function OptimusSyncBridge() {
   const { user, isPending } = useCurrentUserState();
