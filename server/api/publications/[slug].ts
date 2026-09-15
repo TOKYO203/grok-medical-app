@@ -7,6 +7,7 @@ import {
 } from "h3";
 import { z } from "zod";
 import { getSql } from "@/lib/db";
+import { applyRateLimitHeaders, consumeRateLimit } from "../../lib/rate-limit";
 import { apiAuthFailure, requireContentEditor } from "../../lib/route-auth";
 
 const updateSchema = z
@@ -45,7 +46,19 @@ export default defineEventHandler(async (event) => {
 
   if (method === "PATCH") {
     try {
-      await requireContentEditor(event);
+      const editor = await requireContentEditor(event);
+      const decision = await consumeRateLimit({
+        scope: "publication-update",
+        subject: editor.id,
+        limit: 60,
+        windowSeconds: 60,
+      });
+      applyRateLimitHeaders(event, decision);
+      if (!decision.allowed) {
+        setResponseStatus(event, 429);
+        return { error: "rate_limited" };
+      }
+
       const parsed = updateSchema.safeParse(await readBody(event));
       if (!parsed.success) {
         setResponseStatus(event, 400);
@@ -97,7 +110,9 @@ export default defineEventHandler(async (event) => {
         setResponseStatus(event, authError.statusCode);
         return { error: authError.message };
       }
-      throw error;
+      console.error("[publications] update failed", error);
+      setResponseStatus(event, 503);
+      return { error: "publication_service_unavailable" };
     }
   }
 
