@@ -10,6 +10,10 @@ const connectivity = readFileSync(
   new URL("../src/components/connectivity-status.tsx", import.meta.url),
   "utf8",
 );
+const resumeBridge = readFileSync(
+  new URL("../src/components/app-resume-bridge.tsx", import.meta.url),
+  "utf8",
+);
 const installCard = readFileSync(
   new URL("../src/components/pwa-install-card.tsx", import.meta.url),
   "utf8",
@@ -48,9 +52,19 @@ test("parcours and clinical cases expose progress summaries and explicit states"
 test("offline mode stays explicit without blocking local learning", () => {
   assert.match(root, /<ConnectivityStatus \/>/);
   assert.match(connectivity, /navigator\.onLine/);
+  assert.match(connectivity, /previous === false && next/);
   assert.match(connectivity, /Mode hors ligne/);
   assert.match(connectivity, /synchronisation reprendra/);
   assert.match(connectivity, /Connexion rétablie/);
+});
+
+test("app resume refreshes existing online workflows without pretending to be online", () => {
+  assert.match(root, /<AppResumeBridge \/>/);
+  assert.match(resumeBridge, /navigator\.onLine/);
+  assert.match(resumeBridge, /visibilitychange/);
+  assert.match(resumeBridge, /pageshow/);
+  assert.match(resumeBridge, /window\.dispatchEvent\(new Event\("online"\)\)/);
+  assert.match(resumeBridge, /RESUME_THROTTLE_MS/);
 });
 
 test("PWA installation is discoverable and standalone-aware", () => {
