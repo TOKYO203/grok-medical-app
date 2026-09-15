@@ -51,8 +51,6 @@ async function finishQuiz(page) {
       break;
     }
 
-    // QuizPlayer deliberately arms the next question after 500 ms to prevent
-    // double taps from being interpreted as an answer on mobile.
     await page.waitForTimeout(550);
   }
   assert.ok(answered > 0, "the Deck session should contain at least one question");
@@ -70,7 +68,6 @@ page.on("pageerror", (error) => pageErrors.push(String(error?.message || error))
 try {
   await page.goto(baseUrl, { waitUntil: "domcontentloaded", timeout: timeoutMs });
 
-  // 1. First-run onboarding.
   const begin = page.getByRole("button", { name: "Commencer", exact: true });
   await begin.waitFor({ state: "visible", timeout: timeoutMs });
   await begin.click();
@@ -86,7 +83,6 @@ try {
     timeout: timeoutMs,
   });
 
-  // 2. Open the recommended free Deck through the mobile navigation and card.
   await page.getByRole("link", { name: "Parcours", exact: true }).click();
   const main = page.locator("#main-content");
   await main.getByRole("heading", { name: "Parcours", exact: true }).waitFor({
@@ -101,14 +97,15 @@ try {
   await startDeck.waitFor({ state: "visible", timeout: timeoutMs });
   await startDeck.click();
 
-  // 3. Complete one learning session and return to the Deck page.
   const answeredInLesson = await finishQuiz(page);
   await page.getByRole("button", { name: "Terminer", exact: true }).click();
-  await page.getByText(/Progression \d+%/).first().waitFor({ state: "visible", timeout: timeoutMs });
+  const traversedMetric = page.getByText("Parcouru", { exact: true }).locator("..");
+  await traversedMetric.getByText(/^\d+%$/).waitFor({ state: "visible", timeout: timeoutMs });
+  await page.getByRole("link", { name: /Reprendre · Étape|Réviser ce Deck/ }).waitFor({
+    state: "visible",
+    timeout: timeoutMs,
+  });
 
-  // 4. Start the dashboard's spaced-repetition session. The `today` mode also
-  // includes unseen questions, so this remains deterministic even if every Deck
-  // answer above happened to be correct and therefore is not due yet.
   await page.getByRole("link", { name: "Accueil", exact: true }).click();
   const todaySession = page.locator('a[href*="/revue"][href*="mode=today"]').first();
   await todaySession.waitFor({ state: "visible", timeout: timeoutMs });
@@ -119,7 +116,6 @@ try {
   await reviewChoice.click();
   await page.getByText(/Juste|Incorrect/).first().waitFor({ state: "visible", timeout: timeoutMs });
 
-  // 5. Profile reflects the identity created during onboarding.
   await page.getByRole("link", { name: "Profil", exact: true }).click();
   await page.getByRole("heading", { name: qaName, exact: true }).waitFor({
     state: "visible",
@@ -127,9 +123,6 @@ try {
   });
   await page.getByText("XP", { exact: true }).first().waitFor({ state: "visible" });
 
-  // 6. Local-first behavior: navigation remains usable while the browser is
-  // offline. Reconnect, reload from the server, and verify the local profile and
-  // learning state survive the round-trip.
   await context.setOffline(true);
   await page.getByRole("link", { name: "Accueil", exact: true }).click();
   await page.getByRole("heading", { name: `Bonjour, ${qaName}` }).waitFor({
