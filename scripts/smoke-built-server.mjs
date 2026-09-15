@@ -22,6 +22,7 @@ assert.equal(typeof fetchBuiltApp, "function", "Nitro fetch handler is missing")
 
 const routes = [
   "/",
+  "/login",
   "/parcours",
   "/parcours/neuro",
   "/learn/neuro?lesson=0&preview=true&mode=preview",
