@@ -68,6 +68,20 @@ assert.equal(
   `anonymous publication mutation should return 401, got ${unauthorizedPublication.status}`,
 );
 
+function cookieHeaderFrom(response) {
+  assert.equal(
+    typeof response.headers.getSetCookie,
+    "function",
+    "Node runtime must expose Headers.getSetCookie() for auth smoke coverage",
+  );
+  const setCookies = response.headers.getSetCookie();
+  assert.ok(setCookies.length > 0, "auth bootstrap should emit at least one Set-Cookie header");
+  return setCookies
+    .map((value) => value.split(";", 1)[0]?.trim())
+    .filter(Boolean)
+    .join("; ");
+}
+
 async function authenticatedNonEditorStatus() {
   const projectId = "ci-smoke-project";
   const kid = "ci-smoke-gate-key";
@@ -118,11 +132,48 @@ async function authenticatedNonEditorStatus() {
       .setExpirationTime(now + 300)
       .sign(privateKey);
 
+    // A server-side auth guard must never mint a browser session as a side effect.
+    // Gate bootstrap belongs to the actual Better Auth HTTP endpoint.
+    const headerOnly = await fetchBuiltApp(
+      new Request("http://localhost/api/publications", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-grok-identity": token,
+        },
+        body: JSON.stringify({ title: "Header only must stay unauthorized" }),
+      }),
+    );
+    assert.equal(
+      headerOnly.status,
+      401,
+      `Gate header without a Better Auth session should return 401, got ${headerOnly.status}`,
+    );
+
+    const bootstrap = await fetchBuiltApp(
+      new Request("http://localhost/api/auth/get-session", {
+        headers: { "x-grok-identity": token },
+      }),
+    );
+    assert.equal(
+      bootstrap.status,
+      200,
+      `Gate session bootstrap should return 200, got ${bootstrap.status}`,
+    );
+    const bootstrapBody = await bootstrap.json();
+    assert.equal(
+      bootstrapBody?.user?.email,
+      "ci-viewer@example.invalid",
+      "Gate session bootstrap should resolve the authenticated viewer",
+    );
+    const cookie = cookieHeaderFrom(bootstrap);
+
     const response = await fetchBuiltApp(
       new Request("http://localhost/api/publications", {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          cookie,
           "x-grok-identity": token,
         },
         body: JSON.stringify({ title: "Authenticated but forbidden publication" }),
@@ -196,5 +247,5 @@ const modelBody = await readFile(
 assert.doesNotThrow(() => JSON.parse(modelBody));
 
 console.log(
-  `[smoke] built server: ${routes.length} UI routes + HTTP security 401/403/413/429 + Deck model passed`,
+  `[smoke] built server: ${routes.length} UI routes + HTTP auth bootstrap/security 401/403/413/429 + Deck model passed`,
 );
