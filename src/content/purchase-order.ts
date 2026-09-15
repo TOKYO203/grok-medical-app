@@ -125,7 +125,7 @@ export function paymentRequestMessage(order: PremiumOrder, optimusId: string): s
     `Montant : ${orderAmount(order).toLocaleString("fr-FR")} Ar`,
     `Produit : ${orderProduct(order)}`,
     `Optimus ID : ${optimusId}`,
-    "Merci de confirmer la disponibilité et de communiquer le canal Mobile Money officiel.",
+    "Merci de confirmer la disponibilité et de communiquer le numéro Mobile Money officiel du canal de paiement.",
   ].join("\n");
 }
 
