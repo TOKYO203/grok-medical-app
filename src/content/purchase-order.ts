@@ -14,6 +14,7 @@ export const PURCHASE_PROGRESS_STATUSES = [
   "instructions_requested",
   "proof_ready",
   "verification_pending",
+  "payment_verified",
   "delivered",
 ] as const;
 
@@ -124,13 +125,14 @@ export function paymentRequestMessage(order: PremiumOrder, optimusId: string): s
     `Montant : ${orderAmount(order).toLocaleString("fr-FR")} Ar`,
     `Produit : ${orderProduct(order)}`,
     `Optimus ID : ${optimusId}`,
-    "Merci de confirmer la disponibilité et de communiquer le numéro Mobile Money officiel.",
+    "Merci de confirmer la disponibilité et de communiquer le canal Mobile Money officiel.",
   ].join("\n");
 }
 
 export function fulfillmentRequestMessage(
   order: PremiumOrder,
   device: PurchaseDeviceRequest,
+  paymentReference?: string,
 ): string {
   return [
     "COMMANDE OPTIMUS PAYÉE",
@@ -139,6 +141,7 @@ export function fulfillmentRequestMessage(
     `Montant : ${orderAmount(order).toLocaleString("fr-FR")} Ar`,
     `Produit : ${orderProduct(order)}`,
     `Optimus ID : ${device.optimusId}`,
+    ...(paymentReference ? [`Transaction Mobile Money : ${paymentReference}`] : []),
     "",
     "DEMANDE APPAREIL SÉCURISÉE",
     JSON.stringify({
