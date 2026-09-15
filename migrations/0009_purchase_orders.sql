@@ -5,6 +5,7 @@
 CREATE TABLE IF NOT EXISTS purchase_orders (
   reference text PRIMARY KEY,
   user_id text NOT NULL,
+  client_request_id text NOT NULL,
   optimus_id text NOT NULL,
   offer text NOT NULL CHECK (offer IN ('deck', 'specialty')),
   specialty text NOT NULL,
@@ -31,7 +32,8 @@ CREATE TABLE IF NOT EXISTS purchase_orders (
   updated_at timestamptz NOT NULL DEFAULT now(),
   delivered_at timestamptz,
   rejected_at timestamptz,
-  refunded_at timestamptz
+  refunded_at timestamptz,
+  UNIQUE (user_id, client_request_id)
 );
 
 CREATE INDEX IF NOT EXISTS purchase_orders_user_updated_idx
