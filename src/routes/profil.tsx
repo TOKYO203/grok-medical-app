@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Award,
@@ -35,6 +35,12 @@ import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import {
+  dataUrlToImageBlob,
+  deleteProfileCover,
+  loadProfileCover,
+  saveProfileCover,
+} from "@/lib/profile-cover-storage";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
 
@@ -94,6 +100,7 @@ function ProfilPage() {
   const { user, isPending: authPending } = useCurrentUserState();
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
+  const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
 
   const level = levelInfo(xp);
   const league = currentLeague(weeklyXp);
@@ -102,8 +109,8 @@ function ProfilPage() {
   const selectedCover = COVERS.find((cover) => cover.id === profile.cover);
   const coverClass = profile.cover === "custom" ? undefined : selectedCover?.className;
   const coverStyle: CSSProperties | undefined =
-    profile.cover === "custom" && profile.coverDataUrl
-      ? coverImageStyle(profile.coverDataUrl)
+    profile.cover === "custom" && (customCoverUrl || profile.coverDataUrl)
+      ? coverImageStyle(customCoverUrl || profile.coverDataUrl || "")
       : selectedCover?.image
         ? coverImageStyle(selectedCover.image)
         : undefined;
@@ -114,6 +121,48 @@ function ProfilPage() {
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
     "Médecine";
   const connectedAccount = Boolean(user && !user.isDevFallback);
+
+  useEffect(() => {
+    if (profile.cover !== "custom") {
+      setCustomCoverUrl((previous) => {
+        if (previous) URL.revokeObjectURL(previous);
+        return null;
+      });
+      return;
+    }
+
+    let disposed = false;
+    let createdUrl: string | null = null;
+
+    const hydrateCover = async () => {
+      try {
+        // One-time migration from legacy localStorage base64 into IndexedDB.
+        if (profile.coverDataUrl) {
+          const legacyBlob = dataUrlToImageBlob(profile.coverDataUrl);
+          await saveProfileCover(profile.optimusId, legacyBlob);
+          if (!disposed) update({ coverDataUrl: null });
+        }
+
+        const blob = await loadProfileCover(profile.optimusId);
+        if (!blob || disposed) return;
+        createdUrl = URL.createObjectURL(blob);
+        setCustomCoverUrl((previous) => {
+          if (previous) URL.revokeObjectURL(previous);
+          return createdUrl;
+        });
+      } catch (error) {
+        // Keep the legacy in-store data as a compatibility fallback if IndexedDB
+        // is unavailable or the old payload cannot be migrated safely.
+        console.warn("[profile-cover] IndexedDB restore deferred", error);
+      }
+    };
+
+    void hydrateCover();
+    return () => {
+      disposed = true;
+      if (createdUrl) URL.revokeObjectURL(createdUrl);
+    };
+  }, [profile.cover, profile.coverDataUrl, profile.optimusId, update]);
 
   function onCoverFile(file: File) {
     const reader = new FileReader();
@@ -135,11 +184,45 @@ function ProfilPage() {
           width,
           height,
         );
-        update({ cover: "custom", coverDataUrl: canvas.toDataURL("image/jpeg", 0.72) });
+
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) return;
+            void saveProfileCover(profile.optimusId, blob)
+              .then(() => {
+                const nextUrl = URL.createObjectURL(blob);
+                setCustomCoverUrl((previous) => {
+                  if (previous) URL.revokeObjectURL(previous);
+                  return nextUrl;
+                });
+                update({ cover: "custom", coverDataUrl: null });
+              })
+              .catch((error) => {
+                console.warn("[profile-cover] IndexedDB save failed; using compatibility fallback", error);
+                update({
+                  cover: "custom",
+                  coverDataUrl: canvas.toDataURL("image/jpeg", 0.72),
+                });
+              });
+          },
+          "image/jpeg",
+          0.72,
+        );
       };
       image.src = String(reader.result);
     };
     reader.readAsDataURL(file);
+  }
+
+  function chooseBuiltInCover(coverId: CoverId) {
+    setCustomCoverUrl((previous) => {
+      if (previous) URL.revokeObjectURL(previous);
+      return null;
+    });
+    void deleteProfileCover(profile.optimusId).catch((error) => {
+      console.warn("[profile-cover] cleanup deferred", error);
+    });
+    update({ cover: coverId, coverDataUrl: null });
   }
 
   function finishEditing() {
@@ -293,7 +376,7 @@ function ProfilPage() {
                 <button
                   key={cover.id}
                   type="button"
-                  onClick={() => update({ cover: cover.id, coverDataUrl: null })}
+                  onClick={() => chooseBuiltInCover(cover.id)}
                   className={cn(
                     "relative h-20 overflow-hidden rounded-[var(--radius-md)] bg-secondary text-left text-xs text-white",
                     cover.className,
