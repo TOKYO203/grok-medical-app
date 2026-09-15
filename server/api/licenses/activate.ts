@@ -12,6 +12,7 @@ type ActivationBody = {
 };
 
 type ActivatedLicense = {
+  id: string;
   product: string;
   expires_at: string | Date | null;
   activated_at: string | Date;
@@ -87,20 +88,21 @@ export default defineEventHandler(async (event) => {
        and revoked_at is null
        and (expires_at is null or expires_at > now())
        and (device_id is null or device_id = $2)
-     returning product, expires_at, activated_at`,
+     returning id, product, expires_at, activated_at`,
     [keyHash(key), deviceId, optimusId],
   );
 
   const license = rows[0];
   if (!license) {
     setResponseStatus(event, 401);
-    return { error: "Cette clé est invalide, expirée ou déjà liée à un autre appareil." };
+    return { error: "Cette clé est invalide, expirée, révoquée ou déjà liée à un autre appareil." };
   }
 
   try {
     const receipt = signLicenseReceipt(
       {
         version: 1,
+        licenseId: license.id,
         product: license.product,
         optimusId,
         deviceId: deviceId.toLowerCase(),
