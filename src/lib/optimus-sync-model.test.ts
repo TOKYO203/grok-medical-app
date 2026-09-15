@@ -33,7 +33,6 @@ function snapshot(overrides: Partial<OptimusSyncSnapshot> = {}): OptimusSyncSnap
     casesCompleted: [],
     diagnosticsCompleted: [],
     reviewsSucceeded: 0,
-    purchases: [],
     ...overrides,
   });
 }
@@ -108,25 +107,12 @@ test("week comparison is numeric, so W10 correctly supersedes W9", () => {
   assert.equal(merged.weeklyXp, 100);
 });
 
-test("latest purchase state wins per reference", () => {
-  const basePurchase = {
-    reference: "OPT-ORDER-001",
-    offer: "deck" as const,
-    specialty: "neurologie",
-    deckNumber: 1,
-    product: "NEURO_DECK_01",
-    label: "Neurologie · Deck 1/10",
-    amount: 3000,
-    proofAttached: false,
-    createdAt: 1,
-  };
-  const local = snapshot({
-    purchases: [{ ...basePurchase, status: "proof_ready", updatedAt: 20 }],
+test("commerce fields are rejected instead of being mixed into learning sync", () => {
+  const parsed = optimusSyncSnapshotSchema.safeParse({
+    ...snapshot(),
+    purchases: [{ reference: "CMD-LOCAL" }],
   });
-  const remote = snapshot({
-    purchases: [{ ...basePurchase, status: "instructions_requested", updatedAt: 10 }],
-  });
-
-  const merged = mergeOptimusSnapshots(local, remote, { preferLocalProfile: true });
-  assert.equal(merged.purchases[0]?.status, "proof_ready");
+  assert.equal(parsed.success, true);
+  if (!parsed.success) return;
+  assert.equal("purchases" in parsed.data, false);
 });
