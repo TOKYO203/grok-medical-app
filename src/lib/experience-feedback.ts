@@ -173,6 +173,14 @@ function playFocusPhrase(context: AudioContext, destination: AudioNode) {
   });
 }
 
+function stopWhenBackgrounded() {
+  if (typeof document !== "undefined" && document.hidden) stopFocusAmbience();
+}
+
+function stopOnPageHide() {
+  stopFocusAmbience();
+}
+
 export function isFocusAmbienceActive() {
   return focusActive;
 }
@@ -204,14 +212,16 @@ export async function startFocusAmbience(): Promise<boolean> {
     focusTimer = setInterval(() => {
       if (focusMaster) playFocusPhrase(context, focusMaster);
     }, FOCUS_INTERVAL_MS);
+    if (typeof document !== "undefined") {
+      document.addEventListener("visibilitychange", stopWhenBackgrounded);
+    }
+    if (typeof window !== "undefined") {
+      window.addEventListener("pagehide", stopOnPageHide);
+    }
     notifyFocusAmbience();
     return true;
   } catch {
-    focusActive = false;
-    focusMaster = null;
-    if (focusTimer) clearInterval(focusTimer);
-    focusTimer = null;
-    notifyFocusAmbience();
+    stopFocusAmbience();
     return false;
   }
 }
@@ -220,6 +230,13 @@ export function stopFocusAmbience() {
   if (focusTimer) clearInterval(focusTimer);
   focusTimer = null;
   focusActive = false;
+
+  if (typeof document !== "undefined") {
+    document.removeEventListener("visibilitychange", stopWhenBackgrounded);
+  }
+  if (typeof window !== "undefined") {
+    window.removeEventListener("pagehide", stopOnPageHide);
+  }
 
   const master = focusMaster;
   focusMaster = null;
