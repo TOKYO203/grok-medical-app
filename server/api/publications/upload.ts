@@ -1,5 +1,6 @@
 import { defineEventHandler, getMethod, readBody, setResponseStatus } from "h3";
 import { z } from "zod";
+import { applyRateLimitHeaders, consumeRateLimit } from "../../lib/rate-limit";
 import { apiAuthFailure, requireContentEditor } from "../../lib/route-auth";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -47,8 +48,9 @@ export default defineEventHandler(async (event) => {
     return { error: "Method Not Allowed" };
   }
 
+  let editorId: string;
   try {
-    await requireContentEditor(event);
+    editorId = (await requireContentEditor(event)).id;
   } catch (error) {
     const authError = apiAuthFailure(error);
     if (authError) {
@@ -56,6 +58,24 @@ export default defineEventHandler(async (event) => {
       return { error: authError.message };
     }
     throw error;
+  }
+
+  try {
+    const decision = await consumeRateLimit({
+      scope: "publication-upload",
+      subject: editorId,
+      limit: 20,
+      windowSeconds: 60,
+    });
+    applyRateLimitHeaders(event, decision);
+    if (!decision.allowed) {
+      setResponseStatus(event, 429);
+      return { error: "rate_limited" };
+    }
+  } catch (error) {
+    console.error("[publications] upload rate limiter unavailable", error);
+    setResponseStatus(event, 503);
+    return { error: "upload_protection_unavailable" };
   }
 
   if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
