@@ -7,10 +7,19 @@ const PORT = 8081;
 const BASE_URL = `http://${HOST}:${PORT}/`;
 const START_TIMEOUT_MS = 30_000;
 
+// The QA preview is a direct loopback-only server that we control. Opting into
+// x-forwarded-for here lets Better Auth exercise its per-client limiter without
+// pretending that an arbitrary production proxy header is trustworthy.
+const qaEnv = {
+  ...process.env,
+  TRUST_PROXY_HEADERS: "true",
+  QA_CLIENT_IP: HOST,
+};
+
 function spawnInherited(command, args, options = {}) {
   return spawn(command, args, {
     stdio: "inherit",
-    env: process.env,
+    env: qaEnv,
     ...options,
   });
 }
@@ -20,7 +29,10 @@ async function waitForPreview() {
   let lastError;
   while (Date.now() < deadline) {
     try {
-      const response = await fetch(BASE_URL, { redirect: "manual" });
+      const response = await fetch(BASE_URL, {
+        redirect: "manual",
+        headers: { "x-forwarded-for": HOST },
+      });
       if (response.status > 0 && response.status < 500) return;
       lastError = new Error(`preview returned HTTP ${response.status}`);
     } catch (error) {
