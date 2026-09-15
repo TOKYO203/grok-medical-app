@@ -9,37 +9,14 @@ import {
   ZapOff,
 } from "lucide-react";
 import {
-  DEFAULT_EXPERIENCE_PREFERENCES,
   emitExperienceFeedback,
   isFocusAmbienceActive,
-  readExperiencePreferences,
   startFocusAmbience,
   stopFocusAmbience,
-  subscribeExperiencePreferences,
   subscribeFocusAmbience,
-  writeExperiencePreferences,
-  type ExperiencePreferences,
 } from "@/lib/experience-feedback";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
-
-export function useExperiencePreferences() {
-  const [preferences, setPreferences] = useState<ExperiencePreferences>(
-    DEFAULT_EXPERIENCE_PREFERENCES,
-  );
-
-  useEffect(() => {
-    setPreferences(readExperiencePreferences());
-    return subscribeExperiencePreferences(setPreferences);
-  }, []);
-
-  const update = (patch: Partial<ExperiencePreferences>) => {
-    const next = { ...readExperiencePreferences(), ...patch };
-    writeExperiencePreferences(next);
-    setPreferences(next);
-  };
-
-  return { preferences, update };
-}
 
 function useFocusAmbience() {
   const [active, setActive] = useState(false);
