@@ -50,8 +50,9 @@ export async function saveProfileCover(ownerId: string, blob: Blob): Promise<voi
   const db = await openDb();
   try {
     const transaction = db.transaction(STORE_NAME, "readwrite");
+    const completed = waitForTransaction(transaction);
     transaction.objectStore(STORE_NAME).put(blob, normalizeOwner(ownerId));
-    await waitForTransaction(transaction);
+    await completed;
   } finally {
     db.close();
   }
@@ -61,12 +62,13 @@ export async function loadProfileCover(ownerId: string): Promise<Blob | null> {
   const db = await openDb();
   try {
     const transaction = db.transaction(STORE_NAME, "readonly");
+    const completed = waitForTransaction(transaction);
     const request = transaction.objectStore(STORE_NAME).get(normalizeOwner(ownerId));
     const value = await new Promise<unknown>((resolve, reject) => {
       request.onsuccess = () => resolve(request.result);
       request.onerror = () => reject(request.error ?? new Error("indexeddb_read_failed"));
     });
-    await waitForTransaction(transaction);
+    await completed;
     return value instanceof Blob && value.type.startsWith("image/") ? value : null;
   } finally {
     db.close();
@@ -78,8 +80,9 @@ export async function deleteProfileCover(ownerId: string): Promise<void> {
   const db = await openDb();
   try {
     const transaction = db.transaction(STORE_NAME, "readwrite");
+    const completed = waitForTransaction(transaction);
     transaction.objectStore(STORE_NAME).delete(normalizeOwner(ownerId));
-    await waitForTransaction(transaction);
+    await completed;
   } finally {
     db.close();
   }
