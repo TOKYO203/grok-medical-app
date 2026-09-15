@@ -37,13 +37,7 @@ function Home() {
     const fallback = window.setTimeout(() => finishHydration(), 250);
     return () => window.clearTimeout(fallback);
   }, [finishHydration]);
-  if (!hydrated) {
-    return (
-      <div className="flex min-h-dvh items-center justify-center bg-bg text-muted">
-        <p className="text-sm">Optimus</p>
-      </div>
-    );
-  }
+  if (!hydrated) return <HomeSkeleton />;
   if (!onboarded) return <Onboarding />;
   return (
     <Shell title="Aujourd’hui">
@@ -102,11 +96,11 @@ function Dashboard() {
   return (
     <Page>
       <div className="flex items-start justify-between gap-4">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
             {profile.tier === "guest" ? "Invité" : profile.optimusId}
           </p>
-          <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">
+          <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
             Bonjour
             {profile.displayName && profile.displayName !== "Invité"
               ? `, ${profile.displayName}`
@@ -121,7 +115,8 @@ function Dashboard() {
         </div>
         <Link
           to="/profil"
-          className="flex size-12 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft font-display text-lg text-primary"
+          aria-label="Ouvrir mon profil"
+          className="optimus-interactive-card flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft font-display text-lg text-primary shadow-[var(--shadow-border)]"
         >
           {initials(profile.displayName)}
         </Link>
@@ -154,10 +149,10 @@ function Dashboard() {
             search={{ mode: "today" }}
             className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
           >
-              {daily.answered > 0
-                ? "Continuer la session"
-                : `Commencer · ${todayItems.length} questions`}
-              <ChevronRight className="size-4" />
+            {daily.answered > 0
+              ? "Continuer la session"
+              : `Commencer · ${todayItems.length} questions`}
+            <ChevronRight className="size-4" />
           </Link>
         ) : (
           <Link
@@ -201,14 +196,23 @@ function Dashboard() {
           <Link
             to="/parcours/$deckId"
             params={{ deckId: featured.id }}
-            className="group block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+            className="optimus-interactive-card group block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
           >
             <span className="flex items-center gap-4">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft text-primary">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft text-primary shadow-[var(--shadow-border)]">
                 <DeckIcon name={featured.icon} />
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block truncate font-medium">{featured.title}</span>
+                <span className="flex items-center gap-2">
+                  <span className="truncate font-medium">{featured.title}</span>
+                  <span className="optimus-status-pill shrink-0 bg-primary-soft text-primary">
+                    {featuredProgress >= 100
+                      ? "Terminé"
+                      : featuredProgress > 0
+                        ? "En cours"
+                        : "Conseillé"}
+                  </span>
+                </span>
                 <span className="mt-0.5 block truncate text-sm text-muted">
                   {featured.subtitle}
                 </span>
@@ -216,7 +220,11 @@ function Dashboard() {
               <ChevronRight className="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
             </span>
             <span className="mt-4 flex items-center gap-3">
-              <Progress className="h-1.5 flex-1" value={featuredProgress} />
+              <Progress
+                className="h-1.5 flex-1"
+                value={featuredProgress}
+                barClassName="optimus-progress-fill"
+              />
               <span className="font-mono text-xs tabular-nums text-muted">{featuredProgress}%</span>
             </span>
           </Link>
@@ -262,12 +270,16 @@ function Dashboard() {
             </span>
             <span className="font-mono text-xs tabular-nums text-muted">{formatInt(xp)} XP</span>
           </div>
-          <Progress className="mt-2" value={lvl.progress} />
+          <Progress className="mt-2" value={lvl.progress} barClassName="optimus-progress-fill" />
           <div className="mt-4 flex items-center justify-between text-sm">
             <span className="text-muted">Maîtrise globale</span>
             <span className="font-mono tabular-nums">{mastery}%</span>
           </div>
-          <Progress className="mt-2" value={mastery} barClassName="bg-fg/70" />
+          <Progress
+            className="mt-2"
+            value={mastery}
+            barClassName="optimus-progress-fill bg-fg/70"
+          />
 
           {mastery > 0 && weak && strong ? (
             <div className="mt-4 grid grid-cols-2 gap-2">
@@ -343,9 +355,9 @@ function QuickAction({
   return (
     <Link
       to={to}
-      className="min-w-0 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary"
+      className="optimus-interactive-card min-w-0 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] active:scale-[0.99]"
     >
-      <span className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary">
+      <span className="flex size-10 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary shadow-[var(--shadow-border)]">
         {icon}
       </span>
       <span className="mt-3 block truncate text-sm font-medium">{label}</span>
@@ -356,10 +368,14 @@ function QuickAction({
 
 function StatChip({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-[var(--radius-lg)] bg-card px-3 py-3 shadow-[var(--shadow-border)]">
-      {icon}
+    <div className="flex min-w-0 items-center gap-2 rounded-[var(--radius-lg)] bg-card px-2.5 py-3 shadow-[var(--shadow-border)] sm:px-3">
+      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary-soft">
+        {icon}
+      </span>
       <div className="min-w-0">
-        <p className="text-[11px] font-medium uppercase tracking-wider text-muted">{label}</p>
+        <p className="truncate text-[10px] font-medium uppercase tracking-wider text-muted sm:text-[11px]">
+          {label}
+        </p>
         <p className="truncate font-mono text-sm tabular-nums">{value}</p>
       </div>
     </div>
@@ -408,12 +424,38 @@ function DailyProgress({
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
+          className="optimus-progress-fill"
         />
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center leading-none">
         <strong className="font-display text-xl font-medium">{answered}</strong>
         <span className="mt-1 text-[11px] opacity-70">sur {goal}</span>
       </span>
+    </div>
+  );
+}
+
+function HomeSkeleton() {
+  return (
+    <div className="min-h-dvh bg-bg" aria-busy="true" aria-label="Chargement d’Optimus">
+      <div className="mx-auto max-w-2xl px-5 py-6">
+        <div className="flex items-center justify-between gap-4">
+          <div className="space-y-2">
+            <div className="optimus-skeleton h-3 w-20 rounded-full" />
+            <div className="optimus-skeleton h-8 w-48 rounded-[var(--radius-sm)]" />
+            <div className="optimus-skeleton h-4 w-36 rounded-full" />
+          </div>
+          <div className="optimus-skeleton size-12 rounded-[var(--radius-md)]" />
+        </div>
+        <div className="optimus-skeleton mt-6 h-44 rounded-[var(--radius-xl)]" />
+        <div className="mt-3 grid grid-cols-3 gap-2">
+          <div className="optimus-skeleton h-16 rounded-[var(--radius-lg)]" />
+          <div className="optimus-skeleton h-16 rounded-[var(--radius-lg)]" />
+          <div className="optimus-skeleton h-16 rounded-[var(--radius-lg)]" />
+        </div>
+        <div className="optimus-skeleton mt-8 h-28 rounded-[var(--radius-xl)]" />
+        <span className="sr-only">Chargement de votre progression…</span>
+      </div>
     </div>
   );
 }
