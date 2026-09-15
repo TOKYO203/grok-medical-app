@@ -3,13 +3,23 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const [serverOrders, purchaseFlow, purchasesPage, adminPage, learningSync, verificationMigration, issueKey] = await Promise.all([
+const [
+  serverOrders,
+  purchaseFlow,
+  purchasesPage,
+  adminPage,
+  learningSync,
+  verificationMigration,
+  stateMachineMigration,
+  issueKey,
+] = await Promise.all([
   read("../src/lib/purchase-orders.ts"),
   read("../src/components/premium-purchase-flow.tsx"),
   read("../src/routes/achats.tsx"),
   read("../src/routes/admin-achats.tsx"),
   read("../src/lib/optimus-sync-model.ts"),
   read("../migrations/0010_purchase_verification.sql"),
+  read("../migrations/0011_purchase_state_machine.sql"),
   read("./issue-activation-key.mjs"),
 ]);
 
@@ -54,6 +64,15 @@ test("payment replay protection binds a unique operator reference and proof dige
   assert.match(serverOrders, /déjà liée à une autre commande/);
 });
 
+test("database enforces the canonical commercial state machine", () => {
+  assert.match(stateMachineMigration, /guard_purchase_order_status_transition/);
+  assert.match(stateMachineMigration, /created' AND NEW\.status = 'instructions_requested/);
+  assert.match(stateMachineMigration, /verification_pending' AND NEW\.status = 'payment_verified/);
+  assert.match(stateMachineMigration, /payment_verified' AND NEW\.status = 'delivered/);
+  assert.match(stateMachineMigration, /delivered' AND NEW\.status = 'refunded/);
+  assert.match(stateMachineMigration, /invalid purchase status transition/);
+});
+
 test("clients cannot self-authorize payment verification or delivery", () => {
   assert.match(serverOrders, /clientStatusSchema/);
   assert.match(serverOrders, /verification_pending/);
@@ -75,9 +94,10 @@ test("admin back office stays server-authorized and separates verify from delive
 
 test("refund revokes activation keys explicitly linked to the purchase", () => {
   assert.match(verificationMigration, /purchase_reference text REFERENCES purchase_orders/);
+  assert.match(stateMachineMigration, /revoke_purchase_licenses_on_refund/);
+  assert.match(stateMachineMigration, /purchase_reference = NEW\.reference/);
+  assert.match(stateMachineMigration, /revoked_at = COALESCE\(revoked_at, now\(\)\)/);
   assert.match(serverOrders, /update activation_keys/);
-  assert.match(serverOrders, /purchase_reference = \$1/);
-  assert.match(serverOrders, /revoked_at = coalesce\(revoked_at, now\(\)\)/);
   assert.match(issueKey, /--purchase-ref/);
   assert.match(issueKey, /payment_verified/);
 });
