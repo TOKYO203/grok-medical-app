@@ -4,11 +4,13 @@ import test from "node:test";
 import { PGlite } from "@electric-sql/pglite";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const [activationMigration, purchaseMigration, verificationMigration] = await Promise.all([
-  read("../migrations/0004_activation_keys.sql"),
-  read("../migrations/0009_purchase_orders.sql"),
-  read("../migrations/0010_purchase_verification.sql"),
-]);
+const [activationMigration, purchaseMigration, verificationMigration, stateMachineMigration] =
+  await Promise.all([
+    read("../migrations/0004_activation_keys.sql"),
+    read("../migrations/0009_purchase_orders.sql"),
+    read("../migrations/0010_purchase_verification.sql"),
+    read("../migrations/0011_purchase_state_machine.sql"),
+  ]);
 
 async function setupDb() {
   const db = new PGlite();
@@ -16,6 +18,7 @@ async function setupDb() {
   await db.exec(activationMigration);
   await db.exec(purchaseMigration);
   await db.exec(verificationMigration);
+  await db.exec(stateMachineMigration);
   return db;
 }
 
@@ -68,6 +71,40 @@ test("purchase migrations preserve request idempotency and ordered audit states"
   }
 });
 
+test("database rejects skipped commercial states and accepts the canonical order", async () => {
+  const db = await setupDb();
+  try {
+    const reference = "CMD-TEST-A1B2C3D4";
+    await db.query(insertOrder, [
+      reference,
+      "user-1",
+      "11111111-1111-4111-8111-111111111111",
+      "OM-A1B2C3D4",
+    ]);
+
+    await assert.rejects(
+      db.query("update purchase_orders set status = 'payment_verified' where reference = $1", [reference]),
+      /invalid purchase status transition|check/i,
+    );
+
+    for (const status of [
+      "instructions_requested",
+      "proof_ready",
+      "verification_pending",
+      "payment_verified",
+      "delivered",
+    ]) {
+      const result = await db.query(
+        "update purchase_orders set status = $2 where reference = $1 returning status",
+        [reference, status],
+      );
+      assert.equal(result.rows[0]?.status, status);
+    }
+  } finally {
+    await db.close();
+  }
+});
+
 test("one Mobile Money transaction reference cannot be replayed across orders", async () => {
   const db = await setupDb();
   try {
@@ -105,7 +142,7 @@ test("one Mobile Money transaction reference cannot be replayed across orders", 
   }
 });
 
-test("one proof digest cannot be reused and linked activation keys can be revoked", async () => {
+test("one proof digest cannot be reused across orders", async () => {
   const db = await setupDb();
   try {
     await db.query(insertOrder, [
@@ -132,20 +169,44 @@ test("one proof digest cannot be reused and linked activation keys can be revoke
       ]),
       /unique|duplicate/i,
     );
+  } finally {
+    await db.close();
+  }
+});
+
+test("refund atomically revokes activation keys linked to the delivered purchase", async () => {
+  const db = await setupDb();
+  try {
+    const reference = "CMD-TEST-A1B2C3D4";
+    await db.query(insertOrder, [
+      reference,
+      "user-1",
+      "11111111-1111-4111-8111-111111111111",
+      "OM-A1B2C3D4",
+    ]);
+    for (const status of [
+      "instructions_requested",
+      "proof_ready",
+      "verification_pending",
+      "payment_verified",
+      "delivered",
+    ]) {
+      await db.query("update purchase_orders set status = $2 where reference = $1", [reference, status]);
+    }
 
     await db.query(
       `insert into activation_keys (key_hash, optimus_id, product, purchase_reference)
        values ($1,$2,$3,$4)`,
-      ["b".repeat(64), "OM-A1B2C3D4", "NEURO_DECK_01", "CMD-TEST-A1B2C3D4"],
+      ["b".repeat(64), "OM-A1B2C3D4", "NEURO_DECK_01", reference],
     );
-    const revoked = await db.query(
-      `update activation_keys set revoked_at = now()
-        where purchase_reference = $1 and revoked_at is null
-        returning revoked_at`,
-      ["CMD-TEST-A1B2C3D4"],
+
+    await db.query("update purchase_orders set status = 'refunded' where reference = $1", [reference]);
+    const licenses = await db.query(
+      "select revoked_at from activation_keys where purchase_reference = $1",
+      [reference],
     );
-    assert.equal(revoked.rows.length, 1);
-    assert.ok(revoked.rows[0]?.revoked_at);
+    assert.equal(licenses.rows.length, 1);
+    assert.ok(licenses.rows[0]?.revoked_at);
   } finally {
     await db.close();
   }
