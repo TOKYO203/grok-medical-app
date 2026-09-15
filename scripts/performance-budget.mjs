@@ -26,23 +26,6 @@ export function findAssetDirectory(root = process.cwd()) {
   return null;
 }
 
-function collectFiles(directory) {
-  const files = [];
-  for (const entry of readdirSync(directory, { withFileTypes: true })) {
-    const absolute = resolve(directory, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...collectFiles(absolute));
-    } else if (entry.isFile()) {
-      files.push({
-        name: relative(directory, absolute) || entry.name,
-        absolute,
-        bytes: statSync(absolute).size,
-      });
-    }
-  }
-  return files;
-}
-
 export function inspectPublicAssetBudget(publicDirectory, budget = PERFORMANCE_BUDGET) {
   if (!existsSync(publicDirectory) || !statSync(publicDirectory).isDirectory()) {
     return {
