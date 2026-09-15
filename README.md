@@ -129,6 +129,10 @@ d'éditeurs configurée, aucune création ou modification de publication/enquêt
 
 Variables serveur à configurer dans le gestionnaire de secrets du déploiement :
 
+- `VITE_AUTH_ENABLED=true` : active l'interface de connexion réelle.
+- `GROK_AUTH_CLIENT_ID` et `GROK_AUTH_CLIENT_SECRET` : identifiants OAuth propres au déploiement pour le broker d'identité. La paire preview intégrée n'est prévue que pour les hôtes `*.grok-sandbox.com` ; une preview Vercel/Netlify sans identifiants injectés ne doit pas tenter un OAuth réel.
+- `BETTER_AUTH_URL` : origine publique stable de l'application utilisée pour construire les callbacks OAuth lorsque le déploiement n'utilise pas la résolution dynamique du host.
+- `BETTER_AUTH_SECRET` : secret serveur fort et stable pour les sessions Better Auth ; il ne doit jamais être exposé au navigateur ni stocké dans le dépôt.
 - `CONTENT_EDITOR_USER_IDS` : identifiants Better Auth autorisés à administrer les publications et enquêtes, séparés par des virgules. Ne jamais utiliser une valeur générique ou un identifiant fourni par le client.
 - `PURCHASE_ADMIN_USER_IDS` : identifiants Better Auth autorisés à vérifier le paiement puis à livrer, rejeter ou rembourser une commande Premium. Un acheteur ne peut jamais s'attribuer lui-même un de ces états.
 - `MOBILE_MONEY_PROVIDER`, `MOBILE_MONEY_NUMBER`, `MOBILE_MONEY_ACCOUNT_NAME`, `MOBILE_MONEY_INSTRUCTIONS` : canal de paiement officiel géré côté serveur.
@@ -136,6 +140,11 @@ Variables serveur à configurer dans le gestionnaire de secrets du déploiement 
 - `RATE_LIMIT_SALT` : secret aléatoire serveur distinct utilisé pour pseudonymiser les sujets des quotas API avant leur stockage dans `api_rate_limits`. Il est obligatoire en production.
 - `TRUST_PROXY_HEADERS` : laisser absent/`false` par défaut. Mettre `true` uniquement lorsque la plateforme de déploiement supprime les headers de forwarding fournis par le client et réinjecte ses propres valeurs de confiance.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `SUPABASE_PUBLIC_BUCKET` : configuration du stockage éditorial. La clé de service reste strictement côté serveur ; le client ne choisit jamais le bucket.
+
+L'écran `/login` interroge l'état réel du serveur avant d'afficher Google/X. Si une version de test
+n'a pas les identifiants OAuth nécessaires, Optimus masque les actions de connexion et propose le
+mode local au lieu de lancer un flux voué à échouer. Aucun identifiant OAuth ni secret n'est renvoyé
+par ce diagnostic public.
 
 Les quotas sont persistés en PostgreSQL/PGLite afin de rester cohérents entre plusieurs instances :
 activation Premium, vérification de statut de licence, soumission d'enquêtes, création/modification de
