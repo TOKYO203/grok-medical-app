@@ -45,7 +45,7 @@ function LoginPage() {
 
   return (
     <Shell title="Connexion">
-      <Page className="mx-auto max-w-xl py-8 sm:py-10">
+      <Page className="mx-auto max-w-xl pb-32 pt-8 sm:py-10">
         <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)] sm:p-8">
           <div className="flex size-12 items-center justify-center rounded-full bg-primary-soft text-primary">
             <Cloud className="size-6" />
