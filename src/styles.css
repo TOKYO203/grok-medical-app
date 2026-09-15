@@ -181,6 +181,29 @@
   }
 }
 
+@keyframes optimus-nav-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  55% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0.38;
+    transform: scale(1);
+  }
+}
+
+@keyframes optimus-nav-icon {
+  0% {
+    transform: translateY(1px) scale(0.92);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
 .optimus-answer-correct {
   animation: optimus-answer-correct var(--motion-fast) var(--ease-out) both;
 }
@@ -195,6 +218,21 @@
 
 .optimus-session-complete {
   animation: optimus-session-complete var(--motion-medium) var(--ease-out) both;
+}
+
+.optimus-nav-active::before {
+  position: absolute;
+  inset: 14% 12%;
+  z-index: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--color-primary) 24%, transparent), transparent 72%);
+  content: "";
+  pointer-events: none;
+  animation: optimus-nav-glow var(--motion-fast) var(--ease-out) both;
+}
+
+.optimus-nav-active > svg {
+  animation: optimus-nav-icon var(--motion-quick) var(--ease-out) both;
 }
 
 main > * {
