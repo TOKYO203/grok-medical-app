@@ -4,17 +4,19 @@ import { getSql } from "@/lib/db";
 import { applyRateLimitHeaders, consumeRateLimit } from "../lib/rate-limit";
 import { apiAuthFailure, requireContentEditor } from "../lib/route-auth";
 
-const publicationSchema = z.object({
-  title: z.string().trim().min(1).max(240),
-  summary: z.string().trim().max(2_000).nullable().optional(),
-  body: z.unknown().nullable().optional(),
-  authors: z.unknown().nullable().optional(),
-  attachments: z.unknown().nullable().optional(),
-  tags: z.array(z.string().trim().min(1).max(80)).max(30).default([]),
-  specialties: z.array(z.string().trim().min(1).max(80)).max(30).default([]),
-  visibility: z.enum(["public", "unlisted", "private"]).default("public"),
-  status: z.enum(["draft", "published", "archived"]).default("draft"),
-});
+const publicationSchema = z
+  .object({
+    title: z.string().trim().min(1).max(240),
+    summary: z.string().trim().max(2_000).nullable().optional(),
+    body: z.unknown().nullable().optional(),
+    authors: z.unknown().nullable().optional(),
+    attachments: z.unknown().nullable().optional(),
+    tags: z.array(z.string().trim().min(1).max(80)).max(30).default([]),
+    specialties: z.array(z.string().trim().min(1).max(80)).max(30).default([]),
+    visibility: z.enum(["public", "unlisted", "private"]).default("public"),
+    status: z.enum(["draft", "published", "archived"]).default("draft"),
+  })
+  .strict();
 
 function slugify(text: string) {
   return text
