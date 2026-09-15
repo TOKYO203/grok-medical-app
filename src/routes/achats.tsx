@@ -18,16 +18,20 @@ const STATUS_COPY: Record<PurchaseStatus, { label: string; detail: string }> = {
     detail: "La référence, le produit et le montant ont été enregistrés côté serveur.",
   },
   instructions_requested: {
-    label: "Instructions demandées",
-    detail: "Attendez le canal Mobile Money officiel associé à cette commande avant de payer.",
+    label: "Instructions reçues",
+    detail: "Le canal Mobile Money officiel a été associé à cette commande.",
   },
   proof_ready: {
     label: "Preuve prête à envoyer",
     detail: "La commande attend l’envoi de la preuve avec la demande sécurisée de cet appareil.",
   },
   verification_pending: {
-    label: "Vérification demandée",
-    detail: "La preuve a été transmise. La livraison doit encore être validée côté serveur.",
+    label: "Paiement à vérifier",
+    detail: "La référence de transaction et l’empreinte de la preuve ont été enregistrées côté serveur.",
+  },
+  payment_verified: {
+    label: "Paiement vérifié",
+    detail: "Le paiement a été validé côté serveur. La livraison du contenu Premium est en préparation.",
   },
   delivered: {
     label: "Contenu livré",
@@ -39,7 +43,7 @@ const STATUS_COPY: Record<PurchaseStatus, { label: string; detail: string }> = {
   },
   refunded: {
     label: "Commande remboursée",
-    detail: "Cette commande a été marquée remboursée côté serveur.",
+    detail: "Cette commande a été remboursée et les licences liées peuvent être révoquées côté serveur.",
   },
 };
 
@@ -48,6 +52,7 @@ const FLOW: PurchaseStatus[] = [
   "instructions_requested",
   "proof_ready",
   "verification_pending",
+  "payment_verified",
   "delivered",
 ];
 const PURCHASE_DATE = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" });
@@ -87,7 +92,7 @@ function PurchasesPage() {
   const orderedPurchases = [...purchases].sort((a, b) => b.updatedAt - a.updatedAt);
   const delivered = purchases.filter((purchase) => purchase.status === "delivered").length;
   const pending = purchases.filter((purchase) =>
-    ["created", "instructions_requested", "proof_ready", "verification_pending"].includes(
+    ["created", "instructions_requested", "proof_ready", "verification_pending", "payment_verified"].includes(
       purchase.status,
     ),
   ).length;
@@ -149,9 +154,9 @@ function PurchasesPage() {
             </div>
 
             <p className="mt-5 rounded-[var(--radius-lg)] bg-secondary p-3 text-xs leading-relaxed text-muted">
-              🔐 La clé privée de votre appareil et les Decks déchiffrés ne sont pas enregistrés
-              dans le registre commercial. Le serveur ne reçoit que les éléments nécessaires à la
-              validation de la commande et la clé publique de l’appareil.
+              🔐 La preuve complète, la clé privée de votre appareil et les Decks déchiffrés ne sont
+              pas enregistrés dans le registre commercial. Le serveur conserve uniquement les
+              éléments nécessaires à la validation et à l’audit de la transaction.
             </p>
           </>
         )}
@@ -211,7 +216,11 @@ function PurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
       </div>
 
       {!terminalNegative ? (
-        <div className="mt-4 grid grid-cols-5 gap-1" aria-label={`Progression : ${status.label}`}>
+        <div
+          className="mt-4 grid gap-1"
+          style={{ gridTemplateColumns: `repeat(${FLOW.length}, minmax(0, 1fr))` }}
+          aria-label={`Progression : ${status.label}`}
+        >
           {FLOW.map((step, index) => (
             <span
               key={step}
