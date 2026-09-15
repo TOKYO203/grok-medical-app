@@ -83,6 +83,7 @@ d'éditeurs configurée, aucune création ou modification de publication/enquêt
 Variables serveur à configurer dans le gestionnaire de secrets du déploiement :
 
 - `CONTENT_EDITOR_USER_IDS` : identifiants Better Auth autorisés à administrer les publications et enquêtes, séparés par des virgules. Ne jamais utiliser une valeur générique ou un identifiant fourni par le client.
+- `PURCHASE_ADMIN_USER_IDS` : identifiants Better Auth autorisés à valider une commande Premium comme livrée, rejetée ou remboursée. Un acheteur ne peut jamais s'attribuer lui-même un de ces états.
 - `RESPONSE_SALT` : secret aléatoire long utilisé uniquement côté serveur pour pseudonymiser l'adresse IP de l'anti-doublon des enquêtes. Il est obligatoire en production ; aucun `default_salt` n'est accepté.
 - `RATE_LIMIT_SALT` : secret aléatoire serveur distinct utilisé pour pseudonymiser les sujets des quotas API avant leur stockage dans `api_rate_limits`. Il est obligatoire en production.
 - `TRUST_PROXY_HEADERS` : laisser absent/`false` par défaut. Mettre `true` uniquement lorsque la plateforme de déploiement supprime les headers de forwarding fournis par le client et réinjecte ses propres valeurs de confiance.
@@ -95,6 +96,37 @@ d'enquêtes et uploads éditoriaux sont limités. Les réponses bloquées utilis
 
 Les uploads éditoriaux sont limités à 8 Mo et aux formats PDF, JPEG, PNG et WebP avec contrôle
 d'extension, type déclaré et signature de fichier.
+
+## 🧩 Architecture des données : hybride par conception
+
+Optimus n'utilise ni un modèle « tout serveur » ni un modèle « tout local avec une clé ». La
+séparation est volontaire afin de conserver le fonctionnement hors ligne sans confier au client les
+décisions commerciales ou d'autorisation.
+
+**Autorité serveur :**
+
+- session et identité Better Auth ;
+- Optimus ID et sauvegarde/synchronisation du profil et de la progression pédagogique ;
+- référence de commande, produit, prix et statut Premium ;
+- journal des transitions de commande et décisions de livraison/remboursement ;
+- clés publiques d'appareil nécessaires à la préparation d'un contenu lié à l'appareil.
+
+**Autorité de l'appareil :**
+
+- clé privée cryptographique de l'appareil, non exportée ;
+- Decks Premium chiffrés et contenu déchiffré en mémoire ;
+- preuves/licences signées vérifiées localement pour permettre l'usage hors ligne ;
+- progression locale et cache des commandes lorsque le réseau est indisponible ;
+- image de couverture personnalisée et autres données purement locales.
+
+Le cache local d'une commande n'est jamais une source de vérité pour son montant, son produit ou
+son statut. Dès que le réseau revient, `/pro` et `/achats` rechargent le registre serveur. Les achats
+sont également exclus du snapshot générique de synchronisation pédagogique afin qu'une donnée
+locale plus récente ne puisse pas écraser un statut commercial décidé côté serveur.
+
+La clé privée de l'appareil, les Decks déchiffrés et les secrets de signature serveur ne doivent
+jamais être envoyés au registre commercial. Le canal Mobile Money officiel reste une configuration
+d'exploitation : aucun opérateur ni numéro ne doit être codé en dur ou inventé dans le client.
 
 ## Statut éditorial V1
 
