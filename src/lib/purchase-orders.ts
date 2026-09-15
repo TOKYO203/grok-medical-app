@@ -19,6 +19,8 @@ const specialtySchema = z.enum([
   "dermatologie",
 ]);
 
+const referenceSchema = z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/);
+
 const createSchema = z.object({
   clientRequestId: z.string().uuid(),
   offer: z.enum(["deck", "specialty"]),
@@ -33,9 +35,11 @@ const clientStatusSchema = z.enum([
 ]);
 
 const advanceSchema = z.object({
-  reference: z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/),
+  reference: referenceSchema,
   status: clientStatusSchema,
   proofAttached: z.boolean().optional(),
+  proofDigest: z.string().regex(/^[a-f0-9]{64}$/i).optional(),
+  paymentReference: z.string().trim().min(6).max(120).optional(),
   device: z
     .object({
       deviceId: z.string().regex(/^[a-f0-9]{12}$/i),
@@ -45,14 +49,18 @@ const advanceSchema = z.object({
     .optional(),
 });
 
+const instructionsSchema = z.object({ reference: referenceSchema });
+
 const adminDecisionSchema = z.object({
-  reference: z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/),
-  decision: z.enum(["delivered", "rejected", "refunded"]),
+  reference: referenceSchema,
+  decision: z.enum(["payment_verified", "delivered", "rejected", "refunded"]),
   note: z.string().trim().max(2_000).optional(),
 });
 
 type PurchaseRow = {
   reference: string;
+  user_id: string;
+  optimus_id: string;
   offer: "deck" | "specialty";
   specialty: "neurologie" | "cardiologie" | "infectiologie" | "urgences" | "dermatologie";
   deck_number: number;
@@ -66,6 +74,30 @@ type PurchaseRow = {
   device_id: string | null;
   device_key_id: string | null;
   device_public_key: string | null;
+  payment_provider: string | null;
+  payment_reference: string | null;
+  proof_digest: string | null;
+};
+
+export type PremiumPaymentInstructions = {
+  configured: boolean;
+  provider: string | null;
+  destination: string | null;
+  accountName: string | null;
+  note: string | null;
+  amount: number;
+  orderReference: string;
+  product: string;
+};
+
+export type AdminPurchaseOrder = {
+  purchase: PremiumPurchase;
+  userId: string;
+  optimusId: string;
+  paymentProvider: string | null;
+  paymentReference: string | null;
+  proofDigest: string | null;
+  deviceId: string | null;
 };
 
 function toPurchase(row: PurchaseRow): PremiumPurchase {
@@ -102,6 +134,35 @@ function requirePurchaseAdmin(userId: string): void {
   if (!purchaseAdmins().has(userId)) {
     throw new Error("Forbidden");
   }
+}
+
+function paymentConfiguration(): Omit<PremiumPaymentInstructions, "amount" | "orderReference" | "product"> {
+  const provider = process.env.MOBILE_MONEY_PROVIDER?.trim() || null;
+  const destination = process.env.MOBILE_MONEY_NUMBER?.trim() || null;
+  const accountName = process.env.MOBILE_MONEY_ACCOUNT_NAME?.trim() || null;
+  const note = process.env.MOBILE_MONEY_INSTRUCTIONS?.trim() || null;
+  return {
+    configured: Boolean(provider && destination),
+    provider,
+    destination,
+    accountName,
+    note,
+  };
+}
+
+function normalizePaymentReference(value: string): string {
+  const normalized = value.trim().toUpperCase().replace(/\s+/g, "");
+  if (!/^[A-Z0-9._-]{6,120}$/.test(normalized)) {
+    throw new Error("La référence de transaction Mobile Money est invalide.");
+  }
+  return normalized;
+}
+
+function duplicatePaymentEvidence(error: unknown): boolean {
+  const text = error instanceof Error ? error.message : String(error);
+  return /purchase_orders_payment_reference_unique_idx|purchase_orders_proof_digest_unique_idx|duplicate key/i.test(
+    text,
+  );
 }
 
 async function auditEvent(
@@ -212,6 +273,51 @@ export const listPremiumPurchaseOrders = createServerFn({ method: "GET" })
     return rows.map(toPurchase);
   });
 
+export const getPremiumPaymentInstructions = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(instructionsSchema)
+  .handler(async ({ data, context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+    const rows = await sql.query<PurchaseRow>(
+      `select * from purchase_orders where reference = $1 and user_id = $2 limit 1`,
+      [data.reference, context.userId],
+    );
+    let current = rows[0];
+    if (!current) throw new Error("Commande introuvable.");
+    if (["delivered", "rejected", "refunded"].includes(current.status)) {
+      throw new Error("Cette commande est déjà clôturée.");
+    }
+
+    const config = paymentConfiguration();
+    const instructions: PremiumPaymentInstructions = {
+      ...config,
+      amount: Number(current.amount),
+      orderReference: current.reference,
+      product: current.product,
+    };
+    if (!config.configured) return { purchase: toPurchase(current), instructions };
+
+    if (current.status === "created") {
+      const updated = await sql.query<PurchaseRow>(
+        `update purchase_orders
+            set status = 'instructions_requested',
+                payment_provider = $3,
+                updated_at = now()
+          where reference = $1 and user_id = $2 and status = 'created'
+          returning *`,
+        [current.reference, context.userId, config.provider],
+      );
+      current = updated[0] ?? current;
+      if (current.status === "instructions_requested") {
+        await auditEvent(sql, current.reference, context.userId, "instructions_requested", {
+          provider: config.provider,
+        });
+      }
+    }
+    return { purchase: toPurchase(current), instructions };
+  });
+
 export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
   .middleware([authMiddleware])
   .validator(advanceSchema)
@@ -227,7 +333,7 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
     );
     const current = rows[0];
     if (!current) throw new Error("Commande introuvable.");
-    if (["delivered", "rejected", "refunded"].includes(current.status)) {
+    if (["payment_verified", "delivered", "rejected", "refunded"].includes(current.status)) {
       return toPurchase(current);
     }
 
@@ -242,40 +348,108 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
       throw new Error("Transition de commande invalide.");
     }
 
-    if (data.status === "verification_pending" && !data.device) {
-      throw new Error("La demande appareil sécurisée est requise avant vérification.");
+    if (data.status === "verification_pending") {
+      if (!data.device) {
+        throw new Error("La demande appareil sécurisée est requise avant vérification.");
+      }
+      if (!data.proofAttached || !data.proofDigest) {
+        throw new Error("Une empreinte de preuve est requise avant vérification.");
+      }
+      if (!data.paymentReference) {
+        throw new Error("La référence de transaction Mobile Money est requise.");
+      }
     }
 
-    const updated = await sql.query<PurchaseRow>(
-      `update purchase_orders
-          set status = $3,
-              proof_attached = proof_attached or $4,
-              device_id = coalesce($5, device_id),
-              device_key_id = coalesce($6, device_key_id),
-              device_public_key = coalesce($7, device_public_key),
-              updated_at = now()
-        where reference = $1 and user_id = $2
-        returning *`,
-      [
-        data.reference,
-        context.userId,
-        data.status,
-        Boolean(data.proofAttached),
-        data.device?.deviceId.toLowerCase() ?? null,
-        data.device?.deviceKeyId ?? null,
-        data.device?.publicKey ?? null,
-      ],
+    const paymentReference = data.paymentReference
+      ? normalizePaymentReference(data.paymentReference)
+      : current.payment_reference;
+    const proofDigest = data.proofDigest?.toLowerCase() ?? current.proof_digest;
+    if (current.payment_reference && paymentReference !== current.payment_reference) {
+      throw new Error("La référence de paiement ne peut plus être modifiée après soumission.");
+    }
+    if (current.proof_digest && proofDigest !== current.proof_digest) {
+      throw new Error("La preuve de paiement ne peut plus être remplacée après soumission.");
+    }
+
+    const provider = current.payment_provider ?? paymentConfiguration().provider;
+    if (data.status === "verification_pending" && !provider) {
+      throw new Error("Le canal Mobile Money officiel n'est pas configuré côté serveur.");
+    }
+
+    try {
+      const updated = await sql.query<PurchaseRow>(
+        `update purchase_orders
+            set status = $3,
+                proof_attached = proof_attached or $4,
+                device_id = coalesce($5, device_id),
+                device_key_id = coalesce($6, device_key_id),
+                device_public_key = coalesce($7, device_public_key),
+                payment_provider = coalesce(payment_provider, $8),
+                payment_reference = coalesce(payment_reference, $9),
+                proof_digest = coalesce(proof_digest, $10),
+                payment_submitted_at = case
+                  when $3 = 'verification_pending' then coalesce(payment_submitted_at, now())
+                  else payment_submitted_at
+                end,
+                updated_at = now()
+          where reference = $1 and user_id = $2
+          returning *`,
+        [
+          data.reference,
+          context.userId,
+          data.status,
+          Boolean(data.proofAttached),
+          data.device?.deviceId.toLowerCase() ?? null,
+          data.device?.deviceKeyId ?? null,
+          data.device?.publicKey ?? null,
+          provider,
+          paymentReference,
+          proofDigest,
+        ],
+      );
+      const next = updated[0];
+      if (!next) throw new Error("Commande introuvable.");
+
+      if (current.status !== next.status || (!current.proof_attached && next.proof_attached)) {
+        await auditEvent(sql, next.reference, context.userId, next.status, {
+          proofAttached: next.proof_attached,
+          proofDigest: next.proof_digest,
+          paymentProvider: next.payment_provider,
+          paymentReference: next.payment_reference,
+          deviceBound: Boolean(next.device_id && next.device_key_id && next.device_public_key),
+        });
+      }
+      return toPurchase(next);
+    } catch (error) {
+      if (duplicatePaymentEvidence(error)) {
+        throw new Error("Cette référence ou cette preuve de paiement est déjà liée à une autre commande.");
+      }
+      throw error;
+    }
+  });
+
+export const listPremiumPurchaseOrdersForAdmin = createServerFn({ method: "GET" })
+  .middleware([authMiddleware])
+  .handler(async ({ context }) => {
+    requirePurchaseAdmin(context.userId);
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+    const rows = await sql.query<PurchaseRow>(
+      `select * from purchase_orders
+       order by updated_at desc
+       limit 500`,
     );
-    const next = updated[0];
-    if (!next) throw new Error("Commande introuvable.");
-
-    if (current.status !== next.status || (!current.proof_attached && next.proof_attached)) {
-      await auditEvent(sql, next.reference, context.userId, next.status, {
-        proofAttached: next.proof_attached,
-        deviceBound: Boolean(next.device_id && next.device_key_id && next.device_public_key),
-      });
-    }
-    return toPurchase(next);
+    return rows.map(
+      (row): AdminPurchaseOrder => ({
+        purchase: toPurchase(row),
+        userId: row.user_id,
+        optimusId: row.optimus_id,
+        paymentProvider: row.payment_provider,
+        paymentReference: row.payment_reference,
+        proofDigest: row.proof_digest,
+        deviceId: row.device_id,
+      }),
+    );
   });
 
 export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
@@ -293,9 +467,17 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const current = rows[0];
     if (!current) throw new Error("Commande introuvable.");
 
-    if (data.decision === "delivered") {
+    if (data.decision === "payment_verified") {
       if (current.status !== "verification_pending") {
-        throw new Error("La commande doit être en vérification avant livraison.");
+        throw new Error("La commande doit être en vérification avant validation du paiement.");
+      }
+      if (!current.payment_reference || !current.proof_digest || !current.proof_attached) {
+        throw new Error("La référence et la preuve de paiement doivent être présentes.");
+      }
+    }
+    if (data.decision === "delivered") {
+      if (current.status !== "payment_verified") {
+        throw new Error("Le paiement doit être validé avant livraison.");
       }
       if (!current.device_id || !current.device_key_id || !current.device_public_key) {
         throw new Error("Aucune demande appareil sécurisée n'est liée à cette commande.");
@@ -304,16 +486,18 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
     if (data.decision === "refunded" && current.status !== "delivered") {
       throw new Error("Seule une commande livrée peut être marquée remboursée.");
     }
-    if (data.decision === "rejected" && current.status === "delivered") {
-      throw new Error("Une commande déjà livrée ne peut pas être rejetée.");
+    if (data.decision === "rejected" && ["delivered", "refunded"].includes(current.status)) {
+      throw new Error("Une commande déjà livrée ou remboursée ne peut pas être rejetée.");
     }
 
     const timestampColumn =
-      data.decision === "delivered"
-        ? "delivered_at"
-        : data.decision === "rejected"
-          ? "rejected_at"
-          : "refunded_at";
+      data.decision === "payment_verified"
+        ? "payment_verified_at"
+        : data.decision === "delivered"
+          ? "delivered_at"
+          : data.decision === "rejected"
+            ? "rejected_at"
+            : "refunded_at";
     const updated = await sql.query<PurchaseRow>(
       `update purchase_orders
           set status = $2,
@@ -326,8 +510,22 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const next = updated[0];
     if (!next) throw new Error("Commande introuvable.");
 
+    let revokedLicenses = 0;
+    if (data.decision === "refunded") {
+      const revoked = await sql.query<{ id: string }>(
+        `update activation_keys
+            set revoked_at = coalesce(revoked_at, now())
+          where purchase_reference = $1
+            and revoked_at is null
+          returning id`,
+        [next.reference],
+      );
+      revokedLicenses = revoked.length;
+    }
+
     await auditEvent(sql, next.reference, context.userId, data.decision, {
       note: data.note ?? null,
+      revokedLicenses,
     });
-    return toPurchase(next);
+    return { purchase: toPurchase(next), revokedLicenses };
   });
