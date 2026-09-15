@@ -35,16 +35,20 @@ test("focus ambience is explicit session-only audio with a stop control", () => 
   assert.match(engine, /startFocusAmbience/);
   assert.match(engine, /stopFocusAmbience/);
   assert.match(engine, /FOCUS_INTERVAL_MS/);
+  assert.match(engine, /visibilitychange/);
+  assert.match(engine, /pagehide/);
   assert.doesNotMatch(engine, /localStorage\.setItem\([^\n]*focus/i);
   assert.match(controls, /Ambiance focus/);
   assert.match(controls, /uniquement pour cette session/);
 });
 
-test("quiz emits distinct correct incorrect and completion feedback", () => {
+test("quiz emits distinct correct incorrect completion and combo feedback", () => {
   assert.match(quiz, /emitExperienceFeedback\(isOk \? "correct" : "incorrect"/);
   assert.match(quiz, /emitExperienceFeedback\("complete"/);
   assert.match(quiz, /optimus-answer-correct/);
   assert.match(quiz, /optimus-answer-incorrect/);
+  assert.match(quiz, /combo >= 2/);
+  assert.match(quiz, /optimus-combo-pulse/);
 });
 
 test("milestones combine sensory cues with restrained visual celebration", () => {
@@ -61,5 +65,6 @@ test("motion feedback keeps the system reduced-motion escape hatch", () => {
   assert.match(styles, /optimus-answer-incorrect/);
   assert.match(styles, /optimus-session-complete/);
   assert.match(styles, /optimus-nav-active/);
+  assert.match(styles, /optimus-combo-pulse/);
   assert.match(shell, /preferences\.enhancedMotion && active && "optimus-nav-active"/);
 });
