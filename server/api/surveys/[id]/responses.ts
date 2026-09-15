@@ -8,8 +8,10 @@ import {
 } from "h3";
 import { z } from "zod";
 import { getSql } from "@/lib/db";
+import { getClientIp } from "../../../lib/client-ip";
+import { applyRateLimitHeaders, consumeRateLimit } from "../../../lib/rate-limit";
 import { apiAuthFailure, requireApiUser } from "../../../lib/route-auth";
-import { getClientIp, hashString, recentResponseExists } from "../../../lib/survey-utils";
+import { hashString, recentResponseExists } from "../../../lib/survey-utils";
 
 const submissionSchema = z
   .object({
@@ -57,6 +59,26 @@ export default defineEventHandler(async (event) => {
   if (!surveyId) {
     setResponseStatus(event, 400);
     return { error: "missing survey id" };
+  }
+
+  const clientIp = getClientIp(event);
+  const anonymousSubject = clientIp || `unknown:${(getHeader(event, "user-agent") ?? "no-user-agent").slice(0, 160)}`;
+  try {
+    const decision = await consumeRateLimit({
+      scope: `survey-submit:${surveyId}`,
+      subject: anonymousSubject,
+      limit: 30,
+      windowSeconds: 60,
+    });
+    applyRateLimitHeaders(event, decision);
+    if (!decision.allowed) {
+      setResponseStatus(event, 429);
+      return { error: "rate_limited" };
+    }
+  } catch (error) {
+    console.error("[surveys] rate limiter unavailable", error);
+    setResponseStatus(event, 503);
+    return { error: "survey_protection_unavailable" };
   }
 
   const parsed = submissionSchema.safeParse(await readBody(event));
@@ -131,9 +153,8 @@ export default defineEventHandler(async (event) => {
     return { error: "survey_protection_unavailable" };
   }
 
-  const ip = getClientIp(event);
   const salt = responseSalt || "development-only-response-salt";
-  const ipHash = ip ? hashString(`${ip}:${salt}`) : null;
+  const ipHash = clientIp ? hashString(`${clientIp}:${salt}`) : null;
   if (ipHash) {
     const recentWindow = Number(process.env.RECENT_WINDOW_MINUTES ?? 60);
     if (await recentResponseExists(sql, surveyId, ipHash, recentWindow)) {
