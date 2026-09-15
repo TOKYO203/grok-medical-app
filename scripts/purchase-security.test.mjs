@@ -92,12 +92,13 @@ test("admin back office stays server-authorized and separates verify from delive
   assert.match(serverOrders, /requirePurchaseAdmin\(context\.userId\)/);
 });
 
-test("refund revokes activation keys explicitly linked to the purchase", () => {
+test("refund atomically changes state, revokes linked keys and audits the count", () => {
   assert.match(verificationMigration, /purchase_reference text REFERENCES purchase_orders/);
-  assert.match(stateMachineMigration, /revoke_purchase_licenses_on_refund/);
-  assert.match(stateMachineMigration, /purchase_reference = NEW\.reference/);
-  assert.match(stateMachineMigration, /revoked_at = COALESCE\(revoked_at, now\(\)\)/);
+  assert.match(serverOrders, /with updated as \(/i);
+  assert.match(serverOrders, /revoked as \(/i);
   assert.match(serverOrders, /update activation_keys/);
+  assert.match(serverOrders, /purchase_reference in \(select reference from updated\)/i);
+  assert.match(serverOrders, /'revokedLicenses', \(select count\(\*\) from revoked\)/);
   assert.match(issueKey, /--purchase-ref/);
   assert.match(issueKey, /payment_verified/);
 });
