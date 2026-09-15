@@ -65,14 +65,14 @@ assert.equal(
 );
 
 const oversizedSurvey = await fetchBuiltApp(
-  new Request("http://localhost/api/surveys/11111111-1111-1111-1111-111111111111/responses", {
+  new Request("http://localhost/api/surveys/11111111-1111-4111-8111-111111111111/responses", {
     method: "POST",
     headers: { "content-type": "application/json", "user-agent": "optimus-ci-smoke" },
     body: JSON.stringify({
       consent: true,
       answers: [
         {
-          questionId: "22222222-2222-2222-2222-222222222222",
+          questionId: "22222222-2222-4222-8222-222222222222",
           value: "x".repeat(70 * 1024),
         },
       ],
