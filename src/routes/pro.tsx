@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { KeyRound, PackageCheck, ShieldCheck } from "lucide-react";
+import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
@@ -88,6 +88,10 @@ function ProPage() {
     }
   }
 
+  const activeProducts = entitlements
+    .filter((entitlement) => entitlement.product !== "OPTIMUS_FREE")
+    .map((entitlement) => entitlement.product);
+
   return (
     <Shell title="Pro">
       <Page className="mx-auto max-w-lg">
@@ -104,6 +108,7 @@ function ProPage() {
           Les cours restent utilisables hors ligne. Les commandes et leurs statuts sont validés par
           le serveur, tandis que vos clés privées restent uniquement sur cet appareil.
         </p>
+
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
             <PremiumPurchaseFlow
@@ -188,14 +193,34 @@ function ProPage() {
             </p>
           </div>
         ) : (
-          <p className="mt-6 text-sm">
-            Pro est actif. Les Decks Premium déjà validés restent accessibles hors ligne sur cet
-            appareil.
-          </p>
+          <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
+            <div className="flex items-start gap-3">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/18 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.2)]">
+                <CheckCircle2 className="size-6" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] opacity-75">
+                  Accès confirmé
+                </p>
+                <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight">
+                  Premium actif
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed opacity-85">
+                  Vos contenus Premium validés restent disponibles hors ligne sur cet appareil.
+                </p>
+              </div>
+              <Sparkles className="size-5 shrink-0 opacity-70" aria-hidden="true" />
+            </div>
+            <div className="mt-4 rounded-[var(--radius-md)] bg-black/10 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12)]">
+              <p className="text-xs font-medium">
+                {activeProducts.length > 0
+                  ? `${activeProducts.length} droit${activeProducts.length > 1 ? "s" : ""} Premium actif${activeProducts.length > 1 ? "s" : ""}`
+                  : "Accès Premium vérifié sur cet appareil"}
+              </p>
+            </div>
+          </section>
         )}
-        <p className="mt-6 text-xs text-subtle">
-          Statut local vérifié : {profile.tier}. Droits actifs : {entitlements.map((e) => e.product).join(", ")}.
-        </p>
+
         <Link to="/soutenir" className="mt-6 inline-block text-sm text-muted hover:text-fg">
           Ce n’est pas un don — pour soutenir Fetra, voir Soutenir le développeur →
         </Link>
