@@ -122,6 +122,16 @@ export function OptimusSyncBridge() {
       retryTimer = undefined;
     };
 
+    const stopForUserErasure = () => {
+      initialized = false;
+      queuedWhileSyncing = false;
+      clearTimer();
+      clearRetry();
+      unsubscribe?.();
+      unsubscribe = undefined;
+      window.removeEventListener("online", schedulePush);
+    };
+
     const markSnapshotSynced = (startedAt: number) => {
       applyingRemote = true;
       useOptimus.setState((state) => ({
@@ -149,6 +159,11 @@ export function OptimusSyncBridge() {
           data: { baseRevision: revision || null, snapshot },
         });
 
+        if (result.suspended) {
+          stopForUserErasure();
+          return;
+        }
+
         if (result.conflict && result.snapshot) {
           const merged = mergeOptimusSnapshots(snapshot, result.snapshot, {
             preferLocalProfile: true,
@@ -159,6 +174,10 @@ export function OptimusSyncBridge() {
           result = await pushOptimusState({
             data: { baseRevision: result.revision, snapshot: merged },
           });
+          if (result.suspended) {
+            stopForUserErasure();
+            return;
+          }
         }
 
         if (!result.ok || !result.snapshot) {
@@ -175,7 +194,7 @@ export function OptimusSyncBridge() {
         retryTimer = window.setTimeout(() => void pushCurrent(), RETRY_MS);
       } finally {
         syncing = false;
-        if (queuedWhileSyncing && !disposed) {
+        if (queuedWhileSyncing && !disposed && initialized) {
           queuedWhileSyncing = false;
           clearTimer();
           timer = window.setTimeout(() => void pushCurrent(), 0);
@@ -207,6 +226,14 @@ export function OptimusSyncBridge() {
         const remote = await pullOptimusState();
         if (disposed) return;
 
+        // A user-requested erasure is durable across devices. Do not recreate a
+        // deleted snapshot until the user explicitly re-enables cloud sync.
+        if (remote.syncSuspended) {
+          saveLocalOwner(userId);
+          stopForUserErasure();
+          return;
+        }
+
         let effective = local;
         revision = remote.revision;
 
@@ -223,6 +250,11 @@ export function OptimusSyncBridge() {
             const pushed = await pushOptimusState({
               data: { baseRevision: remote.revision, snapshot: effective },
             });
+            if (pushed.suspended) {
+              saveLocalOwner(userId);
+              stopForUserErasure();
+              return;
+            }
             if (pushed.ok) {
               revision = pushed.revision;
               effective = pushed.snapshot;
@@ -240,6 +272,11 @@ export function OptimusSyncBridge() {
           const pushed = await pushOptimusState({
             data: { baseRevision: null, snapshot: local },
           });
+          if (pushed.suspended) {
+            saveLocalOwner(userId);
+            stopForUserErasure();
+            return;
+          }
           if (pushed.ok) {
             revision = pushed.revision;
             effective = pushed.snapshot;
