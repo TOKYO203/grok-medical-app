@@ -4,6 +4,7 @@ import { licenseReceiptMessage } from "./signature-payload.ts";
 const PRODUCT_PATTERN = /^[A-Z][A-Z0-9_]{2,63}$/;
 const OPTIMUS_ID_PATTERN = /^OM-[A-F0-9]{8}$/;
 const DEVICE_ID_PATTERN = /^[a-f0-9]{12}$/i;
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const CLOCK_SKEW_MS = 5 * 60 * 1000;
 
 function fromBase64Url(value: string): Uint8Array<ArrayBuffer> {
@@ -25,6 +26,8 @@ function isPayload(value: unknown): value is LicenseReceiptPayload {
         : Number.NaN;
   return (
     payload.version === 1 &&
+    (payload.licenseId === undefined ||
+      (typeof payload.licenseId === "string" && UUID_PATTERN.test(payload.licenseId))) &&
     typeof payload.product === "string" &&
     PRODUCT_PATTERN.test(payload.product) &&
     typeof payload.optimusId === "string" &&
