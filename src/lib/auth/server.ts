@@ -157,6 +157,21 @@ const trustedOrigins: string[] = explicitBaseURL
 
 const databaseUrl = env("DATABASE_URL");
 
+// Never trust a generic forwarding header merely because it is present. Vercel
+// and Netlify own the provider-specific headers below on their platforms. Other
+// reverse proxies must explicitly opt in after stripping client-supplied values.
+// An empty list intentionally fails closed in unknown production environments:
+// Better Auth will warn and use its shared fallback bucket instead of accepting
+// a spoofable x-forwarded-for value.
+const authIpAddressHeaders: string[] =
+  env("VERCEL") === "1"
+    ? ["x-vercel-forwarded-for"]
+    : env("NETLIFY") === "true"
+      ? ["x-nf-client-connection-ip"]
+      : env("TRUST_PROXY_HEADERS") === "true"
+        ? ["x-forwarded-for"]
+        : [];
+
 // Static broker OAuth endpoints (skip OIDC discovery on every sign-in / callback).
 // Discovery would cost an extra network hop to the broker before the popup can
 // even redirect to Google/X — the live-preview popup felt stuck on the app for
@@ -251,6 +266,7 @@ export const auth = betterAuth({
   // Secure + the names ourselves. (Browsers allow Secure cookies on
   // `http://localhost`, so local dev still works.)
   advanced: {
+    ipAddress: { ipAddressHeaders: authIpAddressHeaders },
     useSecureCookies: false,
     defaultCookieAttributes: { secure: true, sameSite: "lax", path: "/" },
     cookies: {
