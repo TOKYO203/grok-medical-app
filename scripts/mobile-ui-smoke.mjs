@@ -50,10 +50,20 @@ try {
       });
       const consoleErrors = [];
       const pageErrors = [];
+      const failedResponses = [];
       page.on("console", (message) => {
         if (message.type() === "error") consoleErrors.push(message.text());
       });
       page.on("pageerror", (error) => pageErrors.push(String(error?.message || error)));
+      page.on("response", (resourceResponse) => {
+        if (resourceResponse.status() >= 400) {
+          failedResponses.push({
+            status: resourceResponse.status(),
+            url: resourceResponse.url(),
+            resourceType: resourceResponse.request().resourceType(),
+          });
+        }
+      });
 
       const target = new URL(route, baseUrl).toString();
       const response = await page.goto(target, {
@@ -101,6 +111,7 @@ try {
         mainCount: metrics.mainCount,
         consoleErrors,
         pageErrors,
+        failedResponses,
       };
       await page.close();
     }
