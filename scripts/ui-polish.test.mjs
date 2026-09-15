@@ -14,6 +14,10 @@ const installCard = readFileSync(
   new URL("../src/components/pwa-install-card.tsx", import.meta.url),
   "utf8",
 );
+const errorComponent = readFileSync(
+  new URL("../src/lib/error-component.tsx", import.meta.url),
+  "utf8",
+);
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
 test("home exposes an accessible skeleton instead of a blank loading screen", () => {
@@ -54,6 +58,13 @@ test("PWA installation is discoverable and standalone-aware", () => {
   assert.match(installCard, /display-mode: standalone/);
   assert.match(installCard, /\/\?install=1/);
   assert.match(installCard, /Optimus est installé/);
+});
+
+test("global error state is user-facing in French and hides raw details in production", () => {
+  assert.match(errorComponent, /Impossible d’afficher cet écran/);
+  assert.match(errorComponent, /Réessayer/);
+  assert.match(errorComponent, /Accueil/);
+  assert.match(errorComponent, /import\.meta\.env\.DEV/);
 });
 
 test("progress motion still honors the global reduced-motion escape hatch", () => {
