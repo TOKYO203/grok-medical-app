@@ -12,6 +12,11 @@ const milestones = readFileSync(
   new URL("../src/components/experience-milestone-bridge.tsx", import.meta.url),
   "utf8",
 );
+const motionBridge = readFileSync(
+  new URL("../src/components/experience-motion-bridge.tsx", import.meta.url),
+  "utf8",
+);
+const root = readFileSync(new URL("../src/routes/__root.tsx", import.meta.url), "utf8");
 const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
@@ -59,12 +64,15 @@ test("milestones combine sensory cues with restrained visual celebration", () =>
   assert.match(milestones, /emitExperienceFeedback\("badge"/);
 });
 
-test("motion feedback keeps the system reduced-motion escape hatch", () => {
+test("motion feedback honors both app and operating-system reduced motion", () => {
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(styles, /data-optimus-motion="reduced"/);
   assert.match(styles, /optimus-answer-correct/);
   assert.match(styles, /optimus-answer-incorrect/);
   assert.match(styles, /optimus-session-complete/);
   assert.match(styles, /optimus-nav-active/);
   assert.match(styles, /optimus-combo-pulse/);
   assert.match(shell, /preferences\.enhancedMotion && active && "optimus-nav-active"/);
+  assert.match(motionBridge, /dataset\.optimusMotion/);
+  assert.match(root, /<ExperienceMotionBridge \/>/);
 });
