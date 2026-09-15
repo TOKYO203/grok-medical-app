@@ -1,5 +1,6 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
+import { ConnectivityStatus } from "@/components/connectivity-status";
 import { ExperienceMilestoneBridge } from "@/components/experience-milestone-bridge";
 import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
@@ -53,6 +54,7 @@ function RootDocument() {
           <ExperienceMilestoneBridge />
           <Outlet />
         </AuthProvider>
+        <ConnectivityStatus />
         <Toaster
           theme="dark"
           position="top-center"
