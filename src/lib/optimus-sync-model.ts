@@ -1,7 +1,16 @@
 import { z } from "zod";
 
+const numericStudyLevelSchema = z.union([
+  z.literal(1),
+  z.literal(2),
+  z.literal(3),
+  z.literal(4),
+  z.literal(5),
+  z.literal(6),
+]);
+
 const studyLevelSchema = z.union([
-  z.number().int().min(1).max(6),
+  numericStudyLevelSchema,
   z.enum(["intern", "resident", "junior", "senior", "consultant", "attending", "other"]),
 ]);
 
@@ -156,7 +165,6 @@ export function mergeOptimusSnapshots(
   options: { preferLocalProfile: boolean },
 ): OptimusSyncSnapshot {
   const localDayIsNewer = local.lastActiveDay > remote.lastActiveDay;
-  const sameActiveDay = local.lastActiveDay === remote.lastActiveDay;
   const localWeekIsNewer = weekOrdinal(local.weeklyKey) > weekOrdinal(remote.weeklyKey);
   const sameWeek = local.weeklyKey === remote.weeklyKey;
   const localDailyIsNewer = local.daily.key > remote.daily.key;
