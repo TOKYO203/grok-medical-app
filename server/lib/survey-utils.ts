@@ -1,29 +1,7 @@
 import crypto from "node:crypto";
-import type { H3Event } from "h3";
 
 export function hashString(value: string) {
   return crypto.createHash("sha256").update(value).digest("hex");
-}
-
-export function getClientIp(event: H3Event): string | null {
-  const request = event.node?.req;
-  if (!request) return null;
-
-  const headers = request.headers;
-  const forwarded = headers["x-forwarded-for"];
-  if (forwarded) {
-    const value = Array.isArray(forwarded) ? forwarded[0] : forwarded;
-    const first = value.split(",")[0]?.trim();
-    if (first) return first;
-  }
-
-  const realIp = headers["x-real-ip"];
-  if (realIp) {
-    const value = Array.isArray(realIp) ? realIp[0] : realIp;
-    if (value?.trim()) return value.trim();
-  }
-
-  return request.socket?.remoteAddress ?? null;
 }
 
 export async function recentResponseExists(
