@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import {
   DEFAULT_EXPERIENCE_PREFERENCES,
+  emitExperienceFeedback,
   isFocusAmbienceActive,
   readExperiencePreferences,
   startFocusAmbience,
@@ -64,6 +65,22 @@ export function ExperienceControls({ compact = false }: { compact?: boolean }) {
   const { preferences, update } = useExperiencePreferences();
   const focus = useFocusAmbience();
 
+  const toggleSounds = () => {
+    const enabled = !preferences.sounds;
+    update({ sounds: enabled });
+    if (enabled) {
+      emitExperienceFeedback("correct", { ...preferences, sounds: true, haptics: false });
+    }
+  };
+
+  const toggleHaptics = () => {
+    const enabled = !preferences.haptics;
+    update({ haptics: enabled });
+    if (enabled) {
+      emitExperienceFeedback("correct", { ...preferences, sounds: false, haptics: true });
+    }
+  };
+
   if (compact) {
     return (
       <div
@@ -73,14 +90,14 @@ export function ExperienceControls({ compact = false }: { compact?: boolean }) {
         <CompactToggle
           pressed={preferences.sounds}
           title={preferences.sounds ? "Désactiver les sons" : "Activer les sons"}
-          onClick={() => update({ sounds: !preferences.sounds })}
+          onClick={toggleSounds}
         >
           {preferences.sounds ? <Volume2 className="size-4" /> : <VolumeX className="size-4" />}
         </CompactToggle>
         <CompactToggle
           pressed={preferences.haptics}
           title={preferences.haptics ? "Désactiver les vibrations" : "Activer les vibrations"}
-          onClick={() => update({ haptics: !preferences.haptics })}
+          onClick={toggleHaptics}
         >
           {preferences.haptics ? <Zap className="size-4" /> : <ZapOff className="size-4" />}
         </CompactToggle>
@@ -111,14 +128,14 @@ export function ExperienceControls({ compact = false }: { compact?: boolean }) {
         label="Sons pédagogiques"
         detail="Réponses, badges et activation Premium"
         pressed={preferences.sounds}
-        onClick={() => update({ sounds: !preferences.sounds })}
+        onClick={toggleSounds}
       />
       <SettingToggle
         icon={preferences.haptics ? <Zap className="size-5" /> : <ZapOff className="size-5" />}
         label="Vibrations"
         detail="Retours tactiles courts sur mobile"
         pressed={preferences.haptics}
-        onClick={() => update({ haptics: !preferences.haptics })}
+        onClick={toggleHaptics}
       />
       <SettingToggle
         icon={<Sparkles className="size-5" />}
