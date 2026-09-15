@@ -8,6 +8,7 @@ const controls = readFileSync(
   "utf8",
 );
 const quiz = readFileSync(new URL("../src/components/quiz-player.tsx", import.meta.url), "utf8");
+const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
 test("sensory feedback is user-configurable and local-only", () => {
@@ -26,6 +27,15 @@ test("audio feedback is synthesized instead of relying on external media files",
   assert.doesNotMatch(engine, /\.mp3|\.wav|\.ogg/);
 });
 
+test("focus ambience is explicit session-only audio with a stop control", () => {
+  assert.match(engine, /startFocusAmbience/);
+  assert.match(engine, /stopFocusAmbience/);
+  assert.match(engine, /FOCUS_INTERVAL_MS/);
+  assert.doesNotMatch(engine, /localStorage\.setItem\([^\n]*focus/i);
+  assert.match(controls, /Ambiance focus/);
+  assert.match(controls, /uniquement pour cette session/);
+});
+
 test("quiz emits distinct correct incorrect and completion feedback", () => {
   assert.match(quiz, /emitExperienceFeedback\(isOk \? "correct" : "incorrect"/);
   assert.match(quiz, /emitExperienceFeedback\("complete"/);
@@ -38,4 +48,6 @@ test("motion feedback keeps the system reduced-motion escape hatch", () => {
   assert.match(styles, /optimus-answer-correct/);
   assert.match(styles, /optimus-answer-incorrect/);
   assert.match(styles, /optimus-session-complete/);
+  assert.match(styles, /optimus-nav-active/);
+  assert.match(shell, /preferences\.enhancedMotion && active && "optimus-nav-active"/);
 });
