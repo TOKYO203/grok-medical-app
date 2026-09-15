@@ -46,13 +46,16 @@ async function refreshLicenseRevocations() {
 }
 
 export function LicenseRevocationBridge() {
+  const hydrated = useOptimus((state) => state.hydrated);
+
   useEffect(() => {
+    if (!hydrated) return;
     const refresh = () => {
       if (navigator.onLine) void refreshLicenseRevocations();
     };
     refresh();
     window.addEventListener("online", refresh);
     return () => window.removeEventListener("online", refresh);
-  }, []);
+  }, [hydrated]);
   return null;
 }
