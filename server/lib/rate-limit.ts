@@ -9,6 +9,8 @@ export type RateLimitDecision = {
   retryAfterSeconds: number;
 };
 
+let cleanupTick = 0;
+
 function rateLimitSalt(): string {
   const configured = process.env.RATE_LIMIT_SALT?.trim();
   if (configured) return configured;
@@ -43,11 +45,17 @@ export async function consumeRateLimit(options: {
     `insert into api_rate_limits (bucket_key, window_start, request_count, updated_at)
      values ($1, $2, 1, now())
      on conflict (bucket_key, window_start)
-     do update set request_count = api_rate_limits.request_count + 1,
+     do update set request_count = least(api_rate_limits.request_count + 1, $3),
                    updated_at = now()
      returning request_count`,
-    [bucketKey, windowStart],
+    [bucketKey, windowStart, limit + 1],
   );
+
+  // Keep the table bounded without adding a cleanup query to every request.
+  cleanupTick += 1;
+  if (cleanupTick % 128 === 0) {
+    await sql.query("delete from api_rate_limits where updated_at < now() - interval '2 days'");
+  }
 
   const count = Number(rows[0]?.request_count ?? limit + 1);
   const resetAtMs = windowStartMs + windowMs;
