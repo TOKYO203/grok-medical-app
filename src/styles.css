@@ -204,6 +204,21 @@
   }
 }
 
+@keyframes optimus-combo-pulse {
+  0% {
+    transform: scale(0.94);
+  }
+  48% {
+    transform: scale(1.08);
+    box-shadow:
+      var(--shadow-border),
+      0 10px 24px -16px color-mix(in oklab, var(--color-warn) 75%, transparent);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .optimus-answer-correct {
   animation: optimus-answer-correct var(--motion-fast) var(--ease-out) both;
 }
@@ -218,6 +233,10 @@
 
 .optimus-session-complete {
   animation: optimus-session-complete var(--motion-medium) var(--ease-out) both;
+}
+
+.optimus-combo-pulse {
+  animation: optimus-combo-pulse var(--motion-fast) var(--ease-out) both;
 }
 
 .optimus-nav-active::before {
