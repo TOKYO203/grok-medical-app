@@ -78,11 +78,6 @@ export default defineEventHandler(async (event) => {
     return { error: "upload_protection_unavailable" };
   }
 
-  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
-    setResponseStatus(event, 503);
-    return { error: "Storage temporarily unavailable" };
-  }
-
   const parsed = uploadSchema.safeParse(await readBody(event));
   if (!parsed.success) {
     setResponseStatus(event, 400);
@@ -118,6 +113,13 @@ export default defineEventHandler(async (event) => {
   if (!signatureMatches(buffer, contentType)) {
     setResponseStatus(event, 415);
     return { error: "file_signature_mismatch" };
+  }
+
+  // Storage availability is checked only after authentication, rate limiting and
+  // payload validation so invalid files always receive deterministic 4xx errors.
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+    setResponseStatus(event, 503);
+    return { error: "Storage temporarily unavailable" };
   }
 
   const safeFilename = filename.replace(/[^a-zA-Z0-9._-]/g, "_");
