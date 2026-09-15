@@ -266,6 +266,14 @@ main > :nth-child(3) {
   animation-delay: calc(var(--motion-stagger) * 2);
 }
 
+html[data-optimus-motion="reduced"] *,
+html[data-optimus-motion="reduced"] *::before,
+html[data-optimus-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
