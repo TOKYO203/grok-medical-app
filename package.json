@@ -12,7 +12,7 @@
     "build:netlify": "node scripts/with-app-env.mjs vite build && npm run postbuild:budget && npm run postbuild:assets && npm run db:migrate && npm run postbuild:smoke",
     "postbuild:budget": "node scripts/performance-budget.mjs",
     "postbuild:assets": "node scripts/copy-pglite-assets.mjs",
-    "postbuild:smoke": "node scripts/smoke-built-server.mjs",
+    "postbuild:smoke": "node scripts/smoke-built-server.mjs && node scripts/survey-security-built-smoke.mjs",
     "qa:mobile": "node scripts/mobile-ui-smoke.mjs",
     "qa:mobile:built": "node scripts/qa-built-mobile.mjs",
     "db:migrate": "node scripts/migrate.mjs",
