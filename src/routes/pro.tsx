@@ -34,13 +34,16 @@ function ProPage() {
   const addContact = useOptimus((s) => s.addContact);
   const purchases = useOptimus((s) => s.purchases);
   const { user, isPending } = useCurrentUserState();
+  const userId = user?.id ?? null;
+  const userIsDevFallback = user?.isDevFallback ?? false;
   const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
+  const purchaseFlowKey = `${initialPurchase?.reference ?? orderReference ?? "new"}:${initialPurchase?.updatedAt ?? 0}`;
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
 
   useEffect(() => {
-    if (isPending || !user || user.isDevFallback) return;
+    if (isPending || !userId || userIsDevFallback) return;
     let disposed = false;
     const refresh = async () => {
       try {
@@ -56,7 +59,7 @@ function ProPage() {
       disposed = true;
       window.removeEventListener("online", refresh);
     };
-  }, [isPending, user?.id, user?.isDevFallback]);
+  }, [isPending, userId, userIsDevFallback]);
 
   async function activate() {
     setActivating(true);
@@ -104,6 +107,7 @@ function ProPage() {
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
             <PremiumPurchaseFlow
+              key={purchaseFlowKey}
               profile={profile}
               initialPurchase={initialPurchase}
               initialSpecialty={specialty}
