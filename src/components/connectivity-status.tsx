@@ -4,18 +4,19 @@ import { toast } from "sonner";
 
 export function ConnectivityStatus() {
   const [online, setOnline] = useState(true);
-  const initialized = useRef(false);
+  const previousOnline = useRef<boolean | null>(null);
 
   useEffect(() => {
     const refresh = () => {
       const next = navigator.onLine;
+      const previous = previousOnline.current;
       setOnline(next);
-      if (initialized.current && next) {
+      if (previous === false && next) {
         toast.success("Connexion rétablie", {
           description: "La synchronisation Optimus peut reprendre.",
         });
       }
-      initialized.current = true;
+      previousOnline.current = next;
     };
 
     refresh();
