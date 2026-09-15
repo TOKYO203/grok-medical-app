@@ -3,6 +3,7 @@ import type { Deck } from "@/core/types";
 const DB_PREFIX = "optimus-imported-decks";
 const DB_VERSION = 1;
 const STORE_NAME = "decks";
+const GUEST_OWNER = "OM-GUEST";
 
 export const MAX_IMPORTED_DECK_BYTES = 4 * 1024 * 1024;
 export const MAX_IMPORTED_DECK_TOTAL_BYTES = 32 * 1024 * 1024;
@@ -13,7 +14,7 @@ function available(): boolean {
 
 function normalizeOwner(ownerId: string): string {
   const trimmed = ownerId.trim().toUpperCase();
-  return trimmed || "OM-GUEST";
+  return trimmed || GUEST_OWNER;
 }
 
 function dbName(ownerId: string): string {
@@ -98,7 +99,7 @@ export async function replaceImportedDecks(ownerId: string, decks: Deck[]): Prom
   }
 }
 
-export async function loadImportedDecks(ownerId: string): Promise<Deck[]> {
+async function readImportedDecks(ownerId: string): Promise<Deck[]> {
   const db = await openDb(ownerId);
   try {
     const transaction = db.transaction(STORE_NAME, "readonly");
@@ -113,6 +114,25 @@ export async function loadImportedDecks(ownerId: string): Promise<Deck[]> {
   } finally {
     db.close();
   }
+}
+
+export async function loadImportedDecks(ownerId: string): Promise<Deck[]> {
+  const owner = normalizeOwner(ownerId);
+  const owned = await readImportedDecks(owner);
+  if (owner === GUEST_OWNER) return owned;
+
+  // Compatibility bridge for a device that imported a Deck before creating an account.
+  // The guest database is consumed once, then deleted after a successful owner write.
+  const guest = await readImportedDecks(GUEST_OWNER);
+  if (guest.length === 0) return owned;
+
+  const merged = new Map<string, Deck>();
+  for (const deck of guest) merged.set(deck.id, deck);
+  for (const deck of owned) merged.set(deck.id, deck);
+  const decks = [...merged.values()];
+  await replaceImportedDecks(owner, decks);
+  await deleteImportedDeckStorage(GUEST_OWNER);
+  return decks;
 }
 
 export async function deleteImportedDeckStorage(ownerId: string): Promise<void> {
