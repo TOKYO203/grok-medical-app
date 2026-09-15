@@ -33,6 +33,10 @@ import type {
   SyncEventType,
 } from "@/core/types";
 import { todayKey, uid } from "@/lib/utils";
+import {
+  migrateOptimusPersistedState,
+  OPTIMUS_PERSIST_VERSION,
+} from "@/state/persist-migrations";
 
 function makeOptimusId(): string {
   const bytes = new Uint8Array(4);
@@ -610,6 +614,9 @@ export const useOptimus = create<OptimusState>()(
     }),
     {
       name: "optimus-v2",
+      version: OPTIMUS_PERSIST_VERSION,
+      migrate: (persistedState, version) =>
+        migrateOptimusPersistedState(persistedState, version) as PersistShape,
       storage: createJSONStorage(() =>
         typeof window === "undefined" ? memoryStorage : localStorage,
       ),
