@@ -1,5 +1,6 @@
 import {
   defineEventHandler,
+  getMethod,
   getRouterParam,
   setHeader,
   setResponseStatus,
@@ -13,6 +14,11 @@ function sum(values: number[]) {
 
 export default defineEventHandler(async (event) => {
   setHeader(event, "Cache-Control", "no-store");
+
+  if (getMethod(event).toUpperCase() !== "GET") {
+    setResponseStatus(event, 405);
+    return { error: "Method Not Allowed" };
+  }
 
   const surveyId = getRouterParam(event, "id");
   if (!surveyId) {
