@@ -11,7 +11,12 @@ const coverStorageSource = readFileSync(
   new URL("../src/lib/profile-cover-storage.ts", import.meta.url),
   "utf8",
 );
+const importedDeckStorageSource = readFileSync(
+  new URL("../src/lib/imported-deck-storage.ts", import.meta.url),
+  "utf8",
+);
 const profileSource = readFileSync(new URL("../src/routes/profil.tsx", import.meta.url), "utf8");
+const importSource = readFileSync(new URL("../src/routes/import.tsx", import.meta.url), "utf8");
 
 test("Optimus local state stays on the historical key but uses explicit versioned migrations", () => {
   assert.match(storeSource, /name:\s*["']optimus-v2["']/);
@@ -43,4 +48,44 @@ test("IndexedDB transactions register completion handlers before awaiting reques
     /const transaction = db\.transaction\(STORE_NAME, "readonly"\);\s*const completed = waitForTransaction\(transaction\);\s*const request =/s,
   );
   assert.match(coverStorageSource, /await completed;/);
+  assert.match(
+    importedDeckStorageSource,
+    /const transaction = db\.transaction\(STORE_NAME, "readonly"\);\s*const completed = waitForTransaction\(transaction\);\s*const request =/s,
+  );
+});
+
+test("imported decks migrate to owner-scoped IndexedDB before localStorage is cleared", () => {
+  assert.match(importedDeckStorageSource, /DB_PREFIX\s*=\s*"optimus-imported-decks"/);
+  assert.match(importedDeckStorageSource, /dbName\(ownerId\)/);
+  assert.match(storeSource, /loadImportedDecks\(state\.profile\.optimusId\)/);
+  assert.match(storeSource, /await replaceImportedDecks\(/);
+  assert.match(storeSource, /importedDeckStorageReady\s*=\s*true/);
+  assert.match(
+    storeSource,
+    /importedDecks:\s*s\.importedDeckStorageReady\s*\?\s*\[\]\s*:\s*s\.importedDecks\.map\(deckForPersistence\)/s,
+  );
+});
+
+test("new imported decks have explicit IndexedDB size budgets and no localStorage fallback", () => {
+  assert.match(
+    importedDeckStorageSource,
+    /MAX_IMPORTED_DECK_BYTES\s*=\s*4\s*\*\s*1024\s*\*\s*1024/,
+  );
+  assert.match(
+    importedDeckStorageSource,
+    /MAX_IMPORTED_DECK_TOTAL_BYTES\s*=\s*32\s*\*\s*1024\s*\*\s*1024/,
+  );
+  assert.match(importSource, /const stored = await importDeck\(result\.deck\)/);
+  assert.match(importSource, /if \(!stored\)/);
+  assert.match(importSource, /file\.size > MAX_IMPORTED_DECK_BYTES/);
+  assert.match(storeSource, /return false;/);
+});
+
+test("encrypted Premium decks are still stripped before durable device storage", () => {
+  assert.match(
+    storeSource,
+    /deck\.importProof\?\.format === "optimus-encrypted-v1"[\s\S]*questions:\s*\[\][\s\S]*sources:\s*\[\][\s\S]*chapters:\s*\[\]/,
+  );
+  assert.match(storeSource, /storedDecks\.map\(deckForPersistence\)/);
+  assert.match(storeSource, /importedDecks\.map\(deckForPersistence\)/);
 });
