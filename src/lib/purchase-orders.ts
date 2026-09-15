@@ -1,0 +1,333 @@
+import { randomBytes } from "node:crypto";
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+import {
+  orderAmount,
+  orderLabel,
+  orderProduct,
+  type PremiumOrder,
+  type PremiumPurchase,
+  type PurchaseStatus,
+} from "@/content/purchase-order";
+import { authMiddleware } from "@/lib/auth/middleware";
+
+const specialtySchema = z.enum([
+  "neurologie",
+  "cardiologie",
+  "infectiologie",
+  "urgences",
+  "dermatologie",
+]);
+
+const createSchema = z.object({
+  clientRequestId: z.string().uuid(),
+  offer: z.enum(["deck", "specialty"]),
+  specialty: specialtySchema,
+  deckNumber: z.number().int().min(1).max(10),
+});
+
+const clientStatusSchema = z.enum([
+  "instructions_requested",
+  "proof_ready",
+  "verification_pending",
+]);
+
+const advanceSchema = z.object({
+  reference: z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/),
+  status: clientStatusSchema,
+  proofAttached: z.boolean().optional(),
+  device: z
+    .object({
+      deviceId: z.string().regex(/^[a-f0-9]{12}$/i),
+      deviceKeyId: z.string().trim().min(8).max(180),
+      publicKey: z.string().trim().min(64).max(12_000),
+    })
+    .optional(),
+});
+
+const adminDecisionSchema = z.object({
+  reference: z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/),
+  decision: z.enum(["delivered", "rejected", "refunded"]),
+  note: z.string().trim().max(2_000).optional(),
+});
+
+type PurchaseRow = {
+  reference: string;
+  offer: "deck" | "specialty";
+  specialty: "neurologie" | "cardiologie" | "infectiologie" | "urgences" | "dermatologie";
+  deck_number: number;
+  product: string;
+  label: string;
+  amount: number;
+  status: PurchaseStatus;
+  proof_attached: boolean;
+  created_at: string | Date;
+  updated_at: string | Date;
+  device_id: string | null;
+  device_key_id: string | null;
+  device_public_key: string | null;
+};
+
+function toPurchase(row: PurchaseRow): PremiumPurchase {
+  return {
+    reference: row.reference,
+    offer: row.offer,
+    specialty: row.specialty,
+    deckNumber: Number(row.deck_number),
+    product: row.product,
+    label: row.label,
+    amount: Number(row.amount),
+    status: row.status,
+    proofAttached: Boolean(row.proof_attached),
+    createdAt: new Date(row.created_at).getTime(),
+    updatedAt: new Date(row.updated_at).getTime(),
+  };
+}
+
+function makeReference(): string {
+  const suffix = randomBytes(4).toString("hex").toUpperCase();
+  return `CMD-${Date.now().toString(36).toUpperCase()}-${suffix}`;
+}
+
+function purchaseAdmins(): Set<string> {
+  return new Set(
+    (process.env.PURCHASE_ADMIN_USER_IDS ?? "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
+  );
+}
+
+function requirePurchaseAdmin(userId: string): void {
+  if (!purchaseAdmins().has(userId)) {
+    throw new Error("Forbidden");
+  }
+}
+
+async function auditEvent(
+  sql: { query: <T = Record<string, unknown>>(text: string, params?: unknown[]) => Promise<T[]> },
+  reference: string,
+  actorUserId: string,
+  eventType: PurchaseStatus,
+  metadata: Record<string, unknown> = {},
+): Promise<void> {
+  await sql.query(
+    `insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+     values ($1, $2, $3, $4::jsonb)`,
+    [reference, actorUserId, eventType, JSON.stringify(metadata)],
+  );
+}
+
+export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(createSchema)
+  .handler(async ({ data, context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+
+    const stateRows = await sql.query<{ optimus_id: string }>(
+      "select optimus_id from optimus_user_state where user_id = $1 limit 1",
+      [context.userId],
+    );
+    const optimusId = stateRows[0]?.optimus_id;
+    if (!optimusId) {
+      throw new Error("Connectez et synchronisez votre compte Optimus avant de créer une commande.");
+    }
+
+    const existing = await sql.query<PurchaseRow & { client_request_id: string }>(
+      `select * from purchase_orders
+       where user_id = $1 and client_request_id = $2
+       limit 1`,
+      [context.userId, data.clientRequestId],
+    );
+    if (existing[0]) {
+      const expectedOrder: PremiumOrder = {
+        reference: existing[0].reference,
+        offer: data.offer,
+        specialty: data.specialty,
+        deckNumber: data.deckNumber,
+      };
+      if (existing[0].product !== orderProduct(expectedOrder)) {
+        throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
+      }
+      return toPurchase(existing[0]);
+    }
+
+    const reference = makeReference();
+    const order: PremiumOrder = {
+      reference,
+      offer: data.offer,
+      specialty: data.specialty,
+      deckNumber: data.deckNumber,
+    };
+    const product = orderProduct(order);
+    const label = orderLabel(order);
+    const amount = orderAmount(order);
+
+    const rows = await sql.query<PurchaseRow>(
+      `insert into purchase_orders (
+         reference, user_id, client_request_id, optimus_id, offer, specialty,
+         deck_number, product, label, amount, status, created_at, updated_at
+       ) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,'created',now(),now())
+       on conflict (user_id, client_request_id)
+       do update set client_request_id = excluded.client_request_id
+       returning *`,
+      [
+        reference,
+        context.userId,
+        data.clientRequestId,
+        optimusId,
+        data.offer,
+        data.specialty,
+        data.deckNumber,
+        product,
+        label,
+        amount,
+      ],
+    );
+    const row = rows[0];
+    if (!row) throw new Error("La commande n'a pas pu être créée.");
+
+    if (row.reference === reference) {
+      await auditEvent(sql, row.reference, context.userId, "created", {
+        product: row.product,
+        amount: Number(row.amount),
+      });
+    }
+    return toPurchase(row);
+  });
+
+export const listPremiumPurchaseOrders = createServerFn({ method: "GET" })
+  .middleware([authMiddleware])
+  .handler(async ({ context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+    const rows = await sql.query<PurchaseRow>(
+      `select * from purchase_orders
+       where user_id = $1
+       order by updated_at desc
+       limit 500`,
+      [context.userId],
+    );
+    return rows.map(toPurchase);
+  });
+
+export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(advanceSchema)
+  .handler(async ({ data, context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+
+    const rows = await sql.query<PurchaseRow>(
+      `select * from purchase_orders
+       where reference = $1 and user_id = $2
+       limit 1`,
+      [data.reference, context.userId],
+    );
+    const current = rows[0];
+    if (!current) throw new Error("Commande introuvable.");
+    if (["delivered", "rejected", "refunded"].includes(current.status)) {
+      return toPurchase(current);
+    }
+
+    const allowedNext: Record<string, readonly PurchaseStatus[]> = {
+      created: ["instructions_requested"],
+      instructions_requested: ["proof_ready"],
+      proof_ready: ["verification_pending"],
+      verification_pending: [],
+    };
+    const allowed = allowedNext[current.status] ?? [];
+    if (current.status !== data.status && !allowed.includes(data.status)) {
+      throw new Error("Transition de commande invalide.");
+    }
+
+    if (data.status === "verification_pending" && !data.device) {
+      throw new Error("La demande appareil sécurisée est requise avant vérification.");
+    }
+
+    const updated = await sql.query<PurchaseRow>(
+      `update purchase_orders
+          set status = $3,
+              proof_attached = proof_attached or $4,
+              device_id = coalesce($5, device_id),
+              device_key_id = coalesce($6, device_key_id),
+              device_public_key = coalesce($7, device_public_key),
+              updated_at = now()
+        where reference = $1 and user_id = $2
+        returning *`,
+      [
+        data.reference,
+        context.userId,
+        data.status,
+        Boolean(data.proofAttached),
+        data.device?.deviceId.toLowerCase() ?? null,
+        data.device?.deviceKeyId ?? null,
+        data.device?.publicKey ?? null,
+      ],
+    );
+    const next = updated[0];
+    if (!next) throw new Error("Commande introuvable.");
+
+    if (current.status !== next.status || (!current.proof_attached && next.proof_attached)) {
+      await auditEvent(sql, next.reference, context.userId, next.status, {
+        proofAttached: next.proof_attached,
+        deviceBound: Boolean(next.device_id && next.device_key_id && next.device_public_key),
+      });
+    }
+    return toPurchase(next);
+  });
+
+export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(adminDecisionSchema)
+  .handler(async ({ data, context }) => {
+    requirePurchaseAdmin(context.userId);
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+
+    const rows = await sql.query<PurchaseRow>(
+      "select * from purchase_orders where reference = $1 limit 1",
+      [data.reference],
+    );
+    const current = rows[0];
+    if (!current) throw new Error("Commande introuvable.");
+
+    if (data.decision === "delivered") {
+      if (current.status !== "verification_pending") {
+        throw new Error("La commande doit être en vérification avant livraison.");
+      }
+      if (!current.device_id || !current.device_key_id || !current.device_public_key) {
+        throw new Error("Aucune demande appareil sécurisée n'est liée à cette commande.");
+      }
+    }
+    if (data.decision === "refunded" && current.status !== "delivered") {
+      throw new Error("Seule une commande livrée peut être marquée remboursée.");
+    }
+    if (data.decision === "rejected" && current.status === "delivered") {
+      throw new Error("Une commande déjà livrée ne peut pas être rejetée.");
+    }
+
+    const timestampColumn =
+      data.decision === "delivered"
+        ? "delivered_at"
+        : data.decision === "rejected"
+          ? "rejected_at"
+          : "refunded_at";
+    const updated = await sql.query<PurchaseRow>(
+      `update purchase_orders
+          set status = $2,
+              ${timestampColumn} = coalesce(${timestampColumn}, now()),
+              updated_at = now()
+        where reference = $1
+        returning *`,
+      [data.reference, data.decision],
+    );
+    const next = updated[0];
+    if (!next) throw new Error("Commande introuvable.");
+
+    await auditEvent(sql, next.reference, context.userId, data.decision, {
+      note: data.note ?? null,
+    });
+    return toPurchase(next);
+  });
