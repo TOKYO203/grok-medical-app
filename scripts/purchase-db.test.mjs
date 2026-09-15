@@ -174,7 +174,7 @@ test("one proof digest cannot be reused across orders", async () => {
   }
 });
 
-test("refund atomically revokes activation keys linked to the delivered purchase", async () => {
+test("refund CTE changes status, revokes linked licenses and writes the audit event atomically", async () => {
   const db = await setupDb();
   try {
     const reference = "CMD-TEST-A1B2C3D4";
@@ -200,13 +200,42 @@ test("refund atomically revokes activation keys linked to the delivered purchase
       ["b".repeat(64), "OM-A1B2C3D4", "NEURO_DECK_01", reference],
     );
 
-    await db.query("update purchase_orders set status = 'refunded' where reference = $1", [reference]);
+    const result = await db.query(
+      `with updated as (
+         update purchase_orders
+            set status = 'refunded', refunded_at = now(), updated_at = now()
+          where reference = $1 and status = 'delivered'
+          returning *
+       ), revoked as (
+         update activation_keys
+            set revoked_at = now()
+          where purchase_reference in (select reference from updated)
+            and revoked_at is null
+          returning id
+       ), event as (
+         insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+         select reference, $2, 'refunded',
+                jsonb_build_object('revokedLicenses', (select count(*) from revoked))
+           from updated
+       )
+       select status, (select count(*) from revoked)::int as revoked_licenses from updated`,
+      [reference, "admin-1"],
+    );
+    assert.equal(result.rows[0]?.status, "refunded");
+    assert.equal(Number(result.rows[0]?.revoked_licenses), 1);
+
     const licenses = await db.query(
       "select revoked_at from activation_keys where purchase_reference = $1",
       [reference],
     );
-    assert.equal(licenses.rows.length, 1);
     assert.ok(licenses.rows[0]?.revoked_at);
+
+    const events = await db.query(
+      "select event_type, metadata from purchase_order_events where reference = $1",
+      [reference],
+    );
+    assert.equal(events.rows[0]?.event_type, "refunded");
+    assert.equal(Number(events.rows[0]?.metadata?.revokedLicenses), 1);
   } finally {
     await db.close();
   }
