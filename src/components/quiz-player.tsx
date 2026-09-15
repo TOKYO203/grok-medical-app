@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, Flame, X } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { useExperiencePreferences } from "@/components/experience-controls";
 import { Button } from "@/components/ui/button";
@@ -121,6 +121,18 @@ export function QuizPlayer({
     <div className="mx-auto w-full max-w-lg">
       <div className="mb-5 flex items-center gap-3">
         <Progress value={((index + (revealed ? 1 : 0)) / sessionItems.length) * 100} />
+        {combo >= 2 ? (
+          <span
+            className={cn(
+              "inline-flex shrink-0 items-center gap-1 rounded-full bg-warn/10 px-2 py-1 font-mono text-[11px] font-medium text-warn shadow-[var(--shadow-border)]",
+              preferences.enhancedMotion && revealed && ok && "optimus-combo-pulse",
+            )}
+            aria-label={`Combo ${combo}`}
+          >
+            <Flame className="size-3.5" />
+            x{combo}
+          </span>
+        ) : null}
         <span className="shrink-0 font-mono text-xs tabular-nums text-muted">
           {index + 1}/{sessionItems.length}
         </span>
