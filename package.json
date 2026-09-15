@@ -14,6 +14,7 @@
     "postbuild:assets": "node scripts/copy-pglite-assets.mjs",
     "postbuild:smoke": "node scripts/smoke-built-server.mjs",
     "qa:mobile": "node scripts/mobile-ui-smoke.mjs",
+    "qa:mobile:built": "node scripts/qa-built-mobile.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "license:issue": "node scripts/issue-activation-key.mjs",
     "license:keys": "node scripts/generate-license-signing-keys.mjs",
