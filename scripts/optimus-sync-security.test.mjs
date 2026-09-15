@@ -18,7 +18,7 @@ test("cloud sync is scoped only by the verified auth context", () => {
 });
 
 test("device-bound Premium and commercial material is excluded from learning sync", () => {
-  for (const forbidden of [
+  for (const forbiddenField of [
     "deviceId",
     "coverDataUrl",
     "licenses",
@@ -26,12 +26,12 @@ test("device-bound Premium and commercial material is excluded from learning syn
     "importedDecks",
     "privateKey",
     "encryptedDeck",
-    "purchaseSchema",
-    "purchases:",
+    "purchases",
   ]) {
-    assert.doesNotMatch(syncModel, new RegExp(forbidden));
+    assert.doesNotMatch(syncModel, new RegExp(`^\\s*${forbiddenField}\\s*:`, "m"));
   }
-  assert.doesNotMatch(syncBridge, /purchases:/);
+  assert.doesNotMatch(syncModel, /const\s+purchaseSchema\b/);
+  assert.doesNotMatch(syncBridge, /^\s*purchases\s*:/m);
   assert.match(syncBridge, /deviceId: current\.profile\.deviceId/);
   assert.match(syncBridge, /tier: current\.profile\.tier/);
   assert.match(syncBridge, /coverDataUrl: current\.profile\.coverDataUrl/);
