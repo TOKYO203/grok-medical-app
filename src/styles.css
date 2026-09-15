@@ -112,6 +112,55 @@
     border-radius: 999px;
     content: "";
   }
+
+  .optimus-interactive-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      transform var(--motion-quick) var(--ease-out),
+      background-color var(--motion-quick) var(--ease-out),
+      box-shadow var(--motion-quick) var(--ease-out);
+  }
+
+  .optimus-interactive-card::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: radial-gradient(
+      22rem 12rem at 100% 0%,
+      color-mix(in oklab, var(--color-primary) 7%, transparent),
+      transparent 68%
+    );
+    content: "";
+    opacity: 0;
+    transition: opacity var(--motion-quick) var(--ease-out);
+    pointer-events: none;
+  }
+
+  @media (hover: hover) {
+    .optimus-interactive-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        var(--shadow-border),
+        0 20px 38px -30px rgb(0 0 0 / 0.88);
+    }
+
+    .optimus-interactive-card:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .optimus-status-pill {
+    display: inline-flex;
+    min-height: 1.5rem;
+    align-items: center;
+    border-radius: 999px;
+    padding-inline: 0.55rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
 }
 
 @keyframes page-reveal {
@@ -219,6 +268,26 @@
   }
 }
 
+@keyframes optimus-progress-arrive {
+  from {
+    opacity: 0.6;
+    filter: saturate(0.65);
+  }
+  to {
+    opacity: 1;
+    filter: saturate(1);
+  }
+}
+
+@keyframes optimus-skeleton-shimmer {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -80% 0;
+  }
+}
+
 .optimus-answer-correct {
   animation: optimus-answer-correct var(--motion-fast) var(--ease-out) both;
 }
@@ -237,6 +306,21 @@
 
 .optimus-combo-pulse {
   animation: optimus-combo-pulse var(--motion-fast) var(--ease-out) both;
+}
+
+.optimus-progress-fill {
+  animation: optimus-progress-arrive var(--motion-medium) var(--ease-out) both;
+}
+
+.optimus-skeleton {
+  background: linear-gradient(
+    100deg,
+    var(--color-secondary) 20%,
+    var(--color-surface-2) 38%,
+    var(--color-secondary) 56%
+  );
+  background-size: 220% 100%;
+  animation: optimus-skeleton-shimmer 1.45s linear infinite;
 }
 
 .optimus-nav-active::before {
