@@ -29,3 +29,6 @@ jobs:
 
       - name: Run release readiness checks
         run: npm run release:check
+
+      - name: Audit primary screens at 320 / 360 / 390 px
+        run: npm run qa:mobile:built
