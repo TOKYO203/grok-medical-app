@@ -64,7 +64,7 @@ try {
 
       const metrics = await page.evaluate(() => {
         const root = document.documentElement;
-        const bottomNavigation = document.querySelector('nav[aria-label="Navigation principale"]');
+        const bottomNavigation = document.querySelector('nav[data-mobile-navigation="true"]');
         const navTargets = bottomNavigation
           ? [...bottomNavigation.querySelectorAll("a")].map((element) => {
               const rect = element.getBoundingClientRect();
@@ -78,6 +78,7 @@ try {
           bottomNavTargetsTooSmall: navTargets.filter(
             (target) => target.width < 44 || target.height < 44,
           ).length,
+          mobileNavTargetSizes: navTargets,
           mainCount: document.querySelectorAll("main").length,
         };
       });
@@ -92,6 +93,7 @@ try {
         scrollWidth: metrics.scrollWidth,
         clientWidth: metrics.clientWidth,
         bottomNavTargetsTooSmall: metrics.bottomNavTargetsTooSmall,
+        mobileNavTargetSizes: metrics.mobileNavTargetSizes,
         mainCount: metrics.mainCount,
         consoleErrors,
         pageErrors,
