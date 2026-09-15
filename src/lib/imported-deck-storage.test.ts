@@ -4,6 +4,7 @@ import type { Deck } from "../core/types.ts";
 import {
   assertImportedDeckStorageBudget,
   importedDeckByteSize,
+  loadImportedDecks,
   MAX_IMPORTED_DECK_BYTES,
 } from "./imported-deck-storage.ts";
 
@@ -54,4 +55,9 @@ test("an imported deck larger than 4 MiB is rejected before IndexedDB write", ()
     () => assertImportedDeckStorageBudget([candidate]),
     /imported_deck_invalid_size/,
   );
+});
+
+test("server rendering skips browser-only IndexedDB restoration without error", async () => {
+  assert.equal(typeof window, "undefined");
+  assert.deepEqual(await loadImportedDecks("OM-GUEST"), []);
 });
