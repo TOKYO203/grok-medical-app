@@ -1,13 +1,11 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, Clock3, Copy, PackageCheck, ReceiptText } from "lucide-react";
+import { CheckCircle2, Clock3, Copy, PackageCheck, ReceiptText, ShieldAlert } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
-import {
-  PURCHASE_STATUSES,
-  purchaseStatusRank,
-  type PremiumPurchase,
-  type PurchaseStatus,
-} from "@/content/purchase-order";
+import type { PremiumPurchase, PurchaseStatus } from "@/content/purchase-order";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { replacePurchaseCache } from "@/lib/purchase-cache";
+import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
 import { cn } from "@/lib/utils";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
@@ -17,33 +15,89 @@ export const Route = createFileRoute("/achats")({ component: PurchasesPage });
 const STATUS_COPY: Record<PurchaseStatus, { label: string; detail: string }> = {
   created: {
     label: "Commande créée",
-    detail: "Vérifiez l’offre avant de demander les coordonnées de paiement.",
+    detail: "La référence, le produit et le montant ont été enregistrés côté serveur.",
   },
   instructions_requested: {
-    label: "Instructions demandées",
-    detail: "Attendez le numéro Mobile Money officiel avant de payer.",
+    label: "Instructions reçues",
+    detail: "Le canal Mobile Money officiel a été associé à cette commande.",
   },
   proof_ready: {
     label: "Preuve prête à envoyer",
-    detail: "Partagez la preuve avec la demande sécurisée de cet appareil.",
+    detail: "La commande attend l’envoi de la preuve avec la demande sécurisée de cet appareil.",
   },
   verification_pending: {
-    label: "Vérification demandée",
-    detail: "La preuve a été partagée, mais le paiement n’est pas encore confirmé ici.",
+    label: "Paiement à vérifier",
+    detail: "La référence de transaction et l’empreinte de la preuve ont été enregistrées côté serveur.",
+  },
+  payment_verified: {
+    label: "Paiement vérifié",
+    detail: "Le paiement a été validé côté serveur. La livraison du contenu Premium est en préparation.",
   },
   delivered: {
     label: "Contenu livré",
-    detail: "Une clé signée ou un Deck protégé valide a été reçu sur cet appareil.",
+    detail: "La commande a été validée et marquée livrée par le registre serveur.",
+  },
+  rejected: {
+    label: "Commande rejetée",
+    detail: "La vérification serveur n’a pas permis de valider cette commande.",
+  },
+  refunded: {
+    label: "Commande remboursée",
+    detail: "Cette commande a été remboursée et les licences liées peuvent être révoquées côté serveur.",
   },
 };
 
+const FLOW: PurchaseStatus[] = [
+  "created",
+  "instructions_requested",
+  "proof_ready",
+  "verification_pending",
+  "payment_verified",
+  "delivered",
+];
 const PURCHASE_DATE = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" });
 
 function PurchasesPage() {
   const purchases = useOptimus((state) => state.purchases);
+  const { user, isPending } = useCurrentUserState();
+  const userId = user?.id ?? null;
+  const userIsDevFallback = user?.isDevFallback ?? false;
+  const [refreshing, setRefreshing] = useState(false);
+  const [serverReachable, setServerReachable] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (isPending || !userId || userIsDevFallback) return;
+    let disposed = false;
+    const refresh = async () => {
+      if (!disposed) setRefreshing(true);
+      try {
+        const serverPurchases = await listPremiumPurchaseOrders();
+        if (!disposed) {
+          replacePurchaseCache(serverPurchases);
+          setServerReachable(true);
+        }
+      } catch (error) {
+        console.warn("[purchases] using offline cache", error);
+        if (!disposed) setServerReachable(false);
+      } finally {
+        if (!disposed) setRefreshing(false);
+      }
+    };
+    void refresh();
+    window.addEventListener("online", refresh);
+    return () => {
+      disposed = true;
+      window.removeEventListener("online", refresh);
+    };
+  }, [isPending, userId, userIsDevFallback]);
+
   const orderedPurchases = [...purchases].sort((a, b) => b.updatedAt - a.updatedAt);
   const delivered = purchases.filter((purchase) => purchase.status === "delivered").length;
-  const pending = purchases.length - delivered;
+  const pending = purchases.filter((purchase) =>
+    ["created", "instructions_requested", "proof_ready", "verification_pending", "payment_verified"].includes(
+      purchase.status,
+    ),
+  ).length;
 
   return (
     <Shell title="Mes achats">
@@ -53,9 +107,20 @@ function PurchasesPage() {
         </p>
         <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">Mes achats</h1>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-          Suivez chaque demande sans ambiguïté, depuis le choix du Deck jusqu’à sa réception
-          sécurisée.
+          Le serveur conserve la référence, le montant et le statut officiels. Cet appareil garde
+          seulement une copie de lecture pour pouvoir afficher votre historique hors ligne.
         </p>
+
+        {refreshing ? (
+          <p className="mt-3 text-xs text-muted">Synchronisation des commandes…</p>
+        ) : serverReachable === false ? (
+          <p className="mt-3 rounded-[var(--radius-lg)] bg-secondary p-3 text-xs text-muted">
+            Mode hors ligne : les informations affichées proviennent du dernier cache connu. Elles
+            seront vérifiées auprès du serveur dès le retour de la connexion.
+          </p>
+        ) : serverReachable === true ? (
+          <p className="mt-3 text-xs text-muted">✓ Statuts vérifiés auprès du serveur.</p>
+        ) : null}
 
         {purchases.length === 0 ? (
           <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-6 text-center shadow-[var(--shadow-border)]">
@@ -91,8 +156,9 @@ function PurchasesPage() {
             </div>
 
             <p className="mt-5 rounded-[var(--radius-lg)] bg-secondary p-3 text-xs leading-relaxed text-muted">
-              🔐 Le suivi est conservé sur cet appareil. « Livré » apparaît uniquement après la
-              validation cryptographique d’une clé ou d’un Deck correspondant.
+              🔐 La preuve complète, la clé privée de votre appareil et les Decks déchiffrés ne sont
+              pas enregistrés dans le registre commercial. Le serveur conserve uniquement les
+              éléments nécessaires à la validation et à l’audit de la transaction.
             </p>
           </>
         )}
@@ -113,7 +179,8 @@ function SummaryCard({ icon, label, value }: { icon: ReactNode; label: string; v
 
 function PurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
   const status = STATUS_COPY[purchase.status];
-  const rank = purchaseStatusRank(purchase.status);
+  const terminalNegative = purchase.status === "rejected" || purchase.status === "refunded";
+  const rank = FLOW.indexOf(purchase.status);
 
   async function copyReference() {
     try {
@@ -137,6 +204,8 @@ function PurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
         >
           {purchase.status === "delivered" ? (
             <PackageCheck className="size-5" />
+          ) : terminalNegative ? (
+            <ShieldAlert className="size-5" />
           ) : (
             <ReceiptText className="size-5" />
           )}
@@ -148,14 +217,20 @@ function PurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
         <p className="shrink-0 text-sm font-medium">{purchase.amount.toLocaleString("fr-FR")} Ar</p>
       </div>
 
-      <div className="mt-4 grid grid-cols-5 gap-1" aria-label={`Progression : ${status.label}`}>
-        {PURCHASE_STATUSES.map((step, index) => (
-          <span
-            key={step}
-            className={cn("h-1.5 rounded-full", index <= rank ? "bg-primary" : "bg-secondary")}
-          />
-        ))}
-      </div>
+      {!terminalNegative ? (
+        <div
+          className="mt-4 grid gap-1"
+          style={{ gridTemplateColumns: `repeat(${FLOW.length}, minmax(0, 1fr))` }}
+          aria-label={`Progression : ${status.label}`}
+        >
+          {FLOW.map((step, index) => (
+            <span
+              key={step}
+              className={cn("h-1.5 rounded-full", index <= rank ? "bg-primary" : "bg-secondary")}
+            />
+          ))}
+        </div>
+      ) : null}
 
       <p className="mt-3 text-sm font-medium">{status.label}</p>
       <p className="mt-1 text-xs leading-relaxed text-muted">{status.detail}</p>
@@ -176,7 +251,7 @@ function PurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
           <Link to="/parcours" className="shrink-0 text-sm font-medium text-primary">
             Ouvrir →
           </Link>
-        ) : (
+        ) : terminalNegative ? null : (
           <Link
             to="/pro"
             search={{ order: purchase.reference }}

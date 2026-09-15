@@ -1,5 +1,11 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
+import { AppResumeBridge } from "@/components/app-resume-bridge";
+import { ConnectivityStatus } from "@/components/connectivity-status";
+import { ExperienceMilestoneBridge } from "@/components/experience-milestone-bridge";
+import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
+import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
+import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
@@ -42,9 +48,15 @@ function RootDocument() {
       </head>
       <body>
         <PreviewHostBridge />
+        <AppResumeBridge />
         <AuthProvider>
+          <LicenseRevocationBridge />
+          <OptimusSyncBridge />
+          <ExperienceMotionBridge />
+          <ExperienceMilestoneBridge />
           <Outlet />
         </AuthProvider>
+        <ConnectivityStatus />
         <Toaster
           theme="dark"
           position="top-center"

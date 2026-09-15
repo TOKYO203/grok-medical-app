@@ -1,0 +1,54 @@
+name: Neon staging DB validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Type STAGING to confirm this must target the staging database only'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-staging-db:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      STAGING_DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
+      DB_VALIDATION_TARGET: staging
+      VITE_AUTH_ENABLED: 'true'
+
+    steps:
+      - name: Refuse ambiguous target
+        shell: bash
+        run: |
+          if [ "${{ inputs.confirmation }}" != "STAGING" ]; then
+            echo "Refusing to run: confirmation must be exactly STAGING."
+            exit 2
+          fi
+          if [ -z "$STAGING_DATABASE_URL" ]; then
+            echo "Missing repository secret NEON_STAGING_DATABASE_URL."
+            exit 2
+          fi
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Apply pending migrations to staging
+        env:
+          DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
+        run: npm run db:migrate
+
+      - name: Validate identity schema and migration state read-only
+        run: npm run db:validate-staging

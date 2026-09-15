@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, Flame, X } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
+import { emitExperienceFeedback } from "@/lib/experience-feedback";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 
 export type QuizItem = {
@@ -37,6 +39,7 @@ export function QuizPlayer({
   const answerLocked = useRef(false);
   const advanceLocked = useRef(false);
   const unlockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { preferences } = useExperiencePreferences();
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
   const order = useMemo(() => {
@@ -57,7 +60,12 @@ export function QuizPlayer({
 
   if (done || !item) {
     return (
-      <div className="mx-auto max-w-lg py-8 text-center">
+      <div
+        className={cn(
+          "mx-auto max-w-lg py-8 text-center",
+          preferences.enhancedMotion && "optimus-session-complete",
+        )}
+      >
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Session</p>
         <h2 className="mt-2 font-display text-3xl font-medium tracking-tight">
           {correctCount}/{sessionItems.length}
@@ -88,6 +96,7 @@ export function QuizPlayer({
     setCombo(nextCombo);
     setMaxCombo((m) => Math.max(m, nextCombo));
     if (isOk) setCorrectCount((c) => c + 1);
+    emitExperienceFeedback(isOk ? "correct" : "incorrect", preferences);
     onAnswer(item, isOk, nextCombo);
   }
 
@@ -96,6 +105,9 @@ export function QuizPlayer({
     advanceLocked.current = true;
     answerLocked.current = true;
     setAnswerReady(false);
+    if (index === sessionItems.length - 1) {
+      emitExperienceFeedback("complete", preferences);
+    }
     setPicked(null);
     setIndex((n) => n + 1);
     unlockTimer.current = setTimeout(() => {
@@ -109,6 +121,18 @@ export function QuizPlayer({
     <div className="mx-auto w-full max-w-lg">
       <div className="mb-5 flex items-center gap-3">
         <Progress value={((index + (revealed ? 1 : 0)) / sessionItems.length) * 100} />
+        {combo >= 2 ? (
+          <span
+            className={cn(
+              "inline-flex shrink-0 items-center gap-1 rounded-full bg-warn/10 px-2 py-1 font-mono text-[11px] font-medium text-warn shadow-[var(--shadow-border)]",
+              preferences.enhancedMotion && revealed && ok && "optimus-combo-pulse",
+            )}
+            aria-label={`Combo ${combo}`}
+          >
+            <Flame className="size-3.5" />
+            x{combo}
+          </span>
+        ) : null}
         <span className="shrink-0 font-mono text-xs tabular-nums text-muted">
           {index + 1}/{sessionItems.length}
         </span>
@@ -133,11 +157,13 @@ export function QuizPlayer({
                 disabled={revealed || !answerReady}
                 onClick={() => choose(i)}
                 className={cn(
-                  "flex min-h-14 w-full items-start gap-3 rounded-[var(--radius-lg)] px-4 py-3 text-left text-sm shadow-[var(--shadow-border)] transition-colors duration-150 disabled:cursor-default",
-                  !revealed && "bg-card hover:bg-surface",
+                  "flex min-h-14 w-full items-start gap-3 rounded-[var(--radius-lg)] px-4 py-3 text-left text-sm shadow-[var(--shadow-border)] transition-[background-color,color,transform,box-shadow] duration-150 disabled:cursor-default",
+                  !revealed && "bg-card hover:bg-surface active:scale-[0.99]",
                   revealed && isCorrect && "bg-primary-soft text-fg",
                   revealed && isPicked && !isCorrect && "bg-danger/15 text-fg",
                   revealed && !isCorrect && !isPicked && "bg-card opacity-60",
+                  preferences.enhancedMotion && revealed && isCorrect && "optimus-answer-correct",
+                  preferences.enhancedMotion && revealed && isPicked && !isCorrect && "optimus-answer-incorrect",
                 )}
               >
                 <span className="mt-0.5 font-mono text-xs text-muted">
@@ -152,7 +178,12 @@ export function QuizPlayer({
         })}
       </ul>
       {revealed ? (
-        <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
+        <div
+          className={cn(
+            "mt-5 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]",
+            preferences.enhancedMotion && "optimus-feedback-panel",
+          )}
+        >
           <p className={cn("text-sm font-medium", ok ? "text-primary" : "text-danger")}>
             {ok
               ? `Juste · combo ${combo} · +${comboBonus(combo)} XP combo`

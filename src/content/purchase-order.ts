@@ -9,15 +9,23 @@ export const PREMIUM_SPECIALTIES = [
 export type PremiumOffer = "deck" | "specialty";
 export type PremiumSpecialtyId = (typeof PREMIUM_SPECIALTIES)[number]["id"];
 
-export const PURCHASE_STATUSES = [
+export const PURCHASE_PROGRESS_STATUSES = [
   "created",
   "instructions_requested",
   "proof_ready",
   "verification_pending",
+  "payment_verified",
   "delivered",
 ] as const;
 
+export const PURCHASE_STATUSES = [
+  ...PURCHASE_PROGRESS_STATUSES,
+  "rejected",
+  "refunded",
+] as const;
+
 export type PurchaseStatus = (typeof PURCHASE_STATUSES)[number];
+export type PurchaseProgressStatus = (typeof PURCHASE_PROGRESS_STATUSES)[number];
 
 export type PremiumOrder = {
   reference: string;
@@ -64,7 +72,12 @@ export function orderLabel(order: PremiumOrder): string {
 }
 
 export function purchaseStatusRank(status: PurchaseStatus): number {
-  return PURCHASE_STATUSES.indexOf(status);
+  const progressRank = PURCHASE_PROGRESS_STATUSES.indexOf(status as PurchaseProgressStatus);
+  return progressRank >= 0 ? progressRank : PURCHASE_PROGRESS_STATUSES.indexOf("verification_pending");
+}
+
+export function isTerminalPurchaseStatus(status: PurchaseStatus): boolean {
+  return status === "delivered" || status === "rejected" || status === "refunded";
 }
 
 export function advancePurchase(
@@ -76,10 +89,21 @@ export function advancePurchase(
 ): PremiumPurchase {
   const product = orderProduct(order);
   const sameProduct = previous?.reference === order.reference && previous.product === product;
+  const previousIsTerminal = sameProduct && previous ? isTerminalPurchaseStatus(previous.status) : false;
+  const requestedProgressStatus = PURCHASE_PROGRESS_STATUSES.includes(status as PurchaseProgressStatus);
+  const previousProgressStatus = previous
+    ? PURCHASE_PROGRESS_STATUSES.includes(previous.status as PurchaseProgressStatus)
+    : false;
   const nextStatus =
-    sameProduct && purchaseStatusRank(previous.status) > purchaseStatusRank(status)
+    previousIsTerminal && previous
       ? previous.status
-      : status;
+      : sameProduct &&
+          previous &&
+          requestedProgressStatus &&
+          previousProgressStatus &&
+          purchaseStatusRank(previous.status) > purchaseStatusRank(status)
+        ? previous.status
+        : status;
 
   return {
     ...order,
@@ -87,8 +111,8 @@ export function advancePurchase(
     label: orderLabel(order),
     amount: orderAmount(order),
     status: nextStatus,
-    proofAttached: Boolean((sameProduct && previous.proofAttached) || proofAttached),
-    createdAt: sameProduct ? previous.createdAt : now,
+    proofAttached: Boolean((sameProduct && previous?.proofAttached) || proofAttached),
+    createdAt: sameProduct && previous ? previous.createdAt : now,
     updatedAt: now,
   };
 }
@@ -101,13 +125,14 @@ export function paymentRequestMessage(order: PremiumOrder, optimusId: string): s
     `Montant : ${orderAmount(order).toLocaleString("fr-FR")} Ar`,
     `Produit : ${orderProduct(order)}`,
     `Optimus ID : ${optimusId}`,
-    "Merci de confirmer la disponibilité et de communiquer le numéro Mobile Money officiel.",
+    "Merci de confirmer la disponibilité et de communiquer le numéro Mobile Money officiel du canal de paiement.",
   ].join("\n");
 }
 
 export function fulfillmentRequestMessage(
   order: PremiumOrder,
   device: PurchaseDeviceRequest,
+  paymentReference?: string,
 ): string {
   return [
     "COMMANDE OPTIMUS PAYÉE",
@@ -116,6 +141,7 @@ export function fulfillmentRequestMessage(
     `Montant : ${orderAmount(order).toLocaleString("fr-FR")} Ar`,
     `Produit : ${orderProduct(order)}`,
     `Optimus ID : ${device.optimusId}`,
+    ...(paymentReference ? [`Transaction Mobile Money : ${paymentReference}`] : []),
     "",
     "DEMANDE APPAREIL SÉCURISÉE",
     JSON.stringify({

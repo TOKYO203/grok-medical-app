@@ -2,23 +2,23 @@
 /**
  * Deploy-time database migrator (node-postgres, `pg`).
  *
- * Runs during `npm run build` — on every Vercel deploy — applying pending files
- * in ../migrations to DATABASE_URL. Each file is applied in one transaction and
- * recorded in a `_migrations` table, so it runs once and is safe to re-run.
- *
- * The read is non-recursive, so the opt-in auth schema under migrations/auth/
- * is not applied to an app that never asked for sign-in.
+ * Runs during `npm run build` — on every configured deploy — applying pending
+ * app migrations from ../migrations to DATABASE_URL. When authentication is
+ * enabled it also applies ../migrations/auth so Neon and the PGLite fallback use
+ * the same Better Auth schema. Each file is applied in one transaction and
+ * recorded by basename in `_migrations`, so copied legacy auth migrations do not
+ * run twice.
  *
  * No DATABASE_URL (local / preview builds) -> skip; the PGLite fallback applies
- * the same files at startup instead (see src/lib/db.ts).
+ * the same applicable files at startup (see src/lib/db.ts).
  */
 import { readdir, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import pg from "pg";
-import { pendingMigrations } from "./migration-plan.mjs";
+import { migrationPathsForAuth, pendingMigrations } from "./migration-plan.mjs";
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL?.trim();
 if (!databaseUrl) {
   console.log(
     "[migrate] DATABASE_URL not set — skipping (the PGLite fallback migrates itself).",
@@ -27,17 +27,27 @@ if (!databaseUrl) {
 }
 
 const migrationsDir = join(dirname(fileURLToPath(import.meta.url)), "..", "migrations");
+const authMigrationsDir = join(migrationsDir, "auth");
+const authEnabled = process.env.VITE_AUTH_ENABLED !== "false";
+
+async function readEntries(dir) {
+  try {
+    return await readdir(dir);
+  } catch (error) {
+    if (error?.code === "ENOENT") return [];
+    throw error;
+  }
+}
 
 async function main() {
-  let entries;
-  try {
-    entries = await readdir(migrationsDir);
-  } catch {
-    console.log("[migrate] no migrations/ directory — nothing to do.");
-    return;
-  }
-  // An app with no schema of its own must not pay for a database connection.
-  if (pendingMigrations(entries, []).length === 0) {
+  const rootEntries = await readEntries(migrationsDir);
+  const authEntries = authEnabled
+    ? (await readEntries(authMigrationsDir)).map((name) => `auth/${name}`)
+    : [];
+  const migrationPaths = migrationPathsForAuth(rootEntries, authEntries, authEnabled);
+
+  // An app with no applicable schema of its own must not pay for a database connection.
+  if (pendingMigrations(migrationPaths, []).length === 0) {
     console.log("[migrate] no migrations — nothing to do.");
     return;
   }
@@ -53,8 +63,8 @@ async function main() {
     );
 
     let count = 0;
-    for (const { name } of pendingMigrations(entries, applied)) {
-      const text = await readFile(join(migrationsDir, name), "utf8");
+    for (const { name, path } of pendingMigrations(migrationPaths, applied)) {
+      const text = await readFile(join(migrationsDir, path), "utf8");
       try {
         await client.query("BEGIN");
         // pg's simple-query protocol runs a whole multi-statement file at once.

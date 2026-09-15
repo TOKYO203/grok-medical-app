@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Award,
@@ -23,9 +23,9 @@ import {
   Star,
   Stethoscope,
   Trophy,
-  UserRound,
   type LucideIcon,
 } from "lucide-react";
+import { ExperienceControls } from "@/components/experience-controls";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +34,13 @@ import { BADGE_CATALOG } from "@/content/badges";
 import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import {
+  dataUrlToImageBlob,
+  deleteProfileCover,
+  loadProfileCover,
+  saveProfileCover,
+} from "@/lib/profile-cover-storage";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
 
@@ -84,15 +91,17 @@ const BADGE_ICONS: Record<string, LucideIcon> = {
 function ProfilPage() {
   const profile = useOptimus((state) => state.profile);
   const update = useOptimus((state) => state.updateProfile);
-  const createFree = useOptimus((state) => state.createFreeAccount);
   const xp = useOptimus((state) => state.xp);
   const streak = useOptimus((state) => state.streak);
   const weeklyXp = useOptimus((state) => state.weeklyXp);
   const badges = useOptimus((state) => state.badges);
   const queue = useOptimus((state) => state.syncQueue);
   const purchases = useOptimus((state) => state.purchases);
+  const { user, isPending: authPending } = useCurrentUserState();
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
+  const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
+  const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
 
   const level = levelInfo(xp);
   const league = currentLeague(weeklyXp);
@@ -101,8 +110,8 @@ function ProfilPage() {
   const selectedCover = COVERS.find((cover) => cover.id === profile.cover);
   const coverClass = profile.cover === "custom" ? undefined : selectedCover?.className;
   const coverStyle: CSSProperties | undefined =
-    profile.cover === "custom" && profile.coverDataUrl
-      ? coverImageStyle(profile.coverDataUrl)
+    profile.cover === "custom" && (customCoverUrl || profile.coverDataUrl)
+      ? coverImageStyle(customCoverUrl || profile.coverDataUrl || "")
       : selectedCover?.image
         ? coverImageStyle(selectedCover.image)
         : undefined;
@@ -112,8 +121,50 @@ function ProfilPage() {
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
     "Médecine";
+  const connectedAccount = Boolean(user && !user.isDevFallback);
+
+  useEffect(() => {
+    if (profile.cover !== "custom") {
+      setCustomCoverUrl((previous) => {
+        if (previous) URL.revokeObjectURL(previous);
+        return null;
+      });
+      return;
+    }
+
+    let disposed = false;
+    let createdUrl: string | null = null;
+
+    const hydrateCover = async () => {
+      try {
+        if (profile.coverDataUrl) {
+          const legacyBlob = dataUrlToImageBlob(profile.coverDataUrl);
+          await saveProfileCover(profile.optimusId, legacyBlob);
+          if (!disposed) update({ coverDataUrl: null });
+        }
+
+        const blob = await loadProfileCover(profile.optimusId);
+        if (!blob || disposed) return;
+        createdUrl = URL.createObjectURL(blob);
+        setCustomCoverUrl((previous) => {
+          if (previous) URL.revokeObjectURL(previous);
+          return createdUrl;
+        });
+        setCoverStorageError(null);
+      } catch (error) {
+        console.warn("[profile-cover] IndexedDB restore deferred", error);
+      }
+    };
+
+    void hydrateCover();
+    return () => {
+      disposed = true;
+      if (createdUrl) URL.revokeObjectURL(createdUrl);
+    };
+  }, [profile.cover, profile.coverDataUrl, profile.optimusId, update]);
 
   function onCoverFile(file: File) {
+    setCoverStorageError(null);
     const reader = new FileReader();
     reader.onload = () => {
       const image = new Image();
@@ -133,11 +184,52 @@ function ProfilPage() {
           width,
           height,
         );
-        update({ cover: "custom", coverDataUrl: canvas.toDataURL("image/jpeg", 0.72) });
+
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) return;
+            void saveProfileCover(profile.optimusId, blob)
+              .then(() => {
+                const nextUrl = URL.createObjectURL(blob);
+                setCustomCoverUrl((previous) => {
+                  if (previous) URL.revokeObjectURL(previous);
+                  return nextUrl;
+                });
+                setCoverStorageError(null);
+                update({ cover: "custom", coverDataUrl: null });
+              })
+              .catch((error) => {
+                console.warn("[profile-cover] IndexedDB save failed", error);
+                const sessionUrl = URL.createObjectURL(blob);
+                setCustomCoverUrl((previous) => {
+                  if (previous) URL.revokeObjectURL(previous);
+                  return sessionUrl;
+                });
+                update({ cover: "custom", coverDataUrl: null });
+                setCoverStorageError(
+                  "La photo est affichée pour cette session, mais cet appareil n’a pas pu l’enregistrer durablement.",
+                );
+              });
+          },
+          "image/jpeg",
+          0.72,
+        );
       };
       image.src = String(reader.result);
     };
     reader.readAsDataURL(file);
+  }
+
+  function chooseBuiltInCover(coverId: CoverId) {
+    setCoverStorageError(null);
+    setCustomCoverUrl((previous) => {
+      if (previous) URL.revokeObjectURL(previous);
+      return null;
+    });
+    void deleteProfileCover(profile.optimusId).catch((error) => {
+      console.warn("[profile-cover] cleanup deferred", error);
+    });
+    update({ cover: coverId, coverDataUrl: null });
   }
 
   function finishEditing() {
@@ -206,6 +298,15 @@ function ProfilPage() {
         </div>
         <Progress className="mt-2" value={level.progress} />
 
+        <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <SectionTitle kicker="Confort d’étude" title="Expérience sensorielle" />
+          <ExperienceControls />
+          <p className="mt-3 text-xs leading-relaxed text-muted">
+            Les sons et vibrations accompagnent seulement les actions utiles. L’ambiance focus est
+            facultative, ne démarre jamais automatiquement et s’arrête quand l’app passe en arrière-plan.
+          </p>
+        </section>
+
         {editing ? (
           <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
             <SectionTitle kicker="Personnalisation" title="Modifier mon profil" />
@@ -215,20 +316,20 @@ function ProfilPage() {
               {AVATARS.map((item) => {
                 const Icon = item.icon;
                 return (
-                <button
-                  key={item.id}
-                  type="button"
-                  title={item.label}
-                  aria-label={item.label}
-                  aria-pressed={profile.avatar === item.id}
-                  onClick={() => update({ avatar: item.id })}
-                  className={cn(
-                    "flex aspect-square items-center justify-center rounded-full bg-secondary text-primary",
-                    profile.avatar === item.id && "ring-2 ring-primary",
-                  )}
-                >
-                  <Icon className="size-6" strokeWidth={1.7} />
-                </button>
+                  <button
+                    key={item.id}
+                    type="button"
+                    title={item.label}
+                    aria-label={item.label}
+                    aria-pressed={profile.avatar === item.id}
+                    onClick={() => update({ avatar: item.id })}
+                    className={cn(
+                      "flex aspect-square items-center justify-center rounded-full bg-secondary text-primary",
+                      profile.avatar === item.id && "ring-2 ring-primary",
+                    )}
+                  >
+                    <Icon className="size-6" strokeWidth={1.7} />
+                  </button>
                 );
               })}
             </div>
@@ -291,7 +392,7 @@ function ProfilPage() {
                 <button
                   key={cover.id}
                   type="button"
-                  onClick={() => update({ cover: cover.id, coverDataUrl: null })}
+                  onClick={() => chooseBuiltInCover(cover.id)}
                   className={cn(
                     "relative h-20 overflow-hidden rounded-[var(--radius-md)] bg-secondary text-left text-xs text-white",
                     cover.className,
@@ -320,6 +421,11 @@ function ProfilPage() {
                 }}
               />
             </label>
+            {coverStorageError ? (
+              <p className="mt-2 text-xs leading-relaxed text-danger" role="status">
+                {coverStorageError}
+              </p>
+            ) : null}
             <Button className="mt-5 w-full" onClick={finishEditing}>
               Enregistrer les modifications
             </Button>
@@ -348,7 +454,10 @@ function ProfilPage() {
                     earned ? "bg-card" : "bg-secondary opacity-45",
                   )}
                 >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary" aria-hidden="true">
+                  <span
+                    className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"
+                    aria-hidden="true"
+                  >
                     <BadgeIcon className="size-5" strokeWidth={1.7} />
                   </span>
                   <div className="min-w-0">
@@ -391,6 +500,12 @@ function ProfilPage() {
               to="/achats"
             />
             <ProfileMenuLink
+              icon={ShieldCheck}
+              label="Mes données"
+              detail="Export, synchronisation et suppression"
+              to="/donnees"
+            />
+            <ProfileMenuLink
               icon={Trophy}
               label="Classement"
               detail={`Ligue ${league.label}`}
@@ -431,22 +546,35 @@ function ProfilPage() {
           <p className="mt-2 text-sm font-medium">
             <span className="inline-flex items-center gap-2">
               <ShieldCheck className="size-4 text-primary" />
-              {profile.tier === "guest"
-                ? "Profil invité"
-                : profile.tier === "free"
-                  ? "Compte Optimus Free"
-                  : "Optimus Premium actif"}
+              {authPending
+                ? "Vérification du compte…"
+                : connectedAccount
+                  ? "Compte Optimus connecté"
+                  : "Profil local"}
             </span>
           </p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            {profile.tier === "guest"
-              ? "Votre progression reste sur cet appareil. Créez votre Optimus ID pour la conserver."
-              : `${pending} changement${pending !== 1 ? "s" : ""} conservé${pending !== 1 ? "s" : ""} localement sur cet appareil.`}
+            {authPending
+              ? "Vérification de la session cloud en cours."
+              : connectedAccount
+                ? `${pending} changement${pending !== 1 ? "s" : ""} en attente de synchronisation sur cet appareil.`
+                : "Votre profil et votre progression restent sur cet appareil tant que vous n’êtes pas connecté."}
           </p>
-          {profile.tier === "guest" ? (
-            <Button className="mt-3" onClick={() => createFree(name || "Étudiant")}>
-              Créer mon compte Free
-            </Button>
+          {!authPending && !connectedAccount ? (
+            <Link
+              to="/login"
+              className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
+            >
+              Se connecter pour sauvegarder
+            </Link>
+          ) : null}
+          {!authPending && connectedAccount ? (
+            <Link
+              to="/donnees"
+              className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)]"
+            >
+              Gérer mes données
+            </Link>
           ) : null}
         </section>
       </Page>
@@ -485,6 +613,7 @@ function ProfileMenuLink({
     | "/parcours"
     | "/pro"
     | "/achats"
+    | "/donnees"
     | "/classement"
     | "/import"
     | "/contact"

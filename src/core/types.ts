@@ -98,7 +98,6 @@ export type Deck = {
   subject: string;
   specialty: string;
   studyYear: number;
-  // new optional, non-breaking field: studyLevel allows granular levels beyond numeric years
   studyLevel?: StudyLevel;
   difficulty: DeckDifficulty;
   competencies: Competency[];
@@ -139,6 +138,8 @@ export type Entitlement = {
 
 export type LicenseReceiptPayload = {
   version: 1;
+  /** Server activation row identifier. New receipts include it; legacy V1 receipts may omit it. */
+  licenseId?: string;
   product: string;
   optimusId: string;
   deviceId: string;
@@ -186,7 +187,6 @@ export type Profile = {
   deviceId: string;
   tier: AccountTier;
   studyYear: number;
-  // new optional studyLevel for professionals
   studyLevel?: StudyLevel;
   country: string;
   faculty: string;
@@ -213,7 +213,6 @@ export type ClinicalCase = {
   title: string;
   specialty: string;
   studyYear: number;
-  // optional new field
   studyLevel?: StudyLevel;
   difficulty: string;
   summary: string;

@@ -34,7 +34,11 @@ export function Onboarding() {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-bg px-5 py-8 text-fg">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="flex min-h-dvh flex-col bg-bg px-5 py-8 text-fg outline-none"
+    >
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
         <Wordmark />
         {step === 0 ? (
@@ -165,6 +169,6 @@ export function Onboarding() {
           </div>
         ) : null}
       </div>
-    </div>
+    </main>
   );
 }

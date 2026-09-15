@@ -32,7 +32,16 @@ import type {
   SyncEvent,
   SyncEventType,
 } from "@/core/types";
+import {
+  deleteImportedDeckStorage,
+  loadImportedDecks,
+  replaceImportedDecks,
+} from "@/lib/imported-deck-storage";
 import { todayKey, uid } from "@/lib/utils";
+import {
+  migrateOptimusPersistedState,
+  OPTIMUS_PERSIST_VERSION,
+} from "@/state/persist-migrations";
 
 function makeOptimusId(): string {
   const bytes = new Uint8Array(4);
@@ -92,13 +101,14 @@ type PersistShape = {
 
 export type OptimusState = PersistShape & {
   hydrated: boolean;
+  importedDeckStorageReady: boolean;
   finishHydration: () => void;
   restoreLicenses: () => Promise<void>;
   completeOnboarding: (p: Partial<Profile>) => void;
   updateProfile: (p: Partial<Profile>) => void;
   createFreeAccount: (name: string) => void;
   activateLicense: (receipt: unknown) => Promise<boolean>;
-  importDeck: (deck: Deck) => void;
+  importDeck: (deck: Deck) => Promise<boolean>;
   recordAnswer: (opts: {
     deckId: string;
     questionId: string;
@@ -320,6 +330,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     purchases: restorePurchases(saved.purchases),
     hydrated: false,
+    importedDeckStorageReady: false,
   } as OptimusState;
 }
 
@@ -334,6 +345,7 @@ export const useOptimus = create<OptimusState>()(
     (set, get) => ({
       ...persistDefaults,
       hydrated: false,
+      importedDeckStorageReady: false,
       finishHydration: () => set({ hydrated: true }),
       restoreLicenses: async () => {
         const state = get();
@@ -359,7 +371,29 @@ export const useOptimus = create<OptimusState>()(
           freeEntitlement(),
           ...(licensePublicKey ? verified.map(receiptEntitlement) : []),
         ];
-        const needsDeviceKey = state.importedDecks.some(
+
+        let storedDecks = state.importedDecks;
+        let importedDeckStorageReady = false;
+        try {
+          const indexedDecks = await loadImportedDecks(state.profile.optimusId);
+          if (state.importedDecks.length > 0) {
+            const merged = new Map<string, Deck>();
+            for (const deck of indexedDecks) merged.set(deck.id, deck);
+            for (const deck of state.importedDecks) merged.set(deck.id, deck);
+            storedDecks = [...merged.values()];
+            await replaceImportedDecks(
+              state.profile.optimusId,
+              storedDecks.map(deckForPersistence),
+            );
+          } else {
+            storedDecks = indexedDecks;
+          }
+          importedDeckStorageReady = true;
+        } catch (error) {
+          console.warn("[imported-decks] IndexedDB restore deferred", error);
+        }
+
+        const needsDeviceKey = storedDecks.some(
           (deck) => deck.importProof?.format === "optimus-encrypted-v1",
         );
         const encryptionIdentity = needsDeviceKey ? await getDeviceEncryptionIdentity(false) : null;
@@ -367,7 +401,7 @@ export const useOptimus = create<OptimusState>()(
           ? { ...encryptionIdentity, deviceId: state.profile.deviceId }
           : undefined;
         const importedDecks = await Promise.all(
-          state.importedDecks.map((deck) =>
+          storedDecks.map((deck) =>
             revalidateImportedDeck(
               deck,
               state.profile.optimusId,
@@ -387,6 +421,7 @@ export const useOptimus = create<OptimusState>()(
           licenseReceipts,
           entitlements,
           importedDecks,
+          importedDeckStorageReady,
           profile: {
             ...current.profile,
             tier: pro ? "pro" : current.profile.optimusId === "OM-GUEST" ? "guest" : "free",
@@ -451,18 +486,29 @@ export const useOptimus = create<OptimusState>()(
         }));
         return true;
       },
-      importDeck: (deck) =>
-        set((s) => {
-          const importedDecks = [...s.importedDecks.filter((d) => d.id !== deck.id), deck];
-          return {
-            importedDecks,
-            badges: unlockBadges({ ...s, importedDecks }),
-            purchases:
-              deck.importVerified === true
-                ? deliverPurchases(s.purchases, [deck.access_policy.entitlement])
-                : s.purchases,
-          };
-        }),
+      importDeck: async (deck) => {
+        const state = get();
+        const importedDecks = [...state.importedDecks.filter((d) => d.id !== deck.id), deck];
+        try {
+          await replaceImportedDecks(
+            state.profile.optimusId,
+            importedDecks.map(deckForPersistence),
+          );
+        } catch (error) {
+          console.warn("[imported-decks] save rejected", error);
+          return false;
+        }
+        set((s) => ({
+          importedDecks,
+          importedDeckStorageReady: true,
+          badges: unlockBadges({ ...s, importedDecks }),
+          purchases:
+            deck.importVerified === true
+              ? deliverPurchases(s.purchases, [deck.access_policy.entitlement])
+              : s.purchases,
+        }));
+        return true;
+      },
       recordAnswer: ({ deckId, questionId, ok, xp, mode }) =>
         set((s) => {
           const today = todayKey();
@@ -601,21 +647,32 @@ export const useOptimus = create<OptimusState>()(
             ],
           };
         }),
-      resetLocal: () =>
+      resetLocal: () => {
+        const ownerId = get().profile.optimusId;
+        void deleteImportedDeckStorage(ownerId).catch((error) => {
+          console.warn("[imported-decks] cleanup deferred", error);
+        });
         set({
           ...persistDefaults,
           hydrated: true,
+          importedDeckStorageReady: false,
           profile: { ...defaultProfile(), onboarded: false },
-        }),
+        });
+      },
     }),
     {
       name: "optimus-v2",
+      version: OPTIMUS_PERSIST_VERSION,
+      migrate: (persistedState, version) =>
+        migrateOptimusPersistedState(persistedState, version) as PersistShape,
       storage: createJSONStorage(() =>
         typeof window === "undefined" ? memoryStorage : localStorage,
       ),
       partialize: (s): PersistShape => ({
         ...pickPersist(s),
-        importedDecks: s.importedDecks.map(deckForPersistence),
+        importedDecks: s.importedDeckStorageReady
+          ? []
+          : s.importedDecks.map(deckForPersistence),
         entitlements: [freeEntitlement()],
       }),
       onRehydrateStorage: () => (state) => {

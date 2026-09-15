@@ -1,15 +1,12 @@
 // @ts-check
 /**
  * Migration bookkeeping shared by the two appliers — `scripts/migrate.mjs`
- * (deploy, `readdir`) and `src/lib/db.ts` (PGLite preview, `import.meta.glob`).
+ * (deploy / Neon) and `src/lib/db.ts` (PGLite preview).
  *
- * Applied files are keyed by BASENAME, so the same file applies once no matter
- * which directory it is globbed from. That is what makes the auth schema safe to
- * copy from `migrations/auth/` into `migrations/` when an app turns sign-in on:
- * a database that already has `0001_auth.sql` will not re-run it.
- *
- * Neither applier descends into subdirectories, so `migrations/auth/*.sql` is
- * out of scope for both until it is copied up.
+ * Applied files are keyed by BASENAME, so the same file applies once even when
+ * it can be discovered from different directories. Root migrations win over an
+ * auth migration with the same basename; this keeps legacy workspaces that
+ * copied `migrations/auth/*.sql` to `migrations/` idempotent.
  */
 
 /**
@@ -30,8 +27,31 @@ export function isMigrationFile(path) {
 }
 
 /**
+ * Select the migration paths visible for the current auth mode.
+ *
+ * Root migrations always apply. Auth migrations apply only when auth is enabled.
+ * If a legacy workspace already copied an auth migration to the root, the root
+ * copy wins by basename so the file cannot run twice.
+ *
+ * @param {Iterable<string>} rootPaths
+ * @param {Iterable<string>} authPaths
+ * @param {boolean} authEnabled
+ * @returns {string[]}
+ */
+export function migrationPathsForAuth(rootPaths, authPaths, authEnabled) {
+  const root = [...rootPaths].filter(isMigrationFile);
+  if (!authEnabled) return root;
+
+  const rootNames = new Set(root.map(migrationName));
+  const auth = [...authPaths]
+    .filter(isMigrationFile)
+    .filter((path) => !rootNames.has(migrationName(path)));
+  return [...root, ...auth];
+}
+
+/**
  * Migrations in `paths` that are not yet in `applied`, in apply order.
- * Non-`.sql` entries (a `readdir` also yields `migrations/auth/`) are dropped.
+ * Non-`.sql` entries are dropped defensively.
  * @param {Iterable<string>} paths
  * @param {Iterable<string>} applied
  * @returns {Array<{ name: string, path: string }>}

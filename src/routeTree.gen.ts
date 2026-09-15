@@ -18,6 +18,7 @@ import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as ParcoursRouteImport } from './routes/parcours'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
@@ -71,6 +72,11 @@ const ExamenRoute = ExamenRouteImport.update({
 const ImportRoute = ImportRouteImport.update({
   id: '/import',
   path: '/import',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParcoursRoute = ParcoursRouteImport.update({
@@ -129,6 +135,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -149,6 +156,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -170,6 +178,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -192,6 +201,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -212,6 +222,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -232,6 +243,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -253,6 +265,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
+  LoginRoute: typeof LoginRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/import'
       fullPath: '/import'
       preLoaderRoute: typeof ImportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parcours': {
@@ -425,6 +445,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
+  LoginRoute: LoginRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,

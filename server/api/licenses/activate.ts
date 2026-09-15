@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { defineEventHandler, getMethod, readBody, setHeader, setResponseStatus } from "h3";
 import { getSql } from "@/lib/db";
 import { signLicenseReceipt } from "@/content/license-receipt.server";
+import { getClientIp } from "../../lib/client-ip";
+import { applyRateLimitHeaders, consumeRateLimit } from "../../lib/rate-limit";
 
 type ActivationBody = {
   key?: unknown;
@@ -10,6 +12,7 @@ type ActivationBody = {
 };
 
 type ActivatedLicense = {
+  id: string;
   product: string;
   expires_at: string | Date | null;
   activated_at: string | Date;
@@ -49,6 +52,26 @@ export default defineEventHandler(async (event) => {
     return { error: "Clé ou identifiant invalide." };
   }
 
+  const clientIp = getClientIp(event);
+  const subject = clientIp || `${optimusId}:${deviceId.toLowerCase()}`;
+  try {
+    const decision = await consumeRateLimit({
+      scope: "license-activate",
+      subject,
+      limit: 8,
+      windowSeconds: 60,
+    });
+    applyRateLimitHeaders(event, decision);
+    if (!decision.allowed) {
+      setResponseStatus(event, 429);
+      return { error: "Trop de tentatives. Réessayez plus tard." };
+    }
+  } catch (error) {
+    console.error("[licenses] rate limiter unavailable", error);
+    setResponseStatus(event, 503);
+    return { error: "Le service d'activation sécurisée est temporairement indisponible." };
+  }
+
   const privateKey = process.env.LICENSE_SIGNING_PRIVATE_KEY?.trim();
   if (!privateKey) {
     setResponseStatus(event, 503);
@@ -65,20 +88,21 @@ export default defineEventHandler(async (event) => {
        and revoked_at is null
        and (expires_at is null or expires_at > now())
        and (device_id is null or device_id = $2)
-     returning product, expires_at, activated_at`,
+     returning id, product, expires_at, activated_at`,
     [keyHash(key), deviceId, optimusId],
   );
 
   const license = rows[0];
   if (!license) {
     setResponseStatus(event, 401);
-    return { error: "Cette clé est invalide, expirée ou déjà liée à un autre appareil." };
+    return { error: "Cette clé est invalide, expirée, révoquée ou déjà liée à un autre appareil." };
   }
 
   try {
     const receipt = signLicenseReceipt(
       {
         version: 1,
+        licenseId: license.id,
         product: license.product,
         optimusId,
         deviceId: deviceId.toLowerCase(),

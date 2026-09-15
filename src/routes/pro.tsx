@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { KeyRound, PackageCheck, ShieldCheck } from "lucide-react";
+import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useOptimus } from "@/state/store";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
+import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
+import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/pro")({
@@ -29,12 +32,34 @@ function ProPage() {
   const activateLicense = useOptimus((s) => s.activateLicense);
   const entitlements = useOptimus((s) => s.entitlements);
   const addContact = useOptimus((s) => s.addContact);
-  const upsertPurchase = useOptimus((s) => s.upsertPurchase);
   const purchases = useOptimus((s) => s.purchases);
+  const { user, isPending } = useCurrentUserState();
+  const userId = user?.id ?? null;
+  const userIsDevFallback = user?.isDevFallback ?? false;
   const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
+  const purchaseFlowKey = `${initialPurchase?.reference ?? orderReference ?? "new"}:${initialPurchase?.updatedAt ?? 0}`;
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
+
+  useEffect(() => {
+    if (isPending || !userId || userIsDevFallback) return;
+    let disposed = false;
+    const refresh = async () => {
+      try {
+        const serverPurchases = await listPremiumPurchaseOrders();
+        if (!disposed) replacePurchaseCache(serverPurchases);
+      } catch (error) {
+        console.warn("[purchases] server refresh deferred; keeping offline cache", error);
+      }
+    };
+    void refresh();
+    window.addEventListener("online", refresh);
+    return () => {
+      disposed = true;
+      window.removeEventListener("online", refresh);
+    };
+  }, [isPending, userId, userIsDevFallback]);
 
   async function activate() {
     setActivating(true);
@@ -63,6 +88,10 @@ function ProPage() {
     }
   }
 
+  const activeProducts = entitlements
+    .filter((entitlement) => entitlement.product !== "OPTIMUS_FREE")
+    .map((entitlement) => entitlement.product);
+
   return (
     <Shell title="Pro">
       <Page className="mx-auto max-w-lg">
@@ -76,17 +105,19 @@ function ProPage() {
           </Link>
         </div>
         <p className="mt-2 text-sm text-muted">
-          Payez localement par Mobile Money, puis choisissez la façon dont vous souhaitez recevoir
-          votre contenu.
+          Les cours restent utilisables hors ligne. Les commandes et leurs statuts sont validés par
+          le serveur, tandis que vos clés privées restent uniquement sur cet appareil.
         </p>
+
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
             <PremiumPurchaseFlow
+              key={purchaseFlowKey}
               profile={profile}
               initialPurchase={initialPurchase}
               initialSpecialty={specialty}
               onRemember={(message) => addContact("deck", message)}
-              onPurchaseStatus={upsertPurchase}
+              onPurchaseUpdated={cacheServerPurchase}
             />
 
             <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
@@ -157,18 +188,39 @@ function ProPage() {
 
             <p className="flex items-start gap-2 text-xs leading-relaxed text-subtle">
               <ShieldCheck className="mt-0.5 size-4 shrink-0" />
-              Aucun accès Premium ne peut désormais être activé par un simple bouton de
-              démonstration.
+              Un statut commercial ou un droit Premium ne peut pas être créé par une simple
+              modification locale de l’application.
             </p>
           </div>
         ) : (
-          <p className="mt-6 text-sm">
-            Pro est actif. Les decks premium sont déverrouillés hors-ligne.
-          </p>
+          <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
+            <div className="flex items-start gap-3">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/18 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.2)]">
+                <CheckCircle2 className="size-6" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] opacity-75">
+                  Accès confirmé
+                </p>
+                <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight">
+                  Premium actif
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed opacity-85">
+                  Vos contenus Premium validés restent disponibles hors ligne sur cet appareil.
+                </p>
+              </div>
+              <Sparkles className="size-5 shrink-0 opacity-70" aria-hidden="true" />
+            </div>
+            <div className="mt-4 rounded-[var(--radius-md)] bg-black/10 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12)]">
+              <p className="text-xs font-medium">
+                {activeProducts.length > 0
+                  ? `${activeProducts.length} droit${activeProducts.length > 1 ? "s" : ""} Premium actif${activeProducts.length > 1 ? "s" : ""}`
+                  : "Accès Premium vérifié sur cet appareil"}
+              </p>
+            </div>
+          </section>
         )}
-        <p className="mt-6 text-xs text-subtle">
-          Statut : {profile.tier}. Droits actifs : {entitlements.map((e) => e.product).join(", ")}.
-        </p>
+
         <Link to="/soutenir" className="mt-6 inline-block text-sm text-muted hover:text-fg">
           Ce n’est pas un don — pour soutenir Fetra, voir Soutenir le développeur →
         </Link>
