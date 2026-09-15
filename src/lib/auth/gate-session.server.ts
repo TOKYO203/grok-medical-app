@@ -1,6 +1,6 @@
 import type { BetterAuthPlugin } from "better-auth";
 import { createAuthMiddleware, getSessionFromCtx } from "better-auth/api";
-import { parseSetCookieHeader, setRequestCookie } from "better-auth/cookies";
+import { parseSetCookieHeader } from "better-auth/cookies";
 import { handleOAuthUserInfo } from "better-auth/oauth2";
 import {
   GATE_IDENTITY_HEADER,
@@ -17,8 +17,7 @@ type GateAccount = Parameters<typeof handleOAuthUserInfo>[1]["account"];
 type GateMiddlewareContext = Parameters<Parameters<typeof createAuthMiddleware>[0]>[0];
 
 /**
- * Emit the signed Better Auth session cookie and return the cookie value so the
- * current /get-session request can immediately resolve the session it created.
+ * Emit the signed Better Auth session cookie.
  *
  * This deliberately uses Better Auth's own cookie API. The Gate bootstrap is a
  * Better Auth HTTP middleware, so framework-specific TanStack cookie helpers are
@@ -28,7 +27,7 @@ async function emitSessionCookie(
   ctx: GateMiddlewareContext,
   sessionTokenName: string,
   sessionToken: string,
-): Promise<string | null> {
+): Promise<boolean> {
   const attributes = ctx.context.authCookies.sessionToken.attributes;
   const maxAge = ctx.context.sessionConfig.expiresIn;
 
@@ -49,12 +48,12 @@ async function emitSessionCookie(
       console.error(`${LOG} signed Set-Cookie missing session token value`, {
         cookiePreview: signedCookie.slice(0, 120),
       });
-      return null;
+      return false;
     }
-    return sessionValue;
+    return true;
   } catch (err) {
     console.error(`${LOG} setSignedCookie failed`, err);
-    return null;
+    return false;
   }
 }
 
@@ -72,21 +71,6 @@ function expireSessionDataCookie(
     sameSite: "lax",
     maxAge: 0,
   });
-}
-
-/** Drop a cookie from the request `Cookie` header (inverse of `setRequestCookie`). */
-function removeRequestCookie(headers: Headers, name: string): void {
-  const cookieHeader = headers.get("cookie");
-  if (!cookieHeader) return;
-  const kept = cookieHeader
-    .split(";")
-    .map((pair) => pair.trim())
-    .filter((pair) => pair && !pair.startsWith(`${name}=`));
-  if (kept.length > 0) {
-    headers.set("cookie", kept.join("; "));
-  } else {
-    headers.delete("cookie");
-  }
 }
 
 export function gateIdentitySessions() {
@@ -148,7 +132,8 @@ export function gateIdentitySessions() {
                   GATE_PROVIDER_ID,
                 )
               ) {
-                // Already signed in as this gate identity — nothing to do.
+                // Already signed in as this gate identity — let the normal
+                // get-session endpoint return its canonical session payload.
                 return;
               }
               await ctx.context.internalAdapter
@@ -190,12 +175,12 @@ export function gateIdentitySessions() {
 
             // handleOAuthUserInfo persists the user/account/session. Emit the
             // session token through Better Auth's HTTP response cookie channel.
-            const sessionValue = await emitSessionCookie(
+            const cookieEmitted = await emitSessionCookie(
               ctx,
               sessionCookieName,
               result.data.session.token,
             );
-            if (!sessionValue) {
+            if (!cookieEmitted) {
               console.error(
                 `${LOG} session created in DB but cookie was not emitted`,
                 { userId: result.data.user.id },
@@ -203,15 +188,17 @@ export function gateIdentitySessions() {
               return;
             }
 
-            const sessionDataCookie = ctx.context.authCookies.sessionData;
-            expireSessionDataCookie(ctx, sessionDataCookie);
+            // A stale session_data cache may still describe the previous user.
+            expireSessionDataCookie(ctx, ctx.context.authCookies.sessionData);
 
-            // Inject the newly signed token into this request so the underlying
-            // /get-session endpoint resolves the new session in the same round-trip.
-            const headers = new Headers(Object.fromEntries(inbound.entries()));
-            setRequestCookie(headers, sessionCookieName, sessionValue);
-            removeRequestCookie(headers, sessionDataCookie.name);
-            return { context: { headers } };
+            // This is the first browser-facing /get-session request for this Gate
+            // identity. Returning the freshly persisted session here avoids a
+            // transient signed-out render and lets Better Auth include all cookie
+            // headers already accumulated by ctx.setSignedCookie / ctx.setCookie.
+            return ctx.json({
+              session: result.data.session,
+              user: result.data.user,
+            });
           } catch (err) {
             console.error(`${LOG} gate identity session middleware threw`, err);
             return;
