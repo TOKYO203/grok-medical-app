@@ -31,6 +31,12 @@ test("custom profile covers use IndexedDB blobs and migrate legacy base64", () =
   assert.match(profileSource, /update\(\{\s*coverDataUrl:\s*null\s*\}\)/);
 });
 
+test("new custom covers never fall back to persistent base64 when IndexedDB fails", () => {
+  assert.doesNotMatch(profileSource, /canvas\.toDataURL/);
+  assert.match(profileSource, /update\(\{\s*cover:\s*"custom",\s*coverDataUrl:\s*null\s*\}\)/);
+  assert.match(profileSource, /cet appareil n’a pas pu l’enregistrer durablement/);
+});
+
 test("IndexedDB transactions register completion handlers before awaiting requests", () => {
   assert.match(
     coverStorageSource,
