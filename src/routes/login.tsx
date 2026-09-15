@@ -3,12 +3,14 @@ import { createFileRoute, Link, Navigate } from "@tanstack/react-router";
 import { Cloud, CloudOff, LockKeyhole, ShieldCheck } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { authEnabled, signIn } from "@/lib/auth/client";
 import {
   getAuthRuntimeStatus,
   type AuthRuntimeStatus,
 } from "@/lib/auth/runtime-status";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/login")({ component: LoginPage });
 
@@ -100,9 +102,12 @@ function LoginPage() {
                   </p>
                 </div>
               </div>
-              <Button asChild variant="outline" className="mt-4 w-full">
-                <Link to="/">Continuer sans compte</Link>
-              </Button>
+              <Link
+                to="/"
+                className={cn(buttonVariants({ variant: "outline" }), "mt-4 w-full")}
+              >
+                Continuer sans compte
+              </Link>
             </div>
           )}
 
