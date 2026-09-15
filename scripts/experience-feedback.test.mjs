@@ -18,6 +18,8 @@ const motionBridge = readFileSync(
 );
 const root = readFileSync(new URL("../src/routes/__root.tsx", import.meta.url), "utf8");
 const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
+const profile = readFileSync(new URL("../src/routes/profil.tsx", import.meta.url), "utf8");
+const premium = readFileSync(new URL("../src/routes/pro.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
 test("sensory feedback is user-configurable and local-only", () => {
@@ -75,4 +77,16 @@ test("motion feedback honors both app and operating-system reduced motion", () =
   assert.match(shell, /preferences\.enhancedMotion && active && "optimus-nav-active"/);
   assert.match(motionBridge, /dataset\.optimusMotion/);
   assert.match(root, /<ExperienceMotionBridge \/>/);
+});
+
+test("profile exposes clear study-comfort controls", () => {
+  assert.match(profile, /Confort d’étude/);
+  assert.match(profile, /Expérience sensorielle/);
+  assert.match(profile, /<ExperienceControls \/>/);
+});
+
+test("Premium active state is user-facing rather than technical debug copy", () => {
+  assert.match(premium, /Premium actif/);
+  assert.match(premium, /Accès confirmé/);
+  assert.doesNotMatch(premium, /Statut local vérifié/);
 });
