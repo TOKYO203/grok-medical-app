@@ -3,11 +3,12 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const [runtimeStatus, loginPage, authServer, dbSource] = await Promise.all([
+const [runtimeStatus, loginPage, authServer, dbSource, gateSession] = await Promise.all([
   read("../src/lib/auth/runtime-status.ts"),
   read("../src/routes/login.tsx"),
   read("../src/lib/auth/server.ts"),
   read("../src/lib/db.ts"),
+  read("../src/lib/auth/gate-session.server.ts"),
 ]);
 
 test("auth readiness only enables broker sign-in with credentials plus a public origin or sandbox preview", () => {
@@ -51,4 +52,13 @@ test("login UI gates providers on server readiness and keeps a local fallback", 
   assert.match(loginPage, /pb-32/);
   assert.doesNotMatch(loginPage, /Better Auth vérifié/);
   assert.doesNotMatch(loginPage, />Sign-in failed</);
+});
+
+test("Gate session bootstrap is HTTP-only and uses Better Auth cookie APIs", () => {
+  assert.match(gateSession, /middlewares:\s*\[/);
+  assert.match(gateSession, /path:\s*"\/get-session"/);
+  assert.match(gateSession, /ctx\.setSignedCookie/);
+  assert.match(gateSession, /ctx\.setCookie/);
+  assert.doesNotMatch(gateSession, /@tanstack\/react-start\/server/);
+  assert.doesNotMatch(gateSession, /context\.responseHeaders/);
 });
