@@ -51,28 +51,10 @@ const dailySchema = z.object({
   xp: z.number().int().min(0).max(1_000_000_000),
 });
 
-const purchaseSchema = z.object({
-  reference: z.string().trim().min(6).max(100),
-  offer: z.enum(["deck", "specialty"]),
-  specialty: z.string().trim().min(1).max(80),
-  deckNumber: z.number().int().min(1).max(10),
-  product: z.string().trim().min(1).max(120),
-  label: z.string().trim().min(1).max(300),
-  amount: z.number().int().min(0).max(10_000_000_000),
-  status: z.enum([
-    "created",
-    "instructions_requested",
-    "proof_ready",
-    "verification_pending",
-    "delivered",
-    "rejected",
-    "refunded",
-  ]),
-  proofAttached: z.boolean(),
-  createdAt: z.number().finite().min(0),
-  updatedAt: z.number().finite().min(0),
-});
-
+/**
+ * Cloud sync deliberately contains only learning/profile state.
+ * Commerce, entitlements, device keys and Premium payloads have separate authoritative stores.
+ */
 export const optimusSyncSnapshotSchema = z.object({
   version: z.literal(1),
   profile: syncedProfileSchema,
@@ -87,7 +69,6 @@ export const optimusSyncSnapshotSchema = z.object({
   casesCompleted: z.array(z.string().min(1).max(180)).max(20_000),
   diagnosticsCompleted: z.array(z.string().min(1).max(180)).max(20_000),
   reviewsSucceeded: z.number().int().min(0).max(100_000_000),
-  purchases: z.array(purchaseSchema).max(2_000),
 });
 
 export type OptimusSyncSnapshot = z.infer<typeof optimusSyncSnapshotSchema>;
@@ -147,20 +128,6 @@ function weekOrdinal(value: string): number {
   return Number(match[1]) * 100 + Number(match[2]);
 }
 
-function mergePurchases(
-  local: OptimusSyncSnapshot["purchases"],
-  remote: OptimusSyncSnapshot["purchases"],
-): OptimusSyncSnapshot["purchases"] {
-  const byReference = new Map(remote.map((purchase) => [purchase.reference, purchase]));
-  for (const purchase of local) {
-    const previous = byReference.get(purchase.reference);
-    if (!previous || purchase.updatedAt > previous.updatedAt) {
-      byReference.set(purchase.reference, purchase);
-    }
-  }
-  return [...byReference.values()].sort((a, b) => b.updatedAt - a.updatedAt);
-}
-
 export function mergeOptimusSnapshots(
   local: OptimusSyncSnapshot,
   remote: OptimusSyncSnapshot,
@@ -215,6 +182,5 @@ export function mergeOptimusSnapshots(
     casesCompleted: uniqueStrings(local.casesCompleted, remote.casesCompleted),
     diagnosticsCompleted: uniqueStrings(local.diagnosticsCompleted, remote.diagnosticsCompleted),
     reviewsSucceeded: Math.max(local.reviewsSucceeded, remote.reviewsSucceeded),
-    purchases: mergePurchases(local.purchases, remote.purchases),
   };
 }
