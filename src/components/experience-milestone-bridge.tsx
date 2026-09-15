@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
-import { useExperiencePreferences } from "@/components/experience-controls";
 import { BADGE_CATALOG } from "@/content/badges";
 import { levelInfo } from "@/core/scoring";
 import { emitExperienceFeedback } from "@/lib/experience-feedback";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { useOptimus } from "@/state/store";
 
 export function ExperienceMilestoneBridge() {
