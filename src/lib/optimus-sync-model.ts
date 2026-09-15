@@ -65,6 +65,8 @@ const purchaseSchema = z.object({
     "proof_ready",
     "verification_pending",
     "delivered",
+    "rejected",
+    "refunded",
   ]),
   proofAttached: z.boolean(),
   createdAt: z.number().finite().min(0),
