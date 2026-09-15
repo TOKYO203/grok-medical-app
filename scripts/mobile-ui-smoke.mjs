@@ -5,6 +5,11 @@ import { exitCodeFor } from "./browser-smoke-verdict.mjs";
 
 const baseUrl = checkedUrl(process.argv[2] || "http://127.0.0.1:8080/");
 const timeoutMs = Number(process.env.BROWSER_SMOKE_TIMEOUT_MS || 45_000);
+const qaClientIp = process.env.QA_CLIENT_IP?.trim();
+const qaHeaders =
+  process.env.TRUST_PROXY_HEADERS === "true" && qaClientIp
+    ? { "x-forwarded-for": qaClientIp }
+    : undefined;
 
 const VIEWPORTS = [
   { name: "mobile320", width: 320, height: 568 },
@@ -47,6 +52,7 @@ try {
     for (const route of ROUTES) {
       const page = await browser.newPage({
         viewport: { width: viewport.width, height: viewport.height },
+        ...(qaHeaders ? { extraHTTPHeaders: qaHeaders } : {}),
       });
       const consoleErrors = [];
       const pageErrors = [];
