@@ -5,7 +5,12 @@ import { GROK_PROVIDERS } from "./providers";
 export type AuthRuntimeStatus = {
   enabled: boolean;
   ready: boolean;
-  mode: "disabled" | "configured" | "sandbox-preview" | "missing-deployment-config";
+  mode:
+    | "disabled"
+    | "configured"
+    | "sandbox-preview"
+    | "missing-public-origin"
+    | "missing-deployment-config";
   providers: readonly { providerId: string; label: string }[];
   message: string | null;
 };
@@ -42,10 +47,28 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       };
     }
 
+    const hostname = requestHostname();
+    if (hostname?.endsWith(".grok-sandbox.com")) {
+      return {
+        enabled: true,
+        ready: true,
+        mode: "sandbox-preview",
+        providers: GROK_PROVIDERS.map(({ providerId, label }) => ({ providerId, label })),
+        message: null,
+      };
+    }
+
     const hasInjectedBrokerClient = Boolean(
       env("GROK_AUTH_CLIENT_ID") && env("GROK_AUTH_CLIENT_SECRET"),
     );
-    if (hasInjectedBrokerClient) {
+    const hasPublicOrigin = Boolean(
+      env("BETTER_AUTH_URL") ||
+        env("VERCEL_BRANCH_URL") ||
+        env("VERCEL_URL") ||
+        env("VERCEL_PROJECT_PRODUCTION_URL"),
+    );
+
+    if (hasInjectedBrokerClient && hasPublicOrigin) {
       return {
         enabled: true,
         ready: true,
@@ -55,14 +78,14 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       };
     }
 
-    const hostname = requestHostname();
-    if (hostname?.endsWith(".grok-sandbox.com")) {
+    if (hasInjectedBrokerClient && !hasPublicOrigin) {
       return {
         enabled: true,
-        ready: true,
-        mode: "sandbox-preview",
-        providers: GROK_PROVIDERS.map(({ providerId, label }) => ({ providerId, label })),
-        message: null,
+        ready: false,
+        mode: "missing-public-origin",
+        providers: [],
+        message:
+          "Le compte cloud est presque prêt, mais l'URL publique de connexion n'est pas configurée sur ce déploiement.",
       };
     }
 
