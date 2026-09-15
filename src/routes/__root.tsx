@@ -1,5 +1,6 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
+import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
@@ -43,6 +44,7 @@ function RootDocument() {
       <body>
         <PreviewHostBridge />
         <AuthProvider>
+          <OptimusSyncBridge />
           <Outlet />
         </AuthProvider>
         <Toaster
