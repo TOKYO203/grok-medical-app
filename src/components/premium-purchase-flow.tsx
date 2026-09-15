@@ -27,19 +27,21 @@ import {
   type PremiumOrder,
   type PremiumPurchase,
   type PremiumSpecialtyId,
-  type PurchaseStatus,
 } from "@/content/purchase-order";
 import type { Profile } from "@/core/types";
+import { authEnabled } from "@/lib/auth/client";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import {
+  advancePremiumPurchaseOrder,
+  createPremiumPurchaseOrder,
+} from "@/lib/purchase-orders";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 type ShareOutcome = "shared" | "copied" | "cancelled";
 
-function makeReference(): string {
-  const bytes = new Uint8Array(3);
-  crypto.getRandomValues(bytes);
-  const suffix = [...bytes].map((byte) => byte.toString(16).padStart(2, "0")).join("");
-  return `CMD-${Date.now().toString(36)}-${suffix}`.toUpperCase();
+function newClientRequestId(): string {
+  return globalThis.crypto.randomUUID();
 }
 
 async function shareOrCopy(title: string, text: string, files: File[] = []): Promise<ShareOutcome> {
@@ -63,14 +65,16 @@ export function PremiumPurchaseFlow({
   initialPurchase,
   initialSpecialty,
   onRemember,
-  onPurchaseStatus,
+  onPurchaseUpdated,
 }: {
   profile: Profile;
   initialPurchase?: PremiumPurchase;
   initialSpecialty?: PremiumSpecialtyId;
   onRemember: (message: string) => void;
-  onPurchaseStatus: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
+  onPurchaseUpdated: (purchase: PremiumPurchase) => void;
 }) {
+  const { user, isPending: authPending } = useCurrentUserState();
+  const [purchase, setPurchase] = useState<PremiumPurchase | undefined>(initialPurchase);
   const [step, setStep] = useState<1 | 2 | 3>(() =>
     initialPurchase?.status === "created" ? 2 : initialPurchase ? 3 : 1,
   );
@@ -79,45 +83,116 @@ export function PremiumPurchaseFlow({
     initialPurchase?.specialty ?? initialSpecialty ?? "neurologie",
   );
   const [deckNumber, setDeckNumber] = useState(initialPurchase?.deckNumber ?? 1);
-  const [reference, setReference] = useState(initialPurchase?.reference ?? "");
+  const [clientRequestId] = useState(newClientRequestId);
   const [proof, setProof] = useState<File | null>(null);
   const [deviceIdentity, setDeviceIdentity] = useState<DeviceEncryptionIdentity | null>(null);
+  const [creating, setCreating] = useState(false);
   const [sending, setSending] = useState(false);
-  const [submitted, setSubmitted] = useState(initialPurchase?.status === "verification_pending");
 
+  const reference = purchase?.reference ?? "";
   const order: PremiumOrder = { reference, offer, specialty, deckNumber };
-
-  useEffect(() => {
-    if (!initialPurchase) setReference(makeReference());
-  }, [initialPurchase]);
 
   useEffect(() => {
     if (profile.optimusId === "OM-GUEST") return;
     void getDeviceEncryptionIdentity().then(setDeviceIdentity);
   }, [profile.optimusId]);
 
-  async function requestPaymentInstructions() {
+  function rememberServerPurchase(next: PremiumPurchase) {
+    setPurchase(next);
+    setOffer(next.offer);
+    setSpecialty(next.specialty);
+    setDeckNumber(next.deckNumber);
+    onPurchaseUpdated(next);
+  }
+
+  async function createOrder() {
+    if (!user || user.isDevFallback || profile.optimusId === "OM-GUEST") return;
+    setCreating(true);
     try {
-      const message = paymentRequestMessage(order, profile.optimusId);
+      const created = await createPremiumPurchaseOrder({
+        data: { clientRequestId, offer, specialty, deckNumber },
+      });
+      rememberServerPurchase(created);
+      setStep(2);
+      toast.success(`Commande ${created.reference} créée`);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Impossible de créer la commande");
+    } finally {
+      setCreating(false);
+    }
+  }
+
+  async function requestPaymentInstructions() {
+    if (!purchase) return;
+    try {
+      const message = paymentRequestMessage(purchase, profile.optimusId);
       const outcome = await shareOrCopy("Demande de paiement Optimus", message);
       if (outcome === "cancelled") return;
       onRemember(message);
-      onPurchaseStatus(order, "instructions_requested");
+      const updated = await advancePremiumPurchaseOrder({
+        data: { reference: purchase.reference, status: "instructions_requested" },
+      });
+      rememberServerPurchase(updated);
       toast.success(
         outcome === "shared"
-          ? "Demande partagée"
-          : "Demande copiée — envoyez-la par WhatsApp ou SMS",
+          ? "Demande partagée et commande mise à jour"
+          : "Demande copiée — envoyez-la par votre canal officiel",
       );
-    } catch {
-      toast.error("Impossible de préparer la demande");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Impossible de préparer la demande");
+    }
+  }
+
+  async function continueAfterInstructions() {
+    if (!purchase) return;
+    try {
+      if (purchase.status === "created") {
+        const updated = await advancePremiumPurchaseOrder({
+          data: { reference: purchase.reference, status: "instructions_requested" },
+        });
+        rememberServerPurchase(updated);
+      }
+      setStep(3);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Commande impossible à mettre à jour");
+    }
+  }
+
+  async function markProofReady(file: File | null) {
+    setProof(file);
+    if (!file || !purchase) return;
+    try {
+      if (purchase.status === "created") {
+        toast.error("Demandez d’abord les instructions de paiement");
+        return;
+      }
+      if (purchase.status === "instructions_requested") {
+        const updated = await advancePremiumPurchaseOrder({
+          data: { reference: purchase.reference, status: "proof_ready" },
+        });
+        rememberServerPurchase(updated);
+      }
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Preuve non enregistrée");
     }
   }
 
   async function sendProof() {
-    if (!proof || !deviceIdentity) return;
+    if (!proof || !deviceIdentity || !purchase) return;
     setSending(true);
     try {
-      const message = fulfillmentRequestMessage(order, {
+      let current = purchase;
+      if (current.status === "instructions_requested") {
+        current = await advancePremiumPurchaseOrder({
+          data: { reference: current.reference, status: "proof_ready" },
+        });
+        rememberServerPurchase(current);
+      }
+      if (current.status !== "proof_ready") {
+        throw new Error("Cette commande n’est pas prête pour la vérification.");
+      }
+
+      const message = fulfillmentRequestMessage(current, {
         optimusId: profile.optimusId,
         deviceId: profile.deviceId,
         deviceKeyId: deviceIdentity.keyId,
@@ -127,50 +202,115 @@ export function PremiumPurchaseFlow({
       if (outcome === "cancelled") return;
       onRemember(message);
       if (outcome === "copied") {
-        toast.success("Commande copiée — joignez manuellement votre preuve de paiement");
+        toast.success("Commande copiée — joignez manuellement votre preuve avant validation");
         return;
       }
-      onPurchaseStatus(order, "verification_pending", true);
-      setSubmitted(true);
-      toast.success("Commande et preuve partagées");
-    } catch {
-      toast.error("Partage impossible — réessayez");
+
+      const updated = await advancePremiumPurchaseOrder({
+        data: {
+          reference: current.reference,
+          status: "verification_pending",
+          proofAttached: true,
+          device: {
+            deviceId: profile.deviceId,
+            deviceKeyId: deviceIdentity.keyId,
+            publicKey: deviceIdentity.publicKey,
+          },
+        },
+      });
+      rememberServerPurchase(updated);
+      toast.success("Commande transmise pour vérification");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Partage impossible — réessayez");
     } finally {
       setSending(false);
     }
   }
 
-  if (profile.optimusId === "OM-GUEST") {
+  if (authPending) {
+    return (
+      <section className="rounded-[var(--radius-xl)] bg-card p-5 text-sm text-muted shadow-[var(--shadow-border)]">
+        Vérification du compte…
+      </section>
+    );
+  }
+
+  if (!authEnabled || !user || user.isDevFallback) {
     return (
       <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
-        <h2 className="font-display text-xl font-medium">Créez d’abord votre Optimus ID</h2>
+        <h2 className="font-display text-xl font-medium">Connexion requise pour un achat Premium</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Il protège votre achat et permet de préparer un Deck personnel pour votre appareil.
+          Les cours gratuits restent disponibles hors ligne. Une commande payante, elle, doit être
+          rattachée à un compte serveur afin que le montant, le statut et la livraison ne puissent
+          pas être falsifiés depuis l’appareil.
         </p>
         <Link
-          to="/profil"
+          to="/login"
           className="mt-4 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
         >
-          Créer mon compte Free
+          Se connecter
         </Link>
       </section>
     );
   }
 
-  if (submitted) {
+  if (profile.optimusId === "OM-GUEST") {
+    return (
+      <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
+        <h2 className="font-display text-xl font-medium">Finalisation du compte Optimus</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Votre session est connectée. L’Optimus ID sécurisé doit encore être synchronisé avant de
+          créer une commande.
+        </p>
+        <Link to="/profil" className="mt-4 inline-block text-sm font-medium text-primary">
+          Ouvrir mon profil →
+        </Link>
+      </section>
+    );
+  }
+
+  if (purchase?.status === "verification_pending") {
     return (
       <section className="rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]">
         <CheckCircle2 className="size-8 text-primary" />
-        <h2 className="mt-3 font-display text-2xl font-medium">Commande transmise</h2>
+        <h2 className="mt-3 font-display text-2xl font-medium">Commande en vérification</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Conservez la référence <strong className="text-fg">{reference}</strong>. Après validation,
-          vous recevrez une clé d’activation ou un fichier Deck protégé.
+          La référence serveur est <strong className="text-fg">{purchase.reference}</strong>. Le
+          statut « livré » ne peut être attribué que côté serveur après vérification.
         </p>
-        <Link to="/import" className="mt-4 inline-block text-sm font-medium text-primary">
-          J’ai reçu mon Deck →
-        </Link>
-        <Link to="/achats" className="ml-4 inline-block text-sm font-medium text-primary">
+        <Link to="/achats" className="mt-4 inline-block text-sm font-medium text-primary">
           Suivre la commande →
+        </Link>
+      </section>
+    );
+  }
+
+  if (purchase?.status === "delivered") {
+    return (
+      <section className="rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]">
+        <CheckCircle2 className="size-8 text-primary" />
+        <h2 className="mt-3 font-display text-2xl font-medium">Commande livrée</h2>
+        <p className="mt-2 text-sm text-muted">Référence : {purchase.reference}</p>
+        <Link to="/import" className="mt-4 inline-block text-sm font-medium text-primary">
+          Ouvrir ou importer mon contenu →
+        </Link>
+      </section>
+    );
+  }
+
+  if (purchase?.status === "rejected" || purchase?.status === "refunded") {
+    return (
+      <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
+        <ShieldAlert className="size-8 text-primary" />
+        <h2 className="mt-3 font-display text-2xl font-medium">
+          {purchase.status === "refunded" ? "Commande remboursée" : "Commande rejetée"}
+        </h2>
+        <p className="mt-2 text-sm text-muted">
+          Référence : {purchase.reference}. Ce statut provient du registre serveur et ne peut pas
+          être modifié localement.
+        </p>
+        <Link to="/achats" className="mt-4 inline-block text-sm font-medium text-primary">
+          Voir mes commandes →
         </Link>
       </section>
     );
@@ -206,7 +346,7 @@ export function PremiumPurchaseFlow({
             </label>
             <select
               id="premium-specialty"
-              className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+              className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
               value={specialty}
               onChange={(event) => setSpecialty(event.target.value as PremiumSpecialtyId)}
             >
@@ -224,7 +364,7 @@ export function PremiumPurchaseFlow({
                 </label>
                 <select
                   id="deck-number"
-                  className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+                  className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
                   value={deckNumber}
                   onChange={(event) => setDeckNumber(Number(event.target.value))}
                 >
@@ -241,38 +381,31 @@ export function PremiumPurchaseFlow({
               </>
             ) : null}
 
-            <OrderSummary order={order} />
+            <OrderSummary order={order} showReference={false} />
             <p className="mt-3 text-xs leading-relaxed text-muted">
-              Aucun paiement maintenant : la disponibilité du contenu contrôlé sera confirmée avant
-              l’envoi des coordonnées Mobile Money.
+              Le serveur générera la référence, le produit et le montant officiels. Aucun paiement
+              n’est demandé avant réception des coordonnées Mobile Money officielles.
             </p>
-            <Button
-              className="mt-4 w-full"
-              disabled={!reference}
-              onClick={() => {
-                onPurchaseStatus(order, "created");
-                setStep(2);
-              }}
-            >
-              Continuer · {orderAmount(order).toLocaleString("fr-FR")} Ar
+            <Button className="mt-4 w-full" disabled={creating} onClick={() => void createOrder()}>
+              {creating ? "Création sécurisée…" : `Continuer · ${orderAmount(order).toLocaleString("fr-FR")} Ar`}
             </Button>
           </div>
         </div>
       ) : null}
 
-      {step === 2 ? (
+      {step === 2 && purchase ? (
         <div className="mt-5 space-y-4">
-          <OrderSummary order={order} standalone />
+          <OrderSummary order={purchase} standalone />
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
             <div className="flex items-start gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
                 <ShieldAlert className="size-5" />
               </span>
               <div>
-                <h2 className="font-medium">Numéro Mobile Money à confirmer</h2>
+                <h2 className="font-medium">Coordonnées Mobile Money à confirmer</h2>
                 <p className="mt-1 text-sm leading-relaxed text-muted">
-                  Aucun opérateur ni numéro n’est encore affiché. N’envoyez aucun paiement avant de
-                  recevoir les coordonnées officielles correspondant à cette commande.
+                  Aucun opérateur ni numéro n’est codé en dur dans l’application. N’envoyez rien
+                  avant d’avoir reçu le canal officiel associé à cette référence serveur.
                 </p>
               </div>
             </div>
@@ -281,23 +414,15 @@ export function PremiumPurchaseFlow({
               Demander les instructions
             </Button>
           </div>
-          <Button
-            className="w-full"
-            variant="secondary"
-            onClick={() => {
-              onPurchaseStatus(order, "instructions_requested");
-              setStep(3);
-            }}
-          >
+          <Button className="w-full" variant="secondary" onClick={() => void continueAfterInstructions()}>
             J’ai reçu les instructions et payé
           </Button>
-          <BackButton onClick={() => setStep(1)} />
         </div>
       ) : null}
 
-      {step === 3 ? (
+      {step === 3 && purchase ? (
         <div className="mt-5 space-y-4">
-          <OrderSummary order={order} standalone />
+          <OrderSummary order={purchase} standalone />
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
             <div className="flex items-start gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
@@ -306,24 +431,16 @@ export function PremiumPurchaseFlow({
               <div className="min-w-0 flex-1">
                 <h2 className="font-medium">Preuve de paiement</h2>
                 <p className="mt-1 text-sm text-muted">
-                  Ajoutez une capture ou un reçu PDF. Le fichier est partagé directement et n’est
-                  pas conservé par l’application.
+                  La preuve reste sur votre appareil et est partagée par le canal choisi. Le serveur
+                  ne conserve ici que son statut et la clé publique de votre appareil.
                 </p>
               </div>
             </div>
             <label className="mt-4 flex min-h-20 cursor-pointer items-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-border bg-secondary px-4 py-3">
-              {proof ? (
-                <FileCheck2 className="size-5 text-primary" />
-              ) : (
-                <Upload className="size-5 text-muted" />
-              )}
+              {proof ? <FileCheck2 className="size-5 text-primary" /> : <Upload className="size-5 text-muted" />}
               <span className="min-w-0 text-sm">
-                {proof ? (
-                  <span className="block truncate font-medium">{proof.name}</span>
-                ) : (
-                  <span className="font-medium">Choisir la preuve</span>
-                )}
-                <span className="mt-0.5 block text-xs text-muted">Image ou PDF</span>
+                {proof ? <span className="block truncate font-medium">{proof.name}</span> : <span className="font-medium">Choisir la preuve</span>}
+                <span className="mt-0.5 block text-xs text-muted">Image ou PDF · 8 Mo maximum</span>
               </span>
               <input
                 className="sr-only"
@@ -331,8 +448,7 @@ export function PremiumPurchaseFlow({
                 accept="image/*,application/pdf"
                 onChange={(event) =>
                   loadProof(event, (file) => {
-                    setProof(file);
-                    if (file) onPurchaseStatus(order, "proof_ready", true);
+                    void markProofReady(file);
                   })
                 }
               />
@@ -346,7 +462,7 @@ export function PremiumPurchaseFlow({
               onClick={() => void sendProof()}
             >
               <Send className="size-4" />
-              {sending ? "Préparation…" : "Partager ma commande sécurisée"}
+              {sending ? "Préparation…" : "Partager et demander la vérification"}
             </Button>
           </div>
           <BackButton onClick={() => setStep(2)} />
@@ -380,7 +496,7 @@ function PurchaseSteps({ current }: { current: 1 | 2 | 3 }) {
   const steps = [
     { id: 1, label: "Offre" },
     { id: 2, label: "Paiement" },
-    { id: 3, label: "Réception" },
+    { id: 3, label: "Vérification" },
   ] as const;
   return (
     <ol className="grid grid-cols-3 gap-2" aria-label={`Étape ${current} sur 3`}>
@@ -394,9 +510,7 @@ function PurchaseSteps({ current }: { current: 1 | 2 | 3 }) {
           >
             {step.id < current ? <Check className="size-4" /> : step.id}
           </span>
-          <span
-            className={cn("mt-1 block text-[11px]", step.id === current ? "text-fg" : "text-muted")}
-          >
+          <span className={cn("mt-1 block text-[11px]", step.id === current ? "text-fg" : "text-muted")}>
             {step.label}
           </span>
         </li>
@@ -446,9 +560,11 @@ function OfferCard({
 function OrderSummary({
   order,
   standalone = false,
+  showReference = true,
 }: {
   order: PremiumOrder;
   standalone?: boolean;
+  showReference?: boolean;
 }) {
   return (
     <div
@@ -462,7 +578,7 @@ function OrderSummary({
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium">{orderLabel(order)}</p>
           <p className="mt-1 text-xs text-muted">
-            {orderProduct(order)} · {order.reference}
+            {orderProduct(order)}{showReference && order.reference ? ` · ${order.reference}` : ""}
           </p>
         </div>
         <p className="shrink-0 text-sm font-medium">
@@ -475,11 +591,7 @@ function OrderSummary({
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="inline-flex items-center gap-1 text-sm text-muted"
-    >
+    <button type="button" onClick={onClick} className="inline-flex items-center gap-1 text-sm text-muted">
       <ArrowLeft className="size-4" /> Retour
     </button>
   );
