@@ -60,7 +60,11 @@ try {
         waitUntil: "domcontentloaded",
         timeout: timeoutMs,
       });
-      await page.waitForTimeout(350);
+
+      // Home starts with a hydration skeleton for a few hundred milliseconds.
+      // Audit the settled UI rather than failing on that intentionally transient frame.
+      await page.locator("main").first().waitFor({ state: "attached", timeout: 2_000 }).catch(() => {});
+      await page.waitForTimeout(100);
 
       const metrics = await page.evaluate(() => {
         const root = document.documentElement;
