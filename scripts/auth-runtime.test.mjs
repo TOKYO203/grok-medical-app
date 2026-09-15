@@ -32,6 +32,17 @@ test("Vercel deployments derive a HTTPS Better Auth origin only when a deployed 
   assert.match(authServer, /platformTrustedOrigins/);
 });
 
+test("Better Auth rate limiting trusts only platform-owned or explicitly opted-in client IP headers", () => {
+  assert.match(authServer, /authIpAddressHeaders/);
+  assert.match(authServer, /env\("VERCEL"\) === "1"/);
+  assert.match(authServer, /x-vercel-forwarded-for/);
+  assert.match(authServer, /env\("NETLIFY"\) === "true"/);
+  assert.match(authServer, /x-nf-client-connection-ip/);
+  assert.match(authServer, /env\("TRUST_PROXY_HEADERS"\) === "true"/);
+  assert.match(authServer, /\["x-forwarded-for"\]/);
+  assert.match(authServer, /ipAddress:\s*\{\s*ipAddressHeaders:\s*authIpAddressHeaders\s*\}/);
+});
+
 test("authenticated PGLite previews include Better Auth schema without duplicating a copied root migration", () => {
   assert.match(dbSource, /import\.meta\.glob\("\/migrations\/auth\/\*\.sql"/);
   assert.match(dbSource, /process\.env\.VITE_AUTH_ENABLED !== "false"/);
