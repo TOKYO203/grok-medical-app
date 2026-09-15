@@ -174,7 +174,7 @@ function CompactToggle({
       title={title}
       onClick={onClick}
       className={cn(
-        "flex size-8 items-center justify-center rounded-[9px] text-muted transition-[background-color,color,transform] active:scale-95",
+        "flex size-9 items-center justify-center rounded-[10px] text-muted transition-[background-color,color,transform] active:scale-95",
         pressed && "bg-primary-soft text-primary",
       )}
     >
