@@ -23,7 +23,6 @@ import {
   Star,
   Stethoscope,
   Trophy,
-  UserRound,
   type LucideIcon,
 } from "lucide-react";
 import { Page, SectionTitle, Shell } from "@/components/shell";
@@ -101,6 +100,7 @@ function ProfilPage() {
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
   const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
+  const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
 
   const level = levelInfo(xp);
   const league = currentLeague(weeklyXp);
@@ -150,9 +150,11 @@ function ProfilPage() {
           if (previous) URL.revokeObjectURL(previous);
           return createdUrl;
         });
+        setCoverStorageError(null);
       } catch (error) {
-        // Keep the legacy in-store data as a compatibility fallback if IndexedDB
-        // is unavailable or the old payload cannot be migrated safely.
+        // Keep an already-existing legacy in-store image as a compatibility
+        // fallback if IndexedDB is unavailable. New images are never written
+        // back to localStorage as base64.
         console.warn("[profile-cover] IndexedDB restore deferred", error);
       }
     };
@@ -165,6 +167,7 @@ function ProfilPage() {
   }, [profile.cover, profile.coverDataUrl, profile.optimusId, update]);
 
   function onCoverFile(file: File) {
+    setCoverStorageError(null);
     const reader = new FileReader();
     reader.onload = () => {
       const image = new Image();
@@ -195,14 +198,23 @@ function ProfilPage() {
                   if (previous) URL.revokeObjectURL(previous);
                   return nextUrl;
                 });
+                setCoverStorageError(null);
                 update({ cover: "custom", coverDataUrl: null });
               })
               .catch((error) => {
-                console.warn("[profile-cover] IndexedDB save failed; using compatibility fallback", error);
-                update({
-                  cover: "custom",
-                  coverDataUrl: canvas.toDataURL("image/jpeg", 0.72),
+                console.warn("[profile-cover] IndexedDB save failed", error);
+                const sessionUrl = URL.createObjectURL(blob);
+                setCustomCoverUrl((previous) => {
+                  if (previous) URL.revokeObjectURL(previous);
+                  return sessionUrl;
                 });
+                // Never persist a newly-created base64 payload to localStorage.
+                // Keep the preview in memory for this tab and tell the user that
+                // the device could not retain it for the next launch.
+                update({ cover: "custom", coverDataUrl: null });
+                setCoverStorageError(
+                  "La photo est affichée pour cette session, mais cet appareil n’a pas pu l’enregistrer durablement.",
+                );
               });
           },
           "image/jpeg",
@@ -215,6 +227,7 @@ function ProfilPage() {
   }
 
   function chooseBuiltInCover(coverId: CoverId) {
+    setCoverStorageError(null);
     setCustomCoverUrl((previous) => {
       if (previous) URL.revokeObjectURL(previous);
       return null;
@@ -405,6 +418,11 @@ function ProfilPage() {
                 }}
               />
             </label>
+            {coverStorageError ? (
+              <p className="mt-2 text-xs leading-relaxed text-danger" role="status">
+                {coverStorageError}
+              </p>
+            ) : null}
             <Button className="mt-5 w-full" onClick={finishEditing}>
               Enregistrer les modifications
             </Button>
