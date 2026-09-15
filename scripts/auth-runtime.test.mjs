@@ -55,8 +55,10 @@ test("login UI gates providers on server readiness and keeps a local fallback", 
 });
 
 test("Gate session bootstrap is HTTP-only and uses Better Auth cookie APIs", () => {
-  assert.match(gateSession, /middlewares:\s*\[/);
-  assert.match(gateSession, /path:\s*"\/get-session"/);
+  assert.match(gateSession, /hooks:\s*\{/);
+  assert.match(gateSession, /before:\s*\[/);
+  assert.match(gateSession, /ctx\.path === "\/get-session"/);
+  assert.match(gateSession, /Boolean\(ctx\.request\)/);
   assert.match(gateSession, /ctx\.setSignedCookie/);
   assert.match(gateSession, /ctx\.setCookie/);
   assert.doesNotMatch(gateSession, /@tanstack\/react-start\/server/);
