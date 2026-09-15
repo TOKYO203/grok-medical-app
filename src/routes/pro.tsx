@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { KeyRound, PackageCheck, ShieldCheck } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useOptimus } from "@/state/store";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
+import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
+import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/pro")({
@@ -29,12 +32,31 @@ function ProPage() {
   const activateLicense = useOptimus((s) => s.activateLicense);
   const entitlements = useOptimus((s) => s.entitlements);
   const addContact = useOptimus((s) => s.addContact);
-  const upsertPurchase = useOptimus((s) => s.upsertPurchase);
   const purchases = useOptimus((s) => s.purchases);
+  const { user, isPending } = useCurrentUserState();
   const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
+
+  useEffect(() => {
+    if (isPending || !user || user.isDevFallback) return;
+    let disposed = false;
+    const refresh = async () => {
+      try {
+        const serverPurchases = await listPremiumPurchaseOrders();
+        if (!disposed) replacePurchaseCache(serverPurchases);
+      } catch (error) {
+        console.warn("[purchases] server refresh deferred; keeping offline cache", error);
+      }
+    };
+    void refresh();
+    window.addEventListener("online", refresh);
+    return () => {
+      disposed = true;
+      window.removeEventListener("online", refresh);
+    };
+  }, [isPending, user?.id, user?.isDevFallback]);
 
   async function activate() {
     setActivating(true);
@@ -76,8 +98,8 @@ function ProPage() {
           </Link>
         </div>
         <p className="mt-2 text-sm text-muted">
-          Payez localement par Mobile Money, puis choisissez la façon dont vous souhaitez recevoir
-          votre contenu.
+          Les cours restent utilisables hors ligne. Les commandes et leurs statuts sont validés par
+          le serveur, tandis que vos clés privées restent uniquement sur cet appareil.
         </p>
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
@@ -86,7 +108,7 @@ function ProPage() {
               initialPurchase={initialPurchase}
               initialSpecialty={specialty}
               onRemember={(message) => addContact("deck", message)}
-              onPurchaseStatus={upsertPurchase}
+              onPurchaseUpdated={cacheServerPurchase}
             />
 
             <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
@@ -157,17 +179,18 @@ function ProPage() {
 
             <p className="flex items-start gap-2 text-xs leading-relaxed text-subtle">
               <ShieldCheck className="mt-0.5 size-4 shrink-0" />
-              Aucun accès Premium ne peut désormais être activé par un simple bouton de
-              démonstration.
+              Un statut commercial ou un droit Premium ne peut pas être créé par une simple
+              modification locale de l’application.
             </p>
           </div>
         ) : (
           <p className="mt-6 text-sm">
-            Pro est actif. Les decks premium sont déverrouillés hors-ligne.
+            Pro est actif. Les Decks Premium déjà validés restent accessibles hors ligne sur cet
+            appareil.
           </p>
         )}
         <p className="mt-6 text-xs text-subtle">
-          Statut : {profile.tier}. Droits actifs : {entitlements.map((e) => e.product).join(", ")}.
+          Statut local vérifié : {profile.tier}. Droits actifs : {entitlements.map((e) => e.product).join(", ")}.
         </p>
         <Link to="/soutenir" className="mt-6 inline-block text-sm text-muted hover:text-fg">
           Ce n’est pas un don — pour soutenir Fetra, voir Soutenir le développeur →
