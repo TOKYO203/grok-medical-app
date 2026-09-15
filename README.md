@@ -84,7 +84,14 @@ Variables serveur à configurer dans le gestionnaire de secrets du déploiement 
 
 - `CONTENT_EDITOR_USER_IDS` : identifiants Better Auth autorisés à administrer les publications et enquêtes, séparés par des virgules. Ne jamais utiliser une valeur générique ou un identifiant fourni par le client.
 - `RESPONSE_SALT` : secret aléatoire long utilisé uniquement côté serveur pour pseudonymiser l'adresse IP de l'anti-doublon des enquêtes. Il est obligatoire en production ; aucun `default_salt` n'est accepté.
+- `RATE_LIMIT_SALT` : secret aléatoire serveur distinct utilisé pour pseudonymiser les sujets des quotas API avant leur stockage dans `api_rate_limits`. Il est obligatoire en production.
+- `TRUST_PROXY_HEADERS` : laisser absent/`false` par défaut. Mettre `true` uniquement lorsque la plateforme de déploiement supprime les headers de forwarding fournis par le client et réinjecte ses propres valeurs de confiance.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `SUPABASE_PUBLIC_BUCKET` : configuration du stockage éditorial. La clé de service reste strictement côté serveur ; le client ne choisit jamais le bucket.
+
+Les quotas sont persistés en PostgreSQL/PGLite afin de rester cohérents entre plusieurs instances :
+activation Premium, soumission d'enquêtes, création/modification de publications, création
+d'enquêtes et uploads éditoriaux sont limités. Les réponses bloquées utilisent HTTP `429` et
+`Retry-After` lorsqu'un délai est nécessaire.
 
 Les uploads éditoriaux sont limités à 8 Mo et aux formats PDF, JPEG, PNG et WebP avec contrôle
 d'extension, type déclaré et signature de fichier.
