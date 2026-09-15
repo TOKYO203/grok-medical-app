@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useExperiencePreferences } from "@/components/experience-controls";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 
 export function ExperienceMotionBridge() {
   const { preferences } = useExperiencePreferences();
