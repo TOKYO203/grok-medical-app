@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 import { existsSync, readdirSync, statSync } from "node:fs";
-import { resolve } from "node:path";
+import { relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const PERFORMANCE_BUDGET = Object.freeze({
   maxJavascriptChunkBytes: 400 * 1024,
   maxStylesheetBytes: 100 * 1024,
   maxTotalJavascriptBytes: 1536 * 1024,
+  maxPublicAssetBytes: 512 * 1024,
+  maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });
 
 const ASSET_DIR_CANDIDATES = [
@@ -17,11 +19,81 @@ const ASSET_DIR_CANDIDATES = [
 ];
 
 export function findAssetDirectory(root = process.cwd()) {
-  for (const relative of ASSET_DIR_CANDIDATES) {
-    const absolute = resolve(root, relative);
+  for (const relativePath of ASSET_DIR_CANDIDATES) {
+    const absolute = resolve(root, relativePath);
     if (existsSync(absolute) && statSync(absolute).isDirectory()) return absolute;
   }
   return null;
+}
+
+function collectFiles(directory) {
+  const files = [];
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const absolute = resolve(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...collectFiles(absolute));
+    } else if (entry.isFile()) {
+      files.push({
+        name: relative(directory, absolute) || entry.name,
+        absolute,
+        bytes: statSync(absolute).size,
+      });
+    }
+  }
+  return files;
+}
+
+export function inspectPublicAssetBudget(publicDirectory, budget = PERFORMANCE_BUDGET) {
+  if (!existsSync(publicDirectory) || !statSync(publicDirectory).isDirectory()) {
+    return {
+      ok: true,
+      totalPublicAssetBytes: 0,
+      publicAssetFiles: 0,
+      largestPublicAssets: [],
+      violations: [],
+    };
+  }
+
+  const files = [];
+  const walk = (directory) => {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const absolute = resolve(directory, entry.name);
+      if (entry.isDirectory()) {
+        walk(absolute);
+      } else if (entry.isFile()) {
+        files.push({
+          name: relative(publicDirectory, absolute),
+          bytes: statSync(absolute).size,
+        });
+      }
+    }
+  };
+  walk(publicDirectory);
+
+  const totalPublicAssetBytes = files.reduce((sum, file) => sum + file.bytes, 0);
+  const violations = [];
+
+  for (const file of files) {
+    if (file.bytes > budget.maxPublicAssetBytes) {
+      violations.push(
+        `${file.name}: public asset ${formatBytes(file.bytes)} exceeds ${formatBytes(budget.maxPublicAssetBytes)}`,
+      );
+    }
+  }
+
+  if (totalPublicAssetBytes > budget.maxTotalPublicAssetBytes) {
+    violations.push(
+      `total public assets ${formatBytes(totalPublicAssetBytes)} exceeds ${formatBytes(budget.maxTotalPublicAssetBytes)}`,
+    );
+  }
+
+  return {
+    ok: violations.length === 0,
+    totalPublicAssetBytes,
+    publicAssetFiles: files.length,
+    largestPublicAssets: [...files].sort((a, b) => b.bytes - a.bytes).slice(0, 5),
+    violations,
+  };
 }
 
 export function inspectPerformanceBudget(assetDirectory, budget = PERFORMANCE_BUDGET) {
@@ -74,7 +146,8 @@ function formatBytes(bytes) {
 }
 
 function main() {
-  const assetDirectory = findAssetDirectory();
+  const root = process.cwd();
+  const assetDirectory = findAssetDirectory(root);
   if (!assetDirectory) {
     console.error(
       "[performance-budget] client asset directory not found after build; refusing to skip the budget gate.",
@@ -83,13 +156,23 @@ function main() {
     return;
   }
 
-  const report = inspectPerformanceBudget(assetDirectory);
+  const clientReport = inspectPerformanceBudget(assetDirectory);
+  const publicReport = inspectPublicAssetBudget(resolve(root, "public"));
+  const violations = [...clientReport.violations, ...publicReport.violations];
+  const report = {
+    ...clientReport,
+    ok: violations.length === 0,
+    violations,
+    publicAssets: publicReport,
+  };
+
   console.log(
     JSON.stringify(
       {
         ...report,
         assetDirectory,
         totalJavascript: formatBytes(report.totalJavascriptBytes),
+        totalPublicAssets: formatBytes(publicReport.totalPublicAssetBytes),
       },
       null,
       2,
