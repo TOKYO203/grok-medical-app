@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Check, Flame, X } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
-import { useExperiencePreferences } from "@/components/experience-controls";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
 import { emitExperienceFeedback } from "@/lib/experience-feedback";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 
 export type QuizItem = {
