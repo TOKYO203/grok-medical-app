@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, ClipboardList, Home, RotateCcw, UserRound } from "lucide-react";
 import { Wordmark } from "@/components/brand/marks";
-import { ExperienceControls } from "@/components/experience-controls";
+import { ExperienceControls, useExperiencePreferences } from "@/components/experience-controls";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -15,6 +15,8 @@ const NAV = [
 
 export function Shell({ children, title }: { children: ReactNode; title?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { preferences } = useExperiencePreferences();
+
   return (
     <div className="min-h-dvh text-fg">
       <div className="mx-auto flex min-h-dvh max-w-6xl">
@@ -31,20 +33,21 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                   key={item.to}
                   to={item.to}
                   className={cn(
-                    "flex h-11 items-center gap-3 rounded-[var(--radius-md)] px-3 text-sm font-medium transition-colors duration-150",
+                    "relative flex h-11 items-center gap-3 overflow-hidden rounded-[var(--radius-md)] px-3 text-sm font-medium transition-[background-color,color,transform] duration-150 active:scale-[0.99]",
                     active
                       ? "bg-primary-soft text-primary shadow-[var(--shadow-border)]"
                       : "text-muted hover:bg-secondary hover:text-fg",
+                    preferences.enhancedMotion && active && "optimus-nav-active",
                   )}
                 >
-                  <Icon className="size-4" strokeWidth={1.75} />
-                  {item.label}
+                  <Icon className="relative z-10 size-4" strokeWidth={1.75} />
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
               );
             })}
           </nav>
           <div className="mb-3">
-            <ExperienceControls />
+            <ExperienceControls compact />
           </div>
           <p className="px-3 text-[11px] uppercase tracking-[0.16em] text-subtle">
             Made in Madagascar
@@ -72,13 +75,14 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               key={item.to}
               to={item.to}
               className={cn(
-                "flex min-h-14 flex-col items-center justify-center gap-1 rounded-[16px] text-[11px] font-medium transition-colors",
+                "relative flex min-h-14 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[11px] font-medium transition-[background-color,color,transform] active:scale-[0.98]",
                 active ? "bg-primary-soft text-primary" : "text-muted",
+                preferences.enhancedMotion && active && "optimus-nav-active",
               )}
               aria-current={active ? "page" : undefined}
             >
-              <Icon className="size-5" strokeWidth={active ? 2 : 1.7} />
-              {item.label}
+              <Icon className="relative z-10 size-5" strokeWidth={active ? 2 : 1.7} />
+              <span className="relative z-10">{item.label}</span>
             </Link>
           );
         })}
