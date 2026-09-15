@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   migrateOptimusPersistedState,
   OPTIMUS_PERSIST_VERSION,
-} from "./persist-migrations";
+} from "./persist-migrations.ts";
 
 test("legacy unversioned Optimus state keeps XP, progress and learner profile", () => {
   const legacy = {
