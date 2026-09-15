@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, ClipboardList, Home, RotateCcw, UserRound } from "lucide-react";
 import { Wordmark } from "@/components/brand/marks";
-import { ExperienceControls, useExperiencePreferences } from "@/components/experience-controls";
+import { ExperienceControls } from "@/components/experience-controls";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 
 const NAV = [
