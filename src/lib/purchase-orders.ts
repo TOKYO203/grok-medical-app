@@ -79,6 +79,10 @@ type PurchaseRow = {
   proof_digest: string | null;
 };
 
+type SqlClient = {
+  query: <T = Record<string, unknown>>(text: string, params?: unknown[]) => Promise<T[]>;
+};
+
 export type PremiumPaymentInstructions = {
   configured: boolean;
   provider: string | null;
@@ -131,12 +135,13 @@ function purchaseAdmins(): Set<string> {
 }
 
 function requirePurchaseAdmin(userId: string): void {
-  if (!purchaseAdmins().has(userId)) {
-    throw new Error("Forbidden");
-  }
+  if (!purchaseAdmins().has(userId)) throw new Error("Forbidden");
 }
 
-function paymentConfiguration(): Omit<PremiumPaymentInstructions, "amount" | "orderReference" | "product"> {
+function paymentConfiguration(): Omit<
+  PremiumPaymentInstructions,
+  "amount" | "orderReference" | "product"
+> {
   const provider = process.env.MOBILE_MONEY_PROVIDER?.trim() || null;
   const destination = process.env.MOBILE_MONEY_NUMBER?.trim() || null;
   const accountName = process.env.MOBILE_MONEY_ACCOUNT_NAME?.trim() || null;
@@ -165,8 +170,26 @@ function duplicatePaymentEvidence(error: unknown): boolean {
   );
 }
 
+async function ownedPurchase(sql: SqlClient, reference: string, userId: string) {
+  const rows = await sql.query<PurchaseRow>(
+    `select * from purchase_orders
+     where reference = $1 and user_id = $2
+     limit 1`,
+    [reference, userId],
+  );
+  return rows[0];
+}
+
+async function purchaseByReference(sql: SqlClient, reference: string) {
+  const rows = await sql.query<PurchaseRow>(
+    "select * from purchase_orders where reference = $1 limit 1",
+    [reference],
+  );
+  return rows[0];
+}
+
 async function auditEvent(
-  sql: { query: <T = Record<string, unknown>>(text: string, params?: unknown[]) => Promise<T[]> },
+  sql: SqlClient,
   reference: string,
   actorUserId: string,
   eventType: PurchaseStatus,
@@ -249,6 +272,16 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const row = rows[0];
     if (!row) throw new Error("La commande n'a pas pu être créée.");
 
+    const canonicalOrder: PremiumOrder = {
+      reference: row.reference,
+      offer: data.offer,
+      specialty: data.specialty,
+      deckNumber: data.deckNumber,
+    };
+    if (row.product !== orderProduct(canonicalOrder)) {
+      throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
+    }
+
     if (row.reference === reference) {
       await auditEvent(sql, row.reference, context.userId, "created", {
         product: row.product,
@@ -279,11 +312,7 @@ export const getPremiumPaymentInstructions = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
-    const rows = await sql.query<PurchaseRow>(
-      `select * from purchase_orders where reference = $1 and user_id = $2 limit 1`,
-      [data.reference, context.userId],
-    );
-    let current = rows[0];
+    let current = await ownedPurchase(sql, data.reference, context.userId);
     if (!current) throw new Error("Commande introuvable.");
     if (["delivered", "rejected", "refunded"].includes(current.status)) {
       throw new Error("Cette commande est déjà clôturée.");
@@ -300,21 +329,25 @@ export const getPremiumPaymentInstructions = createServerFn({ method: "POST" })
 
     if (current.status === "created") {
       const updated = await sql.query<PurchaseRow>(
-        `update purchase_orders
-            set status = 'instructions_requested',
-                payment_provider = $3,
-                updated_at = now()
-          where reference = $1 and user_id = $2 and status = 'created'
-          returning *`,
+        `with updated as (
+           update purchase_orders
+              set status = 'instructions_requested',
+                  payment_provider = $3,
+                  updated_at = now()
+            where reference = $1 and user_id = $2 and status = 'created'
+            returning *
+         ), event as (
+           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+           select reference, $2, 'instructions_requested', jsonb_build_object('provider', $3::text)
+             from updated
+         )
+         select * from updated`,
         [current.reference, context.userId, config.provider],
       );
-      current = updated[0] ?? current;
-      if (current.status === "instructions_requested") {
-        await auditEvent(sql, current.reference, context.userId, "instructions_requested", {
-          provider: config.provider,
-        });
-      }
+      current = updated[0] ?? (await ownedPurchase(sql, data.reference, context.userId));
+      if (!current) throw new Error("Commande introuvable.");
     }
+
     return { purchase: toPurchase(current), instructions };
   });
 
@@ -324,27 +357,19 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
-
-    const rows = await sql.query<PurchaseRow>(
-      `select * from purchase_orders
-       where reference = $1 and user_id = $2
-       limit 1`,
-      [data.reference, context.userId],
-    );
-    const current = rows[0];
+    const current = await ownedPurchase(sql, data.reference, context.userId);
     if (!current) throw new Error("Commande introuvable.");
     if (["payment_verified", "delivered", "rejected", "refunded"].includes(current.status)) {
       return toPurchase(current);
     }
+    if (current.status === data.status) return toPurchase(current);
 
-    const allowedNext: Record<string, readonly PurchaseStatus[]> = {
-      created: ["instructions_requested"],
-      instructions_requested: ["proof_ready"],
-      proof_ready: ["verification_pending"],
-      verification_pending: [],
+    const expectedStatus: Record<string, PurchaseStatus> = {
+      instructions_requested: "created",
+      proof_ready: "instructions_requested",
+      verification_pending: "proof_ready",
     };
-    const allowed = allowedNext[current.status] ?? [];
-    if (current.status !== data.status && !allowed.includes(data.status)) {
+    if (current.status !== expectedStatus[data.status]) {
       throw new Error("Transition de commande invalide.");
     }
 
@@ -378,22 +403,40 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
 
     try {
       const updated = await sql.query<PurchaseRow>(
-        `update purchase_orders
-            set status = $3,
-                proof_attached = proof_attached or $4,
-                device_id = coalesce($5, device_id),
-                device_key_id = coalesce($6, device_key_id),
-                device_public_key = coalesce($7, device_public_key),
-                payment_provider = coalesce(payment_provider, $8),
-                payment_reference = coalesce(payment_reference, $9),
-                proof_digest = coalesce(proof_digest, $10),
-                payment_submitted_at = case
-                  when $3 = 'verification_pending' then coalesce(payment_submitted_at, now())
-                  else payment_submitted_at
-                end,
-                updated_at = now()
-          where reference = $1 and user_id = $2
-          returning *`,
+        `with updated as (
+           update purchase_orders
+              set status = $3,
+                  proof_attached = proof_attached or $4,
+                  device_id = coalesce($5, device_id),
+                  device_key_id = coalesce($6, device_key_id),
+                  device_public_key = coalesce($7, device_public_key),
+                  payment_provider = coalesce(payment_provider, $8),
+                  payment_reference = coalesce(payment_reference, $9),
+                  proof_digest = coalesce(proof_digest, $10),
+                  payment_submitted_at = case
+                    when $3 = 'verification_pending' then coalesce(payment_submitted_at, now())
+                    else payment_submitted_at
+                  end,
+                  updated_at = now()
+            where reference = $1
+              and user_id = $2
+              and status = $11
+            returning *
+         ), event as (
+           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+           select reference,
+                  $2,
+                  status,
+                  jsonb_build_object(
+                    'proofAttached', proof_attached,
+                    'proofDigest', proof_digest,
+                    'paymentProvider', payment_provider,
+                    'paymentReference', payment_reference,
+                    'deviceBound', (device_id is not null and device_key_id is not null and device_public_key is not null)
+                  )
+             from updated
+         )
+         select * from updated`,
         [
           data.reference,
           context.userId,
@@ -405,21 +448,16 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
           provider,
           paymentReference,
           proofDigest,
+          expectedStatus[data.status],
         ],
       );
       const next = updated[0];
-      if (!next) throw new Error("Commande introuvable.");
+      if (next) return toPurchase(next);
 
-      if (current.status !== next.status || (!current.proof_attached && next.proof_attached)) {
-        await auditEvent(sql, next.reference, context.userId, next.status, {
-          proofAttached: next.proof_attached,
-          proofDigest: next.proof_digest,
-          paymentProvider: next.payment_provider,
-          paymentReference: next.payment_reference,
-          deviceBound: Boolean(next.device_id && next.device_key_id && next.device_public_key),
-        });
-      }
-      return toPurchase(next);
+      const latest = await ownedPurchase(sql, data.reference, context.userId);
+      if (!latest) throw new Error("Commande introuvable.");
+      if (latest.status === data.status) return toPurchase(latest);
+      throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
     } catch (error) {
       if (duplicatePaymentEvidence(error)) {
         throw new Error("Cette référence ou cette preuve de paiement est déjà liée à une autre commande.");
@@ -459,13 +497,22 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
     requirePurchaseAdmin(context.userId);
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
-
-    const rows = await sql.query<PurchaseRow>(
-      "select * from purchase_orders where reference = $1 limit 1",
-      [data.reference],
-    );
-    const current = rows[0];
+    const current = await purchaseByReference(sql, data.reference);
     if (!current) throw new Error("Commande introuvable.");
+
+    if (current.status === data.decision) {
+      let revokedLicenses = 0;
+      if (data.decision === "refunded") {
+        const count = await sql.query<{ count: number | string }>(
+          `select count(*)::int as count
+             from activation_keys
+            where purchase_reference = $1 and revoked_at is not null`,
+          [data.reference],
+        );
+        revokedLicenses = Number(count[0]?.count ?? 0);
+      }
+      return { purchase: toPurchase(current), revokedLicenses };
+    }
 
     if (data.decision === "payment_verified") {
       if (current.status !== "verification_pending") {
@@ -490,42 +537,87 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
       throw new Error("Une commande déjà livrée ou remboursée ne peut pas être rejetée.");
     }
 
+    if (data.decision === "refunded") {
+      const refunded = await sql.query<PurchaseRow & { revoked_licenses: number | string }>(
+        `with updated as (
+           update purchase_orders
+              set status = 'refunded',
+                  refunded_at = coalesce(refunded_at, now()),
+                  updated_at = now()
+            where reference = $1 and status = 'delivered'
+            returning *
+         ), revoked as (
+           update activation_keys
+              set revoked_at = coalesce(revoked_at, now())
+            where purchase_reference in (select reference from updated)
+              and revoked_at is null
+            returning id
+         ), event as (
+           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+           select reference,
+                  $2,
+                  'refunded',
+                  jsonb_build_object(
+                    'note', $3::text,
+                    'revokedLicenses', (select count(*) from revoked)
+                  )
+             from updated
+         )
+         select updated.*, (select count(*) from revoked)::int as revoked_licenses
+           from updated`,
+        [data.reference, context.userId, data.note ?? null],
+      );
+      const next = refunded[0];
+      if (next) {
+        return {
+          purchase: toPurchase(next),
+          revokedLicenses: Number(next.revoked_licenses ?? 0),
+        };
+      }
+
+      const latest = await purchaseByReference(sql, data.reference);
+      if (!latest) throw new Error("Commande introuvable.");
+      if (latest.status === "refunded") {
+        const count = await sql.query<{ count: number | string }>(
+          `select count(*)::int as count
+             from activation_keys
+            where purchase_reference = $1 and revoked_at is not null`,
+          [data.reference],
+        );
+        return { purchase: toPurchase(latest), revokedLicenses: Number(count[0]?.count ?? 0) };
+      }
+      throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
+    }
+
+    const expectedStatus = current.status;
     const timestampColumn =
       data.decision === "payment_verified"
         ? "payment_verified_at"
         : data.decision === "delivered"
           ? "delivered_at"
-          : data.decision === "rejected"
-            ? "rejected_at"
-            : "refunded_at";
+          : "rejected_at";
+
     const updated = await sql.query<PurchaseRow>(
-      `update purchase_orders
-          set status = $2,
-              ${timestampColumn} = coalesce(${timestampColumn}, now()),
-              updated_at = now()
-        where reference = $1
-        returning *`,
-      [data.reference, data.decision],
+      `with updated as (
+         update purchase_orders
+            set status = $2,
+                ${timestampColumn} = coalesce(${timestampColumn}, now()),
+                updated_at = now()
+          where reference = $1 and status = $4
+          returning *
+       ), event as (
+         insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+         select reference, $3, status, jsonb_build_object('note', $5::text)
+           from updated
+       )
+       select * from updated`,
+      [data.reference, data.decision, context.userId, expectedStatus, data.note ?? null],
     );
     const next = updated[0];
-    if (!next) throw new Error("Commande introuvable.");
+    if (next) return { purchase: toPurchase(next), revokedLicenses: 0 };
 
-    let revokedLicenses = 0;
-    if (data.decision === "refunded") {
-      const revoked = await sql.query<{ id: string }>(
-        `update activation_keys
-            set revoked_at = coalesce(revoked_at, now())
-          where purchase_reference = $1
-            and revoked_at is null
-          returning id`,
-        [next.reference],
-      );
-      revokedLicenses = revoked.length;
-    }
-
-    await auditEvent(sql, next.reference, context.userId, data.decision, {
-      note: data.note ?? null,
-      revokedLicenses,
-    });
-    return { purchase: toPurchase(next), revokedLicenses };
+    const latest = await purchaseByReference(sql, data.reference);
+    if (!latest) throw new Error("Commande introuvable.");
+    if (latest.status === data.decision) return { purchase: toPurchase(latest), revokedLicenses: 0 };
+    throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
   });
