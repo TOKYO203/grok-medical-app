@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, ClipboardList, Home, RotateCcw, UserRound } from "lucide-react";
 import { Wordmark } from "@/components/brand/marks";
+import { ExperienceControls } from "@/components/experience-controls";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -42,14 +43,18 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               );
             })}
           </nav>
+          <div className="mb-3">
+            <ExperienceControls />
+          </div>
           <p className="px-3 text-[11px] uppercase tracking-[0.16em] text-subtle">
             Made in Madagascar
           </p>
         </aside>
         <div className="flex min-w-0 flex-1 flex-col pb-24 md:pb-0">
           {title ? (
-            <header className="sticky top-0 z-20 flex h-14 items-center border-b border-border bg-bg/75 px-5 backdrop-blur-xl md:hidden">
+            <header className="sticky top-0 z-20 flex h-14 items-center justify-between gap-3 border-b border-border bg-bg/75 px-5 backdrop-blur-xl md:hidden">
               <h1 className="font-display text-lg font-medium tracking-tight">{title}</h1>
+              <ExperienceControls compact />
             </header>
           ) : null}
           {children}
