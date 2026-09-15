@@ -60,11 +60,13 @@ const PURCHASE_DATE = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" });
 function PurchasesPage() {
   const purchases = useOptimus((state) => state.purchases);
   const { user, isPending } = useCurrentUserState();
+  const userId = user?.id ?? null;
+  const userIsDevFallback = user?.isDevFallback ?? false;
   const [refreshing, setRefreshing] = useState(false);
   const [serverReachable, setServerReachable] = useState<boolean | null>(null);
 
   useEffect(() => {
-    if (isPending || !user || user.isDevFallback) return;
+    if (isPending || !userId || userIsDevFallback) return;
     let disposed = false;
     const refresh = async () => {
       if (!disposed) setRefreshing(true);
@@ -87,7 +89,7 @@ function PurchasesPage() {
       disposed = true;
       window.removeEventListener("online", refresh);
     };
-  }, [isPending, user?.id, user?.isDevFallback]);
+  }, [isPending, userId, userIsDevFallback]);
 
   const orderedPurchases = [...purchases].sort((a, b) => b.updatedAt - a.updatedAt);
   const delivered = purchases.filter((purchase) => purchase.status === "delivered").length;
