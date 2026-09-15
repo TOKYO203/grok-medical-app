@@ -17,11 +17,9 @@ type GateAccount = Parameters<typeof handleOAuthUserInfo>[1]["account"];
 type GateMiddlewareContext = Parameters<Parameters<typeof createAuthMiddleware>[0]>[0];
 
 /**
- * Emit the signed Better Auth session cookie.
- *
- * This deliberately uses Better Auth's own cookie API. The Gate bootstrap is a
- * Better Auth HTTP middleware, so framework-specific TanStack cookie helpers are
- * neither required nor safe when Nitro owns the request runtime.
+ * Emit the signed Better Auth session cookie on the current HTTP response.
+ * Better Auth's hook dispatcher preserves headers set through the context, so
+ * no framework-specific TanStack cookie helper is required here.
  */
 async function emitSessionCookie(
   ctx: GateMiddlewareContext,
@@ -45,9 +43,7 @@ async function emitSessionCookie(
       sessionTokenName,
     )?.value;
     if (!sessionValue) {
-      console.error(`${LOG} signed Set-Cookie missing session token value`, {
-        cookiePreview: signedCookie.slice(0, 120),
-      });
+      console.error(`${LOG} signed Set-Cookie missing session token value`);
       return false;
     }
     return true;
@@ -76,135 +72,131 @@ function expireSessionDataCookie(
 export function gateIdentitySessions() {
   return {
     id: "grok-gate-identity",
+    hooks: {
+      before: [
+        {
+          // Better Auth runs before hooks for both HTTP router traffic and direct
+          // auth.api.* calls. Direct calls have no Request object; requiring one
+          // keeps Gate session minting strictly browser-facing while preserving
+          // server-side auth.api.getSession() as a read-only authorization check.
+          matcher: (ctx: { path?: string; request?: Request }) =>
+            ctx.path === "/get-session" && Boolean(ctx.request),
+          handler: createAuthMiddleware(async (ctx) => {
+            if (!gateIdentityEnabled()) return;
+            const inbound = ctx.request?.headers;
+            if (!inbound) return;
 
-    // Middleware is intentionally used instead of a before hook. Better Auth
-    // middlewares run for real API requests from a client but not when a Nitro
-    // route calls auth.api.getSession() directly. That keeps session creation a
-    // browser-facing action and prevents server-side authorization checks from
-    // minting sessions that cannot be returned to the client.
-    middlewares: [
-      {
-        path: "/get-session",
-        middleware: createAuthMiddleware(async (ctx) => {
-          if (!gateIdentityEnabled()) return;
-          const inbound = ctx.request?.headers ?? ctx.headers;
-          if (!inbound) {
-            console.error(`${LOG} no request headers on /get-session`);
-            return;
-          }
-          // Bearer auth (live-preview popup) already carries a session — leave it alone.
-          if (inbound.get("authorization")) return;
-          if (!inbound.get(GATE_IDENTITY_HEADER)) return;
+            // Bearer auth already carries a session and must remain untouched.
+            if (inbound.get("authorization")) return;
+            if (!inbound.get(GATE_IDENTITY_HEADER)) return;
 
-          const identity = await gateIdentityFromHeaders(inbound);
-          if (!identity) {
-            console.error(
-              `${LOG} ${GATE_IDENTITY_HEADER} present but verification failed`,
-            );
-            return;
-          }
-
-          const sessionCookieName = ctx.context.authCookies.sessionToken.name;
-          const cookieHeader = inbound.get("cookie") ?? "";
-          if (cookieHeader.includes(`${sessionCookieName}=`)) {
-            const existing = await getSessionFromCtx(ctx).catch((err) => {
-              console.error(`${LOG} getSessionFromCtx failed`, err);
-              return null;
-            });
-            if (existing?.session && existing.user) {
-              const accounts = await ctx.context.internalAdapter
-                .findAccounts(existing.user.id)
-                .catch((err) => {
-                  console.error(`${LOG} findAccounts failed`, err);
-                  return null;
-                });
-              if (!accounts) {
-                console.error(
-                  `${LOG} could not load accounts for existing session user`,
-                  { userId: existing.user.id },
-                );
-                return;
-              }
-              if (
-                sessionBoundToGateIdentity(
-                  accounts,
-                  identity.sub,
-                  GATE_PROVIDER_ID,
-                )
-              ) {
-                // Already signed in as this gate identity — let the normal
-                // get-session endpoint return its canonical session payload.
-                return;
-              }
-              await ctx.context.internalAdapter
-                .deleteSession(existing.session.token)
-                .catch((err) => {
-                  console.error(
-                    `${LOG} deleteSession (stale non-gate session) failed`,
-                    err,
-                  );
-                  return null;
-                });
-            }
-          }
-
-          try {
-            const result = await handleOAuthUserInfo(ctx, {
-              userInfo: {
-                id: identity.sub,
-                email: (
-                  identity.email ?? `${identity.sub}@viewer.grok.invalid`
-                ).toLowerCase(),
-                emailVerified: Boolean(identity.email),
-                name: identity.name ?? "Grok user",
-              },
-              account: {
-                providerId: GATE_PROVIDER_ID,
-                issuer: GATE_ACCOUNT_ISSUER,
-                accountId: identity.sub,
-              } as GateAccount,
-            });
-            if (result.error || !result.data) {
-              console.error(`${LOG} handleOAuthUserInfo failed`, {
-                error: result.error,
-                hasData: Boolean(result.data),
-                sub: identity.sub,
-              });
-              return;
-            }
-
-            // handleOAuthUserInfo persists the user/account/session. Emit the
-            // session token through Better Auth's HTTP response cookie channel.
-            const cookieEmitted = await emitSessionCookie(
-              ctx,
-              sessionCookieName,
-              result.data.session.token,
-            );
-            if (!cookieEmitted) {
+            const identity = await gateIdentityFromHeaders(inbound);
+            if (!identity) {
               console.error(
-                `${LOG} session created in DB but cookie was not emitted`,
-                { userId: result.data.user.id },
+                `${LOG} ${GATE_IDENTITY_HEADER} present but verification failed`,
               );
               return;
             }
 
-            // A stale session_data cache may still describe the previous user.
-            expireSessionDataCookie(ctx, ctx.context.authCookies.sessionData);
+            const sessionCookieName = ctx.context.authCookies.sessionToken.name;
+            const cookieHeader = inbound.get("cookie") ?? "";
+            if (cookieHeader.includes(`${sessionCookieName}=`)) {
+              const existing = await getSessionFromCtx(ctx).catch((err) => {
+                console.error(`${LOG} getSessionFromCtx failed`, err);
+                return null;
+              });
+              if (existing?.session && existing.user) {
+                const accounts = await ctx.context.internalAdapter
+                  .findAccounts(existing.user.id)
+                  .catch((err) => {
+                    console.error(`${LOG} findAccounts failed`, err);
+                    return null;
+                  });
+                if (!accounts) {
+                  console.error(
+                    `${LOG} could not load accounts for existing session user`,
+                    { userId: existing.user.id },
+                  );
+                  return;
+                }
+                if (
+                  sessionBoundToGateIdentity(
+                    accounts,
+                    identity.sub,
+                    GATE_PROVIDER_ID,
+                  )
+                ) {
+                  // Existing session already belongs to this Gate identity. Let
+                  // Better Auth's normal get-session handler return it.
+                  return;
+                }
+                await ctx.context.internalAdapter
+                  .deleteSession(existing.session.token)
+                  .catch((err) => {
+                    console.error(
+                      `${LOG} deleteSession (stale non-gate session) failed`,
+                      err,
+                    );
+                    return null;
+                  });
+              }
+            }
 
-            // This is the first browser-facing /get-session request for this Gate
-            // identity. Returning the freshly persisted session here avoids a
-            // transient signed-out render and lets Better Auth include all cookie
-            // headers already accumulated by ctx.setSignedCookie / ctx.setCookie.
-            return ctx.json({
-              session: result.data.session,
-              user: result.data.user,
-            });
-          } catch (err) {
-            console.error(`${LOG} gate identity session middleware threw`, err);
-            return;
-          }
-        }),
-      },
-    ],
+            try {
+              const result = await handleOAuthUserInfo(ctx, {
+                userInfo: {
+                  id: identity.sub,
+                  email: (
+                    identity.email ?? `${identity.sub}@viewer.grok.invalid`
+                  ).toLowerCase(),
+                  emailVerified: Boolean(identity.email),
+                  name: identity.name ?? "Grok user",
+                },
+                account: {
+                  providerId: GATE_PROVIDER_ID,
+                  issuer: GATE_ACCOUNT_ISSUER,
+                  accountId: identity.sub,
+                } as GateAccount,
+              });
+              if (result.error || !result.data) {
+                console.error(`${LOG} handleOAuthUserInfo failed`, {
+                  error: result.error,
+                  hasData: Boolean(result.data),
+                  sub: identity.sub,
+                });
+                return;
+              }
+
+              const cookieEmitted = await emitSessionCookie(
+                ctx,
+                sessionCookieName,
+                result.data.session.token,
+              );
+              if (!cookieEmitted) {
+                console.error(
+                  `${LOG} session created in DB but cookie was not emitted`,
+                  { userId: result.data.user.id },
+                );
+                return;
+              }
+
+              // A stale session_data cache may still describe the previous user.
+              expireSessionDataCookie(ctx, ctx.context.authCookies.sessionData);
+
+              // Before hooks may short-circuit with a JSON response. Better Auth
+              // serializes the response together with all cookies accumulated on
+              // the hook context, so the first get-session round-trip is complete.
+              return ctx.json({
+                session: result.data.session,
+                user: result.data.user,
+              });
+            } catch (err) {
+              console.error(`${LOG} gate identity session hook threw`, err);
+              return;
+            }
+          }),
+        },
+      ],
+    },
   } satisfies BetterAuthPlugin;
 }
