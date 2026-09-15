@@ -80,6 +80,26 @@ function fail(message) {
   throw new Error(`[imported-deck-browser-smoke] ${message}`);
 }
 
+async function fillHydratedImportForm(page) {
+  const textarea = page.locator("textarea");
+  const validateButton = page.getByRole("button", { name: "Valider" });
+  await textarea.waitFor({ state: "visible", timeout: 10_000 });
+  await validateButton.waitFor({ state: "visible", timeout: 10_000 });
+
+  // The route is server-rendered first. Filling before React has attached its
+  // controlled-input handler can be overwritten by hydration, leaving the
+  // button disabled. Retry until the React state itself enables the button.
+  const deadline = Date.now() + 10_000;
+  while (Date.now() < deadline) {
+    await textarea.fill("");
+    await textarea.fill(sample);
+    await page.waitForTimeout(100);
+    if (await validateButton.isEnabled()) return validateButton;
+    await page.waitForTimeout(150);
+  }
+  fail("the import form never became interactive after hydration");
+}
+
 let browser;
 try {
   browser = await launchBrowser();
@@ -96,8 +116,8 @@ try {
     timeout: timeoutMs,
   });
   await page.locator("main").first().waitFor({ state: "attached", timeout: 5_000 });
-  await page.locator("textarea").fill(sample);
-  await page.getByRole("button", { name: "Valider" }).click();
+  const validateButton = await fillHydratedImportForm(page);
+  await validateButton.click();
   await page.getByText("Enregistré dans IndexedDB", { exact: false }).waitFor({
     state: "visible",
     timeout: 10_000,
