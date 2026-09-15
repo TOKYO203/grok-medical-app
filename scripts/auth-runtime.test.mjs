@@ -3,10 +3,11 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const [runtimeStatus, loginPage, authServer] = await Promise.all([
+const [runtimeStatus, loginPage, authServer, dbSource] = await Promise.all([
   read("../src/lib/auth/runtime-status.ts"),
   read("../src/routes/login.tsx"),
   read("../src/lib/auth/server.ts"),
+  read("../src/lib/db.ts"),
 ]);
 
 test("auth readiness only enables broker sign-in with credentials plus a public origin or sandbox preview", () => {
@@ -28,6 +29,13 @@ test("Vercel deployments derive a HTTPS Better Auth origin only when a deployed 
   assert.match(authServer, /vercelAutoBaseURL/);
   assert.match(authServer, /BETTER_AUTH_URL.*vercelAutoBaseURL/s);
   assert.match(authServer, /platformTrustedOrigins/);
+});
+
+test("authenticated PGLite previews include Better Auth schema without duplicating a copied root migration", () => {
+  assert.match(dbSource, /import\.meta\.glob\("\/migrations\/auth\/\*\.sql"/);
+  assert.match(dbSource, /process\.env\.VITE_AUTH_ENABLED !== "false"/);
+  assert.match(dbSource, /rootNames = new Set/);
+  assert.match(dbSource, /!rootNames\.has\(migrationBasename\(path\)\)/);
 });
 
 test("public auth readiness never returns OAuth credentials", () => {
