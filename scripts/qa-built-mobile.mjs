@@ -43,6 +43,11 @@ async function waitForPreview() {
   throw new Error(`preview did not become ready: ${lastError?.message ?? "timeout"}`);
 }
 
+async function runAudit(script) {
+  const audit = spawnInherited(process.execPath, [script, BASE_URL]);
+  return new Promise((resolve) => audit.once("exit", (code) => resolve(code ?? 1)));
+}
+
 async function stopProcessGroup(child) {
   if (!child?.pid) return;
   try {
@@ -70,9 +75,14 @@ const preview = spawnInherited(
 
 try {
   await waitForPreview();
-  const audit = spawnInherited(process.execPath, ["scripts/mobile-ui-smoke.mjs", BASE_URL]);
-  const exitCode = await new Promise((resolve) => audit.once("exit", (code) => resolve(code ?? 1)));
-  if (exitCode !== 0) process.exitCode = exitCode;
+
+  const mobileExitCode = await runAudit("scripts/mobile-ui-smoke.mjs");
+  if (mobileExitCode !== 0) {
+    process.exitCode = mobileExitCode;
+  } else {
+    const persistenceExitCode = await runAudit("scripts/imported-deck-browser-smoke.mjs");
+    if (persistenceExitCode !== 0) process.exitCode = persistenceExitCode;
+  }
 } catch (error) {
   console.error(`[qa:mobile:built] ${error instanceof Error ? error.message : String(error)}`);
   process.exitCode = 1;
