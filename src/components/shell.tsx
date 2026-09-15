@@ -77,7 +77,8 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       </div>
       <nav
         aria-label="Navigation principale"
-        className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1.5 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.9)] backdrop-blur-xl md:hidden"
+        data-mobile-navigation="true"
+        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.9)] backdrop-blur-xl md:hidden"
       >
         {NAV.map((item) => {
           const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
@@ -87,7 +88,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               key={item.to}
               to={item.to}
               className={cn(
-                "relative flex min-h-14 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[11px] font-medium transition-[background-color,color,transform] active:scale-[0.98]",
+                "relative flex min-h-14 min-w-11 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[11px] font-medium transition-[background-color,color,transform] active:scale-[0.98]",
                 active ? "bg-primary-soft text-primary" : "text-muted",
                 preferences.enhancedMotion && active && "optimus-nav-active",
               )}
