@@ -97,9 +97,12 @@ function saveLocalOwner(userId: string): void {
 export function OptimusSyncBridge() {
   const { user, isPending } = useCurrentUserState();
   const hydrated = useOptimus((state) => state.hydrated);
+  const userId = user?.id ?? null;
+  const userDisplayName = user?.displayName ?? null;
+  const userIsDevFallback = user?.isDevFallback ?? false;
 
   useEffect(() => {
-    if (!authEnabled || isPending || !user || !hydrated || user.isDevFallback) return;
+    if (!authEnabled || isPending || !userId || !hydrated || userIsDevFallback) return;
 
     let disposed = false;
     let initialized = false;
@@ -191,7 +194,7 @@ export function OptimusSyncBridge() {
     const initialize = async () => {
       try {
         const owner = localOwner();
-        const sameOwner = owner === user.id;
+        const sameOwner = owner === userId;
 
         // Never merge another authenticated user's local learning history into this account.
         if (owner && !sameOwner) {
@@ -199,7 +202,7 @@ export function OptimusSyncBridge() {
         }
 
         if (useOptimus.getState().profile.optimusId === "OM-GUEST") {
-          useOptimus.getState().createFreeAccount(user.displayName ?? "Étudiant");
+          useOptimus.getState().createFreeAccount(userDisplayName ?? "Étudiant");
         }
 
         const local = buildSnapshot(useOptimus.getState());
@@ -253,7 +256,7 @@ export function OptimusSyncBridge() {
           }
         }
 
-        saveLocalOwner(user.id);
+        saveLocalOwner(userId);
         lastSerialized = JSON.stringify(buildSnapshot(useOptimus.getState()));
         initialized = true;
         unsubscribe = useOptimus.subscribe(() => schedulePush());
@@ -276,7 +279,7 @@ export function OptimusSyncBridge() {
       unsubscribe?.();
       window.removeEventListener("online", schedulePush);
     };
-  }, [hydrated, isPending, user?.id, user?.displayName, user?.isDevFallback]);
+  }, [hydrated, isPending, userDisplayName, userId, userIsDevFallback]);
 
   return null;
 }
