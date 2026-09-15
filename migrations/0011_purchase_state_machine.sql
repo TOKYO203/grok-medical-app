@@ -1,5 +1,6 @@
 -- Enforce the Premium commerce state machine at the database boundary.
 -- This protects the order even if two application requests race or a future caller bypasses UI checks.
+-- Refund + linked-license revocation + audit are executed atomically by the server CTE.
 
 CREATE OR REPLACE FUNCTION guard_purchase_order_status_transition()
 RETURNS trigger
@@ -39,25 +40,3 @@ CREATE TRIGGER purchase_orders_status_transition_guard
 BEFORE UPDATE OF status ON purchase_orders
 FOR EACH ROW
 EXECUTE FUNCTION guard_purchase_order_status_transition();
-
--- A refund and server-side license revocation must be part of the same database transaction.
-CREATE OR REPLACE FUNCTION revoke_purchase_licenses_on_refund()
-RETURNS trigger
-LANGUAGE plpgsql
-AS $$
-BEGIN
-  IF OLD.status IS DISTINCT FROM NEW.status AND NEW.status = 'refunded' THEN
-    UPDATE activation_keys
-       SET revoked_at = COALESCE(revoked_at, now())
-     WHERE purchase_reference = NEW.reference
-       AND revoked_at IS NULL;
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-DROP TRIGGER IF EXISTS purchase_orders_refund_revocation ON purchase_orders;
-CREATE TRIGGER purchase_orders_refund_revocation
-AFTER UPDATE OF status ON purchase_orders
-FOR EACH ROW
-EXECUTE FUNCTION revoke_purchase_licenses_on_refund();
