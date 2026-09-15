@@ -8,6 +8,7 @@ import {
   type DeviceEncryptionIdentity,
 } from "@/content/device-encryption";
 import { importDeckJson, type ImportStep } from "@/content/validator";
+import { MAX_IMPORTED_DECK_BYTES } from "@/lib/imported-deck-storage";
 import { useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -53,6 +54,21 @@ function ImportPage() {
   }, [profile.optimusId]);
 
   async function run() {
+    const sourceBytes = new TextEncoder().encode(text).byteLength;
+    if (sourceBytes > MAX_IMPORTED_DECK_BYTES) {
+      setWarnings([]);
+      setSteps([
+        {
+          id: "size",
+          label: "Taille",
+          ok: false,
+          detail: "Le fichier dépasse la limite locale de 4 MiB",
+        },
+      ]);
+      toast.error("Deck trop volumineux — 4 MiB maximum");
+      return;
+    }
+
     const result = await importDeckJson(
       text,
       decks.map((d) => d.id),
@@ -60,12 +76,29 @@ function ImportPage() {
       import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
       deviceIdentity ? { ...deviceIdentity, deviceId: profile.deviceId } : undefined,
     );
-    setSteps(result.steps);
     if (result.ok) {
       setWarnings(result.warnings);
-      importDeck(result.deck);
+      const stored = await importDeck(result.deck);
+      if (!stored) {
+        setSteps([
+          ...result.steps,
+          {
+            id: "storage",
+            label: "Stockage local",
+            ok: false,
+            detail: "IndexedDB indisponible ou quota local dépassé",
+          },
+        ]);
+        toast.error("Deck validé mais impossible à enregistrer durablement sur cet appareil");
+        return;
+      }
+      setSteps([
+        ...result.steps,
+        { id: "storage", label: "Stockage local", ok: true, detail: "Enregistré dans IndexedDB" },
+      ]);
       toast.success(`${result.deck.title} accepté`);
     } else {
+      setSteps(result.steps);
       setWarnings([]);
       toast.error(result.error);
     }
@@ -98,6 +131,20 @@ function ImportPage() {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
+      if (file.size > MAX_IMPORTED_DECK_BYTES) {
+        setText("");
+        setSteps([
+          {
+            id: "size",
+            label: "Taille",
+            ok: false,
+            detail: "Le fichier dépasse la limite locale de 4 MiB",
+          },
+        ]);
+        setWarnings([]);
+        toast.error("Deck trop volumineux — 4 MiB maximum");
+        return;
+      }
       setText(await file.text());
       setSteps([]);
       setWarnings([]);
