@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { ExperienceMilestoneBridge } from "@/components/experience-milestone-bridge";
+import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
 import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
@@ -48,6 +49,7 @@ function RootDocument() {
         <AuthProvider>
           <LicenseRevocationBridge />
           <OptimusSyncBridge />
+          <ExperienceMotionBridge />
           <ExperienceMilestoneBridge />
           <Outlet />
         </AuthProvider>
