@@ -33,5 +33,6 @@ test("horizontal overflow is a failing browser-smoke condition", () => {
 
 test("mobile navigation targets are audited at 44 CSS pixels", () => {
   assert.match(source, /target\.width < 44 \|\| target\.height < 44/);
-  assert.match(source, /Navigation principale/);
+  assert.match(source, /data-mobile-navigation/);
+  assert.match(source, /mobileNavTargetSizes/);
 });
