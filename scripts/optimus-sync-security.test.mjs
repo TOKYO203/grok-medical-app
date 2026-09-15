@@ -17,7 +17,7 @@ test("cloud sync is scoped only by the verified auth context", () => {
   assert.match(serverSync, /where user_id = \$1/);
 });
 
-test("device-bound Premium material is excluded from the cloud snapshot schema", () => {
+test("device-bound Premium and commercial material is excluded from learning sync", () => {
   for (const forbidden of [
     "deviceId",
     "coverDataUrl",
@@ -26,9 +26,12 @@ test("device-bound Premium material is excluded from the cloud snapshot schema",
     "importedDecks",
     "privateKey",
     "encryptedDeck",
+    "purchaseSchema",
+    "purchases:",
   ]) {
-    assert.doesNotMatch(syncModel, new RegExp(`\\b${forbidden}\\b`));
+    assert.doesNotMatch(syncModel, new RegExp(forbidden));
   }
+  assert.doesNotMatch(syncBridge, /purchases:/);
   assert.match(syncBridge, /deviceId: current\.profile\.deviceId/);
   assert.match(syncBridge, /tier: current\.profile\.tier/);
   assert.match(syncBridge, /coverDataUrl: current\.profile\.coverDataUrl/);
