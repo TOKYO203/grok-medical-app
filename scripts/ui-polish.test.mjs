@@ -6,6 +6,7 @@ const home = readFileSync(new URL("../src/routes/index.tsx", import.meta.url), "
 const parcours = readFileSync(new URL("../src/routes/parcours.tsx", import.meta.url), "utf8");
 const cases = readFileSync(new URL("../src/routes/cas.tsx", import.meta.url), "utf8");
 const root = readFileSync(new URL("../src/routes/__root.tsx", import.meta.url), "utf8");
+const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
 const connectivity = readFileSync(
   new URL("../src/components/connectivity-status.tsx", import.meta.url),
   "utf8",
@@ -79,6 +80,15 @@ test("global error state is user-facing in French and hides raw details in produ
   assert.match(errorComponent, /Réessayer/);
   assert.match(errorComponent, /Accueil/);
   assert.match(errorComponent, /import\.meta\.env\.DEV/);
+});
+
+test("main navigation supports keyboard users and current-page semantics", () => {
+  assert.match(shell, /href="#main-content"/);
+  assert.match(shell, /Aller au contenu/);
+  assert.match(shell, /id="main-content"/);
+  assert.match(shell, /tabIndex=\{-1\}/);
+  assert.match(shell, /aria-current=\{active \? "page" : undefined\}/);
+  assert.match(shell, /aria-label="Navigation principale"/);
 });
 
 test("progress motion still honors the global reduced-motion escape hatch", () => {
