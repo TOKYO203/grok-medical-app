@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
+import { generateKeyPairSync } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { createServer } from "node:http";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { SignJWT, exportJWK } from "jose";
 
 // Production-only protections must also be exercised by the built-server smoke.
 process.env.VITE_AUTH_ENABLED ??= "true";
@@ -65,6 +68,85 @@ assert.equal(
   `anonymous publication mutation should return 401, got ${unauthorizedPublication.status}`,
 );
 
+async function authenticatedNonEditorStatus() {
+  const projectId = "ci-smoke-project";
+  const kid = "ci-smoke-gate-key";
+  const { publicKey, privateKey } = generateKeyPairSync("ed25519");
+  const jwk = {
+    ...(await exportJWK(publicKey)),
+    alg: "EdDSA",
+    use: "sig",
+    kid,
+  };
+  const jwksServer = createServer((request, response) => {
+    if (request.url === "/__gate/identity-key") {
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify({ keys: [jwk] }));
+      return;
+    }
+    response.writeHead(404);
+    response.end();
+  });
+
+  await new Promise((resolvePromise, rejectPromise) => {
+    jwksServer.once("error", rejectPromise);
+    jwksServer.listen(0, "127.0.0.1", resolvePromise);
+  });
+  const address = jwksServer.address();
+  assert.ok(address && typeof address === "object", "temporary JWKS server did not bind");
+  const issuer = `http://127.0.0.1:${address.port}`;
+
+  const previousProjectId = process.env.GROK_PROJECT_ID;
+  const previousGateOrigin = process.env.GROK_GATE_ORIGIN;
+  const previousEditors = process.env.CONTENT_EDITOR_USER_IDS;
+  process.env.GROK_PROJECT_ID = projectId;
+  process.env.GROK_GATE_ORIGIN = issuer;
+  delete process.env.CONTENT_EDITOR_USER_IDS;
+
+  try {
+    const now = Math.floor(Date.now() / 1000);
+    const token = await new SignJWT({
+      email: "ci-viewer@example.invalid",
+      name: "CI Viewer",
+      jti: "ci-smoke-403",
+    })
+      .setProtectedHeader({ alg: "EdDSA", kid })
+      .setSubject("ci-smoke-viewer")
+      .setIssuer(issuer)
+      .setAudience(`app:${projectId}`)
+      .setIssuedAt(now)
+      .setExpirationTime(now + 300)
+      .sign(privateKey);
+
+    const response = await fetchBuiltApp(
+      new Request("http://localhost/api/publications", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-grok-identity": token,
+        },
+        body: JSON.stringify({ title: "Authenticated but forbidden publication" }),
+      }),
+    );
+    return response.status;
+  } finally {
+    if (previousProjectId === undefined) delete process.env.GROK_PROJECT_ID;
+    else process.env.GROK_PROJECT_ID = previousProjectId;
+    if (previousGateOrigin === undefined) delete process.env.GROK_GATE_ORIGIN;
+    else process.env.GROK_GATE_ORIGIN = previousGateOrigin;
+    if (previousEditors === undefined) delete process.env.CONTENT_EDITOR_USER_IDS;
+    else process.env.CONTENT_EDITOR_USER_IDS = previousEditors;
+    await new Promise((resolvePromise) => jwksServer.close(resolvePromise));
+  }
+}
+
+const forbiddenPublicationStatus = await authenticatedNonEditorStatus();
+assert.equal(
+  forbiddenPublicationStatus,
+  403,
+  `authenticated non-editor publication mutation should return 403, got ${forbiddenPublicationStatus}`,
+);
+
 const oversizedSurvey = await fetchBuiltApp(
   new Request("http://localhost/api/surveys/11111111-1111-4111-8111-111111111111/responses", {
     method: "POST",
@@ -114,5 +196,5 @@ const modelBody = await readFile(
 assert.doesNotThrow(() => JSON.parse(modelBody));
 
 console.log(
-  `[smoke] built server: ${routes.length} UI routes + HTTP security 401/413/429 + Deck model passed`,
+  `[smoke] built server: ${routes.length} UI routes + HTTP security 401/403/413/429 + Deck model passed`,
 );
