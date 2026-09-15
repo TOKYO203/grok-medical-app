@@ -19,12 +19,18 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
 
   return (
     <div className="min-h-dvh text-fg">
+      <a
+        href="#main-content"
+        className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-[var(--radius-md)] bg-primary px-4 py-2 text-sm font-medium text-primary-fg shadow-[var(--shadow-md)] transition-transform focus:translate-y-0"
+      >
+        Aller au contenu
+      </a>
       <div className="mx-auto flex min-h-dvh max-w-6xl">
         <aside className="sticky top-0 hidden h-dvh w-56 shrink-0 flex-col border-r border-border bg-bg/55 px-4 py-5 backdrop-blur-xl md:flex">
           <Link to="/" className="mb-8">
             <Wordmark />
           </Link>
-          <nav className="flex flex-1 flex-col gap-1">
+          <nav className="flex flex-1 flex-col gap-1" aria-label="Navigation principale">
             {NAV.map((item) => {
               const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
               const Icon = item.icon;
@@ -32,6 +38,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                 <Link
                   key={item.to}
                   to={item.to}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
                     "relative flex h-11 items-center gap-3 overflow-hidden rounded-[var(--radius-md)] px-3 text-sm font-medium transition-[background-color,color,transform] duration-150 active:scale-[0.99]",
                     active
@@ -96,7 +103,15 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
 }
 
 export function Page({ children, className }: { children: ReactNode; className?: string }) {
-  return <main className={cn("px-5 py-6 md:px-8 md:py-8", className)}>{children}</main>;
+  return (
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className={cn("px-5 py-6 outline-none md:px-8 md:py-8", className)}
+    >
+      {children}
+    </main>
+  );
 }
 
 export function SectionTitle({
