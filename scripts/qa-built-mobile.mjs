@@ -81,7 +81,12 @@ try {
     process.exitCode = mobileExitCode;
   } else {
     const persistenceExitCode = await runAudit("scripts/imported-deck-browser-smoke.mjs");
-    if (persistenceExitCode !== 0) process.exitCode = persistenceExitCode;
+    if (persistenceExitCode !== 0) {
+      process.exitCode = persistenceExitCode;
+    } else {
+      const journeyExitCode = await runAudit("scripts/mobile-critical-journey-smoke.mjs");
+      if (journeyExitCode !== 0) process.exitCode = journeyExitCode;
+    }
   }
 } catch (error) {
   console.error(`[qa:mobile:built] ${error instanceof Error ? error.message : String(error)}`);
