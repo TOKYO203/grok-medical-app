@@ -25,6 +25,7 @@ import {
   Trophy,
   type LucideIcon,
 } from "lucide-react";
+import { ExperienceControls } from "@/components/experience-controls";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -136,7 +137,6 @@ function ProfilPage() {
 
     const hydrateCover = async () => {
       try {
-        // One-time migration from legacy localStorage base64 into IndexedDB.
         if (profile.coverDataUrl) {
           const legacyBlob = dataUrlToImageBlob(profile.coverDataUrl);
           await saveProfileCover(profile.optimusId, legacyBlob);
@@ -152,9 +152,6 @@ function ProfilPage() {
         });
         setCoverStorageError(null);
       } catch (error) {
-        // Keep an already-existing legacy in-store image as a compatibility
-        // fallback if IndexedDB is unavailable. New images are never written
-        // back to localStorage as base64.
         console.warn("[profile-cover] IndexedDB restore deferred", error);
       }
     };
@@ -208,9 +205,6 @@ function ProfilPage() {
                   if (previous) URL.revokeObjectURL(previous);
                   return sessionUrl;
                 });
-                // Never persist a newly-created base64 payload to localStorage.
-                // Keep the preview in memory for this tab and tell the user that
-                // the device could not retain it for the next launch.
                 update({ cover: "custom", coverDataUrl: null });
                 setCoverStorageError(
                   "La photo est affichée pour cette session, mais cet appareil n’a pas pu l’enregistrer durablement.",
@@ -303,6 +297,15 @@ function ProfilPage() {
           <ProfileStat label="Ligue" value={league.label} bordered />
         </div>
         <Progress className="mt-2" value={level.progress} />
+
+        <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <SectionTitle kicker="Confort d’étude" title="Expérience sensorielle" />
+          <ExperienceControls />
+          <p className="mt-3 text-xs leading-relaxed text-muted">
+            Les sons et vibrations accompagnent seulement les actions utiles. L’ambiance focus est
+            facultative, ne démarre jamais automatiquement et s’arrête quand l’app passe en arrière-plan.
+          </p>
+        </section>
 
         {editing ? (
           <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
