@@ -4,6 +4,7 @@ import { checkedUrl } from "./browser-guard.mjs";
 import { exitCodeFor } from "./browser-smoke-verdict.mjs";
 
 const baseUrl = checkedUrl(process.argv[2] || "http://127.0.0.1:8080/");
+const appOrigin = new URL(baseUrl).origin;
 const timeoutMs = Number(process.env.BROWSER_SMOKE_TIMEOUT_MS || 45_000);
 const qaClientIp = process.env.QA_CLIENT_IP?.trim();
 const qaHeaders =
@@ -52,8 +53,37 @@ try {
     for (const route of ROUTES) {
       const page = await browser.newPage({
         viewport: { width: viewport.width, height: viewport.height },
-        ...(qaHeaders ? { extraHTTPHeaders: qaHeaders } : {}),
       });
+
+      // Inject the synthetic trusted-proxy client IP only into requests sent to
+      // the app under test. Browser-wide extraHTTPHeaders would also attach it to
+      // cross-origin assets (for example Google Fonts), triggering unnecessary
+      // CORS preflights and making a clean page look broken.
+      if (qaHeaders) {
+        await page.route("**/*", async (interceptedRoute) => {
+          const request = interceptedRoute.request();
+          let requestOrigin;
+          try {
+            requestOrigin = new URL(request.url()).origin;
+          } catch {
+            await interceptedRoute.continue();
+            return;
+          }
+
+          if (requestOrigin !== appOrigin) {
+            await interceptedRoute.continue();
+            return;
+          }
+
+          await interceptedRoute.continue({
+            headers: {
+              ...request.headers(),
+              ...qaHeaders,
+            },
+          });
+        });
+      }
+
       const consoleErrors = [];
       const pageErrors = [];
       const failedResponses = [];
