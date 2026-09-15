@@ -88,8 +88,12 @@ try {
 
   // 2. Open the recommended free Deck through the mobile navigation and card.
   await page.getByRole("link", { name: "Parcours", exact: true }).click();
-  await page.getByRole("heading", { name: "Parcours", exact: true }).waitFor();
-  const deckCard = page.getByRole("link", { name: /Commencer ce Deck/ }).first();
+  const main = page.locator("#main-content");
+  await main.getByRole("heading", { name: "Parcours", exact: true }).waitFor({
+    state: "visible",
+    timeout: timeoutMs,
+  });
+  const deckCard = main.getByRole("link", { name: /Commencer ce Deck/ }).first();
   await deckCard.waitFor({ state: "visible", timeout: timeoutMs });
   await deckCard.click();
 
