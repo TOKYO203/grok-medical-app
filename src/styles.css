@@ -125,6 +125,78 @@
   }
 }
 
+@keyframes optimus-answer-correct {
+  0% {
+    transform: scale(1);
+    box-shadow: var(--shadow-border);
+  }
+  45% {
+    transform: scale(1.012);
+    box-shadow:
+      var(--shadow-border),
+      0 0 0 4px color-mix(in oklab, var(--color-primary) 12%, transparent),
+      0 14px 34px -22px color-mix(in oklab, var(--color-primary) 70%, transparent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: var(--shadow-border);
+  }
+}
+
+@keyframes optimus-answer-incorrect {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  28% {
+    transform: translateX(-4px);
+  }
+  52% {
+    transform: translateX(3px);
+  }
+  76% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes optimus-feedback-panel {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes optimus-session-complete {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.optimus-answer-correct {
+  animation: optimus-answer-correct var(--motion-fast) var(--ease-out) both;
+}
+
+.optimus-answer-incorrect {
+  animation: optimus-answer-incorrect var(--motion-fast) var(--ease-out) both;
+}
+
+.optimus-feedback-panel {
+  animation: optimus-feedback-panel var(--motion-fast) var(--ease-out) both;
+}
+
+.optimus-session-complete {
+  animation: optimus-session-complete var(--motion-medium) var(--ease-out) both;
+}
+
 main > * {
   animation: page-reveal var(--motion-medium) var(--ease-out) both;
 }
