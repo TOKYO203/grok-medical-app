@@ -21,6 +21,61 @@ type SyncControlRow = {
   reason: string;
 };
 
+type PurchaseExportRow = {
+  reference: string;
+  optimus_id: string;
+  offer: string;
+  specialty: string;
+  deck_number: number;
+  product: string;
+  label: string;
+  amount: number;
+  status: string;
+  proof_attached: boolean;
+  device_id: string | null;
+  device_key_id: string | null;
+  payment_provider: string | null;
+  payment_reference: string | null;
+  proof_digest: string | null;
+  payment_submitted_at: string | Date | null;
+  payment_verified_at: string | Date | null;
+  created_at: string | Date;
+  updated_at: string | Date;
+  delivered_at: string | Date | null;
+  rejected_at: string | Date | null;
+  refunded_at: string | Date | null;
+};
+
+type PurchaseEventExportRow = {
+  reference: string;
+  event_type: string;
+  metadata: unknown;
+  created_at: string | Date;
+};
+
+type ContentReportExportRow = {
+  id: string;
+  content_type: string;
+  content_id: string;
+  deck_id: string | null;
+  deck_version: string | null;
+  label: string;
+  issue_type: string;
+  details: string;
+  location: string;
+  status: string;
+  created_at: string | Date;
+  resolved_at: string | Date | null;
+};
+
+type SurveyResponseExportRow = {
+  id: string;
+  survey_id: string;
+  submitted_at: string | Date;
+  answers: unknown;
+  metadata: unknown;
+};
+
 function parseSnapshot(value: unknown): OptimusSyncSnapshot {
   const candidate = typeof value === "string" ? JSON.parse(value) : value;
   return optimusSyncSnapshotSchema.parse(candidate);
@@ -32,6 +87,14 @@ function responseFromRow(row: StateRow) {
     revision: Number(row.revision),
     updatedAt: new Date(row.updated_at).toISOString(),
   };
+}
+
+function isoDate(value: string | Date | null): string | null {
+  return value === null ? null : new Date(value).toISOString();
+}
+
+function jsonText(value: unknown): string {
+  return JSON.stringify(value ?? null);
 }
 
 async function getSyncControl(userId: string): Promise<SyncControlRow | null> {
@@ -186,7 +249,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
 
-    const [learningRows, controls, orders, orderEvents, contentReports, surveyResponses] =
+    const [learningRows, controls, orderRows, eventRows, reportRows, responseRows] =
       await Promise.all([
         sql.query<StateRow>(
           `select optimus_id, state, revision, updated_at
@@ -202,7 +265,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
             limit 1`,
           [context.userId],
         ),
-        sql.query(
+        sql.query<PurchaseExportRow>(
           `select reference, optimus_id, offer, specialty, deck_number, product, label,
                   amount, status, proof_attached, device_id, device_key_id,
                   payment_provider, payment_reference, proof_digest,
@@ -213,7 +276,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
             order by created_at asc`,
           [context.userId],
         ),
-        sql.query(
+        sql.query<PurchaseEventExportRow>(
           `select e.reference, e.event_type, e.metadata, e.created_at
              from purchase_order_events e
              join purchase_orders o on o.reference = e.reference
@@ -221,7 +284,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
             order by e.created_at asc, e.id asc`,
           [context.userId],
         ),
-        sql.query(
+        sql.query<ContentReportExportRow>(
           `select id, content_type, content_id, deck_id, deck_version, label,
                   issue_type, details, location, status, created_at, resolved_at
              from content_reports
@@ -229,7 +292,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
             order by created_at asc`,
           [context.userId],
         ),
-        sql.query(
+        sql.query<SurveyResponseExportRow>(
           `select id, survey_id, submitted_at, answers, metadata
              from survey_responses
             where respondent_id = $1
@@ -240,6 +303,57 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
 
     const learning = learningRows[0] ? responseFromRow(learningRows[0]) : null;
     const control = controls[0];
+    const orders = orderRows.map((row) => ({
+      reference: row.reference,
+      optimusId: row.optimus_id,
+      offer: row.offer,
+      specialty: row.specialty,
+      deckNumber: row.deck_number,
+      product: row.product,
+      label: row.label,
+      amount: row.amount,
+      status: row.status,
+      proofAttached: row.proof_attached,
+      deviceId: row.device_id,
+      deviceKeyId: row.device_key_id,
+      paymentProvider: row.payment_provider,
+      paymentReference: row.payment_reference,
+      proofDigest: row.proof_digest,
+      paymentSubmittedAt: isoDate(row.payment_submitted_at),
+      paymentVerifiedAt: isoDate(row.payment_verified_at),
+      createdAt: isoDate(row.created_at) as string,
+      updatedAt: isoDate(row.updated_at) as string,
+      deliveredAt: isoDate(row.delivered_at),
+      rejectedAt: isoDate(row.rejected_at),
+      refundedAt: isoDate(row.refunded_at),
+    }));
+    const events = eventRows.map((row) => ({
+      reference: row.reference,
+      eventType: row.event_type,
+      metadataJson: jsonText(row.metadata),
+      createdAt: isoDate(row.created_at) as string,
+    }));
+    const contentReports = reportRows.map((row) => ({
+      id: row.id,
+      contentType: row.content_type,
+      contentId: row.content_id,
+      deckId: row.deck_id,
+      deckVersion: row.deck_version,
+      label: row.label,
+      issueType: row.issue_type,
+      details: row.details,
+      location: row.location,
+      status: row.status,
+      createdAt: isoDate(row.created_at) as string,
+      resolvedAt: isoDate(row.resolved_at),
+    }));
+    const surveyResponses = responseRows.map((row) => ({
+      id: row.id,
+      surveyId: row.survey_id,
+      submittedAt: isoDate(row.submitted_at) as string,
+      answersJson: jsonText(row.answers),
+      metadataJson: jsonText(row.metadata),
+    }));
 
     return {
       format: "optimus-user-export-v1" as const,
@@ -253,7 +367,7 @@ export const exportOptimusAccountData = createServerFn({ method: "GET" })
             reason: control.reason,
           }
         : { suspended: false, suspendedAt: null, reason: null },
-      commerce: { orders, events: orderEvents },
+      commerce: { orders, events },
       feedback: { contentReports },
       surveys: { responses: surveyResponses },
       exclusions: [
