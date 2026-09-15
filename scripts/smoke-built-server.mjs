@@ -68,6 +68,32 @@ assert.equal(
   `anonymous publication mutation should return 401, got ${unauthorizedPublication.status}`,
 );
 
+const unauthorizedPublicationPatch = await fetchBuiltApp(
+  new Request("http://localhost/api/publications/missing-publication", {
+    method: "PATCH",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ title: "Unauthorized update" }),
+  }),
+);
+assert.equal(
+  unauthorizedPublicationPatch.status,
+  401,
+  `anonymous publication update should return 401, got ${unauthorizedPublicationPatch.status}`,
+);
+
+const unauthorizedUpload = await fetchBuiltApp(
+  new Request("http://localhost/api/publications/upload", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({}),
+  }),
+);
+assert.equal(
+  unauthorizedUpload.status,
+  401,
+  `anonymous publication upload should return 401, got ${unauthorizedUpload.status}`,
+);
+
 function cookieHeaderFrom(response) {
   assert.equal(
     typeof response.headers.getSetCookie,
@@ -82,7 +108,7 @@ function cookieHeaderFrom(response) {
     .join("; ");
 }
 
-async function authenticatedNonEditorStatus() {
+async function editorialSecurityChecks() {
   const projectId = "ci-smoke-project";
   const kid = "ci-smoke-gate-key";
   const { publicKey, privateKey } = generateKeyPairSync("ed25519");
@@ -122,7 +148,7 @@ async function authenticatedNonEditorStatus() {
     const token = await new SignJWT({
       email: "ci-viewer@example.invalid",
       name: "CI Viewer",
-      jti: "ci-smoke-403",
+      jti: "ci-smoke-editorial-security",
     })
       .setProtectedHeader({ alg: "EdDSA", kid })
       .setSubject("ci-smoke-viewer")
@@ -166,20 +192,169 @@ async function authenticatedNonEditorStatus() {
       "ci-viewer@example.invalid",
       "Gate session bootstrap should resolve the authenticated viewer",
     );
+    assert.equal(typeof bootstrapBody?.user?.id, "string", "Gate user must expose a server identity");
+    const userId = bootstrapBody.user.id;
     const cookie = cookieHeaderFrom(bootstrap);
+    const authenticatedHeaders = {
+      "content-type": "application/json",
+      cookie,
+      "x-grok-identity": token,
+    };
 
-    const response = await fetchBuiltApp(
+    const forbiddenCreate = await fetchBuiltApp(
       new Request("http://localhost/api/publications", {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-          cookie,
-          "x-grok-identity": token,
-        },
+        headers: authenticatedHeaders,
         body: JSON.stringify({ title: "Authenticated but forbidden publication" }),
       }),
     );
-    return response.status;
+    assert.equal(
+      forbiddenCreate.status,
+      403,
+      `authenticated non-editor publication mutation should return 403, got ${forbiddenCreate.status}`,
+    );
+
+    const forbiddenPatch = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/missing-publication", {
+        method: "PATCH",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({ title: "Authenticated but forbidden update" }),
+      }),
+    );
+    assert.equal(
+      forbiddenPatch.status,
+      403,
+      `authenticated non-editor publication update should return 403, got ${forbiddenPatch.status}`,
+    );
+
+    const forbiddenUpload = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/upload", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({}),
+      }),
+    );
+    assert.equal(
+      forbiddenUpload.status,
+      403,
+      `authenticated non-editor upload should return 403, got ${forbiddenUpload.status}`,
+    );
+
+    // Promote only this server-verified user to editor. Client-provided identity fields
+    // remain forbidden and can never influence created_by.
+    process.env.CONTENT_EDITOR_USER_IDS = userId;
+
+    const injectedIdentity = await fetchBuiltApp(
+      new Request("http://localhost/api/publications", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({
+          title: "Identity injection must fail",
+          created_by: "client-controlled-identity",
+        }),
+      }),
+    );
+    assert.equal(
+      injectedIdentity.status,
+      400,
+      `client-supplied created_by should be rejected, got ${injectedIdentity.status}`,
+    );
+
+    const created = await fetchBuiltApp(
+      new Request("http://localhost/api/publications", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({ title: "CI editorial ownership proof", status: "draft" }),
+      }),
+    );
+    assert.equal(created.status, 201, `editor publication should return 201, got ${created.status}`);
+    const createdBody = await created.json();
+    assert.equal(
+      createdBody?.created_by,
+      userId,
+      "publication created_by must come from the verified Better Auth session",
+    );
+    assert.equal(typeof createdBody?.slug, "string", "created publication should expose a slug");
+
+    const updated = await fetchBuiltApp(
+      new Request(`http://localhost/api/publications/${encodeURIComponent(createdBody.slug)}`, {
+        method: "PATCH",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({ summary: "Updated by verified editor" }),
+      }),
+    );
+    assert.equal(updated.status, 200, `editor publication update should return 200, got ${updated.status}`);
+
+    const bucketInjection = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/upload", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({
+          filename: "proof.pdf",
+          contentType: "application/pdf",
+          contentBase64: Buffer.from("%PDF-1.7\n").toString("base64"),
+          bucket: "client-controlled-bucket",
+        }),
+      }),
+    );
+    assert.equal(
+      bucketInjection.status,
+      400,
+      `client-supplied upload bucket should be rejected, got ${bucketInjection.status}`,
+    );
+
+    const executableUpload = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/upload", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({
+          filename: "payload.exe",
+          contentType: "application/x-msdownload",
+          contentBase64: "AA==",
+        }),
+      }),
+    );
+    assert.equal(
+      executableUpload.status,
+      400,
+      `forbidden executable MIME should be rejected, got ${executableUpload.status}`,
+    );
+
+    const extensionMismatch = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/upload", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({
+          filename: "payload.exe",
+          contentType: "image/png",
+          contentBase64: "AA==",
+        }),
+      }),
+    );
+    assert.equal(
+      extensionMismatch.status,
+      415,
+      `forbidden upload extension should return 415, got ${extensionMismatch.status}`,
+    );
+
+    const maxUploadBytes = 8 * 1024 * 1024;
+    const oversizedBase64 = "A".repeat(Math.ceil((maxUploadBytes * 4) / 3) + 9);
+    const oversizedUpload = await fetchBuiltApp(
+      new Request("http://localhost/api/publications/upload", {
+        method: "POST",
+        headers: authenticatedHeaders,
+        body: JSON.stringify({
+          filename: "oversized.pdf",
+          contentType: "application/pdf",
+          contentBase64: oversizedBase64,
+        }),
+      }),
+    );
+    assert.equal(
+      oversizedUpload.status,
+      413,
+      `upload above 8 MiB should return 413, got ${oversizedUpload.status}`,
+    );
   } finally {
     if (previousProjectId === undefined) delete process.env.GROK_PROJECT_ID;
     else process.env.GROK_PROJECT_ID = previousProjectId;
@@ -191,12 +366,7 @@ async function authenticatedNonEditorStatus() {
   }
 }
 
-const forbiddenPublicationStatus = await authenticatedNonEditorStatus();
-assert.equal(
-  forbiddenPublicationStatus,
-  403,
-  `authenticated non-editor publication mutation should return 403, got ${forbiddenPublicationStatus}`,
-);
+await editorialSecurityChecks();
 
 const oversizedSurvey = await fetchBuiltApp(
   new Request("http://localhost/api/surveys/11111111-1111-4111-8111-111111111111/responses", {
@@ -247,5 +417,5 @@ const modelBody = await readFile(
 assert.doesNotThrow(() => JSON.parse(modelBody));
 
 console.log(
-  `[smoke] built server: ${routes.length} UI routes + HTTP auth bootstrap/security 401/403/413/429 + Deck model passed`,
+  `[smoke] built server: ${routes.length} UI routes + editorial auth/ownership/upload 401/403/413/415 + survey 413 + activation 429 + Deck model passed`,
 );
