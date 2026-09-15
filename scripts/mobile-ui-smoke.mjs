@@ -14,12 +14,33 @@ const VIEWPORTS = [
 
 const ROUTES = ["/", "/parcours", "/cas", "/profil", "/pro"];
 
-let browser;
-try {
-  browser = await chromium.launch({
+async function launchAuditBrowser() {
+  const common = {
     headless: true,
     args: ["--no-sandbox", "--disable-dev-shm-usage"],
-  });
+  };
+
+  // GitHub-hosted Ubuntu runners already ship Chrome. Using the system channel
+  // keeps CI deterministic without downloading a second browser on every run.
+  if (process.env.CI) {
+    return chromium.launch({ ...common, channel: "chrome" });
+  }
+
+  try {
+    return await chromium.launch(common);
+  } catch (error) {
+    // Local contributors may have Chrome but not the Playwright-managed binary.
+    try {
+      return await chromium.launch({ ...common, channel: "chrome" });
+    } catch {
+      throw error;
+    }
+  }
+}
+
+let browser;
+try {
+  browser = await launchAuditBrowser();
 
   const results = {};
   for (const viewport of VIEWPORTS) {
