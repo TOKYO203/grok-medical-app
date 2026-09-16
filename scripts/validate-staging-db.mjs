@@ -83,9 +83,9 @@ export async function validateIdentitySchema(client) {
              c.conrelid::regclass::text as source_table,
              c.confrelid::regclass::text as target_table,
              c.contype, c.confdeltype,
-             (select array_agg(a.attname order by k.ord) from unnest(c.conkey) with ordinality k(num, ord)
+             (select array_agg(a.attname::text order by k.ord) from unnest(c.conkey) with ordinality k(num, ord)
                join pg_attribute a on a.attrelid = c.conrelid and a.attnum = k.num) as source_columns,
-             (select array_agg(a.attname order by k.ord) from unnest(c.confkey) with ordinality k(num, ord)
+             (select array_agg(a.attname::text order by k.ord) from unnest(c.confkey) with ordinality k(num, ord)
                join pg_attribute a on a.attrelid = c.confrelid and a.attnum = k.num) as target_columns
         from pg_constraint c
        where conname = any($1::text[])
