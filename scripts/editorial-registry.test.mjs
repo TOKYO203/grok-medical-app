@@ -77,6 +77,23 @@ test("medical review claims reference real questions and remain explicit", () =>
 
     if (review.status === "fully_reviewed") {
       assert.deepEqual(new Set(review.items), questionIds);
+      assert.equal(typeof review.reviewer_name, "string", `${landmark.deck_id}: reviewer_name requis`);
+      assert.ok(review.reviewer_name.trim().length >= 3, `${landmark.deck_id}: reviewer_name invalide`);
+      assert.equal(
+        typeof review.reviewer_qualification,
+        "string",
+        `${landmark.deck_id}: reviewer_qualification requise`,
+      );
+      assert.ok(
+        review.reviewer_qualification.trim().length >= 6,
+        `${landmark.deck_id}: qualification du relecteur trop vague`,
+      );
+      assert.ok(Array.isArray(review.sources), `${landmark.deck_id}: sources de revue requises`);
+      assert.ok(review.sources.length > 0, `${landmark.deck_id}: aucune source de revue déclarée`);
+      for (const source of review.sources) {
+        assert.equal(typeof source, "string", `${landmark.deck_id}: source invalide`);
+        assert.ok(source.trim().length >= 8, `${landmark.deck_id}: source trop vague`);
+      }
     }
   }
 });
