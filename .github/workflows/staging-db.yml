@@ -4,51 +4,68 @@ on:
   workflow_dispatch:
     inputs:
       confirmation:
-        description: 'Type STAGING to confirm this must target the staging database only'
+        description: "Type STAGING; only release/v1-hardening may run this workflow"
         required: true
         type: string
+      apply:
+        description: "Commit migrations after verification (default: rehearse and roll back)"
+        default: false
+        type: boolean
 
 permissions:
   contents: read
 
+concurrency:
+  group: neon-staging-migrations
+  cancel-in-progress: false
+
 jobs:
   validate-staging-db:
+    if: github.ref == 'refs/heads/release/v1-hardening'
+    environment: staging
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
       STAGING_DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
+      STAGING_EXPECTED_HOST: ${{ vars.NEON_STAGING_HOST }}
+      STAGING_EXPECTED_DATABASE: ${{ vars.NEON_STAGING_DATABASE }}
+      STAGING_EXPECTED_ROLE: ${{ vars.NEON_STAGING_ROLE }}
+      STAGING_MAX_ORPHANS: ${{ vars.NEON_STAGING_MAX_ORPHANS || '0' }}
+      STAGING_CONFIRMATION: ${{ inputs.confirmation }}
       DB_VALIDATION_TARGET: staging
-      VITE_AUTH_ENABLED: 'true'
 
     steps:
-      - name: Refuse ambiguous target
-        shell: bash
-        run: |
-          if [ "${{ inputs.confirmation }}" != "STAGING" ]; then
-            echo "Refusing to run: confirmation must be exactly STAGING."
-            exit 2
-          fi
-          if [ -z "$STAGING_DATABASE_URL" ]; then
-            echo "Missing repository secret NEON_STAGING_DATABASE_URL."
-            exit 2
-          fi
-
-      - name: Checkout code
+      - name: Checkout dispatched commit
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: "npm"
 
-      - name: Install locked dependencies
-        run: npm ci --legacy-peer-deps
+      - name: Install locked dependencies without lifecycle scripts
+        run: npm ci --legacy-peer-deps --ignore-scripts
 
-      - name: Apply pending migrations to staging
+      - name: Rehearse or apply with target and preservation checks
         env:
-          DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
-        run: npm run db:migrate
+          APPLY_MIGRATIONS: ${{ inputs.apply }}
+        shell: bash
+        run: |
+          if [ "$APPLY_MIGRATIONS" = "true" ]; then
+            node scripts/run-staging-migration.mjs --apply
+          else
+            node scripts/run-staging-migration.mjs
+          fi
 
-      - name: Validate identity schema and migration state read-only
-        run: npm run db:validate-staging
+      - name: Retain sanitized evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-migration-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/staging-migration.json
+          if-no-files-found: error
+          retention-days: 30

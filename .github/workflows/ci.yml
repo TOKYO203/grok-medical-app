@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, fix/quality-gates, release/v1-hardening ]
   pull_request:
-    branches: [ main, fix/quality-gates ]
+    branches: [ main, fix/quality-gates, release/v1-hardening ]
 
 permissions:
   contents: read
@@ -75,6 +75,11 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y postgresql-client
           fi
+
+      - name: Prove empty and legacy identity migrations on disposable PostgreSQL databases
+        env:
+          TEST_POSTGRES_URL: postgresql://optimus:optimus@localhost:5432/optimus
+        run: node --test scripts/staging-migration.test.mjs
 
       - name: Apply migrations and seed recovery probe
         run: |
