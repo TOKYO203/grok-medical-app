@@ -76,12 +76,12 @@ After restoring, point a staging instance at the restored database and execute s
 GitHub security automation provides:
 
 - CodeQL analysis for JavaScript/TypeScript;
-- dependency review on pull requests;
+- a production dependency audit that fails on high/critical vulnerabilities;
 - Dependabot weekly npm and GitHub Actions updates.
 
 Treat new high/critical findings as release blockers until triaged.
 
-Repository/platform secret scanning should remain enabled in GitHub settings for the public repository. Rotate any secret immediately if it ever appears in git history or build logs.
+GitHub dependency review requires Dependency Graph to be enabled at repository level; it can be added as an extra PR-level control once that setting is available. Repository/platform secret scanning should remain enabled where supported. Rotate any secret immediately if it ever appears in git history or build logs.
 
 ## 6. Incident priorities
 
