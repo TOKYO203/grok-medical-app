@@ -18,7 +18,7 @@ test("privacy and terms are first-class in-app routes linked from About", async 
   assert.match(about, /to="\/confidentialite"/);
   assert.match(about, /to="\/conditions"/);
   assert.match(about, /outil éducatif/);
-  assert.match(about, /non d’un substitut au jugement clinique professionnel/);
+  assert.match(about, /non d’un substitut au jugement clinique\s+professionnel/);
 });
 
 test("privacy copy documents export, deletion, local-first storage and commercial separation", async () => {
@@ -27,19 +27,19 @@ test("privacy copy documents export, deletion, local-first storage and commercia
   assert.match(privacy, /local-first/);
   assert.match(privacy, /Exporter ou supprimer/);
   assert.match(privacy, /progression pédagogique cloud peut être supprimée/);
-  assert.match(privacy, /données commerciales et d’audit liées à une commande sont séparées/);
-  assert.match(privacy, /validation juridique locale reste requise/);
+  assert.match(privacy, /données\s+commerciales et d’audit liées à une commande sont séparées/);
+  assert.match(privacy, /validation juridique locale reste\s+requise/);
   assert.match(privacy, /to="\/donnees"/);
 });
 
 test("terms explicitly position Optimus as education, not clinical care", async () => {
   const terms = await source("src/routes/conditions.tsx");
 
-  assert.match(terms, /outil de formation médicale/);
+  assert.match(terms, /Un outil éducatif/);
   assert.match(terms, /ne remplace ni une formation encadrée/);
-  assert.match(terms, /ne constituent pas une consultation médicale, une prescription, un diagnostic/);
+  assert.match(terms, /ne constituent pas une\s+consultation médicale, une prescription, un diagnostic/);
   assert.match(terms, /Aucun paiement ne doit être effectué/);
-  assert.match(terms, /validation juridique locale/);
+  assert.match(terms, /validation juridique\s+locale/);
 });
 
 test("urgent medical correction procedure requires qualified human review", async () => {
