@@ -49,18 +49,3 @@ jobs:
         run: npm ci --legacy-peer-deps
       - name: Fail on high/critical production vulnerabilities
         run: npm audit --omit=dev --audit-level=high
-
-  dependency-review:
-    name: Dependency review (when graph is enabled)
-    if: github.event_name == 'pull_request'
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Review dependency changes
-        uses: actions/dependency-review-action@v4
-        with:
-          fail-on-severity: high
