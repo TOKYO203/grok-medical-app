@@ -1,3 +1,4 @@
+import { DiagnosticExplorer } from "@/components/cases/DiagnosticExplorer";
 import { ArrowRight } from "lucide-react";
 
 import {
@@ -44,6 +45,12 @@ export function ClinicalLearningHub({
  return (
 
  <section className="mt-8">
+
+<DiagnosticExplorer
+ topics={topics}
+/>
+
+
 
  <p className="text-[11px] uppercase tracking-[0.16em] text-muted">
  Learning Path
