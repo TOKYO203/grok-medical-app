@@ -2,16 +2,21 @@
 
 export type MemoryEvent={
 
-type:string
+type:
+"case" |
+"lesson" |
+"simulation"
 
-value:string
+id:string
+
+score?:number
 
 date:string
 
 }
 
 
-export function saveClinicalMemory(
+export function saveMemory(
 event:MemoryEvent
 ){
 
@@ -26,9 +31,19 @@ event
 }
 
 
-export function getClinicalMemory(){
+export function getMemoryScore(
+events:MemoryEvent[]
+){
 
-return []
+return events.reduce(
+
+(total,event)=>
+
+total+(event.score || 0),
+
+0
+
+)
 
 }
 
