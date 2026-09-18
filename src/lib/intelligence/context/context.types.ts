@@ -1,18 +1,60 @@
+
 export interface ContextRequest {
-  userId?: string;
-  message?: string;
-  metadata?: Record<string, unknown>;
+
+ userId?:string;
+
+ profile?:unknown;
+
+ memories?:unknown[];
+
+ clinical?:unknown;
+
+ conversation?:string[];
+
 }
+
 
 export interface ContextInput {
-  userId?: string;
-  message?: string;
-  data?: unknown;
+
+ userId?:string;
+
+ profile?:unknown;
+
+ memories?:unknown[];
+
+ clinical?:unknown;
+
+ conversation?:string[];
+
 }
 
+
 export interface OptimusContext {
-  userId: string;
-  message?: string;
-  timestamp: string;
-  data?: unknown;
+
+ userId:string;
+
+ profile?:unknown;
+
+ memories:unknown[];
+
+ clinical?:unknown;
+
+ conversation:string[];
+
+ timestamp:string;
+
+ createdAt:string;
+
 }
+
+
+export interface ContextAnalysis {
+
+ hasMemory:boolean;
+
+ hasClinical:boolean;
+
+ conversationLength:number;
+
+}
+

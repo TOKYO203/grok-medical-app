@@ -5,7 +5,7 @@ runClinicalAgent
 } from "@/lib/agents/clinical-agent-orchestrator"
 
 
-export default function OptimUSCommandCenter(){
+export default function OptimusCommandCenter(){
 
 
 const status=

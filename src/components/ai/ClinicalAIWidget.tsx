@@ -26,7 +26,7 @@ recommendNextCase(3)
 
 return (
 
-<div className="rounded-xl border p-5 space-y-4">
+<div className="w-full rounded-xl border bg-card p-5 space-y-4 shadow-[var(--shadow-border)]">
 
 
 <h2 className="text-xl font-bold">

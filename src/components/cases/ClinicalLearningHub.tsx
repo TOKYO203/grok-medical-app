@@ -132,7 +132,6 @@ export function ClinicalLearningHub({
  {path.steps.length} étapes · {progressPercent(0,path.steps.length)}%
  </p>
 
- <ClinicalAIWidget />
 </div>
 
 

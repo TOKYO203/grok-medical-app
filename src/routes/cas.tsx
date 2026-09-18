@@ -60,7 +60,10 @@ function CasPage() {
           <CaseSummary label="Accessibles" value={accessibleCases.length} />
           <CaseSummary label="Cas terminés" value={completedClinicalCount} accent />
           <CaseSummary label="Diagnostics" value={dxDone.length} />
-        <ClinicalAIWidget />
+</div>
+
+<div className="mt-6">
+  <ClinicalAIWidget />
 </div>
 
         <section className="premium-hero relative mt-7 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">

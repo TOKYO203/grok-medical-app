@@ -32,8 +32,8 @@ export function buildContext(
  conversation:
  request.conversation ?? [],
 
- createdAt:
- new Date().toISOString()
+ createdAt: new Date().toISOString(),
+timestamp: new Date().toISOString()
 
  };
 

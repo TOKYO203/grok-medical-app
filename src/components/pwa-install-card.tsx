@@ -8,7 +8,7 @@ export default function PwaInstallCard() {
     const success = await install();
 
     if (success) {
-      console.log("OptimUS installé avec succès");
+      console.log("Optimus installé avec succès");
     }
   };
 

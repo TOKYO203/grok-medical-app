@@ -1,7 +1,14 @@
-
 import type {
  ModelProvider
 } from "./model-provider";
+
+import type {
+ ModelRequest
+} from "./model-request";
+
+import type {
+ ModelResponse
+} from "./model-response";
 
 
 export class OllamaClient implements ModelProvider {
@@ -11,31 +18,63 @@ export class OllamaClient implements ModelProvider {
 
 
  async generate(
-  prompt:string
- ){
-
-  const response = await fetch(
-   "http://localhost:11434/api/generate",
-   {
-    method:"POST",
-    headers:{
-     "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-     model:"deepseek-coder",
-     prompt,
-     stream:false
-    })
-   }
-  );
+  request:ModelRequest
+ ):Promise<ModelResponse>{
 
 
-  const data = await response.json();
+  const start =
+   Date.now();
 
 
-  return data.response ?? "";
+  const response =
+   await fetch(
+    "http://localhost:11434/api/generate",
+    {
+     method:"POST",
+     headers:{
+      "Content-Type":"application/json"
+     },
+     body:JSON.stringify({
+
+      model:"deepseek-coder",
+
+      prompt:request.prompt,
+
+      temperature:
+       request.temperature ?? 0.2,
+
+      stream:false
+
+     })
+    }
+   );
+
+
+  if(!response.ok){
+   throw new Error(
+    "Ollama error "+response.status
+   );
+  }
+
+
+  const data =
+   await response.json();
+
+
+  return {
+
+   content:
+    data.response ?? "",
+
+   provider:
+    this.name,
+
+   latency:
+    Date.now()-start
+
+  };
+
 
  }
 
 }
-

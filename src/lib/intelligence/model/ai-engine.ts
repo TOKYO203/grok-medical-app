@@ -1,18 +1,12 @@
-
 import {
- OllamaClient
-} from "./ollama.client";
+ getModelProvider
+} from "./model-router";
 
 
 import type {
  AIResponse,
  AIRequest
 } from "./model.types";
-
-
-const provider =
- new OllamaClient();
-
 
 
 export async function runAI(
@@ -23,39 +17,48 @@ export async function runAI(
  try {
 
 
-  const result =
-   await provider.generate(
-    request.prompt
+ const provider =
+   getModelProvider(
+    request.task
    );
 
 
-  return {
+ const result =
+   await provider.generate({
 
-   success:true,
+    prompt:request.prompt,
 
-   provider:"ollama",
+    task:request.task
 
-   content:result
-
-  };
-
-
- } catch(error){
+   });
 
 
-  return {
+ return {
 
-   success:false,
+  success:true,
 
-   provider:"ollama",
+  provider:result.provider,
 
-   error:String(error)
+  content:result.content
 
-  };
+ };
+
+
+ }catch(error){
+
+
+ return {
+
+  success:false,
+
+  provider:"unknown",
+
+  error:String(error)
+
+ };
 
 
  }
 
 
 }
-
