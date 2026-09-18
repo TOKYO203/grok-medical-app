@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
@@ -10,7 +9,6 @@ import { getDiagnostic } from "@/content/catalog";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import type { PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
-import { DiagnosticTimeline } from "@/components/cases/DiagnosticTimeline";
 
 export const Route = createFileRoute("/demarche/$id")({ component: DemarchePage });
 

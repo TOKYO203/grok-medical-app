@@ -1,6 +1,5 @@
 import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { useState } from "react";
-import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -12,7 +11,6 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
-import { DiagnosticCategoryHub } from "@/components/cases/DiagnosticCategoryHub";
 import { CaseHub } from "@/components/cases/CaseHub";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
