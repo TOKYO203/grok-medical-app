@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import { streamGroq } from "@/lib/intelligence/model/groq.client";
+import { streamGroq } from "@/lib/intelligence/model/groq-client";
 
 export type ClinicalAIStatus = "idle" | "streaming" | "done" | "error";
 
