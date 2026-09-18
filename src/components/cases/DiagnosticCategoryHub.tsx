@@ -52,7 +52,7 @@ return (
 
 <section
 key={id}
-className="rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]"
+className="optimus-interactive-card rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)] transition-transform active:scale-[0.99]"
 >
 
 
@@ -61,12 +61,12 @@ className="flex w-full items-center justify-between p-4"
 onClick={()=>setOpen(active?null:id)}
 >
 
-<span className="font-medium">
+<span className="font-display text-lg font-medium">
 {LABELS[id] ?? id}
 </span>
 
 
-<span className="text-sm text-muted">
+<span className="rounded-full bg-primary-soft px-3 py-1 text-xs font-medium text-primary">
 {items.length}
 {
 active
@@ -83,13 +83,18 @@ active
 {
 active &&
 
-<div className="border-t border-border p-4 space-y-2">
+
+<div className="border-t border-border p-4 space-y-3">
+<p className="text-xs uppercase tracking-wider text-muted">
+Orientations diagnostiques
+</p>
+
 
 {
 items.map((item)=>(
 <div
 key={item.id}
-className="rounded-lg bg-secondary p-3 text-sm"
+className="rounded-[var(--radius-md)] bg-secondary p-3 text-sm shadow-[var(--shadow-border)]"
 >
 {item.title}
 </div>
