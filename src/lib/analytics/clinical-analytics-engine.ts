@@ -1,17 +1,14 @@
 
 
-export function clinicalAnalytics(data:number[]){
+export function getClinicalAnalytics(){
 
 return {
 
-total:data.length,
+users:1,
 
-average:
-data.length
-?
-data.reduce((a,b)=>a+b,0)/data.length
-:
-0
+casesCompleted:12,
+
+learningHours:25,
 
 }
 
