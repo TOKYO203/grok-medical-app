@@ -63,7 +63,7 @@ jobs:
 
       - name: Retain sanitized evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: staging-migration-${{ github.sha }}-${{ github.run_attempt }}
           path: artifacts/staging-migration.json
