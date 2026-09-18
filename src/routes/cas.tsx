@@ -1,3 +1,4 @@
+import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { useState } from "react";
 import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
@@ -59,7 +60,8 @@ function CasPage() {
           <CaseSummary label="Accessibles" value={accessibleCases.length} />
           <CaseSummary label="Cas terminés" value={completedClinicalCount} accent />
           <CaseSummary label="Diagnostics" value={dxDone.length} />
-        </div>
+        <ClinicalAIWidget />
+</div>
 
         <section className="premium-hero relative mt-7 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
           <Sparkles className="size-6" aria-hidden />

@@ -1,3 +1,4 @@
+import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { DiagnosticExplorer } from "@/components/cases/DiagnosticExplorer";
 import { ArrowRight } from "lucide-react";
 
@@ -131,7 +132,8 @@ export function ClinicalLearningHub({
  {path.steps.length} étapes · {progressPercent(0,path.steps.length)}%
  </p>
 
- </div>
+ <ClinicalAIWidget />
+</div>
 
 
  <ArrowRight className="size-4 text-primary"/>
