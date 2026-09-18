@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";

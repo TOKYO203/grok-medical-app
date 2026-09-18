@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import {
   ArrowRight,

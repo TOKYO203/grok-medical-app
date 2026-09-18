@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { PremiumLockCard } from "@/components/cases/PremiumLockCard";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, Sparkles, X } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
