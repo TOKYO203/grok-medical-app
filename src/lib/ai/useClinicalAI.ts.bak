@@ -51,7 +51,7 @@ export function useClinicalAI() {
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
-  const run = useCallback(async (prompt: string, systemPromptOverride?: string) => {
+  const run = useCallback(async (prompt: string) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -69,7 +69,7 @@ export function useClinicalAI() {
       const res = await fetch("/api/ai-stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, systemPrompt: systemPromptOverride ?? SYSTEM_PROMPT }),
+        body: JSON.stringify({ prompt, systemPrompt: SYSTEM_PROMPT }),
         signal: ctrl.signal,
       });
 
