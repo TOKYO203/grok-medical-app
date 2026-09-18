@@ -36,6 +36,22 @@ function CasePlay() {
       <Shell>
         <Page>
           <p className="text-sm text-muted">Cas introuvable.</p>
+
+          <div className="mt-8">
+            <OptimusAnalysisPanel
+              context={{
+                title: clinical.title,
+                specialty: clinical.specialty,
+                studyYear: clinical.studyYear,
+                difficulty: clinical.difficulty,
+                summary: clinical.summary,
+                patient: clinical.patient,
+                revealedSteps: clinical.steps.slice(0, cursor + 1).filter((s) => s.kind === "reveal").map((s) => ({ title: s.title, body: s.body })) as any,
+                correct,
+                asked,
+              }}
+            />
+          </div>
         </Page>
       </Shell>
     );
