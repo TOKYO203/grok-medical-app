@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
-import { PwaInstallCard } from "@/components/pwa-install-card";
+import PwaInstallCard from "@/components/pwa-install-card";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";

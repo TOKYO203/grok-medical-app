@@ -29,9 +29,9 @@ export function LogoMark({ className }: { className?: string }) {
 export function Wordmark({ className, compact = false }: { className?: string; compact?: boolean }) {
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
-      <LogoMark className={compact ? "size-7" : "size-8"} />
+      <LogoMark className={compact ? "size-8" : "size-10"} />
       <div className="min-w-0 leading-tight">
-        <p className="font-display text-xl font-medium tracking-tight text-fg">Optimus</p>
+        <p className="font-display text-2xl font-medium tracking-tight text-fg">Optimus</p>
         {!compact ? (
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Formation médicale</p>
         ) : null}

@@ -9,6 +9,7 @@ import { getDiagnostic } from "@/content/catalog";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import type { PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
+import { DiagnosticTimeline } from "@/components/cases/DiagnosticTimeline";
 
 export const Route = createFileRoute("/demarche/$id")({ component: DemarchePage });
 

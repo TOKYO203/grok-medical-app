@@ -26,8 +26,8 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       >
         Aller au contenu
       </a>
-      <div className="mx-auto flex min-h-dvh max-w-6xl">
-        <aside className="sticky top-0 hidden h-dvh w-56 shrink-0 flex-col border-r border-border bg-bg/55 px-4 py-5 backdrop-blur-xl md:flex">
+      <div className="mx-auto flex min-h-dvh max-w-7xl">
+        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-border bg-bg/55 px-5 py-6 backdrop-blur-xl md:flex">
           <Link to="/" className="mb-8">
             <Wordmark />
           </Link>
@@ -48,7 +48,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                     preferences.enhancedMotion && active && "optimus-nav-active",
                   )}
                 >
-                  <Icon className="relative z-10 size-4" strokeWidth={1.75} />
+                  <Icon className="relative z-10 size-5" strokeWidth={1.75} />
                   <span className="relative z-10">{item.label}</span>
                 </Link>
               );
@@ -109,7 +109,7 @@ export function Page({ children, className }: { children: ReactNode; className?:
     <main
       id="main-content"
       tabIndex={-1}
-      className={cn("px-5 py-6 outline-none md:px-8 md:py-8", className)}
+      className={cn("px-5 py-6 outline-none md:px-10 md:py-10", className)}
     >
       {children}
     </main>

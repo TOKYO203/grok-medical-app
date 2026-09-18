@@ -12,10 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AchatsRouteImport } from './routes/achats'
+import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
+import { Route as ConditionsRouteImport } from './routes/conditions'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as LoginRouteImport } from './routes/login'
@@ -44,6 +48,11 @@ const AchatsRoute = AchatsRouteImport.update({
   path: '/achats',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAchatsRoute = AdminAchatsRouteImport.update({
+  id: '/admin-achats',
+  path: '/admin-achats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalculateursRoute = CalculateursRouteImport.update({
   id: '/calculateurs',
   path: '/calculateurs',
@@ -59,9 +68,24 @@ const ClassementRoute = ClassementRouteImport.update({
   path: '/classement',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConditionsRoute = ConditionsRouteImport.update({
+  id: '/conditions',
+  path: '/conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonneesRoute = DonneesRouteImport.update({
+  id: '/donnees',
+  path: '/donnees',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamenRoute = ExamenRouteImport.update({
@@ -129,10 +153,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin-achats': typeof AdminAchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -150,10 +178,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin-achats': typeof AdminAchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -172,10 +204,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin-achats': typeof AdminAchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -195,10 +231,14 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin-achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
+    | '/conditions'
+    | '/confidentialite'
     | '/contact'
+    | '/donnees'
     | '/examen'
     | '/import'
     | '/login'
@@ -216,10 +256,14 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin-achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
+    | '/conditions'
+    | '/confidentialite'
     | '/contact'
+    | '/donnees'
     | '/examen'
     | '/import'
     | '/login'
@@ -237,10 +281,14 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin-achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
+    | '/conditions'
+    | '/confidentialite'
     | '/contact'
+    | '/donnees'
     | '/examen'
     | '/import'
     | '/login'
@@ -259,10 +307,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   AchatsRoute: typeof AchatsRoute
+  AdminAchatsRoute: typeof AdminAchatsRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
+  ConditionsRoute: typeof ConditionsRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  DonneesRoute: typeof DonneesRoute
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
   LoginRoute: typeof LoginRoute
@@ -298,6 +350,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AchatsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin-achats': {
+      id: '/admin-achats'
+      path: '/admin-achats'
+      fullPath: '/admin-achats'
+      preLoaderRoute: typeof AdminAchatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calculateurs': {
       id: '/calculateurs'
       path: '/calculateurs'
@@ -319,11 +378,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClassementRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conditions': {
+      id: '/conditions'
+      path: '/conditions'
+      fullPath: '/conditions'
+      preLoaderRoute: typeof ConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donnees': {
+      id: '/donnees'
+      path: '/donnees'
+      fullPath: '/donnees'
+      preLoaderRoute: typeof DonneesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/examen': {
@@ -439,10 +519,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   AchatsRoute: AchatsRoute,
+  AdminAchatsRoute: AdminAchatsRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,
+  ConditionsRoute: ConditionsRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  DonneesRoute: DonneesRoute,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
   LoginRoute: LoginRoute,

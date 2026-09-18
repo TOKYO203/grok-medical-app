@@ -10,9 +10,11 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
+import { CaseHub } from "@/components/cases/CaseHub";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
+import { groupDiagnosticsBySpecialty } from "@/lib/cases/diagnostic-organizer";
 import { hasEntitlement, useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
@@ -27,6 +29,11 @@ function CasPage() {
   const visibleDiagnosticTopics = diagnosticTopics.filter((topic) =>
     normalizeSearch(`${topic.title} ${topic.specialty}`).includes(normalizedQuery),
   );
+
+    const diagnosticGroups = groupDiagnosticsBySpecialty(
+      diagnosticTopics as any,
+    );
+
   const accessibleCases = CLINICAL_CASES.filter((clinical) => hasCaseAccess(clinical, entitlements));
   const completedClinicalCount = CLINICAL_CASES.filter((clinical) => done.includes(clinical.id)).length;
 
@@ -138,6 +145,21 @@ function CasPage() {
             );
           })}
         </div>
+
+
+        <section className="mt-8">
+          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+            Clinical Hub
+          </p>
+
+          <CaseHub
+            categories={Object.fromEntries(
+              Object.entries(diagnosticGroups).map(
+                ([key, value]) => [key, (value as any[]).length]
+              )
+            )}
+          />
+        </section>
 
         <section className="mt-10">
           <div className="flex items-end justify-between gap-3">
