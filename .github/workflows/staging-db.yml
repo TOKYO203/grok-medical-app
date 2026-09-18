@@ -1,0 +1,71 @@
+name: Neon staging DB validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type STAGING; only release/v1-hardening may run this workflow"
+        required: true
+        type: string
+      apply:
+        description: "Commit migrations after verification (default: rehearse and roll back)"
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neon-staging-migrations
+  cancel-in-progress: false
+
+jobs:
+  validate-staging-db:
+    if: github.ref == 'refs/heads/release/v1-hardening'
+    environment: staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      STAGING_DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
+      STAGING_EXPECTED_HOST: ${{ vars.NEON_STAGING_HOST }}
+      STAGING_EXPECTED_DATABASE: ${{ vars.NEON_STAGING_DATABASE }}
+      STAGING_EXPECTED_ROLE: ${{ vars.NEON_STAGING_ROLE }}
+      STAGING_MAX_ORPHANS: ${{ vars.NEON_STAGING_MAX_ORPHANS || '0' }}
+      STAGING_CONFIRMATION: ${{ inputs.confirmation }}
+      DB_VALIDATION_TARGET: staging
+
+    steps:
+      - name: Checkout dispatched commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install locked dependencies without lifecycle scripts
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Rehearse or apply with target and preservation checks
+        env:
+          APPLY_MIGRATIONS: ${{ inputs.apply }}
+        shell: bash
+        run: |
+          if [ "$APPLY_MIGRATIONS" = "true" ]; then
+            node scripts/run-staging-migration.mjs --apply
+          else
+            node scripts/run-staging-migration.mjs
+          fi
+
+      - name: Retain sanitized evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-migration-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/staging-migration.json
+          if-no-files-found: error
+          retention-days: 30

@@ -4,7 +4,7 @@ import { PEERS } from "@/content/leaderboard";
 import { optimusScore } from "@/core/scoring";
 import { currentLeague, useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/classement")({ component: BoardPage });
 
@@ -36,12 +36,10 @@ function BoardPage() {
     league: league.label,
     subject: profile.prioritySubjects[0] ?? "—",
   };
-  const rows = useMemo(() => {
-    let list = [...PEERS, you];
-    if (scope === "mg") list = list.filter((p) => p.country === "Madagascar");
-    if (scope === "year") list = list.filter((p) => p.year === profile.studyYear);
-    return list.sort((a, b) => b.score - a.score);
-  }, [scope, youScore, profile.studyYear, profile.country, profile.displayName, profile.faculty, you]);
+  let rows = [...PEERS, you];
+  if (scope === "mg") rows = rows.filter((p) => p.country === "Madagascar");
+  if (scope === "year") rows = rows.filter((p) => p.year === profile.studyYear);
+  rows.sort((a, b) => b.score - a.score);
 
   return (
     <Shell title="Classement">

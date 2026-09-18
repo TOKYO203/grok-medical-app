@@ -1,0 +1,90 @@
+name: Database disaster recovery
+
+on:
+  push:
+    branches: [release/v1-hardening]
+    paths:
+      - "migrations/**"
+      - "scripts/migrate.mjs"
+      - ".github/workflows/db-recovery.yml"
+  schedule:
+    - cron: "41 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup-restore-smoke:
+    name: PostgreSQL backup/restore smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: optimus
+          POSTGRES_PASSWORD: optimus
+          POSTGRES_DB: optimus
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U optimus -d optimus"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://optimus:optimus@localhost:5432/optimus
+      PGPASSWORD: optimus
+      VITE_AUTH_ENABLED: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install PostgreSQL client
+        run: |
+          if ! command -v pg_dump >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
+          fi
+
+      - name: Apply migrations and seed recovery probe
+        run: |
+          npm run db:migrate
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          create table if not exists disaster_recovery_probe (
+            id integer primary key,
+            marker text not null
+          );
+          insert into disaster_recovery_probe (id, marker)
+          values (1, 'optimus-recovery-ok')
+          on conflict (id) do update set marker = excluded.marker;
+          SQL
+
+      - name: Create backup
+        run: pg_dump --format=custom --no-owner --no-acl "$DATABASE_URL" > /tmp/optimus.dump
+
+      - name: Destroy and recreate database
+        run: |
+          psql "postgresql://optimus:optimus@localhost:5432/postgres" -v ON_ERROR_STOP=1 -c "select pg_terminate_backend(pid) from pg_stat_activity where datname = 'optimus' and pid <> pg_backend_pid();"
+          dropdb --host=localhost --username=optimus optimus
+          createdb --host=localhost --username=optimus optimus
+
+      - name: Restore backup
+        run: pg_restore --host=localhost --username=optimus --dbname=optimus --no-owner --no-acl --exit-on-error /tmp/optimus.dump
+
+      - name: Verify restored schema and probe
+        run: |
+          test "$(psql "$DATABASE_URL" -Atc "select marker from disaster_recovery_probe where id = 1")" = "optimus-recovery-ok"
+          test "$(psql "$DATABASE_URL" -Atc "select count(*) > 0 from _migrations")" = "t"
+          echo "Database backup/restore smoke: OK"

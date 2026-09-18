@@ -29,7 +29,7 @@ function ContactPage() {
       <Page className="mx-auto max-w-lg">
         <h1 className="font-display text-3xl font-medium tracking-tight">Contact</h1>
         <p className="mt-2 text-sm text-muted">
-          Hors-ligne, le message reste sur l’appareil et partira à la reconnexion.
+          Ce formulaire conserve un brouillon sur cet appareil. Il ne l’envoie pas automatiquement.
         </p>
         <div className="mt-5 flex flex-wrap gap-1.5">
           {KINDS.map((k) => (
@@ -58,7 +58,7 @@ function ContactPage() {
           onClick={() => {
             add(kind, body.trim());
             setBody("");
-            toast.success("Message conservé localement");
+            toast.success("Brouillon conservé sur cet appareil");
           }}
         >
           Enregistrer
@@ -71,7 +71,7 @@ function ContactPage() {
               .map((c) => (
                 <li key={c.id} className="rounded-[var(--radius-md)] bg-card p-3 text-sm shadow-[var(--shadow-border)]">
                   <p className="text-xs uppercase tracking-wider text-muted">
-                    {c.kind} · {c.sent ? "envoyé" : "en attente"}
+                    {c.kind} · {c.sent ? "envoyé" : "brouillon local"}
                   </p>
                   <p className="mt-1">{c.body}</p>
                 </li>

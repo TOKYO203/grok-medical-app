@@ -34,9 +34,16 @@ function AboutPage() {
         </dl>
         <p className="mt-6 text-sm leading-relaxed text-muted">
           Optimus est un coach numérique de formation médicale : contenus versionnés, sources tracées, Mastery distincte
-          de l’XP, hors-ligne d’abord. Ce n’est pas une banque de QCM.
+          de l’XP, hors-ligne d’abord. Il s’agit d’un outil éducatif et non d’un substitut au jugement clinique
+          professionnel.
         </p>
-        <nav className="mt-8 grid gap-1 text-sm">
+        <nav className="mt-8 grid gap-1 text-sm" aria-label="Informations Optimus">
+          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/confidentialite">
+            Confidentialité et données
+          </Link>
+          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/conditions">
+            Conditions d’utilisation
+          </Link>
           <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/contact">
             Contact / signaler un problème
           </Link>

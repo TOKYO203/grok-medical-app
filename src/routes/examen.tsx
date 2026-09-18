@@ -2,8 +2,9 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { pickExamQuestions, questionXp } from "@/core/quiz-engine";
-import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
+import { hasAccess, hasEntitlement, useAllDecks, useOptimus } from "@/state/store";
 import { useMemo, useState } from "react";
 
 export const Route = createFileRoute("/examen")({ component: ExamPage });
@@ -29,7 +30,7 @@ function ExamPage() {
     return m;
   }, [unlocked]);
 
-  const locked = profile.tier !== "pro" && !entitlements.some((e) => e.product === "OPTIMUS_PRO");
+  const locked = !hasEntitlement("OPTIMUS_PRO", entitlements);
 
   return (
     <Shell title="Examen blanc">
@@ -43,8 +44,8 @@ function ExamPage() {
             <p className="text-sm">Les examens blancs complets sont un entitlement Pro. Un essai court reste possible.</p>
             <div className="mt-4 flex gap-2">
               <Button onClick={() => setStarted(true)}>Essai 12 questions</Button>
-              <Link to="/pro">
-                <Button variant="secondary">Optimus Pro</Button>
+              <Link to="/pro" className={buttonVariants({ variant: "secondary" })}>
+                Optimus Pro
               </Link>
             </div>
           </div>

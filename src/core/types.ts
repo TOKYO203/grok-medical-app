@@ -83,6 +83,11 @@ export type AccessPolicy = {
   entitlement: string;
 };
 
+export type DeckImportProof = {
+  format: "optimus-signed-v1" | "optimus-encrypted-v1";
+  envelope: string;
+};
+
 export type Deck = {
   id: string;
   deck_id: string;
@@ -93,7 +98,6 @@ export type Deck = {
   subject: string;
   specialty: string;
   studyYear: number;
-  // new optional, non-breaking field: studyLevel allows granular levels beyond numeric years
   studyLevel?: StudyLevel;
   difficulty: DeckDifficulty;
   competencies: Competency[];
@@ -103,6 +107,9 @@ export type Deck = {
   access_policy: AccessPolicy;
   chapters: Chapter[];
   imported?: boolean;
+  importProof?: DeckImportProof;
+  importVerified?: boolean;
+  importLicenseExpiresAt?: number | null;
 };
 
 export type ReviewStats = {
@@ -127,6 +134,26 @@ export type Entitlement = {
   product: string;
   issuedAt: number;
   expiresAt: number | null;
+};
+
+export type LicenseReceiptPayload = {
+  version: 1;
+  /** Server activation row identifier. New receipts include it; legacy V1 receipts may omit it. */
+  licenseId?: string;
+  product: string;
+  optimusId: string;
+  deviceId: string;
+  issuedAt: string;
+  expiresAt: string | null;
+};
+
+export type LicenseReceipt = {
+  payload: LicenseReceiptPayload;
+  signature: {
+    algorithm: "Ed25519";
+    keyId: "optimus-license-v1";
+    value: string;
+  };
 };
 
 export type SyncEventType =
@@ -160,7 +187,6 @@ export type Profile = {
   deviceId: string;
   tier: AccountTier;
   studyYear: number;
-  // new optional studyLevel for professionals
   studyLevel?: StudyLevel;
   country: string;
   faculty: string;
@@ -187,7 +213,6 @@ export type ClinicalCase = {
   title: string;
   specialty: string;
   studyYear: number;
-  // optional new field
   studyLevel?: StudyLevel;
   difficulty: string;
   summary: string;

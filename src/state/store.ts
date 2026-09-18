@@ -2,6 +2,21 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { BUILTIN_DECKS } from "@/content/catalog";
+import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
+import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
+import {
+  advancePurchase,
+  orderAmount,
+  orderLabel,
+  orderProduct,
+  PREMIUM_SPECIALTIES,
+  PURCHASE_STATUSES,
+  type PremiumOrder,
+  type PremiumPurchase,
+  type PremiumSpecialtyId,
+  type PurchaseStatus,
+} from "@/content/purchase-order";
+import { revalidateImportedDeck } from "@/content/validator";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { applyReview, emptyStats } from "@/core/spaced-repetition";
 import { leagueFromWeeklyXp, type LeagueId } from "@/core/scoring";
@@ -12,16 +27,29 @@ import type {
   Deck,
   DeckProgress,
   Entitlement,
+  LicenseReceipt,
   Profile,
   SyncEvent,
   SyncEventType,
 } from "@/core/types";
+import {
+  deleteImportedDeckStorage,
+  loadImportedDecks,
+  replaceImportedDecks,
+} from "@/lib/imported-deck-storage";
 import { todayKey, uid } from "@/lib/utils";
+import {
+  migrateOptimusPersistedState,
+  OPTIMUS_PERSIST_VERSION,
+} from "@/state/persist-migrations";
 
 function makeOptimusId(): string {
   const bytes = new Uint8Array(4);
   crypto.getRandomValues(bytes);
-  const hex = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("").toUpperCase();
+  const hex = [...bytes]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
   return `OM-${hex}`;
 }
 
@@ -37,6 +65,7 @@ const defaultProfile = (): Profile => ({
   deviceId: "device-local",
   tier: "guest",
   studyYear: 5,
+  studyLevel: 5,
   country: "Madagascar",
   faculty: "",
   goal: "edn",
@@ -60,23 +89,26 @@ type PersistShape = {
   progress: Record<string, DeckProgress>;
   importedDecks: Deck[];
   entitlements: Entitlement[];
+  licenseReceipts: LicenseReceipt[];
   badges: BadgeId[];
   casesCompleted: string[];
   diagnosticsCompleted: string[];
   reviewsSucceeded: number;
   syncQueue: SyncEvent[];
   contacts: ContactDraft[];
+  purchases: PremiumPurchase[];
 };
 
 export type OptimusState = PersistShape & {
   hydrated: boolean;
-  markHydrated: () => void;
+  importedDeckStorageReady: boolean;
+  finishHydration: () => void;
+  restoreLicenses: () => Promise<void>;
   completeOnboarding: (p: Partial<Profile>) => void;
   updateProfile: (p: Partial<Profile>) => void;
   createFreeAccount: (name: string) => void;
-  activatePro: () => void;
-  grantEntitlement: (product: string) => void;
-  importDeck: (deck: Deck) => void;
+  activateLicense: (receipt: unknown) => Promise<boolean>;
+  importDeck: (deck: Deck) => Promise<boolean>;
   recordAnswer: (opts: {
     deckId: string;
     questionId: string;
@@ -88,8 +120,8 @@ export type OptimusState = PersistShape & {
   completeCase: (caseId: string, xp: number) => void;
   completeDiagnostic: (id: string, xp: number) => void;
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
-  markQueueSynced: () => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
+  upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
   resetLocal: () => void;
 };
 
@@ -128,7 +160,10 @@ function unlockBadges(state: PersistShape): BadgeId[] {
     if (qs.length >= 6) {
       const acc =
         qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0), 0) /
-        Math.max(1, qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0) + (seen[q.id]?.wrong ?? 0), 0));
+        Math.max(
+          1,
+          qs.reduce((a, q) => a + (seen[q.id]?.correct ?? 0) + (seen[q.id]?.wrong ?? 0), 0),
+        );
       if (acc >= 0.9) add("cardio90");
     }
   }
@@ -142,6 +177,115 @@ function unlockBadges(state: PersistShape): BadgeId[] {
   return [...have] as BadgeId[];
 }
 
+function freeEntitlement(): Entitlement {
+  return { id: "ent-free", product: "OPTIMUS_FREE", issuedAt: 0, expiresAt: null };
+}
+
+function isStoredDeck(value: unknown): value is Deck {
+  if (!value || typeof value !== "object") return false;
+  const deck = value as Partial<Deck>;
+  return (
+    typeof deck.id === "string" &&
+    typeof deck.title === "string" &&
+    Array.isArray(deck.questions) &&
+    Boolean(deck.access_policy) &&
+    (deck.access_policy?.tier === "free" || deck.access_policy?.tier === "pro")
+  );
+}
+
+function restoreStoredDecks(value: unknown): Deck[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter(isStoredDeck)
+    .map((deck) =>
+      deck.imported && (deck.importProof || deck.access_policy.tier === "pro")
+        ? { ...deck, importVerified: false }
+        : deck,
+    );
+}
+
+function restorePurchases(value: unknown): PremiumPurchase[] {
+  if (!Array.isArray(value)) return [];
+  const specialtyIds = new Set<string>(PREMIUM_SPECIALTIES.map((specialty) => specialty.id));
+  const statuses = new Set<string>(PURCHASE_STATUSES);
+
+  return value.flatMap((candidate) => {
+    if (!candidate || typeof candidate !== "object") return [];
+    const purchase = candidate as Partial<PremiumPurchase>;
+    const deckNumber = Number(purchase.deckNumber);
+    if (
+      typeof purchase.reference !== "string" ||
+      purchase.reference.length < 6 ||
+      (purchase.offer !== "deck" && purchase.offer !== "specialty") ||
+      !specialtyIds.has(purchase.specialty ?? "") ||
+      !Number.isInteger(deckNumber) ||
+      deckNumber < 1 ||
+      deckNumber > 10 ||
+      typeof purchase.status !== "string" ||
+      !statuses.has(purchase.status) ||
+      typeof purchase.createdAt !== "number" ||
+      !Number.isFinite(purchase.createdAt) ||
+      typeof purchase.updatedAt !== "number" ||
+      !Number.isFinite(purchase.updatedAt)
+    ) {
+      return [];
+    }
+    const order: PremiumOrder = {
+      reference: purchase.reference,
+      offer: purchase.offer,
+      specialty: purchase.specialty as PremiumSpecialtyId,
+      deckNumber,
+    };
+    return [
+      {
+        ...order,
+        product: orderProduct(order),
+        label: orderLabel(order),
+        amount: orderAmount(order),
+        status: purchase.status as PurchaseStatus,
+        proofAttached: purchase.proofAttached === true,
+        createdAt: purchase.createdAt,
+        updatedAt: purchase.updatedAt,
+      },
+    ];
+  });
+}
+
+function deliverPurchases(purchases: PremiumPurchase[], products: Iterable<string>) {
+  const delivered = new Set(products);
+  if (delivered.size === 0) return purchases;
+  return purchases.map((purchase) =>
+    delivered.has(purchase.product) && purchase.status !== "delivered"
+      ? advancePurchase(purchase, "delivered", purchase, purchase.proofAttached)
+      : purchase,
+  );
+}
+
+function deckForPersistence(deck: Deck): Deck {
+  const { importVerified: _importVerified, ...persisted } = deck;
+  return deck.importProof?.format === "optimus-encrypted-v1"
+    ? { ...persisted, questions: [], sources: [], chapters: [] }
+    : persisted;
+}
+
+function receiptEntitlement(receipt: LicenseReceipt): Entitlement {
+  return {
+    id: `lic-${receipt.signature.value.slice(0, 16)}`,
+    product: receipt.payload.product,
+    issuedAt: Date.parse(receipt.payload.issuedAt),
+    expiresAt: receipt.payload.expiresAt === null ? null : Date.parse(receipt.payload.expiresAt),
+  };
+}
+
+export function hasEntitlement(product: string, entitlements: Entitlement[]): boolean {
+  const now = Date.now();
+  return entitlements.some(
+    (entitlement) =>
+      entitlement.product === product &&
+      (entitlement.expiresAt === null || entitlement.expiresAt > now),
+  );
+}
+
 const persistDefaults: PersistShape = {
   profile: defaultProfile(),
   xp: 0,
@@ -152,14 +296,43 @@ const persistDefaults: PersistShape = {
   daily: { key: todayKey(), answered: 0, xp: 0 },
   progress: {},
   importedDecks: [],
-  entitlements: [{ id: "ent-free", product: "OPTIMUS_FREE", issuedAt: Date.now(), expiresAt: null }],
+  entitlements: [freeEntitlement()],
+  licenseReceipts: [],
   badges: [],
   casesCompleted: [],
   diagnosticsCompleted: [],
   reviewsSucceeded: 0,
   syncQueue: [],
   contacts: [],
+  purchases: [],
 };
+
+function mergePersistedState(persistedState: unknown, currentState: OptimusState): OptimusState {
+  const saved =
+    persistedState && typeof persistedState === "object"
+      ? (persistedState as Partial<OptimusState>)
+      : {};
+  const runtimeActions = Object.fromEntries(
+    Object.entries(currentState).filter(([, value]) => typeof value === "function"),
+  );
+  const savedProfile =
+    saved.profile && typeof saved.profile === "object" ? saved.profile : currentState.profile;
+  const profile = { ...currentState.profile, ...savedProfile };
+  profile.tier = profile.optimusId === "OM-GUEST" ? "guest" : "free";
+
+  return {
+    ...currentState,
+    ...saved,
+    ...runtimeActions,
+    profile,
+    importedDecks: restoreStoredDecks(saved.importedDecks),
+    entitlements: [freeEntitlement()],
+    licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
+    purchases: restorePurchases(saved.purchases),
+    hydrated: false,
+    importedDeckStorageReady: false,
+  } as OptimusState;
+}
 
 const memoryStorage = {
   getItem: () => null,
@@ -169,10 +342,94 @@ const memoryStorage = {
 
 export const useOptimus = create<OptimusState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       ...persistDefaults,
       hydrated: false,
-      markHydrated: () => set({ hydrated: true }),
+      importedDeckStorageReady: false,
+      finishHydration: () => set({ hydrated: true }),
+      restoreLicenses: async () => {
+        const state = get();
+        const licensePublicKey = import.meta.env.VITE_LICENSE_SIGNING_PUBLIC_KEY;
+        const candidateReceipts = state.licenseReceipts.filter(isLicenseReceipt);
+        const verified: LicenseReceipt[] = [];
+        if (licensePublicKey) {
+          for (const receipt of candidateReceipts) {
+            if (
+              await verifyLicenseReceipt(
+                receipt,
+                licensePublicKey,
+                state.profile.optimusId,
+                state.profile.deviceId,
+              )
+            ) {
+              verified.push(receipt);
+            }
+          }
+        }
+        const licenseReceipts = licensePublicKey ? verified : candidateReceipts;
+        const entitlements = [
+          freeEntitlement(),
+          ...(licensePublicKey ? verified.map(receiptEntitlement) : []),
+        ];
+
+        let storedDecks = state.importedDecks;
+        let importedDeckStorageReady = false;
+        try {
+          const indexedDecks = await loadImportedDecks(state.profile.optimusId);
+          if (state.importedDecks.length > 0) {
+            const merged = new Map<string, Deck>();
+            for (const deck of indexedDecks) merged.set(deck.id, deck);
+            for (const deck of state.importedDecks) merged.set(deck.id, deck);
+            storedDecks = [...merged.values()];
+            await replaceImportedDecks(
+              state.profile.optimusId,
+              storedDecks.map(deckForPersistence),
+            );
+          } else {
+            storedDecks = indexedDecks;
+          }
+          importedDeckStorageReady = true;
+        } catch (error) {
+          console.warn("[imported-decks] IndexedDB restore deferred", error);
+        }
+
+        const needsDeviceKey = storedDecks.some(
+          (deck) => deck.importProof?.format === "optimus-encrypted-v1",
+        );
+        const encryptionIdentity = needsDeviceKey ? await getDeviceEncryptionIdentity(false) : null;
+        const deckDevice = encryptionIdentity
+          ? { ...encryptionIdentity, deviceId: state.profile.deviceId }
+          : undefined;
+        const importedDecks = await Promise.all(
+          storedDecks.map((deck) =>
+            revalidateImportedDeck(
+              deck,
+              state.profile.optimusId,
+              import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
+              deckDevice,
+            ),
+          ),
+        );
+        const pro = hasEntitlement("OPTIMUS_PRO", entitlements);
+        const deliveredProducts = [
+          ...verified.map((receipt) => receipt.payload.product),
+          ...importedDecks
+            .filter((deck) => deck.importVerified === true)
+            .map((deck) => deck.access_policy.entitlement),
+        ];
+        set((current) => ({
+          licenseReceipts,
+          entitlements,
+          importedDecks,
+          importedDeckStorageReady,
+          profile: {
+            ...current.profile,
+            tier: pro ? "pro" : current.profile.optimusId === "OM-GUEST" ? "guest" : "free",
+          },
+          purchases: deliverPurchases(current.purchases, deliveredProducts),
+          hydrated: true,
+        }));
+      },
       completeOnboarding: (p) =>
         set((s) => ({
           profile: {
@@ -197,38 +454,61 @@ export const useOptimus = create<OptimusState>()(
             deviceId: s.profile.deviceId === "device-local" ? makeDeviceId() : s.profile.deviceId,
           },
         })),
-      activatePro: () =>
-        set((s) => {
-          const products = ["OPTIMUS_PRO", "CARDIO_PRO", "NEURO_PRO", "INFECTIO_PRO", "URGENCES_PRO", "DERMATO_PRO"];
-          const have = new Set(s.entitlements.map((e) => e.product));
-          const extra = products
-            .filter((p) => !have.has(p))
-            .map((product) => ({
-              id: uid("ent"),
-              product,
-              issuedAt: Date.now(),
-              expiresAt: Date.now() + 1000 * 60 * 60 * 24 * 365,
-            }));
-          return {
-            profile: { ...s.profile, tier: "pro" as AccountTier },
-            entitlements: [...s.entitlements, ...extra],
-          };
-        }),
-      grantEntitlement: (product) =>
-        set((s) => {
-          if (s.entitlements.some((e) => e.product === product)) return s;
-          return {
-            entitlements: [
-              ...s.entitlements,
-              { id: uid("ent"), product, issuedAt: Date.now(), expiresAt: Date.now() + 1000 * 60 * 60 * 24 * 365 },
-            ],
-          };
-        }),
-      importDeck: (deck) =>
-        set((s) => {
-          const importedDecks = [...s.importedDecks.filter((d) => d.id !== deck.id), deck];
-          return { importedDecks, badges: unlockBadges({ ...s, importedDecks }) };
-        }),
+      activateLicense: async (receiptValue) => {
+        const state = get();
+        if (
+          !(await verifyLicenseReceipt(
+            receiptValue,
+            import.meta.env.VITE_LICENSE_SIGNING_PUBLIC_KEY,
+            state.profile.optimusId,
+            state.profile.deviceId,
+          ))
+        ) {
+          return false;
+        }
+        if (!isLicenseReceipt(receiptValue)) return false;
+        const receipt = receiptValue;
+        const licenseReceipts = [
+          ...state.licenseReceipts.filter(
+            (saved) => saved.payload.product !== receipt.payload.product,
+          ),
+          receipt,
+        ];
+        const entitlements = [freeEntitlement(), ...licenseReceipts.map(receiptEntitlement)];
+        set((current) => ({
+          licenseReceipts,
+          entitlements,
+          profile: {
+            ...current.profile,
+            tier: hasEntitlement("OPTIMUS_PRO", entitlements) ? "pro" : "free",
+          },
+          purchases: deliverPurchases(current.purchases, [receipt.payload.product]),
+        }));
+        return true;
+      },
+      importDeck: async (deck) => {
+        const state = get();
+        const importedDecks = [...state.importedDecks.filter((d) => d.id !== deck.id), deck];
+        try {
+          await replaceImportedDecks(
+            state.profile.optimusId,
+            importedDecks.map(deckForPersistence),
+          );
+        } catch (error) {
+          console.warn("[imported-decks] save rejected", error);
+          return false;
+        }
+        set((s) => ({
+          importedDecks,
+          importedDeckStorageReady: true,
+          badges: unlockBadges({ ...s, importedDecks }),
+          purchases:
+            deck.importVerified === true
+              ? deliverPurchases(s.purchases, [deck.access_policy.entitlement])
+              : s.purchases,
+        }));
+        return true;
+      },
       recordAnswer: ({ deckId, questionId, ok, xp, mode }) =>
         set((s) => {
           const today = todayKey();
@@ -246,7 +526,8 @@ export const useOptimus = create<OptimusState>()(
               : { key: today, answered: 1, xp };
           const weeklyXp = s.weeklyKey === wk ? s.weeklyXp + xp : xp;
           const streak = bumpStreak(s.lastActiveDay, today, s.streak || 0);
-          const reviewsSucceeded = mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
+          const reviewsSucceeded =
+            mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
           const event: SyncEvent = {
             id: uid("evt"),
             type: mode === "revue" ? "REVIEW_COMPLETED" : "QUESTION_ANSWERED",
@@ -266,11 +547,13 @@ export const useOptimus = create<OptimusState>()(
             progress,
             importedDecks: s.importedDecks,
             entitlements: s.entitlements,
+            licenseReceipts: s.licenseReceipts,
             badges: s.badges,
             casesCompleted: s.casesCompleted,
             diagnosticsCompleted: s.diagnosticsCompleted,
             syncQueue: [...s.syncQueue, event],
             contacts: s.contacts,
+            purchases: s.purchases,
           };
           const badges = unlockBadges(next);
           const extraEvents: SyncEvent[] = badges
@@ -290,7 +573,8 @@ export const useOptimus = create<OptimusState>()(
           const deckProg: DeckProgress = progress[deckId]
             ? { ...progress[deckId], completedLessons: [...progress[deckId].completedLessons] }
             : { seen: {}, completedLessons: [] };
-          if (!deckProg.completedLessons.includes(lessonIndex)) deckProg.completedLessons.push(lessonIndex);
+          if (!deckProg.completedLessons.includes(lessonIndex))
+            deckProg.completedLessons.push(lessonIndex);
           progress[deckId] = deckProg;
           return { progress };
         }),
@@ -324,16 +608,20 @@ export const useOptimus = create<OptimusState>()(
         }),
       enqueue: (type, payload) =>
         set((s) => ({
-          syncQueue: [...s.syncQueue, { id: uid("evt"), type, payload, createdAt: Date.now(), synced: false }],
-        })),
-      markQueueSynced: () =>
-        set((s) => ({
-          syncQueue: s.syncQueue.map((e) => ({ ...e, synced: true })),
-          contacts: s.contacts.map((c) => ({ ...c, sent: true })),
+          syncQueue: [
+            ...s.syncQueue,
+            { id: uid("evt"), type, payload, createdAt: Date.now(), synced: false },
+          ],
         })),
       addContact: (kind, body) =>
         set((s) => {
-          const draft: ContactDraft = { id: uid("msg"), kind, body, createdAt: Date.now(), sent: false };
+          const draft: ContactDraft = {
+            id: uid("msg"),
+            kind,
+            body,
+            createdAt: Date.now(),
+            sent: false,
+          };
           return {
             contacts: [...s.contacts, draft],
             syncQueue: [
@@ -348,15 +636,49 @@ export const useOptimus = create<OptimusState>()(
             ],
           };
         }),
-      resetLocal: () => set({ ...persistDefaults, hydrated: true, profile: { ...defaultProfile(), onboarded: false } }),
+      upsertPurchase: (order, status, proofAttached = false) =>
+        set((s) => {
+          const previous = s.purchases.find((purchase) => purchase.reference === order.reference);
+          const purchase = advancePurchase(order, status, previous, proofAttached);
+          return {
+            purchases: [
+              purchase,
+              ...s.purchases.filter((saved) => saved.reference !== order.reference),
+            ],
+          };
+        }),
+      resetLocal: () => {
+        const ownerId = get().profile.optimusId;
+        void deleteImportedDeckStorage(ownerId).catch((error) => {
+          console.warn("[imported-decks] cleanup deferred", error);
+        });
+        set({
+          ...persistDefaults,
+          hydrated: true,
+          importedDeckStorageReady: false,
+          profile: { ...defaultProfile(), onboarded: false },
+        });
+      },
     }),
     {
       name: "optimus-v2",
-      storage: createJSONStorage(() => (typeof window === "undefined" ? memoryStorage : localStorage)),
-      partialize: (s): PersistShape => pickPersist(s),
+      version: OPTIMUS_PERSIST_VERSION,
+      migrate: (persistedState, version) =>
+        migrateOptimusPersistedState(persistedState, version) as PersistShape,
+      storage: createJSONStorage(() =>
+        typeof window === "undefined" ? memoryStorage : localStorage,
+      ),
+      partialize: (s): PersistShape => ({
+        ...pickPersist(s),
+        importedDecks: s.importedDeckStorageReady
+          ? []
+          : s.importedDecks.map(deckForPersistence),
+        entitlements: [freeEntitlement()],
+      }),
       onRehydrateStorage: () => (state) => {
-        state?.markHydrated();
+        void state?.restoreLicenses();
       },
+      merge: mergePersistedState,
     },
   ),
 );
@@ -373,12 +695,14 @@ function pickPersist(s: PersistShape): PersistShape {
     progress: s.progress,
     importedDecks: s.importedDecks,
     entitlements: s.entitlements,
+    licenseReceipts: s.licenseReceipts,
     badges: s.badges,
     casesCompleted: s.casesCompleted,
     diagnosticsCompleted: s.diagnosticsCompleted,
     reviewsSucceeded: s.reviewsSucceeded,
     syncQueue: s.syncQueue,
     contacts: s.contacts,
+    purchases: s.purchases,
   };
 }
 
@@ -388,14 +712,19 @@ export function useAllDecks(): Deck[] {
   return [...BUILTIN_DECKS, ...imported.filter((d) => !ids.has(d.id))];
 }
 
-export function hasAccess(deck: Deck, entitlements: Entitlement[], tier: AccountTier): boolean {
+export function hasAccess(deck: Deck, entitlements: Entitlement[], _tier: AccountTier): boolean {
+  if (deck.imported) {
+    if (!deck.importProof && deck.access_policy.tier === "free") return true;
+    return (
+      deck.importVerified === true &&
+      (deck.importLicenseExpiresAt === null ||
+        (typeof deck.importLicenseExpiresAt === "number" &&
+          deck.importLicenseExpiresAt > Date.now()))
+    );
+  }
   if (deck.access_policy.tier === "free") return true;
-  if (tier === "pro") return true;
   const product = deck.access_policy.entitlement;
-  const now = Date.now();
-  return entitlements.some(
-    (e) => (e.product === product || e.product === "OPTIMUS_PRO") && (e.expiresAt === null || e.expiresAt > now),
-  );
+  return hasEntitlement(product, entitlements) || hasEntitlement("OPTIMUS_PRO", entitlements);
 }
 
 export function currentLeague(weeklyXp: number): { id: LeagueId; label: string } {

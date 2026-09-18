@@ -39,11 +39,16 @@ function LearnPage() {
   }
 
   const open = hasAccess(deck, entitlements, tier);
-  const mode: SessionMode = !open || search.preview ? "preview" : search.mode === "revue" ? "revue" : "lesson";
-  const items: QuizItem[] = pickLessonQuestions(deck, search.lesson ?? 0, progress, mode).map((question) => ({
-    question,
-    deckTitle: deck.title,
-  }));
+  const mode: SessionMode =
+    !open || search.preview ? "preview" : search.mode === "revue" ? "revue" : "lesson";
+  const items: QuizItem[] = pickLessonQuestions(deck, search.lesson ?? 0, progress, mode).map(
+    (question) => ({
+      question,
+      deckTitle: deck.title,
+      deckId: deck.id,
+      deckVersion: deck.version,
+    }),
+  );
 
   return (
     <Shell title={deck.title}>

@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/input";
+import {
+  getDeviceEncryptionIdentity,
+  type DeviceEncryptionIdentity,
+} from "@/content/device-encryption";
 import { importDeckJson, type ImportStep } from "@/content/validator";
+import { MAX_IMPORTED_DECK_BYTES } from "@/lib/imported-deck-storage";
 import { useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -38,19 +43,116 @@ function ImportPage() {
   const [text, setText] = useState("");
   const [steps, setSteps] = useState<ImportStep[]>([]);
   const [warnings, setWarnings] = useState<string[]>([]);
+  const [deviceIdentity, setDeviceIdentity] = useState<DeviceEncryptionIdentity | null>(null);
   const importDeck = useOptimus((s) => s.importDeck);
+  const profile = useOptimus((s) => s.profile);
   const decks = useAllDecks();
 
+  useEffect(() => {
+    if (profile.optimusId === "OM-GUEST") return;
+    void getDeviceEncryptionIdentity().then(setDeviceIdentity);
+  }, [profile.optimusId]);
+
   async function run() {
-    const result = await importDeckJson(text, decks.map((d) => d.id));
-    setSteps(result.steps);
+    const sourceBytes = new TextEncoder().encode(text).byteLength;
+    if (sourceBytes > MAX_IMPORTED_DECK_BYTES) {
+      setWarnings([]);
+      setSteps([
+        {
+          id: "size",
+          label: "Taille",
+          ok: false,
+          detail: "Le fichier dépasse la limite locale de 4 MiB",
+        },
+      ]);
+      toast.error("Deck trop volumineux — 4 MiB maximum");
+      return;
+    }
+
+    const result = await importDeckJson(
+      text,
+      decks.map((d) => d.id),
+      profile.optimusId,
+      import.meta.env.VITE_DECK_SIGNING_PUBLIC_KEY,
+      deviceIdentity ? { ...deviceIdentity, deviceId: profile.deviceId } : undefined,
+    );
     if (result.ok) {
       setWarnings(result.warnings);
-      importDeck(result.deck);
+      const stored = await importDeck(result.deck);
+      if (!stored) {
+        setSteps([
+          ...result.steps,
+          {
+            id: "storage",
+            label: "Stockage local",
+            ok: false,
+            detail: "IndexedDB indisponible ou quota local dépassé",
+          },
+        ]);
+        toast.error("Deck validé mais impossible à enregistrer durablement sur cet appareil");
+        return;
+      }
+      setSteps([
+        ...result.steps,
+        { id: "storage", label: "Stockage local", ok: true, detail: "Enregistré dans IndexedDB" },
+      ]);
       toast.success(`${result.deck.title} accepté`);
     } else {
+      setSteps(result.steps);
       setWarnings([]);
       toast.error(result.error);
+    }
+  }
+
+  async function copyDeviceRequest() {
+    if (!deviceIdentity) return;
+    const request = JSON.stringify({
+      format: "optimus-device-request-v1",
+      optimus_id: profile.optimusId,
+      device_id: profile.deviceId,
+      device_key_id: deviceIdentity.keyId,
+      public_key: deviceIdentity.publicKey,
+    });
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "Demande Deck Optimus", text: request });
+        toast.success("Demande d’achat partagée");
+      } else {
+        await navigator.clipboard.writeText(request);
+        toast.success("Demande d’achat copiée");
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      toast.error("Partage impossible — réessayez");
+    }
+  }
+
+  async function loadFile(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      if (file.size > MAX_IMPORTED_DECK_BYTES) {
+        setText("");
+        setSteps([
+          {
+            id: "size",
+            label: "Taille",
+            ok: false,
+            detail: "Le fichier dépasse la limite locale de 4 MiB",
+          },
+        ]);
+        setWarnings([]);
+        toast.error("Deck trop volumineux — 4 MiB maximum");
+        return;
+      }
+      setText(await file.text());
+      setSteps([]);
+      setWarnings([]);
+      toast.success(`${file.name} prêt à être vérifié`);
+    } catch {
+      toast.error("Impossible de lire ce fichier");
+    } finally {
+      event.target.value = "";
     }
   }
 
@@ -59,9 +161,43 @@ function ImportPage() {
       <Page className="mx-auto max-w-lg">
         <h1 className="font-display text-3xl font-medium tracking-tight">Importer un deck</h1>
         <p className="mt-2 text-sm text-muted">
-          JSON → schéma → questions → sources → doublons → hash → signature → acceptation. Les sources sont
-          obligatoires.
+          JSON → schéma → questions → sources → doublons → hash → signature → acceptation. Les
+          sources sont obligatoires.
         </p>
+        <section className="mt-5 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+            🔐 Protection Premium
+          </p>
+          {profile.optimusId === "OM-GUEST" ? (
+            <div className="mt-2">
+              <p className="text-sm leading-relaxed text-muted">
+                Créez d’abord votre compte Free dans le profil pour obtenir un Deck lié à votre
+                appareil.
+              </p>
+              <Link to="/profil" className="mt-2 inline-block text-sm font-medium text-accent">
+                Ouvrir mon profil →
+              </Link>
+            </div>
+          ) : deviceIdentity ? (
+            <>
+              <p className="mt-2 text-sm font-medium">Cet appareil est prêt</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted">
+                Copiez cette demande et envoyez-la avec votre preuve de paiement. Le Deck reçu ne
+                pourra être ouvert que sur cet appareil.
+              </p>
+              <Button
+                className="mt-3"
+                variant="secondary"
+                size="sm"
+                onClick={() => void copyDeviceRequest()}
+              >
+                Partager ma demande d’achat
+              </Button>
+            </>
+          ) : (
+            <p className="mt-2 text-sm text-muted">Préparation sécurisée de l’appareil…</p>
+          )}
+        </section>
         <Textarea
           className="mt-5 font-mono text-xs"
           value={text}
@@ -72,10 +208,23 @@ function ImportPage() {
           <Button onClick={() => void run()} disabled={!text.trim()}>
             Valider
           </Button>
+          <label className="inline-flex h-11 cursor-pointer items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium transition-colors hover:bg-secondary/80">
+            Choisir le fichier reçu
+            <input
+              className="sr-only"
+              type="file"
+              accept=".json,application/json"
+              onChange={(event) => void loadFile(event)}
+            />
+          </label>
           <Button variant="secondary" onClick={() => setText(SAMPLE)}>
             Exemple
           </Button>
-          <a href="/decks/cardio-ic-v2.json" className="inline-flex h-11 items-center text-sm text-muted" download>
+          <a
+            href="/decks/cardio-ic-v2.json"
+            className="inline-flex h-11 items-center text-sm text-muted"
+            download
+          >
             Télécharger un modèle
           </a>
         </div>

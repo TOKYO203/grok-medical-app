@@ -1,11 +1,24 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Lock } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpenCheck,
+  BrainCircuit,
+  Check,
+  Lock,
+  Play,
+  RotateCcw,
+  Target,
+} from "lucide-react";
+import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
-import { Page, Shell } from "@/components/shell";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+import { Page, SectionTitle, Shell } from "@/components/shell";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { YEARS } from "@/content/catalog";
 import { LESSONS } from "@/core/quiz-engine";
-import { deckMastery, deckProgressPct } from "@/core/mastery";
+import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
+import { COMPETENCY_LABEL } from "@/core/types";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/parcours/$deckId")({ component: DeckPage });
@@ -13,10 +26,10 @@ export const Route = createFileRoute("/parcours/$deckId")({ component: DeckPage 
 function DeckPage() {
   const { deckId } = Route.useParams();
   const decks = useAllDecks();
-  const deck = decks.find((d) => d.id === deckId);
-  const progress = useOptimus((s) => s.progress[deckId]);
-  const entitlements = useOptimus((s) => s.entitlements);
-  const tier = useOptimus((s) => s.profile.tier);
+  const deck = decks.find((item) => item.id === deckId);
+  const progress = useOptimus((state) => state.progress[deckId]);
+  const entitlements = useOptimus((state) => state.entitlements);
+  const tier = useOptimus((state) => state.profile.tier);
 
   if (!deck) {
     return (
@@ -29,104 +42,233 @@ function DeckPage() {
   }
 
   const open = hasAccess(deck, entitlements, tier);
-  const prog = deckProgressPct(deck, progress);
-  const mast = deckMastery(deck, progress);
+  const progression = deckProgressPct(deck, progress);
+  const mastery = deckMastery(deck, progress);
+  const completedLessons = progress?.completedLessons ?? [];
+  const nextLesson = LESSONS.find((lesson) => !completedLessons.includes(lesson.index));
+  const allLessonsDone = nextLesson === undefined;
+  const learningGoals =
+    deck.chapters.length > 0
+      ? deck.chapters.map((chapter) => chapter.title)
+      : deck.competencies.map((competency) => COMPETENCY_LABEL[competency]);
 
   return (
     <Shell title={deck.title}>
       <Page>
-        <Link to="/parcours" className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg">
+        <Link
+          to="/parcours"
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg"
+        >
           <ArrowLeft className="size-4" />
-          Parcours
+          Tous les parcours
         </Link>
-        <div className="mt-4 flex items-start gap-3">
-          <span className="flex size-12 items-center justify-center rounded-[var(--radius-md)] bg-secondary text-primary">
-            <DeckIcon name={deck.icon} className="size-6" />
+
+        <section className="premium-hero relative mt-4 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)] md:p-7">
+          <span className="pointer-events-none absolute -right-8 -top-8 opacity-[0.08]" aria-hidden>
+            <DeckIcon name={deck.icon} className="size-44" />
           </span>
-          <div>
-            <h1 className="font-display text-3xl font-medium tracking-tight">{deck.title}</h1>
-            <p className="mt-1 text-sm text-muted">
-              {deck.subtitle} · {deck.studyYear}e année · v{deck.version}
-            </p>
-          </div>
-        </div>
-        <div className="mt-5 grid grid-cols-2 gap-3">
-          <div className="rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]">
-            <p className="text-xs text-muted">Progression</p>
-            <p className="font-display text-2xl tabular-nums">{prog}%</p>
-            <Progress className="mt-2" value={prog} />
-          </div>
-          <div className="rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]">
-            <p className="text-xs text-muted">Mastery</p>
-            <p className="font-display text-2xl tabular-nums">{mast}%</p>
-            <Progress className="mt-2" value={mast} barClassName="bg-fg/70" />
-          </div>
-        </div>
-        {!open ? (
-          <div className="mt-6 rounded-[var(--radius-xl)] bg-secondary p-4">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <Lock className="size-4" /> Deck Pro
-            </div>
-            <p className="mt-2 text-sm text-muted">
-              Aperçu de 3 questions, puis entitlement {deck.access_policy.entitlement}. Pas de blocage artificiel du
-              hors-ligne une fois le droit acquis.
-            </p>
-            <div className="mt-3 flex gap-2">
-              <Link to="/learn/$deckId" params={{ deckId: deck.id }} search={{ lesson: 0, preview: true }}>
-                <Button size="sm">Aperçu</Button>
-              </Link>
-              <Link to="/pro">
-                <Button size="sm" variant="secondary">
-                  Optimus Pro
-                </Button>
-              </Link>
+
+          <div className="relative flex items-start gap-4">
+            <span className="flex size-14 shrink-0 items-center justify-center rounded-[18px] bg-bg/90 text-primary shadow-[var(--shadow-soft)]">
+              <DeckIcon name={deck.icon} className="size-7" />
+            </span>
+            <div className="min-w-0 pt-0.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] opacity-70">
+                {deck.specialty}
+              </p>
+              <h1 className="mt-1 font-display text-3xl font-medium tracking-tight md:text-4xl">
+                {deck.title}
+              </h1>
+              <p className="mt-1 text-sm leading-relaxed opacity-75">{deck.subtitle}</p>
             </div>
           </div>
-        ) : null}
-        <h2 className="mt-8 font-display text-xl font-medium tracking-tight">Leçons</h2>
-        <ol className="mt-3 space-y-2">
-          {LESSONS.map((l) => {
-            const done = progress?.completedLessons.includes(l.index);
-            return (
-              <li key={l.index}>
+
+          <div className="relative mt-5 flex flex-wrap gap-2 text-xs">
+            <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
+              {yearLabel(deck.studyYear)}
+            </span>
+            <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
+              {deck.questions.length} questions
+            </span>
+            <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
+              {LESSONS.length} étapes
+            </span>
+          </div>
+
+          {open ? (
+            <div className="relative mt-5">
+              <div className="grid grid-cols-3 gap-2">
+                <DeckMetric
+                  icon={<BookOpenCheck className="size-4" />}
+                  value={`${progression}%`}
+                  label="Parcouru"
+                />
+                <DeckMetric
+                  icon={<BrainCircuit className="size-4" />}
+                  value={`${mastery}%`}
+                  label={masteryBand(mastery).label}
+                />
+                <DeckMetric
+                  icon={<Target className="size-4" />}
+                  value={`${completedLessons.length}/${LESSONS.length}`}
+                  label="Étapes"
+                />
+              </div>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <Link
                   to="/learn/$deckId"
                   params={{ deckId: deck.id }}
-                  search={{ lesson: l.index, preview: !open }}
-                  className="flex items-start justify-between gap-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]"
+                  search={
+                    allLessonsDone
+                      ? { lesson: 0, preview: false, mode: "revue" }
+                      : { lesson: nextLesson.index, preview: false, mode: "lesson" }
+                  }
+                  className={buttonVariants({
+                    size: "lg",
+                    className: `w-full bg-bg text-fg hover:bg-bg/90 ${progression > 0 ? "" : "sm:col-span-2"}`,
+                  })}
                 >
-                  <div>
-                    <p className="text-sm font-medium">
-                      {l.index + 1}. {l.title}
-                    </p>
-                    <p className="mt-1 text-xs text-muted">{l.detail}</p>
-                  </div>
-                  <span className="text-[11px] uppercase tracking-wider text-subtle">{done ? "vu" : "nouveau"}</span>
+                  <Play className="size-4 fill-current" />
+                  {allLessonsDone
+                    ? "Réviser ce Deck"
+                    : progression > 0
+                      ? `Reprendre · Étape ${nextLesson.index + 1}`
+                      : "Commencer ce Deck"}
                 </Link>
-              </li>
-            );
-          })}
-        </ol>
-        <div className="mt-4 flex gap-2">
-          <Link to="/learn/$deckId" params={{ deckId: deck.id }} search={{ lesson: 0, preview: !open, mode: "revue" }}>
-            <Button variant="secondary" size="sm">
-              Réviser les erreurs
-            </Button>
-          </Link>
-        </div>
-        {deck.sources.length > 0 ? (
-          <div className="mt-8">
-            <h2 className="font-display text-lg font-medium">Sources</h2>
-            <ul className="mt-2 space-y-1">
-              {deck.sources.map((s, i) => (
-                <li key={i} className="text-xs text-muted">
-                  <span className="text-fg/80">{s.title}</span> — {s.citation}
-                </li>
-              ))}
-            </ul>
+                {progression > 0 ? (
+                  <Link
+                    to="/learn/$deckId"
+                    params={{ deckId: deck.id }}
+                    search={{ lesson: 0, preview: false, mode: "revue" }}
+                    className={buttonVariants({ variant: "secondary", size: "lg", className: "w-full" })}
+                  >
+                    <RotateCcw className="size-4" />
+                    Réviser mes erreurs
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          ) : (
+            <div className="relative mt-5 rounded-[var(--radius-lg)] border border-current/10 bg-bg/15 p-4 backdrop-blur-sm">
+              <div className="flex items-center gap-2 text-sm font-medium">
+                <Lock className="size-4 text-primary" />
+                Deck Premium
+              </div>
+              <p className="mt-2 text-sm opacity-75">
+                Essayez gratuitement 3 questions avant de choisir votre accès.
+              </p>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <Link
+                  to="/learn/$deckId"
+                  params={{ deckId: deck.id }}
+                  search={{ lesson: 0, preview: true, mode: "preview" }}
+                  className={buttonVariants({ className: "w-full bg-bg text-fg hover:bg-bg/90" })}
+                >
+                  Essayer l’aperçu
+                </Link>
+                <Link to="/pro" className={buttonVariants({ variant: "secondary", className: "w-full" })}>
+                  Voir les offres · dès 3 000 Ar
+                </Link>
+              </div>
+            </div>
+          )}
+        </section>
+
+        <section className="mt-8">
+          <SectionTitle kicker="Programme" title="Ce que vous allez apprendre" />
+          <div className="flex flex-wrap gap-2">
+            {learningGoals.map((goal) => (
+              <span
+                key={goal}
+                className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-sm"
+              >
+                <Check className="size-3.5 text-primary" />
+                {goal}
+              </span>
+            ))}
           </div>
-        ) : null}
+        </section>
+
+        <section className="mt-8">
+          <SectionTitle kicker={`${LESSONS.length} étapes`} title="Avancer pas à pas" />
+          <ol className="relative space-y-3 before:absolute before:bottom-6 before:left-[1.125rem] before:top-6 before:w-px before:bg-border-strong">
+            {LESSONS.map((lesson) => {
+              const done = completedLessons.includes(lesson.index);
+              const isNext = nextLesson?.index === lesson.index;
+              const content = (
+                <>
+                  <span
+                    className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-medium ${
+                      done
+                        ? "bg-primary text-primary-fg"
+                        : isNext && open
+                          ? "bg-primary-soft text-primary"
+                          : "bg-secondary text-muted"
+                    }`}
+                  >
+                    {done ? <Check className="size-4" /> : lesson.index + 1}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-medium">{lesson.title}</span>
+                    <span className="mt-0.5 block text-xs text-muted">{lesson.detail}</span>
+                  </span>
+                  <span className="shrink-0 text-[11px] font-medium uppercase tracking-wider text-subtle">
+                    {!open ? "Aperçu" : done ? "Terminé" : isNext ? "À suivre" : "À venir"}
+                  </span>
+                  <ArrowRight className="size-4 shrink-0 text-subtle" />
+                </>
+              );
+
+              return (
+                <li key={lesson.index}>
+                  <Link
+                    to="/learn/$deckId"
+                    params={{ deckId: deck.id }}
+                    search={{
+                      lesson: lesson.index,
+                      preview: !open,
+                      mode: open ? "lesson" : "preview",
+                    }}
+                    aria-label={`${open ? "Ouvrir" : "Aperçu gratuit de"} l’étape ${lesson.title}`}
+                    className={`relative flex items-center gap-3 rounded-[var(--radius-lg)] p-4 transition-all hover:-translate-y-0.5 ${
+                      isNext && open
+                        ? "bg-primary-soft shadow-[var(--shadow-md)] ring-1 ring-primary/25"
+                        : "bg-card shadow-[var(--shadow-border)] hover:bg-secondary"
+                    }`}
+                  >
+                    {content}
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+
+        <ContentTrustCard
+          sources={deck.sources}
+          report={{
+            contentType: "deck",
+            contentId: deck.id,
+            deckId: deck.id,
+            deckVersion: deck.version,
+            label: `${deck.title} — ${deck.subtitle}`,
+          }}
+        />
       </Page>
     </Shell>
+  );
+}
+
+function yearLabel(year: number): string {
+  return YEARS.find((item) => item.year === year)?.label ?? "Tous niveaux";
+}
+
+function DeckMetric({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {
+  return (
+    <div className="rounded-[var(--radius-md)] border border-current/10 bg-bg/15 p-3 backdrop-blur-sm">
+      <span className="opacity-70">{icon}</span>
+      <p className="mt-2 font-display text-xl font-medium leading-none">{value}</p>
+      <p className="mt-1 truncate text-[11px] opacity-65">{label}</p>
+    </div>
   );
 }

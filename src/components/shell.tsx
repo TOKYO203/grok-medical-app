@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, ClipboardList, Home, RotateCcw, UserRound } from "lucide-react";
 import { Wordmark } from "@/components/brand/marks";
+import { ExperienceControls } from "@/components/experience-controls";
+import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -14,14 +16,22 @@ const NAV = [
 
 export function Shell({ children, title }: { children: ReactNode; title?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { preferences } = useExperiencePreferences();
+
   return (
-    <div className="min-h-dvh bg-bg text-fg">
+    <div className="min-h-dvh text-fg">
+      <a
+        href="#main-content"
+        className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-[var(--radius-md)] bg-primary px-4 py-2 text-sm font-medium text-primary-fg shadow-[var(--shadow-md)] transition-transform focus:translate-y-0"
+      >
+        Aller au contenu
+      </a>
       <div className="mx-auto flex min-h-dvh max-w-6xl">
-        <aside className="sticky top-0 hidden h-dvh w-56 shrink-0 flex-col border-r border-border px-4 py-5 md:flex">
+        <aside className="sticky top-0 hidden h-dvh w-56 shrink-0 flex-col border-r border-border bg-bg/55 px-4 py-5 backdrop-blur-xl md:flex">
           <Link to="/" className="mb-8">
             <Wordmark />
           </Link>
-          <nav className="flex flex-1 flex-col gap-1">
+          <nav className="flex flex-1 flex-col gap-1" aria-label="Navigation principale">
             {NAV.map((item) => {
               const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
               const Icon = item.icon;
@@ -29,29 +39,47 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                 <Link
                   key={item.to}
                   to={item.to}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
-                    "flex h-11 items-center gap-3 rounded-[var(--radius-md)] px-3 text-sm font-medium transition-colors duration-150",
-                    active ? "bg-secondary text-fg" : "text-muted hover:bg-secondary hover:text-fg",
+                    "relative flex h-11 items-center gap-3 overflow-hidden rounded-[var(--radius-md)] px-3 text-sm font-medium transition-[background-color,color,transform] duration-150 active:scale-[0.99]",
+                    active
+                      ? "bg-primary-soft text-primary shadow-[var(--shadow-border)]"
+                      : "text-muted hover:bg-secondary hover:text-fg",
+                    preferences.enhancedMotion && active && "optimus-nav-active",
                   )}
                 >
-                  <Icon className="size-4" strokeWidth={1.75} />
-                  {item.label}
+                  <Icon className="relative z-10 size-4" strokeWidth={1.75} />
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
               );
             })}
           </nav>
-          <p className="px-3 text-[11px] uppercase tracking-[0.16em] text-subtle">Made in Madagascar</p>
+          <div className="mb-3">
+            <ExperienceControls compact />
+          </div>
+          <p className="px-3 text-[11px] uppercase tracking-[0.16em] text-subtle">
+            Made in Madagascar
+          </p>
         </aside>
-        <div className="flex min-w-0 flex-1 flex-col pb-20 md:pb-0">
+        <div className="flex min-w-0 flex-1 flex-col pb-24 md:pb-0">
           {title ? (
-            <header className="sticky top-0 z-20 flex h-14 items-center border-b border-border bg-bg/90 px-5 backdrop-blur-sm md:hidden">
-              <h1 className="font-display text-lg font-medium tracking-tight">{title}</h1>
+            <header className="sticky top-0 z-20 flex h-14 min-w-0 items-center justify-between gap-2 border-b border-border bg-bg/75 px-4 backdrop-blur-xl md:hidden">
+              <h1 className="min-w-0 flex-1 truncate font-display text-lg font-medium tracking-tight">
+                {title}
+              </h1>
+              <div className="shrink-0">
+                <ExperienceControls compact />
+              </div>
             </header>
           ) : null}
           {children}
         </div>
       </div>
-      <nav className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-border bg-bg/95 px-1 pb-[env(safe-area-inset-bottom)] backdrop-blur-sm md:hidden">
+      <nav
+        aria-label="Navigation principale"
+        data-mobile-navigation="true"
+        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.9)] backdrop-blur-xl md:hidden"
+      >
         {NAV.map((item) => {
           const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
           const Icon = item.icon;
@@ -60,12 +88,14 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               key={item.to}
               to={item.to}
               className={cn(
-                "flex min-h-14 flex-col items-center justify-center gap-1 text-[11px] font-medium",
-                active ? "text-fg" : "text-muted",
+                "relative flex min-h-14 min-w-11 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[11px] font-medium transition-[background-color,color,transform] active:scale-[0.98]",
+                active ? "bg-primary-soft text-primary" : "text-muted",
+                preferences.enhancedMotion && active && "optimus-nav-active",
               )}
+              aria-current={active ? "page" : undefined}
             >
-              <Icon className="size-5" strokeWidth={active ? 2 : 1.7} />
-              {item.label}
+              <Icon className="relative z-10 size-5" strokeWidth={active ? 2 : 1.7} />
+              <span className="relative z-10">{item.label}</span>
             </Link>
           );
         })}
@@ -75,7 +105,15 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
 }
 
 export function Page({ children, className }: { children: ReactNode; className?: string }) {
-  return <main className={cn("px-5 py-6 md:px-8 md:py-8", className)}>{children}</main>;
+  return (
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className={cn("px-5 py-6 outline-none md:px-8 md:py-8", className)}
+    >
+      {children}
+    </main>
+  );
 }
 
 export function SectionTitle({
@@ -93,7 +131,9 @@ export function SectionTitle({
         {kicker ? (
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{kicker}</p>
         ) : null}
-        <h2 className="font-display text-xl font-medium tracking-tight text-fg md:text-2xl">{title}</h2>
+        <h2 className="font-display text-xl font-medium tracking-tight text-fg md:text-2xl">
+          {title}
+        </h2>
       </div>
       {action}
     </div>

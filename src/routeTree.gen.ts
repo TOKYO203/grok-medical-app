@@ -11,12 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as ParcoursRouteImport } from './routes/parcours'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
@@ -35,6 +37,11 @@ const IndexRoute = IndexRouteImport.update({
 const AProposRoute = AProposRouteImport.update({
   id: '/a-propos',
   path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AchatsRoute = AchatsRouteImport.update({
+  id: '/achats',
+  path: '/achats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculateursRoute = CalculateursRouteImport.update({
@@ -65,6 +72,11 @@ const ExamenRoute = ExamenRouteImport.update({
 const ImportRoute = ImportRouteImport.update({
   id: '/import',
   path: '/import',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParcoursRoute = ParcoursRouteImport.update({
@@ -116,12 +128,14 @@ const ParcoursDeckIdRoute = ParcoursDeckIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -135,12 +149,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -155,12 +171,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/achats': typeof AchatsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
   '/contact': typeof ContactRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
+  '/login': typeof LoginRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -176,12 +194,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -195,12 +215,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -214,12 +236,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/a-propos'
+    | '/achats'
     | '/calculateurs'
     | '/cas'
     | '/classement'
     | '/contact'
     | '/examen'
     | '/import'
+    | '/login'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -234,12 +258,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  AchatsRoute: typeof AchatsRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
   ContactRoute: typeof ContactRoute
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
+  LoginRoute: typeof LoginRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
@@ -263,6 +289,13 @@ declare module '@tanstack/react-router' {
       path: '/a-propos'
       fullPath: '/a-propos'
       preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/achats': {
+      id: '/achats'
+      path: '/achats'
+      fullPath: '/achats'
+      preLoaderRoute: typeof AchatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculateurs': {
@@ -305,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/import'
       fullPath: '/import'
       preLoaderRoute: typeof ImportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parcours': {
@@ -398,12 +438,14 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  AchatsRoute: AchatsRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,
   ContactRoute: ContactRoute,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
+  LoginRoute: LoginRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
