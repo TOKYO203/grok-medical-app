@@ -28,6 +28,7 @@ import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
+import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
@@ -128,6 +129,11 @@ const SoutenirRoute = SoutenirRouteImport.update({
   path: '/soutenir',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAiStreamRoute = ApiAiStreamRouteImport.update({
+  id: '/api/ai-stream',
+  path: '/api/ai-stream',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasCaseIdRoute = CasCaseIdRouteImport.update({
   id: '/$caseId',
   path: '/$caseId',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -247,6 +256,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/learn/$deckId'
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/learn/$deckId'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/learn/$deckId'
@@ -323,6 +335,7 @@ export interface RootRouteChildren {
   ProfilRoute: typeof ProfilRoute
   RevueRoute: typeof RevueRoute
   SoutenirRoute: typeof SoutenirRoute
+  ApiAiStreamRoute: typeof ApiAiStreamRoute
   DemarcheIdRoute: typeof DemarcheIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
 }
@@ -462,6 +475,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoutenirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/ai-stream': {
+      id: '/api/ai-stream'
+      path: '/api/ai-stream'
+      fullPath: '/api/ai-stream'
+      preLoaderRoute: typeof ApiAiStreamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cas/$caseId': {
       id: '/cas/$caseId'
       path: '/$caseId'
@@ -535,6 +555,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilRoute: ProfilRoute,
   RevueRoute: RevueRoute,
   SoutenirRoute: SoutenirRoute,
+  ApiAiStreamRoute: ApiAiStreamRoute,
   DemarcheIdRoute: DemarcheIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
 }

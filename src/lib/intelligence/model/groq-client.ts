@@ -1,12 +1,13 @@
 /**
- * Groq API client — OpenAI-compatible.
- * Doc : https://console.groq.com/docs/api-reference
+ * Client API unifié pour OpenRouter (avec fallback sur Groq).
+ * OpenRouter est compatible avec le format OpenAI.
  */
 
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const DEFAULT_MODEL = "openai/gpt-oss-120b";
+const DEFAULT_MODEL = "inclusionai/ling-3.0-flash-sante:free";
 
-export type GroqRequest = {
+export type AIRequest = {
   prompt: string;
   systemPrompt?: string;
   model?: string;
@@ -14,57 +15,30 @@ export type GroqRequest = {
   signal?: AbortSignal;
 };
 
-function readKey(): string {
-  const key = (import.meta as any).env?.VITE_GROQ_API_KEY as string | undefined;
+function readKey(provider: "openrouter" | "groq"): string {
+  const envKey = provider === "openrouter" ? "VITE_OPENROUTER_API_KEY" : "VITE_GROQ_API_KEY";
+  const key = (import.meta as any).env?.[envKey];
   if (!key || !key.trim()) {
-    throw new Error("Clé Groq manquante — remplis VITE_GROQ_API_KEY dans .env.local");
+    throw new Error(`Clé API manquante — remplis ${envKey} dans .env.local`);
   }
   return key.trim();
 }
 
-function buildBody(req: GroqRequest, stream: boolean) {
-  return {
-    model: req.model ?? DEFAULT_MODEL,
-    messages: [
-      ...(req.systemPrompt ? [{ role: "system", content: req.systemPrompt }] : []),
-      { role: "user", content: req.prompt },
-    ],
-    temperature: req.temperature ?? 0.3,
-    stream,
-  };
-}
-
-export async function generateGroq(req: GroqRequest): Promise<string> {
-  const res = await fetch(GROQ_URL, {
+async function* streamFromUrl(url: string, apiKey: string, body: any, signal?: AbortSignal) {
+  const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${readKey()}`,
+      Authorization: `Bearer ${apiKey}`,
+      "HTTP-Referer": "https://grok-medical.app",
+      "X-Title": "Grok Medical",
     },
-    body: JSON.stringify(buildBody(req, false)),
-    signal: req.signal,
+    body: JSON.stringify(body),
+    signal,
   });
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
-    throw new Error(`Groq ${res.status} — ${detail.slice(0, 200)}`);
-  }
-  const data = await res.json();
-  return data?.choices?.[0]?.message?.content ?? "";
-}
-
-export async function* streamGroq(req: GroqRequest): AsyncGenerator<string> {
-  const res = await fetch(GROQ_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${readKey()}`,
-    },
-    body: JSON.stringify(buildBody(req, true)),
-    signal: req.signal,
-  });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(`Groq ${res.status} — ${detail.slice(0, 200)}`);
+    throw new Error(`${res.status} — ${detail.slice(0, 200)}`);
   }
   if (!res.body) throw new Error("Pas de flux SSE dans la réponse");
 
@@ -88,10 +62,30 @@ export async function* streamGroq(req: GroqRequest): AsyncGenerator<string> {
         const delta = json?.choices?.[0]?.delta?.content;
         if (delta) yield delta as string;
       } catch {
-        // chunk partiel, on ignore
+        // ignore
       }
     }
   }
 }
 
-export const GROQ_DEFAULT_MODEL = DEFAULT_MODEL;
+export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
+  const useOpenRouter = Boolean((import.meta as any).env?.VITE_OPENROUTER_API_KEY?.trim?.());
+
+  const body = {
+    model: req.model ?? (useOpenRouter ? DEFAULT_MODEL : "openai/gpt-oss-120b"),
+    messages: [
+      ...(req.systemPrompt ? [{ role: "system", content: req.systemPrompt }] : []),
+      { role: "user", content: req.prompt },
+    ],
+    temperature: req.temperature ?? 0.3,
+    stream: true,
+  };
+
+  if (useOpenRouter) {
+    yield* streamFromUrl(OPENROUTER_URL, readKey("openrouter"), body, req.signal);
+  } else {
+    yield* streamFromUrl(GROQ_URL, readKey("groq"), body, req.signal);
+  }
+}
+
+export const DEFAULT_AI_MODEL = DEFAULT_MODEL;
