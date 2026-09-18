@@ -1,7 +1,21 @@
+
+// Injecte les variables sans préfixe VITE_ dans process.env (server-only).
+// Vite ne le fait pas par défaut pour éviter les fuites côté client.
+function withServerEnv(config: any) {
+  return async (env: any) => {
+    const loaded = loadEnv(env.mode, process.cwd(), "");
+    for (const [k, v] of Object.entries(loaded)) {
+      if (!k.startsWith("VITE_")) process.env[k] = v as string;
+    }
+    const resolved = typeof config === "function" ? await config(env) : config;
+    return resolved;
+  };
+}
+
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 import type { Plugin } from "vite";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -145,7 +159,7 @@ function authPopupPlugin(): Plugin {
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
-export default defineConfig(({ command, isPreview }) => ({
+export default defineConfig(withServerEnv(({ command, isPreview }) => ({
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -186,4 +200,4 @@ export default defineConfig(({ command, isPreview }) => ({
       : []),
     viteReact(),
   ],
-}));
+})));

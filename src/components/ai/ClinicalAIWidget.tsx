@@ -19,11 +19,7 @@ export default function ClinicalAIWidget() {
 
 Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
 
-  const hasKey = Boolean(
-    (import.meta as any).env?.VITE_GROQ_API_KEY?.trim?.()
-  );
-
-  return (
+    return (
     <section
       className="w-full rounded-xl border bg-card shadow-[var(--shadow-border)]"
       aria-label="Optimus Clinical AI"
@@ -66,7 +62,7 @@ Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
             <button
               type="button"
               onClick={() => ai.run(buildPrompt())}
-              disabled={ai.status === "streaming" || !hasKey}
+              disabled={ai.status === "streaming"}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-fg transition-opacity disabled:opacity-40"
             >
               <Sparkles className="size-4" aria-hidden />
