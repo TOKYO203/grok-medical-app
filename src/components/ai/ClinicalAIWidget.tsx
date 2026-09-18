@@ -43,7 +43,7 @@ Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
             <p className="text-xs text-muted">
               {open
                 ? hasKey
-                  ? "Prêt — modèle Llama 3.3 70B"
+                  ? "Prêt — modèle GPT-OSS 120B"
                   : "⚠️ Clé API manquante (.env.local)"
                 : insight.title}
             </p>
