@@ -37,11 +37,7 @@ Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
           <div>
             <h2 className="font-display text-lg font-medium">Optimus Clinical AI</h2>
             <p className="text-xs text-muted">
-              {open
-                ? hasKey
-                  ? "Prêt — modèle GPT-OSS 120B"
-                  : "⚠️ Clé API manquante (.env.local)"
-                : insight.title}
+              {open ? "Analyste clinique — IA prête" : insight.title}
             </p>
           </div>
         </div>
