@@ -1,21 +1,26 @@
 
 
-export function unlockAchievement(
-xp:number
-){
+export function getAchievements(){
 
-if(xp>=5000)
+return [
 
-return "Clinical Master"
+{
 
+id:"first-case",
 
-if(xp>=1000)
+title:"First Clinical Case Completed"
 
-return "Clinical Explorer"
+},
 
+{
 
-return "Beginner"
+id:"expert-path",
 
+title:"Expert Journey Started"
+
+}
+
+]
 
 }
 
