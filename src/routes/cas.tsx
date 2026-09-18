@@ -10,10 +10,12 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
+import { DiagnosticCategoryHub } from "@/components/cases/DiagnosticCategoryHub";
 import { CaseHub } from "@/components/cases/CaseHub";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
+import { groupDiagnosticsByCategory } from "@/lib/cases/diagnostic-category-engine";
 import { groupDiagnosticsBySpecialty } from "@/lib/cases/diagnostic-organizer";
 import { hasEntitlement, useOptimus } from "@/state/store";
 
@@ -26,6 +28,7 @@ function CasPage() {
   const entitlements = useOptimus((s) => s.entitlements);
   const [diagnosticQuery, setDiagnosticQuery] = useState("");
   const normalizedQuery = normalizeSearch(diagnosticQuery);
+  const diagnosticCategories = groupDiagnosticsByCategory(diagnosticTopics);
   const visibleDiagnosticTopics = diagnosticTopics.filter((topic) =>
     normalizeSearch(`${topic.title} ${topic.specialty}`).includes(normalizedQuery),
   );
