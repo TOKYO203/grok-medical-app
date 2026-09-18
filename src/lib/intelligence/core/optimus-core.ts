@@ -4,7 +4,7 @@ import {
 } from "../reasoning";
 
 import {
-  executeAgent
+  _executeAgent
 } from "../agents";
 
 import {

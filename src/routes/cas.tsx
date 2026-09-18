@@ -29,7 +29,7 @@ function CasPage() {
   const entitlements = useOptimus((s) => s.entitlements);
   const [diagnosticQuery, setDiagnosticQuery] = useState("");
   const normalizedQuery = normalizeSearch(diagnosticQuery);
-  const diagnosticCategories = groupDiagnosticsByCategory(diagnosticTopics);
+  const _diagnosticCategories = groupDiagnosticsByCategory(diagnosticTopics);
   const visibleDiagnosticTopics = diagnosticTopics.filter((topic) =>
     normalizeSearch(`${topic.title} ${topic.specialty}`).includes(normalizedQuery),
   );

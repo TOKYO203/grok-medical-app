@@ -1,4 +1,3 @@
-import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { DiagnosticExplorer } from "@/components/cases/DiagnosticExplorer";
 import { ArrowRight } from "lucide-react";
 

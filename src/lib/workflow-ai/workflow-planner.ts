@@ -1,5 +1,5 @@
 
-export function createWorkflow(goal:string){
+export function createWorkflow(_goal:string){
 
 return [
 "analyse",
