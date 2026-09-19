@@ -407,13 +407,3 @@ html[data-optimus-motion="reduced"] *::after {
     ),
     linear-gradient(180deg, #1a221f 0%, #121816 100%);
 }
-
-/* Accordion chevron — rotate when <details> opens */
-details > summary .accordion-chevron {
-  transition: transform 0.2s ease;
-}
-details[open] > summary .accordion-chevron {
-  transform: rotate(90deg);
-}
-details > summary::-webkit-details-marker { display: none; }
-details > summary { list-style: none; }

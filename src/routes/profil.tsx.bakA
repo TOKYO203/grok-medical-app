@@ -345,23 +345,14 @@ function ProfilPage() {
         </div>
         <Progress className="mt-2" value={level.progress} />
 
-                <details className="mt-6 rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
-          <summary className="flex cursor-pointer items-center justify-between gap-3 p-4">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                Confort d'étude
-              </p>
-              <h2 className="mt-1 font-display text-xl font-medium">Expérience sensorielle</h2>
-            </div>
-            <ChevronRight className="accordion-chevron size-4 shrink-0 text-muted" />
-          </summary>
-          <div className="border-t border-border p-4">
-            <ExperienceControls />
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              Les sons et vibrations accompagnent seulement les actions utiles. L'ambiance focus est disponible uniquement pour cette session.
-            </p>
-          </div>
-        </details>
+        <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <SectionTitle kicker="Confort d’étude" title="Expérience sensorielle" />
+          <ExperienceControls />
+          <p className="mt-3 text-xs leading-relaxed text-muted">
+            Les sons et vibrations accompagnent seulement les actions utiles. L’ambiance focus est
+            facultative, ne démarre jamais automatiquement et s’arrête quand l’app passe en arrière-plan.
+          </p>
+        </section>
 
         {editing ? (
           <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
@@ -663,8 +654,8 @@ function ProfileStat({
   bordered?: boolean;
 }) {
   return (
-    <div className={cn("px-2 py-3 text-center", bordered && "border-l border-border")}>
-      <p className="font-display text-lg font-medium">{value}</p>
+    <div className={cn("px-2 py-4 text-center", bordered && "border-l border-border")}>
+      <p className="font-display text-xl font-medium">{value}</p>
       <p className="mt-0.5 text-[11px] uppercase tracking-wider text-muted">{label}</p>
     </div>
   );
