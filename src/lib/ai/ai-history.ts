@@ -15,7 +15,11 @@ function readStore(): Store {
 
 function writeStore(store: Store): void {
   if (typeof window === "undefined") return;
-  try { window.localStorage.setItem(KEY, JSON.stringify(store)); } catch {}
+  try {
+    window.localStorage.setItem(KEY, JSON.stringify(store));
+  } catch {
+    /* quota / private mode */
+  }
 }
 
 export function pushHistory(caseId: string, text: string, model?: string): AIHistoryEntry {
