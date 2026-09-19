@@ -310,18 +310,11 @@ function ProfilPage() {
               <Pencil className="size-3.5" />
             </span>
           </button>
-          <button
-            type="button"
-            onClick={() => setEditing((value) => !value)}
-            aria-label={editing ? "Fermer" : "Modifier le profil"}
-            className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-muted shadow-[var(--shadow-border)] transition-colors hover:text-fg"
-          >
-            <Pencil className="size-4" />
-          </button>
+          
         </div>
 
-        <div className="mt-3">
-          <h1 className="font-display text-3xl font-medium tracking-tight">
+        <div className="mt-2 min-w-0 flex-1">
+          <h1 className="font-display text-2xl font-medium tracking-tight">
             {profile.displayName}
           </h1>
           <p className="mt-0.5 font-mono text-xs text-muted">{profile.optimusId}</p>
