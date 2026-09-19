@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Brain, ChevronDown, Info, Send, Sparkles, RefreshCw } from "lucide-react";
+import { Brain, ChevronDown, Info, Send, Sparkles, RefreshCw, ThumbsUp, ThumbsDown } from "lucide-react";
 import { useClinicalAI, type ChatMessage } from "@/lib/ai/useClinicalAI";
-import { readHistory, relativeTime, type AIHistoryEntry } from "@/lib/ai/ai-history";
+import { readHistory, relativeTime, rateLatest, type AIHistoryEntry } from "@/lib/ai/ai-history";
 
 export type CaseAIContext = {
   title: string;
@@ -53,7 +53,14 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
   const [historyOpen, setHistoryOpen] = useState(false);
   const [followUp, setFollowUp] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
+  const [rating, setRating] = useState<"up" | "down" | null>(null);
   const ai = useClinicalAI();
+
+  const handleRate = (value: "up" | "down") => {
+    const next = rating === value ? null : value;
+    setRating(next);
+    rateLatest(caseId, next);
+  };
 
   const caseId = context.title;
   const canAnalyze = context.revealedSteps.length > 0;
@@ -138,14 +145,49 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
 
           {hasConversation && (
             <div className="space-y-3">
-              {ai.messages.map((m, i) => (
-                <MessageBubble
-                  key={i}
-                  message={m}
-                  isInitialPrompt={i === 0 && m.role === "user"}
-                  isStreaming={ai.status === "streaming" && i === ai.messages.length - 1}
-                />
-              ))}
+              {ai.messages.map((m, i) => {
+                const isLastAssistant =
+                  m.role === "assistant" &&
+                  i === ai.messages.length - 1 &&
+                  ai.status !== "streaming";
+                return (
+                  <div key={i} className="space-y-1.5">
+                    <MessageBubble
+                      message={m}
+                      isInitialPrompt={i === 0 && m.role === "user"}
+                      isStreaming={ai.status === "streaming" && i === ai.messages.length - 1}
+                    />
+                    {isLastAssistant && (
+                      <div className="flex justify-start gap-1 pl-1">
+                        <button
+                          type="button"
+                          onClick={() => handleRate("up")}
+                          aria-label="Utile"
+                          className={`flex size-7 items-center justify-center rounded-full transition-colors ${
+                            rating === "up"
+                              ? "bg-primary text-primary-fg"
+                              : "text-muted hover:text-fg"
+                          }`}
+                        >
+                          <ThumbsUp className="size-3.5" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleRate("down")}
+                          aria-label="Pas utile"
+                          className={`flex size-7 items-center justify-center rounded-full transition-colors ${
+                            rating === "down"
+                              ? "bg-red-500/80 text-white"
+                              : "text-muted hover:text-fg"
+                          }`}
+                        >
+                          <ThumbsDown className="size-3.5" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
               <div ref={endRef} />
             </div>
           )}

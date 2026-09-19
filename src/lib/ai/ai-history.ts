@@ -57,3 +57,12 @@ export function relativeTime(ts: number): string {
   if (d < 7) return `il y a ${d} j`;
   return new Date(ts).toLocaleDateString("fr-FR", { day: "2-digit", month: "short" });
 }
+
+export function rateLatest(caseId: string, rating: "up" | "down" | null): void {
+  const store = readStore();
+  const list = store[caseId];
+  if (!list || list.length === 0) return;
+  list[0] = { ...list[0], rating };
+  store[caseId] = list;
+  writeStore(store);
+}
