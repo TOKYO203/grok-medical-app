@@ -1,6 +1,5 @@
 /**
- * Server-only AI proxy.
- * Utilise les clés d'env côté serveur (jamais exposées au client).
+ * Server-only AI proxy — multi-turn.
  */
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -9,13 +8,25 @@ const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const DEFAULT_OPENROUTER_MODEL = "inclusionai/ling-3.0-flash-sante:free";
 const DEFAULT_GROQ_MODEL = "qwen/qwen3.6-27b";
 
-// ── Cache simple en mémoire ──
+export type ChatMessage = {
+  role: "system" | "user" | "assistant";
+  content: string;
+};
+
+export type AIRequest = {
+  messages: ChatMessage[];
+  systemPrompt?: string;
+  model?: string;
+  temperature?: number;
+};
+
+// ── Cache ──
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const CACHE_MAX = 100;
 const cache = new Map<string, { text: string; at: number }>();
 
-export function cacheKey(input: { prompt: string; systemPrompt?: string; model?: string }) {
-  return JSON.stringify([input.systemPrompt ?? "", input.prompt, input.model ?? ""]);
+export function cacheKey(input: AIRequest) {
+  return JSON.stringify([input.systemPrompt ?? "", input.messages, input.model ?? ""]);
 }
 
 export function cacheGet(key: string): string | null {
@@ -33,14 +44,6 @@ export function cachePut(key: string, text: string) {
   cache.set(key, { text, at: Date.now() });
 }
 
-// ── Providers ──
-export type AIRequest = {
-  prompt: string;
-  systemPrompt?: string;
-  model?: string;
-  temperature?: number;
-};
-
 type Provider = "openrouter" | "groq";
 
 function pickProvider(): { provider: Provider; url: string; key: string; model: string } {
@@ -55,12 +58,7 @@ function pickProvider(): { provider: Provider; url: string; key: string; model: 
     };
   }
   if (groqKey) {
-    return {
-      provider: "groq",
-      url: GROQ_URL,
-      key: groqKey,
-      model: DEFAULT_GROQ_MODEL,
-    };
+    return { provider: "groq", url: GROQ_URL, key: groqKey, model: DEFAULT_GROQ_MODEL };
   }
   throw new Error("Aucune clé IA configurée (OPENROUTER_API_KEY ou GROQ_API_KEY)");
 }
@@ -71,8 +69,7 @@ async function fetchWithRetry(url: string, init: RequestInit, maxAttempts = 3): 
     try {
       const res = await fetch(url, init);
       if (res.status === 429 && i < maxAttempts - 1) {
-        const wait = 800 * (i + 1);
-        await new Promise((r) => setTimeout(r, wait));
+        await new Promise((r) => setTimeout(r, 800 * (i + 1)));
         continue;
       }
       return res;
@@ -87,12 +84,14 @@ async function fetchWithRetry(url: string, init: RequestInit, maxAttempts = 3): 
 export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
   const { url, key, model, provider } = pickProvider();
 
+  const messages: ChatMessage[] = [
+    ...(req.systemPrompt ? [{ role: "system" as const, content: req.systemPrompt }] : []),
+    ...req.messages,
+  ];
+
   const body = {
     model: req.model ?? model,
-    messages: [
-      ...(req.systemPrompt ? [{ role: "system", content: req.systemPrompt }] : []),
-      { role: "user", content: req.prompt },
-    ],
+    messages,
     temperature: req.temperature ?? 0.3,
     stream: true,
   };

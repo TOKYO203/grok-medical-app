@@ -5,15 +5,24 @@ import {
   cacheGet,
   cachePut,
   type AIRequest,
+  type ChatMessage,
 } from "@/lib/ai/server-ai.server";
+
+type IncomingBody = {
+  messages?: ChatMessage[];
+  prompt?: string;
+  systemPrompt?: string;
+  model?: string;
+  temperature?: number;
+};
 
 export const Route = createFileRoute("/api/ai-stream")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        let body: AIRequest;
+        let raw: IncomingBody;
         try {
-          body = (await request.json()) as AIRequest;
+          raw = (await request.json()) as IncomingBody;
         } catch {
           return new Response(JSON.stringify({ error: "JSON invalide" }), {
             status: 400,
@@ -21,10 +30,31 @@ export const Route = createFileRoute("/api/ai-stream")({
           });
         }
 
-        const key = cacheKey(body);
+        // Backward compat: accepte `{prompt}` legacy OU `{messages}` multi-turn
+        const messages: ChatMessage[] =
+          raw.messages && Array.isArray(raw.messages) && raw.messages.length > 0
+            ? raw.messages
+            : raw.prompt
+              ? [{ role: "user", content: raw.prompt }]
+              : [];
+
+        if (messages.length === 0) {
+          return new Response(JSON.stringify({ error: "messages manquant" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+
+        const req: AIRequest = {
+          messages,
+          systemPrompt: raw.systemPrompt,
+          model: raw.model,
+          temperature: raw.temperature,
+        };
+
+        const key = cacheKey(req);
         const encoder = new TextEncoder();
 
-        // Cache hit → rejouer en SSE
         const cached = cacheGet(key);
         if (cached) {
           const sse =
@@ -39,7 +69,7 @@ export const Route = createFileRoute("/api/ai-stream")({
           async start(controller) {
             let full = "";
             try {
-              for await (const token of streamAI(body)) {
+              for await (const token of streamAI(req)) {
                 full += token;
                 controller.enqueue(
                   encoder.encode(

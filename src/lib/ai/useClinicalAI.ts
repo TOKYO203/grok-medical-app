@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { pushHistory } from "@/lib/ai/ai-history";
 
+export type ChatMessage = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export type ClinicalAIStatus = "idle" | "streaming" | "done" | "error";
 
 export type ClinicalAIState = {
   status: ClinicalAIStatus;
-  text: string;
+  messages: ChatMessage[];
   error?: string;
-  cached?: boolean;
 };
 
 const SYSTEM_PROMPT = `Tu es Optimus Clinical AI, assistant pédagogique pour étudiants en médecine.
@@ -19,109 +23,112 @@ Règles strictes :
 - Si le contexte est insuffisant, demande la donnée manquante.
 - Termine toujours par : "Aide à la décision — ne remplace pas le jugement clinique."`;
 
-const SS_KEY = "optimus.ai.cache.v1";
-
-function readSessionCache(prompt: string): string | null {
-  try {
-    const raw = sessionStorage.getItem(SS_KEY);
-    if (!raw) return null;
-    const map = JSON.parse(raw) as Record<string, { text: string; at: number }>;
-    const hit = map[prompt];
-    if (!hit) return null;
-    if (Date.now() - hit.at > 5 * 60 * 1000) return null;
-    return hit.text;
-  } catch {
-    return null;
-  }
-}
-
-function writeSessionCache(prompt: string, text: string) {
-  try {
-    const raw = sessionStorage.getItem(SS_KEY);
-    const map = raw ? (JSON.parse(raw) as Record<string, any>) : {};
-    map[prompt] = { text, at: Date.now() };
-    sessionStorage.setItem(SS_KEY, JSON.stringify(map));
-  } catch {
-    /* quota / private mode → ignore */
-  }
-}
-
 export function useClinicalAI() {
-  const [state, setState] = useState<ClinicalAIState>({ status: "idle", text: "" });
+  const [state, setState] = useState<ClinicalAIState>({ status: "idle", messages: [] });
   const abortRef = useRef<AbortController | null>(null);
+  const messagesRef = useRef<ChatMessage[]>([]);
+
+  useEffect(() => {
+    messagesRef.current = state.messages;
+  }, [state.messages]);
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
-  const run = useCallback(async (prompt: string, systemPromptOverride?: string, caseId?: string) => {
-    abortRef.current?.abort();
-    const ctrl = new AbortController();
-    abortRef.current = ctrl;
+  const streamConversation = useCallback(
+    async (messages: ChatMessage[], systemPrompt?: string, caseId?: string) => {
+      abortRef.current?.abort();
+      const ctrl = new AbortController();
+      abortRef.current = ctrl;
 
-    // 1) Session cache → réponse instantanée
-    const fromCache = readSessionCache(prompt);
-    if (fromCache) {
-      setState({ status: "done", text: fromCache, cached: true });
-      return;
-    }
+      const baseMessages = messages;
+      setState({ status: "streaming", messages: baseMessages });
 
-    setState({ status: "streaming", text: "" });
+      try {
+        const res = await fetch("/api/ai-stream", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: baseMessages,
+            systemPrompt: systemPrompt ?? SYSTEM_PROMPT,
+          }),
+          signal: ctrl.signal,
+        });
 
-    try {
-      const res = await fetch("/api/ai-stream", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, systemPrompt: systemPromptOverride ?? SYSTEM_PROMPT }),
-        signal: ctrl.signal,
-      });
+        if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
 
-      if (!res.ok || !res.body) {
-        throw new Error(`HTTP ${res.status}`);
-      }
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+        let acc = "";
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = "";
-      let acc = "";
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split("\n");
-        buffer = lines.pop() ?? "";
-        for (const raw of lines) {
-          const line = raw.trim();
-          if (!line.startsWith("data:")) continue;
-          const payload = line.slice(5).trim();
-          if (payload === "[DONE]") continue;
-          try {
-            const json = JSON.parse(payload);
-            if (json.error) throw new Error(String(json.error));
-            const delta = json?.choices?.[0]?.delta?.content;
-            if (delta) {
-              acc += delta;
-              setState({ status: "streaming", text: acc });
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split("\n");
+          buffer = lines.pop() ?? "";
+          for (const raw of lines) {
+            const line = raw.trim();
+            if (!line.startsWith("data:")) continue;
+            const payload = line.slice(5).trim();
+            if (payload === "[DONE]") continue;
+            try {
+              const json = JSON.parse(payload);
+              if (json.error) throw new Error(String(json.error));
+              const delta = json?.choices?.[0]?.delta?.content;
+              if (delta) {
+                acc += delta;
+                setState({
+                  status: "streaming",
+                  messages: [...baseMessages, { role: "assistant", content: acc }],
+                });
+              }
+            } catch (e) {
+              if (e instanceof Error && /^\w+\s\d{3}/.test(e.message)) throw e;
             }
-          } catch (e) {
-            if (e instanceof Error && /^\w+\s\d{3}/.test(e.message)) throw e;
           }
         }
-      }
 
-      writeSessionCache(prompt, acc);
-      if (caseId) pushHistory(caseId, acc);
-      setState({ status: "done", text: acc });
-    } catch (e: unknown) {
-      if (ctrl.signal.aborted) return;
-      const msg = e instanceof Error ? e.message : String(e);
-      setState({ status: "error", text: "", error: msg });
-    }
-  }, []);
+        const finalMessages: ChatMessage[] = [
+          ...baseMessages,
+          { role: "assistant", content: acc },
+        ];
+
+        // Historique : uniquement la 1ère analyse (pas les follow-ups)
+        if (caseId && acc && baseMessages.length === 1) {
+          pushHistory(caseId, acc);
+        }
+
+        setState({ status: "done", messages: finalMessages });
+      } catch (e: unknown) {
+        if (ctrl.signal.aborted) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        setState({ status: "error", messages: baseMessages, error: msg });
+      }
+    },
+    [],
+  );
+
+  const run = useCallback(
+    (prompt: string, systemPrompt?: string, caseId?: string) =>
+      streamConversation([{ role: "user", content: prompt }], systemPrompt, caseId),
+    [streamConversation],
+  );
+
+  const sendFollowUp = useCallback(
+    (text: string, systemPrompt?: string, caseId?: string) =>
+      streamConversation(
+        [...messagesRef.current, { role: "user", content: text }],
+        systemPrompt,
+        caseId,
+      ),
+    [streamConversation],
+  );
 
   const reset = useCallback(() => {
     abortRef.current?.abort();
-    setState({ status: "idle", text: "" });
+    setState({ status: "idle", messages: [] });
   }, []);
 
-  return { ...state, run, reset };
+  return { ...state, run, sendFollowUp, reset };
 }
