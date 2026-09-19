@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BookOpen, ClipboardList, Home, RotateCcw, UserRound } from "lucide-react";
+import { BookOpen, ClipboardList, Home, RotateCcw, UserRound, Search } from "lucide-react";
+import { CommandPalette, useCommandPalette } from "@/components/command-palette";
 import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
@@ -17,6 +18,7 @@ const NAV = [
 export function Shell({ children, title }: { children: ReactNode; title?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { preferences } = useExperiencePreferences();
+  const cmd = useCommandPalette();
 
   return (
     <div className="min-h-dvh text-fg">
@@ -28,9 +30,18 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       </a>
       <div className="mx-auto flex min-h-dvh max-w-7xl">
         <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-border bg-bg/55 px-5 py-6 backdrop-blur-xl md:flex">
-          <Link to="/" className="mb-8">
+          <Link to="/" className="mb-4">
             <Wordmark />
           </Link>
+          <button
+            type="button"
+            onClick={() => cmd.setOpen(true)}
+            className="mb-4 flex items-center gap-2 rounded-[var(--radius-md)] border border-border bg-secondary/50 px-3 py-2 text-left text-sm text-muted hover:text-fg"
+          >
+            <Search className="size-3.5" aria-hidden />
+            <span className="flex-1">Rechercher…</span>
+            <kbd className="rounded border border-border bg-card px-1.5 py-0.5 text-[10px]">⌘K</kbd>
+          </button>
           <nav className="flex flex-1 flex-col gap-1" aria-label="Navigation principale">
             {NAV.map((item) => {
               const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
@@ -100,6 +111,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
           );
         })}
       </nav>
+      <CommandPalette open={cmd.open} onClose={() => cmd.setOpen(false)} />
     </div>
   );
 }
