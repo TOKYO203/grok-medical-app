@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { rateLimit, getClientIp } from "@/lib/security/rate-limit.server";
+import { AIStreamBodySchema } from "@/lib/ai/schemas";
 import {
   streamAI,
   cacheKey,
@@ -8,27 +10,43 @@ import {
   type ChatMessage,
 } from "@/lib/ai/server-ai.server";
 
-type IncomingBody = {
-  messages?: ChatMessage[];
-  prompt?: string;
-  systemPrompt?: string;
-  model?: string;
-  temperature?: number;
-};
-
 export const Route = createFileRoute("/api/ai-stream")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        let raw: IncomingBody;
+        const ip = getClientIp(request);
+        const rl = rateLimit(`ai-stream:${ip}`);
+        if (!rl.ok) {
+          return new Response(
+            JSON.stringify({ error: "Trop de requêtes. Réessayez dans une minute." }),
+            {
+              status: 429,
+              headers: {
+                "Content-Type": "application/json",
+                "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)),
+              },
+            },
+          );
+        }
+
+        let json: unknown;
         try {
-          raw = (await request.json()) as IncomingBody;
+          json = await request.json();
         } catch {
           return new Response(JSON.stringify({ error: "JSON invalide" }), {
             status: 400,
             headers: { "Content-Type": "application/json" },
           });
         }
+
+        const parsed = AIStreamBodySchema.safeParse(json);
+        if (!parsed.success) {
+          return new Response(
+            JSON.stringify({ error: "Requête invalide", details: parsed.error.issues }),
+            { status: 400, headers: { "Content-Type": "application/json" } },
+          );
+        }
+        const raw = parsed.data;
 
         // Backward compat: accepte `{prompt}` legacy OU `{messages}` multi-turn
         const messages: ChatMessage[] =

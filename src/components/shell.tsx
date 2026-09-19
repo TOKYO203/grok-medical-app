@@ -7,6 +7,7 @@ import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
+import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 
 const NAV = [
   { to: "/", label: "Accueil", icon: Home },
@@ -125,6 +126,7 @@ export function Page({ children, className }: { children: ReactNode; className?:
       className={cn("px-5 py-6 outline-none md:px-10 md:py-10", className)}
     >
       {children}
+      <MedicalDisclaimer />
     </main>
   );
 }
