@@ -71,6 +71,7 @@ const defaultProfile = (): Profile => ({
   goal: "edn",
   prioritySubjects: ["Cardiologie"],
   avatar: "stethoscope",
+  avatarDataUrl: null,
   cover: "hautes-terres",
   coverDataUrl: null,
   onboarded: false,

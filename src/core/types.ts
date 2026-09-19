@@ -193,6 +193,7 @@ export type Profile = {
   goal: string;
   prioritySubjects: string[];
   avatar: string;
+  avatarDataUrl: string | null;
   cover: CoverId;
   coverDataUrl: string | null;
   onboarded: boolean;

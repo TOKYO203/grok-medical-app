@@ -1,11 +1,11 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Award,
   BookOpen,
   Brain,
   BriefcaseMedical,
-  Camera,
+  Camera, ImagePlus,
   ChevronRight,
   ClipboardList,
   Download,
@@ -88,6 +88,29 @@ const BADGE_ICONS: Record<string, LucideIcon> = {
   exam: Trophy,
 };
 
+async function compressImage(file: File, maxSize = 256): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ratio = Math.min(maxSize / img.width, maxSize / img.height, 1);
+        canvas.width = Math.round(img.width * ratio);
+        canvas.height = Math.round(img.height * ratio);
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return reject(new Error("no 2d ctx"));
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", 0.82));
+      };
+      img.onerror = reject;
+      img.src = String(reader.result);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 function ProfilPage() {
   const profile = useOptimus((state) => state.profile);
   const update = useOptimus((state) => state.updateProfile);
@@ -116,6 +139,22 @@ function ProfilPage() {
         ? coverImageStyle(selectedCover.image)
         : undefined;
   const avatar = AVATARS.find((item) => item.id === profile.avatar) ?? AVATARS[0];
+  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
+  const avatarSrc = avatarPreview ?? profile.avatarDataUrl ?? null;
+
+  async function onAvatarFile(file: File) {
+    try {
+      const dataUrl = await compressImage(file, 256);
+      setAvatarPreview(dataUrl);
+      useOptimus.setState((s) => ({
+        profile: { ...s.profile, avatarDataUrl: dataUrl },
+      }));
+    } catch (err) {
+      console.error("avatar upload failed", err);
+    }
+  }
+
   const AvatarIcon = avatar.icon;
   const studyLabel =
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
@@ -262,7 +301,11 @@ function ProfilPage() {
             aria-label="Changer l’avatar"
             className="relative flex size-24 items-center justify-center rounded-full border-4 border-bg bg-primary-soft text-primary shadow-[var(--shadow-md)]"
           >
-            <AvatarIcon className="size-10" strokeWidth={1.6} />
+            {avatarSrc ? (
+              <img src={avatarSrc} alt="Avatar" className="size-full rounded-full object-cover" />
+            ) : (
+              <AvatarIcon className="size-10" strokeWidth={1.6} />
+            )}
             <span className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full border-2 border-bg bg-primary text-primary-fg">
               <Pencil className="size-3.5" />
             </span>
@@ -313,7 +356,22 @@ function ProfilPage() {
 
             <p className="text-xs font-medium text-muted">Identité visuelle</p>
             <div className="mt-2 grid grid-cols-6 gap-2">
-              {AVATARS.map((item) => {
+              <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[var(--radius-md)] bg-secondary p-3 text-center text-xs shadow-[var(--shadow-border)] hover:bg-secondary/70">
+              <ImagePlus className="size-6 text-primary" />
+              <span>Ma photo</span>
+              <input
+                ref={avatarInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) void onAvatarFile(f);
+                  e.target.value = "";
+                }}
+              />
+            </label>
+            {AVATARS.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button

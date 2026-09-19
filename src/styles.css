@@ -399,5 +399,11 @@ html[data-optimus-motion="reduced"] *::after {
 }
 
 .cover-clinique {
-  background: linear-gradient(180deg, #1a221f 0%, #121816 100%);
+  background:
+    radial-gradient(
+      90% 60% at 25% 0%,
+      color-mix(in oklab, #4a90a4 38%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #1a221f 0%, #121816 100%);
 }

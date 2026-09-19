@@ -18,7 +18,6 @@ import diagnosticTopics from "@/content/data/diagnostic-topics.json";
 import { groupDiagnosticsByCategory } from "@/lib/cases/diagnostic-category-engine";
 import { groupDiagnosticsBySpecialty } from "@/lib/cases/diagnostic-organizer";
 import { hasEntitlement, useOptimus } from "@/state/store";
-import { ClinicalLearningHub } from "@/components/cases/ClinicalLearningHub";
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
 
@@ -168,16 +167,6 @@ function CasPage() {
             )}
           />
         </section>
-
-        
-
-<section className="mt-8">
-
-  <ClinicalLearningHub
-    topics={diagnosticTopics}
-  />
-
-</section>
 
 <section className="mt-10">
           <div className="flex items-end justify-between gap-3">
