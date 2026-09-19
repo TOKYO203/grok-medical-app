@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, ClipboardList, Home, RotateCcw, UserRound, Search } from "lucide-react";
 import { CommandPalette, useCommandPalette } from "@/components/command-palette";
+import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
@@ -79,20 +80,8 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                 {title}
               </h1>
               <div className="shrink-0">
-                <ExperienceControls
-                          compact
-                          leading={
-                            <button
-                              type="button"
-                              onClick={() => cmd.setOpen(true)}
-                              aria-label="Rechercher"
-                              className="flex size-9 items-center justify-center rounded-[10px] text-muted transition-[background-color,color,transform] active:scale-95 hover:text-fg"
-                            >
-                              <Search className="size-4" />
-                            </button>
-                          }
-                        />
-              </div>
+                        <MobileToolsDrawer onOpenSearch={() => cmd.setOpen(true)} />
+                      </div>
             </header>
           ) : null}
           {children}
