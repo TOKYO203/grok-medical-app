@@ -142,6 +142,7 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
                 <MessageBubble
                   key={i}
                   message={m}
+                  isInitialPrompt={i === 0 && m.role === "user"}
                   isStreaming={ai.status === "streaming" && i === ai.messages.length - 1}
                 />
               ))}
@@ -218,13 +219,35 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
   );
 }
 
-function MessageBubble({ message, isStreaming }: { message: ChatMessage; isStreaming: boolean }) {
+function MessageBubble({
+  message,
+  isStreaming,
+  isInitialPrompt,
+}: {
+  message: ChatMessage;
+  isStreaming: boolean;
+  isInitialPrompt?: boolean;
+}) {
   const isUser = message.role === "user";
+
+  // Le 1er message user = prompt technique complet → on l'affiche en badge discret
+  if (isInitialPrompt) {
+    return (
+      <div className="flex justify-end">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-3 py-1.5 text-[11px] font-medium text-primary">
+          📋 Contexte du cas envoyé à Optimus
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
       <div
-        className={`max-w-[85%] rounded-[var(--radius-md)] px-4 py-2 text-sm leading-relaxed whitespace-pre-wrap ${
-          isUser ? "bg-primary text-primary-fg" : "bg-secondary text-fg"
+        className={`max-w-[90%] overflow-y-auto rounded-[var(--radius-md)] px-4 py-2 text-sm leading-relaxed whitespace-pre-wrap ${
+          isUser
+            ? "bg-primary text-primary-fg"
+            : "max-h-[420px] bg-secondary text-fg"
         }`}
       >
         {message.content}
