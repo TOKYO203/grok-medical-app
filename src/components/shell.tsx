@@ -79,7 +79,19 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                 {title}
               </h1>
               <div className="shrink-0">
-                <ExperienceControls compact />
+                <ExperienceControls
+                          compact
+                          leading={
+                            <button
+                              type="button"
+                              onClick={() => cmd.setOpen(true)}
+                              aria-label="Rechercher"
+                              className="flex size-9 items-center justify-center rounded-[10px] text-muted transition-[background-color,color,transform] active:scale-95 hover:text-fg"
+                            >
+                              <Search className="size-4" />
+                            </button>
+                          }
+                        />
               </div>
             </header>
           ) : null}

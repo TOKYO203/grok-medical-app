@@ -38,7 +38,7 @@ function useFocusAmbience() {
   return { active, toggle };
 }
 
-export function ExperienceControls({ compact = false }: { compact?: boolean }) {
+export function ExperienceControls({ compact = false, leading }: { compact?: boolean; leading?: ReactNode }) {
   const { preferences, update } = useExperiencePreferences();
   const focus = useFocusAmbience();
 
@@ -64,6 +64,7 @@ export function ExperienceControls({ compact = false }: { compact?: boolean }) {
         className="flex w-fit items-center gap-0.5 rounded-[var(--radius-md)] bg-secondary p-1 shadow-[var(--shadow-border)]"
         aria-label="Préférences sensorielles"
       >
+        {leading}
         <CompactToggle
           pressed={preferences.sounds}
           title={preferences.sounds ? "Désactiver les sons" : "Activer les sons"}
