@@ -16,6 +16,7 @@ import {
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
+import { DailyGoalCard } from "@/components/daily-goal-card";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
@@ -122,6 +123,8 @@ function Dashboard() {
           {initials(profile.displayName)}
         </Link>
       </div>
+
+      <DailyGoalCard />
 
       <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
         <div className="flex items-center gap-5">
