@@ -1,4 +1,5 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Settings2, X, Search } from "lucide-react";
 import { ExperienceControls } from "@/components/experience-controls";
 
@@ -29,11 +30,12 @@ export function MobileToolsDrawer({
         <Settings2 className="size-4" />
       </button>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-[150] flex justify-end bg-black/50 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        >
+      {open &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[150] flex justify-end bg-black/50 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          >
           <div
             className="h-full w-[85%] max-w-sm overflow-y-auto border-l border-border bg-bg p-5 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
@@ -71,8 +73,9 @@ export function MobileToolsDrawer({
               <ExperienceControls />
             </section>
           </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
 
       <style>{`
         @keyframes slideIn {
