@@ -2,12 +2,13 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { GOALS, PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import type { StudyLevel } from "@/core/types";
+import { SUBJECT_CATEGORIES, DAILY_GOALS } from "@/data/onboarding";
 import { MadagascarMark, Wordmark } from "@/components/brand/marks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
 
-const SUBJECTS = ["Cardiologie", "Neurologie", "Infectiologie", "Urgences", "Sémiologie", "Pharmacologie"];
+const MAX_SUBJECTS = 6;
 
 export function Onboarding() {
   const complete = useOptimus((s) => s.completeOnboarding);
@@ -17,12 +18,22 @@ export function Onboarding() {
   const [otherOpen, setOtherOpen] = useState(false);
   const [goal, setGoal] = useState("edn");
   const [subjects, setSubjects] = useState<string[]>(["Cardiologie"]);
+  const [dailyGoal, setDailyGoal] = useState<string>("30min");
 
   function toggle(sub: string) {
-    setSubjects((cur) => (cur.includes(sub) ? cur.filter((s) => s !== sub) : [...cur, sub].slice(0, 3)));
+    setSubjects((cur) =>
+      cur.includes(sub)
+        ? cur.filter((s) => s !== sub)
+        : cur.length >= MAX_SUBJECTS
+          ? cur
+          : [...cur, sub],
+    );
   }
 
   function finish() {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("optimus.dailyGoal", dailyGoal);
+    }
     complete({
       displayName: name.trim() || "Invité",
       studyYear: typeof level === "number" ? level : 0,
@@ -52,7 +63,7 @@ export function Onboarding() {
               Progresser.
             </h1>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-              Coach de formation médicale, hors-ligne d’abord. Pas un simple QCM — un parcours, une Mastery, des cas.
+              Coach de formation médicale, hors-ligne d'abord. Pas un simple QCM — un parcours, une Mastery, des cas.
             </p>
             <p className="mt-6 text-xs uppercase tracking-[0.16em] text-subtle">Développé à Madagascar</p>
             <Button className="mt-auto" size="lg" onClick={() => setStep(1)}>
@@ -130,17 +141,35 @@ export function Onboarding() {
                 </button>
               ))}
             </div>
-            <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Matières prioritaires</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {SUBJECTS.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => toggle(s)}
-                  className={`h-10 rounded-full px-4 text-sm shadow-[var(--shadow-border)] ${subjects.includes(s) ? "bg-primary text-primary-fg" : "bg-card text-fg"}`}
-                >
-                  {s}
-                </button>
+            <div className="mt-8 flex items-center justify-between">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+                Matières prioritaires
+              </p>
+              <span className="text-[11px] text-subtle">
+                {subjects.length}/{MAX_SUBJECTS}
+              </span>
+            </div>
+            <div className="mt-3 space-y-4">
+              {Object.entries(SUBJECT_CATEGORIES).map(([cat, list]) => (
+                <div key={cat}>
+                  <p className="mb-2 text-[11px] uppercase tracking-wider text-subtle">{cat}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {list.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => toggle(s)}
+                        className={`h-9 rounded-full px-3 text-xs shadow-[var(--shadow-border)] ${
+                          subjects.includes(s)
+                            ? "bg-primary text-primary-fg"
+                            : "bg-card text-fg"
+                        }`}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
             <Button className="mt-auto" onClick={() => setStep(3)}>
@@ -149,6 +178,34 @@ export function Onboarding() {
           </div>
         ) : null}
         {step === 3 ? (
+          <div className="mt-10 flex flex-1 flex-col">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Rythme quotidien</p>
+            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Objectif réaliste ?</h2>
+            <p className="mt-2 text-sm text-muted">
+              Commencez petit. Mieux vaut 15 min tenues chaque jour qu'une heure abandonnée en une semaine.
+            </p>
+            <div className="mt-6 space-y-2">
+              {DAILY_GOALS.map((g) => (
+                <button
+                  key={g.id}
+                  type="button"
+                  onClick={() => setDailyGoal(g.id)}
+                  aria-pressed={dailyGoal === g.id}
+                  className={`flex w-full flex-col items-start gap-1 rounded-[var(--radius-md)] px-4 py-3 text-left shadow-[var(--shadow-border)] ${
+                    dailyGoal === g.id ? "bg-primary-soft" : "bg-card"
+                  }`}
+                >
+                  <span className="text-sm font-medium">{g.label}</span>
+                  <span className="text-xs text-muted">{g.description}</span>
+                </button>
+              ))}
+            </div>
+            <Button className="mt-auto" onClick={() => setStep(4)}>
+              Continuer
+            </Button>
+          </div>
+        ) : null}
+        {step === 4 ? (
           <div className="mt-10 flex flex-1 flex-col">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Identité</p>
             <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Comment vous appeler ?</h2>
