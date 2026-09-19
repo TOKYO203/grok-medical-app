@@ -156,7 +156,7 @@ function CasPage() {
 
         <section className="mt-8">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-            Clinical Hub
+            Cas cliniques
           </p>
 
           <CaseHub
@@ -172,7 +172,7 @@ function CasPage() {
           <div className="flex items-end justify-between gap-3">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                Programme Internat
+                Programme internat
               </p>
               <h2 className="font-display text-xl font-medium">Démarche diagnostique devant…</h2>
             </div>
