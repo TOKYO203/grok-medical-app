@@ -1,3 +1,4 @@
+import type { AIProvider } from "./model.types";
 import {
  getModelProvider
 } from "./model-router";
@@ -37,7 +38,7 @@ export async function runAI(
 
   success:true,
 
-  provider:result.provider,
+  provider:result.provider as AIProvider,
 
   content:result.content
 

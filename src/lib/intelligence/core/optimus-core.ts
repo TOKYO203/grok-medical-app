@@ -4,10 +4,6 @@ import {
 } from "../reasoning";
 
 import {
-  _executeAgent
-} from "../agents";
-
-import {
   saveMemory
 } from "../memory";
 

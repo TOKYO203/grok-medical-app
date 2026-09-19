@@ -1,4 +1,4 @@
-export type AIHistoryEntry = { id: string; text: string; at: number; model?: string };
+export type AIHistoryEntry = { id: string; text: string; at: number; model?: string; rating?: "up" | "down" | null };
 const KEY = "optimus.ai.history.v1";
 const MAX_PER_CASE = 5;
 type Store = Record<string, AIHistoryEntry[]>;

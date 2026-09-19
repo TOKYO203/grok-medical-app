@@ -7,6 +7,7 @@ import { useClinicalAI } from "@/lib/ai/useClinicalAI";
 export default function ClinicalAIWidget() {
   const [open, setOpen] = useState(false);
   const ai = useClinicalAI();
+  const lastText = [...ai.messages].reverse().find((m) => m.role === "assistant")?.content;
 
   const insight = generateClinicalInsight(750, 12);
   const recommendation = recommendNextCase(3);
@@ -81,9 +82,9 @@ Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
             )}
           </div>
 
-          {ai.text && (
+          {lastText && (
             <div className="rounded-[var(--radius-md)] bg-secondary p-4 text-sm leading-relaxed whitespace-pre-wrap">
-              {ai.text}
+              {lastText}
               {ai.status === "streaming" && (
                 <span className="ml-0.5 inline-block h-4 w-1 animate-pulse bg-primary align-middle" />
               )}

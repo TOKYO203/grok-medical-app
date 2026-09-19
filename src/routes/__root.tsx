@@ -65,6 +65,7 @@ function RootDocument() {
           <Outlet />
         </AuthProvider>
         <ConnectivityStatus />
+        <ServiceWorkerRegistrar />
         <Toaster
           theme="dark"
           position="top-center"
