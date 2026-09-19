@@ -23,6 +23,10 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
       { name: "theme-color", content: "#0c1110" },
+              { name: "application-name", content: "Optimus" },
+              { name: "apple-mobile-web-app-title", content: "Optimus" },
+              { name: "apple-mobile-web-app-capable", content: "yes" },
+              { name: "mobile-web-app-capable", content: "yes" },
       {
         name: "description",
         content: "Optimus — coach de formation médicale. Apprendre. Raisonner. Progresser. Made in Madagascar.",
