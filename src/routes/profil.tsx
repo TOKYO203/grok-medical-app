@@ -310,10 +310,14 @@ function ProfilPage() {
               <Pencil className="size-3.5" />
             </span>
           </button>
-          <Button variant="secondary" size="sm" onClick={() => setEditing((value) => !value)}>
+          <button
+            type="button"
+            onClick={() => setEditing((value) => !value)}
+            aria-label={editing ? "Fermer" : "Modifier le profil"}
+            className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-muted shadow-[var(--shadow-border)] transition-colors hover:text-fg"
+          >
             <Pencil className="size-4" />
-            {editing ? "Fermer" : "Modifier le profil"}
-          </Button>
+          </button>
         </div>
 
         <div className="mt-3">
