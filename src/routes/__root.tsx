@@ -1,4 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { AuthProvider } from "@/lib/auth/provider";
 import { AppResumeBridge } from "@/components/app-resume-bridge";
 import { ConnectivityStatus } from "@/components/connectivity-status";
@@ -11,6 +12,9 @@ import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Optimus";
+
+
+function ServiceWorkerRegistrar(){useEffect(()=>{if(typeof window==="undefined")return;if(!("serviceWorker" in navigator))return;if(window.location.protocol!=="https:"&&window.location.hostname!=="localhost")return;navigator.serviceWorker.register("/sw.js").catch(()=>{})},[]);return null}
 
 export const Route = createRootRoute({
   head: () => ({
