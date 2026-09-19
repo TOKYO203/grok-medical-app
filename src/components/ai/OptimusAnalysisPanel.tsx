@@ -219,6 +219,35 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
   );
 }
 
+
+function renderMarkdown(text: string): React.ReactNode[] {
+  const lines = text.split("\n");
+  const out: React.ReactNode[] = [];
+  lines.forEach((line, i) => {
+    // Gras **...**
+    const parts: React.ReactNode[] = [];
+    let rest = line;
+    let key = 0;
+    while (rest.length > 0) {
+      const m = rest.match(/\*\*(.+?)\*\*/);
+      if (!m || m.index === undefined) {
+        parts.push(<span key={`t${key++}`}>{rest}</span>);
+        break;
+      }
+      if (m.index > 0) parts.push(<span key={`t${key++}`}>{rest.slice(0, m.index)}</span>);
+      parts.push(<strong key={`b${key++}`}>{m[1]}</strong>);
+      rest = rest.slice(m.index + m[0].length);
+    }
+    out.push(
+      <span key={i}>
+        {parts}
+        {i < lines.length - 1 ? "\n" : ""}
+      </span>
+    );
+  });
+  return out;
+}
+
 function MessageBubble({
   message,
   isStreaming,
@@ -250,7 +279,7 @@ function MessageBubble({
             : "max-h-[420px] bg-secondary text-fg"
         }`}
       >
-        {message.content}
+        {renderMarkdown(message.content)}
         {isStreaming && (
           <span className="ml-0.5 inline-block h-4 w-1 animate-pulse bg-primary align-middle" />
         )}
