@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Brain, ChevronDown, Info, Sparkles, RefreshCw } from "lucide-react";
 import { useClinicalAI } from "@/lib/ai/useClinicalAI";
+import { readHistory, relativeTime, type AIHistoryEntry } from "@/lib/ai/ai-history";
 
 export type CaseAIContext = {
   title: string;
@@ -53,7 +54,14 @@ Analyse ce cas comme un senior en garde : hypothèses diagnostiques hiérarchis�
 
 export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
   const [open, setOpen] = useState(false);
+  const [historyEntries, setHistoryEntries] = useState<AIHistoryEntry[]>([]);
+  const [historyOpen, setHistoryOpen] = useState(false);
   const ai = useClinicalAI();
+
+  const caseId = context.title;
+  useEffect(() => {
+    setHistoryEntries(readHistory(caseId));
+  }, [caseId, ai.status]);
 
   const prompt = buildCasePrompt(context);
   const canAnalyze = context.revealedSteps.length > 0;
@@ -95,7 +103,7 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
           <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
-              onClick={() => ai.run(prompt, CASE_SYSTEM_PROMPT)}
+              onClick={() => ai.run(prompt, CASE_SYSTEM_PROMPT, context.title)}
               disabled={ai.status === "streaming" || !canAnalyze}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-fg transition-opacity disabled:opacity-40"
             >
@@ -131,6 +139,38 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
           {ai.status === "error" && (
             <div className="rounded-[var(--radius-md)] border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-500">
               ⚠️ {ai.error}
+            </div>
+          )}
+
+          {historyEntries.length > 0 && (
+            <div className="border-t border-border pt-4">
+              <button
+                type="button"
+                onClick={() => setHistoryOpen((v) => !v)}
+                className="flex w-full items-center justify-between gap-2 text-left"
+              >
+                <h3 className="text-sm font-medium">
+                  📜 Analyses précédentes ({historyEntries.length})
+                </h3>
+                <ChevronDown
+                  className={`size-4 text-muted transition-transform ${historyOpen ? "rotate-180" : ""}`}
+                  aria-hidden
+                />
+              </button>
+              {historyOpen && (
+                <div className="mt-3 space-y-2">
+                  {historyEntries.map((entry) => (
+                    <details key={entry.id} className="rounded-[var(--radius-md)] bg-secondary">
+                      <summary className="cursor-pointer p-3 text-xs text-muted">
+                        {relativeTime(entry.at)} · {entry.text.length} caractères
+                      </summary>
+                      <div className="border-t border-border p-3 text-xs leading-relaxed whitespace-pre-wrap">
+                        {entry.text}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 

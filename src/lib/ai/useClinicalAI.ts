@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { pushHistory } from "@/lib/ai/ai-history";
 
 export type ClinicalAIStatus = "idle" | "streaming" | "done" | "error";
 
@@ -51,7 +52,7 @@ export function useClinicalAI() {
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
-  const run = useCallback(async (prompt: string, systemPromptOverride?: string) => {
+  const run = useCallback(async (prompt: string, systemPromptOverride?: string, caseId?: string) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -108,6 +109,7 @@ export function useClinicalAI() {
       }
 
       writeSessionCache(prompt, acc);
+      if (caseId) pushHistory(caseId, acc);
       setState({ status: "done", text: acc });
     } catch (e: unknown) {
       if (ctrl.signal.aborted) return;
