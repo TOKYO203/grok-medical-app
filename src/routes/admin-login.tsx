@@ -5,7 +5,6 @@ import { KeyRound } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { verifyAdminKey } from "@/lib/content-reports-admin";
 
 export const Route = createFileRoute("/admin-login")({ component: AdminLoginPage });
 
@@ -40,8 +39,14 @@ function AdminLoginPage() {
     }
     setLoading(true);
     try {
-      const result = await verifyAdminKey({ data: { adminKey: key.trim() } });
-      if (!result.valid) {
+      const res = await fetch("/api/admin-verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ adminKey: key.trim() }),
+      });
+      const data = (await res.json()) as { valid: boolean; debug?: unknown };
+      console.log("[admin-login] verify response:", data);
+      if (!data.valid) {
         setError(true);
         setLoading(false);
         return;

@@ -32,6 +32,7 @@ import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
+import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
@@ -153,6 +154,11 @@ const SoutenirRoute = SoutenirRouteImport.update({
   path: '/soutenir',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
+  id: '/api/admin-verify',
+  path: '/api/admin-verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAiStreamRoute = ApiAiStreamRouteImport.update({
   id: '/api/ai-stream',
   path: '/api/ai-stream',
@@ -203,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -233,6 +240,7 @@ export interface FileRoutesByTo {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -264,6 +272,7 @@ export interface FileRoutesById {
   '/profil': typeof ProfilRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
@@ -296,6 +305,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -326,6 +336,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -356,6 +367,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/revue'
     | '/soutenir'
+    | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
@@ -387,6 +399,7 @@ export interface RootRouteChildren {
   ProfilRoute: typeof ProfilRoute
   RevueRoute: typeof RevueRoute
   SoutenirRoute: typeof SoutenirRoute
+  ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   DemarcheIdRoute: typeof DemarcheIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
@@ -555,6 +568,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoutenirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/admin-verify': {
+      id: '/api/admin-verify'
+      path: '/api/admin-verify'
+      fullPath: '/api/admin-verify'
+      preLoaderRoute: typeof ApiAdminVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/ai-stream': {
       id: '/api/ai-stream'
       path: '/api/ai-stream'
@@ -639,6 +659,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilRoute: ProfilRoute,
   RevueRoute: RevueRoute,
   SoutenirRoute: SoutenirRoute,
+  ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   DemarcheIdRoute: DemarcheIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
