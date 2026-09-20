@@ -48,8 +48,12 @@ export const Route = createFileRoute("/api/ai-stream")({
 
         const parsed = AIStreamBodySchema.safeParse(json);
         if (!parsed.success) {
+          const summary = parsed.error.issues
+            .map((i) => `${i.path.join(".")}: ${i.message}`)
+            .join(" · ");
+          console.error("[ai-stream] Zod reject:", summary);
           return new Response(
-            JSON.stringify({ error: "Requête invalide", details: parsed.error.issues }),
+            JSON.stringify({ error: `Requête invalide — ${summary}`, details: parsed.error.issues }),
             { status: 400, headers: { "Content-Type": "application/json" } },
           );
         }

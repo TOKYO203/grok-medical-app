@@ -104,7 +104,7 @@ export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
   };
   if (provider === "openrouter") {
     headers["HTTP-Referer"] = "https://grok-medical-app.vercel.app";
-    headers["X-Title"] = "Grok Medical";
+    headers["X-Title"] = "Optimus — Formation médicale";
   }
 
   const res = await fetchWithRetry(url, {
