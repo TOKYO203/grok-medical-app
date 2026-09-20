@@ -15,7 +15,7 @@ export function itemMastery(stats: ReviewStats | undefined, now = Date.now()): n
 }
 
 export function masteryBand(score: number): { id: string; label: string } {
-  if (score <= 20) return { id: "unknown", label: "Inconnu" };
+  if (score <= 20) return { id: "unknown", label: "Nouveau" };
   if (score <= 40) return { id: "fragile", label: "Fragile" };
   if (score <= 60) return { id: "learning", label: "Apprentissage" };
   if (score <= 80) return { id: "good", label: "Bon" };
