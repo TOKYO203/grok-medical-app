@@ -36,7 +36,6 @@ function DeckPage() {
     return (
       <Shell title="Deck">
         <Page>
-        <DeckReviewBanner deck={deck} />
           <p className="text-sm text-muted">Deck introuvable.</p>
         </Page>
       </Shell>
