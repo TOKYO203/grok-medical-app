@@ -8,6 +8,10 @@ import type { ContactDraft } from "@/core/types";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
+const EMAIL = "fetramandresyo@gmail.com";
+const WHATSAPP = "261341995741";
+const WHATSAPP_DISPLAY = "034 19 957 41";
+
 export const Route = createFileRoute("/contact")({ component: ContactPage });
 
 const KINDS: { id: ContactDraft["kind"]; label: string }[] = [
@@ -29,8 +33,31 @@ function ContactPage() {
       <Page className="mx-auto max-w-lg">
         <h1 className="font-display text-3xl font-medium tracking-tight">Contact</h1>
         <p className="mt-2 text-sm text-muted">
-          Ce formulaire conserve un brouillon sur cet appareil. Il ne l’envoie pas automatiquement.
+          Une question, un bug, une correction ? Écris-nous directement.
         </p>
+        <div className="mt-5 grid gap-2">
+          <a href={"https://wa.me/" + WHATSAPP} target="_blank" rel="noopener noreferrer"
+             className="flex items-center gap-3 rounded-[var(--radius-md)] bg-card px-4 py-3 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15">
+              <span className="text-lg">&#x1F4AC;</span>
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs uppercase tracking-wider text-muted">WhatsApp</span>
+              <span className="block text-sm font-medium">{WHATSAPP_DISPLAY}</span>
+            </span>
+          </a>
+          <a href={"mailto:" + EMAIL}
+             className="flex items-center gap-3 rounded-[var(--radius-md)] bg-card px-4 py-3 shadow-[var(--shadow-border)] transition-colors hover:bg-secondary">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary-soft">
+              <span className="text-lg">&#x2709;&#xFE0F;</span>
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs uppercase tracking-wider text-muted">Email</span>
+              <span className="block truncate text-sm font-medium">{EMAIL}</span>
+            </span>
+          </a>
+        </div>
+
         <div className="mt-5 flex flex-wrap gap-1.5">
           {KINDS.map((k) => (
             <button
