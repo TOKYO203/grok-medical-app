@@ -8,7 +8,7 @@ const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 const DEFAULT_OPENROUTER_MODEL = "inclusionai/ling-3.0-flash-sante:free";
-const DEFAULT_GROQ_MODEL = "qwen/qwen3.6-27b";
+const DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b";
 
 export type ChatMessage = {
   role: "system" | "user" | "assistant";
