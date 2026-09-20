@@ -44,7 +44,10 @@ function AdminReportsPage() {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       setForbidden(/forbidden/i.test(message));
-      if (!/forbidden/i.test(message)) toast.error("Impossible de charger les signalements");
+      if (!/forbidden/i.test(message)) {
+        console.error("[admin-reports] Erreur chargement:", message);
+        toast.error(`Erreur : ${message.slice(0, 100)}`);
+      }
     } finally {
       setLoading(false);
     }
