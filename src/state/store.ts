@@ -714,6 +714,8 @@ export function useAllDecks(): Deck[] {
 }
 
 export function hasAccess(deck: Deck, entitlements: Entitlement[], _tier: AccountTier): boolean {
+  // Sécurité : les brouillons ne sont JAMAIS accessibles aux utilisateurs
+  if (deck.status === "draft" || deck.status === "deprecated") return false;
   if (deck.imported) {
     if (!deck.importProof && deck.access_policy.tier === "free") return true;
     return (

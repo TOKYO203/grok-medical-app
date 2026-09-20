@@ -78,6 +78,23 @@ export type Question = {
 
 export type Chapter = { id: string; title: string };
 
+export type DeckStatus = "draft" | "in_review" | "published" | "deprecated";
+
+export const DECK_STATUS_LABEL: Record<DeckStatus, string> = {
+  draft: "Brouillon",
+  in_review: "En relecture",
+  published: "Publié",
+  deprecated: "Déprécié",
+};
+
+export type DeckReview = {
+  reviewedBy: string;
+  reviewerLicense?: string;
+  reviewedAt: string;
+  version: string;
+  notes?: string;
+};
+
 export type AccessPolicy = {
   tier: AccessTier;
   entitlement: string;
@@ -105,6 +122,9 @@ export type Deck = {
   questions: Question[];
   sources: Source[];
   access_policy: AccessPolicy;
+  status?: DeckStatus;
+  review?: DeckReview;
+  changelog?: Array<{ date: string; change: string }>;
   chapters: Chapter[];
   imported?: boolean;
   importProof?: DeckImportProof;
