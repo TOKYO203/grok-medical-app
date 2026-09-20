@@ -2,6 +2,8 @@
  * Server-only AI proxy — multi-turn.
  */
 
+import { readAIStream } from "./stream-protocol";
+
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
@@ -117,28 +119,5 @@ export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
   }
   if (!res.body) throw new Error("Pas de flux SSE dans la réponse");
 
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const lines = buffer.split("\n");
-    buffer = lines.pop() ?? "";
-    for (const raw of lines) {
-      const line = raw.trim();
-      if (!line.startsWith("data:")) continue;
-      const payload = line.slice(5).trim();
-      if (payload === "[DONE]") return;
-      try {
-        const json = JSON.parse(payload);
-        const delta = json?.choices?.[0]?.delta?.content;
-        if (delta) yield delta as string;
-      } catch {
-        /* ignore partial */
-      }
-    }
-  }
+  yield* readAIStream(res.body);
 }

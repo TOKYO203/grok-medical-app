@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { rateLimit, getClientIp } from "@/lib/security/rate-limit.server";
 import { AIStreamBodySchema } from "@/lib/ai/schemas";
+import { readAIRequestBody, AIRequestBodyError } from "@/lib/ai/request-body.server";
 import {
   streamAI,
   cacheKey,
@@ -31,8 +32,14 @@ export const Route = createFileRoute("/api/ai-stream")({
 
         let json: unknown;
         try {
-          json = await request.json();
-        } catch {
+          json = await readAIRequestBody(request);
+        } catch (e: unknown) {
+          if (e instanceof AIRequestBodyError) {
+            return new Response(JSON.stringify({ error: e.message }), {
+              status: e.status,
+              headers: { "Content-Type": "application/json" },
+            });
+          }
           return new Response(JSON.stringify({ error: "JSON invalide" }), {
             status: 400,
             headers: { "Content-Type": "application/json" },
