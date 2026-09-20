@@ -17,6 +17,7 @@ import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
 import { DailyGoalCard } from "@/components/daily-goal-card";
+import { LevelBar } from "@/components/level-bar";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
@@ -123,6 +124,8 @@ function Dashboard() {
           {initials(profile.displayName)}
         </Link>
       </div>
+
+      <LevelBar />
 
       <DailyGoalCard />
 
