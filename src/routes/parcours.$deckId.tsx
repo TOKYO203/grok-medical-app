@@ -14,7 +14,6 @@ import {
 import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
-import { DeckReviewBanner } from "@/components/deck-review-banner";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { YEARS } from "@/content/catalog";
 import { LESSONS } from "@/core/quiz-engine";
