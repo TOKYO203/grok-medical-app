@@ -49,6 +49,10 @@ function BoardPage() {
           Score Optimus : Mastery, rétention, cas, régularité — pas seulement le volume. Calcul local en attendant le
           serveur. Anti-triche : les événements sont filetés et horodatés.
         </p>
+        <div className="mt-3 rounded-[var(--radius-md)] border border-amber-500/20 bg-amber-500/5 px-3 py-2.5 text-xs text-amber-200/85">
+          🎮 <span className="font-medium">Classement de démonstration</span> — les profils affichés sont fictifs. Rejoins la beta pour un classement réel.
+        </div>
+
         <p className="mt-3 text-sm">
           Ligue {league.label} · saison hebdomadaire · {weeklyXp} XP cette semaine
         </p>
