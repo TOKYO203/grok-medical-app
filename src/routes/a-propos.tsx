@@ -77,7 +77,7 @@ function AboutPage() {
           </p>
           <p className="mt-1 text-sm font-medium">{FOUNDER}</p>
           <p className="mt-0.5 text-xs text-subtle">
-            Étudiant en médecine · Passionné de tech
+            Fondateur d'Optimus
           </p>
         </div>
 
@@ -85,6 +85,20 @@ function AboutPage() {
           <Sparkles className="mx-auto size-4 text-primary" aria-hidden />
           <p className="mt-2 text-xs text-muted">
             Optimus est né d&apos;une conviction simple : la médecine s&apos;apprend en raisonnant, pas en récitant.
+          </p>
+        </div>
+
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+            Notre histoire
+          </p>
+          <p className="mt-2 text-sm leading-relaxed">
+            Étudiant en médecine à Madagascar, j'ai cherché un outil qui combine
+            rigueur académique et accessibilité. Ne le trouvant pas, je l'ai construit.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            Optimus est aujourd'hui une plateforme ouverte, pensée pour les étudiants
+            malgaches — de la première année à l'internat.
           </p>
         </div>
 
