@@ -20,7 +20,7 @@ export const REPORT_ISSUE_LABEL: Record<ReportIssue, string> = {
 };
 
 const reportSchema = z.object({
-  optimusId: z.string().min(1).max(120),
+  optimusId: z.string().min(1).max(120).optional(),
   contentType: z.enum(["question", "deck", "clinical_case"]),
   contentId: z.string().trim().min(1).max(120),
   deckId: z.string().trim().max(120).optional(),
@@ -63,7 +63,7 @@ export const submitContentReport = createServerFn({ method: "POST" })
         details,
         location
       ) values (
-        ${data.optimusId},
+        ${data.optimusId ?? "anonymous"},
         ${data.contentType},
         ${data.contentId},
         ${data.deckId ?? null},
