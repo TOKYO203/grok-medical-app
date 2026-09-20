@@ -5,6 +5,7 @@ import { KeyRound } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { verifyAdminKey } from "@/lib/content-reports-admin";
 
 export const Route = createFileRoute("/admin-login")({ component: AdminLoginPage });
 
@@ -30,13 +31,27 @@ function AdminLoginPage() {
   const [key, setKey] = useState("");
   const [error, setError] = useState(false);
 
-  function submit() {
+  const [loading, setLoading] = useState(false);
+
+  async function submit() {
     if (key.trim().length < 4) {
       setError(true);
       return;
     }
-    setAdminKey(key.trim());
-    nav({ to: "/admin" });
+    setLoading(true);
+    try {
+      const result = await verifyAdminKey({ data: { adminKey: key.trim() } });
+      if (!result.valid) {
+        setError(true);
+        setLoading(false);
+        return;
+      }
+      setAdminKey(key.trim());
+      nav({ to: "/admin" });
+    } catch {
+      setError(true);
+      setLoading(false);
+    }
   }
 
   return (
@@ -68,12 +83,12 @@ function AdminLoginPage() {
           />
           {error ? (
             <p className="mt-2 text-xs text-red-400">
-              Mot de passe trop court (min. 4 caractères).
+              Mot de passe invalide.
             </p>
           ) : null}
 
-          <Button className="mt-4 w-full" onClick={submit}>
-            Accéder
+          <Button className="mt-4 w-full" onClick={submit} disabled={loading}>
+            {loading ? "Vérification…" : "Accéder"}
           </Button>
 
           <p className="mt-4 text-center text-[11px] text-subtle">

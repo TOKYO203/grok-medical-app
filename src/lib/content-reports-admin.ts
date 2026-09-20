@@ -118,3 +118,14 @@ export const reviewContentReport = createServerFn({ method: "POST" })
     if (!row) throw new Error("Signalement introuvable.");
     return toAdminReport(row);
   });
+
+
+const verifySchema = z.object({
+  adminKey: z.string().min(1).max(200),
+});
+
+export const verifyAdminKey = createServerFn({ method: "POST" })
+  .validator(verifySchema)
+  .handler(async ({ data }) => {
+    return { valid: isAdmin(data.adminKey) };
+  });
