@@ -36,7 +36,7 @@ function AdminLoginPage() {
       return;
     }
     setAdminKey(key.trim());
-    nav({ to: "/admin-reports" });
+    nav({ to: "/admin" });
   }
 
   return (

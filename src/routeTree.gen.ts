@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AchatsRouteImport } from './routes/achats'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
 import { Route as AdminDecksRouteImport } from './routes/admin-decks'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
@@ -50,6 +51,11 @@ const AProposRoute = AProposRouteImport.update({
 const AchatsRoute = AchatsRouteImport.update({
   id: '/achats',
   path: '/achats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminAchatsRoute = AdminAchatsRouteImport.update({
@@ -177,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
@@ -206,6 +213,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
@@ -236,6 +244,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
+  '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
@@ -267,6 +276,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin'
     | '/admin-achats'
     | '/admin-decks'
     | '/admin-login'
@@ -296,6 +306,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin'
     | '/admin-achats'
     | '/admin-decks'
     | '/admin-login'
@@ -325,6 +336,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/achats'
+    | '/admin'
     | '/admin-achats'
     | '/admin-decks'
     | '/admin-login'
@@ -355,6 +367,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   AchatsRoute: typeof AchatsRoute
+  AdminRoute: typeof AdminRoute
   AdminAchatsRoute: typeof AdminAchatsRoute
   AdminDecksRoute: typeof AdminDecksRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -400,6 +413,13 @@ declare module '@tanstack/react-router' {
       path: '/achats'
       fullPath: '/achats'
       preLoaderRoute: typeof AchatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin-achats': {
@@ -599,6 +619,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   AchatsRoute: AchatsRoute,
+  AdminRoute: AdminRoute,
   AdminAchatsRoute: AdminAchatsRoute,
   AdminDecksRoute: AdminDecksRoute,
   AdminLoginRoute: AdminLoginRoute,
