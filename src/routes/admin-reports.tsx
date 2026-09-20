@@ -11,6 +11,7 @@ import {
 } from "@/lib/content-reports-admin";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/admin-reports")({ component: AdminReportsPage });
 
