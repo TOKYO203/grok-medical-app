@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
+import { Route as AdminDecksRouteImport } from './routes/admin-decks'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
@@ -52,6 +53,11 @@ const AchatsRoute = AchatsRouteImport.update({
 const AdminAchatsRoute = AdminAchatsRouteImport.update({
   id: '/admin-achats',
   path: '/admin-achats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDecksRoute = AdminDecksRouteImport.update({
+  id: '/admin-decks',
+  path: '/admin-decks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculateursRoute = CalculateursRouteImport.update({
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
+  '/admin-decks': typeof AdminDecksRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -186,6 +193,7 @@ export interface FileRoutesByTo {
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
+  '/admin-decks': typeof AdminDecksRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -213,6 +221,7 @@ export interface FileRoutesById {
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
+  '/admin-decks': typeof AdminDecksRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -241,6 +250,7 @@ export interface FileRouteTypes {
     | '/a-propos'
     | '/achats'
     | '/admin-achats'
+    | '/admin-decks'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
     | '/a-propos'
     | '/achats'
     | '/admin-achats'
+    | '/admin-decks'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -293,6 +304,7 @@ export interface FileRouteTypes {
     | '/a-propos'
     | '/achats'
     | '/admin-achats'
+    | '/admin-decks'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -320,6 +332,7 @@ export interface RootRouteChildren {
   AProposRoute: typeof AProposRoute
   AchatsRoute: typeof AchatsRoute
   AdminAchatsRoute: typeof AdminAchatsRoute
+  AdminDecksRoute: typeof AdminDecksRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
@@ -368,6 +381,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-achats'
       fullPath: '/admin-achats'
       preLoaderRoute: typeof AdminAchatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-decks': {
+      id: '/admin-decks'
+      path: '/admin-decks'
+      fullPath: '/admin-decks'
+      preLoaderRoute: typeof AdminDecksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculateurs': {
@@ -540,6 +560,7 @@ const rootRouteChildren: RootRouteChildren = {
   AProposRoute: AProposRoute,
   AchatsRoute: AchatsRoute,
   AdminAchatsRoute: AdminAchatsRoute,
+  AdminDecksRoute: AdminDecksRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,
@@ -562,12 +583,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
