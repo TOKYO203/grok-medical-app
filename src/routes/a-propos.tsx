@@ -4,7 +4,8 @@ import { Shell } from "@/components/shell";
 
 export const Route = createFileRoute("/a-propos")({ component: AboutPage });
 
-const NAME = "FETRA Mandresy Onja Andrianantena";
+const NAME = "Fondation Optimus";
+const FOUNDER = "FETRA Mandresy Onja Andrianantena";
 const EMAIL = "onjaandrianantenainafetramandr@gmail.com";
 const WHATSAPP = "261341995741";
 const GITHUB = "https://github.com/TOKYO203";
@@ -24,14 +25,14 @@ function AboutPage() {
         <div className="mt-6 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
           <div className="flex items-center gap-4 p-6">
             <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-primary-soft font-display text-2xl text-primary">
-              F
+              O
             </div>
             <div className="min-w-0 flex-1">
               <h1 className="font-display text-xl font-medium leading-tight break-words">
                 {NAME}
               </h1>
               <p className="mt-1.5 text-sm text-muted">
-                Développeur · Fondateur d&apos;Optimus
+                Fondation · Made in Madagascar 🇲🇬
               </p>
             </div>
           </div>
@@ -70,6 +71,16 @@ function AboutPage() {
           </div>
         </div>
 
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card/50 p-4 shadow-[var(--shadow-border)]">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+            Fondée par
+          </p>
+          <p className="mt-1 text-sm font-medium">{FOUNDER}</p>
+          <p className="mt-0.5 text-xs text-subtle">
+            Étudiant en médecine · Passionné de tech
+          </p>
+        </div>
+
         <div className="mt-6 rounded-[var(--radius-lg)] bg-card/50 p-4 text-center shadow-[var(--shadow-border)]">
           <Sparkles className="mx-auto size-4 text-primary" aria-hidden />
           <p className="mt-2 text-xs text-muted">
@@ -78,7 +89,7 @@ function AboutPage() {
         </div>
 
         <p className="mt-8 text-center text-[11px] text-subtle">
-          Made in Madagascar 🇲🇬 · Optimus v1.0 · 2026
+          Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026
         </p>
       </div>
     </Shell>
