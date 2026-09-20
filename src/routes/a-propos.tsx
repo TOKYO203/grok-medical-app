@@ -1,61 +1,86 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MadagascarMark, Wordmark } from "@/components/brand/marks";
-import { Page, Shell } from "@/components/shell";
+import { ArrowLeft, Mail, MessageCircle, Github, Sparkles } from "lucide-react";
+import { Shell } from "@/components/shell";
 
 export const Route = createFileRoute("/a-propos")({ component: AboutPage });
+
+const NAME = "FETRA Mandresy Onja Andrianantena";
+const EMAIL = "onjaandrianantenainafetramandr@gmail.com";
+const WHATSAPP = "261341995741";
+const GITHUB = "https://github.com/TOKYO203";
 
 function AboutPage() {
   return (
     <Shell title="À propos">
-      <Page className="mx-auto max-w-lg">
-        <Wordmark />
-        <h1 className="mt-8 font-display text-4xl font-medium tracking-tight">
-          Apprendre.
-          <br />
-          Raisonner.
-          <br />
-          Progresser.
-        </h1>
-        <div className="mt-8 flex items-center gap-4">
-          <MadagascarMark className="h-20 w-12 text-primary" />
-          <p className="text-sm leading-relaxed text-muted">
-            Développé à Madagascar. Une silhouette, pas une carte postale — l’interface reste celle d’un outil clinique.
+      <div className="mx-auto max-w-2xl">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg"
+        >
+          <ArrowLeft className="size-4" aria-hidden />
+          Retour
+        </Link>
+
+        <div className="mt-6 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
+          <div className="flex items-center gap-4 p-6">
+            <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-primary-soft font-display text-2xl text-primary">
+              F
+            </div>
+            <div className="min-w-0 flex-1">
+              <h1 className="font-display text-xl font-medium leading-tight break-words">
+                {NAME}
+              </h1>
+              <p className="mt-1.5 text-sm text-muted">
+                Développeur · Fondateur d&apos;Optimus
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3 border-t border-border p-6">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="flex items-center gap-3 rounded-[var(--radius-md)] bg-secondary/50 px-4 py-3 text-sm transition-colors hover:bg-secondary"
+            >
+              <Mail className="size-4 text-primary" aria-hidden />
+              <span className="min-w-0 flex-1 truncate">Email</span>
+              <span className="truncate text-xs text-subtle">{EMAIL}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${WHATSAPP}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] bg-secondary/50 px-4 py-3 text-sm transition-colors hover:bg-secondary"
+            >
+              <MessageCircle className="size-4 text-primary" aria-hidden />
+              <span className="min-w-0 flex-1">WhatsApp</span>
+              <span className="truncate text-xs text-subtle">034 19 957 41</span>
+            </a>
+
+            <a
+              href={GITHUB}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] bg-secondary/50 px-4 py-3 text-sm transition-colors hover:bg-secondary"
+            >
+              <Github className="size-4 text-primary" aria-hidden />
+              <span className="min-w-0 flex-1">GitHub</span>
+              <span className="truncate text-xs text-subtle">TOKYO203</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card/50 p-4 text-center shadow-[var(--shadow-border)]">
+          <Sparkles className="mx-auto size-4 text-primary" aria-hidden />
+          <p className="mt-2 text-xs text-muted">
+            Optimus est né d&apos;une conviction simple : la médecine s&apos;apprend en raisonnant, pas en récitant.
           </p>
         </div>
-        <dl className="mt-8 space-y-3 text-sm">
-          <div>
-            <dt className="text-xs uppercase tracking-[0.16em] text-muted">Développeur</dt>
-            <dd className="mt-1">Fetra Mandresy</dd>
-          </div>
-          <div>
-            <dt className="text-xs uppercase tracking-[0.16em] text-muted">Version</dt>
-            <dd className="mt-1 font-mono text-xs">2.0.0 · build 2026.08</dd>
-          </div>
-        </dl>
-        <p className="mt-6 text-sm leading-relaxed text-muted">
-          Optimus est un coach numérique de formation médicale : contenus versionnés, sources tracées, Mastery distincte
-          de l’XP, hors-ligne d’abord. Il s’agit d’un outil éducatif et non d’un substitut au jugement clinique
-          professionnel.
+
+        <p className="mt-8 text-center text-[11px] text-subtle">
+          Made in Madagascar 🇲🇬 · Optimus v1.0 · 2026
         </p>
-        <nav className="mt-8 grid gap-1 text-sm" aria-label="Informations Optimus">
-          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/confidentialite">
-            Confidentialité et données
-          </Link>
-          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/conditions">
-            Conditions d’utilisation
-          </Link>
-          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/contact">
-            Contact / signaler un problème
-          </Link>
-          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/soutenir">
-            Soutenir le développeur
-          </Link>
-          <Link className="flex h-11 items-center rounded-[var(--radius-md)] px-3 hover:bg-secondary" to="/pro">
-            Optimus Pro
-          </Link>
-        </nav>
-        <p className="mt-10 text-xs text-subtle">© 2026 Optimus — Made in Madagascar</p>
-      </Page>
+      </div>
     </Shell>
   );
 }
