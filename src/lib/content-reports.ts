@@ -1,6 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { authMiddleware } from "@/lib/auth/middleware";
 
 export const REPORT_ISSUES = [
   "wrong_answer",
@@ -21,6 +20,7 @@ export const REPORT_ISSUE_LABEL: Record<ReportIssue, string> = {
 };
 
 const reportSchema = z.object({
+  optimusId: z.string().min(1).max(120),
   contentType: z.enum(["question", "deck", "clinical_case"]),
   contentId: z.string().trim().min(1).max(120),
   deckId: z.string().trim().max(120).optional(),
@@ -47,9 +47,8 @@ export function formatContentReport(input: ContentReportInput): string {
 }
 
 export const submitContentReport = createServerFn({ method: "POST" })
-  .middleware([authMiddleware])
   .validator(reportSchema)
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
     const rows = await sql<{ id: string }>`
@@ -64,7 +63,7 @@ export const submitContentReport = createServerFn({ method: "POST" })
         details,
         location
       ) values (
-        ${context.userId},
+        ${data.optimusId},
         ${data.contentType},
         ${data.contentId},
         ${data.deckId ?? null},

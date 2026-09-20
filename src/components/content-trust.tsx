@@ -182,6 +182,7 @@ export function ReportContentError({
   className?: string;
 }) {
   const addContact = useOptimus((state) => state.addContact);
+  const profile = useOptimus((state) => state.profile);
   const [open, setOpen] = useState(false);
   const [issue, setIssue] = useState<ReportIssue | null>(null);
   const [details, setDetails] = useState("");
@@ -197,7 +198,7 @@ export function ReportContentError({
       location: typeof window === "undefined" ? "" : window.location.pathname,
     };
     try {
-      const result = await submitContentReport({ data: input });
+      const result = await submitContentReport({ data: { ...input, optimusId: profile.optimusId } });
       toast.success(`Signalement envoyé · ${result.reference}`);
     } catch {
       addContact("correction", formatContentReport(input));
