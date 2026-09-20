@@ -14,6 +14,7 @@ import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
 import { Route as AdminDecksRouteImport } from './routes/admin-decks'
+import { Route as AdminReportsRouteImport } from './routes/admin-reports'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
@@ -58,6 +59,11 @@ const AdminAchatsRoute = AdminAchatsRouteImport.update({
 const AdminDecksRoute = AdminDecksRouteImport.update({
   id: '/admin-decks',
   path: '/admin-decks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/admin-reports',
+  path: '/admin-reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculateursRoute = CalculateursRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-reports': typeof AdminReportsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-reports': typeof AdminReportsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/achats': typeof AchatsRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-reports': typeof AdminReportsRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/achats'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-reports'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/achats'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-reports'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -305,6 +316,7 @@ export interface FileRouteTypes {
     | '/achats'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-reports'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -333,6 +345,7 @@ export interface RootRouteChildren {
   AchatsRoute: typeof AchatsRoute
   AdminAchatsRoute: typeof AdminAchatsRoute
   AdminDecksRoute: typeof AdminDecksRoute
+  AdminReportsRoute: typeof AdminReportsRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
@@ -388,6 +401,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-decks'
       fullPath: '/admin-decks'
       preLoaderRoute: typeof AdminDecksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-reports': {
+      id: '/admin-reports'
+      path: '/admin-reports'
+      fullPath: '/admin-reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculateurs': {
@@ -561,6 +581,7 @@ const rootRouteChildren: RootRouteChildren = {
   AchatsRoute: AchatsRoute,
   AdminAchatsRoute: AdminAchatsRoute,
   AdminDecksRoute: AdminDecksRoute,
+  AdminReportsRoute: AdminReportsRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,
