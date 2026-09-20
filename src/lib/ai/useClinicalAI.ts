@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { pushHistory } from "@/lib/ai/ai-history";
+import { streamClinicalAI } from "./client-stream";
 
 export type ChatMessage = {
   role: "user" | "assistant";
@@ -41,58 +42,27 @@ export function useClinicalAI() {
       abortRef.current = ctrl;
 
       const baseMessages = messages;
+      messagesRef.current = messages;
       setState({ status: "streaming", messages: baseMessages });
 
       try {
-        const res = await fetch("/api/ai-stream", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: baseMessages,
-            systemPrompt: systemPrompt ?? SYSTEM_PROMPT,
-          }),
-          signal: ctrl.signal,
-        });
-
-        if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
-
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = "";
         let acc = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split("\n");
-          buffer = lines.pop() ?? "";
-          for (const raw of lines) {
-            const line = raw.trim();
-            if (!line.startsWith("data:")) continue;
-            const payload = line.slice(5).trim();
-            if (payload === "[DONE]") continue;
-            try {
-              const json = JSON.parse(payload);
-              if (json.error) throw new Error(String(json.error));
-              const delta = json?.choices?.[0]?.delta?.content;
-              if (delta) {
-                acc += delta;
-                setState({
-                  status: "streaming",
-                  messages: [...baseMessages, { role: "assistant", content: acc }],
-                });
-              }
-            } catch (e) {
-              if (e instanceof Error && /^\w+\s\d{3}/.test(e.message)) throw e;
-            }
-          }
+        for await (const delta of streamClinicalAI({
+          messages: baseMessages,
+          systemPrompt: systemPrompt ?? SYSTEM_PROMPT,
+          signal: ctrl.signal,
+        })) {
+          if (ctrl.signal.aborted || abortRef.current !== ctrl) return;
+          acc += delta;
+          setState({
+            status: "streaming",
+            messages: [...baseMessages, { role: "assistant", content: acc }],
+          });
         }
+        if (ctrl.signal.aborted || abortRef.current !== ctrl) return;
+        if (!acc.trim()) throw new Error("Réponse IA vide. Réessayez.");
 
-        const finalMessages: ChatMessage[] = [
-          ...baseMessages,
-          { role: "assistant", content: acc },
-        ];
+        const finalMessages: ChatMessage[] = [...baseMessages, { role: "assistant", content: acc }];
 
         // Historique : uniquement la 1ère analyse (pas les follow-ups)
         if (caseId && acc && baseMessages.length === 1) {
@@ -101,7 +71,7 @@ export function useClinicalAI() {
 
         setState({ status: "done", messages: finalMessages });
       } catch (e: unknown) {
-        if (ctrl.signal.aborted) return;
+        if (ctrl.signal.aborted || abortRef.current !== ctrl) return;
         const msg = e instanceof Error ? e.message : String(e);
         setState({ status: "error", messages: baseMessages, error: msg });
       }
@@ -127,6 +97,8 @@ export function useClinicalAI() {
 
   const reset = useCallback(() => {
     abortRef.current?.abort();
+    abortRef.current = null;
+    messagesRef.current = [];
     setState({ status: "idle", messages: [] });
   }, []);
 

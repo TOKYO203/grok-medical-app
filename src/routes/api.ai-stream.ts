@@ -1,118 +1,116 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { rateLimit, getClientIp } from "@/lib/security/rate-limit.server";
+import { auth, authConfigured } from "@/lib/auth/server";
+import { gateIdentityEnabled } from "@/lib/auth/gate-identity.server";
+import { consumeRateLimit } from "../../server/lib/rate-limit";
 import { AIStreamBodySchema } from "@/lib/ai/schemas";
-import {
-  streamAI,
-  cacheKey,
-  cacheGet,
-  cachePut,
-  type AIRequest,
-  type ChatMessage,
-} from "@/lib/ai/server-ai.server";
+import { AIRequestBodyError, readAIRequestBody } from "@/lib/ai/request-body.server";
+import { streamAI, type AIRequest } from "@/lib/ai/server-ai.server";
+
+function jsonError(status: number, error: string, headers: Record<string, string> = {}) {
+  return Response.json({ error }, { status, headers: { "Cache-Control": "no-store", ...headers } });
+}
 
 export const Route = createFileRoute("/api/ai-stream")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const ip = getClientIp(request);
-        const rl = rateLimit(`ai-stream:${ip}`);
-        if (!rl.ok) {
-          return new Response(
-            JSON.stringify({ error: "Trop de requêtes. Réessayez dans une minute." }),
-            {
-              status: 429,
-              headers: {
-                "Content-Type": "application/json",
-                "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)),
-              },
-            },
-          );
+        const origin = request.headers.get("origin");
+        const site = request.headers.get("sec-fetch-site");
+        if (
+          (origin && origin !== new URL(request.url).origin) ||
+          (site && site !== "same-origin" && site !== "none")
+        ) {
+          return jsonError(403, "Requête intersite refusée.");
+        }
+        if (!authConfigured && !gateIdentityEnabled()) {
+          return jsonError(503, "La connexion au service IA est indisponible.");
+        }
+        // No shared preview identity: provider credentials require a real session.
+        let session;
+        try {
+          session = await auth.api.getSession({ headers: request.headers });
+        } catch {
+          return jsonError(503, "La connexion au service IA est indisponible.");
+        }
+        if (!session?.user) return jsonError(401, "Connectez-vous pour utiliser l’assistant IA.");
+
+        try {
+          // Persistent, atomic quotas use the verified user, never an IP header.
+          for (const [scope, limit, windowSeconds] of [
+            ["ai-stream-minute", 20, 60],
+            ["ai-stream-day", 200, 86400],
+          ] as const) {
+            const decision = await consumeRateLimit({
+              scope,
+              subject: session.user.id,
+              limit,
+              windowSeconds,
+            });
+            if (!decision.allowed) {
+              return jsonError(429, "Limite de requêtes IA atteinte. Réessayez plus tard.", {
+                "Retry-After": String(decision.retryAfterSeconds),
+              });
+            }
+          }
+        } catch {
+          return jsonError(503, "Le service IA est temporairement indisponible.");
         }
 
         let json: unknown;
         try {
-          json = await request.json();
-        } catch {
-          return new Response(JSON.stringify({ error: "JSON invalide" }), {
-            status: 400,
-            headers: { "Content-Type": "application/json" },
-          });
-        }
-
-        const parsed = AIStreamBodySchema.safeParse(json);
-        if (!parsed.success) {
-          return new Response(
-            JSON.stringify({ error: "Requête invalide", details: parsed.error.issues }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
+          json = await readAIRequestBody(request);
+        } catch (error) {
+          return jsonError(
+            error instanceof AIRequestBodyError ? error.status : 400,
+            error instanceof AIRequestBodyError ? error.message : "Requête invalide.",
           );
         }
+        const parsed = AIStreamBodySchema.safeParse(json);
+        if (!parsed.success) return jsonError(400, "Requête invalide ou conversation trop longue.");
         const raw = parsed.data;
-
-        // Backward compat: accepte `{prompt}` legacy OU `{messages}` multi-turn
-        const messages: ChatMessage[] =
-          raw.messages && Array.isArray(raw.messages) && raw.messages.length > 0
-            ? raw.messages
-            : raw.prompt
-              ? [{ role: "user", content: raw.prompt }]
-              : [];
-
-        if (messages.length === 0) {
-          return new Response(JSON.stringify({ error: "messages manquant" }), {
-            status: 400,
-            headers: { "Content-Type": "application/json" },
-          });
-        }
-
-        const req: AIRequest = {
-          messages,
+        const input: AIRequest = {
+          messages: raw.messages?.length ? raw.messages : [{ role: "user", content: raw.prompt! }],
           systemPrompt: raw.systemPrompt,
-          model: raw.model,
           temperature: raw.temperature,
         };
 
-        const key = cacheKey(req);
+        const upstream = new AbortController();
+        const signal = AbortSignal.any([request.signal, upstream.signal]);
         const encoder = new TextEncoder();
-
-        const cached = cacheGet(key);
-        if (cached) {
-          const sse =
-            `data: ${JSON.stringify({ choices: [{ delta: { content: cached } }] })}\n\n` +
-            `data: [DONE]\n\n`;
-          return new Response(sse, {
-            headers: { "Content-Type": "text/event-stream", "X-Cache": "HIT" },
-          });
-        }
-
-        const stream = new ReadableStream({
+        let cancelled = false;
+        const stream = new ReadableStream<Uint8Array>({
           async start(controller) {
-            let full = "";
             try {
-              for await (const token of streamAI(req)) {
-                full += token;
+              for await (const token of streamAI(input, signal)) {
+                if (signal.aborted) break;
                 controller.enqueue(
                   encoder.encode(
                     `data: ${JSON.stringify({ choices: [{ delta: { content: token } }] })}\n\n`,
                   ),
                 );
               }
-              cachePut(key, full);
-              controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-            } catch (e: unknown) {
-              const msg = e instanceof Error ? e.message : String(e);
-              controller.enqueue(
-                encoder.encode(`data: ${JSON.stringify({ error: msg })}\n\n`),
-              );
+              if (!signal.aborted) controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+            } catch {
+              if (!signal.aborted)
+                controller.enqueue(
+                  encoder.encode(
+                    `data: ${JSON.stringify({ error: "La génération IA a échoué. Réessayez." })}\n\n`,
+                  ),
+                );
             } finally {
-              controller.close();
+              if (!cancelled) controller.close();
             }
           },
+          cancel() {
+            cancelled = true;
+            upstream.abort();
+          },
         });
-
         return new Response(stream, {
           headers: {
-            "Content-Type": "text/event-stream",
-            "Cache-Control": "no-cache, no-transform",
-            "X-Cache": "MISS",
+            "Content-Type": "text/event-stream; charset=utf-8",
+            "Cache-Control": "private, no-store, no-transform",
+            "X-Accel-Buffering": "no",
           },
         });
       },

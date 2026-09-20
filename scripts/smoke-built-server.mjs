@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
+import { checkBuiltAISecurity } from "./ai-security-built-smoke.mjs";
 import { generateKeyPairSync } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
@@ -200,6 +201,8 @@ async function editorialSecurityChecks() {
       cookie,
       "x-grok-identity": token,
     };
+
+    await checkBuiltAISecurity(fetchBuiltApp, authenticatedHeaders);
 
     const forbiddenCreate = await fetchBuiltApp(
       new Request("http://localhost/api/publications", {

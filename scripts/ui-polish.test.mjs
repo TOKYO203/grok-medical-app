@@ -70,8 +70,12 @@ test("app resume refreshes existing online workflows without pretending to be on
 
 test("PWA installation is discoverable and standalone-aware", () => {
   assert.match(home, /<PwaInstallCard \/>/);
-  assert.match(installCard, /display-mode: standalone/);
-  assert.match(installCard, /\/\?install=1/);
+  const installHook = readFileSync(new URL("../src/hooks/use-pwa-install.ts", import.meta.url), "utf8");
+  assert.match(installCard, /usePwaInstall\(\)/);
+  assert.match(installHook, /display-mode: standalone/);
+  assert.match(installHook, /beforeinstallprompt/);
+  assert.match(installCard, /ios-safari/);
+  assert.match(installCard, /firefox-android/);
   assert.match(installCard, /Optimus est installé/);
 });
 

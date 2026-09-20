@@ -37,7 +37,10 @@ test("custom profile covers use IndexedDB blobs and migrate legacy base64", () =
 });
 
 test("new custom covers never fall back to persistent base64 when IndexedDB fails", () => {
-  assert.doesNotMatch(profileSource, /canvas\.toDataURL/);
+  // Avatar thumbnails have a separate bounded base64 path. Check only the cover handler.
+  const coverHandler = profileSource.slice(profileSource.indexOf("  function onCoverFile("), profileSource.indexOf("  function chooseBuiltInCover("));
+  assert.ok(coverHandler.length > 0, "cover upload handler must be present");
+  assert.doesNotMatch(coverHandler, /canvas\.toDataURL/);
   assert.match(profileSource, /update\(\{\s*cover:\s*"custom",\s*coverDataUrl:\s*null\s*\}\)/);
   assert.match(profileSource, /cet appareil n’a pas pu l’enregistrer durablement/);
 });

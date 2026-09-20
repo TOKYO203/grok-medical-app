@@ -80,7 +80,7 @@ test("motion feedback honors both app and operating-system reduced motion", () =
 });
 
 test("profile exposes clear study-comfort controls", () => {
-  assert.match(profile, /Confort d’étude/);
+  assert.match(profile, /Confort d[’']étude/);
   assert.match(profile, /Expérience sensorielle/);
   assert.match(profile, /<ExperienceControls \/>/);
 });
