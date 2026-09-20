@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CheckCircle2, Lock, Play, RefreshCw } from "lucide-react";
+import { CheckCircle2, Lock, Play } from "lucide-react";
 import { LEVEL_SHORT, type Level, levelGapLabel } from "@/core/curriculum";
 import type { Deck } from "@/core/types";
 import { cn } from "@/lib/utils";
@@ -85,7 +85,7 @@ export function DeckRow({ deck, level, state, progressPct, userLevel }: Props) {
   if (!isClickable) return inner;
 
   return (
-    <Link to="/deck/$deckId" params={{ deckId: deck.id }} className="block">
+    <Link to="/parcours/$deckId" params={{ deckId: deck.id }} className="block">
       {inner}
     </Link>
   );
