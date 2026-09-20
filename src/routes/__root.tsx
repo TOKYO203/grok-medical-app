@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { AuthProvider } from "@/lib/auth/provider";
 import { AppResumeBridge } from "@/components/app-resume-bridge";
 import { ConnectivityStatus } from "@/components/connectivity-status";
+import { DailyReminderBridge } from "@/components/daily-reminder-bridge";
 import { ExperienceMilestoneBridge } from "@/components/experience-milestone-bridge";
 import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
@@ -66,6 +67,7 @@ function RootDocument() {
         </AuthProvider>
         <ConnectivityStatus />
         <ServiceWorkerRegistrar />
+        <DailyReminderBridge />
         <Toaster
           theme="dark"
           position="top-center"

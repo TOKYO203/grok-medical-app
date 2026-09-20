@@ -7,6 +7,7 @@ import { MadagascarMark, Wordmark } from "@/components/brand/marks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
+import { requestNotificationPermission } from "@/lib/notifications/daily-reminder";
 
 const MAX_SUBJECTS = 6;
 
@@ -34,6 +35,7 @@ export function Onboarding() {
     if (typeof window !== "undefined") {
       window.localStorage.setItem("optimus.dailyGoal", dailyGoal);
     }
+    void requestNotificationPermission();
     complete({
       displayName: name.trim() || "Invité",
       studyYear: typeof level === "number" ? level : 0,
