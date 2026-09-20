@@ -28,6 +28,12 @@ function ContactPage() {
   const [kind, setKind] = useState<ContactDraft["kind"]>("contact");
   const [body, setBody] = useState("");
 
+  const subject = KINDS.find((k) => k.id === kind)?.label ?? "Contact";
+  const trimmed = body.trim();
+  const canSend = trimmed.length >= 8;
+  const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`[${subject}]\n\n${trimmed}`)}`;
+  const mailHref = `mailto:${EMAIL}?subject=${encodeURIComponent(`[Optimus] ${subject}`)}&body=${encodeURIComponent(trimmed)}`;
+
   return (
     <Shell title="Contact">
       <Page className="mx-auto max-w-lg">
@@ -79,16 +85,35 @@ function ContactPage() {
           onChange={(e) => setBody(e.target.value)}
           placeholder="Décrivez le point — une référence si c’est une correction médicale."
         />
+        {canSend ? (
+          <div className="mt-3 grid gap-2">
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[#25D366] px-4 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              &#x1F4AC; Envoyer via WhatsApp
+            </a>
+            <a
+              href={mailHref}
+              className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] bg-secondary px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary/80"
+            >
+              &#x2709;&#xFE0F; Envoyer par email
+            </a>
+          </div>
+        ) : null}
         <Button
-          className="mt-3"
-          disabled={body.trim().length < 8}
+          variant="outline"
+          className="mt-3 w-full"
+          disabled={!canSend}
           onClick={() => {
-            add(kind, body.trim());
+            add(kind, trimmed);
             setBody("");
             toast.success("Brouillon conservé sur cet appareil");
           }}
         >
-          Enregistrer
+          Conserver comme brouillon
         </Button>
         {contacts.length > 0 ? (
           <ul className="mt-8 space-y-2">
