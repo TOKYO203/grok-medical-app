@@ -2,14 +2,11 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { REPORT_ISSUE_LABEL, type ReportIssue } from "@/lib/content-reports";
 
-const ADMIN_ENV = "PURCHASE_ADMIN_USER_IDS";
+const ADMIN_ENV = "ADMIN_PASSWORD";
 
-function isAdmin(identifier: string): boolean {
-  const allowed = (process.env[ADMIN_ENV] ?? "")
-    .split(",")
-    .map((id) => id.trim())
-    .filter(Boolean);
-  return allowed.length > 0 && allowed.includes(identifier);
+function isAdmin(adminKey: string): boolean {
+  const expected = (process.env[ADMIN_ENV] ?? "").trim();
+  return expected.length > 0 && adminKey === expected;
 }
 
 export type ContentReportStatus = "new" | "reviewing" | "resolved" | "rejected";
@@ -67,14 +64,14 @@ function toAdminReport(row: ReportRow): AdminContentReport {
 }
 
 const listSchema = z.object({
-  adminId: z.string().min(1).max(120),
+  adminKey: z.string().min(1).max(200),
   status: z.enum(["new", "reviewing", "resolved", "rejected", "all"]).optional(),
 });
 
 export const listContentReportsForAdmin = createServerFn({ method: "POST" })
   .validator(listSchema)
   .handler(async ({ data }) => {
-    if (!isAdmin(data.adminId)) throw new Error("Forbidden");
+    if (!isAdmin(data.adminKey)) throw new Error("Forbidden");
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
@@ -96,7 +93,7 @@ export const listContentReportsForAdmin = createServerFn({ method: "POST" })
   });
 
 const reviewSchema = z.object({
-  adminId: z.string().min(1).max(120),
+  adminKey: z.string().min(1).max(200),
   id: z.string().uuid(),
   status: z.enum(["new", "reviewing", "resolved", "rejected"]),
 });
@@ -104,7 +101,7 @@ const reviewSchema = z.object({
 export const reviewContentReport = createServerFn({ method: "POST" })
   .validator(reviewSchema)
   .handler(async ({ data }) => {
-    if (!isAdmin(data.adminId)) throw new Error("Forbidden");
+    if (!isAdmin(data.adminKey)) throw new Error("Forbidden");
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();

@@ -11,7 +11,8 @@ import {
 } from "@/lib/content-reports-admin";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { useOptimus } from "@/state/store";
+import { getAdminKey } from "@/routes/admin-login";
+import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin-reports")({ component: AdminReportsPage });
 
@@ -30,7 +31,10 @@ const STATUS_STYLE: Record<ContentReportStatus, string> = {
 };
 
 function AdminReportsPage() {
-  const profile = useOptimus((s) => s.profile);
+  const _nav = useNavigate();
+  void _nav;
+  const nav = useNavigate();
+  const adminKey = getAdminKey();
   const [reports, setReports] = useState<AdminContentReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [forbidden, setForbidden] = useState(false);
@@ -40,7 +44,7 @@ function AdminReportsPage() {
   const refresh = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await listContentReportsForAdmin({ data: { adminId: profile.optimusId, status: filter } });
+      const result = await listContentReportsForAdmin({ data: { adminKey, status: filter } });
       setReports(result);
       setForbidden(false);
     } catch (error) {
@@ -62,7 +66,7 @@ function AdminReportsPage() {
   async function setStatus(id: string, status: ContentReportStatus) {
     setActing(id);
     try {
-      await reviewContentReport({ data: { adminId: profile.optimusId, id, status } });
+      await reviewContentReport({ data: { adminKey, id, status } });
       toast.success(`Signalement ${STATUS_LABEL[status].toLowerCase()}`);
       await refresh();
     } catch {
