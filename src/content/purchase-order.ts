@@ -59,7 +59,7 @@ export function orderProduct(order: PremiumOrder): string {
   const specialty = PREMIUM_SPECIALTIES.find((item) => item.id === order.specialty);
   if (!specialty) throw new Error("Spécialité Premium inconnue");
   return order.offer === "specialty"
-    ? `${specialty.code}_PACK_10`
+    ? `${specialty.code}_PACK_15`
     : `${specialty.code}_DECK_${String(order.deckNumber).padStart(2, "0")}`;
 }
 
@@ -67,7 +67,7 @@ export function orderLabel(order: PremiumOrder): string {
   const specialty = PREMIUM_SPECIALTIES.find((item) => item.id === order.specialty);
   if (!specialty) throw new Error("Spécialité Premium inconnue");
   return order.offer === "specialty"
-    ? `${specialty.label} · spécialité complète (10 Decks)`
+    ? `${specialty.label} · spécialité complète (15 Decks)`
     : `${specialty.label} · Deck ${order.deckNumber}/10`;
 }
 
