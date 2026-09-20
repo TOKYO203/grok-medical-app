@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/contact")({ component: ContactPage });
 
-const EMAIL = "fetramandresyo@gmail.com";
+const EMAIL = "fondationoptimus@gmail.com";
 const WHATSAPP = "261341995741";
 const WHATSAPP_DISPLAY = "034 19 957 41";
 
