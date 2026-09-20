@@ -30,8 +30,8 @@ async function* streamFromUrl(url: string, apiKey: string, body: any, signal?: A
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
-      "HTTP-Referer": "https://grok-medical.app",
-      "X-Title": "Grok Medical",
+      "HTTP-Referer": "https://grok-medical-app.vercel.app",
+      "X-Title": "Optimus — Formation médicale",
     },
     body: JSON.stringify(body),
     signal,
