@@ -40,7 +40,13 @@ export function useClinicalAI() {
       const ctrl = new AbortController();
       abortRef.current = ctrl;
 
-      const baseMessages = messages;
+      const baseMessages = messages.filter(
+        (m) => typeof m.content === "string" && m.content.trim().length > 0,
+      );
+      if (baseMessages.length === 0) {
+        setState({ status: "error", messages: [], error: "Message vide." });
+        return;
+      }
       setState({ status: "streaming", messages: baseMessages });
 
       try {
@@ -103,10 +109,9 @@ export function useClinicalAI() {
           }
         }
 
-        const finalMessages: ChatMessage[] = [
-          ...baseMessages,
-          { role: "assistant", content: acc },
-        ];
+        const finalMessages: ChatMessage[] = acc && acc.trim()
+          ? [...baseMessages, { role: "assistant", content: acc }]
+          : baseMessages;
 
         // Historique : uniquement la 1ère analyse (pas les follow-ups)
         if (caseId && acc && baseMessages.length === 1) {

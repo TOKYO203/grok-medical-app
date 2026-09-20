@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const ChatMessageSchema = z.object({
   role: z.enum(["system", "user", "assistant"]),
-  content: z.string().min(1).max(32_000),
+  content: z.string().max(32_000),
 });
 
 export const AIStreamBodySchema = z
