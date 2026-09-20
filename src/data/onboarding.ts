@@ -16,12 +16,12 @@ export const SUBJECT_CATEGORIES: Record<string, string[]> = {
 };
 
 export const DAILY_GOALS = [
-  { id: "15min",  label: "15 min / jour",  description: "Rythme léger, pour tenir sur la durée" },
-  { id: "30min",  label: "30 min / jour",  description: "Le sweet spot : régulier sans épuiser" },
-  { id: "1h",     label: "1 h / jour",     description: "Rythme soutenu, progression rapide" },
-  { id: "2h",     label: "2 h / jour",     description: "Intensif, avant un examen" },
-  { id: "10qcm",  label: "10 QCMs / jour", description: "Priorité à la pratique" },
-  { id: "1chap",  label: "1 chapitre / jour", description: "Priorité au contenu de fond" },
+  { id: "15min", label: "15 min / jour",     description: "Rythme léger, pour tenir sur la durée",  target: 3  },
+  { id: "30min", label: "30 min / jour",     description: "Le sweet spot : régulier sans épuiser", target: 6  },
+  { id: "1h",    label: "1 h / jour",        description: "Rythme soutenu, progression rapide",    target: 12 },
+  { id: "2h",    label: "2 h / jour",        description: "Intensif, avant un examen",             target: 24 },
+  { id: "10qcm", label: "10 QCMs / jour",    description: "Priorité à la pratique",                target: 10 },
+  { id: "1chap", label: "1 chapitre / jour", description: "Priorité au contenu de fond",           target: 8  },
 ] as const;
 
 export type DailyGoalId = typeof DAILY_GOALS[number]["id"];
