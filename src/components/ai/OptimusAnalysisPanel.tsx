@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Brain, ChevronDown, Info, Send, Sparkles, RefreshCw, ThumbsUp, ThumbsDown } from "lucide-react";
 import { useClinicalAI, type ChatMessage } from "@/lib/ai/useClinicalAI";
 import { readHistory, relativeTime, rateLatest, type AIHistoryEntry } from "@/lib/ai/ai-history";
+import { ConversationExportButtons } from "@/components/ai/conversation-export-buttons";
 
 export type CaseAIContext = {
   title: string;
@@ -140,6 +141,14 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
                 <RefreshCw className="size-3.5" aria-hidden />
                 Réinitialiser
               </button>
+            )}
+
+            {hasConversation && ai.status !== "streaming" && (
+              <ConversationExportButtons
+                context={context}
+                messages={ai.messages}
+                history={historyEntries}
+              />
             )}
           </div>
 
