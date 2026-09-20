@@ -5,8 +5,8 @@ import { Shell } from "@/components/shell";
 export const Route = createFileRoute("/a-propos")({ component: AboutPage });
 
 const NAME = "Fondation Optimus";
-const FOUNDER = "FETRA Mandresy Onja Andrianantena";
-const EMAIL = "onjaandrianantenainafetramandr@gmail.com";
+const FOUNDER = "FETRA Mandresy Onja Andrianantenaina";
+const EMAIL = "fondationoptimus@gmail.com";
 const WHATSAPP = "261341995741";
 const GITHUB = "https://github.com/TOKYO203";
 
