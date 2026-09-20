@@ -54,7 +54,21 @@ export function useClinicalAI() {
           signal: ctrl.signal,
         });
 
-        if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          const errText = await res.text().catch(() => "");
+          let detail = `HTTP ${res.status}`;
+          try {
+            const parsed = JSON.parse(errText);
+            if (parsed?.error) {
+              detail = parsed.error;
+              if (parsed.details) detail += ` — ${JSON.stringify(parsed.details).slice(0, 200)}`;
+            }
+          } catch {
+            if (errText) detail += ` — ${errText.slice(0, 200)}`;
+          }
+          throw new Error(detail);
+        }
+        if (!res.body) throw new Error("Pas de flux dans la réponse");
 
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
