@@ -8,6 +8,9 @@ import { YEARS } from "@/content/catalog";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { STUDY_LEVEL_LABEL } from "@/core/types";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
+import { CurriculumTree } from "@/components/curriculum-tree";
+import { CURRICULUM_CARDIO } from "@/content/curriculum";
+import type { Level } from "@/core/curriculum";
 
 export const Route = createFileRoute("/parcours")({ component: ParcoursPage });
 
@@ -39,6 +42,8 @@ function ParcoursPage() {
   const studyLabel =
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ?? yearLabel(profile.studyYear);
 
+  const userLevel = toLevel(profile.studyLevel ?? profile.studyYear);
+
   function relevance(deck: (typeof decks)[number]) {
     const priority = profile.prioritySubjects.some(
       (subject) =>
@@ -49,6 +54,17 @@ function ParcoursPage() {
       (priority ? 3 : 0) + (profile.studyYear > 0 && deck.studyYear === profile.studyYear ? 2 : 0)
     );
   }
+
+
+function toLevel(studyLevel: unknown): Level {
+  if (typeof studyLevel === "string") {
+    const raw = studyLevel.toLowerCase();
+    if (raw === "intern") return "INTERNE";
+    if (raw === "resident") return "RESIDENT";
+  }
+  const n = typeof studyLevel === "number" ? studyLevel : 3;
+  return (["L1", "L2", "L3", "L4", "L5"][Math.max(1, Math.min(5, n)) - 1]) as Level;
+}
 
   return (
     <Shell title="Parcours">
@@ -226,6 +242,20 @@ function ParcoursPage() {
             </div>
           </section>
         ) : null}
+        <section className="mt-10">
+          <SectionTitle
+            kicker="Parcours structuré"
+            title="Cardiologie — 15 decks progressifs"
+          />
+          <CurriculumTree
+            specialty={CURRICULUM_CARDIO}
+            decks={decks}
+            progress={progress}
+            userLevel={userLevel}
+            hasAccess={(deck) => hasAccess(deck, entitlements, profile.tier)}
+          />
+        </section>
+
       </Page>
     </Shell>
   );
