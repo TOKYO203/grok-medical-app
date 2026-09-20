@@ -21,6 +21,7 @@ import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DebugIdRouteImport } from './routes/debug-id'
 import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
@@ -94,6 +95,11 @@ const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DebugIdRoute = DebugIdRouteImport.update({
+  id: '/debug-id',
+  path: '/debug-id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonneesRoute = DonneesRouteImport.update({
@@ -180,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/debug-id': typeof DebugIdRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -208,6 +215,7 @@ export interface FileRoutesByTo {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/debug-id': typeof DebugIdRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/debug-id': typeof DebugIdRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -267,6 +276,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/debug-id'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -295,6 +305,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/debug-id'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -323,6 +334,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/debug-id'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -352,6 +364,7 @@ export interface RootRouteChildren {
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  DebugIdRoute: typeof DebugIdRoute
   DonneesRoute: typeof DonneesRoute
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
@@ -450,6 +463,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/debug-id': {
+      id: '/debug-id'
+      path: '/debug-id'
+      fullPath: '/debug-id'
+      preLoaderRoute: typeof DebugIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donnees': {
@@ -588,6 +608,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  DebugIdRoute: DebugIdRoute,
   DonneesRoute: DonneesRoute,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
