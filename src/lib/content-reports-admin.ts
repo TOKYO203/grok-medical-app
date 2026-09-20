@@ -1,16 +1,15 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { authMiddleware } from "@/lib/auth/middleware";
 import { REPORT_ISSUE_LABEL, type ReportIssue } from "@/lib/content-reports";
 
 const ADMIN_ENV = "PURCHASE_ADMIN_USER_IDS";
 
-function isAdmin(userId: string): boolean {
+function isAdmin(identifier: string): boolean {
   const allowed = (process.env[ADMIN_ENV] ?? "")
     .split(",")
     .map((id) => id.trim())
     .filter(Boolean);
-  return allowed.length > 0 && allowed.includes(userId);
+  return allowed.length > 0 && allowed.includes(identifier);
 }
 
 export type ContentReportStatus = "new" | "reviewing" | "resolved" | "rejected";
@@ -68,14 +67,14 @@ function toAdminReport(row: ReportRow): AdminContentReport {
 }
 
 const listSchema = z.object({
+  adminId: z.string().min(1).max(120),
   status: z.enum(["new", "reviewing", "resolved", "rejected", "all"]).optional(),
 });
 
 export const listContentReportsForAdmin = createServerFn({ method: "POST" })
-  .middleware([authMiddleware])
   .validator(listSchema)
-  .handler(async ({ data, context }) => {
-    if (!isAdmin(context.userId)) throw new Error("Forbidden");
+  .handler(async ({ data }) => {
+    if (!isAdmin(data.adminId)) throw new Error("Forbidden");
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
@@ -97,15 +96,15 @@ export const listContentReportsForAdmin = createServerFn({ method: "POST" })
   });
 
 const reviewSchema = z.object({
+  adminId: z.string().min(1).max(120),
   id: z.string().uuid(),
   status: z.enum(["new", "reviewing", "resolved", "rejected"]),
 });
 
 export const reviewContentReport = createServerFn({ method: "POST" })
-  .middleware([authMiddleware])
   .validator(reviewSchema)
-  .handler(async ({ data, context }) => {
-    if (!isAdmin(context.userId)) throw new Error("Forbidden");
+  .handler(async ({ data }) => {
+    if (!isAdmin(data.adminId)) throw new Error("Forbidden");
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();

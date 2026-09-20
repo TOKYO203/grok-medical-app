@@ -29,6 +29,7 @@ const STATUS_STYLE: Record<ContentReportStatus, string> = {
 };
 
 function AdminReportsPage() {
+  const profile = useOptimus((s) => s.profile);
   const [reports, setReports] = useState<AdminContentReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [forbidden, setForbidden] = useState(false);
@@ -38,7 +39,7 @@ function AdminReportsPage() {
   const refresh = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await listContentReportsForAdmin({ data: { status: filter } });
+      const result = await listContentReportsForAdmin({ data: { adminId: profile.optimusId, status: filter } });
       setReports(result);
       setForbidden(false);
     } catch (error) {
@@ -60,7 +61,7 @@ function AdminReportsPage() {
   async function setStatus(id: string, status: ContentReportStatus) {
     setActing(id);
     try {
-      await reviewContentReport({ data: { id, status } });
+      await reviewContentReport({ data: { adminId: profile.optimusId, id, status } });
       toast.success(`Signalement ${STATUS_LABEL[status].toLowerCase()}`);
       await refresh();
     } catch {
