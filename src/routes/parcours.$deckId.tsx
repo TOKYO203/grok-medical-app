@@ -14,6 +14,7 @@ import {
 import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
+import { DeckReviewBanner } from "@/components/deck-review-banner";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { YEARS } from "@/content/catalog";
 import { LESSONS } from "@/core/quiz-engine";
@@ -35,6 +36,7 @@ function DeckPage() {
     return (
       <Shell title="Deck">
         <Page>
+        <DeckReviewBanner deck={deck} />
           <p className="text-sm text-muted">Deck introuvable.</p>
         </Page>
       </Shell>
