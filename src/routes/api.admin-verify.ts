@@ -42,7 +42,7 @@ async function verifyPassword(password: string, stored: string): Promise<boolean
       "raw", enc.encode(password), "PBKDF2", false, ["deriveBits"],
     );
     const bits = await crypto.subtle.deriveBits(
-      { name: "PBKDF2", salt, iterations, hash: hashName.toUpperCase() },
+      { name: "PBKDF2", salt: salt as BufferSource, iterations, hash: (((hashName.toLowerCase() === "sha256") ? "SHA-256" : (hashName.toLowerCase() === "sha384") ? "SHA-384" : (hashName.toLowerCase() === "sha512") ? "SHA-512" : (hashName.toLowerCase() === "sha1") ? "SHA-1" : hashName) as AlgorithmIdentifier) },
       key, HASH_BYTES * 8,
     );
     const computed = bytesToB64(new Uint8Array(bits));
