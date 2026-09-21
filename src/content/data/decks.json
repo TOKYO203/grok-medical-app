@@ -5525,5 +5525,1340 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-hta-l2",
+    "version": "1.0.0",
+    "title": "HTA — notions de base",
+    "subtitle": "Définitions, mesure, enjeux · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_health_advocate"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "hta-l2-1",
+        "prompt": "Seuil actuel définissant une HTA (consultation) ?",
+        "choices": [
+          "PAS ≥140 mmHg et/ou PAD ≥90 mmHg",
+          "PAS ≥120/80",
+          "PAS ≥160/100",
+          "PAS ≥180/110"
+        ],
+        "correct": 0,
+        "explanation": "HTA au cabinet : PAS ≥140 et/ou PAD ≥90 mmHg sur plusieurs mesures. Seuils ESC 2024 discutés (130/80 pour certains).",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l2-2",
+        "prompt": "Mesure correcte de la PA au cabinet ?",
+        "choices": [
+          "Repos 5 min, assis, brassard adapté, 2 mesures à 1 min d'intervalle, moyenne",
+          "Une seule mesure debout",
+          "Systématiquement aux deux bras avec 1 seule mesure",
+          "Mesure au poignet"
+        ],
+        "correct": 0,
+        "explanation": "Repos 5 min, position assise, brassard adapté au tour de bras, 2 mesures à 1 min d'intervalle, moyenne des 2. À répéter en consultation.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "hta-l2-3",
+        "prompt": "Différence HTA primaire et secondaire ?",
+        "choices": [
+          "Primaire (95 %) sans cause identifiable ; secondaire (5 %) avec cause curable",
+          "Identiques",
+          "Primaire uniquement chez l'homme",
+          "Secondaire uniquement chez la femme"
+        ],
+        "correct": 0,
+        "explanation": "HTA primaire (essentielle) : 90-95 %. Secondaire : néphropathies, hyperaldostéronisme, sténose artère rénale, phéochromocytome, médicaments, apnée du sommeil.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — HTA.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l2-4",
+        "prompt": "Prévalence mondiale de l'HTA selon l'OMS ?",
+        "choices": [
+          "1,4 milliard d'adultes, 1 sur 3",
+          "100 millions",
+          "500 millions",
+          "10 milliards"
+        ],
+        "correct": 0,
+        "explanation": "OMS 2024 : 1,4 milliard d'adultes hypertendus dans le monde, dont la moitié ignorent leur statut. 10 millions de décès évitables/an.",
+        "sources": [
+          {
+            "title": "OMS 2024 HTA",
+            "citation": "Global report on hypertension 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "hta-l2-5",
+        "prompt": "Quels sont les organes cibles de l'HTA ?",
+        "choices": [
+          "Cœur, cerveau, rein, artères, rétine",
+          "Poumon exclusivement",
+          "Foie uniquement",
+          "Peau uniquement"
+        ],
+        "correct": 0,
+        "explanation": "HTA endommage : cœur (HVG, IC), cerveau (AVC, démence), rein (IRC), artères (athérome, anévrisme), rétine (rétinopathie).",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l2-6",
+        "prompt": "Quels facteurs de risque d'HTA ?",
+        "choices": [
+          "Âge, obésité, sel, alcool, sédentarité, ATCD familiaux",
+          "Consommation de café uniquement",
+          "Groupe sanguin",
+          "Allergies"
+        ],
+        "correct": 0,
+        "explanation": "FDR : âge, obésité, excès de sel (>5 g/j), alcool, sédentarité, stress, ATCD familiaux, apnée du sommeil, faible niveau socio-économique.",
+        "sources": [
+          {
+            "title": "OMS 2024 HTA",
+            "citation": "Global report on hypertension 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l2-7",
+        "prompt": "Pourquoi l'HTA est-elle silencieuse ?",
+        "choices": [
+          "Pas de symptôme pendant des années, d'où dépistage systématique nécessaire",
+          "Toujours symptomatique",
+          "Uniquement nocturne",
+          "Douleur permanente"
+        ],
+        "correct": 0,
+        "explanation": "HTA asymptomatique jusqu'aux complications. Le dépistage par mesure systématique de la PA est essentiel pour prévenir AVC, IC, IRC.",
+        "sources": [
+          {
+            "title": "OMS 2024 HTA",
+            "citation": "Global report on hypertension 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "hta-l2-8",
+        "prompt": "Céphalées et HTA : quelle réalité ?",
+        "choices": [
+          "Céphalées non spécifiques ; HTA souvent asymptomatique même élevée",
+          "Céphalées = HTA sévère",
+          "Toujours migraine",
+          "Uniquement chez l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "Les céphalées ne sont pas un signe fiable d'HTA. Une HTA sévère peut donner céphalées, mais l'absence de symptômes est habituelle.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — HTA.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "hta-l2-9",
+        "prompt": "Quel est l'objectif tensionnel général chez l'adulte ?",
+        "choices": [
+          "<140/90 mmHg, souvent <130/80 si toléré",
+          "<160/100",
+          "<180/110",
+          "Aucun objectif"
+        ],
+        "correct": 0,
+        "explanation": "Cible : <140/90 mmHg chez l'adulte, souvent <130/80 si bien toléré (ESC 2024 abaisse la cible à 120-129 si possible).",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l2-10",
+        "prompt": "Première chose à faire devant une PA élevée ?",
+        "choices": [
+          "Confirmer par mesures répétées + automesure ou MAPA",
+          "Traiter immédiatement",
+          "Hospitaliser",
+          "Rassurer uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Confirmer la PA par mesures répétées à plusieurs consultations, et par automesure ou MAPA (mesure ambulatoire de la PA) avant de conclure à l'HTA.",
+        "sources": [
+          {
+            "title": "HAS 2023 HTA",
+            "citation": "Prise en charge de l'HTA essentielle adulte. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-hta-l3",
+    "version": "1.0.0",
+    "title": "HTA — sémiologie et mesure",
+    "subtitle": "Mesurer, différencier, dépister · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "hta-l3-1",
+        "prompt": "HTA blouse blanche : définition ?",
+        "choices": [
+          "PA élevée au cabinet mais normale en ambulatoire (MAPA/automesure)",
+          "PA élevée partout",
+          "HTA sévère",
+          "HTA nocturne"
+        ],
+        "correct": 0,
+        "explanation": "HTA blouse blanche : PA élevée au cabinet, normale en ambulatoire. Fréquence 15-30 %. Risque CV intermédiaire, surveillance nécessaire.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-2",
+        "prompt": "HTA masquée : définition ?",
+        "choices": [
+          "PA normale au cabinet mais élevée en ambulatoire",
+          "PA élevée partout",
+          "HTA sévère uniquement la nuit",
+          "HTA de l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "HTA masquée : PA normale au cabinet, élevée en ambulatoire (MAPA/automesure). Risque CV proche d'une HTA confirmée. Dépistage recommandé.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-3",
+        "prompt": "Quelles valeurs avec MAPA évoquent une HTA ?",
+        "choices": [
+          "Moyenne 24h ≥130/80, diurne ≥135/85, nocturne ≥120/70 mmHg",
+          ">120/80 seulement",
+          ">160/100",
+          "Pas de seuil"
+        ],
+        "correct": 0,
+        "explanation": "MAPA : moyenne 24h ≥130/80, diurne ≥135/85, nocturne ≥120/70 mmHg. Le profil nocturne (non-dipper) est un facteur de risque.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-4",
+        "prompt": "HTA résistante : définition ?",
+        "choices": [
+          "PA non contrôlée malgré 3 médicaments dont un diurétique à doses optimales",
+          "PA mal contrôlée avec 1 médicament",
+          "HTA sévère isolée",
+          "HTA mal tolérée"
+        ],
+        "correct": 0,
+        "explanation": "HTA résistante : PA non contrôlée malgré 3 antihypertenseurs dont un diurétique, à doses optimales. Rechercher causes secondaires + observance + HTA blouse blanche.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-5",
+        "prompt": "Une PA différente aux 2 bras : seuil significatif ?",
+        "choices": [
+          "Différence ≥20/10 mmHg : rechercher sténose artère rénale ou coarctation",
+          "Différence 5 mmHg",
+          "Aucune importance",
+          "Uniquement chez l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "Différence de PAS >20 mmHg ou PAD >10 mmHg entre les 2 bras : évoquer sténose de l'artère rénale, coarctation de l'aorte, dissection aortique.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "hta-l3-6",
+        "prompt": "Sémiologie évocatrice d'HTA secondaire ?",
+        "choices": [
+          "HTA résistante, début brutal <30 ans ou >55 ans, hypokaliémie, souffle abdominal, épisodes paroxystiques",
+          "HTA familiale",
+          "HTA isolée sans signe",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "Arguments HTA secondaire : HTA résistante, début précoce/brutal, hypokaliémie (hyperaldostéronisme), souffle abdominal (sténose artère rénale), épisodes (phéochromocytome).",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — HTA.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-7",
+        "prompt": "Rétinopathie hypertensive : grades ?",
+        "choices": [
+          "I : artères grêles ; II : croisements ; III : hémorragies ; IV : œdème papillaire",
+          "A/B/C",
+          "I à III seulement",
+          "Pas de grades"
+        ],
+        "correct": 0,
+        "explanation": "Classification Keith-Wagener-Barker : I = artères grêles ; II = signes de croisement ; III = hémorragies/œdème ; IV = œdème papillaire (HTA maligne).",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — HTA.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l3-8",
+        "prompt": "Quand évoquer une HTA maligne ?",
+        "choices": [
+          "PAS >180 et/ou PAD >120 avec atteinte d'organe (rein, rétine, cerveau)",
+          "PA modérée isolée",
+          "Céphalées seules",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "HTA maligne : PAS >180 et/ou PAD >120 mmHg + atteinte d'organe aiguë (rétinopathie stade III/IV, IRA, encéphalopathie, OAP). Urgence.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "hta-l3-9",
+        "prompt": "Signes d'HVG à l'ECG ?",
+        "choices": [
+          "Indice de Sokolow ≥35 mm, ondes T négatives latérales",
+          "QRS fins",
+          "Bradycardie isolée",
+          "Ondes P amples"
+        ],
+        "correct": 0,
+        "explanation": "HVG : Sokolow (SV1 + RV5/V6 >35 mm), ondes T négatives latérales, déviation axiale gauche. Marqueur de gravité.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — HTA.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "recognize"
+      },
+      {
+        "id": "hta-l3-10",
+        "prompt": "MAPA vs automesure : avantages ?",
+        "choices": [
+          "MAPA : 24h ; automesure : plusieurs jours, moins cher, meilleur pronostic",
+          "Identiques",
+          "MAPA seul utile",
+          "Auto-mesure inutile"
+        ],
+        "correct": 0,
+        "explanation": "MAPA : mesure 24h, profile nocturne. Automesure : 3 mesures matin et soir sur 3 jours, meilleur reflet pronostique et bonne corrélation aux atteintes d'organe.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-hta-l4",
+    "version": "1.0.0",
+    "title": "HTA — bilan étiologique et complications",
+    "subtitle": "Explorer, éliminer, évaluer · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "diagnostic_orientation",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "hta-l4-1",
+        "prompt": "Bilan initial d'une HTA confirmée ?",
+        "choices": [
+          "Iono, créat, glycémie, bilan lipidique, uricémie, BU, ECG, FO",
+          "TDM thoracique systématique",
+          "IRM cardiaque systématique",
+          "Angiographie"
+        ],
+        "correct": 0,
+        "explanation": "Bilan OMS/ESC : iono (K+/Na+), créat + DFG, glycémie à jeun, bilan lipidique, uricémie, BU (protéinurie/hématurie), ECG, fond d'œil. Recherche atteinte d'organe.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l4-2",
+        "prompt": "Recherche d'hyperaldostéronisme primaire : comment ?",
+        "choices": [
+          "Rapport aldostérone/rénine (ARR) si HTA résistante ou hypokaliémie",
+          "Aldostérone seule",
+          "Rénine seule",
+          "Cortisol urinaire"
+        ],
+        "correct": 0,
+        "explanation": "Hyperaldostéronisme primaire : ARR élevé (aldostérone élevée + rénine basse) si HTA résistante, hypokaliémie spontanée, incidentalome surrénalien. Test de charge sodée.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-3",
+        "prompt": "Sténose artère rénale : signes évocateurs ?",
+        "choices": [
+          "HTA résistante, souffle abdominal, OAP flash, IR après IEC, différence aux 2 bras",
+          "HTA familiale",
+          "HTA du sujet jeune obèse",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "Sténose artère rénale : HTA résistante, souffle abdominal, OAP flash, dégradation rénale sous IEC, asymétrie tensionnelle. Écho-Doppler, angioTDM ou angio-IRM.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-4",
+        "prompt": "Phéochromocytome : triade clinique ?",
+        "choices": [
+          "Céphalées + sueurs + palpitations paroxystiques",
+          "Fièvre + toux + dyspnée",
+          "Œdèmes + oligurie + HTA",
+          "Tremblements + bradycardie + hypothermie"
+        ],
+        "correct": 0,
+        "explanation": "Phéochromocytome : triade céphalées + sueurs + palpitations paroxystiques avec HTA. Dosage métanéphrines plasmatiques ou urinaires.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-5",
+        "prompt": "Syndrome de Cushing et HTA : mécanisme ?",
+        "choices": [
+          "Hypersécrétion cortisol → HTA + obésité tronculaire + amyotrophie + vergetures",
+          "HTA isolée",
+          "HTA nocturne",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "Cushing : HTA par effet minéralocorticoïde + hypervolémie. Signes : obésité tronculaire, amyotrophie, vergetures pourpres, faciès lunaire. Cortisol libre urinaire, test de freinage.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-6",
+        "prompt": "Apnée obstructive du sommeil et HTA ?",
+        "choices": [
+          "HTA résistante + ronflements + pauses respiratoires + somnolence",
+          "HTA isolée",
+          "HTA blouse blanche",
+          "HTA nocturne isolée"
+        ],
+        "correct": 0,
+        "explanation": "SAOS : HTA résistante, ronflements, pauses respiratoires, somnolence diurne, obésité. Polygraphie ou polysomnographie. Traitement par PPC.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-7",
+        "prompt": "HTA et grossesse : définitions ?",
+        "choices": [
+          "HTA gravidique : ≥140/90 après 20 SA ; pré-éclampsie : HTA + protéinurie ou atteinte d'organe",
+          "Identiques HTA classique",
+          "Seuil >160/100",
+          "Pas de définition spécifique"
+        ],
+        "correct": 0,
+        "explanation": "HTA gravidique : ≥140/90 après 20 SA. Pré-éclampsie : HTA + protéinurie >0,3 g/24h ou atteinte d'organe. Risque materno-fœtal.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-8",
+        "prompt": "Coarctation de l'aorte : signes évocateurs ?",
+        "choices": [
+          "HTA aux membres supérieurs, différence bras-jambes, souffle inter-scapulaire, indice cheville-bras <1",
+          "HTA isolée",
+          "HTA nocturne",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "Coarctation : HTA des membres supérieurs, différence tensionnelle bras/jambes, souffle inter-scapulaire, indice cheville-bras <1. Écho-Doppler, angioTDM.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-9",
+        "prompt": "Médicaments responsables d'HTA ?",
+        "choices": [
+          "AINS, contraceptifs, corticoïdes, réglisse, décongestionnants, EPO, ciclosporine",
+          "Paracétamol",
+          "Vitamine D",
+          "Amoxicilline"
+        ],
+        "correct": 0,
+        "explanation": "Médicaments hypertenseurs : AINS, œstroprogestatifs, corticoïdes, réglisse, décongestionnants nasaux, EPO, ciclosporine, IMAO. Recherche systématique.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-10",
+        "prompt": "Atteinte rénale de l'HTA : marqueurs ?",
+        "choices": [
+          "Protéinurie/microalbuminurie, élévation créat, baisse DFG",
+          "Hématurie seule",
+          "Leucocyturie",
+          "Cristaux"
+        ],
+        "correct": 0,
+        "explanation": "Néphroangiosclérose : microalbuminurie (30-300 mg/24h), protéinurie, élévation créat, baisse DFG. Marqueur pronostique.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-l4-11",
+        "prompt": "HTA et risque CV global : score utilisé ?",
+        "choices": [
+          "SCORE2 ou SCORE2-OP (Europe), calcul du risque à 10 ans",
+          "Wells",
+          "Glasgow",
+          "Child-Pugh"
+        ],
+        "correct": 0,
+        "explanation": "SCORE2/SCORE2-OP : estimation du risque CV à 10 ans (fatal + non fatal) selon âge, sexe, tabac, PA, cholestérol. Guide l'intensité thérapeutique.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "hta-l4-12",
+        "prompt": "Cardiopathie hypertensive à l'écho ?",
+        "choices": [
+          "HVG concentrique, dysfonction diastolique, dilatation OG",
+          "FEVG basse isolée",
+          "Akinésie antérieure",
+          "Épanchement péricardique"
+        ],
+        "correct": 0,
+        "explanation": "Cardiopathie hypertensive : HVG concentrique, dysfonction diastolique (E/A inversé, E/e' augmenté), dilatation OG. Précurseur de l'IC-FEp.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-hta-l5",
+    "version": "1.0.0",
+    "title": "HTA — prise en charge thérapeutique",
+    "subtitle": "Traiter, optimiser, prévenir · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "prognosis",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "hta-l5-1",
+        "prompt": "Première ligne thérapeutique dans l'HTA ?",
+        "choices": [
+          "IEC/ARA2, inhibiteur calcique, diurétique thiazidique (± bêtabloquant selon indication)",
+          "Bêtabloquant seul",
+          "Alpha-bloquant seul",
+          "Diurétique de l'anse seul"
+        ],
+        "correct": 0,
+        "explanation": "5 classes de 1ère ligne : IEC, ARA2, IC dihydropyridiniques, diurétiques thiazidiques, bêtabloquants (indications spécifiques). Monothérapie ou bithérapie faible dose d'emblée selon le niveau.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-2",
+        "prompt": "Bithérapie d'emblée : quand ?",
+        "choices": [
+          "HTA stade 2-3 ou PA ≥20/10 mmHg au-dessus de la cible",
+          "Systématiquement",
+          "Jamais",
+          "Uniquement si diabète"
+        ],
+        "correct": 0,
+        "explanation": "Bithérapie faible dose d'emblée recommandée si PA ≥20/10 mmHg au-dessus de la cible, ou HTA stade 2-3. Souvent en un seul comprimé (association fixe).",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-3",
+        "prompt": "Quelle association médicamenteuse à éviter ?",
+        "choices": [
+          "IEC + ARA2 (double blocage du SRAA)",
+          "IEC + IC",
+          "IEC + thiazidique",
+          "IC + thiazidique"
+        ],
+        "correct": 0,
+        "explanation": "Association IEC + ARA2 déconseillée (risque IRA/hyperkaliémie sans bénéfice). De même IEC + aliskiren. Les associations IEC/ARA2 + IC + thiazidique sont efficaces.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-4",
+        "prompt": "Traitement de l'HTA chez le diabétique ?",
+        "choices": [
+          "Cible <130/80, IEC ou ARA2 en priorité (néphroprotection)",
+          "Cible <140/90",
+          "Bêtabloquant 1ère ligne",
+          "Pas de traitement"
+        ],
+        "correct": 0,
+        "explanation": "Diabétique : cible <130/80 mmHg, IEC ou ARA2 en 1ère ligne (néphroprotection, surtout si microalbuminurie). Bithérapie souvent nécessaire.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-5",
+        "prompt": "Traitement HTA du sujet âgé (>80 ans) ?",
+        "choices": [
+          "Débuter à faible dose, cible <150/90 d'abord puis <140/90 si toléré",
+          "Cible <120/80 systématique",
+          "Pas de traitement",
+          "Arrêter si vertiges"
+        ],
+        "correct": 0,
+        "explanation": "Sujet >80 ans : cible initiale <150/90 mmHg, puis <140/90 si toléré. Débuter à faible dose, privilégier IC et thiazidique. Éviter l'hypotension orthostatique.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-6",
+        "prompt": "HTA et grossesse : médicaments autorisés ?",
+        "choices": [
+          "Alpha-méthyldopa, labétalol, nicardipine, nifédipine",
+          "IEC",
+          "ARA2",
+          "Diurétiques"
+        ],
+        "correct": 0,
+        "explanation": "Grossesse : alpha-méthyldopa, labétalol, nicardipine, nifédipine. IEC et ARA2 contre-indiqués (tératogènes). Surveillance materno-fœtale rapprochée.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-7",
+        "prompt": "Quand hospitaliser une HTA ?",
+        "choices": [
+          "HTA maligne, urgence hypertensive avec atteinte d'organe, HTA du post-partum sévère",
+          "HTA modérée",
+          "HTA blouse blanche",
+          "HTA contrôlée"
+        ],
+        "correct": 0,
+        "explanation": "Urgences hypertensives à hospitaliser : HTA maligne (PA >180/120 + atteinte d'organe), OAP, dissection aortique, AVC, encéphalopathie, éclampsie.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-8",
+        "prompt": "Urgence hypertensive : cible de réduction ?",
+        "choices": [
+          "Réduction de 20-25 % de la PAS en 1ère heure (sauf dissection)",
+          "Normaliser immédiatement",
+          "Baisser à 120/80 en 1h",
+          "Aucune réduction"
+        ],
+        "correct": 0,
+        "explanation": "Réduction prudente : 20-25 % de PAS la 1ère heure, puis palier. Sauf dissection aortique, AVC ischémique post-thrombolyse : cibles spécifiques plus strictes.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-9",
+        "prompt": "Mesures hygiéno-diététiques : impact ?",
+        "choices": [
+          "Réduction de la PA de 5-10 mmHg (sel <5 g/j, activité, poids, alcool)",
+          "Impact nul",
+          "Uniquement sur le cholestérol",
+          "Uniquement chez l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "Mesures hygiéno-diététiques : réduction sel (<5 g/j), perte de poids, activité physique 150 min/sem, réduction alcool, arrêt tabac. Impact 5-10 mmHg.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-10",
+        "prompt": "Observance : comment évaluer ?",
+        "choices": [
+          "Questionner sans jugement, automesure, éventuel dosage dans les urines, entretien motivationnel",
+          "Uniquement par interrogatoire direct",
+          "Ne pas évaluer",
+          "Uniquement par dosage"
+        ],
+        "correct": 0,
+        "explanation": "Observance : entretien non-jugeant, automesure, dosage urinaire de médicaments, entretien motivationnel. Cause majeure d'HTA résistante apparente.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-11",
+        "prompt": "Vaccination et HTA ?",
+        "choices": [
+          "Vaccin grippe annuel recommandé (réduction AVC et mortalité)",
+          "Aucun vaccin",
+          "Uniquement COVID",
+          "Uniquement pneumocoque"
+        ],
+        "correct": 0,
+        "explanation": "HTA : vaccin grippe annuel recommandé, réduit les AVC et la mortalité CV. Pneumocoque selon comorbidités.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-l5-12",
+        "prompt": "Prévention de l'HTA en population ?",
+        "choices": [
+          "Réduction du sel dans l'alimentation, activité physique, lutte contre obésité et tabac",
+          "Pas de prévention possible",
+          "Uniquement médicaments",
+          "Uniquement dépistage"
+        ],
+        "correct": 0,
+        "explanation": "Prévention : politique de réduction du sel (réforme alimentaire), promotion activité physique, lutte contre obésité et tabac, dépistage précoce. Rôle CanMEDS Promoteur de la santé.",
+        "sources": [
+          {
+            "title": "OMS 2024 HTA",
+            "citation": "Global report on hypertension 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-hta-int",
+    "version": "1.0.0",
+    "title": "HTA complexe — cas cliniques",
+    "subtitle": "Résistante, secondaire, urgences · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "hta-int-1",
+        "prompt": "HTA résistante confirmée : étapes ?",
+        "choices": [
+          "Vérifier observance + éliminer HTA blouse blanche (MAPA) + optimiser doses + spironolactone + rechercher causes secondaires",
+          "Ajouter un 4e médicament",
+          "Chirurgie d'emblée",
+          "Arrêter les traitements"
+        ],
+        "correct": 0,
+        "explanation": "HTA résistante : 1) observance, 2) MAPA (HTA blouse blanche), 3) optimisation doses, 4) spironolactone 25-50 mg/j, 5) causes secondaires.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "hta-int-2",
+        "prompt": "Dénervation rénale : indications ?",
+        "choices": [
+          "HTA résistante vraie + non contrôlée malgré traitement optimal + causes secondaires exclues",
+          "HTA de novo",
+          "HTA modérée",
+          "HTA blouse blanche"
+        ],
+        "correct": 0,
+        "explanation": "Dénervation rénale : HTA résistante vraie (MAPA confirmée), non contrôlée malgré ≥3 médicaments dont diurétique, causes secondaires exclues. Résultats prometteurs (SPYRAL HTN-ON MED).",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-int-3",
+        "prompt": "Encéphalopathie hypertensive : clinique ?",
+        "choices": [
+          "Céphalées + confusion + troubles visuels + crises convulsives + HTA sévère",
+          "HTA asymptomatique",
+          "Céphalées isolées",
+          "Vertiges seuls"
+        ],
+        "correct": 0,
+        "explanation": "Encéphalopathie hypertensive : céphalées, confusion, troubles visuels, convulsions, coma. IRM : œdème postérieur réversible (PRES). Urgence.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-int-4",
+        "prompt": "HTA maligne : atteinte rénale aiguë ?",
+        "choices": [
+          "IRA + protéinurie + hématurie + anémie hémolytique microangiopathique",
+          "Polyurie seule",
+          "Leucocyturie",
+          "Cristallurie"
+        ],
+        "correct": 0,
+        "explanation": "HTA maligne : IRA, protéinurie, hématurie, anémie hémolytique (schizocytes), thrombopénie. Urgence : réduction prudente de la PA.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "hta-int-5",
+        "prompt": "HTA + hypokaliémie : démarche ?",
+        "choices": [
+          "Recherche hyperaldostéronisme primaire (ARR), apports en sel, diurétiques, corticoïdes, réglisse",
+          "Traiter par potassium seul",
+          "Arrêter les médicaments",
+          "Ignorer"
+        ],
+        "correct": 0,
+        "explanation": "HTA + hypokaliémie : hyperaldostéronisme primaire (ARR), diurétiques, corticoïdes, réglisse, vomissements. Traiter la cause.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "hta-int-6",
+        "prompt": "Dissection aortique + HTA : cible ?",
+        "choices": [
+          "PAS <120 mmHg et FC <60/min en urgence (bêtabloquant IV ± vasodilatateur)",
+          "PAS <140 seulement",
+          "Normaliser en 24h",
+          "Pas de traitement"
+        ],
+        "correct": 0,
+        "explanation": "Dissection aortique : cible PAS <120 mmHg et FC <60 en urgence. Bêtabloquant IV (esmolol, labétalol) ± vasodilatateur. Réduction rapide et contrôlée.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-int-7",
+        "prompt": "Pré-éclampsie sévère : traitement ?",
+        "choices": [
+          "Hospitalisation, sulfate de magnésium, nicardipine ou labétalol IV, extraction fœtale selon terme",
+          "IEC",
+          "ARA2",
+          "Diurétiques seuls"
+        ],
+        "correct": 0,
+        "explanation": "Pré-éclampsie sévère : hospitalisation, sulfate de magnésium (prévention éclampsie), nicardipine ou labétalol IV, extraction fœtale selon terme et état materno-fœtal.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-int-8",
+        "prompt": "HTA + SAOS : prise en charge ?",
+        "choices": [
+          "PPC nocturne + perte de poids + optimisation antihypertensive",
+          "Chirurgie ORL uniquement",
+          "Aucun traitement",
+          "Uniquement amaigrissement"
+        ],
+        "correct": 0,
+        "explanation": "SAOS + HTA : PPC nocturne (réduction PA modeste mais significative), perte de poids, optimisation antihypertensive. Recherche systématique si HTA résistante.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-int-9",
+        "prompt": "HTA du sujet très âgé fragile : stratégie ?",
+        "choices": [
+          "Approche personnalisée, cible <150/90 puis <140/90 si toléré, éviter hypotension orthostatique",
+          "Cible <120/80 systématique",
+          "Pas de traitement",
+          "Bithérapie d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Sujet très âgé fragile : approche personnalisée, cible initiale <150/90, puis <140/90 si toléré. Éviter hypotension orthostatique, chutes, dénutrition.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "hta-int-10",
+        "prompt": "HTA et déclin cognitif : lien ?",
+        "choices": [
+          "HTA mal contrôlée = facteur de risque de démence vasculaire et Alzheimer",
+          "Aucun lien",
+          "Facteur protecteur",
+          "Uniquement après 80 ans"
+        ],
+        "correct": 0,
+        "explanation": "HTA non contrôlée = FDR de démence vasculaire et maladie d'Alzheimer. Le contrôle de la PA (surtout en milieu de vie) réduit le risque cognitif.",
+        "sources": [
+          {
+            "title": "ESC 2024 HTA",
+            "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "hta-int-11",
+        "prompt": "Communication autour de l'HTA chronique ?",
+        "choices": [
+          "Éducation thérapeutique, autosurveillance, régime, observance, implication de la famille",
+          "Uniquement prescription",
+          "Éviter de parler du traitement",
+          "Ne parler qu'au médecin traitant"
+        ],
+        "correct": 0,
+        "explanation": "Communication : éducation thérapeutique (automesure, régime hyposodé, activité), observance, implication de la famille. Rôle CanMEDS Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Health Advocate.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "hta-int-12",
+        "prompt": "Coordination du suivi HTA en ville ?",
+        "choices": [
+          "Médecin traitant + cardiologue + IDE + pharmacien + éventuelle téléconsultation",
+          "Uniquement hospitalier",
+          "Uniquement cardiologue",
+          "Aucune coordination"
+        ],
+        "correct": 0,
+        "explanation": "Coordination : médecin traitant (suivi), cardiologue (bilan), IDE (automesure), pharmacien (observance), télésuivi. Rôle CanMEDS Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Health Advocate.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
