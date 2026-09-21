@@ -3138,5 +3138,1056 @@
         "change": "Création initiale — en attente de validation médicale"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-sca-l2",
+    "version": "1.0.0",
+    "title": "Douleur thoracique — notions",
+    "subtitle": "Reconnaître, décrire, orienter · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "sca-l2-1",
+        "prompt": "Symptôme cardinal de la douleur coronarienne ?",
+        "choices": [
+          "Brûlure aggravée par respiration",
+          "Constrictive rétrosternale irradiée bras gauche/mâchoire",
+          "Localisée, reproduite à palpation",
+          "Coup de poignard majoré en décubitus"
+        ],
+        "correct": 1,
+        "explanation": "Douleur constrictive rétrosternale irradiée bras gauche, mâchoire ou dos. Sueurs, nausées, dyspnée.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "sca-l2-2",
+        "prompt": "Durée d'une douleur d'angor stable ?",
+        "choices": [
+          "<20 min cédant au repos ou trinitrine",
+          "Plus de 2 heures",
+          "Plus de 6 heures",
+          "Peu importe"
+        ],
+        "correct": 0,
+        "explanation": "Angor stable : 2-15 min, cède au repos ou trinitrine. Au-delà de 20 min → SCA.",
+        "sources": [
+          {
+            "title": "HAS 2022 SCA",
+            "citation": "Prise en charge du SCA en phase aiguë.",
+            "organization": "HAS",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "sca-l2-3",
+        "prompt": "Facteurs de risque CV à rechercher ?",
+        "choices": [
+          "Tabac diabète HTA dyslipidémie ATCD familiaux",
+          "Allergie aux bêtalactamines",
+          "Consommation de café",
+          "Groupe sanguin"
+        ],
+        "correct": 0,
+        "explanation": "5 facteurs : tabagisme, diabète, HTA, dyslipidémie, ATCD familiaux de coronaropathie précoce.",
+        "sources": [
+          {
+            "title": "ESC 2021 Prevention",
+            "citation": "2021 ESC Guidelines on CVD prevention.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "sca-l2-4",
+        "prompt": "Premier examen urgent devant douleur thoracique ?",
+        "choices": [
+          "Écho transœsophagienne",
+          "ECG 18 dérivations en <10 min",
+          "Radiographie thoracique",
+          "Coronarographie"
+        ],
+        "correct": 1,
+        "explanation": "ECG en moins de 10 min devant toute suspicion de SCA.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l2-5",
+        "prompt": "Les 3 grandes urgences thoraciques ?",
+        "choices": [
+          "SCA, embolie pulmonaire, dissection aortique",
+          "Pneumothorax, pleurésie, péricardite",
+          "Fracture côte, contusion, névralgie",
+          "Œsophagite, gastrite, ulcère"
+        ],
+        "correct": 0,
+        "explanation": "Triptyque : SCA, EP, dissection aortique.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l2-6",
+        "prompt": "À quoi correspond la classification de Killip ?",
+        "choices": [
+          "Sévérité de l'HTA",
+          "Sévérité de l'IC post-infarctus",
+          "Étendue ECG",
+          "Nombre de vaisseaux"
+        ],
+        "correct": 1,
+        "explanation": "Killip : I=rien, II=râles bases, III=OAP, IV=choc.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "sca-l2-7",
+        "prompt": "Signe de dissection aortique ?",
+        "choices": [
+          "Douleur migratrice déchirante + asymétrie tensionnelle",
+          "Douleur constrictive cédant à trinitrine",
+          "Sueurs isolées",
+          "Palpitations"
+        ],
+        "correct": 0,
+        "explanation": "Dissection : douleur déchirante migratrice, asymétrie tensionnelle >20 mmHg.",
+        "sources": [
+          {
+            "title": "ESC 2024 Aortic",
+            "citation": "2024 ESC Guidelines on aortic diseases.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l2-8",
+        "prompt": "Signes accompagnant douleur coronarienne ?",
+        "choices": [
+          "Fièvre isolée",
+          "Sueurs, nausées, dyspnée, angoisse",
+          "Toux grasse",
+          "Prurit"
+        ],
+        "correct": 1,
+        "explanation": "Sueurs, nausées, dyspnée, angoisse : fréquents, surtout femme/diabétique.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "sca-l2-9",
+        "prompt": "Pourquoi douleur atypique chez diabétique âgé ?",
+        "choices": [
+          "Neuropathie autonome, moindre perception douloureuse",
+          "Coronaires plus larges",
+          "Troponine n'augmente pas",
+          "FC plus basse"
+        ],
+        "correct": 0,
+        "explanation": "Diabétique âgé : dyspnée, syncope, confusion, douleur épigastrique possibles sans douleur typique.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "sca-l2-10",
+        "prompt": "Conduite L2 devant suspicion de SCA ?",
+        "choices": [
+          "Attendre la troponine",
+          "Alerter senior + ECG <10 min + ne pas laisser seul",
+          "Rassurer et programmer consultation",
+          "Prescrire AINS"
+        ],
+        "correct": 1,
+        "explanation": "Alerter senior immédiatement, ECG <10 min, surveillance continue. AINS proscrits.",
+        "sources": [
+          {
+            "title": "HAS 2022 SCA",
+            "citation": "Prise en charge du SCA en phase aiguë.",
+            "organization": "HAS",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-sca-l3",
+    "version": "1.0.0",
+    "title": "Angor vs SCA — sémiologie",
+    "subtitle": "Distinguer angor stable, instable, infarctus · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "sca-l3-1",
+        "prompt": "Définition de l'angor stable ?",
+        "choices": [
+          "Douleur de repos au décours d'un effort",
+          "Douleur d'effort constant, cédant au repos/trinitrine en <15 min",
+          "Douleur >20 min avec troponine normale",
+          "Douleur uniquement nocturne"
+        ],
+        "correct": 1,
+        "explanation": "Angor stable : angor d'effort reproductible, seuil stable, cède en <15 min.",
+        "sources": [
+          {
+            "title": "ESC 2023 CCS",
+            "citation": "2023 ESC Guidelines on chronic coronary syndromes.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "sca-l3-2",
+        "prompt": "Ce qui distingue angor instable de angor stable ?",
+        "choices": [
+          "Durée >30 min",
+          "Effort moindre, repos, ou intensité/fréquence accrues récentes (<1 mois)",
+          "Troponine élevée",
+          "Irradiation bilatérale"
+        ],
+        "correct": 1,
+        "explanation": "Angor instable : modification récente (<1 mois) du pattern. Troponine normale à ce stade.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "sca-l3-3",
+        "prompt": "Critère différenciant angor instable de NSTEMI ?",
+        "choices": [
+          "Âge",
+          "Troponine ultrasensible",
+          "ECG",
+          "PA"
+        ],
+        "correct": 1,
+        "explanation": "Seule la troponine hs distingue : normale = angor instable ; élevée avec cinétique = NSTEMI.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l3-4",
+        "prompt": "Patiente 62 ans, angor d'effort progressif depuis 3 semaines. Diagnostic ?",
+        "choices": [
+          "Angor stable",
+          "Angor instable",
+          "SCA ST+",
+          "Péricardite"
+        ],
+        "correct": 1,
+        "explanation": "Angor crescendo : hospitalisation USIC + coronarographie rapide.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "sca-l3-5",
+        "prompt": "ECG du STEMI postérieur isolé ?",
+        "choices": [
+          "Sus-décalage V1-V2",
+          "Miroir V1-V3 (R amples) + sus-décalage V7-V9",
+          "BBG droit",
+          "Ondes T plates diffuses"
+        ],
+        "correct": 1,
+        "explanation": "STEMI postérieur isolé : miroir V1-V3 + sus-décalage V7-V9.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l3-6",
+        "prompt": "Score de probabilité pré-test coronaropathie ?",
+        "choices": [
+          "Wells",
+          "Diamond-Forrester (ESC 2019)",
+          "Glasgow",
+          "Child-Pugh"
+        ],
+        "correct": 1,
+        "explanation": "Diamond-Forrester : âge, sexe, type de douleur (typique/atypique/non angineuse).",
+        "sources": [
+          {
+            "title": "ESC 2019 CCS",
+            "citation": "2019 ESC Guidelines CCS.",
+            "organization": "ESC",
+            "year": 2019
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l3-7",
+        "prompt": "Dérivations de la paroi inférieure ?",
+        "choices": [
+          "V1-V2",
+          "V3-V4",
+          "DII, DIII, aVF",
+          "DI, aVL, V5-V6"
+        ],
+        "correct": 2,
+        "explanation": "DII, DIII, aVF : paroi inférieure. STEMI inférieur peut donner BAV (coronaire droite).",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "recognize"
+      },
+      {
+        "id": "sca-l3-8",
+        "prompt": "Examen 1ère intention devant angor d'effort typique ?",
+        "choices": [
+          "Coronarographie d'emblée",
+          "Épreuve d'effort ou écho de stress",
+          "Scanner thoracique",
+          "IRM cardiaque d'emblée"
+        ],
+        "correct": 1,
+        "explanation": "Probabilité intermédiaire sans critère de gravité : épreuve d'effort ou écho de stress en 1ère intention.",
+        "sources": [
+          {
+            "title": "ESC 2019 CCS",
+            "citation": "2019 ESC Guidelines CCS.",
+            "organization": "ESC",
+            "year": 2019
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "sca-l3-9",
+        "prompt": "Signes ECG de angor instable à haut risque ?",
+        "choices": [
+          "Ondes T plates isolées",
+          "Sous-décalage ST ≥0,5 mm ou inversion T profondes",
+          "Rythme sinusal normal",
+          "ESA isolées"
+        ],
+        "correct": 1,
+        "explanation": "Sous-décalage ST ≥0,5 mm, inversion T profondes dynamiques, sus-décalage transitoire.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "sca-l3-10",
+        "prompt": "Traitement pré-hospitalier de angor instable ?",
+        "choices": [
+          "Aspirine 250 mg IV + héparine + bêtabloquant",
+          "Aspirine 150-300 mg PO + ECG continu + orientation USIC",
+          "AINS + repos",
+          "Amiodarone IV"
+        ],
+        "correct": 1,
+        "explanation": "Aspirine 150-300 mg PO, ECG continu, monitorage, orientation USIC.",
+        "sources": [
+          {
+            "title": "HAS 2022 SCA",
+            "citation": "Prise en charge du SCA en phase aiguë.",
+            "organization": "HAS",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-sca-l4",
+    "version": "1.0.0",
+    "title": "SCA — diagnostic ECG + troponine",
+    "subtitle": "Interpréter, classer, stratifier · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "diagnostic_orientation",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "sca-l4-1",
+        "prompt": "Critère ECG du STEMI (sus-décalage) ?",
+        "choices": [
+          "ST ≥1 mm dans 2 dérivations contiguës (seuils V2-V3 selon âge/sexe)",
+          "ST ≥0,5 mm dans 1 dérivation",
+          "Sus-décalage de T uniquement",
+          "Toute anomalie ST"
+        ],
+        "correct": 0,
+        "explanation": "Seuil ≥1 mm en périphériques. V2-V3 : homme ≥40 ans 2 mm, <40 ans 2,5 mm, femme 1,5 mm. 2 dérivations contiguës.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-l4-2",
+        "prompt": "Sus-décalage V1-V3 avec miroir inférieur : quelle artère ?",
+        "choices": [
+          "Coronaire droite",
+          "IVA",
+          "Circonflexe",
+          "Tronc commun"
+        ],
+        "correct": 1,
+        "explanation": "STEMI antérieur (V1-V3 ± V4) = occlusion IVA. Territoire le plus étendu, pronostic grave.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-l4-3",
+        "prompt": "Sus-décalage V1-V2 + BBG connu depuis 5 ans ?",
+        "choices": [
+          "STEMI certain",
+          "Comparer à tracé antérieur + critères Sgarbossa modifiés",
+          "NSTEMI",
+          "Angor stable"
+        ],
+        "correct": 1,
+        "explanation": "BBG ancien : comparer à antérieur + Sgarbossa (ratio ST/S >0,25). En cas de doute : coronarographie.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "sca-l4-4",
+        "prompt": "Définition universelle de l'IDM (4e) ?",
+        "choices": [
+          "Troponine >99e percentile + ischémie clinique/ECG/imagerie",
+          "Douleur + troponine élevée",
+          "Sus-décalage ST uniquement",
+          "CPK-MB élevée"
+        ],
+        "correct": 0,
+        "explanation": "Élévation/chute troponine hs >99e percentile + ≥1 critère d'ischémie.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-l4-5",
+        "prompt": "Algorithme troponine hs recommandé ESC 2023 ?",
+        "choices": [
+          "0h/3h uniquement",
+          "0h/1h ou 0h/2h selon test",
+          "Dosage unique",
+          "Troponine conventionnelle H0/H6"
+        ],
+        "correct": 1,
+        "explanation": "ESC 2023 : 0h/1h ou 0h/2h selon le test. Le dosage unique ne détecte pas la cinétique.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-l4-6",
+        "prompt": "Troponine élevée stable à 2 dosages, sans douleur ?",
+        "choices": [
+          "STEMI",
+          "NSTEMI",
+          "Élévation chronique (IRC, IC, myocardite, EP)",
+          "Angor instable"
+        ],
+        "correct": 2,
+        "explanation": "Troponine stable ≠ IDM. Causes : IRC, IC chronique, myocardite, EP, sepsis.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "sca-l4-7",
+        "prompt": "Territoire des dérivations V7-V9 ?",
+        "choices": [
+          "Antérieur",
+          "Latéral haut",
+          "Postérieur",
+          "Inférieur"
+        ],
+        "correct": 2,
+        "explanation": "V7-V9 = paroi postérieure. Systématiques devant suspicion STEMI postérieur.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-l4-8",
+        "prompt": "Score de mortalité à 6 mois dans le SCA ?",
+        "choices": [
+          "GRACE",
+          "Killip",
+          "Wells",
+          "CHA2DS2-VASc"
+        ],
+        "correct": 0,
+        "explanation": "GRACE : âge, FC, PAS, créatinine, Killip, arrêt cardiaque, déviation ST, enzymes.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "sca-l4-9",
+        "prompt": "NSTEMI : coronarographie en urgence (<2h) quand ?",
+        "choices": [
+          "Toujours",
+          "Instabilité HD, choc, angor réfractaire, arythmie menaçante",
+          "À distance systématiquement",
+          "Jamais"
+        ],
+        "correct": 1,
+        "explanation": "Très haut risque <2h. Haut risque <24h. Bas risque <72h.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-l4-10",
+        "prompt": "STEMI à 90 min du centre PCI, transfert 60 min ?",
+        "choices": [
+          "Fibrinolyse immédiate (délai >120 min)",
+          "PCI primaire directe (délai <120 min)",
+          "Traitement médical seul",
+          "Attente avis"
+        ],
+        "correct": 0,
+        "explanation": "Délai PCI >120 min → fibrinolyse + transfert (pharmaco-invasive). 90+60=150 >120.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "sca-l4-11",
+        "prompt": "Contre-indications absolues fibrinolyse ?",
+        "choices": [
+          "Âge >75 ans",
+          "AVC hémorragique (tout moment), AVC ischémique <6 mois, saignement actif, dissection aortique",
+          "Diabète",
+          "HTA contrôlée"
+        ],
+        "correct": 1,
+        "explanation": "CI absolues : AVC hémorragique, AVC ischémique <6 mois, néoplasie/malformation intracrânienne, saignement actif, dissection aortique.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-l4-12",
+        "prompt": "45 ans, SCA troponine élevée, coronarographie normale ?",
+        "choices": [
+          "MINOCA",
+          "Angor stable",
+          "Péricardite",
+          "EP"
+        ],
+        "correct": 0,
+        "explanation": "MINOCA : SCA + troponine élevée + coronaires sans sténose ≥50 %. Causes : spasme, embolie, dissection coronaire, Tako-Tsubo, myocardite.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-sca-int",
+    "version": "1.0.0",
+    "title": "SCA compliqué — cas cliniques",
+    "subtitle": "Choc, complications mécaniques, arythmies · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "sca-int-1",
+        "prompt": "STEMI antérieur J3 : dyspnée + souffle holosystolique + OAP ?",
+        "choices": [
+          "Rupture de paroi libre",
+          "CIV ischémique",
+          "Anévrisme VG",
+          "Péricardite de Dressler"
+        ],
+        "correct": 1,
+        "explanation": "CIV ischémique J3-J5 d'IDM antérieur étendu. Souffle holosystolique + OAP + choc. Écho-Doppler. Chirurgie urgente.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-int-2",
+        "prompt": "Triade du choc cardiogénique post-IDM ?",
+        "choices": [
+          "Fièvre, toux, dyspnée",
+          "Hypotension, oligurie, marbrures (FEVG effondrée)",
+          "HTA, céphalées, confusion",
+          "Bradycardie, syncope, vomissements"
+        ],
+        "correct": 1,
+        "explanation": "PAS <90 mmHg, hypoperfusion (oligurie <0,5 mL/kg/h, marbrures, lactates >2, confusion). FEVG effondrée.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-int-3",
+        "prompt": "STEMI pluritronculaire hors choc : stratégie ?",
+        "choices": [
+          "PCI coupable seul",
+          "PCI complète immédiate",
+          "PCI coupable puis complète staged <45 jours",
+          "Pontage systématique"
+        ],
+        "correct": 2,
+        "explanation": "ESC 2023 : PCI coupable en urgence + revascularisation complète staged <45 j (COMPLETE). En choc : coupable seule (CULPRIT-SHOCK).",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-int-4",
+        "prompt": "Post-fibrinolyse 60 min : ESV en salves ?",
+        "choices": [
+          "Arrêt perfusion + PCI immédiate",
+          "Surveillance rapprochée (arythmies de reperfusion)",
+          "Amiodarone IV systématique",
+          "CEE"
+        ],
+        "correct": 1,
+        "explanation": "Arythmies de reperfusion 30-90 min post-fibrinolyse = marqueur de reperfusion réussie. Transitoires, pas de traitement systématique.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-int-5",
+        "prompt": "STEMI inférieur : BAV complet FC 35 + hypotension ?",
+        "choices": [
+          "Atropine IV + préparer sonde d'entraînement",
+          "Amiodarone IV",
+          "Bêtabloquant IV",
+          "Surveillance seule"
+        ],
+        "correct": 0,
+        "explanation": "BAV complet du STEMI inférieur (coronaire droite) souvent transitoire, répond à l'atropine. Échec → entraînement électrosystolique. Bêtabloquant CI.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-int-6",
+        "prompt": "Choc cardiogénique réfractaire aux inotropes ?",
+        "choices": [
+          "Bêtabloquant IV",
+          "Assistance circulatoire (ECMO-VA, Impella) en centre expert",
+          "Diurétiques seuls",
+          "AINS"
+        ],
+        "correct": 1,
+        "explanation": "Choc réfractaire : ECMO-VA ou Impella en centre expert, en vue d'une revascularisation ou récupération.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-int-7",
+        "prompt": "Fibrinolyse 82 ans + HTA 200/110 : risque principal ?",
+        "choices": [
+          "Aucun",
+          "Hémorragie intracrânienne",
+          "Insuffisance rénale",
+          "Hyperkaliémie"
+        ],
+        "correct": 1,
+        "explanation": "Âge >75 + HTA non contrôlée : risque significatif d'ICH. CI relatives : privilégier PCI primaire.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "sca-int-8",
+        "prompt": "Complication tardive après IDM antérieur étendu ?",
+        "choices": [
+          "Anévrisme VG avec thrombus mural",
+          "Péricardite constrictive",
+          "Myocardite",
+          "Endocardite"
+        ],
+        "correct": 0,
+        "explanation": "Anévrisme VG : 5-10 % des IDM antérieurs étendus. Complications : thrombus mural, TV, IC.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-int-9",
+        "prompt": "Tako-Tsubo : facteur déclenchant ?",
+        "choices": [
+          "Stress physique/émotionnel intense",
+          "Effort modéré",
+          "Repas copieux",
+          "Voyage récent"
+        ],
+        "correct": 0,
+        "explanation": "Femme ménopausée après stress intense. SCA avec coronaires normales, akinésie apicale + hyperkinésie basale.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "sca-int-10",
+        "prompt": "Choc cardiogénique post-IDM pluritronculaire ?",
+        "choices": [
+          "PCI complète immédiate",
+          "PCI limitée au coupable (CULPRIT-SHOCK)",
+          "Pontage urgence",
+          "Médical seul"
+        ],
+        "correct": 1,
+        "explanation": "CULPRIT-SHOCK : surmortalité à 30 j avec PCI complète immédiate. Revascularisation différée.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "sca-int-11",
+        "prompt": "Communication famille en choc cardiogénique ?",
+        "choices": [
+          "Uniquement par écrit",
+          "Annonce gravité + options + personne de confiance + tracé dossier",
+          "Éviter le pronostic",
+          "Ne parler qu'au patient"
+        ],
+        "correct": 1,
+        "explanation": "Communication claire, empathique, tracée. Rôle CanMEDS Communicateur + Professionnel.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator and Professional roles.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "sca-int-12",
+        "prompt": "Transfert centre expert en SCA : quand ?",
+        "choices": [
+          "Jamais",
+          "Choc, assistance circulatoire, complication mécanique, revascularisation complexe",
+          "Systématiquement",
+          "Si patient demande"
+        ],
+        "correct": 1,
+        "explanation": "Centre expert (chirurgie cardiaque, assistance, salle hybride) : choc réfractaire, CIV/rupture, tronc/pluritronculaire.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "2023 ESC Guidelines for ACS.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
