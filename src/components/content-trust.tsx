@@ -219,6 +219,7 @@ export function ReportContentError({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
+      <div className="text-[10px] text-amber-500 mb-1">[debug] optimusId=<code>{String(profile.optimusId)}</code> isGuest={String(isGuest)}</div>
       <Dialog.Trigger asChild>
         <Button
           variant="ghost"
