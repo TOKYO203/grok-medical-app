@@ -10800,5 +10800,1340 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-oap-l2",
+    "version": "1.0.0",
+    "title": "OAP — notions de base",
+    "subtitle": "Reconnaître, alerter, orienter · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_leader"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "oap-l2-1",
+        "prompt": "Définition de l'OAP ?",
+        "choices": [
+          "Accumulation brutale de liquide dans les alvéoles d'origine cardiogénique",
+          "Infection pulmonaire",
+          "Pneumothorax",
+          "Asthme aigu grave"
+        ],
+        "correct": 0,
+        "explanation": "OAP : inondation alvéolaire aiguë par augmentation des pressions de remplissage du VG. Urgence vitale.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Acute heart failure and pulmonary oedema — ESC position statement.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "oap-l2-2",
+        "prompt": "Symptôme principal de l'OAP ?",
+        "choices": [
+          "Toux sèche isolée",
+          "Dyspnée brutale intense avec orthopnée majeure",
+          "Douleur thoracique",
+          "Fièvre"
+        ],
+        "correct": 1,
+        "explanation": "OAP : dyspnée brutale, intense, orthopnée majeure (patient assis, penché en avant), sensation d'étouffement.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Acute heart failure and pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "oap-l2-3",
+        "prompt": "Symptôme associé caractéristique de l'OAP ?",
+        "choices": [
+          "Hémoptysie franche",
+          "Vomissements bilieux",
+          "Expectoration mousseuse rosée",
+          "Diarrhée"
+        ],
+        "correct": 2,
+        "explanation": "Expectoration mousseuse rosée = signe classique d'OAP, marqueur d'inondation alvéolaire.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN — Œdème aigu du poumon.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "oap-l2-4",
+        "prompt": "Signes auscultatoires de l'OAP ?",
+        "choices": [
+          "Sibilants isolés",
+          "Frottement pleural",
+          "Crépitants bilatéraux remontant des bases vers les sommets",
+          "Souffle tubaire"
+        ],
+        "correct": 2,
+        "explanation": "Crépitants bilatéraux, d'abord aux bases, remontant vers les sommets. Peut évoluer en 'marée montante'.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Sémiologie pulmonaire OAP.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "oap-l2-5",
+        "prompt": "Position adoptée par le patient en OAP ?",
+        "choices": [
+          "Décubitus dorsal",
+          "Assis, penché en avant (orthopnée majeure)",
+          "Décubitus latéral droit",
+          "Trendelenburg"
+        ],
+        "correct": 1,
+        "explanation": "Position assise spontanée, penché en avant, jambes pendantes. Signe de lutte contre l'inondation alvéolaire.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Clinical presentation of acute pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "oap-l2-6",
+        "prompt": "Origine principale de l'OAP ?",
+        "choices": [
+          "Pulmonaire (pneumonie)",
+          "Rénale (IRC)",
+          "Cardiaque (insuffisance ventriculaire gauche)",
+          "Hépatique (cirrhose)"
+        ],
+        "correct": 2,
+        "explanation": "OAP cardiogénique : cause la plus fréquente, secondaire à une défaillance VG aiguë (IDM, HTA sévère, valvulopathie, FA rapide).",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Cardiogenic pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "oap-l2-7",
+        "prompt": "Signes de gravité immédiats à rechercher ?",
+        "choices": [
+          "Sueurs profuses, cyanose, tirage, troubles de conscience, SpO2 basse",
+          "Toux isolée",
+          "Fièvre modérée",
+          "Céphalées"
+        ],
+        "correct": 0,
+        "explanation": "Signes de gravité : sueurs, cyanose, tirage intercostal, balancement thoraco-abdominal, troubles de conscience, SpO2 <90 %.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Severity signs in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "oap-l2-8",
+        "prompt": "Examen de 1ère intention devant un OAP ?",
+        "choices": [
+          "ECG + radiographie thoracique + échographie cardiaque",
+          "Coronarographie en urgence",
+          "TDM thoracique systématique",
+          "Scintigraphie"
+        ],
+        "correct": 0,
+        "explanation": "Bilan 1ère intention : ECG (SCA, FA, HVG), radiographie thoracique (opacités alvéolaires bilatérales), échocardiographie rapide.",
+        "sources": [
+          {
+            "title": "HAS 2023 OAP",
+            "citation": "Prise en charge de l'OAP cardiogénique.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "oap-l2-9",
+        "prompt": "Que doit faire un étudiant L2 devant un OAP ?",
+        "choices": [
+          "Rassurer seul",
+          "Alerter immédiatement + position assise + O2 + monitorage",
+          "Donner à boire",
+          "Attendre la biologie"
+        ],
+        "correct": 1,
+        "explanation": "Conduite L2 : alerter immédiatement, position assise jambes pendantes, O2, monitorage (SpO2, ECG, PA), voie veineuse. Ne pas laisser seul.",
+        "sources": [
+          {
+            "title": "HAS 2023 OAP",
+            "citation": "Prise en charge initiale.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "oap-l2-10",
+        "prompt": "Différence OAP cardiogénique et lésionnel ?",
+        "choices": [
+          "Aucune différence",
+          "Lésionnel guérit seul",
+          "Cardiogénique est viral",
+          "Lésionnel (SDRA) : contexte septique/traumatique, poumon blanc diffus, PCP normale ; cardiogénique : cardiopathie, PCP élevée"
+        ],
+        "correct": 3,
+        "explanation": "OAP cardiogénique : cardiopathie, PCP élevée, transsudat. SDRA (lésionnel) : contexte septique/traumatique, exsudat, PCP normale.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Cardiogenic vs non-cardiogenic pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-oap-l3",
+    "version": "1.0.0",
+    "title": "OAP — diagnostic et étiologies",
+    "subtitle": "Différencier, identifier la cause · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "oap-l3-1",
+        "prompt": "Aspect radiologique typique de l'OAP ?",
+        "choices": [
+          "Pneumothorax",
+          "Opacités alvéolaires bilatérales en ailes de papillon, prédominant aux hiles",
+          "Épanchement unilatéral",
+          "Cavernes"
+        ],
+        "correct": 1,
+        "explanation": "Radio OAP : opacités alvéolaires bilatérales, symétriques, prédominant aux bases puis aux hiles ('ailes de papillon'). Cardiomégalie fréquente.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Imaging in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "oap-l3-2",
+        "prompt": "Étiologie la plus fréquente de l'OAP ?",
+        "choices": [
+          "HTA sévère (poussée hypertensive)",
+          "Coronaropathie aiguë",
+          "Valvulopathie décompensée",
+          "Trouble du rythme"
+        ],
+        "correct": 0,
+        "explanation": "Poussée hypertensive = cause la plus fréquente d'OAP. Suivie du SCA, valvulopathie décompensée, FA rapide.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Aetiologies of acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "oap-l3-3",
+        "prompt": "OAP et valvulopathie : quelle valve la plus souvent responsable ?",
+        "choices": [
+          "Mitrale (sténose ou insuffisance)",
+          "Aortique isolée",
+          "Tricuspide",
+          "Pulmonaire"
+        ],
+        "correct": 0,
+        "explanation": "Valvulopathie mitrale (sténose ++, ou IM aiguë sur rupture de cordage) = cause classique d'OAP. Aussi fuite aortique aiguë.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Valvular causes of acute pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "oap-l3-4",
+        "prompt": "OAP et SCA : mécanisme ?",
+        "choices": [
+          "Effet direct sur le poumon",
+          "Vasoconstriction pulmonaire seule",
+          "Défaillance VG aiguë sur ischémie étendue ou IM aiguë sur rupture de pilier",
+          "Aucun lien"
+        ],
+        "correct": 2,
+        "explanation": "SCA compliqué d'OAP : défaillance VG aiguë (nécrose étendue) ou IM aiguë (rupture de pilier mitral), parfois rupture septale.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Ischaemic causes of acute pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "oap-l3-5",
+        "prompt": "Signe ECG évoquant une étiologie hypertensive ?",
+        "choices": [
+          "HVG (Sokolow), ondes T négatives latérales",
+          "Sus-décalage ST antérieur",
+          "BBG complet",
+          "Ondes P amples"
+        ],
+        "correct": 0,
+        "explanation": "HVG avec troubles de repolarisation (Sokolow, T négatives latérales) = argument pour étiologie hypertensive.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "ECG dans l'OAP.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "oap-l3-6",
+        "prompt": "Signe ECG évoquant une étiologie SCA ?",
+        "choices": [
+          "HVG isolée",
+          "Sus-décalage ST dans 2 dérivations contiguës ou sous-décalage dynamique",
+          "Ondes T plates",
+          "Rythme sinusal"
+        ],
+        "correct": 1,
+        "explanation": "SCA : sus-décalage ST (STEMI) ou sous-décalage dynamique (NSTEMI). Indication de coronarographie urgente.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "ECG in acute coronary syndrome.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "oap-l3-7",
+        "prompt": "OAP et FA rapide : mécanisme ?",
+        "choices": [
+          "Aucun lien",
+          "Effet protecteur",
+          "Perte de la systole auriculaire + FC rapide → baisse remplissage VG → congestion",
+          "Tachycardie isolée"
+        ],
+        "correct": 2,
+        "explanation": "FA rapide : perte de systole auriculaire (jusqu'à 20-30 % du débit) + FC rapide → baisse remplissage → congestion → OAP. Contrôle FC urgent.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "AF and acute heart failure.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "oap-l3-8",
+        "prompt": "Échographie cardiaque urgente : quand ?",
+        "choices": [
+          "Uniquement après stabilisation",
+          "Jamais urgente",
+          "Systématique en OAP pour évaluer la FEVG, valvulopathie, IM aiguë",
+          "Uniquement chez l'enfant"
+        ],
+        "correct": 2,
+        "explanation": "Écho urgente en OAP : FEVG, cinétique, valvulopathie, IM aiguë, épanchement, veine cave. Guide la prise en charge.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Echocardiography in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l3-9",
+        "prompt": "Différencier OAP et exacerbation asthme ?",
+        "choices": [
+          "Identiques",
+          "Toux identique",
+          "Aucune différence clinique",
+          "Asthme : sibilants, sujet jeune, terrain allergique, ATCD ; OAP : crépitants, orthopnée, cardiopathie"
+        ],
+        "correct": 3,
+        "explanation": "Asthme : sibilants expiratoires, sujet jeune, terrain allergique. OAP : crépitants, orthopnée, cardiopathie, expectoration mousseuse.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Diagnostic différentiel dyspnée aiguë.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "oap-l3-10",
+        "prompt": "OAP et insuffisance rénale : particularité ?",
+        "choices": [
+          "Aucun lien",
+          "Protecteur",
+          "OAP par surcharge hydrosodée (souvent chez dialysés ou insuffisants rénaux)",
+          "OAP rare"
+        ],
+        "correct": 2,
+        "explanation": "OAP et IRC : surcharge hydrosodée, souvent chez dialysés. Traitement : ultrafiltration/dialyse urgente si besoin, plus diurétiques.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "HF and renal dysfunction.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-oap-l4",
+    "version": "1.0.0",
+    "title": "OAP — prise en charge initiale",
+    "subtitle": "Traiter l'urgence, orienter · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "management",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "oap-l4-1",
+        "prompt": "Position du patient en OAP ?",
+        "choices": [
+          "Décubitus dorsal strict",
+          "Assis jambes pendantes (réduit retour veineux)",
+          "Trendelenburg",
+          "Décubitus latéral droit"
+        ],
+        "correct": 1,
+        "explanation": "Position assise jambes pendantes : réduit le retour veineux, améliore la ventilation. Ne pas allonger (aggrave).",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Management of acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-2",
+        "prompt": "Oxygénothérapie : objectif ?",
+        "choices": [
+          "SpO2 ≥90 % (94-98 % hors BPCO)",
+          "SpO2 100 % systématique",
+          "Aucune",
+          "SpO2 <80 %"
+        ],
+        "correct": 0,
+        "explanation": "Objectif SpO2 : ≥90 % (94-98 % hors BPCO). Éviter hyperoxie (délétère). VNI si détresse respiratoire.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Oxygen therapy in acute HF.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-3",
+        "prompt": "VNI dans l'OAP : indication et bénéfice ?",
+        "choices": [
+          "Systématique chez tous",
+          "CPAP ou BiPAP si détresse respiratoire (FR >25, SpO2 <90 %, tirage) — réduit mortalité et intubation",
+          "Contre-indiquée",
+          "Uniquement si coma"
+        ],
+        "correct": 1,
+        "explanation": "VNI (CPAP ++) : détresse respiratoire modérée-sévère. Réduction mortalité, intubation, durée hospitalisation. CI : coma, vomissements, pneumothorax.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Non-invasive ventilation in acute pulmonary oedema.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-4",
+        "prompt": "Furosémide IV : dose initiale ?",
+        "choices": [
+          "20-40 mg IV (ou 1-2x dose orale habituelle)",
+          "500 mg IV",
+          "5 mg IV",
+          "10 mg SC"
+        ],
+        "correct": 0,
+        "explanation": "Furosémide : 20-40 mg IV, ou 1-2x la dose orale habituelle. Effet veino-dilatateur rapide (15 min) + diurétique (30 min).",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Diuretics in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-5",
+        "prompt": "Dérivés nitrés : indication ?",
+        "choices": [
+          "Systématique",
+          "OAP avec PAS >110 mmHg, par voie IV (isosorbide, nitroglycérine)",
+          "Contre-indiqués toujours",
+          "Uniquement si bradycardie"
+        ],
+        "correct": 1,
+        "explanation": "Dérivés nitrés : OAP si PAS >110 mmHg. Vasodilatation veineuse (réduit précharge) + artérielle. CI : PAS <90, sténose aortique serrée.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Vasodilators in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-6",
+        "prompt": "Morphine dans l'OAP : place actuelle ?",
+        "choices": [
+          "1ère ligne systématique",
+          "Contre-indiquée",
+          "2e ligne, si anxiété majeure ou douleur — attention dépression respiratoire",
+          "Uniquement en IV à haute dose"
+        ],
+        "correct": 2,
+        "explanation": "Morphine : 2e ligne, si anxiété/douleur majeure. Attention : dépression respiratoire, nausées. Utilisée à faible dose (2-4 mg IV titré).",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Opiates in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-7",
+        "prompt": "Quand intuber un OAP ?",
+        "choices": [
+          "Systématique",
+          "Épuisement respiratoire, coma, échec VNI, hypoxémie réfractaire",
+          "Jamais",
+          "Si SpO2 <95 %"
+        ],
+        "correct": 1,
+        "explanation": "Intubation : épuisement respiratoire, troubles de conscience, échec VNI, hypoxémie réfractaire, arrêt cardiaque imminent.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Invasive ventilation in acute HF.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-8",
+        "prompt": "Monitorage minimal en OAP ?",
+        "choices": [
+          "Aucun",
+          "Uniquement SpO2",
+          "Uniquement ECG",
+          "SpO2, ECG continu, PA, FC, conscience, diurèse"
+        ],
+        "correct": 3,
+        "explanation": "Monitorage : SpO2 continu, ECG, PA (invasive si instable), conscience, diurèse, score de détresse.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Monitoring in acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-9",
+        "prompt": "OAP et SCA : spécificité du traitement ?",
+        "choices": [
+          "Traitement OAP seul",
+          "Traitement OAP + revascularisation urgente (PCI) + aspirine + anticoagulation",
+          "Attente",
+          "Diurétiques seuls"
+        ],
+        "correct": 1,
+        "explanation": "OAP + SCA : traitement OAP + revascularisation urgente (PCI), aspirine, héparine, contrôle tensionnel. Coronarographie rapide.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "ACS complicated by acute heart failure.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-10",
+        "prompt": "OAP et poussée hypertensive : traitement ?",
+        "choices": [
+          "Dérivés nitrés IV + furosémide, contrôle PA prudente (réduction 20-25 %)",
+          "Nicardipine en 1ère intention",
+          "Diurétiques seuls",
+          "Antihypertenseur oral"
+        ],
+        "correct": 0,
+        "explanation": "Poussée hypertensive + OAP : dérivés nitrés IV (1ère ligne) + furosémide. Réduction PA prudente (20-25 %). Éviter chute brutale.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Hypertensive acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-11",
+        "prompt": "OAP et FA rapide : priorité ?",
+        "choices": [
+          "Cardioversion systématique",
+          "Ablation en urgence",
+          "Contrôle FC + anticoagulation si indiquée + traiter la congestion",
+          "Aucune action"
+        ],
+        "correct": 2,
+        "explanation": "FA rapide + OAP : contrôle FC (bêtabloquant, digoxine, amiodarone selon FEVG) + anticoagulation + congestion. Cardioversion si mal toléré.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "AF and acute heart failure management.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l4-12",
+        "prompt": "OAP sur valvulopathie : spécificité ?",
+        "choices": [
+          "Traitement médical seul",
+          "Chirurgie valvulaire rapide (rupture de cordage, IM aiguë) ou traitement médical + chirurgie différée",
+          "Attente prolongée",
+          "Aucune spécificité"
+        ],
+        "correct": 1,
+        "explanation": "OAP valvulopathie : IM aiguë sur rupture de cordage → chirurgie urgente. Sténose mitrale → traitement médical + commissurotomie/chirurgie différée.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "Valvular acute heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-oap-l5",
+    "version": "1.0.0",
+    "title": "OAP — prise en charge avancée",
+    "subtitle": "Prévention, récidive, cas complexes · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "prognosis",
+      "clinical_reasoning",
+      "canmeds_health_advocate"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "oap-l5-1",
+        "prompt": "Pronostic de l'OAP ?",
+        "choices": [
+          "Mortalité hospitalière 5-15 %, récidive fréquente, pronostic péjoratif à 1 an",
+          "Bénin",
+          "Mortalité nulle",
+          "Guérison définitive"
+        ],
+        "correct": 0,
+        "explanation": "OAP : mortalité hospitalière 5-15 %, récidive fréquente (jusqu'à 50 % à 1 an), pronostic péjoratif. Marqueur de décompensation cardiaque.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Prognosis of acute heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "oap-l5-2",
+        "prompt": "Prévention des récidives d'OAP ?",
+        "choices": [
+          "Aucune prévention",
+          "Optimisation traitement IC (4 piliers), éducation (pesée, sel), suivi rapproché",
+          "Uniquement diurétiques",
+          "Aspirine seule"
+        ],
+        "correct": 1,
+        "explanation": "Prévention : optimisation traitement IC (IEC/ARNI, bêtabloquant, ARM, ISGLT2), éducation (pesée quotidienne, régime hyposodé), suivi rapproché, télésurveillance.",
+        "sources": [
+          {
+            "title": "ESC 2023 HF Update",
+            "citation": "Prevention of HF decompensation.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-3",
+        "prompt": "OAP et cardiopathie ischémique : revascularisation ?",
+        "choices": [
+          "Aucune revascularisation",
+          "Chirurgie systématique",
+          "Coronarographie précoce (avant sortie) + PCI/pontage selon lésions",
+          "Attente 3 mois"
+        ],
+        "correct": 2,
+        "explanation": "OAP sur cardiopathie ischémique : coronarographie précoce (avant sortie), revascularisation si lésions significatives. Améliore le pronostic.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Ischaemic heart failure management.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-4",
+        "prompt": "OAP et cardiopathie valvulaire : chirurgie ?",
+        "choices": [
+          "Systématique en urgence",
+          "Décision en heart team, timing selon tolérance et anatomie",
+          "Jamais",
+          "Chirurgie après 1 an"
+        ],
+        "correct": 1,
+        "explanation": "OAP sur valvulopathie : décision en heart team, timing selon tolérance, anatomie, possibilité de réparation. Options percutanées (TAVI, mitraclip).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "Valvular heart failure management.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-5",
+        "prompt": "OAP et insuffisance rénale : ultrafiltration ?",
+        "choices": [
+          "Systématique",
+          "Discutée si OAP réfractaire aux diurétiques, IRC avancée, anurie",
+          "Contre-indiquée",
+          "Uniquement si dialysé"
+        ],
+        "correct": 1,
+        "explanation": "Ultrafiltration : OAP réfractaire aux diurétiques, IRC avancée, anurie. Épuration extra-rénale (dialyse) si besoin. Coordination néphro-cardio.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Renal replacement therapy in acute HF.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-6",
+        "prompt": "OAP et grossesse : particularité ?",
+        "choices": [
+          "Aucune spécificité",
+          "Traitement standard",
+          "Cardiomyopathie du péripartum, valvulopathie, éclampsie — coordination obstétrico-cardio",
+          "Diurétiques systématiques"
+        ],
+        "correct": 2,
+        "explanation": "OAP + grossesse : cardiomyopathie du péripartum (dernier mois à 5 mois post-partum), valvulopathie, éclampsie. Coordination obstétrico-cardio. Éviter IEC/ARA2.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "HF in pregnancy.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-7",
+        "prompt": "OAP et sujet âgé fragile : stratégie ?",
+        "choices": [
+          "Traitement maximal systématique",
+          "Aucun traitement",
+          "Approche individualisée, éviter sur-traitement, évaluer fragilité, soins de support",
+          "Palier uniquement"
+        ],
+        "correct": 2,
+        "explanation": "OAP + sujet âgé fragile : approche individualisée, évaluer fragilité, éviter le sur-traitement, intégrer soins de support si pronostic limité.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Management of HF in elderly.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-8",
+        "prompt": "OAP et DAI/CRT : place ?",
+        "choices": [
+          "En urgence",
+          "Jamais",
+          "À discuter après stabilisation, si indication (FEVG ≤35 %), délai 3 mois",
+          "Avant stabilisation"
+        ],
+        "correct": 2,
+        "explanation": "OAP et DAI/CRT : à discuter après stabilisation (délai 3 mois pour DAI), selon FEVG, symptômes, traitement optimal.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Device therapy in HF.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-9",
+        "prompt": "Score de gravité en OAP ?",
+        "choices": [
+          "Score de Wells",
+          "Score européen (dyspnée, SpO2, FR, PA, FC), BNP",
+          "Score de Glasgow",
+          "CHA2DS2-VASc"
+        ],
+        "correct": 1,
+        "explanation": "Scores pronostiques : données cliniques (dyspnée, SpO2, FR, PA, FC), BNP/NT-proBNP élevé, échographie. Orientent la prise en charge (réa, cardio, USIC).",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Risk stratification in acute HF.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "oap-l5-10",
+        "prompt": "Éducation du patient après OAP ?",
+        "choices": [
+          "Aucune éducation",
+          "Pesée quotidienne, régime hyposodé (<5 g/j), observance, signes d'alerte (prise de poids >2 kg/3j), activité adaptée",
+          "Uniquement médicaments",
+          "Uniquement ACO"
+        ],
+        "correct": 1,
+        "explanation": "Éducation post-OAP : pesée quotidienne, régime hyposodé (<5 g/j), observance stricte, signes d'alerte (prise de poids >2 kg en 3 jours, dyspnée), activité adaptée.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Patient education in HF.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "oap-l5-11",
+        "prompt": "Suivi post-OAP : rythme ?",
+        "choices": [
+          "Aucun suivi",
+          "Consultation dans les 7-10 jours, suivi rapproché les 3 premiers mois, échographie de contrôle",
+          "Consultation à 1 an",
+          "Uniquement si récidive"
+        ],
+        "correct": 1,
+        "explanation": "Suivi post-OAP : consultation 7-10 jours, suivi rapproché 3 mois, écho cardiaque de contrôle, évaluation observance et traitement optimal.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Follow-up after acute HF.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-l5-12",
+        "prompt": "Prévention primaire de l'OAP ?",
+        "choices": [
+          "Impossible",
+          "Contrôle de l'HTA, du diabète, traitement des cardiopathies, hygiène de vie",
+          "Uniquement médicaments",
+          "Uniquement sport"
+        ],
+        "correct": 1,
+        "explanation": "Prévention primaire : contrôle HTA, diabète, traitement des cardiopathies (valvulopathies, coronaropathie), hygiène de vie, dépistage et prise en charge précoces.",
+        "sources": [
+          {
+            "title": "ESC 2021 Prevention",
+            "citation": "CVD prevention.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-oap-int",
+    "version": "1.0.0",
+    "title": "OAP — cas complexes",
+    "subtitle": "Situations extrêmes, éthique · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "oap-int-1",
+        "prompt": "OAP réfractaire : conduite ?",
+        "choices": [
+          "Escalade thérapeutique (VNI, inotropes, ultrafiltration, assistance circulatoire), recherche étiologique active",
+          "Traitement standard",
+          "Attente",
+          "Arrêt thérapeutique"
+        ],
+        "correct": 0,
+        "explanation": "OAP réfractaire : escalade progressive — VNI, inotropes (dobutamine), ultrafiltration/dialyse, assistance circulatoire (ECMO-VA). Recherche active de la cause.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Refractory acute heart failure.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-2",
+        "prompt": "OAP + choc cardiogénique : conduite ?",
+        "choices": [
+          "Diurétiques seuls",
+          "Inotropes (dobutamine) + vasopresseurs + recherche cause + assistance circulatoire si besoin",
+          "Bêtabloquants IV",
+          "Attente"
+        ],
+        "correct": 1,
+        "explanation": "OAP + choc cardiogénique : inotropes (dobutamine) + noradrénaline, recherche cause (SCA, valvulopathie), assistance circulatoire si réfractaire. Pas de bêtabloquant IV.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Cardiogenic shock management.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-3",
+        "prompt": "OAP et SCA compliqué : priorité ?",
+        "choices": [
+          "Traitement OAP seul",
+          "Revascularisation urgente (PCI) + traitement OAP + anticoagulation + antiagrégants",
+          "Attente",
+          "Chirurgie"
+        ],
+        "correct": 1,
+        "explanation": "OAP + SCA : revascularisation urgente (PCI dans <120 min), traitement OAP, anticoagulation, antiagrégants, contrôle tensionnel. Pronostic sévère.",
+        "sources": [
+          {
+            "title": "ESC 2023 ACS",
+            "citation": "ACS with acute HF.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-4",
+        "prompt": "OAP et IM aiguë sur rupture de pilier : conduite ?",
+        "choices": [
+          "Traitement médical prolongé",
+          "Chirurgie valvulaire urgente + traitement OAP + assistance circulatoire si besoin",
+          "Attente 48h",
+          "Ablation"
+        ],
+        "correct": 1,
+        "explanation": "IM aiguë sur rupture de pilier : chirurgie urgente (réparation/remplacement mitral) + traitement OAP + assistance circulatoire en pont. Mortalité élevée.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "Acute mitral regurgitation.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-5",
+        "prompt": "OAP et grossesse sévère : conduite ?",
+        "choices": [
+          "Approche obstétrico-cardio, extracion fœtale si nécessaire, éviction IEC/ARA2",
+          "Traitement standard",
+          "Diurétiques seuls",
+          "Attente accouchement spontané"
+        ],
+        "correct": 0,
+        "explanation": "OAP + grossesse : équipe obstétrico-cardio, extraction fœtale si nécessaire (après 32 SA ou si décompensation), éviction IEC/ARA2, digoxine/bêtabloquant/labétalol.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "HF in pregnancy.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-6",
+        "prompt": "OAP et éthique : quand discuter limitation ?",
+        "choices": [
+          "Jamais",
+          "Décision collégiale en cas de mauvais pronostic, comorbidités majeures, échec thérapeutique — directives anticipées",
+          "Décision unilatérale",
+          "Uniquement famille"
+        ],
+        "correct": 1,
+        "explanation": "Limitation thérapeutique en OAP : décision collégiale (mauvais pronostic, comorbidités, échec des traitements), directives anticipées, personne de confiance, traçabilité. Rôle Professionnel.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Professional role.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_professional"
+      },
+      {
+        "id": "oap-int-7",
+        "prompt": "OAP et annonce famille : comment ?",
+        "choices": [
+          "Ne rien dire",
+          "Annonce claire et empathique, expliquer la gravité, options thérapeutiques, soutien",
+          "Uniquement par écrit",
+          "Au téléphone"
+        ],
+        "correct": 1,
+        "explanation": "Annonce famille en OAP grave : information claire, empathie, explication des options, soutien psychologique, personne de confiance. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator role.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "oap-int-8",
+        "prompt": "OAP post-opératoire : particularité ?",
+        "choices": [
+          "Identique",
+          "Causes spécifiques (surcharge hydrique, ischémie, valvulopathie, cardioplégie) — coordination chirurgicale",
+          "Aucun traitement",
+          "Attente"
+        ],
+        "correct": 1,
+        "explanation": "OAP post-opératoire : causes spécifiques (surcharge, ischémie, dysfonction valvulaire, cardioplégie). Coordination chirurgien-anesthésiste-réanimateur-cardiologue.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "Post-operative acute HF.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "oap-int-9",
+        "prompt": "OAP et cancer : conduite ?",
+        "choices": [
+          "Systématiquement palliatif",
+          "Coordination onco-cardio, évaluer pronostic, cardioprotection, options percutanées si besoin",
+          "Aucun traitement",
+          "Attente"
+        ],
+        "correct": 1,
+        "explanation": "OAP + cancer : coordination onco-cardio, évaluation pronostique, cardioprotection (anthracyclines, trastuzumab), options percutanées si haut risque chirurgical.",
+        "sources": [
+          {
+            "title": "ESC 2022 Cardio-Oncology",
+            "citation": "Cardio-oncology HF.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      },
+      {
+        "id": "oap-int-10",
+        "prompt": "OAP et transports/urgences pré-hospitalières ?",
+        "choices": [
+          "RCP seule",
+          "Position assise + O2 + VNI + diurétique IV (si médecin) + orientation USIC/cardio",
+          "Attente SAMU sans geste",
+          "Uniquement transport"
+        ],
+        "correct": 1,
+        "explanation": "Pré-hospitalier OAP : position assise, O2, VNI si disponible, furosémide IV (si médecin), orientation vers USIC/cardio. Coordination avec régulateur. Rôle Collaborateur.",
+        "sources": [
+          {
+            "title": "ESC 2022 OAP",
+            "citation": "Prehospital management.",
+            "organization": "ESC",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      },
+      {
+        "id": "oap-int-11",
+        "prompt": "OAP et registre/qualité ?",
+        "choices": [
+          "Aucun intérêt",
+          "Registre systématique, audit des pratiques, feedback équipes, amélioration continue",
+          "Uniquement statistiques",
+          "Pas de débriefing"
+        ],
+        "correct": 1,
+        "explanation": "Registre OAP : recueil systématique, analyse des pratiques, feedback, amélioration continue. Rôle Leader. Améliore la prise en charge et le pronostic.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Leader role.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      },
+      {
+        "id": "oap-int-12",
+        "prompt": "OAP et éducation des équipes ?",
+        "choices": [
+          "Aucune formation",
+          "Simulation régulière, formation continue, protocoles actualisés, audit",
+          "Uniquement médecins",
+          "Uniquement infirmiers"
+        ],
+        "correct": 1,
+        "explanation": "Formation équipes OAP : simulation (VNI, intubation, gestion du choc), formation continue, protocoles actualisés, audit des pratiques. Rôle Leader + Scholar.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Scholar role.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_scholar"
+      }
+    ]
   }
 ]
