@@ -4,7 +4,7 @@ import { z } from "zod";
 const REPORT_RATE_LIMIT_MAX = 3;
 const REPORT_RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
 
-async function resolveReporterIdentifier(optimusId?: string): Promise<string> {
+async function resolveReporterIdentifier(optimusId: string): Promise<string> {
   if (optimusId) return "user:" + optimusId;
   try {
     const mod = (await import("@tanstack/react-start/server")) as unknown as {
@@ -45,7 +45,13 @@ export const REPORT_ISSUE_LABEL: Record<ReportIssue, string> = {
 };
 
 const reportSchema = z.object({
-  optimusId: z.string().min(1).max(120).optional(),
+  optimusId: z
+    .string()
+    .min(1)
+    .max(120)
+    .refine((v) => v !== "OM-GUEST", {
+      message: "Crée un profil avant de signaler une erreur.",
+    }),
   contentType: z.enum(["question", "deck", "clinical_case"]),
   contentId: z.string().trim().min(1).max(120),
   deckId: z.string().trim().max(120).optional(),
@@ -56,7 +62,7 @@ const reportSchema = z.object({
   location: z.string().trim().max(500),
 });
 
-export type ContentReportInput = z.infer<typeof reportSchema>;
+export type ContentReportInput = Omit<z.infer<typeof reportSchema>, "optimusId">;
 
 export function formatContentReport(input: ContentReportInput): string {
   const context = [
@@ -97,7 +103,7 @@ export const submitContentReport = createServerFn({ method: "POST" })
         details,
         location
       ) values (
-        ${data.optimusId ?? "anonymous"},
+        ${data.optimusId},
         ${data.contentType},
         ${data.contentId},
         ${data.deckId ?? null},

@@ -183,6 +183,7 @@ export function ReportContentError({
 }) {
   const addContact = useOptimus((state) => state.addContact);
   const profile = useOptimus((state) => state.profile);
+  const isGuest = !profile.optimusId || profile.optimusId === "OM-GUEST";
   const [open, setOpen] = useState(false);
   const [issue, setIssue] = useState<ReportIssue | null>(null);
   const [details, setDetails] = useState("");
@@ -219,9 +220,19 @@ export function ReportContentError({
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <Button variant="ghost" size="sm" className={cn("text-muted", className)}>
+        <Button
+          variant="ghost"
+          size="sm"
+          className={cn("text-muted", className)}
+          onClick={(e) => {
+            if (isGuest) {
+              e.preventDefault();
+              toast.error("Crée un profil pour signaler une erreur.");
+            }
+          }}
+        >
           <Flag className="size-4" />
-          Signaler une erreur
+          {isGuest ? "Créer un profil pour signaler" : "Signaler une erreur"}
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
