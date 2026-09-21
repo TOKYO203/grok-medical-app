@@ -5,6 +5,14 @@ export const COMPETENCIES = [
   "diagnosis",
   "management",
   "clinical_reasoning",
+  // CanMEDS
+  "canmeds_expert",
+  "canmeds_communicator",
+  "canmeds_collaborator",
+  "canmeds_leader",
+  "canmeds_health_advocate",
+  "canmeds_scholar",
+  "canmeds_professional",
 ] as const;
 
 export type Competency = (typeof COMPETENCIES)[number];
@@ -16,6 +24,13 @@ export const COMPETENCY_LABEL: Record<Competency, string> = {
   diagnosis: "Diagnostic",
   management: "Prise en charge",
   clinical_reasoning: "Raisonnement",
+  canmeds_expert: "Expert médical",
+  canmeds_communicator: "Communicateur",
+  canmeds_collaborator: "Collaborateur",
+  canmeds_leader: "Leader",
+  canmeds_health_advocate: "Promoteur de la santé",
+  canmeds_scholar: "Érudit",
+  canmeds_professional: "Professionnel",
 };
 
 export type Difficulty = "base" | "avance";
