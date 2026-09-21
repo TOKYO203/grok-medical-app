@@ -11,7 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
-import { getAdminKey } from "@/routes/admin-login";
+import { getAdminKey, getAdminSessionState } from "@/routes/admin-login";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({ component: AdminHubPage });
@@ -69,6 +69,8 @@ const MODULES: Module[] = [
 
 function AdminHubPage() {
   const adminKey = getAdminKey();
+  const sessionState = getAdminSessionState();
+  const expired = sessionState === "expired";
 
   if (!adminKey) {
     return (
@@ -76,9 +78,13 @@ function AdminHubPage() {
         <Page className="mx-auto max-w-md">
           <div className="mt-10 text-center">
             <Lock className="mx-auto size-8 text-amber-500" aria-hidden />
-            <h1 className="mt-4 font-display text-2xl">Accès administrateur</h1>
+            <h1 className="mt-4 font-display text-2xl">
+              {expired ? "Session expirée" : "Accès administrateur"}
+            </h1>
             <p className="mt-2 text-sm text-muted">
-              Connecte-toi d'abord pour accéder au back-office.
+              {expired
+                ? "Ta session a expiré après 7 jours. Reconnecte-toi pour continuer."
+                : "Connecte-toi d'abord pour accéder au back-office."}
             </p>
             <Link
               to="/admin-login"

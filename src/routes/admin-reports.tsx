@@ -11,7 +11,7 @@ import {
 } from "@/lib/content-reports-admin";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { getAdminKey } from "@/routes/admin-login";
+import { getAdminKey, getAdminSessionState } from "@/routes/admin-login";
 import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/admin-reports")({ component: AdminReportsPage });
@@ -31,10 +31,35 @@ const STATUS_STYLE: Record<ContentReportStatus, string> = {
 };
 
 function AdminReportsPage() {
-  const _nav = useNavigate();
-  void _nav;
   const nav = useNavigate();
   const adminKey = getAdminKey();
+  const sessionState = getAdminSessionState();
+
+  useEffect(() => {
+    if (!adminKey) {
+      nav({ to: "/admin-login" });
+    }
+  }, [adminKey, nav]);
+
+  if (!adminKey) {
+    const expired = sessionState === "expired";
+    return (
+      <Shell title="Admin">
+        <Page className="mx-auto max-w-md">
+          <div className="mt-10 text-center">
+            <h1 className="mt-4 font-display text-2xl">
+              {expired ? "Session expirée" : "Accès administrateur"}
+            </h1>
+            <p className="mt-2 text-sm text-muted">
+              {expired
+                ? "Ta session a expiré. Redirection…"
+                : "Redirection vers la page de connexion…"}
+            </p>
+          </div>
+        </Page>
+      </Shell>
+    );
+  }
   const [reports, setReports] = useState<AdminContentReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [forbidden, setForbidden] = useState(false);

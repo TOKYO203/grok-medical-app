@@ -8,21 +8,80 @@ import { Input } from "@/components/ui/input";
 
 export const Route = createFileRoute("/admin-login")({ component: AdminLoginPage });
 
-const STORAGE_KEY = "optimus.admin.key";
+const STORAGE_KEY = "optimus.admin.session.v2";
+const LEGACY_KEY = "optimus.admin.key";
+const TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+export type AdminSession = {
+  token: string;
+  createdAt: number;
+  expiresAt: number;
+};
+
+export type AdminSessionState = "none" | "expired" | "valid";
+
+export function getAdminSession(): AdminSession | null {
+  if (typeof window === "undefined") return null;
+  const raw = window.localStorage.getItem(STORAGE_KEY);
+  if (!raw) return null;
+  try {
+    const s = JSON.parse(raw) as Partial<AdminSession>;
+    if (
+      typeof s.token !== "string" ||
+      typeof s.expiresAt !== "number" ||
+      typeof s.createdAt !== "number"
+    ) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    return s as AdminSession;
+  } catch {
+    window.localStorage.removeItem(STORAGE_KEY);
+    return null;
+  }
+}
+
+export function getAdminSessionState(): AdminSessionState {
+  if (typeof window === "undefined") return "none";
+  const s = getAdminSession();
+  if (s) {
+    if (Date.now() < s.expiresAt) return "valid";
+    window.localStorage.removeItem(STORAGE_KEY);
+    return "expired";
+  }
+  const legacy = window.localStorage.getItem(LEGACY_KEY);
+  if (legacy) {
+    setAdminKey(legacy);
+    window.localStorage.removeItem(LEGACY_KEY);
+    return "valid";
+  }
+  return "none";
+}
 
 export function getAdminKey(): string {
   if (typeof window === "undefined") return "";
-  return window.localStorage.getItem(STORAGE_KEY) ?? "";
+  const state = getAdminSessionState();
+  if (state !== "valid") return "";
+  const s = getAdminSession();
+  return s?.token ?? "";
 }
 
 export function setAdminKey(key: string): void {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, key);
+  const now = Date.now();
+  const session: AdminSession = {
+    token: key,
+    createdAt: now,
+    expiresAt: now + TTL_MS,
+  };
+  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  window.localStorage.removeItem(LEGACY_KEY);
 }
 
 export function clearAdminKey(): void {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(STORAGE_KEY);
+  window.localStorage.removeItem(LEGACY_KEY);
 }
 
 function AdminLoginPage() {
