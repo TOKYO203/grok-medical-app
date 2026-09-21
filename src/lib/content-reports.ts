@@ -1,6 +1,31 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
+const REPORT_RATE_LIMIT_MAX = 3;
+const REPORT_RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+async function resolveReporterIdentifier(optimusId?: string): Promise<string> {
+  if (optimusId) return "user:" + optimusId;
+  try {
+    const mod = (await import("@tanstack/react-start/server")) as unknown as {
+      getWebRequest?: () => Request;
+      getRequest?: () => Request;
+    };
+    const req = mod.getWebRequest?.() ?? mod.getRequest?.();
+    const h = req?.headers;
+    if (h) {
+      const ip =
+        h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+        h.get("x-real-ip") ||
+        "unknown";
+      return "ip:" + ip;
+    }
+  } catch {
+    /* fallback ci-dessous */
+  }
+  return "anon";
+}
+
 export const REPORT_ISSUES = [
   "wrong_answer",
   "unclear_explanation",
@@ -51,6 +76,15 @@ export const submitContentReport = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
+    const identifier = await resolveReporterIdentifier(data.optimusId);
+    const sinceIso = new Date(Date.now() - REPORT_RATE_LIMIT_WINDOW_MS).toISOString();
+    const countRows = await sql`select count(*)::int as count from report_rate_limits where identifier = ${identifier} and created_at > ${sinceIso}`;
+    const recentCount = (countRows[0] as { count?: number } | undefined)?.count ?? 0;
+    if (recentCount >= REPORT_RATE_LIMIT_MAX) {
+      throw new Error(
+        "Limite atteinte : maximum " + REPORT_RATE_LIMIT_MAX + " signalements par 24 heures.",
+      );
+    }
     const rows = await sql<{ id: string }>`
       insert into content_reports (
         user_id,
@@ -77,5 +111,6 @@ export const submitContentReport = createServerFn({ method: "POST" })
     `;
     const id = rows[0]?.id;
     if (!id) throw new Error("Le signalement n'a pas pu être enregistré.");
+    await sql`insert into report_rate_limits (identifier) values (${identifier})`;
     return { reference: id.slice(0, 8).toUpperCase() };
   });
