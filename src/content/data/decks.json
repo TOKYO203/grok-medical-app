@@ -9509,5 +9509,1296 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-arret-l2",
+    "version": "1.0.0",
+    "title": "Arrêt cardiaque — notions",
+    "subtitle": "Reconnaître, alerter, masser · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "management",
+      "canmeds_leader"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "arret-l2-1",
+        "prompt": "Définition de l'arrêt cardiaque ?",
+        "choices": [
+          "Absence d'activité cardiaque efficace (pas de pouls, pas de respiration)",
+          "Perte de connaissance seule",
+          "Bradycardie sévère",
+          "HTA sévère"
+        ],
+        "correct": 0,
+        "explanation": "Arrêt cardiaque : absence d'activité mécanique cardiaque → pas de pouls + apnée (ou gasps). Perte de connaissance en 10-20 sec.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "arret-l2-2",
+        "prompt": "Comment reconnaître un arrêt cardiaque ?",
+        "choices": [
+          "Convulsions",
+          "Douleur thoracique",
+          "Inconscient + pas de respiration normale (gasps) + pas de pouls",
+          "Cyanose seule"
+        ],
+        "correct": 2,
+        "explanation": "Reconnaissance en <10 sec : inconscient, pas de respiration normale (gasps = agonal), pas de pouls. Ne pas perdre de temps.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "arret-l2-3",
+        "prompt": "Première action devant un arrêt cardiaque ?",
+        "choices": [
+          "Alerter + débuter compressions thoraciques immédiatement",
+          "Chercher un médecin",
+          "Attendre l'ambulance",
+          "Faire un ECG"
+        ],
+        "correct": 0,
+        "explanation": "Alerter + massages immédiats. Zéro délai. La RCP précoce double voire triple la survie.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l2-4",
+        "prompt": "Fréquence des compressions thoraciques ?",
+        "choices": [
+          "100-120/min",
+          "60/min",
+          "150/min",
+          "200/min"
+        ],
+        "correct": 0,
+        "explanation": "RCP adulte : 100-120/min, profondeur 5-6 cm, retour complet du thorax, interruptions <10 sec.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l2-5",
+        "prompt": "Position des mains pour la RCP adulte ?",
+        "choices": [
+          "Sur le côté gauche",
+          "Centre du thorax, moitié inférieure du sternum",
+          "Sur l'abdomen",
+          "Sur la thyroïde"
+        ],
+        "correct": 1,
+        "explanation": "Mains au centre du thorax (moitié inférieure du sternum), bras tendus, épaules au-dessus des mains.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l2-6",
+        "prompt": "Ratio compressions/ventilations en RCP adulte ?",
+        "choices": [
+          "30:2 (30 compressions, 2 insufflations)",
+          "15:2",
+          "5:1",
+          "10:2"
+        ],
+        "correct": 0,
+        "explanation": "Adulte : 30:2. Enfant : 15:2 (sauf nouveau-né 3:1). Compression-only si pas de dispositif.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l2-7",
+        "prompt": "Quand défibriller ?",
+        "choices": [
+          "Attendre le médecin",
+          "Après 10 min de RCP",
+          "Dès qu'un DAE est disponible si rythme choquable (FV/TV sans pouls)",
+          "Jamais"
+        ],
+        "correct": 2,
+        "explanation": "Défibrillation précoce = survie x2-3 si FV/TV. Dès que DAE disponible, sans interrompre la RCP >10 sec.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l2-8",
+        "prompt": "Quels sont les 4 rythmes d'arrêt cardiaque ?",
+        "choices": [
+          "FV, TV sans pouls, asystolie, activité électrique sans pouls (AESP)",
+          "Tachycardie, bradycardie, FA, flutter",
+          "BAV3, TV, FV, asystolie",
+          "Asystolie, AESP, BAV3, fibrillation auriculaire"
+        ],
+        "correct": 0,
+        "explanation": "Rythmes d'arrêt : FV et TV sans pouls (choquables) ; asystolie et AESP (non choquables). Identifier sur le moniteur.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "arret-l2-9",
+        "prompt": "Qui appeler en premier ?",
+        "choices": [
+          "Le médecin de famille",
+          "SAMU (numéro d'urgence) + demander un DAE",
+          "La famille",
+          "Aucun appel"
+        ],
+        "correct": 1,
+        "explanation": "Alerter SAMU + demander un DAE. Si plusieurs témoins : un appelle, un masse, un cherche le DAE.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_leader"
+      },
+      {
+        "id": "arret-l2-10",
+        "prompt": "Conduite L2 devant une personne inconsciente ?",
+        "choices": [
+          "Vérifier conscience + respiration + appeler + débuter RCP",
+          "Attendre",
+          "Chercher du pouls 2 min",
+          "Donner à boire"
+        ],
+        "correct": 0,
+        "explanation": "Séquence : vérifier inconscience + respiration (≤10 sec) → appeler → débuter RCP. Ne pas retarder.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-arret-l3",
+    "version": "1.0.0",
+    "title": "Arrêt cardiaque — RCP de base et DAE",
+    "subtitle": "Masser, ventiler, défibriller · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "management",
+      "diagnostic_orientation",
+      "canmeds_leader"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "arret-l3-1",
+        "prompt": "Qualité des compressions : critères ?",
+        "choices": [
+          "Profondeur 5-6 cm, 100-120/min, retour complet, interruptions <10 sec",
+          "Profondeur 2 cm",
+          "60/min",
+          "Sans interruption 30 min"
+        ],
+        "correct": 0,
+        "explanation": "RCP de qualité : 5-6 cm, 100-120/min, retour complet du thorax, interruptions <10 sec.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-2",
+        "prompt": "Quand arrêter la RCP ?",
+        "choices": [
+          "Après 5 min",
+          "Après 30 min systématique",
+          "Reprise de circulation spontanée, décision médicale, épuisement, directives anticipées",
+          "Jamais"
+        ],
+        "correct": 2,
+        "explanation": "Arrêt RCP : reprise circulation, décision médicale, épuisement sauveteurs, directives anticipées. Réévaluation régulière.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-3",
+        "prompt": "Position latérale de sécurité (PLS) : quand ?",
+        "choices": [
+          "Patient en arrêt",
+          "Patient inconscient qui respire (pas d'arrêt cardiaque)",
+          "Patient conscient",
+          "Patient avec douleur"
+        ],
+        "correct": 1,
+        "explanation": "PLS : patient inconscient qui respire normalement. Protection des voies aériennes. Pas en cas d'arrêt (RCP) ni trauma rachis.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-4",
+        "prompt": "DAE : comment l'utiliser ?",
+        "choices": [
+          "Allumer + coller électrodes (sous-clavière droite + apex gauche) + suivre instructions",
+          "Placer sur le ventre",
+          "Uniquement par médecin",
+          "Jamais"
+        ],
+        "correct": 0,
+        "explanation": "DAE : allumer, coller électrodes selon schéma, suivre instructions vocales. Analyser sans toucher le patient. Reprendre RCP immédiatement après.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-5",
+        "prompt": "DAE sur pacemaker : précaution ?",
+        "choices": [
+          "Aucune précaution",
+          "Retirer le pacemaker",
+          "Électrodes à ≥8 cm du boîtier",
+          "Ne pas défibriller"
+        ],
+        "correct": 2,
+        "explanation": "DAE + pacemaker : électrodes à ≥8 cm du boîtier. Choc possible sans danger si position correcte.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-6",
+        "prompt": "Ventilation au masque : repères ?",
+        "choices": [
+          "Bascule de la tête + élévation du menton, insufflations de 1 sec avec soulèvement du thorax",
+          "Hyper-extension du cou, insufflations rapides de 3 sec",
+          "Bascule de la tête seule, insufflations jusqu'à résistance majeure",
+          "Insufflations de 5 sec sans maintenir les voies aériennes"
+        ],
+        "correct": 0,
+        "explanation": "Ventilation : bascule tête + menton, insufflations 1 sec, volume suffisant pour voir le thorax se soulever. Éviter hyperventilation.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-7",
+        "prompt": "RCP par un seul sauveteur non formé ?",
+        "choices": [
+          "Ventilations seules",
+          "Aucune action",
+          "Attente des secours",
+          "Compressions seules (compression-only CPR)"
+        ],
+        "correct": 3,
+        "explanation": "Sauveteur isolé non formé : compressions seules. Formé : 30:2. Les compressions seules sont supérieures à rien.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-8",
+        "prompt": "RCP sur enfant : particularité ?",
+        "choices": [
+          "Débuter par 5 insufflations + cycles 15:2, compressions au 1/3 inférieur",
+          "Identique à l'adulte",
+          "Uniquement compressions",
+          "Pas de RCP"
+        ],
+        "correct": 0,
+        "explanation": "Enfant : débuter par 5 insufflations (cause souvent hypoxique), cycles 15:2, compressions au 1/3 inférieur.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-9",
+        "prompt": "Arrêt cardiaque traumatique : particularité ?",
+        "choices": [
+          "RCP seule",
+          "Pas de RCP",
+          "Attente chirurgicale",
+          "Traiter les causes (hypovolémie, pneumothorax compressif, tamponnade, hypoxie) + RCP"
+        ],
+        "correct": 3,
+        "explanation": "Arrêt traumatique : causes réversibles + RCP + traitement cause (remplissage, drainage, thoracotomie).",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l3-10",
+        "prompt": "Éléments à transmettre au SAMU ?",
+        "choices": [
+          "Rien",
+          "Uniquement la localisation",
+          "Localisation, âge, circonstances, heure de début, RCP en cours, DAE disponible",
+          "Uniquement l'âge"
+        ],
+        "correct": 2,
+        "explanation": "Transmission SAMU : localisation, âge, circonstances, heure, RCP en cours, DAE. Clair, bref, structuré.",
+        "sources": [
+          {
+            "title": "ERC 2021 BLS",
+            "citation": "ERC 2021 — Basic Life Support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "canmeds_leader"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-arret-l4",
+    "version": "1.0.0",
+    "title": "Arrêt cardiaque — ACLS",
+    "subtitle": "Algorithme, drogues, causes réversibles · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "arret-l4-1",
+        "prompt": "Algorithme ALS : fréquence du cycle ?",
+        "choices": [
+          "Cycle de 2 min (compressions + analyse + choc + drogues)",
+          "Cycle 30 sec",
+          "Cycle 10 min",
+          "Aucun cycle"
+        ],
+        "correct": 0,
+        "explanation": "Cycle ALS : 2 min RCP → analyse → choc si indiqué → drogues → reprise RCP. Pauses <10 sec.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-2",
+        "prompt": "Première drogue en arrêt cardiaque ?",
+        "choices": [
+          "Amiodarone",
+          "Atropine",
+          "Adrénaline 1 mg IV/IO toutes les 3-5 min",
+          "Lidocaïne"
+        ],
+        "correct": 2,
+        "explanation": "Adrénaline 1 mg IV/IO toutes les 3-5 min. Vasopresseur, augmente perfusion coronaire et cérébrale.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-3",
+        "prompt": "Drogue antiarythmique en FV/TV réfractaire ?",
+        "choices": [
+          "Amiodarone 300 mg IV après le 3e choc (puis 150 mg)",
+          "Lidocaïne",
+          "Sotalol",
+          "Digoxine"
+        ],
+        "correct": 0,
+        "explanation": "FV/TV réfractaire : amiodarone 300 mg IV après 3e choc, puis 150 mg. Alternative : lidocaïne 100 mg.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-4",
+        "prompt": "Quand NE PAS défibriller ?",
+        "choices": [
+          "FV",
+          "TV sans pouls",
+          "Asystolie et AESP (non choquables)",
+          "FV/TV"
+        ],
+        "correct": 2,
+        "explanation": "Asystolie et AESP : non choquables. RCP + adrénaline + recherche causes.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-5",
+        "prompt": "Les 4 H et 4 T des causes réversibles ?",
+        "choices": [
+          "Hypoxie, hypovolémie, hypo/hyperkaliémie, hypothermie / Thrombose (coronaire, pulmonaire), tamponnade, toxiques, pneumothorax compressif",
+          "Hypoglycémie, hypercalcémie, hypernatrémie",
+          "Diabète, HTA, obésité",
+          "Aucune cause"
+        ],
+        "correct": 0,
+        "explanation": "4H : Hypoxie, Hypovolémie, Hypo/Hyperkaliémie, Hypothermie. 4T : Thrombose, Tamponnade, Toxiques, Tension pneumothorax.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "arret-l4-6",
+        "prompt": "AESP : conduite ?",
+        "choices": [
+          "Choc électrique",
+          "RCP + adrénaline + recherche active des causes réversibles",
+          "Défibrillation x3",
+          "Aucune action"
+        ],
+        "correct": 1,
+        "explanation": "AESP : RCP + adrénaline + écho (tamponnade, hypovolémie), gaz du sang. Pas de choc. Pronostic dépend de la cause.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-7",
+        "prompt": "Asystolie : conduite ?",
+        "choices": [
+          "RCP + adrénaline + recherche causes + éventuel pacing (rarement efficace)",
+          "Choc électrique",
+          "Amiodarone",
+          "Aucune action"
+        ],
+        "correct": 0,
+        "explanation": "Asystolie : RCP + adrénaline + causes (hypoxie, hyperkaliémie, toxiques). Pacing externe rarement efficace. Pronostic sombre.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-8",
+        "prompt": "Échographie per-RCP : intérêt ?",
+        "choices": [
+          "Diagnostic principal",
+          "Recherche ciblée de causes réversibles (tamponnade, hypovolémie, EP) sans interrompre la RCP",
+          "Contre-indiqué",
+          "Uniquement après RCP"
+        ],
+        "correct": 1,
+        "explanation": "Écho per-RCP : recherche tamponnade, hypovolémie, cœur vide, EP. Pauses <10 sec. POCUS.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-9",
+        "prompt": "Capnographie per-RCP : intérêt ?",
+        "choices": [
+          "Évaluer qualité RCP et détecter reprise de circulation (ETCO2 >20 mmHg)",
+          "Diagnostic",
+          "Contre-indiqué",
+          "Uniquement en réa"
+        ],
+        "correct": 0,
+        "explanation": "Capnographie : ETCO2 >10-20 mmHg = RCP efficace ; pic brusque = reprise circulation. Référence pour la qualité.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-10",
+        "prompt": "Ventilation per-RCP : paramètres ?",
+        "choices": [
+          "20/min",
+          "10/min, sans hyperventilation, FIO2 100 %, éviter pauses",
+          "5/min",
+          "Sans ventilation"
+        ],
+        "correct": 1,
+        "explanation": "Ventilation per-RCP : 10/min (1 toutes les 6 sec), FIO2 100 %, sans hyperventilation. Après intubation : compressions continues + 10 vent/min.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-11",
+        "prompt": "Quand intuber en arrêt cardiaque ?",
+        "choices": [
+          "Systématiquement",
+          "Jamais",
+          "Uniquement si asystolie",
+          "Par opérateur expérimenté sans interrompre la RCP ou par dispositif supraglottique"
+        ],
+        "correct": 3,
+        "explanation": "Intubation : opérateur expérimenté, sans interrompre compressions. Alternative : dispositif supraglottique.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l4-12",
+        "prompt": "Voie d'abord : IV vs IO ?",
+        "choices": [
+          "IV périphérique en 1ère, IO si échec (tibial proximal, huméral)",
+          "IO systématique",
+          "IM",
+          "SC"
+        ],
+        "correct": 0,
+        "explanation": "Voie : IV périphérique 1ère intention, IO si échec (2 tentatives ou 90 sec). IO rapide et efficace.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-arret-l5",
+    "version": "1.0.0",
+    "title": "Arrêt cardiaque — post-ROSC",
+    "subtitle": "Réanimation post-arrêt, pronostic · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "prognosis",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "arret-l5-1",
+        "prompt": "Post-ROSC : objectifs ?",
+        "choices": [
+          "Contrôle température cible 32-36°C, normoxie, hémodynamique, glycémie, neuroprotection",
+          "Réveil immédiat",
+          "Extubation rapide",
+          "Aucun objectif"
+        ],
+        "correct": 0,
+        "explanation": "Post-ROSC : contrôle cible température (32-36°C) ≥24h, normoxie/normocapnie, PAM >65, glycémie, neuroprotection, coronarographie si SCA.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l5-2",
+        "prompt": "Cible de température post-ROSC ?",
+        "choices": [
+          "Normothermie stricte",
+          "Hypothermie profonde <30°C",
+          "Hyperthermie",
+          "32-36°C pendant ≥24h, réchauffement lent"
+        ],
+        "correct": 3,
+        "explanation": "Contrôle cible température : 32-36°C ≥24h, réchauffement lent (0,25-0,5°C/h), éviter hyperthermie.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l5-3",
+        "prompt": "Coronarographie post-ROSC : quand ?",
+        "choices": [
+          "Systématique",
+          "Suspicion de SCA (ECG ST+ ou ST-) sans cause non cardiaque évidente",
+          "Jamais",
+          "Uniquement si douleur"
+        ],
+        "correct": 1,
+        "explanation": "Coronarographie post-ROSC : indiquée si suspicion SCA (surtout ST+). Améliore la survie. Immédiate chez patients stables ou choqués.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l5-4",
+        "prompt": "Pronostic post-arrêt : facteurs favorables ?",
+        "choices": [
+          "Témoin + RCP précoce + FV/TV + cause réversible + absence comorbidité",
+          "Asystolie prolongée",
+          "Arrêt non témoigné",
+          "Comorbidités multiples"
+        ],
+        "correct": 0,
+        "explanation": "Pronostic favorable : témoin, RCP précoce, rythme choquable (FV/TV), cause réversible, absence de comorbidité.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "arret-l5-5",
+        "prompt": "Pronostic : quand arrêter la réanimation en réa ?",
+        "choices": [
+          "Après 20 min systématiquement",
+          "Jamais",
+          "Après 72h de coma persistant sans amélioration et absence de cause réversible",
+          "Après 24h seulement"
+        ],
+        "correct": 2,
+        "explanation": "Arrêt réanimation : absence de reprise circulation après 20-30 min de RCP bien conduite + asystolie, ou 72h de coma sans amélioration. Décision collégiale.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l5-6",
+        "prompt": "Pronostic neurologique : quand évaluer ?",
+        "choices": [
+          "Immédiatement",
+          "À 72h minimum (examen, EEG, NSE, imagerie) chez patient en coma post-arrêt sous sédation",
+          "À 30 jours",
+          "À 1 an"
+        ],
+        "correct": 1,
+        "explanation": "Pronostic neuro : ≥72h post-arrêt, après élimination des confondants (sédation, hypothermie). Combiner clinique + EEG + NSE + imagerie.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "arret-l5-7",
+        "prompt": "Réveil post-arrêt : séquelles fréquentes ?",
+        "choices": [
+          "Aucune",
+          "Séquelles cognitives (mémoire, attention), syndrome post-arrêt, anxiété",
+          "Amélioration cognitive",
+          "Uniquement motrices"
+        ],
+        "correct": 1,
+        "explanation": "Post-arrêt : troubles cognitifs fréquents (mémoire, attention), anxiété, dépression, fatigue. Rééducation et soutien psychologique.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "arret-l5-8",
+        "prompt": "Prévention secondaire après arrêt cardiaque récupéré ?",
+        "choices": [
+          "Aucune",
+          "DAI si FEVG ≤35 % ou cause non réversible, traitement de la cause, réadaptation",
+          "Aspirine seule",
+          "Bêtabloquant seul"
+        ],
+        "correct": 1,
+        "explanation": "Prévention secondaire : DAI (sauf cause réversible), traitement de la cause (revascularisation, médicaments), réadaptation cardiaque, éducation.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-l5-9",
+        "prompt": "Arrêt cardiaque familial : exploration ?",
+        "choices": [
+          "Aucune",
+          "ECG + écho + IRM + tests génétiques si cause héréditaire suspectée",
+          "Uniquement ECG",
+          "Uniquement clinique"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt familial : bilan étiologique (ECG, écho, IRM, tests génétiques). Dépistage familial si canalopathie ou cardiopathie héréditaire.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "arret-l5-10",
+        "prompt": "Rôle de l'éducation grand public ?",
+        "choices": [
+          "Aucun rôle",
+          "Formation RCP + DAE massifs, augmentation taux de témoins formés (survie x2-3)",
+          "Uniquement médecins",
+          "Uniquement pompiers"
+        ],
+        "correct": 1,
+        "explanation": "Éducation grand public : formation RCP + DAE, reconnaissance arrêt, appel précoce. Impact direct sur la survie (x2-3). Rôle CanMEDS Leader.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-arret-int",
+    "version": "1.0.0",
+    "title": "Arrêt cardiaque — cas complexes",
+    "subtitle": "Situations particulières, éthique · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "arret-int-1",
+        "prompt": "Arrêt cardiaque hypothermique : particularité ?",
+        "choices": [
+          "Arrêter la RCP",
+          "RCP prolongée + réchauffement (jusqu'à 32°C), pas de pronostic avant réchauffement",
+          "Réchauffer après RCP",
+          "Aucun traitement"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt hypothermique : RCP prolongée + réchauffement actif (CEC si <28°C). Pas de pronostic avant réchauffement. Survie décrite.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-2",
+        "prompt": "Arrêt cardiaque et grossesse : conduite ?",
+        "choices": [
+          "Aucune modification",
+          "Décalage utérin gauche + RCP + césarienne en urgence si >20 SA après 4 min RCP",
+          "Césarienne seule",
+          "RCP uniquement"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt + grossesse >20 SA : décalage utérin gauche, RCP, extraction fœtale en urgence (césarienne) après 4 min RCP sans ROSC. Améliore survie materno-fœtale.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-3",
+        "prompt": "Arrêt cardiaque et COVID : précaution ?",
+        "choices": [
+          "Aucune précaution",
+          "Compressions seules par témoin, EPI dès que possible, VNI/CPAP si disponible",
+          "Pas de RCP",
+          "Attendre résultats PCR"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt + COVID : compressions seules par témoin (risque aérosol), EPI dès que possible. Intubation précoce par équipe expérimentée.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-4",
+        "prompt": "Arrêt cardiaque à l'hôpital : particularité ?",
+        "choices": [
+          "Identique extra-hospitalier",
+          "Causes souvent réversibles (hypoxie, médicaments, embolie), pronostic meilleur si témoin formé",
+          "Pronostic identique",
+          "Pas de différence"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt intra-hospitalier : causes réversibles fréquentes, témoin formé, pronostic meilleur. Équipe de réponse rapide.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-5",
+        "prompt": "Arrêt cardiaque chez l'enfant : particularité ?",
+        "choices": [
+          "Souvent asystolie/AESP (cause hypoxique), RCP 15:2, débuter par 5 insufflations",
+          "Souvent FV",
+          "Identique à l'adulte",
+          "Pas de RCP"
+        ],
+        "correct": 0,
+        "explanation": "Arrêt pédiatrique : cause souvent hypoxique (asystolie/AESP), RCP 15:2, 5 insufflations initiales, compressions au 1/3 inférieur.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-6",
+        "prompt": "Arrêt cardiaque et trauma : conduite ?",
+        "choices": [
+          "Aucune spécificité",
+          "Causes réversibles spécifiques (hypovolémie, pneumothorax compressif, tamponnade) + chirurgie précoce",
+          "RCP seule",
+          "Pas de RCP"
+        ],
+        "correct": 1,
+        "explanation": "Arrêt traumatique : hypovolémie, pneumothorax compressif, tamponnade, hypoxie. RCP + traitement cause + chirurgie précoce.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-7",
+        "prompt": "Arrêt cardiaque et SCA : conduite ?",
+        "choices": [
+          "RCP + SCA : coronarographie post-ROSC + antiagrégants + PCI",
+          "SCA seul",
+          "PCI systématique avant RCP",
+          "Aucune action"
+        ],
+        "correct": 0,
+        "explanation": "SCA + arrêt : RCP bien conduite + coronarographie post-ROSC (ST+ surtout), antiagrégants, PCI. Améliore survie.",
+        "sources": [
+          {
+            "title": "ERC 2021 ACLS",
+            "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+            "organization": "ERC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "arret-int-8",
+        "prompt": "Limitation thérapeutique et arrêt cardiaque ?",
+        "choices": [
+          "Ne pas appliquer",
+          "Discuter en amont (RCP ou pas RCP), décision collégiale, tracée, réévaluation régulière",
+          "Décision individuelle",
+          "Pas de discussion"
+        ],
+        "correct": 1,
+        "explanation": "Limitation thérapeutique : discussion en amont (directives anticipées), décision collégiale, tracée dans le dossier, réévaluation régulière. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "arret-int-9",
+        "prompt": "Formation des équipes : rôle ?",
+        "choices": [
+          "Aucun",
+          "Simulation régulière, formation continue, audit des pratiques, feedback",
+          "Uniquement médecins",
+          "Uniquement internes"
+        ],
+        "correct": 1,
+        "explanation": "Formation équipes : simulation régulière (high-fidelity), formation continue, audit des pratiques, feedback. Améliore la survie. Rôle CanMEDS Leader.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      },
+      {
+        "id": "arret-int-10",
+        "prompt": "Registre et qualité : rôle ?",
+        "choices": [
+          "Aucun",
+          "Registre national + analyse des pratiques + amélioration continue",
+          "Uniquement statistiques",
+          "Pas d'utilité"
+        ],
+        "correct": 1,
+        "explanation": "Registre (type RéAC en France) : recueil systématique, analyse des pratiques, amélioration continue. Rôle CanMEDS Leader + Scholar.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      },
+      {
+        "id": "arret-int-11",
+        "prompt": "Annonce du décès aux proches ?",
+        "choices": [
+          "Par téléphone uniquement",
+          "Entretien dédié, lieu calme, écoute, empathie, information claire, soutien, orientation vers psychologue si besoin",
+          "Par écrit",
+          "Ne rien dire"
+        ],
+        "correct": 1,
+        "explanation": "Annonce décès : entretien dédié, calme, empathie, information claire, soutien, orientation psychologue. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "arret-int-12",
+        "prompt": "Post-arrêt : coordination des soins ?",
+        "choices": [
+          "Aucune",
+          "Cardiologue + réanimateur + neurologue + rééducateur + psychologue + IDE",
+          "Uniquement cardiologue",
+          "Uniquement réanimateur"
+        ],
+        "correct": 1,
+        "explanation": "Post-arrêt : coordination cardiologue + réanimateur + neurologue + rééducateur + psychologue + IDE. Réadaptation précoce. Rôle Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Leader.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
