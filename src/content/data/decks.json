@@ -6860,5 +6860,1319 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-fa-l2",
+    "version": "1.0.0",
+    "title": "Fibrillation atriale — notions",
+    "subtitle": "Reconnaître, comprendre, orienter · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "fa-l2-1",
+        "prompt": "Définition de la fibrillation atriale ?",
+        "choices": [
+          "Arythmie supraventriculaire par activité atriale anarchique (300-600/min) sans onde P",
+          "Tachycardie sinusale",
+          "Bradycardie",
+          "Extrasystoles ventriculaires"
+        ],
+        "correct": 0,
+        "explanation": "FA : activité atriale anarchique rapide, réponse ventriculaire irrégulière, absence d'onde P à l'ECG. Arythmie soutenue la plus fréquente.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-2",
+        "prompt": "Prévalence de la FA ?",
+        "choices": [
+          "1-2 % de la population générale, jusqu'à 10 % après 80 ans",
+          "0,01 %",
+          "50 %",
+          "0,1 %"
+        ],
+        "correct": 0,
+        "explanation": "FA : 1-2 % de la population, prévalence croissante avec l'âge (10 % après 80 ans). 33 millions de personnes dans le monde.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-3",
+        "prompt": "Symptômes les plus fréquents de la FA ?",
+        "choices": [
+          "Palpitations, dyspnée, fatigue, parfois asymptomatique",
+          "Douleur thoracique constante",
+          "Fièvre",
+          "Céphalées isolées"
+        ],
+        "correct": 0,
+        "explanation": "FA : palpitations (le plus fréquent), dyspnée, fatigue, vertiges, syncope. 1/3 sont asymptomatiques (découverte fortuite).",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "fa-l2-4",
+        "prompt": "Signe clinique typique de la FA ?",
+        "choices": [
+          "Pouls irrégulièrement irrégulier, déficit pouls-auscultation",
+          "Pouls régulier rapide",
+          "Bradycardie régulière",
+          "Pouls paradoxal"
+        ],
+        "correct": 0,
+        "explanation": "FA : pouls irrégulièrement irrégulier, déficit pouls-auscultation (différence entre FC auscultée et pouls perçu). Signe classique.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Fibrillation atriale.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-5",
+        "prompt": "Principales étiologies de la FA ?",
+        "choices": [
+          "HTA, valvulopathie, coronaropathie, hyperthyroïdie, alcool, âge",
+          "Infection seule",
+          "Vieillissement isolé",
+          "Génétique uniquement"
+        ],
+        "correct": 0,
+        "explanation": "FA : HTA (1ère cause), valvulopathies (mitrale ++), coronaropathie, IC, hyperthyroïdie, alcool, obésité, SAOS, âge. 20 % idiopathique.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-6",
+        "prompt": "Quelles sont les 4 catégories de FA selon la durée ?",
+        "choices": [
+          "Paroxystique, persistante, persistante de longue durée, permanente",
+          "Aigüe/chronique",
+          "Rapide/lente",
+          "Simple/complexe"
+        ],
+        "correct": 0,
+        "explanation": "FA : paroxystique (<7j, auto-limitée), persistante (>7j, nécessite cardioversion), persistante longue durée (>1 an), permanente (acceptée, pas de rythme ciblé).",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-7",
+        "prompt": "Comment évaluer le risque embolique ?",
+        "choices": [
+          "Score CHA2DS2-VASc",
+          "Score de Wells",
+          "Score de Glasgow",
+          "Score de Child-Pugh"
+        ],
+        "correct": 0,
+        "explanation": "CHA2DS2-VASc : IC, HTA, âge ≥75 (2), diabète, AVC/AIT (2), maladie vasculaire, âge 65-74, sexe féminin. ≥1 (homme) ou ≥2 (femme) → anticoagulation.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-8",
+        "prompt": "Quelle complication majeure de la FA ?",
+        "choices": [
+          "AVC cardio-embolique (thrombus dans l'auricule gauche)",
+          "Infarctus du myocarde",
+          "Péricardite",
+          "Endocardite"
+        ],
+        "correct": 0,
+        "explanation": "FA : stase dans l'auricule gauche → thrombus → AVC cardio-embolique. Risque x5 d'AVC. Anticoagulation réduit ce risque de 60-70 %.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-9",
+        "prompt": "Signe ECG caractéristique de la FA ?",
+        "choices": [
+          "Absence d'onde P + trémulation de la ligne de base + QRS irréguliers",
+          "Onde P ample",
+          "Sus-décalage ST",
+          "BBG complet"
+        ],
+        "correct": 0,
+        "explanation": "FA : pas d'onde P, ligne de base trémulante (ondes f), espaces RR irréguliers. Diagnostic ECG.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Fibrillation atriale.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "fa-l2-10",
+        "prompt": "Conduite L2 devant palpitations irrégulières ?",
+        "choices": [
+          "ECG immédiat + avis senior + recherche signes de gravité",
+          "Repos uniquement",
+          "Rassurer",
+          "Bêtabloquant d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Devant palpitations : ECG immédiat, avis senior. Rechercher signes de mauvaise tolérance (hypotension, angor, OAP). Confirmer le diagnostic.",
+        "sources": [
+          {
+            "title": "HAS 2023 FA",
+            "citation": "Prise en charge de la fibrillation atriale. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-fa-l3",
+    "version": "1.0.0",
+    "title": "FA — diagnostic et classification",
+    "subtitle": "Diagnostiquer, classer, évaluer · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "fa-l3-1",
+        "prompt": "Comment confirmer une FA sur un tracé ?",
+        "choices": [
+          "ECG 12 dérivations : absence d'onde P + RR irréguliers + durée ≥30 sec",
+          "Holter seul",
+          "Écho seul",
+          "Clinique seule"
+        ],
+        "correct": 0,
+        "explanation": "Diagnostic FA : ECG (ou enregistrement) montrant RR irréguliers + absence d'onde P sur ≥30 sec. Holter si FA paroxystique suspectée.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "fa-l3-2",
+        "prompt": "FA paroxystique : définition exacte ?",
+        "choices": [
+          "Terminaison spontanée en <7 jours, souvent <48h",
+          "Terminaison en <30 jours",
+          "FA permanente",
+          "FA avec cardioversion"
+        ],
+        "correct": 0,
+        "explanation": "FA paroxystique : <7 jours (souvent <48h), conversion spontanée. Persistante : >7 jours (ou cardioversion). Différence importante pour la stratégie.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "fa-l3-3",
+        "prompt": "Score EHRA : à quoi sert-il ?",
+        "choices": [
+          "Évaluer le retentissement fonctionnel de la FA",
+          "Risque embolique",
+          "Risque hémorragique",
+          "Pronostic vital"
+        ],
+        "correct": 0,
+        "explanation": "EHRA : 1 (asymptomatique), 2a (léger), 2b (modéré), 3 (sévère, activité limitée), 4 (invalidant). Guide la stratégie thérapeutique.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "fa-l3-4",
+        "prompt": "Score HAS-BLED : à quoi sert-il ?",
+        "choices": [
+          "Évaluer le risque hémorragique sous anticoagulation",
+          "Risque thrombotique",
+          "Risque de FA permanente",
+          "Pronostic"
+        ],
+        "correct": 0,
+        "explanation": "HAS-BLED : HTA, anomalie rénale/hépatique, AVC, saignement, INR labile, âge >65, drogues/alcool. ≥3 = haut risque hémorragique. N'empêche pas l'ACO, impose surveillance.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l3-5",
+        "prompt": "FA valvulaire : particularité ?",
+        "choices": [
+          "FA sur valvulopathie mitrale rhumatismale ou prothèse mécanique : ACO par AVK obligatoire (pas d'AOD)",
+          "Identique à FA non valvulaire",
+          "Pas d'ACO nécessaire",
+          "Aspirine suffit"
+        ],
+        "correct": 0,
+        "explanation": "FA valvulaire (valvulopathie mitrale rhumatismale, prothèse mécanique) : AVK obligatoire (warfarine), cible INR 2-3 ou 2,5-3,5. AOD contre-indiqués.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l3-6",
+        "prompt": "FA et hyperthyroïdie : mécanisme ?",
+        "choices": [
+          "Hyperthyroïdie augmente l'excitabilité atriale (FA fréquente)",
+          "Aucun lien",
+          "Protecteur",
+          "Induit bradycardie"
+        ],
+        "correct": 0,
+        "explanation": "Hyperthyroïdie : FDR majeur de FA. Rechercher systématiquement une TSH devant toute FA récente. Correction de la thyroïde peut restaurer le rythme sinusal.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "fa-l3-7",
+        "prompt": "Bilan initial devant une FA ?",
+        "choices": [
+          "ECG, écho, TSH, NFS, iono, créat, bilan hépatique, écho transœsophagienne si cardioversion",
+          "TDM thoracique seul",
+          "Holter seul",
+          "IRM seule"
+        ],
+        "correct": 0,
+        "explanation": "Bilan FA : ECG, échocardiographie (valves, OG, FEVG), TSH, NFS, iono, créat, bilan hépatique. ETO si cardioversion ou suspicion de thrombus.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l3-8",
+        "prompt": "FA sur cœur sain : particularité ?",
+        "choices": [
+          "Rare, plutôt sujet jeune, rechercher cause (alcool, hyperthyroïdie, vagale)",
+          "Identique",
+          "Toujours valvulaire",
+          "Pas de traitement"
+        ],
+        "correct": 0,
+        "explanation": "FA sur cœur sain (lone AF) : rare, sujet jeune. Rechercher : alcool (holiday heart), hyperthyroïdie, cause vagale ou adrénergique, sport intensif.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "fa-l3-9",
+        "prompt": "FA avec réponse ventriculaire rapide : risque ?",
+        "choices": [
+          "Tachycardiomyopathie (IC induite par la tachycardie)",
+          "Aucun risque",
+          "Protection",
+          "Réduction de l'AVC"
+        ],
+        "correct": 0,
+        "explanation": "FA rapide prolongée → tachycardiomyopathie (IC réversible après contrôle de la FC). D'où l'importance du contrôle de la fréquence.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "fa-l3-10",
+        "prompt": "FA asymptomatique : conduite ?",
+        "choices": [
+          "Rechercher FA silencieuse (dépistage), évaluer risque embolique, décision d'ACO selon CHA2DS2-VASc",
+          "Ne pas traiter",
+          "Traitement uniquement si symptômes",
+          "Éviter ACO"
+        ],
+        "correct": 0,
+        "explanation": "FA asymptomatique : dépistage (ECG systématique chez sujets à risque), évaluer CHA2DS2-VASc. L'ACO est indiquée selon le risque, indépendamment des symptômes.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-fa-l4",
+    "version": "1.0.0",
+    "title": "FA — stratégie thérapeutique",
+    "subtitle": "Rythme, fréquence, anticoagulation · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "fa-l4-1",
+        "prompt": "Les 3 axes thérapeutiques de la FA ?",
+        "choices": [
+          "Anticoagulation + contrôle de la fréquence + contrôle du rythme (± ablation)",
+          "Anticoagulation seule",
+          "Contrôle fréquence seul",
+          "Chirurgie seule"
+        ],
+        "correct": 0,
+        "explanation": "FA : 3 axes — 1) ACO selon CHA2DS2-VASc, 2) contrôle FC (bêtabloquant, IC, digoxine), 3) contrôle rythme (amiodarone, flécaïnide, cardioversion, ablation).",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-2",
+        "prompt": "Choix entre contrôle fréquence et rythme ?",
+        "choices": [
+          "Contrôle fréquence en 1ère intention si peu symptomatique ; rythme si symptomatique, jeune, IC ou FA récente",
+          "Rythme systématique",
+          "Fréquence systématique",
+          "Aucun"
+        ],
+        "correct": 0,
+        "explanation": "ESC 2024 : contrôle fréquence (FC cible <110/min) acceptable en 1ère intention chez patients peu symptomatiques. Contrôle rythme si symptomatique, jeune, IC ou FA récente (essais EAST-AFNET 4).",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-3",
+        "prompt": "Cible FC en contrôle fréquence ?",
+        "choices": [
+          "<110/min en 1ère intention (strict <80/min si symptômes)",
+          "<60/min systématique",
+          "Aucune cible",
+          "<150/min"
+        ],
+        "correct": 0,
+        "explanation": "ESC : cible initiale FC <110/min (lenient). Cible <80/min si symptômes persistants malgré FC <110. Attention à ne pas induire bradycardie.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-4",
+        "prompt": "Médicaments du contrôle de la fréquence ?",
+        "choices": [
+          "Bêtabloquant, IC bradycardisant (diltiazem/vérapamil), digoxine",
+          "Amiodarone",
+          "Flécaïnide",
+          "Ivabradine"
+        ],
+        "correct": 0,
+        "explanation": "Contrôle FC : bêtabloquant (1ère ligne), IC bradycardisant (si FEVG conservée), digoxine (si IC ou sédentaire). Association possible. Amiodarone = contrôle rythme.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-5",
+        "prompt": "Médicaments du contrôle du rythme ?",
+        "choices": [
+          "Amiodarone, flécaïnide, propafénone, sotalol, dronédarone",
+          "Bêtabloquant",
+          "Ivabradine",
+          "Digoxine"
+        ],
+        "correct": 0,
+        "explanation": "Contrôle rythme : amiodarone (1ère ligne si cardiopathie), flécaïnide/propafénone (si cœur sain), sotalol, dronédarone. Attention aux effets pro-arythmiques.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-6",
+        "prompt": "FA récente <48h : que faire ?",
+        "choices": [
+          "Cardioversion possible sans ETO après ACO (HBPM/AOD) + contrôle FC",
+          "Cardioversion sans ACO",
+          "Attendre 3 mois",
+          "Chirurgie"
+        ],
+        "correct": 0,
+        "explanation": "FA <48h : cardioversion possible (électrique ou médicamenteuse) sans ETO si héparine efficace. Au-delà de 48h : ACO 3 sem + ETO ou ACO 3 sem puis cardioversion.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-7",
+        "prompt": "FA >48h : protocole de cardioversion ?",
+        "choices": [
+          "ACO ≥3 semaines + ETO puis cardioversion ; ou ETO négative + ACO immédiate",
+          "Cardioversion immédiate",
+          "Pas de cardioversion possible",
+          "Chirurgie"
+        ],
+        "correct": 0,
+        "explanation": "FA >48h ou durée inconnue : ACO pendant 3 semaines avant cardioversion + ETO pour éliminer un thrombus. Ou ETO immédiate + ACO (stratégie guidée par ETO).",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-8",
+        "prompt": "Anticoagulation : qui traiter ?",
+        "choices": [
+          "CHA2DS2-VASc ≥2 (homme) ou ≥3 (femme), ou ≥1 avec facteur de risque",
+          "Tous les FA",
+          "Aucun",
+          "Uniquement FA valvulaire"
+        ],
+        "correct": 0,
+        "explanation": "ESC : ACO recommandée si CHA2DS2-VASc ≥2 (homme) / ≥3 (femme). À discuter si 1 (homme)/2 (femme). Aspirine non recommandée.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-9",
+        "prompt": "AOD vs AVK : quand préférer AVK ?",
+        "choices": [
+          "Valvulopathie mitrale rhumatismale ou prothèse mécanique",
+          "Insuffisance rénale sévère",
+          "Âge >75",
+          "FA paroxystique"
+        ],
+        "correct": 0,
+        "explanation": "AOD préférés en général. AVK si : valvulopathie mitrale rhumatismale, prothèse mécanique, IRC sévère (DFG <15), syndrome anti-phospholipides.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-10",
+        "prompt": "Score ORBIT ou HAS-BLED : rôle ?",
+        "choices": [
+          "Évaluer le risque hémorragique pour adapter la surveillance",
+          "Risque embolique",
+          "Diagnostic FA",
+          "Pronostic vital"
+        ],
+        "correct": 0,
+        "explanation": "HAS-BLED / ORBIT : évaluent risque hémorragique. Ne pas contre-indiquer l'ACO mais identifier les facteurs modifiables (HTA, AINS, alcool). Suivi renforcé.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l4-11",
+        "prompt": "FA et sport intensif : particularité ?",
+        "choices": [
+          "Association FA vagale et adrénergique, sport d'endurance = FDR",
+          "Aucun lien",
+          "Protecteur",
+          "Bradycardie isolée"
+        ],
+        "correct": 0,
+        "explanation": "FA et sport d'endurance : augmentation du risque (remodelage atrial). Surtout FA vagale (survient au repos). Réduction de l'intensité sportive peut aider.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "fa-l4-12",
+        "prompt": "Dépistage de la FA : qui ?",
+        "choices": [
+          "Sujets ≥65 ans, avec HTA, IC, AVC, diabète (recherche systématique par pouls/ECG)",
+          "Tous les adultes",
+          "Uniquement sportifs",
+          "Uniquement symptomatiques"
+        ],
+        "correct": 0,
+        "explanation": "Dépistage : sujets ≥65 ans, hypertendus, insuffisants cardiaques, AVC/AIT, diabétiques, obèses. Pouls + ECG de dépistage, éventuellement montre connectée.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-fa-l5",
+    "version": "1.0.0",
+    "title": "FA — prise en charge avancée",
+    "subtitle": "Ablation, prévention AVC, cas complexes · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "prognosis",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "fa-l5-1",
+        "prompt": "Ablation par cathéter : indications principales ?",
+        "choices": [
+          "FA paroxystique symptomatique réfractaire aux antiarythmiques ; FA persistante sélectionnée ; IC-FEr",
+          "FA permanente",
+          "Toutes les FA",
+          "FA asymptomatique"
+        ],
+        "correct": 0,
+        "explanation": "Ablation FA : symptomatique réfractaire, FA paroxystique ++, persistante sélectionnée, IC-FEr (amélioration FEVG). Isolation des veines pulmonaires.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-2",
+        "prompt": "Ablation vs antiarythmiques en 1ère ligne ?",
+        "choices": [
+          "Discutée chez patients jeunes symptomatiques avec FA paroxystique (essais EARLY-AF, STOP AF)",
+          "Jamais",
+          "Systématique",
+          "Uniquement si IC"
+        ],
+        "correct": 0,
+        "explanation": "Ablation en 1ère ligne : discutée chez patients jeunes, symptomatiques, FA paroxystique (essais EARLY-AF, STOP AF First). Bénéfice sur la qualité de vie.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-3",
+        "prompt": "Fermeture de l'auricule gauche : indications ?",
+        "choices": [
+          "Contre-indication aux ACO, haut risque hémorragique, prévention AVC",
+          "Systématique",
+          "FA permanente sans ACO",
+          "Uniquement sportifs"
+        ],
+        "correct": 0,
+        "explanation": "Fermeture de l'auricule gauche (LAA occlusion) : alternative ACO si CI formelle ou haut risque hémorragique. Dispositifs type Watchman. Discussion en équipe.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-4",
+        "prompt": "FA et IC-FEr : stratégie ?",
+        "choices": [
+          "Contrôle FC par digoxine + bêtabloquant, contrôle rythme par ablation si possible, ACO",
+          "Bêtabloquant seul",
+          "Amiodarone seul",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "FA + IC-FEr : bêtabloquant (1ère ligne), digoxine si IC, ablation du nœud AV ou FA si échec. ACO selon CHA2DS2-VASc. Pronostic sévère.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-5",
+        "prompt": "Amiodarone : effets indésirables à surveiller ?",
+        "choices": [
+          "Dysthyroïdie, fibrose pulmonaire, hépatite, dépôts cornéens, neuropathie",
+          "Aucun",
+          "Uniquement cutané",
+          "Uniquement rénal"
+        ],
+        "correct": 0,
+        "explanation": "Amiodarone : dysthyroïdie (hypo/hyper), fibrose pulmonaire, hépatite, dépôts cornéens, neuropathie, photosensibilité. Surveillance : TSH, RxT, bilan hépatique, FO annuel.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-6",
+        "prompt": "Dronédarone : particularité ?",
+        "choices": [
+          "Anti-arythmique de 3e ligne, évité en cas d'IC ou FA permanente >6 mois, surveiller créat"
+        ],
+        "correct": 0,
+        "explanation": "Dronédarone : réservée en 3e ligne. Éviter dans IC ou FA permanente >6 mois (PALLAS). Surveillance créatinine, effets extra-cardiaques.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-7",
+        "prompt": "FA et chirurgie : prévention péri-opératoire ?",
+        "choices": [
+          "Poursuivre les ACO ou relais selon le risque, AOD (interruption courte), AVK (INR cible)",
+          "Arrêter tous les ACO",
+          "Aspirine en relais",
+          "Aucune adaptation"
+        ],
+        "correct": 0,
+        "explanation": "Péri-opératoire : AOD interrompus 1-3 jours avant selon clairance, AVK avec INR cible ou relais HBPM. Discuter avec chirurgien et anesthésiste. Reprise à 24-72h.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-8",
+        "prompt": "FA et grossesse : prise en charge ?",
+        "choices": [
+          "Rythme contrôlé si possible, digoxine + bêtabloquant, ACO par HBPM si nécessaire",
+          "AOD",
+          "Amiodarone",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "FA grossesse : contrôler le rythme si possible. Bêtabloquant (labétalol) si besoin. Anticoagulation par HBPM (AOD et AVK contre-indiqués). Coordination obstétrico-cardio.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-9",
+        "prompt": "FA post-opératoire : prévention ?",
+        "choices": [
+          "Bêtabloquant, amiodarone si haut risque, corriger facteurs (K+, Mg2+, douleur, volémie)",
+          "Aucune prévention",
+          "Digoxine",
+          "Aspirine"
+        ],
+        "correct": 0,
+        "explanation": "FA post-opératoire (surtout chirurgie cardiaque) : bêtabloquant (1ère ligne), amiodarone si haut risque. Corriger K+, Mg2+, douleur, volémie. ACO selon CHA2DS2-VASc.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-10",
+        "prompt": "Qualité de vie et FA : comment évaluer ?",
+        "choices": [
+          "Échelle EHRA, questionnaires AFEQT, prise en compte des symptômes subjectifs",
+          "Pas d'évaluation",
+          "Uniquement FC",
+          "Uniquement ACO"
+        ],
+        "correct": 0,
+        "explanation": "Qualité de vie : EHRA (symptômes), AFEQT (questionnaire dédié). Évaluer à chaque consultation, ajuster la stratégie si nécessaire.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-11",
+        "prompt": "FA et activité physique : conseils ?",
+        "choices": [
+          "Encourager activité modérée, éviter endurance extrême, contrôle FC",
+          "Repos strict",
+          "Interdire tout sport",
+          "Intensité élevée conseillée"
+        ],
+        "correct": 0,
+        "explanation": "FA : activité physique modérée encouragée (bénéfice CV). Éviter endurance extrême (remodelage atrial). Contrôle de la FC adapté à l'effort.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-l5-12",
+        "prompt": "Éducation du patient avec FA ?",
+        "choices": [
+          "Autosurveillance pouls, signes d'alerte (palpitations prolongées), observance ACO, hygiène de vie (alcool, poids)",
+          "Pas d'éducation",
+          "Uniquement sur l'ACO",
+          "Uniquement sur les médicaments"
+        ],
+        "correct": 0,
+        "explanation": "Éducation FA : autosurveillance du pouls, signes d'alerte, observance stricte de l'ACO, réduction alcool, perte de poids, activité physique. Rôle CanMEDS.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Health Advocate.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-fa-int",
+    "version": "1.0.0",
+    "title": "FA complexe — cas cliniques",
+    "subtitle": "Urgences, cas complexes, coordination · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "fa-int-1",
+        "prompt": "FA avec instabilité hémodynamique : conduite ?",
+        "choices": [
+          "Cardioversion électrique en urgence",
+          "Amiodarone IV",
+          "Bêtabloquant IV",
+          "Digitaliques IV"
+        ],
+        "correct": 0,
+        "explanation": "FA mal tolérée (hypotension, angor, OAP, choc) : cardioversion électrique externe en urgence, sous sédation. Ne pas retarder.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-2",
+        "prompt": "FA + pré-excitation (WPW) : particularité ?",
+        "choices": [
+          "Éviter IC, digoxine, adénosine (accélèrent la conduction ventriculaire) ; cardioversion ou flécaïnide/procaïnamide IV"
+        ],
+        "correct": 0,
+        "explanation": "FA sur WPW : risque de conduction rapide par voie accessoire → TV/FV. Contre-indications : IC, digoxine, adénosine. Cardioversion ou flécaïnide/procaïnamide IV.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "fa-int-3",
+        "prompt": "FA + AVC aigu : conduite ?",
+        "choices": [
+          "Ne pas anticoaguler avant imagerie ; ACO différée selon taille de l'AVC ; discuter thrombolyse si éligible",
+          "Anticoaguler d'emblée",
+          "Aucune anticoagulation",
+          "Aspirine seule"
+        ],
+        "correct": 0,
+        "explanation": "FA + AVC aigu : IRM/TDM avant toute ACO (risque hémorragique). Thrombolyse si <4,5h. Délai d'ACO selon taille de l'AVC. Décision neuro-cardio.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-4",
+        "prompt": "FA + thrombus auriculaire gauche : conduite ?",
+        "choices": [
+          "ACO ≥3-6 semaines + contrôle ETO avant cardioversion",
+          "Cardioversion immédiate",
+          "Chirurgie",
+          "Aspirine seule"
+        ],
+        "correct": 0,
+        "explanation": "FA + thrombus OG : ACO 3-6 semaines puis contrôle ETO. Si thrombus persiste : ACO prolongée. Risque embolique élevé.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-5",
+        "prompt": "FA et cancer : particularités ?",
+        "choices": [
+          "Risque thrombotique et hémorragique augmentés, interactions médicamenteuses, AOD à privilégier si possible"
+        ],
+        "correct": 0,
+        "explanation": "FA + cancer : risque VTE + hémorragie. Interactions (chimio). AOD souvent préférés si pas d'interaction majeure. HBPM si contre-indication. Multidisciplinaire.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-6",
+        "prompt": "FA et IRC avancée (DFG <30) : AOD ou AVK ?",
+        "choices": [
+          "AOD ajusté à la fonction rénale (apixaban souvent privilégié) ou AVK si DFG <15"
+        ],
+        "correct": 0,
+        "explanation": "IRC avancée : AOD ajustés (apixaban 2,5 mg x2 souvent privilégié) ; AVK si DFG <15 ou dialyse. Surveillance rapprochée, risque hémorragique.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-7",
+        "prompt": "FA et hyperthyroïdie : conduite ?",
+        "choices": [
+          "Traiter la thyroïde, bêtabloquant pour FC, réévaluer rythme après équilibre hormonal"
+        ],
+        "correct": 0,
+        "explanation": "FA + hyperthyroïdie : traiter l'hyperthyroïdie (antithyroïdiens, iode, chirurgie), bêtabloquant pour FC. Réévaluer après équilibre (30 % retour rythme sinusal). ACO selon risque.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-8",
+        "prompt": "Ablation du nœud AV : indication ?",
+        "choices": [
+          "FA permanente symptomatique avec FC rapide non contrôlée, échec ablation FA, sujet âgé",
+          "FA paroxystique",
+          "FA récente",
+          "Aucune"
+        ],
+        "correct": 0,
+        "explanation": "Ablation du nœud AV + pacemaker : dernier recours. FA permanente, FC non contrôlée, échec d'ablation FA, sujet âgé fragile. Alternative acceptable.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-9",
+        "prompt": "FA sur cardiopathie hypertrophique : conduite ?",
+        "choices": [
+          "Privilégier amiodarone (contrôle rythme), ACO systématique, ablation discutée",
+          "Bêtabloquant seul",
+          "Digoxine",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "FA sur CMH : amiodarone (contrôle rythme), ACO (même si CHA2DS2-VASc bas), ablation discutée. Attention : évolution vers IC.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-10",
+        "prompt": "Surveillance sous AOD : quoi ?",
+        "choices": [
+          "Créat/DFG annuel (ou plus si IRC), Hb, signes hémorragiques, observance",
+          "Uniquement INR",
+          "Aucune",
+          "FO annuel"
+        ],
+        "correct": 0,
+        "explanation": "Sous AOD : créat/DFG au moins annuel (plus si IRC), NFS, signes hémorragiques (gingivorragies, ecchymoses, méléna). Observance stricte. Pas d'INR.",
+        "sources": [
+          {
+            "title": "ESC 2024 FA",
+            "citation": "2024 ESC Guidelines for the management of atrial fibrillation.",
+            "organization": "ESC",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "fa-int-11",
+        "prompt": "Comment annoncer une FA chronique ?",
+        "choices": [
+          "Expliquer la maladie, l'importance de l'ACO à vie, les signes d'alerte, l'impact qualité de vie"
+        ],
+        "correct": 0,
+        "explanation": "Annonce : expliquer la maladie (chronique, évolutive), l'importance de l'ACO (AVC), signes d'alerte (AVC, saignement), qualité de vie, autosurveillance. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Health Advocate.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "fa-int-12",
+        "prompt": "Coordination du suivi FA ?",
+        "choices": [
+          "Cardiologue + médecin traitant + rythmologue si ablation + IDE + anticoagulation clinic"
+        ],
+        "correct": 0,
+        "explanation": "Suivi FA : cardiologue référent, médecin traitant, rythmologue (si ablation), IDE, clinic d'anticoagulation. Télésurveillance possible. Rôle Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator, Health Advocate.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
