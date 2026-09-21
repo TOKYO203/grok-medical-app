@@ -4189,5 +4189,1341 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-ic-l2",
+    "version": "1.0.0",
+    "title": "Insuffisance cardiaque — notions",
+    "subtitle": "Définir, reconnaître, orienter · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "ic-l2-1",
+        "prompt": "Définition de l'insuffisance cardiaque ?",
+        "choices": [
+          "Incapacité du cœur à assurer un débit suffisant aux besoins de l'organisme",
+          "Tachycardie permanente",
+          "HTA sévère",
+          "Infarctus récent"
+        ],
+        "correct": 0,
+        "explanation": "IC = incapacité du cœur à assurer un débit adapté, avec signes congestifs et/ou d'hypoperfusion. Syndrome, pas une maladie unique.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ic-l2-2",
+        "prompt": "Quel est le symptôme cardinal de l'IC gauche ?",
+        "choices": [
+          "Dyspnée d'effort puis de repos",
+          "Douleur thoracique",
+          "Syncope",
+          "Hémoptysie"
+        ],
+        "correct": 0,
+        "explanation": "IC gauche : dyspnée d'effort puis orthopnée, dyspnée paroxystique nocturne, OAP. IC droite : œdèmes, hépatalgie.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l2-3",
+        "prompt": "Signe clinique majeur de l'IC droite ?",
+        "choices": [
+          "Œdèmes des membres inférieurs prenant le godet",
+          "Crépitants bilatéraux",
+          "Orthopnée",
+          "Asthme cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "IC droite : œdèmes déclives, turgescence jugulaire, reflux hépato-jugulaire, hépatomégalie.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ic-l2-4",
+        "prompt": "Quels sont les 4 stades NYHA ?",
+        "choices": [
+          "I à IV selon la limitation fonctionnelle",
+          "A à D",
+          "Killip 1 à 4",
+          "Mild/Moderate/Severe"
+        ],
+        "correct": 0,
+        "explanation": "NYHA : I = pas de limitation, II = gêne aux efforts modérés, III = gêne aux efforts minimes, IV = dyspnée de repos.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ic-l2-5",
+        "prompt": "Examen biologique clé pour le diagnostic d'IC ?",
+        "choices": [
+          "BNP ou NT-proBNP",
+          "Troponine seule",
+          "CRP",
+          "D-dimères"
+        ],
+        "correct": 0,
+        "explanation": "BNP/NT-proBNP : très bonne valeur prédictive négative. Un BNP normal rend l'IC peu probable (sauf obésité).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l2-6",
+        "prompt": "Examen d'imagerie de première intention ?",
+        "choices": [
+          "Échocardiographie transthoracique",
+          "IRM cardiaque d'emblée",
+          "TDM thoracique",
+          "Scintigraphie"
+        ],
+        "correct": 0,
+        "explanation": "Échocardiographie : évalue FEVG, cinétique, valves, pressions. C'est l'examen clé pour classer l'IC.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l2-7",
+        "prompt": "Quels sont les grands facteurs de risque d'IC ?",
+        "choices": [
+          "HTA, coronaropathie, valvulopathie, diabète, alcool",
+          "Tabac seul",
+          "Vieillissement isolé",
+          "Allergie aux bêtalactamines"
+        ],
+        "correct": 0,
+        "explanation": "HTA, coronaropathie, valvulopathies, diabète, obésité, alcool, cardiotoxicité (anthracyclines).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "ic-l2-8",
+        "prompt": "Définition de l'orthopnée ?",
+        "choices": [
+          "Dyspnée en position couchée, soulagée en position assise",
+          "Dyspnée à l'effort",
+          "Dyspnée nocturne brutale",
+          "Toux chronique"
+        ],
+        "correct": 0,
+        "explanation": "Orthopnée : dyspnée survenant en décubitus, obligeant le patient à dormir avec plusieurs oreillers. Marqueur d'IC gauche avancée.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l2-9",
+        "prompt": "Qu'est-ce que la dyspnée paroxystique nocturne ?",
+        "choices": [
+          "Réveil brutal en dyspnée, d'apparition nocturne, dans les 1-3 h après l'endormissement",
+          "Dyspnée permanente",
+          "Dyspnée à l'effort modéré",
+          "Respiration de Cheyne-Stokes"
+        ],
+        "correct": 0,
+        "explanation": "DPN : réveil brutal en dyspnée avec orthopnée et toux, marqueur classique d'OAP débutant.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l2-10",
+        "prompt": "Conduite L2 devant suspicion d'IC ?",
+        "choices": [
+          "ECG + radio thorax + BNP + écho cardiaque, avis cardiologue",
+          "Repos strict seul",
+          "Diurétiques d'emblée sans bilan",
+          "Rassurer et programmer à 3 mois"
+        ],
+        "correct": 0,
+        "explanation": "Bilan initial : ECG, RxT, BNP/NT-proBNP, échocardiographie. Avis cardiologique pour l'étiologie et le traitement.",
+        "sources": [
+          {
+            "title": "HAS 2023 IC",
+            "citation": "Parcours de soins — Insuffisance cardiaque. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-ic-l3",
+    "version": "1.0.0",
+    "title": "Insuffisance cardiaque — sémiologie",
+    "subtitle": "Différencier, caractériser, orienter · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "ic-l3-1",
+        "prompt": "Différencier dyspnée cardiaque et pulmonaire ?",
+        "choices": [
+          "Cardiaque : orthopnée + DPN + crépitants ; pulmonaire : sifflements + toux productive",
+          "Pas de différence",
+          "Âge uniquement",
+          "Fièvre uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Dyspnée cardiaque : orthopnée, DPN, crépitants bilatéraux, B3. Pulmonaire : sifflements, toux productive, réversibilité aux bronchodilatateurs.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l3-2",
+        "prompt": "Signes congestifs d'IC gauche à l'auscultation ?",
+        "choices": [
+          "Crépitants bilatéraux des bases + B3 + éventuel souffle",
+          "Souffle systolique isolé",
+          "Sibilants diffus",
+          "Frottement pleural"
+        ],
+        "correct": 0,
+        "explanation": "Crépitants bilatéraux, B3 (galop), souffle de valvulopathie, tachycardie. Crépitants remontant jusqu'aux sommets = OAP.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l3-3",
+        "prompt": "Signes périphériques de bas débit ?",
+        "choices": [
+          "Marbrures, extrémités froides, oligurie",
+          "Rougeur des extrémités",
+          "Chaleur, polyurie",
+          "Céphalées"
+        ],
+        "correct": 0,
+        "explanation": "Bas débit : marbrures, extrémités froides, oligurie, confusion, lactates >2. Signe de gravité (Killip IV ou profil C).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l3-4",
+        "prompt": "Différence IC droite vs IC gauche à l'examen ?",
+        "choices": [
+          "Droite : TJC + RHJ + œdèmes ; gauche : crépitants + orthopnée",
+          "Identiques",
+          "Droite : uniquement dyspnée",
+          "Gauche : uniquement œdèmes"
+        ],
+        "correct": 0,
+        "explanation": "IC droite : signes veineux systémiques (TJC, RHJ, œdèmes). IC gauche : signes pulmonaires (crépitants, orthopnée, DPN).",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l3-5",
+        "prompt": "Que signe une turgescence jugulaire ?",
+        "choices": [
+          "Augmentation de la pression veineuse centrale, signe d'IC droite",
+          "HTA sévère",
+          "Hypovolémie",
+          "Embolie pulmonaire aiguë"
+        ],
+        "correct": 0,
+        "explanation": "TJC > 3 cm au-dessus du sternum, à 45°, signe une hyperpression veineuse systémique (IC droite, péricardite, tamponnade).",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "ic-l3-6",
+        "prompt": "Seuils diagnostiques de BNP / NT-proBNP ?",
+        "choices": [
+          "BNP <100 pg/mL et NT-proBNP <300 : IC peu probable ; BNP >400 et NT-proBNP >2000 : IC probable",
+          "BNP >10 : IC",
+          "Aucun seuil",
+          "Toujours >5000"
+        ],
+        "correct": 0,
+        "explanation": "BNP : <100 IC improbable, >400 IC probable. NT-proBNP : <300 improbable, >2000 probable (valeurs ajustées selon âge et DFG).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l3-7",
+        "prompt": "Classification des IC selon la FEVG ?",
+        "choices": [
+          "IC-FEr (FEVG ≤40 %), IC-FEm (41-49 %), IC-FEp (≥50 %)",
+          "Systolique / diastolique uniquement",
+          "A/B/C/D",
+          "Killip I-IV"
+        ],
+        "correct": 0,
+        "explanation": "ESC : IC-FEr (≤40 %), IC-FEm (41-49 %), IC-FEp (≥50 %). L'IC-FEp est aussi fréquente mais sous-diagnostiquée.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l3-8",
+        "prompt": "NYHA II vs NYHA III ?",
+        "choices": [
+          "II : gêne aux efforts modérés ; III : gêne aux efforts minimes",
+          "II : repos ; III : marche rapide",
+          "Identiques",
+          "II : asymptomatique"
+        ],
+        "correct": 0,
+        "explanation": "NYHA II : gêne pour monter un étage ou marcher vite. NYHA III : gêne pour la marche lente ou les gestes quotidiens.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "recognize"
+      },
+      {
+        "id": "ic-l3-9",
+        "prompt": "Étiologies principales d'IC ?",
+        "choices": [
+          "Coronaropathie, HTA, valvulopathie, cardiomyopathies, toxiques",
+          "Infection virale seule",
+          "Carence vitaminique seule",
+          "Génétique uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Par ordre de fréquence : coronaropathie, HTA, valvulopathies, cardiomyopathies (dilatée, hypertrophique, restrictive), toxiques (alcool, anthracyclines).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l3-10",
+        "prompt": "Bilan initial devant IC confirmée ?",
+        "choices": [
+          "ECG, RxT, écho, biologie (NFS, iono, créat, TSH, ferritine), bilan étiologique",
+          "IRM systématique d'emblée",
+          "Coronarographie systématique",
+          "Bilan d'extension"
+        ],
+        "correct": 0,
+        "explanation": "Bilan : ECG (hypertrophie, séquelle IDM, FA), RxT (cardiomégalie, OAP), écho, biologie. Bilan étiologique orienté (coronarographie, IRM).",
+        "sources": [
+          {
+            "title": "HAS 2023 IC",
+            "citation": "Parcours de soins — Insuffisance cardiaque. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-ic-l4",
+    "version": "1.0.0",
+    "title": "Insuffisance cardiaque — bilan étiologique",
+    "subtitle": "Explorer, classer, éliminer · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "diagnostic_orientation",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "ic-l4-1",
+        "prompt": "Paramètres clés à l'échocardiographie dans l'IC ?",
+        "choices": [
+          "FEVG, cinétique segmentaire, valves, pressions de remplissage (E/A, E/e')",
+          "FEVG uniquement",
+          "Taille de l'aorte uniquement",
+          "Fréquence cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "L'écho évalue : FEVG, cinétique segmentaire, valvulopathies, hypertrophie, pressions de remplissage (E/e' = marqueur IC-FEp).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-l4-2",
+        "prompt": "Quand demander une IRM cardiaque ?",
+        "choices": [
+          "En cas d'IC inexpliquée, suspicion de myocardite, sarcoïdose, amylose, cardiopathie infiltrative",
+          "Systématiquement",
+          "Uniquement si IRM disponible",
+          "En 1ère intention"
+        ],
+        "correct": 0,
+        "explanation": "IRM cardiaque : référence pour caractériser myocarde (fibrose, œdème, infiltration). Indiquée si étiologie non élucidée par l'écho.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l4-3",
+        "prompt": "Quand demander une coronarographie dans l'IC ?",
+        "choices": [
+          "Angor, ischémie documentée, ou IC-FEr inexpliquée à haut risque coronarien",
+          "Systématiquement",
+          "Jamais",
+          "Si jeune uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Coronarographie : angor, ischémie à l'imagerie de stress, ou IC-FEr inexpliquée. Recherche d'une coronaropathie curable (revascularisation).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l4-4",
+        "prompt": "Test de marche de 6 minutes : quoi évaluer ?",
+        "choices": [
+          "Capacité fonctionnelle et pronostic",
+          "Fonction rénale",
+          "Saturation",
+          "Rythme cardiaque uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Test de marche 6 min : marqueur pronostique (distance <300 m = mauvais pronostic), évalue la tolérance à l'effort.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "ic-l4-5",
+        "prompt": "Critères diagnostiques d'IC-FEp ?",
+        "choices": [
+          "Symptômes + FEVG ≥50 % + signes d'élévation des pressions de remplissage (natriurétiques, écho)",
+          "FEVG ≥50 % seule",
+          "Dyspnée seule",
+          "Œdèmes seuls"
+        ],
+        "correct": 0,
+        "explanation": "IC-FEp : symptômes + FEVG ≥50 % + arguments objectifs (BNP élevé, écho : E/e' >14, hypertrophie, dilatation OG).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-l4-6",
+        "prompt": "Arguments écho en faveur d'IC-FEp ?",
+        "choices": [
+          "E/e' >14, hypertrophie VG, dilatation OG",
+          "FEVG basse",
+          "Akinésie antérieure",
+          "Épanchement péricardique"
+        ],
+        "correct": 0,
+        "explanation": "IC-FEp : E/e' >14, hypertrophie VG, dilatation OG, TAPSE, hypertension artérielle pulmonaire. FEVG conservée.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-l4-7",
+        "prompt": "Test d'effort ou écho de stress dans l'IC ?",
+        "choices": [
+          "Recherche d'ischémie et d'IC-FEp débutante",
+          "Systématique",
+          "Jamais",
+          "Uniquement chez l'athlète"
+        ],
+        "correct": 0,
+        "explanation": "Écho de stress : recherche d'ischémie et de cardiopathie ischémique, permet de tester l'IC-FEp débutante (réserve contractile).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l4-8",
+        "prompt": "Une amylose cardiaque : signes évoquant ?",
+        "choices": [
+          "IC-FEp + hypertrophie concentrique + neuropathie + protéinurie",
+          "IC-FEr dilatée isolée",
+          "HTA sévère",
+          "Athérome"
+        ],
+        "correct": 0,
+        "explanation": "Amylose : IC-FEp, hypertrophie concentrique, discordance ECG (bas voltage), neuropathie, protéinurie, atteinte du canal carpien. Scintigraphie ou IRM.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-l4-9",
+        "prompt": "Une cardiomyopathie de Tako-Tsubo ?",
+        "choices": [
+          "Akinésie apicale réversible, coronaires normales, souvent post-stress",
+          "FEVG basse définitive",
+          "Sténose coronaire sévère",
+          "Athérome diffus"
+        ],
+        "correct": 0,
+        "explanation": "Tako-Tsubo : akinésie apicale réversible, coronaires normales, contextede stress émotionnel/physique. Pronostic souvent favorable.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-l4-10",
+        "prompt": "Cathétérisme droit : indications dans l'IC ?",
+        "choices": [
+          "Bilan hémodynamique pré-transplantation ou IC avancée, évaluation des pressions",
+          "Systématique",
+          "Jamais",
+          "Uniquement chez l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "Cathétérisme droit : pré-transplantation, IC avancée, discordance clinique/hémodynamique, test au nitroprussiate, HTP.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l4-11",
+        "prompt": "Diagnostic différentiel devant une IC inexpliquée ?",
+        "choices": [
+          "Cœur pulmonaire, cirrhose, syndrome néphrotique, hypoalbuminémie",
+          "Asthme seul",
+          "Diabète seul",
+          "Obésité seule"
+        ],
+        "correct": 0,
+        "explanation": "Différentiels : cœur pulmonaire chronique, cirrhose (ascite, œdèmes), syndrome néphrotique, hypoalbuminémie, anasarque.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Insuffisance cardiaque.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "ic-l4-12",
+        "prompt": "Cardiopathie infiltrative : quelle imagerie de choix ?",
+        "choices": [
+          "IRM cardiaque (rehaussement tardif, T1/T2 mapping)",
+          "Radiographie thoracique",
+          "Échocardiographie seule",
+          "TDM"
+        ],
+        "correct": 0,
+        "explanation": "IRM cardiaque : rehaussement tardif et T1/T2 mapping caractérisent fibrose, œdème, infiltration. Écho de dépistage initial.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-ic-l5",
+    "version": "1.0.0",
+    "title": "Insuffisance cardiaque — prise en charge",
+    "subtitle": "Traitement, optimisation, prévention · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "prognosis",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "ic-l5-1",
+        "prompt": "Les 4 piliers du traitement de l'IC-FEr ?",
+        "choices": [
+          "IEC/ARNI + bêtabloquant + anti-aldostérone + ISGLT2",
+          "Diurétiques seuls",
+          "Digitaliques seuls",
+          "Diurétique + aspirine"
+        ],
+        "correct": 0,
+        "explanation": "ESC 2023 : bithérapie IEC/ARNI + bêtabloquant + anti-aldostérone (spironolactone/éplérénone) + ISGLT2 (dapagliflozine/empagliflozine). Réduction majeure de mortalité.",
+        "sources": [
+          {
+            "title": "ESC 2023 HF Focused Update",
+            "citation": "2023 Focused Update of the 2021 ESC Guidelines for HF.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-2",
+        "prompt": "Bêtabloquants recommandés dans l'IC-FEr ?",
+        "choices": [
+          "Bisoprolol, carvédilol, métoprolol succinate (à doses progressives, patient stable)",
+          "Aténolol seul",
+          "Propranolol",
+          "Labétalol"
+        ],
+        "correct": 0,
+        "explanation": "Seuls bisoprolol, carvédilol, métoprolol succinate ont démontré un bénéfice. Introduits à faible dose, en dehors de la décompensation.",
+        "sources": [
+          {
+            "title": "ESC 2023 HF Focused Update",
+            "citation": "2023 Focused Update of the 2021 ESC Guidelines for HF.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-3",
+        "prompt": "Le sacubitril-valsartan (ARNI) : place ?",
+        "choices": [
+          "En remplacement d'un IEC/ARA2 chez patient symptomatique malgré traitement optimal",
+          "En 1ère intention chez tous",
+          "Uniquement si HTA associée",
+          "Uniquement si IC-FEp"
+        ],
+        "correct": 0,
+        "explanation": "ARNI : remplace IEC/ARA2 si patient NYHA II-III symptomatique sous traitement optimal (essai PARADIGM-HF). Attention : 36h entre IEC et ARNI.",
+        "sources": [
+          {
+            "title": "ESC 2023 HF Focused Update",
+            "citation": "2023 Focused Update of the 2021 ESC Guidelines for HF.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-4",
+        "prompt": "ISGLT2 : bénéfice dans l'IC ?",
+        "choices": [
+          "Réduction mortalité et hospitalisation IC-FEr, mais aussi IC-FEm/IC-FEp",
+          "Uniquement sur glycémie",
+          "Néphrotoxique systématique",
+          "Uniquement si diabète"
+        ],
+        "correct": 0,
+        "explanation": "ISGLT2 (dapagliflozine, empagliflozine) : réduction mortalité et hospitalisations dans IC-FEr, IC-FEm et IC-FEp. Bénéfice indépendant du statut diabétique.",
+        "sources": [
+          {
+            "title": "ESC 2023 HF Focused Update",
+            "citation": "2023 Focused Update of the 2021 ESC Guidelines for HF.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-5",
+        "prompt": "Place des diurétiques de l'anse dans l'IC ?",
+        "choices": [
+          "Traitement symptomatique de la congestion, pas d'impact sur la mortalité",
+          "Réduction de la mortalité",
+          "Curatif",
+          "Systématiques même sans congestion"
+        ],
+        "correct": 0,
+        "explanation": "Diurétiques de l'anse : traitement de la congestion (furosémide). Amélioration symptomatique mais pas de bénéfice démontré sur la mortalité.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-6",
+        "prompt": "Ivabradine : indications dans l'IC ?",
+        "choices": [
+          "IC-FEr avec FEVG ≤35 %, rythme sinusal, FC ≥70/min malgré bêtabloquant optimal",
+          "Toutes IC",
+          "FA rapide",
+          "Uniquement HTA"
+        ],
+        "correct": 0,
+        "explanation": "Ivabradine : IC-FEr, FEVG ≤35 %, rythme sinusal, FC ≥70 malgré bêtabloquant max toléré. Réduction hospitalisations.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-7",
+        "prompt": "Quand discuter un DAI (défibrillateur) ?",
+        "choices": [
+          "IC-FEr FEVG ≤35 % symptomatique (NYHA II-III) après 3 mois de traitement optimal",
+          "Systématiquement",
+          "Jamais",
+          "Uniquement IC-FEp"
+        ],
+        "correct": 0,
+        "explanation": "DAI : prévention primaire si FEVG ≤35 % NYHA II-III malgré 3 mois de traitement optimal et espérance de vie >1 an. Prévention secondaire après arrêt cardiaque.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-8",
+        "prompt": "Quand discuter une CRT (resynchronisation) ?",
+        "choices": [
+          "BBG complet + QRS ≥150 ms + FEVG ≤35 % symptomatique",
+          "QRS fin",
+          "Toutes IC-FEr",
+          "Uniquement si DAI contre-indiqué"
+        ],
+        "correct": 0,
+        "explanation": "CRT : asynchronisme (BBG complet, QRS ≥150 ms idéalement), FEVG ≤35 %, symptomatique malgré traitement optimal. Améliore FEVG et survie.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-9",
+        "prompt": "Réadaptation cardiaque dans l'IC : bénéfice ?",
+        "choices": [
+          "Amélioration de la capacité fonctionnelle, qualité de vie, réduction hospitalisations",
+          "Nuit à l'IC",
+          "Uniquement chez patients jeunes",
+          "Aucun bénéfice prouvé"
+        ],
+        "correct": 0,
+        "explanation": "Réadaptation cardiaque : exercice physique supervisé, réduction mortalité/hospitalisations, amélioration qualité de vie. Recommandée chez patients stables.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-10",
+        "prompt": "Éducation thérapeutique dans l'IC : objectifs ?",
+        "choices": [
+          "Autosurveillance du poids, régime hyposodé, observance, reconnaissance des signes de décompensation",
+          "Aucune importance",
+          "Uniquement pour la famille",
+          "Uniquement sur les médicaments"
+        ],
+        "correct": 0,
+        "explanation": "Éducation : pesée quotidienne, régime hyposodé (<6 g/j), restriction hydrique si besoin, observance, alerte sur signes d'alerte (prise de poids >2 kg en 3 jours).",
+        "sources": [
+          {
+            "title": "HAS 2023 IC",
+            "citation": "Parcours de soins — Insuffisance cardiaque. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-11",
+        "prompt": "Vaccinations recommandées dans l'IC ?",
+        "choices": [
+          "Grippe annuelle + pneumocoque + COVID selon schéma",
+          "Aucune",
+          "Uniquement hépatite B",
+          "Uniquement tétanos"
+        ],
+        "correct": 0,
+        "explanation": "Vaccins grippe annuel, antipneumococcique, COVID. Réduisent les décompensations et la mortalité chez l'insuffisant cardiaque.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-l5-12",
+        "prompt": "Transplantation cardiaque : indications principales ?",
+        "choices": [
+          "IC terminale NYHA III-IV réfractaire, FEVG <20 %, VO2 max <14, absence de contre-indication",
+          "Systématiquement",
+          "IC-FEp uniquement",
+          "Uniquement après 70 ans"
+        ],
+        "correct": 0,
+        "explanation": "Transplantation : IC terminale, NYHA III-IV, VO2 <14 mL/kg/min, absence de contre-indication majeure, bilan pré-greffe complet.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-ic-int",
+    "version": "1.0.0",
+    "title": "IC avancée — cas cliniques",
+    "subtitle": "Décompensation, choc, soins palliatifs · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "ic-int-1",
+        "prompt": "IC aiguë décompensée : triade clinique ?",
+        "choices": [
+          "Dyspnée brutale + crépitants + désaturation (OAP) avec congestion",
+          "Fièvre + toux + expectorations",
+          "Douleur thoracique + sueurs",
+          "Syncope + bradycardie"
+        ],
+        "correct": 0,
+        "explanation": "OAP : dyspnée brutale, orthopnée, crépitants bilatéraux remontant aux sommets, désaturation, expectoration mousseuse. Urgence.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-int-2",
+        "prompt": "Première ligne thérapeutique dans l'OAP cardiogénique ?",
+        "choices": [
+          "O2 + furosémide IV + dérivés nitrés si PAS >110 + VNI",
+          "Fluidothérapie large",
+          "Bêtabloquant IV d'emblée",
+          "Corticoïdes"
+        ],
+        "correct": 0,
+        "explanation": "OAP : O2, furosémide IV, dérivés nitrés si PAS >110, VNI (CPAP). Morphine en 2e ligne si angoisse majeure. Traitement étiologique (SCA, FA, HTA).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-3",
+        "prompt": "Choc cardiogénique : définition hémodynamique ?",
+        "choices": [
+          "PAS <90 mmHg + hypoperfusion d'organe + index cardiaque <2,2 L/min/m²",
+          "PAS >160 mmHg",
+          "FC >120 seule",
+          "Diurèse >1 L/j"
+        ],
+        "correct": 0,
+        "explanation": "Choc cardiogénique : PAS <90 mmHg (ou chute >30), hypoperfusion (lactates >2, oligurie, marbrures), IC <2,2 L/min/m², pressions de remplissage élevées.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-int-4",
+        "prompt": "IC et insuffisance rénale : impact thérapeutique ?",
+        "choices": [
+          "Adaptation des doses, surveiller kaliémie, éviter AINS, privilégier IEC/ARNI si DFG >30",
+          "Arrêt de tous les traitements",
+          "Dialyse systématique",
+          "Même traitement sans ajustement"
+        ],
+        "correct": 0,
+        "explanation": "IC + IRC : adaptation des doses, surveillance K+ et créat, éviter AINS, préférer IEC/ARNI si DFG >30, adapter diurétiques. Cardio-néphrologie coordonnée.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-5",
+        "prompt": "IC et fibrillation atriale : stratégie ?",
+        "choices": [
+          "Contrôle de la fréquence ou rythme selon tolérance, anticoagulation, traitement de l'IC",
+          "Uniquement bêtabloquant",
+          "Choc électrique systématique",
+          "Aucune action"
+        ],
+        "correct": 0,
+        "explanation": "FA sur IC : anticoagulation (CHA2DS2-VASc), contrôle fréquence (bêtabloquant) ou rythme (amiodarone, ablation). Corriger cause de décompensation.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-6",
+        "prompt": "Cardiomyopathie du péripartum : particularités ?",
+        "choices": [
+          "IC survenant dans les derniers mois de grossesse ou les 5 mois post-partum, FEVG souvent réversible",
+          "Identique à une IC classique",
+          "Uniquement à la ménopause",
+          "Uniquement chez la primipare"
+        ],
+        "correct": 0,
+        "explanation": "Cardiomyopathie du péripartum : dernier mois de grossesse à 5 mois post-partum. FEVG souvent réversible. Traitement médical adapté à la grossesse (éviter IEC/ARNI).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "ic-int-7",
+        "prompt": "Amylose cardiaque : traitement spécifique ?",
+        "choices": [
+          "Tafamidis (stabilisateur de transthyrétine) si ATTR, ou chimiothérapie si AL",
+          "Diurétiques seuls",
+          "IEC seuls",
+          "Bêtabloquants seuls"
+        ],
+        "correct": 0,
+        "explanation": "Amylose ATTR : tafamidis (stabilisateur TTR). AL : chimiothérapie/autogreffe. Attention : mauvaise tolérance aux bêtabloquants et IEC dans l'amylose.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-8",
+        "prompt": "IC terminale : quand envisager les soins palliatifs ?",
+        "choices": [
+          "NYHA IV réfractaire, OPT non envisageable, espérance de vie limitée, symptômes réfractaires",
+          "Systématiquement",
+          "Uniquement si patient >80 ans",
+          "Jamais"
+        ],
+        "correct": 0,
+        "explanation": "Soins palliatifs : IC NYHA IV réfractaire, options thérapeutiques épuisées, symptômes réfractaires. Approche multidisciplinaire, objectifs de soins partagés.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator and Professional roles.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "ic-int-9",
+        "prompt": "Assistance circulatoire mécanique : indications ?",
+        "choices": [
+          "Choc cardiogénique réfractaire, pont vers transplantation ou récupération, IC terminale",
+          "Systématiquement",
+          "Jamais",
+          "Uniquement en post-opératoire"
+        ],
+        "correct": 0,
+        "explanation": "Assistance circulatoire (ECMO-VA, Impella, LVAD) : choc réfractaire, pont vers transplantation ou récupération, IC terminale. Sélection rigoureuse.",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-10",
+        "prompt": "Bilan pré-transplantation : étapes ?",
+        "choices": [
+          "Bilan cardiaque, rénal, pulmonaire, infectieux, psychologique, social, recherche de contre-indications",
+          "Uniquement écho",
+          "Uniquement coronarographie",
+          "Uniquement bilan sanguin"
+        ],
+        "correct": 0,
+        "explanation": "Bilan pré-greffe : cardio (cathétérisme, VO2), rénal, pulmonaire, infectieux (VIH, hépatites), psycho-social, recherche CI (cancer, IRC avancée, tabagisme actif).",
+        "sources": [
+          {
+            "title": "ESC 2021 HF",
+            "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "ic-int-11",
+        "prompt": "Comment annoncer un pronostic sombre dans l'IC ?",
+        "choices": [
+          "Entretien dédié, écoute empathique, information claire et adaptée, tracé dossier, personne de confiance",
+          "Par écrit uniquement",
+          "Ne rien dire",
+          "Au téléphone uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Communication : entretien dédié, écoute active, information progressive et adaptée, recueil personne de confiance, tracé dans le dossier. Rôle CanMEDS Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator and Professional roles.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "ic-int-12",
+        "prompt": "Coordination ville-hôpital dans l'IC : rôle du médecin ?",
+        "choices": [
+          "Coordination avec cardiologue, médecin traitant, infirmière, pharmacien pour le suivi",
+          "Uniquement hospitalier",
+          "Uniquement ville",
+          "Aucune coordination"
+        ],
+        "correct": 0,
+        "explanation": "Coordination : cardiologue référent, médecin traitant, IDEL, pharmacien pour observance, télésurveillance si disponible. Rôle CanMEDS Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator and Professional roles.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
