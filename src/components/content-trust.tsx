@@ -233,7 +233,7 @@ export function ReportContentError({
           }}
         >
           <Flag className="size-4" />
-          {isGuest ? "Créer un profil pour signaler" : "Signaler une erreur"}
+          {isGuest ? "⚠ PROFIL REQUIS ⚠" : "Signaler une erreur"}
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
