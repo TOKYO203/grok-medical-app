@@ -200,7 +200,12 @@ export function ReportContentError({
     try {
       const result = await submitContentReport({ data: { ...input, optimusId: profile.optimusId } });
       toast.success(`Signalement envoyé · ${result.reference}`);
-    } catch {
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      if (message.includes("Limite atteinte")) {
+        toast.error(message);
+        return;
+      }
       addContact("correction", formatContentReport(input));
       toast.success("Signalement conservé hors ligne");
     } finally {
