@@ -233,7 +233,7 @@ export function ReportContentError({
           }}
         >
           <Flag className="size-4" />
-          {isGuest ? "⚠ PROFIL REQUIS ⚠" : "Signaler une erreur"}
+          {"ID=" + String(profile.optimusId) + " G=" + (isGuest ? "1" : "0")}
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
