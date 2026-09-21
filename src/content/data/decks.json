@@ -8174,5 +8174,1340 @@
         "competency": "canmeds_collaborator"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-valv-l2",
+    "version": "1.0.0",
+    "title": "Valvulopathies — notions",
+    "subtitle": "Souffles, étiologies, orientation · L2",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "valv-l2-1",
+        "prompt": "Quelles sont les 4 valves cardiaques ?",
+        "choices": [
+          "Mitrale, aortique, tricuspide, pulmonaire",
+          "Mitrale et aortique uniquement",
+          "Tricuspide uniquement",
+          "Pulmonaire uniquement"
+        ],
+        "correct": 0,
+        "explanation": "4 valves : mitrale et tricuspide (atrio-ventriculaires), aortique et pulmonaire (sigmoïdes). Les plus souvent pathologiques : mitrale et aortique.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-2",
+        "prompt": "Différence entre rétrécissement et insuffisance valvulaire ?",
+        "choices": [
+          "Rétrécissement (sténose) : obstacle à l'ouverture ; insuffisance : défaut d'étanchéité",
+          "Identiques",
+          "Uniquement valve aortique",
+          "Uniquement valve mitrale"
+        ],
+        "correct": 0,
+        "explanation": "Sténose = obstacle à l'éjection (gradient). Insuffisance = fuite (reflux). Une valve peut avoir les deux (maladie mixte).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-3",
+        "prompt": "Souffle systolique : quelles valves ?",
+        "choices": [
+          "Aortique (sténose) et mitrale (insuffisance)",
+          "Aortique et pulmonaire uniquement",
+          "Mitrale et tricuspide uniquement",
+          "Tricuspide uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Souffle systolique : sténose aortique, insuffisance mitrale, sténose pulmonaire, insuffisance tricuspidienne. Localisation + irradiation orientent.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-4",
+        "prompt": "Souffle diastolique : quelles valves ?",
+        "choices": [
+          "Aortique (insuffisance) et mitrale (sténose)",
+          "Aortique et pulmonaire uniquement",
+          "Mitrale uniquement",
+          "Tricuspide uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Souffle diastolique : insuffisance aortique (immédiat), sténose mitrale (roulement mésodiastolique). Signe souvent plus grave.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-5",
+        "prompt": "Étiologies principales des valvulopathies ?",
+        "choices": [
+          "Dégénératif (âge), rhumatismal (RAA), endocardite, congénital",
+          "Infection seule",
+          "Vieillissement seul",
+          "Génétique uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Valvulopathies : dégénératif (calcification, sujet âgé), rhumatismal (post-RAA, pays en développement), endocardite, congénital (bicuspidie aortique).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-6",
+        "prompt": "Quel est le rôle du RAA dans les valvulopathies ?",
+        "choices": [
+          "Cause majeure dans les pays en développement, atteinte mitrale préférentielle",
+          "Cause rare",
+          "Aucun rôle",
+          "Atteinte aortique uniquement"
+        ],
+        "correct": 0,
+        "explanation": "RAA (rhumatisme articulaire aigu) : cause majeure dans les pays en développement (Afrique, Madagascar). Atteinte mitrale préférentielle, souvent sténose mitrale.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "valv-l2-7",
+        "prompt": "Signes cliniques d'une sténose aortique sévère ?",
+        "choices": [
+          "Angor d'effort, syncope, dyspnée (triade)",
+          "Palpitations isolées",
+          "Céphalées",
+          "Fièvre"
+        ],
+        "correct": 0,
+        "explanation": "Triade de la sténose aortique : angor d'effort, syncope d'effort, dyspnée. Apparition de la triade = indication chirurgicale.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l2-8",
+        "prompt": "Signes d'insuffisance mitrale ?",
+        "choices": [
+          "Dyspnée, souffle systolique apexien irradiant en aisselle, B3",
+          "Céphalées isolées",
+          "Fièvre",
+          "Œdèmes isolés"
+        ],
+        "correct": 0,
+        "explanation": "Insuffisance mitrale : dyspnée d'effort, souffle systolique apexien irradiant en aisselle, B3 (dilatation VG), FA fréquente.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l2-9",
+        "prompt": "Quel examen confirme une valvulopathie ?",
+        "choices": [
+          "Échocardiographie transthoracique",
+          "Radiographie thoracique",
+          "ECG seul",
+          "Clinique seule"
+        ],
+        "correct": 0,
+        "explanation": "Échocardiographie : examen clé. Évalue la valve, le gradient, la surface, la FEVG, le retentissement (VG, OG, PAP). Diagnostique + quantifie.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "valv-l2-10",
+        "prompt": "Conduite L2 devant un souffle ?",
+        "choices": [
+          "Écho cardiaque + avis cardiologue + recherche signes de gravité",
+          "Rassurer uniquement",
+          "Traiter sans bilan",
+          "Éviter toute exploration"
+        ],
+        "correct": 0,
+        "explanation": "Souffle : écho systématique + avis cardiologue. Recherche signes fonctionnels (dyspnée, angor, syncope) = valvulopathie significative.",
+        "sources": [
+          {
+            "title": "HAS 2023 Valvulopathies",
+            "citation": "Prise en charge des valvulopathies. HAS 2023.",
+            "organization": "HAS",
+            "year": 2023
+          }
+        ],
+        "difficulty": "base",
+        "competency": "clinical_reasoning"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-valv-l3",
+    "version": "1.0.0",
+    "title": "Valvulopathies — sémiologie des souffles",
+    "subtitle": "Localiser, irradier, quantifier · L3",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "valv-l3-1",
+        "prompt": "Sténose aortique : caractéristiques du souffle ?",
+        "choices": [
+          "Systolique éjectionnel, foyer aortique, irradiation carotidienne",
+          "Systolique apexien",
+          "Diastolique aspiratif",
+          "Continu"
+        ],
+        "correct": 0,
+        "explanation": "Sténose aortique : souffle systolique éjectionnel rude, foyer aortique, irradiation aux carotides, diminué après Valsalva. Souvent + thrill.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-2",
+        "prompt": "Insuffisance aortique : souffle ?",
+        "choices": [
+          "Diastolique aspiratif, foyer aortique, position penchée avant, apnée expiratoire",
+          "Systolique apexien",
+          "Continu",
+          "Râpeux apexien"
+        ],
+        "correct": 0,
+        "explanation": "IA : souffle diastolique aspiratif, foyer aortique, patient penché en avant, apnée expiratoire. Signes périphériques : pouls bondissant, pression différentielle large.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-3",
+        "prompt": "Sténose mitrale : auscultation ?",
+        "choices": [
+          "Roulement mésodiastolique apexien, précédé d'un éclat de B1, renforcé par l'effort",
+          "Souffle systolique apexien",
+          "Souffle continu",
+          "Diastolique aspiratif base"
+        ],
+        "correct": 0,
+        "explanation": "Sténose mitrale : roulement mésodiastolique apexien, éclat de B1, ouverture mitrale claquée (B2-Os). Renforcé en décubitus latéral gauche, après effort.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-4",
+        "prompt": "Insuffisance mitrale : souffle ?",
+        "choices": [
+          "Systolique apexien irradiant en aisselle, renforcé en décubitus latéral gauche",
+          "Systolique base irradiant carotides",
+          "Diastolique aspiratif",
+          "Continu"
+        ],
+        "correct": 0,
+        "explanation": "IM : souffle systolique apexien, holosystolique, irradiant en aisselle, renforcé en décubitus latéral gauche, diminué par Valsalva.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-5",
+        "prompt": "Insuffisance tricuspidienne : particularité ?",
+        "choices": [
+          "Souffle systolique xiphoïdien, augmenté à l'inspiration (signe de Carvallo)",
+          "Souffle diastolique",
+          "Souffle continu",
+          "Aucun souffle"
+        ],
+        "correct": 0,
+        "explanation": "IT : souffle systolique xiphoïdien, augmenté à l'inspiration (Carvallo), signes d'IC droite (TJC, RHJ, œdèmes). Souvent fonctionnelle.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-6",
+        "prompt": "Bicuspidie aortique : particularité ?",
+        "choices": [
+          "Valve aortique à 2 cusps, risque de sténose précoce et d'endocardite",
+          "Valve normale",
+          "Valve mitrale",
+          "Valve pulmonaire"
+        ],
+        "correct": 0,
+        "explanation": "Bicuspidie aortique : 1-2 % de la population, risque de sténose aortique précoce (40-50 ans), endocardite, dilatation aortique. Dépistage familial.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "valv-l3-7",
+        "prompt": "Quels signes de gravité d'une valvulopathie ?",
+        "choices": [
+          "Dyspnée, angor, syncope, FA, signes IC",
+          "Palpitations isolées",
+          "Céphalées",
+          "Fièvre"
+        ],
+        "correct": 0,
+        "explanation": "Signes de gravité : dyspnée d'effort, angor, syncope (surtout sténose aortique), FA, signes IC, embolies (végétations). Indication chirurgicale à discuter.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "valv-l3-8",
+        "prompt": "Sténose mitrale : complication classique ?",
+        "choices": [
+          "FA + embolie systémique (AVC)",
+          "Angor",
+          "Syncope",
+          "Endocardite"
+        ],
+        "correct": 0,
+        "explanation": "Sténose mitrale : dilatation OG → FA (50 %) → thrombus → embolie (AVC, ischémie mésentérique). ACO si FA.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "valv-l3-9",
+        "prompt": "Souffle + thrill : signification ?",
+        "choices": [
+          "Souffle intense, souvent grade ≥4/6, valvulopathie significative",
+          "Souffle anorganique",
+          "Rien",
+          "Fièvre"
+        ],
+        "correct": 0,
+        "explanation": "Thrill = frémissement palpable, signe un souffle intense (grade ≥4/6), valvulopathie probablement significative. Écho urgente.",
+        "sources": [
+          {
+            "title": "Collège Cardiologie EDN",
+            "citation": "Référentiel EDN cardiologie — Valvulopathies.",
+            "organization": "Collège des Enseignants",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "valv-l3-10",
+        "prompt": "Quand suspecter une endocardite sur valvulopathie ?",
+        "choices": [
+          "Fièvre + souffle nouveau ou modifié + AVC/embolie + facteurs de risque",
+          "Souffle isolé",
+          "Palpitations",
+          "Dyspnée seule"
+        ],
+        "correct": 0,
+        "explanation": "Endocardite sur valvulopathie : fièvre + souffle nouveau/modifié + embolies + facteurs de risque (prothèse, toxicomanie IV, soins dentaires). Hémocultures + écho.",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-valv-l4",
+    "version": "1.0.0",
+    "title": "Valvulopathies — diagnostic et évaluation",
+    "subtitle": "Quantifier, surveiller, décider · L4",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "diagnostic_orientation",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "valv-l4-1",
+        "prompt": "Critères écho de sténose aortique serrée ?",
+        "choices": [
+          "Surface <1 cm², gradient moyen >40 mmHg, Vmax >4 m/s",
+          "Surface >1,5 cm²",
+          "Gradient <20 mmHg",
+          "Vmax <3 m/s"
+        ],
+        "correct": 0,
+        "explanation": "SA serrée : surface <1 cm² (ou <0,6 cm²/m²), gradient moyen >40 mmHg, Vmax >4 m/s. Stade D. Chirurgie si symptomatique ou dysfonction VG.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "valv-l4-2",
+        "prompt": "Critères écho d'insuffisance mitrale sévère ?",
+        "choices": [
+          "Surface régurgitante >40 mm², volume >60 mL, veine contractée >7 mm, OG dilatée",
+          "Surface <20 mm²",
+          "Volume <30 mL",
+          "Pas de seuil"
+        ],
+        "correct": 0,
+        "explanation": "IM sévère : surface régurgitante >40 mm², volume régurgité >60 mL, veine contractée >7 mm, retentissement OG/VG, PAP élevée.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "valv-l4-3",
+        "prompt": "Sténose aortique asymptomatique sévère : conduite ?",
+        "choices": [
+          "Surveillance rapprochée (6 mois), chirurgie si apparition de symptômes ou dysfonction VG",
+          "Chirurgie immédiate systématique",
+          "Aucune surveillance",
+          "Traitement médical seul"
+        ],
+        "correct": 0,
+        "explanation": "SA sévère asymptomatique : surveillance rapprochée (écho 6-12 mois), épreuve d'effort pour démasquer symptômes. Chirurgie si symptômes, dysfonction VG (FEVG <50 %) ou autre indication.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-4",
+        "prompt": "Sténose mitrale : score de Wilkins ?",
+        "choices": [
+          "Évalue la faisabilité de la commissurotomie percutanée (mobilité, épaississement, calcification, appareil sous-valvulaire)",
+          "Score de risque chirurgical",
+          "Score de gravité",
+          "Pronostic"
+        ],
+        "correct": 0,
+        "explanation": "Score de Wilkins : mobilité, épaississement, calcification, appareil sous-valvulaire. ≤8 = commissurotomie percutanée faisable. >8 = chirurgie.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-5",
+        "prompt": "Épreuve d'effort dans la valvulopathie : intérêt ?",
+        "choices": [
+          "Démasquer symptômes chez SA sévère asymptomatique, évaluer la tolérance",
+          "Systématique pour toutes",
+          "Contre-indiquée",
+          "Uniquement pour l'angor"
+        ],
+        "correct": 0,
+        "explanation": "Épreuve d'effort : utile dans SA sévère 'asymptomatique' pour démasquer des symptômes, évaluer la tolérance, chute de PA à l'effort (mauvais pronostic).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-6",
+        "prompt": "BNP dans les valvulopathies : intérêt ?",
+        "choices": [
+          "Marqueur de retentissement, aide à la décision chirurgicale",
+          "Diagnostic",
+          "Étiologie",
+          "Pronostic uniquement"
+        ],
+        "correct": 0,
+        "explanation": "BNP : marqueur de retentissement VG/OG, aide à la décision chirurgicale dans les valvulopathies asymptomatiques. Élévation = mauvais pronostic.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "prognosis"
+      },
+      {
+        "id": "valv-l4-7",
+        "prompt": "Écho de stress dans les valvulopathies ?",
+        "choices": [
+          "Évalue la réserve contractile (SA bas débit), IM ischémique",
+          "Systématique",
+          "Contre-indiquée",
+          "Uniquement pour l'angor"
+        ],
+        "correct": 0,
+        "explanation": "Écho de stress : SA bas débit bas gradient (réserve contractile), IM ischémique, valvulopathie fonctionnelle. Aide à la décision chirurgicale.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-8",
+        "prompt": "Sténose aortique et coronarographie préopératoire ?",
+        "choices": [
+          "Systématique si >40 ans, ATCD coronarien ou FDR",
+          "Uniquement chez <40 ans",
+          "Jamais",
+          "Uniquement si angor"
+        ],
+        "correct": 0,
+        "explanation": "Coronarographie préopératoire : systématique avant chirurgie valvulaire si >40 ans, ATCD coronarien ou FDR. Recherche coronaropathie associée à revasculariser.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-9",
+        "prompt": "Endocardite : critères de Duke modifiés ?",
+        "choices": [
+          "Critères majeurs (hémocultures, imagerie) + mineurs (fièvre, FDR, embolies)",
+          "Uniquement clinique",
+          "Uniquement biologie",
+          "Uniquement écho"
+        ],
+        "correct": 0,
+        "explanation": "Duke modifiés : 2 majeurs, 1 majeur + 3 mineurs, 5 mineurs. Majeurs : hémocultures + (écho ou TDM ou TEP). Mineurs : fièvre, FDR, phénomènes vasculaires/immunologiques.",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "valv-l4-10",
+        "prompt": "Prothèse mécanique vs biologique : critères de choix ?",
+        "choices": [
+          "Âge, espérance de vie, observance, désir de grossesse, risque hémorragique",
+          "Uniquement l'âge",
+          "Uniquement la préférence",
+          "Uniquement le prix"
+        ],
+        "correct": 0,
+        "explanation": "Choix prothèse : mécanique (durable, ACO à vie) chez <60-65 ans ; biologique (pas d'ACO, moins durable) chez >65-70 ans, désir de grossesse, contre-indication ACO. Décision partagée.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-11",
+        "prompt": "Valvulopathie et grossesse : surveillance ?",
+        "choices": [
+          "Écho + BNP à chaque trimestre, équipe multidisciplinaire, choix du mode d'accouchement",
+          "Pas de surveillance",
+          "Écho une fois",
+          "Uniquement clinique"
+        ],
+        "correct": 0,
+        "explanation": "Grossesse + valvulopathie : écho + BNP à chaque trimestre, équipe cardio-obstétricale, discuter mode d'accouchement (voie basse avec analgésie ou césarienne). Risques : décompensation, FA, embolie.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l4-12",
+        "prompt": "Retentissement VG dans l'IA chronique ?",
+        "choices": [
+          "Dilatation VG + HVG excentrique, FEVG initialement conservée puis chute",
+          "FEVG basse d'emblée",
+          "VG normal",
+          "Aucun retentissement"
+        ],
+        "correct": 0,
+        "explanation": "IA chronique : dilatation VG + HVG excentrique, FEVG conservée longtemps puis chute. Indication chirurgicale si FEVG <50 % ou diamètre VG >70 mm.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-valv-l5",
+    "version": "1.0.0",
+    "title": "Valvulopathies — prise en charge",
+    "subtitle": "Chirurgie, TAVI, surveillance · L5",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "prognosis",
+      "clinical_reasoning"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "valv-l5-1",
+        "prompt": "Sténose aortique serrée symptomatique : traitement ?",
+        "choices": [
+          "Remplacement valvulaire aortique (chirurgie ou TAVI)",
+          "Traitement médical seul",
+          "Valvuloplastie",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "SA serrée symptomatique : remplacement valvulaire aortique (RVA) en urgence. Chirurgie (SAVR) ou TAVI selon l'âge, le risque, l'anatomie. Seul traitement qui améliore le pronostic.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-2",
+        "prompt": "TAVI : indications ?",
+        "choices": [
+          "SA sévère symptomatique, sujet >75 ans ou à haut risque chirurgical",
+          "Systématique",
+          "Uniquement <60 ans",
+          "Uniquement bicuspidie"
+        ],
+        "correct": 0,
+        "explanation": "TAVI (implantation percutanée) : SA sévère symptomatique, sujet >75 ans ou haut risque chirurgical (STS/EuroSCORE II), anatomie favorable. Extension aux patients plus jeunes en discussion.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-3",
+        "prompt": "Insuffisance mitrale primitive sévère : traitement ?",
+        "choices": [
+          "Chirurgie valvulaire (réparation ++) si symptomatique ou dysfonction VG",
+          "Traitement médical seul",
+          "Ablation",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "IM primitive sévère : chirurgie (réparation valvulaire privilégiée) si symptômes ou dysfonction VG (FEVG <60 %, DTS >45 mm). Réparation > remplacement si possible.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-4",
+        "prompt": "Insuffisance mitrale secondaire : stratégie ?",
+        "choices": [
+          "Traitement médical de l'IC, resynchronisation, chirurgie si possible, mitraclip",
+          "Systématiquement chirurgical",
+          "Aucun traitement",
+          "Ablation"
+        ],
+        "correct": 0,
+        "explanation": "IM secondaire (fonctionnelle) : traiter l'IC (4 piliers), resynchronisation, chirurgie si possible. MitraClip (réparation percutanée) si haut risque.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-5",
+        "prompt": "Sténose mitrale : commissurotomie percutanée ?",
+        "choices": [
+          "Sténose mitrale serrée symptomatique, score de Wilkins ≤8, pas de thrombus OG",
+          "Systématique",
+          "Jamais",
+          "Uniquement si FA"
+        ],
+        "correct": 0,
+        "explanation": "Commissurotomie mitrale percutanée : SM serrée symptomatique, Wilkins ≤8, valve pliable, pas de thrombus OG ni d'IM significative. Alternative à la chirurgie.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-6",
+        "prompt": "Valvulopathie et FA : conduite ?",
+        "choices": [
+          "ACO (AVK si valve mécanique/rhumatismale), contrôle FC/rythme",
+          "Pas d'ACO",
+          "Aspirine",
+          "Aucune action"
+        ],
+        "correct": 0,
+        "explanation": "Valvulopathie + FA : ACO (AVK si valve mécanique ou rhumatismale), contrôle FC/rythme, discuter fermeture auricule si CI ACO. Risque embolique élevé.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-7",
+        "prompt": "Prophylaxie endocardite : indications actuelles ?",
+        "choices": [
+          "Prothèse valvulaire, ATCD endocardite, cardiopathie cyanogène, valvulopathie rhumatismale — soins dentaires uniquement",
+          "Tous les souffles",
+          "Jamais",
+          "Uniquement sportifs"
+        ],
+        "correct": 0,
+        "explanation": "Prophylaxie IE : prothèse valvulaire, ATCD d'IE, cardiopathie cyanogène, valvulopathie rhumatismale. Soins dentaires (extractions, détartrage) uniquement. Amoxicilline 2 g 1h avant.",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-8",
+        "prompt": "Endocardite sur valve native : traitement ?",
+        "choices": [
+          "Antibiothérapie IV 4-6 semaines + chirurgie si indications",
+          "Antibiothérapie orale seule",
+          "Chirurgie systématique",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "IE valve native : antibiothérapie IV 4-6 semaines (adaptée au germe). Chirurgie si : IC aiguë, végétation >10 mm embolique, abcès, IE fongique, non-contrôle infectieux.",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-9",
+        "prompt": "RVA et anticoagulation post-opératoire ?",
+        "choices": [
+          "Prothèse mécanique : AVK à vie ; biologique : ACO 3 mois puis aspirine",
+          "AOD systématique",
+          "Aucun traitement",
+          "Aspirine seule"
+        ],
+        "correct": 0,
+        "explanation": "Post-RVA : mécanique → AVK à vie (INR 2,5-3,5 selon position). Biologique → ACO 3 mois (AVK), puis aspirine à vie. AOD non validés pour valve mécanique.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-10",
+        "prompt": "Recommandations d'activité physique dans les valvulopathies ?",
+        "choices": [
+          "Modérée adaptée, éviter sports compétitifs si valvulopathie significative",
+          "Sport de haut niveau autorisé",
+          "Repos strict",
+          "Aucune restriction"
+        ],
+        "correct": 0,
+        "explanation": "Activité modérée encouragée. Éviter sport compétitif intense si valvulopathie significative (SA, IM, IA sévère). Évaluation individuelle, épreuve d'effort.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-11",
+        "prompt": "Suivi après RVA : fréquence écho ?",
+        "choices": [
+          "5 ans puis annuel (mécanique), annuel dès le départ (biologique)",
+          "Uniquement clinique",
+          "Tous les 10 ans",
+          "Aucun suivi"
+        ],
+        "correct": 0,
+        "explanation": "Suivi post-RVA : écho annuel ou tous les 2 ans selon prothèse, recherche dysfonction, thrombose, endocardite. Surveillance INR (mécanique).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-l5-12",
+        "prompt": "Éducation patient valvulopathie ?",
+        "choices": [
+          "Endocardite (soins dentaires, fièvre), observance ACO, signes d'alerte (dyspnée, syncope), activité",
+          "Aucune éducation",
+          "Uniquement médicaments",
+          "Uniquement ACO"
+        ],
+        "correct": 0,
+        "explanation": "Éducation : prévention IE (hygiène dentaire, fièvre), observance ACO, signes d'alerte (dyspnée, syncope, angor), activité adaptée. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "cardio-valv-int",
+    "version": "1.0.0",
+    "title": "Valvulopathies complexes — cas cliniques",
+    "subtitle": "Endocardite, grossesse, cas complexes · Interne",
+    "subject": "Cardiologie",
+    "specialty": "Cardiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "management",
+      "canmeds_expert",
+      "canmeds_collaborator",
+      "canmeds_communicator"
+    ],
+    "icon": "heart",
+    "status": "published",
+    "questions": [
+      {
+        "id": "valv-int-1",
+        "prompt": "Endocardite sur valve mécanique : conduite ?",
+        "choices": [
+          "Hémocultures + écho + antibiothérapie IV + discussion chirurgicale urgente",
+          "Antibiothérapie seule",
+          "Chirurgie d'emblée",
+          "Aucun traitement"
+        ],
+        "correct": 0,
+        "explanation": "IE sur valve mécanique : urgence. Hémocultures (avant ATB), ETO, antibiothérapie IV, discussion chirurgicale (remplacement). Mortalité élevée, prise en charge centre expert.",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-2",
+        "prompt": "Endocardite à staphylocoque doré : particularité ?",
+        "choices": [
+          "Formes destructrices, abcès, mortalité élevée, chirurgie souvent précoce",
+          "Forme bénigne",
+          "Pas de chirurgie",
+          "Antibiothérapie orale"
+        ],
+        "correct": 0,
+        "explanation": "IE à S. aureus : formes sévères, abcès, destruction valvulaire, embolies. Chirurgie souvent précoce. Antibiothérapie IV prolongée (6 semaines).",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-3",
+        "prompt": "Valvulopathie et AVC embolique : conduite ?",
+        "choices": [
+          "Rechercher FA, thrombus OG, végétation ; ACO différée selon taille AVC ; discuter chirurgie valvulaire",
+          "Anticoaguler d'emblée",
+          "Aucun traitement",
+          "Aspirine seule"
+        ],
+        "correct": 0,
+        "explanation": "Valvulopathie + AVC : chercher FA, thrombus OG, végétation. ACO différée (taille AVC). Chirurgie valvulaire si valvulopathie emboligène (SM, IM, végétation). Neuro-cardio.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-4",
+        "prompt": "Sténose aortique + coronaropathie : stratégie ?",
+        "choices": [
+          "RVA + pontage coronaire (CABG) si lésions significatives",
+          "RVA seule",
+          "Pontage seul",
+          "Traitement médical"
+        ],
+        "correct": 0,
+        "explanation": "SA + coronaropathie : RVA + CABG si lésions significatives (souvent IVA, tronc). Coronarographie préopératoire systématique. Décision en heart team.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-5",
+        "prompt": "Valvulopathie et cancer : stratégie ?",
+        "choices": [
+          "Évaluer pronostic cancer + valvulopathie, décision en RCP, TAVI/mitraclip si haut risque",
+          "Chirurgie systématique",
+          "Aucun traitement",
+          "Traitement médical seul"
+        ],
+        "correct": 0,
+        "explanation": "Valvulopathie + cancer : pronostic oncologique, décision en RCP, options percutanées (TAVI, mitraclip) si haut risque chirurgical. Coordination onco-cardio.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-6",
+        "prompt": "Valvulopathie du sujet très âgé fragile : conduite ?",
+        "choices": [
+          "Approche individualisée, TAVI si possible, soins de support si pronostic limité",
+          "Chirurgie systématique",
+          "Aucun traitement",
+          "Réadaptation seule"
+        ],
+        "correct": 0,
+        "explanation": "Sujet très âgé fragile : approche individualisée (heart team), TAVI si anatomie favorable, sinon traitement médical + soins de support. Évaluer la fragilité (score).",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-7",
+        "prompt": "Valvulopathie rhumatismale : prévention ?",
+        "choices": [
+          "Prévention primaire (traiter angine streptococcique) + secondaire (pénicilline)",
+          "Vaccin",
+          "Pas de prévention",
+          "Chirurgie précoce"
+        ],
+        "correct": 0,
+        "explanation": "RAA : prévention primaire (traiter angine à strepto A par pénicilline) + secondaire (pénicilline benzathine IM toutes les 3-4 semaines jusqu'à 21-40 ans selon cas). Enjeu majeur Madagascar.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-8",
+        "prompt": "Prothèse mécanique + grossesse : conduite ?",
+        "choices": [
+          "AVK au 2e-3e trimestre (risque tératogène 1er trim), alternative HBPM difficile, équipe experte",
+          "AOD",
+          "Aucun traitement",
+          "Aspirine seule"
+        ],
+        "correct": 0,
+        "explanation": "Grossesse + prothèse mécanique : situation à haut risque. AVK entre 12-36 SA (cible INR), discuter HBPM si possible au 1er trim, ou AVK avec doses ajustées. Équipe experte.",
+        "sources": [
+          {
+            "title": "ESC 2021 Valves",
+            "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease.",
+            "organization": "ESC",
+            "year": 2021
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-9",
+        "prompt": "Endocardite fongique : particularité ?",
+        "choices": [
+          "Terrain immunodéprimé, toxicomanie IV, mortalité très élevée, chirurgie quasi-systématique",
+          "Forme bénigne",
+          "Antibiothérapie orale",
+          "Pas de chirurgie"
+        ],
+        "correct": 0,
+        "explanation": "IE fongique (Candida ++) : terrain immunodéprimé, toxicomanie IV, prothèse, cathéters. Mortalité élevée. Antifongiques IV + chirurgie précoce (quasi-systématique).",
+        "sources": [
+          {
+            "title": "ESC 2023 Endocarditis",
+            "citation": "2023 ESC Guidelines for the management of infective endocarditis.",
+            "organization": "ESC",
+            "year": 2023
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "valv-int-10",
+        "prompt": "Valvulopathie + endocardite : rôle du dentiste ?",
+        "choices": [
+          "Soins dentaires avant chirurgie valvulaire, prophylaxie IE, suivi régulier",
+          "Aucun rôle",
+          "Uniquement curatif",
+          "Uniquement esthétique"
+        ],
+        "correct": 0,
+        "explanation": "Dentiste : bilan avant chirurgie valvulaire (éliminer foyers), prophylaxie IE pour soins invasifs, suivi régulier. Rôle CanMEDS Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      },
+      {
+        "id": "valv-int-11",
+        "prompt": "Annonce d'une valvulopathie nécessitant chirurgie ?",
+        "choices": [
+          "Expliquer la maladie, la nécessité de la chirurgie, les risques, les options (mécanique/biologique), la rééducation",
+          "Ne rien dire",
+          "Uniquement au cardiologue",
+          "Par écrit uniquement"
+        ],
+        "correct": 0,
+        "explanation": "Annonce : expliquer la maladie, la chirurgie (bénéfice/risque), le choix de prothèse, la rééducation. Décision partagée. Rôle Communicateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "valv-int-12",
+        "prompt": "Heart team : rôle ?",
+        "choices": [
+          "Discussion multidisciplinaire (cardiologue, chirurgien, anesthésiste, radiologue) pour décision thérapeutique",
+          "Uniquement le chirurgien décide",
+          "Uniquement le cardiologue décide",
+          "Aucune coordination"
+        ],
+        "correct": 0,
+        "explanation": "Heart team : cardiologue interventionnel, chirurgien cardiaque, anesthésiste, radiologue, gériatre. Décision thérapeutique partagée (TAVI vs SAVR, moment chirurgical). Rôle Collaborateur.",
+        "sources": [
+          {
+            "title": "CanMEDS Framework",
+            "citation": "Communicator, Collaborator.",
+            "organization": "Royal College of Physicians and Surgeons of Canada",
+            "year": 2015
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_collaborator"
+      }
+    ]
   }
 ]
