@@ -58,10 +58,13 @@ export function ContentCard({
   item,
   progress,
   className,
+  /** Masque la spécialité dans le footer (utile quand elle est déjà dans l'en-tête de groupe). */
+  showSpecialty = true,
 }: {
   item: ContentItem;
   progress?: number;
   className?: string;
+  showSpecialty?: boolean;
 }) {
   const meta = KIND_META[item.kind];
   const showProgress = typeof progress === "number" && progress > 0;
@@ -119,10 +122,14 @@ export function ContentCard({
       </div>
 
       <div className="mt-auto flex items-center gap-3 pt-3 text-xs text-muted">
-        <span className="truncate">{item.specialty}</span>
-        <span className="text-border-strong" aria-hidden>
-          ·
-        </span>
+        {showSpecialty ? (
+          <>
+            <span className="truncate">{item.specialty}</span>
+            <span className="text-border-strong" aria-hidden>
+              ·
+            </span>
+          </>
+        ) : null}
         <span className="shrink-0">{item.metric}</span>
         <span className="ml-auto flex shrink-0 items-center gap-1">
           <Clock3 className="size-3.5" aria-hidden />

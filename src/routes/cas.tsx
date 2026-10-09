@@ -7,7 +7,8 @@ import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
-import { buildContentIndex } from "@/lib/library/content-index";
+import { buildContentIndex, type ContentItem } from "@/lib/library/content-index";
+import type { Profile } from "@/core/types";
 import { useAllDecks, useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
@@ -16,7 +17,8 @@ function CasPage() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const decks = useAllDecks();
   const entitlements = useOptimus((s) => s.entitlements);
-  const tier = useOptimus((s) => s.profile.tier);
+  const profile = useOptimus((s) => s.profile);
+  const tier = profile.tier;
   const done = useOptimus((s) => s.casesCompleted);
   const dxDone = useOptimus((s) => s.diagnosticsCompleted);
   const [diagnosticQuery, setDiagnosticQuery] = useState("");
@@ -27,6 +29,28 @@ function CasPage() {
   );
   const caseItems = useMemo(() => index.filter((i) => i.kind === "case"), [index]);
   const accessibleCases = caseItems.filter((i) => !i.locked);
+
+  /**
+   * Dossiers regroupés par spécialité.
+   * « Inversion » validée : les groupes sont ordonnés du PLUS pertinent au MOINS
+   * pertinent pour le profil (matières prioritaires → année d'étude → volume de cas
+   * accessibles), et non selon l'ordre d'insertion du catalogue.
+   */
+  const caseGroups = useMemo(() => {
+    const bySpecialty = new Map<string, ContentItem[]>();
+    for (const item of caseItems) {
+      const list = bySpecialty.get(item.specialty) ?? [];
+      list.push(item);
+      bySpecialty.set(item.specialty, list);
+    }
+    return [...bySpecialty.entries()]
+      .map(([specialty, items]) => ({ specialty, items }))
+      .sort(
+        (a, b) =>
+          caseGroupRelevance(b.items, profile) - caseGroupRelevance(a.items, profile) ||
+          a.specialty.localeCompare(b.specialty, "fr"),
+      );
+  }, [caseItems, profile]);
   const completedClinicalCount = CLINICAL_CASES.filter((clinical) => done.includes(clinical.id)).length;
 
   const normalizedQuery = normalizeSearch(diagnosticQuery);
@@ -59,9 +83,42 @@ function CasPage() {
             title="Dossiers progressifs"
             action={<span className="text-xs text-muted">Récompense : XP + Maîtrise clinique</span>}
           />
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {caseItems.map((item) => (
-              <ContentCard key={item.id} item={item} />
+          <p className="-mt-2 mb-3 text-xs text-muted">
+            Regroupés par spécialité, du plus proche de votre profil au plus éloigné.
+          </p>
+
+          {/* Vue groupée : un en-tête collant par spécialité, les cartes défilent dessous. */}
+          <div className="space-y-2">
+            {caseGroups.map((group) => (
+              <section
+                key={group.specialty}
+                id={specialtySlug(group.specialty)}
+                /*
+                 * scroll-mt-24 (96 px) = en-tête du Shell (h-14 → 56 px) + en-tête de groupe
+                 * collant (~40 px) sur mobile (390×844). Sans cette marge, un saut d'ancre
+                 * (ou l'ancrage de défilement du navigateur) poserait la 1re carte du groupe
+                 * SOUS l'en-tête collant. En desktop l'en-tête du Shell est masqué, mais on
+                 * garde la marge : le coût est nul et le comportement reste cohérent.
+                 */
+                className="scroll-mt-24"
+              >
+                <div className="sticky top-14 z-10 -mx-5 mb-3 flex items-center gap-2 border-b border-border bg-bg/85 px-5 py-2 backdrop-blur-xl md:-mx-10 md:top-2 md:px-10">
+                  <span className="text-base" aria-hidden>
+                    {specialtyEmoji(group.specialty)}
+                  </span>
+                  <h3 className="min-w-0 flex-1 truncate font-display text-sm font-medium tracking-tight text-fg">
+                    {group.specialty}
+                  </h3>
+                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-subtle">
+                    {group.items.length}
+                  </span>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  {group.items.map((item) => (
+                    <ContentCard key={item.id} item={item} className="scroll-mt-24" showSpecialty={false} />
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </section>
@@ -219,6 +276,48 @@ function Summary({
       </p>
     </div>
   );
+}
+
+/**
+ * Pertinence d'un groupe de cas pour le profil courant.
+ * Priorité : matières prioritaires (4) > année d'étude (2) > nombre de cas accessibles.
+ * Sert au tri « du plus pertinent au moins pertinent » des groupes de spécialité.
+ */
+function caseGroupRelevance(items: ContentItem[], profile: Profile): number {
+  const priority = profile.prioritySubjects.some((subject) => {
+    const needle = subject.toLowerCase();
+    return items.some(
+      (item) =>
+        item.specialty.toLowerCase().includes(needle) ||
+        needle.includes(item.specialty.toLowerCase()),
+    );
+  });
+  const yearMatch = profile.studyYear > 0 && items.some((item) => item.year === profile.studyYear);
+  const accessible = items.filter((item) => !item.locked).length;
+  return (priority ? 4 : 0) + (yearMatch ? 2 : 0) + accessible;
+}
+
+/** Emoji d'illustration par spécialité (repli : 🩺). */
+function specialtyEmoji(specialty: string): string {
+  const s = specialty.toLowerCase();
+  if (s.includes("cardio")) return "🫀";
+  if (s.includes("neuro")) return "🧠";
+  if (s.includes("infectio")) return "🦠";
+  if (s.includes("pneumo")) return "🫁";
+  if (s.includes("dermato")) return "🩹";
+  if (s.includes("nephro")) return "🫘";
+  if (s.includes("gastro") || s.includes("hepato")) return "🫃";
+  return "🩺";
+}
+
+/** Identifiant d'ancre stable et sans accents à partir d'une spécialité. */
+function specialtySlug(specialty: string): string {
+  return `cas-${specialty
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
 }
 
 function normalizeSearch(value: string): string {
