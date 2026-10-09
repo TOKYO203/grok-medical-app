@@ -12,10 +12,34 @@ import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { STUDY_LEVEL_LABEL } from "@/core/types";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { CurriculumTree } from "@/components/curriculum-tree";
-import { CURRICULUM_CARDIO } from "@/content/curriculum";
-import type { Level } from "@/core/curriculum";
+import { listCurricula } from "@/content/curriculum";
+import type { CurriculumSpecialty, Level } from "@/core/curriculum";
 
 export const Route = createFileRoute("/parcours")({ component: ParcoursPage });
+
+/** Nombre de decks réellement rattachés à une spécialité. */
+function deckCountOf(specialty: CurriculumSpecialty): number {
+  return specialty.branches.reduce((sum, branch) => sum + branch.decks.length, 0);
+}
+
+/** Spécialités mises en tête, dans cet ordre ; le reste trié par volume de decks. */
+const SPECIALTY_PRIORITY = ["cardio", "fondamentaux"];
+
+const ORDERED_CURRICULA: CurriculumSpecialty[] = [...listCurricula()].sort((a, b) => {
+  const ai = SPECIALTY_PRIORITY.indexOf(a.id);
+  const bi = SPECIALTY_PRIORITY.indexOf(b.id);
+  if (ai !== -1 || bi !== -1) {
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  }
+  return deckCountOf(b) - deckCountOf(a) || a.label.localeCompare(b.label);
+});
+
+const TOTAL_CURRICULUM_DECKS = ORDERED_CURRICULA.reduce(
+  (sum, specialty) => sum + deckCountOf(specialty),
+  0,
+);
 
 function ParcoursPage() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
@@ -225,15 +249,27 @@ function toLevel(studyLevel: unknown): Level {
         <section className="mt-10">
           <SectionTitle
             kicker="Parcours structuré"
-            title="Cardiologie — 15 decks progressifs"
+            title="Explorer par spécialité"
+            action={<span className="text-xs text-muted">{TOTAL_CURRICULUM_DECKS} decks</span>}
           />
-          <CurriculumTree
-            specialty={CURRICULUM_CARDIO}
-            decks={decks}
-            progress={progress}
-            userLevel={userLevel}
-            hasAccess={(deck) => hasAccess(deck, entitlements, profile.tier)}
-          />
+          <div className="space-y-8">
+            {ORDERED_CURRICULA.map((specialty) => (
+              <div key={specialty.id}>
+                <SectionTitle
+                  title={`${specialty.label} — ${deckCountOf(specialty)} deck${
+                    deckCountOf(specialty) > 1 ? "s" : ""
+                  }`}
+                />
+                <CurriculumTree
+                  specialty={specialty}
+                  decks={decks}
+                  progress={progress}
+                  userLevel={userLevel}
+                  hasAccess={(deck) => hasAccess(deck, entitlements, profile.tier)}
+                />
+              </div>
+            ))}
+          </div>
         </section>
 
       </Page>

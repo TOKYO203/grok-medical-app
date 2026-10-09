@@ -39,14 +39,10 @@ export const LEVEL_ORDER: Level[] = [
   "L1", "L2", "L3", "L4", "L5", "INTERNE", "RESIDENT", "SENIOR",
 ];
 
-export type BranchId =
-  | "fondamentaux"
-  | "pathologies"
-  | "urgences"
-  | "cas"
-  | "guidelines";
+/** Identifiant de branche — ouvert pour permettre l'ajout de nouvelles branches sans toucher au type. */
+export type BranchId = string;
 
-export const BRANCH_LABEL: Record<BranchId, string> = {
+const BRANCH_LABELS: Record<string, string> = {
   fondamentaux: "Fondamentaux",
   pathologies: "Pathologies",
   urgences: "Urgences",
@@ -54,7 +50,11 @@ export const BRANCH_LABEL: Record<BranchId, string> = {
   guidelines: "Guidelines",
 };
 
-export const BRANCH_ICON: Record<BranchId, string> = {
+export function branchLabel(id: string): string {
+  return BRANCH_LABELS[id] ?? id.charAt(0).toUpperCase() + id.slice(1);
+}
+
+const BRANCH_ICONS: Record<string, string> = {
   fondamentaux: "📚",
   pathologies: "🔬",
   urgences: "🚨",
@@ -62,17 +62,12 @@ export const BRANCH_ICON: Record<BranchId, string> = {
   guidelines: "📖",
 };
 
-export type SpecialtyId =
-  | "cardio"
-  | "neuro"
-  | "infectio"
-  | "pneumo"
-  | "endoc"
-  | "gastro"
-  | "pediatrie"
-  | "gyneco"
-  | "psychiatrie"
-  | "urgences";
+export function branchIcon(id: string): string {
+  return BRANCH_ICONS[id] ?? "📂";
+}
+
+/** Identifiant de spécialité — ouvert pour permettre l'ajout de nouvelles spécialités. */
+export type SpecialtyId = string;
 
 export type CurriculumBranch = {
   id: BranchId;
@@ -81,6 +76,11 @@ export type CurriculumBranch = {
   levels: Level[];
   description: string;
   decks: string[];
+  /**
+   * Branche « squelette » : structure prévue mais encore vide.
+   * Exclue des contrôles d'intégrité (audit-content) et du rendu.
+   */
+  skeleton?: boolean;
 };
 
 export type CurriculumSpecialty = {

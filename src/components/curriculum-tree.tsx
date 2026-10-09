@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { ChevronDown, Lock, LockOpen } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ChevronDown, Lock, LockOpen, Check, Play } from "lucide-react";
 import {
-  BRANCH_ICON,
   LEVEL_ORDER,
   LEVEL_SHORT,
   type Level,
@@ -10,7 +10,6 @@ import {
 } from "@/core/curriculum";
 import type { Deck, DeckProgress } from "@/core/types";
 import { deckProgressPct } from "@/core/mastery";
-import { DeckRow, type DeckState } from "@/components/deck-row";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -22,12 +21,12 @@ type Props = {
   allowExplore?: boolean;
 };
 
-function deckState(pct: number, locked: boolean): DeckState {
-  if (locked) return "locked";
-  if (pct >= 100) return "done";
-  if (pct > 0) return "in-progress";
-  return "todo";
-}
+type DeckEntry = {
+  deck: Deck;
+  level: Level;
+  pct: number;
+  locked: boolean;
+};
 
 export function CurriculumTree({
   specialty,
@@ -45,7 +44,6 @@ export function CurriculumTree({
     return m;
   }, [decks]);
 
-  // Calcule la progression globale
   const totals = useMemo(() => {
     let total = 0;
     let done = 0;
@@ -62,26 +60,25 @@ export function CurriculumTree({
 
   return (
     <div>
-      {/* Header spécialité */}
-      <div className="mb-4 flex items-start gap-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
-        <span className="text-3xl" aria-hidden>
+      {/* Header spécialité — compact */}
+      <div className="mb-4 flex items-center gap-3 rounded-[var(--radius-lg)] bg-card px-4 py-3 shadow-[var(--shadow-border)]">
+        <span className="text-2xl" aria-hidden>
           {specialty.icon}
         </span>
         <div className="min-w-0 flex-1">
-          <h2 className="font-display text-xl font-medium tracking-tight">
-            {specialty.label}
-          </h2>
-          <p className="mt-0.5 text-xs text-muted">{specialty.description}</p>
-          <div className="mt-2 flex items-center gap-2">
-            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary">
-              <div
-                className="h-full bg-primary transition-all duration-500"
-                style={{ width: `${totals.pct}%` }}
-              />
-            </div>
-            <span className="shrink-0 text-[11px] text-subtle">
-              {totals.done}/{totals.total} · {totals.pct}%
+          <div className="flex items-baseline justify-between gap-2">
+            <h2 className="font-display text-lg font-medium tracking-tight">
+              {specialty.label}
+            </h2>
+            <span className="shrink-0 font-mono text-[11px] tabular-nums text-subtle">
+              {totals.total > 0 ? `${totals.done}/${totals.total}` : "Bientôt"}
             </span>
+          </div>
+          <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-secondary">
+            <div
+              className="h-full bg-primary transition-all duration-500"
+              style={{ width: `${totals.pct}%` }}
+            />
           </div>
         </div>
         <button
@@ -89,28 +86,34 @@ export function CurriculumTree({
           onClick={() => setExplore((v) => !v)}
           aria-label={explore ? "Masquer les contenus avancés" : "Explorer tous les contenus"}
           className={cn(
-            "flex size-9 shrink-0 items-center justify-center rounded-full transition-colors",
+            "flex size-8 shrink-0 items-center justify-center rounded-full transition-colors",
             explore ? "bg-primary-soft text-primary" : "bg-secondary text-muted hover:text-fg",
           )}
         >
-          {explore ? <LockOpen className="size-4" /> : <Lock className="size-4" />}
+          {explore ? <LockOpen className="size-3.5" /> : <Lock className="size-3.5" />}
         </button>
       </div>
 
-      {/* Branches */}
-      <div className="space-y-4">
-        {specialty.branches.map((branch) => (
-          <BranchSection
-            key={branch.id}
-            branch={branch}
-            deckMap={deckMap}
-            progress={progress}
-            userLevel={userLevel}
-            hasAccess={hasAccess}
-            explore={explore}
-          />
-        ))}
-      </div>
+      {/* Branches — liste ultra-compacte */}
+      {totals.total === 0 ? (
+        <p className="rounded-[var(--radius-md)] bg-card px-4 py-6 text-center text-sm text-muted shadow-[var(--shadow-border)]">
+          Contenus en préparation pour cette spécialité.
+        </p>
+      ) : (
+        <div className="space-y-2">
+          {specialty.branches.map((branch) => (
+            <BranchSection
+              key={branch.id}
+              branch={branch}
+              deckMap={deckMap}
+              progress={progress}
+              userLevel={userLevel}
+              hasAccess={hasAccess}
+              explore={explore}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -131,49 +134,46 @@ function BranchSection({
   explore: boolean;
 }) {
   const [open, setOpen] = useState(true);
-  const levelsLabel = branch.levels.map((l) => LEVEL_SHORT[l]).join("·");
 
-  const visibleDecks = branch.decks
-    .map((id) => {
-      const deck = deckMap.get(id);
-      if (!deck) return null;
-      const level = extractLevel(id) ?? branch.levels[branch.levels.length - 1];
-      const pct = deckProgressPct(deck, progress[deck.id]);
-      const locked = !hasAccess(deck) && !explore;
-      return { deck, level, pct, locked };
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null);
+  const entries = useMemo(() => {
+    return branch.decks
+      .map((id): DeckEntry | null => {
+        const deck = deckMap.get(id);
+        if (!deck) return null;
+        const level = extractLevel(id) ?? branch.levels[branch.levels.length - 1];
+        const pct = deckProgressPct(deck, progress[deck.id]);
+        const locked = !hasAccess(deck) && !explore;
+        return { deck, level, pct, locked };
+      })
+      .filter((x): x is DeckEntry => x !== null);
+  }, [branch, deckMap, progress, hasAccess, explore]);
 
-  if (visibleDecks.length === 0) return null;
+  // Branches « squelette » : structure prévue mais vide, non rendue.
+  if (branch.skeleton) return null;
+  if (entries.length === 0) return null;
 
-  const doneCount = visibleDecks.filter((d) => d.pct >= 100 && !d.locked).length;
+  const doneCount = entries.filter((d) => d.pct >= 100 && !d.locked).length;
 
   return (
-    <section className="overflow-hidden rounded-[var(--radius-lg)] bg-bg/40">
+    <section className="rounded-[var(--radius-md)] bg-card shadow-[var(--shadow-border)]">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center gap-3 px-3 py-2 text-left"
+        className="flex w-full items-center gap-2.5 px-3 py-2.5 text-left"
       >
         <span className="text-base" aria-hidden>
-          {BRANCH_ICON[branch.id]}
+          {branch.icon}
         </span>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline gap-2">
-            <h3 className="text-sm font-medium uppercase tracking-wider">
-              {branch.label}
-            </h3>
-            <span className="text-[10px] text-subtle">{levelsLabel}</span>
-          </div>
-          <p className="text-[11px] text-muted">{branch.description}</p>
-        </div>
-        <span className="shrink-0 text-[11px] text-subtle">
-          {doneCount}/{visibleDecks.length}
+        <span className="min-w-0 flex-1 truncate text-[13px] font-medium">
+          {branch.label}
+        </span>
+        <span className="shrink-0 font-mono text-[10px] tabular-nums text-subtle">
+          {doneCount}/{entries.length}
         </span>
         <ChevronDown
           className={cn(
-            "size-4 shrink-0 text-muted transition-transform",
+            "size-3.5 shrink-0 text-muted transition-transform",
             open && "rotate-180",
           )}
           aria-hidden
@@ -181,20 +181,63 @@ function BranchSection({
       </button>
 
       {open ? (
-        <div className="space-y-1.5 px-2 pb-3">
-          {visibleDecks.map(({ deck, level, pct, locked }) => (
-            <DeckRow
-              key={deck.id}
-              deck={deck}
-              level={level}
-              state={deckState(pct, locked)}
-              progressPct={pct}
+        <div className="flex flex-wrap gap-1.5 px-3 pb-3">
+          {entries.map((entry) => (
+            <LevelPill
+              key={entry.deck.id}
+              entry={entry}
               userLevel={userLevel}
             />
           ))}
         </div>
       ) : null}
     </section>
+  );
+}
+
+function LevelPill({
+  entry,
+  userLevel,
+}: {
+  entry: DeckEntry;
+  userLevel: Level;
+}) {
+  const { deck, level, pct, locked } = entry;
+  const done = pct >= 100 && !locked;
+  const started = pct > 0 && pct < 100 && !locked;
+
+  const userIdx = LEVEL_ORDER.indexOf(userLevel);
+  const levelIdx = LEVEL_ORDER.indexOf(level);
+  const isAbove = levelIdx > userIdx;
+
+  const label = LEVEL_SHORT[level] ?? level;
+
+  return (
+    <Link
+      to="/learn/$deckId"
+      params={{ deckId: deck.id }}
+      className={cn(
+        "group flex min-w-[64px] items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition-all",
+        "hover:scale-[1.03] active:scale-[0.97]",
+        locked && "border-zinc-700/40 bg-zinc-800/40 text-zinc-500",
+        done && "border-[#A67C1E] bg-[#A67C1E]/15 text-[#E8C97A]",
+        started && "border-[#4A7A47] bg-[#4A7A47]/15 text-emerald-400",
+        !locked && !done && !started && "border-[#A67C1E]/30 bg-secondary text-fg",
+      )}
+      title={`${deck.title} · ${level}`}
+    >
+      {locked ? (
+        <Lock className="size-3 shrink-0" aria-hidden />
+      ) : done ? (
+        <Check className="size-3 shrink-0" aria-hidden />
+      ) : started ? (
+        <Play className="size-3 shrink-0 fill-current" aria-hidden />
+      ) : null}
+      <span className="font-mono font-medium">{label}</span>
+      {isAbove && !locked ? (
+        <span className="text-[9px] opacity-70">↑</span>
+      ) : null}
+    </Link>
   );
 }
 
