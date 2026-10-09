@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { GOALS, PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
+import { ChevronDown, Sparkles } from "lucide-react";
+import { GOALS } from "@/content/catalog";
 import type { StudyLevel } from "@/core/types";
 import { SUBJECT_CATEGORIES, DAILY_GOALS } from "@/data/onboarding";
 import { MadagascarMark, Wordmark } from "@/components/brand/marks";
@@ -10,16 +10,31 @@ import { useOptimus } from "@/state/store";
 import { requestNotificationPermission } from "@/lib/notifications/daily-reminder";
 
 const MAX_SUBJECTS = 6;
+const TOTAL_STEPS = 4;
+
+const LEVEL_GROUPS: { id: string; label: string; focus: string; value: StudyLevel }[] = [
+  { id: "l1-2",    label: "1re – 2e année",      focus: "Anatomie, physiologie",      value: 2 },
+  { id: "l3-4",    label: "3e – 4e année",       focus: "Sémiologie, pathologie",     value: 4 },
+  { id: "l5-6",    label: "5e – 6e année",       focus: "Raisonnement clinique",      value: 5 },
+  { id: "interne", label: "Interne / Médecin",   focus: "Pratique et garde",          value: 6 },
+];
+
+const SUBJECT_SUGGESTIONS: Record<string, string[]> = {
+  "l1-2":    ["Anatomie", "Physiologie", "Biostatistiques"],
+  "l3-4":    ["Sémiologie", "Pharmacologie", "Infectiologie"],
+  "l5-6":    ["Cardiologie", "Urgences", "Pneumologie"],
+  "interne": ["Urgences", "Cardiologie", "Infectiologie"],
+};
 
 export function Onboarding() {
   const complete = useOptimus((s) => s.completeOnboarding);
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
-  const [level, setLevel] = useState<StudyLevel>(5);
-  const [otherOpen, setOtherOpen] = useState(false);
+  const [levelGroup, setLevelGroup] = useState<string>("l5-6");
   const [goal, setGoal] = useState("edn");
-  const [subjects, setSubjects] = useState<string[]>(["Cardiologie"]);
+  const [subjects, setSubjects] = useState<string[]>(SUBJECT_SUGGESTIONS["l5-6"]);
   const [dailyGoal, setDailyGoal] = useState<string>("30min");
+  const [showAllRhythms, setShowAllRhythms] = useState(false);
 
   function toggle(sub: string) {
     setSubjects((cur) =>
@@ -31,17 +46,34 @@ export function Onboarding() {
     );
   }
 
+  function selectLevel(id: string) {
+    setLevelGroup(id);
+    setSubjects(SUBJECT_SUGGESTIONS[id] ?? []);
+  }
+
   function finish() {
+    const group = LEVEL_GROUPS.find((g) => g.id === levelGroup) ?? LEVEL_GROUPS[2];
     if (typeof window !== "undefined") {
       window.localStorage.setItem("optimus.dailyGoal", dailyGoal);
     }
     void requestNotificationPermission();
     complete({
       displayName: name.trim() || "Nouveau",
-      studyYear: typeof level === "number" ? level : 0,
-      studyLevel: level,
+      studyYear: typeof group.value === "number" ? group.value : 0,
+      studyLevel: group.value,
       goal,
       prioritySubjects: subjects,
+      onboarded: true,
+    });
+  }
+
+  function skip() {
+    complete({
+      displayName: "Nouveau",
+      studyYear: 5,
+      studyLevel: 5 as StudyLevel,
+      goal: "edn",
+      prioritySubjects: ["Cardiologie"],
       onboarded: true,
     });
   }
@@ -53,141 +85,156 @@ export function Onboarding() {
       className="flex min-h-dvh flex-col bg-bg px-5 py-8 text-fg outline-none"
     >
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
-        <Wordmark />
+        <div className="flex items-center justify-between">
+          <Wordmark />
+          {step < TOTAL_STEPS - 1 ? (
+            <button
+              type="button"
+              onClick={skip}
+              className="text-xs text-muted underline-offset-4 hover:underline"
+            >
+              Passer
+            </button>
+          ) : null}
+        </div>
+
+        {/* Barre de progression */}
+        <div className="mt-6 flex items-center gap-1.5" aria-hidden>
+          {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
+            <span
+              key={i}
+              className={`h-1 flex-1 rounded-full transition-colors ${
+                i <= step ? "bg-primary" : "bg-secondary"
+              }`}
+            />
+          ))}
+        </div>
+        <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-subtle">
+          Étape {step + 1} sur {TOTAL_STEPS}
+        </p>
+
+        {/* Écran 1 — Bienvenue + nom */}
         {step === 0 ? (
-          <div className="mt-12 flex flex-1 flex-col">
-            <MadagascarMark className="mb-6 h-16 w-10 text-primary/80" />
-            <h1 className="font-display text-4xl font-medium tracking-tight">
-              Apprendre.
-              <br />
-              Raisonner.
-              <br />
-              Progresser.
+          <div className="mt-10 flex flex-1 flex-col">
+            <MadagascarMark className="mb-6 h-14 w-9 text-primary/80" />
+            <h1 className="font-display text-3xl font-medium tracking-tight">
+              Bienvenue sur Optimus.
             </h1>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-              Coach de formation médicale, hors-ligne d'abord. Pas un simple QCM — un parcours, une Mastery, des cas.
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
+              Coach de formation médicale, hors-ligne d'abord. Un parcours, une Mastery, des cas — pas un simple QCM.
             </p>
-            <p className="mt-6 text-xs uppercase tracking-[0.16em] text-subtle">Développé à Madagascar</p>
+            <label className="mt-8 text-xs font-medium text-muted" htmlFor="name">
+              Comment on t'appelle ?
+            </label>
+            <Input
+              id="name"
+              className="mt-2"
+              placeholder="Ton prénom (ex. Fetra)"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <p className="mt-2 text-[11px] text-subtle">
+              Aucun compte obligatoire. Un Optimus ID est créé en local.
+            </p>
             <Button className="mt-auto" size="lg" onClick={() => setStep(1)}>
-              Commencer
+              Continuer
             </Button>
           </div>
         ) : null}
+
+        {/* Écran 2 — Niveau */}
         {step === 1 ? (
           <div className="mt-10 flex flex-1 flex-col">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Votre profil</p>
-            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Quel est votre niveau actuel ?</h2>
-            <div className="mt-6 grid grid-cols-2 gap-2">
-              {YEARS.map((y) => (
+            <h2 className="font-display text-2xl font-medium tracking-tight">Où en es-tu ?</h2>
+            <p className="mt-2 text-sm text-muted">On adapte le contenu à ton niveau.</p>
+            <div className="mt-6 grid gap-2">
+              {LEVEL_GROUPS.map((g) => (
                 <button
-                  key={y.year}
+                  key={g.id}
                   type="button"
-                  onClick={() => {
-                    setLevel(y.year);
-                    setOtherOpen(false);
-                  }}
-                  aria-pressed={level === y.year}
-                  className={`rounded-[var(--radius-lg)] px-3 py-3 text-left shadow-[var(--shadow-border)] ${level === y.year ? "bg-primary-soft" : "bg-card"}`}
+                  onClick={() => selectLevel(g.id)}
+                  aria-pressed={levelGroup === g.id}
+                  className={`flex w-full flex-col items-start rounded-[var(--radius-md)] px-4 py-3 text-left shadow-[var(--shadow-border)] ${
+                    levelGroup === g.id ? "bg-primary-soft" : "bg-card"
+                  }`}
                 >
-                  <p className="text-sm font-medium">{y.label}</p>
-                  <p className="mt-1 text-xs text-muted">{y.focus}</p>
+                  <span className="text-sm font-medium">{g.label}</span>
+                  <span className="text-xs text-muted">{g.focus}</span>
                 </button>
               ))}
             </div>
-            <button
-              type="button"
-              onClick={() => setOtherOpen((open) => !open)}
-              aria-expanded={otherOpen}
-              className={`mt-2 flex w-full items-center justify-between rounded-[var(--radius-lg)] px-3 py-3 text-left shadow-[var(--shadow-border)] ${typeof level === "string" ? "bg-primary-soft" : "bg-card"}`}
-            >
-              <span>
-                <span className="block text-sm font-medium">Autres</span>
-                <span className="mt-1 block text-xs text-muted">Interne ou médecin en exercice</span>
-              </span>
-              <ChevronDown className={`size-4 text-muted transition-transform ${otherOpen ? "rotate-180" : ""}`} />
-            </button>
-            {otherOpen ? (
-              <div className="mt-2 grid gap-2" aria-label="Profils professionnels">
-                {PROFESSIONAL_LEVELS.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setLevel(item.id)}
-                    aria-pressed={level === item.id}
-                    className={`flex min-h-12 items-center justify-between rounded-[var(--radius-md)] px-4 text-left shadow-[var(--shadow-border)] ${level === item.id ? "bg-primary text-primary-fg" : "bg-secondary"}`}
-                  >
-                    <span className="text-sm font-medium">{item.label}</span>
-                    <span className={`text-xs ${level === item.id ? "text-primary-fg/75" : "text-muted"}`}>{item.focus}</span>
-                  </button>
-                ))}
-              </div>
-            ) : null}
             <Button className="mt-auto" onClick={() => setStep(2)}>
               Continuer
             </Button>
           </div>
         ) : null}
+
+        {/* Écran 3 — Objectif + matières */}
         {step === 2 ? (
           <div className="mt-10 flex flex-1 flex-col">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Objectif</p>
-            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Pourquoi Optimus ?</h2>
-            <div className="mt-6 space-y-2">
-              {GOALS.map((g) => (
+            <h2 className="font-display text-2xl font-medium tracking-tight">Ton objectif ?</h2>
+            <p className="mt-2 text-sm text-muted">Choisis ce qui compte le plus maintenant.</p>
+            <div className="mt-5 space-y-2">
+              {GOALS.slice(0, 4).map((g) => (
                 <button
                   key={g.id}
                   type="button"
                   onClick={() => setGoal(g.id)}
-                  className={`flex h-12 w-full items-center rounded-[var(--radius-md)] px-4 text-sm shadow-[var(--shadow-border)] ${goal === g.id ? "bg-primary-soft" : "bg-card"}`}
+                  aria-pressed={goal === g.id}
+                  className={`flex h-12 w-full items-center rounded-[var(--radius-md)] px-4 text-sm shadow-[var(--shadow-border)] ${
+                    goal === g.id ? "bg-primary-soft" : "bg-card"
+                  }`}
                 >
                   {g.label}
                 </button>
               ))}
             </div>
-            <div className="mt-8 flex items-center justify-between">
+
+            <div className="mt-8 flex items-center gap-2">
+              <Sparkles className="size-3.5 text-primary" />
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                Matières prioritaires
+                Suggéré pour toi
               </p>
-              <span className="text-[11px] text-subtle">
+              <span className="ml-auto text-[11px] text-subtle">
                 {subjects.length}/{MAX_SUBJECTS}
               </span>
             </div>
-            <div className="mt-3 space-y-4">
-              {Object.entries(SUBJECT_CATEGORIES).map(([cat, list]) => (
-                <div key={cat}>
-                  <p className="mb-2 text-[11px] uppercase tracking-wider text-subtle">{cat}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {list.map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => toggle(s)}
-                        className={`h-9 rounded-full px-3 text-xs shadow-[var(--shadow-border)] ${
-                          subjects.includes(s)
-                            ? "bg-primary text-primary-fg"
-                            : "bg-card text-fg"
-                        }`}
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="mt-3 flex flex-wrap gap-2">
+              {Object.entries(SUBJECT_CATEGORIES)
+                .flatMap(([, list]) => list)
+                .map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => toggle(s)}
+                    className={`h-9 rounded-full px-3 text-xs shadow-[var(--shadow-border)] ${
+                      subjects.includes(s) ? "bg-primary text-primary-fg" : "bg-card text-fg"
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
             </div>
+            <p className="mt-3 text-[11px] text-subtle">
+              Maximum {MAX_SUBJECTS} matières. Tu pourras ajuster plus tard.
+            </p>
             <Button className="mt-auto" onClick={() => setStep(3)}>
               Continuer
             </Button>
           </div>
         ) : null}
+
+        {/* Écran 4 — Rythme + fin */}
         {step === 3 ? (
           <div className="mt-10 flex flex-1 flex-col">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Rythme quotidien</p>
-            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Objectif réaliste ?</h2>
+            <h2 className="font-display text-2xl font-medium tracking-tight">
+              Ton rythme quotidien ?
+            </h2>
             <p className="mt-2 text-sm text-muted">
-              Commencez petit. Mieux vaut 15 min tenues chaque jour qu'une heure abandonnée en une semaine.
+              Mieux vaut 15 min tenues chaque jour qu'une heure abandonnée.
             </p>
             <div className="mt-6 space-y-2">
-              {DAILY_GOALS.map((g) => (
+              {DAILY_GOALS.slice(0, showAllRhythms ? DAILY_GOALS.length : 3).map((g) => (
                 <button
                   key={g.id}
                   type="button"
@@ -202,28 +249,18 @@ export function Onboarding() {
                 </button>
               ))}
             </div>
-            <Button className="mt-auto" onClick={() => setStep(4)}>
-              Continuer
-            </Button>
-          </div>
-        ) : null}
-        {step === 4 ? (
-          <div className="mt-10 flex flex-1 flex-col">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Identité</p>
-            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">Comment vous appeler ?</h2>
-            <p className="mt-2 text-sm text-muted">Aucun compte obligatoire. Un Optimus ID sera créé en local.</p>
-            <label className="mt-6 text-xs font-medium text-muted" htmlFor="name">
-              Nom affiché
-            </label>
-            <Input
-              id="name"
-              className="mt-2"
-              placeholder="Ex. Fetra"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+            {!showAllRhythms ? (
+              <button
+                type="button"
+                onClick={() => setShowAllRhythms(true)}
+                className="mt-3 flex items-center gap-1 text-xs text-muted"
+              >
+                <ChevronDown className="size-3.5" />
+                Plus d'options
+              </button>
+            ) : null}
             <Button className="mt-auto" size="lg" onClick={finish}>
-              Entrer dans Optimus
+              Commencer maintenant
             </Button>
           </div>
         ) : null}
