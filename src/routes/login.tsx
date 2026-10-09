@@ -39,8 +39,8 @@ function LoginPage() {
     };
   }, []);
 
-  if (!authEnabled) return <Navigate to="/profil" />;
-  if (!isPending && user) return <Navigate to="/profil" />;
+  if (!authEnabled) return <Navigate to="/pro" replace />;
+  if (!isPending && user) return <Navigate to="/pro" replace />;
 
   const checking = isPending || (!runtime && !runtimeError);
   const ready = Boolean(runtime?.ready);

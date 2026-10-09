@@ -110,7 +110,25 @@ function main(argv) {
     console.error("usage: node scripts/with-app-env.mjs <command> [args…]");
     process.exit(2);
   }
-  const env = mergeAppEnv(readAppEnv(projectRoot()), process.env);
+  // __LOAD_DOTENV__ — lit .env.local pour les server functions
+  const fileEnv = (() => {
+    try {
+      const t = readFileSync(join(projectRoot(), '.env.local'), 'utf8');
+      const o = {};
+      for (const raw of t.split(/\r?\n/)) {
+        const line = raw.trim();
+        const eq = line.indexOf('=');
+        if (eq < 1) continue;
+        let v = line.slice(eq + 1).trim();
+        const dq = String.fromCharCode(34);
+        if (v.startsWith(dq) && v.endsWith(dq)) v = v.slice(1, -1);
+        o[line.slice(0, eq).trim()] = v;
+      }
+      return o;
+    } catch { return {}; }
+  })();
+  const appEnv = readAppEnv(projectRoot());
+  const env = { ...fileEnv, ...appEnv, ...process.env };
   const child = spawn(command, args, { stdio: "inherit", env });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {

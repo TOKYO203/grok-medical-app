@@ -6,6 +6,8 @@ import {
   FileWarning,
   Layers3,
   LayoutDashboard,
+  KeyRound,
+
   Lock,
   ShoppingBag,
   Users,
@@ -27,6 +29,14 @@ type Module = {
 };
 
 const MODULES: Module[] = [
+  {
+    to: "/admin-licences",
+    label: "Licences",
+    description: "Générer, surveiller et révoquer les clés d'accès",
+    Icon: KeyRound,
+    color: "emerald",
+    status: "ready",
+  },
   {
     to: "/admin-reports",
     label: "Signalements",

@@ -1,3 +1,4 @@
+import { authEnabled } from "@/lib/auth/client";
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
@@ -108,7 +109,8 @@ function ProPage() {
 
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
-            <PremiumPurchaseFlow
+            {authEnabled ? (
+              <PremiumPurchaseFlow
               key={purchaseFlowKey}
               profile={profile}
               initialPurchase={initialPurchase}
@@ -116,8 +118,9 @@ function ProPage() {
               onRemember={(message) => addContact("deck", message)}
               onPurchaseUpdated={cacheServerPurchase}
             />
+            ) : null}
 
-            <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+            <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]" open={!authEnabled}>
               <summary className="cursor-pointer text-sm font-medium">
                 J’ai déjà reçu une clé ou un Deck
               </summary>

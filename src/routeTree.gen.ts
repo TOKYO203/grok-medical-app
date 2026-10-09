@@ -15,6 +15,7 @@ import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
 import { Route as AdminDecksRouteImport } from './routes/admin-decks'
+import { Route as AdminLicencesRouteImport } from './routes/admin-licences'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AdminReportsRouteImport } from './routes/admin-reports'
 import { Route as BibliothequeRouteImport } from './routes/bibliotheque'
@@ -39,6 +40,7 @@ import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
+import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -68,6 +70,11 @@ const AdminAchatsRoute = AdminAchatsRouteImport.update({
 const AdminDecksRoute = AdminDecksRouteImport.update({
   id: '/admin-decks',
   path: '/admin-decks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLicencesRoute = AdminLicencesRouteImport.update({
+  id: '/admin-licences',
+  path: '/admin-licences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
@@ -190,6 +197,11 @@ const ParcoursDeckIdRoute = ParcoursDeckIdRouteImport.update({
   path: '/$deckId',
   getParentRoute: () => ParcoursRoute,
 } as any)
+const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
+  id: '/api/licenses/activate',
+  path: '/api/licenses/activate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -198,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
   '/bibliotheque': typeof BibliothequeRoute
@@ -222,6 +235,7 @@ export interface FileRoutesByFullPath {
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -230,6 +244,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
   '/bibliotheque': typeof BibliothequeRoute
@@ -254,6 +269,7 @@ export interface FileRoutesByTo {
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -263,6 +279,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/admin-achats': typeof AdminAchatsRoute
   '/admin-decks': typeof AdminDecksRoute
+  '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
   '/bibliotheque': typeof BibliothequeRoute
@@ -287,6 +304,7 @@ export interface FileRoutesById {
   '/demarche/$id': typeof DemarcheIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -297,6 +315,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
     | '/bibliotheque'
@@ -321,6 +340,7 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/api/licenses/activate'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -329,6 +349,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
     | '/bibliotheque'
@@ -353,6 +374,7 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/api/licenses/activate'
   id:
     | '__root__'
     | '/'
@@ -361,6 +383,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/admin-achats'
     | '/admin-decks'
+    | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
     | '/bibliotheque'
@@ -385,6 +408,7 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/api/licenses/activate'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -394,6 +418,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   AdminAchatsRoute: typeof AdminAchatsRoute
   AdminDecksRoute: typeof AdminDecksRoute
+  AdminLicencesRoute: typeof AdminLicencesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminReportsRoute: typeof AdminReportsRoute
   BibliothequeRoute: typeof BibliothequeRoute
@@ -416,6 +441,7 @@ export interface RootRouteChildren {
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   DemarcheIdRoute: typeof DemarcheIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
+  ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -460,6 +486,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-decks'
       fullPath: '/admin-decks'
       preLoaderRoute: typeof AdminDecksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-licences': {
+      id: '/admin-licences'
+      path: '/admin-licences'
+      fullPath: '/admin-licences'
+      preLoaderRoute: typeof AdminLicencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin-login': {
@@ -630,6 +663,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParcoursDeckIdRouteImport
       parentRoute: typeof ParcoursRoute
     }
+    '/api/licenses/activate': {
+      id: '/api/licenses/activate'
+      path: '/api/licenses/activate'
+      fullPath: '/api/licenses/activate'
+      preLoaderRoute: typeof ApiLicensesActivateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -662,6 +702,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   AdminAchatsRoute: AdminAchatsRoute,
   AdminDecksRoute: AdminDecksRoute,
+  AdminLicencesRoute: AdminLicencesRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminReportsRoute: AdminReportsRoute,
   BibliothequeRoute: BibliothequeRoute,
@@ -684,6 +725,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAiStreamRoute: ApiAiStreamRoute,
   DemarcheIdRoute: DemarcheIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
+  ApiLicensesActivateRoute: ApiLicensesActivateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
