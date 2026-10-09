@@ -256,9 +256,17 @@ function BibliothequePage() {
                 <section
                   key={group.specialty}
                   id={specialtySlug(group.specialty, "bib")}
-                  /* scroll-mt-24 : compense l'en-tête du Shell + l'en-tête de groupe collant. */
-                  className="scroll-mt-24"
+                  /* scroll-mt-32 : compense l'en-tête du Shell + l'en-tête de groupe collant. */
+                  className="scroll-mt-32"
                 >
+                  {/*
+                   * En-tête collant (décision validée 2026-10-10) :
+                   *  - mobile  : `top-14` = hauteur de l'en-tête du Shell (h-14), l'en-tête
+                   *    de groupe se colle juste dessous ;
+                   *  - desktop : `md:top-2` = respiration de 8 px sous le bord supérieur
+                   *    (layout sidebar, pas d'en-tête Shell collant) — wireframe validé.
+                   * Ne pas repasser à `md:top-0` : l'en-tête toucherait le bord.
+                   */}
                   <SpecialtyGroupHeader
                     specialty={group.specialty}
                     items={group.items}
@@ -271,7 +279,7 @@ function BibliothequePage() {
                         key={item.id}
                         item={item}
                         progress={progressById.get(item.id)}
-                        className="scroll-mt-24"
+                        className="scroll-mt-32"
                         showSpecialty={false}
                         premium
                       />

@@ -64,25 +64,17 @@ export function specialtyEmoji(specialty: string): string {
   return "🩺";
 }
 
-/**
- * Teinte d'illustration (CSS color) par spécialité, lisible sur fonds clair ET sombre.
- * Sert de `--group-hue` à la pastille d'en-tête de groupe. Repli : bleu ardoise neutre.
+/*
+ * TODO (si un jour besoin) — teinte d'illustration par spécialité.
+ * Retirée volontairement : la pastille d'en-tête de groupe est désormais
+ * OR MONOCHROME (signature « Oxford » : #A67C1E 14 % de fond, filet or 34 %),
+ * décidée le 2026-10-10 pour unifier la Bibliothèque sous une seule identité.
+ * L'emoji de spécialité (specialtyEmoji) suffit à distinguer les groupes.
+ *
+ * L'historique de la fonction specialtyTint() (mapping spécialité → `hsl(...)`)
+ * reste consultable dans git (commit c8966fa) si un retour au tint par spécialité
+ * devenait souhaitable.
  */
-export function specialtyTint(specialty: string): string {
-  const s = specialty.toLowerCase();
-  if (s.includes("urgence")) return "hsl(3 62% 47%)";
-  if (s.includes("cardio")) return "hsl(346 60% 47%)";
-  if (s.includes("neuro")) return "hsl(264 46% 52%)";
-  if (s.includes("infectio") || s.includes("tropical")) return "hsl(152 42% 38%)";
-  if (s.includes("dermato")) return "hsl(27 62% 47%)";
-  if (s.includes("pneumo")) return "hsl(203 52% 44%)";
-  if (s.includes("nephro")) return "hsl(190 50% 39%)";
-  if (s.includes("gastro") || s.includes("hepato")) return "hsl(36 55% 43%)";
-  if (s.includes("fondamental") || s.includes("semiolog") || s.includes("sémiolog"))
-    return "hsl(215 33% 47%)";
-  if (s.includes("outil")) return "hsl(268 24% 47%)";
-  return "hsl(206 30% 44%)";
-}
 
 /** Identifiant d'ancre stable et sans accents à partir d'un texte libre. */
 export function slugify(value: string): string {

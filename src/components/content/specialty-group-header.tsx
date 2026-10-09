@@ -1,6 +1,5 @@
-import type { CSSProperties } from "react";
 import type { ContentItem, ContentKind } from "@/lib/library/content-index";
-import { specialtyEmoji, specialtyTint } from "@/lib/library/specialty-helpers";
+import { specialtyEmoji } from "@/lib/library/specialty-helpers";
 import { cn } from "@/lib/utils";
 
 /** Libellés de comptage (minuscules, au singulier/pluriel) pour le kicker de groupe. */
@@ -57,8 +56,10 @@ export function groupAggregateProgress(
 }
 
 /**
- * En-tête éditorial de groupe de spécialité (pastille emoji teintée, titre, kicker
- * mono-ligne, compteur et barre d'avancement agrégée). Rendu collant par le parent.
+ * En-tête éditorial de groupe de spécialité (pastille emoji OR MONOCHROME, titre,
+ * kicker mono-ligne, compteur et barre d'avancement agrégée). Rendu collant par
+ * le parent. La pastille puise sa teinte dans `.optimus-group-badge` (signature
+ * « Oxford » : or #A67C1E), l'emoji seul distingue les spécialités.
  */
 export function SpecialtyGroupHeader({
   specialty,
@@ -72,7 +73,6 @@ export function SpecialtyGroupHeader({
   className?: string;
 }) {
   const emoji = specialtyEmoji(specialty);
-  const tint = specialtyTint(specialty);
   const kicker = groupKicker(items);
   const progress = groupAggregateProgress(items, progressById);
   const hasDecks = items.some((item) => item.kind === "deck");
@@ -81,11 +81,7 @@ export function SpecialtyGroupHeader({
   return (
     <div className={cn("optimus-group-header", className)}>
       <div className="flex items-center gap-3">
-        <span
-          className="optimus-group-badge"
-          style={{ "--group-hue": tint } as CSSProperties}
-          aria-hidden
-        >
+        <span className="optimus-group-badge" aria-hidden>
           {emoji}
         </span>
         <div className="min-w-0 flex-1">

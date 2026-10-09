@@ -296,7 +296,7 @@ html[data-theme="dark"] {
   }
 
   /* ── En-tête de groupe éditorial (ex. « Cardiologie ») ───────────────────────
-     Pastille emoji teintée (--group-hue posée en inline), titre + kicker, compteur
+     Pastille emoji OR MONOCHROME (signature « Oxford »), titre + kicker, compteur
      et barre d'avancement agrégée. Collant : l'en-tête du Shell (h-14) le précède. */
   .optimus-group-header {
     display: flex;
@@ -308,6 +308,8 @@ html[data-theme="dark"] {
     backdrop-filter: blur(18px);
   }
 
+  /* Pastille d'en-tête — or monochrome #A67C1E (14 % de fond, filet 34 %).
+     L'emoji de spécialité reste le seul marqueur de différenciation. */
   .optimus-group-badge {
     display: inline-flex;
     inline-size: 2.25rem;
@@ -318,8 +320,8 @@ html[data-theme="dark"] {
     border-radius: var(--radius-md);
     font-size: 1.05rem;
     line-height: 1;
-    background: color-mix(in oklab, var(--group-hue) 15%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--group-hue) 34%, transparent);
+    background: color-mix(in oklab, #a67c1e 14%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, #a67c1e 34%, transparent);
   }
 
   .optimus-group-progress {
@@ -374,6 +376,15 @@ html[data-theme="dark"] {
     .optimus-interactive-card--premium:hover::before {
       opacity: 0.9;
     }
+  }
+
+  /* Tuile d'icône des cartes premium (Bibliothèque) — or monochrome, cohérente
+     avec la pastille de groupe. Icône adaptée au thème (or foncé en clair, or
+     éclairci en sombre) pour rester lisible dans les deux modes. */
+  .optimus-card-icon--gold {
+    background: color-mix(in oklab, #a67c1e 14%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, #a67c1e 30%, transparent);
+    color: color-mix(in oklab, #a67c1e 72%, var(--app-fg));
   }
 
   .optimus-chevron {

@@ -85,8 +85,11 @@ export function ContentCard({
       <div className="flex items-start gap-3">
         <span
           className={cn(
-            "flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] shadow-[var(--shadow-border)]",
+            "optimus-card-icon flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] shadow-[var(--shadow-border)]",
             item.locked ? "bg-secondary text-muted" : TONE[meta.tone],
+            /* Habillage Bibliothèque : tuile d'icône or (cohérence avec la pastille
+               de groupe monochrome). N'affecte que les cartes `premium`. */
+            premium && !item.locked && "optimus-card-icon--gold",
           )}
         >
           {item.emoji ? (
