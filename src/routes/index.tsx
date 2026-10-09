@@ -132,11 +132,11 @@ function Dashboard() {
       <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-            {profile.tier === "guest" ? "Invité" : profile.optimusId}
+            {profile.tier === "guest" ? "Nouveau" : profile.optimusId}
           </p>
           <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
             Bonjour
-            {profile.displayName && profile.displayName !== "Invité"
+            {profile.displayName && profile.displayName !== "Nouveau"
               ? `, ${profile.displayName}`
               : ""}
           </h1>
@@ -171,7 +171,7 @@ function Dashboard() {
                 ? "Objectif atteint"
                 : daily.answered > 0
                   ? `${remaining} question${remaining > 1 ? "s" : ""} restante${remaining > 1 ? "s" : ""}`
-                  : "Prêt pour 10 minutes ?"}
+                  : "Prêt pour 10 min ?"}
             </h2>
             <p className="mt-1 text-sm opacity-75">
               {daily.xp > 0
@@ -415,7 +415,7 @@ const YEARS_SHORT: Record<number, string> = {
 
 function initials(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0 || name === "Invité") return "O";
+  if (parts.length === 0 || name === "Nouveau") return "O";
   return parts
     .slice(0, 2)
     .map((p) => p[0]?.toUpperCase() ?? "")

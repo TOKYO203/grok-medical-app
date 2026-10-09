@@ -60,7 +60,7 @@ function makeDeviceId(): string {
 }
 
 const defaultProfile = (): Profile => ({
-  displayName: "Invité",
+  displayName: "Nouveau",
   optimusId: "OM-GUEST",
   deviceId: "device-local",
   tier: "guest",

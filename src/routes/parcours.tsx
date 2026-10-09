@@ -207,7 +207,7 @@ function toLevel(studyLevel: unknown): Level {
                   <span className="min-w-0 flex-1">
                     <span className="flex items-center gap-2">
                       <span className="block truncate font-medium">{deck.title}</span>
-                      <span className="optimus-status-pill shrink-0 bg-secondary text-muted">Premium</span>
+                      <span className="optimus-status-pill shrink-0 bg-secondary text-muted">Débloquer</span>
                     </span>
                     <span className="mt-0.5 block truncate text-xs text-muted">
                       {deck.subtitle}

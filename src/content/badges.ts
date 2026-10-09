@@ -1,4 +1,5 @@
 export const BADGE_CATALOG = [
+  { id: "firstStep", title: "Premier pas", detail: "Bienvenue — ta première carte est là." },
   { id: "streak7", title: "Garde de 7 jours", detail: "Série quotidienne d'une semaine." },
   { id: "q100", title: "Centurion", detail: "100 questions répondues." },
   { id: "firstCase", title: "Premier cas", detail: "Un dossier clinique mené à terme." },

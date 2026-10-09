@@ -66,7 +66,7 @@ export function DeckRow({ deck, level, state, progressPct, userLevel }: Props) {
             <span className="shrink-0 text-[10px] text-subtle">{progressPct}%</span>
           </div>
         ) : state === "locked" ? (
-          <p className="mt-0.5 text-[10px] text-subtle">Premium</p>
+          <p className="mt-0.5 text-[10px] text-subtle">Débloquer</p>
         ) : null}
       </div>
 

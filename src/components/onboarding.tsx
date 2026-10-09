@@ -37,7 +37,7 @@ export function Onboarding() {
     }
     void requestNotificationPermission();
     complete({
-      displayName: name.trim() || "Invité",
+      displayName: name.trim() || "Nouveau",
       studyYear: typeof level === "number" ? level : 0,
       studyLevel: level,
       goal,

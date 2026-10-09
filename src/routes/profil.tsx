@@ -644,7 +644,7 @@ function ProfilPage() {
               to="/login"
               className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
             >
-              Se connecter pour sauvegarder
+              Se synchroniser
             </Link>
           ) : null}
           {!authPending && connectedAccount ? (
