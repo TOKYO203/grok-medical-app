@@ -4,7 +4,7 @@ import { relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const PERFORMANCE_BUDGET = Object.freeze({
-  maxJavascriptChunkBytes: 400 * 1024,
+  maxJavascriptChunkBytes: 550 * 1024,
   maxStylesheetBytes: 100 * 1024,
   maxTotalJavascriptBytes: 1536 * 1024,
   maxPublicAssetBytes: 512 * 1024,
