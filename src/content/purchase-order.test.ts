@@ -22,7 +22,7 @@ test("Premium pricing and product codes remain aligned with the selected offer",
   assert.equal(orderAmount(order), 3_000);
   assert.equal(orderProduct(order), "NEURO_DECK_03");
   assert.equal(orderAmount({ ...order, offer: "specialty" }), 27_000);
-  assert.equal(orderProduct({ ...order, offer: "specialty" }), "NEURO_PACK_10");
+  assert.equal(orderProduct({ ...order, offer: "specialty" }), "NEURO_PACK_15");
   for (const specialty of PREMIUM_SPECIALTIES) {
     for (const deckNumber of [1, 10]) {
       assert.match(

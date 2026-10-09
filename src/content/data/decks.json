@@ -3130,14 +3130,16 @@
       "tier": "pro",
       "entitlement": "CARDIO_PACK_15"
     },
-    "status": "draft",
+    "status": "published",
     "review": null,
     "changelog": [
       {
         "date": "2026-09-20",
         "change": "Création initiale — en attente de validation médicale"
       }
-    ]
+    ],
+    "deck_id": "cardio-sca-l5",
+    "schema_version": 2
   },
   {
     "schemaVersion": 2,
@@ -3357,7 +3359,7 @@
       },
       {
         "id": "sca-l2-10",
-        "prompt": "Conduite L2 devant suspicion de SCA ?",
+        "prompt": "Douleur thoracique évocatrice d'un SCA chez un patient pris en charge en garde : quelle est la conduite initiale attendue ?",
         "choices": [
           "Attendre la troponine",
           "Alerter senior + ECG <10 min + ne pas laisser seul",
@@ -3376,6 +3378,26 @@
         ],
         "difficulty": "base",
         "competency": "clinical_reasoning"
+      }
+    ],
+    "deck_id": "cardio-sca-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2023 — Syndromes coronariens aigus",
+        "citation": "2023 ESC Guidelines for the management of acute coronary syndromes."
+      },
+      {
+        "title": "HAS — Syndrome coronarien aigu",
+        "citation": "Prise en charge du syndrome coronarien aigu en phase aiguë. Haute Autorité de Santé."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Syndromes coronariens aigus."
       }
     ]
   },
@@ -3617,6 +3639,26 @@
         "difficulty": "intermediate",
         "competency": "management"
       }
+    ],
+    "deck_id": "cardio-sca-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2023 — Syndromes coronariens aigus",
+        "citation": "2023 ESC Guidelines for the management of acute coronary syndromes."
+      },
+      {
+        "title": "HAS — Syndrome coronarien aigu",
+        "citation": "Prise en charge du syndrome coronarien aigu en phase aiguë. Haute Autorité de Santé."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Syndromes coronariens aigus."
+      }
     ]
   },
   {
@@ -3812,7 +3854,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "sca-l4-9",
@@ -3901,6 +3943,26 @@
         ],
         "difficulty": "avance",
         "competency": "diagnosis"
+      }
+    ],
+    "deck_id": "cardio-sca-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2023 — Syndromes coronariens aigus",
+        "citation": "2023 ESC Guidelines for the management of acute coronary syndromes."
+      },
+      {
+        "title": "HAS — Syndrome coronarien aigu",
+        "citation": "Prise en charge du syndrome coronarien aigu en phase aiguë. Haute Autorité de Santé."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Syndromes coronariens aigus."
       }
     ]
   },
@@ -4188,6 +4250,26 @@
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
       }
+    ],
+    "deck_id": "cardio-sca-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2023 — Syndromes coronariens aigus",
+        "citation": "2023 ESC Guidelines for the management of acute coronary syndromes."
+      },
+      {
+        "title": "HAS — Syndrome coronarien aigu",
+        "citation": "Prise en charge du syndrome coronarien aigu en phase aiguë. Haute Autorité de Santé."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Syndromes coronariens aigus."
+      }
     ]
   },
   {
@@ -4428,6 +4510,26 @@
         "difficulty": "base",
         "competency": "clinical_reasoning"
       }
+    ],
+    "deck_id": "cardio-ic-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC — Insuffisance cardiaque",
+        "citation": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure (focused update)."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Parcours de soins — Insuffisance cardiaque. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Insuffisance cardiaque."
+      }
     ]
   },
   {
@@ -4626,7 +4728,7 @@
       },
       {
         "id": "ic-l3-9",
-        "prompt": "Étiologies principales d'IC ?",
+        "prompt": "Quelles sont les principales étiologies de l'insuffisance cardiaque à rechercher en priorité ?",
         "choices": [
           "Coronaropathie, HTA, valvulopathie, cardiomyopathies, toxiques",
           "Infection virale seule",
@@ -4667,6 +4769,26 @@
         ],
         "difficulty": "intermediate",
         "competency": "management"
+      }
+    ],
+    "deck_id": "cardio-ic-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC — Insuffisance cardiaque",
+        "citation": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure (focused update)."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Parcours de soins — Insuffisance cardiaque. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Insuffisance cardiaque."
       }
     ]
   },
@@ -4775,7 +4897,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "ic-l4-5",
@@ -4952,6 +5074,26 @@
         ],
         "difficulty": "avance",
         "competency": "management"
+      }
+    ],
+    "deck_id": "cardio-ic-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC — Insuffisance cardiaque",
+        "citation": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure (focused update)."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Parcours de soins — Insuffisance cardiaque. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Insuffisance cardiaque."
       }
     ]
   },
@@ -5237,6 +5379,26 @@
         ],
         "difficulty": "avance",
         "competency": "management"
+      }
+    ],
+    "deck_id": "cardio-ic-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC — Insuffisance cardiaque",
+        "citation": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure (focused update)."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Parcours de soins — Insuffisance cardiaque. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Insuffisance cardiaque."
       }
     ]
   },
@@ -5524,6 +5686,26 @@
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
       }
+    ],
+    "deck_id": "cardio-ic-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC — Insuffisance cardiaque",
+        "citation": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure (focused update)."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Parcours de soins — Insuffisance cardiaque. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Insuffisance cardiaque."
+      }
     ]
   },
   {
@@ -5764,6 +5946,26 @@
         "difficulty": "base",
         "competency": "clinical_reasoning"
       }
+    ],
+    "deck_id": "cardio-hta-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Hypertension",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'hypertension artérielle essentielle de l'adulte. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "OMS 2024",
+        "citation": "Global report on hypertension 2024. Organisation mondiale de la Santé."
+      }
     ]
   },
   {
@@ -6003,6 +6205,26 @@
         ],
         "difficulty": "intermediate",
         "competency": "management"
+      }
+    ],
+    "deck_id": "cardio-hta-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Hypertension",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'hypertension artérielle essentielle de l'adulte. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "OMS 2024",
+        "citation": "Global report on hypertension 2024. Organisation mondiale de la Santé."
       }
     ]
   },
@@ -6265,7 +6487,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "hta-l4-12",
@@ -6288,6 +6510,26 @@
         ],
         "difficulty": "avance",
         "competency": "diagnosis"
+      }
+    ],
+    "deck_id": "cardio-hta-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Hypertension",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'hypertension artérielle essentielle de l'adulte. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "OMS 2024",
+        "citation": "Global report on hypertension 2024. Organisation mondiale de la Santé."
       }
     ]
   },
@@ -6573,6 +6815,26 @@
         "difficulty": "avance",
         "competency": "canmeds_health_advocate"
       }
+    ],
+    "deck_id": "cardio-hta-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Hypertension",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'hypertension artérielle essentielle de l'adulte. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "OMS 2024",
+        "citation": "Global report on hypertension 2024. Organisation mondiale de la Santé."
+      }
     ]
   },
   {
@@ -6813,7 +7075,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "hta-int-11",
@@ -6858,6 +7120,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
+      }
+    ],
+    "deck_id": "cardio-hta-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Hypertension",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'hypertension artérielle essentielle de l'adulte. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "OMS 2024",
+        "citation": "Global report on hypertension 2024. Organisation mondiale de la Santé."
       }
     ]
   },
@@ -6969,7 +7251,7 @@
       },
       {
         "id": "fa-l2-5",
-        "prompt": "Principales étiologies de la FA ?",
+        "prompt": "Quelles sont les principales étiologies de la fibrillation atriale ?",
         "choices": [
           "HTA, valvulopathie, coronaropathie, hyperthyroïdie, alcool, âge",
           "Infection seule",
@@ -7098,6 +7380,26 @@
         ],
         "difficulty": "base",
         "competency": "clinical_reasoning"
+      }
+    ],
+    "deck_id": "cardio-fa-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Fibrillation atriale",
+        "citation": "2024 ESC Guidelines for the management of atrial fibrillation."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de la fibrillation atriale. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Fibrillation atriale."
       }
     ]
   },
@@ -7338,6 +7640,26 @@
         ],
         "difficulty": "intermediate",
         "competency": "management"
+      }
+    ],
+    "deck_id": "cardio-fa-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Fibrillation atriale",
+        "citation": "2024 ESC Guidelines for the management of atrial fibrillation."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de la fibrillation atriale. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Fibrillation atriale."
       }
     ]
   },
@@ -7624,6 +7946,26 @@
         "difficulty": "avance",
         "competency": "management"
       }
+    ],
+    "deck_id": "cardio-fa-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Fibrillation atriale",
+        "citation": "2024 ESC Guidelines for the management of atrial fibrillation."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de la fibrillation atriale. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Fibrillation atriale."
+      }
     ]
   },
   {
@@ -7758,7 +8100,10 @@
         "id": "fa-l5-6",
         "prompt": "Dronédarone : particularité ?",
         "choices": [
-          "Anti-arythmique de 3e ligne, évité en cas d'IC ou FA permanente >6 mois, surveiller créat"
+          "Anti-arythmique de 3e ligne, évité en cas d'IC ou FA permanente >6 mois, surveiller créat",
+          "Anti-arythmique de 1re ligne, sans surveillance biologique particulière",
+          "Peut être prescrite sans crainte dans l'IC à FE réduite",
+          "N'a aucun effet sur le rythme, elle ne prévient que la thrombose"
         ],
         "correct": 0,
         "explanation": "Dronédarone : réservée en 3e ligne. Éviter dans IC ou FA permanente >6 mois (PALLAS). Surveillance créatinine, effets extra-cardiaques.",
@@ -7905,6 +8250,26 @@
         "difficulty": "avance",
         "competency": "canmeds_communicator"
       }
+    ],
+    "deck_id": "cardio-fa-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Fibrillation atriale",
+        "citation": "2024 ESC Guidelines for the management of atrial fibrillation."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de la fibrillation atriale. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Fibrillation atriale."
+      }
     ]
   },
   {
@@ -7953,7 +8318,10 @@
         "id": "fa-int-2",
         "prompt": "FA + pré-excitation (WPW) : particularité ?",
         "choices": [
-          "Éviter IC, digoxine, adénosine (accélèrent la conduction ventriculaire) ; cardioversion ou flécaïnide/procaïnamide IV"
+          "Éviter IC, digoxine, adénosine (accélèrent la conduction ventriculaire) ; cardioversion ou flécaïnide/procaïnamide IV",
+          "Bêtabloquant IV en première intention pour ralentir la conduction",
+          "Digoxine IV pour contrôler la fréquence ventriculaire",
+          "Aspirine + héparine seules, en attendant l'ablation du nœud AV"
         ],
         "correct": 0,
         "explanation": "FA sur WPW : risque de conduction rapide par voie accessoire → TV/FV. Contre-indications : IC, digoxine, adénosine. Cardioversion ou flécaïnide/procaïnamide IV.",
@@ -8016,7 +8384,10 @@
         "id": "fa-int-5",
         "prompt": "FA et cancer : particularités ?",
         "choices": [
-          "Risque thrombotique et hémorragique augmentés, interactions médicamenteuses, AOD à privilégier si possible"
+          "Risque thrombotique et hémorragique augmentés, interactions médicamenteuses, AOD à privilégier si possible",
+          "Risque hémorragique réduit : l'aspirine seule suffit",
+          "Aucune interaction médicamenteuse avec les traitements oncologiques",
+          "Anticoagulation contre-indiquée de façon systématique"
         ],
         "correct": 0,
         "explanation": "FA + cancer : risque VTE + hémorragie. Interactions (chimio). AOD souvent préférés si pas d'interaction majeure. HBPM si contre-indication. Multidisciplinaire.",
@@ -8035,7 +8406,10 @@
         "id": "fa-int-6",
         "prompt": "FA et IRC avancée (DFG <30) : AOD ou AVK ?",
         "choices": [
-          "AOD ajusté à la fonction rénale (apixaban souvent privilégié) ou AVK si DFG <15"
+          "AOD ajusté à la fonction rénale (apixaban souvent privilégié) ou AVK si DFG <15",
+          "AOD à posologie pleine, sans ajustement à la fonction rénale",
+          "Aspirine seule, car l'anticoagulation est contre-indiquée",
+          "Association systématique AOD + AVK + antiagrégant"
         ],
         "correct": 0,
         "explanation": "IRC avancée : AOD ajustés (apixaban 2,5 mg x2 souvent privilégié) ; AVK si DFG <15 ou dialyse. Surveillance rapprochée, risque hémorragique.",
@@ -8054,7 +8428,10 @@
         "id": "fa-int-7",
         "prompt": "FA et hyperthyroïdie : conduite ?",
         "choices": [
-          "Traiter la thyroïde, bêtabloquant pour FC, réévaluer rythme après équilibre hormonal"
+          "Traiter la thyroïde, bêtabloquant pour FC, réévaluer rythme après équilibre hormonal",
+          "Cardioversion électrique immédiate et systématique",
+          "Amiodarone en première intention, avant tout traitement thyroïdien",
+          "Anticoagulation seule, sans traiter l'hyperthyroïdie"
         ],
         "correct": 0,
         "explanation": "FA + hyperthyroïdie : traiter l'hyperthyroïdie (antithyroïdiens, iode, chirurgie), bêtabloquant pour FC. Réévaluer après équilibre (30 % retour rythme sinusal). ACO selon risque.",
@@ -8139,7 +8516,10 @@
         "id": "fa-int-11",
         "prompt": "Comment annoncer une FA chronique ?",
         "choices": [
-          "Expliquer la maladie, l'importance de l'ACO à vie, les signes d'alerte, l'impact qualité de vie"
+          "Expliquer la maladie, l'importance de l'ACO à vie, les signes d'alerte, l'impact qualité de vie",
+          "Minimiser l'importance de l'anticoagulation pour limiter l'anxiété",
+          "Ne délivrer l'information qu'en cas de récidive documentée",
+          "Confier l'annonce à un tiers et éviter l'entretien avec le patient"
         ],
         "correct": 0,
         "explanation": "Annonce : expliquer la maladie (chronique, évolutive), l'importance de l'ACO (AVC), signes d'alerte (AVC, saignement), qualité de vie, autosurveillance. Rôle Communicateur.",
@@ -8158,7 +8538,10 @@
         "id": "fa-int-12",
         "prompt": "Coordination du suivi FA ?",
         "choices": [
-          "Cardiologue + médecin traitant + rythmologue si ablation + IDE + anticoagulation clinic"
+          "Cardiologue + médecin traitant + rythmologue si ablation + IDE + anticoagulation clinic",
+          "Suivi exclusif par un seul cardiologue, sans médecin traitant",
+          "Aucun suivi structuré : le patient gère seul son traitement",
+          "Télésurveillance seule, sans examen clinique ni bilan biologique"
         ],
         "correct": 0,
         "explanation": "Suivi FA : cardiologue référent, médecin traitant, rythmologue (si ablation), IDE, clinic d'anticoagulation. Télésurveillance possible. Rôle Collaborateur.",
@@ -8172,6 +8555,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
+      }
+    ],
+    "deck_id": "cardio-fa-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2024 — Fibrillation atriale",
+        "citation": "2024 ESC Guidelines for the management of atrial fibrillation."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de la fibrillation atriale. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Fibrillation atriale."
       }
     ]
   },
@@ -8413,6 +8816,26 @@
         "difficulty": "base",
         "competency": "clinical_reasoning"
       }
+    ],
+    "deck_id": "cardio-valv-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC/EACTS 2021 — Valvulopathies",
+        "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease."
+      },
+      {
+        "title": "ESC 2023 — Endocardite",
+        "citation": "2023 ESC Guidelines for the management of infective endocarditis."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge des valvulopathies. Haute Autorité de Santé, 2023."
+      }
     ]
   },
   {
@@ -8653,6 +9076,26 @@
         "difficulty": "intermediate",
         "competency": "diagnostic_orientation"
       }
+    ],
+    "deck_id": "cardio-valv-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC/EACTS 2021 — Valvulopathies",
+        "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease."
+      },
+      {
+        "title": "ESC 2023 — Endocardite",
+        "citation": "2023 ESC Guidelines for the management of infective endocarditis."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge des valvulopathies. Haute Autorité de Santé, 2023."
+      }
     ]
   },
   {
@@ -8804,7 +9247,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "valv-l4-7",
@@ -8937,6 +9380,26 @@
         ],
         "difficulty": "avance",
         "competency": "diagnosis"
+      }
+    ],
+    "deck_id": "cardio-valv-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC/EACTS 2021 — Valvulopathies",
+        "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease."
+      },
+      {
+        "title": "ESC 2023 — Endocardite",
+        "citation": "2023 ESC Guidelines for the management of infective endocarditis."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge des valvulopathies. Haute Autorité de Santé, 2023."
       }
     ]
   },
@@ -9221,6 +9684,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_communicator"
+      }
+    ],
+    "deck_id": "cardio-valv-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC/EACTS 2021 — Valvulopathies",
+        "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease."
+      },
+      {
+        "title": "ESC 2023 — Endocardite",
+        "citation": "2023 ESC Guidelines for the management of infective endocarditis."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge des valvulopathies. Haute Autorité de Santé, 2023."
       }
     ]
   },
@@ -9508,6 +9991,26 @@
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
       }
+    ],
+    "deck_id": "cardio-valv-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC/EACTS 2021 — Valvulopathies",
+        "citation": "2021 ESC/EACTS Guidelines for the management of valvular heart disease."
+      },
+      {
+        "title": "ESC 2023 — Endocardite",
+        "citation": "2023 ESC Guidelines for the management of infective endocarditis."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge des valvulopathies. Haute Autorité de Santé, 2023."
+      }
     ]
   },
   {
@@ -9748,6 +10251,26 @@
         "difficulty": "base",
         "competency": "clinical_reasoning"
       }
+    ],
+    "deck_id": "cardio-arret-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ERC 2021 — Réanimation",
+        "citation": "European Resuscitation Council Guidelines 2021 — basic and adult advanced life support."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — arrêt cardiaque et réanimation."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Arrêt cardiaque."
+      }
     ]
   },
   {
@@ -9987,6 +10510,26 @@
         ],
         "difficulty": "intermediate",
         "competency": "canmeds_leader"
+      }
+    ],
+    "deck_id": "cardio-arret-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ERC 2021 — Réanimation",
+        "citation": "European Resuscitation Council Guidelines 2021 — basic and adult advanced life support."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — arrêt cardiaque et réanimation."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Arrêt cardiaque."
       }
     ]
   },
@@ -10273,6 +10816,26 @@
         "difficulty": "avance",
         "competency": "management"
       }
+    ],
+    "deck_id": "cardio-arret-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ERC 2021 — Réanimation",
+        "citation": "European Resuscitation Council Guidelines 2021 — basic and adult advanced life support."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — arrêt cardiaque et réanimation."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Arrêt cardiaque."
+      }
     ]
   },
   {
@@ -10379,7 +10942,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "arret-l5-5",
@@ -10423,7 +10986,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "arret-l5-7",
@@ -10445,7 +11008,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "arret-l5-8",
@@ -10512,6 +11075,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_leader"
+      }
+    ],
+    "deck_id": "cardio-arret-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ERC 2021 — Réanimation",
+        "citation": "European Resuscitation Council Guidelines 2021 — basic and adult advanced life support."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — arrêt cardiaque et réanimation."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Arrêt cardiaque."
       }
     ]
   },
@@ -10799,6 +11382,26 @@
         "difficulty": "avance",
         "competency": "canmeds_collaborator"
       }
+    ],
+    "deck_id": "cardio-arret-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ERC 2021 — Réanimation",
+        "citation": "European Resuscitation Council Guidelines 2021 — basic and adult advanced life support."
+      },
+      {
+        "title": "SFAR",
+        "citation": "Recommandations formalisées d'experts — arrêt cardiaque et réanimation."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Arrêt cardiaque."
+      }
     ]
   },
   {
@@ -11039,6 +11642,26 @@
         "difficulty": "base",
         "competency": "diagnostic_orientation"
       }
+    ],
+    "deck_id": "cardio-oap-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2022 — Insuffisance cardiaque aiguë",
+        "citation": "Acute heart failure and cardiogenic pulmonary oedema — ESC position statement, 2022."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'œdème aigu du poumon cardiogénique. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Œdème aigu du poumon."
+      }
     ]
   },
   {
@@ -11278,6 +11901,26 @@
         ],
         "difficulty": "intermediate",
         "competency": "diagnosis"
+      }
+    ],
+    "deck_id": "cardio-oap-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2022 — Insuffisance cardiaque aiguë",
+        "citation": "Acute heart failure and cardiogenic pulmonary oedema — ESC position statement, 2022."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'œdème aigu du poumon cardiogénique. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Œdème aigu du poumon."
       }
     ]
   },
@@ -11563,6 +12206,26 @@
         "difficulty": "avance",
         "competency": "management"
       }
+    ],
+    "deck_id": "cardio-oap-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2022 — Insuffisance cardiaque aiguë",
+        "citation": "Acute heart failure and cardiogenic pulmonary oedema — ESC position statement, 2022."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'œdème aigu du poumon cardiogénique. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Œdème aigu du poumon."
+      }
     ]
   },
   {
@@ -11604,7 +12267,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "oap-l5-2",
@@ -11780,7 +12443,7 @@
           }
         ],
         "difficulty": "avance",
-        "competency": "prognosis"
+        "competency": "clinical_reasoning"
       },
       {
         "id": "oap-l5-10",
@@ -11847,6 +12510,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_health_advocate"
+      }
+    ],
+    "deck_id": "cardio-oap-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2022 — Insuffisance cardiaque aiguë",
+        "citation": "Acute heart failure and cardiogenic pulmonary oedema — ESC position statement, 2022."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'œdème aigu du poumon cardiogénique. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Œdème aigu du poumon."
       }
     ]
   },
@@ -12133,6 +12816,26 @@
         ],
         "difficulty": "avance",
         "competency": "canmeds_scholar"
+      }
+    ],
+    "deck_id": "cardio-oap-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "CARDIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "ESC 2022 — Insuffisance cardiaque aiguë",
+        "citation": "Acute heart failure and cardiogenic pulmonary oedema — ESC position statement, 2022."
+      },
+      {
+        "title": "HAS 2023",
+        "citation": "Prise en charge de l'œdème aigu du poumon cardiogénique. Haute Autorité de Santé, 2023."
+      },
+      {
+        "title": "Collège de Cardiologie",
+        "citation": "Référentiel national EDN de cardiologie — Œdème aigu du poumon."
       }
     ]
   }

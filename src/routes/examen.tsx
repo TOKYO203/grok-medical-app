@@ -1,13 +1,16 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
+import { ClipboardCheck, Lock, Sparkles, Timer } from "lucide-react";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
-import { Page, Shell } from "@/components/shell";
+import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { pickExamQuestions, questionXp } from "@/core/quiz-engine";
 import { hasAccess, hasEntitlement, useAllDecks, useOptimus } from "@/state/store";
-import { useMemo, useState } from "react";
 
 export const Route = createFileRoute("/examen")({ component: ExamPage });
+
+const EXAM_QUESTIONS = 12;
 
 function ExamPage() {
   const decks = useAllDecks();
@@ -19,7 +22,7 @@ function ExamPage() {
   const [started, setStarted] = useState(false);
   const items: QuizItem[] = useMemo(() => {
     if (!started) return [];
-    return pickExamQuestions(unlocked, 12).map((row) => ({
+    return pickExamQuestions(unlocked, EXAM_QUESTIONS).map((row) => ({
       question: row.question,
       deckTitle: row.deck.title,
     }));
@@ -34,28 +37,68 @@ function ExamPage() {
 
   return (
     <Shell title="Examen blanc">
-      <Page className="mx-auto max-w-lg">
-        <h1 className="font-display text-3xl font-medium tracking-tight">Examen blanc</h1>
-        <p className="mt-2 text-sm text-muted">
-          Douze questions tirées de vos decks débloqués. L’XP motive ; le score ne remplace pas la Mastery.
-        </p>
-        {locked ? (
-          <div className="mt-6 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
-            <p className="text-sm">Les examens blancs complets sont un entitlement Pro. Un essai court reste possible.</p>
-            <div className="mt-4 flex gap-2">
-              <Button onClick={() => setStarted(true)}>Essai 12 questions</Button>
-              <Link to="/pro" className={buttonVariants({ variant: "secondary" })}>
-                Optimus Pro
-              </Link>
+      <Page className="mx-auto max-w-2xl">
+        <PageHeader
+          kicker="Évaluation"
+          title="Examen blanc"
+          description="Douze questions tirées de vos decks débloqués, sans indice. L’XP entretient la motivation ; c’est la maîtrise clinique qui progresse."
+        />
+
+        <div className="mt-5 grid grid-cols-3 gap-2">
+          <Metric label="Questions" value={String(EXAM_QUESTIONS)} />
+          <Metric label="Decks" value={String(unlocked.length)} accent />
+          <Metric label="Mode" value="Sans indice" />
+        </div>
+
+        {!started ? (
+          <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
+            <div className="flex items-start gap-4">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-white/20 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.22)]">
+                {locked ? <Lock className="size-5" /> : <ClipboardCheck className="size-5" />}
+              </span>
+              <div className="min-w-0 flex-1">
+                <h2 className="font-display text-2xl font-medium tracking-tight">
+                  {locked ? "Épreuve complète Premium" : "Prêt à vous tester ?"}
+                </h2>
+                <p className="mt-2 max-w-md text-sm leading-relaxed opacity-85">
+                  {locked
+                    ? "Les examens complets sont inclus dans Optimus Pro. Un essai court de douze questions reste disponible."
+                    : "Une épreuve chronométrée, tous decks confondus, pour mesurer vos acquis en conditions réelles."}
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-xs opacity-85">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Timer className="size-4" aria-hidden />
+                    ~10 minutes
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <Sparkles className="size-4" aria-hidden />
+                    XP + maîtrise
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        ) : null}
-        {!started && !locked ? (
-          <Button className="mt-6" onClick={() => setStarted(true)}>
-            Commencer
-          </Button>
-        ) : null}
-        {started ? (
+
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <Button
+                onClick={() => setStarted(true)}
+                className="w-full bg-bg text-fg hover:bg-bg/90 sm:w-auto"
+              >
+                {locked ? "Essai · 12 questions" : "Commencer l’épreuve"}
+              </Button>
+              {locked ? (
+                <Link
+                  to="/pro"
+                  className={buttonVariants({
+                    variant: "secondary",
+                    className: "w-full sm:w-auto",
+                  })}
+                >
+                  Optimus Pro
+                </Link>
+              ) : null}
+            </div>
+          </section>
+        ) : (
           <div className="mt-6">
             <QuizPlayer
               items={items}
@@ -74,8 +117,32 @@ function ExamPage() {
               finishLabel="Retour"
             />
           </div>
+        )}
+
+        {!started ? (
+          <p className="mt-6 text-xs leading-relaxed text-muted">
+            Astuce : pour travailler une faiblesse précise, ouvrez la bibliothèque et filtrez par
+            compétence.
+          </p>
         ) : null}
       </Page>
     </Shell>
+  );
+}
+
+function Metric({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
+  return (
+    <div className="optimus-card px-3 py-3 text-center">
+      <p
+        className={`truncate font-display text-xl font-medium tabular-nums ${
+          accent ? "text-primary" : "text-fg"
+        }`}
+      >
+        {value}
+      </p>
+      <p className="mt-0.5 truncate text-[11px] font-medium uppercase tracking-wider text-muted">
+        {label}
+      </p>
+    </div>
   );
 }

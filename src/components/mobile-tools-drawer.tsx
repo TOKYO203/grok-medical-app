@@ -5,6 +5,7 @@ import {
   Volume2, VolumeX, Zap, ZapOff,
   Sparkles, Headphones, Music2,
 } from "lucide-react";
+import { ThemeSelector } from "@/components/theme-toggle";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import {
   emitExperienceFeedback,
@@ -124,6 +125,11 @@ export function MobileToolsDrawer({ onOpenSearch }: { onOpenSearch: () => void }
                 <span className="flex-1 font-medium">Rechercher</span>
                 <kbd className="rounded border border-border bg-card px-1.5 py-0.5 text-[10px]">⌘K</kbd>
               </button>
+
+              <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-muted">
+                Apparence
+              </p>
+              <ThemeSelector className="mb-5 w-full justify-between" />
 
               <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-muted">
                 Confort d'étude

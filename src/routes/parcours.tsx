@@ -1,7 +1,10 @@
+import { useMemo } from "react";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Layers3, Lock, PlayCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Layers3, Lock } from "lucide-react";
+import { ContentCard } from "@/components/content/content-card";
 import { DeckIcon } from "@/components/deck-icon";
-import { Page, SectionTitle, Shell } from "@/components/shell";
+import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
+import { buildContentIndex } from "@/lib/library/content-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { YEARS } from "@/content/catalog";
@@ -20,6 +23,25 @@ function ParcoursPage() {
   const progress = useOptimus((s) => s.progress);
   const entitlements = useOptimus((s) => s.entitlements);
   const profile = useOptimus((s) => s.profile);
+
+  const deckItems = useMemo(
+    () =>
+      buildContentIndex({
+        decks,
+        entitlements,
+        tier: profile.tier,
+        includeTools: false,
+      }).filter((item) => item.kind === "deck"),
+    [decks, entitlements, profile.tier],
+  );
+  const progressById = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const deck of decks) {
+      const pct = deckProgressPct(deck, progress[deck.id]);
+      if (pct > 0) map.set(`deck:${deck.id}`, pct);
+    }
+    return map;
+  }, [decks, progress]);
 
   if (pathname !== "/parcours" && pathname !== "/parcours/") {
     return <Outlet />;
@@ -69,13 +91,16 @@ function toLevel(studyLevel: unknown): Level {
   return (
     <Shell title="Parcours">
       <Page>
-        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-          Votre apprentissage
-        </p>
-        <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">Parcours</h1>
-        <p className="mt-2 max-w-lg text-sm text-muted">
-          Une suggestion pour {studyLabel.toLowerCase()}, puis toutes les spécialités disponibles.
-        </p>
+        <PageHeader
+          kicker="Votre apprentissage"
+          title="Parcours"
+          description={`Une suggestion pour ${studyLabel.toLowerCase()}, puis toutes les spécialités disponibles. Pour explorer tout le catalogue, ouvrez la bibliothèque.`}
+          action={
+            <Link to="/bibliotheque" className="text-sm text-muted hover:text-fg">
+              Bibliothèque →
+            </Link>
+          }
+        />
 
         <div className="mt-5 grid grid-cols-3 gap-2" aria-label="Résumé des parcours">
           <SummaryChip label="Disponibles" value={available.length} />
@@ -134,57 +159,12 @@ function toLevel(studyLevel: unknown): Level {
             title="Explorer les Decks"
             action={<span className="text-xs text-muted">{available.length} disponibles</span>}
           />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {available
-              .filter((deck) => deck.id !== current?.id)
-              .map((deck) => {
-                const deckProgress = deckProgressPct(deck, progress[deck.id]);
-                const mastery = deckMastery(deck, progress[deck.id]);
-                return (
-                  <Link
-                    key={deck.id}
-                    to="/parcours/$deckId"
-                    params={{ deckId: deck.id }}
-                    className="optimus-interactive-card min-w-0 touch-manipulation rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] active:scale-[0.99]"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary shadow-[var(--shadow-border)]">
-                        <DeckIcon name={deck.icon} />
-                      </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="flex items-center gap-2">
-                          <span className="block truncate font-medium">{deck.title}</span>
-                          <DeckStatus progress={deckProgress} compact />
-                        </span>
-                        <span className="mt-0.5 block truncate text-xs text-muted">
-                          {deck.subtitle}
-                        </span>
-                        <span className="mt-2 block text-[11px] uppercase tracking-wider text-subtle">
-                          {yearLabel(deck.studyYear)} · {deck.questions.length} questions
-                        </span>
-                      </span>
-                      <ArrowRight className="mt-1 size-4 shrink-0 text-subtle" />
-                    </div>
-                    {deckProgress > 0 ? (
-                      <div className="mt-3">
-                        <div className="flex items-center justify-between text-[11px] text-muted">
-                          <span>Progression {deckProgress}%</span>
-                          <span>Maîtrise {mastery}%</span>
-                        </div>
-                        <Progress
-                          className="mt-1.5"
-                          value={deckProgress}
-                          barClassName="optimus-progress-fill"
-                        />
-                      </div>
-                    ) : (
-                      <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-primary">
-                        <PlayCircle className="size-3.5" /> Nouveau Deck
-                      </p>
-                    )}
-                  </Link>
-                );
-              })}
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {deckItems
+              .filter((item) => !item.locked && item.id !== `deck:${current?.id ?? ""}`)
+              .map((item) => (
+                <ContentCard key={item.id} item={item} progress={progressById.get(item.id)} />
+              ))}
           </div>
         </section>
 

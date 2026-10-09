@@ -15,6 +15,7 @@ import {
   HelpCircle,
   Info,
   Landmark,
+  Library,
   MapPin,
   Medal,
   Pencil,
@@ -26,6 +27,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ExperienceControls } from "@/components/experience-controls";
+import { ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -63,7 +65,7 @@ const COVERS: {
     image: "/profile-covers/baobabs.webp",
   },
   { id: "canal", label: "Canal des Pangalanes", image: "/profile-covers/canal.jpg" },
-  { id: "clinique", label: "Clinique", image: "/profile-covers/clinique.jpg" },
+  { id: "clinique", label: "Clinique", className: "cover-clinique" },
 ];
 
 const AVATARS: { id: string; icon: LucideIcon; label: string }[] = [
@@ -342,13 +344,20 @@ function ProfilPage() {
           <summary className="flex cursor-pointer items-center justify-between gap-3 p-4">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                Confort d'étude
+                Confort d’étude
               </p>
               <h2 className="mt-1 font-display text-xl font-medium">Expérience sensorielle</h2>
             </div>
             <ChevronRight className="accordion-chevron size-4 shrink-0 text-muted" />
           </summary>
           <div className="border-t border-border p-4">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+              Apparence
+            </p>
+            <ThemeSelector className="mt-2" />
+            <p className="mt-5 mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+              Confort d’étude
+            </p>
             <ExperienceControls />
             <p className="mt-3 text-xs leading-relaxed text-muted">
               Les sons et vibrations accompagnent seulement les actions utiles. L'ambiance focus est disponible uniquement pour cette session.
@@ -540,6 +549,12 @@ function ProfilPage() {
           <SectionTitle kicker="Navigation" title="Mon espace" />
           <nav className="overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
             <ProfileMenuLink
+              icon={Library}
+              label="Bibliothèque"
+              detail="Tout le contenu, filtrable"
+              to="/bibliotheque"
+            />
+            <ProfileMenuLink
               icon={BookOpen}
               label="Mes parcours"
               detail="Decks et progression"
@@ -674,6 +689,7 @@ function ProfileMenuLink({
   label: string;
   detail: string;
   to:
+    | "/bibliotheque"
     | "/parcours"
     | "/pro"
     | "/achats"

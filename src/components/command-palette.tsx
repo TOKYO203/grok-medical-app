@@ -17,6 +17,13 @@ type PaletteItem = {
 
 const PAGES: PaletteItem[] = [
   { id: "p-home", kind: "page", title: "Accueil", to: "/", keywords: "home dashboard" },
+  {
+    id: "p-biblio",
+    kind: "page",
+    title: "Bibliothèque",
+    to: "/bibliotheque",
+    keywords: "contenu catalogue decks cas démarches outils",
+  },
   { id: "p-cas", kind: "page", title: "Cas cliniques", to: "/cas", keywords: "cases cliniques" },
   { id: "p-parcours", kind: "page", title: "Parcours", to: "/parcours", keywords: "decks cartes" },
   { id: "p-revue", kind: "page", title: "Réviser", to: "/revue", keywords: "review spaced repetition" },

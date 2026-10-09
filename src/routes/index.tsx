@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Calculator,
@@ -7,7 +7,6 @@ import {
   ClipboardCheck,
   Flame,
   Lock,
-  RotateCcw,
   Sparkles,
   Trophy,
   Upload,
@@ -16,8 +15,8 @@ import {
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
-import { DailyGoalCard } from "@/components/daily-goal-card";
 import { LevelBar } from "@/components/level-bar";
+import { ContentCard } from "@/components/content/content-card";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
@@ -27,6 +26,7 @@ import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
+import { buildContentIndex } from "@/lib/library/content-index";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { formatInt } from "@/lib/utils";
 
@@ -90,15 +90,46 @@ function Dashboard() {
     }))
     .sort((a, b) => b.lastReview - a.lastReview)
     .find((item) => item.lastReview > 0)?.deck;
-  const featured = resumed ?? priority[0] ?? unlocked[0];
-  const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
   const dailyGoal = 10;
   const dailyPct = Math.min(100, Math.round((daily.answered / dailyGoal) * 100));
   const remaining = Math.max(0, dailyGoal - daily.answered);
 
+  const index = useMemo(
+    () => buildContentIndex({ decks, entitlements, tier: profile.tier, includeTools: false }),
+    [decks, entitlements, profile.tier],
+  );
+  const progressById = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const deck of decks) {
+      const pct = deckProgressPct(deck, progress[deck.id]);
+      if (pct > 0) map.set(`deck:${deck.id}`, pct);
+    }
+    return map;
+  }, [decks, progress]);
+
+  const deckRail = useMemo(() => {
+    const rows = index.filter((i) => i.kind === "deck" && !i.locked);
+    const priorityNames = profile.prioritySubjects.map((s) => s.toLowerCase());
+    return rows
+      .map((item) => {
+        let score = progressById.get(item.id) ? 1 : 0;
+        if (priorityNames.some((p) => item.specialty.toLowerCase().includes(p))) score += 2;
+        if (profile.studyYear > 0 && item.year === profile.studyYear) score += 2;
+        return { item, score };
+      })
+      .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+      .slice(0, 3)
+      .map((row) => row.item);
+  }, [index, progressById, profile.prioritySubjects, profile.studyYear]);
+
+  const caseRail = useMemo(() => index.filter((i) => i.kind === "case").slice(0, 3), [index]);
+
+  const featured = resumed ?? priority[0] ?? unlocked[0];
+  const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
+
   return (
     <Page>
-      <div className="flex items-start justify-between gap-4">
+      <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
             {profile.tier === "guest" ? "Invité" : profile.optimusId}
@@ -123,13 +154,12 @@ function Dashboard() {
         >
           {initials(profile.displayName)}
         </Link>
-      </div>
+      </header>
 
       <LevelBar />
 
-      <DailyGoalCard />
-
-      <section className="premium-hero mt-6 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
+      {/* Action principale du jour */}
+      <section className="premium-hero mt-5 overflow-hidden rounded-[var(--radius-xl)] p-5 text-primary-fg shadow-[var(--shadow-md)]">
         <div className="flex items-center gap-5">
           <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
           <div className="min-w-0 flex-1">
@@ -163,10 +193,10 @@ function Dashboard() {
           </Link>
         ) : (
           <Link
-            to="/parcours"
+            to="/bibliotheque"
             className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
           >
-            Explorer un Deck
+            Explorer la bibliothèque
           </Link>
         )}
       </section>
@@ -193,9 +223,9 @@ function Dashboard() {
         <section className="mt-7">
           <SectionTitle
             kicker="Prochaine étape"
-            title={resumed ? "Reprendre votre Deck" : "Deck conseillé"}
+            title={resumed ? "Reprendre votre deck" : "Deck conseillé"}
             action={
-              <Link to="/parcours" className="text-sm text-muted hover:text-fg">
+              <Link to="/bibliotheque" className="text-sm text-muted hover:text-fg">
                 Tout voir
               </Link>
             }
@@ -203,7 +233,7 @@ function Dashboard() {
           <Link
             to="/parcours/$deckId"
             params={{ deckId: featured.id }}
-            className="optimus-interactive-card group block rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]"
+            className="optimus-card optimus-interactive-card group block p-4"
           >
             <span className="flex items-center gap-4">
               <span className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft text-primary shadow-[var(--shadow-border)]">
@@ -238,20 +268,50 @@ function Dashboard() {
         </section>
       ) : null}
 
+      {/* Rails de contenu */}
       <section className="mt-8">
-        <SectionTitle kicker="Accès rapide" title="Que voulez-vous faire ?" />
-        <div className="grid grid-cols-2 gap-3">
+        <SectionTitle
+          kicker="Pour vous"
+          title="Decks recommandés"
+          action={
+            <Link to="/bibliotheque" className="text-sm text-muted hover:text-fg">
+              Bibliothèque
+            </Link>
+          }
+        />
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {deckRail.map((item) => (
+            <ContentCard key={item.id} item={item} progress={progressById.get(item.id)} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <SectionTitle
+          kicker="Raisonnement"
+          title="Cas cliniques"
+          action={
+            <Link to="/cas" className="text-sm text-muted hover:text-fg">
+              Tous les cas
+            </Link>
+          }
+        />
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {caseRail.map((item) => (
+            <ContentCard key={item.id} item={item} />
+          ))}
+        </div>
+      </section>
+
+      {/* Accès rapide */}
+      <section className="mt-8">
+        <SectionTitle kicker="Accès rapide" title="Outils" />
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <QuickAction
             to="/revue"
-            icon={<RotateCcw className="size-5" />}
+            icon={<DeckIcon name="book" />}
             label="Réviser"
             detail={`${dueCount} carte${dueCount > 1 ? "s" : ""} due${dueCount > 1 ? "s" : ""}`}
-          />
-          <QuickAction
-            to="/cas"
-            icon={<Sparkles className="size-5" />}
-            label="Cas cliniques"
-            detail={`${CLINICAL_CASES.length} dossiers`}
           />
           <QuickAction
             to="/examen"
@@ -265,12 +325,18 @@ function Dashboard() {
             label="Calculateurs"
             detail="Outils cliniques"
           />
+          <QuickAction
+            to="/classement"
+            icon={<Trophy className="size-5" />}
+            label="Classement"
+            detail="Ligue hebdo"
+          />
         </div>
       </section>
 
       <section className="mt-8">
         <SectionTitle kicker="Progression" title="Votre niveau clinique" />
-        <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+        <div className="optimus-card p-4">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted">
               Niveau {lvl.level} · {lvl.title}
@@ -310,13 +376,17 @@ function Dashboard() {
       <section className="mt-8">
         <SectionTitle kicker="Plus" title="Outils et accès" />
         <div className="flex flex-wrap gap-2">
-          <Link to="/classement" className={buttonVariants({ variant: "secondary", size: "sm" })}>
-            <Trophy className="size-4" />
-            Classement
+          <Link to="/revue" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+            <DeckIcon name="book" />
+            Réviser {dueCount > 0 ? `(${dueCount})` : ""}
           </Link>
           <Link to="/import" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Upload className="size-4" />
             Importer un Deck
+          </Link>
+          <Link to="/cas" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+            <Sparkles className="size-4" />
+            Cas cliniques ({CLINICAL_CASES.length})
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
             <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>
@@ -358,7 +428,7 @@ function QuickAction({
   label,
   detail,
 }: {
-  to: "/revue" | "/cas" | "/examen" | "/calculateurs";
+  to: "/revue" | "/cas" | "/examen" | "/calculateurs" | "/classement";
   icon: ReactNode;
   label: string;
   detail: string;
@@ -366,7 +436,7 @@ function QuickAction({
   return (
     <Link
       to={to}
-      className="optimus-interactive-card min-w-0 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)] active:scale-[0.99]"
+      className="optimus-card optimus-interactive-card min-w-0 p-4 active:scale-[0.99]"
     >
       <span className="flex size-10 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary shadow-[var(--shadow-border)]">
         {icon}

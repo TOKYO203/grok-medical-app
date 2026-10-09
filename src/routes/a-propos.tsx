@@ -102,6 +102,31 @@ function AboutPage() {
           </p>
         </div>
 
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+            Cadre d&apos;usage
+          </p>
+          <p className="mt-2 text-sm leading-relaxed">
+            Optimus est un outil éducatif, non d’un substitut au jugement clinique
+            professionnel : la décision médicale et la responsabilité de la prise en
+            charge restent celles du praticien formé.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              to="/confidentialite"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Confidentialité
+            </Link>
+            <Link
+              to="/conditions"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Conditions d&apos;utilisation
+            </Link>
+          </div>
+        </div>
+
         <p className="mt-8 text-center text-[11px] text-subtle">
           Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026
         </p>

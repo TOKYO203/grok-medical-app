@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
-import { Page, Shell } from "@/components/shell";
+import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
@@ -94,20 +94,17 @@ function ProPage() {
 
   return (
     <Shell title="Pro">
-      <Page className="mx-auto max-w-lg">
-        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-          Accès Premium
-        </p>
-        <div className="mt-1 flex items-center justify-between gap-3">
-          <h1 className="font-display text-3xl font-medium tracking-tight">Optimus Pro</h1>
-          <Link to="/achats" className="shrink-0 text-sm font-medium text-primary">
-            Mes achats →
-          </Link>
-        </div>
-        <p className="mt-2 text-sm text-muted">
-          Les cours restent utilisables hors ligne. Les commandes et leurs statuts sont validés par
-          le serveur, tandis que vos clés privées restent uniquement sur cet appareil.
-        </p>
+      <Page className="mx-auto max-w-2xl">
+        <PageHeader
+          kicker="Accès Premium"
+          title="Optimus Pro"
+          description="Les cours restent utilisables hors ligne. Les commandes et leurs statuts sont validés par le serveur, tandis que vos clés privées restent uniquement sur cet appareil."
+          action={
+            <Link to="/achats" className="shrink-0 text-sm font-medium text-primary">
+              Mes achats →
+            </Link>
+          }
+        />
 
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">

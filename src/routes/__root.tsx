@@ -12,6 +12,7 @@ import { LicenseRevocationBridge } from "@/components/license-revocation-bridge"
 import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { Toaster } from "sonner";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Optimus";
@@ -25,7 +26,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
-      { name: "theme-color", content: "#0c1110" },
+      { name: "theme-color", content: "#f3f6f4" },
               { name: "application-name", content: "Optimus" },
               { name: "apple-mobile-web-app-title", content: "Optimus" },
               { name: "apple-mobile-web-app-capable", content: "yes" },
@@ -55,6 +56,7 @@ function RootDocument() {
   return (
     <html lang="fr" className="antialiased" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>
@@ -71,13 +73,13 @@ function RootDocument() {
         <ServiceWorkerRegistrar />
         <DailyReminderBridge />
         <Toaster
-          theme="dark"
+          theme="system"
           position="top-center"
           toastOptions={{
             style: {
-              background: "#1a221f",
-              color: "#e7ede8",
-              border: "1px solid color-mix(in oklab, #e7ede8 12%, transparent)",
+              background: "var(--app-card)",
+              color: "var(--app-fg)",
+              border: "1px solid var(--app-border)",
             },
           }}
         />

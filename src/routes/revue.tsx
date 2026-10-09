@@ -47,10 +47,10 @@ function RevuePage() {
     <Shell title="Réviser">
       <Page>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Répétition espacée</p>
-        <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">
+        <h1 className="mt-1 font-display text-3xl font-medium tracking-tight md:text-4xl">
           {mode === "today" ? "Session du jour" : "Révisions"}
         </h1>
-        <p className="mt-2 max-w-lg text-sm text-muted">
+        <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted">
           Les cartes fragiles reviennent vite, les consolidées plus tard. Fonctionne sans Internet.
         </p>
         {items.length === 0 ? (

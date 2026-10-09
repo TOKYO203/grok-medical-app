@@ -17,6 +17,7 @@ import { Route as AdminAchatsRouteImport } from './routes/admin-achats'
 import { Route as AdminDecksRouteImport } from './routes/admin-decks'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AdminReportsRouteImport } from './routes/admin-reports'
+import { Route as BibliothequeRouteImport } from './routes/bibliotheque'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
@@ -77,6 +78,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
 const AdminReportsRoute = AdminReportsRouteImport.update({
   id: '/admin-reports',
   path: '/admin-reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BibliothequeRoute = BibliothequeRouteImport.update({
+  id: '/bibliotheque',
+  path: '/bibliotheque',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculateursRoute = CalculateursRouteImport.update({
@@ -194,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -225,6 +232,7 @@ export interface FileRoutesByTo {
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -257,6 +265,7 @@ export interface FileRoutesById {
   '/admin-decks': typeof AdminDecksRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/classement': typeof ClassementRoute
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/admin-decks'
     | '/admin-login'
     | '/admin-reports'
+    | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -321,6 +331,7 @@ export interface FileRouteTypes {
     | '/admin-decks'
     | '/admin-login'
     | '/admin-reports'
+    | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -352,6 +363,7 @@ export interface FileRouteTypes {
     | '/admin-decks'
     | '/admin-login'
     | '/admin-reports'
+    | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
     | '/classement'
@@ -384,6 +396,7 @@ export interface RootRouteChildren {
   AdminDecksRoute: typeof AdminDecksRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminReportsRoute: typeof AdminReportsRoute
+  BibliothequeRoute: typeof BibliothequeRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
   ClassementRoute: typeof ClassementRoute
@@ -461,6 +474,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-reports'
       fullPath: '/admin-reports'
       preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bibliotheque': {
+      id: '/bibliotheque'
+      path: '/bibliotheque'
+      fullPath: '/bibliotheque'
+      preLoaderRoute: typeof BibliothequeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculateurs': {
@@ -644,6 +664,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminDecksRoute: AdminDecksRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminReportsRoute: AdminReportsRoute,
+  BibliothequeRoute: BibliothequeRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
   ClassementRoute: ClassementRoute,
@@ -667,3 +688,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

@@ -11,6 +11,7 @@ const [decks, cases, diagnostics] = await Promise.all([
   readCatalog("diagnostics"),
 ]);
 
+// Mirrors src/core/types.ts COMPETENCIES (clinical axes + CanMEDS roles).
 const COMPETENCIES = new Set([
   "recognize",
   "semiology",
@@ -18,6 +19,13 @@ const COMPETENCIES = new Set([
   "diagnosis",
   "management",
   "clinical_reasoning",
+  "canmeds_expert",
+  "canmeds_communicator",
+  "canmeds_collaborator",
+  "canmeds_leader",
+  "canmeds_health_advocate",
+  "canmeds_scholar",
+  "canmeds_professional",
 ]);
 
 function assertUnique(values, label) {

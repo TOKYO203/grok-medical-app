@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { Page, Shell } from "@/components/shell";
+import { BookOpen, Check } from "lucide-react";
+import { Page, PageHeader, Shell } from "@/components/shell";
 import { Input } from "@/components/ui/input";
 import {
   bmi,
@@ -35,29 +35,38 @@ function CalcPage() {
   const [tab, setTab] = useState<Tab>("gfr");
   return (
     <Shell title="Calculateurs">
-      <Page className="mx-auto max-w-lg">
-        <Link to="/cas" className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg">
-          <ArrowLeft className="size-4" />
-          Cas
-        </Link>
-        <h1 className="mt-4 font-display text-3xl font-medium tracking-tight">Calculateurs</h1>
-        <p className="mt-2 text-sm text-muted">Outils hors-ligne. Ils n’écrasent jamais le jugement clinique.</p>
-        <div className="mt-5 flex flex-wrap gap-1.5">
+      <Page className="mx-auto max-w-2xl">
+        <PageHeader
+          kicker="Outils cliniques"
+          title="Calculateurs"
+          description="Scores et règles de décision utilisables hors ligne. Ils éclairent la décision — ils ne remplacent jamais le jugement clinique."
+        />
+
+        <div
+          className="mt-5 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0"
+          role="tablist"
+          aria-label="Choisir un calculateur"
+        >
           {TABS.map((t) => (
             <button
               key={t.id}
               type="button"
+              role="tab"
+              aria-selected={tab === t.id}
               onClick={() => setTab(t.id)}
               className={cn(
-                "h-9 rounded-full px-3 text-sm",
-                tab === t.id ? "bg-primary text-primary-fg" : "bg-card text-fg shadow-[var(--shadow-border)]",
+                "flex shrink-0 items-center rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors",
+                tab === t.id
+                  ? "bg-primary text-primary-fg shadow-[var(--shadow-soft)]"
+                  : "bg-card text-muted shadow-[var(--shadow-border)] hover:text-fg",
               )}
             >
               {t.label}
             </button>
           ))}
         </div>
-        <div className="mt-6">
+
+        <div className="mt-6" role="tabpanel">
           {tab === "gfr" ? <Gfr /> : null}
           {tab === "bmi" ? <Bmi /> : null}
           {tab === "chads" ? <Chads /> : null}
@@ -66,6 +75,14 @@ function CalcPage() {
           {tab === "wells" ? <Wells /> : null}
           {tab === "curb" ? <Curb /> : null}
         </div>
+
+        <Link
+          to="/bibliotheque"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-fg"
+        >
+          <BookOpen className="size-4" aria-hidden />
+          Tous les outils dans la bibliothèque
+        </Link>
       </Page>
     </Shell>
   );
@@ -74,17 +91,21 @@ function CalcPage() {
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="block">
-      <span className="text-xs font-medium text-muted">{label}</span>
-      <div className="mt-1">{children}</div>
+      <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">{label}</span>
+      <div className="mt-1.5">{children}</div>
     </label>
   );
 }
 
 function Result({ value, detail }: { value: string; detail: string }) {
   return (
-    <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]">
-      <p className="font-display text-3xl tabular-nums">{value}</p>
-      <p className="mt-1 text-sm text-muted">{detail}</p>
+    <div className="optimus-card mt-5 overflow-hidden">
+      <div className="h-1 bg-gradient-to-r from-primary to-success" aria-hidden />
+      <div className="p-4">
+        <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">Résultat</p>
+        <p className="mt-1 font-display text-4xl font-medium tabular-nums text-primary">{value}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted">{detail}</p>
+      </div>
     </div>
   );
 }
@@ -101,13 +122,24 @@ function CheckRow({
   return (
     <button
       type="button"
+      role="checkbox"
+      aria-checked={checked}
       onClick={() => onChange(!checked)}
       className={cn(
-        "flex h-11 w-full items-center rounded-[var(--radius-md)] px-3 text-left text-sm shadow-[var(--shadow-border)]",
-        checked ? "bg-primary-soft" : "bg-card",
+        "flex min-h-11 w-full items-center gap-3 rounded-[var(--radius-md)] px-3 py-2 text-left text-sm shadow-[var(--shadow-border)] transition-colors",
+        checked ? "bg-primary-soft text-fg" : "bg-card text-muted hover:text-fg",
       )}
     >
-      {label}
+      <span
+        className={cn(
+          "flex size-5 shrink-0 items-center justify-center rounded-[6px] border transition-colors",
+          checked ? "border-primary bg-primary text-primary-fg" : "border-border-strong",
+        )}
+        aria-hidden
+      >
+        {checked ? <Check className="size-3.5" /> : null}
+      </span>
+      <span className="min-w-0 flex-1">{label}</span>
     </button>
   );
 }

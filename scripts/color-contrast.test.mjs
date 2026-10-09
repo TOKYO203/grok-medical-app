@@ -4,10 +4,48 @@ import test from "node:test";
 
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
 
-function token(name) {
-  const match = styles.match(new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{6})`));
-  assert.ok(match, `missing --color-${name}`);
+/** Renvoie le contenu d'un bloc CSS `selector { … }` (non imbriqué). */
+function block(selector, label) {
+  const match = styles.match(new RegExp(`${selector}\\s*\\{([\\s\\S]*?)\\n\\}`));
+  assert.ok(match, `missing CSS block: ${label}`);
   return match[1];
+}
+
+/** Associe chaque `--app-*` hexadécimal d'un bloc à sa valeur. */
+function appPalette(source) {
+  const map = new Map();
+  for (const match of source.matchAll(/(--app-[a-z0-9-]+):\s*(#[0-9a-fA-F]{6})/g)) {
+    map.set(match[1], match[2]);
+  }
+  return map;
+}
+
+/**
+ * Le thème clair est le défaut (`:root`), le thème sombre surcharge via
+ * `html[data-theme="dark"]`. On teste les deux palettes.
+ */
+const THEMES = {
+  light: appPalette(block(":root", ":root")),
+  dark: appPalette(block('html\\[data-theme="dark"\\]', 'html[data-theme="dark"]')),
+};
+
+/** Table `--color-x -> var(--app-y)` déclarée dans le bloc `@theme`. */
+const SEMANTIC_TO_APP = (() => {
+  const map = new Map();
+  for (const match of block("@theme", "@theme").matchAll(
+    /--color-([a-z0-9-]+):\s*var\((--app-[a-z0-9-]+)\)/g,
+  )) {
+    map.set(match[1], match[2]);
+  }
+  return map;
+})();
+
+function token(theme, name) {
+  const appToken = SEMANTIC_TO_APP.get(name);
+  assert.ok(appToken, `missing --color-${name} mapping in @theme`);
+  const value = THEMES[theme].get(appToken);
+  assert.ok(value, `missing ${appToken} in ${theme} palette`);
+  return value;
 }
 
 function relativeLuminance(hex) {
@@ -25,23 +63,25 @@ function contrast(foreground, background) {
   return (light + 0.05) / (dark + 0.05);
 }
 
-function assertNormalTextContrast(foregroundToken, backgroundToken) {
-  const foreground = token(foregroundToken);
-  const background = token(backgroundToken);
+function assertNormalTextContrast(theme, foregroundToken, backgroundToken) {
+  const foreground = token(theme, foregroundToken);
+  const background = token(theme, backgroundToken);
   const ratio = contrast(foreground, background);
   assert.ok(
     ratio >= 4.5,
-    `${foregroundToken} on ${backgroundToken} contrast ${ratio.toFixed(2)} is below 4.5:1`,
+    `[${theme}] ${foregroundToken} on ${backgroundToken} contrast ${ratio.toFixed(2)} is below 4.5:1`,
   );
 }
 
-test("core small-text palette meets WCAG AA contrast on app surfaces", () => {
-  for (const foreground of ["fg", "muted", "subtle", "primary", "danger"]) {
-    assertNormalTextContrast(foreground, "bg");
-    assertNormalTextContrast(foreground, "card");
-  }
-});
+for (const theme of ["light", "dark"]) {
+  test(`[${theme}] core small-text palette meets WCAG AA contrast on app surfaces`, () => {
+    for (const foreground of ["fg", "muted", "subtle", "primary", "danger"]) {
+      assertNormalTextContrast(theme, foreground, "bg");
+      assertNormalTextContrast(theme, foreground, "card");
+    }
+  });
 
-test("primary button foreground remains readable on primary", () => {
-  assertNormalTextContrast("primary-fg", "primary");
-});
+  test(`[${theme}] primary button foreground remains readable on primary`, () => {
+    assertNormalTextContrast(theme, "primary-fg", "primary");
+  });
+}
