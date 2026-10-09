@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, Check, Flame, X } from "lucide-react";
+import {ArrowRight, Check, Flame, X, Lightbulb } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -189,6 +189,15 @@ export function QuizPlayer({
               ? `Juste · combo ${combo} · +${comboBonus(combo)} XP combo`
               : "Incorrect — à revoir bientôt"}
           </p>
+
+          <div className="mt-4 flex items-center gap-2 border-t border-border/40 pt-4">
+
+            <Lightbulb className="size-3.5 text-amber-400" aria-hidden />
+
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Pourquoi</p>
+
+          </div>
+
           <p className="mt-2 text-sm leading-relaxed text-fg">{q.explanation}</p>
           <MedicalSources sources={q.sources} compact />
           <ReportContentError
