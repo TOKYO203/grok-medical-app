@@ -65,7 +65,9 @@
   --app-surface-2: #F0E4CB;
   --app-fg: #1F1A14;
   --app-muted: #5E4D35;
-  --app-subtle: #8A7555;
+  /* #6A5738 : contraste 5.31:1 sur --app-bg (parchemin) et 6.92:1 sur --app-card (blanc)
+     — WCAG AA garanti pour le petit texte ; l'ancien #8A7555 ne donnait que 3.38:1. */
+  --app-subtle: #6A5738;
   --app-border: #A67C1E;
   --app-border-strong: color-mix(in oklab, #A67C1E 80%, transparent);
   --app-primary: #3E4A2A;

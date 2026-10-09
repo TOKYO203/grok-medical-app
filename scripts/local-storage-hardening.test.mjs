@@ -23,7 +23,11 @@ test("Optimus local state stays on the historical key but uses explicit versione
   assert.match(storeSource, /version:\s*OPTIMUS_PERSIST_VERSION/);
   assert.match(storeSource, /migrate:\s*\(persistedState,\s*version\)/);
   assert.match(storeSource, /migrateOptimusPersistedState\(persistedState,\s*version\)/);
-  assert.match(migrationSource, /OPTIMUS_PERSIST_VERSION\s*=\s*2/);
+  // Le numéro avance au fil des migrations (2 → 3 pour « Invité » → « Nouveau ») :
+  // on verrouille l'existence d'une version versionnée, pas une valeur figée.
+  const persistVersion = migrationSource.match(/OPTIMUS_PERSIST_VERSION\s*=\s*(\d+)/);
+  assert.ok(persistVersion, "OPTIMUS_PERSIST_VERSION doit être déclarée");
+  assert.ok(Number(persistVersion[1]) >= 2, "une migration versionnée (>= 2) est requise");
 });
 
 test("custom profile covers use IndexedDB blobs and migrate legacy base64", () => {
@@ -37,7 +41,14 @@ test("custom profile covers use IndexedDB blobs and migrate legacy base64", () =
 });
 
 test("new custom covers never fall back to persistent base64 when IndexedDB fails", () => {
-  assert.doesNotMatch(profileSource, /canvas\.toDataURL/);
+  // L'interdit porte sur le handler de couverture (image 1200×400) : l'avatar,
+  // volontairement petit (256 px) et indépendant, reste hors périmètre.
+  const coverHandler = profileSource.slice(
+    profileSource.indexOf("function onCoverFile"),
+    profileSource.indexOf("function chooseBuiltInCover"),
+  );
+  assert.ok(coverHandler.length > 0, "handler onCoverFile introuvable");
+  assert.doesNotMatch(coverHandler, /canvas\.toDataURL/);
   assert.match(profileSource, /update\(\{\s*cover:\s*"custom",\s*coverDataUrl:\s*null\s*\}\)/);
   assert.match(profileSource, /cet appareil n’a pas pu l’enregistrer durablement/);
 });

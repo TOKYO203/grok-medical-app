@@ -19,6 +19,10 @@ const installCard = readFileSync(
   new URL("../src/components/pwa-install-card.tsx", import.meta.url),
   "utf8",
 );
+const installHook = readFileSync(
+  new URL("../src/hooks/use-pwa-install.ts", import.meta.url),
+  "utf8",
+);
 const errorComponent = readFileSync(
   new URL("../src/lib/error-component.tsx", import.meta.url),
   "utf8",
@@ -45,7 +49,7 @@ test("parcours and clinical cases expose progress summaries and explicit states"
   assert.match(parcours, /En cours/);
   assert.match(parcours, /Terminés/);
   assert.match(cases, /Progression des cas cliniques/);
-  assert.match(cases, /Disponible/);
+  assert.match(cases, /Accessibles/);
   assert.match(cases, /Premium/);
   assert.match(cases, /Terminé/);
 });
@@ -70,9 +74,11 @@ test("app resume refreshes existing online workflows without pretending to be on
 
 test("PWA installation is discoverable and standalone-aware", () => {
   assert.match(home, /<PwaInstallCard \/>/);
-  assert.match(installCard, /display-mode: standalone/);
-  assert.match(installCard, /\/\?install=1/);
+  // La détection standalone vit dans le hook ; la carte porte l'UI (état installé,
+  // instructions par plateforme) — la page d'installation reste servie par le chrome plateforme.
+  assert.match(installHook, /display-mode: standalone/);
   assert.match(installCard, /Optimus est installé/);
+  assert.match(installCard, /Installer Optimus/);
 });
 
 test("global error state is user-facing in French and hides raw details in production", () => {

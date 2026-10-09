@@ -12854,9 +12854,10 @@
       "diagnosis"
     ],
     "icon": "brain",
+    "status": "published",
     "questions": [
       {
-        "id": "neuro-avc-l2-q1",
+        "id": "avc-l2-1",
         "prompt": "Parmi les propositions suivantes, laquelle caractérise l'AVC ischémique ?",
         "choices": [
           "Il résulte de l'obstruction d'une artère cérébrale et représente 80 à 85 % des AVC",
@@ -12876,7 +12877,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q2",
+        "id": "avc-l2-2",
         "prompt": "Un accident ischémique transitoire (AIT) se définit par :",
         "choices": [
           "Un déficit neurologique brutal régressant en moins d'une heure, sans lésion à l'imagerie",
@@ -12896,7 +12897,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q3",
+        "id": "avc-l2-3",
         "prompt": "L'acronyme FAST (ou VITE en français) utilisé pour reconnaître un AVC signifie :",
         "choices": [
           "Face, Arm, Speech, Time",
@@ -12916,7 +12917,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q4",
+        "id": "avc-l2-4",
         "prompt": "Un patient présente brutalement une asymétrie faciale et une faiblesse du bras droit. Quel est le premier geste à effectuer ?",
         "choices": [
           "Appeler immédiatement le SAMU — Centre 15 (ou le 114 si le patient est sourd, malentendant ou aphasique)",
@@ -12936,7 +12937,7 @@
         "competency": "management"
       },
       {
-        "id": "neuro-avc-l2-q5",
+        "id": "avc-l2-5",
         "prompt": "Concernant un AIT, quelle affirmation est exacte ?",
         "choices": [
           "C'est une urgence car le risque de récidive dans les 24 heures est élevé",
@@ -12956,7 +12957,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q6",
+        "id": "avc-l2-6",
         "prompt": "Chez un patient victime d'un AVC ischémique, la fenêtre thérapeutique classique pour la thrombolyse intraveineuse est de :",
         "choices": [
           "4 heures 30 après le début des symptômes",
@@ -12976,7 +12977,7 @@
         "competency": "diagnosis"
       },
       {
-        "id": "neuro-avc-l2-q7",
+        "id": "avc-l2-7",
         "prompt": "À la phase hyperaiguë d'un AVC, quelle imagerie est privilégiée et pourquoi ?",
         "choices": [
           "L'IRM cérébrale, car elle visualise l'AVC ischémique dès la phase aiguë et élimine les diagnostics différentiels",
@@ -12996,7 +12997,7 @@
         "competency": "diagnosis"
       },
       {
-        "id": "neuro-avc-l2-q8",
+        "id": "avc-l2-8",
         "prompt": "Parmi les facteurs de risque d'AVC identifiés par l'étude INTERSTROKE, lequel est le plus important en termes de risque attribuable ?",
         "choices": [
           "L'hypertension artérielle (environ 50 % du risque attribuable)",
@@ -13016,7 +13017,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q9",
+        "id": "avc-l2-9",
         "prompt": "En France, l'AVC représente :",
         "choices": [
           "Plus de 120 000 hospitalisations par an et la 1re cause de handicap non traumatique acquis",
@@ -13036,7 +13037,7 @@
         "competency": "recognize"
       },
       {
-        "id": "neuro-avc-l2-q10",
+        "id": "avc-l2-10",
         "prompt": "Tous les patients ayant eu un AVC doivent bénéficier d'une consultation post-AVC :",
         "choices": [
           "Entre 2 et 6 mois après les symptômes (jusqu'à 12 mois dans certains cas)",
@@ -13054,6 +13055,22 @@
         ],
         "difficulty": "base",
         "competency": "management"
+      }
+    ],
+    "deck_id": "neuro-avc-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "NEURO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "HAS",
+        "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025."
+      },
+      {
+        "title": "Collège de Neurologie",
+        "citation": "Référentiel national DES / EDN de neurologie."
       }
     ]
   }

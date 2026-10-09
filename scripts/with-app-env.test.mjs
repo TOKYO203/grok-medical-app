@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { mkdirSync, mkdtempSync, symlinkSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
@@ -16,7 +16,40 @@ import {
 const execFileAsync = promisify(execFile);
 const WRAPPER = join(projectRoot(), "scripts/with-app-env.mjs");
 const PRINT_FLAG = "process.stdout.write(String(process.env.VITE_AUTH_ENABLED));";
-const PROJECT_AUTH_FLAG = String(readAppEnv(projectRoot()).VITE_AUTH_ENABLED);
+
+/**
+ * Le wrapper fusionne, dans l'ordre : `.env.local` → `.grok/app-env.json` → `process.env`
+ * (une entrée de `process.env` gagne). On modélise exactement cet ordre pour prédire la
+ * valeur vue par la commande enveloppée, sans dépendre de l'environnement ambiant
+ * (un `.env.local` local ne doit pas faire échouer le test en CI, et inversement).
+ */
+function readDotEnvLocal(root) {
+  try {
+    const env = {};
+    for (const raw of readFileSync(join(root, ".env.local"), "utf8").split(/\r?\n/)) {
+      const line = raw.trim();
+      const eq = line.indexOf("=");
+      if (eq < 1) continue;
+      let value = line.slice(eq + 1).trim();
+      const quote = String.fromCharCode(34);
+      if (value.startsWith(quote) && value.endsWith(quote)) value = value.slice(1, -1);
+      env[line.slice(0, eq).trim()] = value;
+    }
+    return env;
+  } catch {
+    return {};
+  }
+}
+
+function expectedAppEnv(key) {
+  return {
+    ...readDotEnvLocal(projectRoot()),
+    ...readAppEnv(projectRoot()),
+    ...process.env,
+  }[key];
+}
+
+const PROJECT_AUTH_FLAG = String(expectedAppEnv("VITE_AUTH_ENABLED"));
 
 function makeWorkspace(appEnvJson) {
   const root = mkdtempSync(join(tmpdir(), "app-env-"));

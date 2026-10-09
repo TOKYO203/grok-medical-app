@@ -8,11 +8,15 @@
   "specialty": "Clinique",
   "studyYear": 2,
   "difficulty": "intro",
-  "competencies": ["recognize", "diagnosis"],
+  "competencies": [
+    "recognize",
+    "diagnosis"
+  ],
   "icon": "brain",
+  "status": "published",
   "questions": [
     {
-      "id": "neuro-avc-l2-q1",
+      "id": "avc-l2-1",
       "prompt": "Parmi les propositions suivantes, laquelle caractérise l'AVC ischémique ?",
       "choices": [
         "Il résulte de l'obstruction d'une artère cérébrale et représente 80 à 85 % des AVC",
@@ -23,13 +27,16 @@
       "correct": 0,
       "explanation": "L'AVC ischémique est consécutif à l'obstruction d'une artère cérébrale (80 à 85 % des AVC). L'AVC hémorragique est dû à la rupture d'un vaisseau sanguin. L'AIT est un déficit transitoire (<1 h) sans lésion à l'imagerie. L'HTA est un facteur de risque majeur mais pas la cause exclusive.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q2",
+      "id": "avc-l2-2",
       "prompt": "Un accident ischémique transitoire (AIT) se définit par :",
       "choices": [
         "Un déficit neurologique brutal régressant en moins d'une heure, sans lésion à l'imagerie",
@@ -40,13 +47,16 @@
       "correct": 0,
       "explanation": "L'AIT est un épisode bref de dysfonction neurologique d'origine ischémique, dont les symptômes durent typiquement moins d'une heure, sans lésion à l'imagerie. Il ne doit pas être banalisé : c'est une urgence car le risque de récidive dans les 24 h est élevé.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9 et section 9.2, p. 74" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9 et section 9.2, p. 74"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q3",
+      "id": "avc-l2-3",
       "prompt": "L'acronyme FAST (ou VITE en français) utilisé pour reconnaître un AVC signifie :",
       "choices": [
         "Face, Arm, Speech, Time",
@@ -57,13 +67,16 @@
       "correct": 0,
       "explanation": "FAST = Face (visage), Arm (bras), Speech (parole), Time (temps). En français VITE = Visage, Incapacité (à lever un membre), Trouble de la parole, Extrême urgence. Ces trois symptômes (paralysie faciale, déficit moteur, aphasie) sont les plus spécifiques d'un AVC.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.2, p. 20-21" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.2, p. 20-21"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q4",
+      "id": "avc-l2-4",
       "prompt": "Un patient présente brutalement une asymétrie faciale et une faiblesse du bras droit. Quel est le premier geste à effectuer ?",
       "choices": [
         "Appeler immédiatement le SAMU — Centre 15 (ou le 114 si le patient est sourd, malentendant ou aphasique)",
@@ -74,13 +87,16 @@
       "correct": 0,
       "explanation": "Face à ces symptômes évocateurs d'AVC, il faut appeler immédiatement le 15 sans chercher à joindre son médecin traitant. Pour les personnes sourdes, sourdaveugles, malentendantes ou aphasiques, le 114 est joignable par SMS, appel vidéo ou application. Chaque minute compte.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.3, p. 21" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.3, p. 21"
+        }
       ],
       "difficulty": "base",
       "competency": "management"
     },
     {
-      "id": "neuro-avc-l2-q5",
+      "id": "avc-l2-5",
       "prompt": "Concernant un AIT, quelle affirmation est exacte ?",
       "choices": [
         "C'est une urgence car le risque de récidive dans les 24 heures est élevé",
@@ -91,13 +107,16 @@
       "correct": 0,
       "explanation": "Les symptômes transitoires sont faussement rassurants : l'AIT est une urgence. Le risque de survenue d'un AVC est de 2 à 4,1 % à 48 h et de 3,9 à 6,5 % à 7 jours. La prise en charge spécialisée en urgence diminue drastiquement ce risque (0,9 % vs 11 %).",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.2, p. 20 et section 9.1, p. 74" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 2.2.2, p. 20 et section 9.1, p. 74"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q6",
+      "id": "avc-l2-6",
       "prompt": "Chez un patient victime d'un AVC ischémique, la fenêtre thérapeutique classique pour la thrombolyse intraveineuse est de :",
       "choices": [
         "4 heures 30 après le début des symptômes",
@@ -108,13 +127,16 @@
       "correct": 0,
       "explanation": "Théoriquement, le patient peut bénéficier d'une thrombolyse IV dans les 4 h 30 après le début des symptômes. Au-delà, la thrombolyse peut être envisagée jusqu'à 9 h sous réserve d'imagerie (pénombre ischémique). La thrombectomie mécanique est possible jusqu'à 24 h sous conditions.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 4.3.1.1, p. 32" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 4.3.1.1, p. 32"
+        }
       ],
       "difficulty": "base",
       "competency": "diagnosis"
     },
     {
-      "id": "neuro-avc-l2-q7",
+      "id": "avc-l2-7",
       "prompt": "À la phase hyperaiguë d'un AVC, quelle imagerie est privilégiée et pourquoi ?",
       "choices": [
         "L'IRM cérébrale, car elle visualise l'AVC ischémique dès la phase aiguë et élimine les diagnostics différentiels",
@@ -125,13 +147,16 @@
       "correct": 0,
       "explanation": "L'IRM cérébrale est privilégiée car elle est plus sensible et spécifique que le scanner pour différencier l'AVC ischémique d'une cause alternative. La séquence FLAIR négative permet d'identifier les AVC du réveil éligibles à la thrombolyse. Le scanner et l'IRM sont équivalents pour diagnostiquer l'hémorragie.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 4.3.1, p. 32" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 4.3.1, p. 32"
+        }
       ],
       "difficulty": "base",
       "competency": "diagnosis"
     },
     {
-      "id": "neuro-avc-l2-q8",
+      "id": "avc-l2-8",
       "prompt": "Parmi les facteurs de risque d'AVC identifiés par l'étude INTERSTROKE, lequel est le plus important en termes de risque attribuable ?",
       "choices": [
         "L'hypertension artérielle (environ 50 % du risque attribuable)",
@@ -142,13 +167,16 @@
       "correct": 0,
       "explanation": "Selon l'étude INTERSTROKE, 90 % du risque d'AVC est attribuable à 10 facteurs de risque modifiables. L'HTA arrive en tête avec 52 % du risque attribuable, suivie du tabagisme, de l'obésité abdominale, du régime alimentaire et de la sédentarité (ces 5 facteurs représentent 80 % du risque).",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 6.3.2, p. 48 (d'après INTERSTROKE)" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 6.3.2, p. 48 (d'après INTERSTROKE)"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q9",
+      "id": "avc-l2-9",
       "prompt": "En France, l'AVC représente :",
       "choices": [
         "Plus de 120 000 hospitalisations par an et la 1re cause de handicap non traumatique acquis",
@@ -159,13 +187,16 @@
       "correct": 0,
       "explanation": "L'AVC entraîne plus de 120 000 hospitalisations/an en France. Il est la 1re cause de handicap non traumatique acquis et la 2e cause de démence derrière la maladie d'Alzheimer. Il est la 1re cause de décès chez la femme et la 2e chez l'homme, avec 20 à 30 % de décès dans l'année suivant l'AVC.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, Préambule, p. 9"
+        }
       ],
       "difficulty": "base",
       "competency": "recognize"
     },
     {
-      "id": "neuro-avc-l2-q10",
+      "id": "avc-l2-10",
       "prompt": "Tous les patients ayant eu un AVC doivent bénéficier d'une consultation post-AVC :",
       "choices": [
         "Entre 2 et 6 mois après les symptômes (jusqu'à 12 mois dans certains cas)",
@@ -176,10 +207,29 @@
       "correct": 0,
       "explanation": "La consultation post-AVC a lieu entre 2 et 6 mois après les symptômes (jusqu'à 12 mois dans certains cas). Elle est pluriprofessionnelle (neurologue, gériatre ou MPR, IDE, kinésithérapeute, orthophoniste, ergothérapeute, psychologue, neuropsychologue, travailleur social, diététicien) et vise à synthétiser la prise en charge, répondre aux questions, établir la stratégie de prévention secondaire et détecter les handicaps invisibles.",
       "sources": [
-        { "title": "HAS", "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 8.9, p. 71-72" }
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025, section 8.9, p. 71-72"
+        }
       ],
       "difficulty": "base",
       "competency": "management"
+    }
+  ],
+  "deck_id": "neuro-avc-l2",
+  "schema_version": 2,
+  "access_policy": {
+    "tier": "pro",
+    "entitlement": "NEURO_PACK_15"
+  },
+  "sources": [
+    {
+      "title": "HAS",
+      "citation": "Guide du parcours de santé — AVC de l'adulte, octobre 2025."
+    },
+    {
+      "title": "Collège de Neurologie",
+      "citation": "Référentiel national DES / EDN de neurologie."
     }
   ]
 }
