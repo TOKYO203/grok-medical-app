@@ -59,39 +59,39 @@
 :root {
   color-scheme: light;
 
-  --app-bg: #F4ECDF;
-  --app-bg-elevated: #FBF6EC;
-  --app-surface: #FBF6EC;
-  --app-surface-2: #EFE5D2;
-  --app-fg: #2B2520;
-  --app-muted: #6B5A44;
-  --app-subtle: #9A8768;
-  --app-border: color-mix(in oklab, var(--app-fg) 12%, transparent);
-  --app-border-strong: color-mix(in oklab, var(--app-fg) 22%, transparent);
-  --app-primary: #5C6B3F;
-  --app-primary-fg: #FBF6EC;
+  --app-bg: #EDE0C8;
+  --app-bg-elevated: #FFFFFF;
+  --app-surface: #FFFFFF;
+  --app-surface-2: #F0E4CB;
+  --app-fg: #1F1A14;
+  --app-muted: #5E4D35;
+  --app-subtle: #8A7555;
+  --app-border: #A67C1E;
+  --app-border-strong: color-mix(in oklab, #A67C1E 80%, transparent);
+  --app-primary: #3E4A2A;
+  --app-primary-fg: #FFFFFF;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 12%, transparent);
-  --app-accent: #B8892B;
-  --app-paper: #FBF6EC;
-  --app-paper-fg: #2B2520;
-  --app-ring: #5C6B3F;
-  --app-success: #4A7A47;
-  --app-warn: #B8892B;
-  --app-danger: #A03A2C;
-  --app-card: #FBF6EC;
-  --app-secondary: #E8DEC6;
+  --app-accent: #A67C1E;
+  --app-paper: #FFFFFF;
+  --app-paper-fg: #1F1A14;
+  --app-ring: #A67C1E;
+  --app-success: #4F6B2D;
+  --app-warn: #A67C1E;
+  --app-danger: #8B2E1F;
+  --app-card: #FFFFFF;
+  --app-secondary: #F0E4CB;
 
-  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 10%, transparent);
-  --app-shadow-soft: 0 18px 40px -28px rgb(12 27 21 / 0.22);
-  --app-shadow-md: 0 26px 60px -34px rgb(12 27 21 / 0.32), inset 0 1px 0 rgb(255 255 255 / 0.6);
+  --app-shadow-border: inset 0 0 0 1px inset 0 0 0 1px color-mix(in oklab, #A67C1E 38%, transparent);
+  --app-shadow-soft: 0 18px 40px -28px rgb(122 90 20 / 0.20);
+  --app-shadow-md: 0 26px 60px -34px rgb(139 104 32 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
   --app-body-bg:
     radial-gradient(64rem 32rem at 88% -12%, rgb(92 107 63 / 0.12), transparent 60%),
     radial-gradient(44rem 28rem at -12% 42%, rgb(184 137 43 / 0.06), transparent 65%),
     #F4ECDF;
 
-  --hero-from: #5C6B3F;
-  --hero-to: #3E4929;
+  --hero-from: #3E4A2A;
+  --hero-to: #1F2716;
   --hero-glow: rgb(255 255 255 / 0.22);
 
   --app-skeleton-a: #e9f0ec;
@@ -556,3 +556,21 @@ details > summary::-webkit-details-marker {
 details > summary {
   list-style: none;
 }
+
+/* ============ SIGNATURE DORÉE ============ */
+
+/* 1. Tous les kickers (petites majuscules) en or */
+p[class*="uppercase"][class*="tracking"] { color: #A67C1E; letter-spacing: 0.18em; }
+
+/* 2. Kickers dans le hero olive → or clair */
+.bg-primary p[class*="uppercase"] { color: #E8C97A; }
+
+/* 3. Filet doré sous les titres de section */
+h2.font-display + p.text-muted { position: relative; }
+
+/* 4. Nombres tabulaires en or (KPI) */
+[class*="tabular-nums"] { color: #A67C1E; font-weight: 600; }
+
+/* 5. Liens secondaires (Tout voir, Bibliothèque) en or */
+a[class*="text-muted"], button[class*="text-muted"] { transition: color 0.15s; }
+a[class*="text-muted"]:hover, button[class*="text-muted"]:hover { color: #A67C1E; }
