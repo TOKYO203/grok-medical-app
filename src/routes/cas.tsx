@@ -7,8 +7,8 @@ import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
-import { buildContentIndex, type ContentItem } from "@/lib/library/content-index";
-import type { Profile } from "@/core/types";
+import { buildContentIndex } from "@/lib/library/content-index";
+import { groupBySpecialty, specialtyEmoji, specialtySlug } from "@/lib/library/specialty-helpers";
 import { useAllDecks, useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
@@ -31,26 +31,10 @@ function CasPage() {
   const accessibleCases = caseItems.filter((i) => !i.locked);
 
   /**
-   * Dossiers regroupés par spécialité.
-   * « Inversion » validée : les groupes sont ordonnés du PLUS pertinent au MOINS
-   * pertinent pour le profil (matières prioritaires → année d'étude → volume de cas
-   * accessibles), et non selon l'ordre d'insertion du catalogue.
+   * Dossiers regroupés par spécialité résolue, du PLUS pertinent au MOINS pertinent
+   * pour le profil (matières prioritaires → année d'étude → volume de cas accessibles).
    */
-  const caseGroups = useMemo(() => {
-    const bySpecialty = new Map<string, ContentItem[]>();
-    for (const item of caseItems) {
-      const list = bySpecialty.get(item.specialty) ?? [];
-      list.push(item);
-      bySpecialty.set(item.specialty, list);
-    }
-    return [...bySpecialty.entries()]
-      .map(([specialty, items]) => ({ specialty, items }))
-      .sort(
-        (a, b) =>
-          caseGroupRelevance(b.items, profile) - caseGroupRelevance(a.items, profile) ||
-          a.specialty.localeCompare(b.specialty, "fr"),
-      );
-  }, [caseItems, profile]);
+  const caseGroups = useMemo(() => groupBySpecialty(caseItems, profile), [caseItems, profile]);
   const completedClinicalCount = CLINICAL_CASES.filter((clinical) => done.includes(clinical.id)).length;
 
   const normalizedQuery = normalizeSearch(diagnosticQuery);
@@ -92,7 +76,7 @@ function CasPage() {
             {caseGroups.map((group) => (
               <section
                 key={group.specialty}
-                id={specialtySlug(group.specialty)}
+                id={specialtySlug(group.specialty, "cas")}
                 /*
                  * scroll-mt-24 (96 px) = en-tête du Shell (h-14 → 56 px) + en-tête de groupe
                  * collant (~40 px) sur mobile (390×844). Sans cette marge, un saut d'ancre
@@ -276,48 +260,6 @@ function Summary({
       </p>
     </div>
   );
-}
-
-/**
- * Pertinence d'un groupe de cas pour le profil courant.
- * Priorité : matières prioritaires (4) > année d'étude (2) > nombre de cas accessibles.
- * Sert au tri « du plus pertinent au moins pertinent » des groupes de spécialité.
- */
-function caseGroupRelevance(items: ContentItem[], profile: Profile): number {
-  const priority = profile.prioritySubjects.some((subject) => {
-    const needle = subject.toLowerCase();
-    return items.some(
-      (item) =>
-        item.specialty.toLowerCase().includes(needle) ||
-        needle.includes(item.specialty.toLowerCase()),
-    );
-  });
-  const yearMatch = profile.studyYear > 0 && items.some((item) => item.year === profile.studyYear);
-  const accessible = items.filter((item) => !item.locked).length;
-  return (priority ? 4 : 0) + (yearMatch ? 2 : 0) + accessible;
-}
-
-/** Emoji d'illustration par spécialité (repli : 🩺). */
-function specialtyEmoji(specialty: string): string {
-  const s = specialty.toLowerCase();
-  if (s.includes("cardio")) return "🫀";
-  if (s.includes("neuro")) return "🧠";
-  if (s.includes("infectio")) return "🦠";
-  if (s.includes("pneumo")) return "🫁";
-  if (s.includes("dermato")) return "🩹";
-  if (s.includes("nephro")) return "🫘";
-  if (s.includes("gastro") || s.includes("hepato")) return "🫃";
-  return "🩺";
-}
-
-/** Identifiant d'ancre stable et sans accents à partir d'une spécialité. */
-function specialtySlug(specialty: string): string {
-  return `cas-${specialty
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")}`;
 }
 
 function normalizeSearch(value: string): string {

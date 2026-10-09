@@ -60,11 +60,14 @@ export function ContentCard({
   className,
   /** Masque la spécialité dans le footer (utile quand elle est déjà dans l'en-tête de groupe). */
   showSpecialty = true,
+  /** Habillage « bibliothèque » : filet doré + halo accent au survol. */
+  premium = false,
 }: {
   item: ContentItem;
   progress?: number;
   className?: string;
   showSpecialty?: boolean;
+  premium?: boolean;
 }) {
   const meta = KIND_META[item.kind];
   const showProgress = typeof progress === "number" && progress > 0;
@@ -75,6 +78,7 @@ export function ContentCard({
       ariaLabel={`${meta.label} — ${item.title}`}
       className={cn(
         "optimus-card optimus-interactive-card group flex h-full flex-col p-4 text-left active:scale-[0.99]",
+        premium && !item.locked && "optimus-interactive-card--premium",
         className,
       )}
     >
@@ -105,7 +109,7 @@ export function ContentCard({
             {item.locked ? (
               <span className="optimus-type-badge bg-secondary text-muted">
                 <Lock className="size-3" aria-hidden />
-                Premium
+                Débloquer
               </span>
             ) : null}
           </div>
@@ -115,10 +119,7 @@ export function ContentCard({
           <p className="mt-0.5 line-clamp-2 text-sm leading-relaxed text-muted">{item.subtitle}</p>
         </div>
 
-        <ChevronRight
-          className="mt-1 size-5 shrink-0 text-subtle transition-transform group-hover:translate-x-0.5"
-          aria-hidden
-        />
+        <ChevronRight className="optimus-chevron mt-1 size-5 shrink-0 text-subtle" aria-hidden />
       </div>
 
       <div className="mt-auto flex items-center gap-3 pt-3 text-xs text-muted">

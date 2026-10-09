@@ -294,6 +294,99 @@ html[data-theme="dark"] {
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+
+  /* ── En-tête de groupe éditorial (ex. « Cardiologie ») ───────────────────────
+     Pastille emoji teintée (--group-hue posée en inline), titre + kicker, compteur
+     et barre d'avancement agrégée. Collant : l'en-tête du Shell (h-14) le précède. */
+  .optimus-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-block: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--app-border);
+    background: color-mix(in oklab, var(--app-bg) 86%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .optimus-group-badge {
+    display: inline-flex;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: 1.05rem;
+    line-height: 1;
+    background: color-mix(in oklab, var(--group-hue) 15%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--group-hue) 34%, transparent);
+  }
+
+  .optimus-group-progress {
+    block-size: 3px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--app-fg) 10%, transparent);
+  }
+
+  .optimus-group-progress > span {
+    display: block;
+    block-size: 100%;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--app-accent) 78%, transparent),
+      var(--app-accent)
+    );
+    transition: inline-size var(--motion-medium) var(--ease-out);
+  }
+
+  /* ── Carte premium : filet doré + halo — réservée à la Bibliothèque ────────── */
+  .optimus-interactive-card--premium::before {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 1;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--app-accent), transparent);
+    content: "";
+    opacity: 0;
+    transition: opacity var(--motion-quick) var(--ease-out);
+    pointer-events: none;
+  }
+
+  .optimus-interactive-card--premium::after {
+    background: radial-gradient(
+      24rem 13rem at 100% 0%,
+      color-mix(in oklab, var(--app-accent) 20%, transparent),
+      transparent 66%
+    );
+  }
+
+  @media (hover: hover) {
+    .optimus-interactive-card--premium:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        var(--shadow-border),
+        0 26px 48px -32px color-mix(in oklab, var(--app-accent) 60%, transparent);
+    }
+
+    .optimus-interactive-card--premium:hover::before {
+      opacity: 0.9;
+    }
+  }
+
+  .optimus-chevron {
+    transition:
+      transform var(--motion-quick) var(--ease-out),
+      color var(--motion-quick) var(--ease-out);
+  }
+
+  .group:hover .optimus-chevron,
+  .optimus-interactive-card:hover .optimus-chevron {
+    transform: translateX(4px);
+    color: var(--app-accent);
+  }
 }
 
 @keyframes page-reveal {

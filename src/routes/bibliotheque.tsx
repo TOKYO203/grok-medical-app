@@ -2,7 +2,8 @@ import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
-import { Page, SectionTitle, Shell } from "@/components/shell";
+import { SpecialtyGroupHeader } from "@/components/content/specialty-group-header";
+import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { deckProgressPct } from "@/core/mastery";
 import { COMPETENCY_LABEL, type Competency } from "@/core/types";
 import {
@@ -13,6 +14,12 @@ import {
   type ContentKind,
   type ContentLevel,
 } from "@/lib/library/content-index";
+import {
+  groupBySpecialty,
+  resolveSpecialty,
+  specialtyFacets,
+  specialtySlug,
+} from "@/lib/library/specialty-helpers";
 import { useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +57,9 @@ function BibliothequePage() {
     return map;
   }, [decks, progress]);
 
-  const specialties = useMemo(() => uniqueSorted(items.map((i) => i.specialty)), [items]);
+  // Spécialités « résolues » (decks mappés sur le curriculum) — un deck neuro rangé
+  // sous « Clinique » dans le catalogue apparaît bien sous « Neurologie » ici.
+  const specialties = useMemo(() => specialtyFacets(items), [items]);
   const years = useMemo(
     () => uniqueSorted(items.map((i) => i.year)).sort((a, b) => Number(a) - Number(b)),
     [items],
@@ -61,31 +70,16 @@ function BibliothequePage() {
     return [...set];
   }, [items]);
 
-  const recommended = useMemo(() => {
-    const priority = profile.prioritySubjects.map((s) => s.toLowerCase());
-    return items
-      .filter((i) => !i.locked && i.kind === "deck")
-      .map((i) => {
-        let score = progressById.get(i.id) ? 1 : 0;
-        if (priority.some((p) => i.specialty.toLowerCase().includes(p))) score += 2;
-        if (profile.studyYear > 0 && i.year === profile.studyYear) score += 2;
-        return { item: i, score };
-      })
-      .filter((row) => row.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 4)
-      .map((row) => row.item);
-  }, [items, progressById, profile.prioritySubjects, profile.studyYear]);
-
   const normalized = query.trim().toLowerCase();
   const filtered = items.filter((item) => {
     if (kinds.length && !kinds.includes(item.kind)) return false;
-    if (specialty && item.specialty !== specialty) return false;
+    if (specialty && resolveSpecialty(item) !== specialty) return false;
     if (level && item.level !== level) return false;
     if (year !== null && item.year !== year) return false;
     if (competency && !item.competencies.includes(competency)) return false;
     if (normalized) {
-      const haystack = `${item.title} ${item.subtitle} ${item.specialty}`.toLowerCase();
+      const haystack =
+        `${item.title} ${item.subtitle} ${item.specialty} ${resolveSpecialty(item)}`.toLowerCase();
       if (!haystack.includes(normalized)) return false;
     }
     return true;
@@ -94,6 +88,10 @@ function BibliothequePage() {
   const activeFilters =
     kinds.length + (specialty ? 1 : 0) + (level ? 1 : 0) + (year !== null ? 1 : 0) + (competency ? 1 : 0);
   const accessibleCount = items.filter((i) => !i.locked).length;
+  const kindCount = new Set(items.map((i) => i.kind)).size;
+
+  /** Résultats regroupés par spécialité résolue (en-têtes collants, pattern /cas). */
+  const groups = useMemo(() => groupBySpecialty(filtered, profile), [filtered, profile]);
 
   function reset() {
     setKinds([]);
@@ -111,26 +109,21 @@ function BibliothequePage() {
   return (
     <Shell title="Bibliothèque">
       <Page>
-        <header className="max-w-2xl">
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-            Tout le contenu
-          </p>
-          <h1 className="mt-1 font-display text-3xl font-medium tracking-tight md:text-4xl">
-            Bibliothèque
-          </h1>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            Decks, cas cliniques, démarches diagnostiques et outils réunis dans un seul endroit —
-            filtrables par spécialité, année, niveau et compétence.
-          </p>
-        </header>
+        <PageHeader
+          kicker="Tout le contenu"
+          title="Bibliothèque"
+          description="Decks, cas cliniques, démarches et outils réunis, groupés par spécialité — du plus proche de votre profil au plus éloigné."
+        />
 
-        <div className="mt-5 grid grid-cols-3 gap-2">
-          <Metric label="Éléments" value={items.length} />
-          <Metric label="Accessibles" value={accessibleCount} accent />
-          <Metric label="Spécialités" value={specialties.length} />
+        {/* Bandeau de statistiques — séparé par des hairlines (esprit Stripe). */}
+        <div className="mt-6 flex items-stretch divide-x divide-border overflow-hidden rounded-[var(--radius-lg)] bg-bg-elevated shadow-[var(--shadow-border)]">
+          <Stat label="Contenus" value={items.length} />
+          <Stat label="Accessibles" value={accessibleCount} accent />
+          <Stat label="Spécialités" value={specialties.length} />
+          <Stat label="Types" value={kindCount} />
         </div>
 
-        {/* Barre de recherche */}
+        {/* Recherche + filtres (logique inchangée). */}
         <div className="mt-5 flex gap-2">
           <label className="relative flex-1">
             <Search
@@ -143,7 +136,7 @@ function BibliothequePage() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Rechercher un sujet, une spécialité…"
               aria-label="Rechercher dans la bibliothèque"
-              className="h-11 w-full rounded-[var(--radius-md)] bg-card pl-9 pr-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none transition-shadow placeholder:text-subtle focus-visible:ring-2 focus-visible:ring-ring/70"
+              className="h-11 w-full rounded-[var(--radius-md)] bg-card pl-9 pr-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none transition-shadow placeholder:text-subtle focus-visible:ring-2 focus-visible:ring-accent/60"
             />
           </label>
           <button
@@ -237,24 +230,13 @@ function BibliothequePage() {
           </div>
         ) : null}
 
-        {recommended.length > 0 && kinds.length === 0 && !normalized ? (
-          <section className="mt-8">
-            <SectionTitle kicker="Pour vous" title="Recommandé selon votre profil" />
-            <div className="grid gap-3 sm:grid-cols-2">
-              {recommended.map((item) => (
-                <ContentCard key={item.id} item={item} progress={progressById.get(item.id)} />
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        <section className="mt-8">
+        <section className="mt-10">
           <SectionTitle
             kicker={activeFilters || normalized ? `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}` : "Explorer"}
             title={activeFilters || normalized ? "Résultats filtrés" : "Tout le contenu"}
           />
-          {filtered.length === 0 ? (
-            <div className="optimus-card p-6 text-center">
+          {groups.length === 0 ? (
+            <div className="optimus-card p-8 text-center">
               <p className="text-sm text-muted">Aucun contenu ne correspond à ces critères.</p>
               <button
                 type="button"
@@ -265,9 +247,37 @@ function BibliothequePage() {
               </button>
             </div>
           ) : (
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {filtered.map((item) => (
-                <ContentCard key={item.id} item={item} progress={progressById.get(item.id)} />
+            /*
+             * Groupes de spécialité : en-tête éditorial collant + grille de cartes.
+             * `gap-12 md:gap-16` = la respiration verticale entre spécialités.
+             */
+            <div className="flex flex-col gap-12 md:gap-16">
+              {groups.map((group) => (
+                <section
+                  key={group.specialty}
+                  id={specialtySlug(group.specialty, "bib")}
+                  /* scroll-mt-24 : compense l'en-tête du Shell + l'en-tête de groupe collant. */
+                  className="scroll-mt-24"
+                >
+                  <SpecialtyGroupHeader
+                    specialty={group.specialty}
+                    items={group.items}
+                    progressById={progressById}
+                    className="sticky top-14 z-10 -mx-5 px-5 md:-mx-10 md:top-2 md:px-10"
+                  />
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                    {group.items.map((item) => (
+                      <ContentCard
+                        key={item.id}
+                        item={item}
+                        progress={progressById.get(item.id)}
+                        className="scroll-mt-24"
+                        showSpecialty={false}
+                        premium
+                      />
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
           )}
@@ -277,18 +287,18 @@ function BibliothequePage() {
   );
 }
 
-function Metric({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
+function Stat({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
   return (
-    <div className="optimus-card px-3 py-3 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center px-2 py-3 text-center">
       <p
         className={cn(
-          "font-display text-2xl font-medium tabular-nums",
-          accent ? "text-primary" : "text-fg",
+          "font-display text-xl font-medium tabular-nums md:text-2xl",
+          accent ? "text-accent" : "text-fg",
         )}
       >
         {value}
       </p>
-      <p className="mt-0.5 text-[11px] uppercase tracking-wider text-muted">{label}</p>
+      <p className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-muted">{label}</p>
     </div>
   );
 }
