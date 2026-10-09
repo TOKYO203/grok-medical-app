@@ -41,6 +41,34 @@ function AdminReportsPage() {
     }
   }, [adminKey, nav]);
 
+  const [reports, setReports] = useState<AdminContentReport[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [forbidden, setForbidden] = useState(false);
+  const [filter, setFilter] = useState<ContentReportStatus | "all">("new");
+  const [acting, setActing] = useState<string | null>(null);
+
+  const refresh = useCallback(async () => {
+    if (!adminKey) return;
+    setLoading(true);
+    try {
+      const result = await listContentReportsForAdmin({ data: { adminKey, status: filter } });
+      setReports(result);
+      setForbidden(false);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      setForbidden(/forbidden/i.test(message));
+      if (!/forbidden/i.test(message)) {
+        console.error("[admin-reports] Erreur chargement:", message);
+        toast.error(`Erreur : ${message.slice(0, 100)}`);
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [filter, adminKey]);
+
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
   if (!adminKey) {
     const expired = sessionState === "expired";
     return (
@@ -60,33 +88,6 @@ function AdminReportsPage() {
       </Shell>
     );
   }
-  const [reports, setReports] = useState<AdminContentReport[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [forbidden, setForbidden] = useState(false);
-  const [filter, setFilter] = useState<ContentReportStatus | "all">("new");
-  const [acting, setActing] = useState<string | null>(null);
-
-  const refresh = useCallback(async () => {
-    setLoading(true);
-    try {
-      const result = await listContentReportsForAdmin({ data: { adminKey, status: filter } });
-      setReports(result);
-      setForbidden(false);
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      setForbidden(/forbidden/i.test(message));
-      if (!/forbidden/i.test(message)) {
-        console.error("[admin-reports] Erreur chargement:", message);
-        toast.error(`Erreur : ${message.slice(0, 100)}`);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, [filter]);
-
-  useEffect(() => {
-    void refresh();
-  }, [refresh]);
 
   async function setStatus(id: string, status: ContentReportStatus) {
     setActing(id);
