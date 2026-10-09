@@ -49,7 +49,7 @@ test("legacy unversioned Optimus state keeps XP, progress and learner profile", 
   };
 
   const migrated = migrateOptimusPersistedState(legacy, 0);
-  assert.equal(OPTIMUS_PERSIST_VERSION, 2);
+  assert.equal(OPTIMUS_PERSIST_VERSION, 3);
   assert.equal(migrated.xp, 2450);
   assert.equal(migrated.streak, 8);
   assert.deepEqual(migrated.progress, legacy.progress);
@@ -60,6 +60,29 @@ test("legacy unversioned Optimus state keeps XP, progress and learner profile", 
   assert.equal(profile.displayName, "Aina");
   assert.equal(profile.studyYear, 4);
   assert.equal(profile.studyLevel, 4);
+});
+
+test("v3 renames the legacy 'Invité' placeholder to 'Nouveau' without touching real names", () => {
+  // Install venant de la v2 : le profil non connecté s'appelait « Invité ».
+  const v2Guest = migrateOptimusPersistedState(
+    { profile: { displayName: "Invité", studyYear: 3, studyLevel: 3 } },
+    2,
+  );
+  assert.equal((v2Guest.profile as Record<string, unknown>).displayName, "Nouveau");
+
+  // Un vrai prénom n'est jamais réécrit.
+  const v2Named = migrateOptimusPersistedState(
+    { profile: { displayName: "Aina", studyYear: 3, studyLevel: 3 } },
+    2,
+  );
+  assert.equal((v2Named.profile as Record<string, unknown>).displayName, "Aina");
+
+  // Déjà en v3 : la migration ne rejoue pas (un apprenant peut se renommer « Invité »).
+  const v3Kept = migrateOptimusPersistedState(
+    { profile: { displayName: "Invité", studyYear: 3, studyLevel: 3 } },
+    3,
+  );
+  assert.equal((v3Kept.profile as Record<string, unknown>).displayName, "Invité");
 });
 
 test("malformed persisted fields are repaired instead of poisoning hydration", () => {
