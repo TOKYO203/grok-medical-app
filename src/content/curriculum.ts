@@ -146,7 +146,7 @@ export const CURRICULUM_NEURO: CurriculumSpecialty = {
       description: "Vue d'ensemble de la neurologie.",
       decks: ["neuro"],
     },
-    { id: "avc", label: "AVC", icon: "🚨", levels: ["L3", "L4", "L5", "INTERNE"], description: "Ischémique, hémorragique, thrombolyse.", decks: [], skeleton: true },
+    { id: "avc", label: "AVC", icon: "🚨", levels: ["L2", "L3", "L4", "L5", "INTERNE"], description: "Ischémique, hémorragique, thrombolyse.", decks: ["neuro-avc-l2"] },
     { id: "epilepsie", label: "Épilepsie", icon: "⚡", levels: ["L3", "L4", "L5"], description: "Crises, classification, traitement.", decks: [], skeleton: true },
     { id: "degeneratif", label: "Syndromes dégénératifs", icon: "🧬", levels: ["L4", "L5", "INTERNE"], description: "Parkinson, Alzheimer, SLA.", decks: [], skeleton: true },
     { id: "nerfs", label: "Nerfs périphériques", icon: "🪢", levels: ["L3", "L4"], description: "Neuropathies, syndromes canalaires.", decks: [], skeleton: true },
