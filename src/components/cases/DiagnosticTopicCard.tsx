@@ -78,7 +78,7 @@ Démarche disponible
 :
 <>
 <Lock className="size-3"/>
-Premium / préparation
+À débloquer / préparation
 </>
 }
 

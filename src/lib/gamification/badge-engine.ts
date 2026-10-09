@@ -8,6 +8,14 @@ export function getBadges(xp:number):Badge[]{
 
  const badges:Badge[]=[];
 
+ // Premier pas : débloqué dès la première visite (0 XP requis)
+ badges.push({
+  name:"Premier pas",
+  description:"Bienvenue — ta première carte est là.",
+  icon:"👋"
+ });
+
+
  if(xp>=100)
  badges.push({
   name:"First Diagnosis",

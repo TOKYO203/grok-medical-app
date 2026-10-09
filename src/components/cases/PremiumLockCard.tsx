@@ -19,13 +19,12 @@ shadow-[var(--shadow-border)]
 
 
 <h3 className="mt-3 font-medium">
-Contenu Premium
+Contenu à débloquer
 </h3>
 
 
 <p className="mt-2 text-sm text-muted">
-Accédez aux cas complets,
-corrections détaillées et parcours avancés.
+Ce dossier fait partie du contenu à débloquer. Continue gratuitement avec les cas accessibles.
 </p>
 
 

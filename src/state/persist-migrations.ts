@@ -1,4 +1,4 @@
-export const OPTIMUS_PERSIST_VERSION = 2;
+export const OPTIMUS_PERSIST_VERSION = 3;
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -53,6 +53,11 @@ export function migrateOptimusPersistedState(
     ) {
       migratedProfile.studyLevel = studyYear;
     }
+    // v3 — rename historique "Invité" → "Nouveau" (profil non connecté)
+    if (persistedVersion < 3 && migratedProfile.displayName === "Invité") {
+      migratedProfile.displayName = "Nouveau";
+    }
+
     next.profile = migratedProfile;
   }
 
