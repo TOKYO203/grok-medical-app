@@ -25,6 +25,7 @@ import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
@@ -32,6 +33,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as ParcoursRouteImport } from './routes/parcours'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
@@ -122,6 +124,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoEcgRoute = DemoEcgRouteImport.update({
+  id: '/demo-ecg',
+  path: '/demo-ecg',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DonneesRoute = DonneesRouteImport.update({
   id: '/donnees',
   path: '/donnees',
@@ -155,6 +162,11 @@ const ProRoute = ProRouteImport.update({
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgrammeRoute = ProgrammeRouteImport.update({
+  id: '/programme',
+  path: '/programme',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RevueRoute = RevueRouteImport.update({
@@ -220,6 +232,7 @@ export interface FileRoutesByFullPath {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -227,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
+  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -254,6 +268,7 @@ export interface FileRoutesByTo {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -261,6 +276,7 @@ export interface FileRoutesByTo {
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
+  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -289,6 +305,7 @@ export interface FileRoutesById {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
@@ -296,6 +313,7 @@ export interface FileRoutesById {
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
+  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -325,6 +343,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demo-ecg'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -332,6 +351,7 @@ export interface FileRouteTypes {
     | '/parcours'
     | '/pro'
     | '/profil'
+    | '/programme'
     | '/revue'
     | '/soutenir'
     | '/api/admin-verify'
@@ -359,6 +379,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demo-ecg'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -366,6 +387,7 @@ export interface FileRouteTypes {
     | '/parcours'
     | '/pro'
     | '/profil'
+    | '/programme'
     | '/revue'
     | '/soutenir'
     | '/api/admin-verify'
@@ -393,6 +415,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demo-ecg'
     | '/donnees'
     | '/examen'
     | '/import'
@@ -400,6 +423,7 @@ export interface FileRouteTypes {
     | '/parcours'
     | '/pro'
     | '/profil'
+    | '/programme'
     | '/revue'
     | '/soutenir'
     | '/api/admin-verify'
@@ -428,6 +452,7 @@ export interface RootRouteChildren {
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  DemoEcgRoute: typeof DemoEcgRoute
   DonneesRoute: typeof DonneesRoute
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
@@ -435,6 +460,7 @@ export interface RootRouteChildren {
   ParcoursRoute: typeof ParcoursRouteWithChildren
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
+  ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
   SoutenirRoute: typeof SoutenirRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
@@ -558,6 +584,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo-ecg': {
+      id: '/demo-ecg'
+      path: '/demo-ecg'
+      fullPath: '/demo-ecg'
+      preLoaderRoute: typeof DemoEcgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/donnees': {
       id: '/donnees'
       path: '/donnees'
@@ -605,6 +638,13 @@ declare module '@tanstack/react-router' {
       path: '/profil'
       fullPath: '/profil'
       preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programme': {
+      id: '/programme'
+      path: '/programme'
+      fullPath: '/programme'
+      preLoaderRoute: typeof ProgrammeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/revue': {
@@ -712,6 +752,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  DemoEcgRoute: DemoEcgRoute,
   DonneesRoute: DonneesRoute,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
@@ -719,6 +760,7 @@ const rootRouteChildren: RootRouteChildren = {
   ParcoursRoute: ParcoursRouteWithChildren,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
+  ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
   SoutenirRoute: SoutenirRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,

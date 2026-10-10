@@ -37,6 +37,15 @@ export function deckSpecialtyLabel(deckId: string): string | undefined {
 }
 
 /**
+ * Libellés des spécialités du curriculum ayant au moins un deck câblé — donc
+ * exactement les groupes affichés par la Bibliothèque (les branches squelettes
+ * n'exposent rien). Sert à ancrer un lien vers un groupe existant.
+ */
+export function librarySpecialtyLabels(): string[] {
+  return [...new Set(DECK_SPECIALTY_LABELS.values())].sort((a, b) => a.localeCompare(b, "fr"));
+}
+
+/**
  * Spécialité canonique d'un item : les decks sont résolus via le curriculum,
  * tout le reste (cas, démarches, outils) garde `item.specialty`.
  */

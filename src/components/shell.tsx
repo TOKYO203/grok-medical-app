@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
+  Activity,
   BookOpen,
   Calculator,
   ClipboardCheck,
+  GraduationCap,
   Home,
   Library,
   RotateCcw,
@@ -32,6 +34,8 @@ const NAV = [
 
 const EXPLORE = [
   { to: "/parcours", label: "Parcours guidés", icon: BookOpen },
+  { to: "/programme", label: "Programme national", icon: GraduationCap },
+  { to: "/demo-ecg", label: "ECG animé", icon: Activity },
   { to: "/examen", label: "Examen blanc", icon: ClipboardCheck },
   { to: "/calculateurs", label: "Calculateurs", icon: Calculator },
   { to: "/classement", label: "Classement", icon: Trophy },
