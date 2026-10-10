@@ -60,7 +60,11 @@ function ProgrammePage() {
     [programmes, programmeId],
   );
 
-  const sections = useMemo(() => programme?.sections ?? [], [programme]);
+  // Sémiologie = doublon avec /demarche (Orientation diagnostique) → exclue de la Nosographie.
+  const sections = useMemo(
+    () => (programme?.sections ?? []).filter((sec) => sec.id !== "semiologie"),
+    [programme],
+  );
 
   /**
    * Spécialités de la Bibliothèque réellement peuplées (slug → libellé canonique).
@@ -142,9 +146,7 @@ function ProgrammePage() {
           <>
             {/* Bandeau de statistiques — séparé par des hairlines (esprit Stripe). */}
             <div className="mt-6 flex items-stretch divide-x divide-border overflow-hidden rounded-[var(--radius-lg)] bg-bg-elevated shadow-[var(--shadow-border)]">
-              <Stat label="Items" value={total} />
-              <Stat label="Sections" value={sections.length} />
-              <Stat label="Spécialités" value={specialtyOptions.length} />
+              <Stat label="Items" value={total} />              <Stat label="Spécialités" value={specialtyOptions.length} />
               <Stat label="Couverts" value={coverage.covered} accent />
             </div>
 

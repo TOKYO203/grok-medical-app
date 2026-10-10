@@ -37,13 +37,16 @@ function ExamPage() {
 
   return (
     <Shell title="Examen blanc">
-      <Page className="mx-auto max-w-2xl">
+      <Page
+      className="mx-auto max-w-2xl"
+      header={
         <PageHeader
           kicker="Évaluation"
           title="Examen blanc"
           description="Douze questions tirées de vos decks débloqués, sans indice. L’XP entretient la motivation ; c’est la maîtrise clinique qui progresse."
         />
-
+      }
+    >
         <div className="mt-5 grid grid-cols-3 gap-2">
           <Metric label="Questions" value={String(EXAM_QUESTIONS)} />
           <Metric label="Decks" value={String(unlocked.length)} accent />

@@ -35,13 +35,16 @@ function CalcPage() {
   const [tab, setTab] = useState<Tab>("gfr");
   return (
     <Shell title="Calculateurs">
-      <Page className="mx-auto max-w-2xl">
+      <Page
+      className="mx-auto max-w-2xl"
+      header={
         <PageHeader
           kicker="Outils cliniques"
           title="Calculateurs"
           description="Scores et règles de décision utilisables hors ligne. Ils éclairent la décision — ils ne remplacent jamais le jugement clinique."
         />
-
+      }
+    >
         <div
           className="mt-5 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0"
           role="tablist"

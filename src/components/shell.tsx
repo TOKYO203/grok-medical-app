@@ -29,7 +29,7 @@ const NAV = [
   { to: "/", label: "Accueil", short: "Accueil", icon: Home },
   { to: "/demarche", label: "Orientation", short: "Orient.", icon: Compass },
   { to: "/cas", label: "Cas", short: "Cas", icon: Stethoscope },
-  { to: "/parcours", label: "Nosographie", short: "Noso.", icon: BookMarked },
+  { to: "/programme", label: "Nosographie", short: "Noso.", icon: BookMarked },
   { to: "/profil", label: "Profil", short: "Profil", icon: UserRound },
 ] as const;
 
@@ -172,7 +172,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               key={item.to}
               to={item.to}
               className={cn(
-                "relative flex min-h-14 min-w-11 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[10px] font-medium transition-[background-color,color,transform] active:scale-[0.98]",
+                "relative flex min-h-14 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[10px] font-medium truncate px-0.5 transition-[background-color,color,transform] active:scale-[0.98]",
                 active ? "bg-primary-soft text-primary" : "text-muted",
                 preferences.enhancedMotion && active && "optimus-nav-active",
               )}
@@ -189,15 +189,25 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
   );
 }
 
-export function Page({ children, className }: { children: ReactNode; className?: string }) {
+export function Page({
+  children,
+  className,
+  header,
+}: {
+  children: ReactNode;
+  className?: string;
+  /** En-tête pleine largeur (PageHeader) rendu au-dessus du corps contraint par className. */
+  header?: ReactNode;
+}) {
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      className={cn("px-5 py-6 outline-none md:px-10 md:py-10", className)}
-    >
-      {children}
-      <MedicalDisclaimer />
+    <main id="main-content" tabIndex={-1} className="outline-none">
+      {header ? (
+        <div className="px-5 pt-6 md:px-10 md:pt-10">{header}</div>
+      ) : null}
+      <div className={cn("px-5 py-6 md:px-10 md:py-10", className)}>
+        {children}
+        <MedicalDisclaimer />
+      </div>
     </main>
   );
 }

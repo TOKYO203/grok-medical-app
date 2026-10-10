@@ -95,7 +95,9 @@ function ProPage() {
 
   return (
     <Shell title="Pro">
-      <Page className="mx-auto max-w-2xl">
+      <Page
+      className="mx-auto max-w-2xl"
+      header={
         <PageHeader
           kicker="Accès Premium"
           title="Optimus Pro"
@@ -106,7 +108,8 @@ function ProPage() {
             </Link>
           }
         />
-
+      }
+    >
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
             {authEnabled ? (
