@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity } from "lucide-react";
+import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Stethoscope } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -296,7 +296,7 @@ function Dashboard() {
       {/* Accès rapide */}
       <section className="mt-8">
         <SectionTitle kicker="Accès rapide" title="Outils" />
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           <QuickAction
             to="/revue"
             icon={<DeckIcon name="book" />}
@@ -320,6 +320,12 @@ function Dashboard() {
             icon={<Activity className="size-5" />}
             label="ECG"
             detail="Interprétation"
+          />
+          <QuickAction
+            to="/auscultation"
+            icon={<Stethoscope className="size-5" />}
+            label="Auscultation"
+            detail="Cardio · Pulmo"
           />
         </div>
       </section>
@@ -430,7 +436,7 @@ function QuickAction({
   label,
   detail,
 }: {
-  to: "/revue" | "/ecg" | "/cas" | "/examen" | "/calculateurs" | "/classement";
+  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement";
   icon: ReactNode;
   label: string;
   detail: string;
