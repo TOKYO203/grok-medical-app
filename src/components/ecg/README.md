@@ -42,7 +42,62 @@ d'éléments). **Ne pas les renommer sans mettre à jour la QA.**
 | `data-ecg-gain-badge` | badge « Gain réduit » | présent uniquement si gain < 10 mm/mV |
 | `data-ecg-gain-toggle` | conteneur des boutons de gain | contient `[data-ecg-set-gain="10"]` et `="5"` |
 | `data-ecg-fullscreen` | bouton plein écran | vide |
+| `data-ecg-fullscreen-mode` | racine du moniteur | `off` (fenêtré), `native` (plein écran OS obtenu), `css` (repli CSS plein écran) |
+| `data-ecg-rotate-fallback` | racine du moniteur | `true` quand le cadre est pivoté de 90° (repli paysage) |
+| `data-ecg-orientation-hint` | badge d'aide | présent uniquement en repli rotation |
 | `data-ecg-annotation` | pastille d'annotation | `id` de l'annotation |
+
+## Plein écran paysage (bouton `data-ecg-fullscreen`)
+
+Le bouton plein écran suit une stratégie à trois étages, du meilleur au
+plus dégradé :
+
+1. **Plein écran natif** — `requestFullscreen()` sur la racine du moniteur
+   (préfixe `webkitRequestFullscreen` géré) : l'UI du navigateur disparaît.
+2. **Verrou paysage** — `screen.orientation.lock("landscape")` juste après
+   l'entrée, dans un `try/catch` avec `.catch(() => {})` : l'API n'existe
+   pas partout (desktop, iOS) et Android la **refuse** quand « rotation
+   auto » est désactivée sur le téléphone.
+3. **Repli CSS rotation** — si (1) ou (2) échoue **et** que l'appareil est
+   tactile en portrait (`(pointer: coarse)` + `innerHeight > innerWidth`) :
+   le cadre passe en dimensions échangées puis `rotate(90deg)` autour du
+   coin haut-gauche (`translateX(<largeur>)·rotate(90deg)`), ce qui le
+   ramène exactement sur la surface de l'écran. Le badge
+   `data-ecg-orientation-hint` l'annonce.
+
+Sortie : bouton, `Échap`, geste système ou démontage du composant →
+`screen.orientation.unlock()` (dans un `try/catch`, l'API n'ayant pas de
+`.catch`, `unlock()` renvoyant `void`) puis `exitFullscreen()`.
+
+**Desktop : no-op silencieux.** Aucun de ces appels n'a d'effet visible
+hors mobile — ils sont tous avalés en cas d'échec.
+
+Layout en plein écran : le cadre racine est `h-screen w-screen`, le
+`<svg>` prend toute la place restante (`flex-1`, `max-h-none`,
+`min-h-0`) et le `preserveAspectRatio="xMidYMid meet"` ne laisse que des
+bandes noires résiduelles minimes (papier 296 × 140 mm ≈ 2,11:1 contre
+~2,16:1 pour un écran de téléphone). En plein écran la barre d'outils est
+**superposée** au tracé (`absolute inset-x-0 top-0 bg-black/75`) au lieu
+d'être empilée au-dessus : elle rendait ~10 % de la hauteur.
+
+### Deux pièges CSS à ne pas réintroduire
+
+1. **Le plein écran passe par un `createPortal(…, document.body)`.** Rester
+   dans le flux de la page ne suffit pas : `main > * { animation:
+   page-reveal … both }` (`src/styles.css`) laisse sur le conteneur de page
+   un `transform: translateY(0)` **permanent** (`fill-mode: both`), et tout
+   `transform` — même une identité — crée un **bloc conteneur** pour
+   `position: fixed`. Le plein écran se calait alors sur la zone de contenu
+   (56 px sous l'en-tête en mobile, 256 px à droite de la sidebar en
+   desktop) avec débordement horizontal : c'était la cause du « noir en
+   haut, tracé en bas ».
+   *(Correctif global possible : `animation-fill-mode: backwards` au lieu de
+   `both` sur `main > *` — non appliqué ici.)*
+2. **La rotation de repli s'applique à un conteneur INTERNE**, jamais à
+   l'élément plein écran : la feuille de style du navigateur impose sur
+   `:fullscreen` `position: fixed; width/height: 100%; transform: none
+   !important`. L'élément plein écran ne peut donc ni être redimensionné ni
+   pivoté — seul un enfant peut l'être.
 
 ## Convention — coordonnées d'annotations en **fraction (0 → 1)**
 
@@ -73,3 +128,8 @@ convention 1200×320/400 a été retirée).
    rendu, continuité parfaite du `<use>`, lisibilité pédagogique).
    TODO v2 : modulation aléatoire du cycle R-R (jitter RR) — voir le
    commentaire d'en-tête de `src/lib/ecg/waveform.ts`.
+3. **Annotations masquées en plein écran.** `EcgAnnotations` est un
+   **frère** de `<EcgMonitor>` (superposition absolue dans `ecg.$id.tsx`) :
+   en plein écran (natif ou CSS) le moniteur recouvre la superposition,
+   les pastilles ne sont donc pas visibles. Comportement inchangé depuis
+   le pseudo-plein écran ; TODO v2 : les rendre enfants du moniteur.
