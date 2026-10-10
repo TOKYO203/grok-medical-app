@@ -1,0 +1,56 @@
+{
+  "id": "normal-001",
+  "title": "ECG normal — homme 35 ans",
+  "difficulty": "intro",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Physionet",
+    "url": "https://physionet.org/content/ecgrdvq/",
+    "license": "ODC-BY 1.0"
+  },
+  "trace": {
+    "bpm": 75,
+    "cycles": 6,
+    "waves": {
+      "P": { "mu": -0.18, "a":  0.15, "sigma": 0.025 },
+      "Q": { "mu": -0.02, "a": -0.15, "sigma": 0.008 },
+      "R": { "mu":  0.00, "a":  1.20, "sigma": 0.010 },
+      "S": { "mu":  0.03, "a": -0.35, "sigma": 0.010 },
+      "T": { "mu":  0.25, "a":  0.30, "sigma": 0.040 }
+    }
+  },
+  "metrics": {
+    "heartRateBpm": 75,
+    "heartRateSeverity": "normal",
+    "rrRegularity": true,
+    "qrsAxisDeg": 60,
+    "qrsAxisLabel": "normal",
+    "transitionZone": "V3-V4"
+  },
+  "intervals": {
+    "pDuration": 0.09,
+    "prInterval": 0.16,
+    "qrsDuration": 0.08,
+    "qtMeasured": 0.36,
+    "qtCorrectedBazett": 0.39
+  },
+  "waveforms": {
+    "pWave": { "amplitudeMv": 0.15, "morphology": "normal" },
+    "qrsComplex": { "amplitudeMaxMv": 1.2, "qWavePathological": false },
+    "stSegment": { "elevationMv": 0, "depressionMv": 0, "type": "iso-electrique" },
+    "tWave": { "amplitudeMv": 0.3, "polarity": "positive", "morphology": "asymetrique" }
+  },
+  "ischemia": "normal",
+  "steps": [
+    { "n": 1, "title": "Rythme", "question": "Le rythme est-il sinusal ?", "choices": ["Sinusal", "FA", "Flutter", "Jonctionnel"], "correct": 0, "explanation": "Chaque QRS est précédé d'une onde P positive en DII, PR constant à 160 ms." },
+    { "n": 2, "title": "Fréquence", "question": "Quelle est la fréquence cardiaque (approximative) ?", "choices": ["< 60 bpm", "60-90 bpm", "90-140 bpm", "> 140 bpm"], "correct": 1, "explanation": "R-R ≈ 800 ms → FC ≈ 75 bpm. Normale." },
+    { "n": 3, "title": "Axe QRS", "question": "Quel est l'axe du QRS dans le plan frontal ?", "choices": ["Normal (-30° à +110°)", "Déviation gauche", "Déviation droite", "Indéterminé"], "correct": 0, "explanation": "QRS positif en DI et aVF → axe à environ +60°, normal." },
+    { "n": 4, "title": "Intervalles", "question": "Le PR est-il normal ?", "choices": ["Oui (120-200 ms)", "Trop court (< 120 ms)", "Trop long (> 200 ms)", "Non mesurable"], "correct": 0, "explanation": "PR = 160 ms, dans la norme." },
+    { "n": 5, "title": "Conclusion", "question": "Quel est le diagnostic global ?", "choices": ["ECG normal", "Ischémie aiguë", "Trouble de conduction", "Hypertrophie"], "correct": 0, "explanation": "Tous les paramètres sont dans la norme : rythme sinusal régulier, axe normal, PR et QRS normaux, pas de sus/sous-décalage." }
+  ],
+  "annotations": [
+    { "id": "a1", "revealAtStep": 1, "type": "text", "label": "Onde P visible", "tone": "info", "coords": { "x": 200, "y": 60 } },
+    { "id": "a2", "revealAtStep": 2, "type": "caliper", "label": "R-R = 800 ms", "tone": "info", "coords": { "x": 400, "y": 240, "x2": 600, "y2": 240 } },
+    { "id": "a3", "revealAtStep": 5, "type": "text", "label": "ECG normal", "tone": "normal", "coords": { "x": 1100, "y": 60 } }
+  ]
+}

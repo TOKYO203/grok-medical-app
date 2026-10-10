@@ -28,6 +28,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DemarcheRouteImport } from './routes/demarche'
 import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
+import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as LoginRouteImport } from './routes/login'
@@ -41,6 +42,7 @@ import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
+import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
@@ -140,6 +142,11 @@ const DonneesRoute = DonneesRouteImport.update({
   path: '/donnees',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EcgRoute = EcgRouteImport.update({
+  id: '/ecg',
+  path: '/ecg',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExamenRoute = ExamenRouteImport.update({
   id: '/examen',
   path: '/examen',
@@ -205,6 +212,11 @@ const DemarcheIdRoute = DemarcheIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => DemarcheRoute,
 } as any)
+const EcgIdRoute = EcgIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => EcgRoute,
+} as any)
 const LearnDeckIdRoute = LearnDeckIdRouteImport.update({
   id: '/learn/$deckId',
   path: '/learn/$deckId',
@@ -241,6 +253,7 @@ export interface FileRoutesByFullPath {
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
+  '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -254,6 +267,7 @@ export interface FileRoutesByFullPath {
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
+  '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
@@ -278,6 +292,7 @@ export interface FileRoutesByTo {
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
+  '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -291,6 +306,7 @@ export interface FileRoutesByTo {
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
+  '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
@@ -316,6 +332,7 @@ export interface FileRoutesById {
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
+  '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
@@ -329,6 +346,7 @@ export interface FileRoutesById {
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
+  '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
@@ -355,6 +373,7 @@ export interface FileRouteTypes {
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
+    | '/ecg'
     | '/examen'
     | '/import'
     | '/login'
@@ -368,6 +387,7 @@ export interface FileRouteTypes {
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
+    | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/api/licenses/activate'
@@ -392,6 +412,7 @@ export interface FileRouteTypes {
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
+    | '/ecg'
     | '/examen'
     | '/import'
     | '/login'
@@ -405,6 +426,7 @@ export interface FileRouteTypes {
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
+    | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/api/licenses/activate'
@@ -429,6 +451,7 @@ export interface FileRouteTypes {
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
+    | '/ecg'
     | '/examen'
     | '/import'
     | '/login'
@@ -442,6 +465,7 @@ export interface FileRouteTypes {
     | '/api/ai-stream'
     | '/cas/$caseId'
     | '/demarche/$id'
+    | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/api/licenses/activate'
@@ -467,6 +491,7 @@ export interface RootRouteChildren {
   DemarcheRoute: typeof DemarcheRouteWithChildren
   DemoEcgRoute: typeof DemoEcgRoute
   DonneesRoute: typeof DonneesRoute
+  EcgRoute: typeof EcgRouteWithChildren
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
   LoginRoute: typeof LoginRoute
@@ -617,6 +642,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DonneesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ecg': {
+      id: '/ecg'
+      path: '/ecg'
+      fullPath: '/ecg'
+      preLoaderRoute: typeof EcgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/examen': {
       id: '/examen'
       path: '/examen'
@@ -708,6 +740,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemarcheIdRouteImport
       parentRoute: typeof DemarcheRoute
     }
+    '/ecg/$id': {
+      id: '/ecg/$id'
+      path: '/$id'
+      fullPath: '/ecg/$id'
+      preLoaderRoute: typeof EcgIdRouteImport
+      parentRoute: typeof EcgRoute
+    }
     '/learn/$deckId': {
       id: '/learn/$deckId'
       path: '/learn/$deckId'
@@ -754,6 +793,16 @@ const DemarcheRouteWithChildren = DemarcheRoute._addFileChildren(
   DemarcheRouteChildren,
 )
 
+interface EcgRouteChildren {
+  EcgIdRoute: typeof EcgIdRoute
+}
+
+const EcgRouteChildren: EcgRouteChildren = {
+  EcgIdRoute: EcgIdRoute,
+}
+
+const EcgRouteWithChildren = EcgRoute._addFileChildren(EcgRouteChildren)
+
 interface ParcoursRouteChildren {
   ParcoursDeckIdRoute: typeof ParcoursDeckIdRoute
 }
@@ -786,6 +835,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemarcheRoute: DemarcheRouteWithChildren,
   DemoEcgRoute: DemoEcgRoute,
   DonneesRoute: DonneesRoute,
+  EcgRoute: EcgRouteWithChildren,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
   LoginRoute: LoginRoute,
