@@ -86,7 +86,11 @@ function BibliothequePage() {
   });
 
   const activeFilters =
-    kinds.length + (specialty ? 1 : 0) + (level ? 1 : 0) + (year !== null ? 1 : 0) + (competency ? 1 : 0);
+    kinds.length +
+    (specialty ? 1 : 0) +
+    (level ? 1 : 0) +
+    (year !== null ? 1 : 0) +
+    (competency ? 1 : 0);
   const accessibleCount = items.filter((i) => !i.locked).length;
   const kindCount = new Set(items.map((i) => i.kind)).size;
 
@@ -145,7 +149,9 @@ function BibliothequePage() {
             aria-expanded={showFilters}
             className={cn(
               "relative flex h-11 items-center gap-2 rounded-[var(--radius-md)] px-3 text-sm font-medium shadow-[var(--shadow-border)] transition-colors",
-              showFilters || activeFilters ? "bg-primary-soft text-primary" : "bg-card text-muted hover:text-fg",
+              showFilters || activeFilters
+                ? "bg-primary-soft text-primary"
+                : "bg-card text-muted hover:text-fg",
             )}
           >
             <SlidersHorizontal className="size-4" aria-hidden />
@@ -232,7 +238,11 @@ function BibliothequePage() {
 
         <section className="mt-10">
           <SectionTitle
-            kicker={activeFilters || normalized ? `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}` : "Explorer"}
+            kicker={
+              activeFilters || normalized
+                ? `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}`
+                : "Explorer"
+            }
             title={activeFilters || normalized ? "Résultats filtrés" : "Tout le contenu"}
           />
           {groups.length === 0 ? (
@@ -256,8 +266,12 @@ function BibliothequePage() {
                 <section
                   key={group.specialty}
                   id={specialtySlug(group.specialty, "bib")}
-                  /* scroll-mt-32 : compense l'en-tête du Shell + l'en-tête de groupe collant. */
-                  className="scroll-mt-32"
+                  /*
+                   * Offset d'ancrage : en-tête du Shell (56 px) + en-tête de groupe collant
+                   * (mesuré ≈71 px en mobile 390×844 → ≈127 px requis). `scroll-mt-32` (128 px)
+                   * en mobile ; 96 px suffisent en desktop (pas d'en-tête Shell collant).
+                   */
+                  className="scroll-mt-32 md:scroll-mt-24"
                 >
                   {/*
                    * En-tête collant (décision validée 2026-10-10) :
@@ -279,7 +293,7 @@ function BibliothequePage() {
                         key={item.id}
                         item={item}
                         progress={progressById.get(item.id)}
-                        className="scroll-mt-32"
+                        className="scroll-mt-32 md:scroll-mt-24"
                         showSpecialty={false}
                         premium
                       />

@@ -9,6 +9,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { getCase } from "@/content/catalog";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
+import { specialtyPackProduct } from "@/lib/library/content-index";
 import type { ClinicalCase } from "@/core/types";
 import type { PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
@@ -36,7 +37,6 @@ function CasePlay() {
       <Shell>
         <Page>
           <p className="text-sm text-muted">Cas introuvable.</p>
-
         </Page>
       </Shell>
     );
@@ -82,8 +82,8 @@ function CasePlay() {
                 Poursuivez jusqu’au diagnostic
               </h2>
               <p className="mt-2 text-sm leading-relaxed opacity-80">
-                Débloquez les questions décisionnelles, les pièges, la prise en charge argumentée
-                et les sources de ce cas.
+                Débloquez les questions décisionnelles, les pièges, la prise en charge argumentée et
+                les sources de ce cas.
               </p>
             </div>
             <div className="p-5">
@@ -221,7 +221,10 @@ function CasePlay() {
               difficulty: clinical.difficulty,
               summary: clinical.summary,
               patient: clinical.patient,
-              revealedSteps: clinical.steps.slice(0, cursor + 1).filter((s) => s.kind === "reveal").map((s) => ({ title: s.title, body: s.body })) as any,
+              revealedSteps: clinical.steps
+                .slice(0, cursor + 1)
+                .filter((s) => s.kind === "reveal")
+                .map((s) => ({ title: s.title, body: s.body })) as any,
               correct,
               asked,
             }}
@@ -230,16 +233,6 @@ function CasePlay() {
       </Page>
     </Shell>
   );
-}
-
-
-function specialtyCode(specialty: string): string {
-  if (specialty === "Cardiologie") return "CARDIO";
-  if (specialty === "Neurologie") return "NEURO";
-  if (specialty === "Infectiologie") return "INFECTIO";
-  if (specialty === "Urgences") return "URGENCES";
-  if (specialty === "Dermatologie") return "DERMATO";
-  return specialty.toUpperCase();
 }
 
 function specialtyId(specialty: string): PremiumSpecialtyId {
@@ -257,6 +250,6 @@ function hasClinicalAccess(
   return (
     clinical.access === "free" ||
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
-    hasEntitlement(`${specialtyCode(clinical.specialty)}_PACK_10`, entitlements)
+    hasEntitlement(specialtyPackProduct(clinical.specialty), entitlements)
   );
 }

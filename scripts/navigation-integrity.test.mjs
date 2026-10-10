@@ -57,7 +57,6 @@ test("download links point to files shipped in public", async () => {
   }
 });
 
-
 test("every Deck curriculum step links to learning or its free preview", () => {
   const deckRoute = routeSources.find(({ file }) => file === "parcours.$deckId.tsx");
   assert.ok(deckRoute, "missing Deck detail route");
@@ -68,15 +67,17 @@ test("every Deck curriculum step links to learning or its free preview", () => {
   );
 });
 
-
 test("parent routes render their dynamic child pages", () => {
-  for (const file of ["parcours.tsx", "cas.tsx"]) {
+  for (const file of ["parcours.tsx", "cas.tsx", "demarche.tsx"]) {
     const route = routeSources.find((source) => source.file === file);
     assert.ok(route, `missing parent route ${file}`);
-    assert.match(route.source, /return <Outlet \/>/, `${file}: dynamic child routes need an Outlet`);
+    assert.match(
+      route.source,
+      /return <Outlet \/>/,
+      `${file}: dynamic child routes need an Outlet`,
+    );
   }
 });
-
 
 test("diagnostic program keeps all 43 source items ordered and uniquely identified", async () => {
   const topics = JSON.parse(

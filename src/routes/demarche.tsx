@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, Clock3, Lock, Search } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
@@ -18,6 +18,7 @@ function normalize(s: string) {
 }
 
 function DemarchePage() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const dxDone = useOptimus((s) => s.diagnosticsCompleted);
   const [query, setQuery] = useState("");
 
@@ -36,6 +37,11 @@ function DemarchePage() {
   const available = diagnosticTopics.filter((t) => t.routeId).length;
   const total = diagnosticTopics.length;
 
+  // /demarche est le layout parent de /demarche/$id : on laisse l'enfant prendre la main.
+  if (pathname !== "/demarche" && pathname !== "/demarche/") {
+    return <Outlet />;
+  }
+
   return (
     <Shell title="Orientation diagnostique">
       <Page className="mx-auto max-w-3xl">
@@ -47,8 +53,8 @@ function DemarchePage() {
             Orientation diagnostique
           </h1>
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            Du symptôme à la prise en charge, décision par décision. Catalogue des chapitres
-            du programme d'orientation diagnostique.
+            Du symptôme à la prise en charge, décision par décision. Catalogue des chapitres du
+            programme d'orientation diagnostique.
           </p>
           <p className="mt-2 font-mono text-xs tabular-nums text-subtle">
             {available}/{total} chapitres disponibles
@@ -99,7 +105,11 @@ function DemarchePage() {
                   <span className="mt-2 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-primary">
                     {dx ? (
                       <>
-                        {completed ? <CheckCircle2 className="size-3" /> : <Lock className="size-3" />}
+                        {completed ? (
+                          <CheckCircle2 className="size-3" />
+                        ) : (
+                          <Lock className="size-3" />
+                        )}
                         {completed ? "Revoir la démarche" : "Aperçu disponible"}
                       </>
                     ) : (

@@ -1,6 +1,21 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Activity, BookOpen, Calculator, ClipboardCheck, GraduationCap, Home, Library, RotateCcw, Search, Stethoscope, Trophy, Upload, UserRound } from "lucide-react";
+import {
+  Activity,
+  BookMarked,
+  Calculator,
+  ClipboardCheck,
+  Compass,
+  GraduationCap,
+  Home,
+  Library,
+  RotateCcw,
+  Search,
+  Stethoscope,
+  Trophy,
+  Upload,
+  UserRound,
+} from "lucide-react";
 import { CommandPalette, useCommandPalette } from "@/components/command-palette";
 import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
@@ -11,15 +26,22 @@ import { cn } from "@/lib/utils";
 import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 
 const NAV = [
-  { to: "/",          label: "Accueil",     short: "Accueil", icon: Home },
-  { to: "/demarche",  label: "Orientation", short: "Orient.", icon: Compass },
-  { to: "/cas",       label: "Cas",         short: "Cas",     icon: Stethoscope },
-  { to: "/parcours",  label: "Nosographie", short: "Noso.",   icon: BookMarked },
-  { to: "/profil",    label: "Profil",      short: "Profil",  icon: UserRound },
+  { to: "/", label: "Accueil", short: "Accueil", icon: Home },
+  { to: "/demarche", label: "Orientation", short: "Orient.", icon: Compass },
+  { to: "/cas", label: "Cas", short: "Cas", icon: Stethoscope },
+  { to: "/parcours", label: "Nosographie", short: "Noso.", icon: BookMarked },
+  { to: "/profil", label: "Profil", short: "Profil", icon: UserRound },
 ] as const;
 
+/*
+ * Navigation secondaire (sidebar desktop). Regroupe les surfaces qui ne tiennent
+ * plus dans la barre principale à 5 entrées — dont « Bibliothèque » et « Réviser »
+ * retirées de NAV au profit d'« Orientation » + « Nosographie ». Le route `/parcours`
+ * n'y figure pas : il est déjà couvert par l'entrée principale « Nosographie ».
+ */
 const EXPLORE = [
-  { to: "/parcours", label: "Parcours guidés", icon: BookOpen },
+  { to: "/bibliotheque", label: "Bibliothèque", icon: Library },
+  { to: "/revue", label: "Réviser", icon: RotateCcw },
   { to: "/programme", label: "Programme national", icon: GraduationCap },
   { to: "/demo-ecg", label: "ECG animé", icon: Activity },
   { to: "/examen", label: "Examen blanc", icon: ClipboardCheck },
@@ -102,7 +124,9 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                   aria-current={active ? "page" : undefined}
                   className={cn(
                     "flex h-9 items-center gap-3 rounded-[var(--radius-sm)] px-3 text-[13px] transition-colors",
-                    active ? "bg-secondary text-fg" : "text-muted hover:bg-secondary/60 hover:text-fg",
+                    active
+                      ? "bg-secondary text-fg"
+                      : "text-muted hover:bg-secondary/60 hover:text-fg",
                   )}
                 >
                   <Icon className="size-4" strokeWidth={1.75} />

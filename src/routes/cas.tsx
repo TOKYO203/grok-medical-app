@@ -35,7 +35,9 @@ function CasPage() {
    * pour le profil (matières prioritaires → année d'étude → volume de cas accessibles).
    */
   const caseGroups = useMemo(() => groupBySpecialty(caseItems, profile), [caseItems, profile]);
-  const completedClinicalCount = CLINICAL_CASES.filter((clinical) => done.includes(clinical.id)).length;
+  const completedClinicalCount = CLINICAL_CASES.filter((clinical) =>
+    done.includes(clinical.id),
+  ).length;
 
   const normalizedQuery = normalizeSearch(diagnosticQuery);
   const visibleDiagnosticTopics = diagnosticTopics.filter((topic) =>
@@ -78,13 +80,13 @@ function CasPage() {
                 key={group.specialty}
                 id={specialtySlug(group.specialty, "cas")}
                 /*
-                 * scroll-mt-24 (96 px) = en-tête du Shell (h-14 → 56 px) + en-tête de groupe
-                 * collant (~40 px) sur mobile (390×844). Sans cette marge, un saut d'ancre
-                 * (ou l'ancrage de défilement du navigateur) poserait la 1re carte du groupe
-                 * SOUS l'en-tête collant. En desktop l'en-tête du Shell est masqué, mais on
-                 * garde la marge : le coût est nul et le comportement reste cohérent.
+                 * Offset d'ancrage = en-tête du Shell (h-14 → 56 px) + en-tête de groupe
+                 * collant (mesuré ≈41 px en mobile 390×844 → ≈97 px requis). `scroll-mt-32`
+                 * (128 px) garantit que la 1re carte n'est jamais cachée par l'en-tête
+                 * collant ; en desktop l'en-tête du Shell est masqué (2px de respiration sous
+                 * le bord), 96 px suffisent d'où `md:scroll-mt-24`.
                  */
-                className="scroll-mt-24"
+                className="scroll-mt-32 md:scroll-mt-24"
               >
                 <div className="sticky top-14 z-10 -mx-5 mb-3 flex items-center gap-2 border-b border-border bg-bg/85 px-5 py-2 backdrop-blur-xl md:-mx-10 md:top-2 md:px-10">
                   <span className="text-base" aria-hidden>
@@ -99,7 +101,12 @@ function CasPage() {
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                   {group.items.map((item) => (
-                    <ContentCard key={item.id} item={item} className="scroll-mt-24" showSpecialty={false} />
+                    <ContentCard
+                      key={item.id}
+                      item={item}
+                      className="scroll-mt-32 md:scroll-mt-24"
+                      showSpecialty={false}
+                    />
                   ))}
                 </div>
               </section>

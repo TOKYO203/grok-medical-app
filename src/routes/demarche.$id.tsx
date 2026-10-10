@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { getDiagnostic } from "@/content/catalog";
+import { specialtyPackProduct } from "@/lib/library/content-index";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import type { PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
@@ -34,7 +35,7 @@ function DemarchePage() {
 
   const open =
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
-    hasEntitlement(diagnosticPack(dx.specialty), entitlements);
+    hasEntitlement(specialtyPackProduct(dx.specialty), entitlements);
   const previewFinished = !open && step >= 1;
   const current = dx.steps[step];
   const done = step >= dx.steps.length;
@@ -42,13 +43,19 @@ function DemarchePage() {
   return (
     <Shell title="Démarche">
       <Page className="mx-auto max-w-lg">
-        <Link to="/cas" className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg">
+        <Link
+          to="/demarche"
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg"
+        >
           <ArrowLeft className="size-4" />
-          Cas
+          Orientation diagnostique
         </Link>
         <h1 className="mt-4 font-display text-3xl font-medium tracking-tight">{dx.title}</h1>
         <p className="mt-2 text-sm text-muted">{dx.vignette}</p>
-        <Progress className="mt-5" value={(Math.min(step, dx.steps.length) / dx.steps.length) * 100} />
+        <Progress
+          className="mt-5"
+          value={(Math.min(step, dx.steps.length) / dx.steps.length) * 100}
+        />
 
         {!open ? (
           <p className="mt-3 text-xs font-medium text-primary">
@@ -61,11 +68,11 @@ function DemarchePage() {
             <div className="premium-hero p-5 text-primary-fg">
               <Lock className="size-6" />
               <h2 className="mt-3 font-display text-2xl font-medium">
-                Maîtrisez les 8 étapes
+                Maîtrisez les {dx.steps.length} étapes
               </h2>
               <p className="mt-2 text-sm leading-relaxed opacity-80">
-                Interrogatoire, examen, syndrome, hypothèses, examens, interprétation, diagnostic
-                et prise en charge — avec correction à chaque décision.
+                Interrogatoire, examen, syndrome, hypothèses, examens, interprétation, diagnostic et
+                prise en charge — avec correction à chaque décision.
               </p>
             </div>
             <div className="p-5">
@@ -77,8 +84,8 @@ function DemarchePage() {
                 Débloquer la spécialité · 27 000 Ar
                 <ArrowRight className="size-4" />
               </Link>
-              <Link to="/cas" className="mt-3 block text-center text-sm text-muted">
-                Retour aux 42 démarches
+              <Link to="/demarche" className="mt-3 block text-center text-sm text-muted">
+                Retour aux démarches
               </Link>
             </div>
           </section>
@@ -93,7 +100,7 @@ function DemarchePage() {
               className="mt-6 w-full"
               onClick={() => {
                 complete(dx.id, 50 + correct * 8);
-                void navigate({ to: "/cas" });
+                void navigate({ to: "/demarche" });
               }}
             >
               Enregistrer
@@ -101,7 +108,9 @@ function DemarchePage() {
           </div>
         ) : current ? (
           <div className="mt-8">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{current.title}</p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              {current.title}
+            </p>
             <p className="mt-2 text-sm text-muted">{current.lead}</p>
             <p className="mt-4 font-display text-xl font-medium leading-snug">{current.prompt}</p>
             <ul className="mt-4 space-y-2">
@@ -126,10 +135,14 @@ function DemarchePage() {
                         revealed && !isCorrect && !isPicked && "bg-card opacity-60",
                       )}
                     >
-                      <span className="font-mono text-xs text-muted">{String.fromCharCode(65 + i)}</span>
+                      <span className="font-mono text-xs text-muted">
+                        {String.fromCharCode(65 + i)}
+                      </span>
                       <span className="flex-1">{choice}</span>
                       {revealed && isCorrect ? <Check className="size-4 text-primary" /> : null}
-                      {revealed && isPicked && !isCorrect ? <X className="size-4 text-danger" /> : null}
+                      {revealed && isPicked && !isCorrect ? (
+                        <X className="size-4 text-danger" />
+                      ) : null}
                     </button>
                   </li>
                 );
@@ -156,20 +169,10 @@ function DemarchePage() {
   );
 }
 
-
 function diagnosticSpecialty(specialty: string): PremiumSpecialtyId {
   if (specialty.includes("Cardiologie")) return "cardiologie";
   if (specialty.includes("Neurologie")) return "neurologie";
   if (specialty.includes("Dermatologie")) return "dermatologie";
   if (specialty.includes("Infectiologie")) return "infectiologie";
   return "urgences";
-}
-
-function diagnosticPack(specialty: string): string {
-  const id = diagnosticSpecialty(specialty);
-  if (id === "cardiologie") return "CARDIO_PACK_10";
-  if (id === "neurologie") return "NEURO_PACK_10";
-  if (id === "dermatologie") return "DERMATO_PACK_10";
-  if (id === "infectiologie") return "INFECTIO_PACK_10";
-  return "URGENCES_PACK_10";
 }

@@ -57,11 +57,23 @@ export function specialtyCode(specialty: string): string {
   return specialty.toUpperCase();
 }
 
+/**
+ * Produit « pack spécialité complète » (ex. `CARDIO_PACK_15`).
+ *
+ * Source unique de vérité alignée sur `orderProduct()` (src/content/purchase-order.ts)
+ * qui émet `{CODE}_PACK_15` depuis la migration « 15 decks/spécialité » (commit 432e196).
+ * Les anciens contrôles `_PACK_10` ne pouvaient jamais correspondre à une commande :
+ * un acheteur d'un pack ne débloquait donc ni les cas cliniques ni les démarches.
+ */
+export function specialtyPackProduct(specialty: string): string {
+  return `${specialtyCode(specialty)}_PACK_15`;
+}
+
 export function caseAccessible(clinical: ClinicalCase, entitlements: Entitlement[]): boolean {
   return (
     clinical.access === "free" ||
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
-    hasEntitlement(`${specialtyCode(clinical.specialty)}_PACK_10`, entitlements)
+    hasEntitlement(specialtyPackProduct(clinical.specialty), entitlements)
   );
 }
 
@@ -102,7 +114,12 @@ function caseToItem(clinical: ClinicalCase, entitlements: Entitlement[]): Conten
     subtitle: clinical.summary,
     specialty: clinical.specialty,
     year: clinical.studyYear || null,
-    level: clinical.difficulty === "advanced" ? "advanced" : clinical.difficulty === "intro" ? "intro" : "intermediate",
+    level:
+      clinical.difficulty === "advanced"
+        ? "advanced"
+        : clinical.difficulty === "intro"
+          ? "intro"
+          : "intermediate",
     competencies: ["clinical_reasoning", "diagnosis"],
     icon: "stethoscope",
     metric: `${steps} étape${steps > 1 ? "s" : ""}`,
