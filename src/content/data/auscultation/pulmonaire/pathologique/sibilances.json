@@ -1,0 +1,69 @@
+{
+  "id": "sibilances",
+  "label": "Sibilances (râles sibilants)",
+  "categorie": "continu",
+  "zone": ["diffus"],
+  "timing": {
+    "phase": "expiratoire (prédominance)",
+    "moment": "méso-expiratoire puis télé-expiratoire",
+    "caractere": "continus, musicaux, aigus, sifflants",
+    "schema": "Inspiration : murmure ± sibilances — Expiration : sifflements continus prolongés"
+  },
+  "timbre": "Sifflements continus et musicaux, aigus, à type de « sifflement de ballon » ou « de machine à vapeur » ; plusieurs fréquences se superposent (polyphoniques).",
+  "frequence": "Fréquences moyennes à élevées (filtre passe-bande 400-800 Hz) : caractère musical lié à la mise en vibration de la paroi bronchique.",
+  "localisation": "Diffus et bilatéraux dans l'asthme et la BPCO ; un foyer unique, localisé et systématisé, évoque un obstacle endo-bronchique (corps étranger, tumeur, sténose).",
+  "variations": [
+    {
+      "manoeuvre": "Expiration forcée et prolongée",
+      "effet": "Les sibilances se majorent et se prolongent : c'est la marque du bronchospasme et de l'obstruction des voies aériennes distales."
+    },
+    {
+      "manoeuvre": "Inhalation d'un bêta-2-mimétique (test de réversibilité)",
+      "effet": "Les sibilances diminuent significativement chez l'asthmatique répondeur : argument pour la réversibilité de l'obstruction."
+    },
+    {
+      "manoeuvre": "Comparer les deux champs et les étages",
+      "effet": "Un sifflement isolé, unilatéral et fixe, signe un obstacle mécanique localisé plutôt qu'un bronchospasme diffus."
+    }
+  ],
+  "pathologies_associees": [
+    "Asthme (crise et asthme à dyspnée continue)",
+    "Bronchopneumopathie chronique obstructive (BPCO)",
+    "Corps étranger endo-bronchique",
+    "Tumeur ou sténose bronchique",
+    "Bronchiolite oblitérante",
+    "Œdème aigu du poumon (« asthme cardiaque »)"
+  ],
+  "diagnostics_differentiels": [
+    "Stridor (inspiratoire, extra-thoracique, monophonique)",
+    "Râles bronchiques (ronflements graves, secrétions mobilisables)",
+    "Craquements de haute fréquence (non musicaux, télé-inspiratoires)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "sibilances",
+    "params": {
+      "breathsPerMin": 20,
+      "inspirationMs": 1200,
+      "expirationMs": 2200,
+      "ambientFreq": 420,
+      "ambientGain": 0.05,
+      "wheezeFreq": 600,
+      "wheezeQ": 6,
+      "wheezeGain": 0.16,
+      "wheezeModHz": 3
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Asthme et BPCO"],
+  "pieges": [
+    "Une sibilance localisée, fixe et unilatérale n'est PAS de l'asthme : rechercher un corps étranger ou une tumeur (piège classique de l'enfant).",
+    "La disparition des sibilances au cours d'une crise d'asthme sévère peut précéder le silence thoracique : signe d'aggravation, non d'amélioration.",
+    "Ne pas employer le terme « râle sifflant » seul : la sibilance est un bruit continu expiratoire.",
+    "La toux ne modifie pas les sibilances (contrairement à l'encombrement) : leur persistance après la toux exclut un simple bruit de sécrétion."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

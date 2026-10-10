@@ -1,0 +1,66 @@
+{
+  "id": "souffle-pleuretique",
+  "label": "Souffle pleurétique",
+  "categorie": "souffle",
+  "zone": ["base-d", "base-g"],
+  "timing": {
+    "phase": "inspiratoire (prédominance)",
+    "moment": "inspiration, avec composante aspirative se prolongeant après l'expiration",
+    "caractere": "soufflant, aspiratif, étouffé, non musical",
+    "schema": "Inspiration : souffle aspiratif — Expiration : souffle atténué se prolongeant"
+  },
+  "timbre": "Souffle doux, aspiratif et étouffé, à type de souffle lointain « aspiré », sans caractère musical ni râpeux.",
+  "frequence": "Fréquences moyennes (filtre passe-bande ~430 Hz) : son voilé et atténué par l'interposition liquidienne.",
+  "localisation": "Au-dessus d'un épanchement pleural liquidien, en particulier à sa partie supérieure (limite supérieure de la matité), le plus souvent aux bases.",
+  "variations": [
+    {
+      "manoeuvre": "Comparer avec le côté sain et rechercher la limite supérieure de la matité",
+      "effet": "Le souffle pleurétique siège juste au-dessus de la zone mate : il marque la limite supérieure de l'épanchement."
+    },
+    {
+      "manoeuvre": "Ausculter inspiration puis expiration",
+      "effet": "Le souffle est inspiratoire et s'atténue dans l'expiration, avec un caractère aspiratif persistant (épanchement collecté)."
+    },
+    {
+      "manoeuvre": "Rechercher une diminution des vibrations vocales et une matité",
+      "effet": "Le souffle s'accompagne d'un abattement du murmure vésiculaire, d'une matité et d'une abolition des vibrations vocales."
+    }
+  ],
+  "pathologies_associees": [
+    "Épanchement pleural liquidien d'abondance moyenne",
+    "Pleurésie séro-fibrineuse ou purulente (pleurésie enkystée)",
+    "Pleurésie néoplasique (mésothéliome, métastases)",
+    "Hydrothorax (insuffisance cardiaque, cirrhose)",
+    "Chromothorax, chylothorax"
+  ],
+  "diagnostics_differentiels": [
+    "Souffle tubaire (condensation sans épanchement, transmission des vibrations vocales augmentée)",
+    "Souffle caverneux (cavité, timbre creux)",
+    "Souffle amphorique (épanchement GAZEUX, résonance métallique)",
+    "Abolition du murmure vésiculaire (épanchement très abondant, compresse les poumons)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "pleural_effusion_souffle",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1500,
+      "expirationMs": 2100,
+      "ambientFreq": 430,
+      "ambientQ": 0.8,
+      "ambientGain": 0.17
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Pathologie pleurale"],
+  "pieges": [
+    "Le souffle pleurétique est un souffle ASPIRATIF, doux, au-dessus d'un épanchement LIQUIDIEN : ne pas le confondre avec le souffle amphorique (épanchement GAZEUX) ni avec le souffle tubaire (condensation).",
+    "Le souffle siège à la limite supérieure de la matité, non au contact de l'épanchement le plus déclive.",
+    "Dans un épanchement très abondant, le souffle disparaît au profit de l'abolition complète du murmure : la topographie compte.",
+    "L'association souffle + matité + abolition des vibrations vocales est caractéristique de l'épanchement : toujours rechercher le syndrome d'épanchement complet."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

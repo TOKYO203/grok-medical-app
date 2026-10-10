@@ -1,0 +1,69 @@
+{
+  "id": "craquements-pleuraux",
+  "label": "Craquements pleuraux",
+  "categorie": "craquement",
+  "zone": ["axillaire-d", "axillaire-g", "sommet-d", "sommet-g"],
+  "timing": {
+    "phase": "inspiro-expiratoire",
+    "moment": "miroir : fin d'inspiration ET fin d'expiration",
+    "caractere": "secs, grinçants, râpeux, non musicaux",
+    "schema": "Inspiration : craquement en fin d'inspiration — Expiration : craquement symétrique en fin d'expiration"
+  },
+  "timbre": "Craquements secs et grinçants, à type de frottement râpeux, superposables en inspiration et en expiration (aspect « miroir »).",
+  "frequence": "Moyennes fréquences (filtre passe-bande ~520 Hz, bursts ~12 ms) : proches du frottement pariétal.",
+  "localisation": "Zones de mobilité thoracique (régions axillaires et bases) et, pour une pleurésie apicale, les sommets : topographie en regard de l'inflammation pleurale.",
+  "variations": [
+    {
+      "manoeuvre": "Comparer fin d'inspiration et fin d'expiration",
+      "effet": "Le caractère MIROIR (craquement de part et d'autre du cycle) est le marqueur de l'inflammation pleurale."
+    },
+    {
+      "manoeuvre": "Inspiration profonde et expiration forcée",
+      "effet": "Les craquements s'exagèrent avec l'ampliation thoracique maximale, comme un frottement de surfaces sèches."
+    },
+    {
+      "manoeuvre": "Palpation en regard du foyer",
+      "effet": "Un frottement pleural palpable et une douleur localisée confirment l'atteinte de la plèvre."
+    }
+  ],
+  "pathologies_associees": [
+    "Pleurésie sèche (pleurite) virale ou tuberculeuse",
+    "Épanchement pleural débutant (stade de frottement)",
+    "Pleurésie tumorale (mésothéliome, métastases)",
+    "Embolie pulmonaire avec infarctus pleuro-pariétal",
+    "Ulcère de décubitus pulmonaire"
+  ],
+  "diagnostics_differentiels": [
+    "Frottement péricardique (systolo-diastolique, audible à la pointe, retro-sternal)",
+    "Craquements de haute fréquence (télé-inspiratoires uniquement)",
+    "Craquements de basse fréquence (proximaux, mobilisables par la toux)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "pleural_crackles",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1400,
+      "expirationMs": 2200,
+      "ambientFreq": 460,
+      "ambientGain": 0.04,
+      "crackleFreq": 520,
+      "crackleQ": 1.3,
+      "crackleDurMs": 12,
+      "crackleGain": 0.4,
+      "crackleCount": 2
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Pathologie pleurale"],
+  "pieges": [
+    "Le caractère MIROIR (inspiration ET expiration) est le critère décisif : il oriente vers la plèvre, non vers le parenchyme.",
+    "Ne pas confondre un craquement pleural avec un frottement péricardique : ce dernier est rythmé par la systole, non par la respiration.",
+    "La disparition des craquements pleuraux avec l'apparition d'une matité et d'une abolition du murmure trahit la constitution d'un épanchement liquidien.",
+    "Les craquements pleuraux sont souvent accompagnés d'une douleur thoracique augmentée par l'inspiration : toujours rechercher une pleurésie."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

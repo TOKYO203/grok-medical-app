@@ -10,15 +10,29 @@ import retrecissementAortique from "@/content/data/auscultation/cardiaque/pathol
 import frottementPericardique from "@/content/data/auscultation/cardiaque/pathologique/frottement-pericardique.json";
 import fibrillationAtriale from "@/content/data/auscultation/cardiaque/pathologique/fibrillation-atriale.json";
 
+import pulmonaireIndexJson from "@/content/data/auscultation/pulmonaire/_index.json";
+import murmureVesiculaire from "@/content/data/auscultation/pulmonaire/normal/murmure-vesiculaire.json";
+import bruitTracheal from "@/content/data/auscultation/pulmonaire/normal/bruit-tracheal.json";
+import craquementsBasseFrequence from "@/content/data/auscultation/pulmonaire/pathologique/craquements-basse-frequence.json";
+import craquementsMoyenneFrequence from "@/content/data/auscultation/pulmonaire/pathologique/craquements-moyenne-frequence.json";
+import craquementsHauteFrequence from "@/content/data/auscultation/pulmonaire/pathologique/craquements-haute-frequence.json";
+import craquementsPleuraux from "@/content/data/auscultation/pulmonaire/pathologique/craquements-pleuraux.json";
+import sibilances from "@/content/data/auscultation/pulmonaire/pathologique/sibilances.json";
+import stridor from "@/content/data/auscultation/pulmonaire/pathologique/stridor.json";
+import soufflesBronchiques from "@/content/data/auscultation/pulmonaire/pathologique/souffles-bronchiques.json";
+import soufflePleuretique from "@/content/data/auscultation/pulmonaire/pathologique/souffle-pleuretique.json";
+
 /**
  * Chargeur de contenu Auscultation — index + fiches (bundle statique, offline).
  *
- * Les fiches cardiaques vivent sous `cardiaque/` (normal | pathologique) ; les
- * sons pulmonaires viendront sous `pulmonaire/` (étape 3/3).
+ * Les fiches cardiaques vivent sous `cardiaque/` (normal | pathologique) et les
+ * fiches pulmonaires sous `pulmonaire/` (étape 3/3). Chaque module possède son
+ * propre manifeste `_index.json` (foyers pour le cœur, zones pour le poumon).
  *
- * ⚠️ Tout fichier listé `status: "available"` dans `_index.json` DOIT être
- * enregistré dans `FICHES_BY_FILE`, sinon `getFiche()` renvoie `undefined`
- * (fiche cliquable mais vide). Même contrat que `src/lib/ecg/catalog.ts`.
+ * ⚠️ Tout fichier listé `status: "available"` dans un `_index.json` DOIT être
+ * enregistré dans le registre correspondant, sinon `getFiche()` /
+ * `getPulmonaireFiche()` renvoie `undefined` (fiche cliquable mais vide).
+ * Même contrat que `src/lib/ecg/catalog.ts`.
  */
 
 export type AuscultationFoyer = {
@@ -120,5 +134,110 @@ export function foyerById(id: string): AuscultationFoyer | undefined {
 export function missingFicheFiles(): string[] {
   return listSounds()
     .filter((s) => s.status === "available" && s.file && !FICHES_BY_FILE[s.file])
+    .map((s) => s.id);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Module pulmonaire (étape 3/3)
+   ───────────────────────────────────────────────────────────────────
+   Manifeste dédié `pulmonaire/_index.json` : zones d'auscultation
+   (trachée, sommets, bases, axillaire, diffus) + 10 sons. Les fiches
+   utilisent la nomenclature clinique des « craquements » de basse,
+   moyenne et haute fréquence.
+   ═══════════════════════════════════════════════════════════════════ */
+
+export type PulmonaireZone = {
+  id: string;
+  label: string;
+  short: string;
+  emoji: string;
+  localisation: string;
+};
+
+export type PulmonaireSoundEntry = {
+  id: string;
+  label: string;
+  categorie: string;
+  zones: string[];
+  file: string | null;
+  status: AuscultationSoundStatus;
+};
+
+export type PulmonaireVariation = { manoeuvre: string; effet: string };
+
+export type PulmonaireTiming = {
+  phase: string;
+  moment: string;
+  caractere: string;
+  schema: string;
+};
+
+export type PulmonaireFiche = {
+  id: string;
+  label: string;
+  categorie: string;
+  zone: string[];
+  timing: PulmonaireTiming;
+  timbre: string;
+  frequence: string;
+  localisation: string;
+  variations: PulmonaireVariation[];
+  pathologies_associees: string[];
+  diagnostics_differentiels: string[];
+  audio: AuscultationAudio;
+  items_programme: string[];
+  pieges: string[];
+  source: { type: string; reference: string; license: string };
+};
+
+const PULMONAIRE_FICHES_BY_FILE: Record<string, PulmonaireFiche> = {
+  "pulmonaire/normal/murmure-vesiculaire.json": murmureVesiculaire as unknown as PulmonaireFiche,
+  "pulmonaire/normal/bruit-tracheal.json": bruitTracheal as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/craquements-basse-frequence.json":
+    craquementsBasseFrequence as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/craquements-moyenne-frequence.json":
+    craquementsMoyenneFrequence as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/craquements-haute-frequence.json":
+    craquementsHauteFrequence as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/craquements-pleuraux.json": craquementsPleuraux as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/sibilances.json": sibilances as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/stridor.json": stridor as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/souffles-bronchiques.json": soufflesBronchiques as unknown as PulmonaireFiche,
+  "pulmonaire/pathologique/souffle-pleuretique.json": soufflePleuretique as unknown as PulmonaireFiche,
+};
+
+export function listPulmonaireZones(): PulmonaireZone[] {
+  return pulmonaireIndexJson.zones as unknown as PulmonaireZone[];
+}
+
+export function listPulmonaireSounds(): PulmonaireSoundEntry[] {
+  return pulmonaireIndexJson.sounds as unknown as PulmonaireSoundEntry[];
+}
+
+/** Fiches pulmonaires réellement disponibles (fichier présent + enregistré). */
+export function listPulmonaireFiches(): PulmonaireSoundEntry[] {
+  return listPulmonaireSounds().filter(
+    (s) => s.status === "available" && !!s.file && PULMONAIRE_FICHES_BY_FILE[s.file],
+  );
+}
+
+export function getPulmonaireSound(id: string): PulmonaireSoundEntry | undefined {
+  return listPulmonaireSounds().find((s) => s.id === id);
+}
+
+export function getPulmonaireFiche(id: string): PulmonaireFiche | undefined {
+  const entry = getPulmonaireSound(id);
+  if (!entry || !entry.file) return undefined;
+  return PULMONAIRE_FICHES_BY_FILE[entry.file];
+}
+
+export function pulmonaireZoneById(id: string): PulmonaireZone | undefined {
+  return listPulmonaireZones().find((z) => z.id === id);
+}
+
+/** Fiches pulmonaires annoncées disponibles mais non enregistrées. */
+export function missingPulmonaireFicheFiles(): string[] {
+  return listPulmonaireSounds()
+    .filter((s) => s.status === "available" && s.file && !PULMONAIRE_FICHES_BY_FILE[s.file])
     .map((s) => s.id);
 }

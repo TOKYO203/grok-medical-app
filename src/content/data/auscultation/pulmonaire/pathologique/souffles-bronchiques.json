@@ -1,0 +1,66 @@
+{
+  "id": "souffles-bronchiques",
+  "label": "Souffles bronchiques (tubaire, caverneux, amphorique)",
+  "categorie": "souffle",
+  "zone": ["sommet-d", "sommet-g", "base-d", "base-g"],
+  "timing": {
+    "phase": "inspiro-expiratoire",
+    "moment": "inspiration ET expiration, souffle continu des deux phases",
+    "caractere": "soufflant, rude, tubaire, non musical",
+    "schema": "Inspiration : souffle rude — Expiration : souffle rude prolongé (rapport I/E inversé ou égal)"
+  },
+  "timbre": "Souffle rude et soufflant, du même type que le bruit trachéal, mais entendu À DISTANCE de la trachée. Le timbre se décline en trois sous-types : tubaire (souffle bronchique franc), caverneux (souffle grave et creux, « dans une grotte ») et amphorique (souffle à résonance métallique, « dans une jarre »).",
+  "frequence": "Fréquences moyennes (filtre passe-bande ~500 Hz) : bruit riche et continu, proche du bruit trachéal transmis à travers un milieu condensé.",
+  "localisation": "En regard d'une zone de condensation (souffle tubaire), d'une cavité (souffle caverneux) ou d'un épanchement gazeux (souffle amphorique). Un souffle tubaire systématisé au sommet évoque une pneumonie lobaire.",
+  "variations": [
+    {
+      "manoeuvre": "Comparer avec le côté controlatéral sain",
+      "effet": "Le souffle est localisé et unilatéral, en regard de la lésion : c'est un signe de systématisation."
+    },
+    {
+      "manoeuvre": "Toux et auscultation répétée",
+      "effet": "Le souffle persiste après la toux (contrairement à un encombrement) et ne se modifie pas."
+    },
+    {
+      "manoeuvre": "Rechercher une transmission de la voix (bronchophonie, pectoriloquie)",
+      "effet": "La transmission des vibrations vocales est exagérée au-dessus du souffle tubaire : confirmation de la condensation."
+    }
+  ],
+  "pathologies_associees": [
+    "Condensation pulmonaire (pneumonie, souffle tubaire)",
+    "Cavernes tuberculeuses ou abcès pulmonaire (souffle caverneux)",
+    "Épanchement gazeux : pneumothorax et caverne superficielle (souffle amphorique)",
+    "Atélectasie lobaire par obstruction bronchique",
+    "Bulle géante d'emphysème"
+  ],
+  "diagnostics_differentiels": [
+    "Bruit trachéal normal (même timbre mais audible sur la trachée cervicale)",
+    "Murmure vésiculaire normal (doux, non tubaire)",
+    "Souffle pleurétique (au-dessus d'un épanchement liquidien, aspiratif)",
+    "Sibilances (continues, musicales, expiratoires)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "bronchial_breath",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1400,
+      "expirationMs": 2200,
+      "ambientFreq": 500,
+      "ambientQ": 0.9,
+      "ambientGain": 0.2
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Pneumologie infectieuse"],
+  "pieges": [
+    "Le souffle bronchique est NORMAL sur la trachée : n'est pathologique qu'un souffle tubaire entendu dans un champ pulmonaire.",
+    "Distinguer les trois sous-types : tubaire (condensation), caverneux (cavité creuse), amphorique (épanchement gazeux ou caverne superficielle).",
+    "Un souffle tubaire persistant après la toux plaide pour une condensation, non pour un encombrement bronchique.",
+    "Le souffle amphorique est un signe de pneumothorax ou de caverne : le rechercher devant toute dyspnée brutale unilatérale."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

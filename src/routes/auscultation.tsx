@@ -1,19 +1,34 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, HeartPulse, Lock, Square, Volume2, Wind } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  HeartPulse,
+  Lock,
+  Square,
+  Volume2,
+  Wind,
+} from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   foyerById,
   getFiche,
+  getPulmonaireFiche,
   listFoyers,
+  listPulmonaireSounds,
+  listPulmonaireZones,
   listSounds,
+  pulmonaireZoneById,
   type AuscultationFiche,
   type AuscultationFoyer,
   type AuscultationSoundEntry,
+  type PulmonaireFiche,
+  type PulmonaireSoundEntry,
+  type PulmonaireZone,
 } from "@/lib/auscultation/catalog";
-import { isSupported, playSound, stop } from "@/lib/auscultation/engine";
+import { isSupported, playLungSound, playSound, stop } from "@/lib/auscultation/engine";
 
 export const Route = createFileRoute("/auscultation")({ component: AuscultationPage });
 
@@ -22,6 +37,9 @@ const CATEGORIE_LABEL: Record<string, string> = {
   valvulopathie: "Valvulopathie",
   pericarde: "Péricarde",
   "trouble-rythme": "Trouble du rythme",
+  craquement: "Craquement",
+  continu: "Bruit continu",
+  souffle: "Souffle",
 };
 
 function AuscultationPage() {
@@ -41,22 +59,30 @@ function AuscultationPage() {
   function changeTab(next: "cardiaque" | "pulmonaire") {
     stop();
     setPlaying(false);
+    setSelectedId(null);
     setTab(next);
   }
 
-  function toggleListen(fiche: AuscultationFiche) {
+  function toggleListen(preset: string, params: Record<string, number>, lung: boolean) {
     if (playing) {
       stop();
       setPlaying(false);
       return;
     }
-    playSound(fiche.audio.preset, fiche.audio.params);
+    if (lung) playLungSound(preset, params);
+    else playSound(preset, params);
     setPlaying(true);
   }
 
-  const fiche = selectedId ? getFiche(selectedId) : undefined;
+  const fiche = tab === "cardiaque" && selectedId ? getFiche(selectedId) : undefined;
+  const pFiche = tab === "pulmonaire" && selectedId ? getPulmonaireFiche(selectedId) : undefined;
+
   const sounds = listSounds();
   const foyers = listFoyers();
+  const pSounds = listPulmonaireSounds();
+  const zones = listPulmonaireZones();
+
+  const canPlay = isSupported();
 
   return (
     <Shell title="Auscultation">
@@ -66,7 +92,7 @@ function AuscultationPage() {
           <PageHeader
             kicker="Sémiologie"
             title="Auscultation"
-            description="Bruits du cœur synthétisés en temps réel : foyer, timing, timbre, manœuvres et pièges. Étape 2/3 — 10 fiches cardiaques."
+            description="Bruits du cœur et du poumon synthétisés en temps réel : topographie, timing, timbre, variations et pièges. Étape 3/3 — 20 fiches (10 cardiaques + 10 pulmonaires)."
           />
         }
       >
@@ -101,55 +127,86 @@ function AuscultationPage() {
           ))}
         </div>
 
-        {tab === "pulmonaire" ? (
-          <EmptyPanel />
-        ) : (
-          <div className="grid gap-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
-            {/* Liste des fiches */}
-            <div className={cn("space-y-2", selectedId && "hidden md:block")}>
-              {sounds.map((entry) => (
-                <SoundRow
-                  key={entry.id}
-                  entry={entry}
-                  foyers={foyers}
-                  selected={entry.id === selectedId}
-                  onSelect={selectSound}
-                />
-              ))}
-            </div>
-
-            {/* Panneau détail */}
-            <div className={cn(!selectedId && "hidden md:block")}>
-              {fiche ? (
-                <FicheDetail
-                  fiche={fiche}
-                  playing={playing}
-                  canPlay={isSupported()}
-                  onToggle={() => toggleListen(fiche)}
-                  onBack={() => {
-                    stop();
-                    setPlaying(false);
-                    setSelectedId(null);
-                  }}
-                />
-              ) : (
-                <div className="hidden h-full min-h-64 items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-border p-8 text-center md:flex">
-                  <div className="max-w-xs">
-                    <p className="font-display text-lg font-medium">Choisissez une fiche</p>
-                    <p className="mt-1 text-sm text-muted">
-                      Sélectionnez un son dans la liste pour afficher son schéma de timing, son
-                      timbre et ses pièges.
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+        <div className="grid gap-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
+          {/* Liste des fiches */}
+          <div className={cn("space-y-2", selectedId && "hidden md:block")}>
+            {tab === "pulmonaire"
+              ? pSounds.map((entry) => (
+                  <PulmonaireSoundRow
+                    key={entry.id}
+                    entry={entry}
+                    zones={zones}
+                    selected={entry.id === selectedId}
+                    onSelect={selectSound}
+                  />
+                ))
+              : sounds.map((entry) => (
+                  <SoundRow
+                    key={entry.id}
+                    entry={entry}
+                    foyers={foyers}
+                    selected={entry.id === selectedId}
+                    onSelect={selectSound}
+                  />
+                ))}
           </div>
-        )}
+
+          {/* Panneau détail */}
+          <div className={cn(!selectedId && "hidden md:block")}>
+            {pFiche ? (
+              <PulmonaireDetail
+                fiche={pFiche}
+                playing={playing}
+                canPlay={canPlay}
+                onToggle={() =>
+                  toggleListen(pFiche.audio.preset, pFiche.audio.params, true)
+                }
+                onBack={() => {
+                  stop();
+                  setPlaying(false);
+                  setSelectedId(null);
+                }}
+              />
+            ) : fiche ? (
+              <FicheDetail
+                fiche={fiche}
+                playing={playing}
+                canPlay={canPlay}
+                onToggle={() => toggleListen(fiche.audio.preset, fiche.audio.params, false)}
+                onBack={() => {
+                  stop();
+                  setPlaying(false);
+                  setSelectedId(null);
+                }}
+              />
+            ) : (
+              <EmptyDetail tab={tab} />
+            )}
+          </div>
+        </div>
       </Page>
     </Shell>
   );
 }
+
+function EmptyDetail({ tab }: { tab: "cardiaque" | "pulmonaire" }) {
+  return (
+    <div className="hidden h-full min-h-64 items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-border p-8 text-center md:flex">
+      <div className="max-w-xs">
+        <p className="font-display text-lg font-medium">Choisissez une fiche</p>
+        <p className="mt-1 text-sm text-muted">
+          {tab === "pulmonaire"
+            ? "Sélectionnez un son respiratoire dans la liste pour afficher son schéma de cycle, son timbre, ses variations et ses pièges."
+            : "Sélectionnez un son dans la liste pour afficher son schéma de timing, son timbre et ses pièges."}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Module cardiaque
+   ═══════════════════════════════════════════════════════════════════ */
 
 function SoundRow({
   entry,
@@ -351,6 +408,255 @@ function TimingStrip({
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   Module pulmonaire
+   ═══════════════════════════════════════════════════════════════════ */
+
+function PulmonaireSoundRow({
+  entry,
+  zones,
+  selected,
+  onSelect,
+}: {
+  entry: PulmonaireSoundEntry;
+  zones: PulmonaireZone[];
+  selected: boolean;
+  onSelect: (id: string) => void;
+}) {
+  const available = entry.status === "available";
+  const zoneLabels = entry.zones.map((id) => zones.find((z) => z.id === id)?.short ?? id);
+
+  const inner = (
+    <div className="flex items-start gap-3">
+      <span
+        className={cn(
+          "flex size-10 shrink-0 items-center justify-center rounded-full",
+          available ? "bg-primary-soft text-primary" : "bg-secondary text-muted",
+        )}
+      >
+        {available ? <Wind className="size-5" /> : <Lock className="size-4" />}
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="text-sm font-medium leading-snug">{entry.label}</p>
+        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+          <span className="optimus-type-badge bg-secondary text-muted">
+            {CATEGORIE_LABEL[entry.categorie] ?? entry.categorie}
+          </span>
+          {zoneLabels.slice(0, 3).map((label) => (
+            <span key={label} className="optimus-type-badge bg-[#A67C1E]/15 text-accent">
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+      {available ? (
+        <ChevronRight className="mt-1 size-4 shrink-0 text-subtle" aria-hidden />
+      ) : (
+        <span className="mt-1 shrink-0 text-[10px] uppercase tracking-wider text-subtle">
+          Bientôt
+        </span>
+      )}
+    </div>
+  );
+
+  if (!available) {
+    return (
+      <div className="optimus-card p-4 opacity-70" aria-disabled="true">
+        {inner}
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(entry.id)}
+      aria-current={selected ? "true" : undefined}
+      className={cn(
+        "optimus-card optimus-interactive-card block w-full p-4 text-left active:scale-[0.99]",
+        selected && "ring-1 ring-primary",
+      )}
+    >
+      {inner}
+    </button>
+  );
+}
+
+function PulmonaireDetail({
+  fiche,
+  playing,
+  canPlay,
+  onToggle,
+  onBack,
+}: {
+  fiche: PulmonaireFiche;
+  playing: boolean;
+  canPlay: boolean;
+  onToggle: () => void;
+  onBack: () => void;
+}) {
+  const params = fiche.audio.params as { inspirationMs?: number; expirationMs?: number };
+
+  return (
+    <div className="rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
+      <button
+        type="button"
+        onClick={onBack}
+        className="mb-3 inline-flex items-center gap-1 text-xs text-muted hover:text-fg md:hidden"
+      >
+        <ChevronLeft className="size-3.5" aria-hidden /> Toutes les fiches
+      </button>
+
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <span className="optimus-type-badge bg-secondary text-muted">
+            {CATEGORIE_LABEL[fiche.categorie] ?? fiche.categorie}
+          </span>
+          <h2 className="mt-2 font-display text-xl font-medium tracking-tight">{fiche.label}</h2>
+          <p className="mt-1 font-mono text-xs text-subtle">{fiche.timing.schema}</p>
+        </div>
+        <Button
+          onClick={onToggle}
+          disabled={!canPlay}
+          aria-pressed={playing}
+          className="shrink-0"
+          data-auscultation-listen={playing ? "playing" : "idle"}
+        >
+          {playing ? (
+            <>
+              <Square className="size-4" aria-hidden /> Arrêter
+            </>
+          ) : (
+            <>
+              <Volume2 className="size-4" aria-hidden /> Écouter
+            </>
+          )}
+        </Button>
+      </div>
+
+      <div className="mt-5">
+        <SectionLabel>Schéma du cycle respiratoire</SectionLabel>
+        <RespiratoryStrip
+          inspirationMs={params.inspirationMs}
+          expirationMs={params.expirationMs}
+          phase={fiche.timing.phase}
+        />
+        <p className="mt-3 text-sm leading-relaxed text-fg">
+          <span className="font-medium">Moment : </span>
+          {fiche.timing.moment}
+          {" — "}
+          <span className="font-medium">Caractère : </span>
+          {fiche.timing.caractere}
+        </p>
+      </div>
+
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <Field label="Zones d'auscultation">
+          <Chips items={fiche.zone.map((id) => pulmonaireZoneById(id)?.label ?? id)} />
+        </Field>
+        <Field label="Phase">{fiche.timing.phase}</Field>
+        <Field label="Timbre">{fiche.timbre}</Field>
+        <Field label="Fréquence">{fiche.frequence}</Field>
+        <Field label="Localisation">{fiche.localisation}</Field>
+      </div>
+
+      <div className="mt-5 space-y-4">
+        <Field label="Variations (manœuvres)">
+          <VariationList items={fiche.variations} />
+        </Field>
+        <Field label="Pathologies associées">
+          <Chips items={fiche.pathologies_associees} />
+        </Field>
+        <Field label="Diagnostics différentiels">
+          <Chips items={fiche.diagnostics_differentiels} />
+        </Field>
+        <Field label="Items du programme">
+          <Chips items={fiche.items_programme} />
+        </Field>
+        <Field label="Pièges">
+          <Bullets items={fiche.pieges} tone="warn" />
+        </Field>
+      </div>
+
+      <p className="mt-5 border-t border-border pt-3 text-[11px] leading-relaxed text-subtle">
+        Source : {fiche.source.reference} — {fiche.source.license}
+      </p>
+    </div>
+  );
+}
+
+/** Frise Inspiration — Expiration d'après les durées du preset audio. */
+function RespiratoryStrip({
+  inspirationMs = 1400,
+  expirationMs = 2200,
+  phase,
+}: {
+  inspirationMs?: number;
+  expirationMs?: number;
+  phase?: string;
+}) {
+  const total = Math.max(1, inspirationMs + expirationMs);
+  const inspPct = (inspirationMs / total) * 100;
+  const expiFocused = !!phase && phase.startsWith("expiratoire");
+  const inspiFocused = !!phase && phase.startsWith("inspiratoire");
+
+  return (
+    <div>
+      <div className="flex items-stretch gap-1.5 rounded-[var(--radius-md)] bg-secondary p-2.5">
+        <div
+          className={cn(
+            "flex min-w-0 flex-col justify-center",
+            inspiFocused && "rounded-[var(--radius-sm)] ring-1 ring-primary/60",
+          )}
+          style={{ width: `${inspPct}%` }}
+        >
+          <div className={cn("h-1 rounded-full", inspiFocused ? "bg-primary" : "bg-primary/50")} />
+          <span className="mt-1 truncate text-[9px] uppercase tracking-wider text-muted">
+            inspiration
+          </span>
+        </div>
+        <div
+          className={cn(
+            "flex min-w-0 flex-1 flex-col justify-center",
+            expiFocused && "rounded-[var(--radius-sm)] ring-1 ring-[#A67C1E]/60",
+          )}
+        >
+          <div
+            className={cn(
+              "h-1 rounded-full",
+              expiFocused ? "bg-[#A67C1E]" : "bg-[#A67C1E]/50",
+            )}
+          />
+          <span className="mt-1 truncate text-[9px] uppercase tracking-wider text-muted">
+            expiration
+          </span>
+        </div>
+      </div>
+      <div className="mt-1.5 flex justify-between font-mono text-[10px] tabular-nums text-subtle">
+        <span>Inspiration {inspirationMs} ms</span>
+        <span>Expiration {expirationMs} ms</span>
+      </div>
+    </div>
+  );
+}
+
+function VariationList({ items }: { items: PulmonaireFiche["variations"] }) {
+  if (!items || items.length === 0) return <span className="text-sm text-muted">—</span>;
+  return (
+    <ul className="space-y-2">
+      {items.map((v) => (
+        <li key={v.manoeuvre} className="flex flex-col gap-0.5">
+          <span className="flex gap-2">
+            <span aria-hidden className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+            <span className="font-medium">{v.manoeuvre}</span>
+          </span>
+          <span className="pl-[14px] text-sm text-muted">{v.effet}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function ClickMark({ label, tone }: { label: string; tone: "primary" | "accent" }) {
   return (
     <span
@@ -409,17 +715,5 @@ function Bullets({ items, tone }: { items: string[]; tone?: "warn" }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-function EmptyPanel() {
-  return (
-    <div className="rounded-[var(--radius-lg)] bg-card p-10 text-center shadow-[var(--shadow-border)]">
-      <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-secondary text-muted">
-        <Wind className="size-6" aria-hidden />
-      </span>
-      <p className="mt-3 font-display text-lg font-medium">Auscultation pulmonaire</p>
-      <p className="mt-1 text-sm text-muted">Module en préparation (étape 3/3).</p>
-    </div>
   );
 }

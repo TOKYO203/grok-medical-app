@@ -1,0 +1,58 @@
+{
+  "id": "bruit-tracheal",
+  "label": "Bruit trachéal (souffle laryngo-trachéal)",
+  "categorie": "normal",
+  "zone": ["trachee"],
+  "timing": {
+    "phase": "inspiro-expiratoire",
+    "moment": "inspiration ET expiration, d'intensité comparable",
+    "caractere": "rude, soufflant, tubaire, non musical",
+    "schema": "Inspiration (souffle rude) — Expiration (souffle rude d'intensité équivalente)"
+  },
+  "timbre": "Souffle rude, soufflant et grave, perçu au contact des voies aériennes centrales : c'est le bruit normal de la trachée et du larynx.",
+  "frequence": "Fréquences moyennes à élevées (filtre passe-bande ~800 Hz) : son plus riche et plus fort que le murmure vésiculaire.",
+  "localisation": "Face antérieure du cou, sur la trachée cervicale, au-dessus du manubrium : c'est un bruit TRAÇANT normal qui n'a aucune valeur pathologique à sa topographie.",
+  "variations": [
+    {
+      "manoeuvre": "Ausculter la trachée cervicale puis les bases",
+      "effet": "Le bruit trachéal est normal sur la trachée mais pathologique s'il est transmis en un point du parenchyme (souffle tubaire)."
+    },
+    {
+      "manoeuvre": "Inspiration forcée puis expiration forcée",
+      "effet": "L'intensité augmente des deux côtés, sans allongement préférentiel de l'expiration."
+    },
+    {
+      "manoeuvre": "Comparer inspiration et expiration",
+      "effet": "Les deux phases sont d'intensité comparable : pas de rapport I/E inversé."
+    }
+  ],
+  "pathologies_associees": ["Auscultation trachéale normale"],
+  "diagnostics_differentiels": [
+    "Souffle tubaire (condensation pulmonaire)",
+    "Stridor (bruit trachéal pathologique, musical et inspiratoire)",
+    "Souffle laryngé (obstruction laryngée)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "normal_tracheal",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1400,
+      "expirationMs": 2200,
+      "ambientFreq": 800,
+      "ambientQ": 0.9,
+      "ambientGain": 0.13
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Auscultation pulmonaire normale"],
+  "pieges": [
+    "Le bruit trachéal est un repère anatomique : entendu sur la trachée il est normal, entendu dans un champ pulmonaire il traduit un souffle bronchique pathologique.",
+    "Ne pas confondre le bruit trachéal normal avec un stridor, qui est musical, inspirabile et pathognomonique d'une obstruction des voies aériennes supérieures.",
+    "Chez l'enfant, le bruit trachéal est physiologiquement plus intense (paroi thoracique mince)."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

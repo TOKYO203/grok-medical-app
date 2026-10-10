@@ -227,6 +227,8 @@ let voice: GainNode | null = null;
 let schedulerId: ReturnType<typeof setInterval> | null = null;
 let nextBeatTime = 0;
 let activeParams: ResolvedParams | null = null;
+/** Paramètres du preset pulmonaire en cours (étape 3/3). */
+let activeLungParams: ResolvedLungParams | null = null;
 /** Toutes les sources planifiées (oscillateurs + bruit) à couper par stop(). */
 const liveSources = new Set<AudioScheduledSourceNode>();
 /** Buffer de bruit blanc partagé (créé lazy, rejoué par tranches courtes). */
@@ -613,6 +615,7 @@ export function stop(): void {
     schedulerId = null;
   }
   activeParams = null;
+  activeLungParams = null;
 
   const ac = ctx;
   const v = voice;
@@ -663,7 +666,579 @@ export function audioContextState(): AudioContextState | null {
   return ctx?.state ?? null;
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   Moteur pulmonaire — étape 3/3
+   ───────────────────────────────────────────────────────────────────
+   Même principe que le moteur cardiaque : chaque preset planifie UN cycle
+   respiratoire (inspiration + expiration) et renvoie sa durée. Les bruits
+   continus utilisent `noise()` (bruit blanc filtré) ; les craquements, des
+   bouffées courtes de bruit (`crackleBurst`) ; les sibilances, un bruit
+   passe-bande modulé en amplitude par un oscillateur local (`wheeze`).
+
+   Nomenclature clinique (Adnet/Lapostolle) : « craquements » de basse /
+   moyenne / haute fréquence — jamais « crépitants ». Craquements
+   bronchiques (proximaux, mobilisables par la toux) versus craquements
+   pleuraux (miroirs inspiration/expiration).
+   ═══════════════════════════════════════════════════════════════════ */
+
+export type LungParams = {
+  /** Fréquence respiratoire (cycles / minute). Pilote la durée du cycle. */
+  breathsPerMin?: number;
+  /** Inspiratoire occupant le cycle (ms) — fixe le rapport I/E avec expirationMs. */
+  inspirationMs?: number;
+  /** Durée expiratoire (ms). */
+  expirationMs?: number;
+  /** Fréquence centrale / coupure du bruit de fond respiratoire (Hz). */
+  ambientFreq?: number;
+  /** Résonance du filtre de fond. */
+  ambientQ?: number;
+  /** Amplitude relative du bruit de fond. */
+  ambientGain?: number;
+  /** Craquements : fréquence centrale du passe-bande (Hz). */
+  crackleFreq?: number;
+  /** Craquements : résonance du filtre. */
+  crackleQ?: number;
+  /** Craquements : durée d'une bouffée (ms). */
+  crackleDurMs?: number;
+  /** Craquements : amplitude relative. */
+  crackleGain?: number;
+  /** Craquements : nombre de bouffées par cycle. */
+  crackleCount?: number;
+  /** Sibilances : fréquence centrale du passe-bande (Hz). */
+  wheezeFreq?: number;
+  /** Sibilances : résonance (forte = caractère musical). */
+  wheezeQ?: number;
+  /** Sibilances : amplitude relative. */
+  wheezeGain?: number;
+  /** Sibilances : fréquence de modulation d'amplitude (Hz). */
+  wheezeModHz?: number;
+  /** Stridor : fréquence centrale du passe-bande (Hz). */
+  stridorFreq?: number;
+  /** Stridor : résonance du filtre. */
+  stridorQ?: number;
+  /** Stridor : amplitude relative. */
+  stridorGain?: number;
+};
+
+export type ResolvedLungParams = Required<LungParams>;
+
+const DEFAULT_LUNG_PARAMS: ResolvedLungParams = {
+  breathsPerMin: 16,
+  inspirationMs: 1400,
+  expirationMs: 2200,
+  ambientFreq: 500,
+  ambientQ: 0.7,
+  ambientGain: 0.12,
+  crackleFreq: 600,
+  crackleQ: 1.4,
+  crackleDurMs: 15,
+  crackleGain: 0.45,
+  crackleCount: 6,
+  wheezeFreq: 600,
+  wheezeQ: 6,
+  wheezeGain: 0.16,
+  wheezeModHz: 3,
+  stridorFreq: 1200,
+  stridorQ: 4,
+  stridorGain: 0.2,
+};
+
+/** Réglages de référence par preset pulmonaire (surchargés par la fiche). */
+const LUNG_PRESETS: Record<string, Partial<LungParams>> = {
+  normal_vesicular: {
+    breathsPerMin: 16,
+    ambientFreq: 500,
+    ambientQ: 0.7,
+    ambientGain: 0.14,
+  },
+  normal_tracheal: {
+    breathsPerMin: 16,
+    ambientFreq: 800,
+    ambientQ: 0.9,
+    ambientGain: 0.13,
+  },
+  fine_crackles: {
+    breathsPerMin: 18,
+    ambientFreq: 480,
+    ambientGain: 0.05,
+    crackleFreq: 900,
+    crackleQ: 1.6,
+    crackleDurMs: 8,
+    crackleGain: 0.5,
+    crackleCount: 8,
+  },
+  medium_crackles: {
+    breathsPerMin: 18,
+    ambientFreq: 480,
+    ambientGain: 0.05,
+    crackleFreq: 600,
+    crackleQ: 1.4,
+    crackleDurMs: 15,
+    crackleGain: 0.45,
+    crackleCount: 6,
+  },
+  coarse_crackles: {
+    breathsPerMin: 16,
+    ambientFreq: 420,
+    ambientGain: 0.05,
+    crackleFreq: 300,
+    crackleQ: 1.1,
+    crackleDurMs: 25,
+    crackleGain: 0.45,
+    crackleCount: 5,
+  },
+  pleural_crackles: {
+    breathsPerMin: 16,
+    ambientFreq: 460,
+    ambientGain: 0.04,
+    crackleFreq: 520,
+    crackleQ: 1.3,
+    crackleDurMs: 12,
+    crackleGain: 0.4,
+    crackleCount: 2,
+  },
+  sibilances: {
+    breathsPerMin: 20,
+    ambientFreq: 420,
+    ambientGain: 0.05,
+    wheezeFreq: 600,
+    wheezeQ: 6,
+    wheezeGain: 0.16,
+    wheezeModHz: 3,
+  },
+  stridor: {
+    breathsPerMin: 22,
+    inspirationMs: 1600,
+    expirationMs: 1400,
+    ambientFreq: 380,
+    ambientGain: 0.03,
+    stridorFreq: 1200,
+    stridorQ: 4,
+    stridorGain: 0.2,
+  },
+  bronchial_breath: {
+    breathsPerMin: 16,
+    ambientFreq: 500,
+    ambientQ: 0.9,
+    ambientGain: 0.2,
+  },
+  pleural_effusion_souffle: {
+    breathsPerMin: 16,
+    ambientFreq: 430,
+    ambientQ: 0.8,
+    ambientGain: 0.17,
+  },
+};
+
+function mergeLungParams(preset: string, params?: LungParams): ResolvedLungParams {
+  const out: ResolvedLungParams = {
+    ...DEFAULT_LUNG_PARAMS,
+    ...(LUNG_PRESETS[preset] ?? {}),
+  };
+  if (params) {
+    for (const [key, value] of Object.entries(params)) {
+      if (typeof value === "number" && Number.isFinite(value)) {
+        (out as unknown as Record<string, number>)[key] = value;
+      }
+    }
+  }
+  return out;
+}
+
+/** Durées d'inspiration et d'expiration (s) déduites du cycle respiratoire. */
+function lungTiming(p: ResolvedLungParams): { insp: number; expi: number; total: number } {
+  const total = 60 / Math.max(6, Math.min(60, p.breathsPerMin));
+  const ratio = p.inspirationMs / Math.max(1, p.inspirationMs + p.expirationMs);
+  const insp = Math.max(0.3, total * ratio);
+  const expi = Math.max(0.3, total - insp);
+  return { insp, expi, total: insp + expi };
+}
+
+/** Bouffée de craquement : bruit blanc filtré en passe-bande, enveloppe très brève. */
+function crackleBurst(
+  audio: AudioContext,
+  destination: AudioNode,
+  at: number,
+  o: { durMs: number; freq: number; q: number; gain: number },
+): void {
+  const t = Math.max(0, at);
+  const dur = Math.max(0.004, ms(o.durMs));
+  const src = audio.createBufferSource();
+  src.buffer = getNoiseBuffer(audio);
+  src.loop = true;
+
+  const filter = audio.createBiquadFilter();
+  filter.type = "bandpass";
+  filter.frequency.setValueAtTime(o.freq, t);
+  filter.Q.setValueAtTime(o.q, t);
+
+  const env = audio.createGain();
+  env.gain.setValueAtTime(0.0001, t);
+  env.gain.exponentialRampToValueAtTime(Math.max(0.0002, o.gain), t + dur * 0.3);
+  env.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+  src.connect(filter);
+  filter.connect(env);
+  env.connect(destination);
+
+  trackSource(src);
+  src.start(t);
+  src.stop(t + dur + 0.02);
+}
+
+/** Sibilance : bruit passe-bande continu modulé en amplitude (caractère musical). */
+function wheeze(
+  audio: AudioContext,
+  destination: AudioNode,
+  at: number,
+  dur: number,
+  p: ResolvedLungParams,
+): void {
+  const t = Math.max(0, at);
+  const d = Math.max(0.1, dur);
+  const src = audio.createBufferSource();
+  src.buffer = getNoiseBuffer(audio);
+  src.loop = true;
+
+  const filter = audio.createBiquadFilter();
+  filter.type = "bandpass";
+  filter.frequency.setValueAtTime(p.wheezeFreq, t);
+  filter.Q.setValueAtTime(p.wheezeQ, t);
+
+  const env = audio.createGain();
+  const g = Math.max(0.0002, p.wheezeGain);
+  env.gain.setValueAtTime(0.0001, t);
+  env.gain.linearRampToValueAtTime(g * 0.6, t + Math.min(0.25, d * 0.3));
+  env.gain.setValueAtTime(g * 0.6, t + Math.max(0.3, d - 0.2));
+  env.gain.linearRampToValueAtTime(0.0001, t + d);
+
+  // Modulation d'amplitude : un oscillateur lent ajoute ±(g/2) à l'enveloppe.
+  const lfo = audio.createOscillator();
+  lfo.type = "sine";
+  lfo.frequency.setValueAtTime(p.wheezeModHz, t);
+  const lfoGain = audio.createGain();
+  lfoGain.gain.setValueAtTime(g * 0.5, t);
+  lfo.connect(lfoGain);
+  lfoGain.connect(env.gain);
+
+  src.connect(filter);
+  filter.connect(env);
+  env.connect(destination);
+
+  for (const node of [src, lfo]) {
+    trackSource(node);
+    node.start(t);
+    node.stop(t + d + 0.06);
+  }
+}
+
+/** Craquements répartis aléatoirement dans une portion [from, to] du cycle. */
+function scatterCrackles(
+  audio: AudioContext,
+  destination: AudioNode,
+  at: number,
+  window: number,
+  from: number,
+  to: number,
+  p: ResolvedLungParams,
+): void {
+  const count = Math.max(1, Math.round(p.crackleCount));
+  for (let i = 0; i < count; i += 1) {
+    const frac = from + Math.random() * Math.max(0, to - from);
+    const jitterGain = p.crackleGain * (0.6 + Math.random() * 0.5);
+    crackleBurst(audio, destination, at + window * frac, {
+      durMs: p.crackleDurMs,
+      freq: p.crackleFreq,
+      q: p.crackleQ,
+      gain: jitterGain,
+    });
+  }
+}
+
+/* ─── Un cycle respiratoire par preset pulmonaire ────────────────────
+   Chaque fonction planifie l'inspiration et l'expiration au temps `at` et
+   renvoie la durée du cycle complet (s) avant le cycle suivant. */
+
+type BreathScheduler = (
+  audio: AudioContext,
+  destination: AudioNode,
+  at: number,
+  p: ResolvedLungParams,
+) => number;
+
+/** Murmure vésiculaire : souffle doux continu, plus fort à l'inspiration. */
+function breathVesicular(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp,
+    gain: p.ambientGain,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  noise(a, d, at + insp, {
+    dur: expi,
+    gain: p.ambientGain * 0.55,
+    filter: "lowpass",
+    freq: p.ambientFreq * 0.9,
+    q: p.ambientQ,
+    shape: "decrescendo",
+  });
+  return total;
+}
+
+/** Bruit trachéal : souffle passe-bande rude, d'intensité équivalente dans les deux phases. */
+function breathTracheal(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp,
+    gain: p.ambientGain,
+    filter: "bandpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  noise(a, d, at + insp, {
+    dur: expi,
+    gain: p.ambientGain * 0.8,
+    filter: "bandpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  return total;
+}
+
+/** Craquements de HAUTE fréquence : fins, télé-inspiratoires (fin d'inspiration). */
+function breathFineCrackles(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: total,
+    gain: p.ambientGain * 0.6,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  scatterCrackles(a, d, at, insp, 0.6, 1, p);
+  return total;
+}
+
+/** Craquements de MOYENNE fréquence : holo-inspiratoires (bronches segmentaires). */
+function breathMediumCrackles(
+  a: AudioContext,
+  d: AudioNode,
+  at: number,
+  p: ResolvedLungParams,
+): number {
+  const { insp, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: total,
+    gain: p.ambientGain * 0.6,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  scatterCrackles(a, d, at, insp, 0.05, 1, p);
+  return total;
+}
+
+/** Craquements de BASSE fréquence : grossiers, proximaux, tout au long du cycle. */
+function breathCoarseCrackles(
+  a: AudioContext,
+  d: AudioNode,
+  at: number,
+  p: ResolvedLungParams,
+): number {
+  const { total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: total,
+    gain: p.ambientGain * 0.6,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  scatterCrackles(a, d, at, total, 0, 1, p);
+  return total;
+}
+
+/** Craquements PLEURAUX : deux bouffées miroirs, fin d'inspiration et fin d'expiration. */
+function breathPleuralCrackles(
+  a: AudioContext,
+  d: AudioNode,
+  at: number,
+  p: ResolvedLungParams,
+): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: total,
+    gain: p.ambientGain * 0.5,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  crackleBurst(a, d, at + insp * 0.9, {
+    durMs: p.crackleDurMs,
+    freq: p.crackleFreq,
+    q: p.crackleQ,
+    gain: p.crackleGain,
+  });
+  crackleBurst(a, d, at + insp + expi * 0.9, {
+    durMs: p.crackleDurMs,
+    freq: p.crackleFreq * 0.9,
+    q: p.crackleQ,
+    gain: p.crackleGain * 0.9,
+  });
+  return total;
+}
+
+/** Sibilances : sifflement continu méso/télé-expiratoire, sur fond vésiculaire. */
+function breathSibilances(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp,
+    gain: p.ambientGain * 0.5,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  wheeze(a, d, at + insp + expi * 0.12, expi * 0.88, p);
+  return total;
+}
+
+/** Stridor : sifflement rude inspiratoire (obstruction extra-thoracique). */
+function breathStridor(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp * 0.95,
+    gain: p.stridorGain,
+    filter: "bandpass",
+    freq: p.stridorFreq,
+    q: p.stridorQ,
+    shape: "diamond",
+  });
+  noise(a, d, at + insp, {
+    dur: expi,
+    gain: p.ambientGain * 0.4,
+    filter: "lowpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "decrescendo",
+  });
+  return total;
+}
+
+/** Souffle bronchique : bruit passe-bande continu rude, plus fort à l'inspiration. */
+function breathBronchial(a: AudioContext, d: AudioNode, at: number, p: ResolvedLungParams): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp,
+    gain: p.ambientGain,
+    filter: "bandpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  noise(a, d, at + insp, {
+    dur: expi,
+    gain: p.ambientGain * 0.8,
+    filter: "bandpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  return total;
+}
+
+/** Souffle pleurétique : souffle aspiratif prédominant à l'inspiration, prolongé à l'expiration. */
+function breathPleuralEffusion(
+  a: AudioContext,
+  d: AudioNode,
+  at: number,
+  p: ResolvedLungParams,
+): number {
+  const { insp, expi, total } = lungTiming(p);
+  noise(a, d, at, {
+    dur: insp,
+    gain: p.ambientGain * 1.1,
+    filter: "bandpass",
+    freq: p.ambientFreq,
+    q: p.ambientQ,
+    shape: "plateau",
+  });
+  noise(a, d, at + insp, {
+    dur: expi * 0.75,
+    gain: p.ambientGain * 0.8,
+    filter: "bandpass",
+    freq: p.ambientFreq * 0.85,
+    q: p.ambientQ,
+    shape: "decrescendo",
+  });
+  return total;
+}
+
+const PRESET_BREATHS: Record<string, BreathScheduler> = {
+  normal_vesicular: breathVesicular,
+  normal_tracheal: breathTracheal,
+  fine_crackles: breathFineCrackles,
+  medium_crackles: breathMediumCrackles,
+  coarse_crackles: breathCoarseCrackles,
+  pleural_crackles: breathPleuralCrackles,
+  sibilances: breathSibilances,
+  stridor: breathStridor,
+  bronchial_breath: breathBronchial,
+  pleural_effusion_souffle: breathPleuralEffusion,
+};
+
+/**
+ * Joue un son pulmonaire synthétisé, en boucle, jusqu'à stop().
+ * Le premier appel crée l'AudioContext (geste utilisateur requis).
+ */
+export function playLungSound(preset: string, params: LungParams = {}): void {
+  const audio = ensureContext();
+  if (!audio) return;
+  const { ctx: ac, master: masterGain } = audio;
+
+  // Toute lecture précédente est coupée proprement.
+  stop();
+
+  const p = mergeLungParams(preset, params);
+  const builder = PRESET_BREATHS[preset] ?? breathVesicular;
+
+  voice = ac.createGain();
+  voice.gain.setValueAtTime(1, ac.currentTime);
+  voice.connect(masterGain);
+
+  nextBeatTime = ac.currentTime + 0.1;
+
+  const scheduler = () => {
+    if (!voice || !activeLungParams) return;
+    // Les cycles respiratoires sont longs : horizon étendu.
+    const horizon = ac.currentTime + 3;
+    let guard = 0;
+    while (nextBeatTime < horizon && guard < 32) {
+      const interval = builder(ac, voice, nextBeatTime, activeLungParams);
+      nextBeatTime += Math.max(0.8, interval);
+      guard += 1;
+    }
+  };
+
+  activeLungParams = p;
+  scheduler();
+  schedulerId = setInterval(scheduler, 250);
+}
+
 /** Presets réellement implémentés (garde-fou de cohérence des fiches). */
 export function listPresets(): string[] {
-  return Object.keys(PRESET_BEATS);
+  return [...Object.keys(PRESET_BEATS), ...Object.keys(PRESET_BREATHS)];
+}
+
+/** Presets pulmonaires réellement implémentés. */
+export function listLungPresets(): string[] {
+  return Object.keys(PRESET_BREATHS);
 }

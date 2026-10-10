@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "zones": [
+    {
+      "id": "trachee",
+      "label": "Trachée (cervicale)",
+      "short": "Trachée",
+      "emoji": "🫁",
+      "localisation": "Face antérieure du cou, au-dessus du manubrium sternal"
+    },
+    {
+      "id": "sommet-d",
+      "label": "Sommet pulmonaire droit",
+      "short": "Sommet D",
+      "emoji": "🩺",
+      "localisation": "Fosse sus-claviculaire et 1er-2e espaces intercostaux droits"
+    },
+    {
+      "id": "sommet-g",
+      "label": "Sommet pulmonaire gauche",
+      "short": "Sommet G",
+      "emoji": "🩺",
+      "localisation": "Fosse sus-claviculaire et 1er-2e espaces intercostaux gauches"
+    },
+    {
+      "id": "base-d",
+      "label": "Base pulmonaire droite",
+      "short": "Base D",
+      "emoji": "🔷",
+      "localisation": "Partie inférieure du champ pulmonaire droit, sous la 5e côte"
+    },
+    {
+      "id": "base-g",
+      "label": "Base pulmonaire gauche",
+      "short": "Base G",
+      "emoji": "🔷",
+      "localisation": "Partie inférieure du champ pulmonaire gauche, sous la 5e côte"
+    },
+    {
+      "id": "axillaire-d",
+      "label": "Région axillaire droite",
+      "short": "Axillaire D",
+      "emoji": "🎯",
+      "localisation": "Creux axillaire droit, sur la ligne axillaire moyenne"
+    },
+    {
+      "id": "axillaire-g",
+      "label": "Région axillaire gauche",
+      "short": "Axillaire G",
+      "emoji": "🎯",
+      "localisation": "Creux axillaire gauche, sur la ligne axillaire moyenne"
+    },
+    {
+      "id": "diffus",
+      "label": "Diffus (les deux champs)",
+      "short": "Diffus",
+      "emoji": "🌀",
+      "localisation": "Les deux champs pulmonaires, de façon bilatérale et symétrique"
+    }
+  ],
+  "sounds": [
+    {
+      "id": "murmure-vesiculaire",
+      "label": "Murmure vésiculaire normal",
+      "categorie": "normal",
+      "zones": ["diffus"],
+      "file": "pulmonaire/normal/murmure-vesiculaire.json",
+      "status": "available"
+    },
+    {
+      "id": "bruit-tracheal",
+      "label": "Bruit trachéal (souffle laryngo-trachéal)",
+      "categorie": "normal",
+      "zones": ["trachee"],
+      "file": "pulmonaire/normal/bruit-tracheal.json",
+      "status": "available"
+    },
+    {
+      "id": "craquements-basse-frequence",
+      "label": "Craquements de basse fréquence",
+      "categorie": "craquement",
+      "zones": ["base-d", "base-g"],
+      "file": "pulmonaire/pathologique/craquements-basse-frequence.json",
+      "status": "available"
+    },
+    {
+      "id": "craquements-moyenne-frequence",
+      "label": "Craquements de moyenne fréquence",
+      "categorie": "craquement",
+      "zones": ["base-d", "base-g", "axillaire-d", "axillaire-g"],
+      "file": "pulmonaire/pathologique/craquements-moyenne-frequence.json",
+      "status": "available"
+    },
+    {
+      "id": "craquements-haute-frequence",
+      "label": "Craquements de haute fréquence",
+      "categorie": "craquement",
+      "zones": ["base-d", "base-g"],
+      "file": "pulmonaire/pathologique/craquements-haute-frequence.json",
+      "status": "available"
+    },
+    {
+      "id": "craquements-pleuraux",
+      "label": "Craquements pleuraux",
+      "categorie": "craquement",
+      "zones": ["axillaire-d", "axillaire-g", "sommet-d", "sommet-g"],
+      "file": "pulmonaire/pathologique/craquements-pleuraux.json",
+      "status": "available"
+    },
+    {
+      "id": "sibilances",
+      "label": "Sibilances (râles sibilants)",
+      "categorie": "continu",
+      "zones": ["diffus"],
+      "file": "pulmonaire/pathologique/sibilances.json",
+      "status": "available"
+    },
+    {
+      "id": "stridor",
+      "label": "Stridor",
+      "categorie": "continu",
+      "zones": ["trachee"],
+      "file": "pulmonaire/pathologique/stridor.json",
+      "status": "available"
+    },
+    {
+      "id": "souffles-bronchiques",
+      "label": "Souffles bronchiques (tubaire, caverneux, amphorique)",
+      "categorie": "souffle",
+      "zones": ["sommet-d", "sommet-g", "base-d", "base-g"],
+      "file": "pulmonaire/pathologique/souffles-bronchiques.json",
+      "status": "available"
+    },
+    {
+      "id": "souffle-pleuretique",
+      "label": "Souffle pleurétique",
+      "categorie": "souffle",
+      "zones": ["base-d", "base-g"],
+      "file": "pulmonaire/pathologique/souffle-pleuretique.json",
+      "status": "available"
+    }
+  ]
+}

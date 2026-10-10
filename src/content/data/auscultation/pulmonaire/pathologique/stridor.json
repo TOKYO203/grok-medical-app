@@ -1,0 +1,68 @@
+{
+  "id": "stridor",
+  "label": "Stridor",
+  "categorie": "continu",
+  "zone": ["trachee"],
+  "timing": {
+    "phase": "inspiratoire",
+    "moment": "proto- à holo-inspiratoire (bruit inspiratoire)",
+    "caractere": "continu, musical, rude, monophonique",
+    "schema": "Inspiration : sifflement rude et fort, audible à distance — Expiration : silence ou souffle discret"
+  },
+  "timbre": "Sifflement rudimentaire, rauque et musical, entendu à distance sans stéthoscope (signe de cornage). Il est continu et MONOPHONIQUE.",
+  "frequence": "Fréquences élevées (filtre passe-bande ~1200 Hz) : son aigu et vibrant, typique d'une obstruction fixe des voies aériennes supérieures.",
+  "localisation": "Voies aériennes extra-thoraciques : larynx et trachée cervicale. Il irradie au cou et est maximum à l'auscultation de la trachée.",
+  "variations": [
+    {
+      "manoeuvre": "Comparer inspiration et expiration",
+      "effet": "Le stridor est essentiellement INSPIRATOIRE (extra-thoracique) : l'expiration reste silencieuse, à la différence des sibilances."
+    },
+    {
+      "manoeuvre": "Ausculter à distance puis sur le cou",
+      "effet": "Le stridor s'entend sans stéthoscope et se majore à l'auscultation cervicale (transmission trachéale)."
+    },
+    {
+      "manoeuvre": "Position et effort respiratoire",
+      "effet": "Le stridor augmente à l'effort et avec l'agitation : tout stridor est un signe de gravité potentielle des voies aériennes."
+    }
+  ],
+  "pathologies_associees": [
+    "Corps étranger laryngo-trachéal (urgence)",
+    "Épiglottite aiguë (enfant)",
+    "Laryngite aiguë sous-glottique (croup)",
+    "Œdème laryngé (anaphylaxie, angio-œdème)",
+    "Sténose laryngée ou trachéale (post-intubation, tumorale)",
+    "Cancer du larynx, paralysie récurrentielle bilatérale"
+  ],
+  "diagnostics_differentiels": [
+    "Sibilances (expiratoires, intra-thoraciques, polyphoniques)",
+    "Souffle tubaire (souffle respiratoire parenchymateux, non musical)",
+    "Dyspnée laryngée non bruyante (obstruction débutante)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "stridor",
+    "params": {
+      "breathsPerMin": 22,
+      "inspirationMs": 1600,
+      "expirationMs": 1400,
+      "ambientFreq": 380,
+      "ambientGain": 0.03,
+      "stridorFreq": 1200,
+      "stridorQ": 4,
+      "stridorGain": 0.2
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Urgences respiratoires"],
+  "pieges": [
+    "Le stridor est un signe d'URGENCE : il signale une obstruction des voies aériennes supérieures dont la décompensation peut être brutale.",
+    "Ne pas confondre stridor (inspiratoire, extra-thoracique) et sibilances (expiratoires, intra-thoraciques) : le moment du cycle est décisif.",
+    "Un stridor MONOPHONIQUE et fixe évoque une obstruction organique, non un bronchospasme.",
+    "Chez l'enfant fébrile, un stridor évoque une épiglottite : ne pas allonger brutalement l'enfant ni tenter un examen de gorge agressif."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

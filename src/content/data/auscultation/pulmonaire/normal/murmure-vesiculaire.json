@@ -1,0 +1,59 @@
+{
+  "id": "murmure-vesiculaire",
+  "label": "Murmure vésiculaire normal",
+  "categorie": "normal",
+  "zone": ["diffus"],
+  "timing": {
+    "phase": "inspiro-expiratoire",
+    "moment": "inspiration, avec expiration atténuée",
+    "caractere": "doux, soufflé, non musical",
+    "schema": "Inspiration (bruit doux, croissant) — Expiration (bruit plus faible)"
+  },
+  "timbre": "Souffle doux, léger et feutré, sans composante musicale : le bruit du flux aérien traversant les alvéoles.",
+  "frequence": "Basses fréquences (filtre passe-bas ~500 Hz) : son grave et peu aigu, sans pic spectral.",
+  "localisation": "Dans les deux champs pulmonaires (zones « diffus »), à l'exception des régions sus-claviculaires et de la trachée. Maximum aux bases et en région axillaire.",
+  "variations": [
+    {
+      "manoeuvre": "Demander une respiration ample bouche ouverte",
+      "effet": "Le murmure vésiculaire s'intensifie et son caractère soufflé devient net."
+    },
+    {
+      "manoeuvre": "Inspiration profonde puis expiration lente",
+      "effet": "L'inspiration dure plus longtemps que l'expiration (rapport I/E > 1) : signature du murmure vésiculaire."
+    },
+    {
+      "manoeuvre": "Comparer les deux champs et les zones homogènes",
+      "effet": "Le murmure est symétrique et d'intensité comparable ; toute asymétrie est pathologique."
+    }
+  ],
+  "pathologies_associees": ["Examen pulmonaire normal"],
+  "diagnostics_differentiels": [
+    "Murmure vésiculaire aboli (épanchement, pneumothorax)",
+    "Murmure vésiculaire diminué (emphysème, obésité, épanchement)",
+    "Souffle bronchique (remplacement du murmure par un souffle tubaire)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "normal_vesicular",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1400,
+      "expirationMs": 2200,
+      "ambientFreq": 500,
+      "ambientQ": 0.7,
+      "ambientGain": 0.14
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Auscultation pulmonaire normale"],
+  "pieges": [
+    "Le murmure vésiculaire s'entend surtout à l'inspiration : une expiration prolongée fait suspecter une obstruction bronchique.",
+    "Chez l'obèse ou l'emphysémateux, le murmure est physiologiquement atténué sans qu'il s'agisse d'une abolition.",
+    "Ne pas confondre le murmure vésiculaire (doux, diffus) avec le bruit trachéal (rude, audible sur la trachée).",
+    "Toujours ausculter de façon comparative, côté par côté et étage par étage."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

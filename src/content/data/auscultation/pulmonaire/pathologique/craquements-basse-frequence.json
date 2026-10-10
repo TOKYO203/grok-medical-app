@@ -1,0 +1,69 @@
+{
+  "id": "craquements-basse-frequence",
+  "label": "Craquements de basse fréquence",
+  "categorie": "craquement",
+  "zone": ["base-d", "base-g"],
+  "timing": {
+    "phase": "inspiro-expiratoire",
+    "moment": "proto-inspiratoire puis tout au long du cycle, variable",
+    "caractere": "grossiers, bulleux, explosifs, non musicaux",
+    "schema": "Inspiration : craquements grossiers — Expiration : craquements possibles"
+  },
+  "timbre": "Craquements grossiers et bulleux, de tonalité grave : « gros bouillons » éclatant à l'ouverture des voies aériennes proximales encombrées.",
+  "frequence": "Basses fréquences (filtre passe-bande ~300 Hz, bursts longs ~25 ms) : le spectre est grave et large.",
+  "localisation": "Zones proximales et déclives (bases), souvent bilatérales et symétriques ; peuvent être diffus si l'encombrement est important.",
+  "variations": [
+    {
+      "manoeuvre": "Faire tousser puis réausculter immédiatement",
+      "effet": "Les craquements DIMINUENT ou disparaissent après la toux : signe majeur d'un encombrement proximal mobilisable."
+    },
+    {
+      "manoeuvre": "Inspiration ample puis expiration forcée",
+      "effet": "Les craquements sont variables d'un cycle à l'autre et peuvent se modifier en quantité."
+    },
+    {
+      "manoeuvre": "Position assise versus décubitus",
+      "effet": "Les craquements s'aggravent en décubitus par redistribution des sécrétions."
+    }
+  ],
+  "pathologies_associees": [
+    "Bronchite sécrétante",
+    "Exacerbation d'asthme avec hypersécrétions",
+    "Dilatation des bronches (bronchectasies)",
+    "Encombrement bronchique de la mucoviscidose",
+    "Pneumopathie d'inhalation"
+  ],
+  "diagnostics_differentiels": [
+    "Craquements de moyenne fréquence (bronches segmentaires)",
+    "Craquements de haute fréquence (alvéolaires, non mobilisables par la toux)",
+    "Râles bronchiques (ronflements, à distinction des craquements)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "coarse_crackles",
+    "params": {
+      "breathsPerMin": 16,
+      "inspirationMs": 1300,
+      "expirationMs": 2100,
+      "ambientFreq": 420,
+      "ambientGain": 0.05,
+      "crackleFreq": 300,
+      "crackleQ": 1.1,
+      "crackleDurMs": 25,
+      "crackleGain": 0.45,
+      "crackleCount": 5
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Pathologie bronchique"],
+  "pieges": [
+    "À basse fréquence, le craquement est GROSSIER et proximal : il se modifie et disparaît après la toux, contrairement aux craquements fins alvéolaires.",
+    "Employer la nomenclature actuelle « craquements » de basse, moyenne et haute fréquence ; l'ancienne dénomination des râles muqueux est abandonnée.",
+    "Un encombrement proximal évoque une BPCO ou une dilatation des bronches, non un œdème pulmonaire.",
+    "Chez le patient alité, les craquements des bases peuvent être un simple encombrement : faire tousser avant de conclure."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}

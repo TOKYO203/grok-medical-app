@@ -1,0 +1,69 @@
+{
+  "id": "craquements-haute-frequence",
+  "label": "Craquements de haute fréquence",
+  "categorie": "craquement",
+  "zone": ["base-d", "base-g"],
+  "timing": {
+    "phase": "inspiratoire",
+    "moment": "télé-inspiratoire (fin d'inspiration)",
+    "caractere": "fins, secs, serrés, non musicaux, « cheveux que l'on frotte »",
+    "schema": "Inspiration : silence puis craquements serrés en fin d'inspiration — Expiration : silence"
+  },
+  "timbre": "Craquements fins et secs, très serrés, en salve : bruit de « cheveux frottés entre les doigts » ou « d'ouverture d'un velcro ».",
+  "frequence": "Hautes fréquences (filtre passe-bande ~900 Hz, bursts courts ~8 ms) : spectre aigu et serré.",
+  "localisation": "Zones déclives des bases (bases postérieures), symétriques ; peuvent remonter vers les sommets dans la fibrose évoluée.",
+  "variations": [
+    {
+      "manoeuvre": "Faire tousser",
+      "effet": "Les craquements PERSISTENT après la toux : caractère alvéolaire et non mobilisable (différence clé avec l'encombrement)."
+    },
+    {
+      "manoeuvre": "Inspiration profonde puis expiration bloquée",
+      "effet": "Les craquements sont télé-inspiratoires : ils apparaissent en fin d'inspiration et disparaissent en expiration."
+    },
+    {
+      "manoeuvre": "Ausculter le patient penché en avant",
+      "effet": "Les craquements basaux sont majorés par la position déclive et l'auscultation des bases postérieures."
+    }
+  ],
+  "pathologies_associees": [
+    "Œdème aigu du poumon (OAP) cardiogénique",
+    "Fibrose pulmonaire idiopathique et pneumopathies interstitielles",
+    "Pneumopathie débutante",
+    "Encombrement post-opératoire (chirurgie abdominale, jusqu'à l'atélectasie)",
+    "Pneumopathie d'hypersensibilité"
+  ],
+  "diagnostics_differentiels": [
+    "Craquements de moyenne fréquence (bronches segmentaires, holo-inspiratoires)",
+    "Craquements de basse fréquence (proximaux, mobilisables par la toux)",
+    "Craquements pleuraux (miroirs inspiration et expiration)"
+  ],
+  "audio": {
+    "kind": "synth",
+    "preset": "fine_crackles",
+    "params": {
+      "breathsPerMin": 18,
+      "inspirationMs": 1400,
+      "expirationMs": 2000,
+      "ambientFreq": 480,
+      "ambientGain": 0.05,
+      "crackleFreq": 900,
+      "crackleQ": 1.6,
+      "crackleDurMs": 8,
+      "crackleGain": 0.5,
+      "crackleCount": 8
+    }
+  },
+  "items_programme": ["Sémiologie respiratoire", "Insuffisance cardiaque", "Pneumopathies interstitielles"],
+  "pieges": [
+    "Les craquements de haute fréquence PERSISTENT après la toux : c'est le signe qui les distingue des craquements d'encombrement proximal.",
+    "La terminologie ancienne est obsolète : employer « craquements de haute fréquence ».",
+    "Un OAP débutant se manifeste d'abord par des craquements télésinspiratoires des bases ; leur extension vers les sommets signale l'aggravation.",
+    "Après chirurgie abdominale, l'apparition de craquements basaux impose d'évoquer une atélectasie ou une pneumopathie post-opératoire."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie respiratoire — Collège des Enseignants de Pneumologie (CEP), référentiel Adnet/Lapostolle",
+    "license": "Usage pédagogique"
+  }
+}
