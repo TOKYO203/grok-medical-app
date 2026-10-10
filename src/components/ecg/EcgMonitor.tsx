@@ -82,6 +82,10 @@ function cycleSeconds(bpm: number) {
       uniquement sur un appareil TACTILE en PORTRAIT. Sur desktop, tout
       est no-op silencieux (les appels sont avalés par try/catch + .catch).
 
+   Appareil SANS GYROSCOPE (aucun verrou OS possible) : le bouton « Paysage »
+   de la barre d'outils force la rotation manuellement — c'est alors la seule
+   commande utile, le badge passif n'étant plus qu'un indicateur d'état.
+
    À la sortie du plein écran (bouton, Échap, geste système) :
    `screen.orientation.unlock()` rend la main au système.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -176,6 +180,41 @@ function viewportUnits(): { h: string; w: string } {
   return { h: "100vh", w: "100vw" };
 }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   Rotation PAYSAGE FORCÉE à la main (appareils sans gyroscope)
+   ───────────────────────────────────────────────────────────────────────
+   Cible : tablettes / téléphones SANS capteur d'orientation. Le mobile
+   n'est alors jamais physiquement tourné, donc `screen.orientation.lock()`
+   échoue ou reste sans effet (Android refuse le verrou sans « rotation
+   auto ») : le repli CSS est le SEUL moyen d'obtenir un tracé paysage.
+   Le bouton dédié de la barre d'outils plein écran l'active explicitement ;
+   la préférence est mémorisée pour la session suivante.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/** Clé de persistance de la préférence « forcer le paysage ». */
+const FORCE_LANDSCAPE_KEY = "ecg.fullscreen.forceLandscape";
+
+/** Préférence mémorisée (`false` si stockage indisponible — SSR, privé, iframe). */
+function readForceLandscape(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(FORCE_LANDSCAPE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+/** Mémorise la préférence ; l'état React reste la source de vérité. */
+function writeForceLandscape(value: boolean): void {
+  if (typeof window === "undefined") return;
+  try {
+    if (value) window.localStorage.setItem(FORCE_LANDSCAPE_KEY, "true");
+    else window.localStorage.removeItem(FORCE_LANDSCAPE_KEY);
+  } catch {
+    /* quota atteint / stockage bloqué : no-op silencieux */
+  }
+}
+
 export function EcgMonitor({
   bpm = 75,
   soundType = "bip_normal",
@@ -192,8 +231,14 @@ export function EcgMonitor({
   const [full, setFull] = useState(false);
   // Plein écran obtenu nativement par l'API (vs. repli CSS `fixed inset-0`).
   const [nativeFull, setNativeFull] = useState(false);
-  // Repli CSS : cadre pivoté de 90° (mobile portrait sans verrou d'orientation).
-  const [rotateFallback, setRotateFallback] = useState(false);
+  // Le verrou paysage OS a été refusé (mobile sans gyroscope, « rotation auto »
+  // coupée) → il faut pivoter le cadre nous-mêmes.
+  const [autoLockRefused, setAutoLockRefused] = useState(false);
+  // Rotation paysage DEMANDÉE à la main (bouton « Paysage ») : indispensable
+  // sur un appareil sans capteur, où aucun verrou OS ne peut aboutir.
+  const [forceLandscape, setForceLandscape] = useState<boolean>(readForceLandscape);
+  // Appareil tactile en portrait — lu au rendu, rafraîchi au resize.
+  const [touchPortrait, setTouchPortrait] = useState(false);
   const [gainManual, setGainManual] = useState<EcgGain | null>(null);
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
 
@@ -259,9 +304,10 @@ export function EcgMonitor({
   useEffect(() => {
     const onResize = () => {
       setViewport({ w: window.innerWidth, h: window.innerHeight });
-      // Paysage atteint (verrou accepté ou rotation manuelle) → le repli
-      // CSS n'a plus lieu d'être.
-      if (window.innerWidth > window.innerHeight) setRotateFallback(false);
+      // Cible tactile + portrait : condition d'application du repli. Passer en
+      // paysage (verrou accepté, ou appareil réellement tourné) l'annule de
+      // fait, la valeur dérivée `rotateFallback` retombant à `false`.
+      setTouchPortrait(isTouchPortrait());
     };
     onResize();
     window.addEventListener("resize", onResize);
@@ -309,26 +355,62 @@ export function EcgMonitor({
       setNativeFull(native);
       const locked = native ? await lockLandscape() : false;
       // Le verrou paysage a échoué (ou pas de plein écran natif) sur un mobile
-      // en portrait → on pivote le cadre nous-mêmes.
-      if (!cancelled) setRotateFallback(!locked && isTouchPortrait());
+      // en portrait → on note le refus, le repli CSS s'appliquera alors même
+      // sans intervention de l'utilisateur (appareil sans gyroscope).
+      if (!cancelled) {
+        setAutoLockRefused(!locked);
+        setTouchPortrait(isTouchPortrait());
+      }
     })();
     return () => {
       cancelled = true;
     };
   }, [full]);
 
+  /** Quitte le mode forcé (état + préférence mémorisée). */
+  const clearForceLandscape = useCallback(() => {
+    setForceLandscape(false);
+    writeForceLandscape(false);
+  }, []);
+
   const exitFullscreen = useCallback(async () => {
     unlockOrientation(); // rend la rotation au système
-    setRotateFallback(false);
+    setAutoLockRefused(false);
+    clearForceLandscape(); // la rotation forcée ne survit pas à la sortie
     setNativeFull(false);
     setFull(false);
     await exitNativeFullscreen();
-  }, []);
+  }, [clearForceLandscape]);
 
   const toggleFullscreen = useCallback(() => {
     if (full) void exitFullscreen();
     else setFull(true); // le reste (fullscreen natif, verrou) suit dans l'effet
   }, [full, exitFullscreen]);
+
+  /*
+   * Bouton « Paysage » : la SEULE commande utilisable sur un appareil sans
+   * gyroscope, où `screen.orientation.lock()` ne peut pas aboutir. On tente
+   * quand même le verrou OS (il réussit sur un appareil équipé, ce qui évite
+   * une double rotation : la page tourne alors réellement, `touchPortrait`
+   * passe à faux et le repli CSS se désactive de lui-même) ; sinon la valeur
+   * dérivée `rotateFallback` prend le relais.
+   */
+  const toggleForceLandscape = useCallback(() => {
+    if (forceLandscape) {
+      unlockOrientation();
+      setForceLandscape(false);
+      // Le repli automatique (verrou OS refusé) est neutralisé lui aussi :
+      // sans cela, appuyer sur le bouton pour REVENIR en portrait n'aurait
+      // aucun effet sur un appareil sans gyroscope (le refus restant vrai).
+      setAutoLockRefused(false);
+      writeForceLandscape(false);
+      return;
+    }
+    const api = orientationApi();
+    void api?.lock?.("landscape")?.catch(() => {}); // no-op si l'API est absente
+    setForceLandscape(true);
+    writeForceLandscape(true);
+  }, [forceLandscape]);
 
   /*
    * Sortie de plein écran décidée par le SYSTÈME (Échap, geste retour,
@@ -341,7 +423,8 @@ export function EcgMonitor({
       setNativeFull(active);
       if (active) return;
       unlockOrientation();
-      setRotateFallback(false);
+      setAutoLockRefused(false);
+      clearForceLandscape();
       setFull(false);
     };
     document.addEventListener("fullscreenchange", onFullscreenChange);
@@ -350,13 +433,14 @@ export function EcgMonitor({
       document.removeEventListener("fullscreenchange", onFullscreenChange);
       document.removeEventListener("webkitfullscreenchange", onFullscreenChange);
     };
-  }, []);
+  }, [clearForceLandscape]);
 
   // Démontage (navigation vers une autre page) pendant le plein écran.
   useEffect(
     () => () => {
       unlockOrientation();
       void exitNativeFullscreen();
+      writeForceLandscape(false); // préférence remise à zéro à la sortie
     },
     [],
   );
@@ -407,6 +491,7 @@ export function EcgMonitor({
    * sinon `vh` / `vw`. Les styles sont conditionnels : sur desktop
    * `rotateFallback` est toujours faux → le bloc n'est JAMAIS appliqué.
    */
+  const rotateFallback = full && touchPortrait && (autoLockRefused || forceLandscape);
   const vpUnits = viewportUnits();
   const rotateStyle: CSSProperties | undefined = rotateFallback
     ? {
@@ -441,6 +526,7 @@ export function EcgMonitor({
       data-ecg-leads={ALL_LEADS.join(" ")}
       data-ecg-fullscreen-mode={nativeFull ? "native" : full ? "css" : "off"}
       data-ecg-rotate-fallback={rotateFallback ? "true" : "false"}
+      data-ecg-force-landscape={forceLandscape ? "true" : "false"}
       className={
         "overflow-hidden bg-black ring-1 ring-black/60 shadow-[var(--shadow-md)] " +
         (full
@@ -518,6 +604,41 @@ export function EcgMonitor({
             >
               {sound ? "🔊" : "🔈"}
             </button>
+            {/* Bouton « Paysage » — plein écran uniquement. Sur un appareil SANS
+                gyroscope, c'est le seul moyen d'obtenir le tracé en paysage :
+                le verrou OS ne peut pas aboutir, on pivote alors le cadre en CSS.
+                Actif, il passe en or (#A67C1E) pour signaler le mode forcé. */}
+            {full ? (
+              <button
+                type="button"
+                onClick={toggleForceLandscape}
+                aria-pressed={forceLandscape}
+                aria-label="Forcer l'affichage paysage"
+                data-ecg-force-landscape-toggle=""
+                className={
+                  "rounded-full px-2 py-0.5 text-[10px] transition-colors " +
+                  (forceLandscape
+                    ? "bg-[#A67C1E] text-black"
+                    : "bg-white/10 text-white/70 hover:bg-white/20")
+                }
+              >
+                {/* Smartphone pivoté à 90° (SVG inline — aucune dépendance). */}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="size-3"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="6" width="20" height="12" rx="2.5" />
+                  <line x1="5.5" y1="12" x2="8" y2="12" />
+                  <line x1="19" y1="10.5" x2="19" y2="13.5" />
+                </svg>
+              </button>
+            ) : null}
             <button
               type="button"
               onClick={toggleFullscreen}
@@ -636,14 +757,15 @@ export function EcgMonitor({
           <text x={PANEL_X + 22} y={PAD_TOP + 114} fontSize="3" fontFamily={MONO} fill="rgba(255,255,255,0.4)">°C</text>
         </svg>
       </div>
-      {/* Badge d'aide — HORS du conteneur pivoté, donc toujours lisible à
-          l'écran (il invite à tourner l'appareil, cf. repli rotation). */}
+      {/* Mini-indicateur d'état — HORS du conteneur pivoté, donc toujours
+          lisible à l'écran (il ne fait que CONFIRMER le mode, non cliquable :
+          l'action passe par le bouton « Paysage » de la barre d'outils). */}
       {full && rotateFallback ? (
         <div
           data-ecg-orientation-hint=""
-          className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/70 px-3 py-1 font-mono text-[11px] text-white/70 ring-1 ring-white/10"
+          className="pointer-events-none absolute bottom-1.5 right-2 z-10 font-mono text-[9px] tracking-wide text-white/40"
         >
-          📱 Rotation auto indisponible — tourne l'appareil en paysage
+          {forceLandscape ? "⟳ paysage forcé" : "⟳ rotation auto indisponible"}
         </div>
       ) : null}
     </div>
