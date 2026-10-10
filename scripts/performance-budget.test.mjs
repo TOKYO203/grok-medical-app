@@ -53,12 +53,16 @@ test("one oversized client chunk fails the budget", () => {
 });
 
 test("oversized CSS and aggregate JavaScript are independently rejected", () => {
+  // Tailles dérivées du budget (et non codées en dur) : 4 chunks juste sous le
+  // plafond par chunk, dont la somme dépasse le plafond global.
+  const perChunk = Math.floor(PERFORMANCE_BUDGET.maxTotalJavascriptBytes / 4) + 1;
+  assert.ok(perChunk <= PERFORMANCE_BUDGET.maxJavascriptChunkBytes);
   const { assets } = fixture({
     "styles.css": PERFORMANCE_BUDGET.maxStylesheetBytes + 1,
-    "a.js": 390 * 1024,
-    "b.js": 390 * 1024,
-    "c.js": 390 * 1024,
-    "d.js": 390 * 1024,
+    "a.js": perChunk,
+    "b.js": perChunk,
+    "c.js": perChunk,
+    "d.js": perChunk,
   });
   const report = inspectPerformanceBudget(assets);
   assert.equal(report.ok, false);
