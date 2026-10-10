@@ -25,7 +25,8 @@ export type RhythmResult = {
 
 export function classifyRhythmExtended(input: RhythmInput): RhythmResult {
   const { qrsDurationSec, regular, pWavePresent, prIntervalSec, heartRateBpm, sawTooth } = input;
-  void noRsInPrecordials; void rToSDelaySec;
+  void qrsDurationSec;
+  
 
   // BRADYCARDIE
   if (heartRateBpm < 60) {
