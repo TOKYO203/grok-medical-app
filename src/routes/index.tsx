@@ -325,6 +325,18 @@ function Dashboard() {
       </section>
 
       <section className="mt-8">
+        {/* streak-dashboard */}
+        <section className="mb-4 flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]">
+          <span className="flex size-10 items-center justify-center rounded-full bg-amber-500/15 text-amber-400">
+            <Flame className="size-5" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Série quotidienne</p>
+            <p className="mt-0.5 text-sm font-medium">0 jour · commence aujourd'hui</p>
+          </div>
+          <span className="font-mono text-xs tabular-nums text-subtle">+50 XP à 7j</span>
+        </section>
+
         <SectionTitle kicker="Progression" title="Votre niveau clinique" />
         <div className="optimus-card p-4">
           <div className="flex items-center justify-between text-sm">

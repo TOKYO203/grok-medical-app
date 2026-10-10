@@ -7,6 +7,34 @@ import { getEcg } from "@/lib/ecg/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 import { cn } from "@/lib/utils";
 
+function EcgAnnotations({ step, annotations }: { step: number; annotations?: Array<{ id: string; revealAtStep: number; type: string; label: string; tone: string; coords: Record<string, number> }> }) {
+  if (!annotations || annotations.length === 0) return null;
+  const visible = annotations.filter((a) => a.revealAtStep <= step + 1);
+  if (visible.length === 0) return null;
+  return (
+    <div className="pointer-events-none absolute inset-0 z-10">
+      {visible.map((a) => {
+        const left = (a.coords.x / 1200) * 100;
+        const top = (a.coords.y / 400) * 100;
+        const cls = a.tone === "warning" ? "border-danger/60 bg-danger/15 text-danger" : a.tone === "info" ? "border-amber-500/60 bg-amber-500/15 text-amber-300" : "border-emerald-500/60 bg-emerald-500/15 text-emerald-300";
+        return (
+          <div
+            key={a.id}
+            className={"absolute -translate-x-1/2 -translate-y-1/2 rounded-full border px-2 py-0.5 text-[10px] font-medium backdrop-blur " + cls}
+            style={{ left: left + "%", top: top + "%" }}
+          >
+            {a.label}
+          </div>
+        );
+      })}
+      <div className="absolute right-3 top-2 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/80">
+        {visible.length}/{annotations.length} annotations
+      </div>
+    </div>
+  );
+}
+
+
 export const Route = createFileRoute("/ecg/$id")({ component: EcgCasePage });
 
 function EcgCasePage() {
@@ -58,7 +86,30 @@ function EcgCasePage() {
           <span className="font-mono text-xs tabular-nums text-subtle">{correct}/{data.steps.length}</span>
         </div>
 
-        <EcgMonitor bpm={data.trace?.bpm ?? 75} label="II" secondsWindow={4} autoStart />
+        
+        {/* Timeline des étapes */}
+        <div className="mb-3 flex items-center gap-1.5 overflow-x-auto pb-1">
+          {data.steps.map((st, i) => {
+            const stDone = i < step;
+            const stCurrent = i === step;
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => { setStep(i); setPicked(null); }}
+                className={"flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors " + (stCurrent ? "bg-primary text-primary-fg shadow-[var(--shadow-soft)]" : stDone ? "bg-primary-soft text-primary" : "bg-secondary text-muted hover:text-fg")}
+              >
+                <span className="font-mono">{i + 1}</span>
+                <span className="hidden sm:inline">{st.title}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="relative">
+          <EcgMonitor bpm={data.trace?.bpm ?? 75} label="II" secondsWindow={4} autoStart />
+          <EcgAnnotations step={step} annotations={data.annotations as never} />
+        </div>
 
         <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{current.title}</p>
