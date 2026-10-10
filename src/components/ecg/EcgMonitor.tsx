@@ -9,7 +9,6 @@ import { useEcgBeep } from "@/lib/ecg/useEcgBeep";
 const W = 1200;
 const H = 400;
 const PX = 20;
-const PY = 10;
 
 type Pt = { t: number; v: number };
 
@@ -108,7 +107,6 @@ export function EcgMonitor({
   const sweepX = PX + ((cursor - winStart) / secondsWindow) * (W - 2 * PX);
 
   // Répartition : 3 traces empilées à gauche + panneau à droite
-  const TOP = 4;
   const tracesTop = 40;
   const tracesHeight = H - tracesTop - 20;
   const rowH = tracesHeight / 3;
