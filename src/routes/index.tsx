@@ -1,17 +1,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Calculator,
-  ChevronRight,
-  ClipboardCheck,
-  Flame,
-  Lock,
-  Sparkles,
-  Trophy,
-  Upload,
-  Zap,
-} from "lucide-react";
+import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -326,10 +316,10 @@ function Dashboard() {
             detail="Outils cliniques"
           />
           <QuickAction
-            to="/classement"
-            icon={<Trophy className="size-5" />}
-            label="Classement"
-            detail="Ligue hebdo"
+            to="/ecg"
+            icon={<Activity className="size-5" />}
+            label="ECG"
+            detail="Interprétation"
           />
         </div>
       </section>
@@ -428,7 +418,7 @@ function QuickAction({
   label,
   detail,
 }: {
-  to: "/revue" | "/cas" | "/examen" | "/calculateurs" | "/classement";
+  to: "/revue" | "/ecg" | "/cas" | "/examen" | "/calculateurs" | "/classement";
   icon: ReactNode;
   label: string;
   detail: string;
