@@ -1,0 +1,60 @@
+{
+  "id": "frottement-pericardique",
+  "label": "Frottement péricardique",
+  "categorie": "pericarde",
+  "foyer": ["tricuspide", "mitral"],
+  "timing": {
+    "phase": "systolo-diastolique",
+    "morphologie": "frottement râpeux à 2 ou 3 temps",
+    "schema": "frottement systolique — frottement diastolique",
+    "description": "Le frottement péricardique est un bruit superficiel, râpeux et « à la surface », composé de 2 ou 3 temps : un souffle-frottement systolique, parfois complété par un frottement protodiastolique et présystolique. Il est fugace, intermittent, et surtout très changeant : il varie d'un moment à l'autre, avec la position du patient et avec l'appui du stéthoscope. Fait essentiel, il PERSISTE pendant l'apnée, ce qui le distingue de la plupart des bruits d'origine pulmonaire. Il est maximum au bord gauche du sternum et à la pointe, patient assis penché en avant."
+  },
+  "timbre": "Râpeux, superficiel, « comme un cuir neuf que l'on frotte », ne ressemblant ni à un souffle valvulaire ni à un bruit de va-et-vient.",
+  "irradiation": "Très localisé : le frottement naît et s'éteint sur place, sans irradiation.",
+  "symptomes": [
+    "Douleur thoracique de type péricardique (majorée en décubitus, calmée assis penché en avant)",
+    "Dyspnée",
+    "Fièvre dans un contexte de péricardite",
+    "Palpitations"
+  ],
+  "palpation": "Pas de frémissement ; pouls parfois rapide et de faible amplitude, pouvant s'accompagner d'un pouls paradoxal en cas d'épanchement compressif.",
+  "audio": {
+    "kind": "synth",
+    "preset": "pericardial_rub",
+    "params": {
+      "bpm": 92,
+      "systoleMs": 320,
+      "diastoleMs": 340,
+      "rubFreq": 320,
+      "rubQ": 0.7,
+      "rubGain": 0.2,
+      "s1Freq": 42,
+      "s2Freq": 58,
+      "s1Gain": 0.3,
+      "s2Gain": 0.24
+    }
+  },
+  "manoeuvres": [
+    "Faire asseoir le patient penché en avant, à l'expiration : le frottement se majore.",
+    "Demander une apnée : le frottement PERSISTE (contrairement aux crépitants pulmonaires).",
+    "Appuyer franchement le stéthoscope et changer la position : le frottement varie, signe très évocateur."
+  ],
+  "diagnostics_associes": [
+    "Péricardite aiguë",
+    "Épanchement péricardique",
+    "Infarctus du myocarde (péricardite post-infarctus, syndrome de Dressler)",
+    "Péricardite urémique ou infectieuse"
+  ],
+  "items_programme": ["Sémiologie cardiovasculaire", "Péricardite", "Douleur thoracique"],
+  "pieges": [
+    "Ne pas confondre avec des crépitants pulmonaires : le frottement PERSISTE à l'apnée.",
+    "Ne pas le confondre avec un souffle valvulaire : le frottement est superficiel, râpeux, il change de position et s'éteint sans irradier.",
+    "Son caractère fugace et intermittent peut le faire manquer : réausculter à plusieurs moments.",
+    "Un frottement peut coexister avec un épanchement : sa disparition brutale peut signer la constitution d'un épanchement compressif."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "insuffisance-aortique",
+  "label": "Insuffisance aortique",
+  "categorie": "valvulopathie",
+  "foyer": ["aortique", "erb"],
+  "timing": {
+    "phase": "diastolique (protodiastolique)",
+    "morphologie": "souffle protodiastolique decrescendo, aspiratif « humé »",
+    "schema": "B1 — systole — B2 — souffle decrescendo",
+    "description": "Le souffle débute immédiatement après B2 (protodiastolique) et décroît progressivement jusqu'en fin de diastole : souffle decrescendo, doux, aspiratif, dit « humé » ou « doux comme un souffle ». Il est maximum au foyer aortique accessoire (pointe d'Erb, 3e espace intercostal gauche), bien mieux entendu en position assise, penché en avant, à l'expiration bloquée. Il se majore à l'effort et s'atténue au Valsalva. Le retentissement ventriculaire gauche est marqué : choc apexien en bascule et pouls périphérique ample et bondissant."
+  },
+  "timbre": "Soufflant, doux, aspiratif et « humé » : souffle de haute fréquence, decrescendo, sans caractère râpeux.",
+  "irradiation": "Le long du bord gauche du sternum (foyer d'Erb), parfois vers la pointe ; ne s'irradie pas vers les carotides.",
+  "symptomes": [
+    "Angor d'effort",
+    "Dyspnée d'effort",
+    "Palpitations",
+    "Lipothymies et syncopes"
+  ],
+  "palpation": "Choc apexien en bascule (mouvement diastolique) ; pouls ample, bondissant et rapide (pouls de Corrigan) ; élargissement de la pression artérielle différentielle (pression systolique élevée, diastolique basse) et pouls capillaire.",
+  "audio": {
+    "kind": "synth",
+    "preset": "early_diastolic_decrescendo",
+    "params": {
+      "bpm": 80,
+      "systoleMs": 320,
+      "diastoleMs": 430,
+      "murmurFreq": 520,
+      "murmurQ": 0.9,
+      "murmurGain": 0.17,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "s1Gain": 0.46,
+      "s2Gain": 0.36
+    }
+  },
+  "manoeuvres": [
+    "Faire asseoir le patient, penché en avant, en apnée expiratoire : le souffle est maximum.",
+    "Palper le pouls radial (Corrigan) et mesurer la pression artérielle (différentielle élargie).",
+    "Faire le Valsalva : le souffle d'IA diminue."
+  ],
+  "diagnostics_associes": [
+    "Insuffisance aortique",
+    "Endocardite infectieuse",
+    "Dissection aortique",
+    "Médionécrose aortique (syndrome de Marfan)",
+    "Bicuspidie valvulaire aortique"
+  ],
+  "items_programme": ["Valvulopathies", "Sémiologie cardiovasculaire", "Insuffisance cardiaque"],
+  "pieges": [
+    "Ne pas confondre le souffle diastolique aortique avec le roulement de RM (le souffle d'IA est protodiastolique et decrescendo, sans claquement d'ouverture).",
+    "Le souffle d'IA peut être discret : il faut toujours l'ausculter assis, penché en avant, à l'expiration bloquée.",
+    "Toujours rechercher les signes périphériques (pouls bondissant, élargissement de la différentielle, signe de Duroziez fémoral).",
+    "Un souffle diastolique d'IA est un signe d'alarme : penser endocardite et dissection selon le contexte."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

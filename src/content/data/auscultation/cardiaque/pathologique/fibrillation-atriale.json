@@ -1,0 +1,60 @@
+{
+  "id": "fa-rythme-irregulier",
+  "label": "Arythmie complète par fibrillation atriale",
+  "categorie": "trouble-rythme",
+  "foyer": ["mitral"],
+  "timing": {
+    "phase": "systolo-diastolique irrégulier",
+    "morphologie": "bruits cardiaques irréguliers et rapides",
+    "schema": "B1 — B2 — B1 — B1 — B2 — B2 (intervalles anarchiques) 100-160/min",
+    "description": "Les bruits du cœur sont réguliers en nature (B1 puis B2) mais totalement irréguliers dans leur cadence : les intervalles d'un cycle à l'autre sont anarchiques, sans périodicité. Le rythme est souvent rapide (100 à 160 battements/min) et l'intensité de B1 est variable d'un battement à l'autre (elle dépend du remplissage ventriculaire et de la position des valves en fin de diastole). L'absence de systole auriculaire supprime le B4 et le renforcement présystolique éventuel. L'arythmie complète, caractère majeur, se confirme en comparant l'auscultation cardiaque au pouls radial : le pouls est irrégulier en fréquence ET en amplitude, avec un déficit pouls-fréquence cardiaque."
+  },
+  "timbre": "Clics secs, d'intensité inconstante d'un battement à l'autre (B1 variable).",
+  "irradiation": "Comme les bruits normaux du cœur, sans irradiation propre.",
+  "symptomes": [
+    "Palpitations",
+    "Dyspnée",
+    "Asthénie, sensation de malaise",
+    "Syncope (rare, à fréquence très élevée)"
+  ],
+  "palpation": "Pouls irrégulier en fréquence et en amplitude, avec parfois un déficit (pouls moins fréquent que les bruits auscultés) ; pression artérielle variable ; recherche de signes d'insuffisance cardiaque.",
+  "audio": {
+    "kind": "synth",
+    "preset": "irregular_fast",
+    "params": {
+      "bpm": 120,
+      "bpmMin": 100,
+      "bpmMax": 160,
+      "systoleMs": 300,
+      "diastoleMs": 260,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "s1Gain": 0.5,
+      "s2Gain": 0.36
+    }
+  },
+  "manoeuvres": [
+    "Compter les battements sur une minute entière : l'irrégularité se confirme sur la durée.",
+    "Comparer simultanément l'auscultation du cœur et le pouls radial (recherche d'un déficit pouls-fréquence).",
+    "Rechercher l'absence de B4 et l'inconstance de l'intensité de B1."
+  ],
+  "diagnostics_associes": [
+    "Fibrillation atriale",
+    "Cardiopathie ischémique",
+    "Cardiopathie hypertensive",
+    "Rétrécissement mitral",
+    "Hyperthyroïdie"
+  ],
+  "items_programme": ["Troubles du rythme", "Sémiologie cardiovasculaire", "Fibrillation atriale"],
+  "pieges": [
+    "Ne pas confondre avec une arythmie respiratoire physiologique du sujet jeune (l'irrégularité y est cyclique, liée à la respiration).",
+    "Ne pas confondre avec des extrasystoles : il existe alors un rythme de fond régulier entre les battements prématurés.",
+    "Un flutter atriale donne un rythme souvent RÉGULIER autour de 150/min, à distinguer de la FA.",
+    "Bien corréler bruits du cœur et pouls : le déficit pouls-fréquence est un argument fort pour la fibrillation atriale."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "dedoublement-b2",
+  "label": "Dédoublement de B2",
+  "categorie": "normal",
+  "foyer": ["pulmonaire"],
+  "timing": {
+    "phase": "diastolique (clôture systolique)",
+    "morphologie": "B2 dédoublé : deux composantes A2 puis P2",
+    "schema": "B1 — systole — B2 = A2 + P2 — diastole",
+    "description": "B2 n'est plus un clic unique mais deux clics secs rapprochés : la fermeture aortique (A2) suivie de la fermeture pulmonaire (P2), séparées d'un court intervalle (30 à 40 ms). Le dédoublement est entendu au bord gauche du sternum (foyer pulmonaire) ; il se majore à l'inspiration (retard de la fermeture pulmonaire par augmentation du retour veineux) et se resserre, voire disparaît, à l'expiration : c'est le dédoublement physiologique, variable et non fixe. Le meilleur repère est A2, qui coïncide avec la fin du pouls carotidien."
+  },
+  "timbre": "Double claquement sec : deux composantes proches, sèches et non soufflantes, séparées d'un bref silence.",
+  "irradiation": "Localisé au foyer pulmonaire, sans irradiation vers les vaisseaux du cou ni vers l'apex.",
+  "symptomes": [],
+  "palpation": "Pouls périphériques réguliers et symétriques ; pas de choc de pointe anormal ni de frémissement.",
+  "audio": {
+    "kind": "synth",
+    "preset": "split_s2",
+    "params": {
+      "bpm": 72,
+      "systoleMs": 340,
+      "diastoleMs": 480,
+      "splitMs": 38,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "p2Freq": 68,
+      "s1Gain": 0.5,
+      "s2Gain": 0.38
+    }
+  },
+  "manoeuvres": [
+    "Comparer B2 en inspiration profonde puis en expiration : le dédoublement s'élargit à l'inspiration, se resserre à l'expiration.",
+    "Auscultér au foyer pulmonaire (2e espace intercostal gauche) plutôt qu'à la pointe.",
+    "Palper la carotide pour situer A2 à la fin de la systole."
+  ],
+  "diagnostics_associes": [
+    "Sujet sain (dédoublement physiologique)",
+    "Bloc de branche droit (dédoublement large)",
+    "Communication interauriculaire (dédoublement fixe)"
+  ],
+  "items_programme": ["Sémiologie cardiovasculaire", "Bruits du cœur normaux"],
+  "pieges": [
+    "Un dédoublement FIXE (identique à l'inspiration et à l'expiration) n'est pas physiologique : évoquer une communication interauriculaire.",
+    "Ne pas confondre avec un dédoublement de B1, plus précoce et mieux entendu à l'apex.",
+    "Un dédoublement large et flottant du B2 fait évoquer un bloc de branche droit.",
+    "Chez l'enfant et l'adulte jeune, le dédoublement inspiratoire physiologique de B2 est fréquent et banal."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

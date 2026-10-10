@@ -1,0 +1,61 @@
+{
+  "id": "retrecissement-mitral",
+  "label": "Rétrécissement mitral",
+  "categorie": "valvulopathie",
+  "foyer": ["mitral"],
+  "timing": {
+    "phase": "diastolique",
+    "morphologie": "éclat de B1 + claquement d'ouverture + roulement diastolique",
+    "schema": "B1 éclatant — systole — B2 — COM — roulement diastolique",
+    "description": "L'éclat de B1 (fermeture d'une valve mitrale scléreuse) ouvre la séquence. Après B2 survient un claquement d'ouverture mitrale (COM) bref, à 70 à 100 ms de B2, suivi d'un roulement diastolique de basse fréquence (le roulement de Duroziez) qui comble la diastole et culmine en fin de diastole (renforcement présystolique) lorsque le rythme est sinusal. Maximum à la pointe, le roulement est bien mieux entendu en décubitus latéral gauche, après un effort, à l'expiration."
+  },
+  "timbre": "Roulement grave de basse fréquence, « roulement de tambour », avec un début marqué par le claquement d'ouverture.",
+  "irradiation": "Localisé à la pointe, sans irradiation ; l'éclat de B1 vibre à la pointe.",
+  "symptomes": [
+    "Dyspnée d'effort puis de repos",
+    "Hémoptysie",
+    "Palpitations (fibrillation atriale fréquente)",
+    "Asthénie, œdème pulmonaire"
+  ],
+  "palpation": "Choc de pointe non dévié mais vibrant ; éclat perçu au doigt (frémissement à la pointe) ; abolition fréquente du B4 (oreillette non fonctionnelle).",
+  "audio": {
+    "kind": "synth",
+    "preset": "diastolic_rumble_os",
+    "params": {
+      "bpm": 76,
+      "systoleMs": 300,
+      "diastoleMs": 500,
+      "osDelayMs": 72,
+      "osFreq": 96,
+      "rumbleFreq": 120,
+      "rumbleGain": 0.19,
+      "s1Freq": 48,
+      "s2Freq": 58,
+      "s1Gain": 0.55,
+      "s2Gain": 0.34
+    }
+  },
+  "manoeuvres": [
+    "Ausculter en décubitus latéral gauche, pointe du cœur : le roulement est maximum.",
+    "Faire marcher le patient (effort) : le roulement se majore (épreuve de Master).",
+    "Repérer l'éclat de B1 et le claquement d'ouverture (COM) qui suit B2."
+  ],
+  "diagnostics_associes": [
+    "Rétrécissement mitral rhumatismal",
+    "Fibrillation atriale (complication fréquente)",
+    "Hypertension artérielle pulmonaire",
+    "OAP / œdème pulmonaire"
+  ],
+  "items_programme": ["Valvulopathies", "Sémiologie cardiovasculaire", "Fibrillation atriale"],
+  "pieges": [
+    "Le roulement peut être très discret : il faut l'auscultation en décubitus latéral gauche, à l'effort et à l'expiration.",
+    "L'éclat de B1 n'est pas spécifique (aussi dans le bloc de branche, la tachycardie).",
+    "Ne pas confondre le COM avec un dédoublement de B2 (le COM est plus tardif, sec, isolé).",
+    "Le roulement doit être distingué d'un B3 (le B3 est plus précoce, proto-diastolique, sans claquement d'ouverture)."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

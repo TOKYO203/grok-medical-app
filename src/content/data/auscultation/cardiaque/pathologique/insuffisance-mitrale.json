@@ -1,0 +1,60 @@
+{
+  "id": "insuffisance-mitrale",
+  "label": "Insuffisance mitrale",
+  "categorie": "valvulopathie",
+  "foyer": ["mitral"],
+  "timing": {
+    "phase": "systolique (holosystolique)",
+    "morphologie": "souffle holosystolique « en jet de vapeur »",
+    "schema": "B1 — souffle holosystolique — B2",
+    "description": "Le souffle commence avec B1 et couvre toute la systole jusqu'à B2 sans interruption (souffle holosystolique), en jet de vapeur. Il est maximum à la pointe et irradie vers l'aisselle gauche et la région sous-scapulaire gauche. Il se majore en décubitus latéral gauche, à l'expiration et à la contraction musculaire isométrique (handgrip), et diminue au Valsalva. B1 est souvent normal ou diminué ; la présence d'un B3 traduit une fuite importante et un retentissement ventriculaire gauche."
+  },
+  "timbre": "Soufflant, aigu, sifflant « en jet de vapeur », non râpeux.",
+  "irradiation": "Axillaire et sous-scapulaire gauche (signe caractéristique par rapport aux souffles d'éjection).",
+  "symptomes": [
+    "Dyspnée d'effort",
+    "Palpitations",
+    "Asthénie",
+    "Ortopnée et dyspnée paroxystique (insuffisance cardiaque gauche)"
+  ],
+  "palpation": "Choc de pointe dévié en bas et en dehors (dilatation du ventricule gauche) ; pouls régulier et rapide ; pas de frémissement systolique.",
+  "audio": {
+    "kind": "synth",
+    "preset": "holosystolic_blowing",
+    "params": {
+      "bpm": 84,
+      "systoleMs": 340,
+      "diastoleMs": 400,
+      "murmurFreq": 430,
+      "murmurQ": 1.2,
+      "murmurGain": 0.2,
+      "s1Freq": 42,
+      "s2Freq": 58,
+      "s1Gain": 0.45,
+      "s2Gain": 0.34
+    }
+  },
+  "manoeuvres": [
+    "Placer le patient en décubitus latéral gauche : le souffle se majore à la pointe.",
+    "Demander une expiration puis un handgrip (poignée) : le souffle augmente.",
+    "Faire un Valsalva : le souffle diminue, en faveur d'un souffle d'IM."
+  ],
+  "diagnostics_associes": [
+    "Insuffisance mitrale",
+    "Cardiopathie ischémique (rupture de pilier)",
+    "Rhumatisme articulaire aigu",
+    "Endocardite infectieuse, prolapsus valvulaire mitral"
+  ],
+  "items_programme": ["Valvulopathies", "Sémiologie cardiovasculaire", "Insuffisance cardiaque"],
+  "pieges": [
+    "Un souffle holosystolique peut être fonctionnel (dilatation ventriculaire), sans valvulopathie organique.",
+    "L'irradiation axillaire est le meilleur argument pour une IM face à un souffle d'éjection aortique.",
+    "Ne pas confondre avec un souffle d'éjection aortique irradiant lui aussi à la pointe (souffle de Gallavardin).",
+    "Un souffle holosystolique fin peut passer inaperçu : orienter par l'auscultation en décubitus latéral gauche."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

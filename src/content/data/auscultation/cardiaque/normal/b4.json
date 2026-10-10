@@ -1,0 +1,54 @@
+{
+  "id": "b4-galop",
+  "label": "B4 — galop présystolique",
+  "categorie": "normal",
+  "foyer": ["mitral"],
+  "timing": {
+    "phase": "présystolique (télédiastolique)",
+    "morphologie": "quatrième bruit sourd, présystolique",
+    "schema": "B4 — B1 — systole — B2",
+    "description": "Juste avant B1 survient un quatrième bruit sourd et grave, contemporain de la contraction auriculaire en fin de diastole (télédiastole). Le rythme devient ternaire (B4 – B1 – B2) et prend un caractère de galop présystolique lorsque la fréquence s'accélère. Il est maximum à la pointe, mieux entendu en décubitus latéral gauche. Il traduit une diminution de la compliance ventriculaire (ventricule « rigide ») : hypertension artérielle, cardiopathie hypertrophique, insuffisance cardiaque à fonction systolique conservée. Il disparaît en l'absence de systole auriculaire efficace (fibrillation atriale)."
+  },
+  "timbre": "Sourd et grave, de basse fréquence, immédiatement avant B1 qu'il peut sembler dédoubler.",
+  "irradiation": "Localisé à la pointe (foyer mitral), sans irradiation.",
+  "symptomes": [],
+  "palpation": "Galop perçu au doigt à la pointe ; choc de pointe soutenu, parfois palpable en cas d'hypertrophie ventriculaire gauche (HTA).",
+  "audio": {
+    "kind": "synth",
+    "preset": "s4_gallop",
+    "params": {
+      "bpm": 84,
+      "systoleMs": 320,
+      "diastoleMs": 430,
+      "s4DelayMs": 82,
+      "s4Freq": 30,
+      "s4Gain": 0.32,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "s1Gain": 0.5,
+      "s2Gain": 0.38
+    }
+  },
+  "manoeuvres": [
+    "Auscultér en décubitus latéral gauche, pointe du cœur.",
+    "Rechercher l'association à une HTA (prise de la pression artérielle).",
+    "Adapter la manœuvre au rythme : le B4 disparaît si le patient passe en fibrillation atriale."
+  ],
+  "diagnostics_associes": [
+    "Hypertension artérielle",
+    "Cardiopathie hypertrophique",
+    "Insuffisance cardiaque à fonction systolique conservée (compliance diminuée)"
+  ],
+  "items_programme": ["Sémiologie cardiovasculaire", "Bruits du cœur normaux", "Insuffisance cardiaque"],
+  "pieges": [
+    "Le B4 est ABSENT en fibrillation atriale : plus de systole auriculaire, donc pas de galop présystolique.",
+    "Ne pas le confondre avec un dédoublement de B1 (le B4 est plus grave et plus précoce).",
+    "Le triple bruit présystolique (B4 – B1 – B2) ne s'accompagne pas forcément d'une insuffisance cardiaque : il faut le contexte clinique.",
+    "Un B4 « palpable » associé à un choc soutenu fait évoquer une hypertrophie ventriculaire gauche."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

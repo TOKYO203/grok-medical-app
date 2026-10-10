@@ -66,7 +66,7 @@ function AuscultationPage() {
           <PageHeader
             kicker="Sémiologie"
             title="Auscultation"
-            description="Bruits du cœur synthétisés en temps réel : foyer, timing, timbre, manœuvres et pièges. Étape 1/3 — fiche pilote B1-B2."
+            description="Bruits du cœur synthétisés en temps réel : foyer, timing, timbre, manœuvres et pièges. Étape 2/3 — 10 fiches cardiaques."
           />
         }
       >

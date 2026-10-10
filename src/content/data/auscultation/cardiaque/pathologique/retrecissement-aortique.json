@@ -1,0 +1,60 @@
+{
+  "id": "souffle-ejection-aortique",
+  "label": "Souffle systolique d'éjection (rétrécissement aortique)",
+  "categorie": "valvulopathie",
+  "foyer": ["aortique", "erb"],
+  "timing": {
+    "phase": "systolique (mésosystolique)",
+    "morphologie": "souffle d'éjection crescendo-decrescendo « en losange »",
+    "schema": "B1 — souffle losangé — B2",
+    "description": "Le souffle débute après B1, atteint son maximum au mésosystole puis décroît avant B2 : il dessine un losange (crescendo-decrescendo), séparé du B1 et du B2 par un court silence. Rude et râpeux, il est maximum au foyer aortique (2e espace intercostal droit) et irradie « en écharpe » vers les vaisseaux du cou (carotides). Le B2 peut être diminué, voire aboli, lorsque le rétrécissement est serré. Le caractère éjectionnel s'accompagne volontiers d'un frémissement systolique au foyer aortique."
+  },
+  "timbre": "Rude, râpeux, grave et éjectionnel (souffle « en coup de râpe »), de fréquence moyenne.",
+  "irradiation": "En écharpe : du foyer aortique vers la base du cou et les carotides ; peut s'entendre à la pointe (souffle de Gallavardin).",
+  "symptomes": [
+    "Angor d'effort",
+    "Syncope d'effort",
+    "Dyspnée d'effort",
+    "Triade syncope – angor – dyspnée (rétrécissement serré)"
+  ],
+  "palpation": "Pouls de faible amplitude et retardé (pulsus parvus et tardus) ; frémissement systolique perçu au foyer aortique ; abolition du B2 si sténose serrée.",
+  "audio": {
+    "kind": "synth",
+    "preset": "ejection_crescendo_decrescendo",
+    "params": {
+      "bpm": 80,
+      "systoleMs": 360,
+      "diastoleMs": 390,
+      "murmurFreq": 380,
+      "murmurQ": 0.8,
+      "murmurGain": 0.24,
+      "s1Freq": 42,
+      "s2Freq": 56,
+      "s1Gain": 0.46,
+      "s2Gain": 0.3
+    }
+  },
+  "manoeuvres": [
+    "Ausculter au foyer aortique (2e espace intercostal droit), patient assis penché en avant.",
+    "Suivre l'irradiation en écharpe vers les carotides.",
+    "Palper le pouls carotidien (parvus et tardus) et rechercher un frémissement au foyer aortique."
+  ],
+  "diagnostics_associes": [
+    "Rétrécissement aortique",
+    "Valve aortique bicuspide",
+    "Cardiopathie ischémique (angor associé)",
+    "Cardiomyopathie hypertrophique obstructive (souffle du bord gauche du sternum)"
+  ],
+  "items_programme": ["Valvulopathies", "Sémiologie cardiovasculaire", "Insuffisance cardiaque"],
+  "pieges": [
+    "Un souffle systolique n'est pas forcément un rétrécissement aortique : souffles fonctionnels, CMO et insuffisance mitrale sont à éliminer.",
+    "L'irradiation en écharpe est un argument majeur, mais le souffle de Gallavardin irradie aussi à la pointe.",
+    "Un souffle serré peut être discret en intensité alors que la sténose est sévère : se fier aussi au pouls et au B2.",
+    "La triade syncope – angor – dyspnée signe un rétrécissement serré et symptomatique : ne pas la banaliser."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

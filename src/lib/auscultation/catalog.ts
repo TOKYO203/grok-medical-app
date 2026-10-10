@@ -1,8 +1,20 @@
 import indexJson from "@/content/data/auscultation/_index.json";
-import b1b2Normal from "@/content/data/auscultation/normal/b1-b2-normal.json";
+import b1b2Normal from "@/content/data/auscultation/cardiaque/normal/b1-b2-normal.json";
+import dedoublementB2 from "@/content/data/auscultation/cardiaque/normal/dedoublement-b2.json";
+import b3Galop from "@/content/data/auscultation/cardiaque/normal/b3.json";
+import b4Galop from "@/content/data/auscultation/cardiaque/normal/b4.json";
+import insuffisanceMitrale from "@/content/data/auscultation/cardiaque/pathologique/insuffisance-mitrale.json";
+import retrecissementMitral from "@/content/data/auscultation/cardiaque/pathologique/retrecissement-mitral.json";
+import insuffisanceAortique from "@/content/data/auscultation/cardiaque/pathologique/insuffisance-aortique.json";
+import retrecissementAortique from "@/content/data/auscultation/cardiaque/pathologique/retrecissement-aortique.json";
+import frottementPericardique from "@/content/data/auscultation/cardiaque/pathologique/frottement-pericardique.json";
+import fibrillationAtriale from "@/content/data/auscultation/cardiaque/pathologique/fibrillation-atriale.json";
 
 /**
  * Chargeur de contenu Auscultation — index + fiches (bundle statique, offline).
+ *
+ * Les fiches cardiaques vivent sous `cardiaque/` (normal | pathologique) ; les
+ * sons pulmonaires viendront sous `pulmonaire/` (étape 3/3).
  *
  * ⚠️ Tout fichier listé `status: "available"` dans `_index.json` DOIT être
  * enregistré dans `FICHES_BY_FILE`, sinon `getFiche()` renvoie `undefined`
@@ -60,7 +72,21 @@ export type AuscultationFiche = {
 };
 
 const FICHES_BY_FILE: Record<string, AuscultationFiche> = {
-  "normal/b1-b2-normal.json": b1b2Normal as unknown as AuscultationFiche,
+  "cardiaque/normal/b1-b2-normal.json": b1b2Normal as unknown as AuscultationFiche,
+  "cardiaque/normal/dedoublement-b2.json": dedoublementB2 as unknown as AuscultationFiche,
+  "cardiaque/normal/b3.json": b3Galop as unknown as AuscultationFiche,
+  "cardiaque/normal/b4.json": b4Galop as unknown as AuscultationFiche,
+  "cardiaque/pathologique/insuffisance-mitrale.json": insuffisanceMitrale as unknown as AuscultationFiche,
+  "cardiaque/pathologique/retrecissement-mitral.json":
+    retrecissementMitral as unknown as AuscultationFiche,
+  "cardiaque/pathologique/insuffisance-aortique.json":
+    insuffisanceAortique as unknown as AuscultationFiche,
+  "cardiaque/pathologique/retrecissement-aortique.json":
+    retrecissementAortique as unknown as AuscultationFiche,
+  "cardiaque/pathologique/frottement-pericardique.json":
+    frottementPericardique as unknown as AuscultationFiche,
+  "cardiaque/pathologique/fibrillation-atriale.json":
+    fibrillationAtriale as unknown as AuscultationFiche,
 };
 
 export function listFoyers(): AuscultationFoyer[] {

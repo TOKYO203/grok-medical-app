@@ -1,0 +1,54 @@
+{
+  "id": "b3-galop",
+  "label": "B3 — galop protodiastolique",
+  "categorie": "normal",
+  "foyer": ["mitral"],
+  "timing": {
+    "phase": "protodiastolique",
+    "morphologie": "troisième bruit sourd, proto-diastolique",
+    "schema": "B1 — systole — B2 — B3 (proto-diastole)",
+    "description": "Après le B2 survient un troisième bruit sourd et grave, entendu au début de la diastole (140 à 180 ms après B2) : il correspond au remplissage ventriculaire rapide. Le rythme devient ternaire (B1 – B2 – B3) et prend un caractère de galop lorsque la fréquence cardiaque s'accélère. Il est maximum à la pointe, mieux perçu en décubitus latéral gauche et à l'expiration. Physiologique chez l'enfant et l'adulte jeune, il devient pathologique lorsqu'il traduit une défaillance du ventricule gauche (souvent chez un patient tachycarde)."
+  },
+  "timbre": "Sourd, grave et de basse fréquence : bruit mâché, « lointain », difficilement entendu sans appui modéré du stéthoscope.",
+  "irradiation": "Localisé à la pointe (foyer mitral), sans irradiation.",
+  "symptomes": [],
+  "palpation": "Choc de pointe normal chez le sujet jeune ; dévié et étalé en cas de cardiopathie dilatée sous-jacente.",
+  "audio": {
+    "kind": "synth",
+    "preset": "s3_gallop",
+    "params": {
+      "bpm": 84,
+      "systoleMs": 320,
+      "diastoleMs": 430,
+      "s3DelayMs": 140,
+      "s3Freq": 34,
+      "s3Gain": 0.36,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "s1Gain": 0.5,
+      "s2Gain": 0.38
+    }
+  },
+  "manoeuvres": [
+    "Faire ausculter en décubitus latéral gauche : le B3 est maximum à la pointe.",
+    "Demander une expiration puis une apnée expiratoire.",
+    "Comparer après un effort modéré : la tachycardie majore le caractère de galop."
+  ],
+  "diagnostics_associes": [
+    "Sujet jeune sain (B3 physiologique)",
+    "Insuffisance cardiaque gauche (galop protodiastolique)",
+    "Cardiopathie dilatée / valvulopathie de surcharge"
+  ],
+  "items_programme": ["Sémiologie cardiovasculaire", "Bruits du cœur normaux", "Insuffisance cardiaque"],
+  "pieges": [
+    "Un B3 isolé chez l'adulte jeune est physiologique : ne pas conclure à une insuffisance cardiaque sur ce seul signe.",
+    "Ne pas confondre un B3 proto-diastolique avec un dédoublement de B2 large (le B3 est plus grave et plus tardif).",
+    "Le galop de B3 devient pathologique en présence de tachycardie, de cardiomégalie ou de signes cliniques d'insuffisance cardiaque.",
+    "Un galop à trois temps (B1 – B2 – B3) se distingue du galop présystolique (B4), dominé par la systole auriculaire."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

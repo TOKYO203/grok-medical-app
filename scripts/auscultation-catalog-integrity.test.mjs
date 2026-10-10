@@ -5,8 +5,8 @@ import test from "node:test";
 
 /**
  * Intégrité du catalogue Auscultation — garde-fou symétrique de
- * `ecg-catalog-integrity.test.mjs`. Étape 1/3 : 5 foyers, 10 sons annoncés,
- * 1 seule fiche réellement disponible.
+ * `ecg-catalog-integrity.test.mjs`. Étape 2/3 : 5 foyers, 10 sons cardiaques,
+ * 10 fiches réellement disponibles (chacune adossée à un preset audio implémenté).
  */
 
 const rootDir = new URL("../", import.meta.url).pathname;
@@ -72,5 +72,55 @@ test("no orphan json file: every file is referenced by an available sound", asyn
   );
   for (const file of files) {
     assert.ok(referenced.has(file), `fichier orphelin: ${file}`);
+  }
+});
+
+test("all 10 sounds are available and every fiche is coherent with the index", async () => {
+  const available = index.sounds.filter((s) => s.status === "available");
+  assert.equal(available.length, 10, "attendu 10 fiches disponibles après l'étape 2");
+
+  const foyerIds = new Set(index.foyers.map((f) => f.id));
+  const engineSource = await readFile(
+    join(rootDir, "src/lib/auscultation/engine.ts"),
+    "utf8",
+  );
+
+  for (const sound of available) {
+    const fiche = JSON.parse(await readFile(join(dataDir, sound.file), "utf8"));
+
+    assert.equal(fiche.id, sound.id, `${sound.id}: id de fiche ≠ id d'index`);
+    assert.equal(fiche.categorie, sound.categorie, `${sound.id}: catégorie incohérente`);
+    assert.deepEqual(
+      [...fiche.foyer].sort(),
+      [...sound.foyers].sort(),
+      `${sound.id}: foyers de la fiche ≠ foyers de l'index`,
+    );
+
+    for (const key of [
+      "timing",
+      "timbre",
+      "irradiation",
+      "palpation",
+      "audio",
+      "manoeuvres",
+      "diagnostics_associes",
+      "items_programme",
+      "pieges",
+      "source",
+    ]) {
+      assert.ok(fiche[key] !== undefined, `${sound.id}: champ "${key}" manquant`);
+    }
+
+    assert.ok(
+      typeof fiche.audio?.preset === "string" && fiche.audio.preset.length > 0,
+      `${sound.id}: preset audio manquant`,
+    );
+    assert.ok(
+      engineSource.includes(`${fiche.audio.preset}:`),
+      `${sound.id}: preset "${fiche.audio.preset}" non implémenté dans engine.ts`,
+    );
+    for (const foyer of fiche.foyer) {
+      assert.ok(foyerIds.has(foyer), `${sound.id}: foyer inconnu "${foyer}"`);
+    }
   }
 });
