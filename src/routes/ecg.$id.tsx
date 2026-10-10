@@ -73,7 +73,7 @@ function EcgCasePage() {
 
   return (
     <Shell title="ECG">
-      <Page className="mx-auto max-w-3xl">
+      <Page className="mx-auto max-w-6xl">
         <button onClick={() => navigate({ to: "/ecg" })}
           className="mb-3 inline-flex items-center gap-1 text-xs text-muted hover:text-fg">
           <ArrowLeft className="size-3.5" /> Bibliothèque ECG
@@ -81,6 +81,19 @@ function EcgCasePage() {
         <div className="mb-3 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h1 className="font-display text-xl font-medium tracking-tight">{data.title}</h1>
+            <div className="mt-1 flex flex-wrap items-center gap-1.5">
+              <span className="rounded-full bg-[#A67C1E]/20 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#E8C97A] ring-1 ring-[#A67C1E]/40">
+                {data.rhythm}
+              </span>
+              {data.ischemia && data.ischemia !== "normal" ? (
+                <span className="rounded-full bg-danger/15 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-danger ring-1 ring-danger/40">
+                  {data.ischemia}
+                </span>
+              ) : null}
+              <span className="rounded-full bg-secondary px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted">
+                {data.difficulty === "intro" ? "Découverte" : data.difficulty === "advanced" ? "Avancé" : "Consolidation"}
+              </span>
+            </div>
             <p className="mt-0.5 text-xs text-muted">{data.rhythm} · étape {step + 1}/{data.steps.length}</p>
           </div>
           <span className="font-mono text-xs tabular-nums text-subtle">{correct}/{data.steps.length}</span>
@@ -107,7 +120,7 @@ function EcgCasePage() {
         </div>
 
         <div className="relative">
-          <EcgMonitor bpm={data.trace?.bpm ?? 75} label="II" secondsWindow={4} autoStart />
+          <EcgMonitor bpm={data.trace?.bpm ?? 75} soundType="bip_normal" autoStart />
           <EcgAnnotations step={step} annotations={data.annotations as never} />
         </div>
 

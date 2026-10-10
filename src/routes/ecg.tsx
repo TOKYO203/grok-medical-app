@@ -16,25 +16,34 @@ function EcgLibraryPage() {
         <PageHeader
           kicker="Moteur d'apprentissage"
           title="ECG — Interprétation"
-          description="Lecture guidée, annotations, cinéma temps réel. Apprends à lire un ECG comme un cardiologue."
+          description="Moniteur temps réel, lecture guidée 5 étapes, annotations révélées. La pathologie s'affiche en premier."
         />
       }>
-        <EcgMonitor bpm={75} label="II" secondsWindow={4} autoStart />
+        <EcgMonitor bpm={75} autoStart />
         <p className="mt-4 font-mono text-xs tabular-nums text-subtle">
           {cases.length} cas disponible{cases.length > 1 ? "s" : ""}
         </p>
         <div className="mt-4 space-y-2">
           {cases.map((c) => (
             <Link key={c.id} to="/ecg/$id" params={{ id: c.id }}
-              className="optimus-card optimus-interactive-card flex items-center gap-3 p-4 active:scale-[0.99]">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
-                <Activity className="size-5" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium">{c.title}</p>
-                <p className="mt-0.5 text-xs text-muted">{c.specialty} · {c.rhythm}</p>
+              className="optimus-card optimus-interactive-card block p-4 active:scale-[0.99]">
+              <div className="flex items-start gap-3">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
+                  <Activity className="size-5" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium leading-snug">{c.title}</p>
+                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                    <span className="rounded-full bg-[#A67C1E]/15 px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider text-[#E8C97A]">
+                      {c.difficulty === "intro" ? "Découverte" : c.difficulty === "advanced" ? "Avancé" : "Consolidation"}
+                    </span>
+                    <span className="rounded-full bg-secondary px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted">
+                      {c.rhythm}
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight className="mt-1 size-4 shrink-0 text-subtle" />
               </div>
-              <ChevronRight className="size-4 shrink-0 text-subtle" />
             </Link>
           ))}
         </div>
