@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import { Maximize2, Minimize2 } from "lucide-react";
 import { useEcgBeep } from "@/lib/ecg/useEcgBeep";
@@ -44,7 +45,7 @@ const PAD_BOTTOM = 4;
 const LABEL_MM = 11;
 const COL_W = LABEL_MM + TRACE_MM;
 const COL_GAP = 6;
-const PANEL_W = 54;
+const PANEL_W = 34;
 const INNER_H = 126;
 const VIEW_W = PAD_X * 2 + COL_W * 2 + COL_GAP * 2 + PANEL_W; // 296 mm
 const VIEW_H = PAD_TOP + INNER_H + PAD_BOTTOM; // 140 mm
@@ -284,15 +285,28 @@ export function EcgMonitor({
       const native = await requestNativeFullscreen(rootRef.current);
       if (cancelled) return;
       setNativeFull(native);
-      const locked = native ? await lockLandscape() : false;
-      // Le verrou paysage a échoué (ou pas de plein écran natif) sur un mobile
-      // en portrait → on pivote le cadre nous-mêmes.
-      if (!cancelled) setRotateFallback(!locked && isTouchPortrait());
+      // Verrou paysage best-effort (appareils avec gyroscope). ⚠ On ne se fie
+      // PAS au retour de la promesse : sur Chrome Android SANS gyroscope,
+      // `lock("landscape")` se résout SANS faire tourner l'écran. Le repli
+      // rotation est donc décidé sur la GÉOMÉTRIE réelle, dans l'effet suivant.
+      if (native) await lockLandscape();
     })();
     return () => {
       cancelled = true;
     };
   }, [full]);
+
+  /*
+   * Repli rotation — décision purement GÉOMÉTRIQUE, recalculée à chaque
+   * changement de viewport : plein écran actif ET appareil TACTILE dont
+   * l'écran est ENCORE en portrait ⇒ le verrou paysage n'a pas tourné
+   * l'écran (Chrome Android sans gyroscope) ⇒ on pivote le contenu nous-mêmes.
+   * Ni le retour de `screen.orientation.lock()` ni une valeur figée au clic ne
+   * sont fiables ; `viewport` suit `resize` + `orientationchange`.
+   */
+  useEffect(() => {
+    setRotateFallback(full && isTouchPortrait());
+  }, [full, viewport.w, viewport.h]);
 
   const exitFullscreen = useCallback(async () => {
     unlockOrientation(); // rend la rotation au système
@@ -372,18 +386,23 @@ export function EcgMonitor({
    * colonne, et c'est le SVG qui absorbe la place restante (`flex-1`) —
    * aucun `max-height` résiduel pour brider le tracé.
    *
-   * Repli rotation (verrou paysage refusé) : dimensions ÉCHANGÉES puis pivot
-   * de 90° autour du coin haut-gauche ; le `translateX` égal à l'ancienne
-   * largeur ramène exactement le cadre sur la surface de l'écran.
+   * Repli rotation (`rotateFallback`, cf. effet ci-dessus) : le CONTENU est
+   * pivoté de 90° autour du CENTRE de l'écran, ses dimensions déjà échangées
+   * (100vh × 100vw) ⇒ il recouvre exactement la surface de l'écran.
+   * Le pivot s'applique à un conteneur INTERNE, jamais à l'élément plein
+   * écran lui-même : la feuille du navigateur impose
+   * `:fullscreen { transform: none !important }`, l'élément plein écran ne
+   * peut donc ni être redimensionné ni pivoté.
    */
-  const rotateStyle:
-    | { width: string; height: string; transform: string; transformOrigin: string }
-    | undefined = rotateFallback
+  const rotateStyle: CSSProperties | undefined = rotateFallback
     ? {
-        width: `${viewport.h}px`,
-        height: `${viewport.w}px`,
-        transform: `translateX(${viewport.w}px) rotate(90deg)`,
-        transformOrigin: "top left",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        width: "100vh",
+        height: "100vw",
+        transform: "translate(-50%, -50%) rotate(90deg)",
+        transformOrigin: "center center",
       }
     : undefined;
 
@@ -500,7 +519,7 @@ export function EcgMonitor({
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           className={full ? "block max-h-none min-h-0 w-full flex-1" : "block w-full"}
           style={full ? undefined : { aspectRatio: `${VIEW_W}/${VIEW_H}` }}
-          preserveAspectRatio="xMidYMid meet"
+          preserveAspectRatio="none"
           data-ecg-svg=""
           data-ecg-viewbox={`0 0 ${VIEW_W} ${VIEW_H}`}
           data-ecg-sweep={SWEEP}

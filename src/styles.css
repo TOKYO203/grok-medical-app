@@ -584,8 +584,18 @@ html[data-theme="dark"] {
   animation: optimus-nav-icon var(--motion-quick) var(--ease-out) both;
 }
 
+/*
+ * `backwards` (et non `both`) est volontaire : avec `both`, l'animation
+ * CONSERVE son état final (`transform: translateY(0)`) après son terme — un
+ * transform permanent sur un ancêtre direct de `main` crée un **conteneur**
+ * pour `position: fixed`, ce qui piégeait tout calque plein écran rendu dans
+ * `main` (le moniteur ECG se calait alors sur la zone de contenu, sous
+ * l'en-tête, au lieu de l'écran). Le rendu est identique (l'état final de
+ * l'animation est le style de base : ni transform ni opacité) mais l'ancêtre
+ * redevient un simple bloc sans transform.
+ */
 main > * {
-  animation: page-reveal var(--motion-medium) var(--ease-out) both;
+  animation: page-reveal var(--motion-medium) var(--ease-out) backwards;
 }
 
 main > :nth-child(2) {
