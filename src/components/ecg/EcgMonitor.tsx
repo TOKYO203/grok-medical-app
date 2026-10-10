@@ -102,6 +102,7 @@ export function EcgMonitor({
   const [playing, setPlaying] = useState(autoStart);
   const [sound, setSound] = useState(false);
   const [full, setFull] = useState(false);
+  const [dims, setDims] = useState({ w: 1600, h: 460 });
   const startRef = useRef<number | null>(null);
   const rafRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -127,14 +128,48 @@ export function EcgMonitor({
     return () => document.removeEventListener("fullscreenchange", onFsChange);
   }, []);
 
+  // Dimensions dynamiques selon viewport + fullscreen
+  useEffect(() => {
+    const compute = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      if (full) {
+        // En fullscreen : on utilise la vraie résolution écran
+        // Landscape typique : 844×390 (aspect ~2.16)
+        // Portrait : 390×844 (aspect ~0.46) — on force un aspect paysage pour lisibilité
+        const landscape = w >= h;
+        setDims(landscape ? { w: 1600, h: Math.round(1600 * (h / w)) } : { w: 1600, h: 740 });
+      } else {
+        // En mode normal : plus haut sur mobile portrait pour lisibilité
+        const landscape = w >= h;
+        setDims(landscape ? { w: 1600, h: 460 } : { w: 1000, h: 560 });
+      }
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, [full]);
+
   async function toggleFullscreen() {
     if (!document.fullscreenElement) {
       try {
         await containerRef.current?.requestFullscreen();
+        // Tenter de verrouiller en paysage (Android Chrome)
+        type OrientationLock = ScreenOrientation & { lock?: (o: string) => Promise<void> };
+        const orient = screen.orientation as OrientationLock | undefined;
+        if (orient?.lock) {
+          try { await orient.lock("landscape"); } catch { /* ignore (iOS/desktop) */ }
+        }
       } catch {
         /* ignore */
       }
     } else {
+      try {
+        const orient = screen.orientation as { unlock?: () => void } | undefined;
+        orient?.unlock?.();
+      } catch {
+        /* ignore */
+      }
       try {
         await document.exitFullscreen();
       } catch {
@@ -147,8 +182,8 @@ export function EcgMonitor({
   const sweepT = (cursor - winStart) / SWEEP;
 
   // Layout : largeur totale 1600, hauteur 460 en normal, auto en full
-  const W = 1600;
-  const H = full ? 900 : 460;
+  const W = dims.w;
+  const H = dims.h;
   const COL_GAP = 20;
   const PANEL_W = 260;
   const colW = (W - PANEL_W - COL_GAP * 2) / 2;
@@ -173,7 +208,7 @@ export function EcgMonitor({
       ref={containerRef}
       className={
         "overflow-hidden bg-black ring-1 ring-black/60 shadow-[var(--shadow-md)] " +
-        (full ? "rounded-none" : "rounded-[var(--radius-xl)]")
+        (full ? "fixed inset-0 z-50 rounded-none" : "rounded-[var(--radius-xl)]")
       }
     >
       {/* Barre statut */}
@@ -213,10 +248,16 @@ export function EcgMonitor({
         </span>
       </div>
 
+      {full ? (
+        <div className="pointer-events-none absolute bottom-2 right-3 z-10 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/60">
+          📱 Tourne ton téléphone en paysage pour un rendu optimal
+        </div>
+      ) : null}
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="block w-full"
-        style={{ aspectRatio: `${W}/${H}`, maxHeight: full ? "calc(100vh - 40px)" : undefined }}
+        className={full ? "block h-[calc(100vh-32px)] w-full" : "block w-full"}
+        style={full ? undefined : { aspectRatio: `${W}/${H}` }}
+        preserveAspectRatio="xMidYMid meet"
         aria-label={`Moniteur ECG 12 dérivations à ${bpm} bpm`}
       >
         <defs>
