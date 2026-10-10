@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Activity, ChevronRight } from "lucide-react";
 import { Page, Shell, PageHeader } from "@/components/shell";
 import { listEcg } from "@/lib/ecg/catalog";
+import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 
 export const Route = createFileRoute("/ecg")({
   component: EcgLibraryPage,
@@ -18,7 +19,8 @@ function EcgLibraryPage() {
           description="Lecture guidée, annotations, cinéma temps réel. Apprends à lire un ECG comme un cardiologue."
         />
       }>
-        <p className="font-mono text-xs tabular-nums text-subtle">
+        <EcgMonitor bpm={75} label="II" secondsWindow={4} autoStart />
+        <p className="mt-4 font-mono text-xs tabular-nums text-subtle">
           {cases.length} cas disponible{cases.length > 1 ? "s" : ""}
         </p>
         <div className="mt-4 space-y-2">

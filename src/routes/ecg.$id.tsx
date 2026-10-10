@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { getEcg } from "@/lib/ecg/catalog";
-import { EcgCinema } from "@/components/ecg/EcgCinema";
+import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/ecg/$id")({ component: EcgCasePage });
@@ -58,7 +58,7 @@ function EcgCasePage() {
           <span className="font-mono text-xs tabular-nums text-subtle">{correct}/{data.steps.length}</span>
         </div>
 
-        <EcgCinema bpm={data.trace?.bpm ?? 75} cycles={data.trace?.cycles ?? 6} autoPlay={false} />
+        <EcgMonitor bpm={data.trace?.bpm ?? 75} label="II" secondsWindow={4} autoStart />
 
         <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{current.title}</p>
