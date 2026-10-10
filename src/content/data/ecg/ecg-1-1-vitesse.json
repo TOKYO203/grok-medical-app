@@ -1,0 +1,106 @@
+{
+  "id": "ecg-1-1-vitesse",
+  "title": "Erreur de vitesse (50 mm/s)",
+  "difficulty": "intro",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 75,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Vitesse",
+      "question": "Le tracé est-il à 25 mm/s ?",
+      "choices": [
+        "Oui",
+        "Non (50 mm/s)",
+        "Non (12,5 mm/s)",
+        "Impossible à savoir"
+      ],
+      "correct": 1,
+      "explanation": "À 50 mm/s, les complexes sont 2× plus larges. Il faut diviser par 2 toute durée mesurée."
+    },
+    {
+      "n": 2,
+      "title": "Intervalles",
+      "question": "Le QRS paraît-il élargi ?",
+      "choices": [
+        "Oui",
+        "Non, artefact de vitesse"
+      ],
+      "correct": 1,
+      "explanation": "Le QRS paraît large mais il est normal (durée divisée par 2)."
+    },
+    {
+      "n": 3,
+      "title": "Fréquence",
+      "question": "La FC est-elle normale ?",
+      "choices": [
+        "Oui (75/min)",
+        "Non, bradycardie",
+        "Non, tachycardie"
+      ],
+      "correct": 0,
+      "explanation": "75/min reste dans la norme, seule la vitesse d enregistrement change."
+    },
+    {
+      "n": 4,
+      "title": "Piège",
+      "question": "Que faut-il toujours vérifier avant d interpréter ?",
+      "choices": [
+        "Le nom du patient",
+        "La vitesse et l étalonnage",
+        "L heure de l examen",
+        "Le poids du patient"
+      ],
+      "correct": 1,
+      "explanation": "Vitesse (25 mm/s) et amplitude (1 cm = 1 mV) doivent être vérifiées systématiquement."
+    },
+    {
+      "n": 5,
+      "title": "Conclusion",
+      "question": "Diagnostic global ?",
+      "choices": [
+        "ECG normal à 50 mm/s",
+        "IDM",
+        "Trouble du rythme",
+        "BAV"
+      ],
+      "correct": 0,
+      "explanation": "Tracé normal, seule la vitesse change l aspect visuel."
+    }
+  ],
+  "annotations": []
+}

@@ -1,0 +1,100 @@
+{
+  "id": "ecg-4-6-pacemaker-idm",
+  "title": "Pacemaker + IDM latéral",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 70,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_grave_montant",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Spikes",
+      "question": "Présence de spikes ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Pacemaker : spikes de stimulation."
+    },
+    {
+      "n": 2,
+      "title": "ST",
+      "question": "ST en latéral ?",
+      "choices": [
+        "Normal",
+        "Sus-décalé"
+      ],
+      "correct": 1,
+      "explanation": "Sus-décalage en DI, aVL, V5-V6."
+    },
+    {
+      "n": 3,
+      "title": "Piège",
+      "question": "Le pacemaker peut-il masquer un IDM ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Le PM peut masquer les signes d IDM. Toujours comparer avec ECG antérieur."
+    },
+    {
+      "n": 4,
+      "title": "Territoire",
+      "question": "Territoire ?",
+      "choices": [
+        "Antérieur",
+        "Latéral",
+        "Inférieur"
+      ],
+      "correct": 1,
+      "explanation": "DI, aVL, V5-V6 = latéral."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Priorité ?",
+      "choices": [
+        "Reperfusion en urgence",
+        "Surveillance"
+      ],
+      "correct": 0,
+      "explanation": "IDM = reperfusion urgente."
+    }
+  ],
+  "annotations": []
+}

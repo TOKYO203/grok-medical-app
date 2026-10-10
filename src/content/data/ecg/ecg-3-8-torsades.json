@@ -1,0 +1,99 @@
+{
+  "id": "ecg-3-8-torsades",
+  "title": "Torsades de pointe",
+  "difficulty": "advanced",
+  "rhythm": "torsade-de-pointes",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 200,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_oscillant",
+  "steps": [
+    {
+      "n": 1,
+      "title": "QRS",
+      "question": "Morphologie ?",
+      "choices": [
+        "Monomorphe",
+        "Polymorphe en accordéon"
+      ],
+      "correct": 1,
+      "explanation": "Torsades : QRS polymorphes, axe qui s inverse."
+    },
+    {
+      "n": 2,
+      "title": "QT",
+      "question": "Le QT est-il ?",
+      "choices": [
+        "Normal",
+        "Allongé"
+      ],
+      "correct": 1,
+      "explanation": "Torsades survient sur QT long."
+    },
+    {
+      "n": 3,
+      "title": "Cause",
+      "question": "Cause fréquente ?",
+      "choices": [
+        "Hyperkaliémie",
+        "Hypokaliémie / médicaments"
+      ],
+      "correct": 1,
+      "explanation": "Hypokaliémie et QT allongeant = terrain."
+    },
+    {
+      "n": 4,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Magnésium IV + arrêt QT-allongeant",
+        "Amiodarone"
+      ],
+      "correct": 0,
+      "explanation": "Mg2+ IV + correction électrolytique."
+    },
+    {
+      "n": 5,
+      "title": "Risque",
+      "question": "Risque évolutif ?",
+      "choices": [
+        "FV",
+        "Bradycardie"
+      ],
+      "correct": 0,
+      "explanation": "Torsades peut dégénérer en FV."
+    }
+  ],
+  "annotations": []
+}

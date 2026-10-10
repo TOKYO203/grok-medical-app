@@ -1,0 +1,99 @@
+{
+  "id": "ecg-5-8-hemorragie-cerebrale",
+  "title": "Hémorragie cérébroméningée",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 60,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_grave_montant",
+  "steps": [
+    {
+      "n": 1,
+      "title": "T",
+      "question": "Aspect des T ?",
+      "choices": [
+        "Normales",
+        "Amples et pointues"
+      ],
+      "correct": 1,
+      "explanation": "T pointues = effet catécholaminergique."
+    },
+    {
+      "n": 2,
+      "title": "QT",
+      "question": "QT ?",
+      "choices": [
+        "Normal",
+        "Long"
+      ],
+      "correct": 1,
+      "explanation": "QT long fréquent."
+    },
+    {
+      "n": 3,
+      "title": "Bradycardie",
+      "question": "Bradycardie présente ?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "correct": 1,
+      "explanation": "Bradycardie par hypertonie vagale."
+    },
+    {
+      "n": 4,
+      "title": "Clinique",
+      "question": "Signe associé ?",
+      "choices": [
+        "Céphalées + HTIC",
+        "Douleur thoracique"
+      ],
+      "correct": 0,
+      "explanation": "Céphalées + HTIC évocatrices."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Priorité ?",
+      "choices": [
+        "Scanner cérébral",
+        "Coronarographie"
+      ],
+      "correct": 0,
+      "explanation": "Imagerie cérébrale en urgence."
+    }
+  ],
+  "annotations": []
+}

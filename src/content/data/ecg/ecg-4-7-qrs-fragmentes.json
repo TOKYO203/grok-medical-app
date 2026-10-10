@@ -1,0 +1,99 @@
+{
+  "id": "ecg-4-7-qrs-fragmentes",
+  "title": "QRS fragmentés (séquelle)",
+  "difficulty": "intermediate",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 72,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "QRS",
+      "question": "QRS fragmentés visibles ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "QRS fragmentés = cicatrice de nécrose."
+    },
+    {
+      "n": 2,
+      "title": "Onde Q",
+      "question": "Onde Q pathologique ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Onde Q + QRS fragmentés = cicatrice."
+    },
+    {
+      "n": 3,
+      "title": "Se",
+      "question": "Sensibilité des QRS fragmentés pour séquelle ?",
+      "choices": [
+        "< 50 %",
+        "~86 %"
+      ],
+      "correct": 1,
+      "explanation": "Se 86 %, Sp 89 %."
+    },
+    {
+      "n": 4,
+      "title": "Diagnostic",
+      "question": "Diagnostic ?",
+      "choices": [
+        "IDM aigu",
+        "Séquelle de nécrose"
+      ],
+      "correct": 1,
+      "explanation": "Pas de sus-décalage = séquelle."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Reperfusion urgente",
+        "Prévention secondaire"
+      ],
+      "correct": 1,
+      "explanation": "Séquelle : prévention secondaire."
+    }
+  ],
+  "annotations": []
+}

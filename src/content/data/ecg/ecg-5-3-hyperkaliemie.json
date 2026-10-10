@@ -1,0 +1,100 @@
+{
+  "id": "ecg-5-3-hyperkaliemie",
+  "title": "Hyperkaliémie",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 55,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.65,
+        "sigma": 0.025
+      }
+    }
+  },
+  "sound": "son_aigu_montant",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Onde T",
+      "question": "Aspect des ondes T ?",
+      "choices": [
+        "Normales",
+        "Amples et pointues"
+      ],
+      "correct": 1,
+      "explanation": "T en tente = hyperkaliémie."
+    },
+    {
+      "n": 2,
+      "title": "PR",
+      "question": "PR allongé ?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "correct": 1,
+      "explanation": "PR allongé stade 2."
+    },
+    {
+      "n": 3,
+      "title": "QRS",
+      "question": "QRS élargi ?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "correct": 1,
+      "explanation": "Élargissement stade 2-3."
+    },
+    {
+      "n": 4,
+      "title": "Stade",
+      "question": "Stade ?",
+      "choices": [
+        "Stade 1",
+        "Stade 2",
+        "Stade 3"
+      ],
+      "correct": 2,
+      "explanation": "QRS très large + T pointues = stade 3."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Traitement urgent ?",
+      "choices": [
+        "Calcium + insuline-glucose",
+        "Diurétiques seuls"
+      ],
+      "correct": 0,
+      "explanation": "Calcium (protection membranaire) + insuline-glucose."
+    }
+  ],
+  "annotations": []
+}

@@ -1,0 +1,101 @@
+{
+  "id": "ecg-3-1-riva",
+  "title": "Rythme idioventriculaire accéléré (RIVA)",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 70,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "QRS",
+      "question": "Largeur du QRS ?",
+      "choices": [
+        "Fin (< 0,12 s)",
+        "Large (> 0,12 s)"
+      ],
+      "correct": 1,
+      "explanation": "QRS large = origine ventriculaire."
+    },
+    {
+      "n": 2,
+      "title": "Fréquence",
+      "question": "FC ?",
+      "choices": [
+        "< 60/min",
+        "60-110/min",
+        "> 150/min"
+      ],
+      "correct": 1,
+      "explanation": "RIVA : 60-110/min (au-dessus du rythme d échappement, sous la TV)."
+    },
+    {
+      "n": 3,
+      "title": "Diagnostic",
+      "question": "Diagnostic ?",
+      "choices": [
+        "TV",
+        "RIVA",
+        "FV"
+      ],
+      "correct": 1,
+      "explanation": "Fréquence intermédiaire = RIVA."
+    },
+    {
+      "n": 4,
+      "title": "Contexte",
+      "question": "Circonstance fréquente ?",
+      "choices": [
+        "Post-IDM (reperfusion)",
+        "Sujet sain au repos"
+      ],
+      "correct": 0,
+      "explanation": "Fréquent après reperfusion d un IDM."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Choc électrique",
+        "Surveillance (souvent bien toléré)"
+      ],
+      "correct": 1,
+      "explanation": "Souvent bien toléré, pas de choc systématique."
+    }
+  ],
+  "annotations": []
+}

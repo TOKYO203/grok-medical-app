@@ -1,0 +1,102 @@
+{
+  "id": "ecg-2-3-bav2-mobitz2",
+  "title": "BAV II Mobitz II",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 50,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "double_bip",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Rythme",
+      "question": "Le rythme est-il régulier ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Sinus avec pauses brusques sans allongement progressif."
+    },
+    {
+      "n": 2,
+      "title": "Onde P",
+      "question": "Toutes les ondes P conduisent-elles ?",
+      "choices": [
+        "Oui",
+        "Non, blocage intermittent"
+      ],
+      "correct": 1,
+      "explanation": "Blocage intermittent sans allongement du PR."
+    },
+    {
+      "n": 3,
+      "title": "Type",
+      "question": "Quel type de BAV ?",
+      "choices": [
+        "BAV I",
+        "BAV II Mobitz I",
+        "BAV II Mobitz II",
+        "BAV III"
+      ],
+      "correct": 2,
+      "explanation": "PR constant avant le blocage = Mobitz II."
+    },
+    {
+      "n": 4,
+      "title": "Gravité",
+      "question": "Risque évolutif ?",
+      "choices": [
+        "Régression spontanée",
+        "BAV III (entraînement nécessaire)"
+      ],
+      "correct": 1,
+      "explanation": "Mobitz II évolue souvent vers BAV III, pacemaker à discuter."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Surveillance",
+        "Pacemaker",
+        "Atropine seule"
+      ],
+      "correct": 1,
+      "explanation": "Mobitz II = indication de pacemaker."
+    }
+  ],
+  "annotations": []
+}

@@ -1,0 +1,99 @@
+{
+  "id": "ecg-5-7-rythme-ectopique",
+  "title": "Rythme ectopique (sinus coronaire)",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 70,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Onde P",
+      "question": "P positive en D1, aVR, aVL ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "P positive en D1, aVR, aVL = rythme coronaire."
+    },
+    {
+      "n": 2,
+      "title": "P négative",
+      "question": "P négative en D2, D3, aVF ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Négativité inférieure = rythme coronaire."
+    },
+    {
+      "n": 3,
+      "title": "DD",
+      "question": "Diagnostic différentiel ?",
+      "choices": [
+        "Malposition",
+        "Situs inversus"
+      ],
+      "correct": 0,
+      "explanation": "Éliminer malposition et situs inversus."
+    },
+    {
+      "n": 4,
+      "title": "Conduite",
+      "question": "À faire ?",
+      "choices": [
+        "Refaire l ECG bien placé",
+        "Aucun"
+      ],
+      "correct": 0,
+      "explanation": "Toujours vérifier le placement."
+    },
+    {
+      "n": 5,
+      "title": "Gravité",
+      "question": "Gravité ?",
+      "choices": [
+        "Bénin",
+        "Critique"
+      ],
+      "correct": 0,
+      "explanation": "Rythme ectopique bénin."
+    }
+  ],
+  "annotations": []
+}

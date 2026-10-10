@@ -1,0 +1,101 @@
+{
+  "id": "ecg-2-4-bav2-mobitz1",
+  "title": "BAV II Mobitz I (Luciani-Wenckebach)",
+  "difficulty": "intermediate",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 55,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_lent",
+  "steps": [
+    {
+      "n": 1,
+      "title": "PR",
+      "question": "Le PR est-il constant ?",
+      "choices": [
+        "Oui",
+        "Non, allongement progressif"
+      ],
+      "correct": 1,
+      "explanation": "Allongement progressif jusqu à blocage = Wenckebach."
+    },
+    {
+      "n": 2,
+      "title": "Type",
+      "question": "Quel type de BAV ?",
+      "choices": [
+        "BAV I",
+        "BAV II Mobitz I",
+        "BAV II Mobitz II",
+        "BAV III"
+      ],
+      "correct": 1,
+      "explanation": "Wenckebach = Mobitz I."
+    },
+    {
+      "n": 3,
+      "title": "Gravité",
+      "question": "Gravité ?",
+      "choices": [
+        "Bénin",
+        "Critique"
+      ],
+      "correct": 0,
+      "explanation": "Mobitz I est généralement bénin."
+    },
+    {
+      "n": 4,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Pacemaker immédiat",
+        "Surveillance + recherche cause"
+      ],
+      "correct": 1,
+      "explanation": "Pas de pacemaker sauf évolution."
+    },
+    {
+      "n": 5,
+      "title": "Contexte",
+      "question": "Cause fréquente chez le sportif ?",
+      "choices": [
+        "Hyperkaliémie",
+        "Tonus vagal élevé"
+      ],
+      "correct": 1,
+      "explanation": "Fréquent chez les sportifs (tonus vagal)."
+    }
+  ],
+  "annotations": []
+}

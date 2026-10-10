@@ -1,0 +1,103 @@
+{
+  "id": "ecg-2-1-digitalique",
+  "title": "Surdosage digitalique",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 55,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": -0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "double_bip",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Rythme",
+      "question": "Quel est le rythme ?",
+      "choices": [
+        "Sinusal",
+        "FA",
+        "Flutter"
+      ],
+      "correct": 0,
+      "explanation": "Sinusal avec FC basse."
+    },
+    {
+      "n": 2,
+      "title": "ST",
+      "question": "Aspect du segment ST ?",
+      "choices": [
+        "Normal",
+        "Sus-décalé",
+        "En cupule (digitale)"
+      ],
+      "correct": 2,
+      "explanation": "Aspect en cupule = imprégnation digitalique."
+    },
+    {
+      "n": 3,
+      "title": "Intervalles",
+      "question": "PR allongé ?",
+      "choices": [
+        "Oui (> 0,20 s)",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Le digitalique allonge le PR."
+    },
+    {
+      "n": 4,
+      "title": "Toxicité",
+      "question": "Signe de surdosage ?",
+      "choices": [
+        "Tachycardie",
+        "Bradycardie + cupule + PR long",
+        "Aucun"
+      ],
+      "correct": 1,
+      "explanation": "Triade évocatrice d un surdosage."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Poursuivre",
+        "Dosage digitalique + arrêt",
+        "Augmenter la dose"
+      ],
+      "correct": 1,
+      "explanation": "Dosage plasmatique + arrêt si toxique."
+    }
+  ],
+  "annotations": []
+}

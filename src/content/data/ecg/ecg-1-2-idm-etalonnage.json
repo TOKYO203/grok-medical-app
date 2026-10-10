@@ -1,0 +1,103 @@
+{
+  "id": "ecg-1-2-idm-etalonnage",
+  "title": "IDM antérieur + étalonnage incorrect",
+  "difficulty": "intermediate",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 90,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.6,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_grave_montant",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Étalonnage",
+      "question": "L amplitude est-elle correcte ?",
+      "choices": [
+        "Oui",
+        "Non, 0,5 cm/mV"
+      ],
+      "correct": 1,
+      "explanation": "Amplitudes doublées visuellement. Il faut multiplier par 2 les valeurs mesurées."
+    },
+    {
+      "n": 2,
+      "title": "Segment ST",
+      "question": "Le segment ST est-il anormal ?",
+      "choices": [
+        "Normal",
+        "Sus-décalé",
+        "Sous-décalé"
+      ],
+      "correct": 1,
+      "explanation": "Sus-décalage en V2-V4, évocateur d un IDM antérieur."
+    },
+    {
+      "n": 3,
+      "title": "Territoire",
+      "question": "Quel territoire est atteint ?",
+      "choices": [
+        "Antérieur",
+        "Latéral",
+        "Inférieur",
+        "Postérieur"
+      ],
+      "correct": 0,
+      "explanation": "V2-V4 = territoire antérieur (IVA)."
+    },
+    {
+      "n": 4,
+      "title": "Urgence",
+      "question": "Quelle est la conduite à tenir ?",
+      "choices": [
+        "Surveillance",
+        "Reperfusion urgente",
+        "Consultation à 48h"
+      ],
+      "correct": 1,
+      "explanation": "IDM ST+ → reperfusion urgente (angioplastie ou thrombolyse)."
+    },
+    {
+      "n": 5,
+      "title": "Piège",
+      "question": "En plus de l IDM, quel piège faut-il repérer ?",
+      "choices": [
+        "Aucun",
+        "Étalonnage à 0,5 cm/mV"
+      ],
+      "correct": 1,
+      "explanation": "Toujours vérifier l étalonnage pour ne pas surestimer les amplitudes."
+    }
+  ],
+  "annotations": []
+}

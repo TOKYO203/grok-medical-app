@@ -1,0 +1,100 @@
+{
+  "id": "ecg-5-14-brugada",
+  "title": "Syndrome de Brugada",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 72,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "double_bip",
+  "steps": [
+    {
+      "n": 1,
+      "title": "V1-V2",
+      "question": "Aspect du ST en V1-V2 ?",
+      "choices": [
+        "Sus-décalé convexe",
+        "Sus-décalé concave"
+      ],
+      "correct": 0,
+      "explanation": "Type 1 : sus-décalage convexe + T négative."
+    },
+    {
+      "n": 2,
+      "title": "Type",
+      "question": "Type du Brugada ?",
+      "choices": [
+        "Type 1 (certain)",
+        "Type 2 (possible)",
+        "Type 3"
+      ],
+      "correct": 0,
+      "explanation": "Type 1 : convexe, T négative = diagnostic certain."
+    },
+    {
+      "n": 3,
+      "title": "Test",
+      "question": "Quel test confirme ?",
+      "choices": [
+        "Ajmaline/flécaïnide",
+        "Atropine"
+      ],
+      "correct": 0,
+      "explanation": "Test à l ajmaline ou flécaïnide."
+    },
+    {
+      "n": 4,
+      "title": "Risque",
+      "question": "Risque principal ?",
+      "choices": [
+        "Mort subite (FV)",
+        "Bradycardie"
+      ],
+      "correct": 0,
+      "explanation": "Brugada = risque de mort subite."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Avis cardiologue + CEE + DAI si indiqué",
+        "AINS"
+      ],
+      "correct": 0,
+      "explanation": "Évaluation spécialisée + DAI si indiqué."
+    }
+  ],
+  "annotations": []
+}

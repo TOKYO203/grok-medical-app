@@ -1,0 +1,101 @@
+{
+  "id": "ecg-3-3-fa-oap",
+  "title": "FA rapide + OAP",
+  "difficulty": "advanced",
+  "rhythm": "fibrillation-auriculaire",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 140,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_irregulier",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Rythme",
+      "question": "Le rythme est-il régulier ?",
+      "choices": [
+        "Oui",
+        "Non, irrégulier"
+      ],
+      "correct": 1,
+      "explanation": "FA : R-R irréguliers."
+    },
+    {
+      "n": 2,
+      "title": "Ondes P",
+      "question": "Ondes P visibles ?",
+      "choices": [
+        "Oui",
+        "Non, ligne trémulante"
+      ],
+      "correct": 1,
+      "explanation": "Absence d ondes P, ligne de base trémulante."
+    },
+    {
+      "n": 3,
+      "title": "Fréquence",
+      "question": "FC ?",
+      "choices": [
+        "< 60",
+        "60-100",
+        "> 100 (rapide)"
+      ],
+      "correct": 2,
+      "explanation": "FA rapide > 100/min."
+    },
+    {
+      "n": 4,
+      "title": "Clinique",
+      "question": "Signe associé évoquant un OAP ?",
+      "choices": [
+        "Crépitants + orthopnée",
+        "Céphalées",
+        "Douleur abdominale"
+      ],
+      "correct": 0,
+      "explanation": "Crépitants + orthopnée = OAP."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Priorité thérapeutique ?",
+      "choices": [
+        "Contrôle FC + O2 + diurétiques",
+        "Antiarythmique seul"
+      ],
+      "correct": 0,
+      "explanation": "Traiter l OAP en priorité (O2, diurétiques, vasodilatateurs) + ralentir la FC."
+    }
+  ],
+  "annotations": []
+}

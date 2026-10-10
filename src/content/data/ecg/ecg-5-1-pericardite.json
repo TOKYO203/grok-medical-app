@@ -1,0 +1,99 @@
+{
+  "id": "ecg-5-1-pericardite",
+  "title": "Péricardite aiguë",
+  "difficulty": "intermediate",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 95,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "ST",
+      "question": "Aspect du ST ?",
+      "choices": [
+        "Sus-décalage diffus concave",
+        "Sus-décalage localisé"
+      ],
+      "correct": 0,
+      "explanation": "Péricardite : sus-décalage diffus concave."
+    },
+    {
+      "n": 2,
+      "title": "Miroir",
+      "question": "Y a-t-il un miroir ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 1,
+      "explanation": "Péricardite = pas de miroir (contrairement IDM)."
+    },
+    {
+      "n": 3,
+      "title": "PR",
+      "question": "Le PR est-il modifié ?",
+      "choices": [
+        "Normal",
+        "Sous-décalé"
+      ],
+      "correct": 1,
+      "explanation": "Sous-décalage du PR dans péricardite."
+    },
+    {
+      "n": 4,
+      "title": "Clinique",
+      "question": "Symptôme ?",
+      "choices": [
+        "Douleur majorée en décubitus",
+        "Douleur à l effort"
+      ],
+      "correct": 0,
+      "explanation": "Douleur péricarditique majorée en décubitus."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "AINS + colchicine",
+        "Reperfusion"
+      ],
+      "correct": 0,
+      "explanation": "AINS + colchicine."
+    }
+  ],
+  "annotations": []
+}

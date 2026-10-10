@@ -1,0 +1,99 @@
+{
+  "id": "ecg-5-2-hypothermie",
+  "title": "Hypothermie (onde J d Osborn)",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 45,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "son_continu",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Onde J",
+      "question": "Présence d onde J d Osborn ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 0,
+      "explanation": "Onde J = hypothermie < 28°C."
+    },
+    {
+      "n": 2,
+      "title": "QRS",
+      "question": "QRS élargi ?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "correct": 1,
+      "explanation": "QRS élargi + bradycardie."
+    },
+    {
+      "n": 3,
+      "title": "QT",
+      "question": "QT ?",
+      "choices": [
+        "Normal",
+        "Long"
+      ],
+      "correct": 1,
+      "explanation": "QT long dans hypothermie."
+    },
+    {
+      "n": 4,
+      "title": "Risque",
+      "question": "Risque principal ?",
+      "choices": [
+        "FV",
+        "ESV"
+      ],
+      "correct": 0,
+      "explanation": "Hypothermie < 28°C = risque FV."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Réchauffement progressif",
+        "Ablation"
+      ],
+      "correct": 0,
+      "explanation": "Réchauffement progressif."
+    }
+  ],
+  "annotations": []
+}

@@ -1,0 +1,101 @@
+{
+  "id": "ecg-1-5-malposition",
+  "title": "Malposition des électrodes",
+  "difficulty": "intro",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 80,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "Onde P",
+      "question": "Où est l onde P ?",
+      "choices": [
+        "Positive en D1, D2",
+        "Positive en aVR",
+        "Absente"
+      ],
+      "correct": 1,
+      "explanation": "Onde P positive en aVR = malposition jusqu à preuve du contraire."
+    },
+    {
+      "n": 2,
+      "title": "D1 vs D2",
+      "question": "Quel signe évoque une inversion des électrodes des membres ?",
+      "choices": [
+        "P positive en D1",
+        "P négative en D1 et aVL"
+      ],
+      "correct": 1,
+      "explanation": "P négative en D1 + aVL suggère une inversion des électrodes des membres supérieurs."
+    },
+    {
+      "n": 3,
+      "title": "Précordiales",
+      "question": "L évolution des QRS en V1→V6 est-elle harmonieuse ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 1,
+      "explanation": "Non harmonieuse = malposition thoracique probable."
+    },
+    {
+      "n": 4,
+      "title": "Solution",
+      "question": "Que faire ?",
+      "choices": [
+        "Replacer les électrodes et refaire l ECG",
+        "Interpréter tel quel",
+        "Ajouter des dérivations"
+      ],
+      "correct": 0,
+      "explanation": "Toujours vérifier le placement avant interprétation."
+    },
+    {
+      "n": 5,
+      "title": "Conclusion",
+      "question": "L ECG est-il interprétable ?",
+      "choices": [
+        "Oui",
+        "Non, à refaire"
+      ],
+      "correct": 1,
+      "explanation": "À refaire après repositionnement."
+    }
+  ],
+  "annotations": []
+}

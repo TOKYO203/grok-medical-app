@@ -1,0 +1,99 @@
+{
+  "id": "ecg-5-9-repolarisation-precoce",
+  "title": "Repolarisation précoce",
+  "difficulty": "intermediate",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 75,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "bip_normal",
+  "steps": [
+    {
+      "n": 1,
+      "title": "ST",
+      "question": "Aspect du ST ?",
+      "choices": [
+        "Sus-décalage concave",
+        "Convexe"
+      ],
+      "correct": 0,
+      "explanation": "Sus-décalage concave bénin."
+    },
+    {
+      "n": 2,
+      "title": "Miroir",
+      "question": "Miroir présent ?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "correct": 1,
+      "explanation": "Pas de miroir = bénin."
+    },
+    {
+      "n": 3,
+      "title": "Morphologie",
+      "question": "Morphologie de la ligne J-T ?",
+      "choices": [
+        "ST sous la ligne",
+        "ST au-dessus"
+      ],
+      "correct": 0,
+      "explanation": "Bénin : ST sous la ligne J-T."
+    },
+    {
+      "n": 4,
+      "title": "Clinique",
+      "question": "Symptômes ?",
+      "choices": [
+        "Aucun",
+        "Douleur angineuse"
+      ],
+      "correct": 0,
+      "explanation": "Repolarisation précoce asymptomatique."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire ?",
+      "choices": [
+        "Aucun traitement",
+        "Reperfusion"
+      ],
+      "correct": 0,
+      "explanation": "Bénin, pas de traitement."
+    }
+  ],
+  "annotations": []
+}

@@ -1,0 +1,101 @@
+{
+  "id": "ecg-2-5-bav3-verapamil",
+  "title": "BAV III + vérapamil",
+  "difficulty": "advanced",
+  "rhythm": "sinusal",
+  "source": {
+    "type": "Adnet/Lapostolle, ECG en urgence, 3e éd., 2007"
+  },
+  "trace": {
+    "bpm": 38,
+    "cycles": 6,
+    "waves": {
+      "P": {
+        "mu": -0.18,
+        "a": 0.15,
+        "sigma": 0.025
+      },
+      "Q": {
+        "mu": -0.02,
+        "a": -0.15,
+        "sigma": 0.008
+      },
+      "R": {
+        "mu": 0,
+        "a": 1.2,
+        "sigma": 0.01
+      },
+      "S": {
+        "mu": 0.03,
+        "a": -0.35,
+        "sigma": 0.01
+      },
+      "T": {
+        "mu": 0.25,
+        "a": 0.3,
+        "sigma": 0.04
+      }
+    }
+  },
+  "sound": "double_bip",
+  "steps": [
+    {
+      "n": 1,
+      "title": "P vs QRS",
+      "question": "Y a-t-il une relation entre P et QRS ?",
+      "choices": [
+        "Oui, PR constant",
+        "Non, dissociation"
+      ],
+      "correct": 1,
+      "explanation": "Dissociation auriculo-ventriculaire complète."
+    },
+    {
+      "n": 2,
+      "title": "Fréquence",
+      "question": "FC ?",
+      "choices": [
+        "< 40/min",
+        "60-100/min",
+        "> 100/min"
+      ],
+      "correct": 0,
+      "explanation": "Échappement lent < 40/min."
+    },
+    {
+      "n": 3,
+      "title": "Contexte",
+      "question": "Que révèle l anamnèse ?",
+      "choices": [
+        "Prise de vérapamil",
+        "Prise d aspirine",
+        "Sport intensif"
+      ],
+      "correct": 0,
+      "explanation": "Vérapamil = inhibiteur calcique bradycardisant."
+    },
+    {
+      "n": 4,
+      "title": "Urgence",
+      "question": "Criticité ?",
+      "choices": [
+        "Faible",
+        "Critique (syncope/mort subite)"
+      ],
+      "correct": 1,
+      "explanation": "BAV III + bradycardie = risque de mort subite."
+    },
+    {
+      "n": 5,
+      "title": "Conduite",
+      "question": "Que faire immédiatement ?",
+      "choices": [
+        "Pacemaker externe + arrêt vérapamil",
+        "Surveillance simple"
+      ],
+      "correct": 0,
+      "explanation": "Entraînement externe + arrêt du toxique."
+    }
+  ],
+  "annotations": []
+}
