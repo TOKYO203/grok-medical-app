@@ -1,4 +1,11 @@
-/* Déformation ECG selon pathologie — adapte le tracé au diagnostic. */
+/* Déformation ECG selon pathologie — adapte le tracé au diagnostic.
+ *
+ * Pipeline (refonte 2026) :
+ *   1. morphologie « source »   — DI, DII + V1…V6 (`BASE` ci-dessous)
+ *   2. dérivation frontale      — DIII/aVR/aVL/aVF par la loi d'Einthoven
+ *   3. déformation clinique     — sus/sous-décalage ST, onde T, dents de scie
+ * La déformation est appliquée PAR DÉRIVATION après dérivation, en surcouche
+ * (cf. `cycleValues()` dans waveform.ts). */
 
 export type EcgDeformation = {
   rhythm?: string;
@@ -20,11 +27,13 @@ export type WaveParams = {
 };
 
 const BASE: Record<string, WaveParams> = {
+  // ── Dérivations « source » du plan frontal ────────────────────────────────
+  // DIII / aVR / aVL / aVF ne sont PLUS inventées ici : elles sont DÉRIVÉES de
+  // DI et DII par la loi d'Einthoven (cf. `einthoven()` dans waveform.ts).
+  //   DIII = DII − DI · aVR = −(DI+DII)/2 · aVL = DI − DII/2 · aVF = DII − DI/2
+  I:    { P:{mu:-0.18,a:0.10,sigma:0.025}, Q:{mu:-0.02,a:-0.06,sigma:0.008}, R:{mu:0,a:0.80,sigma:0.010}, S:{mu:0.03,a:-0.12,sigma:0.010}, T:{mu:0.25,a:0.18,sigma:0.040} },
   II:   { P:{mu:-0.18,a:0.15,sigma:0.025}, Q:{mu:-0.02,a:-0.10,sigma:0.008}, R:{mu:0,a:1.20,sigma:0.010}, S:{mu:0.03,a:-0.30,sigma:0.010}, T:{mu:0.25,a:0.30,sigma:0.040} },
-  III:  { P:{mu:-0.18,a:0.10,sigma:0.025}, Q:{mu:-0.02,a:-0.08,sigma:0.008}, R:{mu:0,a:0.70,sigma:0.010}, S:{mu:0.03,a:-0.20,sigma:0.010}, T:{mu:0.25,a:0.20,sigma:0.040} },
-  aVR:  { P:{mu:-0.18,a:-0.15,sigma:0.025}, Q:{mu:-0.02,a:0.05,sigma:0.008}, R:{mu:0,a:-1.00,sigma:0.010}, S:{mu:0.03,a:0.20,sigma:0.010}, T:{mu:0.25,a:-0.25,sigma:0.040} },
-  aVL:  { P:{mu:-0.18,a:0.08,sigma:0.025}, Q:{mu:-0.02,a:-0.05,sigma:0.008}, R:{mu:0,a:0.60,sigma:0.010}, S:{mu:0.03,a:-0.15,sigma:0.010}, T:{mu:0.25,a:0.15,sigma:0.040} },
-  aVF:  { P:{mu:-0.18,a:0.12,sigma:0.025}, Q:{mu:-0.02,a:-0.08,sigma:0.008}, R:{mu:0,a:0.85,sigma:0.010}, S:{mu:0.03,a:-0.20,sigma:0.010}, T:{mu:0.25,a:0.22,sigma:0.040} },
+  // ── Dérivations précordiales ──────────────────────────────────────────────
   V1:   { P:{mu:-0.18,a:0.08,sigma:0.025}, Q:{mu:-0.02,a:-0.05,sigma:0.008}, R:{mu:0,a:0.35,sigma:0.010}, S:{mu:0.03,a:-0.80,sigma:0.010}, T:{mu:0.25,a:-0.15,sigma:0.040} },
   V2:   { P:{mu:-0.18,a:0.10,sigma:0.025}, Q:{mu:-0.02,a:-0.05,sigma:0.008}, R:{mu:0,a:0.55,sigma:0.010}, S:{mu:0.03,a:-0.95,sigma:0.010}, T:{mu:0.25,a:0.05,sigma:0.040} },
   V3:   { P:{mu:-0.18,a:0.12,sigma:0.025}, Q:{mu:-0.02,a:-0.08,sigma:0.008}, R:{mu:0,a:0.80,sigma:0.010}, S:{mu:0.03,a:-0.60,sigma:0.010}, T:{mu:0.25,a:0.20,sigma:0.040} },

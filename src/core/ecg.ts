@@ -20,6 +20,27 @@ export const ECG_NORMS = {
   defaultSamplingHz: 500,
 } as const;
 
+/* ═══════════ 1 bis. MONITEUR — BALAYAGE & GAIN ═══════════ */
+/**
+ * Durée de balayage visible sur le moniteur (secondes). 4 s ≈ usage scope.
+ * Le repère du moniteur est le « papier » : 1 unité de viewBox = 1 mm
+ * (25 mm/s en abscisse, `voltageMmPerMv` en ordonnée).
+ */
+export const ECG_SWEEP_SECONDS = 4;
+
+/**
+ * Paliers de gain d'amplitude proposés par la toolbar (mm/mV).
+ *
+ * PLANCHER VOLONTAIRE à 5 mm/mV : on ne descend PAS à 2,5 mm/mV même si
+ * l'amplitude venait à écrêter la hauteur de ligne — limite assumée et
+ * documentée (cf. `README.md` du dossier ECG).
+ */
+export const ECG_GAIN_STEPS = [10, 5] as const;
+export type EcgGain = (typeof ECG_GAIN_STEPS)[number];
+
+/** Gain réduit appliqué automatiquement sur mobile en paysage (lignes courtes). */
+export const ECG_GAIN_REDUCED: EcgGain = 5;
+
 /* ═══════════ 2. DÉRIVATIONS ═══════════ */
 export const LIMB_LEADS = ["DI", "DII", "DIII", "aVR", "aVL", "aVF"] as const;
 export const PRECORDIAL_LEADS = ["V1", "V2", "V3", "V4", "V5", "V6"] as const;
@@ -187,7 +208,13 @@ export type EcgAnnotation = {
   type: "arrow" | "zone" | "caliper" | "text";
   label: string;
   tone: "normal" | "warning" | "info";
-  /** Coordonnées SVG (viewBox 1200×320 par défaut) */
+  /**
+   * Coordonnées RELATIVES au cadre du moniteur, exprimées en FRACTION
+   * (0 → 1), et non en pixels :
+   *   { x: 0.15, y: 0.30 }  →  15 % de la largeur, 30 % de la hauteur.
+   * Indépendant de la résolution et du « viewBox natif » (en mm) du moniteur.
+   * Un tracé (caliper) utilise en plus `x2` / `y2`, mêmes fractions.
+   */
   coords: Record<string, number>;
 };
 

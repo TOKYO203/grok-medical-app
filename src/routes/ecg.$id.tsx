@@ -14,12 +14,14 @@ function EcgAnnotations({ step, annotations }: { step: number; annotations?: Arr
   return (
     <div className="pointer-events-none absolute inset-0 z-10">
       {visible.map((a) => {
-        const left = (a.coords.x / 1200) * 100;
-        const top = (a.coords.y / 400) * 100;
+        // Convention : coordonnées en FRACTION (0 → 1) du cadre du moniteur.
+        const left = a.coords.x * 100;
+        const top = a.coords.y * 100;
         const cls = a.tone === "warning" ? "border-danger/60 bg-danger/15 text-danger" : a.tone === "info" ? "border-amber-500/60 bg-amber-500/15 text-amber-300" : "border-emerald-500/60 bg-emerald-500/15 text-emerald-300";
         return (
           <div
             key={a.id}
+            data-ecg-annotation={a.id}
             className={"absolute -translate-x-1/2 -translate-y-1/2 rounded-full border px-2 py-0.5 text-[10px] font-medium backdrop-blur " + cls}
             style={{ left: left + "%", top: top + "%" }}
           >
@@ -53,14 +55,18 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
   if (data.rhythm === "torsade-de-pointes") d.wideQrs = true;
   if (t.includes("bav") && (t.includes("mobitz ii") || t.includes("bav iii"))) d.wideQrs = true;
   if (t.includes("hyperkali")) d.peakedT = true;
+  // ⚠️ Clés de dérivation alignées sur le moniteur (« I », « II », « III ») —
+  // et non « DI »/« DII »/« DIII » : sinon le sus/sous-décalage ST des
+  // territoires inférieur/latéral n'était JAMAIS appliqué (aucune clé ne
+  // correspondait côté `stOffsetMv`).
   if (data.ischemia === "lesion-sous-epicardique") {
     if (t.includes("antérieur")) {
       d.stElevation = { V2: 0.25, V3: 0.30, V4: 0.30, V5: 0.20 };
       d.tInverted = ["V2", "V3", "V4"];
     } else if (t.includes("latéral")) {
-      d.stElevation = { DI: 0.20, aVL: 0.25, V5: 0.20, V6: 0.20 };
+      d.stElevation = { I: 0.20, aVL: 0.25, V5: 0.20, V6: 0.20 };
     } else if (t.includes("inférieur")) {
-      d.stElevation = { DII: 0.20, DIII: 0.25, aVF: 0.25 };
+      d.stElevation = { II: 0.20, III: 0.25, aVF: 0.25 };
       d.stDepression = { aVL: 0.15 };
     }
   }
