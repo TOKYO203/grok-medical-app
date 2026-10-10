@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "foyers": [
+    {
+      "id": "aortique",
+      "label": "Foyer aortique",
+      "short": "Aortique",
+      "emoji": "🫀",
+      "localisation": "2e espace intercostal droit, au bord du sternum"
+    },
+    {
+      "id": "pulmonaire",
+      "label": "Foyer pulmonaire",
+      "short": "Pulmonaire",
+      "emoji": "🫁",
+      "localisation": "2e espace intercostal gauche, au bord du sternum"
+    },
+    {
+      "id": "erb",
+      "label": "Foyer d'Erb (accessoire)",
+      "short": "Erb",
+      "emoji": "🎯",
+      "localisation": "3e espace intercostal gauche, au bord du sternum"
+    },
+    {
+      "id": "tricuspide",
+      "label": "Foyer tricuspide",
+      "short": "Tricuspide",
+      "emoji": "🔷",
+      "localisation": "4e-5e espace intercostal gauche, au bord du sternum"
+    },
+    {
+      "id": "mitral",
+      "label": "Foyer mitral (apex)",
+      "short": "Mitral",
+      "emoji": "♥️",
+      "localisation": "5e espace intercostal gauche, sur la ligne médio-claviculaire"
+    }
+  ],
+  "sounds": [
+    {
+      "id": "b1-b2-normal",
+      "label": "B1-B2 normal",
+      "categorie": "normal",
+      "foyers": ["aortique", "pulmonaire", "erb", "tricuspide", "mitral"],
+      "file": "normal/b1-b2-normal.json",
+      "status": "available"
+    },
+    {
+      "id": "dedoublement-b2",
+      "label": "Dédoublement de B2",
+      "categorie": "normal",
+      "foyers": ["pulmonaire"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "b3-galop",
+      "label": "B3 — galop protodiastolique",
+      "categorie": "normal",
+      "foyers": ["mitral"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "b4-galop",
+      "label": "B4 — galop présystolique",
+      "categorie": "normal",
+      "foyers": ["mitral"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "souffle-ejection-aortique",
+      "label": "Souffle systolique d'éjection (rétrécissement aortique)",
+      "categorie": "valvulopathie",
+      "foyers": ["aortique", "erb"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "insuffisance-mitrale",
+      "label": "Insuffisance mitrale",
+      "categorie": "valvulopathie",
+      "foyers": ["mitral"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "insuffisance-aortique",
+      "label": "Insuffisance aortique",
+      "categorie": "valvulopathie",
+      "foyers": ["aortique", "erb"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "retrecissement-mitral",
+      "label": "Rétrécissement mitral",
+      "categorie": "valvulopathie",
+      "foyers": ["mitral"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "frottement-pericardique",
+      "label": "Frottement péricardique",
+      "categorie": "pericarde",
+      "foyers": ["tricuspide", "mitral"],
+      "file": null,
+      "status": "planned"
+    },
+    {
+      "id": "fa-rythme-irregulier",
+      "label": "Arythmie complète par fibrillation atriale",
+      "categorie": "trouble-rythme",
+      "foyers": ["mitral"],
+      "file": null,
+      "status": "planned"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "b1-b2-normal",
+  "label": "B1-B2 normal",
+  "categorie": "normal",
+  "foyer": ["aortique", "pulmonaire", "erb", "tricuspide", "mitral"],
+  "timing": {
+    "phase": "systolo-diastolique",
+    "morphologie": "deux clics secs",
+    "schema": "B1 — systole — B2 — diastole",
+    "description": "Deux clics brefs et secs séparés par l'intervalle systolique, suivis d'un silence plus long (la diastole). B1 coïncide avec le pouls carotidien et marque le début de la systole ; B2 marque sa fin. L'intervalle B1-B2 est constant et nettement plus court que l'intervalle B2-B1 suivant."
+  },
+  "timbre": "Net, sec et sourd : claquement valvulaire sans composante musicale ni souffle surajouté.",
+  "irradiation": "Aucune irradiation : les deux temps s'entendent à tous les foyers, B1 prédominant à l'apex et B2 à la base.",
+  "symptomes": [],
+  "palpation": "Pouls périphériques réguliers, amples et symétriques. Choc de pointe de faible amplitude, non dévié, perçu au 5e espace intercostal gauche sur la ligne médio-claviculaire.",
+  "audio": {
+    "kind": "synth",
+    "preset": "normal_s1s2",
+    "params": {
+      "bpm": 72,
+      "systoleMs": 340,
+      "diastoleMs": 480,
+      "s1Freq": 42,
+      "s2Freq": 60,
+      "s1Gain": 0.5,
+      "s2Gain": 0.38
+    }
+  },
+  "manoeuvres": [
+    "Comparer les cinq foyers avec le même rythme respiratoire.",
+    "Palper la carotide en même temps que B1 pour le distinguer de B2.",
+    "Demander une inspiration profonde : B2 se dédouble physiologiquement au foyer pulmonaire."
+  ],
+  "diagnostics_associes": ["Examen cardiovasculaire normal"],
+  "items_programme": ["Sémiologie cardiovasculaire", "Bruits du cœur normaux"],
+  "pieges": [
+    "Ne pas confondre le dédoublement physiologique de B2 (inspiratoire, non fixe) avec un dédoublement fixe pathologique.",
+    "B1-B2 peut sembler « unique » chez l'obèse ou l'emphysémateux par diminution de la transmission des bruits.",
+    "Un B3 physiologique reste possible chez l'adulte jeune : il ne signe pas à lui seul une insuffisance cardiaque."
+  ],
+  "source": {
+    "type": "Référentiel",
+    "reference": "Sémiologie cardiovasculaire — Collège National des Enseignants de Cardiologie (CNEC)",
+    "license": "Usage pédagogique"
+  }
+}

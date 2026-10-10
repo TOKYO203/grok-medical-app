@@ -7,6 +7,7 @@ import {
   ClipboardCheck,
   Compass,
   GraduationCap,
+  HeartPulse,
   Home,
   Library,
   RotateCcw,
@@ -44,6 +45,7 @@ const EXPLORE = [
   { to: "/revue", label: "Réviser", icon: RotateCcw },
   { to: "/programme", label: "Programme national", icon: GraduationCap },
   { to: "/demo-ecg", label: "ECG animé", icon: Activity },
+  { to: "/auscultation", label: "Auscultation", icon: HeartPulse },
   { to: "/examen", label: "Examen blanc", icon: ClipboardCheck },
   { to: "/calculateurs", label: "Calculateurs", icon: Calculator },
   { to: "/classement", label: "Classement", icon: Trophy },
@@ -201,9 +203,7 @@ export function Page({
 }) {
   return (
     <main id="main-content" tabIndex={-1} className="outline-none">
-      {header ? (
-        <div className="px-5 pt-6 md:px-10 md:pt-10">{header}</div>
-      ) : null}
+      {header ? <div className="px-5 pt-6 md:px-10 md:pt-10">{header}</div> : null}
       <div className={cn("px-5 py-6 md:px-10 md:py-10", className)}>
         {children}
         <MedicalDisclaimer />

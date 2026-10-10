@@ -18,6 +18,7 @@ import { Route as AdminDecksRouteImport } from './routes/admin-decks'
 import { Route as AdminLicencesRouteImport } from './routes/admin-licences'
 import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AdminReportsRouteImport } from './routes/admin-reports'
+import { Route as AuscultationRouteImport } from './routes/auscultation'
 import { Route as BibliothequeRouteImport } from './routes/bibliotheque'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
@@ -90,6 +91,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
 const AdminReportsRoute = AdminReportsRouteImport.update({
   id: '/admin-reports',
   path: '/admin-reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuscultationRoute = AuscultationRouteImport.update({
+  id: '/auscultation',
+  path: '/auscultation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BibliothequeRoute = BibliothequeRouteImport.update({
@@ -243,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/auscultation': typeof AuscultationRoute
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
@@ -282,6 +289,7 @@ export interface FileRoutesByTo {
   '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/auscultation': typeof AuscultationRoute
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
@@ -322,6 +330,7 @@ export interface FileRoutesById {
   '/admin-licences': typeof AdminLicencesRoute
   '/admin-login': typeof AdminLoginRoute
   '/admin-reports': typeof AdminReportsRoute
+  '/auscultation': typeof AuscultationRoute
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
@@ -363,6 +372,7 @@ export interface FileRouteTypes {
     | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
+    | '/auscultation'
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
@@ -402,6 +412,7 @@ export interface FileRouteTypes {
     | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
+    | '/auscultation'
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
@@ -441,6 +452,7 @@ export interface FileRouteTypes {
     | '/admin-licences'
     | '/admin-login'
     | '/admin-reports'
+    | '/auscultation'
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
@@ -481,6 +493,7 @@ export interface RootRouteChildren {
   AdminLicencesRoute: typeof AdminLicencesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminReportsRoute: typeof AdminReportsRoute
+  AuscultationRoute: typeof AuscultationRoute
   BibliothequeRoute: typeof BibliothequeRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
@@ -570,6 +583,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-reports'
       fullPath: '/admin-reports'
       preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auscultation': {
+      id: '/auscultation'
+      path: '/auscultation'
+      fullPath: '/auscultation'
+      preLoaderRoute: typeof AuscultationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bibliotheque': {
@@ -825,6 +845,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLicencesRoute: AdminLicencesRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminReportsRoute: AdminReportsRoute,
+  AuscultationRoute: AuscultationRoute,
   BibliothequeRoute: BibliothequeRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
