@@ -50,8 +50,8 @@ const DEFAULT_PARAMS: ResolvedParams = {
   diastoleMs: 480,
   s1Freq: 42,
   s2Freq: 60,
-  s1Gain: 0.5,
-  s2Gain: 0.38,
+  s1Gain: 0.75,
+  s2Gain: 0.6,
   s1Dur: 0.12,
   s2Dur: 0.09,
   filterFreq: 420,
@@ -69,8 +69,8 @@ const PRESETS: Record<string, Partial<SoundParams>> = {
     diastoleMs: 480,
     s1Freq: 42,
     s2Freq: 60,
-    s1Gain: 0.5,
-    s2Gain: 0.38,
+    s1Gain: 0.75,
+    s2Gain: 0.6,
   },
 };
 
@@ -100,7 +100,7 @@ function ensureContext(): { ctx: AudioContext; master: GainNode } | null {
     if (!Ctor) return null;
     ctx = new Ctor();
     master = ctx.createGain();
-    master.gain.value = 0.9;
+    master.gain.value = 1.0;
     master.connect(ctx.destination);
   }
   if (!master) return null;
@@ -141,7 +141,7 @@ function thump(
   osc.frequency.setValueAtTime(o.freq, at);
   partial.type = "triangle";
   partial.frequency.setValueAtTime(o.freq * 2.6, at);
-  partialGain.gain.setValueAtTime(0.4, at);
+  partialGain.gain.setValueAtTime(0.7, at);
 
   // Enveloppe percussive : attaque quasi instantanée, décroissance rapide.
   env.gain.setValueAtTime(0.0001, at);
