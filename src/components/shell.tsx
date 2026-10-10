@@ -1,20 +1,6 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import {
-  Activity,
-  BookOpen,
-  Calculator,
-  ClipboardCheck,
-  GraduationCap,
-  Home,
-  Library,
-  RotateCcw,
-  Search,
-  Stethoscope,
-  Trophy,
-  Upload,
-  UserRound,
-} from "lucide-react";
+import { Activity, BookOpen, Calculator, ClipboardCheck, GraduationCap, Home, Library, RotateCcw, Search, Stethoscope, Trophy, Upload, UserRound } from "lucide-react";
 import { CommandPalette, useCommandPalette } from "@/components/command-palette";
 import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
@@ -25,11 +11,11 @@ import { cn } from "@/lib/utils";
 import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 
 const NAV = [
-  { to: "/", label: "Accueil", short: "Accueil", icon: Home },
-  { to: "/bibliotheque", label: "Bibliothèque", short: "Biblio", icon: Library },
-  { to: "/cas", label: "Cas", short: "Cas", icon: Stethoscope },
-  { to: "/revue", label: "Réviser", short: "Réviser", icon: RotateCcw },
-  { to: "/profil", label: "Profil", short: "Profil", icon: UserRound },
+  { to: "/",          label: "Accueil",     short: "Accueil", icon: Home },
+  { to: "/demarche",  label: "Orientation", short: "Orient.", icon: Compass },
+  { to: "/cas",       label: "Cas",         short: "Cas",     icon: Stethoscope },
+  { to: "/parcours",  label: "Nosographie", short: "Noso.",   icon: BookMarked },
+  { to: "/profil",    label: "Profil",      short: "Profil",  icon: UserRound },
 ] as const;
 
 const EXPLORE = [
