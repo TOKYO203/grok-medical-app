@@ -5,8 +5,8 @@ import type { SoundType } from "@/lib/ecg/sounds";
 import { baseWave, stOffsetMv, type EcgDeformation } from "@/lib/ecg/deformation";
 
 const PX = 20;
-const SWEEP = 4; // secondes visibles
-const SAMPLES = 400; // échantillons/s
+const SWEEP = 4;      // secondes visibles
+const SAMPLES = 250;  // échantillons/s (perf)
 
 type Pt = { t: number; v: number };
 
@@ -23,8 +23,8 @@ function buildWave(bpm: number, seconds: number, lead: string, def?: EcgDeformat
   const sMult = def?.wideQrs ? 2.4 : 1.0;
   const peakT = def?.peakedT ? 2.0 : 1.0;
   const pAmp = def?.pAbsent ? 0 : w.P.a;
-  const tInverted = def?.tInverted?.includes(lead) ?? false;
-  const tAmp = tInverted ? -Math.abs(w.T.a) * 1.4 : w.T.a;
+  const tInv = def?.tInverted?.includes(lead) ?? false;
+  const tAmp = tInv ? -Math.abs(w.T.a) * 1.4 : w.T.a;
   const st = stOffsetMv(lead, def);
   const saw = def?.sawTooth ? 1 : 0;
   for (let i = 0; i <= n; i++) {
@@ -55,13 +55,12 @@ function buildPleth(bpm: number, seconds: number): Pt[] {
   return out;
 }
 
-/* Path "complet" (60s) calculé UNE fois par (bpm, deformation, lead).
-   L'animation n'update que `strokeDashoffset` → 60 fps stable. */
-function fullPath(pts: Pt[], yMid: number, amp: number, xStart: number, xWidth: number, dur: number): string {
+/** Path avec origine (0,0). x = t × pxPerSec, y = yMid - v × amp. */
+function pathPx(pts: Pt[], yMid: number, amp: number, pxPerSec: number): string {
   let d = "";
   for (let i = 0; i < pts.length; i++) {
     const p = pts[i];
-    const x = xStart + (p.t / dur) * xWidth;
+    const x = p.t * pxPerSec;
     const y = yMid - p.v * amp;
     d += (i === 0 ? "M " : "L ") + x.toFixed(1) + "," + y.toFixed(1) + " ";
   }
@@ -109,26 +108,29 @@ export function EcgMonitor({
   const traceW_L = colW - 28;
   const traceW_R = colW - 28;
 
-  // ═══ PERF : paths calculés UNE fois, animation via strokeDashoffset ═══
+  // px par seconde (dans le SVG, viewBox)
+  const pxPerSec_L = traceW_L / SWEEP;
+  const pxPerSec_R = traceW_R / SWEEP;
+
+  // Paths pré-calculés UNE fois (origine 0,0). On translate ensuite.
   const paths = useMemo(() => {
     const p: Record<string, string> = {};
     for (let i = 0; i < leftTraces.length; i++) {
       const name = leftTraces[i];
       const yMid = top + rowL * (i + 0.5);
       const wave = name === "PLETH" ? buildPleth(bpm, secs) : buildWave(bpm, secs, name, deformation);
-      p[`L:${name}`] = fullPath(wave, yMid, ampL, colL + 28, traceW_L, secs);
+      p[`L:${name}`] = pathPx(wave, yMid, ampL, pxPerSec_L);
     }
     for (let i = 0; i < rightTraces.length; i++) {
       const name = rightTraces[i];
       const yMid = top + rowR * (i + 0.5);
       const wave = buildWave(bpm, secs, name, deformation);
-      p[`R:${name}`] = fullPath(wave, yMid, ampR, colR + 28, traceW_R, secs);
+      p[`R:${name}`] = pathPx(wave, yMid, ampR, pxPerSec_R);
     }
     return p;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bpm, deformation, W, H, full]);
+  }, [bpm, deformation, W, H, full]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Animation
+  // Animation : uniquement cursor (state) → translate + clip
   useEffect(() => {
     if (!playing) return;
     startRef.current = performance.now() - cursor * 1000;
@@ -139,16 +141,13 @@ export function EcgMonitor({
     };
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playing, secs]);
+  }, [playing, secs]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEcgBeep({ enabled: sound && playing, bpm, soundType });
 
-  // Responsive dims
   useEffect(() => {
     const compute = () => {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
+      const w = window.innerWidth, h = window.innerHeight;
       if (full) {
         const landscape = w >= h;
         setDims(landscape ? { w: 1800, h: Math.round(1800 * (h / w)) } : { w: 1000, h: 800 });
@@ -162,7 +161,6 @@ export function EcgMonitor({
     return () => window.removeEventListener("resize", compute);
   }, [full]);
 
-  // Pseudo-fullscreen : overlay CSS, pas de bandeau Android
   useEffect(() => {
     if (!full) return;
     const prev = document.body.style.overflow;
@@ -170,16 +168,12 @@ export function EcgMonitor({
     return () => { document.body.style.overflow = prev; };
   }, [full]);
 
-  // Fraction du path déjà parcourue (0 → 1)
-  const progress = cursor / secs;
+  // Décalage du tracé : on a parcouru cursor secondes, on translate de -cursor*pxPerSec
+  const shiftL = cursor * pxPerSec_L;
+  const shiftR = cursor * pxPerSec_R;
 
   return (
-    <div
-      className={
-        "overflow-hidden bg-black ring-1 ring-black/60 shadow-[var(--shadow-md)] " +
-        (full ? "fixed inset-0 z-50 rounded-none" : "relative rounded-[var(--radius-xl)]")
-      }
-    >
+    <div className={"overflow-hidden bg-black ring-1 ring-black/60 shadow-[var(--shadow-md)] " + (full ? "fixed inset-0 z-50 rounded-none" : "relative rounded-[var(--radius-xl)]")}>
       <div className="flex items-center gap-3 border-b border-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider">
         <span className="flex items-center gap-1.5 text-emerald-400">
           <span className="inline-block size-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -187,33 +181,15 @@ export function EcgMonitor({
         </span>
         <span className="hidden sm:inline text-white/30">25 mm/s · 10 mm/mV</span>
         <span className="ml-auto flex items-center gap-2">
-          <button type="button" onClick={() => setPlaying((v) => !v)} className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">
-            {playing ? "❙❙" : "▶"}
-          </button>
-          <button type="button" onClick={() => setSound((v) => !v)} aria-label={sound ? "Couper le son" : "Activer le son"}
-            className={"rounded-full px-2 py-0.5 text-[10px] transition-colors " + (sound ? "bg-emerald-400/20 text-emerald-300" : "bg-white/10 text-white/40")}>
-            {sound ? "🔊" : "🔈"}
-          </button>
-          <button type="button" onClick={() => setFull((v) => !v)} aria-label={full ? "Quitter" : "Plein écran"}
-            className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">
-            {full ? <Minimize2 className="size-3" /> : <Maximize2 className="size-3" />}
-          </button>
+          <button type="button" onClick={() => setPlaying((v) => !v)} className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">{playing ? "❙❙" : "▶"}</button>
+          <button type="button" onClick={() => setSound((v) => !v)} className={"rounded-full px-2 py-0.5 text-[10px] " + (sound ? "bg-emerald-400/20 text-emerald-300" : "bg-white/10 text-white/40")}>{sound ? "🔊" : "🔈"}</button>
+          <button type="button" onClick={() => setFull((v) => !v)} className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">{full ? <Minimize2 className="size-3" /> : <Maximize2 className="size-3" />}</button>
         </span>
       </div>
 
-      {full ? (
-        <div className="pointer-events-none absolute bottom-2 right-3 z-10 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/60">
-          📱 Tourne ton téléphone en paysage
-        </div>
-      ) : null}
+      {full ? <div className="pointer-events-none absolute bottom-2 right-3 z-10 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/60">📱 Tourne en paysage</div> : null}
 
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className={full ? "block h-[calc(100vh-32px)] w-full" : "block w-full"}
-        style={full ? undefined : { aspectRatio: `${W}/${H}` }}
-        preserveAspectRatio="xMidYMid meet"
-        aria-label={`Moniteur ECG 12 dérivations à ${bpm} bpm`}
-      >
+      <svg viewBox={`0 0 ${W} ${H}`} className={full ? "block h-[calc(100vh-32px)] w-full" : "block w-full"} style={full ? undefined : { aspectRatio: `${W}/${H}` }} preserveAspectRatio="xMidYMid meet" aria-label={`Moniteur ECG 12 dérivations à ${bpm} bpm`}>
         <defs>
           <pattern id="ecg-min" width="10" height="10" patternUnits="userSpaceOnUse">
             <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,255,100,0.06)" strokeWidth="0.4" />
@@ -222,37 +198,53 @@ export function EcgMonitor({
             <rect width="50" height="50" fill="url(#ecg-min)" />
             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,255,100,0.14)" strokeWidth="0.7" />
           </pattern>
+          {/* 1 clip par colonne */}
+          <clipPath id="clip-L"><rect x={colL + 28} y={top} width={traceW_L} height={innerH} /></clipPath>
+          <clipPath id="clip-R"><rect x={colR + 28} y={top} width={traceW_R} height={innerH} /></clipPath>
         </defs>
         <rect width={W} height={H} fill="url(#ecg-maj)" />
-
         <line x1={colR - COL_GAP / 2} y1={top} x2={colR - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.06)" />
 
-        {/* Colonne gauche */}
+        {/* Colonne gauche — traces clippées + translatées */}
+        <g clipPath="url(#clip-L)">
+          {leftTraces.map((name, i) => {
+            const yMid = top + rowL * (i + 0.5);
+            const isPleth = name === "PLETH";
+            return (
+              <g key={name} transform={`translate(${colL + 28 - shiftL}, 0)`}>
+                <path d={paths[`L:${name}`]} fill="none" stroke={isPleth ? "#00e5ff" : "#00ff6a"} strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
+                  style={{ filter: `drop-shadow(0 0 4px ${isPleth ? "rgba(0,229,255,0.6)" : "rgba(0,255,106,0.6)"})` }} />
+                <line x1={0} y1={yMid} x2={secs * pxPerSec_L} y2={yMid} stroke="rgba(0,255,100,0.05)" strokeWidth="0.3" />
+              </g>
+            );
+          })}
+        </g>
+        {/* Labels + lignes baseline (non clippées) */}
         {leftTraces.map((name, i) => {
           const yMid = top + rowL * (i + 0.5);
-          const isPleth = name === "PLETH";
-          return (
-            <g key={name}>
-              <line x1={colL + 28} y1={yMid} x2={colL + colW} y2={yMid} stroke={isPleth ? "rgba(0,220,255,0.15)" : "rgba(0,255,100,0.12)"} strokeWidth="0.5" />
-              <text x={colL} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill={isPleth ? "#00e5ff" : "#00ff6a"} fontWeight="700">{name}</text>
-              <path d={paths[`L:${name}`]} fill="none" stroke={isPleth ? "#00e5ff" : "#00ff6a"} strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
-                style={{ filter: `drop-shadow(0 0 4px ${isPleth ? "rgba(0,229,255,0.6)" : "rgba(0,255,106,0.6)"})`, strokeDasharray: `${progress * 10000} ${10000}` }} />
-            </g>
-          );
+          return <text key={name} x={colL} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill={name === "PLETH" ? "#00e5ff" : "#00ff6a"} fontWeight="700">{name}</text>;
         })}
 
         {/* Colonne droite */}
+        <g clipPath="url(#clip-R)">
+          {rightTraces.map((name, i) => {
+            const yMid = top + rowR * (i + 0.5);
+            return (
+              <g key={name} transform={`translate(${colR + 28 - shiftR}, 0)`}>
+                <path d={paths[`R:${name}`]} fill="none" stroke="#00ff6a" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
+                  style={{ filter: "drop-shadow(0 0 4px rgba(0,255,106,0.5))" }} />
+              </g>
+            );
+          })}
+        </g>
         {rightTraces.map((name, i) => {
           const yMid = top + rowR * (i + 0.5);
-          return (
-            <g key={name}>
-              <line x1={colR + 28} y1={yMid} x2={colR + colW} y2={yMid} stroke="rgba(0,255,100,0.12)" strokeWidth="0.5" />
-              <text x={colR} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">{name}</text>
-              <path d={paths[`R:${name}`]} fill="none" stroke="#00ff6a" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(0,255,106,0.5))", strokeDasharray: `${progress * 10000} ${10000}` }} />
-            </g>
-          );
+          return <text key={name} x={colR} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">{name}</text>;
         })}
+
+        {/* Curseur de balayage : toujours à droite de la colonne visible */}
+        <line x1={colL + 28 + traceW_L} y1={top} x2={colL + 28 + traceW_L} y2={H - bottom} stroke="rgba(0,255,106,0.5)" strokeWidth="1.2" />
+        <line x1={colR + 28 + traceW_R} y1={top} x2={colR + 28 + traceW_R} y2={H - bottom} stroke="rgba(0,255,106,0.5)" strokeWidth="1.2" />
 
         {/* Panneau chiffres */}
         <line x1={panelX - COL_GAP / 2} y1={top} x2={panelX - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.08)" />
