@@ -5,7 +5,8 @@ import type { SoundType } from "@/lib/ecg/sounds";
 import { baseWave, stOffsetMv, type EcgDeformation } from "@/lib/ecg/deformation";
 
 const PX = 20;
-const SWEEP = 4;
+const SWEEP = 4; // secondes visibles
+const SAMPLES = 400; // échantillons/s
 
 type Pt = { t: number; v: number };
 
@@ -17,16 +18,17 @@ function gauss(t: number, mu: number, a: number, s: number) {
 function buildWave(bpm: number, seconds: number, lead: string, def?: EcgDeformation): Pt[] {
   const w = baseWave(lead);
   const cy = 60 / bpm;
-  const n = Math.round(seconds * 400);
+  const n = Math.round(seconds * SAMPLES);
   const out: Pt[] = [];
   const sMult = def?.wideQrs ? 2.4 : 1.0;
   const peakT = def?.peakedT ? 2.0 : 1.0;
   const pAmp = def?.pAbsent ? 0 : w.P.a;
-  const tAmp = def?.tInverted?.includes(lead) ? -Math.abs(w.T.a) : w.T.a;
+  const tInverted = def?.tInverted?.includes(lead) ?? false;
+  const tAmp = tInverted ? -Math.abs(w.T.a) * 1.4 : w.T.a;
   const st = stOffsetMv(lead, def);
   const saw = def?.sawTooth ? 1 : 0;
   for (let i = 0; i <= n; i++) {
-    const t = i / 400;
+    const t = i / SAMPLES;
     const ph = t % cy;
     let v = 0;
     v += gauss(ph, 0.16, pAmp, 0.025);
@@ -48,23 +50,20 @@ function buildPleth(bpm: number, seconds: number): Pt[] {
   for (let i = 0; i <= n; i++) {
     const t = i / 200;
     const ph = t % cy;
-    let v = 0;
-    v += gauss(ph, 0.18, 1.0, 0.045);
-    v += gauss(ph, 0.36, 0.30, 0.055);
-    out.push({ t, v });
+    out.push({ t, v: gauss(ph, 0.18, 1.0, 0.045) + gauss(ph, 0.36, 0.30, 0.055) });
   }
   return out;
 }
 
-function pathFor(pts: Pt[], win: number, start: number, yMid: number, amp: number, xStart: number, xWidth: number): string {
+/* Path "complet" (60s) calculé UNE fois par (bpm, deformation, lead).
+   L'animation n'update que `strokeDashoffset` → 60 fps stable. */
+function fullPath(pts: Pt[], yMid: number, amp: number, xStart: number, xWidth: number, dur: number): string {
   let d = "";
-  let started = false;
-  for (const p of pts) {
-    if (p.t < start || p.t > start + win) continue;
-    const x = xStart + ((p.t - start) / win) * xWidth;
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i];
+    const x = xStart + (p.t / dur) * xWidth;
     const y = yMid - p.v * amp;
-    d += (started ? "L " : "M ") + x.toFixed(1) + "," + y.toFixed(1) + " ";
-    started = true;
+    d += (i === 0 ? "M " : "L ") + x.toFixed(1) + "," + y.toFixed(1) + " ";
   }
   return d.trim();
 }
@@ -81,15 +80,6 @@ export function EcgMonitor({
   autoStart?: boolean;
 }) {
   const secs = 60;
-  const waves = useMemo(() => {
-    const obj: Record<string, Pt[]> = {};
-    for (const k of ["II", "III", "aVR", "aVL", "aVF", "V1", "V2", "V3", "V4", "V5", "V6"]) {
-      obj[k] = buildWave(bpm, secs, k, deformation);
-    }
-    obj.PLETH = buildPleth(bpm, secs);
-    return obj;
-  }, [bpm, deformation]);
-
   const [cursor, setCursor] = useState(0);
   const [playing, setPlaying] = useState(autoStart);
   const [sound, setSound] = useState(false);
@@ -97,8 +87,48 @@ export function EcgMonitor({
   const [dims, setDims] = useState({ w: 1600, h: 460 });
   const startRef = useRef<number | null>(null);
   const rafRef = useRef(0);
-  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Layout
+  const W = dims.w;
+  const H = dims.h;
+  const COL_GAP = 16;
+  const PANEL_W = full ? 300 : 240;
+  const colW = (W - PANEL_W - COL_GAP * 2 - PX * 2) / 2;
+  const colL = PX;
+  const colR = PX + colW + COL_GAP;
+  const panelX = PX + colW * 2 + COL_GAP * 2;
+  const top = 42;
+  const bottom = 16;
+  const innerH = H - top - bottom;
+  const leftTraces = ["II", "aVR", "III", "PLETH"];
+  const rightTraces = ["V1", "V2", "V3", "V4", "V5", "V6"];
+  const rowL = innerH / leftTraces.length;
+  const rowR = innerH / rightTraces.length;
+  const ampL = rowL * 0.38;
+  const ampR = rowR * 0.38;
+  const traceW_L = colW - 28;
+  const traceW_R = colW - 28;
+
+  // ═══ PERF : paths calculés UNE fois, animation via strokeDashoffset ═══
+  const paths = useMemo(() => {
+    const p: Record<string, string> = {};
+    for (let i = 0; i < leftTraces.length; i++) {
+      const name = leftTraces[i];
+      const yMid = top + rowL * (i + 0.5);
+      const wave = name === "PLETH" ? buildPleth(bpm, secs) : buildWave(bpm, secs, name, deformation);
+      p[`L:${name}`] = fullPath(wave, yMid, ampL, colL + 28, traceW_L, secs);
+    }
+    for (let i = 0; i < rightTraces.length; i++) {
+      const name = rightTraces[i];
+      const yMid = top + rowR * (i + 0.5);
+      const wave = buildWave(bpm, secs, name, deformation);
+      p[`R:${name}`] = fullPath(wave, yMid, ampR, colR + 28, traceW_R, secs);
+    }
+    return p;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bpm, deformation, W, H, full]);
+
+  // Animation
   useEffect(() => {
     if (!playing) return;
     startRef.current = performance.now() - cursor * 1000;
@@ -114,12 +144,7 @@ export function EcgMonitor({
 
   useEcgBeep({ enabled: sound && playing, bpm, soundType });
 
-  useEffect(() => {
-    const onFsChange = () => setFull(Boolean(document.fullscreenElement));
-    document.addEventListener("fullscreenchange", onFsChange);
-    return () => document.removeEventListener("fullscreenchange", onFsChange);
-  }, []);
-
+  // Responsive dims
   useEffect(() => {
     const compute = () => {
       const w = window.innerWidth;
@@ -137,53 +162,22 @@ export function EcgMonitor({
     return () => window.removeEventListener("resize", compute);
   }, [full]);
 
-  async function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      try {
-        await containerRef.current?.requestFullscreen();
-        type Lock = ScreenOrientation & { lock?: (o: string) => Promise<void> };
-        const o = screen.orientation as Lock | undefined;
-        if (o?.lock) { try { await o.lock("landscape"); } catch { /* */ } }
-      } catch { /* */ }
-    } else {
-      try {
-        const o = screen.orientation as { unlock?: () => void } | undefined;
-        o?.unlock?.();
-      } catch { /* */ }
-      try { await document.exitFullscreen(); } catch { /* */ }
-    }
-  }
+  // Pseudo-fullscreen : overlay CSS, pas de bandeau Android
+  useEffect(() => {
+    if (!full) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [full]);
 
-  const winStart = Math.max(0, Math.min(cursor - SWEEP * 0.85, secs - SWEEP));
-  const sweepT = (cursor - winStart) / SWEEP;
-
-  const W = dims.w;
-  const H = dims.h;
-  const COL_GAP = 16;
-  const PANEL_W = full ? 300 : 240;
-  const colW = (W - PANEL_W - COL_GAP * 2 - PX * 2) / 2;
-  const colL = PX;
-  const colR = PX + colW + COL_GAP;
-  const panelX = PX + colW * 2 + COL_GAP * 2;
-  const top = 42;
-  const bottom = 16;
-  const innerH = H - top - bottom;
-
-  const leftTraces = ["II", "aVR", "III", "PLETH"];
-  const rightTraces = ["V1", "V2", "V3", "V4", "V5", "V6"];
-  const rowL = innerH / leftTraces.length;
-  const rowR = innerH / rightTraces.length;
-  const ampL = rowL * 0.38;
-  const ampR = rowR * 0.38;
-  const traceW_L = colW - 28;
-  const traceW_R = colW - 28;
+  // Fraction du path déjà parcourue (0 → 1)
+  const progress = cursor / secs;
 
   return (
     <div
-      ref={containerRef}
       className={
         "overflow-hidden bg-black ring-1 ring-black/60 shadow-[var(--shadow-md)] " +
-        (full ? "fixed inset-0 z-50 rounded-none" : "rounded-[var(--radius-xl)]")
+        (full ? "fixed inset-0 z-50 rounded-none" : "relative rounded-[var(--radius-xl)]")
       }
     >
       <div className="flex items-center gap-3 border-b border-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider">
@@ -200,7 +194,7 @@ export function EcgMonitor({
             className={"rounded-full px-2 py-0.5 text-[10px] transition-colors " + (sound ? "bg-emerald-400/20 text-emerald-300" : "bg-white/10 text-white/40")}>
             {sound ? "🔊" : "🔈"}
           </button>
-          <button type="button" onClick={toggleFullscreen} aria-label={full ? "Quitter le plein écran" : "Plein écran"}
+          <button type="button" onClick={() => setFull((v) => !v)} aria-label={full ? "Quitter" : "Plein écran"}
             className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">
             {full ? <Minimize2 className="size-3" /> : <Maximize2 className="size-3" />}
           </button>
@@ -209,7 +203,7 @@ export function EcgMonitor({
 
       {full ? (
         <div className="pointer-events-none absolute bottom-2 right-3 z-10 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/60">
-          📱 Tourne ton téléphone en paysage pour un rendu optimal
+          📱 Tourne ton téléphone en paysage
         </div>
       ) : null}
 
@@ -233,73 +227,48 @@ export function EcgMonitor({
 
         <line x1={colR - COL_GAP / 2} y1={top} x2={colR - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.06)" />
 
+        {/* Colonne gauche */}
         {leftTraces.map((name, i) => {
           const yMid = top + rowL * (i + 0.5);
           const isPleth = name === "PLETH";
           return (
             <g key={name}>
               <line x1={colL + 28} y1={yMid} x2={colL + colW} y2={yMid} stroke={isPleth ? "rgba(0,220,255,0.15)" : "rgba(0,255,100,0.12)"} strokeWidth="0.5" />
-              <text x={colL} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill={isPleth ? "#00e5ff" : "#00ff6a"} fontWeight="700">
-                {name}
-              </text>
-              <path
-                d={pathFor(waves[name], SWEEP, winStart, yMid, ampL, colL + 28, traceW_L)}
-                fill="none"
-                stroke={isPleth ? "#00e5ff" : "#00ff6a"}
-                strokeWidth="1.8"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                style={{ filter: `drop-shadow(0 0 4px ${isPleth ? "rgba(0,229,255,0.6)" : "rgba(0,255,106,0.6)"})` }}
-              />
+              <text x={colL} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill={isPleth ? "#00e5ff" : "#00ff6a"} fontWeight="700">{name}</text>
+              <path d={paths[`L:${name}`]} fill="none" stroke={isPleth ? "#00e5ff" : "#00ff6a"} strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
+                style={{ filter: `drop-shadow(0 0 4px ${isPleth ? "rgba(0,229,255,0.6)" : "rgba(0,255,106,0.6)"})`, strokeDasharray: `${progress * 10000} ${10000}` }} />
             </g>
           );
         })}
 
+        {/* Colonne droite */}
         {rightTraces.map((name, i) => {
           const yMid = top + rowR * (i + 0.5);
           return (
             <g key={name}>
               <line x1={colR + 28} y1={yMid} x2={colR + colW} y2={yMid} stroke="rgba(0,255,100,0.12)" strokeWidth="0.5" />
-              <text x={colR} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">
-                {name}
-              </text>
-              <path
-                d={pathFor(waves[name], SWEEP, winStart, yMid, ampR, colR + 28, traceW_R)}
-                fill="none"
-                stroke="#00ff6a"
-                strokeWidth="1.8"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(0,255,106,0.5))" }}
-              />
+              <text x={colR} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">{name}</text>
+              <path d={paths[`R:${name}`]} fill="none" stroke="#00ff6a" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round"
+                style={{ filter: "drop-shadow(0 0 4px rgba(0,255,106,0.5))", strokeDasharray: `${progress * 10000} ${10000}` }} />
             </g>
           );
         })}
 
-        {playing ? (
-          <>
-            <line x1={colL + 28 + sweepT * traceW_L} y1={top} x2={colL + 28 + sweepT * traceW_L} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
-            <line x1={colR + 28 + sweepT * traceW_R} y1={top} x2={colR + 28 + sweepT * traceW_R} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
-          </>
-        ) : null}
-
+        {/* Panneau chiffres */}
         <line x1={panelX - COL_GAP / 2} y1={top} x2={panelX - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.08)" />
         <text x={panelX} y={top + 18} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">ECG</text>
         <text x={W - PX} y={top + 18} fontSize="11" fontFamily="ui-monospace,monospace" fill="#ff3355" textAnchor="end">♥</text>
         <text x={panelX} y={top + 78} fontSize="52" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">{bpm}</text>
         <text x={panelX + 70} y={top + 78} fontSize="11" fontFamily="ui-monospace,monospace" fill="rgba(0,255,106,0.5)">bpm</text>
-
         <line x1={panelX - COL_GAP / 2} y1={top + 100} x2={W - PX} y2={top + 100} stroke="rgba(255,255,255,0.08)" />
         <text x={panelX} y={top + 120} fontSize="11" fontFamily="ui-monospace,monospace" fill="#ffffff" fontWeight="700">NIBP</text>
         <text x={panelX} y={top + 168} fontSize="32" fontFamily="ui-monospace,monospace" fill="#ffffff" fontWeight="700">117</text>
         <text x={panelX + 65} y={top + 168} fontSize="22" fontFamily="ui-monospace,monospace" fill="#ffffff" fontWeight="700">81</text>
         <text x={panelX} y={top + 188} fontSize="9" fontFamily="ui-monospace,monospace" fill="rgba(255,255,255,0.35)">mmHg</text>
-
         <line x1={panelX - COL_GAP / 2} y1={top + 210} x2={W - PX} y2={top + 210} stroke="rgba(255,255,255,0.08)" />
         <text x={panelX} y={top + 230} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00e5ff" fontWeight="700">SpO₂</text>
         <text x={panelX} y={top + 288} fontSize="48" fontFamily="ui-monospace,monospace" fill="#00e5ff" fontWeight="700">97</text>
         <text x={panelX + 70} y={top + 288} fontSize="14" fontFamily="ui-monospace,monospace" fill="#00e5ff" fontWeight="700">%</text>
-
         <line x1={panelX - COL_GAP / 2} y1={top + 310} x2={W - PX} y2={top + 310} stroke="rgba(255,255,255,0.08)" />
         <text x={panelX} y={top + 330} fontSize="11" fontFamily="ui-monospace,monospace" fill="#ffffff" fontWeight="700">TEMP</text>
         <text x={panelX} y={top + 380} fontSize="36" fontFamily="ui-monospace,monospace" fill="#ffffff" fontWeight="700">37.0</text>
