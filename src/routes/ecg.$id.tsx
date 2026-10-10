@@ -155,7 +155,12 @@ function EcgCasePage() {
         </div>
 
         <div className="relative">
-          <EcgMonitor bpm={data.trace?.bpm ?? 75} soundType="bip_normal" deformation={buildDeformation(data)} autoStart />
+          <EcgMonitor
+            bpm={data.trace?.bpm ?? 75}
+            soundType={data.sound ?? "bip_normal"}
+            deformation={buildDeformation(data)}
+            autoStart
+          />
           <EcgAnnotations step={step} annotations={data.annotations as never} />
         </div>
 

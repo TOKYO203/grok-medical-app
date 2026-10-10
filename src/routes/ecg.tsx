@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Activity, ChevronRight } from "lucide-react";
 import { Page, Shell, PageHeader } from "@/components/shell";
 import { listEcg } from "@/lib/ecg/catalog";
@@ -9,6 +9,14 @@ export const Route = createFileRoute("/ecg")({
 });
 
 function EcgLibraryPage() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  // /ecg est le layout parent de /ecg/$id : on laisse l'enfant prendre la main
+  // (sans cet <Outlet/>, la page détail ne s'affichait jamais — cf. demarche.tsx).
+  if (pathname !== "/ecg" && pathname !== "/ecg/") {
+    return <Outlet />;
+  }
+
   const cases = listEcg();
   return (
     <Shell title="ECG">

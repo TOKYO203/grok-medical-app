@@ -68,7 +68,7 @@ test("every Deck curriculum step links to learning or its free preview", () => {
 });
 
 test("parent routes render their dynamic child pages", () => {
-  for (const file of ["parcours.tsx", "cas.tsx", "demarche.tsx"]) {
+  for (const file of ["parcours.tsx", "cas.tsx", "demarche.tsx", "ecg.tsx"]) {
     const route = routeSources.find((source) => source.file === file);
     assert.ok(route, `missing parent route ${file}`);
     assert.match(

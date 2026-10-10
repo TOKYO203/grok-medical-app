@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Clock3, Lock, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { ContentCard } from "@/components/content/content-card";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";

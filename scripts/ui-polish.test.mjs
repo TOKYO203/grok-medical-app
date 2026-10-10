@@ -5,6 +5,10 @@ import test from "node:test";
 const home = readFileSync(new URL("../src/routes/index.tsx", import.meta.url), "utf8");
 const parcours = readFileSync(new URL("../src/routes/parcours.tsx", import.meta.url), "utf8");
 const cases = readFileSync(new URL("../src/routes/cas.tsx", import.meta.url), "utf8");
+const contentCard = readFileSync(
+  new URL("../src/components/content/content-card.tsx", import.meta.url),
+  "utf8",
+);
 const root = readFileSync(new URL("../src/routes/__root.tsx", import.meta.url), "utf8");
 const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.url), "utf8");
 const connectivity = readFileSync(
@@ -40,7 +44,10 @@ test("interactive learning cards share restrained motion and depth", () => {
   assert.match(styles, /optimus-interactive-card/);
   assert.match(home, /optimus-interactive-card/);
   assert.match(parcours, /optimus-interactive-card/);
-  assert.match(cases, /optimus-interactive-card/);
+  // Depuis le refactor ContentCard, /cas rend la primitive partagée, qui porte
+  // la classe interactive — on vérifie donc la primitive ET son usage dans /cas.
+  assert.match(contentCard, /optimus-interactive-card/);
+  assert.match(cases, /<ContentCard/);
 });
 
 test("parcours and clinical cases expose progress summaries and explicit states", () => {

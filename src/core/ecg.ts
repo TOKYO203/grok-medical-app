@@ -121,7 +121,29 @@ export type ElectrolyteDisorder =
   | "hypokaliemie"
   | "normal";
 
-/* ═══════════ 7. CAS ECG COMPLET ═══════════ */
+/* ═══════════ 7. DESIGN SONORE DU MONITEUR ═══════════ */
+/**
+ * Types de sons du moniteur ECG (spec Adnet/Lapostolle).
+ *
+ * Défini dans le modèle canonique (`core`) pour que `EcgCase` — et les cas
+ * JSON qui portent un champ `sound` — puissent le référencer sans que le
+ * domaine ne dépende de l'implémentation (`src/lib/ecg/sounds.ts`, qui le
+ * ré-exporte pour la compatibilité des imports existants).
+ */
+export type SoundType =
+  | "bip_normal"
+  | "bip_lent"
+  | "bip_rapide"
+  | "double_bip"
+  | "son_continu"
+  | "son_oscillant"
+  | "son_dents_scie"
+  | "son_irregulier"
+  | "son_grave_montant"
+  | "son_aigu_montant"
+  | "silence";
+
+/* ═══════════ 8. CAS ECG COMPLET ═══════════ */
 export type EcgCase = {
   id: string;
   title: string;
@@ -130,10 +152,17 @@ export type EcgCase = {
   metrics: GlobalMetrics;
   intervals: IntervalsSec;
   waveforms: Waveforms;
-  ischemia: IschemiaSeverity;
+  /**
+   * Niveau ischémique classé. Optionnel : les cas « légers » (bibliothèque
+   * Adnet/Lapostolle) ne le renseignent que lorsqu'un sus/sous-décalage est
+   * cliniquement présent (ex. IDM `lesion-sous-epicardique`).
+   */
+  ischemia?: IschemiaSeverity;
   territory?: Territory;
   electrolyte?: ElectrolyteDisorder;
   source: { type: string; url?: string; author?: string; license?: string };
+  /** Son du moniteur associé au tableau clinique (spec Adnet/Lapostolle). */
+  sound?: SoundType;
   /** Étapes de lecture guidée */
   steps: EcgStep[];
   /** Annotations SVG révélées après chaque étape */

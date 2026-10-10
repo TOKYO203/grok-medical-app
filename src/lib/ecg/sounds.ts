@@ -3,20 +3,15 @@
    ───────────────────────────────────────────────────────────────────
    10 types de sons différenciés par gravité, joués via Web Audio.
    Priorités : critique > urgent > alerte > info.
+
+   `SoundType` vit désormais dans le modèle canonique `@/core/ecg`
+   (le domaine) ; il est ré-exporté ici pour que tous les imports
+   historiques (`./sounds`, `@/lib/ecg/sounds`) continuent de marcher.
    ═══════════════════════════════════════════════════════════════════ */
 
-export type SoundType =
-  | "bip_normal"
-  | "bip_lent"
-  | "bip_rapide"
-  | "double_bip"
-  | "son_continu"
-  | "son_oscillant"
-  | "son_dents_scie"
-  | "son_irregulier"
-  | "son_grave_montant"
-  | "son_aigu_montant"
-  | "silence";
+import type { SoundType } from "@/core/ecg";
+
+export type { SoundType };
 
 export type SoundPriority = "info" | "alerte" | "urgent" | "critique";
 
