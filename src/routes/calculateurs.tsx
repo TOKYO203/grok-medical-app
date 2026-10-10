@@ -1,82 +1,116 @@
-import type { ReactNode } from "react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, Check } from "lucide-react";
+import { BookOpen, Check, ChevronLeft, ChevronRight, Sigma } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Input } from "@/components/ui/input";
-import {
-  bmi,
-  bmiClass,
-  cha2ds2Vasc,
-  ckdEpi,
-  cockcroftGault,
-  curb65,
-  gcs,
-  qtcBazett,
-  wellsPe,
-} from "@/content/calculators";
 import { cn } from "@/lib/utils";
+import {
+  listCategoryGroups,
+  type Calculator,
+  type CalculatorField,
+  type CalculatorResult,
+  type CalculatorSeverity,
+} from "@/content/calculators";
 
 export const Route = createFileRoute("/calculateurs")({ component: CalcPage });
 
-const TABS = [
-  { id: "gfr", label: "DFG" },
-  { id: "bmi", label: "IMC" },
-  { id: "chads", label: "CHA₂DS₂" },
-  { id: "gcs", label: "Glasgow" },
-  { id: "qtc", label: "QTc" },
-  { id: "wells", label: "Wells EP" },
-  { id: "curb", label: "CURB-65" },
-] as const;
-
-type Tab = (typeof TABS)[number]["id"];
+/** Couleur + libellé du badge de gravité. */
+const SEVERITY_STYLE: Record<CalculatorSeverity, { label: string; className: string }> = {
+  low: { label: "Faible", className: "bg-success/12 text-success" },
+  medium: { label: "Modéré", className: "bg-warn/15 text-warn" },
+  high: { label: "Élevé", className: "bg-danger/12 text-danger" },
+  critical: { label: "Critique", className: "bg-danger text-white" },
+};
 
 function CalcPage() {
-  const [tab, setTab] = useState<Tab>("gfr");
+  const groups = useMemo(() => listCategoryGroups(), []);
+  const [category, setCategory] = useState<string>(() => groups[0]?.category ?? "general");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const activeGroup = groups.find((g) => g.category === category) ?? groups[0];
+  const selected = activeGroup?.items.find((c) => c.id === selectedId) ?? null;
+
+  function changeCategory(next: string) {
+    setCategory(next);
+    setSelectedId(null);
+  }
+
   return (
     <Shell title="Calculateurs">
       <Page
-      className="mx-auto max-w-2xl"
-      header={
-        <PageHeader
-          kicker="Outils cliniques"
-          title="Calculateurs"
-          description="Scores et règles de décision utilisables hors ligne. Ils éclairent la décision — ils ne remplacent jamais le jugement clinique."
-        />
-      }
-    >
+        className="mx-auto max-w-5xl"
+        header={
+          <PageHeader
+            kicker="Outils cliniques"
+            title="Calculateurs"
+            description="Scores et règles de décision utilisables hors ligne. Ils éclairent la décision — ils ne remplacent jamais le jugement clinique."
+          />
+        }
+      >
+        {/* Onglets par catégorie (jamais un onglet vide). */}
         <div
-          className="mt-5 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0"
+          className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0"
           role="tablist"
-          aria-label="Choisir un calculateur"
+          aria-label="Choisir une catégorie de calculateurs"
         >
-          {TABS.map((t) => (
+          {groups.map((group) => (
             <button
-              key={t.id}
+              key={group.category}
               type="button"
               role="tab"
-              aria-selected={tab === t.id}
-              onClick={() => setTab(t.id)}
+              aria-selected={group.category === activeGroup?.category}
+              onClick={() => changeCategory(group.category)}
               className={cn(
-                "flex shrink-0 items-center rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors",
-                tab === t.id
+                "flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors",
+                group.category === activeGroup?.category
                   ? "bg-primary text-primary-fg shadow-[var(--shadow-soft)]"
                   : "bg-card text-muted shadow-[var(--shadow-border)] hover:text-fg",
               )}
             >
-              {t.label}
+              {group.label}
+              <span
+                className={cn(
+                  "rounded-full px-1.5 text-[10px] tabular-nums",
+                  group.category === activeGroup?.category
+                    ? "bg-primary-fg/20 text-primary-fg"
+                    : "bg-secondary text-subtle",
+                )}
+              >
+                {group.items.length}
+              </span>
             </button>
           ))}
         </div>
 
-        <div className="mt-6" role="tabpanel">
-          {tab === "gfr" ? <Gfr /> : null}
-          {tab === "bmi" ? <Bmi /> : null}
-          {tab === "chads" ? <Chads /> : null}
-          {tab === "gcs" ? <Gcs /> : null}
-          {tab === "qtc" ? <Qtc /> : null}
-          {tab === "wells" ? <Wells /> : null}
-          {tab === "curb" ? <Curb /> : null}
+        <div
+          role="tabpanel"
+          aria-label={activeGroup ? `Calculateurs ${activeGroup.label}` : "Calculateurs"}
+          className="mt-5 grid gap-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]"
+        >
+          {/* Liste des scores de la catégorie */}
+          <div className={cn("space-y-2", selected && "hidden md:block")}>
+            {activeGroup?.items.map((calc) => (
+              <CalculatorRow
+                key={calc.id}
+                calc={calc}
+                selected={calc.id === selectedId}
+                onSelect={() => setSelectedId(calc.id)}
+              />
+            ))}
+          </div>
+
+          {/* Panneau détail */}
+          <div className={cn(!selected && "hidden md:block")}>
+            {selected ? (
+              <CalculatorView
+                key={selected.id}
+                calc={selected}
+                onBack={() => setSelectedId(null)}
+              />
+            ) : (
+              <EmptyDetail />
+            )}
+          </div>
         </div>
 
         <Link
@@ -91,25 +125,226 @@ function CalcPage() {
   );
 }
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
+/* ════════════════════════════ Liste & détail ════════════════════════════ */
+
+function CalculatorRow({
+  calc,
+  selected,
+  onSelect,
+}: {
+  calc: Calculator;
+  selected: boolean;
+  onSelect: () => void;
+}) {
   return (
-    <label className="block">
-      <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">{label}</span>
-      <div className="mt-1.5">{children}</div>
-    </label>
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-current={selected ? "true" : undefined}
+      className={cn(
+        "optimus-card optimus-interactive-card flex w-full items-start gap-3 p-4 text-left active:scale-[0.99]",
+        selected && "ring-1 ring-primary",
+      )}
+    >
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
+        <Sigma className="size-5" aria-hidden />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-medium leading-snug">{calc.label}</span>
+        <span className="mt-0.5 block line-clamp-2 text-xs leading-relaxed text-muted">
+          {calc.description}
+        </span>
+      </span>
+      <ChevronRight className="mt-1 size-4 shrink-0 text-subtle" aria-hidden />
+    </button>
   );
 }
 
-function Result({ value, detail }: { value: string; detail: string }) {
+function EmptyDetail() {
   return (
-    <div className="optimus-card mt-5 overflow-hidden">
-      <div className="h-1 bg-gradient-to-r from-primary to-success" aria-hidden />
-      <div className="p-4">
-        <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">Résultat</p>
-        <p className="mt-1 font-display text-4xl font-medium tabular-nums text-primary">{value}</p>
-        <p className="mt-1 text-sm leading-relaxed text-muted">{detail}</p>
+    <div className="hidden h-full min-h-64 items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-border p-8 text-center md:flex">
+      <div className="max-w-xs">
+        <p className="font-display text-lg font-medium">Choisissez un score</p>
+        <p className="mt-1 text-sm text-muted">
+          Sélectionnez un calculateur dans la liste pour saisir les paramètres et afficher le
+          résultat, son interprétation et sa source.
+        </p>
       </div>
     </div>
+  );
+}
+
+/* ═════════════════════════ Vue générique d'un score ═════════════════════════ */
+
+function CalculatorView({ calc, onBack }: { calc: Calculator; onBack: () => void }) {
+  const initial = useMemo(() => buildInitialValues(calc.fields), [calc.fields]);
+  const [values, setValues] = useState<Record<string, any>>(initial);
+
+  const result = useMemo<CalculatorResult>(() => {
+    try {
+      return calc.compute(values);
+    } catch {
+      return { value: "—", interpretation: "Vérifiez les valeurs saisies." };
+    }
+  }, [calc, values]);
+
+  const severity = result.severity ? SEVERITY_STYLE[result.severity] : null;
+  const reference = result.reference ?? calc.reference;
+
+  return (
+    <div className="rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
+      <button
+        type="button"
+        onClick={onBack}
+        className="mb-3 inline-flex items-center gap-1 text-xs text-muted hover:text-fg md:hidden"
+      >
+        <ChevronLeft className="size-3.5" aria-hidden /> Tous les scores
+      </button>
+
+      <h2 className="font-display text-xl font-medium tracking-tight">{calc.label}</h2>
+      <p className="mt-1 text-sm leading-relaxed text-muted">{calc.description}</p>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        {calc.fields.map((field) => (
+          <FieldControl
+            key={field.id}
+            field={field}
+            value={values[field.id]}
+            onChange={(v) => setValues((prev) => ({ ...prev, [field.id]: v }))}
+          />
+        ))}
+      </div>
+
+      {/* Résultat calculé à la volée */}
+      <div className="optimus-card mt-6 overflow-hidden" data-calculator-result={calc.id}>
+        <div
+          className={cn(
+            "h-1",
+            result.severity === "critical"
+              ? "bg-danger"
+              : result.severity === "high"
+                ? "bg-gradient-to-r from-warn to-danger"
+                : "bg-gradient-to-r from-primary to-success",
+          )}
+          aria-hidden
+        />
+        <div className="p-4">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">Résultat</p>
+          <div className="mt-1 flex flex-wrap items-center gap-2.5">
+            <p className="font-display text-4xl font-medium tabular-nums text-primary">
+              {result.value}
+            </p>
+            {severity ? (
+              <span
+                className={cn("optimus-status-pill", severity.className)}
+                data-calculator-severity={result.severity}
+              >
+                {severity.label}
+              </span>
+            ) : null}
+          </div>
+          {result.label ? <p className="mt-1.5 font-medium text-fg">{result.label}</p> : null}
+          {result.interpretation ? (
+            <p className="mt-1 text-sm leading-relaxed text-muted">{result.interpretation}</p>
+          ) : null}
+        </div>
+      </div>
+
+      {calc.itemsProgramme && calc.itemsProgramme.length > 0 ? (
+        <div className="mt-5">
+          <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted">
+            Items du programme
+          </p>
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {calc.itemsProgramme.map((item) => (
+              <span key={item} className="optimus-type-badge bg-secondary text-muted">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {reference ? (
+        <p className="mt-5 border-t border-border pt-3 text-[11px] leading-relaxed text-subtle">
+          Source : {reference}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+/** Valeurs initiales d'un formulaire à partir des `default` des champs. */
+function buildInitialValues(fields: CalculatorField[]): Record<string, any> {
+  const values: Record<string, any> = {};
+  for (const field of fields) {
+    if (field.default !== undefined) values[field.id] = field.default;
+    else if (field.type === "boolean") values[field.id] = false;
+    else if (field.type === "select") values[field.id] = field.options?.[0]?.value ?? "";
+    else values[field.id] = field.min ?? 0;
+  }
+  return values;
+}
+
+function FieldControl({
+  field,
+  value,
+  onChange,
+}: {
+  field: CalculatorField;
+  value: any;
+  onChange: (v: any) => void;
+}) {
+  if (field.type === "boolean") {
+    return (
+      <div className="sm:col-span-2">
+        <CheckRow
+          label={field.label}
+          checked={value === true}
+          onChange={onChange}
+          help={field.help}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <label className="block" htmlFor={`calc-${field.id}`}>
+      <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+        {field.label}
+        {field.unit ? (
+          <span className="ml-1 normal-case tracking-normal text-subtle">{`(${field.unit})`}</span>
+        ) : null}
+      </span>
+      <div className="mt-1.5">
+        {field.type === "select" ? (
+          <select
+            id={`calc-${field.id}`}
+            value={value == null ? "" : String(value)}
+            onChange={(e) => onChange(e.target.value)}
+            className="flex h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none transition-[box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-ring/60"
+          >
+            {field.options?.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <Input
+            id={`calc-${field.id}`}
+            type="number"
+            inputMode="decimal"
+            min={field.min}
+            max={field.max}
+            step={field.step ?? 1}
+            value={value == null ? "" : value}
+            onChange={(e) => onChange(e.target.value === "" ? "" : Number(e.target.value))}
+          />
+        )}
+      </div>
+      {field.help ? <span className="mt-1 block text-xs text-subtle">{field.help}</span> : null}
+    </label>
   );
 }
 
@@ -117,10 +352,12 @@ function CheckRow({
   label,
   checked,
   onChange,
+  help,
 }: {
   label: string;
   checked: boolean;
   onChange: (v: boolean) => void;
+  help?: string;
 }) {
   return (
     <button
@@ -142,177 +379,10 @@ function CheckRow({
       >
         {checked ? <Check className="size-3.5" /> : null}
       </span>
-      <span className="min-w-0 flex-1">{label}</span>
+      <span className="min-w-0 flex-1">
+        {label}
+        {help ? <span className="ml-1 text-xs text-subtle">{help}</span> : null}
+      </span>
     </button>
-  );
-}
-
-function Gfr() {
-  const [age, setAge] = useState(68);
-  const [weight, setWeight] = useState(72);
-  const [crea, setCrea] = useState(112);
-  const [female, setFemale] = useState(false);
-  const cg = cockcroftGault({ age, weightKg: weight, creatinineUmol: crea, female });
-  const epi = ckdEpi({ age, creatinineUmol: crea, female });
-  return (
-    <div className="space-y-3">
-      <Field label="Âge (ans)">
-        <Input type="number" value={age} onChange={(e) => setAge(Number(e.target.value))} />
-      </Field>
-      <Field label="Poids (kg)">
-        <Input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
-      </Field>
-      <Field label="Créatinine (µmol/L)">
-        <Input type="number" value={crea} onChange={(e) => setCrea(Number(e.target.value))} />
-      </Field>
-      <CheckRow label="Sexe féminin" checked={female} onChange={setFemale} />
-      <Result value={`${epi}`} detail={`CKD-EPI 2021 · Cockcroft-Gault ${cg} mL/min`} />
-    </div>
-  );
-}
-
-function Bmi() {
-  const [w, setW] = useState(72);
-  const [h, setH] = useState(168);
-  const v = bmi(w, h);
-  return (
-    <div className="space-y-3">
-      <Field label="Poids (kg)">
-        <Input type="number" value={w} onChange={(e) => setW(Number(e.target.value))} />
-      </Field>
-      <Field label="Taille (cm)">
-        <Input type="number" value={h} onChange={(e) => setH(Number(e.target.value))} />
-      </Field>
-      <Result value={`${v}`} detail={bmiClass(v)} />
-    </div>
-  );
-}
-
-function Chads() {
-  const [flags, setFlags] = useState({
-    chf: false,
-    htn: true,
-    age75: false,
-    age65: true,
-    diabetes: false,
-    stroke: false,
-    vascular: false,
-    female: false,
-  });
-  const r = cha2ds2Vasc(flags);
-  return (
-    <div className="space-y-2">
-      {(
-        [
-          ["chf", "Insuffisance cardiaque"],
-          ["htn", "Hypertension"],
-          ["age75", "Âge ≥ 75 (2 pts)"],
-          ["age65", "Âge 65–74 (1 pt)"],
-          ["diabetes", "Diabète"],
-          ["stroke", "AVC / AIT / embolie (2 pts)"],
-          ["vascular", "Atteinte vasculaire"],
-          ["female", "Sexe féminin"],
-        ] as const
-      ).map(([k, label]) => (
-        <CheckRow key={k} label={label} checked={flags[k]} onChange={(v) => setFlags({ ...flags, [k]: v })} />
-      ))}
-      <Result value={String(r.score)} detail={r.risk} />
-    </div>
-  );
-}
-
-function Gcs() {
-  const [eye, setEye] = useState(4);
-  const [verbal, setVerbal] = useState(5);
-  const [motor, setMotor] = useState(6);
-  const r = gcs(eye, verbal, motor);
-  return (
-    <div className="space-y-3">
-      <Field label="Ouverture des yeux (1–4)">
-        <Input type="number" min={1} max={4} value={eye} onChange={(e) => setEye(Number(e.target.value))} />
-      </Field>
-      <Field label="Réponse verbale (1–5)">
-        <Input type="number" min={1} max={5} value={verbal} onChange={(e) => setVerbal(Number(e.target.value))} />
-      </Field>
-      <Field label="Réponse motrice (1–6)">
-        <Input type="number" min={1} max={6} value={motor} onChange={(e) => setMotor(Number(e.target.value))} />
-      </Field>
-      <Result value={String(r.total)} detail={r.label} />
-    </div>
-  );
-}
-
-function Qtc() {
-  const [qt, setQt] = useState(400);
-  const [hr, setHr] = useState(80);
-  const r = qtcBazett(qt, hr);
-  return (
-    <div className="space-y-3">
-      <Field label="QT (ms)">
-        <Input type="number" value={qt} onChange={(e) => setQt(Number(e.target.value))} />
-      </Field>
-      <Field label="Fréquence (bpm)">
-        <Input type="number" value={hr} onChange={(e) => setHr(Number(e.target.value))} />
-      </Field>
-      <Result value={`${r.qtc} ms`} detail={`Bazett · ${r.label}`} />
-    </div>
-  );
-}
-
-function Wells() {
-  const [flags, setFlags] = useState({
-    signsDvt: false,
-    altLessLikely: false,
-    hr100: false,
-    immobilization: false,
-    previous: false,
-    hemoptysis: false,
-    malignancy: false,
-  });
-  const r = wellsPe(flags);
-  return (
-    <div className="space-y-2">
-      {(
-        [
-          ["signsDvt", "Signes de TVP (3)"],
-          ["altLessLikely", "EP plus probable que les alternatives (3)"],
-          ["hr100", "FC > 100 (1,5)"],
-          ["immobilization", "Alitement / chirurgie (1,5)"],
-          ["previous", "TVP / EP antérieure (1,5)"],
-          ["hemoptysis", "Hémoptysie (1)"],
-          ["malignancy", "Cancer actif (1)"],
-        ] as const
-      ).map(([k, label]) => (
-        <CheckRow key={k} label={label} checked={flags[k]} onChange={(v) => setFlags({ ...flags, [k]: v })} />
-      ))}
-      <Result value={String(r.score)} detail={r.label} />
-    </div>
-  );
-}
-
-function Curb() {
-  const [flags, setFlags] = useState({
-    confusion: false,
-    urea: false,
-    rr: false,
-    bp: false,
-    age65: false,
-  });
-  const r = curb65(flags);
-  return (
-    <div className="space-y-2">
-      {(
-        [
-          ["confusion", "Confusion"],
-          ["urea", "Urée > 7 mmol/L"],
-          ["rr", "FR ≥ 30"],
-          ["bp", "TA < 90/60"],
-          ["age65", "Âge ≥ 65"],
-        ] as const
-      ).map(([k, label]) => (
-        <CheckRow key={k} label={label} checked={flags[k]} onChange={(v) => setFlags({ ...flags, [k]: v })} />
-      ))}
-      <Result value={String(r.score)} detail={r.label} />
-    </div>
   );
 }
