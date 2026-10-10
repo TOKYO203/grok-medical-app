@@ -25,6 +25,7 @@ import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DemarcheRouteImport } from './routes/demarche'
 import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as ExamenRouteImport } from './routes/examen'
@@ -124,6 +125,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemarcheRoute = DemarcheRouteImport.update({
+  id: '/demarche',
+  path: '/demarche',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoEcgRoute = DemoEcgRouteImport.update({
   id: '/demo-ecg',
   path: '/demo-ecg',
@@ -195,9 +201,9 @@ const CasCaseIdRoute = CasCaseIdRouteImport.update({
   getParentRoute: () => CasRoute,
 } as any)
 const DemarcheIdRoute = DemarcheIdRouteImport.update({
-  id: '/demarche/$id',
-  path: '/demarche/$id',
-  getParentRoute: () => rootRouteImport,
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => DemarcheRoute,
 } as any)
 const LearnDeckIdRoute = LearnDeckIdRouteImport.update({
   id: '/learn/$deckId',
@@ -232,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
@@ -268,6 +275,7 @@ export interface FileRoutesByTo {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
@@ -305,6 +313,7 @@ export interface FileRoutesById {
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/examen': typeof ExamenRoute
@@ -343,6 +352,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/examen'
@@ -379,6 +389,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/examen'
@@ -415,6 +426,7 @@ export interface FileRouteTypes {
     | '/conditions'
     | '/confidentialite'
     | '/contact'
+    | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/examen'
@@ -452,6 +464,7 @@ export interface RootRouteChildren {
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  DemarcheRoute: typeof DemarcheRouteWithChildren
   DemoEcgRoute: typeof DemoEcgRoute
   DonneesRoute: typeof DonneesRoute
   ExamenRoute: typeof ExamenRoute
@@ -465,7 +478,6 @@ export interface RootRouteChildren {
   SoutenirRoute: typeof SoutenirRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
-  DemarcheIdRoute: typeof DemarcheIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
 }
@@ -584,6 +596,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demarche': {
+      id: '/demarche'
+      path: '/demarche'
+      fullPath: '/demarche'
+      preLoaderRoute: typeof DemarcheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo-ecg': {
       id: '/demo-ecg'
       path: '/demo-ecg'
@@ -684,10 +703,10 @@ declare module '@tanstack/react-router' {
     }
     '/demarche/$id': {
       id: '/demarche/$id'
-      path: '/demarche/$id'
+      path: '/$id'
       fullPath: '/demarche/$id'
       preLoaderRoute: typeof DemarcheIdRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DemarcheRoute
     }
     '/learn/$deckId': {
       id: '/learn/$deckId'
@@ -723,6 +742,18 @@ const CasRouteChildren: CasRouteChildren = {
 
 const CasRouteWithChildren = CasRoute._addFileChildren(CasRouteChildren)
 
+interface DemarcheRouteChildren {
+  DemarcheIdRoute: typeof DemarcheIdRoute
+}
+
+const DemarcheRouteChildren: DemarcheRouteChildren = {
+  DemarcheIdRoute: DemarcheIdRoute,
+}
+
+const DemarcheRouteWithChildren = DemarcheRoute._addFileChildren(
+  DemarcheRouteChildren,
+)
+
 interface ParcoursRouteChildren {
   ParcoursDeckIdRoute: typeof ParcoursDeckIdRoute
 }
@@ -752,6 +783,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  DemarcheRoute: DemarcheRouteWithChildren,
   DemoEcgRoute: DemoEcgRoute,
   DonneesRoute: DonneesRoute,
   ExamenRoute: ExamenRoute,
@@ -765,7 +797,6 @@ const rootRouteChildren: RootRouteChildren = {
   SoutenirRoute: SoutenirRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
-  DemarcheIdRoute: DemarcheIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
 }
