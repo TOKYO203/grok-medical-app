@@ -35,6 +35,41 @@ function EcgAnnotations({ step, annotations }: { step: number; annotations?: Arr
 }
 
 
+function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string }) {
+  const d: {
+    rhythm?: string;
+    stElevation?: Record<string, number>;
+    stDepression?: Record<string, number>;
+    wideQrs?: boolean;
+    tInverted?: string[];
+    peakedT?: boolean;
+    pAbsent?: boolean;
+    sawTooth?: boolean;
+  } = { rhythm: data.rhythm };
+  const t = (data.title ?? "").toLowerCase();
+  if (data.rhythm === "fibrillation-auriculaire") d.pAbsent = true;
+  if (data.rhythm === "flutter-auriculaire") d.sawTooth = true;
+  if (data.rhythm === "tachycardie-ventriculaire") d.wideQrs = true;
+  if (data.rhythm === "torsade-de-pointes") d.wideQrs = true;
+  if (t.includes("bav") && (t.includes("mobitz ii") || t.includes("bav iii"))) d.wideQrs = true;
+  if (t.includes("hyperkali")) d.peakedT = true;
+  if (data.ischemia === "lesion-sous-epicardique") {
+    if (t.includes("antérieur")) {
+      d.stElevation = { V2: 0.25, V3: 0.30, V4: 0.30, V5: 0.20 };
+      d.tInverted = ["V2", "V3", "V4"];
+    } else if (t.includes("latéral")) {
+      d.stElevation = { DI: 0.20, aVL: 0.25, V5: 0.20, V6: 0.20 };
+    } else if (t.includes("inférieur")) {
+      d.stElevation = { DII: 0.20, DIII: 0.25, aVF: 0.25 };
+      d.stDepression = { aVL: 0.15 };
+    }
+  }
+  if (t.includes("digitalique")) {
+    d.stDepression = { II: 0.10, V4: 0.15, V5: 0.15, V6: 0.15 };
+  }
+  return d;
+}
+
 export const Route = createFileRoute("/ecg/$id")({ component: EcgCasePage });
 
 function EcgCasePage() {
@@ -120,7 +155,7 @@ function EcgCasePage() {
         </div>
 
         <div className="relative">
-          <EcgMonitor bpm={data.trace?.bpm ?? 75} soundType="bip_normal" autoStart />
+          <EcgMonitor bpm={data.trace?.bpm ?? 75} soundType="bip_normal" deformation={buildDeformation(data)} autoStart />
           <EcgAnnotations step={step} annotations={data.annotations as never} />
         </div>
 

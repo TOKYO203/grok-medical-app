@@ -2,11 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Maximize2, Minimize2 } from "lucide-react";
 import { useEcgBeep } from "@/lib/ecg/useEcgBeep";
 import type { SoundType } from "@/lib/ecg/sounds";
-
-/* ═══════════════════════════════════════════════════════════════════
-   EcgMonitor — Moniteur 12 dérivations + plein écran
-   Layout : 2 colonnes de traces + panneau chiffres à droite
-   ═══════════════════════════════════════════════════════════════════ */
+import { baseWave, stOffsetMv, type EcgDeformation } from "@/lib/ecg/deformation";
 
 const PX = 20;
 const SWEEP = 4;
@@ -18,36 +14,28 @@ function gauss(t: number, mu: number, a: number, s: number) {
   return a * Math.exp(-(d * d) / (2 * s * s));
 }
 
-/* Waveform par dérivation : II, III, aVR, aVL, aVF, V1-V6 */
-type WaveSpec = { P: number; Q: number; R: number; S: number; T: number };
-
-const WAVES: Record<string, WaveSpec> = {
-  II:   { P:  0.15, Q: -0.10, R:  1.20, S: -0.30, T:  0.30 },
-  III:  { P:  0.10, Q: -0.08, R:  0.70, S: -0.20, T:  0.20 },
-  aVR:  { P: -0.15, Q:  0.05, R: -1.00, S:  0.20, T: -0.25 },
-  aVL:  { P:  0.08, Q: -0.05, R:  0.60, S: -0.15, T:  0.15 },
-  aVF:  { P:  0.12, Q: -0.08, R:  0.85, S: -0.20, T:  0.22 },
-  V1:   { P:  0.08, Q: -0.05, R:  0.35, S: -0.80, T: -0.15 },
-  V2:   { P:  0.10, Q: -0.05, R:  0.55, S: -0.95, T:  0.05 },
-  V3:   { P:  0.12, Q: -0.08, R:  0.80, S: -0.60, T:  0.20 },
-  V4:   { P:  0.14, Q: -0.10, R:  1.10, S: -0.40, T:  0.28 },
-  V5:   { P:  0.15, Q: -0.10, R:  1.25, S: -0.25, T:  0.32 },
-  V6:   { P:  0.15, Q: -0.10, R:  1.10, S: -0.20, T:  0.30 },
-};
-
-function buildWave(bpm: number, seconds: number, w: WaveSpec): Pt[] {
+function buildWave(bpm: number, seconds: number, lead: string, def?: EcgDeformation): Pt[] {
+  const w = baseWave(lead);
   const cy = 60 / bpm;
   const n = Math.round(seconds * 400);
   const out: Pt[] = [];
+  const sMult = def?.wideQrs ? 2.4 : 1.0;
+  const peakT = def?.peakedT ? 2.0 : 1.0;
+  const pAmp = def?.pAbsent ? 0 : w.P.a;
+  const tAmp = def?.tInverted?.includes(lead) ? -Math.abs(w.T.a) : w.T.a;
+  const st = stOffsetMv(lead, def);
+  const saw = def?.sawTooth ? 1 : 0;
   for (let i = 0; i <= n; i++) {
     const t = i / 400;
     const ph = t % cy;
     let v = 0;
-    v += gauss(ph, 0.16, w.P, 0.025);
-    v += gauss(ph, 0.26, w.Q, 0.008);
-    v += gauss(ph, 0.28, w.R, 0.010);
-    v += gauss(ph, 0.30, w.S, 0.010);
-    v += gauss(ph, 0.47, w.T, 0.040);
+    v += gauss(ph, 0.16, pAmp, 0.025);
+    v += gauss(ph, 0.26, w.Q.a, 0.008 * sMult);
+    v += gauss(ph, 0.28, w.R.a, 0.010 * sMult);
+    v += gauss(ph, 0.30, w.S.a, 0.010 * sMult);
+    if (ph > 0.28 && ph < 0.42 && st !== 0) v += st;
+    v += gauss(ph, 0.47, tAmp * peakT, 0.040);
+    if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
     out.push({ t, v });
   }
   return out;
@@ -68,12 +56,12 @@ function buildPleth(bpm: number, seconds: number): Pt[] {
   return out;
 }
 
-function pathFor(pts: Pt[], win: number, start: number, yMid: number, amp: number, wIn: number): string {
+function pathFor(pts: Pt[], win: number, start: number, yMid: number, amp: number, xStart: number, xWidth: number): string {
   let d = "";
   let started = false;
   for (const p of pts) {
     if (p.t < start || p.t > start + win) continue;
-    const x = PX + ((p.t - start) / win) * wIn;
+    const x = xStart + ((p.t - start) / win) * xWidth;
     const y = yMid - p.v * amp;
     d += (started ? "L " : "M ") + x.toFixed(1) + "," + y.toFixed(1) + " ";
     started = true;
@@ -84,19 +72,23 @@ function pathFor(pts: Pt[], win: number, start: number, yMid: number, amp: numbe
 export function EcgMonitor({
   bpm = 75,
   soundType = "bip_normal",
+  deformation,
   autoStart = true,
 }: {
   bpm?: number;
   soundType?: SoundType;
+  deformation?: EcgDeformation;
   autoStart?: boolean;
 }) {
   const secs = 60;
   const waves = useMemo(() => {
     const obj: Record<string, Pt[]> = {};
-    for (const k of Object.keys(WAVES)) obj[k] = buildWave(bpm, secs, WAVES[k]);
+    for (const k of ["II", "III", "aVR", "aVL", "aVF", "V1", "V2", "V3", "V4", "V5", "V6"]) {
+      obj[k] = buildWave(bpm, secs, k, deformation);
+    }
     obj.PLETH = buildPleth(bpm, secs);
     return obj;
-  }, [bpm]);
+  }, [bpm, deformation]);
 
   const [cursor, setCursor] = useState(0);
   const [playing, setPlaying] = useState(autoStart);
@@ -128,19 +120,14 @@ export function EcgMonitor({
     return () => document.removeEventListener("fullscreenchange", onFsChange);
   }, []);
 
-  // Dimensions dynamiques selon viewport + fullscreen
   useEffect(() => {
     const compute = () => {
       const w = window.innerWidth;
       const h = window.innerHeight;
       if (full) {
-        // En fullscreen : on utilise la vraie résolution écran
-        // Landscape typique : 844×390 (aspect ~2.16)
-        // Portrait : 390×844 (aspect ~0.46) — on force un aspect paysage pour lisibilité
         const landscape = w >= h;
-        setDims(landscape ? { w: 1600, h: Math.round(1600 * (h / w)) } : { w: 1600, h: 740 });
+        setDims(landscape ? { w: 1800, h: Math.round(1800 * (h / w)) } : { w: 1000, h: 800 });
       } else {
-        // En mode normal : plus haut sur mobile portrait pour lisibilité
         const landscape = w >= h;
         setDims(landscape ? { w: 1600, h: 460 } : { w: 1000, h: 560 });
       }
@@ -154,39 +141,27 @@ export function EcgMonitor({
     if (!document.fullscreenElement) {
       try {
         await containerRef.current?.requestFullscreen();
-        // Tenter de verrouiller en paysage (Android Chrome)
-        type OrientationLock = ScreenOrientation & { lock?: (o: string) => Promise<void> };
-        const orient = screen.orientation as OrientationLock | undefined;
-        if (orient?.lock) {
-          try { await orient.lock("landscape"); } catch { /* ignore (iOS/desktop) */ }
-        }
-      } catch {
-        /* ignore */
-      }
+        type Lock = ScreenOrientation & { lock?: (o: string) => Promise<void> };
+        const o = screen.orientation as Lock | undefined;
+        if (o?.lock) { try { await o.lock("landscape"); } catch { /* */ } }
+      } catch { /* */ }
     } else {
       try {
-        const orient = screen.orientation as { unlock?: () => void } | undefined;
-        orient?.unlock?.();
-      } catch {
-        /* ignore */
-      }
-      try {
-        await document.exitFullscreen();
-      } catch {
-        /* ignore */
-      }
+        const o = screen.orientation as { unlock?: () => void } | undefined;
+        o?.unlock?.();
+      } catch { /* */ }
+      try { await document.exitFullscreen(); } catch { /* */ }
     }
   }
 
   const winStart = Math.max(0, Math.min(cursor - SWEEP * 0.85, secs - SWEEP));
   const sweepT = (cursor - winStart) / SWEEP;
 
-  // Layout : largeur totale 1600, hauteur 460 en normal, auto en full
   const W = dims.w;
   const H = dims.h;
-  const COL_GAP = 20;
-  const PANEL_W = 260;
-  const colW = (W - PANEL_W - COL_GAP * 2) / 2;
+  const COL_GAP = 16;
+  const PANEL_W = full ? 300 : 240;
+  const colW = (W - PANEL_W - COL_GAP * 2 - PX * 2) / 2;
   const colL = PX;
   const colR = PX + colW + COL_GAP;
   const panelX = PX + colW * 2 + COL_GAP * 2;
@@ -194,14 +169,14 @@ export function EcgMonitor({
   const bottom = 16;
   const innerH = H - top - bottom;
 
-  // Colonne gauche : II, aVR, III, PLETH (4 traces)
   const leftTraces = ["II", "aVR", "III", "PLETH"];
-  // Colonne droite : V1-V6 (6 traces)
   const rightTraces = ["V1", "V2", "V3", "V4", "V5", "V6"];
   const rowL = innerH / leftTraces.length;
   const rowR = innerH / rightTraces.length;
-  const ampL = rowL * 0.40;
-  const ampR = rowR * 0.40;
+  const ampL = rowL * 0.38;
+  const ampR = rowR * 0.38;
+  const traceW_L = colW - 28;
+  const traceW_R = colW - 28;
 
   return (
     <div
@@ -211,7 +186,6 @@ export function EcgMonitor({
         (full ? "fixed inset-0 z-50 rounded-none" : "rounded-[var(--radius-xl)]")
       }
     >
-      {/* Barre statut */}
       <div className="flex items-center gap-3 border-b border-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider">
         <span className="flex items-center gap-1.5 text-emerald-400">
           <span className="inline-block size-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -219,30 +193,15 @@ export function EcgMonitor({
         </span>
         <span className="hidden sm:inline text-white/30">25 mm/s · 10 mm/mV</span>
         <span className="ml-auto flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setPlaying((v) => !v)}
-            className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20"
-          >
+          <button type="button" onClick={() => setPlaying((v) => !v)} className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">
             {playing ? "❙❙" : "▶"}
           </button>
-          <button
-            type="button"
-            onClick={() => setSound((v) => !v)}
-            aria-label={sound ? "Couper le son" : "Activer le son"}
-            className={
-              "rounded-full px-2 py-0.5 text-[10px] transition-colors " +
-              (sound ? "bg-emerald-400/20 text-emerald-300" : "bg-white/10 text-white/40")
-            }
-          >
+          <button type="button" onClick={() => setSound((v) => !v)} aria-label={sound ? "Couper le son" : "Activer le son"}
+            className={"rounded-full px-2 py-0.5 text-[10px] transition-colors " + (sound ? "bg-emerald-400/20 text-emerald-300" : "bg-white/10 text-white/40")}>
             {sound ? "🔊" : "🔈"}
           </button>
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            aria-label={full ? "Quitter le plein écran" : "Plein écran"}
-            className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20"
-          >
+          <button type="button" onClick={toggleFullscreen} aria-label={full ? "Quitter le plein écran" : "Plein écran"}
+            className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70 hover:bg-white/20">
             {full ? <Minimize2 className="size-3" /> : <Maximize2 className="size-3" />}
           </button>
         </span>
@@ -253,6 +212,7 @@ export function EcgMonitor({
           📱 Tourne ton téléphone en paysage pour un rendu optimal
         </div>
       ) : null}
+
       <svg
         viewBox={`0 0 ${W} ${H}`}
         className={full ? "block h-[calc(100vh-32px)] w-full" : "block w-full"}
@@ -271,21 +231,19 @@ export function EcgMonitor({
         </defs>
         <rect width={W} height={H} fill="url(#ecg-maj)" />
 
-        {/* Séparateur des 2 colonnes */}
         <line x1={colR - COL_GAP / 2} y1={top} x2={colR - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.06)" />
 
-        {/* Colonne gauche */}
         {leftTraces.map((name, i) => {
           const yMid = top + rowL * (i + 0.5);
           const isPleth = name === "PLETH";
           return (
             <g key={name}>
-              <line x1={colL + 24} y1={yMid} x2={colL + colW} y2={yMid} stroke={isPleth ? "rgba(0,220,255,0.15)" : "rgba(0,255,100,0.12)"} strokeWidth="0.5" />
+              <line x1={colL + 28} y1={yMid} x2={colL + colW} y2={yMid} stroke={isPleth ? "rgba(0,220,255,0.15)" : "rgba(0,255,100,0.12)"} strokeWidth="0.5" />
               <text x={colL} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill={isPleth ? "#00e5ff" : "#00ff6a"} fontWeight="700">
                 {name}
               </text>
               <path
-                d={pathFor(waves[name], SWEEP, winStart, yMid, ampL, colW - 24)}
+                d={pathFor(waves[name], SWEEP, winStart, yMid, ampL, colL + 28, traceW_L)}
                 fill="none"
                 stroke={isPleth ? "#00e5ff" : "#00ff6a"}
                 strokeWidth="1.8"
@@ -297,17 +255,16 @@ export function EcgMonitor({
           );
         })}
 
-        {/* Colonne droite */}
         {rightTraces.map((name, i) => {
           const yMid = top + rowR * (i + 0.5);
           return (
             <g key={name}>
-              <line x1={colR + 24} y1={yMid} x2={colR + colW} y2={yMid} stroke="rgba(0,255,100,0.12)" strokeWidth="0.5" />
+              <line x1={colR + 28} y1={yMid} x2={colR + colW} y2={yMid} stroke="rgba(0,255,100,0.12)" strokeWidth="0.5" />
               <text x={colR} y={yMid + 4} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">
                 {name}
               </text>
               <path
-                d={pathFor(waves[name], SWEEP, winStart, yMid, ampR, colW - 24)}
+                d={pathFor(waves[name], SWEEP, winStart, yMid, ampR, colR + 28, traceW_R)}
                 fill="none"
                 stroke="#00ff6a"
                 strokeWidth="1.8"
@@ -319,15 +276,13 @@ export function EcgMonitor({
           );
         })}
 
-        {/* Sweep line (2 colonnes) */}
         {playing ? (
           <>
-            <line x1={colL + 24 + sweepT * (colW - 24)} y1={top} x2={colL + 24 + sweepT * (colW - 24)} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
-            <line x1={colR + 24 + sweepT * (colW - 24)} y1={top} x2={colR + 24 + sweepT * (colW - 24)} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
+            <line x1={colL + 28 + sweepT * traceW_L} y1={top} x2={colL + 28 + sweepT * traceW_L} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
+            <line x1={colR + 28 + sweepT * traceW_R} y1={top} x2={colR + 28 + sweepT * traceW_R} y2={H - bottom} stroke="rgba(0,255,106,0.28)" strokeWidth="1" />
           </>
         ) : null}
 
-        {/* Panneau chiffres */}
         <line x1={panelX - COL_GAP / 2} y1={top} x2={panelX - COL_GAP / 2} y2={H - bottom} stroke="rgba(255,255,255,0.08)" />
         <text x={panelX} y={top + 18} fontSize="11" fontFamily="ui-monospace,monospace" fill="#00ff6a" fontWeight="700">ECG</text>
         <text x={W - PX} y={top + 18} fontSize="11" fontFamily="ui-monospace,monospace" fill="#ff3355" textAnchor="end">♥</text>
