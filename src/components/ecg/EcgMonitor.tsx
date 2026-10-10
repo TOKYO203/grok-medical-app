@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import { Maximize2, Minimize2 } from "lucide-react";
 import { useEcgBeep } from "@/lib/ecg/useEcgBeep";
@@ -162,6 +163,19 @@ function isTouchPortrait(): boolean {
   return window.matchMedia("(pointer: coarse)").matches && window.innerHeight > window.innerWidth;
 }
 
+/**
+ * Unités de viewport du repli rotation : `100dvh` / `100dvw` (hauteur
+ * dynamique — barres d'outils mobiles comprises) si le moteur les connaît,
+ * sinon `100vh` / `100vw`. Le fallback SSR et les vieux WebViews restent
+ * fonctionnels.
+ */
+function viewportUnits(): { h: string; w: string } {
+  if (typeof CSS !== "undefined" && typeof CSS.supports === "function" && CSS.supports("height", "100dvh")) {
+    return { h: "100dvh", w: "100dvw" };
+  }
+  return { h: "100vh", w: "100vw" };
+}
+
 export function EcgMonitor({
   bpm = 75,
   soundType = "bip_normal",
@@ -258,12 +272,21 @@ export function EcgMonitor({
     };
   }, []);
 
+  /*
+   * Plein écran : défilement verrouillé au niveau RACINE (`html` + `body`).
+   * Indispensable au repli rotation, qui ancre le cadre hors écran
+   * (`left: 100vw`) avant de le pivoter : sans ce verrou, ce débordement
+   * transitoire peut produire une barre de défilement horizontale.
+   */
   useEffect(() => {
     if (!full) return;
-    const prev = document.body.style.overflow;
+    const bodyPrev = document.body.style.overflow;
+    const htmlPrev = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = bodyPrev;
+      document.documentElement.style.overflow = htmlPrev;
     };
   }, [full]);
 
@@ -372,18 +395,29 @@ export function EcgMonitor({
    * colonne, et c'est le SVG qui absorbe la place restante (`flex-1`) —
    * aucun `max-height` résiduel pour brider le tracé.
    *
-   * Repli rotation (verrou paysage refusé) : dimensions ÉCHANGÉES puis pivot
-   * de 90° autour du coin haut-gauche ; le `translateX` égal à l'ancienne
-   * largeur ramène exactement le cadre sur la surface de l'écran.
+   * Repli rotation (verrou paysage refusé) — le conteneur interne sort du
+   * flux (`position: fixed`), ses dimensions sont ÉCHANGÉES (largeur =
+   * hauteur d'écran, hauteur = largeur d'écran), il est ancré au bord droit
+   * de l'écran (`left: 100vw`) puis pivoté de 90° autour de son coin
+   * haut-gauche. Calcul : le coin local (0,0) tombe en (100vw, 0), la largeur
+   * locale (100vh) descend le long du bord droit (0 → 100vh en ordonnée), la
+   * hauteur locale (100vw) repart vers la gauche (100vw → 0 en abscisse) —
+   * le cadre recouvre donc EXACTEMENT la surface de l'écran, sans bande vide.
+   * `100dvh` / `100dvw` (viewports dynamiques) quand le moteur les connaît,
+   * sinon `vh` / `vw`. Les styles sont conditionnels : sur desktop
+   * `rotateFallback` est toujours faux → le bloc n'est JAMAIS appliqué.
    */
-  const rotateStyle:
-    | { width: string; height: string; transform: string; transformOrigin: string }
-    | undefined = rotateFallback
+  const vpUnits = viewportUnits();
+  const rotateStyle: CSSProperties | undefined = rotateFallback
     ? {
-        width: `${viewport.h}px`,
-        height: `${viewport.w}px`,
-        transform: `translateX(${viewport.w}px) rotate(90deg)`,
+        position: "fixed",
+        top: 0,
+        left: vpUnits.w,
+        width: vpUnits.h,
+        height: vpUnits.w,
+        transform: "rotate(90deg)",
         transformOrigin: "top left",
+        overflow: "hidden",
       }
     : undefined;
 
