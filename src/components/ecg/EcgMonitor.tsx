@@ -101,7 +101,7 @@ export function EcgMonitor({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, totalSeconds]);
 
-  useEcgBeep({ enabled: sound && playing, bpm });
+  useEcgBeep({ enabled: sound && playing, bpm, soundType: "bip_normal" });
 
   const winStart = Math.max(0, Math.min(cursor - secondsWindow * 0.85, totalSeconds - secondsWindow));
   const sweepX = PX + ((cursor - winStart) / secondsWindow) * (W - 2 * PX);

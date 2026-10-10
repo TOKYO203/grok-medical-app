@@ -1,67 +1,72 @@
 import { useEffect, useRef } from "react";
+import { SOUNDS, type SoundType } from "./sounds";
 
 /* ═══════════════════════════════════════════════════════════════════
-   useEcgBeep — bip de moniteur ECG (Web Audio API, zéro asset)
+   useEcgBeep — joue un son type selon le diagnostic/rythme
    ───────────────────────────────────────────────────────────────────
-   Joue un bip court (880 Hz, 60 ms) à chaque pic R.
-   Le contexte audio est créé au premier geste utilisateur (règle navigateur).
+   Supporte les 10 sons du spec (bip normal, BAV, FV, torsades, etc.)
+   Priorité : critique > urgent > alerte > info.
    ═══════════════════════════════════════════════════════════════════ */
 
 export function useEcgBeep({
   enabled,
-  bpm,
+  bpm = 75,
+  soundType = "bip_normal",
 }: {
   enabled: boolean;
-  bpm: number;
+  bpm?: number;
+  soundType?: SoundType;
 }) {
   const ctxRef = useRef<AudioContext | null>(null);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!enabled) return;
-
-    // Créer le contexte au premier tick (après geste utilisateur)
     if (!ctxRef.current) {
       type W = typeof window & { webkitAudioContext?: typeof AudioContext };
       const Ctor = window.AudioContext ?? (window as W).webkitAudioContext;
       if (!Ctor) return;
       ctxRef.current = new Ctor();
     }
-
     const ctx = ctxRef.current;
-    const playBeep = () => {
+    const spec = SOUNDS[soundType];
+    if (spec.beeps === 0) return;
+
+    const play = () => {
       if (!ctx) return;
       if (ctx.state === "suspended") void ctx.resume();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.value = 880;
       const t0 = ctx.currentTime;
-      gain.gain.setValueAtTime(0, t0);
-      gain.gain.linearRampToValueAtTime(0.15, t0 + 0.005);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.06);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(t0);
-      osc.stop(t0 + 0.07);
+      for (let i = 0; i < spec.beeps; i++) {
+        const start = t0 + (i * (spec.duration + (spec.gapMs ?? 0))) / 1000;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = spec.wave;
+        osc.frequency.setValueAtTime(spec.freq, start);
+        if (spec.mod === "up") {
+          osc.frequency.linearRampToValueAtTime(spec.freq * 1.5, start + spec.duration / 1000);
+        } else if (spec.mod === "osc") {
+          osc.frequency.linearRampToValueAtTime(spec.freq * 0.6, start + spec.duration / 2000);
+          osc.frequency.linearRampToValueAtTime(spec.freq, start + spec.duration / 1000);
+        }
+        const dur = Math.min(spec.duration, 200) / 1000;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.15, start + 0.005);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + dur + 0.05);
+      }
     };
 
-    // Bip initial + intervalle selon BPM
-    playBeep();
+    play();
     const intervalMs = (60 / Math.max(30, Math.min(200, bpm))) * 1000;
-    timerRef.current = window.setInterval(playBeep, intervalMs);
-
+    timerRef.current = window.setInterval(play, intervalMs);
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, [enabled, bpm]);
+  }, [enabled, bpm, soundType]);
 
-  // Nettoyage du contexte à la destruction
-  useEffect(() => {
-    return () => {
-      if (ctxRef.current) {
-        void ctxRef.current.close();
-        ctxRef.current = null;
-      }
-    };
+  useEffect(() => () => {
+    if (ctxRef.current) { void ctxRef.current.close(); ctxRef.current = null; }
   }, []);
 }
