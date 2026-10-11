@@ -95,6 +95,10 @@ function playNote(
   oscillator.frequency.setValueAtTime(frequency, now);
   gain.gain.setValueAtTime(0.0001, now);
   gain.gain.exponentialRampToValueAtTime(peakGain, now + 0.018);
+  // SUSTAIN : on maintient peakGain jusqu'à 60 % de la durée, puis release.
+  // Sans ce plateau, la note s'effondrait dès les 18 ms d'attaque et le son
+  // paraissait "trop court" quelle que soit durationSeconds.
+  gain.gain.setValueAtTime(peakGain, now + durationSeconds * 0.6);
   gain.gain.exponentialRampToValueAtTime(0.0001, now + durationSeconds);
   oscillator.connect(gain);
   gain.connect(destination);
@@ -169,7 +173,7 @@ function playFocusPhrase(context: AudioContext, destination: AudioNode) {
   const chord = FOCUS_CHORDS[focusPhraseIndex % FOCUS_CHORDS.length];
   focusPhraseIndex += 1;
   chord.forEach((frequency, index) => {
-    playNote(context, frequency, index * 0.72, 4.6, 0.0045, "sine", destination);
+    playNote(context, frequency, index * 0.72, 6.0, 0.20, "sine", destination);
   });
 }
 
@@ -202,8 +206,10 @@ export async function startFocusAmbience(): Promise<boolean> {
   try {
     if (context.state === "suspended") await context.resume();
     const master = context.createGain();
-    master.gain.setValueAtTime(0.0001, context.currentTime);
-    master.gain.exponentialRampToValueAtTime(0.72, context.currentTime + 0.9);
+    // Gain DIRECT (pas de ramp progressif). L'ancien ramp 0.0001 → 0.72
+    // sur 900 ms rendait la 1re note inaudible et écrasait le 1er accord :
+    // playFocusPhrase est appelée juste après, avec des notes à 0/0.72/1.44s.
+    master.gain.setValueAtTime(1.0, context.currentTime);
     master.connect(context.destination);
     focusMaster = master;
     focusActive = true;
