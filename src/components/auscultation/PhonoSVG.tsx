@@ -1,0 +1,286 @@
+import type { PhonoCycle, PhonoEvent } from "@/lib/auscultation/phonocardiogram";
+
+const PX_PER_SEC = 800;
+const Y_BASE_RATIO = 0.74;
+const MAX_AMPL_RATIO = 0.58;
+
+const PHASE_FILL: Record<string, { base: string; active: string }> = {
+  systole:   { base: "rgba(224,90,58,0.08)",  active: "rgba(224,90,58,0.22)" },
+  diastole:  { base: "rgba(30,95,168,0.08)",  active: "rgba(30,95,168,0.22)" },
+  inspi:     { base: "rgba(30,138,95,0.10)",  active: "rgba(30,138,95,0.26)" },
+  expi:      { base: "rgba(200,140,60,0.08)", active: "rgba(200,140,60,0.24)" },
+};
+
+// Couleurs par kind. Deux tons pour permettre le dégradé vertical.
+const KIND_PALETTE: Record<string, { top: string; bot: string; line: string }> = {
+  s1:          { top: "#ff8060", bot: "#c04020", line: "#e05a3a" },
+  s2:          { top: "#ff8060", bot: "#c04020", line: "#e05a3a" },
+  s3:          { top: "#ffd060", bot: "#a07000", line: "#d99000" },
+  s4:          { top: "#ffd060", bot: "#a07000", line: "#d99000" },
+  murmur:      { top: "#7ec0ff", bot: "#1d5fa0", line: "#4a90d9" },
+  click:       { top: "#cfa0ff", bot: "#6030a0", line: "#a06abf" },
+  os:          { top: "#cfa0ff", bot: "#6030a0", line: "#a06abf" },
+  rub:         { top: "#e0b070", bot: "#805020", line: "#c08a40" },
+  crackle:     { top: "#70e0a0", bot: "#1a7040", line: "#3aa06e" },
+  continuous:  { top: "#7ec0ff", bot: "#1d5fa0", line: "#4a90d9" },
+  breath:      { top: "#90d0a8", bot: "#2a7048", line: "#5aa07a" },
+};
+
+function eventPath(ev: PhonoEvent, yBase: number, maxH: number): string {
+  const t = ev.startTime * PX_PER_SEC;
+  const d = ev.duration * PX_PER_SEC;
+  const h = ev.amplitude * maxH;
+  const top = yBase - h;
+  const x0 = t, x1 = t + d, mid = (x0 + x1) / 2;
+
+  switch (ev.shape) {
+    case "impulse":
+      return `M ${x0} ${yBase} Q ${x0 + d * 0.15} ${top} ${x0 + d * 0.35} ${top} Q ${mid} ${top} ${x1} ${yBase}`;
+    case "plateau":
+      return `M ${x0} ${yBase} L ${x0 + d * 0.06} ${top} L ${x1 - d * 0.06} ${top} L ${x1} ${yBase} Z`;
+    case "crescendo":
+      return `M ${x0} ${yBase} L ${x1} ${top} L ${x1} ${yBase} Z`;
+    case "decrescendo":
+      return `M ${x0} ${top} L ${x1} ${yBase} L ${x0} ${yBase} Z`;
+    case "crescendo-decrescendo":
+      return `M ${x0} ${yBase} Q ${mid} ${top - h * 0.1} ${x1} ${yBase} Z`;
+    case "rumble": {
+      const pts = [`M ${x0} ${yBase}`, `L ${x0} ${top}`];
+      const steps = 30;
+      for (let i = 1; i <= steps; i++) {
+        const x = x0 + (d * i) / steps;
+        const amp = Math.sin((i / steps) * Math.PI * 8) * h * 0.14;
+        const y = top + Math.abs(amp);
+        pts.push(`L ${x} ${y}`);
+      }
+      pts.push(`L ${x1} ${yBase}`);
+      return pts.join(" ") + " Z";
+    }
+    case "burst": {
+      const pts = [`M ${x0} ${yBase}`];
+      const steps = 10;
+      for (let i = 1; i < steps; i++) {
+        const x = x0 + (d * i) / steps;
+        const amp = Math.sin((i / steps) * Math.PI * 3) * h * 0.3;
+        const y = top + Math.abs(amp);
+        pts.push(`L ${x} ${y}`);
+      }
+      pts.push(`L ${x1} ${yBase} Z`);
+      return pts.join(" ");
+    }
+    default:
+      return `M ${x0} ${yBase} Q ${x0 + d * 0.15} ${top} ${mid} ${top} Q ${x1 - d * 0.2} ${top} ${x1} ${yBase}`;
+  }
+}
+
+export function PhonoSVG({
+  cycle,
+  playheadSec,
+  height = 220,
+}: {
+  cycle: PhonoCycle;
+  playheadSec?: number;
+  height?: number;
+}) {
+  const w = cycle.durationSec * PX_PER_SEC;
+  const yBase = height * Y_BASE_RATIO;
+  const maxH = height * MAX_AMPL_RATIO;
+  const ph = typeof playheadSec === "number" ? playheadSec : -1;
+  const uid = Math.random().toString(36).slice(2, 8);
+
+  // Graduations axe temporel tous les 100 ms
+  const ticks: number[] = [];
+  for (let t = 0; t <= cycle.durationSec + 0.001; t += 0.1) {
+    ticks.push(Number(t.toFixed(2)));
+  }
+
+  // Détection d'annotation clinique : COM (clic d'ouverture mitral)
+  const hasOS = cycle.events.some((e) => e.kind === "os");
+
+  return (
+    <svg
+      viewBox={`0 0 ${w} ${height}`}
+      width="100%"
+      height={height}
+      preserveAspectRatio="none"
+      data-phono-cycle={cycle.durationSec}
+      role="img"
+      aria-label="Phonocardiogramme"
+      style={{ display: "block", background: "#04060a" }}
+    >
+      <defs>
+        {Object.entries(KIND_PALETTE).map(([kind, p]) => (
+          <linearGradient key={kind} id={`grad-${uid}-${kind}`} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor={p.top} stopOpacity="0.95" />
+            <stop offset="60%" stopColor={p.line} stopOpacity="0.75" />
+            <stop offset="100%" stopColor={p.bot} stopOpacity="0.25" />
+          </linearGradient>
+        ))}
+        <radialGradient id={`ph-glow-${uid}`}>
+          <stop offset="0%" stopColor="#A67C1E" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#A67C1E" stopOpacity="0" />
+        </radialGradient>
+        <filter id={`ph-blur-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="2.6" />
+        </filter>
+        <pattern id={`ph-grid-${uid}`} width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(166,124,30,0.10)" strokeWidth="0.6" />
+        </pattern>
+        <linearGradient id={`ph-bar-${uid}`} x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stopColor="#A67C1E" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#ffd060" stopOpacity="0.9" />
+        </linearGradient>
+      </defs>
+
+      <rect width={w} height={height} fill={`url(#ph-grid-${uid})`} />
+
+      {cycle.phases.map((phase, i) => {
+        const active = ph >= phase.start && ph < phase.end;
+        const colors = PHASE_FILL[phase.color] ?? { base: "transparent", active: "transparent" };
+        return (
+          <rect
+            key={`ph-${i}`}
+            x={phase.start * PX_PER_SEC}
+            y={0}
+            width={(phase.end - phase.start) * PX_PER_SEC}
+            height={yBase}
+            fill={active ? colors.active : colors.base}
+            style={{ transition: "fill 180ms ease-out" }}
+          />
+        );
+      })}
+
+      {cycle.phases.map((phase, i) => {
+        const active = ph >= phase.start && ph < phase.end;
+        return (
+          <text
+            key={`phl-${i}`}
+            x={((phase.start + phase.end) / 2) * PX_PER_SEC}
+            y={18}
+            fontSize={11}
+            fontFamily="ui-monospace, SFMono-Regular, monospace"
+            fill={active ? "#A67C1E" : "rgba(255,255,255,0.30)"}
+            textAnchor="middle"
+            letterSpacing="0.16em"
+            style={{ transition: "fill 180ms ease-out" }}
+          >
+            {phase.label.toUpperCase()}
+          </text>
+        );
+      })}
+
+      {/* Graduations axe temporel */}
+      {ticks.map((t) => {
+        const x = t * PX_PER_SEC;
+        const isMajor = Math.abs(t % 0.2) < 0.001;
+        return (
+          <g key={`tick-${t}`}>
+            <line
+              x1={x} y1={yBase + 2} x2={x} y2={yBase + (isMajor ? 8 : 5)}
+              stroke="rgba(255,255,255,0.2)" strokeWidth="0.5"
+            />
+            {isMajor && t > 0 && (
+              <text
+                x={x} y={yBase + 18}
+                fontSize={7.5} fontFamily="ui-monospace"
+                fill="rgba(255,255,255,0.32)" textAnchor="middle"
+              >
+                {Math.round(t * 1000)}
+              </text>
+            )}
+          </g>
+        );
+      })}
+
+      {/* Événements avec gradients + glow */}
+      {cycle.events.map((ev, i) => {
+        const palette = KIND_PALETTE[ev.kind] ?? { top: "#888", bot: "#333", line: "#999" };
+        const active = ph >= ev.startTime && ph < ev.startTime + ev.duration;
+        const d = eventPath(ev, yBase, maxH);
+
+        return (
+          <g key={`ev-${i}`}>
+            {active && (
+              <path
+                d={d}
+                fill={palette.line}
+                opacity={0.55}
+                filter={`url(#ph-blur-${uid})`}
+              />
+            )}
+            <path
+              d={d}
+              fill={`url(#grad-${uid}-${ev.kind})`}
+              stroke={palette.line}
+              strokeWidth={active ? 1.6 : 0.7}
+              opacity={active ? 1 : 0.9}
+              style={{ transition: "opacity 140ms ease-out, stroke-width 140ms ease-out" }}
+            />
+            {ev.label && (
+              <text
+                x={(ev.startTime + ev.duration / 2) * PX_PER_SEC}
+                y={yBase + 34}
+                fontSize={9.5}
+                fontFamily="ui-monospace"
+                fill={active ? palette.top : palette.line}
+                textAnchor="middle"
+                style={{ transition: "fill 140ms ease-out" }}
+              >
+                {ev.label}
+              </text>
+            )}
+          </g>
+        );
+      })}
+
+      {/* Annotation clinique : COM +80ms */}
+      {hasOS && (() => {
+        const os = cycle.events.find((e) => e.kind === "os");
+        const b2 = cycle.events.find((e) => e.kind === "s2");
+        if (!os || !b2) return null;
+        const delayMs = Math.round((os.startTime - b2.startTime - b2.duration) * 1000);
+        const x = (os.startTime + os.duration / 2) * PX_PER_SEC;
+        return (
+          <g>
+            <line
+              x1={(b2.startTime + b2.duration) * PX_PER_SEC}
+              y1={yBase - maxH * 0.9}
+              x2={x}
+              y2={yBase - maxH * 0.9}
+              stroke="rgba(166,124,30,0.55)" strokeWidth="0.6"
+              strokeDasharray="2 2"
+            />
+            <text
+              x={(b2.startTime + b2.duration + os.startTime) / 2 * PX_PER_SEC}
+              y={yBase - maxH * 0.9 - 4}
+              fontSize={8} fontFamily="ui-monospace"
+              fill="#A67C1E" textAnchor="middle"
+            >
+              COM +{delayMs}ms
+            </text>
+          </g>
+        );
+      })()}
+
+      {/* Playhead */}
+      {ph >= 0 && (
+        <g>
+          <circle cx={ph * PX_PER_SEC} cy={yBase} r={30} fill={`url(#ph-glow-${uid})`} opacity={0.75} />
+          <rect x={ph * PX_PER_SEC - 0.6} y={0} width={1.2} height={height} fill="#A67C1E" opacity={0.95} />
+          <circle cx={ph * PX_PER_SEC} cy={yBase} r={3.4} fill="#A67C1E" stroke="#fff" strokeWidth={0.6} />
+        </g>
+      )}
+
+      {/* Barre de progression */}
+      {ph >= 0 && (
+        <rect
+          x={0}
+          y={height - 4}
+          width={(ph / cycle.durationSec) * w}
+          height={4}
+          fill={`url(#ph-bar-${uid})`}
+        />
+      )}
+    </svg>
+  );
+}
