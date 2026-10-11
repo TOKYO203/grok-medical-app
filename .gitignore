@@ -13,10 +13,8 @@ out/
 .netlify/
 .vercel/
 
-# Environnement
-.env
-.env.local
-.env.*.local
+# Environnement (.env* couvre .env, .env.local, .env.*.local et variantes)
+.env*
 
 # Logs
 logs/
@@ -53,22 +51,19 @@ ton-app-grok-build-main(1)/
 
 # Sanitized staging proof is retained by CI, not committed.
 /artifacts/staging-migration.json
+
+# Répertoires locaux de travail (sauvegardes & artefacts d’audit/QA)
+# Tenir cette liste en phase avec les `ignores` de eslint.config.mjs.
 .optimus-backups/
+.optimus-backup-*/
 .ux-backup/
 .robust-backup/
-*.bak
-*.bak*
-.vercel
-.env*
-.optimus-backup-*/
-
-# Répertoires locaux de travail (sauvegardes & artefacts d’audit)
 .bak/
+*.bak*
 .audit-tmp/
-.audit-tmp/
-.devx/
 .qa-tmp/
-.devx/memory.md
+.calc-tmp/
+.devx/
 
 # Artefact de build / bundle committé par erreur (nettoyage 2026-10-09)
 /b.js
@@ -78,5 +73,3 @@ screenshots/*.png
 screenshots/*.json
 TODO-CALCULATORS.md
 
-# Scripts jetables de vérification des calculateurs
-.calc-tmp/

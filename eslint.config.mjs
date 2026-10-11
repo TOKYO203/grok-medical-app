@@ -16,11 +16,16 @@ export default tseslint.config(
       ".nitro/**",
       "node_modules/**",
       ".ux-backup/**",
-      // Répertoires locaux de travail (sauvegardes, artefacts d'audit/QA) — voir .gitignore.
+      // Répertoires locaux de travail (sauvegardes, artefacts d'audit/QA) — liste
+      // tenue en phase avec la section « Répertoires locaux de travail » du
+      // .gitignore : tout ce qui est ignoré par git ne doit pas être linté.
       ".bak/**",
       ".audit-tmp/**",
       ".qa-tmp/**",
       ".devx/**",
+      ".calc-tmp/**",
+      ".optimus-backups/**",
+      ".robust-backup/**",
       "screenshots/**",
       "attachments/**",
       "assets-src/**",
