@@ -172,35 +172,8 @@ function AuscultationPage() {
                 <PhonoSVG cycle={monitorCycle} playheadSec={playing ? playheadSec : undefined} height={180} />
               </div>
               <div className="flex items-center justify-between gap-3">
-                <div className="hidden min-w-0 md:block">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-subtle">
-                    Preset actif
-                  </div>
-                  <div className="truncate text-sm text-muted">
-                    {monitorPreset}
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!selectedEntry) return;
-                    const e = selectedEntry as { audio?: { preset?: string; params?: Record<string, number> } };
-                    toggleListen(
-                      e.audio?.preset ?? monitorPreset,
-                      e.audio?.params ?? {},
-                      tab === "pulmonaire",
-                    );
-                  }}
-                  disabled={!selectedEntry || !canPlay}
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    !selectedEntry || !canPlay
-                      ? "bg-secondary text-subtle"
-                      : "bg-primary text-primary-fg shadow-[var(--shadow-soft)]",
-                  )}
-                >
-                  {playing ? "Arrêter" : "Écouter"}
-                </button>
+                
+                
               </div>
             </div>
           </div>
