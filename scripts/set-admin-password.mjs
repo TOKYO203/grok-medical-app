@@ -32,7 +32,13 @@ if (!dbUrl) { console.error("DATABASE_URL introuvable"); process.exit(1); }
 
 const client = new pg.Client({
   connectionString: dbUrl,
-  ssl: dbUrl.includes("neon.tech") ? { rejectUnauthorized: false } : undefined,
+  // Kept as an explicit opt-out variable only: silently disabling certificate
+  // validation let a network attacker read or rewrite the admin password hash
+  // in flight. Validation is on by default; PSQL_INSECURE_TLS=1 is the
+  // deliberate escape hatch for a self-signed local database.
+  ssl: dbUrl.includes("neon.tech")
+    ? { rejectUnauthorized: process.env.PSQL_INSECURE_TLS !== "1" }
+    : undefined,
 });
 await client.connect();
 

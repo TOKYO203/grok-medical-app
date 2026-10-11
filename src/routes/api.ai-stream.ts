@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { rateLimit, getClientIp } from "@/lib/security/rate-limit.server";
+import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import { AIStreamBodySchema } from "@/lib/ai/schemas";
 import { readAIRequestBody, AIRequestBodyError } from "@/lib/ai/request-body.server";
 import {
@@ -15,8 +15,10 @@ export const Route = createFileRoute("/api/ai-stream")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const ip = getClientIp(request);
-        const rl = rateLimit(`ai-stream:${ip}`);
+        // The subject is the TRUSTED client IP only. Reading `x-forwarded-for`
+        // directly let a caller mint a fresh budget per request by rotating one
+        // header, which left this unauthenticated, provider-billed proxy unmetered.
+        const rl = rateLimitRequest(request, "ai-stream", 20, 60_000);
         if (!rl.ok) {
           return new Response(
             JSON.stringify({ error: "Trop de requêtes. Réessayez dans une minute." }),
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/api/ai-stream")({
               status: 429,
               headers: {
                 "Content-Type": "application/json",
-                "Retry-After": String(Math.ceil((rl.resetAt - Date.now()) / 1000)),
+                "Retry-After": String(retryAfterSeconds(rl)),
               },
             },
           );
@@ -77,7 +79,6 @@ export const Route = createFileRoute("/api/ai-stream")({
         const req: AIRequest = {
           messages,
           systemPrompt: raw.systemPrompt,
-          model: raw.model,
           temperature: raw.temperature,
         };
 

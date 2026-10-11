@@ -4,26 +4,29 @@ import { z } from "zod";
 const REPORT_RATE_LIMIT_MAX = 3;
 const REPORT_RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
 
-async function resolveReporterIdentifier(optimusId: string): Promise<string> {
-  if (optimusId) return "user:" + optimusId;
+/**
+ * Server-derived reporter identity.
+ *
+ * The caller's `optimusId` used to BE the rate-limit subject, but it arrives in
+ * the request body unauthenticated: sending a fresh random id on every call
+ * bought an unlimited number of reports. The subject is now the TRUSTED client
+ * IP (see `client-ip.server.ts`) — a forged `x-forwarded-for` no longer mints a
+ * new budget, and a deployment with no trusted proxy collapses every caller
+ * onto one shared bucket instead of opening up.
+ */
+async function resolveReporterIdentifier(): Promise<string> {
   try {
     const mod = (await import("@tanstack/react-start/server")) as unknown as {
       getWebRequest?: () => Request;
       getRequest?: () => Request;
     };
     const req = mod.getWebRequest?.() ?? mod.getRequest?.();
-    const h = req?.headers;
-    if (h) {
-      const ip =
-        h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-        h.get("x-real-ip") ||
-        "unknown";
-      return "ip:" + ip;
-    }
+    const { clientIpSubject } = await import("@/lib/security/client-ip.server");
+    if (req?.headers) return "ip:" + clientIpSubject(req.headers);
   } catch {
     /* fallback ci-dessous */
   }
-  return "anon";
+  return "unknown";
 }
 
 export const REPORT_ISSUES = [
@@ -82,7 +85,7 @@ export const submitContentReport = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
-    const identifier = await resolveReporterIdentifier(data.optimusId);
+    const identifier = await resolveReporterIdentifier();
     const sinceIso = new Date(Date.now() - REPORT_RATE_LIMIT_WINDOW_MS).toISOString();
     const countRows = await sql`select count(*)::int as count from report_rate_limits where identifier = ${identifier} and created_at > ${sinceIso}`;
     const recentCount = (countRows[0] as { count?: number } | undefined)?.count ?? 0;

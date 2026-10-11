@@ -1,44 +1,72 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { DeckStatusBadge } from "@/components/deck-status-badge";
 import { BUILTIN_DECKS } from "@/content/catalog";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { verifyAdminKey } from "@/lib/content-reports-admin";
+import { getAdminKey } from "@/routes/admin-login";
 import { useOptimus } from "@/state/store";
 import { DECK_STATUS_LABEL, type DeckStatus } from "@/core/types";
 
 export const Route = createFileRoute("/admin-decks")({ component: AdminDecksPage });
 
+/**
+ * Admin pages gate on a **server-verified** admin session.
+ *
+ * This page previously computed `isAdmin = userId !== null && purchases.length >= 0`.
+ * `Array#length >= 0` is vacuously true, so the check reduced to "is there a
+ * user" — and with auth disabled the shared dev user is always present, which
+ * made the deck-management view (unpublished/draft decks included) readable by
+ * anyone. The authorization decision now comes from `verifyAdminKey`, a server
+ * function that throttles and compares the password in constant time, and the
+ * page fails closed while that check is in flight.
+ */
+type AdminGate = "checking" | "allowed" | "denied";
+
 function AdminDecksPage() {
-  const { user, isPending } = useCurrentUserState();
-  const purchases = useOptimus((s) => s.purchases);
   const profile = useOptimus((s) => s.profile);
+  const adminKey = getAdminKey();
+  const [gate, setGate] = useState<AdminGate>("checking");
 
-  if (isPending) {
-    return (
-      <Shell title="Admin — Decks">
-        <Page>
-          <p className="text-sm text-muted">Chargement…</p>
-        </Page>
-      </Shell>
-    );
-  }
+  useEffect(() => {
+    if (!adminKey) {
+      setGate("denied");
+      return;
+    }
+    let cancelled = false;
+    setGate("checking");
+    verifyAdminKey({ data: { adminKey } })
+      .then((result) => {
+        if (!cancelled) setGate(result.valid ? "allowed" : "denied");
+      })
+      .catch(() => {
+        if (!cancelled) setGate("denied");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [adminKey]);
 
-  const userId = user?.id ?? null;
-  const isAdmin = userId !== null && purchases.length >= 0; // Simplifié : vrai check via env
-
-  if (!isAdmin) {
+  if (gate !== "allowed") {
     return (
       <Shell title="Admin — Decks">
         <Page className="mx-auto max-w-lg">
           <div className="flex items-start gap-3 rounded-[var(--radius-lg)] border border-red-500/30 bg-red-500/10 p-4">
             <ShieldAlert className="mt-0.5 size-5 shrink-0 text-red-500" aria-hidden />
             <div>
-              <p className="text-sm font-medium text-red-400">Accès refusé</p>
-              <p className="mt-1 text-xs text-red-300/70">
-                Cette page est réservée aux administrateurs. Configurez
-                PURCHASE_ADMIN_USER_IDS dans les variables d'environnement.
+              <p className="text-sm font-medium text-red-400">
+                {gate === "checking" ? "Vérification de l'accès…" : "Accès refusé"}
               </p>
+              {gate === "denied" ? (
+                <p className="mt-1 text-xs text-red-300/70">
+                  Cette page est réservée aux administrateurs. Connecte-toi via{" "}
+                  <Link to="/admin-login" className="underline">
+                    la page d'accès administrateur
+                  </Link>
+                  .
+                </p>
+              ) : null}
             </div>
           </div>
         </Page>

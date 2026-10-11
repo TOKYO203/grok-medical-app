@@ -18,7 +18,6 @@ export type ChatMessage = {
 export type AIRequest = {
   messages: ChatMessage[];
   systemPrompt?: string;
-  model?: string;
   temperature?: number;
 };
 
@@ -28,7 +27,7 @@ const CACHE_MAX = 100;
 const cache = new Map<string, { text: string; at: number }>();
 
 export function cacheKey(input: AIRequest) {
-  return JSON.stringify([input.systemPrompt ?? "", input.messages, input.model ?? ""]);
+  return JSON.stringify([input.systemPrompt ?? "", input.messages]);
 }
 
 export function cacheGet(key: string): string | null {
@@ -62,7 +61,10 @@ function pickProvider(): { provider: Provider; url: string; key: string; model: 
   if (groqKey) {
     return { provider: "groq", url: GROQ_URL, key: groqKey, model: DEFAULT_GROQ_MODEL };
   }
-  throw new Error("Aucune clé IA configurée (OPENROUTER_API_KEY ou GROQ_API_KEY)");
+  // Config diagnostics stay in the server log: the thrown message is streamed
+  // back to an unauthenticated caller by /api/ai-stream.
+  console.error("[ai] aucune clé IA configurée (OPENROUTER_API_KEY / GROQ_API_KEY)");
+  throw new Error("Le service d'IA n'est pas configuré.");
 }
 
 async function fetchWithRetry(url: string, init: RequestInit, maxAttempts = 3): Promise<Response> {
@@ -92,7 +94,8 @@ export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
   ];
 
   const body = {
-    model: req.model ?? model,
+    // Always the server-selected model — never one supplied by the caller.
+    model,
     messages,
     temperature: req.temperature ?? 0.3,
     stream: true,
@@ -114,10 +117,20 @@ export async function* streamAI(req: AIRequest): AsyncGenerator<string> {
   });
 
   if (!res.ok) {
+    // The provider's diagnostics (request ids, account hints, occasionally a
+    // masked credential) are readable by an attacker through the SSE stream,
+    // because /api/ai-stream is unauthenticated. Log them server-side and hand
+    // the caller a stable, information-free message — the same doctrine as
+    // `stream-protocol.ts`.
     const detail = await res.text().catch(() => "");
-    throw new Error(`${provider} ${res.status} — ${detail.slice(0, 200)}`);
+    console.error(`[ai] provider ${provider} error ${res.status}: ${detail.slice(0, 500)}`);
+    throw new Error(
+      res.status === 429
+        ? "Le service d'IA est saturé. Réessayez dans un instant."
+        : "Le service d'IA est temporairement indisponible.",
+    );
   }
-  if (!res.body) throw new Error("Pas de flux SSE dans la réponse");
+  if (!res.body) throw new Error("Le service d'IA est temporairement indisponible.");
 
   yield* readAIStream(res.body);
 }

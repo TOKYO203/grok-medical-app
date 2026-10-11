@@ -46,15 +46,15 @@ export function getAdminSessionState(): AdminSessionState {
   const s = getAdminSession();
   if (s) {
     if (Date.now() < s.expiresAt) return "valid";
+    // Expired: drop it rather than advertising a session the server rejects.
     window.localStorage.removeItem(STORAGE_KEY);
     return "expired";
   }
-  const legacy = window.localStorage.getItem(LEGACY_KEY);
-  if (legacy) {
-    setAdminKey(legacy);
-    window.localStorage.removeItem(LEGACY_KEY);
-    return "valid";
-  }
+  // The legacy plaintext key is discarded, never adopted. Treating its mere
+  // presence as a valid session let anyone mint an admin UI session by writing
+  // a single localStorage entry; a stored session must now come from a real
+  // server-verified sign-in (`submit()` below).
+  window.localStorage.removeItem(LEGACY_KEY);
   return "none";
 }
 
@@ -88,7 +88,7 @@ function AdminLoginPage() {
   const nav = useNavigate();
   const [key, setKey] = useState("");
   const [error, setError] = useState(false);
-
+  const [notice, setNotice] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function submit() {
@@ -97,15 +97,25 @@ function AdminLoginPage() {
       return;
     }
     setLoading(true);
+    setNotice(null);
     try {
       const res = await fetch("/api/admin-verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ adminKey: key.trim() }),
       });
-      const data = (await res.json()) as { valid: boolean; debug?: unknown };
-      console.log("[admin-login] verify response:", data);
-      if (!data.valid) {
+      // The endpoint is throttled. Report that distinctly from a wrong password
+      // so a locked-out admin is not told their password is invalid.
+      if (res.status === 429) {
+        setError(true);
+        setNotice("Trop de tentatives. Patiente une minute avant de réessayer.");
+        setLoading(false);
+        return;
+      }
+      // The response is intentionally just `{ valid }` — it must not echo
+      // anything about the configured secret.
+      const data = (await res.json()) as { valid?: boolean };
+      if (data.valid !== true) {
         setError(true);
         setLoading(false);
         return;
@@ -138,6 +148,7 @@ function AdminLoginPage() {
             onChange={(e) => {
               setKey(e.target.value);
               setError(false);
+              setNotice(null);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") submit();
@@ -147,7 +158,7 @@ function AdminLoginPage() {
           />
           {error ? (
             <p className="mt-2 text-xs text-red-400">
-              Mot de passe invalide.
+              {notice ?? "Mot de passe invalide."}
             </p>
           ) : null}
 

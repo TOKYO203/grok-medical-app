@@ -3,13 +3,16 @@ import { z } from "zod";
 import { createHash, randomBytes } from "node:crypto";
 import { getSql } from "@/lib/db";
 
-const ADMIN_ENV = "ADMIN_PASSWORD";
-
-function assertAdmin(adminKey: string): void {
-  const expected = (process.env[ADMIN_ENV] ?? "").trim();
-  if (!expected || adminKey !== expected) {
-    throw new Error("Forbidden: admin key invalid");
-  }
+/**
+ * Admin authorization for every licence read and mutation. Delegates to the
+ * shared guard so the comparison stays length-blind (no timing oracle) and
+ * attempts are throttled on the TRUSTED client IP: the previous
+ * `adminKey !== expected` was an unthrottled, character-by-character
+ * comparison of the single shared admin password.
+ */
+async function assertAdmin(adminKey: string): Promise<void> {
+  const { requireAdminKey } = await import("@/lib/security/admin-auth.server");
+  await requireAdminKey(adminKey, "admin-licences", 60, 60_000);
 }
 
 export type AdminLicenseStatus = "pending" | "active" | "expired" | "revoked";
@@ -75,7 +78,7 @@ export const listActivationKeysForAdmin = createServerFn({ method: "POST" })
     }).parse(data),
   )
   .handler(async ({ data }) => {
-    assertAdmin(data.adminKey);
+    await assertAdmin(data.adminKey);
     const sql = await getSql();
     const rows = (await sql.query(
       "SELECT id, key_hash, optimus_id, device_id, product, expires_at, activated_at, revoked_at, created_at FROM activation_keys ORDER BY created_at DESC LIMIT $1",
@@ -95,7 +98,7 @@ export const issueLicense = createServerFn({ method: "POST" })
     }).parse(data),
   )
   .handler(async ({ data }) => {
-    assertAdmin(data.adminKey);
+    await assertAdmin(data.adminKey);
     const sql = await getSql();
     const raw = (randomBytes(12).toString("hex").toUpperCase().match(/.{1,4}/g) ?? []) as string[];
     const key = "OPT-" + raw.join("-");
@@ -116,7 +119,7 @@ export const revokeLicense = createServerFn({ method: "POST" })
     }).parse(data),
   )
   .handler(async ({ data }) => {
-    assertAdmin(data.adminKey);
+    await assertAdmin(data.adminKey);
     const sql = await getSql();
     await sql.query(
       "UPDATE activation_keys SET revoked_at = now() WHERE id = $1 AND revoked_at IS NULL",

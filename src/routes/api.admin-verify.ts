@@ -1,7 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getSql } from "@/lib/db";
+import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 
 const HASH_BYTES = 32;
+const MAX_BODY_BYTES = 4 * 1024;
+
+/**
+ * Admin password check. Two independent limits, both fail closed:
+ *   - attempts are throttled on the TRUSTED client IP (a forged
+ *     `x-forwarded-for` cannot buy a fresh budget), and
+ *   - the comparison is length-blind, so the response cannot be used as an
+ *     oracle for the secret's size.
+ *
+ * The response is deliberately just `{ valid }`: it used to echo a `debug`
+ * block containing the ADMIN_PASSWORD length, which handed an anonymous caller
+ * the exact key length to brute-force against.
+ */
 
 function b64ToBytes(b64: string): Uint8Array {
   const bin = atob(b64);
@@ -16,10 +30,21 @@ function bytesToB64(bytes: Uint8Array): string {
   return btoa(bin);
 }
 
-function timingSafeEqualStr(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
+/**
+ * Constant-time string comparison with no length oracle: both sides are hashed
+ * first, so unequal-length inputs still take the same, fixed number of
+ * operations instead of returning early on a length mismatch.
+ */
+async function secretsMatch(a: string, b: string): Promise<boolean> {
+  const enc = new TextEncoder();
+  const [da, db] = await Promise.all([
+    crypto.subtle.digest("SHA-256", enc.encode(a)),
+    crypto.subtle.digest("SHA-256", enc.encode(b)),
+  ]);
+  const va = new Uint8Array(da);
+  const vb = new Uint8Array(db);
   let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  for (let i = 0; i < va.length; i++) diff |= va[i] ^ vb[i];
   return diff === 0;
 }
 
@@ -46,7 +71,7 @@ async function verifyPassword(password: string, stored: string): Promise<boolean
       key, HASH_BYTES * 8,
     );
     const computed = bytesToB64(new Uint8Array(bits));
-    return timingSafeEqualStr(computed, hashB64);
+    return await secretsMatch(computed, hashB64);
   } catch {
     return false;
   }
@@ -71,28 +96,58 @@ export const Route = createFileRoute("/api/admin-verify")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const body = (await request.json().catch(() => ({}))) as { adminKey?: string };
-        const key = (body?.adminKey ?? "").trim();
-
-        const storedHash = await loadStoredHash();
-        if (storedHash) {
-          const valid = await verifyPassword(key, storedHash);
-          return new Response(
-            JSON.stringify({ valid, source: "db" }),
-            { status: 200, headers: { "Content-Type": "application/json" } },
-          );
+        // Throttle before doing any work. Unparseable/oversized bodies and wrong
+        // guesses all consume the same budget, so the endpoint cannot be used as
+        // an unthrottled oracle.
+        const decision = rateLimitRequest(request, "admin-verify", 10, 5 * 60_000);
+        if (!decision.ok) {
+          return new Response(JSON.stringify({ error: "Trop de tentatives." }), {
+            status: 429,
+            headers: {
+              "Content-Type": "application/json",
+              "Retry-After": String(retryAfterSeconds(decision)),
+            },
+          });
         }
 
-        const expected = (process.env.ADMIN_PASSWORD ?? "").trim();
-        const valid = expected.length > 0 && timingSafeEqualStr(key, expected);
-        return new Response(
-          JSON.stringify({
-            valid,
-            source: "env-fallback",
-            debug: { envDefined: expected.length > 0, envLength: expected.length, keyLength: key.length },
-          }),
-          { status: 200, headers: { "Content-Type": "application/json" } },
-        );
+        const declared = Number(request.headers.get("content-length"));
+        if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+          return new Response(JSON.stringify({ error: "Requête trop volumineuse." }), {
+            status: 413,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+
+        const raw = await request.text().catch(() => "");
+        if (raw.length > MAX_BODY_BYTES) {
+          return new Response(JSON.stringify({ error: "Requête trop volumineuse." }), {
+            status: 413,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+
+        let body: { adminKey?: unknown } = {};
+        try {
+          const parsed = JSON.parse(raw || "{}");
+          if (parsed && typeof parsed === "object") body = parsed as { adminKey?: unknown };
+        } catch {
+          body = {};
+        }
+        const key = typeof body.adminKey === "string" ? body.adminKey.trim() : "";
+
+        const storedHash = await loadStoredHash();
+        const valid = storedHash
+          ? await verifyPassword(key, storedHash)
+          : await (async () => {
+              const expected = (process.env.ADMIN_PASSWORD ?? "").trim();
+              if (expected.length === 0) return false;
+              return secretsMatch(key, expected);
+            })();
+
+        return new Response(JSON.stringify({ valid }), {
+          status: 200,
+          headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+        });
       },
     },
   },

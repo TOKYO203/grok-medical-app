@@ -2,11 +2,14 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { REPORT_ISSUE_LABEL, type ReportIssue } from "@/lib/content-reports";
 
-const ADMIN_ENV = "ADMIN_PASSWORD";
-
-function isAdmin(adminKey: string): boolean {
-  const expected = (process.env[ADMIN_ENV] ?? "").trim();
-  return expected.length > 0 && adminKey === expected;
+/**
+ * Admin authorization for the moderation queue. Delegates to the shared guard:
+ * length-blind comparison (no timing oracle) plus throttling on the TRUSTED
+ * client IP, so the single admin password cannot be guessed at wire speed.
+ */
+async function assertAdmin(adminKey: string): Promise<void> {
+  const { requireAdminKey } = await import("@/lib/security/admin-auth.server");
+  await requireAdminKey(adminKey, "admin-reports", 60, 60_000);
 }
 
 export type ContentReportStatus = "new" | "reviewing" | "resolved" | "rejected";
@@ -71,7 +74,7 @@ const listSchema = z.object({
 export const listContentReportsForAdmin = createServerFn({ method: "POST" })
   .validator(listSchema)
   .handler(async ({ data }) => {
-    if (!isAdmin(data.adminKey)) throw new Error("Forbidden");
+    await assertAdmin(data.adminKey);
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
@@ -101,7 +104,7 @@ const reviewSchema = z.object({
 export const reviewContentReport = createServerFn({ method: "POST" })
   .validator(reviewSchema)
   .handler(async ({ data }) => {
-    if (!isAdmin(data.adminKey)) throw new Error("Forbidden");
+    await assertAdmin(data.adminKey);
 
     const { getSql } = await import("@/lib/db");
     const sql = await getSql();
@@ -127,5 +130,9 @@ const verifySchema = z.object({
 export const verifyAdminKey = createServerFn({ method: "POST" })
   .validator(verifySchema)
   .handler(async ({ data }) => {
-    return { valid: isAdmin(data.adminKey) };
+    const { adminSecretMatches, enforceAdminAttempt } = await import(
+      "@/lib/security/admin-auth.server"
+    );
+    await enforceAdminAttempt("admin-verify-key", 10, 5 * 60_000);
+    return { valid: adminSecretMatches(data.adminKey) };
   });
