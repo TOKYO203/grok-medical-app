@@ -9,6 +9,7 @@ export type ContentLevel = "intro" | "intermediate" | "advanced";
 export type ContentLink =
   | { to: "/parcours/$deckId"; params: { deckId: string } }
   | { to: "/cas/$caseId"; params: { caseId: string } }
+  | { to: "/demarche/$id"; params: { id: string } }
   | { to: "/calculateurs" }
   | { to: "/examen" }
   | { to: "/import" }
@@ -143,7 +144,10 @@ function diagnosticToItem(diagnostic: DiagnosticCase): ContentItem {
     icon: "scan",
     metric: `${steps} étape${steps > 1 ? "s" : ""}`,
     minutes: Math.max(4, steps * 2),
-    link: { to: "/calculateurs" },
+    // Une démarche diagnostique s'ouvre sur sa propre page `/demarche/$id`.
+    // (Historiquement branchée sur `/calculateurs` : la carte promettait une
+    // démarche et livrait la page des scores cliniques.)
+    link: { to: "/demarche/$id", params: { id: diagnostic.id } },
     locked: false,
   };
 }

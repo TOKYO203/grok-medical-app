@@ -47,6 +47,13 @@ function ContentLinkWrap({
       </Link>
     );
   }
+  if (link.to === "/demarche/$id") {
+    return (
+      <Link to={link.to} params={link.params} className={className} aria-label={ariaLabel}>
+        {children}
+      </Link>
+    );
+  }
   return (
     <Link to={link.to} className={className} aria-label={ariaLabel}>
       {children}
