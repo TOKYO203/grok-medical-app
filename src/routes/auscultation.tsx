@@ -1,14 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ChevronLeft,
-  ChevronRight,
-  HeartPulse,
-  Lock,
-  Square,
-  Volume2,
-  Wind,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, HeartPulse, Lock, Square, Volume2, Wind, Maximize2, Minimize2 } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -54,6 +46,14 @@ function AuscultationPage() {
   const [playing, setPlaying] = useState(false);
   const [activeFoyer, setActiveFoyer] = useState<FoyerId | null>(null);
   const [rate, setRate] = useState(1);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    if (!isFullscreen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setIsFullscreen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isFullscreen]);
   const [loop, setLoop] = useState(false);
 
   // Coupe tout son en cours au démontage de la page (navigation).
@@ -157,7 +157,11 @@ function AuscultationPage() {
         }
       >
         {/* Moniteur auscultation — visible en permanence */}
-        <div className="sticky top-0 z-30 -mx-5 mb-5 border-y border-border bg-card px-5 py-3 shadow-[var(--shadow-border)] md:mx-0 md:rounded-[var(--radius-lg)] md:border md:px-4 md:py-4">
+        <div className={
+            isFullscreen
+              ? "fixed inset-0 z-50 flex flex-col bg-background px-4 py-4 overflow-y-auto"
+              : "sticky top-0 z-30 -mx-5 mb-5 border-y border-border bg-card px-5 py-3 shadow-[var(--shadow-border)] md:mx-0 md:rounded-[var(--radius-lg)] md:border md:px-4 md:py-4 max-h-[55vh] md:max-h-[60vh] overflow-hidden"
+          }>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-5">
             <div>
               <TorsoView
@@ -167,9 +171,18 @@ function AuscultationPage() {
                 height={220}
               />
             </div>
-            <div className="flex flex-col justify-between gap-3">
-              <div className="rounded-[var(--radius-md)] bg-black p-2">
-                <PhonoSVG cycle={monitorCycle} playheadSec={playing ? playheadSec : undefined} height={180} />
+            <div className={isFullscreen ? "flex flex-col gap-3 h-full min-h-0" : "flex flex-col justify-between gap-3"}>
+              <div className={isFullscreen ? "rounded-[var(--radius-md)] bg-black p-2 relative flex-1 min-h-0 overflow-hidden" : "rounded-[var(--radius-md)] bg-black p-2 relative"}>
+                  <button
+                    type="button"
+                    onClick={() => setIsFullscreen((v) => !v)}
+                    className="absolute right-2 top-2 z-10 rounded-full bg-black/70 p-1.5 text-white/80 transition-colors hover:bg-black hover:text-white"
+                    aria-label={isFullscreen ? "Quitter le plein écran" : "Plein écran"}
+                  >
+                    {isFullscreen ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
+                  </button>
+                  
+                <PhonoSVG cycle={monitorCycle} playheadSec={playing ? playheadSec : undefined} height={260} />
               </div>
               <div className="flex items-center justify-between gap-3">
                 

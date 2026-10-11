@@ -12,6 +12,50 @@ const PHASE_FILL: Record<string, { base: string; active: string }> = {
 };
 
 // Couleurs par kind. Deux tons pour permettre le dégradé vertical.
+// ─── ECG synthétique (P-QRS-T) ─────────────────────────────────────────
+// R du QRS est aligné sur B1 (t=0). L'onde P précède, T suit.
+const ECG_TOP = 64;  // hauteur réservée à l'ECG en haut
+
+function gauss(t: number, center: number, sigma: number, amp: number): number {
+  return amp * Math.exp(-Math.pow((t - center) / sigma, 2));
+}
+
+function ecgAmplitude(t: number, cycleDuration: number): number {
+  // Amplitudes réalistes d'un ECG de surface :
+  //   P : 0.18 mV (petit dôme arrondi)
+  //   Q : -0.12 mV (petit creux)
+  //   R : 1.0 mV (pic principal, aligné sur B1)
+  //   S : -0.22 mV (creux post-R)
+  //   T : 0.42 mV (dôme large, ~40 % du R)
+  let amp = 0;
+  // Onde P : fin du cycle précédent (visible en fin de tracé)
+  amp += gauss(t, cycleDuration - 0.16, 0.028, 0.18); // P
+  // Complexe QRS centré sur t = 0 (aligné sur B1)
+  amp += gauss(t, -0.018, 0.007, -0.12); // Q
+  amp += gauss(t, 0,      0.006, 1.0);   // R
+  amp += gauss(t, 0.022,  0.008, -0.22); // S
+  // Onde T : large dôme ~300 ms après le QRS
+  amp += gauss(t, 0.30,   0.065, 0.42);  // T
+  return amp;
+}
+
+function ecgPointsPath(cycleDuration: number, yBaseline: number, yTop: number): string {
+  const N = 220;
+  const range = yBaseline - yTop;
+  const pts: string[] = [];
+  // Décalage : on démarre le tracé à -0.10s pour inclure le P du cycle courant
+  // et on va jusqu'à cycleDuration - 0.10s. R tombe alors à ~13 % du bord.
+  const shift = 0.10;
+  for (let i = 0; i <= N; i++) {
+    const t = (i / N) * cycleDuration - shift;
+    const amp = ecgAmplitude(t, cycleDuration);
+    const y = yBaseline - amp * range;
+    const x = (t + shift) * PX_PER_SEC;  // on reste dans [0, w] pour le x
+    pts.push(`${i === 0 ? "M" : "L"} ${x} ${y}`);
+  }
+  return pts.join(" ");
+}
+
 const KIND_PALETTE: Record<string, { top: string; bot: string; line: string }> = {
   s1:          { top: "#ff8060", bot: "#c04020", line: "#e05a3a" },
   s2:          { top: "#ff8060", bot: "#c04020", line: "#e05a3a" },
@@ -83,9 +127,13 @@ export function PhonoSVG({
   height?: number;
 }) {
   const w = cycle.durationSec * PX_PER_SEC;
-  const yBase = height * Y_BASE_RATIO;
+  const yBase = ECG_TOP + (height - ECG_TOP) * Y_BASE_RATIO;
   const maxH = height * MAX_AMPL_RATIO;
   const ph = typeof playheadSec === "number" ? playheadSec : -1;
+
+  // Largeur révélée : si pas de lecture (ph < 0) → tout visible.
+  // Sinon, on révèle progressivement jusqu'au playhead.
+  const revealWidth = ph < 0 ? w + 20 : Math.max(0, ph * PX_PER_SEC) + 2;
   const uid = Math.random().toString(36).slice(2, 8);
 
   // Graduations axe temporel tous les 100 ms
@@ -130,9 +178,52 @@ export function PhonoSVG({
           <stop offset="0%" stopColor="#A67C1E" stopOpacity="0.7" />
           <stop offset="100%" stopColor="#ffd060" stopOpacity="0.9" />
         </linearGradient>
-      </defs>
+      <clipPath id={`reveal-clip-${uid}`}>
+            <rect x="-20" y="0" width={revealWidth + 20} height={height} />
+          </clipPath>
+          </defs>
 
       <rect width={w} height={height} fill={`url(#ph-grid-${uid})`} />
+
+      {/* ═══ Bandeau ECG synchrone ═══ */}
+      <g>
+        {/* Label ECG */}
+        <text x="4" y="14" fontSize="8"
+          fontFamily="-apple-system, system-ui, sans-serif"
+          fill="rgba(90,200,140,0.85)" fontWeight={700}
+          letterSpacing="0.14em">ECG</text>
+        {/* Baseline ECG */}
+        <line x1={0} y1={ECG_TOP - 8} x2={w} y2={ECG_TOP - 8}
+          stroke="rgba(90,200,140,0.2)" strokeWidth="0.5" />
+        {/* Tracé P-QRS-T */}
+        <g clipPath={`url(#reveal-clip-${uid})`}>
+          <path
+            d={ecgPointsPath(cycle.durationSec, ECG_TOP - 8, 18)}
+            fill="none"
+            stroke="rgba(90,204,140,0.35)"
+            strokeWidth="3.5"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            filter={`url(#ph-blur-${uid})`}
+          />
+          <path
+            d={ecgPointsPath(cycle.durationSec, ECG_TOP - 8, 18)}
+            fill="none"
+            stroke="#5ACC8C"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
+        </g>
+        {/* Ligne séparatrice ECG / PHONO */}
+        <line x1={0} y1={ECG_TOP} x2={w} y2={ECG_TOP}
+          stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+        {/* Label PHONO */}
+        <text x="4" y={ECG_TOP + 14} fontSize="8"
+          fontFamily="-apple-system, system-ui, sans-serif"
+          fill="rgba(255,140,120,0.75)" fontWeight={700}
+          letterSpacing="0.14em">PHONO</text>
+      </g>
 
       {cycle.phases.map((phase, i) => {
         const active = ph >= phase.start && ph < phase.end;
@@ -156,7 +247,7 @@ export function PhonoSVG({
           <text
             key={`phl-${i}`}
             x={((phase.start + phase.end) / 2) * PX_PER_SEC}
-            y={18}
+            y={ECG_TOP + 30}
             fontSize={11}
             fontFamily="ui-monospace, SFMono-Regular, monospace"
             fill={active ? "#A67C1E" : "rgba(255,255,255,0.30)"}
@@ -199,7 +290,7 @@ export function PhonoSVG({
         const d = eventPath(ev, yBase, maxH);
 
         return (
-          <g key={`ev-${i}`}>
+          <g key={`ev-${i}`} clipPath={`url(#reveal-clip-${uid})`}>
             {active && (
               <path
                 d={d}
