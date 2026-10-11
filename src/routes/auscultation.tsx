@@ -29,6 +29,12 @@ import {
   type PulmonaireZone,
 } from "@/lib/auscultation/catalog";
 import { isSupported, playLungSound, playSound, stop } from "@/lib/auscultation/engine";
+import { buildCycle } from "@/lib/auscultation/phonocardiogram";
+import { useMonitorPlayhead } from "@/lib/auscultation/useMonitorPlayhead";
+import { MonitorControls } from "@/components/auscultation/MonitorControls";
+import { ParamPanel } from "@/components/auscultation/ParamPanel";
+import { PhonoSVG } from "@/components/auscultation/PhonoSVG";
+import { TorsoView, type FoyerId } from "@/components/auscultation/TorsoView";
 
 export const Route = createFileRoute("/auscultation")({ component: AuscultationPage });
 
@@ -46,6 +52,9 @@ function AuscultationPage() {
   const [tab, setTab] = useState<"cardiaque" | "pulmonaire">("cardiaque");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
+  const [activeFoyer, setActiveFoyer] = useState<FoyerId | null>(null);
+  const [rate, setRate] = useState(1);
+  const [loop, setLoop] = useState(false);
 
   // Coupe tout son en cours au démontage de la page (navigation).
   useEffect(() => () => stop(), []);
@@ -82,6 +91,57 @@ function AuscultationPage() {
   const pSounds = listPulmonaireSounds();
   const zones = listPulmonaireZones();
 
+  // Son sélectionné (cardio ou pulmo) — pour le moniteur en haut de page
+  // ⚠ listSounds() / listPulmonaireSounds() ne retournent QUE les
+  // métadonnées d'index (id, label, foyer, zones) — SANS le champ `audio`.
+  // Il faut donc charger la fiche complète via getFiche()/getPulmonaireFiche()
+  // pour obtenir audio.preset. Sans ça, monitorPreset tombait toujours sur
+  // "normal_s1s2" et le tracé n'affichait que B1/B2.
+  const selectedEntryId =
+    selectedId
+    ?? (tab === "pulmonaire" ? pSounds[0]?.id : sounds[0]?.id)
+    ?? null;
+  const selectedEntry = selectedEntryId
+    ? (tab === "pulmonaire"
+        ? getPulmonaireFiche(selectedEntryId)
+        : getFiche(selectedEntryId))
+    : undefined;
+
+  // Fallback : si aucune fiche sélectionnée, on prend le premier son de
+  // l'onglet courant → le moniteur ne disparaît jamais au switch.
+  const fallbackEntry = tab === "pulmonaire" ? pSounds[0] : sounds[0];
+  const monitorEntry = selectedEntry ?? fallbackEntry;
+
+  const monitorPreset =
+    (monitorEntry as { audio?: { preset?: string } } | undefined)?.audio?.preset
+    ?? (tab === "pulmonaire" ? "normal_vesicular" : "normal_s1s2");
+  const monitorParams =
+    (monitorEntry as { audio?: { params?: Record<string, number> } } | undefined)?.audio?.params
+    ?? {};
+  const monitorFoyer = (() => {
+    if (activeFoyer) return activeFoyer;
+    const f = (selectedEntry as { foyer?: string[]; zones?: string[] } | undefined);
+    const first = (f?.foyer ?? f?.zones ?? [])[0];
+    return (first as FoyerId | undefined) ?? null;
+  })();
+  const monitorCycle = buildCycle(monitorPreset);
+  const playheadSec = useMonitorPlayhead(monitorCycle.durationSec, playing, rate);
+
+  // Boucle audio : si loop est actif, on relance playSound à chaque fin de cycle.
+  useEffect(() => {
+    if (!playing || !loop || !monitorEntry) return;
+    const periodMs = (monitorCycle.durationSec / rate) * 1000;
+    const id = setInterval(() => {
+      const e = monitorEntry as { audio?: { preset?: string; params?: Record<string, number> } };
+      const preset = e.audio?.preset ?? monitorPreset;
+      const params = e.audio?.params ?? {};
+      if (tab === "pulmonaire") playLungSound(preset, params);
+      else playSound(preset, params);
+    }, periodMs);
+    return () => clearInterval(id);
+  }, [playing, loop, rate, monitorPreset, monitorEntry, monitorCycle.durationSec, tab]);
+
+
   const canPlay = isSupported();
 
   return (
@@ -96,6 +156,56 @@ function AuscultationPage() {
           />
         }
       >
+        {/* Moniteur auscultation — visible en permanence */}
+        <div className="sticky top-0 z-30 -mx-5 mb-5 border-y border-border bg-card px-5 py-3 shadow-[var(--shadow-border)] md:mx-0 md:rounded-[var(--radius-lg)] md:border md:px-4 md:py-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-5">
+            <div>
+              <TorsoView
+                mode={tab}
+                activeFoyer={monitorFoyer ?? undefined}
+                onFoyerClick={(id) => setActiveFoyer(id)}
+                height={220}
+              />
+            </div>
+            <div className="flex flex-col justify-between gap-3">
+              <div className="rounded-[var(--radius-md)] bg-black p-2">
+                <PhonoSVG cycle={monitorCycle} playheadSec={playing ? playheadSec : undefined} height={180} />
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <div className="hidden min-w-0 md:block">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-subtle">
+                    Preset actif
+                  </div>
+                  <div className="truncate text-sm text-muted">
+                    {monitorPreset}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!selectedEntry) return;
+                    const e = selectedEntry as { audio?: { preset?: string; params?: Record<string, number> } };
+                    toggleListen(
+                      e.audio?.preset ?? monitorPreset,
+                      e.audio?.params ?? {},
+                      tab === "pulmonaire",
+                    );
+                  }}
+                  disabled={!selectedEntry || !canPlay}
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    !selectedEntry || !canPlay
+                      ? "bg-secondary text-subtle"
+                      : "bg-primary text-primary-fg shadow-[var(--shadow-soft)]",
+                  )}
+                >
+                  {playing ? "Arrêter" : "Écouter"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Onglets Cardiaque / Pulmonaire */}
         <div
           role="tablist"
