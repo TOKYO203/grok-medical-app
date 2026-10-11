@@ -1,6 +1,16 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, HeartPulse, Lock, Square, Volume2, Wind, Maximize2, Minimize2 } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  HeartPulse,
+  Lock,
+  Square,
+  Volume2,
+  Wind,
+  Maximize2,
+  Minimize2,
+} from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -21,14 +31,36 @@ import {
   type PulmonaireZone,
 } from "@/lib/auscultation/catalog";
 import { isSupported, playLungSound, playSound, stop } from "@/lib/auscultation/engine";
-import { buildCycle } from "@/lib/auscultation/phonocardiogram";
+import { buildCycle, type PhonoCycle } from "@/lib/auscultation/phonocardiogram";
 import { useMonitorPlayhead } from "@/lib/auscultation/useMonitorPlayhead";
 import { MonitorControls } from "@/components/auscultation/MonitorControls";
-import { ParamPanel } from "@/components/auscultation/ParamPanel";
 import { PhonoSVG } from "@/components/auscultation/PhonoSVG";
 import { TorsoView, type FoyerId } from "@/components/auscultation/TorsoView";
 
 export const Route = createFileRoute("/auscultation")({ component: AuscultationPage });
+
+/** Référence stable : évite de recréer un objet à chaque render (useMemo). */
+const NO_PARAMS: Record<string, number> = {};
+
+/**
+ * Tracé du moniteur. Le playhead avance à chaque frame (~60 fps) : l'isoler
+ * dans ce composant évite de re-rendre tout le thorax et les listes de fiches
+ * à la même cadence.
+ */
+function MonitorPhono({
+  cycle,
+  playing,
+  rate,
+  height,
+}: {
+  cycle: PhonoCycle;
+  playing: boolean;
+  rate: number;
+  height: number;
+}) {
+  const playheadSec = useMonitorPlayhead(cycle.durationSec, playing, rate);
+  return <PhonoSVG cycle={cycle} playheadSec={playing ? playheadSec : undefined} height={height} />;
+}
 
 const CATEGORIE_LABEL: Record<string, string> = {
   normal: "Normal",
@@ -50,7 +82,9 @@ function AuscultationPage() {
 
   useEffect(() => {
     if (!isFullscreen) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setIsFullscreen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsFullscreen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isFullscreen]);
@@ -98,13 +132,11 @@ function AuscultationPage() {
   // pour obtenir audio.preset. Sans ça, monitorPreset tombait toujours sur
   // "normal_s1s2" et le tracé n'affichait que B1/B2.
   const selectedEntryId =
-    selectedId
-    ?? (tab === "pulmonaire" ? pSounds[0]?.id : sounds[0]?.id)
-    ?? null;
+    selectedId ?? (tab === "pulmonaire" ? pSounds[0]?.id : sounds[0]?.id) ?? null;
   const selectedEntry = selectedEntryId
-    ? (tab === "pulmonaire"
-        ? getPulmonaireFiche(selectedEntryId)
-        : getFiche(selectedEntryId))
+    ? tab === "pulmonaire"
+      ? getPulmonaireFiche(selectedEntryId)
+      : getFiche(selectedEntryId)
     : undefined;
 
   // Fallback : si aucune fiche sélectionnée, on prend le premier son de
@@ -113,19 +145,24 @@ function AuscultationPage() {
   const monitorEntry = selectedEntry ?? fallbackEntry;
 
   const monitorPreset =
-    (monitorEntry as { audio?: { preset?: string } } | undefined)?.audio?.preset
-    ?? (tab === "pulmonaire" ? "normal_vesicular" : "normal_s1s2");
+    (monitorEntry as { audio?: { preset?: string } } | undefined)?.audio?.preset ??
+    (tab === "pulmonaire" ? "normal_vesicular" : "normal_s1s2");
   const monitorParams =
-    (monitorEntry as { audio?: { params?: Record<string, number> } } | undefined)?.audio?.params
-    ?? {};
+    (monitorEntry as { audio?: { params?: Record<string, number> } } | undefined)?.audio?.params ??
+    NO_PARAMS;
   const monitorFoyer = (() => {
     if (activeFoyer) return activeFoyer;
-    const f = (selectedEntry as { foyer?: string[]; zones?: string[] } | undefined);
+    const f = selectedEntry as { foyer?: string[]; zones?: string[] } | undefined;
     const first = (f?.foyer ?? f?.zones ?? [])[0];
     return (first as FoyerId | undefined) ?? null;
   })();
-  const monitorCycle = buildCycle(monitorPreset);
-  const playheadSec = useMonitorPlayhead(monitorCycle.durationSec, playing, rate);
+  // Les durées réelles de la fiche (systoleMs/diastoleMs, inspirationMs/…) sont
+  // transmises au tracé : sans ça le moniteur affichait toujours 820 ms.
+  // useMemo : monitorParams est une référence stable du catalogue (ou NO_PARAMS).
+  const monitorCycle = useMemo(
+    () => buildCycle(monitorPreset, monitorParams),
+    [monitorPreset, monitorParams],
+  );
 
   // Boucle audio : si loop est actif, on relance playSound à chaque fin de cycle.
   useEffect(() => {
@@ -140,7 +177,6 @@ function AuscultationPage() {
     }, periodMs);
     return () => clearInterval(id);
   }, [playing, loop, rate, monitorPreset, monitorEntry, monitorCycle.durationSec, tab]);
-
 
   const canPlay = isSupported();
 
@@ -157,11 +193,13 @@ function AuscultationPage() {
         }
       >
         {/* Moniteur auscultation — visible en permanence */}
-        <div className={
+        <div
+          className={
             isFullscreen
               ? "fixed inset-0 z-50 flex flex-col bg-background px-4 py-4 overflow-y-auto"
-              : "sticky top-0 z-30 -mx-5 mb-5 border-y border-border bg-card px-5 py-3 shadow-[var(--shadow-border)] md:mx-0 md:rounded-[var(--radius-lg)] md:border md:px-4 md:py-4 max-h-[55vh] md:max-h-[60vh] overflow-hidden"
-          }>
+              : "sticky top-0 z-30 -mx-5 mb-5 overflow-y-auto border-y border-border bg-card px-5 py-3 shadow-[var(--shadow-border)] md:mx-0 md:rounded-[var(--radius-lg)] md:border md:px-4 md:py-4 max-h-[55vh] md:max-h-[60vh]"
+          }
+        >
           <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-5">
             <div>
               <TorsoView
@@ -171,23 +209,46 @@ function AuscultationPage() {
                 height={220}
               />
             </div>
-            <div className={isFullscreen ? "flex flex-col gap-3 h-full min-h-0" : "flex flex-col justify-between gap-3"}>
-              <div className={isFullscreen ? "rounded-[var(--radius-md)] bg-black p-2 relative flex-1 min-h-0 overflow-hidden" : "rounded-[var(--radius-md)] bg-black p-2 relative"}>
-                  <button
-                    type="button"
-                    onClick={() => setIsFullscreen((v) => !v)}
-                    className="absolute right-2 top-2 z-10 rounded-full bg-black/70 p-1.5 text-white/80 transition-colors hover:bg-black hover:text-white"
-                    aria-label={isFullscreen ? "Quitter le plein écran" : "Plein écran"}
-                  >
-                    {isFullscreen ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
-                  </button>
-                  
-                <PhonoSVG cycle={monitorCycle} playheadSec={playing ? playheadSec : undefined} height={260} />
+            <div
+              className={
+                isFullscreen
+                  ? "flex flex-col gap-3 h-full min-h-0"
+                  : "flex flex-col justify-between gap-3"
+              }
+            >
+              <div
+                className={
+                  isFullscreen
+                    ? "rounded-[var(--radius-md)] bg-black p-2 relative flex-1 min-h-0 overflow-hidden"
+                    : "rounded-[var(--radius-md)] bg-black p-2 relative"
+                }
+              >
+                <button
+                  type="button"
+                  onClick={() => setIsFullscreen((v) => !v)}
+                  className="absolute right-2 top-2 z-10 rounded-full bg-black/70 p-1.5 text-white/80 transition-colors hover:bg-black hover:text-white"
+                  aria-label={isFullscreen ? "Quitter le plein écran" : "Plein écran"}
+                >
+                  {isFullscreen ? (
+                    <Minimize2 className="size-4" />
+                  ) : (
+                    <Maximize2 className="size-4" />
+                  )}
+                </button>
+
+                <MonitorPhono cycle={monitorCycle} playing={playing} rate={rate} height={260} />
               </div>
-              <div className="flex items-center justify-between gap-3">
-                
-                
-              </div>
+              <MonitorControls
+                playing={playing}
+                rate={rate}
+                loop={loop}
+                disabled={!canPlay}
+                onTogglePlay={() =>
+                  toggleListen(monitorPreset, monitorParams, tab === "pulmonaire")
+                }
+                onRateChange={setRate}
+                onToggleLoop={() => setLoop((v) => !v)}
+              />
             </div>
           </div>
         </div>
@@ -254,9 +315,7 @@ function AuscultationPage() {
                 fiche={pFiche}
                 playing={playing}
                 canPlay={canPlay}
-                onToggle={() =>
-                  toggleListen(pFiche.audio.preset, pFiche.audio.params, true)
-                }
+                onToggle={() => toggleListen(pFiche.audio.preset, pFiche.audio.params, true)}
                 onBack={() => {
                   stop();
                   setPlaying(false);
@@ -718,10 +777,7 @@ function RespiratoryStrip({
           )}
         >
           <div
-            className={cn(
-              "h-1 rounded-full",
-              expiFocused ? "bg-[#A67C1E]" : "bg-[#A67C1E]/50",
-            )}
+            className={cn("h-1 rounded-full", expiFocused ? "bg-[#A67C1E]" : "bg-[#A67C1E]/50")}
           />
           <span className="mt-1 truncate text-[9px] uppercase tracking-wider text-muted">
             expiration
