@@ -55,11 +55,25 @@ export interface PhonoCycle {
   s2Time: number;
 }
 
-/** Cycle standard — valeurs par défaut, écrasables par params. */
-const DEFAULT_SYSTOLE = 0.34;
-const DEFAULT_DIASTOLE = 0.48;
+/** Cycle cardiaque standard (ms) — valeurs par défaut, écrasables par params. */
+const DEFAULT_SYSTOLE_MS = 340;
+const DEFAULT_DIASTOLE_MS = 480;
+/** Cycle respiratoire standard (ms) — inspiration courte, expiration longue. */
+const DEFAULT_INSPIRATION_MS = 1400;
+const DEFAULT_EXPIRATION_MS = 2200;
 const S1_DUR = 0.10;
 const S2_DUR = 0.08;
+
+/** Durée minimale d'un segment — évite une durée négative (path SVG invalide). */
+const span = (from: number, to: number): number => Math.max(0.04, from - to);
+
+/** Presets à cycle respiratoire (phases inspiration / expiration). */
+const BREATH_PRESETS = new Set<string>([
+  "normal_vesicular", "normal_tracheal",
+  "fine_crackles", "medium_crackles", "coarse_crackles",
+  "pleural_crackles", "sibilances", "stridor",
+  "bronchial_breath", "pleural_effusion_souffle",
+]);
 
 /**
  * Construit un cycle pour un preset donné. Tous les presets de
@@ -70,15 +84,36 @@ export function buildCycle(
   preset: string,
   params: Record<string, number> = {},
 ): PhonoCycle {
-  const systole = params.systole ?? DEFAULT_SYSTOLE;
-  const diastole = params.diastole ?? DEFAULT_DIASTOLE;
-  const total = systole + diastole;
+  // Les fiches fournissent des durées en MILLISECONDES :
+  //   cœur   → systoleMs / diastoleMs
+  //   poumon → inspirationMs / expirationMs
+  // (`systole`/`diastole` en secondes restent acceptés pour compatibilité.)
+  const systoleMs = params.systoleMs
+    ?? (typeof params.systole === "number" ? params.systole * 1000 : DEFAULT_SYSTOLE_MS);
+  const diastoleMs = params.diastoleMs
+    ?? (typeof params.diastole === "number" ? params.diastole * 1000 : DEFAULT_DIASTOLE_MS);
+
+  const systole = systoleMs / 1000;
+  const diastole = diastoleMs / 1000;
+  const inspiration = (params.inspirationMs ?? DEFAULT_INSPIRATION_MS) / 1000;
+  const expiration = (params.expirationMs ?? DEFAULT_EXPIRATION_MS) / 1000;
+
+  const isBreath = BREATH_PRESETS.has(preset);
+  const total = isBreath ? inspiration + expiration : systole + diastole;
+  /** Fin de systole (cœur) ou d'inspiration (poumon). */
+  const split = isBreath ? inspiration : systole;
   const s1Time = 0;
   const s2Time = systole;
 
   const basePhases: PhonoPhase[] = [
     { start: 0, end: systole, label: "Systole", color: "systole" },
     { start: systole, end: total, label: "Diastole", color: "diastole" },
+  ];
+
+  /** Phases du cycle respiratoire, calées sur la durée réelle d'inspiration. */
+  const breathPhases: PhonoPhase[] = [
+    { start: 0, end: split, label: "Inspiration", color: "inspi" },
+    { start: split, end: total, label: "Expiration", color: "expi" },
   ];
 
   const cycle = (events: PhonoEvent[], phases = basePhases): PhonoCycle => ({
@@ -90,10 +125,7 @@ export function buildCycle(
   });
 
   const breathCycle = (events: PhonoEvent[]): PhonoCycle =>
-    cycle(events, [
-      { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-      { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
-    ]);
+    cycle(events, breathPhases);
 
   const s1 = (label = "B1"): PhonoEvent => ({
     kind: "s1", startTime: s1Time, duration: S1_DUR, amplitude: 0.9,
@@ -145,7 +177,7 @@ export function buildCycle(
         s1(),
         {
           kind: "murmur", startTime: s1Time + S1_DUR * 0.5,
-          duration: systole - S1_DUR * 0.5,
+          duration: span(systole, S1_DUR * 0.5),
           amplitude: 0.55, shape: "plateau", label: "Souffle holosystolique",
         },
         s2(),
@@ -162,7 +194,7 @@ export function buildCycle(
         },
         {
           kind: "murmur", startTime: s2Time + 0.16,
-          duration: diastole - 0.20,
+          duration: span(diastole, 0.20),
           amplitude: 0.4, shape: "rumble", label: "Roulement",
         },
       ]);
@@ -185,7 +217,7 @@ export function buildCycle(
         s1(),
         {
           kind: "murmur", startTime: s1Time + S1_DUR,
-          duration: systole - S1_DUR - S2_DUR * 0.4,
+          duration: span(systole, S1_DUR + S2_DUR * 0.4),
           amplitude: 0.7, shape: "crescendo-decrescendo",
           label: "Souffle éjectionnel",
         },
@@ -244,8 +276,8 @@ export function buildCycle(
         });
       }
       return cycle(events, [
-        { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-        { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
+        { start: 0, end: split, label: "Inspiration", color: "inspi" },
+        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
     }
 
@@ -258,8 +290,8 @@ export function buildCycle(
         events.push({ kind: "crackle", startTime: te, duration: 0.015, amplitude: 0.5, shape: "burst" });
       }
       return cycle(events, [
-        { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-        { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
+        { start: 0, end: split, label: "Inspiration", color: "inspi" },
+        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
     }
 
@@ -267,20 +299,20 @@ export function buildCycle(
       return cycle([
         { kind: "continuous", startTime: 0, duration: total * 0.45,
           amplitude: 0.4, shape: "plateau", label: "Sibilances inspiratoires" },
-        { kind: "continuous", startTime: total * 0.5, duration: total * 0.45,
+        { kind: "continuous", startTime: split, duration: total * 0.45,
           amplitude: 0.7, shape: "plateau", label: "Sibilances expiratoires" },
       ], [
-        { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-        { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
+        { start: 0, end: split, label: "Inspiration", color: "inspi" },
+        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
 
     case "stridor":
       return cycle([{
-        kind: "continuous", startTime: 0, duration: total * 0.5,
+        kind: "continuous", startTime: 0, duration: split,
         amplitude: 0.75, shape: "plateau", label: "Stridor inspiratoire",
       }], [
-        { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-        { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
+        { start: 0, end: split, label: "Inspiration", color: "inspi" },
+        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
 
     case "bronchial_breath":
@@ -296,8 +328,8 @@ export function buildCycle(
         { kind: "continuous", startTime: total * 0.65, duration: total * 0.3,
           amplitude: 0.55, shape: "decrescendo", label: "Souffle pleurétique" },
       ], [
-        { start: 0, end: total * 0.5, label: "Inspiration", color: "inspi" },
-        { start: total * 0.5, end: total, label: "Expiration", color: "expi" },
+        { start: 0, end: split, label: "Inspiration", color: "inspi" },
+        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
 
     default:
