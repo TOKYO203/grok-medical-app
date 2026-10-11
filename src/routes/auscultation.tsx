@@ -178,7 +178,13 @@ function AuscultationPage() {
     return () => clearInterval(id);
   }, [playing, loop, rate, monitorPreset, monitorEntry, monitorCycle.durationSec, tab]);
 
-  const canPlay = isSupported();
+  // isSupported() lit `window` : l'évaluer pendant le render fait diverger le
+  // serveur (canPlay=false → bouton rendu `disabled`) et le client (true).
+  // React NE rattrape PAS l'attribut `disabled` à l'hydratation : le bouton
+  // du moniteur restait donc inerte au premier chargement. On l'évalue après
+  // le montage.
+  const [canPlay, setCanPlay] = useState(false);
+  useEffect(() => setCanPlay(isSupported()), []);
 
   return (
     <Shell title="Auscultation">
