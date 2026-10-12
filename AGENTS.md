@@ -1,3 +1,13 @@
+# ⚠️ MISSION ACTIVE
+
+**Toute session DOIT commencer par lire :**
+- `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
+- `docs/DECISIONS.md` — journal des décisions
+
+**Prochaine session** : A02, A01, A03, A05, A07 (business model freemium/premium)
+
+---
+
 # App Builder Workspace
 
 **The single source of truth** for the App Builder sandbox contract. You are
