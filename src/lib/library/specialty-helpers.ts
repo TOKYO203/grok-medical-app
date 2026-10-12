@@ -15,6 +15,7 @@
 import type { Profile } from "@/core/types";
 import { listCurricula } from "@/content/curriculum";
 import type { ContentItem } from "@/lib/library/content-index";
+import { primarySpecialty } from "@/lib/library/specialty-label";
 
 export const DECK_ID_PREFIX = "deck:";
 
@@ -46,15 +47,22 @@ export function librarySpecialtyLabels(): string[] {
 }
 
 /**
- * Spécialité canonique d'un item : les decks sont résolus via le curriculum,
- * tout le reste (cas, démarches, outils) garde `item.specialty`.
+ * Spécialité canonique d'un item :
+ *  - decks → libellé du curriculum (source de vérité) ;
+ *  - cas / démarches / outils → `item.specialty` **réduit à sa spécialité
+ *    primaire** (`primarySpecialty`).
+ *
+ * Sans cette réduction, les démarches transversales (« Urgences /
+ * Cardiologie », « Infectiologie / Urgences ») formaient deux groupes fantômes
+ * dans la Bibliothèque au lieu de rejoindre Urgences / Infectiologie. Le
+ * libellé complet reste visible sur la carte (transversalité documentée).
  */
 export function resolveSpecialty(item: ContentItem): string {
   if (item.kind === "deck" && item.id.startsWith(DECK_ID_PREFIX)) {
     const label = DECK_SPECIALTY_LABELS.get(item.id.slice(DECK_ID_PREFIX.length));
     if (label) return label;
   }
-  return item.specialty;
+  return primarySpecialty(item.specialty);
 }
 
 /** Emoji d'illustration par spécialité (repli : 🩺). */

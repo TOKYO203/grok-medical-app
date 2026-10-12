@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { getEcg } from "@/lib/ecg/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
+import { EcgDiagnosisPanel } from "@/components/ecg/EcgDiagnosisPanel";
+import { analyzeEcg } from "@/lib/ecg/analyzeEcg";
 import { cn } from "@/lib/utils";
 
 function EcgAnnotations({ step, annotations }: { step: number; annotations?: Array<{ id: string; revealAtStep: number; type: string; label: string; tone: string; coords: Record<string, number> }> }) {
@@ -37,7 +39,7 @@ function EcgAnnotations({ step, annotations }: { step: number; annotations?: Arr
 }
 
 
-function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string }) {
+function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string; trace?: { deformation?: import("@/lib/ecg/deformation").EcgDeformation } }) {
   const d: {
     rhythm?: string;
     stElevation?: Record<string, number>;
@@ -47,6 +49,10 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
     peakedT?: boolean;
     pAbsent?: boolean;
     sawTooth?: boolean;
+    prProgression?: "constant" | "wenckebach" | "mobitz2";
+    pBlockedEvery?: number;
+    rrVariability?: number;
+    rrSeed?: number;
   } = { rhythm: data.rhythm };
   const t = (data.title ?? "").toLowerCase();
   if (data.rhythm === "fibrillation-auriculaire") d.pAbsent = true;
@@ -73,6 +79,22 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
   if (t.includes("digitalique")) {
     d.stDepression = { II: 0.10, V4: 0.15, V5: 0.15, V6: 0.15 };
   }
+  // Merge des déformations multi-cycles déclarées dans la fiche.
+  if (data.trace?.deformation) {
+    const t = data.trace.deformation;
+    if (t.prProgression) d.prProgression = t.prProgression;
+    if (t.pBlockedEvery !== undefined) d.pBlockedEvery = t.pBlockedEvery;
+    if (t.rrVariability !== undefined) d.rrVariability = t.rrVariability;
+    if (t.rrSeed !== undefined) d.rrSeed = t.rrSeed;
+    if (t.stElevation && !d.stElevation) d.stElevation = t.stElevation;
+    if (t.stDepression && !d.stDepression) d.stDepression = t.stDepression;
+    if (t.wideQrs !== undefined) d.wideQrs = t.wideQrs;
+    if (t.pAbsent !== undefined) d.pAbsent = t.pAbsent;
+    if (t.sawTooth !== undefined) d.sawTooth = t.sawTooth;
+    if (t.peakedT !== undefined) d.peakedT = t.peakedT;
+    if (t.tInverted) d.tInverted = t.tInverted;
+  }
+
   return d;
 }
 
@@ -96,6 +118,12 @@ function EcgCasePage() {
       </Shell>
     );
   }
+
+  const deformation = buildDeformation(ecg);
+  const diagnosis = useMemo(
+    () => analyzeEcg(ecg.trace!, deformation),
+    [ecg, deformation],
+  );
 
   const data = ecg;
   const current = data.steps[step];
@@ -168,6 +196,10 @@ function EcgCasePage() {
             autoStart
           />
           <EcgAnnotations step={step} annotations={data.annotations as never} />
+        </div>
+
+        <div className="mt-4">
+          <EcgDiagnosisPanel diagnosis={diagnosis} />
         </div>
 
         <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">

@@ -16,6 +16,19 @@ export type EcgDeformation = {
   peakedT?: boolean;
   pAbsent?: boolean;
   sawTooth?: boolean;
+
+  // ── Déformations multi-cycles (v2) ────────────────────────────────────
+  // Progression du PR entre cycles consécutifs :
+  //   "constant"  = PR fixe (normal)
+  //   "wenckebach" = PR s'allonge progressivement puis un cycle saute (BAV II M1)
+  //   "mobitz2"   = PR constant mais P bloquée tous les N cycles
+  prProgression?: "constant" | "wenckebach" | "mobitz2";
+  // Pour mobitz2 : 1 P bloquée tous les N cycles (2 → 2:1, 3 → 3:1)
+  pBlockedEvery?: number;
+  // Variabilité du RR (FA, arythmie sinusale) : 0 = régulier, 0.3 = forte variabilité
+  rrVariability?: number;
+  // Seed du PRNG pour reproductibilité SSR (défaut : 42)
+  rrSeed?: number;
 };
 
 export type WaveParams = {

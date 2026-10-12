@@ -1,3 +1,5 @@
+import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
+
 export const PREMIUM_SPECIALTIES = [
   { id: "neurologie", label: "Neurologie", code: "NEURO" },
   { id: "cardiologie", label: "Cardiologie", code: "CARDIO" },
@@ -50,6 +52,22 @@ export type PurchaseDeviceRequest = {
   deviceKeyId: string;
   publicKey: string;
 };
+
+const PREMIUM_SPECIALTY_BY_CODE: Record<string, PremiumSpecialtyId> = Object.fromEntries(
+  PREMIUM_SPECIALTIES.map((specialty) => [specialty.code, specialty.id]),
+);
+
+/**
+ * Spécialité Premium correspondant à un libellé de contenu (cas, démarche…).
+ *
+ * Source unique de vérité partagée par les CTA « Débloquer la spécialité » :
+ * le produit proposé doit suivre le MÊME ordre de priorité que
+ * `specialtyCodeFromLabel` (donc que l'accès réel `specialtyPackProduct`).
+ * Renvoie `null` si le contenu n'appartient à aucune famille premium.
+ */
+export function premiumSpecialtyIdFor(specialtyLabel: string): PremiumSpecialtyId | null {
+  return PREMIUM_SPECIALTY_BY_CODE[specialtyCodeFromLabel(specialtyLabel)] ?? null;
+}
 
 export function orderAmount(order: PremiumOrder): number {
   return order.offer === "specialty" ? 27_000 : 3_000;

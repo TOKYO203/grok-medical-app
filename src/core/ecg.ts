@@ -7,6 +7,8 @@
  */
 
 /* ═══════════ 1. CONSTANTES INTERNATIONALES ═══════════ */
+import type { EcgDeformation } from "@/lib/ecg/deformation";
+
 export const ECG_NORMS = {
   /** Vitesse de déroulement papier (mm/s) */
   paperSpeedMmPerSec: 25,
@@ -229,6 +231,8 @@ export type EcgTraceParams = {
     S: WaveGaussian;
     T: WaveGaussian;
   };
+  /** Déformation clinique optionnelle (ST, T, multi-cycles Wenckebach...). */
+  deformation?: EcgDeformation;
 };
 
 export type WaveGaussian = {

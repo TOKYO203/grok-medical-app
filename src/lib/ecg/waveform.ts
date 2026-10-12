@@ -94,15 +94,16 @@ function gauss(t: number, g: Gauss, ampScale = 1, widthScale = 1): number {
 type CycleParts = { p: number[]; qrs: number[]; t: number[] };
 
 /** Morphologie d'un cycle pour une dérivation « source » (DI, DII, V1…V6). */
-function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean): CycleParts {
+function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean, pShiftSec = 0): CycleParts {
   const w = baseWave(lead);
   const widthScale = wideQrs ? 2.4 : 1;
   const p: number[] = [];
   const qrs: number[] = [];
   const t: number[] = [];
+  const pMu = PHASE.p - pShiftSec; // décalage AVANT dérivation d'Einthoven
   for (let k = 0; k <= n; k++) {
     const ph = (k / n) * cycleSec;
-    p.push(gauss(ph, { mu: PHASE.p, a: w.P.a, sigma: w.P.sigma }));
+    p.push(gauss(ph, { mu: pMu, a: w.P.a, sigma: w.P.sigma }));
     qrs.push(
       gauss(ph, { mu: PHASE.q, a: w.Q.a, sigma: w.Q.sigma }, 1, widthScale) +
         gauss(ph, { mu: PHASE.r, a: w.R.a, sigma: w.R.sigma }, 1, widthScale) +
@@ -120,8 +121,10 @@ function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean
  */
 export function cycleValues(
   lead: string,
-  opts: { bpm: number; def?: EcgDeformation; samplesPerSec?: number },
+  opts: { bpm: number; def?: EcgDeformation; samplesPerSec?: number; pShiftSec?: number; blocked?: boolean },
 ): number[] {
+  const pShiftSec = opts.pShiftSec ?? 0;
+  const blocked = opts.blocked ?? false;
   const bpm = Math.max(20, Math.min(240, opts.bpm));
   const cycleSec = 60 / bpm;
   const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
@@ -140,8 +143,8 @@ export function cycleValues(
   const wide = def?.wideQrs ?? false;
   let parts: CycleParts;
   if (isDerivedLimbLead(lead)) {
-    const a = sourceParts("I", cycleSec, n, wide);
-    const b = sourceParts("II", cycleSec, n, wide);
+    const a = sourceParts("I", cycleSec, n, wide, pShiftSec);
+    const b = sourceParts("II", cycleSec, n, wide, pShiftSec);
     const p: number[] = [];
     const qrs: number[] = [];
     const t: number[] = [];
@@ -155,7 +158,7 @@ export function cycleValues(
     }
     parts = { p, qrs, t };
   } else {
-    parts = sourceParts(lead, cycleSec, n, wide);
+    parts = sourceParts(lead, cycleSec, n, wide, pShiftSec);
   }
 
   // Surcouche clinique, appliquée par dérivation après dérivation d'Einthoven.
@@ -167,9 +170,15 @@ export function cycleValues(
   const out: number[] = [];
   for (let k = 0; k <= n; k++) {
     const ph = (k / n) * cycleSec;
-    let v = pScale * parts.p[k] + parts.qrs[k] + tScale * parts.t[k];
-    if (st !== 0 && ph > PHASE.stFrom && ph < PHASE.stTo) v += st;
-    if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
+    let v: number;
+    if (blocked) {
+      // P bloquée : ni QRS ni T (ventricule non dépolarisé). La P reste.
+      v = pScale * parts.p[k];
+    } else {
+      v = pScale * parts.p[k] + parts.qrs[k] + tScale * parts.t[k];
+      if (st !== 0 && ph > PHASE.stFrom && ph < PHASE.stTo) v += st;
+      if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
+    }
     out.push(v);
   }
   return out;
@@ -208,3 +217,127 @@ export function cyclePathMm(
   }
   return { d, cycleSec, widthMm };
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Tracé multi-cycles avec déformations cliniques (v2)
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// Contrairement à `cyclePathMm` (1 cycle répété par <use>), cette fonction
+// génère N cycles CONSÉCUTIFS qui peuvent différer (PR croissant, P bloquée,
+// RR variable). Utilisée quand `def.prProgression` ou `def.rrVariability` est
+// défini — sinon on garde l'optimisation du <use>.
+
+/** PRNG déterministe (mulberry32) — reproductibilité SSR obligatoire. */
+function prng(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export function multiCyclePathMm(
+  lead: string,
+  opts: {
+    bpm: number;
+    cycles: number;
+    def?: EcgDeformation;
+    gainMmPerMv: number;
+    mmPerSec: number;
+    samplesPerSec?: number;
+    maxWidthMm?: number;
+  },
+): { d: string; totalWidthMm: number; cycleSecs: number[] } {
+  const def = opts.def;
+  const prProg = def?.prProgression ?? "constant";
+  const rrVar = def?.rrVariability ?? 0;
+  const rand = prng(def?.rrSeed ?? 42);
+
+  const baseBpm = Math.max(20, Math.min(240, opts.bpm));
+  // PP = intervalle P-P constant (le nœud sinusal ne change pas de rythme).
+  const PP = 60 / baseBpm;
+  const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
+  const N = opts.cycles;
+
+  // ─── Liste des PR par cycle (secondes). -1 = P bloquée (aucun QRS). ───
+  // PR normal = 0.16 s (160 ms). Wenckebach : +60 ms à chaque cycle
+  // jusqu'au blocage, puis on recommence (motif 4:3 → 3 QRS + 1 bloqué).
+  const buildPRList = (): number[] => {
+    if (prProg === "wenckebach") {
+      // Wenckebach pédagogique : PR augmente de façon MARQUÉE pour être
+      // visible (160 → 280 → 420 ms), puis P bloquée. Pattern 4:3.
+      const out: number[] = [];
+      for (let i = 0; i < N; i++) {
+        const k = i % 4;
+        // PR progressifs : les deltas AUGMENTENT (0.14 puis 0.18)
+        // → RR visibles ET pause très marquée au blocage
+        const PR_EXAG = [0.18, 0.32, 0.50, -1];
+        out.push(PR_EXAG[k]);
+      }
+      return out;
+    }
+    if (prProg === "mobitz2") {
+      const every = def?.pBlockedEvery ?? 2;
+      return Array.from({ length: N }, (_, i) =>
+        (i + 1) % every === 0 ? -1 : 0.16,
+      );
+    }
+    return new Array(N).fill(0.16);
+  };
+
+  const prList = buildPRList();
+
+  // ─── Timeline : N intervalles PP, avec jitter optionnel sur P. ───
+  const pTimes: number[] = [];
+  let cursor = 0;
+  for (let i = 0; i < N; i++) {
+    pTimes.push(cursor);
+    const jitter = rrVar > 0 ? (rand() - 0.5) * 2 * rrVar * PP : 0;
+    cursor += PP + jitter;
+  }
+  const totalDur = cursor;
+  const totalSamples = Math.max(2, Math.round(totalDur * sps));
+
+  // Largeur : compression pour tenir dans TRACE_MM.
+  const naturalWidthMm = totalDur * opts.mmPerSec;
+  const maxWidth = opts.maxWidthMm ?? naturalWidthMm;
+  const compFactor = naturalWidthMm > maxWidth ? maxWidth / naturalWidthMm : 1;
+  const finalWidthMm = naturalWidthMm * compFactor;
+
+  const w = baseWave(lead);
+  const qOff = PHASE.q - PHASE.r;  // ~ -0.02 s
+  const sOff = PHASE.s - PHASE.r;  // ~ +0.02 s
+  const tOff = PHASE.t - PHASE.r;  // ~ +0.19 s
+
+  let d = "";
+  for (let k = 0; k <= totalSamples; k++) {
+    const t = (k / totalSamples) * totalDur;
+    let v = 0;
+
+    // Onde P à chaque temps pTimes[i]
+    for (let i = 0; i < N; i++) {
+      v += gauss(t, { mu: pTimes[i], a: w.P.a, sigma: w.P.sigma });
+    }
+
+    // QRS + T pour chaque P non bloquée
+    for (let i = 0; i < N; i++) {
+      const pr = prList[i];
+      if (pr < 0) continue;
+      const tR = pTimes[i] + pr;
+      v += gauss(t, { mu: tR + qOff, a: w.Q.a, sigma: w.Q.sigma });
+      v += gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma });
+      v += gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma });
+      v += gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma });
+    }
+
+    const x = (t / totalDur) * finalWidthMm;
+    const y = -v * opts.gainMmPerMv;
+    d += (k === 0 ? "M" : " L ") + x.toFixed(2) + "," + y.toFixed(2);
+  }
+
+  const cycleSecs = new Array(N).fill(PP);
+  return { d, totalWidthMm: finalWidthMm, cycleSecs };
+}
+

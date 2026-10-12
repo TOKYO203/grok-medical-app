@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { getDiagnostic } from "@/content/catalog";
 import { specialtyPackProduct } from "@/lib/library/content-index";
 import { hasEntitlement, useOptimus } from "@/state/store";
-import type { PremiumSpecialtyId } from "@/content/purchase-order";
+import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/demarche/$id")({ component: DemarchePage });
@@ -36,6 +36,8 @@ function DemarchePage() {
   const open =
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
     hasEntitlement(specialtyPackProduct(dx.specialty), entitlements);
+  // Même résolution que le pack qui débloque réellement la démarche.
+  const premiumSpecialty = diagnosticSpecialty(dx.specialty);
   const previewFinished = !open && step >= 1;
   const current = dx.steps[step];
   const done = step >= dx.steps.length;
@@ -78,7 +80,7 @@ function DemarchePage() {
             <div className="p-5">
               <Link
                 to="/pro"
-                search={{ specialty: diagnosticSpecialty(dx.specialty) }}
+                search={{ ...(premiumSpecialty ? { specialty: premiumSpecialty } : {}) }}
                 className={buttonVariants({ size: "lg", className: "w-full" })}
               >
                 Débloquer la spécialité · 27 000 Ar
@@ -169,10 +171,7 @@ function DemarchePage() {
   );
 }
 
-function diagnosticSpecialty(specialty: string): PremiumSpecialtyId {
-  if (specialty.includes("Cardiologie")) return "cardiologie";
-  if (specialty.includes("Neurologie")) return "neurologie";
-  if (specialty.includes("Dermatologie")) return "dermatologie";
-  if (specialty.includes("Infectiologie")) return "infectiologie";
-  return "urgences";
+/** Spécialité Premium à proposer — même résolution que l'accès réel (pack). */
+function diagnosticSpecialty(specialty: string): PremiumSpecialtyId | null {
+  return premiumSpecialtyIdFor(specialty);
 }

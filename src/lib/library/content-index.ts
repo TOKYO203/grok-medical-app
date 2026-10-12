@@ -1,5 +1,6 @@
 import type { ClinicalCase, Competency, Deck, DiagnosticCase, Entitlement } from "@/core/types";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
+import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
 import { hasEntitlement } from "@/state/store";
 
 export type ContentKind = "deck" | "case" | "diagnostic" | "tool";
@@ -48,14 +49,16 @@ export const LEVEL_LABEL: Record<ContentLevel, string> = {
   advanced: "Approfondissement",
 };
 
+/**
+ * Code produit d'une spécialité (ex. « Urgences / Cardiologie » → `CARDIO`).
+ *
+ * Délégué à `specialtyCodeFromLabel` (src/lib/library/specialty-label.ts) pour
+ * que le produit d'achat et la spécialité de REGROUPEMENT de la Bibliothèque
+ * partagent un seul ordre de priorité — sinon une démarche transversale pouvait
+ * être rangée sous « Urgences » tout en étant débloquée par le pack Cardiologie.
+ */
 export function specialtyCode(specialty: string): string {
-  const normalized = specialty.toLowerCase();
-  if (normalized.includes("cardio")) return "CARDIO";
-  if (normalized.includes("neuro")) return "NEURO";
-  if (normalized.includes("infectio")) return "INFECTIO";
-  if (normalized.includes("urgence")) return "URGENCES";
-  if (normalized.includes("dermato")) return "DERMATO";
-  return specialty.toUpperCase();
+  return specialtyCodeFromLabel(specialty);
 }
 
 /**

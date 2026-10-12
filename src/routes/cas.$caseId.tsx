@@ -11,7 +11,7 @@ import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import { specialtyPackProduct } from "@/lib/library/content-index";
 import type { ClinicalCase } from "@/core/types";
-import type { PremiumSpecialtyId } from "@/content/purchase-order";
+import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/cas/$caseId")({ component: CasePlay });
@@ -43,6 +43,8 @@ function CasePlay() {
   }
 
   const open = hasClinicalAccess(clinical, entitlements);
+  // Même résolution que le pack qui débloque réellement le cas.
+  const premiumSpecialty = specialtyId(clinical.specialty);
   const previewLimit = Math.min(3, clinical.steps.length);
   const previewFinished = !open && cursor >= previewLimit;
   const step = clinical.steps[cursor];
@@ -95,7 +97,7 @@ function CasePlay() {
               </ul>
               <Link
                 to="/pro"
-                search={{ specialty: specialtyId(clinical.specialty) }}
+                search={{ ...(premiumSpecialty ? { specialty: premiumSpecialty } : {}) }}
                 className={buttonVariants({ size: "lg", className: "mt-5 w-full" })}
               >
                 Débloquer la spécialité · 27 000 Ar
@@ -235,12 +237,9 @@ function CasePlay() {
   );
 }
 
-function specialtyId(specialty: string): PremiumSpecialtyId {
-  if (specialty === "Cardiologie") return "cardiologie";
-  if (specialty === "Neurologie") return "neurologie";
-  if (specialty === "Urgences") return "urgences";
-  if (specialty === "Dermatologie") return "dermatologie";
-  return "infectiologie";
+/** Spécialité Premium à proposer — même résolution que l'accès réel (pack). */
+function specialtyId(specialty: string): PremiumSpecialtyId | null {
+  return premiumSpecialtyIdFor(specialty);
 }
 
 function hasClinicalAccess(

@@ -5,7 +5,7 @@ import { Maximize2, Minimize2 } from "lucide-react";
 import { useEcgBeep } from "@/lib/ecg/useEcgBeep";
 import type { SoundType } from "@/lib/ecg/sounds";
 import type { EcgDeformation } from "@/lib/ecg/deformation";
-import { cyclePathMm } from "@/lib/ecg/waveform";
+import { cyclePathMm, multiCyclePathMm } from "@/lib/ecg/waveform";
 import {
   ECG_GAIN_REDUCED,
   ECG_GAIN_STEPS,
@@ -206,9 +206,43 @@ export function EcgMonitor({
   const gain: EcgGain = gainManual ?? (autoReduced ? ECG_GAIN_REDUCED : 10);
   const reduced = gain < 10;
 
-  // Un cycle par dérivation (mémoïsé) — jamais recalculé pendant le scroll.
+  // Détecte si une déformation multi-cycles est demandée (Wenckebach,
+  // Mobitz 2, FA). Dans ce cas, on génère N cycles CONCATÉNÉS dans un seul
+  // path ; le <use> répète alors le BLOC, et le pattern se reproduit
+  // naturellement (ex. Wenckebach 4:3 → bloc de 3 cycles + 1 P bloquée).
+  const needsMultiCycle = useMemo(() => {
+    if (!deformation) return false;
+    if (deformation.prProgression && deformation.prProgression !== "constant") return true;
+    if ((deformation.rrVariability ?? 0) > 0) return true;
+    return false;
+  }, [deformation]);
+
+  /** Nombre de cycles concaténés quand on est en mode multi-cycle. */
+  const MULTI_CYCLES_COUNT = 8;
+
+  // Un cycle (ou un bloc de cycles) par dérivation (mémoïsé).
   const cycles = useMemo(() => {
     const out: Record<string, { d: string; cycleSec: number; widthMm: number }> = {};
+
+    if (needsMultiCycle) {
+      for (const lead of ALL_LEADS) {
+        const { d, totalWidthMm, cycleSecs } = multiCyclePathMm(lead, {
+          bpm,
+          cycles: MULTI_CYCLES_COUNT,
+          def: deformation,
+          gainMmPerMv: gain,
+          mmPerSec: MM_PER_SEC,
+          maxWidthMm: TRACE_MM,
+        });
+        out[lead] = {
+          d,
+          cycleSec: cycleSecs.reduce((a, b) => a + b, 0),
+          widthMm: totalWidthMm,
+        };
+      }
+      return out;
+    }
+
     for (const lead of ALL_LEADS) {
       out[lead] = cyclePathMm(lead, {
         bpm,
@@ -218,7 +252,7 @@ export function EcgMonitor({
       });
     }
     return out;
-  }, [bpm, deformation, gain]);
+  }, [bpm, deformation, gain, needsMultiCycle]);
 
   const cycleSec = cycleSeconds(bpm);
 
@@ -528,6 +562,7 @@ export function EcgMonitor({
           aria-label={`Moniteur ECG 12 dérivations à ${bpm} bpm — gain ${gain} mm/mV`}
           role="img"
         >
+        
           <defs>
             <pattern id={gridMin} width="1" height="1" patternUnits="userSpaceOnUse">
               <path d="M 1 0 L 0 0 0 1" fill="none" stroke="rgba(0,255,100,0.07)" strokeWidth="0.09" />
