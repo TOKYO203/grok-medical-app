@@ -1,3 +1,5 @@
+> ⚠️ **Mission en cours** : voir [docs/MISSION-INTERNATIONAL.md](docs/MISSION-INTERNATIONAL.md)
+
 # Grok Medical App
 
 Application web médicale gamifiée pour l'apprentissage des cas cliniques, des diagnostics et des réflexes médicaux. Inspirée par Duolingo, elle utilise la répétition espacée et des quiz interactifs pour aider les étudiants en médecine à mémoriser durablement.
