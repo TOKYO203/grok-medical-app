@@ -182,6 +182,10 @@ export function EcgMonitor({
   // Repli CSS : cadre pivoté de 90° (mobile portrait sans verrou d'orientation).
   const [rotateFallback, setRotateFallback] = useState(false);
   const [gainManual, setGainManual] = useState<EcgGain | null>(null);
+  const [paperMode, setPaperMode] = useState(false);
+  // Couleurs dynamiques selon mode papier / moniteur
+  const ecgColor = paperMode ? "#1a1a1a" : C_ECG;
+  const plethColor = paperMode ? "#0a3a6a" : C_PLETH;
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
 
   // Élément passé à `requestFullscreen()` (racine du moniteur).
@@ -405,7 +409,7 @@ export function EcgMonitor({
             x={(k * c.widthMm).toFixed(2)}
             data-ecg-cycle={k}
             fill="none"
-            stroke={isPleth ? C_PLETH : C_ECG}
+            stroke={isPleth ? plethColor : ecgColor}
             strokeWidth={0.5}
             strokeLinejoin="round"
             strokeLinecap="round"
@@ -538,6 +542,20 @@ export function EcgMonitor({
               {sound ? "🔊" : "🔈"}
             </button>
             <button
+            type="button"
+            onClick={() => setPaperMode((v) => !v)}
+            className={
+              "flex h-6 items-center rounded-full px-2 font-mono text-[10px] font-bold tracking-wider transition-colors " +
+              (paperMode
+                ? "bg-[#A67C1E] text-black"
+                : "bg-white/10 text-white/70 hover:bg-white/15")
+            }
+            title={paperMode ? "Mode moniteur" : "Mode papier"}
+            data-ecg-paper-toggle={paperMode ? "true" : "false"}
+          >
+            {paperMode ? "ECG" : "PAP"}
+          </button>
+          <button
               type="button"
               onClick={toggleFullscreen}
               aria-label={full ? "Quitter le plein écran" : "Plein écran (paysage)"}
@@ -567,6 +585,12 @@ export function EcgMonitor({
             <pattern id={gridMin} width="1" height="1" patternUnits="userSpaceOnUse">
               <path d="M 1 0 L 0 0 0 1" fill="none" stroke="rgba(0,255,100,0.07)" strokeWidth="0.09" />
             </pattern>
+          <pattern id="paperSmallGrid" width="1" height="1" patternUnits="userSpaceOnUse">
+            <path d="M 1 0 L 0 0 0 1" fill="none" stroke="#e8c0c0" strokeWidth="0.06" />
+          </pattern>
+          <pattern id="paperBigGrid" width="5" height="5" patternUnits="userSpaceOnUse">
+            <path d="M 5 0 L 0 0 0 5" fill="none" stroke="#c88080" strokeWidth="0.15" />
+          </pattern>
             <pattern id={gridMaj} width="5" height="5" patternUnits="userSpaceOnUse">
               <rect width="5" height="5" fill={`url(#${gridMin})`} />
               <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(0,255,100,0.15)" strokeWidth="0.16" />
@@ -583,7 +607,15 @@ export function EcgMonitor({
             ))}
           </defs>
 
-          <rect width={VIEW_W} height={VIEW_H} fill={`url(#${gridMaj})`} data-ecg-grid="" />
+          {paperMode ? (
+            <>
+              <rect width={VIEW_W} height={VIEW_H} fill="#f8f0dc" />
+              <rect width={VIEW_W} height={VIEW_H} fill="url(#paperSmallGrid)" />
+              <rect width={VIEW_W} height={VIEW_H} fill="url(#paperBigGrid)" />
+            </>
+          ) : (
+            <rect width={VIEW_W} height={VIEW_H} fill={`url(#${gridMaj})`} data-ecg-grid="" />
+          )}
           <line
             x1={COL_R - COL_GAP / 2}
             y1={PAD_TOP}
