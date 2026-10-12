@@ -6,6 +6,8 @@
 
 **Prochaine session** : A02, A01, A03, A05, A07 (business model freemium/premium)
 
+**Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
+
 ---
 
 # App Builder Workspace
