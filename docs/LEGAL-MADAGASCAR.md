@@ -59,7 +59,7 @@
 > à caractère personnel — digital.gov.mg
 
 ⚠️ **CORRECTION MAJEURE** : l'autorité malgache est la **CMIL** — Commission Malagasy
-de l'Informatique et des Libertés (art. 28) — et **NON** la « CNIL Madagascar ».
+de l'Informatique et des Libertés (art. 28) — et **NON** la « CMIL ».
 Autorité indépendante, dotée d'un pouvoir réglementaire et de sanction (art. 37).
 → Corriger toutes les occurrences de « CNIL » dans le repo.
 
