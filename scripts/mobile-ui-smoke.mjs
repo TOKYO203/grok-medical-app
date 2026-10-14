@@ -84,6 +84,14 @@ try {
         });
       }
 
+      // Les scripts @vercel/analytics et @vercel/speed-insights sont injectés par la
+      // route d'accueil mais n'existent que sur les déploiements Vercel. Les stubber
+      // évite que l'audit en preview locale rapporte des 404 environnementaux (et
+      // les erreurs console MIME associées) comme des défauts applicatifs.
+      await page.route("**/_vercel/**", async (interceptedRoute) => {
+        await interceptedRoute.fulfill({ status: 200, contentType: "text/javascript", body: "" });
+      });
+
       const consoleErrors = [];
       const pageErrors = [];
       const failedResponses = [];
@@ -107,9 +115,11 @@ try {
         timeout: timeoutMs,
       });
 
-      // Home starts with a hydration skeleton for a few hundred milliseconds.
-      // Audit the settled UI rather than failing on that intentionally transient frame.
-      await page.locator("main").first().waitFor({ state: "attached", timeout: 2_000 }).catch(() => {});
+      // Home starts with a hydration skeleton while the store rehydrates.
+      // Audit the settled UI rather than failing on that intentionally transient
+      // frame: CI runners can need several seconds to execute the client bundle,
+      // so give the real UI a generous window before declaring a layout failure.
+      await page.locator("main").first().waitFor({ state: "attached", timeout: 10_000 }).catch(() => {});
       await page.waitForTimeout(100);
 
       const metrics = await page.evaluate(() => {

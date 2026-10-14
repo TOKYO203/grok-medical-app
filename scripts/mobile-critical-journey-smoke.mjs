@@ -68,16 +68,17 @@ page.on("pageerror", (error) => pageErrors.push(String(error?.message || error))
 try {
   await page.goto(baseUrl, { waitUntil: "domcontentloaded", timeout: timeoutMs });
 
-  const begin = page.getByRole("button", { name: "Commencer", exact: true });
-  await begin.waitFor({ state: "visible", timeout: timeoutMs });
-  await begin.click();
-  await page.getByRole("heading", { name: "Quel est votre niveau actuel ?" }).waitFor();
+  // Onboarding v2 — quatre écrans : Bienvenue → Niveau → Objectif → Rythme.
+  const continueButton = page.getByRole("button", { name: "Continuer", exact: true });
+  await continueButton.waitFor({ state: "visible", timeout: timeoutMs });
+  await page.getByLabel("Comment on t'appelle ?").fill(qaName);
+  await continueButton.click();
+  await page.getByRole("heading", { name: "Où en es-tu ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
-  await page.getByRole("heading", { name: "Pourquoi Optimus ?" }).waitFor();
+  await page.getByRole("heading", { name: "Ton objectif ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
-  await page.getByRole("heading", { name: "Comment vous appeler ?" }).waitFor();
-  await page.getByLabel("Nom affiché").fill(qaName);
-  await page.getByRole("button", { name: "Entrer dans Optimus", exact: true }).click();
+  await page.getByRole("heading", { name: "Ton rythme quotidien ?" }).waitFor();
+  await page.getByRole("button", { name: "Commencer maintenant", exact: true }).click();
   await page.getByRole("heading", { name: `Bonjour, ${qaName}` }).waitFor({
     state: "visible",
     timeout: timeoutMs,
