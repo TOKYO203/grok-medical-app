@@ -95,9 +95,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           {
-            echo "## ❌ p03 — npm test"
+            echo "## ❌ p03 — npm test (tests en échec)"
             echo '~~~'
-            tail -n 80 /tmp/probe.log
+            grep -n -B 2 -A 45 "not ok" /tmp/probe.log || tail -n 80 /tmp/probe.log
+            echo '~~~'
+            echo "---"
+            echo "### Fin du log"
+            echo '~~~'
+            tail -n 15 /tmp/probe.log
             echo '~~~'
           } > /tmp/comment.md
           gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
@@ -169,7 +174,7 @@ jobs:
       - name: Install
         run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
       - name: Probe
-        run: node scripts/with-app-env.mjs vite build >> /tmp/probe.log 2>&1 || exit 1
+        run: npx vite build >> /tmp/probe.log 2>&1 || exit 1
       - name: Rapport
         if: failure()
         env:
@@ -198,13 +203,7 @@ jobs:
       - name: Probe
         run: |
           set +e
-          node scripts/with-app-env.mjs vite build >> /tmp/probe.log 2>&1
-          rc=$?
-          if [ $rc -ne 0 ]; then exit 1; fi
-          npm run postbuild:budget >> /tmp/probe.log 2>&1
-          rc=$?
-          if [ $rc -ne 0 ]; then exit 1; fi
-          npm run postbuild:assets >> /tmp/probe.log 2>&1
+          npm run build >> /tmp/probe.log 2>&1
           rc=$?
           if [ $rc -ne 0 ]; then exit 1; fi
       - name: Rapport
@@ -213,7 +212,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           {
-            echo "## ❌ p07 — vite build + postbuild:budget + postbuild:assets"
+            echo "## ❌ p07 — build + budget + assets (via npm run build)"
             echo '~~~'
             tail -n 100 /tmp/probe.log
             echo '~~~'
