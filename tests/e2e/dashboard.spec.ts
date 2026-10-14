@@ -31,12 +31,16 @@ test.describe("Dashboard", () => {
     await page.waitForLoadState("networkidle");
   });
 
-  test("affiche la carte objectif du jour", async ({ page }) => {
-    await expect(page.getByText(/objectif du jour/i)).toBeVisible({ timeout: 20_000 });
-    await expect(page.getByText("30 min / jour")).toBeVisible();
+  test("affiche la session du jour et la progression quotidienne", async ({ page }) => {
+    const progress = page.getByRole("progressbar", { name: "Objectif quotidien" });
+    await expect(progress).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByRole("heading", { name: /bonjour/i })).toBeVisible();
+    await expect(page.getByText("Session du jour")).toBeVisible();
   });
 
-  test("affiche la barre de progression", async ({ page }) => {
-    await expect(page.getByText(/2 \/ 6 QCMs/)).toBeVisible({ timeout: 20_000 });
+  test("affiche l'objectif du jour sur 10 questions", async ({ page }) => {
+    const progress = page.getByRole("progressbar", { name: "Objectif quotidien" });
+    await expect(progress).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByText("sur 10")).toBeVisible();
   });
 });

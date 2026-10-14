@@ -1,4 +1,4 @@
-import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
+import { specialtyCodeFromLabel } from "../lib/library/specialty-label.ts";
 
 export const PREMIUM_SPECIALTIES = [
   { id: "neurologie", label: "Neurologie", code: "NEURO" },
