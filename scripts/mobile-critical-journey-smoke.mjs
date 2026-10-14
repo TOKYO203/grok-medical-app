@@ -84,7 +84,12 @@ try {
     timeout: timeoutMs,
   });
 
-  await page.getByRole("link", { name: "Parcours", exact: true }).click();
+  // La barre de navigation v2 ne référence plus /parcours directement (couvert par
+  // « Nosographie » dans la nav et « Mes parcours » depuis le profil) : lien profond.
+  await page.goto(new URL("/parcours", baseUrl).toString(), {
+    waitUntil: "domcontentloaded",
+    timeout: timeoutMs,
+  });
   const main = page.locator("#main-content");
   await main.getByRole("heading", { name: "Parcours", exact: true }).waitFor({
     state: "visible",
