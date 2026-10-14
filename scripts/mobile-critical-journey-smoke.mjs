@@ -34,14 +34,19 @@ async function finishQuiz(page) {
     const finish = page.getByRole("button", { name: "Terminer", exact: true });
     if (await visible(finish)) break;
 
+    // La page est rendue côté serveur (SSR) avant l'hydratation React : un clic
+    // pré-hydratation sur un choix est ignoré. Retenter jusqu'au feedback.
     const choice = page.locator("ul > li > button").first();
-    await choice.waitFor({ state: "visible", timeout: timeoutMs });
-    await choice.click();
-    answered += 1;
-
     const advance = page.getByRole("button", {
       name: /Question suivante|Voir mes résultats/,
     });
+    await choice.waitFor({ state: "visible", timeout: timeoutMs });
+    for (let attempt = 0; attempt < 40 && !(await visible(advance)); attempt += 1) {
+      await choice.click().catch(() => {});
+      await page.waitForTimeout(250);
+    }
+    answered += 1;
+
     await advance.waitFor({ state: "visible", timeout: timeoutMs });
     const label = (await advance.textContent()) ?? "";
     await advance.click();
@@ -117,10 +122,15 @@ try {
   await todaySession.waitFor({ state: "visible", timeout: timeoutMs });
   await todaySession.click();
   await page.getByRole("heading", { name: "Session du jour", exact: true }).waitFor();
+  // Même précaution SSR/hydratation que pour la session de deck.
+  const reviewFeedback = page.getByText(/Juste|Incorrect/).first();
   const reviewChoice = page.locator("ul > li > button").first();
   await reviewChoice.waitFor({ state: "visible", timeout: timeoutMs });
-  await reviewChoice.click();
-  await page.getByText(/Juste|Incorrect/).first().waitFor({ state: "visible", timeout: timeoutMs });
+  for (let attempt = 0; attempt < 40 && !(await visible(reviewFeedback)); attempt += 1) {
+    await reviewChoice.click().catch(() => {});
+    await page.waitForTimeout(250);
+  }
+  await reviewFeedback.waitFor({ state: "visible", timeout: timeoutMs });
 
   await page.getByRole("link", { name: "Profil", exact: true }).click();
   await page.getByRole("heading", { name: qaName, exact: true }).waitFor({
