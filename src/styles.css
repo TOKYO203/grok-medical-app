@@ -79,6 +79,9 @@
   --app-primary-fg: #FFFFFF;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 12%, transparent);
   --app-accent: #A67C1E;
+  /* Signature dorée — or dédié (identique à l'accent en clair, éclairci en sombre). */
+  --app-gold: #A67C1E;
+  --app-gold-soft: #E8C97A;
   --app-paper: #FFFFFF;
   --app-paper-fg: #1F1A14;
   --app-ring: #A67C1E;
@@ -88,7 +91,7 @@
   --app-card: #FFFFFF;
   --app-secondary: #F0E4CB;
 
-  --app-shadow-border: inset 0 0 0 1px inset 0 0 0 1px color-mix(in oklab, #A67C1E 38%, transparent);
+  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, #A67C1E 38%, transparent);
   --app-shadow-soft: 0 18px 40px -28px rgb(122 90 20 / 0.20);
   --app-shadow-md: 0 26px 60px -34px rgb(139 104 32 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
@@ -129,6 +132,9 @@ html[data-theme="dark"] {
   --app-primary-fg: #06120d;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 18%, transparent);
   --app-accent: #c45c4a;
+  /* Or éclairci pour rester lisible sur fond sombre (≈ 9:1). */
+  --app-gold: #d4b46a;
+  --app-gold-soft: #e8c97a;
   --app-paper: #e7ede8;
   --app-paper-fg: #141a18;
   --app-ring: #3d8f6b;
@@ -678,20 +684,26 @@ details > summary {
   list-style: none;
 }
 
-/* ============ SIGNATURE DORÉE ============ */
+/* ============ SIGNATURE DORÉE ============
+   Classes explicites — remplacent les anciens sélecteurs d'attribut
+   (p[class*="uppercase"], [class*="tabular-nums"], a[class*="text-muted"])
+   qui débordaient sur des éléments non visés et forçaient le même or
+   dans les deux thèmes. L'or est porté par --app-gold : identique à
+   l'accent en thème clair, éclairci en thème sombre pour la lisibilité.
 
-/* 1. Tous les kickers (petites majuscules) en or */
-p[class*="uppercase"][class*="tracking"] { color: #A67C1E; letter-spacing: 0.18em; }
+   - .optimus-kicker        : petites majuscules dorées (kickers éditoriaux)
+   - .optimus-kicker--hero  : variante or clair pour les heroes à fond olive
+   - .optimus-kpi           : nombres tabulaires dorés (KPI) */
 
-/* 2. Kickers dans le hero olive → or clair */
-.bg-primary p[class*="uppercase"] { color: #E8C97A; }
+.optimus-kicker {
+  color: var(--app-gold);
+}
 
-/* 3. Filet doré sous les titres de section */
-h2.font-display + p.text-muted { position: relative; }
+.optimus-kicker--hero {
+  color: var(--app-gold-soft);
+}
 
-/* 4. Nombres tabulaires en or (KPI) */
-[class*="tabular-nums"] { color: #A67C1E; font-weight: 600; }
-
-/* 5. Liens secondaires (Tout voir, Bibliothèque) en or */
-a[class*="text-muted"], button[class*="text-muted"] { transition: color 0.15s; }
-a[class*="text-muted"]:hover, button[class*="text-muted"]:hover { color: #A67C1E; }
+.optimus-kpi {
+  color: var(--app-gold);
+  font-weight: 600;
+}

@@ -41,7 +41,7 @@ export function applyTheme(mode: ThemeMode): ResolvedTheme {
     root.setAttribute("data-theme", resolved);
     root.style.colorScheme = resolved;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", resolved === "dark" ? "#0c1110" : "#f3f6f4");
+    if (meta) meta.setAttribute("content", resolved === "dark" ? "#0c1110" : "#EDE0C8");
   }
   return resolved;
 }
