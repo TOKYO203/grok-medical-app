@@ -27,11 +27,12 @@ test("primarySpecialty keeps simple labels untouched", () => {
 });
 
 test("primarySpecialty groups composite labels on the specialty that unlocks them", () => {
-  // Aligné sur specialtyCode/specialtyPackProduct : « Urgences / Cardiologie »
-  // est débloquée par le pack Cardiologie → elle doit être rangée sous Cardiologie.
+  // Aligné sur specialtyCode/specialtyPackProduct et l'ordre de priorité documenté
+  // (cardio > neuro > infectio > urgences > dermato) : « Dermatologie · Infectiologie »
+  // est débloquée par le pack Infectiologie → rangée sous Infectiologie.
   assert.equal(primarySpecialty("Urgences / Cardiologie"), "Cardiologie");
   assert.equal(primarySpecialty("Infectiologie / Urgences"), "Infectiologie");
-  assert.equal(primarySpecialty("Dermatologie · Infectiologie"), "Dermatologie");
+  assert.equal(primarySpecialty("Dermatologie · Infectiologie"), "Infectiologie");
   assert.equal(primarySpecialty("Pneumologie|Infectiologie"), "Infectiologie");
 });
 

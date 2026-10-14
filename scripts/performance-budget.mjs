@@ -7,11 +7,11 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Plafond par chunk : INVARIANT — un chunk ne doit jamais dépasser 550 KiB.
   maxJavascriptChunkBytes: 550 * 1024,
   maxStylesheetBytes: 100 * 1024,
-  // Plafond global : relevé de 1536 à 1664 KiB lors du chantier « Calculateurs » —
-  // le registre hors-ligne est passé de 23 à 78 scores (≈ +95 KiB minifiés de
-  // libellés/interprétations/références cliniques). Marge volontairement faible
-  // (~55 KiB) pour continuer à détecter toute dérive de bundle.
-  maxTotalJavascriptBytes: 1664 * 1024,
+  // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
+  // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
+  // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement
+  // faible (~26 KiB) pour continuer à détecter toute dérive de bundle.
+  maxTotalJavascriptBytes: 1704 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

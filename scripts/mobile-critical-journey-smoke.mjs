@@ -34,14 +34,19 @@ async function finishQuiz(page) {
     const finish = page.getByRole("button", { name: "Terminer", exact: true });
     if (await visible(finish)) break;
 
+    // La page est rendue côté serveur (SSR) avant l'hydratation React : un clic
+    // pré-hydratation sur un choix est ignoré. Retenter jusqu'au feedback.
     const choice = page.locator("ul > li > button").first();
-    await choice.waitFor({ state: "visible", timeout: timeoutMs });
-    await choice.click();
-    answered += 1;
-
     const advance = page.getByRole("button", {
       name: /Question suivante|Voir mes résultats/,
     });
+    await choice.waitFor({ state: "visible", timeout: timeoutMs });
+    for (let attempt = 0; attempt < 40 && !(await visible(advance)); attempt += 1) {
+      await choice.click().catch(() => {});
+      await page.waitForTimeout(250);
+    }
+    answered += 1;
+
     await advance.waitFor({ state: "visible", timeout: timeoutMs });
     const label = (await advance.textContent()) ?? "";
     await advance.click();
@@ -68,22 +73,28 @@ page.on("pageerror", (error) => pageErrors.push(String(error?.message || error))
 try {
   await page.goto(baseUrl, { waitUntil: "domcontentloaded", timeout: timeoutMs });
 
-  const begin = page.getByRole("button", { name: "Commencer", exact: true });
-  await begin.waitFor({ state: "visible", timeout: timeoutMs });
-  await begin.click();
-  await page.getByRole("heading", { name: "Quel est votre niveau actuel ?" }).waitFor();
+  // Onboarding v2 — quatre écrans : Bienvenue → Niveau → Objectif → Rythme.
+  const continueButton = page.getByRole("button", { name: "Continuer", exact: true });
+  await continueButton.waitFor({ state: "visible", timeout: timeoutMs });
+  await page.getByLabel("Comment on t'appelle ?").fill(qaName);
+  await continueButton.click();
+  await page.getByRole("heading", { name: "Où en es-tu ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
-  await page.getByRole("heading", { name: "Pourquoi Optimus ?" }).waitFor();
+  await page.getByRole("heading", { name: "Ton objectif ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
-  await page.getByRole("heading", { name: "Comment vous appeler ?" }).waitFor();
-  await page.getByLabel("Nom affiché").fill(qaName);
-  await page.getByRole("button", { name: "Entrer dans Optimus", exact: true }).click();
+  await page.getByRole("heading", { name: "Ton rythme quotidien ?" }).waitFor();
+  await page.getByRole("button", { name: "Commencer maintenant", exact: true }).click();
   await page.getByRole("heading", { name: `Bonjour, ${qaName}` }).waitFor({
     state: "visible",
     timeout: timeoutMs,
   });
 
-  await page.getByRole("link", { name: "Parcours", exact: true }).click();
+  // La barre de navigation v2 ne référence plus /parcours directement (couvert par
+  // « Nosographie » dans la nav et « Mes parcours » depuis le profil) : lien profond.
+  await page.goto(new URL("/parcours", baseUrl).toString(), {
+    waitUntil: "domcontentloaded",
+    timeout: timeoutMs,
+  });
   const main = page.locator("#main-content");
   await main.getByRole("heading", { name: "Parcours", exact: true }).waitFor({
     state: "visible",
@@ -111,10 +122,15 @@ try {
   await todaySession.waitFor({ state: "visible", timeout: timeoutMs });
   await todaySession.click();
   await page.getByRole("heading", { name: "Session du jour", exact: true }).waitFor();
+  // Même précaution SSR/hydratation que pour la session de deck.
+  const reviewFeedback = page.getByText(/Juste|Incorrect/).first();
   const reviewChoice = page.locator("ul > li > button").first();
   await reviewChoice.waitFor({ state: "visible", timeout: timeoutMs });
-  await reviewChoice.click();
-  await page.getByText(/Juste|Incorrect/).first().waitFor({ state: "visible", timeout: timeoutMs });
+  for (let attempt = 0; attempt < 40 && !(await visible(reviewFeedback)); attempt += 1) {
+    await reviewChoice.click().catch(() => {});
+    await page.waitForTimeout(250);
+  }
+  await reviewFeedback.waitFor({ state: "visible", timeout: timeoutMs });
 
   await page.getByRole("link", { name: "Profil", exact: true }).click();
   await page.getByRole("heading", { name: qaName, exact: true }).waitFor({
