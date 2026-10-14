@@ -121,7 +121,7 @@ function Dashboard() {
     <Page>
       <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+          <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
             {profile.tier === "guest" ? "Nouveau" : profile.optimusId}
           </p>
           <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
@@ -153,7 +153,7 @@ function Dashboard() {
         <div className="flex items-center gap-5">
           <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] opacity-75">
+            <p className="optimus-kicker--hero text-xs font-medium uppercase tracking-[0.14em] opacity-75">
               Session du jour
             </p>
             <h2 className="mt-1 font-display text-2xl font-medium tracking-tight">
@@ -215,7 +215,7 @@ function Dashboard() {
             kicker="Prochaine étape"
             title={resumed ? "Reprendre votre deck" : "Deck conseillé"}
             action={
-              <Link to="/bibliotheque" className="text-sm text-muted hover:text-fg">
+              <Link to="/bibliotheque" className="text-sm text-muted hover:text-accent">
                 Tout voir
               </Link>
             }
@@ -252,7 +252,7 @@ function Dashboard() {
                 value={featuredProgress}
                 barClassName="optimus-progress-fill"
               />
-              <span className="font-mono text-xs tabular-nums text-muted">{featuredProgress}%</span>
+              <span className="optimus-kpi font-mono text-xs tabular-nums">{featuredProgress}%</span>
             </span>
           </Link>
         </section>
@@ -264,7 +264,7 @@ function Dashboard() {
           kicker="Pour vous"
           title="Decks recommandés"
           action={
-            <Link to="/bibliotheque" className="text-sm text-muted hover:text-fg">
+            <Link to="/bibliotheque" className="text-sm text-muted hover:text-accent">
               Bibliothèque
             </Link>
           }
@@ -281,7 +281,7 @@ function Dashboard() {
           kicker="Raisonnement"
           title="Cas cliniques"
           action={
-            <Link to="/cas" className="text-sm text-muted hover:text-fg">
+            <Link to="/cas" className="text-sm text-muted hover:text-accent">
               Tous les cas
             </Link>
           }
@@ -333,14 +333,18 @@ function Dashboard() {
       <section className="mt-8">
         {/* streak-dashboard */}
         <section className="mb-4 flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]">
-          <span className="flex size-10 items-center justify-center rounded-full bg-amber-500/15 text-amber-400">
+          <span className="flex size-10 items-center justify-center rounded-full bg-warn/15 text-warn">
             <Flame className="size-5" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Série quotidienne</p>
-            <p className="mt-0.5 text-sm font-medium">0 jour · commence aujourd'hui</p>
+            <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">Série quotidienne</p>
+            <p className="mt-0.5 text-sm font-medium">
+              {streak > 0
+                ? `${streak} jour${streak > 1 ? "s" : ""} d'affilée`
+                : "Commence ta série aujourd'hui"}
+            </p>
           </div>
-          <span className="font-mono text-xs tabular-nums text-subtle">+50 XP à 7j</span>
+          <span className="optimus-kpi font-mono text-xs tabular-nums">+50 XP à 7j</span>
         </section>
 
         <SectionTitle kicker="Progression" title="Votre niveau clinique" />
@@ -349,12 +353,12 @@ function Dashboard() {
             <span className="text-muted">
               Niveau {lvl.level} · {lvl.title}
             </span>
-            <span className="font-mono text-xs tabular-nums text-muted">{formatInt(xp)} XP</span>
+            <span className="optimus-kpi font-mono text-xs tabular-nums">{formatInt(xp)} XP</span>
           </div>
           <Progress className="mt-2" value={lvl.progress} barClassName="optimus-progress-fill" />
           <div className="mt-4 flex items-center justify-between text-sm">
             <span className="text-muted">Maîtrise globale</span>
-            <span className="font-mono tabular-nums">{mastery}%</span>
+            <span className="optimus-kpi font-mono tabular-nums">{mastery}%</span>
           </div>
           <Progress
             className="mt-2"
@@ -365,11 +369,11 @@ function Dashboard() {
           {mastery > 0 && weak && strong ? (
             <div className="mt-4 grid grid-cols-2 gap-2">
               <div className="rounded-[var(--radius-md)] bg-secondary p-3">
-                <p className="text-[11px] uppercase tracking-wider text-muted">À renforcer</p>
+                <p className="optimus-kicker text-[11px] uppercase tracking-wider">À renforcer</p>
                 <p className="mt-1 truncate text-sm font-medium">{weak.label}</p>
               </div>
               <div className="rounded-[var(--radius-md)] bg-secondary p-3">
-                <p className="text-[11px] uppercase tracking-wider text-muted">Point fort</p>
+                <p className="optimus-kicker text-[11px] uppercase tracking-wider">Point fort</p>
                 <p className="mt-1 truncate text-sm font-medium">{strong.label}</p>
               </div>
             </div>
@@ -462,10 +466,10 @@ function StatChip({ icon, label, value }: { icon: ReactNode; label: string; valu
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="truncate text-[10px] font-medium uppercase tracking-wider text-muted sm:text-[11px]">
+        <p className="optimus-kicker truncate text-[10px] font-medium uppercase tracking-wider sm:text-[11px]">
           {label}
         </p>
-        <p className="truncate font-mono text-sm tabular-nums">{value}</p>
+        <p className="optimus-kpi truncate font-mono text-sm tabular-nums">{value}</p>
       </div>
     </div>
   );

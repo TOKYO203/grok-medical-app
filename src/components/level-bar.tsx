@@ -13,7 +13,7 @@ export function LevelBar() {
             <Sparkles className="size-4 text-primary" aria-hidden />
           </span>
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+            <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.14em]">
               Niveau {lvl.level}
             </p>
             <p className="text-sm font-medium">{lvl.title}</p>

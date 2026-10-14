@@ -112,7 +112,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             })}
           </nav>
 
-          <div className="mt-6 mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-subtle">
+          <div className="optimus-kicker mt-6 mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.18em]">
             Explorer
           </div>
           <nav className="flex flex-col gap-0.5" aria-label="Navigation secondaire">
@@ -142,7 +142,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             <ExperienceControls compact />
             <ThemeToggle className="bg-card" />
           </div>
-          <p className="mt-3 px-3 text-[11px] uppercase tracking-[0.16em] text-subtle">
+          <p className="optimus-kicker mt-3 px-3 text-[11px] uppercase tracking-[0.16em]">
             Made in Madagascar
           </p>
         </aside>
@@ -228,7 +228,7 @@ export function PageHeader({
     <header className="flex flex-wrap items-start justify-between gap-4">
       <div className="min-w-0 max-w-2xl">
         {kicker ? (
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{kicker}</p>
+          <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">{kicker}</p>
         ) : null}
         <h1 className="mt-1 font-display text-3xl font-medium tracking-tight md:text-4xl">
           {title}
@@ -255,7 +255,7 @@ export function SectionTitle({
     <div className="mb-4 flex items-end justify-between gap-3">
       <div>
         {kicker ? (
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{kicker}</p>
+          <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">{kicker}</p>
         ) : null}
         <h2 className="font-display text-xl font-medium tracking-tight text-fg md:text-2xl">
           {title}

@@ -151,7 +151,7 @@ export function ContentCard({
       {showProgress ? (
         <span className="mt-3 flex items-center gap-2">
           <Progress className="h-1.5 flex-1" value={progress} barClassName="optimus-progress-fill" />
-          <span className="font-mono text-[11px] tabular-nums text-muted">{progress}%</span>
+          <span className="optimus-kpi font-mono text-[11px] tabular-nums">{progress}%</span>
         </span>
       ) : null}
     </ContentLinkWrap>

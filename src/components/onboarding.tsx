@@ -109,7 +109,7 @@ export function Onboarding() {
             />
           ))}
         </div>
-        <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-subtle">
+        <p className="optimus-kicker mt-2 text-[10px] uppercase tracking-[0.16em]">
           Étape {step + 1} sur {TOTAL_STEPS}
         </p>
 
@@ -192,7 +192,7 @@ export function Onboarding() {
 
             <div className="mt-8 flex items-center gap-2">
               <Sparkles className="size-3.5 text-primary" />
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
                 Suggéré pour toi
               </p>
               <span className="ml-auto text-[11px] text-subtle">
