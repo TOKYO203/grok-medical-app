@@ -1,0 +1,78 @@
+name: CI Probe release-check (TEMPORAIRE — a retirer avant fusion)
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Probe q1 routes:generate
+        run: |
+          if npm run routes:generate >/tmp/q1.log 2>&1; then
+            echo "q1 routes:generate: PASS" >> /tmp/summary.md
+          else
+            { echo "q1 routes:generate: FAIL"; echo '```'; tail -n 50 /tmp/q1.log; echo '```'; } >> /tmp/summary.md
+          fi
+
+      - name: Probe q2 npm test
+        run: |
+          if npm test >/tmp/q2.log 2>&1; then
+            echo "q2 npm test: PASS" >> /tmp/summary.md
+          else
+            { echo "q2 npm test: FAIL"; echo '```'; tail -n 120 /tmp/q2.log; echo '```'; } >> /tmp/summary.md
+          fi
+
+      - name: Probe q3 typecheck + lint
+        run: |
+          if npm run typecheck >/tmp/q3.log 2>&1 && npm run lint >>/tmp/q3.log 2>&1; then
+            echo "q3 typecheck + lint: PASS" >> /tmp/summary.md
+          else
+            { echo "q3 typecheck + lint: FAIL"; echo '```'; tail -n 60 /tmp/q3.log; echo '```'; } >> /tmp/summary.md
+          fi
+
+      - name: Probe q4 npm run build (chaine complete)
+        run: |
+          if npm run build >/tmp/q4.log 2>&1; then
+            echo "q4 npm run build: PASS" >> /tmp/summary.md
+          else
+            { echo "q4 npm run build: FAIL"; echo '```'; tail -n 150 /tmp/q4.log; echo '```'; } >> /tmp/summary.md
+          fi
+
+      - name: Probe q5 qa:mobile:built
+        run: |
+          if npm run qa:mobile:built >/tmp/q5.log 2>&1; then
+            echo "q5 qa:mobile:built: PASS" >> /tmp/summary.md
+          else
+            { echo "q5 qa:mobile:built: FAIL"; echo '```'; tail -n 80 /tmp/q5.log; echo '```'; } >> /tmp/summary.md
+          fi
+
+      - name: Post summary to PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          {
+            echo "## Sonde release-check — commit ${GITHUB_SHA}"
+            cat /tmp/summary.md 2>/dev/null || echo "(aucun resultat)"
+          } > /tmp/body.md
+          gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file /tmp/body.md
