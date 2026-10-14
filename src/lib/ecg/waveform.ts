@@ -259,7 +259,8 @@ export function multiCyclePathMm(
   // PP = intervalle P-P constant (le nœud sinusal ne change pas de rythme).
   const PP = 60 / baseBpm;
   const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
-  const N = opts.cycles;
+  // Garde anti-NaN : cycles = 0 → totalDur = 0 (division 0/0). Au moins 1 cycle (issue #39).
+  const N = Math.max(1, opts.cycles);
 
   // ─── Liste des PR par cycle (secondes). -1 = P bloquée (aucun QRS). ───
   // PR normal = 0.16 s (160 ms). Wenckebach : +60 ms à chaque cycle
@@ -311,14 +312,23 @@ export function multiCyclePathMm(
   const sOff = PHASE.s - PHASE.r;  // ~ +0.02 s
   const tOff = PHASE.t - PHASE.r;  // ~ +0.19 s
 
+  // Surcouche clinique multi-cycles (parité avec cycleValues) : la FA
+  // (pAbsent + rrVariability), les torsades (wideQrs + RR variable) et le
+  // flutter (sawTooth) restent ainsi visibles aussi en mode multi-cycle.
+  const pScale = def?.pAbsent ? 0 : 1;
+  const widthScale = def?.wideQrs ? 2.4 : 1;
+  const tScale = (def?.peakedT ? 2 : 1) * (def?.tInverted?.includes(lead) ? -1.4 : 1);
+  const st = stOffsetMv(lead, def);
+  const saw = def?.sawTooth ? 1 : 0;
+
   let d = "";
   for (let k = 0; k <= totalSamples; k++) {
     const t = (k / totalSamples) * totalDur;
     let v = 0;
 
-    // Onde P à chaque temps pTimes[i]
+    // Onde P à chaque temps pTimes[i] (supprimée si pAbsent — FA).
     for (let i = 0; i < N; i++) {
-      v += gauss(t, { mu: pTimes[i], a: w.P.a, sigma: w.P.sigma });
+      v += pScale * gauss(t, { mu: pTimes[i], a: w.P.a, sigma: w.P.sigma });
     }
 
     // QRS + T pour chaque P non bloquée
@@ -326,11 +336,16 @@ export function multiCyclePathMm(
       const pr = prList[i];
       if (pr < 0) continue;
       const tR = pTimes[i] + pr;
-      v += gauss(t, { mu: tR + qOff, a: w.Q.a, sigma: w.Q.sigma });
-      v += gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma });
-      v += gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma });
-      v += gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma });
+      v += gauss(t, { mu: tR + qOff, a: w.Q.a, sigma: w.Q.sigma }, 1, widthScale);
+      v += gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma }, 1, widthScale);
+      v += gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma }, 1, widthScale);
+      v += tScale * gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma });
+      // Sus/sous-décalage ST sur la fenêtre qui suit R (parité cycleValues).
+      if (st !== 0 && t > tR && t < tR + (PHASE.stTo - PHASE.stFrom)) v += st;
     }
+
+    // Dents de scie (flutter) : oscillation continue ~5 Hz (≈ 300/min).
+    if (saw) v += 0.15 * Math.sin(t * 2 * Math.PI * 5);
 
     const x = (t / totalDur) * finalWidthMm;
     const y = -v * opts.gainMmPerMv;
