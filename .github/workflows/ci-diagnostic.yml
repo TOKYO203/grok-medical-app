@@ -1,0 +1,306 @@
+name: CI Diagnostic Probes
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ci-diagnostic-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  p01-npm-ci-strict:
+    name: "p01 npm ci strict (sans --legacy-peer-deps)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Probe
+        run: npm ci > /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p01 — npm ci (sans --legacy-peer-deps)"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p02-routes:
+    name: "p02 routes:generate + drift"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: |
+          set +e
+          npm run routes:generate >> /tmp/probe.log 2>&1
+          rc=$?
+          if [ $rc -ne 0 ]; then exit 1; fi
+          git diff --exit-code -- src/routeTree.gen.ts >> /tmp/probe.log 2>&1
+          rc=$?
+          if [ $rc -ne 0 ]; then
+            { git diff --stat -- src/routeTree.gen.ts; echo "ROUTE TREE DRIFT — routes:generate réécrit src/routeTree.gen.ts"; } >> /tmp/probe.log
+            exit 1
+          fi
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p02 — routes:generate / drift routeTree.gen.ts"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p03-npm-test:
+    name: "p03 npm test"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: npm test >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p03 — npm test"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p04-typecheck:
+    name: "p04 tsc --noEmit"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: npx tsc --noEmit >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p04 — tsc --noEmit"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p05-lint:
+    name: "p05 eslint ."
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: npm run lint >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p05 — eslint ."
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p06-vite-build:
+    name: "p06 vite build seul"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: node scripts/with-app-env.mjs vite build >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p06 — vite build"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p07-postbuild-gates:
+    name: "p07 vite build + budget + assets"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: |
+          set +e
+          node scripts/with-app-env.mjs vite build >> /tmp/probe.log 2>&1
+          rc=$?
+          if [ $rc -ne 0 ]; then exit 1; fi
+          npm run postbuild:budget >> /tmp/probe.log 2>&1
+          rc=$?
+          if [ $rc -ne 0 ]; then exit 1; fi
+          npm run postbuild:assets >> /tmp/probe.log 2>&1
+          rc=$?
+          if [ $rc -ne 0 ]; then exit 1; fi
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p07 — vite build + postbuild:budget + postbuild:assets"
+            echo '~~~'
+            tail -n 100 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p08-db-migrate:
+    name: "p08 db:migrate"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: npm run db:migrate >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p08 — db:migrate"
+            echo '~~~'
+            tail -n 80 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p09-full-build:
+    name: "p09 build complet (build:netlify)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps > /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        run: npm run build >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p09 — npm run build (chaîne complète = build:netlify)"
+            echo '~~~'
+            tail -n 100 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
+
+  p10-playwright:
+    name: "p10 Playwright E2E"
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci > /tmp/probe.log 2>&1 || exit 1
+      - name: Browsers
+        run: npx playwright install --with-deps chromium >> /tmp/probe.log 2>&1 || exit 1
+      - name: Probe
+        env:
+          CI: "true"
+        run: npx playwright test >> /tmp/probe.log 2>&1 || exit 1
+      - name: Rapport
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "## ❌ p10 — Playwright E2E"
+            echo '~~~'
+            tail -n 100 /tmp/probe.log
+            echo '~~~'
+          } > /tmp/comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file /tmp/comment.md
