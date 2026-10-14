@@ -10,7 +10,7 @@ export function heartRateFromBoxes(largeBoxes: number): number {
 }
 export function classifyHeartRate(bpm: number): HeartRateSeverity {
   if (bpm < 60) return "bradycardie";
-  if (bpm > 90) return "tachycardie";
+  if (bpm > 100) return "tachycardie";
   return "normal";
 }
 export function qtCorrectedBazett(qtSec: number, rrSec: number): number {

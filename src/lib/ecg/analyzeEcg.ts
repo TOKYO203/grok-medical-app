@@ -187,7 +187,7 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
   // ─── Fréquence anormale ────────────────────────────────────────────
   if (fc > 100) {
     alertes.push({ niveau: "warning", code: "tachycardie", label: `Tachycardie (${fc} bpm)` });
-  } else if (fc < 50) {
+  } else if (fc < 60) {
     alertes.push({ niveau: "warning", code: "bradycardie", label: `Bradycardie (${fc} bpm)` });
   }
 
