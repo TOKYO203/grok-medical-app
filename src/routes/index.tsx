@@ -331,7 +331,7 @@ function Dashboard() {
       </section>
 
       <section className="mt-8">
-        {/* streak-dashboard */
+        {/* streak-dashboard */}
         <section className="mb-4 flex items-center gap-3 rounded-[var(--radius-lg)] bg-card p-3 shadow-[var(--shadow-border)]">
           <span className="flex size-10 items-center justify-center rounded-full bg-warn/15 text-warn">
             <Flame className="size-5" />
