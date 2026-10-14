@@ -108,6 +108,13 @@ function EcgCasePage() {
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
 
+  // Hook AVANT tout return conditionnel (react-hooks/rules-of-hooks).
+  const diagnosis = useMemo(() => {
+    if (!ecg) return null;
+    const def = buildDeformation(ecg);
+    return analyzeEcg(ecg.trace!, def);
+  }, [ecg]);
+
   if (!ecg) {
     return (
       <Shell title="ECG">
@@ -118,12 +125,6 @@ function EcgCasePage() {
       </Shell>
     );
   }
-
-  const deformation = buildDeformation(ecg);
-  const diagnosis = useMemo(
-    () => analyzeEcg(ecg.trace!, deformation),
-    [ecg, deformation],
-  );
 
   const data = ecg;
   const current = data.steps[step];
@@ -199,7 +200,7 @@ function EcgCasePage() {
         </div>
 
         <div className="mt-4">
-          <EcgDiagnosisPanel diagnosis={diagnosis} />
+          {diagnosis ? <EcgDiagnosisPanel diagnosis={diagnosis} /> : null}
         </div>
 
         <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">
