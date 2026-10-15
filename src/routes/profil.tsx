@@ -355,12 +355,16 @@ function ProfilPage() {
           </div>
         </div>
 
-        <div className="mt-5 grid grid-cols-3 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
+        <div className="mt-5 grid grid-cols-2 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
           <ProfileStat label="XP" value={xp.toLocaleString("fr-FR")} />
           <ProfileStat label="Niveau" value={String(level.level)} bordered />
-          <ProfileStat label="Ligue" value={league.label} bordered />
         </div>
         <Progress className="mt-2" value={level.progress} />
+        <p className="mt-1.5 text-xs leading-5 text-muted">
+          {level.level >= 100
+            ? "Niveau maximum atteint."
+            : `${Math.max(1, level.xpForNext - level.xpInto)} XP avant le niveau suivant`}
+        </p>
 
                 <details className="mt-6 rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
           <summary className="flex cursor-pointer items-center justify-between gap-3 p-4">
