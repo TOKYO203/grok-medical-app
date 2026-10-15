@@ -106,8 +106,8 @@ Donne-moi 3 conseils cliniques concrets pour progresser, orientés pratique.`;
           <div className="flex items-start gap-2 rounded-[var(--radius-md)] bg-secondary p-3 text-xs text-muted">
             <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
             <p>
-              Aide à la décision — ne remplace pas le jugement clinique.
-              Vérifiez toujours les sources officielles.
+              Tuteur pédagogique : ni diagnostic, ni conduite à tenir — ne remplace pas
+              le jugement clinique. Vérifiez toujours les sources officielles.
             </p>
           </div>
         </div>

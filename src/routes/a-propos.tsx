@@ -112,6 +112,11 @@ function AboutPage() {
             professionnel : la décision médicale et la responsabilité de la prise en
             charge restent celles du praticien formé.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            Précision : « Optimus Clinical AI » est un tuteur pédagogique — il commente
+            et oriente la révision, il ne pose aucun diagnostic, ne donne aucune conduite
+            à tenir et n&apos;est pas un dispositif médical.
+          </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               to="/confidentialite"

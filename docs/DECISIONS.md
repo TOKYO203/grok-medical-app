@@ -30,6 +30,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | B14 | Version du contenu médical `v2026.10-Mada` créée dans `src/content/medical-version.ts`, distincte de la version applicative (`version-engine.ts` 1.0.0), affichée dans le pied de `/a-propos` | Séparer le cycle de vie du contenu médical de celui de l'application, sans toucher au codename « Optimus Clinical AI » verrouillé par les garde-fous | Vibe |
 | 2026-10-15 | B15 | Protocole de validation clinique rendu public : `docs/CLINICAL-VALIDATION.md` + page `/validation-clinique` (résumé + lien vers le document source sur GitHub) | Un visiteur doit pouvoir juger la méthode sans fouiller le dépôt ; le document reste la source de vérité | Vibe |
 | 2026-10-15 | B12 | Page `/conseil-editorial` : mission, processus, état de la relecture par deck (consommé depuis B13/B14), cadre d'usage, crédits, contact — liée depuis `/a-propos` avec `/validation-clinique` | Regrouper la gouvernance éditoriale en un point d'entrée unique, lisible sans compte | Vibe |
+| 2026-10-15 | B16 | « Optimus Clinical AI » clarifié partout : tuteur pédagogique, ni diagnostic ni conduite à tenir, pas un dispositif médical — bandeau du widget `ClinicalAIWidget.tsx`, paragraphe dédié dans `/a-propos`, pages `/conseil-editorial` et `/validation-clinique`, `docs/CLINICAL-VALIDATION.md` | Le nom « Clinical AI » laissait croire à un outil d'aide à la décision clinique ; on nomme le périmètre réel | Vibe |
 
 ## Sessions terminées
 
