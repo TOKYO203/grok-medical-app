@@ -13,9 +13,6 @@ jobs:
   release-check:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    permissions:
-      contents: write
-      actions: read
 
     steps:
       - name: Checkout code
@@ -28,42 +25,13 @@ jobs:
           cache: 'npm'
 
       - name: Install locked dependencies
-        run: npm ci --legacy-peer-deps 2>&1 | tee /tmp/npmci.log; test ${PIPESTATUS[0]} -eq 0
+        run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check 2>&1 | tee /tmp/release.log; test ${PIPESTATUS[0]} -eq 0
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built 2>&1 | tee /tmp/qa.log; test ${PIPESTATUS[0]} -eq 0
-
-      - name: Publish diagnostics on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "### Diagnostic release-check (run ${{ github.run_id }})"
-            echo ""
-            echo "#### Échecs détectés"
-            echo '```'
-            grep -B4 -A80 "not ok" /tmp/release.log /tmp/qa.log /tmp/npmci.log 2>/dev/null | head -c 24000
-            echo '```'
-            echo ""
-            for f in npmci release qa; do
-              if [ -f /tmp/$f.log ]; then
-                echo ""
-                echo "#### $f"
-                echo '```'
-                tail -c 9000 /tmp/$f.log
-                echo '```'
-              fi
-            done
-          } > /tmp/diag.md
-          base64 -w0 /tmp/diag.md > /tmp/diag.b64
-          gh api -X PUT "repos/TOKYO203/grok-medical-app/contents/.ci-diag/run-${{ github.run_id }}-release-check.md" \
-            -f message="diag: échec release-check (run ${{ github.run_id }})" \
-            -f branch=feat/i18n-session3 \
-            -f content="$(cat /tmp/diag.b64)" || true
+        run: npm run qa:mobile:built
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
