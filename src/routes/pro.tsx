@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
+import { PremiumTeaser } from "@/components/premium-teaser";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -115,6 +116,8 @@ function ProPage() {
     >
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
+            <PremiumTeaser />
+
             {isTrialActive(premiumTrial) ? (
               <p className="flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
                 <Sparkles className="size-4 shrink-0 text-primary" />
