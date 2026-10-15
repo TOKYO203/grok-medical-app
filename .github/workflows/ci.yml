@@ -13,10 +13,6 @@ jobs:
   release-check:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    permissions:
-      contents: write
-      issues: write
-      statuses: write
 
     steps:
       - name: Checkout code
@@ -29,62 +25,13 @@ jobs:
           cache: 'npm'
 
       - name: Install locked dependencies
-        run: |
-          set -o pipefail
-          npm ci --legacy-peer-deps 2>&1 | tee /tmp/npmci.log
+        run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: |
-          set -o pipefail
-          npm run release:check 2>&1 | tee /tmp/release.log
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: |
-          set -o pipefail
-          npm run qa:mobile:built 2>&1 | tee /tmp/qa.log
-
-      - name: Publish diagnostics on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "### Diagnostic release-check (run ${{ github.run_id }})"
-            echo ""
-            echo "#### Échecs détectés"
-            echo '```'
-            grep -B4 -A60 "not ok" /tmp/release.log /tmp/qa.log /tmp/npmci.log 2>/dev/null | head -c 20000
-            echo '```'
-            echo ""
-            for f in npmci release qa; do
-              if [ -f /tmp/$f.log ]; then
-                echo ""
-                echo "#### $f"
-                echo '```'
-                tail -c 6000 /tmp/$f.log
-                echo '```'
-              fi
-            done
-          } > /tmp/diag.md
-          {
-            echo ""
-            echo "### Tentative de commentaire PR"
-            echo '```'
-            gh api repos/TOKYO203/grok-medical-app/issues/50/comments -F body=@/tmp/diag.md 2>&1 || true
-            echo '```'
-            echo ""
-            echo "### Etat de l'authentification gh"
-            echo '```'
-            gh auth status 2>&1 || true
-            echo '```'
-          } >> /tmp/diag.md
-          base64 -w0 /tmp/diag.md > /tmp/diag.b64
-          gh api -X PUT "repos/TOKYO203/grok-medical-app/contents/.ci-diag/run-${{ github.run_id }}-release-check.md" \
-            -f message="diag: échec release-check (run ${{ github.run_id }})" \
-            -f branch=feat/i18n-session3 \
-            -f content="$(cat /tmp/diag.b64)" || true
-          FIRST_ERR=$(grep -h -m1 -E "error TS|Error:|FAIL |not ok|AssertionError|ERESOLVE|Cannot find" /tmp/npmci.log /tmp/release.log /tmp/qa.log 2>/dev/null | head -c 130)
-          gh api "repos/TOKYO203/grok-medical-app/statuses/${{ github.event.pull_request.head.sha }}" -f state=failure -f context="diag/release-check" -f description="$FIRST_ERR" || true
+        run: npm run qa:mobile:built
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke

@@ -11,10 +11,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    permissions:
-      contents: write
-      issues: write
-      statuses: write
 
     steps:
       - uses: actions/checkout@v4
@@ -25,29 +21,19 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: |
-          set -o pipefail
-          npm ci 2>&1 | tee /tmp/npmci.log
+        run: npm ci
 
       - name: TypeScript check
-        run: |
-          set -o pipefail
-          npx tsc --noEmit 2>&1 | tee /tmp/tsc.log
+        run: npx tsc --noEmit
 
       - name: Lint
-        run: |
-          set -o pipefail
-          npm run lint 2>&1 | tee /tmp/lint.log
+        run: npm run lint
 
       - name: Install Playwright browsers
-        run: |
-          set -o pipefail
-          npx playwright install --with-deps chromium 2>&1 | tee /tmp/pwinstall.log
+        run: npx playwright install --with-deps chromium
 
       - name: Run E2E tests
-        run: |
-          set -o pipefail
-          npx playwright test 2>&1 | tee /tmp/pwtest.log
+        run: npx playwright test
         env:
           CI: true
 
@@ -58,46 +44,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
-
-      - name: Publish diagnostics on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "### Diagnostic test E2E (run ${{ github.run_id }})"
-            echo ""
-            echo "#### Échecs détectés"
-            echo '```'
-            grep -h -B4 -A60 "not ok" /tmp/tsc.log /tmp/lint.log /tmp/pwtest.log /tmp/npmci.log /tmp/pwinstall.log 2>/dev/null | head -c 20000
-            echo '```'
-            echo ""
-            for f in npmci tsc lint pwinstall pwtest; do
-              if [ -f /tmp/$f.log ]; then
-                echo ""
-                echo "#### $f"
-                echo '```'
-                tail -c 6000 /tmp/$f.log
-                echo '```'
-              fi
-            done
-          } > /tmp/diag.md
-          {
-            echo ""
-            echo "### Tentative de commentaire PR"
-            echo '```'
-            gh api repos/TOKYO203/grok-medical-app/issues/50/comments -F body=@/tmp/diag.md 2>&1 || true
-            echo '```'
-            echo ""
-            echo "### Etat de l'authentification gh"
-            echo '```'
-            gh auth status 2>&1 || true
-            echo '```'
-          } >> /tmp/diag.md
-          base64 -w0 /tmp/diag.md > /tmp/diag.b64
-          gh api -X PUT "repos/TOKYO203/grok-medical-app/contents/.ci-diag/run-${{ github.run_id }}-test.md" \
-            -f message="diag: échec job test (run ${{ github.run_id }})" \
-            -f branch=feat/i18n-session3 \
-            -f content="$(cat /tmp/diag.b64)" || true
-          FIRST_ERR=$(grep -h -m1 -E "error TS|Error:|FAIL |not ok|AssertionError|ERESOLVE|Cannot find" /tmp/npmci.log /tmp/tsc.log /tmp/lint.log /tmp/pwinstall.log /tmp/pwtest.log 2>/dev/null | head -c 130)
-          gh api "repos/TOKYO203/grok-medical-app/statuses/${{ github.event.pull_request.head.sha }}" -f state=failure -f context="diag/test" -f description="$FIRST_ERR" || true
