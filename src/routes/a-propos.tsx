@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Mail, MessageCircle, Github, Sparkles } from "lucide-react";
 import { Shell } from "@/components/shell";
+import { MEDICAL_CONTENT_VERSION } from "@/content/medical-version";
 
 export const Route = createFileRoute("/a-propos")({ component: AboutPage });
 
@@ -128,7 +129,8 @@ function AboutPage() {
         </div>
 
         <p className="mt-8 text-center text-[11px] text-subtle">
-          Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026
+          Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026 · Contenu médical{" "}
+          {MEDICAL_CONTENT_VERSION}
         </p>
       </div>
     </Shell>
