@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–4 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5) — suite : bugs #4/#5 de l'accueil, puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–5 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation) — suite : bugs #4/#5 de l'accueil, puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 

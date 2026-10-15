@@ -1,4 +1,4 @@
-import { Pause, Play, Repeat } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const RATES = [
@@ -10,18 +10,14 @@ const RATES = [
 export function MonitorControls({
   playing,
   rate,
-  loop,
   onTogglePlay,
   onRateChange,
-  onToggleLoop,
   disabled,
 }: {
   playing: boolean;
   rate: number;
-  loop: boolean;
   onTogglePlay: () => void;
   onRateChange: (r: number) => void;
-  onToggleLoop: () => void;
   disabled?: boolean;
 }) {
   return (
@@ -60,21 +56,6 @@ export function MonitorControls({
         ))}
       </div>
 
-      <button
-        type="button"
-        onClick={onToggleLoop}
-        aria-pressed={loop}
-        aria-label="Boucle"
-        className={cn(
-          "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors",
-          loop
-            ? "bg-[#A67C1E] text-black shadow-[var(--shadow-soft)]"
-            : "bg-secondary text-muted hover:text-fg",
-        )}
-      >
-        <Repeat className="size-3.5" />
-        Boucle
-      </button>
     </div>
   );
 }

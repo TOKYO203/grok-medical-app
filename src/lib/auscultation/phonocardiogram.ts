@@ -53,6 +53,9 @@ export interface PhonoCycle {
   phases: PhonoPhase[];
   s1Time: number;
   s2Time: number;
+  /** Vrai quand le cycle porte sa propre irrégularité (ex. FA) :
+   *  le SVG s'en sert pour rendre un ECG sans onde P. */
+  irregular?: boolean;
 }
 
 /** Cycle cardiaque standard (ms) — valeurs par défaut, écrasables par params. */
@@ -237,16 +240,43 @@ export function buildCycle(
         },
       ]);
 
-    case "irregular_fast":
-      // FA : cycle raccourci pour suggérer la tachycardie (100-160/min)
-      // Note : l'irrégularité temporelle sera rendue par le SVG (jitter).
-      return cycle(
-        [s1(), s2()],
-        [
-          { start: 0, end: systole, label: "Systole", color: "systole" },
-          { start: systole, end: total, label: "Diastole", color: "diastole" },
-        ],
-      );
+    case "irregular_fast": {
+      // FA : trois battements aux intervalles RR inégaux (420/600/480 ms)
+      // et amplitudes B1 inégales — le tracé ET l'ECG rendent l'irrégularité.
+      // (Le moteur audio tire les RR au hasard battement par battement ; ici
+      //  le cycle est figé pour que le playhead reste lisible.)
+      const beats = [
+        { t: 0, sys: 0.28, b1: 0.9, b2: 0.8 },
+        { t: 0.42, sys: 0.3, b1: 0.55, b2: 0.5 },
+        { t: 1.02, sys: 0.26, b1: 0.7, b2: 0.6 },
+      ];
+      const faTotal = 1.5;
+      const events: PhonoEvent[] = [];
+      const phases: PhonoPhase[] = [];
+      beats.forEach((b, i) => {
+        events.push(
+          {
+            kind: "s1", startTime: b.t, duration: S1_DUR, amplitude: b.b1,
+            shape: "impulse", label: "B1",
+          },
+          {
+            kind: "s2", startTime: b.t + b.sys, duration: S2_DUR, amplitude: b.b2,
+            shape: "impulse", label: "B2",
+          },
+        );
+        phases.push({ start: b.t, end: b.t + b.sys, label: "Systole", color: "systole" });
+        const end = i + 1 < beats.length ? beats[i + 1].t : faTotal;
+        phases.push({ start: b.t + b.sys, end, label: "Diastole", color: "diastole" });
+      });
+      return {
+        durationSec: faTotal,
+        events,
+        phases,
+        s1Time: 0,
+        s2Time: 0.28,
+        irregular: true,
+      };
+    }
 
     // ── Pulmonaire ─────────────────────────────────────────────────────
     case "normal_vesicular":
@@ -268,8 +298,14 @@ export function buildCycle(
         : preset === "medium_crackles" ? 0.015 : 0.025;
       const events: PhonoEvent[] = [];
       // Craquements répartis en fin d'inspiration (télé-inspiratoire)
+      // Fenetre de dispersion calquee sur le moteur (scatterCrackles) :
+      //   fins (haute frequence)  -> tele-inspiratoires ;
+      //   moyens (moyenne)        -> holo-inspiratoires ;
+      //   grossiers (basse)       -> tout le cycle.
+      const crackleFrom = preset === "fine_crackles" ? split * 0.55 : 0.05;
+      const crackleTo = preset === "coarse_crackles" ? total * 0.9 : split;
       for (let i = 0; i < 12; i++) {
-        const t = 0.05 + (i / 11) * (total * 0.45);
+        const t = crackleFrom + (i / 11) * (crackleTo - crackleFrom);
         events.push({
           kind: "crackle", startTime: t, duration: width,
           amplitude: 0.6 + (i % 3) * 0.1, shape: "burst",
@@ -282,13 +318,13 @@ export function buildCycle(
     }
 
     case "pleural_crackles": {
-      const events: PhonoEvent[] = [];
-      for (let i = 0; i < 6; i++) {
-        const ti = 0.05 + (i / 5) * (total * 0.4);
-        const te = total * 0.55 + (i / 5) * (total * 0.4);
-        events.push({ kind: "crackle", startTime: ti, duration: 0.015, amplitude: 0.6, shape: "burst" });
-        events.push({ kind: "crackle", startTime: te, duration: 0.015, amplitude: 0.5, shape: "burst" });
-      }
+      // Deux bouffees MIROIRS uniquement (fin d'inspiration / fin
+      // d'expiration), exactement comme le moteur (breathPleuralCrackles).
+      const expi = total - split;
+      const events: PhonoEvent[] = [
+        { kind: "crackle", startTime: split * 0.9, duration: 0.015, amplitude: 0.6, shape: "burst" },
+        { kind: "crackle", startTime: split + expi * 0.9, duration: 0.015, amplitude: 0.5, shape: "burst" },
+      ];
       return cycle(events, [
         { start: 0, end: split, label: "Inspiration", color: "inspi" },
         { start: split, end: total, label: "Expiration", color: "expi" },
@@ -296,14 +332,15 @@ export function buildCycle(
     }
 
     case "sibilances":
-      return cycle([
-        { kind: "continuous", startTime: 0, duration: total * 0.45,
-          amplitude: 0.4, shape: "plateau", label: "Sibilances inspiratoires" },
-        { kind: "continuous", startTime: split, duration: total * 0.45,
+      // Le moteur (breathSibilances) ne produit la sibilance qu'a
+      // l'expiration ; l'inspiration reste un murmure vesiculaire discret,
+      // comme l'ecrit la fiche ("murmure +/- sibilances").
+      return breathCycle([
+        { kind: "breath", startTime: 0, duration: split,
+          amplitude: 0.3, shape: "plateau", label: "Murmure vesiculaire" },
+        { kind: "continuous", startTime: split + (total - split) * 0.12,
+          duration: (total - split) * 0.88,
           amplitude: 0.7, shape: "plateau", label: "Sibilances expiratoires" },
-      ], [
-        { start: 0, end: split, label: "Inspiration", color: "inspi" },
-        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
 
     case "stridor":

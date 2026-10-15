@@ -43,6 +43,32 @@ export const Route = createFileRoute("/auscultation")({ component: AuscultationP
 const NO_PARAMS: Record<string, number> = {};
 
 /**
+ * Applique la vitesse de lecture aux paramètres audio : les fréquences par
+ * minute (bpm, bpmMin/Max, breathsPerMin) sont multipliées par `rate`, les
+ * durées en millisecondes (*Ms) ou en secondes (*Dur) divisées par `rate`.
+ * Les réglages de timbre (Hz, gains, Q) restent inchangés. Sans ça, le
+ * ralenti 0,5×/0,25× ne ralentissait que le playhead : le tracé et le son
+ * étaient désynchronisés.
+ */
+function scaleAudioParams(
+  params: Record<string, number>,
+  rate: number,
+): Record<string, number> {
+  if (rate === 1) return params;
+  const scaled: Record<string, number> = {};
+  for (const [key, value] of Object.entries(params)) {
+    if (key === "bpm" || key === "bpmMin" || key === "bpmMax" || key === "breathsPerMin") {
+      scaled[key] = value * rate;
+    } else if (key.endsWith("Ms") || key.endsWith("Dur")) {
+      scaled[key] = value / rate;
+    } else {
+      scaled[key] = value;
+    }
+  }
+  return scaled;
+}
+
+/**
  * Tracé du moniteur. Le playhead avance à chaque frame (~60 fps) : l'isoler
  * dans ce composant évite de re-rendre tout le thorax et les listes de fiches
  * à la même cadence.
@@ -88,7 +114,6 @@ function AuscultationPage() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isFullscreen]);
-  const [loop, setLoop] = useState(false);
 
   // Coupe tout son en cours au démontage de la page (navigation).
   useEffect(() => () => stop(), []);
@@ -112,8 +137,9 @@ function AuscultationPage() {
       setPlaying(false);
       return;
     }
-    if (lung) playLungSound(preset, params);
-    else playSound(preset, params);
+    const scaled = scaleAudioParams(params, rate);
+    if (lung) playLungSound(preset, scaled);
+    else playSound(preset, scaled);
     setPlaying(true);
   }
 
@@ -164,19 +190,23 @@ function AuscultationPage() {
     [monitorPreset, monitorParams],
   );
 
-  // Boucle audio : si loop est actif, on relance playSound à chaque fin de cycle.
-  useEffect(() => {
-    if (!playing || !loop || !monitorEntry) return;
-    const periodMs = (monitorCycle.durationSec / rate) * 1000;
-    const id = setInterval(() => {
-      const e = monitorEntry as { audio?: { preset?: string; params?: Record<string, number> } };
-      const preset = e.audio?.preset ?? monitorPreset;
-      const params = e.audio?.params ?? {};
-      if (tab === "pulmonaire") playLungSound(preset, params);
-      else playSound(preset, params);
-    }, periodMs);
-    return () => clearInterval(id);
-  }, [playing, loop, rate, monitorPreset, monitorEntry, monitorCycle.durationSec, tab]);
+  // Changement de vitesse en cours de lecture : le son repart immédiatement
+  // aux nouveaux paramètres. (Le moteur boucle nativement jusqu'à stop() —
+  // l'ancien bouton « Boucle » relançait playSound à chaque cycle et
+  // provoquait un fondu audible.)
+  function changeRate(next: number) {
+    if (next === rate) return;
+    setRate(next);
+    if (!playing) return;
+    const e = monitorEntry as
+      | { audio?: { preset?: string; params?: Record<string, number> } }
+      | undefined;
+    const preset = e?.audio?.preset ?? monitorPreset;
+    const params = e?.audio?.params ?? {};
+    const scaled = scaleAudioParams(params, next);
+    if (tab === "pulmonaire") playLungSound(preset, scaled);
+    else playSound(preset, scaled);
+  }
 
   // isSupported() lit `window` : l'évaluer pendant le render fait diverger le
   // serveur (canPlay=false → bouton rendu `disabled`) et le client (true).
@@ -247,13 +277,11 @@ function AuscultationPage() {
               <MonitorControls
                 playing={playing}
                 rate={rate}
-                loop={loop}
                 disabled={!canPlay}
                 onTogglePlay={() =>
                   toggleListen(monitorPreset, monitorParams, tab === "pulmonaire")
                 }
-                onRateChange={setRate}
-                onToggleLoop={() => setLoop((v) => !v)}
+                onRateChange={changeRate}
               />
             </div>
           </div>
