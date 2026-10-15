@@ -35,7 +35,8 @@
     "check:auth": "node scripts/check-auth-invariant.mjs",
     "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/content/imported-deck-integrity.test.ts src/content/license-receipt.test.ts src/content/purchase-order.test.ts src/lib/auth/gate-identity.test.ts src/lib/imported-deck-storage.test.ts src/lib/library/specialty-label.test.ts src/lib/optimus-sync-model.test.ts src/state/persist-migrations.test.ts src/i18n/messages.test.ts src/i18n/detect.test.ts src/i18n/format.test.ts src/lib/units.test.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:cloudflare": "node scripts/with-app-env.mjs vite build"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
