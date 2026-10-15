@@ -40,6 +40,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-15 | C21 | Architecture i18n étendue à fr/en/es/pt : type `Locale` élargi dans `src/i18n/core.ts`, catalogues jumeaux `es.ts`/`pt.ts` (clés identiques à fr/en, vérifiées par `messages.test.ts`), `CATALOGS` à quatre langues — le sélecteur du profil s'enrichit automatiquement via `LOCALES` | Item C21 du plan ; le socle Phase 3 (fr/en) garantit le repli sur le français, l'extension ne touche ni les composants ni le store (validation `isLocale` existante) | Vibe |
+| 2026-10-15 | C22 | Détection de la langue au premier lancement : `src/i18n/detect.ts` devine la locale depuis `navigator.languages` (repli français), appliquée depuis un pont de la route racine — jamais deux fois : choix explicite marqué (`markLocaleChosen` au clic du sélecteur), locale persistée non française respectée, no-op côté serveur | Servir la bonne langue aux visiteurs internationaux sans écraser un choix existant ; la détection locale (sans géolocalisation réseau) respecte le mode hors-ligne de la PWA | Vibe |
 
 ## Sessions terminées
 

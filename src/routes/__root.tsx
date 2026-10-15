@@ -9,6 +9,7 @@ import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
 import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { applyDetectedLocale } from "@/i18n/detect";
 import { Toaster } from "sonner";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import appCss from "../styles.css?url";
@@ -17,6 +18,13 @@ const APP_NAME = "Optimus";
 
 
 function ServiceWorkerRegistrar(){useEffect(()=>{if(typeof window==="undefined")return;if(!("serviceWorker" in navigator))return;if(window.location.protocol!=="https:"&&window.location.hostname!=="localhost")return;navigator.serviceWorker.register("/sw.js").catch(()=>{})},[]);return null}
+
+function LocaleDetectionBridge() {
+  useEffect(() => {
+    void applyDetectedLocale();
+  }, []);
+  return null;
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -53,6 +61,7 @@ function RootDocument() {
       </head>
       <body>
         <PreviewHostBridge />
+        <LocaleDetectionBridge />
         <AppResumeBridge />
         <AuthProvider>
           <LicenseRevocationBridge />
