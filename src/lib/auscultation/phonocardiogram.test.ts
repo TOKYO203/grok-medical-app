@@ -13,6 +13,8 @@ import type { PhonoCycle } from "./phonocardiogram.ts";
 const rootDir = new URL("../../../", import.meta.url).pathname;
 const dataDir = join(rootDir, "src/content/data/auscultation");
 
+type AuscultationIndex = { sounds: Array<{ id: string; status: string; file: string }> };
+
 
 /* ─── QA Session 5 : garde-fous comportementaux du phonocardiogramme ─── */
 
@@ -113,6 +115,23 @@ test("phono QA: FA (irregular_fast) — trois battements irréguliers, B1 inéga
     "irregular_fast: amplitudes B1 trop uniformes (le moteur module B1)",
   );
 });
-test("phono QA (canari 2): COVERED_PRESETS couvre les 20 presets du moteur", () => {
-  assert.equal((COVERED_PRESETS as readonly string[]).length, 20, "20 presets couverts attendus");
+
+test("phono QA: COVERED_PRESETS couvre tous les presets audio des 20 fiches", async () => {
+  const index = JSON.parse(await readFile(join(dataDir, "_index.json"), "utf8")) as AuscultationIndex;
+  const pulmonaireIndex = JSON.parse(
+    await readFile(join(dataDir, "pulmonaire", "_index.json"), "utf8"),
+  ) as AuscultationIndex;
+  const available = [
+    ...index.sounds.filter((s) => s.status === "available"),
+    ...pulmonaireIndex.sounds.filter((s) => s.status === "available"),
+  ];
+  assert.ok(available.length >= 20, `attendu 20 fiches disponibles (trouvé ${available.length})`);
+  for (const sound of available) {
+    const fiche = JSON.parse(await readFile(join(dataDir, sound.file), "utf8"));
+    const preset = fiche.audio?.preset;
+    assert.ok(
+      typeof preset === "string" && (COVERED_PRESETS as readonly string[]).includes(preset),
+      `${sound.id}: preset "${preset}" absent de COVERED_PRESETS (tracé non couvert)`,
+    );
+  }
 });
