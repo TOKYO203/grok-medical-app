@@ -1,3 +1,6 @@
+import { DEFAULT_LOCALE, type Locale } from "@/i18n/core";
+import { formatShortDate } from "@/i18n/format";
+
 export type AIHistoryEntry = { id: string; text: string; at: number; model?: string; rating?: "up" | "down" | null };
 const KEY = "optimus.ai.history.v1";
 const MAX_PER_CASE = 5;
@@ -46,7 +49,7 @@ export function clearHistory(caseId: string): void {
 
 export function clearAllHistory(): void { writeStore({}); }
 
-export function relativeTime(ts: number): string {
+export function relativeTime(ts: number, locale: Locale = DEFAULT_LOCALE): string {
   const diff = Date.now() - ts;
   const min = Math.floor(diff / 60000);
   if (min < 1) return "à l'instant";
@@ -55,7 +58,7 @@ export function relativeTime(ts: number): string {
   if (h < 24) return `il y a ${h} h`;
   const d = Math.floor(h / 24);
   if (d < 7) return `il y a ${d} j`;
-  return new Date(ts).toLocaleDateString("fr-FR", { day: "2-digit", month: "short" });
+  return formatShortDate(ts, locale);
 }
 
 export function rateLatest(caseId: string, rating: "up" | "down" | null): void {

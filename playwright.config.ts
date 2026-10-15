@@ -14,6 +14,10 @@ export default defineConfig({
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: BASE_URL,
+    // Les scénarios E2E valident l'interface française : locale navigateur
+    // épinglée pour que la détection C22 ne bascule pas l'UI sur un profil vierge
+    // (Chromium headless est « en-US » par défaut).
+    locale: "fr-FR",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",

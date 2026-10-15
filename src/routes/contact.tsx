@@ -4,6 +4,8 @@ import { Mail, MessageCircle, Send, ArrowLeft, Save } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { Textarea } from "@/components/ui/input";
 import { useOptimus } from "@/state/store";
+import { useLocale } from "@/i18n";
+import { formatShortDate } from "@/i18n/format";
 import type { ContactDraft } from "@/core/types";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -26,6 +28,7 @@ type Step = "idle" | "form" | "choose";
 
 function ContactPage() {
   const add = useOptimus((s) => s.addContact);
+  const locale = useLocale();
   const contacts = useOptimus((s) => s.contacts);
   const [step, setStep] = useState<Step>("idle");
   const [kind, setKind] = useState<ContactDraft["kind"]>("contact");
@@ -226,10 +229,7 @@ function ContactPage() {
                       {KINDS.find((k) => k.id === c.kind)?.label ?? c.kind}
                     </p>
                     <span className="text-[11px] text-subtle">
-                      {new Date(c.createdAt).toLocaleDateString("fr-FR", {
-                        day: "2-digit",
-                        month: "short",
-                      })}
+                      {formatShortDate(c.createdAt, locale)}
                     </span>
                   </div>
                   <p className="mt-1.5 whitespace-pre-wrap break-words">{c.body}</p>

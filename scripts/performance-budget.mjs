@@ -14,7 +14,10 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Relevé 1704 → 1728 KiB (Session 1 « business model » : page /tarifs, prix
   // multi-devises, essai 7 jours, teaser 30 s, badges progressifs) — total mesuré
   // 1706,2 KiB. Marge volontairement faible (~21,8 KiB), même philosophie.
-  maxTotalJavascriptBytes: 1728 * 1024,
+  // Relevé 1728 → 1756 KiB (Session 3 « i18n » : catalogues jumeaux es/pt,
+  // dates locale-aware, registre d'unités cliniques) — total mesuré
+  // 1733,8 KiB. Marge volontairement faible (~22,2 KiB), même philosophie.
+  maxTotalJavascriptBytes: 1756 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

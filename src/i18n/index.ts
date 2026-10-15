@@ -1,12 +1,14 @@
-// Hooks i18n de la Phase 3 : catalogues fr/en, hook useI18n et synchronisation
+// Hooks i18n : catalogues fr/en/es/pt, hook useI18n et synchronisation
 // de <html lang>/<html dir> avec la locale persistée du store Optimus.
 import { useEffect, useMemo } from "react";
 import { useOptimus } from "@/state/store";
 import { localeDir, translate, type Locale, type MessageCatalog, type MessageParams } from "./core";
 import { fr } from "./messages/fr";
 import { en } from "./messages/en";
+import { es } from "./messages/es";
+import { pt } from "./messages/pt";
 
-export const CATALOGS: Record<Locale, MessageCatalog> = { fr, en };
+export const CATALOGS: Record<Locale, MessageCatalog> = { fr, en, es, pt };
 
 export { DEFAULT_LOCALE, LOCALES, isLocale, localeDir } from "./core";
 export type { Locale, MessageCatalog, MessageParams } from "./core";

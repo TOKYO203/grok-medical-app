@@ -37,6 +37,7 @@ import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
 import { useI18n, LOCALES } from "@/i18n";
+import { markLocaleChosen } from "@/i18n/detect";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import {
   dataUrlToImageBlob,
@@ -384,7 +385,10 @@ function ProfilPage() {
                 <button
                   key={code}
                   type="button"
-                  onClick={() => setLocale(code)}
+                  onClick={() => {
+                    setLocale(code);
+                    markLocaleChosen();
+                  }}
                   aria-pressed={locale === code}
                   className={cn(
                     "h-9 flex-1 rounded-[var(--radius-md)] px-3 text-xs font-semibold uppercase tracking-wide shadow-[var(--shadow-border)] transition-colors",

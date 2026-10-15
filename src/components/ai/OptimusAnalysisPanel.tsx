@@ -3,6 +3,7 @@ import { Brain, ChevronDown, Info, Send, Sparkles, RefreshCw, ThumbsUp, ThumbsDo
 import { useClinicalAI, type ChatMessage } from "@/lib/ai/useClinicalAI";
 import { readHistory, relativeTime, rateLatest, type AIHistoryEntry } from "@/lib/ai/ai-history";
 import { ConversationExportButtons } from "@/components/ai/conversation-export-buttons";
+import { useLocale } from "@/i18n";
 
 export type CaseAIContext = {
   title: string;
@@ -56,6 +57,7 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
   const endRef = useRef<HTMLDivElement>(null);
   const [rating, setRating] = useState<"up" | "down" | null>(null);
   const ai = useClinicalAI();
+  const locale = useLocale();
 
   const handleRate = (value: "up" | "down") => {
     const next = rating === value ? null : value;
@@ -248,7 +250,7 @@ export function OptimusAnalysisPanel({ context }: { context: CaseAIContext }) {
                   {historyEntries.map((entry) => (
                     <details key={entry.id} className="rounded-[var(--radius-md)] bg-secondary">
                       <summary className="cursor-pointer p-3 text-xs text-muted">
-                        {relativeTime(entry.at)} · {entry.text.length} caractères
+                        {relativeTime(entry.at, locale)} · {entry.text.length} caractères
                       </summary>
                       <div className="border-t border-border p-3 text-xs leading-relaxed whitespace-pre-wrap">
                         {entry.text}

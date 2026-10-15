@@ -65,6 +65,10 @@ async function finishQuiz(page) {
 const browser = await launchBrowser();
 const context = await browser.newContext({
   viewport: { width: 390, height: 844 },
+  // L'app détecte la langue du navigateur au premier lancement (C22) : le
+  // harnais QA vérifie l'interface française, on épingle fr-FR comme la
+  // suite E2E — le Chromium headless de la CI est en-US par défaut.
+  locale: "fr-FR",
 });
 const page = await context.newPage();
 const pageErrors = [];

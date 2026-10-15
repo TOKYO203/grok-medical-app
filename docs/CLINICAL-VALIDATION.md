@@ -46,6 +46,16 @@ dispositif médical au sens réglementaire.
 - **Cardiologie** : recommandations de la Société européenne de cardiologie (ESC).
 - **Sources généralistes** : portails référencés dans `src/content/medical-sources.ts`.
 
+## Unités standardisées
+
+Le contenu clinique suit une convention **SI-first** : fréquence cardiaque en `bpm`,
+pression artérielle en `mmHg`, hémoglobine en `g/L`, glycémie en `mmol/L`, température
+en `°C`, masse en `kg`. Le rendu des unités passe par le registre `src/lib/units.ts`
+(`CLINICAL_UNITS`, `formatMeasurement`, `parseMeasurement`) : symboles internationaux
+invariants, séparateur décimal suivant la langue de l'interface (`Intl.NumberFormat`),
+espace fine insécable entre la valeur et le symbole. Les moteurs ECG, auscultation et
+calculateurs conservent leurs unités internes d'origine (modules verrouillés).
+
 ## Version du contenu
 
 La version du contenu médical (`v2026.10-Mada`) est indépendante de la version de
