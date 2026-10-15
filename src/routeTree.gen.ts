@@ -25,6 +25,7 @@ import { Route as CasRouteImport } from './routes/cas'
 import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
+import { Route as ConseilEditorialRouteImport } from './routes/conseil-editorial'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DemarcheRouteImport } from './routes/demarche'
 import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
@@ -40,6 +41,7 @@ import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
+import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
@@ -129,6 +131,11 @@ const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
   path: '/confidentialite',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConseilEditorialRoute = ConseilEditorialRouteImport.update({
+  id: '/conseil-editorial',
+  path: '/conseil-editorial',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -204,6 +211,11 @@ const TarifsRoute = TarifsRouteImport.update({
   path: '/tarifs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ValidationCliniqueRoute = ValidationCliniqueRouteImport.update({
+  id: '/validation-clinique',
+  path: '/validation-clinique',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -262,6 +274,7 @@ export interface FileRoutesByFullPath {
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
+  '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
@@ -277,6 +290,7 @@ export interface FileRoutesByFullPath {
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/validation-clinique': typeof ValidationCliniqueRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -303,6 +317,7 @@ export interface FileRoutesByTo {
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
+  '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
@@ -318,6 +333,7 @@ export interface FileRoutesByTo {
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/validation-clinique': typeof ValidationCliniqueRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -345,6 +361,7 @@ export interface FileRoutesById {
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
+  '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
@@ -360,6 +377,7 @@ export interface FileRoutesById {
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/validation-clinique': typeof ValidationCliniqueRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -388,6 +406,7 @@ export interface FileRouteTypes {
     | '/classement'
     | '/conditions'
     | '/confidentialite'
+    | '/conseil-editorial'
     | '/contact'
     | '/demarche'
     | '/demo-ecg'
@@ -403,6 +422,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/soutenir'
     | '/tarifs'
+    | '/validation-clinique'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -429,6 +449,7 @@ export interface FileRouteTypes {
     | '/classement'
     | '/conditions'
     | '/confidentialite'
+    | '/conseil-editorial'
     | '/contact'
     | '/demarche'
     | '/demo-ecg'
@@ -444,6 +465,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/soutenir'
     | '/tarifs'
+    | '/validation-clinique'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -470,6 +492,7 @@ export interface FileRouteTypes {
     | '/classement'
     | '/conditions'
     | '/confidentialite'
+    | '/conseil-editorial'
     | '/contact'
     | '/demarche'
     | '/demo-ecg'
@@ -485,6 +508,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/soutenir'
     | '/tarifs'
+    | '/validation-clinique'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -512,6 +536,7 @@ export interface RootRouteChildren {
   ClassementRoute: typeof ClassementRoute
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
+  ConseilEditorialRoute: typeof ConseilEditorialRoute
   ContactRoute: typeof ContactRoute
   DemarcheRoute: typeof DemarcheRouteWithChildren
   DemoEcgRoute: typeof DemoEcgRoute
@@ -527,6 +552,7 @@ export interface RootRouteChildren {
   RevueRoute: typeof RevueRoute
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
+  ValidationCliniqueRoute: typeof ValidationCliniqueRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
@@ -647,6 +673,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conseil-editorial': {
+      id: '/conseil-editorial'
+      path: '/conseil-editorial'
+      fullPath: '/conseil-editorial'
+      preLoaderRoute: typeof ConseilEditorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -750,6 +783,13 @@ declare module '@tanstack/react-router' {
       path: '/tarifs'
       fullPath: '/tarifs'
       preLoaderRoute: typeof TarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/validation-clinique': {
+      id: '/validation-clinique'
+      path: '/validation-clinique'
+      fullPath: '/validation-clinique'
+      preLoaderRoute: typeof ValidationCliniqueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/admin-verify': {
@@ -872,6 +912,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClassementRoute: ClassementRoute,
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
+  ConseilEditorialRoute: ConseilEditorialRoute,
   ContactRoute: ContactRoute,
   DemarcheRoute: DemarcheRouteWithChildren,
   DemoEcgRoute: DemoEcgRoute,
@@ -887,6 +928,7 @@ const rootRouteChildren: RootRouteChildren = {
   RevueRoute: RevueRoute,
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
+  ValidationCliniqueRoute: ValidationCliniqueRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,

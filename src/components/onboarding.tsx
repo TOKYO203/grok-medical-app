@@ -6,6 +6,7 @@ import { SUBJECT_CATEGORIES, DAILY_GOALS } from "@/data/onboarding";
 import { MadagascarMark, Wordmark } from "@/components/brand/marks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 import { useI18n } from "@/i18n";
 import { useOptimus } from "@/state/store";
 import { requestNotificationPermission } from "@/lib/notifications/daily-reminder";
@@ -261,6 +262,7 @@ export function Onboarding() {
                 {t("onb.moreOptions")}
               </button>
             ) : null}
+            <MedicalDisclaimer />
             <Button className="mt-auto" size="lg" onClick={finish}>
               {t("onb.start")}
             </Button>

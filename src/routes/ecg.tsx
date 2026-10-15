@@ -55,6 +55,11 @@ function EcgLibraryPage() {
             </Link>
           ))}
         </div>
+        <p className="mt-6 rounded-[var(--radius-md)] bg-secondary/60 px-3 py-2.5 text-[11px] leading-relaxed text-muted">
+          Références de lecture : J. Hampton, <em>The ECG Made Easy</em> (Elsevier) ·
+          Recommandations de la Société européenne de cardiologie (ESC).
+          Outil d&apos;apprentissage — l&apos;interprétation finale reste celle du clinicien.
+        </p>
       </Page>
     </Shell>
   );

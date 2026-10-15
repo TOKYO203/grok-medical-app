@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Mail, MessageCircle, Github, Sparkles } from "lucide-react";
 import { Shell } from "@/components/shell";
+import { MEDICAL_CONTENT_VERSION } from "@/content/medical-version";
 
 export const Route = createFileRoute("/a-propos")({ component: AboutPage });
 
@@ -111,6 +112,11 @@ function AboutPage() {
             professionnel : la décision médicale et la responsabilité de la prise en
             charge restent celles du praticien formé.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            Précision : « Optimus Clinical AI » est un tuteur pédagogique — il commente
+            et oriente la révision, il ne pose aucun diagnostic, ne donne aucune conduite
+            à tenir et n&apos;est pas un dispositif médical.
+          </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               to="/confidentialite"
@@ -124,11 +130,24 @@ function AboutPage() {
             >
               Conditions d&apos;utilisation
             </Link>
+            <Link
+              to="/conseil-editorial"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Conseil éditorial
+            </Link>
+            <Link
+              to="/validation-clinique"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Validation clinique
+            </Link>
           </div>
         </div>
 
         <p className="mt-8 text-center text-[11px] text-subtle">
-          Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026
+          Fondation Optimus · Made in Madagascar 🇲🇬 · v1.0 · 2026 · Contenu médical{" "}
+          {MEDICAL_CONTENT_VERSION}
         </p>
       </div>
     </Shell>
