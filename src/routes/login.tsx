@@ -98,7 +98,7 @@ function LoginPage() {
                   <p className="font-medium text-foreground">Connexion cloud indisponible ici</p>
                   <p className="mt-1 text-sm leading-6 text-muted">
                     {runtime?.message ??
-                      "Le service de connexion n'a pas pu être vérifié sur cette version de test."}
+                      "Le service de connexion n'a pas pu être vérifié sur ce déploiement."}
                   </p>
                 </div>
               </div>

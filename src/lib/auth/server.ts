@@ -114,7 +114,13 @@ const vercelAutoBaseURL = deployedBrokerClientConfigured
         : env("VERCEL_BRANCH_URL") ?? env("VERCEL_URL"),
     )
   : undefined;
-const explicitBaseURL = env("BETTER_AUTH_URL") ?? vercelAutoBaseURL;
+// Cloudflare Pages exposes the deployment origin via `CF_PAGES_URL` and marks
+// its environment with `CF_PAGES=1`: derive the base URL the same way as on
+// Vercel when a deployed broker client is configured.
+const cloudflareAutoBaseURL = deployedBrokerClientConfigured
+  ? httpsOrigin(env("CF_PAGES_URL"))
+  : undefined;
+const explicitBaseURL = env("BETTER_AUTH_URL") ?? vercelAutoBaseURL ?? cloudflareAutoBaseURL;
 
 // Explicit `string[]` (not a readonly tuple) — Better Auth's DynamicBaseURLConfig
 // requires a mutable `allowedHosts: string[]`.
@@ -138,6 +144,7 @@ const baseURL = explicitBaseURL ?? {
 };
 
 const platformTrustedOrigins = [
+  httpsOrigin(env("CF_PAGES_URL")),
   httpsOrigin(env("VERCEL_BRANCH_URL")),
   httpsOrigin(env("VERCEL_URL")),
   httpsOrigin(env("VERCEL_PROJECT_PRODUCTION_URL")),
@@ -157,8 +164,9 @@ const trustedOrigins: string[] = explicitBaseURL
 
 const databaseUrl = env("DATABASE_URL");
 
-// Never trust a generic forwarding header merely because it is present. Vercel
-// and Netlify own the provider-specific headers below on their platforms. Other
+// Never trust a generic forwarding header merely because it is present. Vercel,
+// Netlify and Cloudflare Pages own the provider-specific headers below on their
+// platforms. Other
 // reverse proxies must explicitly opt in after stripping client-supplied values.
 // An empty list intentionally fails closed in unknown production environments:
 // Better Auth will warn and use its shared fallback bucket instead of accepting
@@ -168,9 +176,11 @@ const authIpAddressHeaders: string[] =
     ? ["x-vercel-forwarded-for"]
     : env("NETLIFY") === "true"
       ? ["x-nf-client-connection-ip"]
-      : env("TRUST_PROXY_HEADERS") === "true"
-        ? ["x-forwarded-for"]
-        : [];
+      : env("CF_PAGES") === "1"
+        ? ["cf-connecting-ip"]
+        : env("TRUST_PROXY_HEADERS") === "true"
+          ? ["x-forwarded-for"]
+          : [];
 
 // Static broker OAuth endpoints (skip OIDC discovery on every sign-in / callback).
 // Discovery would cost an extra network hop to the broker before the popup can
