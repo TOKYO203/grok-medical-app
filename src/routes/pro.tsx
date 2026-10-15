@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
+import { PremiumTeaser } from "@/components/premium-teaser";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
 import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
+import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
 
@@ -34,6 +36,8 @@ function ProPage() {
   const entitlements = useOptimus((s) => s.entitlements);
   const addContact = useOptimus((s) => s.addContact);
   const purchases = useOptimus((s) => s.purchases);
+  const premiumTrial = useOptimus((s) => s.premiumTrial);
+  const startPremiumTrial = useOptimus((s) => s.startPremiumTrial);
   const { user, isPending } = useCurrentUserState();
   const userId = user?.id ?? null;
   const userIsDevFallback = user?.isDevFallback ?? false;
@@ -112,6 +116,31 @@ function ProPage() {
     >
         {profile.tier !== "pro" ? (
           <div className="mt-6 space-y-3">
+            <PremiumTeaser />
+
+            {isTrialActive(premiumTrial) ? (
+              <p className="flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
+                <Sparkles className="size-4 shrink-0 text-primary" />
+                Essai Premium actif · {trialRemainingDays(premiumTrial)} jour{trialRemainingDays(premiumTrial) > 1 ? "s" : ""} restants — cas et démarches Premium ouverts
+              </p>
+            ) : !premiumTrial ? (
+              <section className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+                <h2 className="font-medium">Essai Premium · 7 jours gratuits</h2>
+                <p className="mt-1 text-sm leading-relaxed text-muted">
+                  Ouvrez tous les cas cliniques et démarches Premium pendant 7 jours, sans
+                  paiement ni clé. Les Decks achetés restent livrés séparément.
+                </p>
+                <Button
+                  className="mt-3 w-full"
+                  onClick={() => {
+                    startPremiumTrial();
+                    toast.success("Essai de 7 jours démarré — cas et démarches Premium ouverts");
+                  }}
+                >
+                  Démarrer mon essai gratuit
+                </Button>
+              </section>
+            ) : null}
             {authEnabled ? (
               <PremiumPurchaseFlow
               key={purchaseFlowKey}

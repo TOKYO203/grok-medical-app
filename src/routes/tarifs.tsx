@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -10,17 +11,16 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
+import {
+  CURRENCIES,
+  detectPreferredCurrency,
+  formatPrice,
+  PRICES_MGA,
+  type Currency,
+} from "@/content/pricing";
 import { PREMIUM_SPECIALTIES } from "@/content/purchase-order";
 
 export const Route = createFileRoute("/tarifs")({ component: TarifsPage });
-
-// Montants alignés sur orderAmount() de src/content/purchase-order.ts
-const DECK_PRICE = 3_000;
-const SPECIALTY_PRICE = 27_000;
-
-function fmtAr(n: number): string {
-  return `${n.toLocaleString("fr-FR")} Ar`;
-}
 
 type FeatureValue = boolean | "limité";
 
@@ -46,6 +46,8 @@ function FeatureCell({ value }: { value: FeatureValue }) {
 }
 
 function TarifsPage() {
+  const [currency, setCurrency] = useState<Currency>(() => detectPreferredCurrency());
+
   return (
     <Shell title="Tarifs">
       <Page
@@ -58,6 +60,27 @@ function TarifsPage() {
           />
         }
       >
+        {/* Sélecteur de devise (A01) */}
+        <div className="mt-6 flex flex-wrap items-center gap-2" role="group" aria-label="Devise d'affichage des prix">
+          {CURRENCIES.map((code) => (
+            <button
+              key={code}
+              type="button"
+              aria-pressed={currency === code}
+              onClick={() => setCurrency(code)}
+              className={
+                "h-9 rounded-[var(--radius-md)] px-3 text-xs font-semibold uppercase tracking-wide shadow-[var(--shadow-border)] transition-colors " +
+                (currency === code ? "bg-primary text-primary-fg" : "bg-secondary text-fg hover:bg-secondary/70")
+              }
+            >
+              {code}
+            </button>
+          ))}
+          <p className="w-full text-xs leading-relaxed text-muted sm:w-auto sm:flex-1 sm:pl-2">
+            Conversion indicative — le paiement officiel reste en Ariary via Mobile Money.
+          </p>
+        </div>
+
         {/* Comparatif Gratuit / Premium */}
         <section className="mt-8">
           <div className="overflow-hidden rounded-[var(--radius-lg)] border border-border bg-card shadow-[var(--shadow-border)]">
@@ -88,7 +111,7 @@ function TarifsPage() {
             </div>
             <p className="mt-2 text-sm text-muted">Un module de révision ciblé pour préparer un chapitre précis.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {fmtAr(DECK_PRICE)}
+              {formatPrice(PRICES_MGA.deck, currency)}
               <span className="ml-1 text-sm font-normal text-muted">/ deck</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
@@ -115,7 +138,7 @@ function TarifsPage() {
             </div>
             <p className="mt-2 text-sm text-muted">Tous les decks d'une spécialité + cas cliniques + démarches complètes.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {fmtAr(SPECIALTY_PRICE)}
+              {formatPrice(PRICES_MGA.specialty, currency)}
               <span className="ml-1 text-sm font-normal text-muted">/ spécialité</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
@@ -171,6 +194,26 @@ function TarifsPage() {
               <ArrowRight className="size-4" />
             </Link>
           </article>
+        </section>
+
+        {/* Essai gratuit 7 jours (A03) */}
+        <section className="mt-10 flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <Sparkles className="mt-0.5 size-5 shrink-0 text-[#A67C1E]" />
+            <div>
+              <h2 className="font-display text-lg font-medium text-fg">Essai Premium · 7 jours gratuits</h2>
+              <p className="mt-1 text-sm text-muted">
+                Cas cliniques et démarches Premium en accès complet pendant 7 jours, sans paiement ni clé.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/pro"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[#A67C1E] px-4 py-2.5 text-sm font-semibold text-[#EDE0C8] transition-opacity hover:opacity-90"
+          >
+            Démarrer mon essai
+            <ArrowRight className="size-4" />
+          </Link>
         </section>
 
         {/* Note paiement */}

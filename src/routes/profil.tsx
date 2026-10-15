@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Award,
@@ -44,6 +44,7 @@ import {
   loadProfileCover,
   saveProfileCover,
 } from "@/lib/profile-cover-storage";
+import { nextBadgeGoal } from "@/lib/gamification/badge-progress";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
 
@@ -124,6 +125,11 @@ function ProfilPage() {
   const badges = useOptimus((state) => state.badges);
   const queue = useOptimus((state) => state.syncQueue);
   const purchases = useOptimus((state) => state.purchases);
+  const reviewsSucceeded = useOptimus((state) => state.reviewsSucceeded);
+  const casesCompleted = useOptimus((state) => state.casesCompleted);
+  const diagnosticsCompleted = useOptimus((state) => state.diagnosticsCompleted);
+  const importedDecks = useOptimus((state) => state.importedDecks);
+  const allProgress = useOptimus((state) => state.progress);
   const { user, isPending: authPending } = useCurrentUserState();
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
@@ -131,6 +137,19 @@ function ProfilPage() {
   const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
 
   const level = levelInfo(xp);
+  const badgeGoal = useMemo(
+    () =>
+      nextBadgeGoal({
+        badges,
+        streak,
+        reviewsSucceeded,
+        casesCompleted: casesCompleted.length,
+        diagnosticsCompleted: diagnosticsCompleted.length,
+        importedDecks: importedDecks.length,
+        progress: allProgress,
+      }),
+    [badges, streak, reviewsSucceeded, casesCompleted, diagnosticsCompleted, importedDecks, allProgress],
+  );
   const league = currentLeague(weeklyXp);
   const pending = queue.filter((event) => !event.synced).length;
   const pendingPurchases = purchases.filter((purchase) => purchase.status !== "delivered").length;
@@ -541,6 +560,7 @@ function ProfilPage() {
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {BADGE_CATALOG.map((badge) => {
               const earned = badges.includes(badge.id);
+              const isNextGoal = !earned && badgeGoal?.id === badge.id;
               const BadgeIcon = BADGE_ICONS[badge.id] ?? Award;
               return (
                 <div
@@ -548,6 +568,7 @@ function ProfilPage() {
                   className={cn(
                     "flex items-center gap-3 rounded-[var(--radius-lg)] p-3 shadow-[var(--shadow-border)]",
                     earned ? "bg-card" : "bg-secondary opacity-45",
+                    isNextGoal && "opacity-100 ring-1 ring-primary",
                   )}
                 >
                   <span
@@ -559,7 +580,11 @@ function ProfilPage() {
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium">{badge.title}</p>
                     <p className="truncate text-xs text-muted">
-                      {earned ? "Obtenu" : "À débloquer"}
+                      {earned
+                        ? "Obtenu"
+                        : isNextGoal && badgeGoal
+                          ? badgeGoal.hint
+                          : "À débloquer"}
                     </p>
                   </div>
                 </div>

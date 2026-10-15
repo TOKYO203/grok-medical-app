@@ -11,7 +11,10 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement
   // faible (~26 KiB) pour continuer à détecter toute dérive de bundle.
-  maxTotalJavascriptBytes: 1704 * 1024,
+  // Relevé 1704 → 1728 KiB (Session 1 « business model » : page /tarifs, prix
+  // multi-devises, essai 7 jours, teaser 30 s, badges progressifs) — total mesuré
+  // 1706,2 KiB. Marge volontairement faible (~21,8 KiB), même philosophie.
+  maxTotalJavascriptBytes: 1728 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

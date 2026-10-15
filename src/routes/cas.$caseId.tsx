@@ -12,6 +12,7 @@ import { hasEntitlement, useOptimus } from "@/state/store";
 import { specialtyPackProduct } from "@/lib/library/content-index";
 import type { ClinicalCase } from "@/core/types";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/cas/$caseId")({ component: CasePlay });
@@ -22,6 +23,7 @@ function CasePlay() {
   const navigate = useNavigate();
   const completeCase = useOptimus((s) => s.completeCase);
   const entitlements = useOptimus((s) => s.entitlements);
+  const premiumTrial = useOptimus((s) => s.premiumTrial);
   const [cursor, setCursor] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
@@ -42,7 +44,8 @@ function CasePlay() {
     );
   }
 
-  const open = hasClinicalAccess(clinical, entitlements);
+  const trialActive = isTrialActive(premiumTrial);
+  const open = hasClinicalAccess(clinical, entitlements) || trialActive;
   // Même résolution que le pack qui débloque réellement le cas.
   const premiumSpecialty = specialtyId(clinical.specialty);
   const previewLimit = Math.min(3, clinical.steps.length);
@@ -70,6 +73,11 @@ function CasePlay() {
           <div className="mt-5 flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
             <Sparkles className="size-4 shrink-0 text-primary" />
             Aperçu gratuit · {previewLimit} éléments du dossier
+          </div>
+        ) : trialActive ? (
+          <div className="mt-5 flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
+            <Sparkles className="size-4 shrink-0 text-primary" />
+            Essai Premium · {trialRemainingDays(premiumTrial)} jour{trialRemainingDays(premiumTrial) > 1 ? "s" : ""} restants — dossier complet ouvert
           </div>
         ) : null}
 

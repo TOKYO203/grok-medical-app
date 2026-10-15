@@ -17,6 +17,7 @@ import {
   type PurchaseStatus,
 } from "@/content/purchase-order";
 import { revalidateImportedDeck } from "@/content/validator";
+import { startTrial, type PremiumTrial } from "@/lib/premium-trial";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { applyReview, emptyStats } from "@/core/spaced-repetition";
 import { leagueFromWeeklyXp, type LeagueId } from "@/core/scoring";
@@ -99,6 +100,7 @@ type PersistShape = {
   syncQueue: SyncEvent[];
   contacts: ContactDraft[];
   purchases: PremiumPurchase[];
+  premiumTrial: PremiumTrial | null;
   locale: Locale;
 };
 
@@ -125,6 +127,7 @@ export type OptimusState = PersistShape & {
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
   upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
+  startPremiumTrial: () => void;
   resetLocal: () => void;
   setLocale: (locale: Locale) => void;
 };
@@ -255,6 +258,21 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
   });
 }
 
+/** Essai Premium local (A03) — un seul par profil, jamais réémis par le persist. */
+function restoreTrial(value: unknown): PremiumTrial | null {
+  if (!value || typeof value !== "object") return null;
+  const trial = value as Partial<PremiumTrial>;
+  if (
+    typeof trial.startedAt !== "number" ||
+    !Number.isFinite(trial.startedAt) ||
+    typeof trial.expiresAt !== "number" ||
+    !Number.isFinite(trial.expiresAt)
+  ) {
+    return null;
+  }
+  return { startedAt: trial.startedAt, expiresAt: trial.expiresAt };
+}
+
 function deliverPurchases(purchases: PremiumPurchase[], products: Iterable<string>) {
   const delivered = new Set(products);
   if (delivered.size === 0) return purchases;
@@ -309,6 +327,7 @@ const persistDefaults: PersistShape = {
   syncQueue: [],
   contacts: [],
   purchases: [],
+  premiumTrial: null,
   locale: DEFAULT_LOCALE,
 };
 
@@ -334,6 +353,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     entitlements: [freeEntitlement()],
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     purchases: restorePurchases(saved.purchases),
+    premiumTrial: restoreTrial(saved.premiumTrial),
     locale: isLocale(saved.locale) ? saved.locale : DEFAULT_LOCALE,
     hydrated: false,
     importedDeckStorageReady: false,
@@ -561,6 +581,7 @@ export const useOptimus = create<OptimusState>()(
             syncQueue: [...s.syncQueue, event],
             contacts: s.contacts,
             purchases: s.purchases,
+            premiumTrial: s.premiumTrial,
             locale: s.locale,
           };
           const badges = unlockBadges(next);
@@ -655,6 +676,11 @@ export const useOptimus = create<OptimusState>()(
             ],
           };
         }),
+      startPremiumTrial: () =>
+        set((s) => {
+          if (s.premiumTrial) return {};
+          return { premiumTrial: startTrial() };
+        }),
       resetLocal: () => {
         const ownerId = get().profile.optimusId;
         void deleteImportedDeckStorage(ownerId).catch((error) => {
@@ -711,6 +737,7 @@ function pickPersist(s: PersistShape): PersistShape {
     syncQueue: s.syncQueue,
     contacts: s.contacts,
     purchases: s.purchases,
+    premiumTrial: s.premiumTrial,
     locale: s.locale,
   };
 }
