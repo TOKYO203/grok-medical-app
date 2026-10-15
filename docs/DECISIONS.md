@@ -33,6 +33,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | B16 | « Optimus Clinical AI » clarifié partout : tuteur pédagogique, ni diagnostic ni conduite à tenir, pas un dispositif médical — bandeau du widget `ClinicalAIWidget.tsx`, paragraphe dédié dans `/a-propos`, pages `/conseil-editorial` et `/validation-clinique`, `docs/CLINICAL-VALIDATION.md` | Le nom « Clinical AI » laissait croire à un outil d'aide à la décision clinique ; on nomme le périmètre réel | Vibe |
 | 2026-10-15 | B17 | Disclaimer médical affiché à l'écran 4 de l'onboarding (composant `MedicalDisclaimer` existant, au-dessus du bouton « Commencer »), sans case à cocher | Le disclaimer n'était visible qu'en pied de page après l'entrée dans l'app ; réutiliser le composant existant n'ajoute ni friction ni clés i18n | Vibe |
 | 2026-10-15 | B18 | Crédits ECG visibles dans l'UI : J. Hampton, *The ECG Made Easy* (Elsevier) et recommandations ESC affichés sur `/ecg` ; crédits également portés par `/conseil-editorial` et `docs/CLINICAL-VALIDATION.md` | Citer les références de lecture à l'endroit où l'étudiant apprend, sans toucher au moteur `src/lib/ecg` (module interdit) | Vibe |
+| 2026-10-15 | — | `src/routeTree.gen.ts` régénéré avec `/conseil-editorial` et `/validation-clinique` (correctif CI sur le job test) | Le fichier d'arborescence est versionné : sans mise à jour, le job test (qui ne passe pas par `routes:generate`) échoue sur les `Link` typés d'`a-propos.tsx` | Vibe |
 
 ## Sessions terminées
 
