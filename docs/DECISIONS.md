@@ -60,6 +60,13 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | — | AGENTS.md rafraîchi : bugs #1–#3 de l'audit marqués corrigés (Session 4), items Top 5 #4/#5 marqués livrés (Sessions 1 et 3), en-tête « Prochaine session » actualisé | L'en-tête pointait vers un chantier déjà fusionné (Session 1) ; l'audit doit refléter l'état réel pour piloter la session suivante | Vibe |
 | 2026-10-15 | — | Runtime d'auth étendu à Cloudflare Pages : `CF_PAGES_URL` rejoint BETTER_AUTH_URL et les variables Vercel dans `hasPublicOrigin` et la dérivation de base URL (`cloudflareAutoBaseURL`, origins de plateforme de confiance) ; `CF_PAGES=1` active le header IP `cf-connecting-ip` ; message « version de test » reformulé en « déploiement » (runtime-status, login) | Bug #1 de l'audit : l'app est déployée sur Cloudflare Pages (optimusmedical.pages.dev) mais le runtime ne connaissait que Vercel/Netlify — le diagnostic public affichait « connexion cloud indisponible » en production ; garde-fous de `scripts/auth-runtime.test.mjs` étendus aux variables CF | Vibe |
 
+## 2026-10-15 — Session 5 : QA auscultation
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-15 | — | Gel levé sur l'auscultation uniquement (moteurs « interdits » de la mission) : la demande explicite de contrôle qualité de l'auscultation cardiaque et pulmonaire ouvre ce périmètre pour la Session 5 ; ECG et calculateurs restent gelés | Le moteur audio (`src/lib/auscultation/engine.ts`) reste inchangé et sert de source de vérité ; les correctifs portent sur le tracé, le moniteur et l'accessibilité | Vibe |
+| 2026-10-15 | — | Tracé pulmonaire aligné sur le moteur audio : sibilances — le « Sibilances inspiratoires » fantôme (le moteur ne siffle qu'à l'expiration) devient un murmure vésiculaire discret ; fenêtres de craquements calquées sur `scatterCrackles` (fins télé-inspiratoires, moyens holo-inspiratoires, grossiers sur tout le cycle) ; craquements pleuraux réduits aux deux bouffées miroirs du moteur | Contrôle qualité Session 5 : le moniteur contredisait à la fois le son produit et les fiches (« expiratoire (prédominance) », « télé-inspiratoire », « miroirs inspiration et expiration ») | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).

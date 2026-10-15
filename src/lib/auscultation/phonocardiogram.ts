@@ -268,8 +268,14 @@ export function buildCycle(
         : preset === "medium_crackles" ? 0.015 : 0.025;
       const events: PhonoEvent[] = [];
       // Craquements répartis en fin d'inspiration (télé-inspiratoire)
+      // Fenetre de dispersion calquee sur le moteur (scatterCrackles) :
+      //   fins (haute frequence)  -> tele-inspiratoires ;
+      //   moyens (moyenne)        -> holo-inspiratoires ;
+      //   grossiers (basse)       -> tout le cycle.
+      const crackleFrom = preset === "fine_crackles" ? split * 0.55 : 0.05;
+      const crackleTo = preset === "coarse_crackles" ? total * 0.9 : split;
       for (let i = 0; i < 12; i++) {
-        const t = 0.05 + (i / 11) * (total * 0.45);
+        const t = crackleFrom + (i / 11) * (crackleTo - crackleFrom);
         events.push({
           kind: "crackle", startTime: t, duration: width,
           amplitude: 0.6 + (i % 3) * 0.1, shape: "burst",
@@ -282,13 +288,13 @@ export function buildCycle(
     }
 
     case "pleural_crackles": {
-      const events: PhonoEvent[] = [];
-      for (let i = 0; i < 6; i++) {
-        const ti = 0.05 + (i / 5) * (total * 0.4);
-        const te = total * 0.55 + (i / 5) * (total * 0.4);
-        events.push({ kind: "crackle", startTime: ti, duration: 0.015, amplitude: 0.6, shape: "burst" });
-        events.push({ kind: "crackle", startTime: te, duration: 0.015, amplitude: 0.5, shape: "burst" });
-      }
+      // Deux bouffees MIROIRS uniquement (fin d'inspiration / fin
+      // d'expiration), exactement comme le moteur (breathPleuralCrackles).
+      const expi = total - split;
+      const events: PhonoEvent[] = [
+        { kind: "crackle", startTime: split * 0.9, duration: 0.015, amplitude: 0.6, shape: "burst" },
+        { kind: "crackle", startTime: split + expi * 0.9, duration: 0.015, amplitude: 0.5, shape: "burst" },
+      ];
       return cycle(events, [
         { start: 0, end: split, label: "Inspiration", color: "inspi" },
         { start: split, end: total, label: "Expiration", color: "expi" },
@@ -296,14 +302,15 @@ export function buildCycle(
     }
 
     case "sibilances":
-      return cycle([
-        { kind: "continuous", startTime: 0, duration: total * 0.45,
-          amplitude: 0.4, shape: "plateau", label: "Sibilances inspiratoires" },
-        { kind: "continuous", startTime: split, duration: total * 0.45,
+      // Le moteur (breathSibilances) ne produit la sibilance qu'a
+      // l'expiration ; l'inspiration reste un murmure vesiculaire discret,
+      // comme l'ecrit la fiche ("murmure +/- sibilances").
+      return breathCycle([
+        { kind: "breath", startTime: 0, duration: split,
+          amplitude: 0.3, shape: "plateau", label: "Murmure vesiculaire" },
+        { kind: "continuous", startTime: split + (total - split) * 0.12,
+          duration: (total - split) * 0.88,
           amplitude: 0.7, shape: "plateau", label: "Sibilances expiratoires" },
-      ], [
-        { start: 0, end: split, label: "Inspiration", color: "inspi" },
-        { start: split, end: total, label: "Expiration", color: "expi" },
       ]);
 
     case "stridor":
