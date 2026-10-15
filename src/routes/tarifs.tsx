@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -10,17 +11,16 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
+import {
+  CURRENCIES,
+  detectPreferredCurrency,
+  formatPrice,
+  PRICES_MGA,
+  type Currency,
+} from "@/content/pricing";
 import { PREMIUM_SPECIALTIES } from "@/content/purchase-order";
 
 export const Route = createFileRoute("/tarifs")({ component: TarifsPage });
-
-// Montants alignés sur orderAmount() de src/content/purchase-order.ts
-const DECK_PRICE = 3_000;
-const SPECIALTY_PRICE = 27_000;
-
-function fmtAr(n: number): string {
-  return `${n.toLocaleString("fr-FR")} Ar`;
-}
 
 type FeatureValue = boolean | "limité";
 
@@ -46,6 +46,8 @@ function FeatureCell({ value }: { value: FeatureValue }) {
 }
 
 function TarifsPage() {
+  const [currency, setCurrency] = useState<Currency>(() => detectPreferredCurrency());
+
   return (
     <Shell title="Tarifs">
       <Page
@@ -58,6 +60,27 @@ function TarifsPage() {
           />
         }
       >
+        {/* Sélecteur de devise (A01) */}
+        <div className="mt-6 flex flex-wrap items-center gap-2" role="group" aria-label="Devise d'affichage des prix">
+          {CURRENCIES.map((code) => (
+            <button
+              key={code}
+              type="button"
+              aria-pressed={currency === code}
+              onClick={() => setCurrency(code)}
+              className={
+                "h-9 rounded-[var(--radius-md)] px-3 text-xs font-semibold uppercase tracking-wide shadow-[var(--shadow-border)] transition-colors " +
+                (currency === code ? "bg-primary text-primary-fg" : "bg-secondary text-fg hover:bg-secondary/70")
+              }
+            >
+              {code}
+            </button>
+          ))}
+          <p className="w-full text-xs leading-relaxed text-muted sm:w-auto sm:flex-1 sm:pl-2">
+            Conversion indicative — le paiement officiel reste en Ariary via Mobile Money.
+          </p>
+        </div>
+
         {/* Comparatif Gratuit / Premium */}
         <section className="mt-8">
           <div className="overflow-hidden rounded-[var(--radius-lg)] border border-border bg-card shadow-[var(--shadow-border)]">
@@ -88,7 +111,7 @@ function TarifsPage() {
             </div>
             <p className="mt-2 text-sm text-muted">Un module de révision ciblé pour préparer un chapitre précis.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {fmtAr(DECK_PRICE)}
+              {formatPrice(PRICES_MGA.deck, currency)}
               <span className="ml-1 text-sm font-normal text-muted">/ deck</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
@@ -115,7 +138,7 @@ function TarifsPage() {
             </div>
             <p className="mt-2 text-sm text-muted">Tous les decks d'une spécialité + cas cliniques + démarches complètes.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {fmtAr(SPECIALTY_PRICE)}
+              {formatPrice(PRICES_MGA.specialty, currency)}
               <span className="ml-1 text-sm font-normal text-muted">/ spécialité</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
