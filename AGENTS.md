@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Prochaine session** : A02, A01, A03, A05, A07 (business model freemium/premium)
+**Sessions 1–4 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5) — suite : bugs #4/#5 de l'accueil, puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -369,9 +369,9 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🔴 Bugs critiques (Top 5)
 
-1. « Connexion cloud indisponible » sur PROD — message test en prod
-2. 80% du contenu verrouillé — 1 cas / 5, 11 contenus / 56
-3. Statuts incohérents — « Nouveau » + « 5ème année », « Ligue Bronze » + « Niveau 1 »
+1. « Connexion cloud indisponible » sur PROD — ✅ corrigé (Session 4 : support Cloudflare Pages, message « déploiement »)
+2. 80% du contenu verrouillé — 1 cas / 5, 11 contenus / 56 — ✅ 4 cas / 5 gratuits (Session 4) ; contenus restants à suivre
+3. Statuts incohérents — « Nouveau » + « 5ème année », « Ligue Bronze » + « Niveau 1 » — ✅ Ligue retirée du profil (Session 4) ; « Nouveau » à suivre
 4. « Aujourd'hui... » tronqué et « 0 sur 10 » ambigu (10 quoi ?)
 5. « Profil de maîtrise après 1ère session » — aucune session accessible
 
@@ -388,18 +388,18 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🟢 Améliorations — Onboarding (7)
 
-- Fusionner Niveau + Ligue en un seul système
+- Fusionner Niveau + Ligue en un seul système — ✅ Session 4
 - Remplacer « Nouveau » par « Actif » après inscription
 - Tooltip sur l'ID utilisateur (« Ton identifiant Optimus »)
 - Bouton Retour sur chaque étape onboarding
 - Persister l'état d'onboarding (reprendre où quitté)
 - Réordonner : niveau → objectif → spé → rythme
-- Exposer le sélecteur de langue (i18n déjà codé Session 3)
+- Exposer le sélecteur de langue (i18n déjà codé Session 3) — ✅ Session 3 (profil)
 
 ### 🟢 Améliorations — Progression (7)
 
 - Fusionner « Maîtrise globale » + « XP » en un indicateur unique
-- Afficher « X XP avant le niveau suivant »
+- Afficher « X XP avant le niveau suivant » — ✅ Session 4
 - Rendre « Premier cas » débloquable dès le début
 - Vue détail de chaque badge (condition + progression)
 - Animer les badges à leur déblocage
@@ -410,7 +410,7 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 - Compléter 41 chapitres d'orientation manquants
 - Compléter 189 items (51 → 240)
-- Débloquer 2-3 cas cliniques gratuits supplémentaires
+- Débloquer 2-3 cas cliniques gratuits supplémentaires — ✅ Session 4
 - Mode « aperçu gratuit » (1ère question) sur contenus verrouillés
 - Classer cas par difficulté (L1/L2/L3)
 - Recommandation basée sur erreurs passées
@@ -438,9 +438,9 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🎯 Priorité Top 5
 
-1. Fix « Connexion cloud indisponible » (bug #1)
-2. Débloquer plus de contenu gratuit (bug #2)
-3. Uniformiser statuts Niveau/Ligue (bug #3)
-4. Prix multi-devises + Essai 7j
-5. Sélecteur de langue (débloque international)
+1. Fix « Connexion cloud indisponible » (bug #1) — ✅ Session 4
+2. Débloquer plus de contenu gratuit (bug #2) — ✅ Session 4
+3. Uniformiser statuts Niveau/Ligue (bug #3) — ✅ Session 4
+4. Prix multi-devises + Essai 7j — ✅ Session 1
+5. Sélecteur de langue (débloque international) — ✅ Session 3
 
