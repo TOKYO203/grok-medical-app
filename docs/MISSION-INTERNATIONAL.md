@@ -47,14 +47,14 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - A10 Code promo
 
 ### B — Crédibilité médicale (10)
-- B11 Sources bibliographiques par fiche
-- B12 Page Conseil éditorial
-- B13 Date de révision par fiche
-- B14 Version médicale ("v2025.10-Mada")
-- B15 docs/CLINICAL-VALIDATION.md public
-- B16 Clarifier "Optimus Clinical AI"
-- B17 Disclaimer médical au démarrage
-- B18 Créditer Hampton/ESC dans l'UI
+- B11 Sources bibliographiques par fiche — ✅ livré (PR #49)
+- B12 Page Conseil éditorial — ✅ livré (PR #49)
+- B13 Date de révision par fiche — ✅ livré (PR #49)
+- B14 Version médicale ("v2025.10-Mada") — ✅ livré (PR #49)
+- B15 docs/CLINICAL-VALIDATION.md public — ✅ livré (PR #49)
+- B16 Clarifier "Optimus Clinical AI" — ✅ livré (PR #49)
+- B17 Disclaimer médical au démarrage — ✅ livré (PR #49)
+- B18 Créditer Hampton/ESC dans l'UI — ✅ livré (PR #49)
 - B19 Changelog public
 - B20 Email institutionnel
 
