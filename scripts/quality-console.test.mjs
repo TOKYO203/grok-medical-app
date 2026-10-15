@@ -39,6 +39,8 @@ test("aucun script QA ne masque les requêtes /_vercel (fin du stubbing)", () =>
   const scriptsDir = new URL("../scripts/", import.meta.url);
   for (const name of readdirSync(scriptsDir)) {
     if (!name.endsWith(".mjs")) continue;
+    // Ce garde-fou énonce le motif interdit : il ne se scanne pas lui-même.
+    if (name === "quality-console.test.mjs") continue;
     const content = readFileSync(new URL(name, scriptsDir), "utf8");
     assert.ok(
       !content.includes("**/_vercel/**"),
