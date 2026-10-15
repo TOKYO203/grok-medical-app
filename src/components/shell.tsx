@@ -1,22 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import {
-  Activity,
-  BookMarked,
-  Calculator,
-  ClipboardCheck,
-  Compass,
-  GraduationCap,
-  HeartPulse,
-  Home,
-  Library,
-  RotateCcw,
-  Search,
-  Stethoscope,
-  Trophy,
-  Upload,
-  UserRound,
-} from "lucide-react";
+import { Search } from "lucide-react";
+import { EXPLORE_GROUPS, NAV, isActive } from "@/lib/navigation";
 import { CommandPalette, useCommandPalette } from "@/components/command-palette";
 import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
@@ -26,37 +11,6 @@ import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
-
-const NAV = [
-  { to: "/", labelKey: "nav.home", shortKey: "nav.homeShort", icon: Home },
-  { to: "/demarche", labelKey: "nav.orientation", shortKey: "nav.orientationShort", icon: Compass },
-  { to: "/cas", labelKey: "nav.cases", shortKey: "nav.casesShort", icon: Stethoscope },
-  { to: "/programme", labelKey: "nav.nosography", shortKey: "nav.nosographyShort", icon: BookMarked },
-  { to: "/profil", labelKey: "nav.profile", shortKey: "nav.profileShort", icon: UserRound },
-] as const;
-
-/*
- * Navigation secondaire (sidebar desktop). Regroupe les surfaces qui ne tiennent
- * plus dans la barre principale à 5 entrées — dont « Bibliothèque » et « Réviser »
- * retirées de NAV au profit d'« Orientation » + « Nosographie ». Le route `/parcours`
- * n'y figure pas : il est déjà couvert par l'entrée principale « Nosographie ».
- */
-const EXPLORE = [
-  { to: "/bibliotheque", labelKey: "nav.library", icon: Library },
-  { to: "/revue", labelKey: "nav.review", icon: RotateCcw },
-  { to: "/programme", labelKey: "nav.nationalCurriculum", icon: GraduationCap },
-  { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: Activity },
-  { to: "/auscultation", labelKey: "nav.auscultation", icon: HeartPulse },
-  { to: "/examen", labelKey: "nav.mockExam", icon: ClipboardCheck },
-  { to: "/calculateurs", labelKey: "nav.calculators", icon: Calculator },
-  { to: "/classement", labelKey: "nav.leaderboard", icon: Trophy },
-  { to: "/import", labelKey: "nav.importDeck", icon: Upload },
-] as const;
-
-function isActive(pathname: string, to: string) {
-  if (to === "/") return pathname === "/";
-  return pathname === to || pathname.startsWith(`${to}/`);
-}
 
 export function Shell({ children, title }: { children: ReactNode; title?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -73,7 +27,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
         {t("nav.skipContent")}
       </a>
       <div className="mx-auto flex min-h-dvh max-w-7xl">
-        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-border bg-bg/60 px-4 py-6 backdrop-blur-xl md:flex">
+        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col overflow-y-auto border-r border-border bg-bg/60 px-4 py-6 backdrop-blur-xl md:flex">
           <Link to="/" className="mb-5 px-1">
             <Wordmark />
           </Link>
@@ -118,26 +72,33 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             {t("nav.explorer")}
           </div>
           <nav className="flex flex-col gap-0.5" aria-label={t("nav.ariaSecondary")}>
-            {EXPLORE.map((item) => {
-              const active = isActive(pathname, item.to);
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  aria-current={active ? "page" : undefined}
-                  className={cn(
-                    "flex h-9 items-center gap-3 rounded-[var(--radius-sm)] px-3 text-[13px] transition-colors",
-                    active
-                      ? "bg-secondary text-fg"
-                      : "text-muted hover:bg-secondary/60 hover:text-fg",
-                  )}
-                >
-                  <Icon className="size-4" strokeWidth={1.75} />
-                  {t(item.labelKey)}
-                </Link>
-              );
-            })}
+            {EXPLORE_GROUPS.map((group) => (
+              <div key={group.labelKey} className="mb-2 last:mb-0">
+                <p className="mb-1 px-3 text-[10px] font-medium uppercase tracking-[0.14em] text-subtle">
+                  {t(group.labelKey)}
+                </p>
+                {group.items.map((item) => {
+                  const active = isActive(pathname, item.to);
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "flex h-9 items-center gap-3 rounded-[var(--radius-sm)] px-3 text-[13px] transition-colors",
+                        active
+                          ? "bg-secondary text-fg"
+                          : "text-muted hover:bg-secondary/60 hover:text-fg",
+                      )}
+                    >
+                      <Icon className="size-4" strokeWidth={1.75} />
+                      {t(item.labelKey)}
+                    </Link>
+                  );
+                })}
+              </div>
+            ))}
           </nav>
 
           <div className="mt-auto flex items-center justify-between gap-2 pt-4">
