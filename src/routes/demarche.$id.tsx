@@ -9,6 +9,7 @@ import { getDiagnostic } from "@/content/catalog";
 import { specialtyPackProduct } from "@/lib/library/content-index";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/demarche/$id")({ component: DemarchePage });
@@ -19,6 +20,7 @@ function DemarchePage() {
   const navigate = useNavigate();
   const complete = useOptimus((s) => s.completeDiagnostic);
   const entitlements = useOptimus((s) => s.entitlements);
+  const premiumTrial = useOptimus((s) => s.premiumTrial);
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
@@ -33,9 +35,11 @@ function DemarchePage() {
     );
   }
 
+  const trialActive = isTrialActive(premiumTrial);
   const open =
     hasEntitlement("OPTIMUS_PRO", entitlements) ||
-    hasEntitlement(specialtyPackProduct(dx.specialty), entitlements);
+    hasEntitlement(specialtyPackProduct(dx.specialty), entitlements) ||
+    trialActive;
   // Même résolution que le pack qui débloque réellement la démarche.
   const premiumSpecialty = diagnosticSpecialty(dx.specialty);
   const previewFinished = !open && step >= 1;
@@ -62,6 +66,10 @@ function DemarchePage() {
         {!open ? (
           <p className="mt-3 text-xs font-medium text-primary">
             Aperçu Premium · première décision offerte
+          </p>
+        ) : trialActive ? (
+          <p className="mt-3 text-xs font-medium text-primary">
+            Essai Premium · {trialRemainingDays(premiumTrial)} jour{trialRemainingDays(premiumTrial) > 1 ? "s" : ""} restants — démarche complète ouverte
           </p>
         ) : null}
 

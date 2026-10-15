@@ -196,6 +196,26 @@ function TarifsPage() {
           </article>
         </section>
 
+        {/* Essai gratuit 7 jours (A03) */}
+        <section className="mt-10 flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <Sparkles className="mt-0.5 size-5 shrink-0 text-[#A67C1E]" />
+            <div>
+              <h2 className="font-display text-lg font-medium text-fg">Essai Premium · 7 jours gratuits</h2>
+              <p className="mt-1 text-sm text-muted">
+                Cas cliniques et démarches Premium en accès complet pendant 7 jours, sans paiement ni clé.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/pro"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[#A67C1E] px-4 py-2.5 text-sm font-semibold text-[#EDE0C8] transition-opacity hover:opacity-90"
+          >
+            Démarrer mon essai
+            <ArrowRight className="size-4" />
+          </Link>
+        </section>
+
         {/* Note paiement */}
         <section className="mt-10 rounded-[var(--radius-md)] bg-[#A67C1E]/10 p-4 text-sm text-muted">
           <p className="flex items-start gap-2">
