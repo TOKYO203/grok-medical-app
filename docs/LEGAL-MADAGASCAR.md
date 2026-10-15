@@ -1,3 +1,25 @@
+# Légal Madagascar — Optimus Formation Médicale
+
+> Cadre juridique pour éditer et vendre l'app à Madagascar.
+> Étudiant seul, 0 data patient, statut EI, conformité loi 2014-038.
+
+## Sommaire
+
+- **A.** Contexte et cadre général
+- **B.** Procédure EI + protection des données (CMIL, loi 2014-038)
+- **C.** Modèles de documents (mentions, confidentialité, CGU)
+
+## A. Contexte
+
+- Produit : application **pédagogique** pour étudiants en médecine
+- Aucun acte médical, aucun dossier patient, aucune donnée de santé réelle
+- Cible v1 : Madagascar (Concours National Internat)
+- Statut juridique prévu : **Entreprise Individuelle (EI)**
+- Autorité protection données : **CMIL** (et non CNIL France)
+- Base légale : **Loi n° 2014-038 du 9 janvier 2015**
+
+---
+
 
 ---
 
@@ -157,3 +179,178 @@ Le responsable du traitement doit informer la personne de :
 - Formulaire, pièces, délai et coût de la déclaration CMIL
 - Coordonnées et adresse physique de la CMIL (aucune source officielle vérifiée à ce jour)
 - Applicabilité de la dispense de déclaration via désignation d'un DPO (art. 52)
+
+## C. MODÈLES DE DOCUMENTS
+
+> Modèles à personnaliser. Champs entre [CROCHETS] à remplacer.
+
+### C1. Mentions légales
+
+Éditeur
+-------
+Optimus Formation Médicale
+Entreprise Individuelle (EI)
+Responsable : [PRÉNOM NOM]
+NIF : [À RENSEIGNER]
+RCS : [À RENSEIGNER] — Tribunal de Commerce de [VILLE]
+Carte statistique INSTAT : [À RENSEIGNER]
+Siège : [ADRESSE], Madagascar
+Email : contact@[DOMAINE].mg
+
+Directeur de la publication
+----------------------------
+[PRÉNOM NOM], responsable de l'EI.
+
+Hébergement
+-----------
+- Base + auth : Supabase, Inc. (Singapour)
+- Base secondaire : Neon, Inc. (USA) si applicable
+- Stockage assets : [Cloudflare R2 / S3 / autre]
+
+Propriété intellectuelle
+------------------------
+L'ensemble du site et de ses contenus (textes, fiches d'auscultation,
+cas ECG synthétiques, calculateurs, code source, design) est la propriété
+exclusive de l'EI ou de ses concédants, sauf mention contraire.
+Toute reproduction même partielle est interdite sans autorisation écrite.
+
+Sources médicales citées (conformément à leurs licences) :
+- ECG : Hampton, The ECG Made Easy ; ESC Guidelines ; HAS
+- Auscultation : références cliniques standard
+
+Contact : [EMAIL DE CONTACT]
+
+### C2. Politique de confidentialité
+
+> Conforme à la Loi n° 2014-038 — articles 13, 18, 20, 23, 25, 27.
+
+Dernière mise à jour : [DATE]
+
+1. RESPONSABLE DU TRAITEMENT
+Optimus Formation Médicale (EI), [PRÉNOM NOM], [ADRESSE], [NIF], contact@[DOMAINE].mg
+
+2. FINALITÉ
+Application strictement pédagogique pour étudiants en médecine.
+Données traitées : inscription, progression, licence Premium.
+Aucune donnée médicale réelle. Cas ECG et fiches d'auscultation
+sont intégralement synthétiques et à visée d'apprentissage.
+
+3. DONNÉES COLLECTÉES
+- Adresse email (obligatoire à l'inscription)
+- Pseudo / nom affiché
+- Mot de passe (haché côté serveur, jamais en clair)
+- Progression : XP, streaks, scores, modules complétés
+- Licence Premium (signature Ed25519)
+- Paiement : jamais stocké par Optimus, traité par le prestataire MGA
+
+4. BASE LÉGALE
+- Exécution du contrat (inscription, accès Premium)
+- Consentement explicite (communications optionnelles)
+- Obligation légale (conservation factures)
+
+5. DESTINATAIRES
+- Supabase, Inc. (base et authentification)
+- [NOM PRESTATAIRE PAIEMENT MGA] (paiements locaux)
+
+6. TRANSFERT HORS MADAGASCAR — Article 20
+Certaines données sont hébergées hors de Madagascar (Supabase :
+Singapour/USA). Ces prestataires ne sont pas soumis à une législation
+offrant un niveau de protection équivalent à la Loi 2014-038.
+Vous donnez votre consentement explicite à ce transfert en validant
+votre inscription (art. 20, dérogation a). Retrait possible à tout
+moment en supprimant votre compte.
+
+7. DURÉE DE CONSERVATION
+- Données de compte : 3 ans après dernière activité, puis suppression
+- Données de facturation : 10 ans (obligation comptable malgache)
+- Données anonymisées : conservation illimitée (pédagogie)
+
+8. VOS DROITS — Articles 22, 23, 25
+Exercables gratuitement :
+- Accès : obtenir l'ensemble de vos données
+- Rectification : corriger des données inexactes
+- Opposition : motif légitime
+- Effacement : suppression du compte et des données
+- Portabilité : récupérer votre progression
+
+Exercice : email à [EMAIL CONTACT] avec pseudo + nature de la demande.
+Réponse sous 30 jours.
+
+9. SÉCURITÉ
+Chiffrement TLS en transit, mots de passe hachés bcrypt/argon2,
+validation stricte des entrées, audits réguliers.
+
+10. RÉCLAMATIONS
+Réclamation possible auprès de la CMIL (Commission Malagasy de
+l'Informatique et des Libertés), autorité instituée par la Loi 2014-038.
+
+11. MODIFICATIONS
+Politique modifiable à tout moment. Date de mise à jour en tête.
+L'usage continu de l'app vaut acceptation.
+
+### C3. Conditions Générales d'Utilisation
+
+PRÉAMBULE
+Optimus Formation Médicale est une application pédagogique destinée
+aux étudiants en médecine. Elle n'est PAS un outil médical et ne
+remplace en aucun cas l'avis d'un professionnel de santé qualifié.
+
+⚠️ DÉCHARGE MÉDICALE CRITIQUE
+- Les cas ECG sont synthétiques et générés à des fins d'apprentissage
+- Les fiches d'auscultation sont des supports pédagogiques
+- Les calculateurs sont fournis à titre informatif
+- AUCUN contenu ne doit servir à poser un diagnostic, prescrire un
+  traitement ou prendre une décision sur un patient réel
+- En cas de doute clinique, consulter immédiatement un médecin
+
+1. OBJET
+Les présentes CGU régissent l'utilisation de l'app par les utilisateurs
+inscrits.
+
+2. ACCÈS
+Inscription avec email valide. Confidentialité des identifiants à la
+charge de l'utilisateur.
+
+3. NATURE DE L'APPLICATION
+Outil pédagogique de préparation au Concours National de l'Internat à
+Madagascar et au public francophone. N'est pas un dispositif médical.
+Aucune certification sanitaire.
+
+4. OFFRE FREEMIUM / PREMIUM
+- Free : accès limité à certains modules
+- Premium : accès complet contre paiement en Ariary (MGA)
+- Licence Ed25519 liée au compte. Personnelle, non cessible.
+
+5. TARIFS ET PAIEMENT
+- Tarifs en Ariary malgache (MGA)
+- Paiement : [MVola / Orange Money / Airtel Money / autre]
+- Pas de remboursement après activation sauf dysfonctionnement avéré
+
+6. PROPRIÉTÉ INTELLECTUELLE
+Contenus propriété exclusive d'Optimus. L'utilisateur acquiert un droit
+d'usage personnel et non exclusif, non cessible.
+
+7. LIMITATION DE RESPONSABILITÉ
+Dans les limites du droit malgache, Optimus ne peut être tenue
+responsable des décisions prises sur la base des contenus, des
+interruptions de service, ou des erreurs de contenu (l'utilisateur doit
+toujours croiser avec les sources de référence).
+
+8. DONNÉES PERSONNELLES
+Voir Politique de confidentialité. L'inscription vaut acceptation du
+transfert hors Madagascar (art. 20, loi 2014-038).
+
+9. RÉSILIATION
+Suppression du compte possible à tout moment via profil. Optimus peut
+suspendre un compte en cas de violation des CGU.
+
+10. DROIT APPLICABLE
+Droit malgache. Litiges soumis aux tribunaux compétents de
+[Antananarivo], Madagascar.
+
+11. CONTACT
+contact@[DOMAINE].mg
+
+---
+
+**FIN DU DOCUMENT**
