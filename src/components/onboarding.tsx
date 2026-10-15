@@ -109,7 +109,7 @@ export function Onboarding() {
             />
           ))}
         </div>
-        <p className="optimus-kicker mt-2 text-[10px] uppercase tracking-[0.16em]">
+        <p className="optimus-kicker mt-2 text-[11px] uppercase tracking-[0.16em]">
           Étape {step + 1} sur {TOTAL_STEPS}
         </p>
 
