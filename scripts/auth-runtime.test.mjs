@@ -18,18 +18,22 @@ test("auth readiness only enables broker sign-in with credentials plus a public 
   assert.match(runtimeStatus, /BETTER_AUTH_URL/);
   assert.match(runtimeStatus, /VERCEL_BRANCH_URL/);
   assert.match(runtimeStatus, /VERCEL_URL/);
+  assert.match(runtimeStatus, /CF_PAGES_URL/);
   assert.match(runtimeStatus, /missing-public-origin/);
   assert.match(runtimeStatus, /missing-deployment-config/);
   assert.match(runtimeStatus, /providers:\s*\[\]/);
 });
 
-test("Vercel deployments derive a HTTPS Better Auth origin only when a deployed broker client exists", () => {
+test("Vercel and Cloudflare Pages deployments derive a HTTPS Better Auth origin only when a deployed broker client exists", () => {
   assert.match(authServer, /deployedBrokerClientConfigured/);
   assert.match(authServer, /VERCEL_BRANCH_URL/);
   assert.match(authServer, /VERCEL_PROJECT_PRODUCTION_URL/);
   assert.match(authServer, /vercelAutoBaseURL/);
   assert.match(authServer, /BETTER_AUTH_URL.*vercelAutoBaseURL/s);
   assert.match(authServer, /platformTrustedOrigins/);
+  assert.match(authServer, /CF_PAGES_URL/);
+  assert.match(authServer, /cloudflareAutoBaseURL/);
+  assert.match(authServer, /vercelAutoBaseURL \?\? cloudflareAutoBaseURL/);
 });
 
 test("Better Auth rate limiting trusts only platform-owned or explicitly opted-in client IP headers", () => {
@@ -38,6 +42,8 @@ test("Better Auth rate limiting trusts only platform-owned or explicitly opted-i
   assert.match(authServer, /x-vercel-forwarded-for/);
   assert.match(authServer, /env\("NETLIFY"\) === "true"/);
   assert.match(authServer, /x-nf-client-connection-ip/);
+  assert.match(authServer, /env\("CF_PAGES"\) === "1"/);
+  assert.match(authServer, /cf-connecting-ip/);
   assert.match(authServer, /env\("TRUST_PROXY_HEADERS"\) === "true"/);
   assert.match(authServer, /\["x-forwarded-for"\]/);
   assert.match(authServer, /ipAddress:\s*\{\s*ipAddressHeaders:\s*authIpAddressHeaders\s*\}/);

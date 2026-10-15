@@ -65,7 +65,8 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       env("BETTER_AUTH_URL") ||
         env("VERCEL_BRANCH_URL") ||
         env("VERCEL_URL") ||
-        env("VERCEL_PROJECT_PRODUCTION_URL"),
+        env("VERCEL_PROJECT_PRODUCTION_URL") ||
+        env("CF_PAGES_URL"),
     );
 
     if (hasInjectedBrokerClient && hasPublicOrigin) {
@@ -95,7 +96,7 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       mode: "missing-deployment-config",
       providers: [],
       message:
-        "La connexion cloud n'est pas encore configurée sur cette version de test. Vous pouvez continuer à utiliser Optimus localement.",
+        "La connexion cloud n'est pas encore configurée sur ce déploiement. Vous pouvez continuer à utiliser Optimus localement.",
     };
   },
 );

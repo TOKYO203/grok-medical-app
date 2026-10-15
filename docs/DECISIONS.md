@@ -51,6 +51,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | — | Test de repli de `messages.test.ts` aligné sur le registre à quatre langues : le harnais fournit un `Record<Locale, MessageCatalog>` complet (es/pt couverts) au lieu de `{ fr, en }` partiel | Depuis C21, `translate()` exige un registre complet `Record<Locale, MessageCatalog>` ; l'ancien harnas échouait au typage (TS2345) dans le job E2E | Vibe |
 | 2026-10-15 | — | Workflows CI/E2E restaurés à l'identique de `main` avant fusion : instrumentation temporaire de diagnostic retirée en deux temps (tee multi-lignes, puis variante compatible `PIPESTATUS` préservant les lignes `run:` attendues par le garde-fou), fichiers `.ci-diag/` supprimés | `scripts/api-security.test.mjs` exige littéralement `run: npm ci` et `run: npm run release:check` dans `ci.yml` ; la forme multi-lignes de l'instrumentation masquait ces lignes et faisait échouer `release-check` | Vibe |
 
+## 2026-10-15 — Session 4 : audit prod
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-15 | — | Runtime d'auth étendu à Cloudflare Pages : `CF_PAGES_URL` rejoint BETTER_AUTH_URL et les variables Vercel dans `hasPublicOrigin` et la dérivation de base URL (`cloudflareAutoBaseURL`, origins de plateforme de confiance) ; `CF_PAGES=1` active le header IP `cf-connecting-ip` ; message « version de test » reformulé en « déploiement » (runtime-status, login) | Bug #1 de l'audit : l'app est déployée sur Cloudflare Pages (optimusmedical.pages.dev) mais le runtime ne connaissait que Vercel/Netlify — le diagnostic public affichait « connexion cloud indisponible » en production ; garde-fous de `scripts/auth-runtime.test.mjs` étendus aux variables CF | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).
