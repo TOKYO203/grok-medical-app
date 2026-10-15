@@ -386,3 +386,5 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 Effort total : ~3h30 (1 session agent)
 
+
+< test deploy 2026-10-15_21:59 -->
