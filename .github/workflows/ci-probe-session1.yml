@@ -1,0 +1,43 @@
+name: CI probe session1
+on:
+  push:
+    branches: [feat/business-model-session1]
+  workflow_dispatch: {}
+permissions:
+  actions: read
+  pull-requests: write
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Journaliser les jobs en echec de la branche
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          REPO="$GITHUB_REPOSITORY"
+          BRANCH="feat/business-model-session1"
+          {
+            echo "## Sonde CI — journaux des jobs en échec"
+            FAILED_RUNS=$(gh run list --repo "$REPO" --branch "$BRANCH" --limit 10 --json databaseId,conclusion,name --jq '[.[] | select(.conclusion=="failure")]')
+            COUNT=$(echo "$FAILED_RUNS" | jq 'length')
+            echo "Runs en échec : $COUNT"
+            for RUN_ID in $(echo "$FAILED_RUNS" | jq -r '.[].databaseId'); do
+              RUN_NAME=$(gh run view "$RUN_ID" --repo "$REPO" --json name --jq '.name')
+              echo ""  
+              echo "### Run $RUN_NAME ($RUN_ID)"
+              FAILED_JOBS=$(gh run view "$RUN_ID" --repo "$REPO" --json jobs --jq '[.jobs[] | select(.conclusion=="failure")]')
+              for JOB_ID in $(echo "$FAILED_JOBS" | jq -r '.[].databaseId'); do
+                JOB_NAME=$(echo "$FAILED_JOBS" | jq -r --argjson j "$JOB_ID" '.[] | select(.databaseId==$j) | .name')
+                echo ""
+                echo "#### Job $JOB_NAME"
+                echo '```'
+                gh run view --log --repo "$REPO" --job "$JOB_ID" 2>/dev/null | tail -n 150 || true
+                echo '```'
+              done
+            done
+            echo ""
+            echo "_(Sonde temporaire — ce workflow sera retiré après diagnostic.)_"
+          } > logs.txt
+          gh pr comment 48 --repo "$REPO" --body-file logs.txt || true
