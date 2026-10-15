@@ -361,30 +361,86 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ---
 
-## UX-IMPROVEMENTS — vague 1 (à traiter)
 
-### 5 bugs identifiés
+## AUDIT-PROD — bugs + améliorations (fusionné, dédupliqué)
 
-1. Statut « Nouveau » persistant sur l'accueil malgré année renseignée
-2. Label « Aujourd'hui... » tronqué → renommer « XP du jour »
-3. « Ligue Bronze » et « Niveau 1 Débutant » redondants → uniformiser
-4. Spécialités pré-sélectionnées sans explication à l'étape 3 onboarding
-5. « 0 sur 10 » ambigu (10 quoi ?) → préciser « 10 questions »
+> Audit de la prod (optimusmedical.pages.dev) — 2026-10-15.
+> Priorités Top 5 en bas.
 
-### 10 améliorations UX (priorité : 8, 6, 2)
+### 🔴 Bugs critiques (Top 5)
 
-1. Bouton Retour sur chaque étape onboarding (aujourd'hui seul Passer)
-2. Persister l'état d'onboarding (reprendre à l'étape 3 si quitté là)
-3. Réordonner onboarding : niveau → objectif → spécialités → rythme
-4. Message de bienvenue après onboarding : « Profil prêt, commence par... »
-5. Clarifier « Se synchroniser » avec sous-titre explicatif
-6. Uniformiser statuts : supprimer Ligue OU Niveau, garder un seul système
-7. Icônes sur chips de spécialités (Cardio, Neuro, Pneumo...)
-8. Sélecteur de langue dans Profil (i18n déjà fait en Session 3)
-9. Liens légaux dans « À propos » (Mentions, CGU, Confidentialité)
-10. Animer transitions entre étapes onboarding (slide + fade)
+1. « Connexion cloud indisponible » sur PROD — message test en prod
+2. 80% du contenu verrouillé — 1 cas / 5, 11 contenus / 56
+3. Statuts incohérents — « Nouveau » + « 5ème année », « Ligue Bronze » + « Niveau 1 »
+4. « Aujourd'hui... » tronqué et « 0 sur 10 » ambigu (10 quoi ?)
+5. « Profil de maîtrise après 1ère session » — aucune session accessible
 
-Effort total : ~3h30 (1 session agent)
+### 🟠 Bugs secondaires
 
+6. « Se synchroniser » → mène vers « cloud indisponible » (boucle)
+7. « Découvrir Optimus Pro » → demande une clé sans achat possible
+8. « Mes achats » vide, aucune action possible
+9. Badge « Premier cas » = « Encore 1 cas » mais 0 accessible gratuit
+10. OM-C6F2C715 (ID utilisateur) affiché sans explication
+11. 3 comptages : 56 contenus / 5 cas / 43 chapitres
+12. « Pharmacologie » conseillé à un 5ème année
+13. Classement démo incohérent : 612 XP Diamant vs 0 XP Bronze
 
-< test deploy 2026-10-15_21:59 -->
+### 🟢 Améliorations — Onboarding (7)
+
+- Fusionner Niveau + Ligue en un seul système
+- Remplacer « Nouveau » par « Actif » après inscription
+- Tooltip sur l'ID utilisateur (« Ton identifiant Optimus »)
+- Bouton Retour sur chaque étape onboarding
+- Persister l'état d'onboarding (reprendre où quitté)
+- Réordonner : niveau → objectif → spé → rythme
+- Exposer le sélecteur de langue (i18n déjà codé Session 3)
+
+### 🟢 Améliorations — Progression (7)
+
+- Fusionner « Maîtrise globale » + « XP » en un indicateur unique
+- Afficher « X XP avant le niveau suivant »
+- Rendre « Premier cas » débloquable dès le début
+- Vue détail de chaque badge (condition + progression)
+- Animer les badges à leur déblocage
+- Notifier « 2 jours avant Garde 7j »
+- Compteur temps d'étude total
+
+### 🟢 Améliorations — Contenu (7)
+
+- Compléter 41 chapitres d'orientation manquants
+- Compléter 189 items (51 → 240)
+- Débloquer 2-3 cas cliniques gratuits supplémentaires
+- Mode « aperçu gratuit » (1ère question) sur contenus verrouillés
+- Classer cas par difficulté (L1/L2/L3)
+- Recommandation basée sur erreurs passées
+- Mode « Examen blanc chronométré »
+
+### 🟢 Améliorations — UX Navigation (7)
+
+- Bouton « Remonter en haut » sur listes longues
+- Header sticky sur l'accueil
+- Recherche globale (Cmd+K web, loupe mobile)
+- Filtres Bibliothèque simplifiés
+- Swipe-back natif iOS/Android
+- Bouton « Reprendre où vous étiez » global
+- Pull-to-refresh
+
+### 🟢 Améliorations — Business (7)
+
+- Prix multi-devises (MGA/EUR/USD auto)
+- Essai 7 jours Premium sans carte
+- Afficher prix sur chaque deck (avant clic)
+- Lien « Combien ça coûte ? » dans nav
+- Comparateur Free vs Premium sur accueil
+- Bouton « Parrainer un ami » (+1 deck)
+- Offre École (licences multi-sièges)
+
+### 🎯 Priorité Top 5
+
+1. Fix « Connexion cloud indisponible » (bug #1)
+2. Débloquer plus de contenu gratuit (bug #2)
+3. Uniformiser statuts Niveau/Ligue (bug #3)
+4. Prix multi-devises + Essai 7j
+5. Sélecteur de langue (débloque international)
+
