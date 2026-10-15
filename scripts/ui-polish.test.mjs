@@ -32,6 +32,8 @@ const errorComponent = readFileSync(
   "utf8",
 );
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
+// Phase 3 (i18n) : la copie française visible vit dans le catalogue de messages.
+const frCatalog = readFileSync(new URL("../src/i18n/messages/fr.ts", import.meta.url), "utf8");
 
 test("home exposes an accessible skeleton instead of a blank loading screen", () => {
   assert.match(home, /HomeSkeleton/);
@@ -96,12 +98,16 @@ test("global error state is user-facing in French and hides raw details in produ
 });
 
 test("main navigation supports keyboard users and current-page semantics", () => {
+  // Phase 3 (i18n) : la navigation lit ses libellés et aria-labels via t() ;
+  // on vérifie le branchement dans le composant et la copie française dans le catalogue.
   assert.match(shell, /href="#main-content"/);
-  assert.match(shell, /Aller au contenu/);
+  assert.match(shell, /t\("nav\.skipContent"\)/);
+  assert.match(frCatalog, /Aller au contenu/);
   assert.match(shell, /id="main-content"/);
   assert.match(shell, /tabIndex=\{-1\}/);
   assert.match(shell, /aria-current=\{active \? "page" : undefined\}/);
-  assert.match(shell, /aria-label="Navigation principale"/);
+  assert.match(shell, /aria-label=\{t\("nav\.ariaPrimary"\)\}/);
+  assert.match(frCatalog, /Navigation principale/);
 });
 
 test("progress motion still honors the global reduced-motion escape hatch", () => {

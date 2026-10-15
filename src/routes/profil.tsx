@@ -36,6 +36,7 @@ import { BADGE_CATALOG } from "@/content/badges";
 import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
+import { useI18n, LOCALES } from "@/i18n";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import {
   dataUrlToImageBlob,
@@ -114,6 +115,7 @@ async function compressImage(file: File, maxSize = 256): Promise<string> {
 }
 
 function ProfilPage() {
+  const { locale, setLocale, t } = useI18n();
   const profile = useOptimus((state) => state.profile);
   const update = useOptimus((state) => state.updateProfile);
   const xp = useOptimus((state) => state.xp);
@@ -344,7 +346,7 @@ function ProfilPage() {
           <summary className="flex cursor-pointer items-center justify-between gap-3 p-4">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                Confort d’étude
+                {t("profil.confort")}
               </p>
               <h2 className="mt-1 font-display text-xl font-medium">Expérience sensorielle</h2>
             </div>
@@ -356,7 +358,28 @@ function ProfilPage() {
             </p>
             <ThemeSelector className="mt-2" />
             <p className="mt-5 mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-              Confort d’étude
+              {t("profil.language")}
+            </p>
+            <div className="flex gap-2">
+              {LOCALES.map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => setLocale(code)}
+                  aria-pressed={locale === code}
+                  className={cn(
+                    "h-9 flex-1 rounded-[var(--radius-md)] px-3 text-xs font-semibold uppercase tracking-wide shadow-[var(--shadow-border)] transition-colors",
+                    locale === code
+                      ? "bg-primary text-primary-fg"
+                      : "bg-secondary text-fg hover:bg-secondary/70",
+                  )}
+                >
+                  {code}
+                </button>
+              ))}
+            </div>
+            <p className="mt-5 mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+              {t("profil.confort")}
             </p>
             <ExperienceControls />
             <p className="mt-3 text-xs leading-relaxed text-muted">

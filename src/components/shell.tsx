@@ -22,16 +22,17 @@ import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 
 const NAV = [
-  { to: "/", label: "Accueil", short: "Accueil", icon: Home },
-  { to: "/demarche", label: "Orientation", short: "Orient.", icon: Compass },
-  { to: "/cas", label: "Cas", short: "Cas", icon: Stethoscope },
-  { to: "/programme", label: "Nosographie", short: "Noso.", icon: BookMarked },
-  { to: "/profil", label: "Profil", short: "Profil", icon: UserRound },
+  { to: "/", labelKey: "nav.home", shortKey: "nav.homeShort", icon: Home },
+  { to: "/demarche", labelKey: "nav.orientation", shortKey: "nav.orientationShort", icon: Compass },
+  { to: "/cas", labelKey: "nav.cases", shortKey: "nav.casesShort", icon: Stethoscope },
+  { to: "/programme", labelKey: "nav.nosography", shortKey: "nav.nosographyShort", icon: BookMarked },
+  { to: "/profil", labelKey: "nav.profile", shortKey: "nav.profileShort", icon: UserRound },
 ] as const;
 
 /*
@@ -41,15 +42,15 @@ const NAV = [
  * n'y figure pas : il est déjà couvert par l'entrée principale « Nosographie ».
  */
 const EXPLORE = [
-  { to: "/bibliotheque", label: "Bibliothèque", icon: Library },
-  { to: "/revue", label: "Réviser", icon: RotateCcw },
-  { to: "/programme", label: "Programme national", icon: GraduationCap },
-  { to: "/demo-ecg", label: "ECG animé", icon: Activity },
-  { to: "/auscultation", label: "Auscultation", icon: HeartPulse },
-  { to: "/examen", label: "Examen blanc", icon: ClipboardCheck },
-  { to: "/calculateurs", label: "Calculateurs", icon: Calculator },
-  { to: "/classement", label: "Classement", icon: Trophy },
-  { to: "/import", label: "Importer un deck", icon: Upload },
+  { to: "/bibliotheque", labelKey: "nav.library", icon: Library },
+  { to: "/revue", labelKey: "nav.review", icon: RotateCcw },
+  { to: "/programme", labelKey: "nav.nationalCurriculum", icon: GraduationCap },
+  { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: Activity },
+  { to: "/auscultation", labelKey: "nav.auscultation", icon: HeartPulse },
+  { to: "/examen", labelKey: "nav.mockExam", icon: ClipboardCheck },
+  { to: "/calculateurs", labelKey: "nav.calculators", icon: Calculator },
+  { to: "/classement", labelKey: "nav.leaderboard", icon: Trophy },
+  { to: "/import", labelKey: "nav.importDeck", icon: Upload },
 ] as const;
 
 function isActive(pathname: string, to: string) {
@@ -61,6 +62,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { preferences } = useExperiencePreferences();
   const cmd = useCommandPalette();
+  const { t } = useI18n();
 
   return (
     <div className="min-h-dvh text-fg">
@@ -68,7 +70,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
         href="#main-content"
         className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-[var(--radius-md)] bg-primary px-4 py-2 text-sm font-medium text-primary-fg shadow-[var(--shadow-md)] transition-transform focus:translate-y-0"
       >
-        Aller au contenu
+        {t("nav.skipContent")}
       </a>
       <div className="mx-auto flex min-h-dvh max-w-7xl">
         <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-border bg-bg/60 px-4 py-6 backdrop-blur-xl md:flex">
@@ -82,13 +84,13 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             className="mb-5 flex items-center gap-2 rounded-[var(--radius-md)] border border-border bg-card/60 px-3 py-2 text-left text-sm text-muted transition-colors hover:text-fg"
           >
             <Search className="size-3.5" aria-hidden />
-            <span className="flex-1">Rechercher…</span>
+            <span className="flex-1">{t("nav.search")}</span>
             <kbd className="rounded border border-border bg-secondary px-1.5 py-0.5 text-[10px]">
               ⌘K
             </kbd>
           </button>
 
-          <nav className="flex flex-col gap-1" aria-label="Navigation principale">
+          <nav className="flex flex-col gap-1" aria-label={t("nav.ariaPrimary")}>
             {NAV.map((item) => {
               const active = isActive(pathname, item.to);
               const Icon = item.icon;
@@ -106,16 +108,16 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                   )}
                 >
                   <Icon className="relative z-10 size-5" strokeWidth={1.75} />
-                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10">{t(item.labelKey)}</span>
                 </Link>
               );
             })}
           </nav>
 
           <div className="optimus-kicker mt-6 mb-2 px-3 text-[11px] font-semibold uppercase tracking-[0.18em]">
-            Explorer
+            {t("nav.explorer")}
           </div>
-          <nav className="flex flex-col gap-0.5" aria-label="Navigation secondaire">
+          <nav className="flex flex-col gap-0.5" aria-label={t("nav.ariaSecondary")}>
             {EXPLORE.map((item) => {
               const active = isActive(pathname, item.to);
               const Icon = item.icon;
@@ -132,7 +134,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
                   )}
                 >
                   <Icon className="size-4" strokeWidth={1.75} />
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               );
             })}
@@ -143,7 +145,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             <ThemeToggle className="bg-card" />
           </div>
           <p className="optimus-kicker mt-3 px-3 text-[11px] uppercase tracking-[0.16em]">
-            Made in Madagascar
+            {t("nav.madeIn")}
           </p>
         </aside>
 
@@ -162,7 +164,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       </div>
 
       <nav
-        aria-label="Navigation principale"
+        aria-label={t("nav.ariaPrimary")}
         data-mobile-navigation="true"
         className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/85 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl md:hidden"
       >
@@ -181,7 +183,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               aria-current={active ? "page" : undefined}
             >
               <Icon className="relative z-10 size-5" strokeWidth={active ? 2 : 1.7} />
-              <span className="relative z-10 truncate px-0.5">{item.short}</span>
+              <span className="relative z-10 truncate px-0.5">{t(item.shortKey)}</span>
             </Link>
           );
         })}

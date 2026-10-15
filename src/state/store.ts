@@ -32,6 +32,7 @@ import type {
   SyncEvent,
   SyncEventType,
 } from "@/core/types";
+import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/core";
 import {
   deleteImportedDeckStorage,
   loadImportedDecks,
@@ -98,6 +99,7 @@ type PersistShape = {
   syncQueue: SyncEvent[];
   contacts: ContactDraft[];
   purchases: PremiumPurchase[];
+  locale: Locale;
 };
 
 export type OptimusState = PersistShape & {
@@ -124,6 +126,7 @@ export type OptimusState = PersistShape & {
   addContact: (kind: ContactDraft["kind"], body: string) => void;
   upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
   resetLocal: () => void;
+  setLocale: (locale: Locale) => void;
 };
 
 function weekKey(ts = Date.now()): string {
@@ -306,6 +309,7 @@ const persistDefaults: PersistShape = {
   syncQueue: [],
   contacts: [],
   purchases: [],
+  locale: DEFAULT_LOCALE,
 };
 
 function mergePersistedState(persistedState: unknown, currentState: OptimusState): OptimusState {
@@ -330,6 +334,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     entitlements: [freeEntitlement()],
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     purchases: restorePurchases(saved.purchases),
+    locale: isLocale(saved.locale) ? saved.locale : DEFAULT_LOCALE,
     hydrated: false,
     importedDeckStorageReady: false,
   } as OptimusState;
@@ -442,6 +447,7 @@ export const useOptimus = create<OptimusState>()(
           },
         })),
       updateProfile: (p) => set((s) => ({ profile: { ...s.profile, ...p } })),
+      setLocale: (locale) => set({ locale }),
       createFreeAccount: (name) =>
         set((s) => ({
           profile: {
@@ -555,6 +561,7 @@ export const useOptimus = create<OptimusState>()(
             syncQueue: [...s.syncQueue, event],
             contacts: s.contacts,
             purchases: s.purchases,
+            locale: s.locale,
           };
           const badges = unlockBadges(next);
           const extraEvents: SyncEvent[] = badges
@@ -704,6 +711,7 @@ function pickPersist(s: PersistShape): PersistShape {
     syncQueue: s.syncQueue,
     contacts: s.contacts,
     purchases: s.purchases,
+    locale: s.locale,
   };
 }
 
