@@ -1,0 +1,65 @@
+name: CI probe phase3
+
+on:
+  push:
+    branches: [feat/i18n-phase3]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Sonde 1 - release:check
+        run: |
+          set +e
+          echo "### Sonde phase3 — release:check" > /tmp/probe.md
+          echo "" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          set -o pipefail
+          npm run release:check 2>&1 | tail -n 200 >> /tmp/probe.md
+          code=$?
+          echo "" >> /tmp/probe.md
+          echo "release_check_exit_code=$code" >> /tmp/probe.md
+          echo '```' >> /tmp/probe.md
+          exit 0
+
+      - name: Sonde 2 - E2E Playwright
+        run: |
+          set +e
+          echo "" >> /tmp/probe.md
+          echo "### Sonde phase3 — E2E Playwright" >> /tmp/probe.md
+          echo "" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          npx playwright install --with-deps chromium >> /tmp/probe.md 2>&1
+          set -o pipefail
+          CI=true npx playwright test 2>&1 | tail -n 200 >> /tmp/probe.md
+          code=$?
+          echo "" >> /tmp/probe.md
+          echo "e2e_exit_code=$code" >> /tmp/probe.md
+          echo '```' >> /tmp/probe.md
+          exit 0
+
+      - name: Post probe results as PR comment
+        if: always()
+        run: |
+          cat /tmp/probe.md
+          gh pr comment 45 --repo TOKYO203/grok-medical-app --body-file /tmp/probe.md
