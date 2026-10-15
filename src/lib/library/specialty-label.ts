@@ -15,17 +15,19 @@
  *     Cardiologie, pas sous Urgences.
  *
  * On applique donc le MÊME ordre de priorité que le code d'accès
- * (cardio > neuro > infectio > urgences > dermato) à un module unique, pur et
+ * (cardio > neuro > dermato > infectio > urgences) à un module unique, pur et
  * testable (`node --experimental-strip-types`).
  */
 
 /** Ordre significatif : le premier mot-clé trouvé décide (cf. `specialtyCode`). */
+// Ordre de priorité : cardio > neuro > dermato > infectio > urgences.
+// L'ordre est significatif — voir les tests d'alignement avec specialtyCode.
 const CANONICAL_SPECIALTIES = [
   { code: "CARDIO", label: "Cardiologie", matches: "cardio" },
   { code: "NEURO", label: "Neurologie", matches: "neuro" },
+  { code: "DERMATO", label: "Dermatologie", matches: "dermato" },
   { code: "INFECTIO", label: "Infectiologie", matches: "infectio" },
   { code: "URGENCES", label: "Urgences", matches: "urgence" },
-  { code: "DERMATO", label: "Dermatologie", matches: "dermato" },
 ] as const;
 
 /** Séparateurs utilisés par le catalogue pour les spécialités multiples. */

@@ -39,6 +39,7 @@ import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
+import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
@@ -198,6 +199,11 @@ const SoutenirRoute = SoutenirRouteImport.update({
   path: '/soutenir',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TarifsRoute = TarifsRouteImport.update({
+  id: '/tarifs',
+  path: '/tarifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -270,6 +276,7 @@ export interface FileRoutesByFullPath {
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/tarifs': typeof TarifsRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -310,6 +317,7 @@ export interface FileRoutesByTo {
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/tarifs': typeof TarifsRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -351,6 +359,7 @@ export interface FileRoutesById {
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/soutenir': typeof SoutenirRoute
+  '/tarifs': typeof TarifsRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -393,6 +402,7 @@ export interface FileRouteTypes {
     | '/programme'
     | '/revue'
     | '/soutenir'
+    | '/tarifs'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -433,6 +443,7 @@ export interface FileRouteTypes {
     | '/programme'
     | '/revue'
     | '/soutenir'
+    | '/tarifs'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -473,6 +484,7 @@ export interface FileRouteTypes {
     | '/programme'
     | '/revue'
     | '/soutenir'
+    | '/tarifs'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -514,6 +526,7 @@ export interface RootRouteChildren {
   ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
   SoutenirRoute: typeof SoutenirRoute
+  TarifsRoute: typeof TarifsRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
@@ -732,6 +745,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoutenirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tarifs': {
+      id: '/tarifs'
+      path: '/tarifs'
+      fullPath: '/tarifs'
+      preLoaderRoute: typeof TarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin-verify': {
       id: '/api/admin-verify'
       path: '/api/admin-verify'
@@ -866,6 +886,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
   SoutenirRoute: SoutenirRoute,
+  TarifsRoute: TarifsRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
