@@ -29,8 +29,21 @@ test("les dates complètes et horodatages incluent l'année", () => {
   assert.ok(formatDateTime(ts, "pt").includes("2026"));
 });
 
-test("les sorties différencient les locales latines", () => {
+test("les sorties différencient les locales supportées", () => {
   const ts = Date.UTC(2026, 9, 15);
-  const formats = [formatShortDate(ts, "fr"), formatShortDate(ts, "en"), formatShortDate(ts, "es"), formatShortDate(ts, "pt")];
-  assert.equal(new Set(formats).size, 4);
+  const fr = formatShortDate(ts, "fr");
+  const en = formatShortDate(ts, "en");
+  const es = formatShortDate(ts, "es");
+  const pt = formatShortDate(ts, "pt");
+  // Paires structurellement distinctes quelle que soit la version ICU du
+  // runner : mois capitalisé en anglais, mois espagnol en minuscules,
+  // rendu pt différent de fr. fr et es peuvent abréger « oct » à l'identique
+  // selon les données CLDR : on vérifie le contenu espagnol plutôt que
+  // l'inégalité fr/es.
+  assert.notEqual(fr, en);
+  assert.notEqual(fr, pt);
+  assert.notEqual(en, pt);
+  assert.notEqual(es, en);
+  assert.notEqual(es, pt);
+  assert.ok(es.includes("15") && es.toLowerCase().includes("oct"), "es affiche jour et mois");
 });
