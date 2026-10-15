@@ -1,8 +1,8 @@
 // Unités cliniques standardisées (C28) : registre unique des unités affichables
 // et rendu locale-aware. Convention SI-first, symboles internationaux (bpm, mmHg…).
 // Les moteurs ECG / auscultation / calculateurs conservent leurs unités internes.
-import { DEFAULT_LOCALE, type Locale } from "../i18n/core";
-import { localeTag } from "../i18n/format";
+import { DEFAULT_LOCALE, type Locale } from "../i18n/core.ts";
+import { localeTag } from "../i18n/format.ts";
 
 export type UnitId =
   | "bpm"

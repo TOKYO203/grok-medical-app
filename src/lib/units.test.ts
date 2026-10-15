@@ -1,7 +1,7 @@
 // Tests du registre des unités cliniques standardisées (C28).
 import assert from "node:assert/strict";
 import test from "node:test";
-import { CLINICAL_UNITS, NARROW_NBSP, formatMeasurement, parseMeasurement } from "./units";
+import { CLINICAL_UNITS, NARROW_NBSP, formatMeasurement, parseMeasurement } from "./units.ts";
 
 test("formatMeasurement insère une espace fine insécable avant le symbole", () => {
   const fr = formatMeasurement(80, "bpm", "fr");

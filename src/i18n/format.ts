@@ -1,6 +1,6 @@
 // Format des dates locale-aware (C26) : une table locale → étiquette Intl
 // partagée par tous les composants, plus de "fr-FR" codé en dur.
-import { DEFAULT_LOCALE, type Locale } from "./core";
+import { DEFAULT_LOCALE, type Locale } from "./core.ts";
 
 export const LOCALE_TAGS: Record<Locale, string> = {
   fr: "fr-FR",

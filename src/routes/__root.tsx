@@ -10,6 +10,7 @@ import { LicenseRevocationBridge } from "@/components/license-revocation-bridge"
 import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { applyDetectedLocale } from "@/i18n/detect";
+import { useOptimus } from "@/state/store";
 import { Toaster } from "sonner";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import appCss from "../styles.css?url";
@@ -21,7 +22,7 @@ function ServiceWorkerRegistrar(){useEffect(()=>{if(typeof window==="undefined")
 
 function LocaleDetectionBridge() {
   useEffect(() => {
-    void applyDetectedLocale();
+    void applyDetectedLocale((locale) => useOptimus.getState().setLocale(locale));
   }, []);
   return null;
 }
