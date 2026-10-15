@@ -35,13 +35,13 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 ## Liste complète — 53 items
 
 ### A — Freemium/Premium (10)
-- A01 Prix multi-devises (MGA/USD/EUR auto)
-- A02 Page Tarifs comparatif Free/Premium/École
-- A03 Essai 7 jours Premium
+- A01 Prix multi-devises (MGA/USD/EUR auto) — ✅ livré (PR #48)
+- A02 Page Tarifs comparatif Free/Premium/École — ✅ livré (PR #48)
+- A03 Essai 7 jours Premium — ✅ livré (PR #48)
 - A04 Abonnement mensuel/annuel
-- A05 Teaser Premium vidéo 30s
+- A05 Teaser Premium vidéo 30s — ✅ livré (PR #48)
 - A06 Offre École multi-sièges
-- A07 Badges progressifs ("Encore 3 cas...")
+- A07 Badges progressifs ("Encore 3 cas...") — ✅ livré (PR #48)
 - A08 Ligues expliquées
 - A09 Parrainage
 - A10 Code promo
@@ -59,14 +59,14 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - B20 Email institutionnel
 
 ### C — i18n (8)
-- C21 Architecture i18n (fr/en/es/pt)
-- C22 Détection pays
+- C21 Architecture i18n (fr/en/es/pt) — ✅ livré (PR #50)
+- C22 Détection pays — ✅ livré (PR #50)
 - C23 Prix auto-convertis
 - C24 Implémenter ou retirer EDN/Sénégal
 - C25 Multi-référentiel (Mada/EDN/USMLE)
-- C26 Dates locale-aware
+- C26 Dates locale-aware — ✅ livré (PR #50)
 - C27 Contenu EN (ECG/auscultation)
-- C28 Unités standardisées
+- C28 Unités standardisées — ✅ livré (PR #50)
 
 ### D — UX mobile (10)
 - D29 Refondre "Profil local" + sync
