@@ -125,6 +125,18 @@ function AboutPage() {
             >
               Conditions d&apos;utilisation
             </Link>
+            <Link
+              to="/conseil-editorial"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Conseil éditorial
+            </Link>
+            <Link
+              to="/validation-clinique"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Validation clinique
+            </Link>
           </div>
         </div>
 

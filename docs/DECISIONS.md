@@ -29,6 +29,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | B13 | Statut de revue médicale par deck affiché sur la page parcours via `src/content/deck-review-status.ts`, miroir compact du registre `editorial-registry.json`, synchronisation verrouillée par `scripts/deck-review-status.test.mjs` | Le registre existait mais son statut n'était visible nulle part dans l'UI ; un miroir compact évite d'embarquer le JSON complet dans le bundle (budget perf) | Vibe |
 | 2026-10-15 | B14 | Version du contenu médical `v2026.10-Mada` créée dans `src/content/medical-version.ts`, distincte de la version applicative (`version-engine.ts` 1.0.0), affichée dans le pied de `/a-propos` | Séparer le cycle de vie du contenu médical de celui de l'application, sans toucher au codename « Optimus Clinical AI » verrouillé par les garde-fous | Vibe |
 | 2026-10-15 | B15 | Protocole de validation clinique rendu public : `docs/CLINICAL-VALIDATION.md` + page `/validation-clinique` (résumé + lien vers le document source sur GitHub) | Un visiteur doit pouvoir juger la méthode sans fouiller le dépôt ; le document reste la source de vérité | Vibe |
+| 2026-10-15 | B12 | Page `/conseil-editorial` : mission, processus, état de la relecture par deck (consommé depuis B13/B14), cadre d'usage, crédits, contact — liée depuis `/a-propos` avec `/validation-clinique` | Regrouper la gouvernance éditoriale en un point d'entrée unique, lisible sans compte | Vibe |
 
 ## Sessions terminées
 
