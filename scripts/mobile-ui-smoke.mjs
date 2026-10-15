@@ -84,14 +84,6 @@ try {
         });
       }
 
-      // Les scripts @vercel/analytics et @vercel/speed-insights sont injectés par la
-      // route d'accueil mais n'existent que sur les déploiements Vercel. Les stubber
-      // évite que l'audit en preview locale rapporte des 404 environnementaux (et
-      // les erreurs console MIME associées) comme des défauts applicatifs.
-      await page.route("**/_vercel/**", async (interceptedRoute) => {
-        await interceptedRoute.fulfill({ status: 200, contentType: "text/javascript", body: "" });
-      });
-
       const consoleErrors = [];
       const pageErrors = [];
       const failedResponses = [];

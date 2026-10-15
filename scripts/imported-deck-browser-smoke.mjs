@@ -76,16 +76,6 @@ async function addQaHeaders(page) {
   });
 }
 
-// Les scripts @vercel/analytics et @vercel/speed-insights n'existent que sur les
-// déploiements Vercel. Ils s'injectent de façon différée : ils échappent aux visites
-// rapides de l'audit écrans, mais 404 sur les pages à séjour long (import, recharges).
-// Les stubber évite de rapporter des artefacts environnementaux comme des défauts.
-async function addTelemetryStub(page) {
-  await page.route("**/_vercel/**", async (interceptedRoute) => {
-    await interceptedRoute.fulfill({ status: 200, contentType: "text/javascript", body: "" });
-  });
-}
-
 function fail(message) {
   throw new Error(`[imported-deck-browser-smoke] ${message}`);
 }
@@ -115,7 +105,6 @@ try {
   browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await addQaHeaders(page);
-  await addTelemetryStub(page);
 
   const consoleErrors = [];
   page.on("console", (message) => {

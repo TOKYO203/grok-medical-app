@@ -4,8 +4,6 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { AppResumeBridge } from "@/components/app-resume-bridge";
 import { ConnectivityStatus } from "@/components/connectivity-status";
 import { DailyReminderBridge } from "@/components/daily-reminder-bridge";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ExperienceMilestoneBridge } from "@/components/experience-milestone-bridge";
 import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
@@ -77,8 +75,6 @@ function RootDocument() {
             },
           }}
         />
-        <Analytics />
-        <SpeedInsights />
         <Scripts />
       </body>
     </html>
