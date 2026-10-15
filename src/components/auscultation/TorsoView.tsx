@@ -839,6 +839,16 @@ export function TorsoView({
             <g
               key={f.id}
               onClick={() => onFoyerClick?.(f.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onFoyerClick?.(f.id);
+                }
+              }}
+              role={onFoyerClick ? "button" : undefined}
+              tabIndex={onFoyerClick ? 0 : -1}
+              aria-label={mode === "cardiaque" ? `Foyer ${f.label}` : `Zone ${f.label}`}
+              aria-pressed={isActive}
               style={{ cursor: onFoyerClick ? "pointer" : "default" }}
               data-foyer={f.id}
               data-active={isActive ? "true" : "false"}
