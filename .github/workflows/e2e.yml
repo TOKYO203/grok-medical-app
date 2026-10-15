@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: read
+      contents: write
       issues: write
+      statuses: write
 
     steps:
       - uses: actions/checkout@v4
@@ -75,4 +76,22 @@ jobs:
               fi
             done
           } > /tmp/diag.md
-          gh api repos/TOKYO203/grok-medical-app/issues/50/comments -F body=@/tmp/diag.md || true
+          {
+            echo ""
+            echo "### Tentative de commentaire PR"
+            echo '```'
+            gh api repos/TOKYO203/grok-medical-app/issues/50/comments -F body=@/tmp/diag.md 2>&1 || true
+            echo '```'
+            echo ""
+            echo "### Etat de l'authentification gh"
+            echo '```'
+            gh auth status 2>&1 || true
+            echo '```'
+          } >> /tmp/diag.md
+          base64 -w0 /tmp/diag.md > /tmp/diag.b64
+          gh api -X PUT "repos/TOKYO203/grok-medical-app/contents/.ci-diag/run-${{ github.run_id }}-test.md" \
+            -f message="diag: échec job test (run ${{ github.run_id }})" \
+            -f branch=feat/i18n-session3 \
+            -f content="$(cat /tmp/diag.b64)" || true
+          FIRST_ERR=$(grep -h -m1 -E "error TS|Error:|FAIL |not ok|AssertionError|ERESOLVE|Cannot find" /tmp/npmci.log /tmp/tsc.log /tmp/lint.log /tmp/pwinstall.log /tmp/pwtest.log 2>/dev/null | head -c 130)
+          gh api "repos/TOKYO203/grok-medical-app/statuses/${{ github.event.pull_request.head.sha }}" -f state=failure -f context="diag/test" -f description="$FIRST_ERR" || true
