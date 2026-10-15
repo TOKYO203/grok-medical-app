@@ -9,6 +9,7 @@ import {
   Lock,
   Play,
   RotateCcw,
+  ShieldCheck,
   Target,
 } from "lucide-react";
 import { ContentTrustCard } from "@/components/content-trust";
@@ -16,6 +17,7 @@ import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { YEARS } from "@/content/catalog";
+import { DECK_MEDICAL_REVIEW, REVIEW_STATUS_LABEL } from "@/content/deck-review-status";
 import { LESSONS } from "@/core/quiz-engine";
 import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
 import { COMPETENCY_LABEL } from "@/core/types";
@@ -51,6 +53,7 @@ function DeckPage() {
     deck.chapters.length > 0
       ? deck.chapters.map((chapter) => chapter.title)
       : deck.competencies.map((competency) => COMPETENCY_LABEL[competency]);
+  const review = DECK_MEDICAL_REVIEW[deck.id];
 
   return (
     <Shell title={deck.title}>
@@ -254,6 +257,15 @@ function DeckPage() {
             label: `${deck.title} — ${deck.subtitle}`,
           }}
         />
+        {review ? (
+          <p className="mt-3 flex items-start gap-2 rounded-[var(--radius-md)] bg-secondary/60 px-3 py-2.5 text-xs leading-relaxed text-muted">
+            <ShieldCheck className="mt-0.5 size-3.5 shrink-0 text-primary" aria-hidden />
+            <span>
+              Revue médicale — {REVIEW_STATUS_LABEL[review.status]}
+              {review.verifiedAt ? " · dernier point le " + review.verifiedAt : ""}
+            </span>
+          </p>
+        ) : null}
       </Page>
     </Shell>
   );
