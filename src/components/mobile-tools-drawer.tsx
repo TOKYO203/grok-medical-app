@@ -223,7 +223,7 @@ export function MobileToolsDrawer({ onOpenSearch }: { onOpenSearch: () => void }
                     <span
                       className={`h-5 w-9 shrink-0 rounded-full p-0.5 transition-colors ${
                         pressed ? "bg-primary" : "bg-border-strong"
-                      } }
+                      }`}
                     >
                       <span
                         className={`block size-4 rounded-full bg-white transition-transform ${

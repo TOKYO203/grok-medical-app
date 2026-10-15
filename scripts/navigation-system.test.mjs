@@ -16,56 +16,91 @@ const palette = readFileSync(new URL("../src/components/command-palette.tsx", im
 const frCatalog = readFileSync(new URL("../src/i18n/messages/fr.ts", import.meta.url), "utf8");
 const enCatalog = readFileSync(new URL("../src/i18n/messages/en.ts", import.meta.url), "utf8");
 
+// Valeurs littérales qui suivent un marqueur, jusqu'au guillemet fermant.
+const quotedAfter = (source, marker) =>
+  source.split(marker).slice(1).map((chunk) => chunk.slice(0, chunk.indexOf('"')));
+
 test("la navigation vit dans une source unique consommée par tous les points d'entrée", () => {
-  for (const entry of [
-    ["shell", shell],
-    ["tiroir mobile", drawer],
-    ["palette", palette],
-  ]) {
-    assert.match(
-      entry[1],
-      /from "@\/lib\/navigation"/,
+  for (const entry of [["shell", shell], ["tiroir mobile", drawer], ["palette", palette]]) {
+    assert.ok(
+      entry[1].includes('from "@/lib/navigation"'),
       entry[0] + " doit importer la configuration centrale",
     );
   }
-  assert.doesNotMatch(shell, /const NAV = \[/, "le shell ne doit plus redéfinir NAV localement");
-  assert.doesNotMatch(shell, /const EXPLORE = \[/, "le shell ne doit plus redéfinir EXPLORE localement");
+  assert.ok(!shell.includes("const NAV = ["), "le shell ne doit plus redéfinir NAV localement");
+  assert.ok(!shell.includes("const EXPLORE = ["), "le shell ne doit plus redéfinir EXPLORE localement");
 });
 
 test("chaque cible configurée correspond à une route réellement déclarée", () => {
-  const targets = [...navigation.matchAll(/to: "(\/[^"]*)"/gi)].map((m) => m[1]);
+  const targets = quotedAfter(navigation, 'to: "');
   assert.ok(targets.length >= 15, "la configuration de navigation semble vide");
   for (const target of new Set(targets)) {
     const file = target === "/" ? "index" : target.slice(1);
     assert.ok(
       existsSync(new URL("../src/routes/" + file + ".tsx", import.meta.url)),
-      "la cible " + target + " n'a pas de route src/routes/" + file + "+ݜވ˂Ȉ
-NBߊNݙ\݊ۉٞܘ][ۈ\݈؛ٰꙈ[Ȝ]X]وܛݜ\Șۘ\ܰꙜș]ۛȝڙ\ȋ
+      "la cible " + target + " n'a pas de route src/routes/" + file + ".tsx",
+    );
+  }
+});
 
-HOȞۛܝܛݜȏHˋ˛؝ڙ؝[ۋۘ]ڐ[
-ۘXٛٞNȈʛ؝׋ٜ۝\֗ȗJʈ˙ʗKۘ\
+test("l'explorateur est rangé en quatre groupes complets, sans doublon", () => {
+  const explore = navigation.split("export const EXPLORE_GROUPS")[1] ?? "";
+  assert.ok(explore.length > 0, "EXPLORE_GROUPS introuvable dans la source");
+  const expected = [
+    ["nav.group.learn", 3],
+    ["nav.group.train", 4],
+    ["nav.group.tools", 2],
+    ["nav.group.community", 1],
+  ];
+  const chunks = explore.split('labelKey: "nav.group.');
+  assert.equal(chunks.length - 1, expected.length, "l'explorateur doit compter exactement 4 groupes");
+  const seen = new Set();
+  for (let i = 0; i < expected.length; i++) {
+    const key = expected[i][0];
+    const minItems = expected[i][1];
+    const chunk = chunks[i + 1];
+    assert.ok(chunk.startsWith(key.slice("nav.group.".length)), "groupe absent ou mal ordonné : " + key);
+    const items = quotedAfter(chunk, 'to: "');
+    assert.ok(items.length >= minItems, "le groupe " + key + " semble incomplet");
+    for (const target of items) {
+      assert.ok(!seen.has(target), "doublon de cible entre les groupes : " + target);
+      seen.add(target);
+    }
+  }
+  assert.ok(!seen.has("/programme"), "/programme reste un onglet principal, pas une page secondaire");
+});
 
-JHOțV̗JN\ܙ\݋ٙY\\]X[
-ܛݜˈۘ]˙ܛݜۙX\ۈ˂Ȉۘ]˙ܛݜݜؚ[ȋȈۘ]˙ܛݜݛۛȋȈۘ]˙ܛݜ؛ۛ][ڝH˂ȈJNۛܝ][\ȏHˋ˛؝ڙ؝[ۋۘ]ڐ[
-מȝΈʗ֗ȗJʈˈXٛٞNȈ֗ȗJȋXۛΈʈKيWN\ܙ\݋ۚʚ][\˛[ٝψLۙ\șܛݜ\șH	ٞܘ]]\ȜٛXۙ[݈ڙ\ȊNJNݙ\݊ؚ\]YHXٛ0ꈙH؝ڙ؝[ۈ^\ݙH[܈\ș]^؝[ٝY\ȋ
+test("chaque clé i18n référencée par la taxonomie est traduite en fr et en en", () => {
+  const keys = new Set([
+    ...quotedAfter(navigation, 'labelKey: "'),
+    ...quotedAfter(navigation, 'shortKey: "'),
+  ]);
+  assert.ok(keys.size >= 20, "aucune clé de libellé détectée dans la taxonomie");
+  for (const key of keys) {
+    assert.ok(frCatalog.includes('"' + key + '":'), "clé absente du catalogue français : " + key);
+    assert.ok(enCatalog.includes('"' + key + '":'), "clé absente du catalogue anglais : " + key);
+  }
+});
 
-HOȞۛܝٞ\ȏHˋ˛؝ڙ؝[ۋۘ]ڐ[
-ʏΛXٛٞ_ڛܝٞJNȈʖ׈׊ʈ˙ڊWKۘ\
+test("le tiroir mobile est un menu complet et accessible", () => {
+  assert.ok(drawer.includes('role="dialog"'), "le tiroir doit être déclaré comme une boîte de dialogue");
+  assert.ok(drawer.includes('aria-modal="true"'), "le tiroir doit être modal");
+  assert.ok(drawer.includes("NAV.map"), "le tiroir doit exposer la navigation principale");
+  assert.ok(drawer.includes("EXPLORE_GROUPS.map"), "le tiroir doit exposer les groupes Explorer");
+  assert.ok(drawer.includes('aria-label={t("drawer.title")}'), "le tiroir doit porter un libellé traduit");
+  assert.ok(drawer.includes("onClick={close}"), "le tiroir doit se fermer à la navigation");
+  for (const key of ["drawer.openAria", "drawer.title", "drawer.settings", "drawer.appearance"]) {
+    assert.ok(drawer.includes('"' + key + '"'), "clé de tiroir non branchée : " + key);
+  }
+});
 
-JHOțV̗JN\ܙ\݋ۚʚٞ\˛[ٝψMK؝XݛțXٛ0ꈙH؝ڙ؝[ۈ0ꝙXݰꈊNۜȊۛܝٞHوٝȔٝ
-ٞ\ʊH\ܙ\݋ۚʙܐ؝[ًڛ؛Y\ʉȉȊȚٞH
-ȉȎɊK؛0ꈘXܙ[ݙHH؝[ٝYH܈ȈȊȚٞJN\ܙ\݋ۚʙ[И][ًڛ؛Y\ʉȉȊȚٞH
-ɈΉʋ؛0ꈘXܙ[ݙHH؝[ٝYH[ȎȈȊȚٞJNBߊNݙ\݊ۙH\ۚ\ț[ؚ[H^ܙHH؝ڙ؝[ۈۘ\ܰꙈۛ\0ꝙH]وٜۙH[ț؝ڙݘ[݈ˈ
-
-HOȞ\ܙ\݋ۘ]ڊ؝ٜˈӐU׋ۘ\ʎ\ܙ\݋ۘ]ڊ؝ٜˈіԑWєӕT׋ۘ\ʎ\ܙ\݋ۘ]ڊ؝ٜˈ؜ژKXݜܙ[ݏWؘݚ]وȈܘYوȎȝ[ٙYڛٙKʎ\ܙ\݋ۘ]ڊ؝ٜˈ؛݈ۜۛܙHH
-
-HOȜٝܙ[׊؛ٗ
-Kʎ\ܙ\݋ۘ]ڊ؝ٜˈۛЛXڏW؛ܙWKʎ\ܙ\݋ۘ]ڊ؝ٜˈݗ
-ٜ؝ٜ׋ݚ]H׊Kʎ\ܙ\݋ۘ]ڊ؝ٜˈܛۙOHٚX[وˊNJNݙ\݊ۘH[]H\݈ޜݰꛘ]\𪙈Ȝ٘ݚ[ۜȘۘ\ܰꙜș]YٜȚ\ܝY\șHH؝ڙ؝[ۈˈ
-
-HOȞ\ܙ\݋ۘ]ڊ[]KӐUהQєˊN\ܙ\݋ۘ]ڊ[]KіԑWєӕTˊN\ܙ\݋ۘ]ڊ[]KԑPՒSӗӐPѓґVKʎۜȊۛܝٞHوȜ[]KܙXݚ[ۋܘYٜȋܘ[]KܙXݚ[ۋؘ\ٜȋܘ[]KܙXݚ[ۋؘYٜȗJH\ܙ\݋ۚʜ[]Kڛ؛Y\ʉȉȊȚٞH
-ȉȉʋܙXݚ[ۈX[ܝX[ݙHȈȊȚٞJNBȈˈ\Ȝݜ٘XٜȜڛؚ\[\șڝ݈ٛ0Ꝝو]ZYۘXۙ\ș\Z\țH[]KȈˈۚ]\٘ݙ[Y[݋ۚ]ژHH^ۛۚYHٛݜ؛H]IٛHۛܛۛYKۜȊۛܝ۝]Hوȋٞ[Y[ȋ˘]\؝[][ۈˈ˘ۘ\ܙ[Y[݈ˈ˚[\ܝˈ˙ۛٙ\ȗJH\ܙ\݋ۚʂȈ[]Kڛ؛Y\ʉȉȊȜ۝]H
-ȉȉʈ؝ڙ؝[ۋڛ؛Y\ʉݛΈɈ
-Ȝ۝]H
-ȉȉʋȈܘYو[ݜ۝]ؘۙH[܈H[]H݈H؝ڙ؝[ۈȈȊȜ۝]KȈ
-NBߊN
+test("la palette classe ses résultats et dérive ses pages de la taxonomie", () => {
+  assert.ok(palette.includes("SECTION_ORDER"), "la palette doit définir un ordre de sections fixe");
+  assert.ok(palette.includes("...NAV, ...EXPLORE_GROUPS"), "les pages doivent venir de la taxonomie centrale");
+  assert.ok(palette.includes('kind === "page"'), "la requête vide doit limiter la palette au plan du site");
+  for (const target of ["/donnees", "/a-propos", "/contact", "/soutenir", "/pro"]) {
+    assert.ok(palette.includes('"' + target + '"'), "page extra absente de la palette : " + target);
+  }
+  assert.ok(palette.includes("palette.section."), "les sections doivent être libellées via l'i18n");
+  assert.ok(palette.includes("palette.placeholder"), "la palette doit traduire son champ de recherche");
+});

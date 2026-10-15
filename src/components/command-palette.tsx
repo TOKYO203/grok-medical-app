@@ -32,7 +32,7 @@ const PAGE_KEYWORDS: Record<string, string> = {
   "/cas": "cas cliniques cases",
  "/programme": "nosographie programme national référentiel items concours internat",
   "/profil": "profil compte badges stats",
-  "/bibliotheque": "biblioth^èque library catalogue content decks cas",
+  "/bibliotheque": "bibliothèque library catalogue content decks cas",
   "/parcours": "parcours decks cartes pathways spécialités",
   "/revue": "réviser review répétition espacée session",
  "/ecg": "ecg électrocardiogramme interprétation cas",

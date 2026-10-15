@@ -147,7 +147,7 @@ export const fr: MessageCatalog = {
   "drawer.focus": "Ambiance focus",
   "palette.placeholder": "Rechercher une page, un cas, un deck…",
   "palette.empty": "Aucun résultat",
-  "palette.hint": "↑↓ naviguer · Entrée ouvrir · Échap fermer · ⌘K rounrir",
+  "palette.hint": "↑↓ naviguer · Entrée ouvrir · Échap fermer · ⌘K rouvrir",
   "palette.kind.page": "Page",
   "palette.kind.case": "Cas",
   "palette.kind.diagnostic": "Démarche",
