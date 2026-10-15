@@ -17,7 +17,15 @@ test("les dates courtes suivent la locale", () => {
   assert.ok(fr.toLowerCase().includes("oct"), "mois court fr");
   assert.ok(en.includes("15"), "jour visible en en");
   assert.ok(en.includes("Oct"), "mois court en");
-  assert.ok(formatShortDate(ts, "pt").toLowerCase().includes("out"), "mois court pt (out.)");
+  // CLDR rend la date courte pt-PT avec un mois numérique (« 15/10 ») selon la
+  // version ICU du runner : le contrat C26 est de déléguer à Intl avec
+  // l'étiquette pt-PT, pas d'imposer un libellé de mois littéral.
+  assert.equal(
+    formatShortDate(ts, "pt"),
+    new Intl.DateTimeFormat("pt-PT", { day: "2-digit", month: "short" }).format(new Date(ts)),
+    "date courte pt = rendu Intl de l'étiquette pt-PT",
+  );
+  assert.ok(formatShortDate(ts, "pt").includes("15"), "jour visible en pt");
   assert.ok(formatShortDate(ts, "es").toLowerCase().includes("oct"), "mois court es");
 });
 
