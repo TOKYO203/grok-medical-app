@@ -55,6 +55,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
+| 2026-10-15 | — | Trois cas cliniques supplémentaires ouverts en accès gratuit : `access: "free"` ajouté à CARDIO-IC-001, NEURO-AVC-001 et INF-PAC-001 (4 cas gratuits sur 5 ; seul CARDIO-SCA-001 reste Premium) | Bug #2 de l'audit : un seul cas gratuit rendait le badge « Premier cas » inatteignable sans clé ; trois spécialités différentes (cardiologie, neurologie, infectiologie) varient le premier contact gratuit | Vibe |
 | 2026-10-15 | — | Runtime d'auth étendu à Cloudflare Pages : `CF_PAGES_URL` rejoint BETTER_AUTH_URL et les variables Vercel dans `hasPublicOrigin` et la dérivation de base URL (`cloudflareAutoBaseURL`, origins de plateforme de confiance) ; `CF_PAGES=1` active le header IP `cf-connecting-ip` ; message « version de test » reformulé en « déploiement » (runtime-status, login) | Bug #1 de l'audit : l'app est déployée sur Cloudflare Pages (optimusmedical.pages.dev) mais le runtime ne connaissait que Vercel/Netlify — le diagnostic public affichait « connexion cloud indisponible » en production ; garde-fous de `scripts/auth-runtime.test.mjs` étendus aux variables CF | Vibe |
 
 ## Sessions terminées
