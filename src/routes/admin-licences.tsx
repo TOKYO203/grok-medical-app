@@ -5,6 +5,8 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getAdminKey, getAdminSessionState } from "@/routes/admin-login";
+import { useLocale, type Locale } from "@/i18n";
+import { formatFullDate } from "@/i18n/format";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import {
@@ -35,13 +37,9 @@ const STATUS_STYLE: Record<AdminLicenseStatus, string> = {
 
 type Filter = "all" | AdminLicenseStatus;
 
-function formatDate(ms: number | null): string {
+function formatDate(ms: number | null, locale: Locale): string {
   if (!ms) return "—";
-  return new Date(ms).toLocaleDateString("fr-FR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
+  return formatFullDate(ms, locale);
 }
 
 function daysLeft(ms: number | null): number | null {
@@ -52,6 +50,7 @@ function daysLeft(ms: number | null): number | null {
 function AdminLicensesPage() {
   const adminKey = getAdminKey();
   const sessionState = getAdminSessionState();
+  const locale = useLocale();
 
   const [items, setItems] = useState<AdminLicense[]>([]);
   const [loading, setLoading] = useState(true);
@@ -292,9 +291,9 @@ function AdminLicensesPage() {
                     <div className="min-w-0 flex-1">
                       <p className="font-mono text-sm">{lic.optimusId}</p>
                       <p className="mt-1 text-xs text-muted">
-                        {lic.product} · créée {formatDate(lic.createdAt)}
-                        {lic.activatedAt && ` · activée ${formatDate(lic.activatedAt)}`}
-                        {lic.expiresAt && ` · expire ${formatDate(lic.expiresAt)}`}
+                        {lic.product} · créée {formatDate(lic.createdAt, locale)}
+                        {lic.activatedAt && ` · activée ${formatDate(lic.activatedAt, locale)}`}
+                        {lic.expiresAt && ` · expire ${formatDate(lic.expiresAt, locale)}`}
                         {left !== null && left > 0 && lic.status === "active" && (
                           <span className="text-emerald-400"> ({left}j restants)</span>
                         )}
