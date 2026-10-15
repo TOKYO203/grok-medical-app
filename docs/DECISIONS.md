@@ -21,6 +21,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | — | Test `specialty-label` aligné sur l'ordre de priorité corrigé par le commit direct 2e8acd7ca1 (cardio > neuro > dermato > infectio > urgences) : « Dermatologie · Infectiologie » se range sous Dermatologie | Le commit direct avait mis à jour le code et son commentaire mais pas le test — CI rouge sur main depuis ; les garde-fous de la session 1 sont passés | Vibe |
 | 2026-10-15 | — | Budget de performance relevé 1704 → 1728 KiB (total mesuré 1706,2 KiB) après la Session 1 (page `/tarifs`, prix multi-devises, essai 7 jours, teaser 30 s, badges progressifs) | Suivre le précédent documenté du garde-fou : relevé par chantier en gardant une marge volontairement faible (~21,8 KiB) pour détecter toute dérive de bundle | Vibe |
 
+## 2026-10-15 — Session 2 : crédibilité médicale
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-15 | B11 | Sources par fiche : architecture déjà en place consignée sans nouveau patch — `Question.sources` rendu par `MedicalSources` (fiche, cas) et `ContentTrustCard` (parcours), registres `medical-sources.ts` / `source-registry.ts`, garde-fous `content-quality` + `editorial-registry` | L'inventaire de session montre l'item déjà livré en amont : on consigne l'état plutôt que dupliquer du code | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).
