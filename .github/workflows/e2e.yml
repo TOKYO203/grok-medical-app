@@ -66,6 +66,12 @@ jobs:
         run: |
           {
             echo "### Diagnostic test E2E (run ${{ github.run_id }})"
+            echo ""
+            echo "#### Échecs détectés"
+            echo '```'
+            grep -h -B4 -A60 "not ok" /tmp/tsc.log /tmp/lint.log /tmp/pwtest.log /tmp/npmci.log /tmp/pwinstall.log 2>/dev/null | head -c 20000
+            echo '```'
+            echo ""
             for f in npmci tsc lint pwinstall pwtest; do
               if [ -f /tmp/$f.log ]; then
                 echo ""

@@ -31,9 +31,11 @@ test("translate résout les clés simples dans les quatre langues", () => {
 });
 
 test("translate fait un repli sur le français si la clé manque dans la langue", () => {
-  const partial = { ...en };
-  delete partial["nav.home"];
-  assert.equal(translate("en", "nav.home", {}, { fr, en: partial }), "Accueil");
+  // C21 : le registre complet est requis (Record<Locale, MessageCatalog>) ;
+  // on retire la clé du seul catalogue anglais pour prouver le repli.
+  const partial = { ...catalogs, en: { ...en } };
+  delete partial.en["nav.home"];
+  assert.equal(translate("en", "nav.home", {}, partial), "Accueil");
 });
 
 test("une clé inconnue renvoie la clé elle-même", () => {

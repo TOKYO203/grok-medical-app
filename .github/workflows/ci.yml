@@ -50,6 +50,12 @@ jobs:
         run: |
           {
             echo "### Diagnostic release-check (run ${{ github.run_id }})"
+            echo ""
+            echo "#### Échecs détectés"
+            echo '```'
+            grep -B4 -A60 "not ok" /tmp/release.log /tmp/qa.log /tmp/npmci.log 2>/dev/null | head -c 20000
+            echo '```'
+            echo ""
             for f in npmci release qa; do
               if [ -f /tmp/$f.log ]; then
                 echo ""
