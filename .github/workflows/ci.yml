@@ -13,6 +13,9 @@ jobs:
   release-check:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
 
     steps:
       - name: Checkout code
@@ -25,13 +28,38 @@ jobs:
           cache: 'npm'
 
       - name: Install locked dependencies
-        run: npm ci --legacy-peer-deps
+        run: |
+          set -o pipefail
+          npm ci --legacy-peer-deps 2>&1 | tee /tmp/npmci.log
 
       - name: Run release readiness checks
-        run: npm run release:check
+        run: |
+          set -o pipefail
+          npm run release:check 2>&1 | tee /tmp/release.log
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built
+        run: |
+          set -o pipefail
+          npm run qa:mobile:built 2>&1 | tee /tmp/qa.log
+
+      - name: Publish diagnostics on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### Diagnostic release-check (run ${{ github.run_id }})"
+            for f in npmci release qa; do
+              if [ -f /tmp/$f.log ]; then
+                echo ""
+                echo "#### $f"
+                echo '```'
+                tail -c 6000 /tmp/$f.log
+                echo '```'
+              fi
+            done
+          } > /tmp/diag.md
+          gh api repos/TOKYO203/grok-medical-app/issues/50/comments -F body=@/tmp/diag.md || true
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
