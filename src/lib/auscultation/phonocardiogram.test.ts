@@ -7,15 +7,12 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import test from "node:test";
 
-import { buildCycle, COVERED_PRESETS, type PhonoCycle } from "./phonocardiogram.ts";
+import { buildCycle, COVERED_PRESETS } from "./phonocardiogram.ts";
+import type { PhonoCycle } from "./phonocardiogram.ts";
 
 const rootDir = new URL("../../../", import.meta.url).pathname;
 const dataDir = join(rootDir, "src/content/data/auscultation");
 
-const index = JSON.parse(await readFile(join(dataDir, "_index.json"), "utf8"));
-const pulmonaireIndex = JSON.parse(
-  await readFile(join(dataDir, "pulmonaire", "_index.json"), "utf8"),
-);
 
 /* ─── QA Session 5 : garde-fous comportementaux du phonocardiogramme ─── */
 
@@ -41,7 +38,9 @@ test("phono QA: sibilances — murmure en inspiration, sifflement expiratoire un
   const murmur = cycle.events.find((ev) => ev.kind === "breath");
   assert.ok(murmur, "sibilances: murmure vésiculaire manquant");
   assert.ok(
-    murmur.startTime <= 1e-9 && murmur.startTime + murmur.duration >= inspiEnd - 1e-9,
+    murmur !== undefined &&
+      murmur.startTime <= 1e-9 &&
+      murmur.startTime + murmur.duration >= inspiEnd - 1e-9,
     "sibilances: le murmure doit couvrir l'inspiration",
   );
 });
@@ -102,7 +101,8 @@ test("phono QA: FA (irregular_fast) — trois battements irréguliers, B1 inéga
   assert.ok(s1s.length >= 3, `irregular_fast: au moins 3 B1 par cycle (trouvé ${s1s.length})`);
   const times = s1s.map((ev) => ev.startTime);
   const gaps = times.slice(1).map((t, i) => t - times[i]);
-  assert.ok(gaps.every((g) => g > 0.3), `irregular_fast: RR trop courts (${gaps.join(", ")})`);
+  assert.ok(gaps.every((g) => g > 0.3), `irregular_fast: RR trop courts (${gaps.join(
+)})`);
   assert.ok(
     Math.max(...gaps) - Math.min(...gaps) > 0.1,
     "irregular_fast: variabilité RR insuffisante (cycle rendu régulier)",
@@ -115,6 +115,10 @@ test("phono QA: FA (irregular_fast) — trois battements irréguliers, B1 inéga
 });
 
 test("phono QA: COVERED_PRESETS couvre tous les presets audio des 20 fiches", async () => {
+  const index = JSON.parse(await readFile(join(dataDir, "_index.json"), "utf8"));
+  const pulmonaireIndex = JSON.parse(
+    await readFile(join(dataDir, "pulmonaire", "_index.json"), "utf8"),
+  );
   const available = [
     ...index.sounds.filter((s) => s.status === "available"),
     ...pulmonaireIndex.sounds.filter((s) => s.status === "available"),
