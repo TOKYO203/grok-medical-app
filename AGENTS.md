@@ -358,3 +358,31 @@ auth/db: OFF by default — sign-in, @/lib/db or migrations ONLY on an accounts 
 never:   build an app for a greeting/number/question; invent imagine_* calls;
          ask the user to run commands; delete or abandon /workspace/startup.sh
 ```
+
+---
+
+## UX-IMPROVEMENTS — vague 1 (à traiter)
+
+### 5 bugs identifiés
+
+1. Statut « Nouveau » persistant sur l'accueil malgré année renseignée
+2. Label « Aujourd'hui... » tronqué → renommer « XP du jour »
+3. « Ligue Bronze » et « Niveau 1 Débutant » redondants → uniformiser
+4. Spécialités pré-sélectionnées sans explication à l'étape 3 onboarding
+5. « 0 sur 10 » ambigu (10 quoi ?) → préciser « 10 questions »
+
+### 10 améliorations UX (priorité : 8, 6, 2)
+
+1. Bouton Retour sur chaque étape onboarding (aujourd'hui seul Passer)
+2. Persister l'état d'onboarding (reprendre à l'étape 3 si quitté là)
+3. Réordonner onboarding : niveau → objectif → spécialités → rythme
+4. Message de bienvenue après onboarding : « Profil prêt, commence par... »
+5. Clarifier « Se synchroniser » avec sous-titre explicatif
+6. Uniformiser statuts : supprimer Ligue OU Niveau, garder un seul système
+7. Icônes sur chips de spécialités (Cardio, Neuro, Pneumo...)
+8. Sélecteur de langue dans Profil (i18n déjà fait en Session 3)
+9. Liens légaux dans « À propos » (Mentions, CGU, Confidentialité)
+10. Animer transitions entre étapes onboarding (slide + fade)
+
+Effort total : ~3h30 (1 session agent)
+
