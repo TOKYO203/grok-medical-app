@@ -1,8 +1,8 @@
 // Socle i18n de la Phase 3 (design international) : types, locale par défaut
 // et résolution de messages avec repli sur le français.
-export type Locale = "fr" | "en";
+export type Locale = "fr" | "en" | "es" | "pt";
 
-export const LOCALES: readonly Locale[] = ["fr", "en"];
+export const LOCALES: readonly Locale[] = ["fr", "en", "es", "pt"];
 
 export const DEFAULT_LOCALE: Locale = "fr";
 
@@ -15,7 +15,7 @@ export type MessageValue = string | ((params: MessageParams) => string);
 export type MessageCatalog = Record<string, MessageValue>;
 
 export function isLocale(value: unknown): value is Locale {
-  return value === "fr" || value === "en";
+  return value === "fr" || value === "en" || value === "es" || value === "pt";
 }
 
 export function localeDir(locale: Locale): "ltr" | "rtl" {

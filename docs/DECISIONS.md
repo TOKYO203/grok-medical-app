@@ -35,6 +35,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | B18 | Crédits ECG visibles dans l'UI : J. Hampton, *The ECG Made Easy* (Elsevier) et recommandations ESC affichés sur `/ecg` ; crédits également portés par `/conseil-editorial` et `docs/CLINICAL-VALIDATION.md` | Citer les références de lecture à l'endroit où l'étudiant apprend, sans toucher au moteur `src/lib/ecg` (module interdit) | Vibe |
 | 2026-10-15 | — | `src/routeTree.gen.ts` régénéré avec `/conseil-editorial` et `/validation-clinique` (correctif CI sur le job test) | Le fichier d'arborescence est versionné : sans mise à jour, le job test (qui ne passe pas par `routes:generate`) échoue sur les `Link` typés d'`a-propos.tsx` | Vibe |
 
+## 2026-10-15 — Session 3 : i18n
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-15 | C21 | Architecture i18n étendue à fr/en/es/pt : type `Locale` élargi dans `src/i18n/core.ts`, catalogues jumeaux `es.ts`/`pt.ts` (clés identiques à fr/en, vérifiées par `messages.test.ts`), `CATALOGS` à quatre langues — le sélecteur du profil s'enrichit automatiquement via `LOCALES` | Item C21 du plan ; le socle Phase 3 (fr/en) garantit le repli sur le français, l'extension ne touche ni les composants ni le store (validation `isLocale` existante) | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).

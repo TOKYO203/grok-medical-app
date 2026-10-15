@@ -3,24 +3,31 @@ import test from "node:test";
 import { DEFAULT_LOCALE, isLocale, localeDir, translate } from "./core.ts";
 import { fr } from "./messages/fr.ts";
 import { en } from "./messages/en.ts";
+import { es } from "./messages/es.ts";
+import { pt } from "./messages/pt.ts";
 
-const catalogs = { fr, en };
+const catalogs = { fr, en, es, pt };
 
-test("fr et en sont des catalogues jumeaux aux clés identiques", () => {
+test("fr, en, es et pt sont des catalogues jumeaux aux clés identiques", () => {
   const frKeys = Object.keys(fr).sort();
-  const enKeys = Object.keys(en).sort();
   assert.ok(frKeys.length >= 100);
-  assert.deepEqual(frKeys, enKeys);
+  assert.deepEqual(frKeys, Object.keys(en).sort());
+  assert.deepEqual(frKeys, Object.keys(es).sort());
+  assert.deepEqual(frKeys, Object.keys(pt).sort());
   for (const value of Object.values(fr)) {
     assert.ok(typeof value === "string" || typeof value === "function");
   }
 });
 
-test("translate résout les clés simples dans les deux langues", () => {
+test("translate résout les clés simples dans les quatre langues", () => {
   assert.equal(translate("fr", "nav.home", {}, catalogs), "Accueil");
   assert.equal(translate("en", "nav.home", {}, catalogs), "Home");
+  assert.equal(translate("es", "nav.home", {}, catalogs), "Inicio");
+  assert.equal(translate("pt", "nav.home", {}, catalogs), "Início");
   assert.equal(translate("fr", "nav.search", {}, catalogs), "Rechercher…");
   assert.equal(translate("en", "profil.confort", {}, catalogs), "Study comfort");
+  assert.equal(translate("es", "profil.language", {}, catalogs), "Idioma");
+  assert.equal(translate("pt", "profil.language", {}, catalogs), "Idioma");
 });
 
 test("translate fait un repli sur le français si la clé manque dans la langue", () => {
@@ -40,6 +47,14 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
     "5 questions restantes",
   );
   assert.equal(translate("en", "dash.questionsLeft", { count: 5 }, catalogs), "5 questions left");
+  assert.equal(
+    translate("es", "dash.questionsLeft", { count: 5 }, catalogs),
+    "5 preguntas restantes",
+  );
+  assert.equal(
+    translate("pt", "dash.questionsLeft", { count: 5 }, catalogs),
+    "5 perguntas restantes",
+  );
   assert.equal(translate("fr", "dash.cardsDue", { count: 1 }, catalogs), "1 carte due");
   assert.equal(translate("fr", "dash.cardsDue", { count: 5 }, catalogs), "5 cartes dues");
   assert.equal(translate("en", "dash.cardsDue", { count: 1 }, catalogs), "1 card due");
@@ -59,16 +74,20 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   );
   assert.equal(translate("fr", "onb.step", { current: 2, total: 4 }, catalogs), "Étape 2 sur 4");
   assert.equal(translate("en", "onb.step", { current: 2, total: 4 }, catalogs), "Step 2 of 4");
+  assert.equal(translate("es", "onb.step", { current: 2, total: 4 }, catalogs), "Paso 2 de 4");
+  assert.equal(translate("pt", "onb.step", { current: 2, total: 4 }, catalogs), "Passo 2 de 4");
   assert.equal(translate("fr", "dash.outOf", { goal: 10 }, catalogs), "sur 10");
 });
 
-test("année, ligue et niveau gardent leur formulation française", () => {
+test("année, ligue et niveau gardent leur formulation par langue", () => {
   assert.equal(translate("fr", "dash.yearShort", { year: 1 }, catalogs), "1re année");
   assert.equal(translate("fr", "dash.yearShort", { year: 5 }, catalogs), "5e année");
   assert.equal(translate("fr", "dash.yearShort", { year: 0 }, catalogs), "Cursus");
   assert.equal(translate("en", "dash.yearShort", { year: 1 }, catalogs), "1st year");
   assert.equal(translate("en", "dash.yearShort", { year: 5 }, catalogs), "5th year");
   assert.equal(translate("en", "dash.yearShort", { year: 0 }, catalogs), "Curriculum");
+  assert.equal(translate("es", "dash.yearShort", { year: 5 }, catalogs), "5.º año");
+  assert.equal(translate("pt", "dash.yearShort", { year: 5 }, catalogs), "5.º ano");
   const sep = translate("fr", "dash.levelSep", {}, catalogs);
   assert.equal(
     translate("fr", "dash.levelWithTitle", { level: 3, title: "Confirmé" }, catalogs),
@@ -76,13 +95,19 @@ test("année, ligue et niveau gardent leur formulation française", () => {
   );
   assert.equal(translate("fr", "dash.league", { label: "Or" }, catalogs), "ligue Or");
   assert.equal(translate("en", "dash.league", { label: "Gold" }, catalogs), "Gold league");
+  assert.equal(translate("es", "dash.league", { label: "Oro" }, catalogs), "liga Oro");
+  assert.equal(translate("pt", "dash.league", { label: "Ouro" }, catalogs), "liga Ouro");
 });
 
-test("les utilitaires de locale exposent le contrat de la Phase 3", () => {
+test("les utilitaires de locale exposent le contrat des quatre langues", () => {
   assert.equal(DEFAULT_LOCALE, "fr");
   assert.equal(isLocale("fr"), true);
   assert.equal(isLocale("en"), true);
+  assert.equal(isLocale("es"), true);
+  assert.equal(isLocale("pt"), true);
   assert.equal(isLocale("mg"), false);
   assert.equal(localeDir("fr"), "ltr");
   assert.equal(localeDir("en"), "ltr");
+  assert.equal(localeDir("es"), "ltr");
+  assert.equal(localeDir("pt"), "ltr");
 });
