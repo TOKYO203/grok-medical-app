@@ -11,7 +11,7 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -28,32 +28,73 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Sonde 1 - release:check
+      - name: Sonde 1 - typecheck
         run: |
           set +e
-          echo "### Sonde phase3 — release:check" > /tmp/probe.md
+          echo "### Sonde phase3 v2 — typecheck" > /tmp/probe.md
           echo "" >> /tmp/probe.md
-          echo '```text' >> /tmp/probe.md
-          set -o pipefail
-          npm run release:check 2>&1 | tail -n 200 >> /tmp/probe.md
+          npm run typecheck > /tmp/tsc.log 2>&1
           code=$?
-          echo "" >> /tmp/probe.md
-          echo "release_check_exit_code=$code" >> /tmp/probe.md
+          echo 'typecheck_exit_code='"$code" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          tail -n 120 /tmp/tsc.log >> /tmp/probe.md
           echo '```' >> /tmp/probe.md
           exit 0
 
-      - name: Sonde 2 - E2E Playwright
+      - name: Sonde 2 - lint
         run: |
           set +e
           echo "" >> /tmp/probe.md
-          echo "### Sonde phase3 — E2E Playwright" >> /tmp/probe.md
+          echo "### Sonde phase3 v2 — lint" >> /tmp/probe.md
+          echo "" >> /tmp/probe.md
+          npm run lint > /tmp/lint.log 2>&1
+          code=$?
+          echo 'lint_exit_code='"$code" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          tail -n 120 /tmp/lint.log >> /tmp/probe.md
+          echo '```' >> /tmp/probe.md
+          exit 0
+
+      - name: Sonde 3 - tests
+        run: |
+          set +e
+          echo "" >> /tmp/probe.md
+          echo "### Sonde phase3 v2 — npm test" >> /tmp/probe.md
+          echo "" >> /tmp/probe.md
+          npm test > /tmp/test.log 2>&1
+          code=$?
+          echo 'test_exit_code='"$code" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          grep -n -B 2 -A 60 "^not ok" /tmp/test.log | head -n 400 >> /tmp/probe.md
+          tail -n 20 /tmp/test.log >> /tmp/probe.md
+          echo '```' >> /tmp/probe.md
+          exit 0
+
+      - name: Sonde 4 - build
+        run: |
+          set +e
+          echo "" >> /tmp/probe.md
+          echo "### Sonde phase3 v2 — build" >> /tmp/probe.md
+          echo "" >> /tmp/probe.md
+          npm run build > /tmp/build.log 2>&1
+          code=$?
+          echo 'build_exit_code='"$code" >> /tmp/probe.md
+          echo '```text' >> /tmp/probe.md
+          tail -n 80 /tmp/build.log >> /tmp/probe.md
+          echo '```' >> /tmp/probe.md
+          exit 0
+
+      - name: Sonde 5 - E2E Playwright
+        run: |
+          set +e
+          set -o pipefail
+          echo "" >> /tmp/probe.md
+          echo "### Sonde phase3 v2 — E2E Playwright" >> /tmp/probe.md
           echo "" >> /tmp/probe.md
           echo '```text' >> /tmp/probe.md
-          npx playwright install --with-deps chromium >> /tmp/probe.md 2>&1
-          set -o pipefail
-          CI=true npx playwright test 2>&1 | tail -n 200 >> /tmp/probe.md
+          npx playwright install --with-deps chromium > /dev/null 2>&1
+          CI=true npx playwright test 2>&1 | tail -n 80 >> /tmp/probe.md
           code=$?
-          echo "" >> /tmp/probe.md
           echo "e2e_exit_code=$code" >> /tmp/probe.md
           echo '```' >> /tmp/probe.md
           exit 0

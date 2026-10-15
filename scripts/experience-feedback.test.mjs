@@ -21,6 +21,8 @@ const shell = readFileSync(new URL("../src/components/shell.tsx", import.meta.ur
 const profile = readFileSync(new URL("../src/routes/profil.tsx", import.meta.url), "utf8");
 const premium = readFileSync(new URL("../src/routes/pro.tsx", import.meta.url), "utf8");
 const styles = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
+// Phase 3 (i18n) : la copie française visible vit dans le catalogue de messages.
+const frCatalog = readFileSync(new URL("../src/i18n/messages/fr.ts", import.meta.url), "utf8");
 
 test("sensory feedback is user-configurable and local-only", () => {
   assert.match(engine, /optimus-experience-v1/);
@@ -80,7 +82,10 @@ test("motion feedback honors both app and operating-system reduced motion", () =
 });
 
 test("profile exposes clear study-comfort controls", () => {
-  assert.match(profile, /Confort d’étude/);
+  // Phase 3 (i18n) : « Confort d’étude » passe par t("profil.confort") ;
+  // on vérifie le branchement dans la page et la copie française dans le catalogue.
+  assert.match(profile, /t\("profil\.confort"\)/);
+  assert.match(frCatalog, /Confort d’étude/);
   assert.match(profile, /Expérience sensorielle/);
   assert.match(profile, /<ExperienceControls \/>/);
 });
