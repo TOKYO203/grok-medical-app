@@ -41,7 +41,8 @@ const ECG_LEAD_IN = 0.2;
 /** Amplitude maximale du tracé ECG, en mV (pic R). */
 const ECG_MAX_MV = 1.0;
 
-function ecgAmplitude(t: number): number {
+/** Un battement ECG individuel, centré sur t = 0 (aligné sur B1). */
+function singleBeatEcg(t: number, irregular: boolean): number {
   // Amplitudes réalistes d'un ECG de surface :
   //   P : 0.18 mV (petit dôme arrondi, ~160 ms avant R)
   //   Q : -0.12 mV (petit creux)
@@ -49,7 +50,13 @@ function ecgAmplitude(t: number): number {
   //   S : -0.22 mV (creux post-R)
   //   T : 0.42 mV (dôme large, ~40 % du R)
   let amp = 0;
-  amp += gauss(t, -0.16, 0.028, 0.18); // P (avant le QRS, donc t < 0)
+  if (irregular) {
+    // FA : pas d'onde P — l'activité auriculaire désorganisée se traduit
+    // par une trémulation de la ligne de base entre les QRS.
+    amp += 0.045 * Math.sin(t * 61.3) * Math.sin(t * 23.7);
+  } else {
+    amp += gauss(t, -0.16, 0.028, 0.18); // P (avant le QRS, donc t < 0)
+  }
   // Complexe QRS centré sur t = 0 (aligné sur B1)
   amp += gauss(t, -0.018, 0.007, -0.12); // Q
   amp += gauss(t, 0, 0.006, 1.0); // R
@@ -59,7 +66,26 @@ function ecgAmplitude(t: number): number {
   return amp;
 }
 
-function ecgPointsPath(cycleDuration: number, yBaseline: number, yTop: number): string {
+/**
+ * Amplitude ECG à l'instant t du cycle : superposition d'un complexe
+ * P-QRS-T par battement. Les positions des B1 portent le rythme réel
+ * (plusieurs battements irréguliers pour la FA, un seul sinon).
+ */
+function ecgAmplitude(t: number, beatTimes: number[], irregular: boolean): number {
+  let amp = 0;
+  for (const beat of beatTimes) {
+    amp += singleBeatEcg(t - beat, irregular);
+  }
+  return amp;
+}
+
+function ecgPointsPath(
+  cycleDuration: number,
+  yBaseline: number,
+  yTop: number,
+  beatTimes: number[],
+  irregular: boolean,
+): string {
   const N = 220;
   const range = yBaseline - yTop;
   const pts: string[] = [];
@@ -68,7 +94,7 @@ function ecgPointsPath(cycleDuration: number, yBaseline: number, yTop: number): 
   for (let i = 0; i <= N; i++) {
     const t = (i / N) * cycleDuration - ECG_LEAD_IN;
     // Normalisation : 1 mV (pic R) occupe toute la hauteur du bandeau ECG.
-    const y = yBaseline - (ecgAmplitude(t) / ECG_MAX_MV) * range;
+    const y = yBaseline - (ecgAmplitude(t, beatTimes, irregular) / ECG_MAX_MV) * range;
     const x = (t + ECG_LEAD_IN) * PX_PER_SEC;
     pts.push(`${i === 0 ? "M" : "L"} ${coord(x)} ${coord(y)}`);
   }
@@ -166,11 +192,26 @@ export function PhonoSVG({
   // recréation des <defs>.
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
 
+  // Positions des B1 du cycle : l'ECG superpose un complexe par battement.
+  // Repli sur cycle.s1Time si aucun B1 explicite (presets respiratoires),
+  // pour ne pas aplatir le tracé.
+  const beatTimes = useMemo(() => {
+    const s1s = cycle.events.filter((e) => e.kind === "s1").map((e) => e.startTime);
+    return s1s.length > 0 ? s1s : [cycle.s1Time];
+  }, [cycle.events, cycle.s1Time]);
+
   // Tracé ECG : ne dépend pas du playhead → calculé une fois par cycle,
   // et réutilisé par les deux <path> (contour flouté + tracé net).
   const ecgPath = useMemo(
-    () => ecgPointsPath(cycle.durationSec, ECG_TOP - 8, 18),
-    [cycle.durationSec],
+    () =>
+      ecgPointsPath(
+        cycle.durationSec,
+        ECG_TOP - 8,
+        18,
+        beatTimes,
+        cycle.irregular === true,
+      ),
+    [cycle.durationSec, beatTimes, cycle.irregular],
   );
 
   // Graduations axe temporel tous les 100 ms

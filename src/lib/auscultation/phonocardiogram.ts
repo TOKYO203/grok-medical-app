@@ -53,6 +53,9 @@ export interface PhonoCycle {
   phases: PhonoPhase[];
   s1Time: number;
   s2Time: number;
+  /** Vrai quand le cycle porte sa propre irrégularité (ex. FA) :
+   *  le SVG s'en sert pour rendre un ECG sans onde P. */
+  irregular?: boolean;
 }
 
 /** Cycle cardiaque standard (ms) — valeurs par défaut, écrasables par params. */
@@ -237,16 +240,43 @@ export function buildCycle(
         },
       ]);
 
-    case "irregular_fast":
-      // FA : cycle raccourci pour suggérer la tachycardie (100-160/min)
-      // Note : l'irrégularité temporelle sera rendue par le SVG (jitter).
-      return cycle(
-        [s1(), s2()],
-        [
-          { start: 0, end: systole, label: "Systole", color: "systole" },
-          { start: systole, end: total, label: "Diastole", color: "diastole" },
-        ],
-      );
+    case "irregular_fast": {
+      // FA : trois battements aux intervalles RR inégaux (420/600/480 ms)
+      // et amplitudes B1 inégales — le tracé ET l'ECG rendent l'irrégularité.
+      // (Le moteur audio tire les RR au hasard battement par battement ; ici
+      //  le cycle est figé pour que le playhead reste lisible.)
+      const beats = [
+        { t: 0, sys: 0.28, b1: 0.9, b2: 0.8 },
+        { t: 0.42, sys: 0.3, b1: 0.55, b2: 0.5 },
+        { t: 1.02, sys: 0.26, b1: 0.7, b2: 0.6 },
+      ];
+      const faTotal = 1.5;
+      const events: PhonoEvent[] = [];
+      const phases: PhonoPhase[] = [];
+      beats.forEach((b, i) => {
+        events.push(
+          {
+            kind: "s1", startTime: b.t, duration: S1_DUR, amplitude: b.b1,
+            shape: "impulse", label: "B1",
+          },
+          {
+            kind: "s2", startTime: b.t + b.sys, duration: S2_DUR, amplitude: b.b2,
+            shape: "impulse", label: "B2",
+          },
+        );
+        phases.push({ start: b.t, end: b.t + b.sys, label: "Systole", color: "systole" });
+        const end = i + 1 < beats.length ? beats[i + 1].t : faTotal;
+        phases.push({ start: b.t + b.sys, end, label: "Diastole", color: "diastole" });
+      });
+      return {
+        durationSec: faTotal,
+        events,
+        phases,
+        s1Time: 0,
+        s2Time: 0.28,
+        irregular: true,
+      };
+    }
 
     // ── Pulmonaire ─────────────────────────────────────────────────────
     case "normal_vesicular":
