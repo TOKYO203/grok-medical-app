@@ -17,12 +17,14 @@ import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
 import { buildContentIndex } from "@/lib/library/content-index";
+import { useI18n } from "@/i18n";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { formatInt } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
+  const { t } = useI18n();
   const onboarded = useOptimus((s) => s.profile.onboarded);
   const hydrated = useOptimus((s) => s.hydrated);
   const finishHydration = useOptimus((s) => s.finishHydration);
@@ -33,13 +35,14 @@ function Home() {
   if (!hydrated) return <HomeSkeleton />;
   if (!onboarded) return <Onboarding />;
   return (
-    <Shell title="Aujourd’hui">
+    <Shell title={t("dash.today")}>
       <Dashboard />
     </Shell>
   );
 }
 
 function Dashboard() {
+  const { t } = useI18n();
   const profile = useOptimus((s) => s.profile);
   const xp = useOptimus((s) => s.xp);
   const streak = useOptimus((s) => s.streak);
@@ -122,24 +125,28 @@ function Dashboard() {
       <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
-            {profile.tier === "guest" ? "Nouveau" : profile.optimusId}
+            {profile.tier === "guest" ? t("dash.new") : profile.optimusId}
           </p>
           <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
-            Bonjour
-            {profile.displayName && profile.displayName !== "Nouveau"
-              ? `, ${profile.displayName}`
-              : ""}
+            {t("dash.hello", {
+              name:
+                profile.displayName && profile.displayName !== "Nouveau"
+                  ? profile.displayName
+                  : "",
+            })}
           </h1>
           <p className="mt-1 text-sm text-muted">
             {(profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
-              YEARS_SHORT[profile.studyYear] ??
-              "Cursus"}{" "}
-            · {band.label} · ligue {league.label}
+              t("dash.yearShort", { year: profile.studyYear })}
+            {t("dash.levelSep")}
+            {band.label}
+            {t("dash.levelSep")}
+            {t("dash.league", { label: league.label })}
           </p>
         </div>
         <Link
           to="/profil"
-          aria-label="Ouvrir mon profil"
+          aria-label={t("dash.openProfile")}
           className="optimus-interactive-card flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft font-display text-lg text-primary shadow-[var(--shadow-border)]"
         >
           {initials(profile.displayName)}
@@ -154,19 +161,17 @@ function Dashboard() {
           <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
           <div className="min-w-0 flex-1">
             <p className="optimus-kicker--hero text-xs font-medium uppercase tracking-[0.14em] opacity-75">
-              Session du jour
+              {t("dash.sessionToday")}
             </p>
             <h2 className="mt-1 font-display text-2xl font-medium tracking-tight">
               {remaining === 0
-                ? "Objectif atteint"
+                ? t("dash.goalReached")
                 : daily.answered > 0
-                  ? `${remaining} question${remaining > 1 ? "s" : ""} restante${remaining > 1 ? "s" : ""}`
-                  : "Prêt pour 10 min ?"}
+                  ? t("dash.questionsLeft", { count: remaining })
+                  : t("dash.ready")}
             </h2>
             <p className="mt-1 text-sm opacity-75">
-              {daily.xp > 0
-                ? `${daily.xp} XP gagnés aujourd’hui`
-                : "Une courte session, puis c’est fait."}
+              {daily.xp > 0 ? t("dash.xpToday", { xp: daily.xp }) : t("dash.noXpYet")}
             </p>
           </div>
         </div>
@@ -177,8 +182,8 @@ function Dashboard() {
             className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
           >
             {daily.answered > 0
-              ? "Continuer la session"
-              : `Commencer · ${todayItems.length} questions`}
+              ? t("dash.continueSession")
+              : t("dash.startWith", { count: todayItems.length })}
             <ChevronRight className="size-4" />
           </Link>
         ) : (
@@ -186,7 +191,7 @@ function Dashboard() {
             to="/bibliotheque"
             className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
           >
-            Explorer la bibliothèque
+            {t("dash.exploreLibrary")}
           </Link>
         )}
       </section>
@@ -194,17 +199,17 @@ function Dashboard() {
       <div className="mt-3 grid grid-cols-3 gap-2">
         <StatChip
           icon={<Flame className="size-4 text-primary" />}
-          label="Série"
+          label={t("dash.streak")}
           value={`${streak} j`}
         />
         <StatChip
           icon={<Zap className="size-4 text-primary" />}
-          label="Aujourd’hui"
+          label={t("dash.todayLabel")}
           value={`${daily.xp} XP`}
         />
         <StatChip
           icon={<Sparkles className="size-4 text-primary" />}
-          label="Niveau"
+          label={t("dash.level")}
           value={`${lvl.level}`}
         />
       </div>
@@ -212,11 +217,11 @@ function Dashboard() {
       {featured ? (
         <section className="mt-7">
           <SectionTitle
-            kicker="Prochaine étape"
-            title={resumed ? "Reprendre votre deck" : "Deck conseillé"}
+            kicker={t("dash.nextStep")}
+            title={resumed ? t("dash.resumeDeck") : t("dash.suggestedDeck")}
             action={
               <Link to="/bibliotheque" className="text-sm text-muted hover:text-accent">
-                Tout voir
+                {t("dash.viewAll")}
               </Link>
             }
           />
@@ -234,10 +239,10 @@ function Dashboard() {
                   <span className="truncate font-medium">{featured.title}</span>
                   <span className="optimus-status-pill shrink-0 bg-primary-soft text-primary">
                     {featuredProgress >= 100
-                      ? "Terminé"
+                      ? t("dash.done")
                       : featuredProgress > 0
-                        ? "En cours"
-                        : "Conseillé"}
+                        ? t("dash.inProgress")
+                        : t("dash.recommended")}
                   </span>
                 </span>
                 <span className="mt-0.5 block truncate text-sm text-muted">
@@ -261,11 +266,11 @@ function Dashboard() {
       {/* Rails de contenu */}
       <section className="mt-8">
         <SectionTitle
-          kicker="Pour vous"
-          title="Decks recommandés"
+          kicker={t("dash.forYou")}
+          title={t("dash.recommendedDecks")}
           action={
             <Link to="/bibliotheque" className="text-sm text-muted hover:text-accent">
-              Bibliothèque
+              {t("nav.library")}
             </Link>
           }
         />
@@ -278,11 +283,11 @@ function Dashboard() {
 
       <section className="mt-8">
         <SectionTitle
-          kicker="Raisonnement"
-          title="Cas cliniques"
+          kicker={t("dash.reasoning")}
+          title={t("dash.clinicalCases")}
           action={
             <Link to="/cas" className="text-sm text-muted hover:text-accent">
-              Tous les cas
+              {t("dash.allCases")}
             </Link>
           }
         />
@@ -295,37 +300,37 @@ function Dashboard() {
 
       {/* Accès rapide */}
       <section className="mt-8">
-        <SectionTitle kicker="Accès rapide" title="Outils" />
+        <SectionTitle kicker={t("dash.quickAccess")} title={t("dash.tools")} />
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           <QuickAction
             to="/revue"
             icon={<DeckIcon name="book" />}
-            label="Réviser"
-            detail={`${dueCount} carte${dueCount > 1 ? "s" : ""} due${dueCount > 1 ? "s" : ""}`}
+            label={t("nav.review")}
+            detail={t("dash.cardsDue", { count: dueCount })}
           />
           <QuickAction
             to="/examen"
             icon={<ClipboardCheck className="size-5" />}
-            label="Examen blanc"
-            detail="Se tester"
+            label={t("nav.mockExam")}
+            detail={t("dash.testYourself")}
           />
           <QuickAction
             to="/calculateurs"
             icon={<Calculator className="size-5" />}
-            label="Calculateurs"
-            detail="Outils cliniques"
+            label={t("nav.calculators")}
+            detail={t("dash.clinicalTools")}
           />
           <QuickAction
             to="/ecg"
             icon={<Activity className="size-5" />}
             label="ECG"
-            detail="Interprétation"
+            detail={t("dash.interpretation")}
           />
           <QuickAction
             to="/auscultation"
             icon={<Stethoscope className="size-5" />}
-            label="Auscultation"
-            detail="Cardio · Pulmo"
+            label={t("nav.auscultation")}
+            detail={t("dash.cardioPulmo")}
           />
         </div>
       </section>
@@ -337,27 +342,29 @@ function Dashboard() {
             <Flame className="size-5" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">Série quotidienne</p>
+            <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
+              {t("dash.dailyStreak")}
+            </p>
             <p className="mt-0.5 text-sm font-medium">
-              {streak > 0
-                ? `${streak} jour${streak > 1 ? "s" : ""} d'affilée`
-                : "Commence ta série aujourd'hui"}
+              {streak > 0 ? t("dash.streakDays", { count: streak }) : t("dash.startStreak")}
             </p>
           </div>
-          <span className="optimus-kpi font-mono text-xs tabular-nums">+50 XP à 7j</span>
+          <span className="optimus-kpi font-mono text-xs tabular-nums">
+            {t("dash.streakBonus")}
+          </span>
         </section>
 
-        <SectionTitle kicker="Progression" title="Votre niveau clinique" />
+        <SectionTitle kicker={t("dash.progression")} title={t("dash.clinicalLevel")} />
         <div className="optimus-card p-4">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted">
-              Niveau {lvl.level} · {lvl.title}
+              {t("dash.levelWithTitle", { level: lvl.level, title: lvl.title })}
             </span>
             <span className="optimus-kpi font-mono text-xs tabular-nums">{formatInt(xp)} XP</span>
           </div>
           <Progress className="mt-2" value={lvl.progress} barClassName="optimus-progress-fill" />
           <div className="mt-4 flex items-center justify-between text-sm">
-            <span className="text-muted">Maîtrise globale</span>
+            <span className="text-muted">{t("dash.globalMastery")}</span>
             <span className="optimus-kpi font-mono tabular-nums">{mastery}%</span>
           </div>
           <Progress
@@ -369,41 +376,45 @@ function Dashboard() {
           {mastery > 0 && weak && strong ? (
             <div className="mt-4 grid grid-cols-2 gap-2">
               <div className="rounded-[var(--radius-md)] bg-secondary p-3">
-                <p className="optimus-kicker text-[11px] uppercase tracking-wider">À renforcer</p>
+                <p className="optimus-kicker text-[11px] uppercase tracking-wider">
+                  {t("dash.toStrengthen")}
+                </p>
                 <p className="mt-1 truncate text-sm font-medium">{weak.label}</p>
               </div>
               <div className="rounded-[var(--radius-md)] bg-secondary p-3">
-                <p className="optimus-kicker text-[11px] uppercase tracking-wider">Point fort</p>
+                <p className="optimus-kicker text-[11px] uppercase tracking-wider">
+                  {t("dash.strongPoint")}
+                </p>
                 <p className="mt-1 truncate text-sm font-medium">{strong.label}</p>
               </div>
             </div>
           ) : (
             <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
-              Votre profil de maîtrise apparaîtra après votre première session.
+              {t("dash.masteryPending")}
             </p>
           )}
         </div>
       </section>
 
       <section className="mt-8">
-        <SectionTitle kicker="Plus" title="Outils et accès" />
+        <SectionTitle kicker={t("dash.more")} title={t("dash.toolsAccess")} />
         <div className="flex flex-wrap gap-2">
           <Link to="/revue" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <DeckIcon name="book" />
-            Réviser {dueCount > 0 ? `(${dueCount})` : ""}
+            {t("nav.review")} {dueCount > 0 ? `(${dueCount})` : ""}
           </Link>
           <Link to="/import" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Upload className="size-4" />
-            Importer un Deck
+            {t("nav.importDeck")}
           </Link>
           <Link to="/cas" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Sparkles className="size-4" />
-            Cas cliniques ({CLINICAL_CASES.length})
+            {t("dash.clinicalCases")} ({CLINICAL_CASES.length})
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
             <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>
               <Lock className="size-4" />
-              Offres Premium
+              {t("dash.premiumOffers")}
             </Link>
           ) : null}
         </div>
@@ -415,15 +426,6 @@ function Dashboard() {
     </Page>
   );
 }
-
-const YEARS_SHORT: Record<number, string> = {
-  1: "1re année",
-  2: "2e année",
-  3: "3e année",
-  4: "4e année",
-  5: "5e année",
-  6: "6e année",
-};
 
 function initials(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -484,6 +486,7 @@ function DailyProgress({
   answered: number;
   goal: number;
 }) {
+  const { t } = useI18n();
   const radius = 28;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (value / 100) * circumference;
@@ -492,7 +495,7 @@ function DailyProgress({
     <div
       className="relative size-[4.5rem] shrink-0"
       role="progressbar"
-      aria-label="Objectif quotidien"
+      aria-label={t("dash.dailyGoalAria")}
       aria-valuemin={0}
       aria-valuemax={goal}
       aria-valuenow={Math.min(answered, goal)}
@@ -522,15 +525,16 @@ function DailyProgress({
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center leading-none">
         <strong className="font-display text-xl font-medium">{answered}</strong>
-        <span className="mt-1 text-[11px] opacity-70">sur {goal}</span>
+        <span className="mt-1 text-[11px] opacity-70">{t("dash.outOf", { goal })}</span>
       </span>
     </div>
   );
 }
 
 function HomeSkeleton() {
+  const { t } = useI18n();
   return (
-    <div className="min-h-dvh bg-bg" aria-busy="true" aria-label="Chargement d’Optimus">
+    <div className="min-h-dvh bg-bg" aria-busy="true" aria-label={t("dash.skeletonLoading")}>
       <div className="mx-auto max-w-2xl px-5 py-6">
         <div className="flex items-center justify-between gap-4">
           <div className="space-y-2">
@@ -547,7 +551,7 @@ function HomeSkeleton() {
           <div className="optimus-skeleton h-16 rounded-[var(--radius-lg)]" />
         </div>
         <div className="optimus-skeleton mt-8 h-28 rounded-[var(--radius-xl)]" />
-        <span className="sr-only">Chargement de votre progression…</span>
+        <span className="sr-only">{t("dash.skeletonSr")}</span>
       </div>
     </div>
   );

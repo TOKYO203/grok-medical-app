@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
 import { emitExperienceFeedback } from "@/lib/experience-feedback";
+import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +23,7 @@ export function QuizPlayer({
   items,
   onAnswer,
   onFinish,
-  finishLabel = "Terminer",
+  finishLabel,
 }: {
   items: QuizItem[];
   onAnswer: (item: QuizItem, ok: boolean, combo: number) => void;
@@ -40,6 +41,7 @@ export function QuizPlayer({
   const advanceLocked = useRef(false);
   const unlockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { preferences } = useExperiencePreferences();
+  const { t } = useI18n();
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
   const order = useMemo(() => {
@@ -55,7 +57,7 @@ export function QuizPlayer({
   );
 
   if (sessionItems.length === 0) {
-    return <p className="text-sm text-muted">Aucune question dans cette session.</p>;
+    return <p className="text-sm text-muted">{t("quiz.empty")}</p>;
   }
 
   if (done || !item) {
@@ -66,18 +68,18 @@ export function QuizPlayer({
           preferences.enhancedMotion && "optimus-session-complete",
         )}
       >
-        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Session</p>
+        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+          {t("quiz.session")}
+        </p>
         <h2 className="mt-2 font-display text-3xl font-medium tracking-tight">
           {correctCount}/{sessionItems.length}
         </h2>
-        <p className="mt-2 text-sm text-muted">
-          Combo max {maxCombo}. L’XP mesure l’effort — la Mastery, la compétence.
-        </p>
+        <p className="mt-2 text-sm text-muted">{t("quiz.summary", { max: maxCombo })}</p>
         <Button
           className="mt-6"
           onClick={() => onFinish({ correct: correctCount, total: sessionItems.length, maxCombo })}
         >
-          {finishLabel}
+          {finishLabel ?? t("quiz.finish")}
         </Button>
       </div>
     );
@@ -127,7 +129,7 @@ export function QuizPlayer({
               "inline-flex shrink-0 items-center gap-1 rounded-full bg-warn/10 px-2 py-1 font-mono text-[11px] font-medium text-warn shadow-[var(--shadow-border)]",
               preferences.enhancedMotion && revealed && ok && "optimus-combo-pulse",
             )}
-            aria-label={`Combo ${combo}`}
+            aria-label={t("quiz.comboAria", { count: combo })}
           >
             <Flame className="size-3.5" />
             x{combo}
@@ -186,15 +188,17 @@ export function QuizPlayer({
         >
           <p className={cn("text-sm font-medium", ok ? "text-primary" : "text-danger")}>
             {ok
-              ? `Juste · combo ${combo} · +${comboBonus(combo)} XP combo`
-              : "Incorrect — à revoir bientôt"}
+              ? t("quiz.correct", { count: combo, xp: comboBonus(combo) })
+              : t("quiz.incorrect")}
           </p>
 
           <div className="mt-4 flex items-center gap-2 border-t border-border/40 pt-4">
 
-            <Lightbulb className="size-3.5 text-amber-400" aria-hidden />
+            <Lightbulb className="size-3.5 text-warn" aria-hidden />
 
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">Pourquoi</p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              {t("quiz.why")}
+            </p>
 
           </div>
 
@@ -211,7 +215,7 @@ export function QuizPlayer({
             className="mt-2 w-full"
           />
           <Button className="mt-4 w-full" onClick={next}>
-            {index === sessionItems.length - 1 ? "Voir mes résultats" : "Question suivante"}
+            {index === sessionItems.length - 1 ? t("quiz.results") : t("quiz.next")}
             <ArrowRight className="size-4" />
           </Button>
         </div>
