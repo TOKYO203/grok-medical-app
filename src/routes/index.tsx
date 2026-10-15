@@ -466,7 +466,7 @@ function StatChip({ icon, label, value }: { icon: ReactNode; label: string; valu
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="optimus-kicker truncate text-[10px] font-medium uppercase tracking-wider sm:text-[11px]">
+        <p className="optimus-kicker truncate text-[11px] font-medium uppercase tracking-wider">
           {label}
         </p>
         <p className="optimus-kpi truncate font-mono text-sm tabular-nums">{value}</p>

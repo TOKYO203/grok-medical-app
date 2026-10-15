@@ -112,7 +112,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             })}
           </nav>
 
-          <div className="optimus-kicker mt-6 mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.18em]">
+          <div className="optimus-kicker mt-6 mb-2 px-3 text-[11px] font-semibold uppercase tracking-[0.18em]">
             Explorer
           </div>
           <nav className="flex flex-col gap-0.5" aria-label="Navigation secondaire">
