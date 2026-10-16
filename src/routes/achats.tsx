@@ -137,6 +137,11 @@ function PurchasesPage() {
             >
               Découvrir Optimus Pro
             </Link>
+            <p className="mt-3 text-sm">
+              <Link to="/tarifs" className="font-medium text-primary hover:underline">
+                Voir la grille tarifaire →
+              </Link>
+            </p>
           </section>
         ) : (
           <>

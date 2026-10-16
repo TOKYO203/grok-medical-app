@@ -150,9 +150,21 @@ function ProPage() {
               onRemember={(message) => addContact("deck", message)}
               onPurchaseUpdated={cacheServerPurchase}
             />
-            ) : null}
+            ) : (
+              <section className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+                <h2 className="font-medium">Acheter un deck ou une spécialité</h2>
+                <p className="mt-1 text-sm leading-relaxed text-muted">
+                  Le paiement Mobile Money n'est pas encore activé sur ce déploiement. En
+                  attendant, l'essai Premium de 7 jours ouvre les cas cliniques et les
+                  démarches Premium.
+                </p>
+                <Link to="/tarifs" className="mt-3 inline-block text-sm font-medium text-primary">
+                  Voir la grille tarifaire →
+                </Link>
+              </section>
+            )}
 
-            <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]" open={!authEnabled}>
+            <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
               <summary className="cursor-pointer text-sm font-medium">
                 J’ai déjà reçu une clé ou un Deck
               </summary>

@@ -113,6 +113,8 @@ export const pt: MessageCatalog = {
   "dash.strongPoint": "Ponto forte",
   "dash.masteryPending": "O teu perfil de domínio aparecerá após a primeira sessão.",
   "dash.startFirstSession": "Começar a minha primeira sessão",
+  "dash.idTooltip": "O teu identificador Optimus — liga as tuas compras e licenças a este perfil",
+  "dash.freeCases": (p) => p.count + " grátis",
   "dash.more": "Mais",
   "dash.toolsAccess": "Ferramentas e acesso",
   "dash.premiumOffers": "Ofertas Premium",

@@ -82,6 +82,22 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "dash.questionsUnit", {}, catalogs), "questions");
   assert.equal(translate("es", "dash.questionsUnit", {}, catalogs), "preguntas");
   assert.equal(translate("pt", "dash.questionsUnit", {}, catalogs), "perguntas");
+  assert.equal(
+    translate("fr", "dash.idTooltip", {}, catalogs),
+    "Ton identifiant Optimus — il lie tes achats et licences à ce profil",
+  );
+  assert.equal(
+    translate("en", "dash.idTooltip", {}, catalogs),
+    "Your Optimus ID — it links your purchases and licenses to this profile",
+  );
+  assert.equal(
+    translate("es", "dash.idTooltip", {}, catalogs),
+    "Tu identificador Optimus — vincula tus compras y licencias a este perfil",
+  );
+  assert.equal(
+    translate("pt", "dash.idTooltip", {}, catalogs),
+    "O teu identificador Optimus — liga as tuas compras e licenças a este perfil",
+  );
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

@@ -16,7 +16,7 @@ import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
-import { buildContentIndex } from "@/lib/library/content-index";
+import { buildContentIndex, caseAccessible } from "@/lib/library/content-index";
 import { useI18n } from "@/i18n";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { formatInt } from "@/lib/utils";
@@ -83,6 +83,9 @@ function Dashboard() {
     }))
     .sort((a, b) => b.lastReview - a.lastReview)
     .find((item) => item.lastReview > 0)?.deck;
+  const freeCasesCount = CLINICAL_CASES.filter((clinical) =>
+    caseAccessible(clinical, entitlements),
+  ).length;
   const dailyGoal = 10;
   const dailyPct = Math.min(100, Math.round((daily.answered / dailyGoal) * 100));
   const remaining = Math.max(0, dailyGoal - daily.answered);
@@ -108,6 +111,9 @@ function Dashboard() {
         let score = progressById.get(item.id) ? 1 : 0;
         if (priorityNames.some((p) => item.specialty.toLowerCase().includes(p))) score += 2;
         if (profile.studyYear > 0 && item.year === profile.studyYear) score += 2;
+        if (profile.studyYear > 0 && item.year !== null && item.year !== profile.studyYear) {
+          score -= Math.abs(item.year - profile.studyYear);
+        }
         return { item, score };
       })
       .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
@@ -117,14 +123,21 @@ function Dashboard() {
 
   const caseRail = useMemo(() => index.filter((i) => i.kind === "case").slice(0, 3), [index]);
 
-  const featured = resumed ?? priority[0] ?? unlocked[0];
+  const yearDeck =
+    profile.studyYear > 0
+      ? unlocked.find((deck) => deck.studyYear === profile.studyYear)
+      : undefined;
+  const featured = resumed ?? priority[0] ?? yearDeck ?? unlocked[0];
   const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
 
   return (
     <Page>
       <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
+          <p
+            className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]"
+            title={profile.tier === "guest" ? undefined : t("dash.idTooltip")}
+          >
             {profile.tier === "guest" ? t("dash.new") : profile.optimusId}
           </p>
           <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
@@ -427,7 +440,8 @@ function Dashboard() {
           </Link>
           <Link to="/cas" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Sparkles className="size-4" />
-            {t("dash.clinicalCases")} ({CLINICAL_CASES.length})
+            {t("dash.clinicalCases")} ({CLINICAL_CASES.length} ·{" "}
+            {t("dash.freeCases", { count: freeCasesCount })})
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
             <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>

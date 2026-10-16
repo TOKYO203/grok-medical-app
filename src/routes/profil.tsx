@@ -38,6 +38,7 @@ import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
 import { useI18n, LOCALES } from "@/i18n";
 import { markLocaleChosen } from "@/i18n/detect";
+import { getAuthRuntimeStatus, type AuthRuntimeStatus } from "@/lib/auth/runtime-status";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import {
   dataUrlToImageBlob,
@@ -136,6 +137,21 @@ function ProfilPage() {
   const [editing, setEditing] = useState(false);
   const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
   const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
+  const [cloudStatus, setCloudStatus] = useState<AuthRuntimeStatus | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void getAuthRuntimeStatus()
+      .then((status) => {
+        if (!cancelled) setCloudStatus(status);
+      })
+      .catch(() => {
+        /* sonde indisponible — le bouton de connexion reste masqué */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const level = levelInfo(xp);
   const badgeGoal = useMemo(
@@ -341,7 +357,13 @@ function ProfilPage() {
           <h1 className="font-display text-2xl font-medium tracking-tight">
             {profile.displayName}
           </h1>
-          <p className="mt-0.5 font-mono text-xs text-muted">{profile.optimusId}</p>
+          <p
+            className="mt-0.5 font-mono text-xs text-muted"
+            title="Ton identifiant Optimus — personnel, il lie tes achats et licences à ce profil"
+          >
+            {profile.optimusId}
+            <span className="ml-1.5 font-sans">· ton identifiant Optimus</span>
+          </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
             <span className="inline-flex items-center gap-1.5">
               <GraduationCap className="size-4" /> {studyLabel}
@@ -696,12 +718,19 @@ function ProfilPage() {
                 : "Votre profil et votre progression restent sur cet appareil tant que vous n’êtes pas connecté."}
           </p>
           {!authPending && !connectedAccount ? (
-            <Link
-              to="/login"
-              className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
-            >
-              Se synchroniser
-            </Link>
+            cloudStatus?.ready ? (
+              <Link
+                to="/login"
+                className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
+              >
+                Se synchroniser
+              </Link>
+            ) : cloudStatus ? (
+              <p className="mt-3 rounded-[var(--radius-md)] bg-secondary p-3 text-xs leading-relaxed text-muted">
+                {cloudStatus.message ??
+                  "La connexion cloud n'est pas encore configurée sur ce déploiement."}
+              </p>
+            ) : null
           ) : null}
           {!authPending && connectedAccount ? (
             <Link

@@ -84,8 +84,22 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bug #5 : la carte de maîtrise à l'état « avant première session » affiche un CTA « Commencer ma première session » (`dash.startFirstSession`, 4 catalogues) vers `/revue?mode=today` si des questions du jour existent, sinon « Explorer la bibliothèque » vers `/bibliotheque` | Le message « Profil de maîtrise après 1ère session » n'offrait aucun accès direct à une session | Vibe |
 | 2026-10-16 | — | Correctif E2E : l'assertion dashboard « sur 10 » devient « 2/10 » + unité « questions » scoper au progressbar (`tests/e2e/dashboard.spec.ts`) | Le job test (Playwright) validait l'ancien rendu de l'anneau modifié au bug #4 — le libellé visible n'affiche plus « sur 10 » | Vibe |
 
+## 2026-10-16 — Session 7 : bugs secondaires (audit prod #6–#13)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Bug #6 : le bouton « Se synchroniser » du profil ne s'affiche que si la sonde `getAuthRuntimeStatus` répond prête ; sinon son message explicite remplace le bouton | Le bouton menait vers /login qui affichait « Connexion cloud indisponible ici » — boucle sans issue | Vibe |
+| 2026-10-16 | — | Bug #7 : /pro affiche un encart « Acheter un deck ou une spécialité » avec lien /tarifs quand le paiement en ligne est inactif (`!authEnabled`) ; le bloc « J'ai déjà reçu une clé » est fermé par défaut | « Découvrir Optimus Pro » aboutissait à un champ de clé sans parcours d'achat | Vibe |
+| 2026-10-16 | — | Bug #8 : lien « Voir la grille tarifaire → » ajouté sous le CTA de l'état vide de /achats | L'état « Aucune commande » n'offrait qu'une sortie sans expliquer les prix | Vibe |
+| 2026-10-16 | — | Bug #9 : marqué corrigé — la Session 4 a ouvert 4 cas cliniques gratuits sur 5, le badge « Premier cas » (« Encore 1 cas ») est atteignable sans achat | L'audit constatait 0 cas gratuit ; le fond a été réglé en Session 4 mais l'item restait non coché | Vibe |
+| 2026-10-16 | — | Bug #10 : l'identifiant Optimus est expliqué — libellé « ton identifiant Optimus » sous le pseudo du profil + info-bulle i18n (`dash.idTooltip`, 4 catalogues, 4 assertions) sur l'accueil | « OM-C6F2C715 » apparaissait sans dire ce que c'était | Vibe |
+| 2026-10-16 | — | Bug #11 : compteurs clarifiés — l'accueil affiche « Cas cliniques (5 · N gratuits) » (`dash.freeCases`), /demarche affiche « N démarches complètes · 43 chapitres au programme » | 56 contenus / 5 cas / 43 chapitres se juxtaposaient sans périmètre | Vibe |
+| 2026-10-16 | — | Bug #12 : le rail « Recommandés pour toi » pénalise l'écart |année − studyYear| quand les deux sont définis ; le fallback « Deck conseillé » cherche un deck de l'année de l'utilisateur avant de prendre le premier deck du catalogue | À score égal les decks se triaient alphabétiquement — « Pharmacologie » pouvait sortir pour un 5e année ; le featured tombait sur le premier deck venu | Vibe |
+| 2026-10-16 | — | Bug #13 : les ligues des profils démo sont recalculées par `currentLeague(score)` — même moteur que la ligue de l'utilisateur, monotones avec le score | Les ligues en dur (Or à 397 mais Argent à 354) contredisaient les seuils hebdo | Vibe |
+
 ## Sessions terminées
 
+- 2026-10-16 · **Session 7 (bugs secondaires audit prod #6–#13)** — bouton de synchronisation conditionné à la disponibilité cloud (#6), parcours d'achat explicite sur /pro (#7), lien tarifs depuis Mes achats (#8), badge Premier cas confirmé atteignable (#9), identifiant Optimus expliqué (#10), compteurs clarifiés (#11), recommandations alignées sur l'année (#12), ligues démo cohérentes (#13).
 - 2026-10-16 · **Session 6 (bugs accueil audit prod #4/#5)** — libellés « Aujourd'hui » responsives et anneau « 0/10 questions » explicite (bug #4) ; CTA « Commencer ma première session » sur la carte de maîtrise (bug #5).
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).
 - 2026-10-15 · **Session 2 (B11, B13, B14, B15, B12, B16, B17, B18)** — crédibilité médicale. Note : l'i18n des pages `/conseil-editorial` et `/validation-clinique` est volontairement reportée aux sessions C21/C23 (architecture i18n).

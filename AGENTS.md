@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–6 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–7 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -377,14 +377,14 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🟠 Bugs secondaires
 
-6. « Se synchroniser » → mène vers « cloud indisponible » (boucle)
-7. « Découvrir Optimus Pro » → demande une clé sans achat possible
-8. « Mes achats » vide, aucune action possible
-9. Badge « Premier cas » = « Encore 1 cas » mais 0 accessible gratuit
-10. OM-C6F2C715 (ID utilisateur) affiché sans explication
-11. 3 comptages : 56 contenus / 5 cas / 43 chapitres
-12. « Pharmacologie » conseillé à un 5ème année
-13. Classement démo incohérent : 612 XP Diamant vs 0 XP Bronze
+6. « Se synchroniser » → mène vers « cloud indisponible » (boucle) — ✅ corrigé (Session 7 : bouton affiché seulement si le service cloud est prêt, sinon message explicite)
+7. « Découvrir Optimus Pro » → demande une clé sans achat possible — ✅ corrigé (Session 7 : encart d'achat + lien tarifs quand le paiement est inactif, bloc clé fermé par défaut)
+8. « Mes achats » vide, aucune action possible — ✅ corrigé (Session 7 : lien grille tarifaire depuis l'état vide)
+9. Badge « Premier cas » = « Encore 1 cas » mais 0 accessible gratuit — ✅ corrigé (Session 4 : 4 cas cliniques gratuits sur 5 — badge atteignable sans achat)
+10. OM-C6F2C715 (ID utilisateur) affiché sans explication — ✅ corrigé (Session 7 : libellé « ton identifiant Optimus » + info-bulle accueil et profil)
+11. 3 comptages : 56 contenus / 5 cas / 43 chapitres — ✅ corrigé (Session 7 : compteurs clarifiés — cas gratuits affichés, démarches vs chapitres distingués)
+12. « Pharmacologie » conseillé à un 5ème année — ✅ corrigé (Session 7 : recommandations pénalisées par l'écart d'année + fallback par année sur le deck conseillé)
+13. Classement démo incohérent : 612 XP Diamant vs 0 XP Bronze — ✅ corrigé (Session 7 : ligues des profils démo recalculées par le même moteur que celle de l'utilisateur)
 
 ### 🟢 Améliorations — Onboarding (7)
 
