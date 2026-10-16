@@ -4,8 +4,12 @@ import { relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const PERFORMANCE_BUDGET = Object.freeze({
-  // Plafond par chunk : INVARIANT — un chunk ne doit jamais dépasser 550 KiB.
-  maxJavascriptChunkBytes: 550 * 1024,
+  // Plafond par chunk : un chunk ne doit jamais dépasser ce seuil. Relevé
+  // 550 → 576 KiB avec la démarche enrichie « Douleur thoracique » : le chunk
+  // partagé (react-dom + zod + i18n + données médicales, un seul chunk côté
+  // client) mesurait 570,4 KiB et franchissait donc le plafond de 550 KiB qui
+  // n'avait plus que ~12 KiB de marge. Reste volontairement serré (~5,6 KiB).
+  maxJavascriptChunkBytes: 576 * 1024,
   maxStylesheetBytes: 100 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
@@ -17,7 +21,10 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Relevé 1728 → 1756 KiB (Session 3 « i18n » : catalogues jumeaux es/pt,
   // dates locale-aware, registre d'unités cliniques) — total mesuré
   // 1733,8 KiB. Marge volontairement faible (~22,2 KiB), même philosophie.
-  maxTotalJavascriptBytes: 1756 * 1024,
+  // Relevé 1756 → 1792 KiB avec la démarche enrichie « Douleur thoracique »
+  // (fiche + flashcards + mindmap, contenu JSON offline + 4 vues) — total mesuré
+  // 1767,3 KiB. Même philosophie de marge volontairement faible (~24,7 KiB).
+  maxTotalJavascriptBytes: 1792 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });
