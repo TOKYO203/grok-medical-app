@@ -444,3 +444,141 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 4. Prix multi-devises + Essai 7j — ✅ Session 1
 5. Sélecteur de langue (débloque international) — ✅ Session 3
 
+
+---
+
+## 🎯 ROADMAP 14 JOURS — Objectif lancement bêta
+
+> Contrainte : 2 semaines, 30-40h dispo.
+> Cible J14 : app vendable, 171+ items, statut EI en cours, 2 médecins validateurs.
+
+### Cibles J14
+
+| Métrique | Aujourd'hui | J14 |
+|----------|-------------|-----|
+| Items couverts | 51 (21%) | 171 (71%) |
+| Chapitres orientation | 2 (5%) | 42 (98%) |
+| Statut EI | Non | En cours |
+| CMIL | Non | Déclaré |
+| Médecins validateurs | 0 | 1-2 |
+| Accessibilité | 4/10 | 6/10 |
+| Monitoring | Non | Oui |
+| Étudiants bêta | 0 | 20 |
+| Note projet | 6.2/10 | 7.8/10 |
+
+
+---
+
+## 🎯 ROADMAP 14 JOURS — Objectif lancement bêta
+
+> Contrainte : 2 semaines, 30-40h dispo.
+> Cible J14 : app vendable, 171+ items, statut EI en cours, 2 médecins validateurs.
+
+### Cibles J14
+
+| Métrique | Aujourd'hui | J14 |
+|----------|-------------|-----|
+| Items couverts | 51 (21%) | 171 (71%) |
+| Chapitres orientation | 2 (5%) | 42 (98%) |
+| Statut EI | Non | En cours |
+| CMIL | Non | Déclaré |
+| Médecins validateurs | 0 | 1-2 |
+| Accessibilité | 4/10 | 6/10 |
+| Monitoring | Non | Oui |
+| Étudiants bêta | 0 | 20 |
+| Note projet | 6.2/10 | 7.8/10 |
+
+### 📅 Semaine 1 — Fondations
+
+**Jour 1-2 — Contenu (2 sessions)**
+- Session 9A : 30 items Cardio + Pneumo + Infectio
+- Session 9B : 20 chapitres orientation
+- Résultat : 81/240 items, 22/43 chapitres
+
+**Jour 3 — Business critique (1 session + admin)**
+- Session 10 : Boutons Exporter/Supprimer données (CMIL art. 22/25)
+- Admin : Centre Fiscal → statut EI
+
+**Jour 4-5 — Contenu (2 sessions)**
+- Session 11 : 30 items Neuro + Néphro + Urgences
+- Session 12 : 20 chapitres orientation (suite)
+- Résultat : 111/240 items, 42/43 chapitres
+
+**Jour 6-7 — Crédibilité (admin + 1 session)**
+- Admin : contacter 3 profs fac Médecine Antananarivo
+- Session 13 : Page Conseil éditorial + validation clinique
+
+### 📅 Semaine 2 — Finalisation
+
+**Jour 8-9 — Contenu massif (2 sessions)**
+- Session 14 : 40 items Pédiatrie + Gynéco + Autres
+- Session 15 : 20 items restants
+- Résultat : 171/240 items (71%)
+
+**Jour 10 — Accessibilité + tests**
+- Session 16 : WCAG base + tests moteur ECG
+
+**Jour 11 — Monitoring + backup**
+- Session 17 : Sentry + UptimeRobot + backup Neon
+
+**Jour 12 — Légal final**
+- Admin : NIF + CMIL
+- Session 18 : Brancher pages /legal/* (prêtes dans LEGAL-MADAGASCAR.md)
+
+**Jour 13 — Test bout-en-bout**
+- Inscription → achat → sync → usage
+- Fix bugs critiques
+
+**Jour 14 — Lancement bêta privée**
+- 20 étudiants (fac + WhatsApp)
+- Google Form feedback 5 questions
+
+### 🚀 Session 9 — À lancer maintenant
+
+**30 items par ordre de fréquence internat**
+
+**Cardio (10)**
+- SCA (syndrome coronarien aigu)
+- Insuffisance cardiaque
+- HTA (hypertension artérielle)
+- Valvulopathies
+- Troubles du rythme
+- Péricardite
+- Embolie pulmonaire
+- Endocardite infectieuse
+- Pathologies de l'aorte
+- Syncope
+
+**Pneumo (10)**
+- Pneumonie
+- BPCO
+- Asthme
+- Embolie pulmonaire (angle pneumo)
+- Pneumothorax
+- Pleurésie
+- Tuberculose
+- Cancer du poumon
+- Sarcoïdose
+- Insuffisance respiratoire
+
+**Infectio (10)**
+- Paludisme
+- Fièvre typhoïde
+- Tuberculose (angle infectio)
+- VIH
+- Méningites
+- Tétanos
+- Dengue
+- Leptospirose
+- Hépatites virales
+- Fièvre au retour de voyage
+
+**Contraintes**
+- Structure existante : src/content/data/programmes/
+- Sources : Hampton, Adnet, ESC, OMS
+- Reformuler, ne pas copier
+- 3 commits atomiques (1 par spécialité)
+- Ligne DECISIONS.md par commit
+- i18n 4 langues synchronisées si nouvelle clé
+- BUDGET : 50 itérations max
+
