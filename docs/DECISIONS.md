@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 873f399d8e7e5e2bdba7b56f6833368093c1559c)
 successfully downloaded text file (SHA: 85365749b312dd45c697bf0ba9392545acb33f8b)
 successfully downloaded text file (SHA: 2be6177097bc5dd59d28e8aca5d5136aecb1e891)
 successfully downloaded text file (SHA: 12421b5fbe6f410d0519d8613847226e217ab0f6)
@@ -130,6 +131,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Recherche globale consignée comme déjà livrée : la palette de commandes (⌘K/Ctrl+K) indexe pages, cas, démarches, decks et badges, et la loupe mobile l’ouvre depuis l’en-tête et le tiroir — aucun nouveau code | L’item était couvert par la palette livrée avec la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 | 2026-10-16 | — | Filtres Bibliothèque simplifiés consignés comme déjà livrés : types en chips toujours visibles, filtres avancés (spécialité, niveau, année, compétence) repliés derrière un bouton à compteur avec réinitialisation — aucun nouveau code | L’item était couvert par la refonte de la bibliothèque ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 | 2026-10-16 | — | Swipe-back restauré en PWA : SwipeBackBridge dans le Shell — départ dans les 24 px du bord gauche, glissement ≥ 64 px, dérive verticale ≤ 48 px, retour uniquement si l’historique le permet (idx > 0), écouteurs passifs sans preventDefault (scroll natif intact) | En PWA installée, iOS/Android n’offrent pas le geste natif de retour ; le seul retour était la barre de navigation | Vibe |
+| 2026-10-16 | — | Bouton « Reprendre où vous étiez » global : ResumeRouteBridge persiste la dernière route utile (localStorage optimus.lastRoute, href complet, accueil/login/admin exclus) et la carte ResumeWhereCard sur l’accueil y revient avec le libellé localisé de la page ; clés ux.resumeKicker/ux.resumeGo/ux.resumeAria jumelles (4 catalogues + 12 assertions) | L’accueil ne proposait que la reprise du dernier deck, jamais du dernier écran visité (ECG, cas, revue…) | Vibe |
 
 ## Sessions terminées
 

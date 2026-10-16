@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: d400653cf9e2ab73a44ded4cd9f89173a0bbc70c)
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -8,6 +9,7 @@ import PwaInstallCard from "@/components/pwa-install-card";
 import { LevelBar } from "@/components/level-bar";
 import { ContentCard } from "@/components/content/content-card";
 import { Page, SectionTitle, Shell } from "@/components/shell";
+import { ResumeWhereCard } from "@/components/resume-where-card";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { CLINICAL_CASES } from "@/content/catalog";
@@ -208,6 +210,9 @@ function Dashboard() {
           </Link>
         )}
       </section>
+
+      {/* Reprendre où vous étiez (Session 10 — UX navigation) */}
+      <ResumeWhereCard />
 
       <div className="mt-3 grid grid-cols-1 gap-2 min-[560px]:grid-cols-3">
         <StatChip

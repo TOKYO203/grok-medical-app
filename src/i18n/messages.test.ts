@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 17fdc5e0d2b87adf70c60add53d5db43f62d6ac9)
 successfully downloaded text file (SHA: 8d32b403ab9f716924ba580cd22941b7f12b9842)
 import assert from "node:assert/strict";
 import test from "node:test";
@@ -124,6 +125,18 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "ux.backToTop", {}, catalogs), "Back to top");
   assert.equal(translate("es", "ux.backToTop", {}, catalogs), "Volver arriba");
   assert.equal(translate("pt", "ux.backToTop", {}, catalogs), "Voltar ao topo");
+  assert.equal(translate("fr", "ux.resumeKicker", {}, catalogs), "Reprendre où vous étiez");
+  assert.equal(translate("en", "ux.resumeKicker", {}, catalogs), "Pick up where you left off");
+  assert.equal(translate("es", "ux.resumeKicker", {}, catalogs), "Continúa donde lo dejaste");
+  assert.equal(translate("pt", "ux.resumeKicker", {}, catalogs), "Retoma onde ficaste");
+  assert.equal(translate("fr", "ux.resumeGo", {}, catalogs), "Reprendre");
+  assert.equal(translate("en", "ux.resumeGo", {}, catalogs), "Resume");
+  assert.equal(translate("es", "ux.resumeGo", {}, catalogs), "Continuar");
+  assert.equal(translate("pt", "ux.resumeGo", {}, catalogs), "Retomar");
+  assert.equal(translate("fr", "ux.resumeAria", {}, catalogs), "Revenir à la dernière page consultée");
+  assert.equal(translate("en", "ux.resumeAria", {}, catalogs), "Return to the last visited page");
+  assert.equal(translate("es", "ux.resumeAria", {}, catalogs), "Volver a la última página visitada");
+  assert.equal(translate("pt", "ux.resumeAria", {}, catalogs), "Voltar à última página visitada");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

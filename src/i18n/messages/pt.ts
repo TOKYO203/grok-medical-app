@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 1de1ec85dacd091c69a591a9360ac053c1747544)
 successfully downloaded text file (SHA: b20603b9f52df6aa8aa03c36c9004d12c38f1e7c)
 // Catalogue portugais — jumeau exact du catalogue français (mêmes clés).
 import type { MessageCatalog } from "../core";
@@ -172,4 +173,7 @@ export const pt: MessageCatalog = {
 };
   // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
   "ux.backToTop": "Voltar ao topo",
+  "ux.resumeKicker": "Retoma onde ficaste",
+  "ux.resumeGo": "Retomar",
+  "ux.resumeAria": "Voltar à última página visitada",
 };

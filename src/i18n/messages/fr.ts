@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 72e1c8dce9963cf5c233bc39e6a8144855ec26b6)
 successfully downloaded text file (SHA: ab865d43841bbbe4b062baaacc086c756bbbdd18)
 // Catalogue français — langue source et repli par défaut de la Phase 3.
 // Les chaînes sont copiées à l'identique des composants d'origine
@@ -174,4 +175,7 @@ export const fr: MessageCatalog = {
 };
   // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
   "ux.backToTop": "Remonter en haut de la page",
+  "ux.resumeKicker": "Reprendre où vous étiez",
+  "ux.resumeGo": "Reprendre",
+  "ux.resumeAria": "Revenir à la dernière page consultée",
 };

@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 7d5db2dc20d6bb980a170a288831af019e5b1521)
 successfully downloaded text file (SHA: cc9bfad0ca4d93078c97b6eaf177e0b475c988d5)
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
@@ -5,6 +6,7 @@ import { Search } from "lucide-react";
 import { EXPLORE_GROUPS, NAV, isActive } from "@/lib/navigation";
 import { CommandPalette, useCommandPalette } from "@/components/command-palette";
 import { SwipeBackBridge } from "@/components/swipe-back-bridge";
+import { ResumeRouteBridge } from "@/components/resume-route-bridge";
 import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
@@ -153,6 +155,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       </nav>
       <CommandPalette open={cmd.open} onClose={() => cmd.setOpen(false)} />
       <SwipeBackBridge />
+      <ResumeRouteBridge />
     </div>
   );
 }

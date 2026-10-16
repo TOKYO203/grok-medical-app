@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 890ac3233a2f7f71b8503100b77a9e8ecdc0f8b7)
 successfully downloaded text file (SHA: 8e66672134180559004ccd20daf448d78d176bbf)
 // Catalogue espagnol — jumeau exact du catalogue français (mêmes clés).
 import type { MessageCatalog } from "../core";
@@ -172,4 +173,7 @@ export const es: MessageCatalog = {
 };
   // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
   "ux.backToTop": "Volver arriba",
+  "ux.resumeKicker": "Continúa donde lo dejaste",
+  "ux.resumeGo": "Continuar",
+  "ux.resumeAria": "Volver a la última página visitada",
 };
