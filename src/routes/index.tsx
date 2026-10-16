@@ -196,7 +196,7 @@ function Dashboard() {
         )}
       </section>
 
-      <div className="mt-3 grid grid-cols-3 gap-2">
+      <div className="mt-3 grid grid-cols-1 gap-2 min-[560px]:grid-cols-3">
         <StatChip
           icon={<Flame className="size-4 text-primary" />}
           label={t("dash.streak")}
@@ -389,9 +389,27 @@ function Dashboard() {
               </div>
             </div>
           ) : (
-            <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
+            <div className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
               {t("dash.masteryPending")}
-            </p>
+              <div className="mt-3">
+                {todayItems.length > 0 ? (
+                  <Link
+                    to="/revue"
+                    search={{ mode: "today" }}
+                    className={buttonVariants({ variant: "default", size: "sm" })}
+                  >
+                    {t("dash.startFirstSession")}
+                  </Link>
+                ) : (
+                  <Link
+                    to="/bibliotheque"
+                    className={buttonVariants({ variant: "default", size: "sm" })}
+                  >
+                    {t("dash.exploreLibrary")}
+                  </Link>
+                )}
+              </div>
+            </div>
           )}
         </div>
       </section>
@@ -495,7 +513,7 @@ function DailyProgress({
     <div
       className="relative size-[4.5rem] shrink-0"
       role="progressbar"
-      aria-label={t("dash.dailyGoalAria")}
+      aria-label={t("dash.dailyGoalAria", { answered, goal })}
       aria-valuemin={0}
       aria-valuemax={goal}
       aria-valuenow={Math.min(answered, goal)}
@@ -524,8 +542,8 @@ function DailyProgress({
         />
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center leading-none">
-        <strong className="font-display text-xl font-medium">{answered}</strong>
-        <span className="mt-1 text-[11px] opacity-70">{t("dash.outOf", { goal })}</span>
+        <strong className="font-display text-xl font-medium">{answered}/{goal}</strong>
+        <span className="mt-1 text-[11px] opacity-70">{t("dash.questionsUnit")}</span>
       </span>
     </div>
   );

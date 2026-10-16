@@ -41,6 +41,7 @@ test.describe("Dashboard", () => {
   test("affiche l'objectif du jour sur 10 questions", async ({ page }) => {
     const progress = page.getByRole("progressbar", { name: "Objectif quotidien" });
     await expect(progress).toBeVisible({ timeout: 20_000 });
-    await expect(page.getByText("sur 10")).toBeVisible();
+    await expect(progress.getByText("2/10")).toBeVisible();
+    await expect(progress.getByText("questions", { exact: true })).toBeVisible();
   });
 });

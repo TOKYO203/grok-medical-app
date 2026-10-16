@@ -76,8 +76,17 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-15 | — | Correctif CI | Canari 2 : tests 1–4 (sibilances, craquements, pleuraux, FA) restaurés verbatim, seul le test 5 (lecture des 20 fiches) reste exclu | Bisect : le canari 1 (squelette seul) a rendu `test` et `release-check` verts — l'échec vit dans les corps des tests | Vibe |
 | 2026-10-15 | — | Correctif CI (résolu) : l'échec était deux erreurs TS7006 (« Parameter 's' implicitly has an 'any' type ») — un callback passé à une méthode d'un récepteur `any` (le résultat de `JSON.parse`) ne reçoit pas de type contextuel ; les index JSON lus par le test 5 sont désormais typés (`as AuscultationIndex`), le reste du fichier est inchangé | Diagnostic par canaris (squelette seul puis tests 1–4) et capture de la sortie `tsc` par un workflow sur une branche `diag/` éphémère : le lot strip-types (runtime) passait mais `tsc --noEmit` échouait dans les deux jobs | Vibe |
 
+## 2026-10-16 — Session 6 : bugs accueil (audit prod #4/#5)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Bug #4 : les trois puces de statistiques de l'accueil passent en une colonne sous 560 px (`grid-cols-1 min-[560px]:grid-cols-3`) ; l'anneau d'objectif affiche « {answered}/{goal} » suivi de l'unité « questions » (`dash.questionsUnit` remplace `dash.outOf`) avec aria « Objectif quotidien : N sur 10 questions » ; assertion `messages.test.ts` alignée | À 320–390 px la zone de libellé d'une puce ne fait que 32–55 px : « Aujourd'hui » (≈ 94 px) était coupé en « Aujourd'hui… », et « sur 10 » ne disait pas 10 quoi | Vibe |
+| 2026-10-16 | — | Bug #5 : la carte de maîtrise à l'état « avant première session » affiche un CTA « Commencer ma première session » (`dash.startFirstSession`, 4 catalogues) vers `/revue?mode=today` si des questions du jour existent, sinon « Explorer la bibliothèque » vers `/bibliotheque` | Le message « Profil de maîtrise après 1ère session » n'offrait aucun accès direct à une session | Vibe |
+| 2026-10-16 | — | Correctif E2E : l'assertion dashboard « sur 10 » devient « 2/10 » + unité « questions » scoper au progressbar (`tests/e2e/dashboard.spec.ts`) | Le job test (Playwright) validait l'ancien rendu de l'anneau modifié au bug #4 — le libellé visible n'affiche plus « sur 10 » | Vibe |
+
 ## Sessions terminées
 
+- 2026-10-16 · **Session 6 (bugs accueil audit prod #4/#5)** — libellés « Aujourd'hui » responsives et anneau « 0/10 questions » explicite (bug #4) ; CTA « Commencer ma première session » sur la carte de maîtrise (bug #5).
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).
 - 2026-10-15 · **Session 2 (B11, B13, B14, B15, B12, B16, B17, B18)** — crédibilité médicale. Note : l'i18n des pages `/conseil-editorial` et `/validation-clinique` est volontairement reportée aux sessions C21/C23 (architecture i18n).
 - 2026-10-15 · **Session 3 (C21, C22, C26, C28)** — i18n. Note : le câblage UI des unités standardisées (C28) suivra la refonte des écrans de mesure ; les libellés relatifs de l'historique IA suivront la traduction du contenu IA (C27).
