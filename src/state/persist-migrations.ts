@@ -1,4 +1,4 @@
-export const OPTIMUS_PERSIST_VERSION = 3;
+export const OPTIMUS_PERSIST_VERSION = 4;
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -67,6 +67,7 @@ export function migrateOptimusPersistedState(
   next.weeklyXp = finiteNumber(source.weeklyXp, 0);
   next.weeklyKey = stringValue(source.weeklyKey, "");
   next.reviewsSucceeded = finiteNumber(source.reviewsSucceeded, 0);
+  next.studyMs = finiteNumber(source.studyMs, 0);
 
   next.importedDecks = arrayValue(source.importedDecks);
   next.entitlements = arrayValue(source.entitlements);

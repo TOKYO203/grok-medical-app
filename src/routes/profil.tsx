@@ -123,6 +123,7 @@ function ProfilPage() {
   const profile = useOptimus((state) => state.profile);
   const update = useOptimus((state) => state.updateProfile);
   const xp = useOptimus((state) => state.xp);
+  const studyMs = useOptimus((state) => state.studyMs);
   const streak = useOptimus((state) => state.streak);
   const weeklyXp = useOptimus((state) => state.weeklyXp);
   const badges = useOptimus((state) => state.badges);
@@ -415,6 +416,12 @@ function ProfilPage() {
           {level.level >= 100
             ? "Niveau maximum atteint."
             : `${Math.max(1, level.xpForNext - level.xpInto)} XP avant le niveau suivant`}
+        </p>
+        <p className="mt-1.5 text-xs leading-5 text-muted">
+          {t("profil.studyTime", {
+            hours: Math.floor(studyMs / 3_600_000),
+            minutes: Math.floor((studyMs % 3_600_000) / 60_000),
+          })}
         </p>
 
         <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">

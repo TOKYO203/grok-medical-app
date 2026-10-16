@@ -176,4 +176,5 @@ export const en: MessageCatalog = {
   "ux.refreshAria": "Refresh content",
   "ux.badgeUnlocked": "Badge unlocked",
   "dash.streakTeaser": (p) => "Only " + p.days + (Number(p.days) > 1 ? " days" : " day") + " left before the 7-day streak badge",
+  "profil.studyTime": (p) => "Total study time: " + p.hours + "h " + p.minutes + "min",
 };

@@ -147,6 +147,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "dash.streakTeaser", { days: 2 }, catalogs), "Only 2 days left before the 7-day streak badge");
   assert.equal(translate("es", "dash.streakTeaser", { days: 2 }, catalogs), "Solo quedan 2 días para la Guardia de 7 días");
   assert.equal(translate("pt", "dash.streakTeaser", { days: 2 }, catalogs), "Só faltam 2 dias para a Guarda de 7 dias");
+  assert.equal(translate("fr", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Temps d'étude total : 3 h 25 min");
+  assert.equal(translate("en", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Total study time: 3h 25min");
+  assert.equal(translate("es", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Tiempo total de estudio: 3 h 25 min");
+  assert.equal(translate("pt", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Tempo total de estudo: 3 h 25 min");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

@@ -176,4 +176,5 @@ export const pt: MessageCatalog = {
   "ux.refreshAria": "Atualizar o conteúdo",
   "ux.badgeUnlocked": "Distintivo desbloqueado",
   "dash.streakTeaser": (p) => "Só faltam " + p.days + (Number(p.days) > 1 ? " dias" : " dia") + " para a Guarda de 7 dias",
+  "profil.studyTime": (p) => "Tempo total de estudo: " + p.hours + " h " + p.minutes + " min",
 };

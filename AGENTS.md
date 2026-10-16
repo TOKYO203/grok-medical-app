@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–10 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–11 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -398,13 +398,13 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🟢 Améliorations — Progression (7)
 
-- Fusionner « Maîtrise globale » + « XP » en un indicateur unique
+- Fusionner « Maîtrise globale » + « XP » en un indicateur unique — ✅ Session 11
 - Afficher « X XP avant le niveau suivant » — ✅ Session 4
 - Rendre « Premier cas » débloquable dès le début — ✅ Session 11 (consigné : 4 cas gratuits ouverts en Session 4, badge atteignable dès la première visite)
-- Vue détail de chaque badge (condition + progression)
-- Animer les badges à leur déblocage
-- Notifier « 2 jours avant Garde 7j »
-- Compteur temps d'étude total
+- Vue détail de chaque badge (condition + progression) — ✅ Session 11
+- Animer les badges à leur déblocage — ✅ Session 11
+- Notifier « 2 jours avant Garde 7j » — ✅ Session 11
+- Compteur temps d'étude total — ✅ Session 11
 
 ### 🟢 Améliorations — Contenu (7)
 

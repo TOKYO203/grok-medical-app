@@ -9,6 +9,7 @@ import { emitExperienceFeedback } from "@/lib/experience-feedback";
 import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
 import { cn } from "@/lib/utils";
+import { useOptimus } from "@/state/store";
 
 export type QuizItem = {
   question: Question;
@@ -40,6 +41,8 @@ export function QuizPlayer({
   const answerLocked = useRef(false);
   const advanceLocked = useRef(false);
   const unlockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Session 11 — compteur de temps d'étude : point de départ du lecteur.
+  const studyStartedAt = useRef(Date.now());
   const { preferences } = useExperiencePreferences();
   const { t } = useI18n();
   const item = sessionItems[index];
@@ -52,6 +55,16 @@ export function QuizPlayer({
   useEffect(
     () => () => {
       if (unlockTimer.current) clearTimeout(unlockTimer.current);
+    },
+    [],
+  );
+
+  // Session 11 — compteur de temps d'étude : le temps passé sur le quiz est
+  // crédité à la sortie du lecteur (seules les visites > 1 s comptent).
+  useEffect(
+    () => () => {
+      const elapsedMs = Date.now() - studyStartedAt.current;
+      if (elapsedMs > 1000) useOptimus.getState().logStudyTime(elapsedMs);
     },
     [],
   );

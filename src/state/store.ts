@@ -97,6 +97,7 @@ type PersistShape = {
   casesCompleted: string[];
   diagnosticsCompleted: string[];
   reviewsSucceeded: number;
+  studyMs: number;
   syncQueue: SyncEvent[];
   contacts: ContactDraft[];
   purchases: PremiumPurchase[];
@@ -130,6 +131,7 @@ export type OptimusState = PersistShape & {
   startPremiumTrial: () => void;
   resetLocal: () => void;
   setLocale: (locale: Locale) => void;
+  logStudyTime: (ms: number) => void;
 };
 
 function weekKey(ts = Date.now()): string {
@@ -324,6 +326,7 @@ const persistDefaults: PersistShape = {
   casesCompleted: [],
   diagnosticsCompleted: [],
   reviewsSucceeded: 0,
+  studyMs: 0,
   syncQueue: [],
   contacts: [],
   purchases: [],
@@ -468,6 +471,8 @@ export const useOptimus = create<OptimusState>()(
         })),
       updateProfile: (p) => set((s) => ({ profile: { ...s.profile, ...p } })),
       setLocale: (locale) => set({ locale }),
+      logStudyTime: (ms) =>
+        set((s) => ({ studyMs: s.studyMs + Math.max(0, Math.round(ms)) })),
       createFreeAccount: (name) =>
         set((s) => ({
           profile: {
@@ -554,6 +559,7 @@ export const useOptimus = create<OptimusState>()(
           const weeklyXp = s.weeklyKey === wk ? s.weeklyXp + xp : xp;
           const streak = bumpStreak(s.lastActiveDay, today, s.streak || 0);
           const reviewsSucceeded =
+          const studyMs =
             mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
           const event: SyncEvent = {
             id: uid("evt"),
@@ -571,6 +577,7 @@ export const useOptimus = create<OptimusState>()(
             streak,
             lastActiveDay: today,
             reviewsSucceeded,
+            studyMs: s.studyMs,
             progress,
             importedDecks: s.importedDecks,
             entitlements: s.entitlements,
@@ -734,6 +741,7 @@ function pickPersist(s: PersistShape): PersistShape {
     casesCompleted: s.casesCompleted,
     diagnosticsCompleted: s.diagnosticsCompleted,
     reviewsSucceeded: s.reviewsSucceeded,
+    studyMs: s.studyMs,
     syncQueue: s.syncQueue,
     contacts: s.contacts,
     purchases: s.purchases,
