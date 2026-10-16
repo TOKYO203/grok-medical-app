@@ -50,6 +50,7 @@ export const pt: MessageCatalog = {
   "onb.levelHint": "Adaptamos o conteúdo ao teu nível.",
   "onb.goalTitle": "O teu objetivo?",
   "onb.goalHint": "Escolhe o que mais importa agora.",
+  "onb.subjectsTitle": "As tuas disciplinas prioritárias?",
   "onb.suggested": "Sugerido para ti",
   "onb.subjectsHint": (p) => "Máximo de " + p.max + " disciplinas. Poderás ajustar mais tarde.",
   "onb.rhythmTitle": "O teu ritmo diário?",

@@ -22,6 +22,10 @@ test.describe("Onboarding", () => {
     await page.getByRole("button", { name: /continuer/i }).click();
     await page.getByRole("button", { name: /continuer/i }).click();
     await expect(page.getByRole("heading", { name: /ton objectif/i })).toBeVisible();
+    await page.getByRole("button", { name: /continuer/i }).click();
+    await expect(
+      page.getByRole("heading", { name: /tes matières prioritaires/i }),
+    ).toBeVisible();
     await expect(page.getByText(/suggéré pour toi/i)).toBeVisible();
     await expect(page.getByRole("button", { name: "Pédiatrie" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Psychiatrie" })).toBeVisible();
@@ -31,6 +35,7 @@ test.describe("Onboarding", () => {
     await expect(
       page.getByRole("heading", { name: /bienvenue sur optimus/i }),
     ).toBeVisible({ timeout: 20_000 });
+    await page.getByRole("button", { name: /continuer/i }).click();
     await page.getByRole("button", { name: /continuer/i }).click();
     await page.getByRole("button", { name: /continuer/i }).click();
     await page.getByRole("button", { name: /continuer/i }).click();

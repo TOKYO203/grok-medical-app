@@ -12,7 +12,7 @@ import { useOptimus } from "@/state/store";
 import { requestNotificationPermission } from "@/lib/notifications/daily-reminder";
 
 const MAX_SUBJECTS = 6;
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 5;
 const ONBOARDING_DRAFT_KEY = "optimus.onboardingDraft";
 
 const LEVEL_GROUPS: { id: string; labelKey: string; focusKey: string; value: StudyLevel }[] = [
@@ -226,7 +226,7 @@ export function Onboarding() {
           </div>
         ) : null}
 
-        {/* Écran 3 — Objectif + matières */}
+        {/* Écran 3 — Objectif */}
         {step === 2 ? (
           <div className="mt-10 flex flex-1 flex-col">
             <h2 className="font-display text-2xl font-medium tracking-tight">
@@ -249,7 +249,25 @@ export function Onboarding() {
               ))}
             </div>
 
-            <div className="mt-8 flex items-center gap-2">
+            <div className="mt-auto flex items-center gap-2">
+              <Button variant="secondary" size="lg" onClick={() => setStep(1)}>
+                <ChevronLeft className="size-4" />
+                {t("onb.back")}
+              </Button>
+              <Button className="flex-1" size="lg" onClick={() => setStep(3)}>
+                {t("onb.continue")}
+              </Button>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Écran 4 — Matières prioritaires */}
+        {step === 3 ? (
+          <div className="mt-10 flex flex-1 flex-col">
+            <h2 className="font-display text-2xl font-medium tracking-tight">
+              {t("onb.subjectsTitle")}
+            </h2>
+            <div className="mt-5 flex items-center gap-2">
               <Sparkles className="size-3.5 text-primary" />
               <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
                 {t("onb.suggested")}
@@ -278,19 +296,19 @@ export function Onboarding() {
               {t("onb.subjectsHint", { max: MAX_SUBJECTS })}
             </p>
             <div className="mt-auto flex items-center gap-2">
-              <Button variant="secondary" size="lg" onClick={() => setStep(1)}>
+              <Button variant="secondary" size="lg" onClick={() => setStep(2)}>
                 <ChevronLeft className="size-4" />
                 {t("onb.back")}
               </Button>
-              <Button className="flex-1" size="lg" onClick={() => setStep(3)}>
+              <Button className="flex-1" size="lg" onClick={() => setStep(4)}>
                 {t("onb.continue")}
               </Button>
             </div>
           </div>
         ) : null}
 
-        {/* Écran 4 — Rythme + fin */}
-        {step === 3 ? (
+        {/* Écran 5 — Rythme + fin */}
+        {step === 4 ? (
           <div className="mt-10 flex flex-1 flex-col">
             <h2 className="font-display text-2xl font-medium tracking-tight">
               {t("onb.rhythmTitle")}
@@ -324,7 +342,7 @@ export function Onboarding() {
             ) : null}
             <MedicalDisclaimer />
             <div className="mt-auto flex items-center gap-2">
-              <Button variant="secondary" size="lg" onClick={() => setStep(2)}>
+              <Button variant="secondary" size="lg" onClick={() => setStep(3)}>
                 <ChevronLeft className="size-4" />
                 {t("onb.back")}
               </Button>
