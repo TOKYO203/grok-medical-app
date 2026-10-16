@@ -81,9 +81,11 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Bug #4 : les trois puces de statistiques de l'accueil passent en une colonne sous 560 px (`grid-cols-1 min-[560px]:grid-cols-3`) ; l'anneau d'objectif affiche « {answered}/{goal} » suivi de l'unité « questions » (`dash.questionsUnit` remplace `dash.outOf`) avec aria « Objectif quotidien : N sur 10 questions » ; assertion `messages.test.ts` alignée | À 320–390 px la zone de libellé d'une puce ne fait que 32–55 px : « Aujourd'hui » (≈ 94 px) était coupé en « Aujourd'hui… », et « sur 10 » ne disait pas 10 quoi | Vibe |
+| 2026-10-16 | — | Bug #5 : la carte de maîtrise à l'état « avant première session » affiche un CTA « Commencer ma première session » (`dash.startFirstSession`, 4 catalogues) vers `/revue?mode=today` si des questions du jour existent, sinon « Explorer la bibliothèque » vers `/bibliotheque` | Le message « Profil de maîtrise après 1ère session » n'offrait aucun accès direct à une session | Vibe |
 
 ## Sessions terminées
 
+- 2026-10-16 · **Session 6 (bugs accueil audit prod #4/#5)** — libellés « Aujourd'hui » responsives et anneau « 0/10 questions » explicite (bug #4) ; CTA « Commencer ma première session » sur la carte de maîtrise (bug #5).
 - 2026-10-15 · **Session 1 (A02, A01, A03, A05, A07)** — business model. Note : l'i18n des pages `/tarifs` et `/pro` est volontairement reportée aux sessions C21/C23 (architecture i18n).
 - 2026-10-15 · **Session 2 (B11, B13, B14, B15, B12, B16, B17, B18)** — crédibilité médicale. Note : l'i18n des pages `/conseil-editorial` et `/validation-clinique` est volontairement reportée aux sessions C21/C23 (architecture i18n).
 - 2026-10-15 · **Session 3 (C21, C22, C26, C28)** — i18n. Note : le câblage UI des unités standardisées (C28) suivra la refonte des écrans de mesure ; les libellés relatifs de l'historique IA suivront la traduction du contenu IA (C27).

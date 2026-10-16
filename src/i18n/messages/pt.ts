@@ -112,6 +112,7 @@ export const pt: MessageCatalog = {
   "dash.toStrengthen": "A reforçar",
   "dash.strongPoint": "Ponto forte",
   "dash.masteryPending": "O teu perfil de domínio aparecerá após a primeira sessão.",
+  "dash.startFirstSession": "Começar a minha primeira sessão",
   "dash.more": "Mais",
   "dash.toolsAccess": "Ferramentas e acesso",
   "dash.premiumOffers": "Ofertas Premium",

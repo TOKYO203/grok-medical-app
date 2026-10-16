@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–5 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation) — suite : bugs #4/#5 de l'accueil, puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–6 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -372,8 +372,8 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 1. « Connexion cloud indisponible » sur PROD — ✅ corrigé (Session 4 : support Cloudflare Pages, message « déploiement »)
 2. 80% du contenu verrouillé — 1 cas / 5, 11 contenus / 56 — ✅ 4 cas / 5 gratuits (Session 4) ; contenus restants à suivre
 3. Statuts incohérents — « Nouveau » + « 5ème année », « Ligue Bronze » + « Niveau 1 » — ✅ Ligue retirée du profil (Session 4) ; « Nouveau » à suivre
-4. « Aujourd'hui... » tronqué et « 0 sur 10 » ambigu (10 quoi ?)
-5. « Profil de maîtrise après 1ère session » — aucune session accessible
+4. « Aujourd'hui... » tronqué et « 0 sur 10 » ambigu (10 quoi ?) — ✅ corrigé (Session 6 : libellés responsives + unité « questions »)
+5. « Profil de maîtrise après 1ère session » — aucune session accessible — ✅ corrigé (Session 6 : CTA « Commencer ma première session » sur la carte de maîtrise)
 
 ### 🟠 Bugs secondaires
 

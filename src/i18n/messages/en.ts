@@ -112,6 +112,7 @@ export const en: MessageCatalog = {
   "dash.toStrengthen": "To strengthen",
   "dash.strongPoint": "Strong point",
   "dash.masteryPending": "Your mastery profile will appear after your first session.",
+  "dash.startFirstSession": "Start my first session",
   "dash.more": "More",
   "dash.toolsAccess": "Tools and access",
   "dash.premiumOffers": "Premium offers",

@@ -389,9 +389,27 @@ function Dashboard() {
               </div>
             </div>
           ) : (
-            <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
+            <div className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-sm text-muted">
               {t("dash.masteryPending")}
-            </p>
+              <div className="mt-3">
+                {todayItems.length > 0 ? (
+                  <Link
+                    to="/revue"
+                    search={{ mode: "today" }}
+                    className={buttonVariants({ variant: "default", size: "sm" })}
+                  >
+                    {t("dash.startFirstSession")}
+                  </Link>
+                ) : (
+                  <Link
+                    to="/bibliotheque"
+                    className={buttonVariants({ variant: "default", size: "sm" })}
+                  >
+                    {t("dash.exploreLibrary")}
+                  </Link>
+                )}
+              </div>
+            </div>
           )}
         </div>
       </section>

@@ -114,6 +114,7 @@ export const fr: MessageCatalog = {
   "dash.toStrengthen": "À renforcer",
   "dash.strongPoint": "Point fort",
   "dash.masteryPending": "Votre profil de maîtrise apparaîtra après votre première session.",
+  "dash.startFirstSession": "Commencer ma première session",
   "dash.more": "Plus",
   "dash.toolsAccess": "Outils et accès",
   "dash.premiumOffers": "Offres Premium",
