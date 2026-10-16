@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown, ChevronLeft, Sparkles } from "lucide-react";
 import { GOALS } from "@/content/catalog";
 import type { StudyLevel } from "@/core/types";
 import { SUBJECT_CATEGORIES, DAILY_GOALS } from "@/data/onboarding";
@@ -166,9 +166,15 @@ export function Onboarding() {
                 </button>
               ))}
             </div>
-            <Button className="mt-auto" onClick={() => setStep(2)}>
-              {t("onb.continue")}
-            </Button>
+            <div className="mt-auto flex items-center gap-2">
+              <Button variant="secondary" size="lg" onClick={() => setStep(0)}>
+                <ChevronLeft className="size-4" />
+                {t("onb.back")}
+              </Button>
+              <Button className="flex-1" size="lg" onClick={() => setStep(2)}>
+                {t("onb.continue")}
+              </Button>
+            </div>
           </div>
         ) : null}
 
@@ -223,9 +229,15 @@ export function Onboarding() {
             <p className="mt-3 text-[11px] text-subtle">
               {t("onb.subjectsHint", { max: MAX_SUBJECTS })}
             </p>
-            <Button className="mt-auto" onClick={() => setStep(3)}>
-              {t("onb.continue")}
-            </Button>
+            <div className="mt-auto flex items-center gap-2">
+              <Button variant="secondary" size="lg" onClick={() => setStep(1)}>
+                <ChevronLeft className="size-4" />
+                {t("onb.back")}
+              </Button>
+              <Button className="flex-1" size="lg" onClick={() => setStep(3)}>
+                {t("onb.continue")}
+              </Button>
+            </div>
           </div>
         ) : null}
 
@@ -263,9 +275,15 @@ export function Onboarding() {
               </button>
             ) : null}
             <MedicalDisclaimer />
-            <Button className="mt-auto" size="lg" onClick={finish}>
-              {t("onb.start")}
-            </Button>
+            <div className="mt-auto flex items-center gap-2">
+              <Button variant="secondary" size="lg" onClick={() => setStep(2)}>
+                <ChevronLeft className="size-4" />
+                {t("onb.back")}
+              </Button>
+              <Button className="flex-1" size="lg" onClick={finish}>
+                {t("onb.start")}
+              </Button>
+            </div>
           </div>
         ) : null}
       </div>

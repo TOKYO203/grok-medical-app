@@ -111,6 +111,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "dash.new", {}, catalogs), "Active");
   assert.equal(translate("es", "dash.new", {}, catalogs), "Activo");
   assert.equal(translate("pt", "dash.new", {}, catalogs), "Ativo");
+  assert.equal(translate("fr", "onb.back", {}, catalogs), "Retour");
+  assert.equal(translate("en", "onb.back", {}, catalogs), "Back");
+  assert.equal(translate("es", "onb.back", {}, catalogs), "Atrás");
+  assert.equal(translate("pt", "onb.back", {}, catalogs), "Voltar");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

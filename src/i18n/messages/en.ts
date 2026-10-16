@@ -45,6 +45,7 @@ export const en: MessageCatalog = {
   "onb.namePlaceholder": "Your first name (e.g. Fetra)",
   "onb.nameHint": "No account required. An Optimus ID is created locally.",
   "onb.continue": "Continue",
+  "onb.back": "Back",
   "onb.levelTitle": "Where are you in your studies?",
   "onb.levelHint": "We adapt the content to your level.",
   "onb.goalTitle": "Your goal?",
