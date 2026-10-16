@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 5a4b8b9dc638943659d5b22a1a202e36e385f539)
 successfully downloaded text file (SHA: 31abfa167d4c22c78560a87e53558c95691c357f)
 successfully downloaded text file (SHA: 873f399d8e7e5e2bdba7b56f6833368093c1559c)
 successfully downloaded text file (SHA: 85365749b312dd45c697bf0ba9392545acb33f8b)
@@ -137,6 +138,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 
 ## Sessions terminées
 
+- 2026-10-16 · **Session 10 (vague UX navigation)** — bouton « Remonter en haut » sur les listes longues, swipe-back en PWA, bouton « Reprendre où vous étiez » global, pull-to-refresh ; header sticky, recherche Cmd+K et filtres Bibliothèque confirmés déjà livrés (revue « navigation classée »).
 - 2026-10-16 · **Session 9 (vague onboarding)** — statut « Actif » après inscription, bouton « Retour » sur les étapes, brouillon d’onboarding persisté (reprendre où quitté), onboarding réordonné en 5 écrans ; tooltip sur l’ID utilisateur confirmé déjà livré (Session 7).
 - 2026-10-16 · **Session 8 (vague business model)** — prix visible sur chaque deck verrouillé, lien « Combien ça coûte ? » dans la navigation, comparateur Gratuit vs Premium sur l’accueil, bouton « Parrainer un ami » sur le profil ; offre École confirmée déjà livrée (Session 1).
 - 2026-10-16 · **Session 7 (bugs secondaires audit prod #6–#13)** — bouton de synchronisation conditionné à la disponibilité cloud (#6), parcours d'achat explicite sur /pro (#7), lien tarifs depuis Mes achats (#8), badge Premier cas confirmé atteignable (#9), identifiant Optimus expliqué (#10), compteurs clarifiés (#11), recommandations alignées sur l'année (#12), ligues démo cohérentes (#13).
