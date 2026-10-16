@@ -380,7 +380,7 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 6. « Se synchroniser » → mène vers « cloud indisponible » (boucle)
 7. « Découvrir Optimus Pro » → demande une clé sans achat possible
 8. « Mes achats » vide, aucune action possible
-9. Badge « Premier cas » = « Encore 1 cas » mais 0 accessible gratuit
+9. Badge « Premier cas » = « Encore 1 cas » mais 0 accessible gratuit — ✅ corrigé (Session 4 : 4 cas cliniques gratuits sur 5 — badge atteignable sans achat)
 10. OM-C6F2C715 (ID utilisateur) affiché sans explication
 11. 3 comptages : 56 contenus / 5 cas / 43 chapitres
 12. « Pharmacologie » conseillé à un 5ème année

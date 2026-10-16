@@ -91,6 +91,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bug #6 : le bouton « Se synchroniser » du profil ne s'affiche que si la sonde `getAuthRuntimeStatus` répond prête ; sinon son message explicite remplace le bouton | Le bouton menait vers /login qui affichait « Connexion cloud indisponible ici » — boucle sans issue | Vibe |
 | 2026-10-16 | — | Bug #7 : /pro affiche un encart « Acheter un deck ou une spécialité » avec lien /tarifs quand le paiement en ligne est inactif (`!authEnabled`) ; le bloc « J'ai déjà reçu une clé » est fermé par défaut | « Découvrir Optimus Pro » aboutissait à un champ de clé sans parcours d'achat | Vibe |
 | 2026-10-16 | — | Bug #8 : lien « Voir la grille tarifaire → » ajouté sous le CTA de l'état vide de /achats | L'état « Aucune commande » n'offrait qu'une sortie sans expliquer les prix | Vibe |
+| 2026-10-16 | — | Bug #9 : marqué corrigé — la Session 4 a ouvert 4 cas cliniques gratuits sur 5, le badge « Premier cas » (« Encore 1 cas ») est atteignable sans achat | L'audit constatait 0 cas gratuit ; le fond a été réglé en Session 4 mais l'item restait non coché | Vibe |
 
 ## Sessions terminées
 
