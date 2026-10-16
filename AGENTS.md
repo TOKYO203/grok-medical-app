@@ -583,3 +583,37 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 - i18n 4 langues synchronisées si nouvelle clé
 - BUDGET : 50 itérations max
 
+
+---
+
+## ⚠️ CONSIGNE CONTENU — NE PAS TOUCHER POUR L'INSTANT
+
+**Important** : ne pas générer/modifier de contenu médical tant que
+le propriétaire n'a pas fourni son cahier des charges précis.
+
+Raison : exigences de format et de fond spécifiques en cours de
+définition (structure des fiches, niveau de détail, sources, etc.).
+
+**Comportement attendu de l'agent** :
+- Si une session propose du contenu → DEMANDER confirmation avant
+- Ne PAS créer de nouveaux JSON dans src/content/data/
+- Ne PAS étendre programme/, ecg/, auscultation/, demarche/
+- Peut travailler sur : UX, i18n, business, sécurité, légal, tests
+
+**Sessions à faire EN ATTENDANT** (hors contenu médical) :
+- Onboarding (Session 9 en cours)
+- Progression (Session 10)
+- UX Navigation (Session 11)
+- Sécurité (Sessions 12-13)
+- Tests moteur ECG
+- Monitoring + backup
+
+**Sessions BLOQUÉES** tant que le cahier des charges n'est pas fourni :
+- Contenu 30 items (Sessions 9/10 initialement prévues)
+- Chapitres orientation
+- Tout ajout d'items au programme
+
+> Cette consigne PRIME sur la ROADMAP 14 JOURS ci-dessus.
+> Quand le propriétaire fournira le cahier des charges, cette section
+> sera retirée et les sessions Contenu pourront reprendre.
+
