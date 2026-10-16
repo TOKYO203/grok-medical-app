@@ -64,7 +64,7 @@ export const en: MessageCatalog = {
   "onb.levelIntern": "Resident / Physician",
   "onb.levelInternFocus": "Ward practice and on-call duty",
   "dash.today": "Today",
-  "dash.new": "New",
+  "dash.new": "Active",
   "dash.hello": (p) => p.name ? "Hello, " + p.name : "Hello",
   "dash.openProfile": "Open my profile",
   "dash.sessionToday": "Today’s session",

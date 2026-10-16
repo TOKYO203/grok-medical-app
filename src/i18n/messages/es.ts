@@ -64,7 +64,7 @@ export const es: MessageCatalog = {
   "onb.levelIntern": "Interno / Médico",
   "onb.levelInternFocus": "Práctica y guardias",
   "dash.today": "Hoy",
-  "dash.new": "Nuevo",
+  "dash.new": "Activo",
   "dash.hello": (p) => p.name ? "Hola, " + p.name : "Hola",
   "dash.openProfile": "Abrir mi perfil",
   "dash.sessionToday": "Sesión de hoy",

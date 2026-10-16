@@ -66,7 +66,7 @@ export const fr: MessageCatalog = {
   "onb.levelIntern": "Interne / Médecin",
   "onb.levelInternFocus": "Pratique et garde",
   "dash.today": "Aujourd’hui",
-  "dash.new": "Nouveau",
+  "dash.new": "Actif",
   "dash.hello": (p) => p.name ? "Bonjour, " + p.name : "Bonjour",
   "dash.openProfile": "Ouvrir mon profil",
   "dash.sessionToday": "Session du jour",

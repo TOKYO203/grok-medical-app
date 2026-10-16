@@ -107,6 +107,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bouton « Parrainer un ami » sur /profil : lien de partage avec l’identifiant (`/?ref=OM-…`) via l’API Web Share, repli presse-papiers avec confirmation « Lien copié », code de parrainage affiché, récompense (+1 deck) validée via /contact | Le parrainage amplifie le bouche-à-oreille ; sans serveur de parrainage, la récompense est validée manuellement — impossible d’émettre une preuve d’achat côté client | Vibe |
 | 2026-10-16 | — | Offre École (licences multi-sièges) consignée déjà livrée : la section « Offre École & Établissement » de /tarifs (Session 1, décision A02) affiche les licences multi-sièges avec CTA « Demander un devis » vers /contact — aucun nouveau code | Le périmètre de l’item était couvert dès la Session 1 ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
+## 2026-10-16 — Session 9 : onboarding (vague d’améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Statut « Actif » après inscription : la clé dash.new passe de « Nouveau » à « Actif » / « Active » / « Activo » / « Ativo » dans les 4 catalogues, verrouillée par 4 assertions messages.test.ts — le kicker invité de l’accueil affiche un statut, plus un pseudo-nom | Résidu du bug #3 : « Nouveau » accolé à « 5ème année » se lisait comme deux étiquettes incohérentes | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-16 · **Session 8 (vague business model)** — prix visible sur chaque deck verrouillé, lien « Combien ça coûte ? » dans la navigation, comparateur Gratuit vs Premium sur l’accueil, bouton « Parrainer un ami » sur le profil ; offre École confirmée déjà livrée (Session 1).
