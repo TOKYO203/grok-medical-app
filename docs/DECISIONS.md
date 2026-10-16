@@ -143,6 +143,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Correctif CI : l'assertion figée du test des migrations passe de v3 à v4 (`persist-migrations.test.ts`), avec deux garde-fous studyMs — 0 sur l'état hérité non versionné, valeur préservée sur l'état courant | Le bump v3 → v4 du compteur studyMs n'avait pas mis à jour l'assertion : release-check échouait sur npm test alors que le job test (tsc + lint + Playwright) était vert | Vibe |
 | 2026-10-16 | — | Correctif CI (garde-fou A07) : le test business-model exigeait la chaîne nextBadgeGoal, retirée par la vue détail des badges — l'assertion verrouille désormais badgeGoals + badgeGoalById (progression de chaque badge exposée sur /profil), les contrôles du moteur (Encore, countAnswered) restent intacts | Le garde-fou Session 1 protégeait l'ancien branchement littéral ; l'intention d'A07 (progression visible sur le profil) est renforcée par la vue détail documentée en Session 11 — on aligne le garde-fou sur l'état réel (précédent Session 4 : auth-runtime étendu) | Vibe |
 
+## 2026-10-16 — Session 12 : tests moteur ECG (G52)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | G52 | Verrous morphologiques du moteur ECG (1/3) : `src/lib/ecg/deformation.test.ts` verrouille les 8 dérivations sources (DI, DII, V1–V6), le repli des dérivées Einthoven (DIII/aVR/aVL/aVF et lead inconnu → DII), la progression R de V1 à V5, le décroissance de |S|, le point de transition R>|S| en V3, l'inversion de T en V1, la morphologie de référence en DII, les largeurs de gaussiennes (σ_Q < σ_R resserrée, σ_T la plus large) et `stOffsetMv` (sus-décalage − sous-décalage, 0 sans déformation) | Item G52 : gel du moteur levé uniquement pour des fichiers de test (précédent Session 5, garde-fous phonocardiogramme) ; `deformation.ts` n'a aucun import et rejoint le lot explicite `--experimental-strip-types` de `npm test` via package.json, moteur et fiches inchangés | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-16 · **Session 11 (vague Progression)** — indicateur unique maîtrise/niveau sur l'accueil, badge Premier cas confirmé atteignable dès le début (consigné), vue détail des badges (condition + progression), toast animé au déblocage, teaser « 2 jours avant Garde 7j », compteur de temps d'étude total.
