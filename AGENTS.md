@@ -1,10 +1,11 @@
+successfully downloaded text file (SHA: e048238352ce5a0e79c0d67a0e41071e58fe9fee)
 # ⚠️ MISSION ACTIVE
 
 **Toute session DOIT commencer par lire :**
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–8 livrées** (business model Sessions 1 & 8, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–9 livrées** (business model Sessions 1 & 8, onboarding, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -389,11 +390,11 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 ### 🟢 Améliorations — Onboarding (7)
 
 - Fusionner Niveau + Ligue en un seul système — ✅ Session 4
-- Remplacer « Nouveau » par « Actif » après inscription
-- Tooltip sur l'ID utilisateur (« Ton identifiant Optimus »)
-- Bouton Retour sur chaque étape onboarding
-- Persister l'état d'onboarding (reprendre où quitté)
-- Réordonner : niveau → objectif → spé → rythme
+- Remplacer « Nouveau » par « Actif » après inscription — ✅ Session 9
+- Tooltip sur l'ID utilisateur (« Ton identifiant Optimus ») — ✅ Session 7
+- Bouton Retour sur chaque étape onboarding — ✅ Session 9
+- Persister l'état d'onboarding (reprendre où quitté) — ✅ Session 9
+- Réordonner : niveau → objectif → spé → rythme — ✅ Session 9
 - Exposer le sélecteur de langue (i18n déjà codé Session 3) — ✅ Session 3 (profil)
 
 ### 🟢 Améliorations — Progression (7)
