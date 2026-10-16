@@ -1,4 +1,3 @@
-successfully downloaded text file (SHA: 8496a216904a3eefbd6d2284b7d82f109fc38edf)
 import { useMemo } from "react";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Sparkles } from "lucide-react";

@@ -1,6 +1,3 @@
-successfully downloaded text file (SHA: 2f4e3609fb44f3d6d44eb30668c46bd6e4ddf456)
-successfully downloaded text file (SHA: 17fdc5e0d2b87adf70c60add53d5db43f62d6ac9)
-successfully downloaded text file (SHA: 8d32b403ab9f716924ba580cd22941b7f12b9842)
 import assert from "node:assert/strict";
 import test from "node:test";
 import { DEFAULT_LOCALE, isLocale, localeDir, translate } from "./core.ts";

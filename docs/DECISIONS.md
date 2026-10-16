@@ -1,10 +1,3 @@
-successfully downloaded text file (SHA: 5a4b8b9dc638943659d5b22a1a202e36e385f539)
-successfully downloaded text file (SHA: 31abfa167d4c22c78560a87e53558c95691c357f)
-successfully downloaded text file (SHA: 873f399d8e7e5e2bdba7b56f6833368093c1559c)
-successfully downloaded text file (SHA: 85365749b312dd45c697bf0ba9392545acb33f8b)
-successfully downloaded text file (SHA: 2be6177097bc5dd59d28e8aca5d5136aecb1e891)
-successfully downloaded text file (SHA: 12421b5fbe6f410d0519d8613847226e217ab0f6)
-successfully downloaded text file (SHA: 5257a02ff455d05454c16472c867d7e13d8654ea)
 # Journal des décisions — Optimus
 
 Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`

@@ -1,5 +1,3 @@
-successfully downloaded text file (SHA: 06df250e65717530ade7e5bffa25461de673d1d2)
-successfully downloaded text file (SHA: e048238352ce5a0e79c0d67a0e41071e58fe9fee)
 # ⚠️ MISSION ACTIVE
 
 **Toute session DOIT commencer par lire :**
