@@ -98,7 +98,7 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 
 ### G — Technique (3)
 - G51 Code-splitting routes
-- G52 Tests moteur ECG
+- G52 Tests moteur ECG — ✅ livré (Session 12)
 - G53 Monitoring (Sentry)
 
 ## Plan en 6 sessions

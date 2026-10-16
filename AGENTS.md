@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–11 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–12 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression, tests moteur ECG) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -604,7 +604,7 @@ définition (structure des fiches, niveau de détail, sources, etc.).
 - Progression (Session 10)
 - UX Navigation (Session 11)
 - Sécurité (Sessions 12-13)
-- Tests moteur ECG
+- Tests moteur ECG — ✅ Session 12
 - Monitoring + backup
 
 **Sessions BLOQUÉES** tant que le cahier des charges n'est pas fourni :

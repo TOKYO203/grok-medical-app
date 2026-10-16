@@ -153,6 +153,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 
 ## Sessions terminées
 
+- 2026-10-16 · **Session 12 (tests moteur ECG, G52)** — verrous morphologiques (`deformation.test.ts`), verrous du générateur par lecture de source (`waveform.test.ts` : import sans extension non résolu par strip-types), cohérence des 23 fiches avec le moteur (`ecg-fiches.test.ts` : familles flutter/FA/torsades/TV + spot checks BAV I/II, hyperkaliémie, IDM antérieur, péricardite) ; moteur et fiches inchangés.
 - 2026-10-16 · **Session 11 (vague Progression)** — indicateur unique maîtrise/niveau sur l'accueil, badge Premier cas confirmé atteignable dès le début (consigné), vue détail des badges (condition + progression), toast animé au déblocage, teaser « 2 jours avant Garde 7j », compteur de temps d'étude total.
 - 2026-10-16 · **Session 10 (vague UX navigation)** — bouton « Remonter en haut » sur les listes longues, swipe-back en PWA, bouton « Reprendre où vous étiez » global, pull-to-refresh ; header sticky, recherche Cmd+K et filtres Bibliothèque confirmés déjà livrés (revue « navigation classée »).
 - 2026-10-16 · **Session 9 (vague onboarding)** — statut « Actif » après inscription, bouton « Retour » sur les étapes, brouillon d’onboarding persisté (reprendre où quitté), onboarding réordonné en 5 écrans ; tooltip sur l’ID utilisateur confirmé déjà livré (Session 7).
