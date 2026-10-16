@@ -63,19 +63,24 @@ test("A05 — le teaser Premium de 30 secondes est intégré à la page Pro", ()
   assert.ok(pro.includes("PremiumTeaser"), "pro.tsx doit afficher le teaser Premium");
 });
 
-test("A07 — la progression vers le prochain badge est visible sur le profil", () => {
+test("A07 — la progression vers les badges est visible sur le profil", () => {
   const engine = read("../src/lib/gamification/badge-progress.ts");
   assert.ok(engine.includes("Encore"), "le moteur doit produire les messages « Encore … »");
   assert.ok(
     engine.includes("countAnswered"),
     "les seuils doivent réutiliser les signaux de unlockBadges",
   );
+  // Session 11 (vue détail) : le profil expose la progression de chaque badge
+  // via badgeGoals/badgeGoalById — le prochain objectif reste badgeGoalList[0].
   const profil = read("../src/routes/profil.tsx");
   assert.ok(
-    profil.includes("nextBadgeGoal"),
-    "profil.tsx doit afficher le prochain objectif de badge",
+    profil.includes("badgeGoals"),
+    "profil.tsx doit valoriser les objectifs calculés",
   );
-  assert.ok(profil.includes("badgeGoal"), "profil.tsx doit valoriser l'objectif calculé");
+  assert.ok(
+    profil.includes("badgeGoalById"),
+    "profil.tsx doit exposer la progression de chaque badge",
+  );
 });
 
 test("Session 1 — les décisions sont consignées dans docs/DECISIONS.md", () => {

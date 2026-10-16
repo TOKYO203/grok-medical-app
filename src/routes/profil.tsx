@@ -33,7 +33,7 @@ import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import { BADGE_CATALOG } from "@/content/badges";
+import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { PROFESSIONAL_LEVELS, YEARS } from "@/content/catalog";
 import { levelInfo } from "@/core/scoring";
 import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
@@ -47,7 +47,7 @@ import {
   loadProfileCover,
   saveProfileCover,
 } from "@/lib/profile-cover-storage";
-import { nextBadgeGoal } from "@/lib/gamification/badge-progress";
+import { badgeGoals } from "@/lib/gamification/badge-progress";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
 
@@ -123,6 +123,7 @@ function ProfilPage() {
   const profile = useOptimus((state) => state.profile);
   const update = useOptimus((state) => state.updateProfile);
   const xp = useOptimus((state) => state.xp);
+  const studyMs = useOptimus((state) => state.studyMs);
   const streak = useOptimus((state) => state.streak);
   const weeklyXp = useOptimus((state) => state.weeklyXp);
   const badges = useOptimus((state) => state.badges);
@@ -140,6 +141,7 @@ function ProfilPage() {
   const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
   const [cloudStatus, setCloudStatus] = useState<AuthRuntimeStatus | null>(null);
   const [referralCopied, setReferralCopied] = useState(false);
+  const [openBadge, setOpenBadge] = useState<BadgeId | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -156,9 +158,9 @@ function ProfilPage() {
   }, []);
 
   const level = levelInfo(xp);
-  const badgeGoal = useMemo(
+  const badgeGoalList = useMemo(
     () =>
-      nextBadgeGoal({
+      badgeGoals({
         badges,
         streak,
         reviewsSucceeded,
@@ -169,6 +171,8 @@ function ProfilPage() {
       }),
     [badges, streak, reviewsSucceeded, casesCompleted, diagnosticsCompleted, importedDecks, allProgress],
   );
+  const badgeGoal = badgeGoalList[0] ?? null;
+  const badgeGoalById = new Map(badgeGoalList.map((goal) => [goal.id, goal]));
   const league = currentLeague(weeklyXp);
   const pending = queue.filter((event) => !event.synced).length;
   const pendingPurchases = purchases.filter((purchase) => purchase.status !== "delivered").length;
@@ -413,6 +417,12 @@ function ProfilPage() {
             ? "Niveau maximum atteint."
             : `${Math.max(1, level.xpForNext - level.xpInto)} XP avant le niveau suivant`}
         </p>
+        <p className="mt-1.5 text-xs leading-5 text-muted">
+          {t("profil.studyTime", {
+            hours: Math.floor(studyMs / 3_600_000),
+            minutes: Math.floor((studyMs % 3_600_000) / 60_000),
+          })}
+        </p>
 
         <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
@@ -650,33 +660,52 @@ function ProfilPage() {
             {BADGE_CATALOG.map((badge) => {
               const earned = badges.includes(badge.id);
               const isNextGoal = !earned && badgeGoal?.id === badge.id;
+              const goal = badgeGoalById.get(badge.id);
+              const expanded = openBadge === badge.id;
               const BadgeIcon = BADGE_ICONS[badge.id] ?? Award;
               return (
-                <div
+                <button
                   key={badge.id}
+                  type="button"
+                  onClick={() => setOpenBadge(expanded ? null : badge.id)}
+                  aria-expanded={expanded}
                   className={cn(
-                    "flex items-center gap-3 rounded-[var(--radius-lg)] p-3 shadow-[var(--shadow-border)]",
+                    "flex flex-col items-start rounded-[var(--radius-lg)] p-3 text-left shadow-[var(--shadow-border)] transition-shadow",
                     earned ? "bg-card" : "bg-secondary opacity-45",
-                    isNextGoal && "opacity-100 ring-1 ring-primary",
+                    (isNextGoal || expanded) && "opacity-100 ring-1 ring-primary",
                   )}
                 >
-                  <span
-                    className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"
-                    aria-hidden="true"
-                  >
-                    <BadgeIcon className="size-5" strokeWidth={1.7} />
+                  <span className="flex w-full items-center gap-3">
+                    <span
+                      className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"
+                      aria-hidden="true"
+                    >
+                      <BadgeIcon className="size-5" strokeWidth={1.7} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-medium">{badge.title}</span>
+                      <span className="block truncate text-xs text-muted">
+                        {earned
+                          ? "Obtenu"
+                          : isNextGoal && badgeGoal
+                            ? badgeGoal.hint
+                            : "À débloquer"}
+                      </span>
+                    </span>
                   </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium">{badge.title}</p>
-                    <p className="truncate text-xs text-muted">
-                      {earned
-                        ? "Obtenu"
-                        : isNextGoal && badgeGoal
-                          ? badgeGoal.hint
-                          : "À débloquer"}
-                    </p>
-                  </div>
-                </div>
+                  {expanded ? (
+                    <span className="mt-3 w-full border-t border-border pt-2 text-xs leading-relaxed text-muted">
+                      <span className="block">
+                        <span className="font-medium text-fg">Condition : </span>
+                        {badge.detail}
+                      </span>
+                      <span className="mt-1 block">
+                        <span className="font-medium text-fg">Progression : </span>
+                        {earned ? "Obtenu" : goal ? goal.hint : "À débloquer"}
+                      </span>
+                    </span>
+                  ) : null}
+                </button>
               );
             })}
           </div>

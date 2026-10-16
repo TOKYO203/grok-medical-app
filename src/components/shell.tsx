@@ -6,6 +6,7 @@ import { CommandPalette, useCommandPalette } from "@/components/command-palette"
 import { SwipeBackBridge } from "@/components/swipe-back-bridge";
 import { ResumeRouteBridge } from "@/components/resume-route-bridge";
 import { PullToRefreshBridge } from "@/components/pull-to-refresh";
+import { BadgeUnlockBridge } from "@/components/badge-unlock-bridge";
 import { MobileToolsDrawer } from "@/components/mobile-tools-drawer";
 import { Wordmark } from "@/components/brand/marks";
 import { ExperienceControls } from "@/components/experience-controls";
@@ -156,6 +157,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       <SwipeBackBridge />
       <ResumeRouteBridge />
       <PullToRefreshBridge />
+      <BadgeUnlockBridge />
     </div>
   );
 }
