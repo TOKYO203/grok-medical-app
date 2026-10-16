@@ -126,6 +126,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Bouton « Remonter en haut » (ArrowUp) flottant après 600 px de défilement sur les listes longues — Bibliothèque, Cas, Parcours et Programme ; défilement doux sauf prefers-reduced-motion ; clé ux.backToTop jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Les longues listes n’offraient aucun retour rapide en haut de page | Vibe |
 | 2026-10-16 | — | Header sticky sur l’accueil consigné comme déjà livré : le Shell affiche un en-tête sticky top-0 avec le titre « Aujourd’hui » sur mobile, la sidebar restant sticky sur desktop — aucun nouveau code | L’item était couvert par la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+| 2026-10-16 | — | Recherche globale consignée comme déjà livrée : la palette de commandes (⌘K/Ctrl+K) indexe pages, cas, démarches, decks et badges, et la loupe mobile l’ouvre depuis l’en-tête et le tiroir — aucun nouveau code | L’item était couvert par la palette livrée avec la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
 ## Sessions terminées
 
