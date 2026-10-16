@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 8d32b403ab9f716924ba580cd22941b7f12b9842)
 import assert from "node:assert/strict";
 import test from "node:test";
 import { DEFAULT_LOCALE, isLocale, localeDir, translate } from "./core.ts";
@@ -119,6 +120,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "onb.subjectsTitle", {}, catalogs), "Your priority subjects?");
   assert.equal(translate("es", "onb.subjectsTitle", {}, catalogs), "¿Tus asignaturas prioritarias?");
   assert.equal(translate("pt", "onb.subjectsTitle", {}, catalogs), "As tuas disciplinas prioritárias?");
+  assert.equal(translate("fr", "ux.backToTop", {}, catalogs), "Remonter en haut de la page");
+  assert.equal(translate("en", "ux.backToTop", {}, catalogs), "Back to top");
+  assert.equal(translate("es", "ux.backToTop", {}, catalogs), "Volver arriba");
+  assert.equal(translate("pt", "ux.backToTop", {}, catalogs), "Voltar ao topo");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

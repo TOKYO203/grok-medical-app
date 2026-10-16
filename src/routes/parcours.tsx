@@ -1,9 +1,11 @@
+successfully downloaded text file (SHA: 9b414dc745eea7714a1eab9fcf2edba3529bba69)
 import { useMemo } from "react";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, Layers3, Lock } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
+import { ScrollToTopButton } from "@/components/scroll-to-top";
 import { buildContentIndex } from "@/lib/library/content-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
@@ -117,6 +119,7 @@ function toLevel(studyLevel: unknown): Level {
   return (
     <Shell title="Parcours">
       <Page>
+        <ScrollToTopButton />
         <PageHeader
           kicker="Votre apprentissage"
           title="Parcours"

@@ -1,9 +1,11 @@
+successfully downloaded text file (SHA: 302befde6e5f4eaa4aec3a450c45bf13f69119f5)
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
 import { SpecialtyGroupHeader } from "@/components/content/specialty-group-header";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
+import { ScrollToTopButton } from "@/components/scroll-to-top";
 import { deckProgressPct } from "@/core/mastery";
 import { COMPETENCY_LABEL, type Competency } from "@/core/types";
 import {
@@ -113,6 +115,7 @@ function BibliothequePage() {
   return (
     <Shell title="Bibliothèque">
       <Page>
+        <ScrollToTopButton />
         <PageHeader
           kicker="Tout le contenu"
           title="Bibliothèque"

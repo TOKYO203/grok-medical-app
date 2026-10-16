@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: b20603b9f52df6aa8aa03c36c9004d12c38f1e7c)
 // Catalogue portugais — jumeau exact du catalogue français (mêmes clés).
 import type { MessageCatalog } from "../core";
 
@@ -168,4 +169,7 @@ export const pt: MessageCatalog = {
   "palette.section.diagnostics": "Guias diagnósticos",
   "palette.section.decks": "Decks",
   "palette.section.badges": "Distintivos",
+};
+  // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
+  "ux.backToTop": "Voltar ao topo",
 };

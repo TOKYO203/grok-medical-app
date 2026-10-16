@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: bcde84c30b4fc1a63195fc1ca886c7bd139f3b9d)
 // Catalogue anglais — jumeau exact du catalogue français (mêmes clés).
 import type { MessageCatalog } from "../core";
 
@@ -168,4 +169,7 @@ export const en: MessageCatalog = {
   "palette.section.diagnostics": "Diagnostic guidelines",
   "palette.section.decks": "Decks",
   "palette.section.badges": "Badges",
+};
+  // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
+  "ux.backToTop": "Back to top",
 };

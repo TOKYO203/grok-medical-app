@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 12421b5fbe6f410d0519d8613847226e217ab0f6)
 successfully downloaded text file (SHA: 5257a02ff455d05454c16472c867d7e13d8654ea)
 # Journal des décisions — Optimus
 
@@ -117,6 +118,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Brouillon d’onboarding persisté (localStorage `optimus.onboardingDraft`) : étape, nom, niveau, objectif, matières et rythme restaurés au rechargement — lecture après montage (SSR-safe), brouillon effacé à la fin ou au passage | Un rechargement involontaire remettait l’utilisateur à l’écran 1 et perdait toutes ses sélections | Vibe |
 | 2026-10-16 | — | Onboarding réordonné en 5 écrans : Bienvenue → Niveau → Objectif → Matières → Rythme — la sélection de matières (`onb.subjectsTitle`, 4 catalogues + 4 assertions) devient un écran dédié après l’objectif ; specs E2E onboarding et smoke mobile alignées sur le nouveau flux | L’audit demandait niveau → objectif → spé → rythme : matières et objectif partageaient un écran, le choix de matières arrivait sans être annoncé | Vibe |
 | 2026-10-16 | — | Tooltip sur l’ID utilisateur consigné comme déjà livré : la Session 7 (bug #10) a ajouté la clé dash.idTooltip et le libellé « ton identifiant Optimus » avec info-bulle sur l’accueil et le profil — aucun nouveau code | L’item était couvert par la Session 7 ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+
+## 2026-10-16 — Session 10 : UX navigation (vague d’améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Bouton « Remonter en haut » (ArrowUp) flottant après 600 px de défilement sur les listes longues — Bibliothèque, Cas, Parcours et Programme ; défilement doux sauf prefers-reduced-motion ; clé ux.backToTop jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Les longues listes n’offraient aucun retour rapide en haut de page | Vibe |
 
 ## Sessions terminées
 

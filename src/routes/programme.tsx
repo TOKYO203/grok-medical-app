@@ -1,7 +1,9 @@
+successfully downloaded text file (SHA: 157254d76dfbf2a26fca50e58a9a1b56d1037600)
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
+import { ScrollToTopButton } from "@/components/scroll-to-top";
 import {
   getDefaultProgramme,
   listProgrammes,
@@ -132,6 +134,7 @@ function ProgrammePage() {
   return (
     <Shell title="Programme national">
       <Page>
+        <ScrollToTopButton />
         <PageHeader
           kicker={programme ? `${programme.flag} ${programme.pays} · ${programme.annee}` : "Référentiel"}
           title="Programme national"

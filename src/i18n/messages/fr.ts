@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: ab865d43841bbbe4b062baaacc086c756bbbdd18)
 // Catalogue français — langue source et repli par défaut de la Phase 3.
 // Les chaînes sont copiées à l'identique des composants d'origine
 // (apostrophes typographiques et points de suspension inclus).
@@ -170,4 +171,7 @@ export const fr: MessageCatalog = {
   "palette.section.diagnostics": "Démarches diagnostiques",
   "palette.section.decks": "Decks",
   "palette.section.badges": "Badges",
+};
+  // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
+  "ux.backToTop": "Remonter en haut de la page",
 };

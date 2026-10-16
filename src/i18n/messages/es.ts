@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 8e66672134180559004ccd20daf448d78d176bbf)
 // Catalogue espagnol — jumeau exact du catalogue français (mêmes clés).
 import type { MessageCatalog } from "../core";
 
@@ -168,4 +169,7 @@ export const es: MessageCatalog = {
   "palette.section.diagnostics": "Guías diagnósticas",
   "palette.section.decks": "Decks",
   "palette.section.badges": "Insignias",
+};
+  // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
+  "ux.backToTop": "Volver arriba",
 };
