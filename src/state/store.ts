@@ -559,7 +559,6 @@ export const useOptimus = create<OptimusState>()(
           const weeklyXp = s.weeklyKey === wk ? s.weeklyXp + xp : xp;
           const streak = bumpStreak(s.lastActiveDay, today, s.streak || 0);
           const reviewsSucceeded =
-          const studyMs =
             mode === "revue" && ok ? s.reviewsSucceeded + 1 : s.reviewsSucceeded;
           const event: SyncEvent = {
             id: uid("evt"),
