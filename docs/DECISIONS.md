@@ -84,6 +84,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bug #5 : la carte de maîtrise à l'état « avant première session » affiche un CTA « Commencer ma première session » (`dash.startFirstSession`, 4 catalogues) vers `/revue?mode=today` si des questions du jour existent, sinon « Explorer la bibliothèque » vers `/bibliotheque` | Le message « Profil de maîtrise après 1ère session » n'offrait aucun accès direct à une session | Vibe |
 | 2026-10-16 | — | Correctif E2E : l'assertion dashboard « sur 10 » devient « 2/10 » + unité « questions » scoper au progressbar (`tests/e2e/dashboard.spec.ts`) | Le job test (Playwright) validait l'ancien rendu de l'anneau modifié au bug #4 — le libellé visible n'affiche plus « sur 10 » | Vibe |
 
+## 2026-10-16 — Session 7 : bugs secondaires (audit prod #6–#13)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Bug #6 : le bouton « Se synchroniser » du profil ne s'affiche que si la sonde `getAuthRuntimeStatus` répond prête ; sinon son message explicite remplace le bouton | Le bouton menait vers /login qui affichait « Connexion cloud indisponible ici » — boucle sans issue | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-16 · **Session 6 (bugs accueil audit prod #4/#5)** — libellés « Aujourd'hui » responsives et anneau « 0/10 questions » explicite (bug #4) ; CTA « Commencer ma première session » sur la carte de maîtrise (bug #5).
