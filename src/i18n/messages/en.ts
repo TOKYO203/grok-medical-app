@@ -174,4 +174,5 @@ export const en: MessageCatalog = {
   "ux.resumeGo": "Resume",
   "ux.resumeAria": "Return to the last visited page",
   "ux.refreshAria": "Refresh content",
+  "ux.badgeUnlocked": "Badge unlocked",
 };

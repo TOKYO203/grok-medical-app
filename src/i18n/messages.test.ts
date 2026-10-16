@@ -139,6 +139,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "ux.refreshAria", {}, catalogs), "Refresh content");
   assert.equal(translate("es", "ux.refreshAria", {}, catalogs), "Actualizar el contenido");
   assert.equal(translate("pt", "ux.refreshAria", {}, catalogs), "Atualizar o conteúdo");
+  assert.equal(translate("fr", "ux.badgeUnlocked", {}, catalogs), "Badge débloqué");
+  assert.equal(translate("en", "ux.badgeUnlocked", {}, catalogs), "Badge unlocked");
+  assert.equal(translate("es", "ux.badgeUnlocked", {}, catalogs), "Insignia desbloqueada");
+  assert.equal(translate("pt", "ux.badgeUnlocked", {}, catalogs), "Distintivo desbloqueado");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

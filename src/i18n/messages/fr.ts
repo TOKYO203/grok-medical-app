@@ -176,4 +176,5 @@ export const fr: MessageCatalog = {
   "ux.resumeGo": "Reprendre",
   "ux.resumeAria": "Revenir à la dernière page consultée",
   "ux.refreshAria": "Actualiser le contenu",
+  "ux.badgeUnlocked": "Badge débloqué",
 };
