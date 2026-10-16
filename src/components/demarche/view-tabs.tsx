@@ -56,9 +56,10 @@ export function ViewTabs({
             aria-selected={active}
             aria-controls={viewPanelId(id)}
             data-demarche-tab={id}
+            aria-current={active ? "page" : undefined}
             onClick={() => onChange(id)}
             className={cn(
-              "flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-[var(--radius-md)] px-1.5 py-1.5 text-[12px] font-medium leading-none transition-colors sm:text-sm",
+              "relative flex min-h-9 flex-1 items-center justify-center gap-1.5 rounded-[var(--radius-md)] px-1.5 pb-2 pt-1.5 text-[12px] font-medium leading-none transition-colors sm:text-sm",
               active
                 ? "bg-card text-fg shadow-[var(--shadow-border)]"
                 : "text-muted hover:text-fg",
@@ -66,6 +67,13 @@ export function ViewTabs({
           >
             <Icon className={cn("size-3.5 shrink-0", active && "text-accent")} aria-hidden />
             <span>{t(labelKey)}</span>
+            {active ? (
+              <span
+                aria-hidden
+                data-demarche-tab-indicator
+                className="absolute inset-x-2 bottom-1 h-0.5 rounded-full bg-accent"
+              />
+            ) : null}
           </button>
         );
       })}

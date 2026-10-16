@@ -1,12 +1,24 @@
-import { useState } from "react";
-import { RotateCcw, Sparkles, ThumbsUp, TimerReset } from "lucide-react";
-import type { DemarcheContent } from "@/core/demarche";
+import { useRef, useState } from "react";
+import { Hand, RotateCcw, Sparkles, ThumbsUp, TimerReset } from "lucide-react";
+import type { DemarcheContent, Flashcard } from "@/core/demarche";
 import { useI18n } from "@/i18n";
 import { useOptimus } from "@/state/store";
-import { cn } from "@/lib/utils";
 import { viewPanelId } from "./view-tabs";
 
 const XP_PER_CARD = 5;
+
+/** Badge de criticité affiché en haut à droite de la carte (fix #7). */
+function cardBadge(card: Flashcard | undefined): "urgence" | "prudence" | null {
+  const tags = (card?.tags ?? []).map((tag) => tag.toLowerCase());
+  if (tags.includes("urgence")) return "urgence";
+  if (tags.includes("piège") || tags.includes("piege")) return "prudence";
+  return null;
+}
+
+const BADGE_STYLE: Record<"urgence" | "prudence", React.CSSProperties> = {
+  urgence: { background: "var(--app-danger)", color: "#ffffff" },
+  prudence: { background: "var(--app-warn)", color: "#1b1408" },
+};
 
 export function FlashcardsView({ content }: { content: DemarcheContent }) {
   const { t } = useI18n();
@@ -19,9 +31,17 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
   const [offset, setOffset] = useState(0);
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  // Un tap tactile génère à la fois pointerup ET click ; sans ce verrou, la
+  // révélation basculerait deux fois (annulation nette : la carte ne s'ouvre
+  // jamais au doigt). Le geste pointeur est la source de vérité ; on avale le
+  // click de compatibilité qui suit, sans jamais bloquer l'activation clavier
+  // (Enter/Espace émettent un click sans pointerdown préalable).
+  const pointerHandledRef = useRef(false);
 
   const done = index >= cards.length;
   const card = cards[index];
+  const badge = cardBadge(card);
+  const earnedXp = known * XP_PER_CARD;
 
   function reset() {
     setRevealed(false);
@@ -49,6 +69,7 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
 
   function onPointerDown(event: React.PointerEvent<HTMLDivElement>) {
     if (done) return;
+    pointerHandledRef.current = false;
     setDragging(true);
     setStartX(event.clientX);
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -62,12 +83,23 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
   function onPointerUp() {
     if (!dragging) return;
     setDragging(false);
+    pointerHandledRef.current = true;
     if (Math.abs(offset) > 70) {
       goTo(offset < 0 ? index + 1 : index - 1);
       return;
     }
     if (Math.abs(offset) < 8) setRevealed((value) => !value);
     setOffset(0);
+  }
+
+  /** Un seul basculement par geste : le click de compatibilité est avalé si le
+   *  pointeur a déjà traité le tap (cf. pointerHandledRef). */
+  function onCardActivate() {
+    if (pointerHandledRef.current) {
+      pointerHandledRef.current = false;
+      return;
+    }
+    setRevealed((value) => !value);
   }
 
   const progress = (Math.min(index, cards.length) / cards.length) * 100;
@@ -84,9 +116,14 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
         <p className="font-mono text-xs tabular-nums text-subtle">
           {t("demarche.cards.progress", { current: Math.min(index + 1, cards.length), total: cards.length })}
         </p>
-        <p className="flex items-center gap-1.5 text-xs font-medium text-accent">
+        <p
+          className="flex items-center gap-1.5 text-xs font-medium text-accent"
+          data-flashcard-xp={earnedXp}
+        >
           <Sparkles className="size-3.5" aria-hidden />
-          {t("demarche.cards.xp", { xp: known * XP_PER_CARD })}
+          {earnedXp > 0
+            ? t("demarche.cards.xp", { xp: earnedXp })
+            : t("demarche.cards.xpPerCard", { xp: XP_PER_CARD })}
         </p>
       </div>
 
@@ -124,41 +161,64 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
           <div
             data-flashcard-index={index}
             data-flashcard-revealed={revealed}
-            className="touch-manipulation select-none"
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={onPointerUp}
+            className="relative transition-transform duration-150 hover:-translate-y-0.5"
           >
-            <button
-              type="button"
-              onClick={() => setRevealed((value) => !value)}
-              style={{
-                transform: `translateX(${offset}px) rotate(${offset * 0.02}deg)`,
-                transition: dragging ? "none" : "transform 180ms var(--ease-out)",
-              }}
-              className="optimus-card flex min-h-56 w-full flex-col justify-between p-5 text-left"
-              aria-label={revealed ? t("demarche.cards.hide") : t("demarche.cards.reveal")}
+            {badge ? (
+              <span
+                data-flashcard-badge={badge}
+                style={BADGE_STYLE[badge]}
+                className="pointer-events-none absolute right-3 top-3 z-10 rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide shadow-[var(--shadow-soft)]"
+              >
+                {t(badge === "urgence" ? "demarche.cards.urgency" : "demarche.cards.caution")}
+              </span>
+            ) : null}
+
+            <div
+              className="touch-manipulation select-none"
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
             >
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
-                {revealed ? t("demarche.cards.answer") : t("demarche.cards.question")}
-              </span>
-              <span className="mt-3 block font-display text-lg font-medium leading-snug">
-                {revealed ? card.back : card.front}
-              </span>
-              {card.tags?.length ? (
-                <span className="mt-4 flex flex-wrap gap-1.5">
-                  {card.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <button
+                type="button"
+                onClick={onCardActivate}
+                style={{
+                  transform: `translateX(${offset}px) rotate(${offset * 0.02}deg)`,
+                  transition: dragging ? "none" : "transform 180ms var(--ease-out)",
+                }}
+                className="optimus-card group flex min-h-56 w-full flex-col justify-between p-5 text-left shadow-[var(--shadow-md)] transition-shadow hover:shadow-[var(--shadow-md)]"
+                aria-label={revealed ? t("demarche.cards.hide") : t("demarche.cards.reveal")}
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
+                  {revealed ? t("demarche.cards.answer") : t("demarche.cards.question")}
                 </span>
-              ) : null}
-            </button>
+                <span className="mt-3 block font-display text-lg font-medium leading-snug">
+                  {revealed ? card.back : card.front}
+                </span>
+                {card.tags?.length ? (
+                  <span className="mt-4 flex flex-wrap gap-1.5">
+                    {card.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </span>
+                ) : null}
+                {!revealed ? (
+                  <span
+                    data-flashcard-tap-hint
+                    className="mt-4 inline-flex items-center gap-1.5 self-center rounded-full bg-secondary px-3 py-1 text-[11px] font-medium text-muted transition-colors group-hover:text-fg"
+                  >
+                    <Hand className="size-3.5" aria-hidden />
+                    {t("demarche.cards.tapToReveal")}
+                  </span>
+                ) : null}
+              </button>
+            </div>
           </div>
 
           {revealed ? (
@@ -181,12 +241,7 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
               </button>
             </div>
           ) : (
-            <p
-              className={cn(
-                "text-center text-xs text-subtle",
-                "min-h-11 flex items-center justify-center",
-              )}
-            >
+            <p className="flex min-h-11 items-center justify-center text-center text-xs text-subtle">
               {t("demarche.cards.hint")}
             </p>
           )}

@@ -1,122 +1,657 @@
-import { useState } from "react";
-import { Maximize2, Minus, Plus } from "lucide-react";
-import type { CalloutTone, DemarcheContent, Mindmap } from "@/core/demarche";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import {
+  ChevronsDownUp,
+  ChevronsUpDown,
+  Crosshair,
+  Download,
+  FileCode2,
+  Focus,
+  Image as ImageIcon,
+  Maximize2,
+  Minimize2,
+  Minus,
+  Network,
+  Plus,
+  Search,
+  X,
+} from "lucide-react";
+import type { DemarcheContent } from "@/core/demarche";
 import { useI18n } from "@/i18n";
+import {
+  CRITICITY_ORDER,
+  criticityLabelKey,
+  type Criticity,
+} from "@/lib/demarche/criticity";
 import { cn } from "@/lib/utils";
 import { viewPanelId } from "./view-tabs";
+import {
+  branchBounds,
+  computeMindmapLayout,
+  MINDMAP_NODE_METRICS,
+  wrapLabel,
+  type MapLayout,
+  type MapNode,
+  type MapRect,
+} from "./mindmap-layout";
+import {
+  buildMindmapSvg,
+  svgToDataUrl,
+  type MindmapPalette,
+} from "./mindmap-export";
 
-const CANVAS = 1000;
-const R_BRANCH = 250;
-const R_CHILD = 470;
+const MIN_ZOOM = 0.45;
+const MAX_ZOOM = 8;
+const ZOOM_STEP = 1.35;
+const FOCUS_PAD = 0.2;
 
-const TONE_RING: Record<CalloutTone, string> = {
-  urgence: "ring-danger/40 bg-danger/10",
-  prudence: "ring-warn/45 bg-warn/10",
-  reflexe: "ring-primary/35 bg-primary-soft",
-  retenir: "ring-accent/40 bg-accent/10",
-  memo: "ring-border bg-surface",
+/** Couleur par criticité — palette Oxford (danger/ambre/bleu/succès). */
+const CRITICITY_VAR: Record<Criticity, string> = {
+  critique: "var(--app-danger)",
+  grave: "var(--app-warn)",
+  examens: "var(--app-info)",
+  benin: "var(--app-success)",
 };
 
-type LaidNode = {
-  id: string;
-  label: string;
-  kind: "root" | "branch" | "child";
-  tone?: CalloutTone;
-  detail?: string;
-  leaves: string[];
-  x: number;
-  y: number;
-};
+const clampZoom = (value: number) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, value));
 
-type LaidEdge = { from: string; to: string };
-
-function layout(map: Mindmap): { nodes: LaidNode[]; edges: LaidEdge[] } {
-  const center = CANVAS / 2;
-  const nodes: LaidNode[] = [
-    {
-      id: map.root.id,
-      label: map.root.label,
-      kind: "root",
-      detail: map.root.detail,
-      leaves: [],
-      x: center,
-      y: center,
-    },
-  ];
-  const edges: LaidEdge[] = [];
-  const byId = new Map<string, LaidNode>([[map.root.id, nodes[0]]]);
-  const count = map.branches.length;
-
-  map.branches.forEach((branch, branchIndex) => {
-    const angle = (-90 + branchIndex * (360 / count)) * (Math.PI / 180);
-    const node: LaidNode = {
-      id: branch.id,
-      label: branch.label,
-      kind: "branch",
-      tone: branch.tone,
-      detail: branch.detail,
-      leaves: [],
-      x: center + Math.cos(angle) * R_BRANCH,
-      y: center + Math.sin(angle) * R_BRANCH,
-    };
-    nodes.push(node);
-    byId.set(node.id, node);
-    edges.push({ from: map.root.id, to: node.id });
-
-    const childCount = branch.children.length;
-    const spreadDeg = Math.min(58, (360 / count) * 0.85);
-    branch.children.forEach((child, childIndex) => {
-      const offsetDeg =
-        childCount <= 1 ? 0 : (childIndex - (childCount - 1) / 2) * (spreadDeg / (childCount - 1));
-      const childAngle = angle + offsetDeg * (Math.PI / 180);
-      const childNode: LaidNode = {
-        id: child.id,
-        label: child.label,
-        kind: "child",
-        tone: branch.tone,
-        detail: child.detail,
-        leaves: (child.leaves ?? []).map((leaf) => leaf.label),
-        x: center + Math.cos(childAngle) * R_CHILD,
-        y: center + Math.sin(childAngle) * R_CHILD,
-      };
-      nodes.push(childNode);
-      byId.set(childNode.id, childNode);
-      edges.push({ from: branch.id, to: childNode.id });
-    });
-  });
-
-  return { nodes, edges };
+/** Normalisation recherche : insensible à la casse ET aux accents. */
+function normalize(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
 }
 
 export function MindmapView({ content }: { content: DemarcheContent }) {
   const { t } = useI18n();
-  const { nodes, edges } = layout(content.mindmap);
-  const byId = new Map(nodes.map((node) => [node.id, node]));
-
-  const [scale, setScale] = useState(0.62);
-  const [tx, setTx] = useState(0);
-  const [ty, setTy] = useState(0);
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
   const [selectedId, setSelectedId] = useState(content.mindmap.root.id);
-  const [drag, setDrag] = useState<{ x: number; y: number } | null>(null);
-  const [origin, setOrigin] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [query, setQuery] = useState("");
+  const [spotlight, setSpotlight] = useState<string | null>(null);
+  const [full, setFull] = useState(false);
+  const [menu, setMenu] = useState<null | "export">(null);
 
-  const selected = byId.get(selectedId) ?? nodes[0];
+  const surfaceRef = useRef<HTMLDivElement>(null);
+  const pointers = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const dragRef = useRef<{ x: number; y: number; originX: number; originY: number } | null>(null);
+  const pinchRef = useRef<{ dist: number; zoom: number } | null>(null);
+  /** Vrai dès qu'un glissement dépasse le seuil : évite de déplier en pannant. */
+  const draggedRef = useRef(false);
+  const [surface, setSurface] = useState({ w: 360, h: 420 });
 
-  function onPointerDown(event: React.PointerEvent<HTMLDivElement>) {
-    setDrag({ x: event.clientX, y: event.clientY });
-    setOrigin({ x: tx, y: ty });
-    event.currentTarget.setPointerCapture(event.pointerId);
+  // ── Recherche : une requête déplie automatiquement les branches concernées.
+  const matches = useMemo(() => {
+    const needle = normalize(query.trim());
+    if (!needle) return null;
+    const ids = new Set<string>();
+    for (const branch of content.mindmap.branches) {
+      const parts = [
+        branch.label,
+        branch.detail,
+        ...branch.children.flatMap((child) => [
+          child.label,
+          child.detail ?? "",
+          ...(child.leaves ?? []).map((leaf) => leaf.label),
+        ]),
+      ];
+      if (parts.some((part) => normalize(part).includes(needle))) {
+        ids.add(branch.id);
+        for (const child of branch.children) {
+          const childText = [child.label, child.detail ?? "", ...(child.leaves ?? []).map((l) => l.label)];
+          if (childText.some((part) => normalize(part).includes(needle))) ids.add(child.id);
+        }
+      }
+    }
+    if (normalize(content.mindmap.root.label).includes(needle)) ids.add(content.mindmap.root.id);
+    return ids;
+  }, [content, query]);
+
+  const effectiveExpanded = useMemo(() => {
+    if (!matches) return expanded;
+    const next = new Set(expanded);
+    for (const branch of content.mindmap.branches) {
+      if (matches.has(branch.id)) next.add(branch.id);
+    }
+    return next;
+  }, [expanded, matches, content]);
+
+  const layout = useMemo(
+    () => computeMindmapLayout(content.mindmap, effectiveExpanded),
+    [content, effectiveExpanded],
+  );
+  const byId = useMemo(() => new Map(layout.nodes.map((node) => [node.id, node])), [layout]);
+  const selected = byId.get(selectedId) ?? layout.nodes[0];
+
+  const spotlightNodes = useMemo(() => {
+    if (!spotlight) return null;
+    const ids = new Set<string>([spotlight, layout.rootId]);
+    for (const node of layout.nodes) if (node.branchId === spotlight) ids.add(node.id);
+    return ids;
+  }, [spotlight, layout]);
+
+  // ── Mesure de la surface (+ re-mesure à l'entrée/sortie plein écran).
+  useEffect(() => {
+    const node = surfaceRef.current;
+    if (!node) return;
+    const update = () => setSurface({ w: node.clientWidth || 360, h: node.clientHeight || 420 });
+    update();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(update);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [full]);
+
+  useEffect(() => {
+    if (!full) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        if (menu) setMenu(null);
+        else if (spotlight) setSpotlight(null);
+        else setFull(false);
+      }
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [full, menu, spotlight]);
+
+  const vb = layout.viewBox;
+  const viewW = vb.w / zoom;
+  const viewH = vb.h / zoom;
+  const centerX = vb.x + vb.w / 2 + pan.x;
+  const centerY = vb.y + vb.h / 2 + pan.y;
+  const viewBox = `${centerX - viewW / 2} ${centerY - viewH / 2} ${viewW} ${viewH}`;
+  const pxPerUnit = Math.min(surface.w / viewW, surface.h / viewH);
+
+  /** Cadre la vue sur un rectangle monde (auto-zoom à l'ouverture d'une branche). */
+  const focusBounds = useCallback((target: MapLayout, rect: MapRect) => {
+    const box = target.viewBox;
+    const needW = (rect.maxX - rect.minX) * (1 + FOCUS_PAD);
+    const needH = (rect.maxY - rect.minY) * (1 + FOCUS_PAD);
+    const next = clampZoom(Math.min(box.w / Math.max(needW, 1), box.h / Math.max(needH, 1)));
+    setZoom(next);
+    setPan({
+      x: (rect.minX + rect.maxX) / 2 - (box.x + box.w / 2),
+      y: (rect.minY + rect.maxY) / 2 - (box.y + box.h / 2),
+    });
+  }, []);
+
+  const fitAll = useCallback(() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }, []);
+
+  function setExpandedAnd(next: Set<string>, focusId: string | null) {
+    setExpanded(next);
+    if (focusId) {
+      const nextLayout = computeMindmapLayout(content.mindmap, next);
+      focusBounds(nextLayout, branchBounds(nextLayout, focusId));
+    }
   }
 
-  function onPointerMove(event: React.PointerEvent<HTMLDivElement>) {
+  function toggleBranch(id: string) {
+    const next = new Set(expanded);
+    const willExpand = !next.has(id);
+    if (willExpand) next.add(id);
+    else next.delete(id);
+    setSelectedId(id);
+    if (spotlight && spotlight !== id && willExpand) setSpotlight(null);
+    setExpandedAnd(next, willExpand ? id : null);
+    if (!willExpand) {
+      // Repli : on recadre pour ne pas laisser la vue perdue dans le vide.
+      setZoom((z) => clampZoom(z));
+    }
+  }
+
+  function toggleSpotlight(id: string) {
+    const next = spotlight === id ? null : id;
+    setSpotlight(next);
+    setSelectedId(id);
+    if (next) {
+      const withChildren = new Set(expanded);
+      withChildren.add(id);
+      setExpanded(withChildren);
+      const nextLayout = computeMindmapLayout(content.mindmap, withChildren);
+      focusBounds(nextLayout, branchBounds(nextLayout, id));
+    }
+  }
+
+  function onNodeActivate(node: MapNode) {
+    setSelectedId(node.id);
+    if (node.kind === "branch" && node.childCount > 0) toggleBranch(node.id);
+  }
+
+  const allExpanded = content.mindmap.branches.every((branch) => expanded.has(branch.id));
+
+  // ── Pan / pincement.
+  function onPointerDown(event: React.PointerEvent) {
+    pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointers.current.size === 1) {
+      draggedRef.current = false;
+      dragRef.current = { x: event.clientX, y: event.clientY, originX: pan.x, originY: pan.y };
+      (event.currentTarget as Element).setPointerCapture?.(event.pointerId);
+    } else if (pointers.current.size === 2) {
+      const [a, b] = [...pointers.current.values()];
+      pinchRef.current = { dist: Math.hypot(a.x - b.x, a.y - b.y), zoom };
+      dragRef.current = null;
+    }
+  }
+
+  function onPointerMove(event: React.PointerEvent) {
+    if (!pointers.current.has(event.pointerId)) return;
+    pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointers.current.size >= 2 && pinchRef.current) {
+      const [a, b] = [...pointers.current.values()];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      setZoom(clampZoom((pinchRef.current.zoom * dist) / pinchRef.current.dist));
+      return;
+    }
+    const drag = dragRef.current;
     if (!drag) return;
-    setTx(origin.x + (event.clientX - drag.x));
-    setTy(origin.y + (event.clientY - drag.y));
+    if (Math.hypot(event.clientX - drag.x, event.clientY - drag.y) > 4) draggedRef.current = true;
+    setPan({
+      x: drag.originX - (event.clientX - drag.x) / pxPerUnit,
+      y: drag.originY - (event.clientY - drag.y) / pxPerUnit,
+    });
   }
 
-  const clampScale = (value: number) => Math.min(1.6, Math.max(0.35, value));
+  function endPointer(event: React.PointerEvent) {
+    pointers.current.delete(event.pointerId);
+    if (pointers.current.size < 2) pinchRef.current = null;
+    if (pointers.current.size === 0) dragRef.current = null;
+  }
 
-  return (
+  // ── Molette : zoom non passif (sinon le navigateur scrolle la page).
+  useEffect(() => {
+    const el = surfaceRef.current;
+    if (!el) return;
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      setZoom((z) => clampZoom(z * Math.exp(-event.deltaY * 0.0016)));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [full]);
+
+  // ── Navigation clavier : flèches = nœud voisin le plus proche dans la direction.
+  function onKeyDown(event: React.KeyboardEvent) {
+    const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
+    if (keys.includes(event.key)) {
+      event.preventDefault();
+      const candidates = layout.nodes.filter((node) => node.id !== selected.id);
+      if (!candidates.length) return;
+      const dir = {
+        ArrowLeft: [-1, 0],
+        ArrowRight: [1, 0],
+        ArrowUp: [0, -1],
+        ArrowDown: [0, 1],
+      }[event.key]!;
+      let best: MapNode | null = null;
+      let bestScore = Infinity;
+      for (const node of candidates) {
+        const dx = node.x - selected.x;
+        const dy = node.y - selected.y;
+        const proj = dx * dir[0] + dy * dir[1];
+        if (proj <= 4) continue;
+        const ortho = Math.abs(dx * dir[1] - dy * dir[0]);
+        const score = ortho * 2 + Math.abs(proj);
+        if (score < bestScore) {
+          bestScore = score;
+          best = node;
+        }
+      }
+      if (best) setSelectedId(best.id);
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onNodeActivate(selected);
+    }
+    if (event.key === "Escape") {
+      if (spotlight) setSpotlight(null);
+      else if (query) setQuery("");
+    }
+  }
+
+  // ── Export autonome (SVG / PNG), couleurs résolues dans le thème courant.
+  function palette(): MindmapPalette {
+    const cs = getComputedStyle(document.documentElement);
+    const v = (name: string, fallback: string) => cs.getPropertyValue(name).trim() || fallback;
+    return {
+      background: v("--app-surface", "#ffffff"),
+      card: v("--app-card", "#ffffff"),
+      fg: v("--app-fg", "#1F1A14"),
+      muted: v("--app-muted", "#5E4D35"),
+      border: v("--app-border", "#A67C1E"),
+      rootFrom: v("--app-primary", "#3E4A2A"),
+      rootTo: v("--app-primary", "#3E4A2A"),
+      rootFg: v("--app-primary-fg", "#ffffff"),
+      criticity: {
+        critique: v("--app-danger", "#8B2E1F"),
+        grave: v("--app-warn", "#A67C1E"),
+        examens: v("--app-info", "#1B4B77"),
+        benin: v("--app-success", "#4F6B2D"),
+      },
+    };
+  }
+
+  function exportSvgString(): string {
+    const colors = palette();
+    return buildMindmapSvg(layout, colors, {
+      title: content.title,
+      subtitle: content.subtitle,
+      legend: CRITICITY_ORDER.map((criticity) => ({
+        label: t(criticityLabelKey(criticity)),
+        color: colors.criticity[criticity],
+      })),
+    });
+  }
+
+  function download(name: string, href: string) {
+    const anchor = document.createElement("a");
+    anchor.href = href;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  }
+
+  function doExportSvg() {
+    const svg = exportSvgString();
+    download(
+      `${content.slug}-carte-mentale.svg`,
+      `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`,
+    );
+    setMenu(null);
+  }
+
+  function doExportPng() {
+    const svg = exportSvgString();
+    const img = new Image();
+    img.onload = () => {
+      const scale = 2;
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      ctx.scale(scale, scale);
+      ctx.drawImage(img, 0, 0);
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        download(`${content.slug}-carte-mentale.png`, url);
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+      }, "image/png");
+    };
+    img.src = svgToDataUrl(svg);
+    setMenu(null);
+  }
+
+  // ── Corps de la carte (rendu en ligne, ou dans l'overlay plein écran).
+  const mapBody = (
+    <div className={cn("flex min-h-0 flex-col gap-3", full && "h-full")}>
+      <div className="relative flex flex-wrap items-center gap-1.5" data-mindmap-toolbar>
+        <label className="relative flex h-8 min-w-[8.5rem] flex-1 items-center">
+          <Search className="pointer-events-none absolute left-2.5 size-3.5 text-subtle" aria-hidden />
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t("demarche.map.search")}
+            aria-label={t("demarche.map.searchAria")}
+            data-mindmap-search
+            className="h-8 w-full rounded-[var(--radius-sm)] bg-card pl-8 pr-7 text-[12px] text-fg shadow-[var(--shadow-border)] outline-none placeholder:text-subtle focus-visible:shadow-[var(--shadow-border),0_0_0_3px_var(--app-primary-soft)]"
+          />
+          {query ? (
+            <button
+              type="button"
+              aria-label={t("demarche.map.clear")}
+              data-mindmap-clear
+              onClick={() => setQuery("")}
+              className="absolute right-1.5 flex size-5 items-center justify-center rounded-full text-subtle hover:text-fg"
+            >
+              <X className="size-3.5" aria-hidden />
+            </button>
+          ) : null}
+        </label>
+        <ToolButton
+          onClick={() => setExpandedAnd(allExpanded ? new Set() : new Set(content.mindmap.branches.map((b) => b.id)), null)}
+          label={t(allExpanded ? "demarche.map.collapseAll" : "demarche.map.expandAll")}
+          data-mindmap-expand-all={allExpanded ? "collapse" : "expand"}
+        >
+          {allExpanded ? <ChevronsDownUp className="size-3.5" aria-hidden /> : <ChevronsUpDown className="size-3.5" aria-hidden />}
+        </ToolButton>
+        <ToolButton onClick={() => setZoom((z) => clampZoom(z / ZOOM_STEP))} label={t("demarche.map.zoomOut")} data-mindmap-zoom="out" disabled={zoom <= MIN_ZOOM}>
+          <Minus className="size-4" aria-hidden />
+        </ToolButton>
+        <ToolButton onClick={() => setZoom((z) => clampZoom(z * ZOOM_STEP))} label={t("demarche.map.zoomIn")} data-mindmap-zoom="in" disabled={zoom >= MAX_ZOOM}>
+          <Plus className="size-4" aria-hidden />
+        </ToolButton>
+        <ToolButton onClick={fitAll} label={t("demarche.map.reset")} data-mindmap-zoom="reset">
+          <Crosshair className="size-4" aria-hidden />
+        </ToolButton>
+        <ToolButton onClick={() => setFull((value) => !value)} label={t(full ? "demarche.map.exitFullscreen" : "demarche.map.fullscreen")} data-mindmap-fullscreen={full ? "on" : "off"} active={full}>
+          {full ? <Minimize2 className="size-4" aria-hidden /> : <Maximize2 className="size-4" aria-hidden />}
+        </ToolButton>
+        <ToolButton onClick={() => setMenu(menu ? null : "export")} label={t("demarche.map.export")} data-mindmap-export="menu" active={menu === "export"}>
+          <Download className="size-4" aria-hidden />
+        </ToolButton>
+        {/* Menu ancré sur la BARRE, pas sur le bouton : la barre se replie sur
+            plusieurs lignes en mobile et un menu aligné sur le bouton sortait de
+            l'écran par la gauche (impossible à cliquer). `right-0` ici = bord droit
+            du panneau, toujours visible ; largeur plafonnée à la fenêtre. */}
+        {menu === "export" ? (
+          <div className="absolute right-0 top-full z-30 mt-1 w-40 max-w-[calc(100vw-1rem)] overflow-hidden rounded-[var(--radius-md)] bg-card py-1 shadow-[var(--shadow-md)]">
+            <MenuItem onClick={doExportPng} icon={<ImageIcon className="size-3.5" aria-hidden />} label={t("demarche.map.exportPng")} data-mindmap-export="png" />
+            <MenuItem onClick={doExportSvg} icon={<FileCode2 className="size-3.5" aria-hidden />} label={t("demarche.map.exportSvg")} data-mindmap-export="svg" />
+          </div>
+        ) : null}
+      </div>
+
+      <div
+        ref={surfaceRef}
+        data-mindmap-surface
+        data-mindmap-count={layout.nodes.length}
+        data-mindmap-spotlight={spotlight ?? ""}
+        data-mindmap-zoom-level={zoom.toFixed(2)}
+        className={cn(
+          "mm-surface relative overflow-hidden rounded-[var(--radius-lg)] bg-surface shadow-[var(--shadow-border)]",
+          full ? "min-h-0 flex-1" : "h-[26rem]",
+        )}
+        style={{ touchAction: "none" }}
+      >
+        <svg
+          viewBox={viewBox}
+          preserveAspectRatio="xMidYMid meet"
+          className="mm-canvas size-full cursor-grab active:cursor-grabbing"
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endPointer}
+          onPointerCancel={endPointer}
+          onKeyDown={onKeyDown}
+          role="group"
+          tabIndex={0}
+          aria-label={t("demarche.map.hint")}
+        >
+          <defs>
+            <pattern id="mm-dots" width="26" height="26" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" className="mm-dot" />
+            </pattern>
+            <radialGradient id="mm-root" cx="35%" cy="28%" r="85%">
+              <stop offset="0%" stopColor="var(--app-primary)" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="var(--app-primary)" stopOpacity="0.7" />
+            </radialGradient>
+            <filter id="mm-shadow" x="-40%" y="-40%" width="180%" height="180%">
+              <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#000" floodOpacity="0.16" />
+            </filter>
+          </defs>
+          <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill="url(#mm-dots)" className="mm-grid" aria-hidden />
+          {spotlightNodes ? (
+            <rect
+              x={vb.x}
+              y={vb.y}
+              width={vb.w}
+              height={vb.h}
+              className="mm-spotlight-veil"
+              aria-hidden
+              onClick={() => setSpotlight(null)}
+            />
+          ) : null}
+
+          <g className="mm-edges">
+            {layout.edges.map((edge) => {
+              const dim = spotlightNodes ? !(spotlightNodes.has(edge.from) && spotlightNodes.has(edge.to)) : false;
+              const active = selectedId === edge.to || selectedId === edge.from;
+              return (
+                <path
+                  key={`${edge.from}-${edge.to}`}
+                  d={edge.d}
+                  fill="none"
+                  stroke={CRITICITY_VAR[edge.criticity]}
+                  className={cn("mm-edge", dim && "mm-dim", active && "mm-edge--active")}
+                  strokeOpacity={edge.depth === 1 ? 0.6 : 0.42}
+                  strokeWidth={edge.depth === 1 ? 2 : 1.5}
+                  strokeLinecap="round"
+                />
+              );
+            })}
+          </g>
+
+          <g className="mm-nodes">
+            {layout.nodes.map((node) => (
+              <NodeShape
+                key={node.id}
+                node={node}
+                selected={node.id === selectedId}
+                dim={spotlightNodes ? !spotlightNodes.has(node.id) : false}
+                matched={matches ? matches.has(node.id) : null}
+                onActivate={() => {
+                  if (draggedRef.current) return;
+                  onNodeActivate(node);
+                }}
+                onSpotlight={() => {
+                  if (draggedRef.current) return;
+                  if (node.kind === "branch" && node.childCount > 0) toggleSpotlight(node.id);
+                }}
+                labels={{
+                  expand: t("demarche.map.expand", { label: node.label }),
+                  collapse: t("demarche.map.collapse", { label: node.label }),
+                  children: t("demarche.map.children", { count: node.childCount }),
+                  spotlight: t("demarche.map.focus"),
+                }}
+              />
+            ))}
+          </g>
+        </svg>
+
+        {spotlight ? (
+          <div className="pointer-events-auto absolute left-2 top-2 flex max-w-[calc(100%-1rem)] items-center gap-1 rounded-full bg-card/95 px-1.5 py-1 text-[11px] shadow-[var(--shadow-border)] backdrop-blur">
+            <button
+              type="button"
+              data-mindmap-exit-focus
+              onClick={() => setSpotlight(null)}
+              className="rounded-full px-2 py-0.5 font-medium text-muted hover:text-fg"
+            >
+              {t("demarche.map.overview")}
+            </button>
+            <span aria-hidden className="text-subtle">›</span>
+            <span className="truncate px-1 font-semibold text-fg">
+              {byId.get(spotlight)?.label ?? ""}
+            </span>
+          </div>
+        ) : null}
+
+        {matches && matches.size === 0 ? (
+          <div className="pointer-events-none absolute inset-x-0 top-2 flex justify-center">
+            <span className="rounded-full bg-card/95 px-3 py-1 text-[11px] font-medium text-muted shadow-[var(--shadow-border)]">
+              {t("demarche.map.noMatch")}
+            </span>
+          </div>
+        ) : null}
+
+        <div className="pointer-events-none absolute bottom-1.5 right-2 flex items-center gap-2 text-[10px] font-medium text-subtle">
+          <span data-mindmap-node-count>{t("demarche.map.nodes", { count: layout.nodes.length })}</span>
+          <span aria-hidden className="opacity-40">·</span>
+          <span data-mindmap-zoom-label>{Math.round(zoom * 100)} %</span>
+        </div>
+      </div>
+
+      <div
+        className="flex flex-wrap items-center gap-x-3 gap-y-1.5"
+        data-mindmap-legend
+        aria-label={t("demarche.map.legend")}
+      >
+        <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
+          {t("demarche.map.legend")}
+        </span>
+        {CRITICITY_ORDER.map((criticity) => (
+          <span key={criticity} className="flex items-center gap-1.5 text-[11px] text-muted">
+            <span aria-hidden className="size-2.5 rounded-full" style={{ background: CRITICITY_VAR[criticity] }} />
+            {t(criticityLabelKey(criticity))}
+          </span>
+        ))}
+        <span className="ml-auto hidden items-center gap-1 text-[11px] text-subtle sm:flex">
+          <Focus className="size-3" aria-hidden />
+          {t("demarche.map.spotlightHint")}
+        </span>
+      </div>
+
+      <div className="optimus-card p-4" data-mindmap-detail={selected.id}>
+        <div className="flex items-center justify-between gap-2">
+          <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
+            <Network className="size-3.5" aria-hidden />
+            {selected.kind === "root" ? t("demarche.map.root") : t("demarche.map.branch")}
+          </p>
+          {selected.kind !== "root" ? (
+            <span
+              className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
+              style={{
+                color: CRITICITY_VAR[selected.criticity],
+                background: `color-mix(in oklab, ${CRITICITY_VAR[selected.criticity]} 14%, transparent)`,
+              }}
+            >
+              {t(criticityLabelKey(selected.criticity))}
+            </span>
+          ) : null}
+        </div>
+        <p className="mt-1 font-display text-base font-medium">{selected.label}</p>
+        {selected.detail ? (
+          <p className="mt-1 text-[13px] leading-relaxed text-muted">{selected.detail}</p>
+        ) : null}
+        {selected.leaves.length > 0 ? (
+          <ul className="mt-2 space-y-1">
+            {selected.leaves.map((leaf, index) => (
+              <li key={index} className="flex gap-2 text-[12px] leading-snug text-muted">
+                <span aria-hidden className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent" />
+                {leaf}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        {selected.kind === "branch" && selected.childCount > 0 ? (
+          <button
+            type="button"
+            data-mindmap-focus={selected.id}
+            onClick={() => toggleSpotlight(selected.id)}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] bg-secondary px-2.5 py-1 text-[11px] font-medium text-muted hover:text-fg"
+          >
+            <Focus className="size-3.5" aria-hidden />
+            {spotlight === selected.id ? t("demarche.map.exitFocus") : t("demarche.map.focus")}
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+
+  const panel = (
     <div
       id={viewPanelId("mindmap")}
       role="tabpanel"
@@ -124,128 +659,213 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
       data-demarche-panel="mindmap"
       className="space-y-3"
     >
-      <div className="flex items-center justify-between gap-2">
-        <p className="text-xs text-subtle">{t("demarche.map.hint")}</p>
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            aria-label={t("demarche.map.zoomOut")}
-            onClick={() => setScale((value) => clampScale(value - 0.15))}
-            className="flex size-8 items-center justify-center rounded-[var(--radius-sm)] bg-card text-muted shadow-[var(--shadow-border)]"
-          >
-            <Minus className="size-4" aria-hidden />
-          </button>
-          <button
-            type="button"
-            aria-label={t("demarche.map.zoomIn")}
-            onClick={() => setScale((value) => clampScale(value + 0.15))}
-            className="flex size-8 items-center justify-center rounded-[var(--radius-sm)] bg-card text-muted shadow-[var(--shadow-border)]"
-          >
-            <Plus className="size-4" aria-hidden />
-          </button>
-          <button
-            type="button"
-            aria-label={t("demarche.map.reset")}
-            onClick={() => {
-              setScale(0.62);
-              setTx(0);
-              setTy(0);
-            }}
-            className="flex size-8 items-center justify-center rounded-[var(--radius-sm)] bg-card text-muted shadow-[var(--shadow-border)]"
-          >
-            <Maximize2 className="size-4" aria-hidden />
-          </button>
-        </div>
-      </div>
-
-      <div
-        data-mindmap-surface
-        className="relative h-[26rem] overflow-hidden rounded-[var(--radius-lg)] bg-surface shadow-[var(--shadow-border)]"
-        style={{ touchAction: "none" }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={() => setDrag(null)}
-        onPointerCancel={() => setDrag(null)}
-      >
-        <div
-          className="absolute left-1/2 top-1/2"
-          style={{
-            width: CANVAS,
-            height: CANVAS,
-            marginLeft: -CANVAS / 2,
-            marginTop: -CANVAS / 2,
-            transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
-            transformOrigin: "center",
-          }}
-        >
-          <svg
-            viewBox={`0 0 ${CANVAS} ${CANVAS}`}
-            className="absolute inset-0 size-full"
-            aria-hidden
-          >
-            {edges.map((edge) => {
-              const from = byId.get(edge.from);
-              const to = byId.get(edge.to);
-              if (!from || !to) return null;
-              return (
-                <line
-                  key={`${edge.from}-${edge.to}`}
-                  x1={from.x}
-                  y1={from.y}
-                  x2={to.x}
-                  y2={to.y}
-                  stroke="var(--app-border)"
-                  strokeOpacity={0.45}
-                  strokeWidth={2}
-                />
-              );
-            })}
-          </svg>
-
-          {nodes.map((node) => {
-            const active = node.id === selectedId;
-            return (
-              <button
-                key={node.id}
-                type="button"
-                data-mindmap-node={node.id}
-                onPointerDown={(event) => event.stopPropagation()}
-                onClick={() => setSelectedId(node.id)}
-                style={{
-                  left: node.x,
-                  top: node.y,
-                  transform: "translate(-50%, -50%)",
-                }}
-                className={cn(
-                  "absolute max-w-[11.5rem] rounded-[var(--radius-md)] px-2.5 py-1.5 text-center text-[12px] leading-tight shadow-[var(--shadow-border)] ring-1 transition-shadow",
-                  node.kind === "root" && "bg-primary px-4 py-2 text-sm font-semibold text-primary-fg ring-primary",
-                  node.kind !== "root" && (node.tone ? TONE_RING[node.tone] : "bg-card ring-border"),
-                  active && "shadow-[0_0_0_3px_color-mix(in_oklab,var(--app-accent)_45%,transparent)]",
-                )}
-              >
-                <span className={cn("font-medium", node.kind === "root" ? "" : "text-fg")}>
-                  {node.label}
-                </span>
-                {node.leaves.map((leaf) => (
-                  <span key={leaf} className="mt-1 block text-[10px] font-normal text-muted">
-                    {leaf}
-                  </span>
-                ))}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="optimus-card p-4" data-mindmap-detail={selected.id}>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
-          {selected.kind === "root" ? t("demarche.map.root") : t("demarche.map.branch")}
-        </p>
-        <p className="mt-1 font-display text-base font-medium">{selected.label}</p>
-        {selected.detail ? (
-          <p className="mt-1 text-[13px] leading-relaxed text-muted">{selected.detail}</p>
-        ) : null}
-      </div>
+      {mapBody}
     </div>
+  );
+
+  if (!full) return panel;
+
+  if (typeof document === "undefined") return panel;
+  return createPortal(
+    <div
+      data-mindmap-fullscreen-overlay
+      className="fixed inset-0 z-[120] flex flex-col gap-3 overflow-hidden bg-bg p-3 sm:p-4"
+    >
+      {mapBody}
+    </div>,
+    document.body,
+  );
+}
+
+function ToolButton({
+  children,
+  label,
+  active,
+  ...rest
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & { label: string; active?: boolean }) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      title={label}
+      aria-pressed={active}
+      {...rest}
+      className={cn(
+        "flex h-8 min-w-8 items-center justify-center gap-1 rounded-[var(--radius-sm)] bg-card px-2 text-[11px] font-medium text-muted shadow-[var(--shadow-border)] transition-colors hover:text-fg disabled:opacity-40",
+        active && "text-accent",
+      )}
+    >
+      {children}
+    </button>
+  );
+}
+
+function MenuItem({
+  icon,
+  label,
+  ...rest
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & { icon: React.ReactNode; label: string }) {
+  return (
+    <button
+      type="button"
+      {...rest}
+      className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-[12px] text-muted hover:bg-secondary hover:text-fg"
+    >
+      {icon}
+      {label}
+    </button>
+  );
+}
+
+function NodeShape({
+  node,
+  selected,
+  dim,
+  matched,
+  onActivate,
+  onSpotlight,
+  labels,
+}: {
+  node: MapNode;
+  selected: boolean;
+  dim: boolean;
+  matched: boolean | null;
+  onActivate: () => void;
+  onSpotlight: () => void;
+  labels: { expand: string; collapse: string; children: string; spotlight: string };
+}) {
+  const spec =
+    node.kind === "root"
+      ? MINDMAP_NODE_METRICS.ROOT
+      : node.kind === "branch"
+        ? MINDMAP_NODE_METRICS.BRANCH
+        : MINDMAP_NODE_METRICS.CHILD;
+  const lineHeight = spec.font * MINDMAP_NODE_METRICS.LINE_HEIGHT;
+  const leafHeight = MINDMAP_NODE_METRICS.LEAF_FONT * MINDMAP_NODE_METRICS.LEAF_HEIGHT;
+  const titleLines = wrapLabel(node.label, spec.font, spec.maxWidth);
+  const leafLines = node.leaves.slice(0, 2).map((leaf) => (leaf.length > 26 ? leaf.slice(0, 25) + "…" : leaf));
+  const totalHeight = titleLines.length * lineHeight + leafLines.length * leafHeight;
+  const startY = -totalHeight / 2 + lineHeight / 2;
+
+  const isRoot = node.kind === "root";
+  const accent = CRITICITY_VAR[node.criticity];
+  const clickable = node.kind === "branch" && node.childCount > 0;
+  const label = clickable ? (node.expanded ? labels.collapse : labels.expand) : node.label;
+  const inner = node.x < 0 ? 1 : -1;
+
+  return (
+    <g
+      className={cn("mm-node", dim && "mm-dim", matched === true && "mm-match", matched === false && "mm-search-dim")}
+      style={{ transform: `translate(${node.x}px, ${node.y}px)` }}
+      data-mindmap-node={node.id}
+      data-mindmap-kind={node.kind}
+      data-mindmap-criticity={node.criticity}
+      data-mindmap-expanded={node.expanded ? "true" : "false"}
+      role={clickable ? "button" : undefined}
+      tabIndex={clickable ? 0 : -1}
+      aria-label={label}
+      aria-describedby={`${node.id}-children`}
+      aria-pressed={clickable ? node.expanded : undefined}
+      onClick={(event) => {
+        event.stopPropagation();
+        onActivate();
+      }}
+      onDoubleClick={(event) => {
+        event.stopPropagation();
+        onSpotlight();
+      }}
+      onPointerDown={(event) => event.stopPropagation()}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onActivate();
+        }
+      }}
+    >
+      <title>{node.label}{clickable ? ` — ${labels.spotlight}` : ""}</title>
+      {selected ? (
+        <rect
+          className="mm-ring"
+          x={-node.w / 2 - 5}
+          y={-node.h / 2 - 5}
+          width={node.w + 10}
+          height={node.h + 10}
+          rx={15}
+          fill="none"
+          stroke="var(--app-accent)"
+          strokeWidth={2}
+        />
+      ) : null}
+      <rect
+        className="mm-node-card"
+        x={-node.w / 2}
+        y={-node.h / 2}
+        width={node.w}
+        height={node.h}
+        rx={isRoot ? 14 : 11}
+        fill={isRoot ? "url(#mm-root)" : `color-mix(in oklab, ${accent} 13%, var(--app-card))`}
+        stroke={isRoot ? "var(--app-accent)" : accent}
+        strokeOpacity={isRoot ? 0.9 : 0.6}
+        strokeWidth={isRoot ? 1.6 : 1.2}
+        filter={isRoot ? "url(#mm-shadow)" : undefined}
+      />
+      {!isRoot ? (
+        <rect
+          className="mm-spine"
+          x={inner > 0 ? -node.w / 2 + 1.5 : node.w / 2 - 5}
+          y={-node.h / 2 + 6}
+          width={3.5}
+          height={Math.max(6, node.h - 12)}
+          rx={1.75}
+          fill={accent}
+        />
+      ) : null}
+      <text
+        textAnchor="middle"
+        dominantBaseline="central"
+        style={{ fontSize: spec.font, fontWeight: isRoot ? 600 : 500, fill: isRoot ? "var(--app-primary-fg)" : "var(--app-fg)" }}
+      >
+        {titleLines.map((line, index) => (
+          <tspan key={index} x={0} y={startY + index * lineHeight}>
+            {line}
+          </tspan>
+        ))}
+        {leafLines.map((line, index) => (
+          <tspan
+            key={`leaf-${index}`}
+            x={0}
+            y={startY + titleLines.length * lineHeight + index * leafHeight}
+            style={{ fontSize: MINDMAP_NODE_METRICS.LEAF_FONT, fill: "var(--app-muted)" }}
+          >
+            {line}
+          </tspan>
+        ))}
+      </text>
+      {clickable ? (
+        <>
+          <circle
+            className="mm-badge"
+            cx={node.w / 2 - 7}
+            cy={-node.h / 2 + 7}
+            r={8.5}
+            fill={node.expanded ? accent : "var(--app-card)"}
+            stroke={accent}
+            strokeWidth={1.2}
+          />
+          <text
+            x={node.w / 2 - 7}
+            y={-node.h / 2 + 7}
+            textAnchor="middle"
+            dominantBaseline="central"
+            style={{ fontSize: 9.5, fontWeight: 700, fill: node.expanded ? "var(--app-primary-fg)" : accent }}
+          >
+            {node.expanded ? "−" : node.childCount}
+          </text>
+        </>
+      ) : null}
+      <text id={`${node.id}-children`} className="sr-only">
+        {labels.children}
+      </text>
+    </g>
   );
 }
