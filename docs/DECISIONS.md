@@ -134,6 +134,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Carte « Niveau clinique » de l'accueil fusionnée en un indicateur unique : la maîtrise globale porte la seule barre de la carte, le niveau/XP devient une lecture secondaire (texte, sans barre dédiée) ; la LevelBar compacte reste le widget d'en-tête du tableau de bord | La carte empilait deux jauges de progression parallèles (barre XP + barre maîtrise) qui se lisent comme deux systèmes concurrents — l'audit Progression demande un indicateur unique | Vibe |
+| 2026-10-16 | — | « Premier cas » débloquable dès le début consigné comme déjà livré : la Session 4 a ouvert 4 cas cliniques gratuits sur 5 (CARDIO-IC-001, NEURO-AVC-001, INF-PAC-001, TROP-PALU-001) et la Session 7 a confirmé le badge atteignable sans achat — le premier cas est jouable dès la première visite, aucune nouvelle clé d'accès dans la route /cas/$caseId | L'item reprend le fond du bug #9 (consigné Session 7) : on consigne l'état plutôt que dupliquer (précédent B11) | Vibe |
 
 ## Sessions terminées
 

@@ -400,7 +400,7 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 - Fusionner « Maîtrise globale » + « XP » en un indicateur unique
 - Afficher « X XP avant le niveau suivant » — ✅ Session 4
-- Rendre « Premier cas » débloquable dès le début
+- Rendre « Premier cas » débloquable dès le début — ✅ Session 11 (consigné : 4 cas gratuits ouverts en Session 4, badge atteignable dès la première visite)
 - Vue détail de chaque badge (condition + progression)
 - Animer les badges à leur déblocage
 - Notifier « 2 jours avant Garde 7j »
