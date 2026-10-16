@@ -143,6 +143,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "ux.badgeUnlocked", {}, catalogs), "Badge unlocked");
   assert.equal(translate("es", "ux.badgeUnlocked", {}, catalogs), "Insignia desbloqueada");
   assert.equal(translate("pt", "ux.badgeUnlocked", {}, catalogs), "Distintivo desbloqueado");
+  assert.equal(translate("fr", "dash.streakTeaser", { days: 2 }, catalogs), "Encore 2 jours avant la Garde de 7 jours");
+  assert.equal(translate("en", "dash.streakTeaser", { days: 2 }, catalogs), "Only 2 days left before the 7-day streak badge");
+  assert.equal(translate("es", "dash.streakTeaser", { days: 2 }, catalogs), "Solo quedan 2 días para la Guardia de 7 días");
+  assert.equal(translate("pt", "dash.streakTeaser", { days: 2 }, catalogs), "Só faltam 2 dias para a Guarda de 7 dias");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

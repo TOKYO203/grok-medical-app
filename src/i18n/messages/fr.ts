@@ -177,4 +177,5 @@ export const fr: MessageCatalog = {
   "ux.resumeAria": "Revenir à la dernière page consultée",
   "ux.refreshAria": "Actualiser le contenu",
   "ux.badgeUnlocked": "Badge débloqué",
+  "dash.streakTeaser": (p) => "Encore " + p.days + " jour" + (Number(p.days) > 1 ? "s" : "") + " avant la Garde de 7 jours",
 };

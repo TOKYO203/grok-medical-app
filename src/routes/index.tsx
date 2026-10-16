@@ -51,12 +51,15 @@ function Dashboard() {
   const weeklyXp = useOptimus((s) => s.weeklyXp);
   const progress = useOptimus((s) => s.progress);
   const entitlements = useOptimus((s) => s.entitlements);
+  const badges = useOptimus((s) => s.badges);
   const decks = useAllDecks();
   const unlocked = decks.filter((d) => hasAccess(d, entitlements, profile.tier));
   const lvl = levelInfo(xp);
   const league = currentLeague(weeklyXp);
   const mastery = globalMastery(unlocked, progress);
   const band = masteryBand(mastery);
+  // Session 11 — teaser « Garde de 7 jours » : prévenir avant le but, pas après.
+  const streakToGo = !badges.includes("streak7") && streak >= 5 && streak < 7 ? 7 - streak : 0;
   const dueCount = unlocked.reduce((n, d) => {
     const seen = progress[d.id]?.seen ?? {};
     return n + d.questions.filter((q) => isDue(seen[q.id])).length;
@@ -365,6 +368,9 @@ function Dashboard() {
             <p className="mt-0.5 text-sm font-medium">
               {streak > 0 ? t("dash.streakDays", { count: streak }) : t("dash.startStreak")}
             </p>
+            {streakToGo > 0 ? (
+              <p className="mt-1 text-xs text-warn">{t("dash.streakTeaser", { days: streakToGo })}</p>
+            ) : null}
           </div>
           <span className="optimus-kpi font-mono text-xs tabular-nums">
             {t("dash.streakBonus")}

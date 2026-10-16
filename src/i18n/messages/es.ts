@@ -175,4 +175,5 @@ export const es: MessageCatalog = {
   "ux.resumeAria": "Volver a la última página visitada",
   "ux.refreshAria": "Actualizar el contenido",
   "ux.badgeUnlocked": "Insignia desbloqueada",
+  "dash.streakTeaser": (p) => "Solo quedan " + p.days + (Number(p.days) > 1 ? " días" : " día") + " para la Guardia de 7 días",
 };
