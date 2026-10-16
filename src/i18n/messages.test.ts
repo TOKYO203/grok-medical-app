@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 2f4e3609fb44f3d6d44eb30668c46bd6e4ddf456)
 successfully downloaded text file (SHA: 17fdc5e0d2b87adf70c60add53d5db43f62d6ac9)
 successfully downloaded text file (SHA: 8d32b403ab9f716924ba580cd22941b7f12b9842)
 import assert from "node:assert/strict";
@@ -137,6 +138,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "ux.resumeAria", {}, catalogs), "Return to the last visited page");
   assert.equal(translate("es", "ux.resumeAria", {}, catalogs), "Volver a la última página visitada");
   assert.equal(translate("pt", "ux.resumeAria", {}, catalogs), "Voltar à última página visitada");
+  assert.equal(translate("fr", "ux.refreshAria", {}, catalogs), "Actualiser le contenu");
+  assert.equal(translate("en", "ux.refreshAria", {}, catalogs), "Refresh content");
+  assert.equal(translate("es", "ux.refreshAria", {}, catalogs), "Actualizar el contenido");
+  assert.equal(translate("pt", "ux.refreshAria", {}, catalogs), "Atualizar o conteúdo");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

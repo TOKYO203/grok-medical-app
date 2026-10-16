@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 2cc4b4c819b23bbeb4f8e7c149b8e4e2e190d213)
 successfully downloaded text file (SHA: d347c45e73e292735ea08e80b91002f044ccb348)
 successfully downloaded text file (SHA: bcde84c30b4fc1a63195fc1ca886c7bd139f3b9d)
 // Catalogue anglais — jumeau exact du catalogue français (mêmes clés).
@@ -176,4 +177,5 @@ export const en: MessageCatalog = {
   "ux.resumeKicker": "Pick up where you left off",
   "ux.resumeGo": "Resume",
   "ux.resumeAria": "Return to the last visited page",
+  "ux.refreshAria": "Refresh content",
 };

@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 9486f5032c10ef39b2f90c759360d32b8770c469)
 successfully downloaded text file (SHA: 72e1c8dce9963cf5c233bc39e6a8144855ec26b6)
 successfully downloaded text file (SHA: ab865d43841bbbe4b062baaacc086c756bbbdd18)
 // Catalogue français — langue source et repli par défaut de la Phase 3.
@@ -178,4 +179,5 @@ export const fr: MessageCatalog = {
   "ux.resumeKicker": "Reprendre où vous étiez",
   "ux.resumeGo": "Reprendre",
   "ux.resumeAria": "Revenir à la dernière page consultée",
+  "ux.refreshAria": "Actualiser le contenu",
 };

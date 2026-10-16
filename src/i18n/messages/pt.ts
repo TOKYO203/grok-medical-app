@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: ce069b78fb0240122ab26a79ba2f3285ea7315b8)
 successfully downloaded text file (SHA: 1de1ec85dacd091c69a591a9360ac053c1747544)
 successfully downloaded text file (SHA: b20603b9f52df6aa8aa03c36c9004d12c38f1e7c)
 // Catalogue portugais — jumeau exact du catalogue français (mêmes clés).
@@ -176,4 +177,5 @@ export const pt: MessageCatalog = {
   "ux.resumeKicker": "Retoma onde ficaste",
   "ux.resumeGo": "Retomar",
   "ux.resumeAria": "Voltar à última página visitada",
+  "ux.refreshAria": "Atualizar o conteúdo",
 };
