@@ -111,6 +111,9 @@ function Dashboard() {
         let score = progressById.get(item.id) ? 1 : 0;
         if (priorityNames.some((p) => item.specialty.toLowerCase().includes(p))) score += 2;
         if (profile.studyYear > 0 && item.year === profile.studyYear) score += 2;
+        if (profile.studyYear > 0 && item.year !== null && item.year !== profile.studyYear) {
+          score -= Math.abs(item.year - profile.studyYear);
+        }
         return { item, score };
       })
       .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
@@ -120,7 +123,11 @@ function Dashboard() {
 
   const caseRail = useMemo(() => index.filter((i) => i.kind === "case").slice(0, 3), [index]);
 
-  const featured = resumed ?? priority[0] ?? unlocked[0];
+  const yearDeck =
+    profile.studyYear > 0
+      ? unlocked.find((deck) => deck.studyYear === profile.studyYear)
+      : undefined;
+  const featured = resumed ?? priority[0] ?? yearDeck ?? unlocked[0];
   const featuredProgress = featured ? deckProgressPct(featured, progress[featured.id]) : 0;
 
   return (
