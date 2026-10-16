@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronLeft, Sparkles } from "lucide-react";
 import { GOALS } from "@/content/catalog";
 import type { StudyLevel } from "@/core/types";
@@ -13,6 +13,7 @@ import { requestNotificationPermission } from "@/lib/notifications/daily-reminde
 
 const MAX_SUBJECTS = 6;
 const TOTAL_STEPS = 4;
+const ONBOARDING_DRAFT_KEY = "optimus.onboardingDraft";
 
 const LEVEL_GROUPS: { id: string; labelKey: string; focusKey: string; value: StudyLevel }[] = [
   { id: "l1-2", labelKey: "onb.levelL12", focusKey: "onb.levelL12Focus", value: 2 },
@@ -38,6 +39,49 @@ export function Onboarding() {
   const [subjects, setSubjects] = useState<string[]>(SUBJECT_SUGGESTIONS["l5-6"]);
   const [dailyGoal, setDailyGoal] = useState<string>("30min");
   const [showAllRhythms, setShowAllRhythms] = useState(false);
+  const [draftLoaded, setDraftLoaded] = useState(false);
+
+  // Reprise où quitté : le brouillon est restauré après le montage (SSR-safe)
+  // et sauvegardé à chaque changement — effacé à la fin ou au passage.
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(ONBOARDING_DRAFT_KEY);
+      if (raw) {
+        const draft = JSON.parse(raw) as Record<string, unknown>;
+        const savedStep = Number(draft.step);
+        if (Number.isInteger(savedStep) && savedStep >= 1 && savedStep < TOTAL_STEPS) {
+          setStep(savedStep);
+          if (typeof draft.name === "string") setName(draft.name);
+          if (
+            typeof draft.levelGroup === "string" &&
+            SUBJECT_SUGGESTIONS[draft.levelGroup] !== undefined
+          ) {
+            setLevelGroup(draft.levelGroup);
+          }
+          if (typeof draft.goal === "string") setGoal(draft.goal);
+          if (Array.isArray(draft.subjects)) {
+            setSubjects(draft.subjects.filter((s): s is string => typeof s === "string"));
+          }
+          if (typeof draft.dailyGoal === "string") setDailyGoal(draft.dailyGoal);
+        }
+      }
+    } catch {
+      // brouillon illisible — on repart de la première étape
+    }
+    setDraftLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!draftLoaded) return;
+    try {
+      window.localStorage.setItem(
+        ONBOARDING_DRAFT_KEY,
+        JSON.stringify({ step, name, levelGroup, goal, subjects, dailyGoal }),
+      );
+    } catch {
+      // stockage indisponible — l’onboarding reste utilisable
+    }
+  }, [draftLoaded, step, name, levelGroup, goal, subjects, dailyGoal]);
 
   function toggle(sub: string) {
     setSubjects((cur) =>
@@ -58,6 +102,7 @@ export function Onboarding() {
     const group = LEVEL_GROUPS.find((g) => g.id === levelGroup) ?? LEVEL_GROUPS[2];
     if (typeof window !== "undefined") {
       window.localStorage.setItem("optimus.dailyGoal", dailyGoal);
+      window.localStorage.removeItem(ONBOARDING_DRAFT_KEY);
     }
     void requestNotificationPermission();
     complete({
@@ -71,6 +116,9 @@ export function Onboarding() {
   }
 
   function skip() {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(ONBOARDING_DRAFT_KEY);
+    }
     complete({
       displayName: "Nouveau",
       studyYear: 5,

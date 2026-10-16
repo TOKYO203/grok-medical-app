@@ -113,6 +113,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Statut « Actif » après inscription : la clé dash.new passe de « Nouveau » à « Actif » / « Active » / « Activo » / « Ativo » dans les 4 catalogues, verrouillée par 4 assertions messages.test.ts — le kicker invité de l’accueil affiche un statut, plus un pseudo-nom | Résidu du bug #3 : « Nouveau » accolé à « 5ème année » se lisait comme deux étiquettes incohérentes | Vibe |
 | 2026-10-16 | — | Bouton « Retour » (ChevronLeft, variante secondaire) sur les étapes 2 à 4 de l’onboarding, à côté du CTA principal ; clé `onb.back` jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Chaque étape était un point de non-retour : revenir en arrière exigeait de recharger et perdait toutes les sélections | Vibe |
+| 2026-10-16 | — | Brouillon d’onboarding persisté (localStorage `optimus.onboardingDraft`) : étape, nom, niveau, objectif, matières et rythme restaurés au rechargement — lecture après montage (SSR-safe), brouillon effacé à la fin ou au passage | Un rechargement involontaire remettait l’utilisateur à l’écran 1 et perdait toutes ses sélections | Vibe |
 
 ## Sessions terminées
 
