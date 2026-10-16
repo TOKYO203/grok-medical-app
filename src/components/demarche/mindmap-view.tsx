@@ -55,6 +55,13 @@ const CRITICITY_VAR: Record<Criticity, string> = {
 
 const clampZoom = (value: number) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, value));
 
+/** Arrondi à 3 décimales (et `-0` neutralisé) : la chaîne de style produite doit
+ *  être IDENTIQUE côté serveur et côté navigateur, sinon React signale un
+ *  mismatch d'hydratation sur l'attribut `style`. */
+const round3 = (value: number) => Math.round(value * 1000) / 1000 || 0;
+
+type CSSVars = React.CSSProperties & Record<`--${string}`, string>;
+
 /** Normalisation recherche : insensible à la casse ET aux accents. */
 function normalize(text: string): string {
   return text
@@ -80,6 +87,8 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
   const pinchRef = useRef<{ dist: number; zoom: number } | null>(null);
   /** Vrai dès qu'un glissement dépasse le seuil : évite de déplier en pannant. */
   const draggedRef = useRef(false);
+  /** Retour différé en caméra fluide après un coup de molette (zoom non passif). */
+  const wheelIdle = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [surface, setSurface] = useState({ w: 360, h: 420 });
 
   // ── Recherche : une requête déplie automatiquement les branches concernées.
@@ -165,13 +174,66 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
   const vb = layout.viewBox;
   const viewW = vb.w / zoom;
   const viewH = vb.h / zoom;
-  const centerX = vb.x + vb.w / 2 + pan.x;
-  const centerY = vb.y + vb.h / 2 + pan.y;
-  const viewBox = `${centerX - viewW / 2} ${centerY - viewH / 2} ${viewW} ${viewH}`;
   const pxPerUnit = Math.min(surface.w / viewW, surface.h / viewH);
 
+  // ── Caméra : le `viewBox` du SVG reste celui de la carte ; le zoom et le
+  //    déplacement vivent dans le `transform` CSS d'un <g class="mm-camera">,
+  //    interpolé par le navigateur (transition déclarative, zéro re-render par
+  //    image). L'origine `center` du groupe = centre du `viewBox`, donc
+  //    `translate(-zoom·pan) scale(zoom)` centre exactement la zone visée.
+  const viewBox = `${vb.x} ${vb.y} ${vb.w} ${vb.h}`;
+  const cameraTransform = `translate(${round3(-zoom * pan.x)}px, ${round3(-zoom * pan.y)}px) scale(${round3(zoom)})`;
+
+  // Fond (trame + voile) très large : en zoom arrière ou en déplacement, on ne
+  // voit jamais de vide sous la carte.
+  const world = { x: vb.x - vb.w, y: vb.y - vb.h, w: vb.w * 3, h: vb.h * 3 };
+
+  // ── Échelonnement des animations d'entrée : vague du cœur vers l'extérieur.
+  //    Chaque nœud reçoit un délai `--mm-delay` ; la clé de voûte est qu'il ne
+  //    dépend QUE de la topologie (déterministe), donc SSR et client rendent la
+  //    même chaîne (même au centième près).
+  const nodeDelays = useMemo(() => {
+    const delays = new Map<string, number>();
+    let branchIndex = 0;
+    const childIndex = new Map<string, number>();
+    for (const node of layout.nodes) {
+      if (node.kind === "root") {
+        delays.set(node.id, 0);
+      } else if (node.kind === "branch") {
+        delays.set(node.id, 90 + Math.min(branchIndex, 8) * 42);
+        branchIndex += 1;
+      } else {
+        const key = node.branchId ?? "";
+        const seen = childIndex.get(key) ?? 0;
+        childIndex.set(key, seen + 1);
+        delays.set(node.id, 190 + Math.min(seen, 6) * 38);
+      }
+    }
+    return delays;
+  }, [layout]);
+
+  /** Réglage de la caméra : DIRECT pendant un geste (le doigt commande), FLUIDE
+   *  pour les mouvements programmés (zoom, cadrage). Écrit en DOM — jamais dans
+   *  un état React — car la valeur bascule à chaque `pointermove`. */
+  const clearWheelIdle = useCallback(() => {
+    if (wheelIdle.current !== null) {
+      clearTimeout(wheelIdle.current);
+      wheelIdle.current = null;
+    }
+  }, []);
+
+  const setCameraMode = useCallback(
+    (mode: "smooth" | "instant") => {
+      clearWheelIdle();
+      surfaceRef.current?.setAttribute("data-mm-camera", mode);
+    },
+    [clearWheelIdle],
+  );
+
   /** Cadre la vue sur un rectangle monde (auto-zoom à l'ouverture d'une branche). */
-  const focusBounds = useCallback((target: MapLayout, rect: MapRect) => {
+  const focusBounds = useCallback(
+    (target: MapLayout, rect: MapRect) => {
+      setCameraMode("smooth");
     const box = target.viewBox;
     const needW = (rect.maxX - rect.minX) * (1 + FOCUS_PAD);
     const needH = (rect.maxY - rect.minY) * (1 + FOCUS_PAD);
@@ -181,12 +243,17 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
       x: (rect.minX + rect.maxX) / 2 - (box.x + box.w / 2),
       y: (rect.minY + rect.maxY) / 2 - (box.y + box.h / 2),
     });
-  }, []);
+    },
+    [setCameraMode],
+  );
 
   const fitAll = useCallback(() => {
+    // Reprendre la caméra « fluide » : si elle vient d'un coup de molette, la
+    // transition CSS est encore coupée et le recentrage serait instantané.
+    setCameraMode("smooth");
     setZoom(1);
     setPan({ x: 0, y: 0 });
-  }, []);
+  }, [setCameraMode]);
 
   function setExpandedAnd(next: Set<string>, focusId: string | null) {
     setExpanded(next);
@@ -233,6 +300,8 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
   // ── Pan / pincement.
   function onPointerDown(event: React.PointerEvent) {
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    // Geste en cours : la caméra suit le doigt au pixel près (aucune transition).
+    setCameraMode("instant");
     if (pointers.current.size === 1) {
       draggedRef.current = false;
       dragRef.current = { x: event.clientX, y: event.clientY, originX: pan.x, originY: pan.y };
@@ -265,7 +334,11 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
   function endPointer(event: React.PointerEvent) {
     pointers.current.delete(event.pointerId);
     if (pointers.current.size < 2) pinchRef.current = null;
-    if (pointers.current.size === 0) dragRef.current = null;
+    if (pointers.current.size === 0) {
+      dragRef.current = null;
+      // Geste terminé : la caméra redevient fluide pour les mouvements animés.
+      setCameraMode("smooth");
+    }
   }
 
   // ── Molette : zoom non passif (sinon le navigateur scrolle la page).
@@ -274,10 +347,20 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
     if (!el) return;
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
+      // Direct pendant la molette, fluide dès qu'elle s'arrête (240 ms).
+      el.setAttribute("data-mm-camera", "instant");
+      if (wheelIdle.current !== null) clearTimeout(wheelIdle.current);
+      wheelIdle.current = setTimeout(() => {
+        wheelIdle.current = null;
+        el.setAttribute("data-mm-camera", "smooth");
+      }, 240);
       setZoom((z) => clampZoom(z * Math.exp(-event.deltaY * 0.0016)));
     };
     el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      if (wheelIdle.current !== null) clearTimeout(wheelIdle.current);
+    };
   }, [full]);
 
   // ── Navigation clavier : flèches = nœud voisin le plus proche dans la direction.
@@ -400,7 +483,10 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
     <div className={cn("flex min-h-0 flex-col gap-3", full && "h-full")}>
       <div className="relative flex flex-wrap items-center gap-1.5" data-mindmap-toolbar>
         <label className="relative flex h-8 min-w-[8.5rem] flex-1 items-center">
-          <Search className="pointer-events-none absolute left-2.5 size-3.5 text-subtle" aria-hidden />
+          <Search
+            className="pointer-events-none absolute left-2.5 size-3.5 text-subtle"
+            aria-hidden
+          />
           <input
             type="search"
             value={query}
@@ -423,25 +509,58 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
           ) : null}
         </label>
         <ToolButton
-          onClick={() => setExpandedAnd(allExpanded ? new Set() : new Set(content.mindmap.branches.map((b) => b.id)), null)}
+          onClick={() =>
+            setExpandedAnd(
+              allExpanded ? new Set() : new Set(content.mindmap.branches.map((b) => b.id)),
+              null,
+            )
+          }
           label={t(allExpanded ? "demarche.map.collapseAll" : "demarche.map.expandAll")}
           data-mindmap-expand-all={allExpanded ? "collapse" : "expand"}
         >
-          {allExpanded ? <ChevronsDownUp className="size-3.5" aria-hidden /> : <ChevronsUpDown className="size-3.5" aria-hidden />}
+          {allExpanded ? (
+            <ChevronsDownUp className="size-3.5" aria-hidden />
+          ) : (
+            <ChevronsUpDown className="size-3.5" aria-hidden />
+          )}
         </ToolButton>
-        <ToolButton onClick={() => setZoom((z) => clampZoom(z / ZOOM_STEP))} label={t("demarche.map.zoomOut")} data-mindmap-zoom="out" disabled={zoom <= MIN_ZOOM}>
+        <ToolButton
+          onClick={() => setZoom((z) => clampZoom(z / ZOOM_STEP))}
+          label={t("demarche.map.zoomOut")}
+          data-mindmap-zoom="out"
+          disabled={zoom <= MIN_ZOOM}
+        >
           <Minus className="size-4" aria-hidden />
         </ToolButton>
-        <ToolButton onClick={() => setZoom((z) => clampZoom(z * ZOOM_STEP))} label={t("demarche.map.zoomIn")} data-mindmap-zoom="in" disabled={zoom >= MAX_ZOOM}>
+        <ToolButton
+          onClick={() => setZoom((z) => clampZoom(z * ZOOM_STEP))}
+          label={t("demarche.map.zoomIn")}
+          data-mindmap-zoom="in"
+          disabled={zoom >= MAX_ZOOM}
+        >
           <Plus className="size-4" aria-hidden />
         </ToolButton>
         <ToolButton onClick={fitAll} label={t("demarche.map.reset")} data-mindmap-zoom="reset">
           <Crosshair className="size-4" aria-hidden />
         </ToolButton>
-        <ToolButton onClick={() => setFull((value) => !value)} label={t(full ? "demarche.map.exitFullscreen" : "demarche.map.fullscreen")} data-mindmap-fullscreen={full ? "on" : "off"} active={full}>
-          {full ? <Minimize2 className="size-4" aria-hidden /> : <Maximize2 className="size-4" aria-hidden />}
+        <ToolButton
+          onClick={() => setFull((value) => !value)}
+          label={t(full ? "demarche.map.exitFullscreen" : "demarche.map.fullscreen")}
+          data-mindmap-fullscreen={full ? "on" : "off"}
+          active={full}
+        >
+          {full ? (
+            <Minimize2 className="size-4" aria-hidden />
+          ) : (
+            <Maximize2 className="size-4" aria-hidden />
+          )}
         </ToolButton>
-        <ToolButton onClick={() => setMenu(menu ? null : "export")} label={t("demarche.map.export")} data-mindmap-export="menu" active={menu === "export"}>
+        <ToolButton
+          onClick={() => setMenu(menu ? null : "export")}
+          label={t("demarche.map.export")}
+          data-mindmap-export="menu"
+          active={menu === "export"}
+        >
           <Download className="size-4" aria-hidden />
         </ToolButton>
         {/* Menu ancré sur la BARRE, pas sur le bouton : la barre se replie sur
@@ -450,8 +569,18 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
             du panneau, toujours visible ; largeur plafonnée à la fenêtre. */}
         {menu === "export" ? (
           <div className="absolute right-0 top-full z-30 mt-1 w-40 max-w-[calc(100vw-1rem)] overflow-hidden rounded-[var(--radius-md)] bg-card py-1 shadow-[var(--shadow-md)]">
-            <MenuItem onClick={doExportPng} icon={<ImageIcon className="size-3.5" aria-hidden />} label={t("demarche.map.exportPng")} data-mindmap-export="png" />
-            <MenuItem onClick={doExportSvg} icon={<FileCode2 className="size-3.5" aria-hidden />} label={t("demarche.map.exportSvg")} data-mindmap-export="svg" />
+            <MenuItem
+              onClick={doExportPng}
+              icon={<ImageIcon className="size-3.5" aria-hidden />}
+              label={t("demarche.map.exportPng")}
+              data-mindmap-export="png"
+            />
+            <MenuItem
+              onClick={doExportSvg}
+              icon={<FileCode2 className="size-3.5" aria-hidden />}
+              label={t("demarche.map.exportSvg")}
+              data-mindmap-export="svg"
+            />
           </div>
         ) : null}
       </div>
@@ -462,16 +591,25 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
         data-mindmap-count={layout.nodes.length}
         data-mindmap-spotlight={spotlight ?? ""}
         data-mindmap-zoom-level={zoom.toFixed(2)}
+        data-mm-camera="smooth"
         className={cn(
           "mm-surface relative overflow-hidden rounded-[var(--radius-lg)] bg-surface shadow-[var(--shadow-border)]",
           full ? "min-h-0 flex-1" : "h-[26rem]",
         )}
         style={{ touchAction: "none" }}
       >
+        {/* `onPointerDownCapture` : TOUT nouveau geste remet le drapeau
+            « glissement » à zéro. Sans cela, un nœud touché juste après un
+            déplacement restait inerte — son `onPointerDown` stoppe la propagation
+            (le gestionnaire de la surface ne s'exécute donc pas) et le drapeau
+            restait bloqué à `true`. */}
         <svg
           viewBox={viewBox}
           preserveAspectRatio="xMidYMid meet"
           className="mm-canvas size-full cursor-grab active:cursor-grabbing"
+          onPointerDownCapture={() => {
+            draggedRef.current = false;
+          }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={endPointer}
@@ -493,14 +631,26 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
               <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#000" floodOpacity="0.16" />
             </filter>
           </defs>
-          <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill="url(#mm-dots)" className="mm-grid" aria-hidden />
+          {/* Caméra : tout le contenu est dans ce groupe, dont le `transform` CSS
+              anime zoom et déplacement. La trame et le voile débordent largement
+              pour qu'un zoom arrière ou un déplacement ne révèle jamais de vide. */}
+          <g className="mm-camera" style={{ transform: cameraTransform }}>
+            <rect
+              x={world.x}
+              y={world.y}
+              width={world.w}
+              height={world.h}
+              fill="url(#mm-dots)"
+              className="mm-grid"
+              aria-hidden
+            />
           {spotlightNodes ? (
             <rect
-              x={vb.x}
-              y={vb.y}
-              width={vb.w}
-              height={vb.h}
-              className="mm-spotlight-veil"
+                x={world.x}
+                y={world.y}
+                width={world.w}
+                height={world.h}
+                className="mm-spotlight-veil mm-veil-in"
               aria-hidden
               onClick={() => setSpotlight(null)}
             />
@@ -508,19 +658,38 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
 
           <g className="mm-edges">
             {layout.edges.map((edge) => {
-              const dim = spotlightNodes ? !(spotlightNodes.has(edge.from) && spotlightNodes.has(edge.to)) : false;
+                const dim = spotlightNodes
+                  ? !(spotlightNodes.has(edge.from) && spotlightNodes.has(edge.to))
+                  : false;
               const active = selectedId === edge.to || selectedId === edge.from;
+                // Le flux ne s'allume qu'APRÈS un choix : sur la vue d'ensemble
+                // (racine sélectionnée) les sept arêtes brilleraient ensemble et
+                // satureraient la carte. Le mouvement garde ainsi un sens.
+                const flowing = active && !dim && selected.kind !== "root";
+                const delay = nodeDelays.get(edge.to) ?? 0;
               return (
+                  <g key={`${edge.from}-${edge.to}`}>
                 <path
-                  key={`${edge.from}-${edge.to}`}
                   d={edge.d}
+                      pathLength={1}
                   fill="none"
                   stroke={CRITICITY_VAR[edge.criticity]}
                   className={cn("mm-edge", dim && "mm-dim", active && "mm-edge--active")}
                   strokeOpacity={edge.depth === 1 ? 0.6 : 0.42}
                   strokeWidth={edge.depth === 1 ? 2 : 1.5}
                   strokeLinecap="round"
+                      style={{ "--mm-delay": `${delay}ms` } as CSSVars}
                 />
+                    {flowing ? (
+                      <path
+                        d={edge.d}
+                        pathLength={1}
+                        className="mm-edge-flow"
+                        stroke={CRITICITY_VAR[edge.criticity]}
+                        strokeOpacity={0.9}
+                      />
+                    ) : null}
+                  </g>
               );
             })}
           </g>
@@ -530,6 +699,7 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
               <NodeShape
                 key={node.id}
                 node={node}
+                  delay={nodeDelays.get(node.id) ?? 0}
                 selected={node.id === selectedId}
                 dim={spotlightNodes ? !spotlightNodes.has(node.id) : false}
                 matched={matches ? matches.has(node.id) : null}
@@ -550,6 +720,7 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
               />
             ))}
           </g>
+          </g>
         </svg>
 
         {spotlight ? (
@@ -562,7 +733,9 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
             >
               {t("demarche.map.overview")}
             </button>
-            <span aria-hidden className="text-subtle">›</span>
+            <span aria-hidden className="text-subtle">
+              ›
+            </span>
             <span className="truncate px-1 font-semibold text-fg">
               {byId.get(spotlight)?.label ?? ""}
             </span>
@@ -578,8 +751,12 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
         ) : null}
 
         <div className="pointer-events-none absolute bottom-1.5 right-2 flex items-center gap-2 text-[10px] font-medium text-subtle">
-          <span data-mindmap-node-count>{t("demarche.map.nodes", { count: layout.nodes.length })}</span>
-          <span aria-hidden className="opacity-40">·</span>
+          <span data-mindmap-node-count>
+            {t("demarche.map.nodes", { count: layout.nodes.length })}
+          </span>
+          <span aria-hidden className="opacity-40">
+            ·
+          </span>
           <span data-mindmap-zoom-label>{Math.round(zoom * 100)} %</span>
         </div>
       </div>
@@ -594,7 +771,11 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
         </span>
         {CRITICITY_ORDER.map((criticity) => (
           <span key={criticity} className="flex items-center gap-1.5 text-[11px] text-muted">
-            <span aria-hidden className="size-2.5 rounded-full" style={{ background: CRITICITY_VAR[criticity] }} />
+            <span
+              aria-hidden
+              className="size-2.5 rounded-full"
+              style={{ background: CRITICITY_VAR[criticity] }}
+            />
             {t(criticityLabelKey(criticity))}
           </span>
         ))}
@@ -604,7 +785,13 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
         </span>
       </div>
 
-      <div className="optimus-card p-4" data-mindmap-detail={selected.id}>
+      {/* `key` = effet de fondu à CHAQUE changement de sélection : le panneau est
+          volontairement remonté pour rejouer l'animation d'entrée. */}
+      <div
+        key={selected.id}
+        className="optimus-card mm-detail-in p-4"
+        data-mindmap-detail={selected.id}
+      >
         <div className="flex items-center justify-between gap-2">
           <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-subtle">
             <Network className="size-3.5" aria-hidden />
@@ -719,6 +906,7 @@ function MenuItem({
 
 function NodeShape({
   node,
+  delay,
   selected,
   dim,
   matched,
@@ -727,6 +915,8 @@ function NodeShape({
   labels,
 }: {
   node: MapNode;
+  /** Délai d'entrée de la vague (ms), posé en variable CSS `--mm-delay`. */
+  delay: number;
   selected: boolean;
   dim: boolean;
   matched: boolean | null;
@@ -743,7 +933,9 @@ function NodeShape({
   const lineHeight = spec.font * MINDMAP_NODE_METRICS.LINE_HEIGHT;
   const leafHeight = MINDMAP_NODE_METRICS.LEAF_FONT * MINDMAP_NODE_METRICS.LEAF_HEIGHT;
   const titleLines = wrapLabel(node.label, spec.font, spec.maxWidth);
-  const leafLines = node.leaves.slice(0, 2).map((leaf) => (leaf.length > 26 ? leaf.slice(0, 25) + "…" : leaf));
+  const leafLines = node.leaves
+    .slice(0, 2)
+    .map((leaf) => (leaf.length > 26 ? leaf.slice(0, 25) + "…" : leaf));
   const totalHeight = titleLines.length * lineHeight + leafLines.length * leafHeight;
   const startY = -totalHeight / 2 + lineHeight / 2;
 
@@ -754,8 +946,14 @@ function NodeShape({
   const inner = node.x < 0 ? 1 : -1;
 
   return (
+    <>
     <g
-      className={cn("mm-node", dim && "mm-dim", matched === true && "mm-match", matched === false && "mm-search-dim")}
+        className={cn(
+          "mm-node",
+          dim && "mm-dim",
+          matched === true && "mm-match",
+          matched === false && "mm-search-dim",
+        )}
       style={{ transform: `translate(${node.x}px, ${node.y}px)` }}
       data-mindmap-node={node.id}
       data-mindmap-kind={node.kind}
@@ -782,7 +980,37 @@ function NodeShape({
         }
       }}
     >
-      <title>{node.label}{clickable ? ` — ${labels.spotlight}` : ""}</title>
+        <title>
+          {node.label}
+          {clickable ? ` — ${labels.spotlight}` : ""}
+        </title>
+        {/* Le contenu vit dans ce groupe animé : l'entrée (scale + fondu) est
+          déclenchée à CHAQUE montage, et le survol y applique son propre scale.
+          Le groupe parent, lui, porte la translation (jamais animée ici). */}
+        <g className="mm-node-inner" style={{ "--mm-delay": `${delay}ms` } as CSSVars}>
+          {node.criticity === "critique" ? (
+            <rect
+              className="mm-halo"
+              x={-node.w / 2 - 5}
+              y={-node.h / 2 - 5}
+              width={node.w + 10}
+              height={node.h + 10}
+              rx={13}
+              style={{ "--mm-delay": `${delay}ms` } as CSSVars}
+            />
+          ) : null}
+          {selected ? (
+            <rect
+              className="mm-ping"
+              x={-node.w / 2 - 5}
+              y={-node.h / 2 - 5}
+              width={node.w + 10}
+              height={node.h + 10}
+              rx={15}
+              stroke="var(--app-accent)"
+              strokeWidth={2}
+            />
+          ) : null}
       {selected ? (
         <rect
           className="mm-ring"
@@ -823,7 +1051,11 @@ function NodeShape({
       <text
         textAnchor="middle"
         dominantBaseline="central"
-        style={{ fontSize: spec.font, fontWeight: isRoot ? 600 : 500, fill: isRoot ? "var(--app-primary-fg)" : "var(--app-fg)" }}
+            style={{
+              fontSize: spec.font,
+              fontWeight: isRoot ? 600 : 500,
+              fill: isRoot ? "var(--app-primary-fg)" : "var(--app-fg)",
+            }}
       >
         {titleLines.map((line, index) => (
           <tspan key={index} x={0} y={startY + index * lineHeight}>
@@ -857,15 +1089,25 @@ function NodeShape({
             y={-node.h / 2 + 7}
             textAnchor="middle"
             dominantBaseline="central"
-            style={{ fontSize: 9.5, fontWeight: 700, fill: node.expanded ? "var(--app-primary-fg)" : accent }}
+                style={{
+                  fontSize: 9.5,
+                  fontWeight: 700,
+                  fill: node.expanded ? "var(--app-primary-fg)" : accent,
+                }}
           >
             {node.expanded ? "−" : node.childCount}
           </text>
         </>
       ) : null}
+        </g>
+      </g>
+      {/* Description hors du groupe du nœud : `sr-only` (position absolue,
+          découpe) fausse `getBBox()`/`getBoundingClientRect()` du <g>, ce qui
+          décalait tout test de survol/pointage visant le centre du nœud. Le lien
+          `aria-describedby` reste valide (résolution par identifiant). */}
       <text id={`${node.id}-children`} className="sr-only">
         {labels.children}
       </text>
-    </g>
+    </>
   );
 }

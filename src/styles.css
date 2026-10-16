@@ -495,6 +495,105 @@ html[data-theme="dark"] {
   .mm-ring {
     animation: mm-ring-pulse 2.6s var(--ease-out) infinite;
   }
+  /* ── Caméra ────────────────────────────────────────────────────────────────
+     Le `viewBox` du <svg> reste celui de la carte (« fit ») ; le zoom et le
+     déplacement sont portés par un <g> dont le `transform` est interpolé par le
+     NAVIGATEUR. Conséquence : un zoom vers une branche glisse au lieu de sauter,
+     sans un seul re-render React par image. Pendant un glissement au doigt le
+     conteneur passe `data-mm-camera="instant"` : la transition est coupée pour
+     que la carte suive exactement le doigt (sinon elle « traîne »). */
+  .mm-camera {
+    transform-box: view-box;
+    transform-origin: center;
+    transition: transform 420ms var(--ease-out);
+  }
+
+  .mm-surface[data-mm-camera="instant"] .mm-camera {
+    transition: none;
+  }
+
+  /* ── Entrée des nœuds ─────────────────────────────────────────────────────
+     L'animation rejoue à CHAQUE montage d'un nœud : première ouverture de la
+     carte, dépliage d'une branche, ou résultats de recherche. Le délai
+     `--mm-delay` (posé en ligne, échelonné par profondeur) crée une vague
+     radiale du cœur vers l'extérieur. Le remplissage est `backwards` et non
+     `both` : une fois l'entrée terminée, le survol reprend la main sur
+     `transform` (un remplissage `both` l'en empêcherait pour toujours). */
+  .mm-node-inner {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform var(--motion-quick) var(--ease-out);
+  }
+
+  .mm-node:hover .mm-node-inner,
+  .mm-node:focus-visible .mm-node-inner {
+    transform: scale(1.05);
+  }
+
+  /* Arête du nœud sélectionné : un flux lumineux qui « circule » vers l'enfant.
+     Calque indépendant (pathLength=1 → tirets normalisés, insensibles à la
+     longueur réelle) pour ne pas perturber la transition `d` de l'arête. */
+  .mm-edge-flow {
+    fill: none;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-dasharray: 0.05 0.15;
+    pointer-events: none;
+  }
+
+  /* Halo des nœuds CRITIQUES : respiration lente, jamais clignotement. */
+  .mm-halo {
+    fill: none;
+    stroke: var(--app-danger);
+    stroke-width: 1.4;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Onde de sélection : un anneau qui s'échappe du nœud cliqué (une fois). */
+  .mm-ping {
+    fill: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  .mm-veil-in {
+    animation: mm-veil-in var(--motion-fast) var(--ease-out) both;
+  }
+
+  .mm-detail-in {
+    animation: mm-detail-in var(--motion-medium) var(--ease-out) both;
+  }
+
+  /* Toutes les animations sont déclaratives et purement CSS ; en
+     `prefers-reduced-motion: reduce`, la règle globale plus bas leur donne une
+     durée nulle : la carte apparaît terminée, sans mouvement. */
+  @media (prefers-reduced-motion: no-preference) {
+    .mm-node-inner {
+      animation: mm-node-in 520ms var(--ease-out) backwards;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-edge {
+      stroke-dasharray: 1;
+      animation: mm-edge-in 620ms var(--ease-out) backwards;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-halo {
+      animation: mm-halo 3.2s ease-in-out infinite;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-edge-flow {
+      animation: mm-edge-flow 1.15s linear infinite;
+    }
+
+    .mm-ping {
+      animation: mm-ping 560ms var(--ease-out) both;
+    }
+  }
 }
 
 @keyframes mm-ring-pulse {
@@ -504,6 +603,78 @@ html[data-theme="dark"] {
   }
   50% {
     stroke-opacity: 0.35;
+  }
+}
+
+/* Entrée d'un nœud : léger recul puis pose, avec fondu. */
+@keyframes mm-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Arête qui se « dessine » du parent vers l'enfant (dashoffset normalisé). */
+@keyframes mm-edge-in {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Flux lumineux circulant le long d'une arête (décalage d'une période → boucle). */
+@keyframes mm-edge-flow {
+  to {
+    stroke-dashoffset: -0.2;
+  }
+}
+
+/* Respiration du halo des nœuds critiques. */
+@keyframes mm-halo {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Onde de sélection : l'anneau s'échappe et s'efface. */
+@keyframes mm-ping {
+  from {
+    opacity: 0.85;
+    transform: scale(0.84);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.32);
+  }
+}
+
+@keyframes mm-veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+@keyframes mm-detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
