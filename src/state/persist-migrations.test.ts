@@ -49,9 +49,10 @@ test("legacy unversioned Optimus state keeps XP, progress and learner profile", 
   };
 
   const migrated = migrateOptimusPersistedState(legacy, 0);
-  assert.equal(OPTIMUS_PERSIST_VERSION, 3);
+  assert.equal(OPTIMUS_PERSIST_VERSION, 4);
   assert.equal(migrated.xp, 2450);
   assert.equal(migrated.streak, 8);
+  assert.equal(migrated.studyMs, 0);
   assert.deepEqual(migrated.progress, legacy.progress);
   assert.deepEqual(migrated.badges, ["streak7"]);
   assert.deepEqual(migrated.casesCompleted, ["case-1"]);
@@ -116,6 +117,7 @@ test("already current data is preserved while unsafe collection shapes are norma
   const current = {
     profile: { displayName: "Miora", studyYear: 0, studyLevel: "senior" },
     xp: 99,
+    studyMs: 123456,
     progress: { neuro: { seen: {}, completedLessons: [] } },
     badges: [],
     importedDecks: [],
@@ -130,6 +132,7 @@ test("already current data is preserved while unsafe collection shapes are norma
 
   const migrated = migrateOptimusPersistedState(current, OPTIMUS_PERSIST_VERSION);
   assert.equal(migrated.xp, 99);
+  assert.equal(migrated.studyMs, 123456);
   assert.deepEqual(migrated.progress, current.progress);
   assert.equal((migrated.profile as Record<string, unknown>).studyLevel, "senior");
 });
