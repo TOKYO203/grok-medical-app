@@ -82,6 +82,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Bug #4 : les trois puces de statistiques de l'accueil passent en une colonne sous 560 px (`grid-cols-1 min-[560px]:grid-cols-3`) ; l'anneau d'objectif affiche « {answered}/{goal} » suivi de l'unité « questions » (`dash.questionsUnit` remplace `dash.outOf`) avec aria « Objectif quotidien : N sur 10 questions » ; assertion `messages.test.ts` alignée | À 320–390 px la zone de libellé d'une puce ne fait que 32–55 px : « Aujourd'hui » (≈ 94 px) était coupé en « Aujourd'hui… », et « sur 10 » ne disait pas 10 quoi | Vibe |
 | 2026-10-16 | — | Bug #5 : la carte de maîtrise à l'état « avant première session » affiche un CTA « Commencer ma première session » (`dash.startFirstSession`, 4 catalogues) vers `/revue?mode=today` si des questions du jour existent, sinon « Explorer la bibliothèque » vers `/bibliotheque` | Le message « Profil de maîtrise après 1ère session » n'offrait aucun accès direct à une session | Vibe |
+| 2026-10-16 | — | Correctif E2E : l'assertion dashboard « sur 10 » devient « 2/10 » + unité « questions » scoper au progressbar (`tests/e2e/dashboard.spec.ts`) | Le job test (Playwright) validait l'ancien rendu de l'anneau modifié au bug #4 — le libellé visible n'affiche plus « sur 10 » | Vibe |
 
 ## Sessions terminées
 
