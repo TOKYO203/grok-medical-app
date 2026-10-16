@@ -107,6 +107,18 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "dash.compareCta", {}, catalogs), "See pricing");
   assert.equal(translate("es", "dash.compareCta", {}, catalogs), "Ver tarifas");
   assert.equal(translate("pt", "dash.compareCta", {}, catalogs), "Ver preços");
+  assert.equal(translate("fr", "dash.new", {}, catalogs), "Actif");
+  assert.equal(translate("en", "dash.new", {}, catalogs), "Active");
+  assert.equal(translate("es", "dash.new", {}, catalogs), "Activo");
+  assert.equal(translate("pt", "dash.new", {}, catalogs), "Ativo");
+  assert.equal(translate("fr", "onb.back", {}, catalogs), "Retour");
+  assert.equal(translate("en", "onb.back", {}, catalogs), "Back");
+  assert.equal(translate("es", "onb.back", {}, catalogs), "Atrás");
+  assert.equal(translate("pt", "onb.back", {}, catalogs), "Voltar");
+  assert.equal(translate("fr", "onb.subjectsTitle", {}, catalogs), "Tes matières prioritaires ?");
+  assert.equal(translate("en", "onb.subjectsTitle", {}, catalogs), "Your priority subjects?");
+  assert.equal(translate("es", "onb.subjectsTitle", {}, catalogs), "¿Tus asignaturas prioritarias?");
+  assert.equal(translate("pt", "onb.subjectsTitle", {}, catalogs), "As tuas disciplinas prioritárias?");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

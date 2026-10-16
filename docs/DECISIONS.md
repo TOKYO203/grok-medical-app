@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 5257a02ff455d05454c16472c867d7e13d8654ea)
 # Journal des décisions — Optimus
 
 Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
@@ -107,8 +108,19 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bouton « Parrainer un ami » sur /profil : lien de partage avec l’identifiant (`/?ref=OM-…`) via l’API Web Share, repli presse-papiers avec confirmation « Lien copié », code de parrainage affiché, récompense (+1 deck) validée via /contact | Le parrainage amplifie le bouche-à-oreille ; sans serveur de parrainage, la récompense est validée manuellement — impossible d’émettre une preuve d’achat côté client | Vibe |
 | 2026-10-16 | — | Offre École (licences multi-sièges) consignée déjà livrée : la section « Offre École & Établissement » de /tarifs (Session 1, décision A02) affiche les licences multi-sièges avec CTA « Demander un devis » vers /contact — aucun nouveau code | Le périmètre de l’item était couvert dès la Session 1 ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
+## 2026-10-16 — Session 9 : onboarding (vague d’améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Statut « Actif » après inscription : la clé dash.new passe de « Nouveau » à « Actif » / « Active » / « Activo » / « Ativo » dans les 4 catalogues, verrouillée par 4 assertions messages.test.ts — le kicker invité de l’accueil affiche un statut, plus un pseudo-nom | Résidu du bug #3 : « Nouveau » accolé à « 5ème année » se lisait comme deux étiquettes incohérentes | Vibe |
+| 2026-10-16 | — | Bouton « Retour » (ChevronLeft, variante secondaire) sur les étapes 2 à 4 de l’onboarding, à côté du CTA principal ; clé `onb.back` jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Chaque étape était un point de non-retour : revenir en arrière exigeait de recharger et perdait toutes les sélections | Vibe |
+| 2026-10-16 | — | Brouillon d’onboarding persisté (localStorage `optimus.onboardingDraft`) : étape, nom, niveau, objectif, matières et rythme restaurés au rechargement — lecture après montage (SSR-safe), brouillon effacé à la fin ou au passage | Un rechargement involontaire remettait l’utilisateur à l’écran 1 et perdait toutes ses sélections | Vibe |
+| 2026-10-16 | — | Onboarding réordonné en 5 écrans : Bienvenue → Niveau → Objectif → Matières → Rythme — la sélection de matières (`onb.subjectsTitle`, 4 catalogues + 4 assertions) devient un écran dédié après l’objectif ; specs E2E onboarding et smoke mobile alignées sur le nouveau flux | L’audit demandait niveau → objectif → spé → rythme : matières et objectif partageaient un écran, le choix de matières arrivait sans être annoncé | Vibe |
+| 2026-10-16 | — | Tooltip sur l’ID utilisateur consigné comme déjà livré : la Session 7 (bug #10) a ajouté la clé dash.idTooltip et le libellé « ton identifiant Optimus » avec info-bulle sur l’accueil et le profil — aucun nouveau code | L’item était couvert par la Session 7 ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+
 ## Sessions terminées
 
+- 2026-10-16 · **Session 9 (vague onboarding)** — statut « Actif » après inscription, bouton « Retour » sur les étapes, brouillon d’onboarding persisté (reprendre où quitté), onboarding réordonné en 5 écrans ; tooltip sur l’ID utilisateur confirmé déjà livré (Session 7).
 - 2026-10-16 · **Session 8 (vague business model)** — prix visible sur chaque deck verrouillé, lien « Combien ça coûte ? » dans la navigation, comparateur Gratuit vs Premium sur l’accueil, bouton « Parrainer un ami » sur le profil ; offre École confirmée déjà livrée (Session 1).
 - 2026-10-16 · **Session 7 (bugs secondaires audit prod #6–#13)** — bouton de synchronisation conditionné à la disponibilité cloud (#6), parcours d'achat explicite sur /pro (#7), lien tarifs depuis Mes achats (#8), badge Premier cas confirmé atteignable (#9), identifiant Optimus expliqué (#10), compteurs clarifiés (#11), recommandations alignées sur l'année (#12), ligues démo cohérentes (#13).
 - 2026-10-16 · **Session 6 (bugs accueil audit prod #4/#5)** — libellés « Aujourd'hui » responsives et anneau « 0/10 questions » explicite (bug #4) ; CTA « Commencer ma première session » sur la carte de maîtrise (bug #5).

@@ -77,7 +77,7 @@ page.on("pageerror", (error) => pageErrors.push(String(error?.message || error))
 try {
   await page.goto(baseUrl, { waitUntil: "domcontentloaded", timeout: timeoutMs });
 
-  // Onboarding v2 — quatre écrans : Bienvenue → Niveau → Objectif → Rythme.
+  // Onboarding v2 — cinq écrans : Bienvenue → Niveau → Objectif → Matières → Rythme.
   const continueButton = page.getByRole("button", { name: "Continuer", exact: true });
   await continueButton.waitFor({ state: "visible", timeout: timeoutMs });
   await page.getByLabel("Comment on t'appelle ?").fill(qaName);
@@ -85,6 +85,8 @@ try {
   await page.getByRole("heading", { name: "Où en es-tu ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
   await page.getByRole("heading", { name: "Ton objectif ?" }).waitFor();
+  await page.getByRole("button", { name: "Continuer", exact: true }).click();
+  await page.getByRole("heading", { name: "Tes matières prioritaires ?" }).waitFor();
   await page.getByRole("button", { name: "Continuer", exact: true }).click();
   await page.getByRole("heading", { name: "Ton rythme quotidien ?" }).waitFor();
   await page.getByRole("button", { name: "Commencer maintenant", exact: true }).click();
