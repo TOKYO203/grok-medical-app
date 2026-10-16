@@ -102,6 +102,11 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "nav.pricing", {}, catalogs), "How much does it cost?");
   assert.equal(translate("es", "nav.pricing", {}, catalogs), "¿Cuánto cuesta?");
   assert.equal(translate("pt", "nav.pricing", {}, catalogs), "Quanto custa?");
+  assert.equal(translate("fr", "dash.compareTitle", {}, catalogs), "Gratuit ou Premium ?");
+  assert.equal(translate("fr", "dash.compareCta", {}, catalogs), "Voir les tarifs");
+  assert.equal(translate("en", "dash.compareCta", {}, catalogs), "See pricing");
+  assert.equal(translate("es", "dash.compareCta", {}, catalogs), "Ver tarifas");
+  assert.equal(translate("pt", "dash.compareCta", {}, catalogs), "Ver preços");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

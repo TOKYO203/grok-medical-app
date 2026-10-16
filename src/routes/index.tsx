@@ -452,6 +452,36 @@ function Dashboard() {
         </div>
       </section>
 
+      {/* Comparateur Gratuit vs Premium (vague business) */}
+      <section className="mt-8">
+        <SectionTitle title={t("dash.compareTitle")} />
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="optimus-card p-4">
+            <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              {t("dash.compareFree")}
+            </p>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted">
+              {t("dash.compareFreeLine")}
+            </p>
+          </div>
+          <div className="premium-hero rounded-[var(--radius-xl)] p-4 text-primary-fg shadow-[var(--shadow-md)]">
+            <p className="optimus-kicker--hero text-[11px] font-medium uppercase tracking-[0.16em] opacity-75">
+              {t("dash.comparePremium")}
+            </p>
+            <p className="mt-1.5 text-sm leading-relaxed opacity-80">
+              {t("dash.comparePremiumLine")}
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/tarifs"
+          className={buttonVariants({ variant: "secondary", size: "sm", className: "mt-3" })}
+        >
+          {t("dash.compareCta")}
+          <ChevronRight className="size-4" />
+        </Link>
+      </section>
+
       <div className="mt-8">
         <PwaInstallCard />
       </div>
