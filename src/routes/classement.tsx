@@ -36,7 +36,7 @@ function BoardPage() {
     league: league.label,
     subject: profile.prioritySubjects[0] ?? "—",
   };
-  let rows = [...PEERS, you];
+  let rows = [...PEERS.map((p) => ({ ...p, league: currentLeague(p.score).label })), you];
   if (scope === "mg") rows = rows.filter((p) => p.country === "Madagascar");
   if (scope === "year") rows = rows.filter((p) => p.year === profile.studyYear);
   rows.sort((a, b) => b.score - a.score);
