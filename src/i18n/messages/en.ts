@@ -114,6 +114,7 @@ export const en: MessageCatalog = {
   "dash.masteryPending": "Your mastery profile will appear after your first session.",
   "dash.startFirstSession": "Start my first session",
   "dash.idTooltip": "Your Optimus ID — it links your purchases and licenses to this profile",
+  "dash.freeCases": (p) => p.count + " free",
   "dash.more": "More",
   "dash.toolsAccess": "Tools and access",
   "dash.premiumOffers": "Premium offers",

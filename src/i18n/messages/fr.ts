@@ -116,6 +116,7 @@ export const fr: MessageCatalog = {
   "dash.masteryPending": "Votre profil de maîtrise apparaîtra après votre première session.",
   "dash.startFirstSession": "Commencer ma première session",
   "dash.idTooltip": "Ton identifiant Optimus — il lie tes achats et licences à ce profil",
+  "dash.freeCases": (p) => p.count + " gratuits",
   "dash.more": "Plus",
   "dash.toolsAccess": "Outils et accès",
   "dash.premiumOffers": "Offres Premium",

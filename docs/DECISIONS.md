@@ -93,6 +93,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bug #8 : lien « Voir la grille tarifaire → » ajouté sous le CTA de l'état vide de /achats | L'état « Aucune commande » n'offrait qu'une sortie sans expliquer les prix | Vibe |
 | 2026-10-16 | — | Bug #9 : marqué corrigé — la Session 4 a ouvert 4 cas cliniques gratuits sur 5, le badge « Premier cas » (« Encore 1 cas ») est atteignable sans achat | L'audit constatait 0 cas gratuit ; le fond a été réglé en Session 4 mais l'item restait non coché | Vibe |
 | 2026-10-16 | — | Bug #10 : l'identifiant Optimus est expliqué — libellé « ton identifiant Optimus » sous le pseudo du profil + info-bulle i18n (`dash.idTooltip`, 4 catalogues, 4 assertions) sur l'accueil | « OM-C6F2C715 » apparaissait sans dire ce que c'était | Vibe |
+| 2026-10-16 | — | Bug #11 : compteurs clarifiés — l'accueil affiche « Cas cliniques (5 · N gratuits) » (`dash.freeCases`), /demarche affiche « N démarches complètes · 43 chapitres au programme » | 56 contenus / 5 cas / 43 chapitres se juxtaposaient sans périmètre | Vibe |
 
 ## Sessions terminées
 

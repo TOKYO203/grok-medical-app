@@ -16,7 +16,7 @@ import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "
 import { pickTodayQuestions } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
-import { buildContentIndex } from "@/lib/library/content-index";
+import { buildContentIndex, caseAccessible } from "@/lib/library/content-index";
 import { useI18n } from "@/i18n";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { formatInt } from "@/lib/utils";
@@ -83,6 +83,9 @@ function Dashboard() {
     }))
     .sort((a, b) => b.lastReview - a.lastReview)
     .find((item) => item.lastReview > 0)?.deck;
+  const freeCasesCount = CLINICAL_CASES.filter((clinical) =>
+    caseAccessible(clinical, entitlements),
+  ).length;
   const dailyGoal = 10;
   const dailyPct = Math.min(100, Math.round((daily.answered / dailyGoal) * 100));
   const remaining = Math.max(0, dailyGoal - daily.answered);
@@ -430,7 +433,8 @@ function Dashboard() {
           </Link>
           <Link to="/cas" className={buttonVariants({ variant: "secondary", size: "sm" })}>
             <Sparkles className="size-4" />
-            {t("dash.clinicalCases")} ({CLINICAL_CASES.length})
+            {t("dash.clinicalCases")} ({CLINICAL_CASES.length} ·{" "}
+            {t("dash.freeCases", { count: freeCasesCount })})
           </Link>
           {decks.some((d) => !hasAccess(d, entitlements, profile.tier)) ? (
             <Link to="/pro" className={buttonVariants({ variant: "secondary", size: "sm" })}>

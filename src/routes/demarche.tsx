@@ -57,7 +57,7 @@ function DemarchePage() {
             programme d'orientation diagnostique.
           </p>
           <p className="mt-2 font-mono text-xs tabular-nums text-subtle">
-            {available}/{total} chapitres disponibles
+            {available} démarches complètes · {total} chapitres au programme
           </p>
         </div>
 

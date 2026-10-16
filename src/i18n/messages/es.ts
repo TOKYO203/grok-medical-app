@@ -114,6 +114,7 @@ export const es: MessageCatalog = {
   "dash.masteryPending": "Tu perfil de dominio aparecerá tras tu primera sesión.",
   "dash.startFirstSession": "Empezar mi primera sesión",
   "dash.idTooltip": "Tu identificador Optimus — vincula tus compras y licencias a este perfil",
+  "dash.freeCases": (p) => p.count + " gratis",
   "dash.more": "Más",
   "dash.toolsAccess": "Herramientas y acceso",
   "dash.premiumOffers": "Ofertas Premium",
