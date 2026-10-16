@@ -119,6 +119,23 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "onb.subjectsTitle", {}, catalogs), "Your priority subjects?");
   assert.equal(translate("es", "onb.subjectsTitle", {}, catalogs), "¿Tus asignaturas prioritarias?");
   assert.equal(translate("pt", "onb.subjectsTitle", {}, catalogs), "As tuas disciplinas prioritárias?");
+  // Démarche enrichie (douleur thoracique) — onglets, tones et gabarits.
+  assert.equal(translate("fr", "demarche.tab.fiche", {}, catalogs), "Fiche");
+  assert.equal(translate("en", "demarche.tab.fiche", {}, catalogs), "Sheet");
+  assert.equal(translate("es", "demarche.tab.map", {}, catalogs), "Mapa mental");
+  assert.equal(translate("pt", "demarche.tab.map", {}, catalogs), "Mapa mental");
+  assert.equal(translate("fr", "demarche.tone.urgence", {}, catalogs), "Urgence");
+  assert.equal(translate("en", "demarche.tone.urgence", {}, catalogs), "Emergency");
+  assert.equal(
+    translate("fr", "demarche.cards.progress", { current: 3, total: 12 }, catalogs),
+    "Carte 3 sur 12",
+  );
+  assert.equal(
+    translate("en", "demarche.cards.progress", { current: 3, total: 12 }, catalogs),
+    "Card 3 of 12",
+  );
+  assert.equal(translate("fr", "demarche.map.reset", {}, catalogs), "Recentrer");
+  assert.equal(translate("pt", "demarche.map.reset", {}, catalogs), "Recentrar");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {
