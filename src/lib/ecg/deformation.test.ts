@@ -60,7 +60,10 @@ test("largeurs de gaussiennes cliniquement bornées sur les 8 sources", () => {
 test("stOffsetMv : sus-décalage moins sous-décalage, 0 sans déformation", () => {
   const mixed: EcgDeformation = { stElevation: { II: 0.2 }, stDepression: { II: 0.05 } };
   const avrOnly: EcgDeformation = { stDepression: { aVR: 0.12 } };
-  assert.equal(stOffsetMv("II", mixed), 0.15);
+  assert.ok(
+    Math.abs(stOffsetMv("II", mixed) - 0.15) < 1e-9,
+    "sus-décalage moins sous-décalage en DII (0,2 - 0,05 = 0,15 à l'arrondi IEEE-754 près)",
+  );
   assert.equal(stOffsetMv("V1", mixed), 0, "V1 non concernée");
   assert.equal(stOffsetMv("aVR", avrOnly), -0.12, "sous-décalage seul en aVR");
   assert.equal(stOffsetMv("II"), 0, "sans déformation");
