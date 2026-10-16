@@ -102,6 +102,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Prix affiché sur chaque deck avant clic : badge doré « 3 000 Ar » sur les cartes de deck verrouillées (ContentCard — bibliothèque et accueil), prix + « Aperçu disponible » sur les decks Premium de /parcours, prix sur la pastille de niveau verrouillée de l’arbre de spécialités (`formatPrice` + `detectPreferredCurrency` de `src/content/pricing.ts`) | Le prix n’était visible qu’après avoir cliqué un deck — friction avant l’achat, la vague Business de l’audit le demande avant clic | Vibe |
+| 2026-10-16 | — | Lien « Combien ça coûte ? » dans la navigation : entrée /tarifs dans le groupe Communauté de la taxonomie unique (`src/lib/navigation.ts`) — sidebar desktop, tiroir mobile et palette de commandes en héritent ; clé i18n `nav.pricing` jumelle dans les 4 catalogues + 4 assertions `messages.test.ts` | La page tarifs n’était joignable que depuis /pro et /achats — l’audit business demande un accès direct depuis la nav | Vibe |
 
 ## Sessions terminées
 

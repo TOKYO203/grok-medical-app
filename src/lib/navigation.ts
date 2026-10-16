@@ -5,6 +5,7 @@
 import {
   Activity,
   AudioWaveform,
+  BadgePercent,
   BookMarked,
   Calculator,
   ClipboardCheck,
@@ -78,7 +79,10 @@ export const EXPLORE_GROUPS = [
   },
   {
     labelKey: "nav.group.community",
-    items: [{ to: "/classement", labelKey: "nav.leaderboard", icon: Trophy }],
+    items: [
+      { to: "/classement", labelKey: "nav.leaderboard", icon: Trophy },
+      { to: "/tarifs", labelKey: "nav.pricing", icon: BadgePercent },
+    ],
   },
 ] as const satisfies readonly NavGroup[];
 

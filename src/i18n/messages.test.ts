@@ -98,6 +98,10 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
     translate("pt", "dash.idTooltip", {}, catalogs),
     "O teu identificador Optimus — liga as tuas compras e licenças a este perfil",
   );
+  assert.equal(translate("fr", "nav.pricing", {}, catalogs), "Combien ça coûte ?");
+  assert.equal(translate("en", "nav.pricing", {}, catalogs), "How much does it cost?");
+  assert.equal(translate("es", "nav.pricing", {}, catalogs), "¿Cuánto cuesta?");
+  assert.equal(translate("pt", "nav.pricing", {}, catalogs), "Quanto custa?");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

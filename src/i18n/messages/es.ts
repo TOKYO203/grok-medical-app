@@ -137,6 +137,7 @@ export const es: MessageCatalog = {
   "nav.contact": "Contacto",
   "nav.support": "Apoyar Optimus",
   "nav.pro": "Ofertas Premium",
+  "nav.pricing": "¿Cuánto cuesta?",
   "common.close": "Cerrar",
   "drawer.openAria": "Abrir el menú",
   "drawer.title": "Menú",

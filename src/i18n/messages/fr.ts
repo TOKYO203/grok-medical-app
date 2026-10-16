@@ -139,6 +139,7 @@ export const fr: MessageCatalog = {
   "nav.contact": "Contact",
   "nav.support": "Soutenir Optimus",
   "nav.pro": "Offres Premium",
+  "nav.pricing": "Combien ça coûte ?",
   "common.close": "Fermer",
   "drawer.openAria": "Ouvrir le menu",
   "drawer.title": "Menu",
