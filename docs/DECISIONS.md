@@ -97,6 +97,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bug #12 : le rail « Recommandés pour toi » pénalise l'écart |année − studyYear| quand les deux sont définis ; le fallback « Deck conseillé » cherche un deck de l'année de l'utilisateur avant de prendre le premier deck du catalogue | À score égal les decks se triaient alphabétiquement — « Pharmacologie » pouvait sortir pour un 5e année ; le featured tombait sur le premier deck venu | Vibe |
 | 2026-10-16 | — | Bug #13 : les ligues des profils démo sont recalculées par `currentLeague(score)` — même moteur que la ligue de l'utilisateur, monotones avec le score | Les ligues en dur (Or à 397 mais Argent à 354) contredisaient les seuils hebdo | Vibe |
 
+## 2026-10-16 — Session 8 : business model (vague d’améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Prix affiché sur chaque deck avant clic : badge doré « 3 000 Ar » sur les cartes de deck verrouillées (ContentCard — bibliothèque et accueil), prix + « Aperçu disponible » sur les decks Premium de /parcours, prix sur la pastille de niveau verrouillée de l’arbre de spécialités (`formatPrice` + `detectPreferredCurrency` de `src/content/pricing.ts`) | Le prix n’était visible qu’après avoir cliqué un deck — friction avant l’achat, la vague Business de l’audit le demande avant clic | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-16 · **Session 7 (bugs secondaires audit prod #6–#13)** — bouton de synchronisation conditionné à la disponibilité cloud (#6), parcours d'achat explicite sur /pro (#7), lien tarifs depuis Mes achats (#8), badge Premier cas confirmé atteignable (#9), identifiant Optimus expliqué (#10), compteurs clarifiés (#11), recommandations alignées sur l'année (#12), ligues démo cohérentes (#13).

@@ -8,6 +8,7 @@ import { buildContentIndex } from "@/lib/library/content-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { YEARS } from "@/content/catalog";
+import { detectPreferredCurrency, formatPrice, PRICES_MGA } from "@/content/pricing";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { STUDY_LEVEL_LABEL } from "@/core/types";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
@@ -89,6 +90,7 @@ function ParcoursPage() {
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ?? yearLabel(profile.studyYear);
 
   const userLevel = toLevel(profile.studyLevel ?? profile.studyYear);
+  const currency = detectPreferredCurrency();
 
   function relevance(deck: (typeof decks)[number]) {
     const priority = profile.prioritySubjects.some(
@@ -237,7 +239,7 @@ function toLevel(studyLevel: unknown): Level {
                       {deck.subtitle}
                     </span>
                     <span className="mt-2 block text-[11px] font-medium uppercase tracking-wider text-primary">
-                      Aperçu disponible
+                      {formatPrice(PRICES_MGA.deck, currency)} · Aperçu disponible
                     </span>
                   </span>
                   <ArrowRight className="mt-1 size-4 shrink-0 text-subtle" />
