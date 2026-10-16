@@ -357,7 +357,13 @@ function ProfilPage() {
           <h1 className="font-display text-2xl font-medium tracking-tight">
             {profile.displayName}
           </h1>
-          <p className="mt-0.5 font-mono text-xs text-muted">{profile.optimusId}</p>
+          <p
+            className="mt-0.5 font-mono text-xs text-muted"
+            title="Ton identifiant Optimus — personnel, il lie tes achats et licences à ce profil"
+          >
+            {profile.optimusId}
+            <span className="ml-1.5 font-sans">· ton identifiant Optimus</span>
+          </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
             <span className="inline-flex items-center gap-1.5">
               <GraduationCap className="size-4" /> {studyLabel}

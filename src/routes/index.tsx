@@ -124,7 +124,10 @@ function Dashboard() {
     <Page>
       <header className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]">
+          <p
+            className="optimus-kicker text-[11px] font-medium uppercase tracking-[0.16em]"
+            title={profile.tier === "guest" ? undefined : t("dash.idTooltip")}
+          >
             {profile.tier === "guest" ? t("dash.new") : profile.optimusId}
           </p>
           <h1 className="mt-1 truncate font-display text-3xl font-medium tracking-tight">
