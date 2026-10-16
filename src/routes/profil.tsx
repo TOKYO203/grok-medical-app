@@ -20,6 +20,7 @@ import {
   Medal,
   Pencil,
   Search,
+  Share2,
   ShieldCheck,
   Star,
   Stethoscope,
@@ -138,6 +139,7 @@ function ProfilPage() {
   const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
   const [coverStorageError, setCoverStorageError] = useState<string | null>(null);
   const [cloudStatus, setCloudStatus] = useState<AuthRuntimeStatus | null>(null);
+  const [referralCopied, setReferralCopied] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -316,6 +318,30 @@ function ProfilPage() {
     setEditing(false);
   }
 
+  async function shareReferral() {
+    const url = window.location.origin + "/?ref=" + profile.optimusId;
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({
+          title: "Optimus",
+          text: "Je révise médecine avec Optimus — rejoins-moi :",
+          url,
+        });
+        return;
+      } catch {
+        /* partage natif annulé par l'utilisateur */
+        return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setReferralCopied(true);
+      window.setTimeout(() => setReferralCopied(false), 4000);
+    } catch {
+      /* presse-papiers indisponible — le code de parrainage reste affiché */
+    }
+  }
+
   return (
     <Shell title="Profil">
       <div
@@ -387,6 +413,39 @@ function ProfilPage() {
             ? "Niveau maximum atteint."
             : `${Math.max(1, level.xpForNext - level.xpInto)} XP avant le niveau suivant`}
         </p>
+
+        <section className="mt-6 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+            Parrainage
+          </p>
+          <div className="mt-2 flex items-start gap-3">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+              <Share2 className="size-5" strokeWidth={1.7} />
+            </span>
+            <div className="min-w-0">
+              <h2 className="font-display text-xl font-medium">Parrainer un ami</h2>
+              <p className="mt-1 text-sm leading-relaxed text-muted">
+                Partage ton lien Optimus : pour chaque ami qui achète un deck, un deck t’est offert.
+                Écris-nous ensuite via{" "}
+                <Link to="/contact" className="font-medium text-primary underline underline-offset-2">
+                  la page contact
+                </Link>{" "}
+                en indiquant son identifiant pour valider la récompense.
+              </p>
+            </div>
+          </div>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <Button onClick={shareReferral}>Partager mon lien</Button>
+            <code className="rounded-[var(--radius-md)] bg-secondary px-2 py-1 font-mono text-xs text-muted">
+              {profile.optimusId}
+            </code>
+          </div>
+          {referralCopied ? (
+            <p className="mt-2 text-xs text-primary" role="status">
+              Lien copié — envoie-le à ton ami.
+            </p>
+          ) : null}
+        </section>
 
                 <details className="mt-6 rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
           <summary className="flex cursor-pointer items-center justify-between gap-3 p-4">

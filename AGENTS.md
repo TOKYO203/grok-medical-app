@@ -4,7 +4,7 @@
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–7 livrées** (business model, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–8 livrées** (business model Sessions 1 & 8, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -428,13 +428,13 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🟢 Améliorations — Business (7)
 
-- Prix multi-devises (MGA/EUR/USD auto)
-- Essai 7 jours Premium sans carte
-- Afficher prix sur chaque deck (avant clic)
-- Lien « Combien ça coûte ? » dans nav
-- Comparateur Free vs Premium sur accueil
-- Bouton « Parrainer un ami » (+1 deck)
-- Offre École (licences multi-sièges)
+- Prix multi-devises (MGA/EUR/USD auto) — ✅ Session 1
+- Essai 7 jours Premium sans carte — ✅ Session 1
+- Afficher prix sur chaque deck (avant clic) — ✅ Session 8
+- Lien « Combien ça coûte ? » dans nav — ✅ Session 8
+- Comparateur Free vs Premium sur accueil — ✅ Session 8
+- Bouton « Parrainer un ami » (+1 deck) — ✅ Session 8
+- Offre École (licences multi-sièges) — ✅ Session 1
 
 ### 🎯 Priorité Top 5
 

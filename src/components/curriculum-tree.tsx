@@ -11,6 +11,7 @@ import {
 import type { Deck, DeckProgress } from "@/core/types";
 import { deckProgressPct } from "@/core/mastery";
 import { cn } from "@/lib/utils";
+import { detectPreferredCurrency, formatPrice, PRICES_MGA } from "@/content/pricing";
 
 type Props = {
   specialty: CurriculumSpecialty;
@@ -227,7 +228,12 @@ function LevelPill({
       title={`${deck.title} · ${level}`}
     >
       {locked ? (
-        <Lock className="size-3 shrink-0" aria-hidden />
+        <>
+          <Lock className="size-3 shrink-0" aria-hidden />
+          <span className="font-sans text-[9px] font-semibold">
+            {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
+          </span>
+        </>
       ) : done ? (
         <Check className="size-3 shrink-0" aria-hidden />
       ) : started ? (
