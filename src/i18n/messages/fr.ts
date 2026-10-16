@@ -170,4 +170,10 @@ export const fr: MessageCatalog = {
   "palette.section.diagnostics": "Démarches diagnostiques",
   "palette.section.decks": "Decks",
   "palette.section.badges": "Badges",
+  // Session 10 — vague UX navigation : gestes et raccourcis de navigation.
+  "ux.backToTop": "Remonter en haut de la page",
+  "ux.resumeKicker": "Reprendre où vous étiez",
+  "ux.resumeGo": "Reprendre",
+  "ux.resumeAria": "Revenir à la dernière page consultée",
+  "ux.refreshAria": "Actualiser le contenu",
 };

@@ -1,4 +1,3 @@
-successfully downloaded text file (SHA: 5257a02ff455d05454c16472c867d7e13d8654ea)
 # Journal des décisions — Optimus
 
 Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
@@ -118,8 +117,21 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Onboarding réordonné en 5 écrans : Bienvenue → Niveau → Objectif → Matières → Rythme — la sélection de matières (`onb.subjectsTitle`, 4 catalogues + 4 assertions) devient un écran dédié après l’objectif ; specs E2E onboarding et smoke mobile alignées sur le nouveau flux | L’audit demandait niveau → objectif → spé → rythme : matières et objectif partageaient un écran, le choix de matières arrivait sans être annoncé | Vibe |
 | 2026-10-16 | — | Tooltip sur l’ID utilisateur consigné comme déjà livré : la Session 7 (bug #10) a ajouté la clé dash.idTooltip et le libellé « ton identifiant Optimus » avec info-bulle sur l’accueil et le profil — aucun nouveau code | L’item était couvert par la Session 7 ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
+## 2026-10-16 — Session 10 : UX navigation (vague d’améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Bouton « Remonter en haut » (ArrowUp) flottant après 600 px de défilement sur les listes longues — Bibliothèque, Cas, Parcours et Programme ; défilement doux sauf prefers-reduced-motion ; clé ux.backToTop jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Les longues listes n’offraient aucun retour rapide en haut de page | Vibe |
+| 2026-10-16 | — | Header sticky sur l’accueil consigné comme déjà livré : le Shell affiche un en-tête sticky top-0 avec le titre « Aujourd’hui » sur mobile, la sidebar restant sticky sur desktop — aucun nouveau code | L’item était couvert par la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+| 2026-10-16 | — | Recherche globale consignée comme déjà livrée : la palette de commandes (⌘K/Ctrl+K) indexe pages, cas, démarches, decks et badges, et la loupe mobile l’ouvre depuis l’en-tête et le tiroir — aucun nouveau code | L’item était couvert par la palette livrée avec la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+| 2026-10-16 | — | Filtres Bibliothèque simplifiés consignés comme déjà livrés : types en chips toujours visibles, filtres avancés (spécialité, niveau, année, compétence) repliés derrière un bouton à compteur avec réinitialisation — aucun nouveau code | L’item était couvert par la refonte de la bibliothèque ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
+| 2026-10-16 | — | Swipe-back restauré en PWA : SwipeBackBridge dans le Shell — départ dans les 24 px du bord gauche, glissement ≥ 64 px, dérive verticale ≤ 48 px, retour uniquement si l’historique le permet (idx > 0), écouteurs passifs sans preventDefault (scroll natif intact) | En PWA installée, iOS/Android n’offrent pas le geste natif de retour ; le seul retour était la barre de navigation | Vibe |
+| 2026-10-16 | — | Bouton « Reprendre où vous étiez » global : ResumeRouteBridge persiste la dernière route utile (localStorage optimus.lastRoute, href complet, accueil/login/admin exclus) et la carte ResumeWhereCard sur l’accueil y revient avec le libellé localisé de la page ; clés ux.resumeKicker/ux.resumeGo/ux.resumeAria jumelles (4 catalogues + 12 assertions) | L’accueil ne proposait que la reprise du dernier deck, jamais du dernier écran visité (ECG, cas, revue…) | Vibe |
+| 2026-10-16 | — | Pull-to-refresh en PWA : PullToRefreshBridge dans le Shell — tirez la page vers le bas en haut de liste (seuil 72 px, résistance 1:2, indicateur RefreshCw sous l’en-tête) pour renotifier les flux en ligne (même événement « online » qu’AppResumeBridge, throttlé 3 s) ; clé ux.refreshAria jumelle (4 catalogues + 4 assertions) | En PWA installée, aucun geste natif de rafraîchissement des contenus synchronisés | Vibe |
+
 ## Sessions terminées
 
+- 2026-10-16 · **Session 10 (vague UX navigation)** — bouton « Remonter en haut » sur les listes longues, swipe-back en PWA, bouton « Reprendre où vous étiez » global, pull-to-refresh ; header sticky, recherche Cmd+K et filtres Bibliothèque confirmés déjà livrés (revue « navigation classée »).
 - 2026-10-16 · **Session 9 (vague onboarding)** — statut « Actif » après inscription, bouton « Retour » sur les étapes, brouillon d’onboarding persisté (reprendre où quitté), onboarding réordonné en 5 écrans ; tooltip sur l’ID utilisateur confirmé déjà livré (Session 7).
 - 2026-10-16 · **Session 8 (vague business model)** — prix visible sur chaque deck verrouillé, lien « Combien ça coûte ? » dans la navigation, comparateur Gratuit vs Premium sur l’accueil, bouton « Parrainer un ami » sur le profil ; offre École confirmée déjà livrée (Session 1).
 - 2026-10-16 · **Session 7 (bugs secondaires audit prod #6–#13)** — bouton de synchronisation conditionné à la disponibilité cloud (#6), parcours d'achat explicite sur /pro (#7), lien tarifs depuis Mes achats (#8), badge Premier cas confirmé atteignable (#9), identifiant Optimus expliqué (#10), compteurs clarifiés (#11), recommandations alignées sur l'année (#12), ligues démo cohérentes (#13).

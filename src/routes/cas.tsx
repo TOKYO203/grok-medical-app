@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import ClinicalAIWidget from "@/components/ai/ClinicalAIWidget";
 import { ContentCard } from "@/components/content/content-card";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
+import { ScrollToTopButton } from "@/components/scroll-to-top";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES } from "@/content/catalog";
 import { buildContentIndex } from "@/lib/library/content-index";
@@ -42,6 +43,7 @@ function CasPage() {
   return (
     <Shell title="Cas">
       <Page>
+        <ScrollToTopButton />
         <PageHeader
           kicker="Raisonnement clinique"
           title="Cas cliniques"

@@ -1,11 +1,10 @@
-successfully downloaded text file (SHA: e048238352ce5a0e79c0d67a0e41071e58fe9fee)
 # ⚠️ MISSION ACTIVE
 
 **Toute session DOIT commencer par lire :**
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–9 livrées** (business model Sessions 1 & 8, onboarding, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–10 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 
@@ -419,13 +418,13 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 
 ### 🟢 Améliorations — UX Navigation (7)
 
-- Bouton « Remonter en haut » sur listes longues
-- Header sticky sur l'accueil
-- Recherche globale (Cmd+K web, loupe mobile)
-- Filtres Bibliothèque simplifiés
-- Swipe-back natif iOS/Android
-- Bouton « Reprendre où vous étiez » global
-- Pull-to-refresh
+- Bouton « Remonter en haut » sur listes longues — ✅ Session 10
+- Header sticky sur l'accueil — ✅ Session 10
+- Recherche globale (Cmd+K web, loupe mobile) — ✅ Session 10
+- Filtres Bibliothèque simplifiés — ✅ Session 10
+- Swipe-back natif iOS/Android — ✅ Session 10
+- Bouton « Reprendre où vous étiez » global — ✅ Session 10
+- Pull-to-refresh — ✅ Session 10
 
 ### 🟢 Améliorations — Business (7)
 
