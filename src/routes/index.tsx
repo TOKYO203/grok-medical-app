@@ -373,14 +373,9 @@ function Dashboard() {
 
         <SectionTitle kicker={t("dash.progression")} title={t("dash.clinicalLevel")} />
         <div className="optimus-card p-4">
+          {/* Session 11 — indicateur unique : la maîtrise globale porte la barre,
+              le niveau/XP devient une lecture secondaire sans barre dédiée. */}
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted">
-              {t("dash.levelWithTitle", { level: lvl.level, title: lvl.title })}
-            </span>
-            <span className="optimus-kpi font-mono text-xs tabular-nums">{formatInt(xp)} XP</span>
-          </div>
-          <Progress className="mt-2" value={lvl.progress} barClassName="optimus-progress-fill" />
-          <div className="mt-4 flex items-center justify-between text-sm">
             <span className="text-muted">{t("dash.globalMastery")}</span>
             <span className="optimus-kpi font-mono tabular-nums">{mastery}%</span>
           </div>
@@ -389,6 +384,12 @@ function Dashboard() {
             value={mastery}
             barClassName="optimus-progress-fill bg-fg/70"
           />
+          <div className="mt-3 flex items-center justify-between text-sm">
+            <span className="text-muted">
+              {t("dash.levelWithTitle", { level: lvl.level, title: lvl.title })}
+            </span>
+            <span className="optimus-kpi font-mono text-xs tabular-nums">{formatInt(xp)} XP</span>
+          </div>
 
           {mastery > 0 && weak && strong ? (
             <div className="mt-4 grid grid-cols-2 gap-2">

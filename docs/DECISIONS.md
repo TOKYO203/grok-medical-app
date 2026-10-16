@@ -129,6 +129,12 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-16 | — | Bouton « Reprendre où vous étiez » global : ResumeRouteBridge persiste la dernière route utile (localStorage optimus.lastRoute, href complet, accueil/login/admin exclus) et la carte ResumeWhereCard sur l’accueil y revient avec le libellé localisé de la page ; clés ux.resumeKicker/ux.resumeGo/ux.resumeAria jumelles (4 catalogues + 12 assertions) | L’accueil ne proposait que la reprise du dernier deck, jamais du dernier écran visité (ECG, cas, revue…) | Vibe |
 | 2026-10-16 | — | Pull-to-refresh en PWA : PullToRefreshBridge dans le Shell — tirez la page vers le bas en haut de liste (seuil 72 px, résistance 1:2, indicateur RefreshCw sous l’en-tête) pour renotifier les flux en ligne (même événement « online » qu’AppResumeBridge, throttlé 3 s) ; clé ux.refreshAria jumelle (4 catalogues + 4 assertions) | En PWA installée, aucun geste natif de rafraîchissement des contenus synchronisés | Vibe |
 
+## 2026-10-16 — Session 11 : progression (vague d'améliorations)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | — | Carte « Niveau clinique » de l'accueil fusionnée en un indicateur unique : la maîtrise globale porte la seule barre de la carte, le niveau/XP devient une lecture secondaire (texte, sans barre dédiée) ; la LevelBar compacte reste le widget d'en-tête du tableau de bord | La carte empilait deux jauges de progression parallèles (barre XP + barre maîtrise) qui se lisent comme deux systèmes concurrents — l'audit Progression demande un indicateur unique | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-16 · **Session 10 (vague UX navigation)** — bouton « Remonter en haut » sur les listes longues, swipe-back en PWA, bouton « Reprendre où vous étiez » global, pull-to-refresh ; header sticky, recherche Cmd+K et filtres Bibliothèque confirmés déjà livrés (revue « navigation classée »).
