@@ -1,3 +1,4 @@
+successfully downloaded text file (SHA: 2be6177097bc5dd59d28e8aca5d5136aecb1e891)
 successfully downloaded text file (SHA: 12421b5fbe6f410d0519d8613847226e217ab0f6)
 successfully downloaded text file (SHA: 5257a02ff455d05454c16472c867d7e13d8654ea)
 # Journal des décisions — Optimus
@@ -124,6 +125,7 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-16 | — | Bouton « Remonter en haut » (ArrowUp) flottant après 600 px de défilement sur les listes longues — Bibliothèque, Cas, Parcours et Programme ; défilement doux sauf prefers-reduced-motion ; clé ux.backToTop jumelle dans les 4 catalogues + 4 assertions messages.test.ts | Les longues listes n’offraient aucun retour rapide en haut de page | Vibe |
+| 2026-10-16 | — | Header sticky sur l’accueil consigné comme déjà livré : le Shell affiche un en-tête sticky top-0 avec le titre « Aujourd’hui » sur mobile, la sidebar restant sticky sur desktop — aucun nouveau code | L’item était couvert par la revue « navigation classée » ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
 ## Sessions terminées
 
