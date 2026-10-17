@@ -23,6 +23,7 @@ import { Route as AuscultationRouteImport } from './routes/auscultation'
 import { Route as BibliothequeRouteImport } from './routes/bibliotheque'
 import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
+import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as ClassementRouteImport } from './routes/classement'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
@@ -121,6 +122,11 @@ const CalculateursRoute = CalculateursRouteImport.update({
 const CasRoute = CasRouteImport.update({
   id: '/cas',
   path: '/cas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClassementRoute = ClassementRouteImport.update({
@@ -288,6 +294,7 @@ export interface FileRoutesByFullPath {
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
+  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -333,6 +340,7 @@ export interface FileRoutesByTo {
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
+  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -380,6 +388,7 @@ export interface FileRoutesById {
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
+  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -427,6 +436,7 @@ export interface FileRouteTypes {
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
+    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'
@@ -472,6 +482,7 @@ export interface FileRouteTypes {
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
+    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'
@@ -518,6 +529,7 @@ export interface FileRouteTypes {
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
+    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'
@@ -565,6 +577,7 @@ export interface RootRouteChildren {
   BibliothequeRoute: typeof BibliothequeRoute
   CalculateursRoute: typeof CalculateursRoute
   CasRoute: typeof CasRouteWithChildren
+  ChangelogRoute: typeof ChangelogRoute
   ClassementRoute: typeof ClassementRoute
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
@@ -690,6 +703,13 @@ declare module '@tanstack/react-router' {
       path: '/cas'
       fullPath: '/cas'
       preLoaderRoute: typeof CasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/classement': {
@@ -974,6 +994,7 @@ const rootRouteChildren: RootRouteChildren = {
   BibliothequeRoute: BibliothequeRoute,
   CalculateursRoute: CalculateursRoute,
   CasRoute: CasRouteWithChildren,
+  ChangelogRoute: ChangelogRoute,
   ClassementRoute: ClassementRoute,
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,

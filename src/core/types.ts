@@ -208,7 +208,7 @@ export type SyncEvent = {
 
 export type ContactDraft = {
   id: string;
-  kind: "contact" | "bug" | "correction" | "deck" | "idea";
+  kind: "contact" | "bug" | "correction" | "deck" | "idea" | "school";
   body: string;
   createdAt: number;
   sent: boolean;

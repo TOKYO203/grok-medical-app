@@ -8,13 +8,21 @@ Le script `scripts/performance-budget.mjs` est exécuté automatiquement par `np
 
 | Budget | Limite V1 |
 | --- | ---: |
-| Un chunk JavaScript client | 400 KiB max |
-| Une feuille CSS client | 100 KiB max |
-| JavaScript client total produit par le build | 1 536 KiB max |
+| Un chunk JavaScript client | 584 KiB max |
+| Une feuille CSS client | 104 KiB max |
+| JavaScript client total produit par le build | 1 888 KiB max |
 
-Le build échoue si l'une de ces limites est dépassée. Les seuils ont été posés à partir de la baseline V1 mesurée avant activation du gate : plus gros chunk ≈ 304 KiB, store ≈ 201 KiB et CSS principal ≈ 53 KiB. Ils laissent une marge de maintenance sans autoriser une croissance silencieuse importante.
+La source de vérité est `PERFORMANCE_BUDGET` dans `scripts/performance-budget.mjs` (ce tableau ne fait que la refléter). Le build échoue si l'une de ces limites est dépassée ; chaque relèvement y est daté et motivé, avec une marge volontairement faible (le plafond est un garde-fou, pas une cible).
 
-Commande manuelle après un build :
+> ⚠️ **Mesurer comme la CI, sinon la mesure ne vaut rien.** Le total dépend de la configuration compilée : la CI et le déploiement n'ont pas de `.env.local`, donc `VITE_AUTH_ENABLED` est absent et l'authentification reste **active** ; un poste de dev qui porte `VITE_AUTH_ENABLED=false` dans son `.env.local` (non versionné) compile **sans** le client d'auth. Au commit de référence : auth ON = 1 846,6 KiB en local et 1 871,3 KiB en CI (écart de toolchain ~25 KiB) ; auth OFF = 1 822,5 KiB — soit ~65 KiB de fausse marge. Pour reproduire la CI en local :
+
+```bash
+mv .env.local .env.local.bak   # le restaurer ensuite (trap)
+node scripts/with-app-env.mjs vite build
+node scripts/performance-budget.mjs
+```
+
+Commande manuelle après un build (mesure seule, sans rebuild) :
 
 ```bash
 npm run postbuild:budget

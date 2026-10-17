@@ -90,3 +90,20 @@ test("Session 1 — les décisions sont consignées dans docs/DECISIONS.md", () 
   }
   assert.ok(decisions.includes("Session 1"), "la session 1 doit figurer comme terminée");
 });
+
+test("B20 — canal email institutionnel pour l'offre École", () => {
+  const contact = read("../src/routes/contact.tsx");
+  assert.ok(
+    contact.includes('id: "school"'),
+    "le formulaire de contact doit offrir le sujet « École ou établissement »",
+  );
+  assert.ok(
+    contact.includes("Devis École & Établissement"),
+    "l'objet du mail institutionnel doit être prérempli",
+  );
+  const types = read("../src/core/types.ts");
+  assert.ok(
+    types.includes('| "school"'),
+    "ContactDraft doit étendre son union kind à school",
+  );
+});

@@ -49,7 +49,23 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Relevé 1832 → 1864 KiB (Session 13 « examen blanc » : la page /examen
   // embarque minuteur et rapport d’épreuve, ≈ +10 KiB sur son chunk ; le
   // total exact reste rapporté par ce garde-fou à chaque build).
-  maxTotalJavascriptBytes: 1864 * 1024,
+  // Relevé 1864 → 1888 KiB (Session 17 « crédibilité » : journal des versions
+  // public /changelog + canal email institutionnel B20).
+  //
+  // ⚠️ Le total dépend de la CONFIGURATION COMPILÉE, pas seulement du code :
+  // la CI et le déploiement compilent avec l'authentification ACTIVE
+  // (`VITE_AUTH_ENABLED` absent ⇒ `authEnabled` vaut true dans
+  // src/lib/auth/client.ts), tandis qu'un poste de dev peut porter un
+  // `.env.local` (non versionné) `VITE_AUTH_ENABLED=false` qui retire tout le
+  // client d'auth du bundle. Mesures reproductibles au commit de référence :
+  //   • auth ON, sans `.env.local` (= configuration CI / déploiement) :
+  //     1846,6 KiB en local, 1871,3 KiB en CI (ubuntu-latest, Node 22) — l'écart
+  //     d'environnement/toolchain (~25 KiB) est reproductible, pas du code ;
+  //   • auth OFF (`.env.local` du poste de dev) : 1822,5 KiB.
+  // Le plafond doit donc couvrir la mesure CI (1871,3 KiB) avec la marge
+  // volontairement faible du projet (~17 KiB) → 1888 KiB. Mesurer un budget
+  // « local » avec l'auth désactivée donne une fausse marge de ~65 KiB.
+  maxTotalJavascriptBytes: 1888 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

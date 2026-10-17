@@ -15,6 +15,9 @@ export const Route = createFileRoute("/contact")({ component: ContactPage });
 const EMAIL = "fondationoptimus@gmail.com";
 const WHATSAPP = "261341995741";
 const WHATSAPP_DISPLAY = "034 19 957 41";
+// B20 — corps prérempli du devis École (canal institutionnel).
+const SCHOOL_SUBJECT = "Devis École & Établissement";
+const SCHOOL_BODY = "Établissement :\nNombre de licences :\nAnnée(s) concernée(s) :\n";
 
 const KINDS: { id: ContactDraft["kind"]; label: string }[] = [
   { id: "contact", label: "Nous contacter" },
@@ -22,6 +25,7 @@ const KINDS: { id: ContactDraft["kind"]; label: string }[] = [
   { id: "correction", label: "Correction médicale" },
   { id: "deck", label: "Proposer un deck" },
   { id: "idea", label: "Suggestion" },
+  { id: "school", label: "École ou établissement" },
 ];
 
 type Step = "idle" | "form" | "choose";
@@ -92,6 +96,22 @@ function ContactPage() {
               <span className="block text-xs uppercase tracking-wider text-muted">Email</span>
               <span className="block truncate text-sm font-medium">{EMAIL}</span>
             </span>
+          </a>
+        </div>
+
+        {/* ─── Écoles & établissements (B20) ─── */}
+        <div className="mt-3 rounded-[var(--radius-md)] border border-[#A67C1E]/50 bg-[#A67C1E]/10 p-4">
+          <p className="text-sm font-medium text-fg">École, faculté ou association ?</p>
+          <p className="mt-1 text-xs leading-relaxed text-muted">
+            Licences multi-sièges, tarif dégressif et accompagnement dédié. Écrivez-nous
+            par email : l&apos;objet « Devis École » est prérempli.
+          </p>
+          <a
+            href={`mailto:${EMAIL}?subject=${encodeURIComponent("[Optimus] " + SCHOOL_SUBJECT)}&body=${encodeURIComponent(SCHOOL_BODY)}`}
+            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#EDE0C8]"
+          >
+            <Mail className="size-4" aria-hidden />
+            Demander un devis par email
           </a>
         </div>
 

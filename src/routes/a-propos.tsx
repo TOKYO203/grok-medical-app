@@ -143,6 +143,12 @@ function AboutPage() {
             >
               Validation clinique
             </Link>
+            <Link
+              to="/changelog"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Journal des versions
+            </Link>
           </div>
         </div>
 
