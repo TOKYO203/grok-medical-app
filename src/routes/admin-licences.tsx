@@ -230,6 +230,21 @@ function AdminLicensesPage() {
               {generating ? "…" : "Générer"}
             </Button>
           </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {[30, 90].map((preset) => (
+              <button
+                key={preset}
+                type="button"
+                onClick={() => setGenDays(preset)}
+                className={cn(
+                  "h-8 rounded-[var(--radius-md)] px-3 text-xs font-medium transition-colors",
+                  genDays === preset ? "bg-primary text-primary-fg" : "bg-secondary text-muted",
+                )}
+              >
+                {preset === 30 ? "Mensuel (30 j)" : "Trimestriel (90 j)"}
+              </button>
+            ))}
+          </div>
           {lastGeneratedKey ? (
             <div className="mt-4 flex items-center gap-2 rounded-[var(--radius-md)] bg-primary-soft p-3">
               <code className="flex-1 truncate font-mono text-sm text-primary-fg">

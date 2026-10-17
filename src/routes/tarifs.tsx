@@ -15,7 +15,7 @@ import {
   CURRENCIES,
   detectPreferredCurrency,
   formatPrice,
-  PRICES_MGA,
+  SUBSCRIPTIONS_MGA,
   type Currency,
 } from "@/content/pricing";
 import { PREMIUM_SPECIALTIES } from "@/content/purchase-order";
@@ -56,7 +56,7 @@ function TarifsPage() {
           <PageHeader
             kicker="Tarifs"
             title="Choisis ton niveau d'accès"
-            description="Un contenu médical de référence, conçu pour les étudiants malgaches. Achat unique, pas d'abonnement, paiement en Ariary."
+            description="Un contenu médical de référence, conçu pour les étudiants malgaches. Abonnement mensuel ou trimestriel, paiement en Ariary via Mobile Money."
           />
         }
       >
@@ -107,23 +107,23 @@ function TarifsPage() {
           <article className="flex flex-col rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-[var(--shadow-border)]">
             <div className="flex items-center gap-2">
               <Layers className="size-5 text-[#A67C1E]" />
-              <h2 className="font-display text-xl font-medium">Deck individuel</h2>
+              <h2 className="font-display text-xl font-medium">Premium Mensuel</h2>
             </div>
-            <p className="mt-2 text-sm text-muted">Un module de révision ciblé pour préparer un chapitre précis.</p>
+            <p className="mt-2 text-sm text-muted">Tous les decks, cas cliniques et démarches Premium, pendant 30 jours.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {formatPrice(PRICES_MGA.deck, currency)}
-              <span className="ml-1 text-sm font-normal text-muted">/ deck</span>
+              {formatPrice(SUBSCRIPTIONS_MGA.monthly, currency)}
+              <span className="ml-1 text-sm font-normal text-muted">/ mois</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
-              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Achat unique, à vie</li>
+              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Toutes les spécialités incluses</li>
               <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Accès hors-ligne inclus</li>
-              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Idéal pour réviser un thème</li>
+              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Sans reconduction automatique</li>
             </ul>
             <Link
               to="/pro"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] border border-border px-4 py-2.5 text-sm font-medium text-fg transition-colors hover:border-[#A67C1E] hover:text-[#A67C1E]"
             >
-              Choisir un deck
+              S’abonner
               <ArrowRight className="size-4" />
             </Link>
           </article>
@@ -134,23 +134,23 @@ function TarifsPage() {
             </span>
             <div className="flex items-center gap-2">
               <GraduationCap className="size-5 text-[#A67C1E]" />
-              <h2 className="font-display text-xl font-medium">Pack spécialité</h2>
+              <h2 className="font-display text-xl font-medium">Premium Trimestriel</h2>
             </div>
-            <p className="mt-2 text-sm text-muted">Tous les decks d'une spécialité + cas cliniques + démarches complètes.</p>
+            <p className="mt-2 text-sm text-muted">90 jours d'accès complet — le tarif le plus avantageux.</p>
             <p className="mt-4 font-display text-3xl font-medium text-fg">
-              {formatPrice(PRICES_MGA.specialty, currency)}
-              <span className="ml-1 text-sm font-normal text-muted">/ spécialité</span>
+              {formatPrice(SUBSCRIPTIONS_MGA.quarterly, currency)}
+              <span className="ml-1 text-sm font-normal text-muted">/ trimestre</span>
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
-              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Achat unique, à vie</li>
-              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Contenu complet de la spécialité</li>
-              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Économique vs decks séparés</li>
+              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Économise 3 000 Ar vs 3 mois</li>
+              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Toutes les spécialités incluses</li>
+              <li className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />Accès hors-ligne inclus</li>
             </ul>
             <Link
               to="/pro"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[#A67C1E] px-4 py-2.5 text-sm font-semibold text-[#EDE0C8] transition-opacity hover:opacity-90"
             >
-              Choisir ma spécialité
+              S’abonner
               <ArrowRight className="size-4" />
             </Link>
           </article>
@@ -158,7 +158,7 @@ function TarifsPage() {
 
         {/* Spécialités disponibles */}
         <section className="mt-12">
-          <h2 className="font-display text-lg font-medium text-fg">Spécialités disponibles</h2>
+          <h2 className="font-display text-lg font-medium text-fg">Spécialités incluses dans l’abonnement</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {PREMIUM_SPECIALTIES.map((s) => (
               <span
@@ -221,8 +221,9 @@ function TarifsPage() {
           <p className="flex items-start gap-2">
             <Sparkles className="mt-0.5 size-4 shrink-0 text-[#A67C1E]" />
             <span>
-              Paiement unique en Ariary via Mobile Money (MVola, Orange Money, Airtel Money).
-              Aucun abonnement, aucune carte bancaire requise. Contenu accessible hors-ligne.
+              Abonnement payé d’avance en Ariary via Mobile Money (MVola, Orange Money, Airtel
+              Money). Aucune carte bancaire, aucune reconduction automatique : chaque
+              renouvellement est un nouveau paiement volontaire. Contenu accessible hors-ligne.
             </span>
           </p>
         </section>

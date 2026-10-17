@@ -19,10 +19,11 @@ import {
 } from "@/content/device-encryption";
 import {
   fulfillmentRequestMessage,
+  isSubscriptionOffer,
   orderAmount,
   orderLabel,
   orderProduct,
-  PREMIUM_SPECIALTIES,
+  SUBSCRIPTION_OFFERS,
   type PremiumOffer,
   type PremiumOrder,
   type PremiumPurchase,
@@ -102,7 +103,7 @@ export function PremiumPurchaseFlow({
       ? 2
       : 3;
   });
-  const [offer, setOffer] = useState<PremiumOffer>(initialPurchase?.offer ?? "specialty");
+  const [offer, setOffer] = useState<PremiumOffer>(initialPurchase?.offer ?? "subscription_quarter");
   const [specialty, setSpecialty] = useState<PremiumSpecialtyId>(
     initialPurchase?.specialty ?? initialSpecialty ?? "neurologie",
   );
@@ -134,10 +135,13 @@ export function PremiumPurchaseFlow({
 
   async function createOrder() {
     if (!user || user.isDevFallback || profile.optimusId === "OM-GUEST") return;
+    // A04 : seuls les abonnements sont créés ; les offres deck/specialty
+    // historiques ne sont plus vendues, seule leur finalisation est acceptée.
+    if (!isSubscriptionOffer(offer)) return;
     setCreating(true);
     try {
       const created = await createPremiumPurchaseOrder({
-        data: { clientRequestId, offer, specialty, deckNumber },
+        data: { clientRequestId, offer },
       });
       rememberServerPurchase(created);
       setStep(2);
@@ -367,34 +371,25 @@ export function PremiumPurchaseFlow({
       {step === 1 ? (
         <div className="mt-5 space-y-4">
           <div aria-label="Choisir une offre" className="grid grid-cols-2 gap-3" role="radiogroup">
-            <OfferCard active={offer === "deck"} title="1 Deck" detail="Une étape" price="3 000 Ar" onClick={() => setOffer("deck")} />
-            <OfferCard active={offer === "specialty"} title="Spécialité" detail="10 Decks · 1 offert" price="27 000 Ar" recommended onClick={() => setOffer("specialty")} />
+            {SUBSCRIPTION_OFFERS.map((plan) => (
+              <OfferCard
+                key={plan.offer}
+                active={offer === plan.offer}
+                title={plan.label}
+                detail={plan.offer === "subscription_month" ? "30 jours d’accès complet" : "90 jours · le plus avantageux"}
+                price={`${plan.amountMga.toLocaleString("fr-FR")} Ar`}
+                recommended={plan.offer === "subscription_quarter"}
+                onClick={() => setOffer(plan.offer)}
+              />
+            ))}
           </div>
 
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-            <label className="text-xs font-medium text-muted" htmlFor="premium-specialty">Spécialité souhaitée</label>
-            <select
-              id="premium-specialty"
-              className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-              value={specialty}
-              onChange={(event) => setSpecialty(event.target.value as PremiumSpecialtyId)}
-            >
-              {PREMIUM_SPECIALTIES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
-            </select>
-
-            {offer === "deck" ? (
-              <>
-                <label className="mt-4 block text-xs font-medium text-muted" htmlFor="deck-number">Étape du parcours</label>
-                <select
-                  id="deck-number"
-                  className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-                  value={deckNumber}
-                  onChange={(event) => setDeckNumber(Number(event.target.value))}
-                >
-                  {Array.from({ length: 10 }, (_, index) => index + 1).map((number) => <option key={number} value={number}>Deck {number}/10</option>)}
-                </select>
-              </>
-            ) : null}
+            <p className="text-sm leading-relaxed text-muted">
+              L’abonnement ouvre tous les decks, cas cliniques et démarches Premium de toutes les
+              spécialités pendant sa durée. Il expire sans frais : renouvelez-le quand vous voulez
+              par un nouveau paiement Mobile Money.
+            </p>
 
             <OrderSummary order={order} showReference={false} />
             <p className="mt-3 text-xs leading-relaxed text-muted">

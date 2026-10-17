@@ -132,4 +132,36 @@ test("A04 — abonnements mensuel et trimestriel remplacent l'achat à vie", () 
     store.includes('"subscription_month"'),
     "le store doit conserver les commandes d'abonnement hors ligne",
   );
+
+  const flow = read("../src/components/premium-purchase-flow.tsx");
+  assert.ok(
+    flow.includes("SUBSCRIPTION_OFFERS"),
+    "le parcours d'achat doit proposer les abonnements mensuel et trimestriel",
+  );
+  assert.ok(
+    !flow.includes('active={offer === "deck"}'),
+    "le parcours d'achat ne doit plus proposer l'achat de deck",
+  );
+  assert.ok(
+    flow.includes("isSubscriptionOffer"),
+    "la création de commande doit être restreinte aux abonnements",
+  );
+
+  const tarifs = read("../src/routes/tarifs.tsx");
+  assert.ok(
+    tarifs.includes("SUBSCRIPTIONS_MGA"),
+    "la grille tarifaire doit afficher les prix des abonnements",
+  );
+  assert.ok(
+    !tarifs.includes("Achat unique"),
+    "la grille tarifaire ne doit plus promettre d'achat à vie",
+  );
+
+  for (const route of ["../src/routes/cas.$caseId.tsx", "../src/routes/demarche.$id.tsx"]) {
+    const content = read(route);
+    assert.ok(
+      content.includes("S’abonner"),
+      route + " doit orienter vers l'abonnement et non vers l'achat de spécialité",
+    );
+  }
 });

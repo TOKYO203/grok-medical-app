@@ -15,6 +15,8 @@ import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
 
+const SUBSCRIPTION_EXPIRY_DATE = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long" });
+
 export const Route = createFileRoute("/pro")({
   validateSearch: (
     search: Record<string, unknown>,
@@ -93,6 +95,9 @@ function ProPage() {
     }
   }
 
+  const proExpiresAt =
+    entitlements.find((entitlement) => entitlement.product === "OPTIMUS_PRO")?.expiresAt ?? null;
+
   const activeProducts = entitlements
     .filter((entitlement) => entitlement.product !== "OPTIMUS_FREE")
     .map((entitlement) => entitlement.product);
@@ -152,7 +157,7 @@ function ProPage() {
             />
             ) : (
               <section className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-                <h2 className="font-medium">Acheter un deck ou une spécialité</h2>
+                <h2 className="font-medium">S’abonner à Optimus Premium</h2>
                 <p className="mt-1 text-sm leading-relaxed text-muted">
                   Le paiement Mobile Money n'est pas encore activé sur ce déploiement. En
                   attendant, l'essai Premium de 7 jours ouvre les cas cliniques et les
@@ -252,6 +257,12 @@ function ProPage() {
                 <p className="mt-2 text-sm leading-relaxed opacity-85">
                   Vos contenus Premium validés restent disponibles hors ligne sur cet appareil.
                 </p>
+                {proExpiresAt ? (
+                  <p className="mt-1 text-sm leading-relaxed opacity-85">
+                    Abonnement actif jusqu’au {SUBSCRIPTION_EXPIRY_DATE.format(proExpiresAt)} —
+                    renouvelez-le quand vous voulez ci-dessous.
+                  </p>
+                ) : null}
               </div>
               <Sparkles className="size-5 shrink-0 opacity-70" aria-hidden="true" />
             </div>
@@ -264,6 +275,22 @@ function ProPage() {
             </div>
           </section>
         )}
+
+        {profile.tier === "pro" && authEnabled && proExpiresAt ? (
+          <details className="mt-4 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
+            <summary className="cursor-pointer text-sm font-medium">
+              Renouveler mon abonnement
+            </summary>
+            <div className="mt-4">
+              <PremiumPurchaseFlow
+                key={`renew:${proExpiresAt}`}
+                profile={profile}
+                onRemember={(message) => addContact("deck", message)}
+                onPurchaseUpdated={cacheServerPurchase}
+              />
+            </div>
+          </details>
+        ) : null}
 
         <Link to="/soutenir" className="mt-6 inline-block text-sm text-muted hover:text-fg">
           Ce n’est pas un don — pour soutenir Fetra, voir Soutenir le développeur →

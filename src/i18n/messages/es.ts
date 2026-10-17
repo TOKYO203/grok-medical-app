@@ -126,7 +126,7 @@ export const es: MessageCatalog = {
   "dash.compareFree": "Gratis",
   "dash.compareFreeLine": "ECG, auscultación, calculadoras, programa nacional y 4 casos clínicos gratis.",
   "dash.comparePremium": "Premium",
-  "dash.comparePremiumLine": "Todos los decks, casos clínicos y guías de una especialidad, sin conexión, para siempre — prueba de 7 días incluida.",
+  "dash.comparePremiumLine": "Todos los decks, casos clínicos y guías de todas las especialidades, sin conexión, durante tu suscripción — prueba de 7 días incluida.",
   "dash.compareCta": "Ver tarifas",
   "dash.dailyGoalAria": (p) => "Objetivo diario: " + p.answered + " de " + p.goal + " preguntas",
   "dash.questionsUnit": "preguntas",

@@ -246,7 +246,7 @@ function LockedPanel({
           search={{ ...(premiumSpecialty ? { specialty: premiumSpecialty } : {}) }}
           className={buttonVariants({ size: "lg", className: "w-full" })}
         >
-          Débloquer la spécialité · 27 000 Ar
+          S’abonner · dès 5 000 Ar/mois
           <ArrowRight className="size-4" />
         </Link>
         <Link to="/demarche" className="mt-3 block text-center text-sm text-muted">

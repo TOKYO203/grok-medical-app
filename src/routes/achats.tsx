@@ -129,7 +129,7 @@ function PurchasesPage() {
             </span>
             <h2 className="mt-4 font-display text-xl font-medium">Aucune commande</h2>
             <p className="mx-auto mt-2 max-w-sm text-sm text-muted">
-              Choisissez un Deck à 3 000 Ar ou une spécialité complète à 27 000 Ar.
+              Abonnez-vous à Optimus Premium : 5 000 Ar par mois ou 12 000 Ar par trimestre.
             </p>
             <Link
               to="/pro"

@@ -55,6 +55,9 @@ function TermsPage() {
             Le prix et le statut d’une commande sont déterminés côté serveur. Aucun paiement ne doit être effectué tant
             que l’application n’affiche pas des coordonnées Mobile Money officielles configurées par le serveur. Une
             preuve transmise reste soumise à vérification avant validation et livraison du contenu Premium.
+            Les offres Premium sont des abonnements à durée (mensuel ou trimestriel) : l’accès est maintenu
+            jusqu’à la date d’expiration de la licence émise et se renouvelle par un nouveau paiement, sans
+            reconduction automatique.
           </p>
         </section>
 

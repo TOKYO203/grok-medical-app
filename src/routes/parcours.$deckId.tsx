@@ -175,7 +175,7 @@ function DeckPage() {
                   Essayer l’aperçu
                 </Link>
                 <Link to="/pro" className={buttonVariants({ variant: "secondary", className: "w-full" })}>
-                  Voir les offres · dès 3 000 Ar
+                  Voir les abonnements · dès 5 000 Ar/mois
                 </Link>
               </div>
             </div>

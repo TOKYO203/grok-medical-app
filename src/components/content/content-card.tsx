@@ -4,7 +4,7 @@ import { DeckIcon } from "@/components/deck-icon";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { KIND_META, LEVEL_LABEL, type ContentItem, type ContentLink } from "@/lib/library/content-index";
-import { detectPreferredCurrency, formatPrice, PRICES_MGA } from "@/content/pricing";
+import { detectPreferredCurrency, formatPrice, SUBSCRIPTIONS_MGA } from "@/content/pricing";
 
 const TONE: Record<string, string> = {
   primary: "bg-primary-soft text-primary",
@@ -128,7 +128,7 @@ export function ContentCard({
             ) : null}
             {item.locked && item.kind === "deck" ? (
               <span className="optimus-type-badge bg-primary-soft text-primary">
-                {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
+                {formatPrice(SUBSCRIPTIONS_MGA.monthly, detectPreferredCurrency())}/mois
               </span>
             ) : null}
             {isNew && !item.locked ? (
