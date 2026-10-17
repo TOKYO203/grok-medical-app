@@ -10,6 +10,7 @@ const FOUNDER = "FETRA Mandresy Onja Andrianantenaina";
 const EMAIL = "fondationoptimus@gmail.com";
 const WHATSAPP = "261341995741";
 const GITHUB = "https://github.com/TOKYO203";
+const DEDICATION = "🌸 À Annya — mon pourquoi. 🌸";
 
 function AboutPage() {
   return (
@@ -143,6 +144,10 @@ function AboutPage() {
               Validation clinique
             </Link>
           </div>
+        </div>
+
+        <div className="mt-6 rounded-[var(--radius-lg)] bg-card/50 p-4 text-center shadow-[var(--shadow-border)]">
+          <p className="text-sm italic leading-relaxed text-fg">{DEDICATION}</p>
         </div>
 
         <p className="mt-8 text-center text-[11px] text-subtle">
