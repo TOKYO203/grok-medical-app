@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, X } from "lucide-react";
-import { CLINICAL_CASES, DIAGNOSTIC_CASES, BUILTIN_DECKS } from "@/content/catalog";
 import { BADGE_CATALOG } from "@/content/badges";
 import { EXPLORE_GROUPS, NAV } from "@/lib/navigation";
 import { useI18n } from "@/i18n";
@@ -70,8 +69,24 @@ const NAV_PAGES: PaletteItem[] = [...NAV, ...EXPLORE_GROUPS.flatMap((group) => [
     keywords: PAGE_KEYWORDS[item.to] ?? "",
   }));
 
-function buildIndex(): PaletteItem[] {
-  const cases: PaletteItem[] = CLINICAL_CASES.map((c) => ({
+/* Items de badges — statiques : @/content/badges est léger. */
+const BADGES: PaletteItem[] = BADGE_CATALOG.map((b) => ({
+  id: "badge-" + b.id,
+  kind: "badge",
+  title: b.title,
+  subtitle: b.detail,
+  keywords: "badge achievement " + b.detail,
+  to: "/profil",
+}));
+
+/*
+ * Items de contenu (cas, démarches, decks) : bâtis depuis le catalogue
+ * médical, chargé par import DYNAMIQUE à l'ouverture (G51). Cette palette
+ * est évaluée en eager par le Shell : un import statique ramènerait les
+ * trois JSON cliniques dans le chunk partagé initial.
+ */
+function buildContentItems(catalog: typeof import("@/content/catalog")): PaletteItem[] {
+  const cases: PaletteItem[] = catalog.CLINICAL_CASES.map((c) => ({
     id: "case-" + c.id,
     kind: "case",
     title: c.title,
@@ -80,7 +95,7 @@ function buildIndex(): PaletteItem[] {
     to: "/cas/" + c.id,
   }));
 
-  const diagnostics: PaletteItem[] = DIAGNOSTIC_CASES.map((d) => ({
+  const diagnostics: PaletteItem[] = catalog.DIAGNOSTIC_CASES.map((d) => ({
     id: "dx-" + d.id,
     kind: "diagnostic",
     title: (d as { title?: string }).title ?? d.id,
@@ -89,7 +104,7 @@ function buildIndex(): PaletteItem[] {
     to: "/demarche/" + d.id,
   }));
 
-  const decks: PaletteItem[] = BUILTIN_DECKS.map((d) => ({
+  const decks: PaletteItem[] = catalog.BUILTIN_DECKS.map((d) => ({
     id: "deck-" + d.id,
     kind: "deck",
     title: d.title ?? d.id,
@@ -98,16 +113,7 @@ function buildIndex(): PaletteItem[] {
     to: "/parcours/" + d.id,
   }));
 
-  const badges: PaletteItem[] = BADGE_CATALOG.map((b) => ({
-    id: "badge-" + b.id,
-    kind: "badge",
-    title: b.title,
-    subtitle: b.detail,
-    keywords: "badge achievement " + b.detail,
-    to: "/profil",
-  }));
-
-  return [...NAV_PAGES, ...EXTRA_PAGES, ...cases, ...diagnostics, ...decks, ...badges];
+  return [...cases, ...diagnostics, ...decks];
 }
 
 function score(item: PaletteItem, q: string): number {
@@ -174,7 +180,29 @@ export function CommandPalette({ open: openProp, onClose }: { open: boolean; onC
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const index = useMemo(buildIndex, []);
+  const [contentItems, setContentItems] = useState<PaletteItem[] | null>(null);
+
+  // G51 : le catalogue médical ne se charge qu'à la première ouverture de la
+  // palette — jamais au premier rendu de la page.
+  useEffect(() => {
+    if (!open || contentItems) return;
+    let cancelled = false;
+    void import("@/content/catalog")
+      .then((catalog) => {
+        if (!cancelled) setContentItems(buildContentItems(catalog));
+      })
+      .catch(() => {
+        /* contenu de recherche indisponible : la palette reste utilisable sur les pages. */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, contentItems]);
+
+  const index = useMemo(
+    () => [...NAV_PAGES, ...EXTRA_PAGES, ...(contentItems ?? []), ...BADGES],
+    [contentItems],
+  );
 
   // Les pages portent une clé i18n : leur titre est résolu dans la langue active.
   const localized = useMemo(
