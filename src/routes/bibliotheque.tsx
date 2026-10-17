@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, SearchX, SlidersHorizontal, X } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
+import { DeckSeriesCard, type DeckSeriesStepView } from "@/components/content/deck-series-card";
 import { EmptyState } from "@/components/empty-state";
 import { SpecialtyGroupHeader } from "@/components/content/specialty-group-header";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
@@ -22,7 +23,14 @@ import {
   resolveSpecialty,
   specialtyFacets,
   specialtySlug,
+  DECK_ID_PREFIX,
 } from "@/lib/library/specialty-helpers";
+import {
+  buildDeckSeriesIndex,
+  type DeckSeries,
+  type DeckSeriesStep,
+} from "@/lib/library/deck-series";
+import { listCurricula } from "@/content/curriculum";
 import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { BUILTIN_DECKS } from "@/content/catalog";
 import { useAllDecks, useOptimus } from "@/state/store";
@@ -107,6 +115,32 @@ function BibliothequePage() {
 
   /** Résultats regroupés par spécialité résolue (en-têtes collants, pattern /cas). */
   const groups = useMemo(() => groupBySpecialty(filtered, profile), [filtered, profile]);
+
+  /**
+   * Index des séries (branches du curriculum portant ≥ 2 decks) : il permet de
+   * rendre les 5 strates d'une pathologie par UNE carte au lieu de cinq.
+   * Construit depuis les curricula — la taxonomie reste dans une seule source.
+   */
+  const seriesIndex = useMemo(() => {
+    const titles = new Map(decks.map((deck) => [deck.id, deck.title]));
+    return buildDeckSeriesIndex(listCurricula(), titles);
+  }, [decks]);
+
+  /**
+   * Unités d'affichage par spécialité : `item` (une carte) ou `series`
+   * (un escalier). Le compteur de résultats doit compter des **unités**,
+   * sinon on annonce 12 résultats pour 8 cartes affichées.
+   */
+  const groupedUnits = useMemo(
+    () =>
+      groups.map((group) => ({
+        specialty: group.specialty,
+        items: group.items,
+        units: buildSeriesUnits(group.items, seriesIndex),
+      })),
+    [groups, seriesIndex],
+  );
+  const unitCount = groupedUnits.reduce((sum, group) => sum + group.units.length, 0);
 
   function reset() {
     setKinds([]);
@@ -268,12 +302,12 @@ function BibliothequePage() {
           <SectionTitle
             kicker={
               activeFilters || normalized
-                ? `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}`
+                ? `${unitCount} résultat${unitCount > 1 ? "s" : ""}`
                 : "Explorer"
             }
             title={activeFilters || normalized ? "Résultats filtrés" : "Tout le contenu"}
           />
-          {groups.length === 0 ? (
+          {groupedUnits.length === 0 ? (
             <EmptyState
               icon={SearchX}
               title="Aucun contenu ne correspond à ces critères"
@@ -294,7 +328,7 @@ function BibliothequePage() {
              * `gap-12 md:gap-16` = la respiration verticale entre spécialités.
              */
             <div className="flex flex-col gap-12 md:gap-16">
-              {groups.map((group) => (
+              {groupedUnits.map((group) => (
                 <section
                   key={group.specialty}
                   id={specialtySlug(group.specialty, "bib")}
@@ -320,17 +354,29 @@ function BibliothequePage() {
                     className="sticky top-14 z-10 -mx-5 px-5 md:-mx-10 md:top-2 md:px-10"
                   />
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                    {group.items.map((item) => (
-                      <ContentCard
-                        key={item.id}
-                        item={item}
-                        progress={progressById.get(item.id)}
-                        className="scroll-mt-32 md:scroll-mt-24"
-                        showSpecialty={false}
-                        premium
-                        isNew={isNewContent(item)}
-                      />
-                    ))}
+                    {group.units.map((unit) =>
+                      unit.kind === "series" ? (
+                        <DeckSeriesCard
+                          key={unit.series.id}
+                          series={unit.series}
+                          steps={unit.steps}
+                          hiddenCount={unit.series.steps.length - unit.steps.length}
+                          progressById={progressById}
+                          isNew={isNewContent}
+                          className="scroll-mt-32 md:scroll-mt-24"
+                        />
+                      ) : (
+                        <ContentCard
+                          key={unit.item.id}
+                          item={unit.item}
+                          progress={progressById.get(unit.item.id)}
+                          className="scroll-mt-32 md:scroll-mt-24"
+                          showSpecialty={false}
+                          premium
+                          isNew={isNewContent(unit.item)}
+                        />
+                      ),
+                    )}
                   </div>
                 </section>
               ))}
@@ -340,6 +386,47 @@ function BibliothequePage() {
       </Page>
     </Shell>
   );
+}
+
+type SeriesUnit = { kind: "series"; series: DeckSeries; steps: DeckSeriesStepView[] };
+type ItemUnit = { kind: "item"; item: ContentItem };
+type RenderUnit = SeriesUnit | ItemUnit;
+
+/**
+ * Regroupe une liste plate d'items en unités d'affichage.
+ *
+ * Les decks appartenant à une série (`cardio-sca-l2` … `cardio-sca-int`) sont
+ * repliés dans **une** unité `series` ; tout le reste (cas, démarches, outils,
+ * decks isolés comme « Anatomie ») reste une carte simple.
+ *
+ * L'ordre d'apparition est conservé : la première marche rencontrée crée
+ * l'unité, à sa place dans la grille.
+ */
+function buildSeriesUnits(
+  items: ContentItem[],
+  index: ReadonlyMap<string, { series: DeckSeries; step: DeckSeriesStep }>,
+): RenderUnit[] {
+  const units: RenderUnit[] = [];
+  const openSeries = new Map<string, SeriesUnit>();
+
+  for (const item of items) {
+    if (item.kind === "deck") {
+      const entry = index.get(item.id.slice(DECK_ID_PREFIX.length));
+      if (entry) {
+        let unit = openSeries.get(entry.series.id);
+        if (!unit) {
+          unit = { kind: "series", series: entry.series, steps: [] };
+          openSeries.set(entry.series.id, unit);
+          units.push(unit);
+        }
+        unit.steps.push({ step: entry.step, item });
+        continue;
+      }
+    }
+    units.push({ kind: "item", item });
+  }
+
+  return units;
 }
 
 function Stat({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
