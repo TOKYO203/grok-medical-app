@@ -39,7 +39,10 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Relevé 1824 → 1832 KiB avec les animations mindmap (c76c694 + 847343f) :
   // 50 lignes CSS mortes et 12 clés i18n orphelines déjà purgées avant relevé.
   // Marge : ~1,8 KiB (mesuré 1830,2 KiB côté CI).
-  maxTotalJavascriptBytes: 1832 * 1024,
+  // Relevé 1832 → 1864 KiB (Session 13 « examen blanc » : la page /examen
+  // embarque minuteur et rapport d’épreuve, ≈ +10 KiB sur son chunk ; le
+  // total exact reste rapporté par ce garde-fou à chaque build).
+  maxTotalJavascriptBytes: 1864 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

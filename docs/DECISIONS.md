@@ -165,10 +165,20 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-17 | — | Budget de performance : feuille de style **104 437 octets** pour un plafond de 106 496 (marge ~2 Kio). Les animations sont conservées telles quelles | Les 4,3 Kio ajoutés SONT la fonctionnalité demandée (aucune dérive) ; la marge est faible mais le plafond est un garde-fou, pas une cible — le documenter vaut mieux que de sacrifier l'effet | Vibe |
 
 
+## 2026-10-16 — Session 13 : examen blanc chronométré (E44)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-16 | E44 | Examen blanc réellement chronométré : minuteur dégressif de dix minutes (12 questions, ~50 s par question) affiché pendant l'épreuve (barre « Temps restant », alerte `text-warn` sous 3 min puis `text-danger` sous 1 min, `role="timer"` silencieux pour les lecteurs d'écran) ; l'expiration du temps termine l'épreuve automatiquement, les questions non traitées comptant comme fausses | Item E44 du Top 10 : la page `/examen` annonçait « une épreuve chronométrée » et « ~10 minutes » sans aucun minuteur — l'écran décrivait une contrainte de temps qui n'existait pas | Vibe |
+| 2026-10-16 | E44 | Rapport de fin d'épreuve dédié (`ExamResults`) : score X/N avec pourcentage et seuil de réussite 70 % (aligné sur la barre « clear » des sessions), temps utilisé, questions traitées, XP gagnés pendant l'épreuve, verdict (réussie / terminée / temps écoulé) et actions « Refaire une épreuve » / « Retour à l'accueil » | Sans rapport, le résumé éphémère du lecteur de quiz était la seule trace de performance et le bouton ramenait directement à l'accueil ; une épreuve doit se terminer par une mesure lisible des acquis | Vibe |
+| 2026-10-16 | E44 | Contrainte de temps portée par la page, pas par le lecteur : suivi des réponses côté page (`answersRef` : traitées, correctes, XP), épreuve en trois phases (idle/running/results), tirage régénéré à chaque « Refaire une épreuve », démarrage bloqué sans deck débloqué (message + lien bibliothèque) ; `QuizPlayer` et `recordAnswer` (mode `exam`) inchangés | Le lecteur de quiz est un module partagé par les parcours, démarches et révisions : lui ajouter un minuteur casserait le contrat des autres écrans ; l'expiration démonte simplement le lecteur depuis la page | Vibe |
+| 2026-10-16 | — | Budget de performance relevé 1832 → 1864 KiB pour la Session 13 (page /examen chronométrée : minuteur et rapport d’épreuve, ≈ +10 KiB sur le chunk de la route) — recalculé par-dessus le relevé 1832 KiB du pilote « Douleur thoracique » déjà fusionné sur main | Suivre le précédent documenté du garde-fou : relevé par chantier en gardant une marge volontairement faible ; le rapport JSON de performance-budget.mjs reste la source de vérité du total mesuré | Vibe |
+
 ## Sessions terminées
 
 - 2026-10-17 · **Carte mentale « animée » (pilote « Douleur thoracique », passe 3)** — caméra animée par transition CSS (zoom/pan sans re-render ni re-layout, direct pendant un geste), vague d'entrée échelonnée par topologie, arêtes qui se dessinent, flux sur les arêtes du nœud choisi, halo respirant des nœuds critiques, onde de sélection, fondu du panneau de détail ; 2 bugs corrigés (nœud inerte après un glissement, boîte de nœud faussée par `sr-only`) ; i18n et contenu inchangés ; QA CDP dev+prod verte avec preuve de pixels.
 
+- 2026-10-16 · **Session 13 (E44, examen blanc chronométré)** — minuteur dégressif de dix minutes avec expiration automatique (questions non traitées comptées fausses), rapport de fin d'épreuve (score, seuil 70 %, temps, XP gagnés), « Refaire une épreuve » ; lecteur de quiz et `recordAnswer` inchangés.
 - 2026-10-16 · **Session 12 (tests moteur ECG, G52)** — verrous morphologiques (`deformation.test.ts`), verrous du générateur par lecture de source (`waveform.test.ts` : import sans extension non résolu par strip-types), cohérence des 23 fiches avec le moteur (`ecg-fiches.test.ts` : familles flutter/FA/torsades/TV + spot checks BAV I/II, hyperkaliémie, IDM antérieur, péricardite) ; moteur et fiches inchangés.
 
 ## 2026-10-16 — Démarche enrichie : pilote « Douleur thoracique »
