@@ -1,4 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { CheckCircle2 } from "lucide-react";
+import { EmptyState } from "@/components/empty-state";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
 import { Page, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
@@ -60,12 +62,17 @@ function RevuePage() {
           Les cartes fragiles reviennent vite, les consolidées plus tard. Fonctionne sans Internet.
         </p>
         {items.length === 0 ? (
-          <div className="mt-10 rounded-[var(--radius-xl)] bg-card p-6 shadow-[var(--shadow-border)]">
-            <p className="text-sm text-muted">Rien à réviser pour l’instant. Avancez un deck, les échéances suivront.</p>
-            <Link to="/parcours" className={buttonVariants({ className: "mt-4" })}>
-              Ouvrir le parcours
-            </Link>
-          </div>
+          <EmptyState
+            className="mt-10"
+            icon={CheckCircle2}
+            title="Rien à réviser pour l’instant"
+            description="Vos cartes fragiles reviendront à leur échéance. Avancez un deck, les prochaines sessions suivront."
+            action={
+              <Link to="/parcours" className={buttonVariants({})}>
+                Ouvrir le parcours
+              </Link>
+            }
+          />
         ) : (
           <div className="mt-6">
             <QuizPlayer

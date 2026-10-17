@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {ArrowRight, Check, Flame, X, Lightbulb } from "lucide-react";
+import {ArrowRight, Check, Flame, Maximize2, Minimize2, X, Lightbulb } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -19,6 +19,55 @@ export type QuizItem = {
 };
 
 const QUESTION_ARM_DELAY_MS = 500;
+
+const FOCUS_MODE_STORAGE_KEY = "optimus.focusMode";
+
+/*
+ * D33 — mode focus (Session 16) : masque l'en-tête mobile et la barre de
+ * navigation le temps de la session de quiz. Le choix est mémorisé dans
+ * localStorage et réappliqué à la prochaine session ; l'attribut sur <html>
+ * est retiré au démontage pour ne pas fuiter sur les autres pages.
+ */
+function useFocusMode() {
+  const [focus, setFocus] = useState(false);
+
+  useEffect(() => {
+    let stored = false;
+    try {
+      stored = window.localStorage.getItem(FOCUS_MODE_STORAGE_KEY) === "on";
+    } catch {
+      /* stockage indisponible — mode focus non mémorisé */
+    }
+    if (stored) {
+      setFocus(true);
+      if (typeof document !== "undefined") {
+        document.documentElement.dataset.optimusFocus = "on";
+      }
+    }
+    return () => {
+      if (typeof document !== "undefined") {
+        delete document.documentElement.dataset.optimusFocus;
+      }
+    };
+  }, []);
+
+  const toggle = () => {
+    setFocus((prev) => {
+      const next = !prev;
+      if (typeof document !== "undefined") {
+        document.documentElement.dataset.optimusFocus = next ? "on" : "off";
+      }
+      try {
+        window.localStorage.setItem(FOCUS_MODE_STORAGE_KEY, next ? "on" : "off");
+      } catch {
+        /* stockage indisponible — le mode reste actif pour cette session */
+      }
+      return next;
+    });
+  };
+
+  return { focus, toggle };
+}
 
 export function QuizPlayer({
   items,
@@ -45,6 +94,7 @@ export function QuizPlayer({
   const studyStartedAt = useRef(Date.now());
   const { preferences } = useExperiencePreferences();
   const { t } = useI18n();
+  const focusMode = useFocusMode();
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
   const order = useMemo(() => {
@@ -133,7 +183,7 @@ export function QuizPlayer({
   }
 
   return (
-    <div className="mx-auto w-full max-w-lg">
+    <div className={cn("mx-auto w-full", focusMode.focus ? "max-w-xl" : "max-w-lg")}>
       <div className="mb-5 flex items-center gap-3">
         <Progress value={((index + (revealed ? 1 : 0)) / sessionItems.length) * 100} />
         {combo >= 2 ? (
@@ -151,13 +201,35 @@ export function QuizPlayer({
         <span className="shrink-0 font-mono text-xs tabular-nums text-muted">
           {index + 1}/{sessionItems.length}
         </span>
+        <button
+          type="button"
+          onClick={focusMode.toggle}
+          aria-pressed={focusMode.focus}
+          aria-label={focusMode.focus ? t("quiz.exitFocus") : t("quiz.focus")}
+          title={focusMode.focus ? t("quiz.exitFocus") : t("quiz.focus")}
+          className={cn(
+            "flex size-9 shrink-0 items-center justify-center rounded-[var(--radius-md)] text-muted transition-colors active:scale-95",
+            focusMode.focus && "bg-primary-soft text-primary",
+          )}
+        >
+          {focusMode.focus ? (
+            <Minimize2 className="size-4" aria-hidden />
+          ) : (
+            <Maximize2 className="size-4" aria-hidden />
+          )}
+        </button>
       </div>
       {item.deckTitle ? (
         <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
           {item.deckTitle}
         </p>
       ) : null}
-      <h2 className="font-display text-2xl font-medium leading-snug tracking-tight text-fg">
+      <h2
+        className={cn(
+          "font-display text-2xl font-medium leading-snug tracking-tight text-fg",
+          focusMode.focus && "text-3xl",
+        )}
+      >
         {q.prompt}
       </h2>
       <ul className="mt-6 space-y-2">

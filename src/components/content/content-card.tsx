@@ -70,12 +70,15 @@ export function ContentCard({
   showSpecialty = true,
   /** Habillage « bibliothèque » : filet doré + halo accent au survol. */
   premium = false,
+  /** Badge « Nouveau » : contenu débloqué jamais exploré par ce profil (D38). */
+  isNew = false,
 }: {
   item: ContentItem;
   progress?: number;
   className?: string;
   showSpecialty?: boolean;
   premium?: boolean;
+  isNew?: boolean;
 }) {
   const meta = KIND_META[item.kind];
   const showProgress = typeof progress === "number" && progress > 0;
@@ -127,6 +130,9 @@ export function ContentCard({
               <span className="optimus-type-badge bg-primary-soft text-primary">
                 {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
               </span>
+            ) : null}
+            {isNew && !item.locked ? (
+              <span className="optimus-type-badge bg-warn/15 text-warn">Nouveau</span>
             ) : null}
           </div>
           <h3 className="mt-2 truncate font-display text-lg font-medium tracking-tight text-fg">

@@ -246,3 +246,13 @@ test("les utilitaires de locale exposent le contrat des quatre langues", () => {
   assert.equal(localeDir("es"), "ltr");
   assert.equal(localeDir("pt"), "ltr");
 });
+
+test("mode focus du lecteur de quiz (D33 — Session 16)", () => {
+  // Les 4 catalogues doivent porter les clés du mode focus.
+  assert.equal(translate("fr", "quiz.focus", {}, catalogs), "Mode focus");
+  assert.equal(translate("en", "quiz.focus", {}, catalogs), "Focus mode");
+  assert.equal(translate("es", "quiz.focus", {}, catalogs), "Modo de concentración");
+  assert.equal(translate("pt", "quiz.focus", {}, catalogs), "Modo de foco");
+  assert.equal(translate("fr", "quiz.exitFocus", {}, catalogs), "Quitter le mode focus");
+  assert.equal(translate("en", "quiz.exitFocus", {}, catalogs), "Exit focus mode");
+});

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ClipboardCheck, Lock, RotateCcw, Sparkles, Timer, Trophy } from "lucide-react";
+import { BookOpen, ClipboardCheck, Lock, RotateCcw, Sparkles, Timer, Trophy } from "lucide-react";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
+import { EmptyState } from "@/components/empty-state";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
@@ -179,13 +180,17 @@ function ExamPage() {
             </section>
 
             {noContent ? (
-              <p className="mt-6 text-xs leading-relaxed text-muted">
-                Aucun deck débloqué pour l’instant :{" "}
-                <Link to="/bibliotheque" className="font-medium underline underline-offset-2">
-                  ouvrez la bibliothèque
-                </Link>{" "}
-                pour commencer à réviser, puis revenez passer l’épreuve.
-              </p>
+              <EmptyState
+                className="mt-6"
+                icon={BookOpen}
+                title="Aucun deck débloqué pour l’instant"
+                description="Ouvrez la bibliothèque pour commencer à réviser, puis revenez passer l’épreuve."
+                action={
+                  <Link to="/bibliotheque" className={buttonVariants({})}>
+                    Ouvrir la bibliothèque
+                  </Link>
+                }
+              />
             ) : (
               <p className="mt-6 text-xs leading-relaxed text-muted">
                 Astuce : pour travailler une faiblesse précise, ouvrez la bibliothèque et filtrez

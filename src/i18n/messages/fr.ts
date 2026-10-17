@@ -38,6 +38,9 @@ export const fr: MessageCatalog = {
   "quiz.why": "Pourquoi",
   "quiz.next": "Question suivante",
   "quiz.results": "Voir mes résultats",
+  // Session 16 — mode focus du lecteur de quiz (D33).
+  "quiz.focus": "Mode focus",
+  "quiz.exitFocus": "Quitter le mode focus",
   "onb.skip": "Passer",
   "onb.step": (p) => "Étape " + p.current + " sur " + p.total,
   "onb.welcomeTitle": "Bienvenue sur Optimus.",

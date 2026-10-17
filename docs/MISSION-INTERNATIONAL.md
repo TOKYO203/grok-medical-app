@@ -1,4 +1,4 @@
-# Mission International — Optimus
+successfully downloaded text file (SHA: b88678e8916a49ac3903a27cb42daa05c8cb52d5)# Mission International — Optimus
 
 Chantier de mise à niveau vers un standard éditeur médical international.
 
@@ -69,16 +69,16 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - C28 Unités standardisées — ✅ livré (PR #50)
 
 ### D — UX mobile (10)
-- D29 Refondre "Profil local" + sync
-- D30 Unifier avatar
-- D31 Recherche globale
-- D32 Swipe-back natif
-- D33 Mode focus
-- D34 "Reprendre où vous étiez"
-- D35 Pull-to-refresh
-- D36 Simplifier filtres programme
-- D37 Empty states engageants
-- D38 Badges "Nouveau"
+- D29 Refondre "Profil local" + sync — ✅ livré (Session 16)
+- D30 Unifier avatar — ✅ livré (Session 16)
+- D31 Recherche globale — ✅ livré (Session 10)
+- D32 Swipe-back natif — ✅ livré (Session 10)
+- D33 Mode focus — ✅ livré (Session 16)
+- D34 "Reprendre où vous étiez" — ✅ livré (Session 10)
+- D35 Pull-to-refresh — ✅ livré (Session 10)
+- D36 Simplifier filtres programme — ✅ livré (Session 10)
+- D37 Empty states engageants — ✅ livré (Session 16)
+- D38 Badges "Nouveau" — ✅ livré (Session 16)
 
 ### E — Contenu et pédagogie (7)
 - E39 Compléter 240 items

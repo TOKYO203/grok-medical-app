@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SearchX, SlidersHorizontal, X } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
+import { EmptyState } from "@/components/empty-state";
 import { SpecialtyGroupHeader } from "@/components/content/specialty-group-header";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
@@ -12,6 +13,7 @@ import {
   KIND_META,
   LEVEL_LABEL,
   uniqueSorted,
+  type ContentItem,
   type ContentKind,
   type ContentLevel,
 } from "@/lib/library/content-index";
@@ -41,6 +43,8 @@ function BibliothequePage() {
   const tier = useOptimus((s) => s.profile.tier);
   const progress = useOptimus((s) => s.progress);
   const profile = useOptimus((s) => s.profile);
+  const casesCompleted = useOptimus((s) => s.casesCompleted);
+  const diagnosticsCompleted = useOptimus((s) => s.diagnosticsCompleted);
 
   const [query, setQuery] = useState("");
   const [kinds, setKinds] = useState<ContentKind[]>([]);
@@ -115,6 +119,22 @@ function BibliothequePage() {
 
   function toggleKind(kind: ContentKind) {
     setKinds((prev) => (prev.includes(kind) ? prev.filter((k) => k !== kind) : [...prev, kind]));
+  }
+
+  /*
+   * D38 — badge « Nouveau » : contenu débloqué jamais exploré par ce
+   * profil. Le catalogue médical est gelé (aucune date d'ajout disponible),
+   * la nouveauté se lit donc du point de vue de l'utilisateur : un deck sans
+   * progression, un cas ou une démarche jamais terminée. Le Parcours
+   * expose déjà le même signal via sa pilule DeckStatus.
+   */
+  function isNewContent(item: ContentItem): boolean {
+    if (item.locked) return false;
+    if (item.kind === "deck") return !progressById.has(item.id);
+    const rawId = item.id.split(":")[1] ?? item.id;
+    if (item.kind === "case") return !casesCompleted.includes(rawId);
+    if (item.kind === "diagnostic") return !diagnosticsCompleted.includes(rawId);
+    return false;
   }
 
   return (
@@ -254,16 +274,20 @@ function BibliothequePage() {
             title={activeFilters || normalized ? "Résultats filtrés" : "Tout le contenu"}
           />
           {groups.length === 0 ? (
-            <div className="optimus-card p-8 text-center">
-              <p className="text-sm text-muted">Aucun contenu ne correspond à ces critères.</p>
-              <button
-                type="button"
-                onClick={reset}
-                className="mt-3 text-sm font-medium text-primary hover:underline"
-              >
-                Réinitialiser la recherche
-              </button>
-            </div>
+            <EmptyState
+              icon={SearchX}
+              title="Aucun contenu ne correspond à ces critères"
+              description="Essayez un autre mot-clé ou élargissez les filtres pour retrouver le catalogue complet."
+              action={
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="text-sm font-medium text-primary hover:underline"
+                >
+                  Réinitialiser la recherche
+                </button>
+              }
+            />
           ) : (
             /*
              * Groupes de spécialité : en-tête éditorial collant + grille de cartes.
@@ -304,6 +328,7 @@ function BibliothequePage() {
                         className="scroll-mt-32 md:scroll-mt-24"
                         showSpecialty={false}
                         premium
+                        isNew={isNewContent(item)}
                       />
                     ))}
                   </div>
