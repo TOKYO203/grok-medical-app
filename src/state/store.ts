@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
-import { BUILTIN_DECKS } from "@/content/catalog";
 import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
 import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
 import {
@@ -40,6 +39,7 @@ import {
   replaceImportedDecks,
 } from "@/lib/imported-deck-storage";
 import { todayKey, uid } from "@/lib/utils";
+import { getBuiltinDecks } from "@/state/builtin-decks";
 import {
   migrateOptimusPersistedState,
   OPTIMUS_PERSIST_VERSION,
@@ -162,7 +162,7 @@ function unlockBadges(state: PersistShape): BadgeId[] {
   );
   if (answered >= 100) add("q100");
   if (state.casesCompleted.length >= 1) add("firstCase");
-  const cardio = BUILTIN_DECKS.find((d) => d.id === "cardio");
+  const cardio = getBuiltinDecks().find((d) => d.id === "cardio");
   if (cardio) {
     const seen = state.progress.cardio?.seen ?? {};
     const qs = cardio.questions.filter((q) => seen[q.id]);
@@ -751,8 +751,9 @@ function pickPersist(s: PersistShape): PersistShape {
 
 export function useAllDecks(): Deck[] {
   const imported = useOptimus((s) => s.importedDecks);
-  const ids = new Set(BUILTIN_DECKS.map((d) => d.id));
-  return [...BUILTIN_DECKS, ...imported.filter((d) => !ids.has(d.id))];
+  const builtin = getBuiltinDecks();
+  const ids = new Set(builtin.map((d) => d.id));
+  return [...builtin, ...imported.filter((d) => !ids.has(d.id))];
 }
 
 export function hasAccess(deck: Deck, entitlements: Entitlement[], _tier: AccountTier): boolean {

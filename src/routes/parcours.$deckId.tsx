@@ -16,12 +16,17 @@ import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { YEARS } from "@/content/catalog";
+import { BUILTIN_DECKS, YEARS } from "@/content/catalog";
 import { DECK_MEDICAL_REVIEW, REVIEW_STATUS_LABEL } from "@/content/deck-review-status";
 import { LESSONS } from "@/core/quiz-engine";
 import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
 import { COMPETENCY_LABEL } from "@/core/types";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/parcours/$deckId")({ component: DeckPage });
 

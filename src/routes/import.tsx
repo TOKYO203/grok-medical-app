@@ -9,9 +9,15 @@ import {
 } from "@/content/device-encryption";
 import { importDeckJson, type ImportStep } from "@/content/validator";
 import { MAX_IMPORTED_DECK_BYTES } from "@/lib/imported-deck-storage";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/import")({ component: ImportPage });
 

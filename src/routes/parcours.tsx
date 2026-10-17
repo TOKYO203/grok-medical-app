@@ -8,14 +8,19 @@ import { ScrollToTopButton } from "@/components/scroll-to-top";
 import { buildContentIndex } from "@/lib/library/content-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
-import { YEARS } from "@/content/catalog";
+import { BUILTIN_DECKS, YEARS } from "@/content/catalog";
 import { detectPreferredCurrency, formatPrice, PRICES_MGA } from "@/content/pricing";
 import { deckMastery, deckProgressPct } from "@/core/mastery";
 import { STUDY_LEVEL_LABEL } from "@/core/types";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { CurriculumTree } from "@/components/curriculum-tree";
 import { listCurricula } from "@/content/curriculum";
 import type { CurriculumSpecialty, Level } from "@/core/curriculum";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/parcours")({ component: ParcoursPage });
 

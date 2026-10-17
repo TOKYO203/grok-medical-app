@@ -4,9 +4,15 @@ import { Page, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { pickTodayQuestions, questionXp } from "@/core/quiz-engine";
 import { isDue } from "@/core/spaced-repetition";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 
 type Search = { mode?: "today" | "revue" };
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/revue")({
   validateSearch: (s: Record<string, unknown>): Search => ({

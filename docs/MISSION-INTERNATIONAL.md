@@ -97,7 +97,7 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - F50 prefers-reduced-motion — ✅ livré (Session 14, consigné)
 
 ### G — Technique (3)
-- G51 Code-splitting routes
+- G51 Code-splitting routes — ✅ livré (Session 15, données médicales en chunk lazy)
 - G52 Tests moteur ECG — ✅ livré (Session 12)
 - G53 Monitoring (Sentry)
 

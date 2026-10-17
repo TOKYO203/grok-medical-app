@@ -7,7 +7,13 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { pickExamQuestions, questionXp } from "@/core/quiz-engine";
 import { cn } from "@/lib/utils";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { hasAccess, hasEntitlement, useAllDecks, useOptimus } from "@/state/store";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/examen")({ component: ExamPage });
 

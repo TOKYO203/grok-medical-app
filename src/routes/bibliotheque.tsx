@@ -21,8 +21,14 @@ import {
   specialtyFacets,
   specialtySlug,
 } from "@/lib/library/specialty-helpers";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { useAllDecks, useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/bibliotheque")({ component: BibliothequePage });
 

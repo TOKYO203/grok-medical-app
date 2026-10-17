@@ -11,7 +11,7 @@ import { Page, SectionTitle, Shell } from "@/components/shell";
 import { ResumeWhereCard } from "@/components/resume-where-card";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
-import { CLINICAL_CASES } from "@/content/catalog";
+import { BUILTIN_DECKS, CLINICAL_CASES } from "@/content/catalog";
 import { COMPETENCIES, COMPETENCY_LABEL, STUDY_LEVEL_LABEL } from "@/core/types";
 import { competencyMastery, deckProgressPct, globalMastery, masteryBand } from "@/core/mastery";
 import { pickTodayQuestions } from "@/core/quiz-engine";
@@ -19,8 +19,13 @@ import { isDue } from "@/core/spaced-repetition";
 import { levelInfo } from "@/core/scoring";
 import { buildContentIndex, caseAccessible } from "@/lib/library/content-index";
 import { useI18n } from "@/i18n";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { currentLeague, hasAccess, useAllDecks, useOptimus } from "@/state/store";
 import { formatInt } from "@/lib/utils";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/")({ component: Home });
 
