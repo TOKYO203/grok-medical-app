@@ -4,7 +4,6 @@ import {
   Award,
   BookOpen,
   Brain,
-  BriefcaseMedical,
   Camera, ImagePlus,
   ChevronRight,
   ClipboardList,
@@ -14,7 +13,6 @@ import {
   HeartPulse,
   HelpCircle,
   Info,
-  Landmark,
   Library,
   MapPin,
   Medal,
@@ -27,6 +25,7 @@ import {
   Trophy,
   type LucideIcon,
 } from "lucide-react";
+import { UserAvatar, USER_AVATARS } from "@/components/user-avatar";
 import { ExperienceControls } from "@/components/experience-controls";
 import { ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
@@ -71,15 +70,6 @@ const COVERS: {
   },
   { id: "canal", label: "Canal des Pangalanes", image: "/profile-covers/canal.jpg" },
   { id: "clinique", label: "Clinique", className: "cover-clinique" },
-];
-
-const AVATARS: { id: string; icon: LucideIcon; label: string }[] = [
-  { id: "stethoscope", icon: Stethoscope, label: "Clinique" },
-  { id: "doctor", icon: BriefcaseMedical, label: "Médecin" },
-  { id: "brain", icon: Brain, label: "Neurologie" },
-  { id: "heart", icon: HeartPulse, label: "Cardiologie" },
-  { id: "books", icon: BookOpen, label: "Études médicales" },
-  { id: "madagascar", icon: Landmark, label: "Madagascar" },
 ];
 
 const BADGE_ICONS: Record<string, LucideIcon> = {
@@ -184,7 +174,6 @@ function ProfilPage() {
       : selectedCover?.image
         ? coverImageStyle(selectedCover.image)
         : undefined;
-  const avatar = AVATARS.find((item) => item.id === profile.avatar) ?? AVATARS[0];
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const avatarSrc = avatarPreview ?? profile.avatarDataUrl ?? null;
@@ -201,7 +190,6 @@ function ProfilPage() {
     }
   }
 
-  const AvatarIcon = avatar.icon;
   const studyLabel =
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
@@ -371,11 +359,7 @@ function ProfilPage() {
             aria-label="Changer l’avatar"
             className="relative flex size-24 items-center justify-center rounded-full border-4 border-bg bg-primary-soft text-primary shadow-[var(--shadow-md)]"
           >
-            {avatarSrc ? (
-              <img src={avatarSrc} alt="Avatar" className="size-full rounded-full object-cover" />
-            ) : (
-              <AvatarIcon className="size-10" strokeWidth={1.6} />
-            )}
+            <UserAvatar photo={avatarSrc} className="size-full" />
             <span className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full border-2 border-bg bg-primary text-primary-fg">
               <Pencil className="size-3.5" />
             </span>
@@ -527,7 +511,7 @@ function ProfilPage() {
                 }}
               />
             </label>
-            {AVATARS.map((item) => {
+            {USER_AVATARS.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button

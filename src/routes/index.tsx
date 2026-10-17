@@ -7,6 +7,7 @@ import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
 import { LevelBar } from "@/components/level-bar";
 import { ContentCard } from "@/components/content/content-card";
+import { UserAvatar } from "@/components/user-avatar";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { ResumeWhereCard } from "@/components/resume-where-card";
 import { buttonVariants } from "@/components/ui/button-variants";
@@ -169,9 +170,9 @@ function Dashboard() {
         <Link
           to="/profil"
           aria-label={t("dash.openProfile")}
-          className="optimus-interactive-card flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-primary-soft font-display text-lg text-primary shadow-[var(--shadow-border)]"
+          className="optimus-interactive-card flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] shadow-[var(--shadow-border)]"
         >
-          {initials(profile.displayName)}
+          <UserAvatar className="size-full rounded-[var(--radius-md)]" iconClassName="size-6" />
         </Link>
       </header>
 
@@ -503,15 +504,6 @@ function Dashboard() {
       </div>
     </Page>
   );
-}
-
-function initials(name: string): string {
-  const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0 || name === "Nouveau") return "O";
-  return parts
-    .slice(0, 2)
-    .map((p) => p[0]?.toUpperCase() ?? "")
-    .join("");
 }
 
 function QuickAction({
