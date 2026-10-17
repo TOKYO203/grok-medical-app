@@ -151,6 +151,67 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("en", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Total study time: 3h 25min");
   assert.equal(translate("es", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Tiempo total de estudio: 3 h 25 min");
   assert.equal(translate("pt", "profil.studyTime", { hours: 3, minutes: 25 }, catalogs), "Tempo total de estudo: 3 h 25 min");
+  // Démarche enrichie (douleur thoracique) — onglets, tones et gabarits.
+  assert.equal(translate("fr", "demarche.tab.fiche", {}, catalogs), "Fiche");
+  assert.equal(translate("en", "demarche.tab.fiche", {}, catalogs), "Sheet");
+  assert.equal(translate("es", "demarche.tab.map", {}, catalogs), "Mapa mental");
+  assert.equal(translate("pt", "demarche.tab.map", {}, catalogs), "Mapa mental");
+  assert.equal(translate("fr", "demarche.tone.urgence", {}, catalogs), "Urgence");
+  assert.equal(translate("en", "demarche.tone.urgence", {}, catalogs), "Emergency");
+  assert.equal(
+    translate("fr", "demarche.cards.progress", { current: 3, total: 12 }, catalogs),
+    "Carte 3 sur 12",
+  );
+  assert.equal(
+    translate("en", "demarche.cards.progress", { current: 3, total: 12 }, catalogs),
+    "Card 3 of 12",
+  );
+  assert.equal(translate("fr", "demarche.map.reset", {}, catalogs), "Recentrer");
+  assert.equal(translate("pt", "demarche.map.reset", {}, catalogs), "Recentrar");
+  // Polish mindmap : criticité, dépliage, affordance de révélation des cartes.
+  assert.equal(translate("fr", "demarche.criticity.critique", {}, catalogs), "Critique");
+  assert.equal(translate("en", "demarche.criticity.grave", {}, catalogs), "Serious");
+  assert.equal(translate("es", "demarche.criticity.examens", {}, catalogs), "Exámenes");
+  assert.equal(translate("pt", "demarche.criticity.benin", {}, catalogs), "Benigno");
+  assert.equal(translate("fr", "demarche.map.expandAll", {}, catalogs), "Tout déplier");
+  assert.equal(
+    translate("fr", "demarche.map.expand", { label: "Bilan" }, catalogs),
+    "Déplier Bilan",
+  );
+  assert.equal(
+    translate("en", "demarche.map.expand", { label: "Bilan" }, catalogs),
+    "Expand Bilan",
+  );
+  assert.equal(
+    translate("fr", "demarche.map.children", { count: 6 }, catalogs),
+    "6 sous-branches",
+  );
+  assert.equal(translate("fr", "demarche.cards.tapToReveal", {}, catalogs), "Toucher pour révéler");
+  assert.equal(translate("en", "demarche.cards.tapToReveal", {}, catalogs), "Tap to reveal");
+  assert.equal(translate("fr", "demarche.cards.urgency", {}, catalogs), "Urgence");
+  assert.equal(translate("fr", "demarche.cards.caution", {}, catalogs), "Piège");
+  assert.equal(
+    translate("fr", "demarche.cards.xpPerCard", { xp: 5 }, catalogs),
+    "+5 XP par carte",
+  );
+});
+
+test("carte mentale : outils de lecture (recherche, isolement, plein écran, export)", () => {
+  // Les 4 catalogues doivent porter les nouvelles clés outillées.
+  assert.equal(translate("fr", "demarche.map.focus", {}, catalogs), "Isoler la branche");
+  assert.equal(translate("en", "demarche.map.focus", {}, catalogs), "Isolate branch");
+  assert.equal(translate("es", "demarche.map.overview", {}, catalogs), "Vista general");
+  assert.equal(translate("pt", "demarche.map.overview", {}, catalogs), "Vista geral");
+  assert.equal(translate("fr", "demarche.map.overview", {}, catalogs), "Vue d'ensemble");
+  assert.equal(translate("fr", "demarche.map.spotlightHint", {}, catalogs), "Double-clic : isoler une branche");
+  assert.equal(translate("en", "demarche.map.exitFullscreen", {}, catalogs), "Exit full screen");
+  assert.equal(translate("fr", "demarche.map.exportPng", {}, catalogs), "Image PNG");
+  assert.equal(translate("es", "demarche.map.noMatch", {}, catalogs), "Sin resultados");
+  assert.equal(translate("pt", "demarche.map.search", {}, catalogs), "Procurar um nó…");
+  assert.equal(translate("fr", "demarche.map.nodes", { count: 8 }, catalogs), "8 nœuds");
+  assert.equal(translate("en", "demarche.map.nodes", { count: 40 }, catalogs), "40 nodes");
+  assert.equal(translate("es", "demarche.map.nodes", { count: 2 }, catalogs), "2 nodos");
+  assert.equal(translate("pt", "demarche.map.nodes", { count: 5 }, catalogs), "5 nós");
 });
 
 test("année, ligue et niveau gardent leur formulation par langue", () => {

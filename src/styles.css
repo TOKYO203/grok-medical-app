@@ -59,6 +59,7 @@
   --color-success: var(--app-success);
   --color-warn: var(--app-warn);
   --color-danger: var(--app-danger);
+  --color-info: var(--app-info);
   --color-card: var(--app-card);
   --color-secondary: var(--app-secondary);
   --color-background: var(--app-bg);
@@ -99,6 +100,8 @@
   --app-success: #4F6B2D;
   --app-warn: #A67C1E;
   --app-danger: #8B2E1F;
+  /* #1B4B77 : bleu « examens » (criticité de la mindmap) — contraste ≥ 4.5:1 sur blanc. */
+  --app-info: #1B4B77;
   --app-card: #FFFFFF;
   --app-secondary: #F0E4CB;
 
@@ -118,12 +121,10 @@
   --app-skeleton-a: #e9f0ec;
   --app-skeleton-b: #f3f6f4;
 
+  /* Seule « Clinique » (`.cover-clinique`) garde un dégradé CSS : les trois
+     autres visuels de profil sont des images (public/profile-covers/*). */
   --cover-1-from: #dcece3;
   --cover-1-to: #c7ddd0;
-  --cover-2-from: #f0e9d8;
-  --cover-2-to: #e3d9c1;
-  --cover-3-from: #d8e6ec;
-  --cover-3-to: #c2d6de;
 }
 
 /* ---------------------------------- Thème sombre -------------------------- */
@@ -152,6 +153,7 @@ html[data-theme="dark"] {
   --app-success: #3d8f6b;
   --app-warn: #c4a35a;
   --app-danger: #cc6655;
+  --app-info: #74b0dd;
   --app-card: #161d1b;
   --app-secondary: #1e2724;
 
@@ -174,10 +176,6 @@ html[data-theme="dark"] {
 
   --cover-1-from: #1a2a22;
   --cover-1-to: #0e1612;
-  --cover-2-from: #152019;
-  --cover-2-to: #0c1110;
-  --cover-3-from: #102018;
-  --cover-3-to: #0c1110;
 }
 
 @layer base {
@@ -420,6 +418,264 @@ html[data-theme="dark"] {
     transform: translateX(4px);
     color: var(--app-accent);
   }
+
+  /* ── Carte mentale (démarche enrichie) ─────────────────────────────────────
+     Géométrie en mm… non : en unités monde. Les nœuds sont positionnés par
+     `transform` (CSS, donc animable) et les arêtes par `d` (animable aussi) ;
+     replier/déplier fait donc GLISSER toute la carte au lieu de la faire sauter. */
+  .mm-canvas {
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .mm-canvas:focus-visible {
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 3px var(--app-primary-soft);
+  }
+
+  /* Trame de points discrète : donne le « plan de travail » sans bruit visuel. */
+  .mm-dot {
+    fill: var(--app-border-strong);
+    opacity: 0.22;
+  }
+
+  /* Voile d'isolement : éteint le fond, les nœuds gardent leur propre opacité. */
+  .mm-spotlight-veil {
+    fill: var(--app-surface);
+    opacity: 0.55;
+    cursor: zoom-out;
+  }
+
+  .mm-edge {
+    transition:
+      d var(--motion-medium) var(--ease-out),
+      stroke-opacity var(--motion-quick) var(--ease-out),
+      stroke-width var(--motion-quick) var(--ease-out);
+  }
+
+  .mm-edge--active {
+    stroke-opacity: 0.95;
+    stroke-width: 2.6;
+  }
+
+  .mm-node {
+    cursor: pointer;
+    transition:
+      transform var(--motion-medium) var(--ease-out),
+      opacity var(--motion-quick) var(--ease-out);
+  }
+
+  .mm-node-card {
+    transition: stroke-width var(--motion-quick) var(--ease-out);
+  }
+
+  .mm-node:hover .mm-node-card {
+    stroke-width: 2;
+  }
+
+  .mm-node .mm-spine {
+    transition: width var(--motion-quick) var(--ease-out);
+  }
+
+  /* Recherche : les nœuds hors résultats s'estompent, les résultats s'illuminent. */
+  .mm-dim,
+  .mm-search-dim {
+    opacity: 0.26;
+  }
+
+  .mm-match {
+    filter: drop-shadow(0 0 7px color-mix(in oklab, var(--app-accent) 70%, transparent));
+  }
+
+  .mm-match .mm-node-card {
+    stroke-width: 2;
+  }
+
+  .mm-ring {
+    animation: mm-ring-pulse 2.6s var(--ease-out) infinite;
+  }
+  /* ── Caméra ────────────────────────────────────────────────────────────────
+     Le `viewBox` du <svg> reste celui de la carte (« fit ») ; le zoom et le
+     déplacement sont portés par un <g> dont le `transform` est interpolé par le
+     NAVIGATEUR. Conséquence : un zoom vers une branche glisse au lieu de sauter,
+     sans un seul re-render React par image. Pendant un glissement au doigt le
+     conteneur passe `data-mm-camera="instant"` : la transition est coupée pour
+     que la carte suive exactement le doigt (sinon elle « traîne »). */
+  .mm-camera {
+    transform-box: view-box;
+    transform-origin: center;
+    transition: transform 420ms var(--ease-out);
+  }
+
+  .mm-surface[data-mm-camera="instant"] .mm-camera {
+    transition: none;
+  }
+
+  /* ── Entrée des nœuds ─────────────────────────────────────────────────────
+     L'animation rejoue à CHAQUE montage d'un nœud : première ouverture de la
+     carte, dépliage d'une branche, ou résultats de recherche. Le délai
+     `--mm-delay` (posé en ligne, échelonné par profondeur) crée une vague
+     radiale du cœur vers l'extérieur. Le remplissage est `backwards` et non
+     `both` : une fois l'entrée terminée, le survol reprend la main sur
+     `transform` (un remplissage `both` l'en empêcherait pour toujours). */
+  .mm-node-inner {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform var(--motion-quick) var(--ease-out);
+  }
+
+  .mm-node:hover .mm-node-inner,
+  .mm-node:focus-visible .mm-node-inner {
+    transform: scale(1.05);
+  }
+
+  /* Arête du nœud sélectionné : un flux lumineux qui « circule » vers l'enfant.
+     Calque indépendant (pathLength=1 → tirets normalisés, insensibles à la
+     longueur réelle) pour ne pas perturber la transition `d` de l'arête. */
+  .mm-edge-flow {
+    fill: none;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-dasharray: 0.05 0.15;
+    pointer-events: none;
+  }
+
+  /* Halo des nœuds CRITIQUES : respiration lente, jamais clignotement. */
+  .mm-halo {
+    fill: none;
+    stroke: var(--app-danger);
+    stroke-width: 1.4;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Onde de sélection : un anneau qui s'échappe du nœud cliqué (une fois). */
+  .mm-ping {
+    fill: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  .mm-veil-in {
+    animation: mm-veil-in var(--motion-fast) var(--ease-out) both;
+  }
+
+  .mm-detail-in {
+    animation: mm-detail-in var(--motion-medium) var(--ease-out) both;
+  }
+
+  /* Toutes les animations sont déclaratives et purement CSS ; en
+     `prefers-reduced-motion: reduce`, la règle globale plus bas leur donne une
+     durée nulle : la carte apparaît terminée, sans mouvement. */
+  @media (prefers-reduced-motion: no-preference) {
+    .mm-node-inner {
+      animation: mm-node-in 520ms var(--ease-out) backwards;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-edge {
+      stroke-dasharray: 1;
+      animation: mm-edge-in 620ms var(--ease-out) backwards;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-halo {
+      animation: mm-halo 3.2s ease-in-out infinite;
+      animation-delay: var(--mm-delay, 0ms);
+    }
+
+    .mm-edge-flow {
+      animation: mm-edge-flow 1.15s linear infinite;
+    }
+
+    .mm-ping {
+      animation: mm-ping 560ms var(--ease-out) both;
+    }
+  }
+}
+
+@keyframes mm-ring-pulse {
+  0%,
+  100% {
+    stroke-opacity: 0.85;
+  }
+  50% {
+    stroke-opacity: 0.35;
+  }
+}
+
+/* Entrée d'un nœud : léger recul puis pose, avec fondu. */
+@keyframes mm-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Arête qui se « dessine » du parent vers l'enfant (dashoffset normalisé). */
+@keyframes mm-edge-in {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Flux lumineux circulant le long d'une arête (décalage d'une période → boucle). */
+@keyframes mm-edge-flow {
+  to {
+    stroke-dashoffset: -0.2;
+  }
+}
+
+/* Respiration du halo des nœuds critiques. */
+@keyframes mm-halo {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Onde de sélection : l'anneau s'échappe et s'efface. */
+@keyframes mm-ping {
+  from {
+    opacity: 0.85;
+    transform: scale(0.84);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.32);
+  }
+}
+
+@keyframes mm-veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+@keyframes mm-detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes page-reveal {
@@ -639,36 +895,6 @@ html[data-optimus-motion="reduced"] *::after {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-.cover-hautes-terres {
-  background:
-    radial-gradient(
-      120% 80% at 80% 120%,
-      color-mix(in oklab, var(--app-primary) 40%, transparent),
-      transparent 55%
-    ),
-    linear-gradient(180deg, var(--cover-1-from) 0%, var(--cover-1-to) 100%);
-}
-
-.cover-baobab {
-  background:
-    radial-gradient(
-      60% 50% at 20% 110%,
-      color-mix(in oklab, var(--app-warn) 26%, transparent),
-      transparent 50%
-    ),
-    linear-gradient(165deg, var(--cover-2-from) 0%, var(--cover-2-to) 70%);
-}
-
-.cover-canal {
-  background:
-    radial-gradient(
-      90% 70% at 100% 0%,
-      color-mix(in oklab, #3a6e78 45%, transparent),
-      transparent 50%
-    ),
-    linear-gradient(180deg, var(--cover-3-from) 0%, var(--cover-3-to) 100%);
 }
 
 .cover-clinique {
