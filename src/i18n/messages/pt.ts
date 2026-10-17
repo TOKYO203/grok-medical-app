@@ -22,6 +22,7 @@ export const pt: MessageCatalog = {
   "nav.review": "Revisar",
   "nav.animatedEcg": "ECG animado",
   "nav.auscultation": "Auscultação",
+  "nav.signes": "Sinais e Síndromes",
   "nav.mockExam": "Exame de treino",
   "nav.calculators": "Calculadoras",
   "nav.leaderboard": "Classificação",

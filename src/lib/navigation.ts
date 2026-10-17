@@ -5,6 +5,7 @@
 import {
   Activity,
   AudioWaveform,
+  Brain,
   BadgePercent,
   BookMarked,
   Calculator,
@@ -67,6 +68,7 @@ export const EXPLORE_GROUPS = [
       { to: "/ecg", labelKey: "nav.ecgCases", icon: Activity },
       { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: HeartPulse },
       { to: "/auscultation", labelKey: "nav.auscultation", icon: AudioWaveform },
+      { to: "/signes", labelKey: "nav.signes", icon: Brain },
       { to: "/examen", labelKey: "nav.mockExam", icon: ClipboardCheck },
     ],
   },

@@ -39,6 +39,7 @@ import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
+import { Route as SignesRouteImport } from './routes/signes'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
@@ -201,6 +202,11 @@ const RevueRoute = RevueRouteImport.update({
   path: '/revue',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignesRoute = SignesRouteImport.update({
+  id: '/signes',
+  path: '/signes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SoutenirRoute = SoutenirRouteImport.update({
   id: '/soutenir',
   path: '/soutenir',
@@ -288,6 +294,7 @@ export interface FileRoutesByFullPath {
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
+  '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -331,6 +338,7 @@ export interface FileRoutesByTo {
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
+  '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -375,6 +383,7 @@ export interface FileRoutesById {
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
+  '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -420,6 +429,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/programme'
     | '/revue'
+    | '/signes'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -463,6 +473,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/programme'
     | '/revue'
+    | '/signes'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -506,6 +517,7 @@ export interface FileRouteTypes {
     | '/profil'
     | '/programme'
     | '/revue'
+    | '/signes'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -550,6 +562,7 @@ export interface RootRouteChildren {
   ProfilRoute: typeof ProfilRoute
   ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
+  SignesRoute: typeof SignesRoute
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
@@ -771,6 +784,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RevueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signes': {
+      id: '/signes'
+      path: '/signes'
+      fullPath: '/signes'
+      preLoaderRoute: typeof SignesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/soutenir': {
       id: '/soutenir'
       path: '/soutenir'
@@ -926,6 +946,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilRoute: ProfilRoute,
   ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
+  SignesRoute: SignesRoute,
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
