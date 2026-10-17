@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 95fb47bdee085a6e4f9e8249ab3e70d822e54a6f)import { randomBytes } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import {
@@ -65,7 +65,8 @@ const advanceSchema = z.object({
 const instructionsSchema = z.object({ reference: referenceSchema });
 
 const adminDecisionSchema = z.object({
-  reference: referenceSchema,
+  reference: 
+referenceSchema,
   decision: z.enum(["payment_verified", "delivered", "rejected", "refunded"]),
   note: z.string().trim().max(2_000).optional(),
 });
@@ -140,7 +141,8 @@ function toPurchase(row: PurchaseRow): PremiumPurchase {
 }
 
 function makeReference(): string {
-  const suffix = randomBytes(4).toString("hex").toUpperCase();
+  const suffix = ra
+ndomBytes(4).toString("hex").toUpperCase();
   return `CMD-${Date.now().toString(36).toUpperCase()}-${suffix}`;
 }
 
@@ -204,7 +206,8 @@ async function purchaseByReference(sql: SqlClient, reference: string) {
     "select * from purchase_orders where reference = $1 limit 1",
     [reference],
   );
-  return rows[0];
+  return r
+ows[0];
 }
 
 async function auditEvent(
@@ -263,7 +266,8 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const order: PremiumOrder =
       data.offer === "deck" || data.offer === "specialty"
         ? {
-            reference,
+ 
+           reference,
             offer: data.offer,
             specialty: data.specialty,
             deckNumber: data.deckNumber,
@@ -322,7 +326,8 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
 export const listPremiumPurchaseOrders = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
   .handler(async ({ context }) => {
-    const { getSql } = await import("@/lib/db");
+    cons
+t { getSql } = await import("@/lib/db");
     const sql = await getSql();
     const rows = await sql.query<PurchaseRow>(
       `select * from purchase_orders
@@ -373,7 +378,8 @@ export const getPremiumPaymentInstructions = createServerFn({ method: "POST" })
         [current.reference, context.userId, config.provider],
       );
       current = updated[0] ?? (await ownedPurchase(sql, data.reference, context.userId));
-      if (!current) throw new Error("Commande introuvable.");
+   
+   if (!current) throw new Error("Commande introuvable.");
     }
 
     return { purchase: toPurchase(current), instructions };
@@ -421,7 +427,8 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
       throw new Error("La référence de paiement ne peut plus être modifiée après soumission.");
     }
     if (current.proof_digest && proofDigest !== current.proof_digest) {
-      throw new Error("La preuve de paiement ne peut plus être remplacée après soumission.");
+      
+throw new Error("La preuve de paiement ne peut plus être remplacée après soumission.");
     }
 
     const provider = current.payment_provider ?? paymentConfiguration().provider;
@@ -466,7 +473,8 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
          )
          select * from updated`,
         [
-          data.reference,
+          data.refer
+ence,
           context.userId,
           data.status,
           Boolean(data.proofAttached),
@@ -524,7 +532,8 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     requirePurchaseAdmin(context.userId);
     const { getSql } = await import("@/lib/db");
-    const sql = await getSql();
+    cons
+t sql = await getSql();
     const current = await purchaseByReference(sql, data.reference);
     if (!current) throw new Error("Commande introuvable.");
 
@@ -569,7 +578,8 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
       const refunded = await sql.query<PurchaseRow & { revoked_licenses: number | string }>(
         `with updated as (
            update purchase_orders
-              set status = 'refunded',
+              set status
+ = 'refunded',
                   refunded_at = coalesce(refunded_at, now()),
                   updated_at = now()
             where reference = $1 and status = 'delivered'
@@ -621,7 +631,8 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const timestampColumn =
       data.decision === "payment_verified"
         ? "payment_verified_at"
-        : data.decision === "delivered"
+        : data
+.decision === "delivered"
           ? "delivered_at"
           : "rejected_at";
 

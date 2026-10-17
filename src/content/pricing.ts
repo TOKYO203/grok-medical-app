@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 7de20cc2a0520509614dc9b6ee5f7927874a2486)/**
+/**
  * Source unique des prix Optimus — Mission International, Session 1 (A01).
  *
  * Les montants de référence restent en Ariary (MGA) : c'est la devise de
@@ -50,7 +50,8 @@ export function formatPrice(amountMga: number, currency: Currency): string {
   }
   const converted = convertFromMga(amountMga, currency);
   const formatted = converted.toLocaleString("fr-FR", {
-    minimumFractionDigits: converted < 10 ? 1 : 0,
+    min
+imumFractionDigits: converted < 10 ? 1 : 0,
     maximumFractionDigits: converted < 10 ? 1 : 0,
   });
   return currency === "USD" ? "≈ $" + formatted : "≈ " + formatted + " €";

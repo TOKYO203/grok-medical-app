@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: fd52af3556bb062d0656e6c8e6edbe1e11912ccf)import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
@@ -39,7 +39,8 @@ test("A03 — l'essai 7 jours reste un état local distinct des droits serveur",
   );
   assert.ok(
     store.includes("if (s.premiumTrial) return {};"),
-    "un seul essai par profil : jamais réinitialisé une fois démarré",
+    "un seul essai par pro
+fil : jamais réinitialisé une fois démarré",
   );
 
   for (const route of ["../src/routes/cas.$caseId.tsx", "../src/routes/demarche.$id.tsx"]) {
@@ -86,7 +87,8 @@ test("A07 — la progression vers les badges est visible sur le profil", () => {
 test("Session 1 — les décisions sont consignées dans docs/DECISIONS.md", () => {
   const decisions = read("../docs/DECISIONS.md");
   for (const id of ["A01", "A03", "A05", "A07"]) {
-    assert.ok(decisions.includes(id), `la décision ${id} doit être journalisée`);
+    asser
+t.ok(decisions.includes(id), `la décision ${id} doit être journalisée`);
   }
   assert.ok(decisions.includes("Session 1"), "la session 1 doit figurer comme terminée");
 });
@@ -134,7 +136,8 @@ test("A04 — abonnements mensuel et trimestriel remplacent l'achat à vie", () 
   );
 
   const flow = read("../src/components/premium-purchase-flow.tsx");
-  assert.ok(
+ 
+ assert.ok(
     flow.includes("SUBSCRIPTION_OFFERS"),
     "le parcours d'achat doit proposer les abonnements mensuel et trimestriel",
   );

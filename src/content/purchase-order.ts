@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 894cd92c2c3372092440f72f03fb422c24cb22b2)import { specialtyCodeFromLabel } from "../lib/library/specialty-label.ts";
+import { specialtyCodeFromLabel } from "../lib/library/specialty-label.ts";
 
 export const PREMIUM_SPECIALTIES = [
   { id: "neurologie", label: "Neurologie", code: "NEURO" },
@@ -62,7 +62,8 @@ export type PurchaseDeviceRequest = {
 
 /**
  * Abonnements Premium (A04, Session 18) : accès complet à durée, renouvelé par
- * un nouveau paiement Mobile Money. Chaque abonnement émet le droit
+ * un nouveau paiement Mobile Money. Chaque abonnement émet le dro
+it
  * `OPTIMUS_PRO` — celui qui débloque déjà tous les Decks, cas cliniques et
  * démarches — porté par une licence à durée (voir `expiresAt` du receipt :
  * une licence expirée est refusée cryptographiquement). Les montants restent
@@ -109,7 +110,8 @@ export function premiumSpecialtyIdFor(specialtyLabel: string): PremiumSpecialtyI
 
 export function orderAmount(order: PremiumOrder): number {
   if (isSubscriptionOffer(order.offer)) return subscriptionPlan(order.offer).amountMga;
-  return order.offer === "specialty" ? 27_000 : 3_000;
+  return order.offe
+r === "specialty" ? 27_000 : 3_000;
 }
 
 export function orderProduct(order: PremiumOrder): string {
@@ -154,7 +156,8 @@ export function advancePurchase(
   const previousIsTerminal = sameProduct && previous ? isTerminalPurchaseStatus(previous.status) : false;
   const requestedProgressStatus = PURCHASE_PROGRESS_STATUSES.includes(status as PurchaseProgressStatus);
   const previousProgressStatus = previous
-    ? PURCHASE_PROGRESS_STATUSES.includes(previous.status as PurchaseProgressStatus)
+    ? PU
+RCHASE_PROGRESS_STATUSES.includes(previous.status as PurchaseProgressStatus)
     : false;
   const nextStatus =
     previousIsTerminal && previous
@@ -213,7 +216,8 @@ export function fulfillmentRequestMessage(
       optimus_id: device.optimusId,
       device_id: device.deviceId,
       device_key_id: device.deviceKeyId,
-      public_key: device.publicKey,
+      public_key: device.publicK
+ey,
     }),
   ].join("\n");
 }

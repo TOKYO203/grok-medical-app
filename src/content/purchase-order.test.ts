@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: f7efc8e3f295d467c77b5b616aaba963c1373d0e)import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import test from "node:test";
 import {
   advancePurchase,
@@ -51,7 +51,8 @@ test("purchase tracking is monotonic and keeps canonical order details", () => {
 });
 
 test("changing the product under one reference resets its progress", () => {
-  const pending = advancePurchase(order, "verification_pending", undefined, true, 100);
+  const pending = advancePurchase(order, "verification_pending", undefined,
+ true, 100);
   const changed = advancePurchase({ ...order, deckNumber: 4 }, "created", pending, false, 200);
 
   assert.equal(changed.product, "NEURO_DECK_04");
@@ -96,6 +97,7 @@ test("A04 — abonnements Premium mensuel et trimestriel (fin de l'achat à vie)
   const created = advancePurchase(monthly, "created", undefined, false, 100);
   assert.equal(created.amount, 5_000);
   assert.equal(created.product, "OPTIMUS_PRO");
-  assert.equal(created.label, "Optimus Premium · Mensuel (30 jours)");
+  assert.equal(created.label, "Optimus Premiu
+m · Mensuel (30 jours)");
   assert.equal(created.status, "created");
 });
