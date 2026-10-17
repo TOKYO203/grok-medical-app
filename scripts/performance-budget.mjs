@@ -36,7 +36,10 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // (recherche, isolement, plein écran, export SVG, moteur de disposition radiale
   // testé) — total mesuré 1804,4 KiB après purge du code mort. Marge volontairement
   // faible (~19,6 KiB), même philosophie.
-  maxTotalJavascriptBytes: 1824 * 1024,
+  // Relevé 1824 → 1832 KiB avec les animations mindmap (c76c694 + 847343f) :
+  // 50 lignes CSS mortes et 12 clés i18n orphelines déjà purgées avant relevé.
+  // Marge : ~1,8 KiB (mesuré 1830,2 KiB côté CI).
+  maxTotalJavascriptBytes: 1832 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });
