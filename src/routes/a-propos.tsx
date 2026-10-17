@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 0d6cd39e477fc68f1f84e54e8c87d6768c8cefcc)import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Mail, MessageCircle, Github, Sparkles } from "lucide-react";
 import { Shell } from "@/components/shell";
 import { MEDICAL_CONTENT_VERSION } from "@/content/medical-version";
