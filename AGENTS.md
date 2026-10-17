@@ -619,3 +619,15 @@ définition (structure des fiches, niveau de détail, sources, etc.).
 > Quand le propriétaire fournira le cahier des charges, cette section
 > sera retirée et les sessions Contenu pourront reprendre.
 
+
+## Module "Signes & Syndromes" (Raisonnement inversé)
+
+- **Statut** : Moule technique en place. Contenu médical en attente.
+- **Spec complète** : `docs/PARCOURS.md` (section 13).
+- **Code existant** :
+  - `src/core/signes/types.ts` (typage)
+  - `src/components/signes/signe-view.tsx` (UI Cas → Déduction → Révélation)
+  - `src/routes/signes.tsx` (route)
+  - `src/content/data/signes/mock.json` (données factices)
+- **Navigation** : Ajouté dans `src/lib/navigation.ts` (groupe "S'entraîner").
+- **⚠️ CONTENU MÉDICAL** : Ne PAS générer de cas cliniques réels, de triades ou de syndromes. Données de démonstration uniquement. Même consigne que le reste du contenu médical.
