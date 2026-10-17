@@ -89,8 +89,19 @@ test("les balises du SVG exporté sont équilibrées", () => {
 });
 
 test("chaque nœud du layout est présent (la 1re ligne de son libellé est rendue)", () => {
-  const escape = (text) =>
-    text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // On DÉCODE le SVG au lieu de reproduire l'échappement de l'exporteur : le
+  // test vérifie ce que l'utilisateur lit, pas la façon dont les entités sont
+  // écrites. L'ancienne version réimplémentait l'échappement sans `&apos;` et
+  // échouait donc sur tout libellé commençant par une apostrophe
+  // (« L'ECG est normal »), pour une raison purement interne au test.
+  const decode = (text) =>
+    text
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'")
+      .replace(/&#39;/g, "'")
+      .replace(/&amp;/g, "&");
   assert.ok(svg.includes("Douleur thoracique"));
   for (const node of layout.nodes) {
     const spec =
@@ -101,7 +112,7 @@ test("chaque nœud du layout est présent (la 1re ligne de son libellé est rend
           : MINDMAP_NODE_METRICS.CHILD;
     const firstLine = wrapLabel(node.label, spec.font, spec.maxWidth)[0];
     assert.ok(
-      svg.includes(escape(firstLine)),
+      decode(svg).includes(firstLine),
       `nœud absent du SVG : ${node.id} (« ${firstLine} »)`,
     );
   }

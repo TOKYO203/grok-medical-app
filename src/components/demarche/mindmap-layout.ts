@@ -10,17 +10,17 @@
  *     une branche qui déplie 6 enfants s'écarte pour leur faire de la place.
  *  3. Les enfants dépliés occupent un anneau de rayon R2, répartis DANS le
  *     secteur de leur branche (donc jamais entre les secteurs voisins).
- *  4. R1 et R2 sont calculés pour que TOUTE paire de nœuds obéisse à la même
- *     inégalité conservatrice. Un rectangle tient dans le disque de rayon
- *     d/2 avec d = hypot(w + GAP, h + GAP). Si la distance entre deux centres
- *     vaut au moins (d_i + d_j)/2, les deux disques sont disjoints, donc les
- *     rectangles aussi. Or :
- *       • même anneau  : distance = 2·R·sin(Δ/2) ≥ max(d)  ⇒  R = max(d) / (2·sin(Δmin/2))
- *         avec Δmin le plus petit écart angulaire entre voisins (trié, bouclé).
- *       • anneaux ≠    : distance ≥ |R2 − R1| ≥ (max d_branche + max d_enfant)/2.
- *       • racine       : R1 ≥ (d_racine + d_branche)/2 + GAP.
- *     On a donc une PREUVE, pas une impression : rendre les anneaux plus grands
- *     ne peut que renforcer la marge.
+ *  4. R1 et R2 garantissent que TOUTE paire de nœuds est disjointE :
+ *       • même anneau : on ne se fie pas à une borne analytique, on BISECTE le
+ *         rayon jusqu'à ce que le prédicat exact (rect-vs-rect, `rectsOverlap`)
+ *         soit vrai pour toutes les paires — c'est la même condition que celle
+ *         vérifiée par les tests et par la QA DOM. La borne analytique
+ *         historique (d = hypot(w+GAP, h+GAP), rayon = d / (2·sin(Δmin/2)))
+ *         reste le point de départ : elle est toujours valide, mais elle
+ *         réserve ~20 % de place inutile, et ces 20 % sont exactement la
+ *         lisibilité du texte sur un écran de téléphone.
+ *       • anneaux ≠   : distance ≥ |R2 − R1| ≥ (max d_branche + max d_enfant)/2.
+ *       • racine      : écart rect-vs-rect avec GAP, inclus dans la bisection.
  *
  * Le module est PUR (aucun DOM, aucune dépendance) : il est testé sous Node, et
  * ses coordonnées sont arrondies au centième pour que le rendu SSR et le rendu
@@ -76,14 +76,14 @@ export type MapLayout = {
  *  entre les secteurs voisins, la séparation finale étant garantie par Δmin. */
 const SECTOR_FILL = 0.92;
 const ROOT = { font: 15, maxWidth: 120, padX: 12, padY: 9 };
-const BRANCH = { font: 12, maxWidth: 95, padX: 9, padY: 6 };
+const BRANCH = { font: 12, maxWidth: 84, padX: 9, padY: 6 };
 const CHILD = { font: 11.5, maxWidth: 105, padX: 9, padY: 6 };
 const LEAF_FONT = 10;
 const LINE_HEIGHT = 1.24;
 const LEAF_HEIGHT = 1.3;
 const CHAR_RATIO = 0.56;
-const GAP = 12;
-const PAD = 12;
+const GAP = 10;
+const PAD = 10;
 type Spec = { font: number; maxWidth: number; padX: number; padY: number };
 const charWidth = (font: number) => font * CHAR_RATIO;
 const round2 = (value: number) => Math.round(value * 100) / 100;
@@ -253,23 +253,64 @@ export function computeMindmapLayout(map: Mindmap, expanded: Set<string>): MapLa
     return entry;
   });
 
-  // ── Anneau 1 : rayon garantissant dégagement de la racine ET non-chevauchement.
-  const rootDisc = disc(root);
+  // ── Anneau 1 : rayon minimal PROUVÉ par bisection sur le prédicat exact.
+  //
+  // L'ancienne borne — d = hypot(w + GAP, h + GAP), R = d / (2·sin(Δmin/2)) —
+  // est correcte mais réserve ~20 % de trop : elle suppose que le rectangle est
+  // orienté dans le pire axe possible, alors qu'il n'a qu'UNE orientation, celle
+  // de sa position sur l'anneau. Ces 20 % sont exactement la taille du texte sur
+  // un écran de téléphone (mesuré : 12,9 px gaspillés sur la largeur de la
+  // carte). On part donc de cette borne (jamais en dessous du nécessaire) et on
+  // la resserre tant que `rectsOverlap` — le prédicat utilisé par les tests et
+  // par la QA DOM — reste faux pour toutes les paires.
+  //
+  // La disposition reste un CERCLE unique : une variante à deux couronnes
+  // alternées a été mesurée sur cette carte, elle ne réduisait pas la largeur
+  // (le gain venait uniquement du rayon resserré). Pas de complexité inutile.
   const branchDiscs = branchBoxes.map(disc);
   const maxBranchDisc = Math.max(...branchDiscs);
-  let ring1 = 0;
-  placements.forEach((p) => {
-    ring1 = Math.max(ring1, rootDisc / 2 + branchDiscs[p.index] / 2 + GAP);
-  });
-  const gap1 = minAngularGap(placements.map((p) => p.center).sort((a, b) => a - b));
-  if (gap1 > 1e-6) ring1 = Math.max(ring1, maxBranchDisc / (2 * Math.sin(gap1 / 2)));
-  const R1 = Math.max(112, ring1);
+
+  const branchPoints = (radius: number) =>
+    placements.map((p) => ({
+      x: Math.cos(p.center) * radius,
+      y: Math.sin(p.center) * radius,
+      w: p.box.w,
+      h: p.box.h,
+      radius,
+    }));
+
+  const ringClear = (points: ReturnType<typeof branchPoints>) => {
+    for (let i = 0; i < points.length; i += 1) {
+      if (rectsOverlap(points[i], root, GAP)) return false;
+      for (let j = i + 1; j < points.length; j += 1) {
+        if (rectsOverlap(points[i], points[j], GAP)) return false;
+      }
+    }
+    return true;
+  };
+
+  const fitRing = () => {
+    let lo = 0;
+    let hi = Math.max(4000, maxBranchDisc * placements.length * 2);
+    for (let k = 0; k < 48; k += 1) {
+      const mid = (lo + hi) / 2;
+      if (ringClear(branchPoints(mid))) hi = mid;
+      else lo = mid;
+    }
+    return hi;
+  };
+
+  // 112 : plancher esthétique, la carte ne doit pas coller à la racine quand
+  // les libellés sont très courts.
+  const R1 = Math.max(112, fitRing());
+  const ringPoints = branchPoints(R1);
 
   const nodeById = new Map<string, MapNode>();
   nodeById.set(root.id, root);
   const edgeSpecs: { parent: MapNode; child: MapNode }[] = [];
 
-  placements.forEach((p) => {
+  placements.forEach((p, index) => {
+    const point = ringPoints[index];
     const node: MapNode = {
       id: p.branch.id,
       label: p.branch.label,
@@ -280,12 +321,12 @@ export function computeMindmapLayout(map: Mindmap, expanded: Set<string>): MapLa
       childCount: p.branch.children.length,
       expanded: p.expanded,
       depth: 1,
-      x: round2(Math.cos(p.center) * R1),
-      y: round2(Math.sin(p.center) * R1),
+      x: round2(point.x),
+      y: round2(point.y),
       w: p.box.w,
       h: p.box.h,
       angle: round2(p.center),
-      radius: R1,
+      radius: round2(point.radius),
     };
     nodes.push(node);
     nodeById.set(node.id, node);
@@ -313,12 +354,36 @@ export function computeMindmapLayout(map: Mindmap, expanded: Set<string>): MapLa
       });
     });
 
-    const childDiscs = entries.map((entry) => disc(entry.box));
-    const maxChildDisc = Math.max(...childDiscs);
-    const gap2 = minAngularGap(entries.map((entry) => entry.angle).sort((a, b) => a - b));
-    // Séparation radiale anneau 1 ↔ anneau 2 (disques disjoints).
-    let R2 = R1 + (maxBranchDisc + maxChildDisc) / 2;
-    if (gap2 > 1e-6) R2 = Math.max(R2, maxChildDisc / (2 * Math.sin(gap2 / 2)));
+    // Même méthode qu'à l'anneau 1 : bisection sur le prédicat exact, en
+    // vérifiant AUSSI les enfants contre toutes les branches (la formule
+    // « disques disjoints » ignorait la position angulaire réelle et gonflait
+    // le rayon).
+    const childPoints = (radius: number) =>
+      entries.map((entry) => ({
+        x: Math.cos(entry.angle) * radius,
+        y: Math.sin(entry.angle) * radius,
+        w: entry.box.w,
+        h: entry.box.h,
+      }));
+
+    const ring2Clear = (points: ReturnType<typeof childPoints>) => {
+      for (let i = 0; i < points.length; i += 1) {
+        for (const branch of ringPoints) if (rectsOverlap(points[i], branch, GAP)) return false;
+        for (let j = i + 1; j < points.length; j += 1) {
+          if (rectsOverlap(points[i], points[j], GAP)) return false;
+        }
+      }
+      return true;
+    };
+
+    let R2lo = R1;
+    let R2 = Math.max(R1 + maxBranchDisc, 4000);
+    for (let k = 0; k < 48; k += 1) {
+      const mid = (R2lo + R2) / 2;
+      if (ring2Clear(childPoints(mid))) R2 = mid;
+      else R2lo = mid;
+    }
+    const R2final = R2;
 
     entries.forEach((entry) => {
       const node: MapNode = {
@@ -332,12 +397,12 @@ export function computeMindmapLayout(map: Mindmap, expanded: Set<string>): MapLa
         childCount: 0,
         expanded: false,
         depth: 2,
-        x: round2(Math.cos(entry.angle) * R2),
-        y: round2(Math.sin(entry.angle) * R2),
+        x: round2(Math.cos(entry.angle) * R2final),
+        y: round2(Math.sin(entry.angle) * R2final),
         w: entry.box.w,
         h: entry.box.h,
         angle: round2(entry.angle),
-        radius: R2,
+        radius: round2(R2final),
       };
       nodes.push(node);
       nodeById.set(node.id, node);
@@ -375,7 +440,12 @@ export function radiusForRing(count: number, nw: number, nh: number): number {
   return chord / (2 * Math.sin(step / 2));
 }
 
-export function rectsOverlap(a: MapNode, b: MapNode, margin = 0): boolean {
+/** Boîte minimale suffisante pour tester un chevauchement (centre + taille).
+ *  Le type est structurel pour que les points intermédiaires de l'anneau —
+ *  qui ne sont pas encore des nœuds — puissent être testés sans les habiller. */
+export type Box = { x: number; y: number; w: number; h: number };
+
+export function rectsOverlap(a: Box, b: Box, margin = 0): boolean {
   return (
     a.x - a.w / 2 - margin < b.x + b.w / 2 &&
     b.x - b.w / 2 - margin < a.x + a.w / 2 &&

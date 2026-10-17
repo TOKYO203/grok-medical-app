@@ -398,100 +398,1017 @@
     "root": {
       "id": "root",
       "label": "Douleur thoracique",
-      "detail": "Douleur ou inconfort entre la base du cou et l'épigastre. Priorité : reconnaître les tableaux menaçant le pronostic vital avant de nommer une cause bénigne."
+      "detail": "Douleur ou inconfort entre la base du cou et l'épigastre. Le raisonnement ne part pas de la cause mais du risque : d'abord écarter ce qui tue en minutes, ensuite caractériser, enfin orienter. Une douleur étiquetée « bénigne » sans ECG ni troponine n'est pas un diagnostic."
     },
     "branches": [
       {
         "id": "eliminer",
-        "label": "Éliminer d'emblée",
+        "label": "Écarter d'emblée",
         "tone": "urgence",
-        "detail": "Six tableaux à écarter systématiquement : ce sont eux qui conditionnent la conduite et l'orientation.",
+        "detail": "Six tableaux menaçants, et pour chacun le geste qui l'écarte — pas la description de la maladie. Tant qu'ils ne sont pas écartés, aucun autre diagnostic ne peut être retenu.",
         "children": [
-          { "id": "elim-sca", "label": "SCA", "detail": "Oppression rétrosternale, sueurs, irradiation ; ECG + troponines." },
-          { "id": "elim-aorte", "label": "Syndrome aortique aigu", "detail": "Douleur brutale maximale, asymétrie des pouls ; angio-TDM." },
-          { "id": "elim-ep", "label": "EP à haut risque", "detail": "Douleur pleurale + dyspnée + MTEV ; angio-TDM ou thrombolyse si choc." },
-          { "id": "elim-pno", "label": "PNO compressif", "detail": "Décompression clinique immédiate, sans attendre l'imagerie." },
-          { "id": "elim-tamp", "label": "Tamponnade", "detail": "Turgescence jugulaire, bruits assourdis ; péricardiocentèse urgente." },
-          { "id": "elim-oeso", "label": "Rupture œsophagienne", "detail": "Après vomissements, emphysème sous-cutané ; chirurgie urgente." }
+          {
+            "id": "elim-sca",
+            "label": "SCA",
+            "detail": "Le geste qui écarte : ECG dans les 10 minutes + troponine hypersensible. Un ECG normal initial n'élimine rien.",
+            "leaves": [
+              {
+                "id": "elim-sca-ecg",
+                "label": "ECG < 10 min, répété"
+              },
+              {
+                "id": "elim-sca-tropo",
+                "label": "Troponine hs 0 h / 1 h"
+              }
+            ]
+          },
+          {
+            "id": "elim-aorte",
+            "label": "Syndrome aortique aigu",
+            "detail": "Le geste qui écarte : angio-TDM aorte. À évoquer devant une douleur brutale et maximale d'emblée — l'anticoagulation empirique est dangereuse.",
+            "leaves": [
+              {
+                "id": "elim-aorte-angio",
+                "label": "Angio-TDM aorte"
+              },
+              {
+                "id": "elim-aorte-no-antico",
+                "label": "Pas d'anticoagulant"
+              }
+            ]
+          },
+          {
+            "id": "elim-ep",
+            "label": "EP à haut risque",
+            "detail": "Le geste qui écarte : angio-TDM ; thrombolyse sans attendre l'imagerie si choc. Une probabilité forte interdit de doser les D-dimères.",
+            "leaves": [
+              {
+                "id": "elim-ep-angio",
+                "label": "Angio-TDM si stable"
+              },
+              {
+                "id": "elim-ep-thrombo",
+                "label": "Thrombolyse si choc"
+              }
+            ]
+          },
+          {
+            "id": "elim-pno",
+            "label": "Pneumothorax compressif",
+            "detail": "Le geste qui écarte : exsufflation à l'aiguille immédiate, avant toute imagerie. L'attente de la radiographie est l'erreur qui tue.",
+            "leaves": [
+              {
+                "id": "elim-pno-exsuf",
+                "label": "Exsufflation sans imagerie"
+              },
+              {
+                "id": "elim-pno-ausc",
+                "label": "Abolition du murmure"
+              }
+            ]
+          },
+          {
+            "id": "elim-tamp",
+            "label": "Tamponnade",
+            "detail": "Le geste qui écarte : échographie au lit + péricardiocentèse en urgence. La triade hypotension – turgescence – bruits assourdis doit être cherchée activement.",
+            "leaves": [
+              {
+                "id": "elim-tamp-paradoxal",
+                "label": "Pouls paradoxal"
+              },
+              {
+                "id": "elim-tamp-echo",
+                "label": "Échographie au lit"
+              }
+            ]
+          },
+          {
+            "id": "elim-oeso",
+            "label": "Rupture œsophagienne",
+            "detail": "Le geste qui écarte : scanner thoracique + avis chirurgical. Survenu après vomissements, il se complique de médiastinite en quelques heures.",
+            "leaves": [
+              {
+                "id": "elim-oeso-emphys",
+                "label": "Emphysème sous-cutané"
+              },
+              {
+                "id": "elim-oeso-chir",
+                "label": "Chirurgie urgente"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gravite",
+        "label": "Signes de gravité",
+        "tone": "urgence",
+        "detail": "Cherchés à l'examen, avant toute hypothèse étiologique : ce sont eux qui décident du lieu de prise en charge et de l'immédiateté du geste.",
+        "children": [
+          {
+            "id": "gr-hemo",
+            "label": "Hémodynamique",
+            "detail": "Hypotension, marbrures, oligurie : le tableau n'est plus diagnostique mais réanimatoire.",
+            "leaves": [
+              {
+                "id": "gr-hemo-pas",
+                "label": "PAS < 90 mmHg"
+              },
+              {
+                "id": "gr-hemo-marbrure",
+                "label": "Marbrures, oligurie"
+              }
+            ]
+          },
+          {
+            "id": "gr-respi",
+            "label": "Respiratoire",
+            "detail": "Désaturation ou polypnée disproportionnées par rapport à la plainte : oriente vers EP, pneumothorax ou œdème pulmonaire.",
+            "leaves": [
+              {
+                "id": "gr-respi-spo2",
+                "label": "SpO2 < 90 % en air"
+              },
+              {
+                "id": "gr-respi-fr",
+                "label": "FR > 25/min"
+              }
+            ]
+          },
+          {
+            "id": "gr-neuro",
+            "label": "Neurologique",
+            "detail": "Syncope, confusion ou déficit : font basculer vers une EP massive, une tamponnade ou une dissection avec atteinte des troncs supra-aortiques.",
+            "leaves": [
+              {
+                "id": "gr-neuro-syncope",
+                "label": "Syncope = signe de gravité"
+              },
+              {
+                "id": "gr-neuro-deficit",
+                "label": "Déficit = dissection"
+              }
+            ]
+          },
+          {
+            "id": "gr-douleur",
+            "label": "Caractère de la douleur",
+            "detail": "Brutale et maximale d'emblée, ou migratrice : ce sont les deux qualificatifs qui changent la trajectoire du patient.",
+            "leaves": [
+              {
+                "id": "gr-douleur-brutale",
+                "label": "Brutale, maximale d'emblée"
+              },
+              {
+                "id": "gr-douleur-migre",
+                "label": "Migratrice = dissection"
+              }
+            ]
+          },
+          {
+            "id": "gr-ecg",
+            "label": "ECG de gravité",
+            "detail": "Sus-décalage, trouble du rythme ou trouble de conduction : sortent le patient du circuit standard.",
+            "leaves": [
+              {
+                "id": "gr-ecg-st",
+                "label": "Sus-décalage du ST"
+              },
+              {
+                "id": "gr-ecg-rythme",
+                "label": "TV, BAV ou bradycardie"
+              }
+            ]
+          },
+          {
+            "id": "gr-terrain",
+            "label": "Terrain à risque",
+            "detail": "Diabète, âge avancé, immunodépression, grossesse : la présentation sera atypique et la douleur sous-estimée.",
+            "leaves": [
+              {
+                "id": "gr-terrain-diabete",
+                "label": "Diabète = douleur atypique"
+              },
+              {
+                "id": "gr-terrain-grossesse",
+                "label": "Grossesse = EP en priorité"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "cardio",
         "label": "Cardio-vasculaires",
         "tone": "urgence",
-        "detail": "Groupe prioritaire : l'ECG est le trieur central.",
+        "detail": "Groupe prioritaire : l'ECG est le trieur central. Chaque cause porte son argument clinique et le piège qui la fait manquer.",
         "children": [
-          { "id": "cv-sca", "label": "SCA", "detail": "ECG répétés, troponines sériées, coronarographie selon le risque." },
-          { "id": "cv-aorte", "label": "Syndrome aortique aigu", "detail": "Type A = urgence opératoire ; pas d'anticoagulation empirique." },
-          { "id": "cv-peri", "label": "Péricardite / tamponnade", "detail": "ECG + échocardiographie urgente." },
-          { "id": "cv-ic", "label": "Insuffisance cardiaque aiguë", "detail": "Dyspnée, orthopnée, râles ; BNP/NT-proBNP si disponible." }
+          {
+            "id": "cv-sca",
+            "label": "SCA avec sus-décalage",
+            "detail": "Douleur constrictive > 20 min, sueurs, irradiation : la reperfusion se décide sur l'ECG, sans attendre la troponine.",
+            "leaves": [
+              {
+                "id": "cv-sca-delai",
+                "label": "Reperfusion < 120 min"
+              },
+              {
+                "id": "cv-sca-thrombo",
+                "label": "Thrombolyse si délai long"
+              }
+            ]
+          },
+          {
+            "id": "cv-nstemi",
+            "label": "SCA sans sus-décalage",
+            "detail": "Troponine positive sans sus-décalage : la stratégie invasive se cale sur le risque, pas sur l'intensité de la douleur.",
+            "leaves": [
+              {
+                "id": "cv-nstemi-tropo",
+                "label": "Troponine hs positive"
+              },
+              {
+                "id": "cv-nstemi-risque",
+                "label": "Risque GRACE / TIMI"
+              }
+            ]
+          },
+          {
+            "id": "cv-angor",
+            "label": "Angor stable et instable",
+            "detail": "Douleur à l'effort cédant en moins de 10 minutes au repos ; elle devient instable si elle survient au repos ou s'aggrave rapidement.",
+            "leaves": [
+              {
+                "id": "cv-angor-effort",
+                "label": "À l'effort, cède < 10 min"
+              },
+              {
+                "id": "cv-angor-instable",
+                "label": "Instable si crescendo"
+              }
+            ]
+          },
+          {
+            "id": "cv-aorte",
+            "label": "Syndrome aortique aigu",
+            "detail": "Type A = chirurgie immédiate ; la priorité est le contrôle tensionnel et l'absence d'anticoagulation.",
+            "leaves": [
+              {
+                "id": "cv-aorte-type-a",
+                "label": "Type A = chirurgie"
+              },
+              {
+                "id": "cv-aorte-pa",
+                "label": "Contrôle de la PA strict"
+              }
+            ]
+          },
+          {
+            "id": "cv-peri",
+            "label": "Péricardite aiguë",
+            "detail": "Douleur majorée par l'inspiration et le décubitus, soulagée penché en avant ; frottement à l'auscultation.",
+            "leaves": [
+              {
+                "id": "cv-peri-position",
+                "label": "Soulagée penché en avant"
+              },
+              {
+                "id": "cv-peri-frottement",
+                "label": "Frottement péricardique"
+              }
+            ]
+          },
+          {
+            "id": "cv-myocardite",
+            "label": "Myocardite",
+            "detail": "Sujet jeune, contexte viral, douleur et troponine dissociées de l'ECG : l'IRM cardiaque tranche.",
+            "leaves": [
+              {
+                "id": "cv-myocardite-viral",
+                "label": "Contexte pseudo-grippal"
+              },
+              {
+                "id": "cv-myocardite-irm",
+                "label": "IRM cardiaque"
+              }
+            ]
+          },
+          {
+            "id": "cv-oap",
+            "label": "Insuffisance cardiaque aiguë",
+            "detail": "Orthopnée, râles bilatéraux, turgescence : la douleur n'est parfois qu'une gêne, la dyspnée est le vrai symptôme.",
+            "leaves": [
+              {
+                "id": "cv-oap-orthopnee",
+                "label": "Orthopnée, râles"
+              },
+              {
+                "id": "cv-oap-bnp",
+                "label": "BNP / NT-proBNP"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "pleuro",
         "label": "Pleuro-pulmonaires",
         "tone": "prudence",
-        "detail": "Douleur pleurale, dyspnée et contexte respiratoire.",
+        "detail": "Douleur pleurale, dyspnée et contexte respiratoire : la douleur y est majorée par l'inspiration et la toux, mais l'EP se cache derrière un examen pulmonaire normal.",
         "children": [
-          { "id": "pl-ep", "label": "Embolie pulmonaire", "detail": "Contexte de MTEV ; D-dimères seulement si probabilité faible/intermédiaire." },
-          { "id": "pl-pno", "label": "Pneumothorax",
-            "detail": "Unilatéral brutal ; urgence absolue si instabilité ou compression médiastinale.",
+          {
+            "id": "pl-ep",
+            "label": "Embolie pulmonaire",
+            "detail": "Douleur pleurale + dyspnée + tachycardie sur terrain de MTEV. Les D-dimères n'ont de valeur que si la probabilité n'est pas forte.",
             "leaves": [
-              { "id": "pl-pno-air", "label": "A.I.R. — Asymétrie / Instabilité / Respiration diminuée" }
+              {
+                "id": "pl-ep-wells",
+                "label": "Wells / Genève d'abord"
+              },
+              {
+                "id": "pl-ep-ddim",
+                "label": "D-dimères si proba < forte"
+              }
             ]
           },
-          { "id": "pl-pneumo", "label": "Pneumonie / pleurésie / abcès", "detail": "Fièvre, toux, expectoration, foyer auscultatoire." },
-          { "id": "pl-tb", "label": "Tuberculose pleuro-pulmonaire", "detail": "Douleur subaiguë/chronique, sueurs nocturnes, amaigrissement, épanchement." },
-          { "id": "pl-cancer", "label": "Cancer / BPCO / asthme", "detail": "Orienter selon terrain et examen." }
+          {
+            "id": "pl-pno",
+            "label": "Pneumothorax spontané",
+            "detail": "Douleur unilatérale brutale + dyspnée ; le murmure est aboli du côté atteint.",
+            "leaves": [
+              {
+                "id": "pl-pno-air",
+                "label": "A.I.R. — 3 réflexes"
+              },
+              {
+                "id": "pl-pno-tympan",
+                "label": "Tympanisme à la percussion"
+              }
+            ]
+          },
+          {
+            "id": "pl-pneumo",
+            "label": "Pneumonie",
+            "detail": "Fièvre, toux, expectoration, foyer auscultatoire : la douleur traduit une réaction pleurale.",
+            "leaves": [
+              {
+                "id": "pl-pneumo-foyer",
+                "label": "Foyer auscultatoire"
+              },
+              {
+                "id": "pl-pneumo-fievre",
+                "label": "Fièvre + toux"
+              }
+            ]
+          },
+          {
+            "id": "pl-pleuresie",
+            "label": "Pleurésie / épanchement",
+            "detail": "Douleur à l'inspiration profonde, matité, abolition du murmure : l'étiologie se cherche dans le liquide.",
+            "leaves": [
+              {
+                "id": "pl-pleuresie-matite",
+                "label": "Matité à la percussion"
+              },
+              {
+                "id": "pl-pleuresie-abolis",
+                "label": "Abolition du murmure"
+              }
+            ]
+          },
+          {
+            "id": "pl-tb",
+            "label": "Tuberculose pleuro-pulmonaire",
+            "detail": "Sueurs nocturnes, amaigrissement, contage, terrain d'immunodépression : la douleur est chronique, pas aiguë.",
+            "leaves": [
+              {
+                "id": "pl-tb-sueurs",
+                "label": "Sueurs nocturnes"
+              },
+              {
+                "id": "pl-tb-contage",
+                "label": "Contage, précarité"
+              }
+            ]
+          },
+          {
+            "id": "pl-cancer",
+            "label": "Cancer broncho-pulmonaire",
+            "detail": "Tabac, douleur sourde persistante, hémoptysie : une douleur qui s'installe sur des semaines n'est pas un SCA.",
+            "leaves": [
+              {
+                "id": "pl-cancer-tabac",
+                "label": "Tabac, amaigrissement"
+              },
+              {
+                "id": "pl-cancer-hemo",
+                "label": "Hémoptysie"
+              }
+            ]
+          },
+          {
+            "id": "pl-asthme",
+            "label": "Asthme / BPCO exacerbés",
+            "detail": "Sibilants, dyspnée expiratoire, antécédent connu : la douleur est accessoire, le bronchospasme est le problème.",
+            "leaves": [
+              {
+                "id": "pl-asthme-sibilants",
+                "label": "Sibilants, expiration"
+              },
+              {
+                "id": "pl-asthme-atcd",
+                "label": "Antécédent d'asthme"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "digestif",
-        "label": "Digestives & médiastinales",
+        "label": "Digestif & médiastin",
         "tone": "prudence",
-        "detail": "À distinguer après exclusion des causes létales thoraciques.",
+        "detail": "Piège classique de l'erreur par excès : renvoyer au digestif une douleur qui n'en dépend pas. La reproduction à la palpation ne suffit jamais devant un terrain cardiaque.",
         "children": [
-          { "id": "dg-rgo", "label": "RGO / œsophagite", "detail": "Brûlure post-prandiale, pyrosis ; endoscopie si signes d'alarme." },
-          { "id": "dg-boerhaave", "label": "Rupture œsophagienne", "detail": "Douleur intense après vomissements ; sepsis ou emphysème sous-cutané." },
-          { "id": "dg-ulcere", "label": "Ulcère / pancréatite / colique biliaire", "detail": "Douleur épigastrique ou basithoracique projetée." }
+          {
+            "id": "dg-rgo",
+            "label": "RGO / œsophagite",
+            "detail": "Brûlure ascendante, post-prandiale, aggravée en décubitus et soulagée par le repas ou un antiacide.",
+            "leaves": [
+              {
+                "id": "dg-rgo-ascendante",
+                "label": "Brûlure ascendante"
+              },
+              {
+                "id": "dg-rgo-postprand",
+                "label": "Post-prandiale, acide"
+              }
+            ]
+          },
+          {
+            "id": "dg-spasme",
+            "label": "Spasme œsophagien",
+            "detail": "Douleur pseudo-angineuse, souvent déclenchée par un repas, avec artères coronaires normales : la manométrie tranche.",
+            "leaves": [
+              {
+                "id": "dg-spasme-pseudo",
+                "label": "Pseudo-angineuse"
+              },
+              {
+                "id": "dg-spasme-mano",
+                "label": "Manométrie œsophagienne"
+              }
+            ]
+          },
+          {
+            "id": "dg-boerhaave",
+            "label": "Rupture œsophagienne (Boerhaave)",
+            "detail": "Après des vomissements violents : douleur basi-thoracique, emphysème sous-cutané, médiastinite rapide.",
+            "leaves": [
+              {
+                "id": "dg-boerhaave-vomi",
+                "label": "Après vomissements"
+              },
+              {
+                "id": "dg-boerhaave-mediast",
+                "label": "Médiastinite précoce"
+              }
+            ]
+          },
+          {
+            "id": "dg-ulcere",
+            "label": "Ulcère gastro-duodénal",
+            "detail": "Douleur épigastrique à jeun, soulagée par l'alimentation ; la perforation entraîne une douleur brutale et des défenses.",
+            "leaves": [
+              {
+                "id": "dg-ulcere-jeun",
+                "label": "Épigastrique à jeun"
+              },
+              {
+                "id": "dg-ulcere-perfo",
+                "label": "Perforation = défenses"
+              }
+            ]
+          },
+          {
+            "id": "dg-pancreas",
+            "label": "Pancréatite / colique biliaire",
+            "detail": "Irradiation dorsale (pancréatite) ou vers l'épaule droite (biliaire), avec lipase à trois fois la normale.",
+            "leaves": [
+              {
+                "id": "dg-pancreas-dos",
+                "label": "Irradiation dorsale"
+              },
+              {
+                "id": "dg-pancreas-lipase",
+                "label": "Lipase > 3 N"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "parietal",
-        "label": "Pariétales & fonctionnelles",
+        "label": "Paroi & fonctionnel",
         "tone": "memo",
-        "detail": "Diagnostics d'orientation, souvent bénins mais à ne pas conclure trop vite.",
+        "detail": "Diagnostics d'élimination : ils s'acceptent après le bilan, jamais avant. Une douleur reproductible à la palpation n'exclut pas un SCA en cours.",
         "children": [
-          { "id": "pa-musculo", "label": "Musculo-squelettiques", "detail": "Traumatisme costal, costochondrite, douleur reproduite à la palpation." },
-          { "id": "pa-neuro", "label": "Neurologiques", "detail": "Zona, radiculopathie cervico-thoracique, compression médullaire exceptionnelle." },
-          { "id": "pa-anxiete", "label": "Anxiété / panique", "detail": "Diagnostic d'exclusion, jamais chez un patient à risque cardiovasculaire sans bilan." }
+          {
+            "id": "pa-tietze",
+            "label": "Syndrome de Tietze",
+            "detail": "Sensibilité localisée d'une articulation chondro-costale, reproduite exactement par la palpation.",
+            "leaves": [
+              {
+                "id": "pa-tietze-repro",
+                "label": "Reproduite à la palpation"
+              },
+              {
+                "id": "pa-tietze-local",
+                "label": "Sensibilité localisée"
+              }
+            ]
+          },
+          {
+            "id": "pa-nevralgie",
+            "label": "Névralgie intercostale",
+            "detail": "Douleur en trajet métamérique, à type de décharge, sans fièvre ni signe respiratoire.",
+            "leaves": [
+              {
+                "id": "pa-nevralgie-trajet",
+                "label": "Trajet métamérique"
+              },
+              {
+                "id": "pa-nevralgie-decharge",
+                "label": "Décharge, brûlure"
+              }
+            ]
+          },
+          {
+            "id": "pa-zona",
+            "label": "Zona thoracique",
+            "detail": "Prodrome douloureux unilatéral puis éruption vésiculeuse : la douleur précède l'éruption de plusieurs jours.",
+            "leaves": [
+              {
+                "id": "pa-zona-vesicules",
+                "label": "Éruption vésiculeuse"
+              },
+              {
+                "id": "pa-zona-unilateral",
+                "label": "Douleur unilatérale"
+              }
+            ]
+          },
+          {
+            "id": "pa-trauma",
+            "label": "Traumatisme / fracture costale",
+            "detail": "Contexte évident, douleur reproduite par la palpation et la toux ; l'attention porte sur l'épanchement et le pneumothorax associés.",
+            "leaves": [
+              {
+                "id": "pa-trauma-contexte",
+                "label": "Contexte traumatique"
+              },
+              {
+                "id": "pa-trauma-toux",
+                "label": "Douleur à la toux"
+              }
+            ]
+          },
+          {
+            "id": "pa-panique",
+            "label": "Trouble panique",
+            "detail": "Douleur brève, paresthésies, peur de mourir : le diagnostic reste d'élimination, jamais posé sur la seule anxiété apparente.",
+            "leaves": [
+              {
+                "id": "pa-panique-elim",
+                "label": "Diagnostic d'élimination"
+              },
+              {
+                "id": "pa-panique-paresth",
+                "label": "Paresthésies, tétanie"
+              }
+            ]
+          },
+          {
+            "id": "pa-fonctionnel",
+            "label": "Douleur fonctionnelle",
+            "detail": "Douleur chronique à bilan répété normal : la surveillance ne s'arrête pas pour autant, le terrain peut évoluer.",
+            "leaves": [
+              {
+                "id": "pa-fonctionnel-chrono",
+                "label": "Douleur chronique"
+              },
+              {
+                "id": "pa-fonctionnel-bilan",
+                "label": "Bilans répétés normaux"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "interrogatoire",
         "label": "Interrogatoire",
         "tone": "reflexe",
-        "detail": "Structurer le questionnement pour ne rien oublier.",
+        "detail": "Le T.O.R.A.C. structure la description, le terrain pondère la probabilité : deux douleurs identiques n'ont pas le même sens selon le patient.",
         "children": [
-          { "id": "in-t", "label": "Temps / début", "detail": "Heure exacte, brutal ou progressif, durée, évolution." },
-          { "id": "in-o", "label": "Occasion", "detail": "Effort, repos, émotion, traumatisme, vomissement, repas, fièvre, immobilisation, voyage, grossesse." },
-          { "id": "in-r", "label": "Ressenti", "detail": "Constrictif, brûlure, coup de poignard, déchirure." },
-          { "id": "in-a", "label": "Aire / irradiations", "detail": "Rétrosternal, latéral, irradiation bras/mâchoire/dos." },
-          { "id": "in-c", "label": "Circonstances", "detail": "Facteurs aggravants et calmants." }
+          {
+            "id": "in-t",
+            "label": "T — Temps / début",
+            "detail": "Brutal et maximale d'emblée : dissection, EP, pneumothorax. Progressif et croissant : SCA. La durée oriente plus que l'intensité.",
+            "leaves": [
+              {
+                "id": "in-t-brutal",
+                "label": "Brutal = dissection, EP"
+              },
+              {
+                "id": "in-t-progressif",
+                "label": "Progressif = SCA"
+              }
+            ]
+          },
+          {
+            "id": "in-o",
+            "label": "O — Occasion",
+            "detail": "À l'effort : angor. Au repos : syndrome coronaire aigu ou angor instable. Après un repas : digestif. En décubitus : péricardite, RGO.",
+            "leaves": [
+              {
+                "id": "in-o-effort",
+                "label": "Effort → angor"
+              },
+              {
+                "id": "in-o-repos",
+                "label": "Repos → SCA, instable"
+              }
+            ]
+          },
+          {
+            "id": "in-r",
+            "label": "R — Ressenti",
+            "detail": "Serrement, étau : SCA. Déchirure, arrachement : dissection. Coup de poignard : pneumothorax, EP. Brûlure : digestif.",
+            "leaves": [
+              {
+                "id": "in-r-serrement",
+                "label": "Serrement = SCA"
+              },
+              {
+                "id": "in-r-dechirure",
+                "label": "Déchirure = dissection"
+              }
+            ]
+          },
+          {
+            "id": "in-a",
+            "label": "A — Aire / irradiations",
+            "detail": "Bras gauche et mâchoire : SCA. Dos, omoplates, migration : dissection. Épaule droite : biliaire. Épigastre : digestif ou inférieur.",
+            "leaves": [
+              {
+                "id": "in-a-machoire",
+                "label": "Mâchoire, bras gauche"
+              },
+              {
+                "id": "in-a-dos",
+                "label": "Dos = dissection"
+              }
+            ]
+          },
+          {
+            "id": "in-c",
+            "label": "C — Circonstances",
+            "detail": "Ce qui modifie la douleur : inspiration (pleural), position (péricardite), palpation (pariétal), nitrés (angor).",
+            "leaves": [
+              {
+                "id": "in-c-inspiration",
+                "label": "Inspiration = pleural"
+              },
+              {
+                "id": "in-c-position",
+                "label": "Position = péricardite"
+              }
+            ]
+          },
+          {
+            "id": "in-terrain",
+            "label": "Terrain & antécédents",
+            "detail": "Facteurs de risque cardio-vasculaires, MTEV, tabac, grossesse, diabète : le terrain change la probabilité avant même l'examen.",
+            "leaves": [
+              {
+                "id": "in-terrain-fdr",
+                "label": "FDR cardio-vasculaires"
+              },
+              {
+                "id": "in-terrain-mtev",
+                "label": "Antécédent de MTEV"
+              }
+            ]
+          },
+          {
+            "id": "in-associes",
+            "label": "Signes associés",
+            "detail": "Sueurs, nausées, dyspnée, syncope, hémoptysie : ce sont eux qui font basculer la douleur vers une urgence.",
+            "leaves": [
+              {
+                "id": "in-associes-sueurs",
+                "label": "Sueurs = SCA"
+              },
+              {
+                "id": "in-associes-dyspnee",
+                "label": "Dyspnée = EP, OAP"
+              }
+            ]
+          }
         ]
       },
       {
         "id": "bilan",
         "label": "Bilan",
         "tone": "reflexe",
-        "detail": "Hiérarchie des examens, du plus rapide au plus spécialisé.",
+        "detail": "Chaque examen a une question à laquelle il répond et un piège de lecture : un examen normal ne vaut que pour la question posée.",
         "children": [
-          { "id": "bi-ecg", "label": "ECG < 10 min", "detail": "Pièce centrale du triage ; à répéter." },
-          { "id": "bi-tropo", "label": "Troponines hs sériées", "detail": "Avec un ECG normal au début, n'excluent pas un SCA précoce." },
-          { "id": "bi-radio", "label": "Radiographie thoracique", "detail": "Pneumothorax, pneumonie, épanchement, traumatisme." },
-          { "id": "bi-echo", "label": "Échographie ciblée", "detail": "Épanchement péricardique, VD, racine aortique, plèvre." },
-          { "id": "bi-ddim", "label": "D-dimères", "detail": "Après probabilité clinique, si faible/intermédiaire." },
-          { "id": "bi-angio", "label": "Angio-TDM", "detail": "Référence si EP ou aorte chez le patient stable ; ETO si instabilité." }
+          {
+            "id": "bi-ecg",
+            "label": "ECG 12 dérivations",
+            "detail": "Dans les 10 minutes, puis répété à 6 heures si le premier est normal : un tracé unique ne suffit jamais.",
+            "leaves": [
+              {
+                "id": "bi-ecg-10min",
+                "label": "Dans les 10 minutes"
+              },
+              {
+                "id": "bi-ecg-repeter",
+                "label": "À répéter si normal"
+              }
+            ]
+          },
+          {
+            "id": "bi-tropo",
+            "label": "Troponines hypersensibles",
+            "detail": "Algorithme 0 h / 1 h : c'est la cinétique qui compte, pas une valeur isolée.",
+            "leaves": [
+              {
+                "id": "bi-tropo-algo",
+                "label": "Algorithme 0 h / 1 h"
+              },
+              {
+                "id": "bi-tropo-cinetique",
+                "label": "Jamais une seule valeur"
+              }
+            ]
+          },
+          {
+            "id": "bi-radio",
+            "label": "Radiographie thoracique",
+            "detail": "Pneumothorax, foyer, élargissement médiastinal : normale, elle n'exclut ni EP ni SCA.",
+            "leaves": [
+              {
+                "id": "bi-radio-pno",
+                "label": "PNO, foyer, médiastin"
+              },
+              {
+                "id": "bi-radio-limite",
+                "label": "Normale n'exclut rien"
+              }
+            ]
+          },
+          {
+            "id": "bi-echo",
+            "label": "Échographie ciblée",
+            "detail": "Au lit du patient : épanchement péricardique, cinétique, aorte ascendante.",
+            "leaves": [
+              {
+                "id": "bi-echo-epanchement",
+                "label": "Épanchement péricardique"
+              },
+              {
+                "id": "bi-echo-cinetique",
+                "label": "Cinétique, aorte"
+              }
+            ]
+          },
+          {
+            "id": "bi-ddim",
+            "label": "D-dimères",
+            "detail": "Utiles seulement si la probabilité clinique est faible ou intermédiaire ; inutiles — et dangereux — si elle est forte.",
+            "leaves": [
+              {
+                "id": "bi-ddim-proba",
+                "label": "Probabilité faible/int."
+              },
+              {
+                "id": "bi-ddim-forte",
+                "label": "Ne pas doser si forte"
+              }
+            ]
+          },
+          {
+            "id": "bi-angio",
+            "label": "Angio-TDM thoracique",
+            "detail": "Répond d'un seul geste à l'aorte et aux artères pulmonaires ; centrée sur l'étage de la douleur.",
+            "leaves": [
+              {
+                "id": "bi-angio-aorte",
+                "label": "Aorte + artères pulm."
+              },
+              {
+                "id": "bi-angio-etage",
+                "label": "Centrée sur la douleur"
+              }
+            ]
+          },
+          {
+            "id": "bi-scores",
+            "label": "Scores décisionnels",
+            "detail": "HEART et GRACE pour le risque coronarien, Wells ou Genève pour l'EP : ils décident du parcours, pas du diagnostic.",
+            "leaves": [
+              {
+                "id": "bi-scores-heart",
+                "label": "HEART / GRACE"
+              },
+              {
+                "id": "bi-scores-wells",
+                "label": "Wells / Genève"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pieges",
+        "label": "Pièges & erreurs",
+        "tone": "prudence",
+        "detail": "Les cinq erreurs qui font manquer une urgence : chacune a coûté un patient avant d'être enseignée. C'est la branche à relire la veille d'un examen.",
+        "children": [
+          {
+            "id": "pi-ecg-normal",
+            "label": "« L'ECG est normal »",
+            "detail": "Un ECG initial normal s'observe dans une proportion notable des SCA : il ne clôt pas le dossier.",
+            "leaves": [
+              {
+                "id": "pi-ecg-normal-rep",
+                "label": "Répéter + troponine"
+              },
+              {
+                "id": "pi-ecg-normal-dit",
+                "label": "ECG normal ≠ pas de SCA"
+              }
+            ]
+          },
+          {
+            "id": "pi-atypique",
+            "label": "Présentation atypique",
+            "detail": "Sujet âgé, femme, diabétique : dyspnée, nausées, malaise — la douleur est absente ou au second plan.",
+            "leaves": [
+              {
+                "id": "pi-atypique-dyspnee",
+                "label": "Dyspnée = équivalent"
+              },
+              {
+                "id": "pi-atypique-terrain",
+                "label": "Âge, femme, diabète"
+              }
+            ]
+          },
+          {
+            "id": "pi-dissection",
+            "label": "Dissection banalisée",
+            "detail": "Une douleur tolérable n'exclut pas une dissection : l'asymétrie tensionnelle et un déficit doivent être cherchés systématiquement.",
+            "leaves": [
+              {
+                "id": "pi-dissection-pa",
+                "label": "Asymétrie de PA"
+              },
+              {
+                "id": "pi-dissection-neuro",
+                "label": "Déficit = dissection"
+              }
+            ]
+          },
+          {
+            "id": "pi-ep-silencieuse",
+            "label": "EP silencieuse",
+            "detail": "ECG normal, auscultation normale, radiographie normale : l'EP n'a pas d'examen clinique discriminant.",
+            "leaves": [
+              {
+                "id": "pi-ep-ecg",
+                "label": "ECG normal fréquent"
+              },
+              {
+                "id": "pi-ep-tachycardie",
+                "label": "Tachycardie isolée"
+              }
+            ]
+          },
+          {
+            "id": "pi-etiquette",
+            "label": "L'étiquette « psychique »",
+            "detail": "Attribuer une douleur à l'anxiété sans bilan ferme le dossier trop tôt : c'est un diagnostic qui s'ajoute, jamais qui remplace.",
+            "leaves": [
+              {
+                "id": "pi-etiquette-elim",
+                "label": "Étiquette après bilan"
+              },
+              {
+                "id": "pi-etiquette-reeval",
+                "label": "Réévaluer si terrain"
+              }
+            ]
+          },
+          {
+            "id": "pi-jeune",
+            "label": "Le sujet jeune rassure à tort",
+            "detail": "Cocaïne, cannabis, grossesse, thrombophilie : la jeunesse ne protège ni du SCA ni de l'EP.",
+            "leaves": [
+              {
+                "id": "pi-jeune-toxique",
+                "label": "Cocaïne = SCA"
+              },
+              {
+                "id": "pi-jeune-grossesse",
+                "label": "Grossesse = EP"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "orientation",
+        "label": "Orientation",
+        "tone": "retenir",
+        "detail": "Le diagnostic est une étape ; la décision suivante est le lieu de prise en charge et la consigne de retour. C'est la partie qui évite la récidive de l'erreur.",
+        "children": [
+          {
+            "id": "or-vital",
+            "label": "Urgence vitale immédiate",
+            "detail": "Choc, désaturation, sus-décalage : réanimation ou USC, sans passer par les étapes intermédiaires.",
+            "leaves": [
+              {
+                "id": "or-vital-usc",
+                "label": "USC / réanimation"
+              },
+              {
+                "id": "or-vital-geste",
+                "label": "Geste immédiat"
+              }
+            ]
+          },
+          {
+            "id": "or-sca",
+            "label": "SCA confirmé",
+            "detail": "Reperfusion en moins de 120 minutes et transfert vers une unité de cardiologie interventionnelle.",
+            "leaves": [
+              {
+                "id": "or-sca-120",
+                "label": "Reperfusion < 120 min"
+              },
+              {
+                "id": "or-sca-cardio",
+                "label": "Transfert cardiologie"
+              }
+            ]
+          },
+          {
+            "id": "or-intermediaire",
+            "label": "Risque intermédiaire",
+            "detail": "Observation avec ECG et troponines sériées : on ne renvoie pas un patient dont la bilan n'est pas terminé.",
+            "leaves": [
+              {
+                "id": "or-interm-obs",
+                "label": "Observation 6 à 12 h"
+              },
+              {
+                "id": "or-interm-tropo",
+                "label": "Troponine sériée"
+              }
+            ]
+          },
+          {
+            "id": "or-faible",
+            "label": "Risque faible",
+            "detail": "Bilan complet normal et score HEART bas : retour à domicile possible avec consignes écrites.",
+            "leaves": [
+              {
+                "id": "or-faible-heart",
+                "label": "HEART < 3 + bilan normal"
+              },
+              {
+                "id": "or-faible-consigne",
+                "label": "Consignes de retour"
+              }
+            ]
+          },
+          {
+            "id": "or-non-vital",
+            "label": "Cause non vitale identifiée",
+            "detail": "Traitement étiologique et avis spécialisé : la douleur ne justifie plus l'urgence, la cause si.",
+            "leaves": [
+              {
+                "id": "or-nonvital-etiologie",
+                "label": "Traitement étiologique"
+              },
+              {
+                "id": "or-nonvital-avis",
+                "label": "Avis spécialisé"
+              }
+            ]
+          }
         ]
       }
     ]

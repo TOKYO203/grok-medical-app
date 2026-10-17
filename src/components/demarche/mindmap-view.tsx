@@ -595,6 +595,11 @@ export function MindmapView({ content }: { content: DemarcheContent }) {
         className={cn(
           "mm-surface relative overflow-hidden rounded-[var(--radius-lg)] bg-surface shadow-[var(--shadow-border)]",
           full ? "min-h-0 flex-1" : "h-[26rem]",
+          // Pleine largeur sur mobile : le cadre de page retire 40 px (px-5), et
+          // ce sont exactement les pixels qui manquaient pour que le texte des
+          // branches reste lisible (mesuré : 340 → 390 px de surface). Dès `md`
+          // la marge revient, la carte reste une carte dans la page.
+          !full && "-mx-5 rounded-none md:mx-0 md:rounded-[var(--radius-lg)]",
         )}
         style={{ touchAction: "none" }}
       >
