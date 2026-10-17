@@ -64,7 +64,8 @@ async function shareOrCopy(title: string, text: string, files: File[] = []): Pro
 }
 
 async function fileSha256(file: File): Promise<string> {
-  const digest = await crypto.subtle.digest("SHA-256", await file.arrayBuffer());
+  const digest = await crypto.subtle.digest(
+"SHA-256", await file.arrayBuffer());
   return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
@@ -110,7 +111,8 @@ export function PremiumPurchaseFlow({
   const [deckNumber, setDeckNumber] = useState(initialPurchase?.deckNumber ?? 1);
   const [clientRequestId] = useState(newClientRequestId);
   const [proof, setProof] = useState<File | null>(null);
-  const [paymentReference, setPaymentReference] = useState("");
+  const [paymentReference, setPaymentReferen
+ce] = useState("");
   const [paymentInstructions, setPaymentInstructions] = useState<PremiumPaymentInstructions | null>(null);
   const [manualShareReady, setManualShareReady] = useState(false);
   const [deviceIdentity, setDeviceIdentity] = useState<DeviceEncryptionIdentity | null>(null);
@@ -128,8 +130,10 @@ export function PremiumPurchaseFlow({
   function rememberServerPurchase(next: PremiumPurchase) {
     setPurchase(next);
     setOffer(next.offer);
-    setSpecialty(next.specialty);
-    setDeckNumber(next.deckNumber);
+    // A04 : specialty/deckNumber sont optionnels (offres historiques) —
+    // on conserve la sélection locale pour ne pas typer `undefined` dans l'état.
+    setSpecialty(next.specialty ?? specialty);
+    setDeckNumber(next.deckNumber ?? deckNumber);
     onPurchaseUpdated(next);
   }
 
@@ -160,7 +164,8 @@ export function PremiumPurchaseFlow({
       rememberServerPurchase(result.purchase);
       setPaymentInstructions(result.instructions);
       if (!result.instructions.configured) {
-        toast.error("Le canal Mobile Money officiel n’est pas encore configuré. Ne payez pas.");
+        toast.error("Le canal Mobile Mone
+y officiel n’est pas encore configuré. Ne payez pas.");
         return;
       }
       toast.success("Coordonnées officielles chargées depuis le serveur");
@@ -218,7 +223,8 @@ export function PremiumPurchaseFlow({
         status: "verification_pending",
         proofAttached: true,
         proofDigest,
-        paymentReference,
+        paymentRefer
+ence,
         device: {
           deviceId: profile.deviceId,
           deviceKeyId: deviceIdentity.keyId,
@@ -279,7 +285,8 @@ export function PremiumPurchaseFlow({
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Partage impossible — réessayez");
     } finally {
-      setSending(false);
+      setSendin
+g(false);
     }
   }
 
@@ -329,7 +336,8 @@ export function PremiumPurchaseFlow({
     return <ServerStatusCard purchase={purchase} title="Paiement en vérification" detail="La référence de transaction et l’empreinte de la preuve sont enregistrées. La validation est maintenant exclusivement côté serveur." />;
   }
 
-  if (purchase?.status === "payment_verified") {
+  if (purchase?.stat
+us === "payment_verified") {
     return <ServerStatusCard purchase={purchase} title="Paiement vérifié" detail="Le paiement a été validé côté serveur. Le contenu Premium peut maintenant être préparé et livré pour cet appareil." />;
   }
 
@@ -376,7 +384,8 @@ export function PremiumPurchaseFlow({
                 key={plan.offer}
                 active={offer === plan.offer}
                 title={plan.label}
-                detail={plan.offer === "subscription_month" ? "30 jours d’accès complet" : "90 jours · le plus avantageux"}
+               
+ detail={plan.offer === "subscription_month" ? "30 jours d’accès complet" : "90 jours · le plus avantageux"}
                 price={`${plan.amountMga.toLocaleString("fr-FR")} Ar`}
                 recommended={plan.offer === "subscription_quarter"}
                 onClick={() => setOffer(plan.offer)}
@@ -411,7 +420,8 @@ export function PremiumPurchaseFlow({
               <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><ShieldAlert className="size-5" /></span>
               <div>
                 <h2 className="font-medium">Coordonnées Mobile Money officielles</h2>
-                <p className="mt-1 text-sm leading-relaxed text-muted">
+                <p className="mt-1 text-sm leading-r
+elaxed text-muted">
                   Elles sont chargées depuis le serveur. Si elles ne sont pas configurées, le paiement est bloqué.
                 </p>
               </div>
@@ -445,7 +455,8 @@ export function PremiumPurchaseFlow({
         <div className="mt-5 space-y-4">
           <OrderSummary order={purchase} standalone />
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-            <div className="flex items-start gap-3">
+            <div className="flex 
+items-start gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary"><ReceiptText className="size-5" /></span>
               <div className="min-w-0 flex-1">
                 <h2 className="font-medium">Preuve et référence de paiement</h2>
@@ -476,7 +487,8 @@ export function PremiumPurchaseFlow({
             </label>
 
             {manualShareReady ? (
-              <p className="mt-3 rounded-[var(--radius-lg)] bg-secondary p-3 text-xs leading-relaxed text-muted">
+              <p className="mt-3 rounded-[var(--radius-lg)
+] bg-secondary p-3 text-xs leading-relaxed text-muted">
                 Le message a été copié car le partage de fichier n’est pas disponible. Joignez la preuve dans votre application de messagerie, envoyez-la, puis confirmez ci-dessous.
               </p>
             ) : null}
@@ -518,7 +530,8 @@ function loadProof(event: ChangeEvent<HTMLInputElement>, setProof: (file: File |
     return;
   }
   if (file && file.size === 0) {
-    toast.error("Ce fichier est vide");
+    toast.error("Ce fichi
+er est vide");
     event.target.value = "";
     return;
   }
@@ -561,7 +574,8 @@ function OfferCard({ active, title, detail, price, recommended = false, onClick 
   );
 }
 
-function OrderSummary({ order, standalone = false, showReference = true }: { order: PremiumOrder; standalone?: boolean; showReference?: boolean }) {
+function OrderSummary({ order, standalon
+e = false, showReference = true }: { order: PremiumOrder; standalone?: boolean; showReference?: boolean }) {
   return (
     <div className={cn("mt-4 rounded-[var(--radius-lg)] bg-secondary p-3", standalone && "mt-0 shadow-[var(--shadow-border)]")}>
       <div className="flex items-start gap-3">
