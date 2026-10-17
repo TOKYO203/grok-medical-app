@@ -115,7 +115,10 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col pb-24 md:pb-0">
-          <header className="sticky top-0 z-20 flex h-14 min-w-0 items-center justify-between gap-2 border-b border-border bg-bg/80 px-4 backdrop-blur-xl md:hidden">
+          <header
+            data-mobile-header="true"
+            className="sticky top-0 z-20 flex h-14 min-w-0 items-center justify-between gap-2 border-b border-border bg-bg/80 px-4 backdrop-blur-xl md:hidden"
+          >
             <h1 className="min-w-0 flex-1 truncate font-display text-lg font-medium tracking-tight">
               {title ?? "Optimus"}
             </h1>

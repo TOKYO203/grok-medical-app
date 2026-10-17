@@ -953,3 +953,12 @@ details > summary {
   color: var(--app-gold);
   font-weight: 600;
 }
+
+
+/* Session 16 — D33 : mode focus du lecteur de quiz. L'en-tête mobile et la
+   barre de navigation inférieure disparaissent pour laisser la question
+   occuper l'écran ; le lecteur élargit sa colonne (max-w-xl côté JSX). */
+html[data-optimus-focus="on"] [data-mobile-header],
+html[data-optimus-focus="on"] [data-mobile-navigation] {
+  display: none;
+}

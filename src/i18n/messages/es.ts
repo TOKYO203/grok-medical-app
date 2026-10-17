@@ -36,6 +36,8 @@ export const es: MessageCatalog = {
   "quiz.why": "Por qué",
   "quiz.next": "Pregunta siguiente",
   "quiz.results": "Ver mis resultados",
+  "quiz.focus": "Modo de concentración",
+  "quiz.exitFocus": "Salir del modo de concentración",
   "onb.skip": "Saltar",
   "onb.step": (p) => "Paso " + p.current + " de " + p.total,
   "onb.welcomeTitle": "Bienvenido a Optimus.",
