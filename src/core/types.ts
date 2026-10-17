@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: faa136aac6b1b6b1397d107444bf988378b773b4)export const COMPETENCIES = [
+export const COMPETENCIES = [
   "recognize",
   "semiology",
   "diagnostic_orientation",

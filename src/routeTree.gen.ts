@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: d8f928e82096329ad1a650f95c262384e3a44971)/* eslint-disable */
+/* eslint-disable */
 
 // @ts-nocheck
 
@@ -278,8 +278,6 @@ export interface FileRoutesByFullPath {
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
   '/changelog': typeof ChangelogRoute
-  '/changelog': typeof ChangelogRoute
-  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -323,6 +321,7 @@ export interface FileRoutesByTo {
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
+  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -367,6 +366,7 @@ export interface FileRoutesById {
   '/bibliotheque': typeof BibliothequeRoute
   '/calculateurs': typeof CalculateursRoute
   '/cas': typeof CasRouteWithChildren
+  '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
@@ -413,8 +413,6 @@ export interface FileRouteTypes {
     | '/calculateurs'
     | '/cas'
     | '/changelog'
-    | '/changelog'
-    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'
@@ -458,6 +456,7 @@ export interface FileRouteTypes {
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
+    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'
@@ -501,6 +500,7 @@ export interface FileRouteTypes {
     | '/bibliotheque'
     | '/calculateurs'
     | '/cas'
+    | '/changelog'
     | '/classement'
     | '/conditions'
     | '/confidentialite'

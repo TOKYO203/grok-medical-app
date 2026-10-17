@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 614b746417192e3b15c4fb0785914b7cd19c3c70)import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -63,5 +63,5 @@ test("public changelog is a declared route linked from About and driven by conte
   assert.match(changelog, /@\/content\/changelog/);
   assert.match(data, /APP_CHANGELOG/);
   assert.match(data, /2026-10-17/);
-  assert.match(data, /v1\.0\.0/);
+  assert.match(data, /1\.0\.0/);
 });

@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 707ecc70d312b08842e4ed8bc3c413768da5cbd7)successfully downloaded text file (SHA: b88678e8916a49ac3903a27cb42daa05c8cb52d5)# Mission International — Optimus
+# Mission International — Optimus
 
 Chantier de mise à niveau vers un standard éditeur médical international.
 

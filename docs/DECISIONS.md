@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: c70ec4d0cc5823241e5de926662369b73c57ef37)successfully downloaded text file (SHA: 622cb6d07d2c3515a20c0678dc3c64c57c94c750)# Journal des décisions — Optimus
+# Journal des décisions — Optimus
 
 Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 
