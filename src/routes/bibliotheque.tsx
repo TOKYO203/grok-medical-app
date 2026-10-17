@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SearchX, SlidersHorizontal, X } from "lucide-react";
 import { ContentCard } from "@/components/content/content-card";
+import { EmptyState } from "@/components/empty-state";
 import { SpecialtyGroupHeader } from "@/components/content/specialty-group-header";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
@@ -254,16 +255,20 @@ function BibliothequePage() {
             title={activeFilters || normalized ? "Résultats filtrés" : "Tout le contenu"}
           />
           {groups.length === 0 ? (
-            <div className="optimus-card p-8 text-center">
-              <p className="text-sm text-muted">Aucun contenu ne correspond à ces critères.</p>
-              <button
-                type="button"
-                onClick={reset}
-                className="mt-3 text-sm font-medium text-primary hover:underline"
-              >
-                Réinitialiser la recherche
-              </button>
-            </div>
+            <EmptyState
+              icon={SearchX}
+              title="Aucun contenu ne correspond à ces critères"
+              description="Essayez un autre mot-clé ou élargissez les filtres pour retrouver le catalogue complet."
+              action={
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="text-sm font-medium text-primary hover:underline"
+                >
+                  Réinitialiser la recherche
+                </button>
+              }
+            />
           ) : (
             /*
              * Groupes de spécialité : en-tête éditorial collant + grille de cartes.
