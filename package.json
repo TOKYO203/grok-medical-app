@@ -36,7 +36,8 @@
     "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/content/imported-deck-integrity.test.ts src/content/license-receipt.test.ts src/content/purchase-order.test.ts src/lib/auth/gate-identity.test.ts src/lib/auscultation/phonocardiogram.test.ts src/lib/ecg/deformation.test.ts src/lib/ecg/waveform.test.ts src/lib/ecg/ecg-fiches.test.ts src/lib/imported-deck-storage.test.ts src/lib/library/specialty-label.test.ts src/lib/library/deck-series.test.ts src/lib/optimus-sync-model.test.ts src/state/persist-migrations.test.ts src/i18n/messages.test.ts src/i18n/detect.test.ts src/i18n/format.test.ts src/lib/units.test.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "build:cloudflare": "node scripts/with-app-env.mjs vite build"
+    "build:cloudflare": "node scripts/with-app-env.mjs vite build",
+    "secret:scan": "node scripts/secret-scan.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",

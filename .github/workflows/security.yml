@@ -34,6 +34,53 @@ jobs:
         with:
           category: "/language:javascript-typescript"
 
+  # Scanner de secrets sur les commits apportés par la référence concernée.
+  #
+  # Portée volontairement limitée au delta (`<base>..<head>`) et non à tout
+  # l'historique : la fuite de septembre (route de debug supprimée depuis) est
+  # déjà révoquée, et scanner 800+ commits à chaque PR rendrait le job rouge en
+  # permanence. Le delta bloque toute NOUVELLE fuite avant qu'elle ne soit
+  # fusionnée ; l'historique complet se traite à part, lors d'une purge dédiée.
+  secret-scan:
+    name: Secret scan (delta)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Install gitleaks
+        env:
+          GITLEAKS_VERSION: "8.28.0"
+        run: |
+          set -euo pipefail
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            | tar -xz gitleaks
+          ./gitleaks version
+      - name: Resolve commit range
+        id: range
+        run: |
+          set -euo pipefail
+          base="${{ github.event.pull_request.base.sha || github.event.before }}"
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+            base="$(git rev-list --max-parents=0 HEAD | tail -1)"
+          fi
+          echo "base=$base" >> "$GITHUB_OUTPUT"
+          echo "head=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+      - name: Scan the commit delta
+        run: |
+          set -euo pipefail
+          ./gitleaks git \
+            --config .gitleaks.toml \
+            --log-opts "${{ steps.range.outputs.base }}..${{ steps.range.outputs.head }}" \
+            --redact \
+            --verbose \
+            --no-banner
+      - name: Scan the tracked working tree
+        run: |
+          set -euo pipefail
+          ./gitleaks dir . --config .gitleaks.toml --redact --no-banner
+
   npm-audit:
     name: Production dependency audit
     runs-on: ubuntu-latest

@@ -1,0 +1,57 @@
+title = "optimus — détection de secrets"
+
+# On garde toutes les règles par défaut de gitleaks (clés cloud, JWT, URL de
+# base avec mot de passe, mots de passe génériques…) et on n'ajoute qu'une
+# liste d'exceptions explicitement justifiée ci-dessous. Toute nouvelle
+# exception doit être accompagnée d'une raison écrite : une allowlist qui
+# grandit sans justification est la façon la plus simple de rendre un scanner
+# inutile.
+
+[extend]
+useDefault = true
+
+# ── Règle projet ─────────────────────────────────────────────────────────────
+# Les détecteurs génériques ne reconnaissent pas ce motif : le mot de passe
+# n'était pas dans un `KEY=value` mais dans un appel de fonction
+# (`setAdminKey("…")`) — c'est exactement ce qui a échappé au scan en
+# septembre 2026. Cette règle nomme le motif pour que l'historique le dise
+# franchement au lieu d'afficher « aucun secret » alors qu'un mot de passe y
+# dort encore.
+[[rules]]
+id = "optimus-hardcoded-admin-key"
+description = "Mot de passe admin écrit en dur dans un appel d'authentification"
+regex = '''(?i)\b(?:setadminKey|adminkey)\s*[:=(]\s*["'`][^"'`\s]{6,}["'`]'''
+tags = ["secret", "admin"]
+
+# ── Exceptions ───────────────────────────────────────────────────────────────
+# 1. `src/lib/auth/preview.ts` : client OAuth « preview » fourni par la
+#    plateforme de live preview (étape de scaffold). Secret partagé, dédié,
+#    à privilèges minimaux, restreint par Better Auth aux hôtes
+#    `*.grok-sandbox.com` — impossible à pré-enregistrer par app puisque chaque
+#    preview a une URL dynamique. Il est injecté par le déployeur en
+#    production (`GROK_AUTH_*` l'écrase). Ce n'est pas un secret du projet.
+# 2. `.env.example` : valeurs de gabarit évidentes (« changez-moi-… »), elles
+#    documentent les variables sans jamais fournir de valeur utilisable.
+# 3. Fixtures de tests : mots de passe factices de scripts/*.test.mjs et
+#    identifiants du conteneur PostgreSQL `localhost` de la CI — valeurs
+#    jetables, recréées à chaque exécution, sans portée.
+# 4. `optimus-experience-v1` : nom de clé `localStorage`, pas un secret.
+[[allowlists]]
+description = "Client OAuth preview fourni par la plateforme (privilèges minimaux, hôtes *.grok-sandbox.com)"
+paths = ['''src/lib/auth/preview\.ts$''']
+
+[[allowlists]]
+description = "Gabarit .env.example — valeurs de remplacement auto-descriptives"
+paths = ['''\.env\.example$''']
+
+[[allowlists]]
+description = "Fixtures de tests : mots de passe factices et identifiants du Postgres de CI"
+paths = ['''scripts/.*\.test\.mjs$''', '''\.github/workflows/.*\.yml$''']
+
+[[allowlists]]
+description = "Nom de clé localStorage (pas un secret)"
+regexes = ['''optimus-experience-v1''']
+
+[[allowlists]]
+description = "Postgres local du conteneur de CI (optimus/optimus@localhost)"
+regexes = ['''postgres(ql)?://optimus:optimus@localhost(:[0-9]+)?/''']

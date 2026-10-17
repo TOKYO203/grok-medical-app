@@ -15,6 +15,20 @@ LIVE_URL="https://grok-medical-app.vercel.app"
 VAR_NAME="ADMIN_PASSWORD"
 ENVS=("production" "preview" "development")
 
+cat <<'WARN'
+⚠️  CE SCRIPT NE TOURNE QUE LA MOITIÉ DE LA ROTATION.
+    /api/admin-verify vérifie D'ABORD le hash PBKDF2 de la table admin_config
+    et ne lit ADMIN_PASSWORD qu'en l'absence de hash. Remplacer la variable
+    Vercel laisse donc l'ANCIEN mot de passe valide (constaté pendant
+    l'incident du 2026-10-17 : la prod répondait encore {"valid":true}).
+    Il faut AUSSI réécrire le hash :
+      node scripts/set-admin-password.mjs '<nouveau-mot-de-passe>'
+    (ou la route de maintenance décrite dans docs/SECURITY-AUDIT.md quand la
+    base n'est joignable que depuis le déploiement).
+    Détails : docs/production-runbook.md — section 0.
+
+WARN
+
 log "Vérification des prérequis…"
 command -v vercel >/dev/null 2>&1 || die "Vercel CLI absent. Installe-le : npm i -g vercel"
 command -v curl   >/dev/null 2>&1 || die "curl absent. Installe-le : pkg install curl"
@@ -98,6 +112,8 @@ echo "${BOLD}══════════════════════�
 if echo "$R2" | grep -q '"valid":true'; then
   ok "${BOLD}SUCCÈS${NC} — ${VAR_NAME} opérationnel."
   echo "   Mot de passe : ${BOLD}${ADMIN_PWD}${NC}"
+  warn "${BOLD}ACTION REQUISE${NC} : réécrire le hash en base, sinon l'ancien mot de passe reste valide :"
+  echo "     node scripts/set-admin-password.mjs '${ADMIN_PWD}'"
   echo "   Type         : Secret"
   echo "   Envs         : ${ENVS[*]}"
 else

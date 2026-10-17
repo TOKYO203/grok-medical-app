@@ -2,6 +2,41 @@
 
 This runbook covers the minimum operational controls required before V1 production traffic.
 
+## 0. Rotating the admin password (do both halves)
+
+`/api/admin-verify` checks a **PBKDF2 hash stored in `admin_config`** first and
+only falls back to `process.env.ADMIN_PASSWORD` when no hash exists. Rotating the
+platform variable alone therefore leaves the old password valid — this was proven
+during the 2026-10-17 incident: production still answered `{"valid":true}` to the
+leaked password after `ADMIN_PASSWORD` had been replaced.
+
+Rotation is complete only when **both** are updated:
+
+1. the platform variable `ADMIN_PASSWORD` (production / preview / development);
+2. the `admin_password_hash` row in `admin_config`.
+
+From a machine that can reach the database (port 5432 open, `DATABASE_URL` set):
+
+```bash
+node scripts/set-admin-password.mjs '<new-password-min-8>'
+```
+
+From inside the deployment (the production `DATABASE_URL` is a write-only
+"sensitive" variable), use the temporary maintenance route described in
+`docs/SECURITY-AUDIT.md` § *Incident 2026-10-17* — a token-guarded route that
+must be reverted as soon as the hash is rewritten.
+
+Always verify afterwards, from outside:
+
+```bash
+curl -s -X POST https://<host>/api/admin-verify \
+  -H 'Content-Type: application/json' -d '{"adminKey":"<old>"}'   # must be {"valid":false}
+curl -s -X POST https://<host>/api/admin-verify \
+  -H 'Content-Type: application/json' -d '{"adminKey":"<new>"}'   # must be {"valid":true}
+```
+
+A single `{"valid":true}` on the old password means the rotation did not happen.
+
 ## 1. Required production configuration
 
 Keep secrets in the deployment platform and GitHub repository secrets. Never commit values.
