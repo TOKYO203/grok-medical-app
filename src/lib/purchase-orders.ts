@@ -1,4 +1,4 @@
-import { randomBytes } from "node:crypto";
+successfully downloaded text file (SHA: 95fb47bdee085a6e4f9e8249ab3e70d822e54a6f)import { randomBytes } from "node:crypto";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import {
@@ -21,12 +21,25 @@ const specialtySchema = z.enum([
 
 const referenceSchema = z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/);
 
-const createSchema = z.object({
+// A04 : les commandes créées sont des abonnements (mensuel/trimestriel) ;
+// les offres historiques deck/specialty restent acceptées pour ne jamais
+// bloquer un appareil qui finalise une commande déjà ouverte.
+const subscriptionCreateSchema = z.object({
+  clientRequestId: z.string().uuid(),
+  offer: z.enum(["subscription_month", "subscription_quarter"]),
+});
+
+const legacyCreateSchema = z.object({
   clientRequestId: z.string().uuid(),
   offer: z.enum(["deck", "specialty"]),
   specialty: specialtySchema,
   deckNumber: z.number().int().min(1).max(10),
 });
+
+const createSchema = z.discriminatedUnion("offer", [
+  subscriptionCreateSchema,
+  legacyCreateSchema,
+]);
 
 const clientStatusSchema = z.enum([
   "instructions_requested",
@@ -61,9 +74,15 @@ type PurchaseRow = {
   reference: string;
   user_id: string;
   optimus_id: string;
-  offer: "deck" | "specialty";
-  specialty: "neurologie" | "cardiologie" | "infectiologie" | "urgences" | "dermatologie";
-  deck_number: number;
+  offer: "deck" | "specialty" | "subscription_month" | "subscription_quarter";
+  specialty:
+    | "neurologie"
+    | "cardiologie"
+    | "infectiologie"
+    | "urgences"
+    | "dermatologie"
+    | null;
+  deck_number: number | null;
   product: string;
   label: string;
   amount: number;
@@ -108,8 +127,8 @@ function toPurchase(row: PurchaseRow): PremiumPurchase {
   return {
     reference: row.reference,
     offer: row.offer,
-    specialty: row.specialty,
-    deckNumber: Number(row.deck_number),
+    ...(row.specialty ? { specialty: row.specialty } : {}),
+    ...(row.deck_number === null ? {} : { deckNumber: Number(row.deck_number) }),
     product: row.product,
     label: row.label,
     amount: Number(row.amount),
@@ -225,12 +244,15 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
       [context.userId, data.clientRequestId],
     );
     if (existing[0]) {
-      const expectedOrder: PremiumOrder = {
-        reference: existing[0].reference,
-        offer: data.offer,
-        specialty: data.specialty,
-        deckNumber: data.deckNumber,
-      };
+      const expectedOrder: PremiumOrder =
+        data.offer === "deck" || data.offer === "specialty"
+          ? {
+              reference: existing[0].reference,
+              offer: data.offer,
+              specialty: data.specialty,
+              deckNumber: data.deckNumber,
+            }
+          : { reference: existing[0].reference, offer: data.offer };
       if (existing[0].product !== orderProduct(expectedOrder)) {
         throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
       }
@@ -238,12 +260,15 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
     }
 
     const reference = makeReference();
-    const order: PremiumOrder = {
-      reference,
-      offer: data.offer,
-      specialty: data.specialty,
-      deckNumber: data.deckNumber,
-    };
+    const order: PremiumOrder =
+      data.offer === "deck" || data.offer === "specialty"
+        ? {
+            reference,
+            offer: data.offer,
+            specialty: data.specialty,
+            deckNumber: data.deckNumber,
+          }
+        : { reference, offer: data.offer };
     const product = orderProduct(order);
     const label = orderLabel(order);
     const amount = orderAmount(order);
@@ -262,8 +287,8 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
         data.clientRequestId,
         optimusId,
         data.offer,
-        data.specialty,
-        data.deckNumber,
+        "specialty" in data ? data.specialty : null,
+        "specialty" in data ? data.deckNumber : null,
         product,
         label,
         amount,
@@ -272,12 +297,15 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
     const row = rows[0];
     if (!row) throw new Error("La commande n'a pas pu être créée.");
 
-    const canonicalOrder: PremiumOrder = {
-      reference: row.reference,
-      offer: data.offer,
-      specialty: data.specialty,
-      deckNumber: data.deckNumber,
-    };
+    const canonicalOrder: PremiumOrder =
+      data.offer === "deck" || data.offer === "specialty"
+        ? {
+            reference: row.reference,
+            offer: data.offer,
+            specialty: data.specialty,
+            deckNumber: data.deckNumber,
+          }
+        : { reference: row.reference, offer: data.offer };
     if (row.product !== orderProduct(canonicalOrder)) {
       throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
     }

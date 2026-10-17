@@ -1,13 +1,16 @@
-import assert from "node:assert/strict";
+successfully downloaded text file (SHA: f7efc8e3f295d467c77b5b616aaba963c1373d0e)import assert from "node:assert/strict";
 import test from "node:test";
 import {
   advancePurchase,
   fulfillmentRequestMessage,
+  isSubscriptionOffer,
   orderAmount,
+  orderLabel,
   orderProduct,
   paymentRequestMessage,
   PREMIUM_SPECIALTIES,
   purchaseStatusRank,
+  subscriptionPlan,
   type PremiumOrder,
 } from "./purchase-order.ts";
 
@@ -70,4 +73,29 @@ test("payment and fulfillment messages carry the exact order and device binding"
   assert.match(fulfillment, /NEURO_DECK_03/);
   assert.match(fulfillment, /device-key-12345678/);
   assert.match(fulfillment, /public-key-12345678/);
+});
+
+test("A04 — abonnements Premium mensuel et trimestriel (fin de l'achat à vie)", () => {
+  const monthly: PremiumOrder = { reference: "CMD-SUB-M", offer: "subscription_month" };
+  const quarterly: PremiumOrder = { reference: "CMD-SUB-T", offer: "subscription_quarter" };
+
+  assert.ok(isSubscriptionOffer("subscription_month"));
+  assert.ok(isSubscriptionOffer("subscription_quarter"));
+  assert.ok(!isSubscriptionOffer("deck"));
+
+  assert.equal(subscriptionPlan("subscription_month").days, 30);
+  assert.equal(subscriptionPlan("subscription_quarter").days, 90);
+
+  assert.equal(orderAmount(monthly), 5_000);
+  assert.equal(orderAmount(quarterly), 12_000);
+  assert.equal(orderProduct(monthly), "OPTIMUS_PRO");
+  assert.equal(orderProduct(quarterly), "OPTIMUS_PRO");
+  assert.equal(orderLabel(monthly), "Optimus Premium · Mensuel (30 jours)");
+  assert.equal(orderLabel(quarterly), "Optimus Premium · Trimestriel (90 jours)");
+
+  const created = advancePurchase(monthly, "created", undefined, false, 100);
+  assert.equal(created.amount, 5_000);
+  assert.equal(created.product, "OPTIMUS_PRO");
+  assert.equal(created.label, "Optimus Premium · Mensuel (30 jours)");
+  assert.equal(created.status, "created");
 });

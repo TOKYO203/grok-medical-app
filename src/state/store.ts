@@ -1,4 +1,4 @@
-import { create } from "zustand";
+successfully downloaded text file (SHA: f4a66e9f045c40e1a7b6cd2d317a7fee18b91eb1)import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
 import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
@@ -222,14 +222,23 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
     if (!candidate || typeof candidate !== "object") return [];
     const purchase = candidate as Partial<PremiumPurchase>;
     const deckNumber = Number(purchase.deckNumber);
+    const offer = purchase.offer;
+    if (
+      offer !== "deck" &&
+      offer !== "specialty" &&
+      offer !== "subscription_month" &&
+      offer !== "subscription_quarter"
+    ) {
+      return [];
+    }
     if (
       typeof purchase.reference !== "string" ||
       purchase.reference.length < 6 ||
-      (purchase.offer !== "deck" && purchase.offer !== "specialty") ||
-      !specialtyIds.has(purchase.specialty ?? "") ||
-      !Number.isInteger(deckNumber) ||
-      deckNumber < 1 ||
-      deckNumber > 10 ||
+      ((offer === "deck" || offer === "specialty") &&
+        (!specialtyIds.has(purchase.specialty ?? "") ||
+          !Number.isInteger(deckNumber) ||
+          deckNumber < 1 ||
+          deckNumber > 10)) ||
       typeof purchase.status !== "string" ||
       !statuses.has(purchase.status) ||
       typeof purchase.createdAt !== "number" ||
@@ -239,12 +248,15 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
     ) {
       return [];
     }
-    const order: PremiumOrder = {
-      reference: purchase.reference,
-      offer: purchase.offer,
-      specialty: purchase.specialty as PremiumSpecialtyId,
-      deckNumber,
-    };
+    const order: PremiumOrder =
+      offer === "deck" || offer === "specialty"
+        ? {
+            reference: purchase.reference,
+            offer,
+            specialty: purchase.specialty as PremiumSpecialtyId,
+            deckNumber,
+          }
+        : { reference: purchase.reference, offer };
     return [
       {
         ...order,

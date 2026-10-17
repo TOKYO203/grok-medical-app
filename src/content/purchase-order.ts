@@ -1,4 +1,4 @@
-import { specialtyCodeFromLabel } from "../lib/library/specialty-label.ts";
+successfully downloaded text file (SHA: 894cd92c2c3372092440f72f03fb422c24cb22b2)import { specialtyCodeFromLabel } from "../lib/library/specialty-label.ts";
 
 export const PREMIUM_SPECIALTIES = [
   { id: "neurologie", label: "Neurologie", code: "NEURO" },
@@ -8,7 +8,12 @@ export const PREMIUM_SPECIALTIES = [
   { id: "dermatologie", label: "Dermatologie", code: "DERMATO" },
 ] as const;
 
-export type PremiumOffer = "deck" | "specialty";
+export type PremiumOffer =
+  | "deck"
+  | "specialty"
+  | "subscription_month"
+  | "subscription_quarter";
+export type SubscriptionOffer = "subscription_month" | "subscription_quarter";
 export type PremiumSpecialtyId = (typeof PREMIUM_SPECIALTIES)[number]["id"];
 
 export const PURCHASE_PROGRESS_STATUSES = [
@@ -32,8 +37,10 @@ export type PurchaseProgressStatus = (typeof PURCHASE_PROGRESS_STATUSES)[number]
 export type PremiumOrder = {
   reference: string;
   offer: PremiumOffer;
-  specialty: PremiumSpecialtyId;
-  deckNumber: number;
+  /** Offres historiques deck/specialty uniquement — absent pour un abonnement. */
+  specialty?: PremiumSpecialtyId;
+  /** Offres historiques deck/specialty uniquement — absent pour un abonnement. */
+  deckNumber?: number;
 };
 
 export type PremiumPurchase = PremiumOrder & {
@@ -53,6 +60,37 @@ export type PurchaseDeviceRequest = {
   publicKey: string;
 };
 
+/**
+ * Abonnements Premium (A04, Session 18) : accès complet à durée, renouvelé par
+ * un nouveau paiement Mobile Money. Chaque abonnement émet le droit
+ * `OPTIMUS_PRO` — celui qui débloque déjà tous les Decks, cas cliniques et
+ * démarches — porté par une licence à durée (voir `expiresAt` du receipt :
+ * une licence expirée est refusée cryptographiquement). Les montants restent
+ * la source canonique consultée par `orderAmount` ; `SUBSCRIPTIONS_MGA`
+ * dans pricing.ts aligne uniquement l'affichage.
+ */
+export const SUBSCRIPTION_OFFERS: {
+  offer: SubscriptionOffer;
+  days: number;
+  amountMga: number;
+  label: string;
+}[] = [
+  { offer: "subscription_month", days: 30, amountMga: 5_000, label: "Mensuel" },
+  { offer: "subscription_quarter", days: 90, amountMga: 12_000, label: "Trimestriel" },
+];
+
+const SUBSCRIPTION_BY_OFFER = new Map(SUBSCRIPTION_OFFERS.map((plan) => [plan.offer, plan]));
+
+export function isSubscriptionOffer(offer: PremiumOffer): offer is SubscriptionOffer {
+  return offer === "subscription_month" || offer === "subscription_quarter";
+}
+
+export function subscriptionPlan(offer: SubscriptionOffer) {
+  const plan = SUBSCRIPTION_BY_OFFER.get(offer);
+  if (!plan) throw new Error("Offre d'abonnement inconnue");
+  return plan;
+}
+
 const PREMIUM_SPECIALTY_BY_CODE: Record<string, PremiumSpecialtyId> = Object.fromEntries(
   PREMIUM_SPECIALTIES.map((specialty) => [specialty.code, specialty.id]),
 );
@@ -70,18 +108,24 @@ export function premiumSpecialtyIdFor(specialtyLabel: string): PremiumSpecialtyI
 }
 
 export function orderAmount(order: PremiumOrder): number {
+  if (isSubscriptionOffer(order.offer)) return subscriptionPlan(order.offer).amountMga;
   return order.offer === "specialty" ? 27_000 : 3_000;
 }
 
 export function orderProduct(order: PremiumOrder): string {
+  if (isSubscriptionOffer(order.offer)) return "OPTIMUS_PRO";
   const specialty = PREMIUM_SPECIALTIES.find((item) => item.id === order.specialty);
   if (!specialty) throw new Error("Spécialité Premium inconnue");
   return order.offer === "specialty"
     ? `${specialty.code}_PACK_15`
-    : `${specialty.code}_DECK_${String(order.deckNumber).padStart(2, "0")}`;
+    : `${specialty.code}_DECK_${String(order.deckNumber ?? 0).padStart(2, "0")}`;
 }
 
 export function orderLabel(order: PremiumOrder): string {
+  if (isSubscriptionOffer(order.offer)) {
+    const plan = subscriptionPlan(order.offer);
+    return `Optimus Premium · ${plan.label} (${plan.days} jours)`;
+  }
   const specialty = PREMIUM_SPECIALTIES.find((item) => item.id === order.specialty);
   if (!specialty) throw new Error("Spécialité Premium inconnue");
   return order.offer === "specialty"

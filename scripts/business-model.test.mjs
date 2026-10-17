@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+successfully downloaded text file (SHA: fd52af3556bb062d0656e6c8e6edbe1e11912ccf)import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
@@ -105,5 +105,31 @@ test("B20 — canal email institutionnel pour l'offre École", () => {
   assert.ok(
     types.includes('| "school"'),
     "ContactDraft doit étendre son union kind à school",
+  );
+});
+
+test("A04 — abonnements mensuel et trimestriel remplacent l'achat à vie", () => {
+  const order = read("../src/content/purchase-order.ts");
+  assert.ok(order.includes('"subscription_month"'), "l'offre mensuelle doit exister");
+  assert.ok(order.includes('"subscription_quarter"'), "l'offre trimestrielle doit exister");
+  assert.ok(order.includes("5_000"), "l'abonnement mensuel coûte 5 000 Ar");
+  assert.ok(order.includes("12_000"), "l'abonnement trimestriel coûte 12 000 Ar");
+  assert.ok(
+    order.includes('if (isSubscriptionOffer(order.offer)) return "OPTIMUS_PRO";'),
+    "un abonnement émet le droit OPTIMUS_PRO, porté par une licence à durée",
+  );
+
+  const pricing = read("../src/content/pricing.ts");
+  assert.ok(pricing.includes("SUBSCRIPTIONS_MGA"), "pricing.ts doit exposer les prix d'abonnement");
+
+  const migration = read("../migrations/0015_premium_subscriptions.sql");
+  assert.match(migration, /subscription_month/);
+  assert.match(migration, /subscription_quarter/);
+  assert.match(migration, /DROP NOT NULL/);
+
+  const store = read("../src/state/store.ts");
+  assert.ok(
+    store.includes('"subscription_month"'),
+    "le store doit conserver les commandes d'abonnement hors ligne",
   );
 });

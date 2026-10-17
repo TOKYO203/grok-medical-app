@@ -1,4 +1,4 @@
-/**
+successfully downloaded text file (SHA: 7de20cc2a0520509614dc9b6ee5f7927874a2486)/**
  * Source unique des prix Optimus — Mission International, Session 1 (A01).
  *
  * Les montants de référence restent en Ariary (MGA) : c'est la devise de
@@ -15,6 +15,17 @@ export type Currency = (typeof CURRENCIES)[number];
 export const PRICES_MGA = {
   deck: 3_000,
   specialty: 27_000,
+} as const;
+
+/**
+ * Abonnements Premium (A04) : mensuel 30 jours, trimestriel 90 jours.
+ * Montants alignés sur `SUBSCRIPTION_OFFERS` (src/content/purchase-order.ts,
+ * source canonique via `orderAmount`) — l'achat à vie n'est plus proposé :
+ * PRICES_MGA ne sert plus qu'aux commandes historiques deck/specialty.
+ */
+export const SUBSCRIPTIONS_MGA = {
+  monthly: 5_000,
+  quarterly: 12_000,
 } as const;
 
 /**
