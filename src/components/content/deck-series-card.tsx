@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Check, Clock3, Layers3, Lock, Play, Sparkles } from "lucide-react";
 import { LEVEL_LABEL, LEVEL_SHORT } from "@/core/curriculum";
+import { sujetSlugForDeck } from "@/content/data/sujets";
 import type { DeckSeries, DeckSeriesStep } from "@/lib/library/deck-series";
 import type { ContentItem } from "@/lib/library/content-index";
 import { cn } from "@/lib/utils";
@@ -79,6 +80,13 @@ export function DeckSeriesCard({
     (sum, { item }) => sum + Number(item.metric.replace(/\D/g, "") || 0),
     0,
   );
+  /*
+   * Un escalier = un sujet : on relie la carte à sa page carrefour (`/sujet/<slug>`)
+   * pour que le lecteur découvre, au même endroit, le cas clinique, l'ECG et les
+   * scores qui traitent la même pathologie. Le slug vient du fichier de données
+   * (aucune convention de nommage devinée depuis l'id de branche).
+   */
+  const sujetSlug = sujetSlugForDeck(series.steps[0]?.deckId ?? "");
   const levels = orderedSteps.flatMap(({ step }) => (step.level ? [step.level] : []));
   const levelRange =
     levels.length > 1
@@ -122,7 +130,19 @@ export function DeckSeriesCard({
           </div>
 
           <h3 className="mt-2 font-display text-lg font-medium leading-snug tracking-tight text-fg">
-            {series.label}
+            {sujetSlug ? (
+              <Link
+                to="/sujet/$slug"
+                params={{ slug: sujetSlug }}
+                data-deck-series-subject={sujetSlug}
+                aria-label={`Voir le sujet ${series.label} : cas clinique, ECG, sons et scores`}
+                className="underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:underline focus-visible:outline-none"
+              >
+                {series.label}
+              </Link>
+            ) : (
+              series.label
+            )}
           </h3>
           <p className="mt-0.5 line-clamp-2 text-sm leading-relaxed text-muted">
             {series.description}

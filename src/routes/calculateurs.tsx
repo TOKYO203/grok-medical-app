@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, Check, ChevronLeft, ChevronRight, Sigma } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import {
+  getCalculator,
   listCategoryGroups,
   type Calculator,
   type CalculatorField,
@@ -12,7 +13,20 @@ import {
   type CalculatorSeverity,
 } from "@/content/calculators";
 
-export const Route = createFileRoute("/calculateurs")({ component: CalcPage });
+/**
+ * Lien profond `?score=<id>` — utilisé par les pages « sujet » (`/sujet/sca`
+ * → « À calculer » → GRACE). Sans lui, chaque score d'un sujet renvoyait à
+ * l'accueil des calculateurs et il fallait re-chercher la catégorie puis le
+ * score : trois gestes pour arriver là où le lien prétendait mener.
+ */
+export type CalculatorSearch = { score?: string };
+
+export const Route = createFileRoute("/calculateurs")({
+  component: CalcPage,
+  validateSearch: (search: Record<string, unknown>): CalculatorSearch => ({
+    score: typeof search.score === "string" ? search.score : undefined,
+  }),
+});
 
 /** Couleur + libellé du badge de gravité. */
 const SEVERITY_STYLE: Record<CalculatorSeverity, { label: string; className: string }> = {
@@ -24,8 +38,25 @@ const SEVERITY_STYLE: Record<CalculatorSeverity, { label: string; className: str
 
 function CalcPage() {
   const groups = useMemo(() => listCategoryGroups(), []);
-  const [category, setCategory] = useState<string>(() => groups[0]?.category ?? "general");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const { score } = Route.useSearch();
+
+  // Sélection initiale dérivée du lien profond (aucun état à corriger après
+  // coup : le premier rendu affiche déjà le bon score).
+  const initial = score ? getCalculator(score) : undefined;
+  const [category, setCategory] = useState<string>(
+    () => initial?.categorie ?? groups[0]?.category ?? "general",
+  );
+  const [selectedId, setSelectedId] = useState<string | null>(initial?.id ?? null);
+
+  // Depuis une page sujet, un score peut être visé sans démonter la route
+  // (même chemin, autre query) : on resynchronise alors la sélection.
+  useEffect(() => {
+    if (!score) return;
+    const target = getCalculator(score);
+    if (!target) return;
+    setCategory(target.categorie);
+    setSelectedId(target.id);
+  }, [score]);
 
   const activeGroup = groups.find((g) => g.category === category) ?? groups[0];
   const selected = activeGroup?.items.find((c) => c.id === selectedId) ?? null;

@@ -9,8 +9,8 @@ Le script `scripts/performance-budget.mjs` est exécuté automatiquement par `np
 | Budget | Limite V1 |
 | --- | ---: |
 | Un chunk JavaScript client | 584 KiB max |
-| Une feuille CSS client | 104 KiB max |
-| JavaScript client total produit par le build | 1 888 KiB max |
+| Une feuille CSS client | 120 KiB max |
+| JavaScript client total produit par le build | 1 960 KiB max |
 
 La source de vérité est `PERFORMANCE_BUDGET` dans `scripts/performance-budget.mjs` (ce tableau ne fait que la refléter). Le build échoue si l'une de ces limites est dépassée ; chaque relèvement y est daté et motivé, avec une marge volontairement faible (le plafond est un garde-fou, pas une cible).
 

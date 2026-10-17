@@ -43,6 +43,7 @@ import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SignesRouteImport } from './routes/signes'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
+import { Route as SujetRouteImport } from './routes/sujet'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
@@ -53,6 +54,7 @@ import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
+import { Route as SujetSlugRouteImport } from './routes/sujet.$slug'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 
 const IndexRoute = IndexRouteImport.update({
@@ -224,6 +226,11 @@ const SoutenirRoute = SoutenirRouteImport.update({
   path: '/soutenir',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SujetRoute = SujetRouteImport.update({
+  id: '/sujet',
+  path: '/sujet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TarifsRoute = TarifsRouteImport.update({
   id: '/tarifs',
   path: '/tarifs',
@@ -274,6 +281,11 @@ const ParcoursDeckIdRoute = ParcoursDeckIdRouteImport.update({
   path: '/$deckId',
   getParentRoute: () => ParcoursRoute,
 } as any)
+const SujetSlugRoute = SujetSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SujetRoute,
+} as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
   path: '/api/licenses/activate',
@@ -314,6 +326,7 @@ export interface FileRoutesByFullPath {
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
+  '/sujet': typeof SujetRouteWithChildren
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
@@ -324,6 +337,7 @@ export interface FileRoutesByFullPath {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/sujet/$slug': typeof SujetSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesByTo {
@@ -360,6 +374,7 @@ export interface FileRoutesByTo {
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
+  '/sujet': typeof SujetRouteWithChildren
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
@@ -370,6 +385,7 @@ export interface FileRoutesByTo {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/sujet/$slug': typeof SujetSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesById {
@@ -408,6 +424,7 @@ export interface FileRoutesById {
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/soutenir': typeof SoutenirRoute
+  '/sujet': typeof SujetRouteWithChildren
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
@@ -418,6 +435,7 @@ export interface FileRoutesById {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/sujet/$slug': typeof SujetSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRouteTypes {
@@ -456,6 +474,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/signes'
     | '/soutenir'
+    | '/sujet'
     | '/tarifs'
     | '/validation-clinique'
     | '/kitchen-sink'
@@ -466,6 +485,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/sujet/$slug'
     | '/api/licenses/activate'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -502,6 +522,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/signes'
     | '/soutenir'
+    | '/sujet'
     | '/tarifs'
     | '/validation-clinique'
     | '/kitchen-sink'
@@ -512,6 +533,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/sujet/$slug'
     | '/api/licenses/activate'
   id:
     | '__root__'
@@ -549,6 +571,7 @@ export interface FileRouteTypes {
     | '/revue'
     | '/signes'
     | '/soutenir'
+    | '/sujet'
     | '/tarifs'
     | '/validation-clinique'
     | '/_dev/kitchen-sink'
@@ -559,6 +582,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/sujet/$slug'
     | '/api/licenses/activate'
   fileRoutesById: FileRoutesById
 }
@@ -597,6 +621,7 @@ export interface RootRouteChildren {
   RevueRoute: typeof RevueRoute
   SignesRoute: typeof SignesRoute
   SoutenirRoute: typeof SoutenirRoute
+  SujetRoute: typeof SujetRouteWithChildren
   TarifsRoute: typeof TarifsRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
@@ -845,6 +870,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoutenirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sujet': {
+      id: '/sujet'
+      path: '/sujet'
+      fullPath: '/sujet'
+      preLoaderRoute: typeof SujetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tarifs': {
       id: '/tarifs'
       path: '/tarifs'
@@ -915,6 +947,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParcoursDeckIdRouteImport
       parentRoute: typeof ParcoursRoute
     }
+    '/sujet/$slug': {
+      id: '/sujet/$slug'
+      path: '/$slug'
+      fullPath: '/sujet/$slug'
+      preLoaderRoute: typeof SujetSlugRouteImport
+      parentRoute: typeof SujetRoute
+    }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
       path: '/api/licenses/activate'
@@ -979,6 +1018,16 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
   ParcoursRouteChildren,
 )
 
+interface SujetRouteChildren {
+  SujetSlugRoute: typeof SujetSlugRoute
+}
+
+const SujetRouteChildren: SujetRouteChildren = {
+  SujetSlugRoute: SujetSlugRoute,
+}
+
+const SujetRouteWithChildren = SujetRoute._addFileChildren(SujetRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DevRoute: DevRouteWithChildren,
@@ -1014,6 +1063,7 @@ const rootRouteChildren: RootRouteChildren = {
   RevueRoute: RevueRoute,
   SignesRoute: SignesRoute,
   SoutenirRoute: SoutenirRoute,
+  SujetRoute: SujetRouteWithChildren,
   TarifsRoute: TarifsRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,

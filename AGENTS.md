@@ -637,3 +637,8 @@ définition (structure des fiches, niveau de détail, sources, etc.).
   - `src/content/data/signes/mock.json` (données factices)
 - **Navigation** : Ajouté dans `src/lib/navigation.ts` (groupe "S'entraîner").
 - **⚠️ CONTENU MÉDICAL** : Ne PAS générer de cas cliniques réels, de triades ou de syndromes. Données de démonstration uniquement. Même consigne que le reste du contenu médical.
+
+## 🔒 GARDE-FOU GIT (non négociable)
+- INTERDICTION de pousser sur `main` directement.
+- Tout travail sur une branche `feat/...` ou `fix/...` + Pull Request.
+- Hook local `pre-push` bloque les pushs sur main.

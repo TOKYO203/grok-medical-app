@@ -37,7 +37,19 @@ import { MonitorControls } from "@/components/auscultation/MonitorControls";
 import { PhonoSVG } from "@/components/auscultation/PhonoSVG";
 import { TorsoView, type FoyerId } from "@/components/auscultation/TorsoView";
 
-export const Route = createFileRoute("/auscultation")({ component: AuscultationPage });
+/**
+ * Lien profond `?son=<id>` — utilisé par les pages « sujet » (`/sujet/ic` →
+ * « B3 »). Le son est un contenu nommé : il mérite une adresse qui l'ouvre
+ * directement sur le bon onglet et la bonne fiche.
+ */
+export type AuscultationSearch = { son?: string };
+
+export const Route = createFileRoute("/auscultation")({
+  component: AuscultationPage,
+  validateSearch: (search: Record<string, unknown>): AuscultationSearch => ({
+    son: typeof search.son === "string" ? search.son : undefined,
+  }),
+});
 
 /** Référence stable : évite de recréer un objet à chaque render (useMemo). */
 const NO_PARAMS: Record<string, number> = {};
@@ -99,8 +111,12 @@ const CATEGORIE_LABEL: Record<string, string> = {
 };
 
 function AuscultationPage() {
+  const { son } = Route.useSearch();
+  // On n'accepte que des fiches réellement disponibles : un identifiant inconnu
+  // ne doit pas vider l'écran sur un état « rien de sélectionné ».
+  const initialSon = son && getFiche(son) ? son : null;
   const [tab, setTab] = useState<"cardiaque" | "pulmonaire">("cardiaque");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initialSon);
   const [playing, setPlaying] = useState(false);
   const [activeFoyer, setActiveFoyer] = useState<FoyerId | null>(null);
   const [rate, setRate] = useState(1);
@@ -117,6 +133,15 @@ function AuscultationPage() {
 
   // Coupe tout son en cours au démontage de la page (navigation).
   useEffect(() => () => stop(), []);
+
+  // Lien profond depuis une page sujet. On ne rejoue pas l'effet à chaque
+  // changement de sélection (seul `son` le déclenche) : sinon on annulerait le
+  // choix de l'utilisateur dans la liste.
+  useEffect(() => {
+    if (!son || !getFiche(son)) return;
+    setTab("cardiaque");
+    setSelectedId(son);
+  }, [son]);
 
   function selectSound(id: string) {
     stop();

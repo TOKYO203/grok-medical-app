@@ -8,6 +8,7 @@ import {
   Brain,
   BadgePercent,
   BookMarked,
+  BookOpen,
   Calculator,
   ClipboardCheck,
   Compass,
@@ -58,6 +59,7 @@ export const EXPLORE_GROUPS = [
     labelKey: "nav.group.learn",
     items: [
       { to: "/bibliotheque", labelKey: "nav.library", icon: Library },
+      { to: "/sujet", labelKey: "nav.sujets", icon: BookOpen },
       { to: "/parcours", labelKey: "nav.parcours", icon: Layers3 },
       { to: "/revue", labelKey: "nav.review", icon: RotateCcw },
     ],

@@ -51,6 +51,18 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // total exact reste rapporté par ce garde-fou à chaque build).
   // Relevé 1864 → 1888 KiB (Session 17 « crédibilité » : journal des versions
   // public /changelog + canal email institutionnel B20).
+  // Relevé 1888 → 1960 KiB (pages « sujet » /sujet et /sujet/<slug>) :
+  // +23,4 KiB de fonctionnalité assumée (hub 4,8 KiB + page carrefour 13,5 KiB,
+  // le reste en registre de routes et en carte « escalier » reliée au sujet).
+  // CE RELÈVEMENT CORRIGE AUSSI UNE DÉRIVE DE MESURE ANTÉRIEURE : les deux
+  // chantiers précédents (escalier IA-1→IA-7, carte mentale animée) ont relevé
+  // ce plafond en comparant une mesure LOCALE auth OFF à un plafond calibré sur
+  // la CI auth ON. Or la mesure locale auth OFF était déjà à 1871,7 KiB, soit
+  // ~1919,9 KiB en CI — le plafond de 1888 KiB ne couvrait donc plus la CI
+  // depuis deux sessions. Mesuré ici dans la configuration exacte de la CI
+  // (`.env.local` écarté, auth ON) : 1919,5 KiB en local ; + ~25 KiB d'écart
+  // de toolchain documenté ci-dessous ⇒ ~1944,2 KiB attendus en CI.
+  // Marge volontairement faible (~15,8 KiB), même philosophie.
   //
   // ⚠️ Le total dépend de la CONFIGURATION COMPILÉE, pas seulement du code :
   // la CI et le déploiement compilent avec l'authentification ACTIVE
@@ -65,7 +77,7 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Le plafond doit donc couvrir la mesure CI (1871,3 KiB) avec la marge
   // volontairement faible du projet (~17 KiB) → 1888 KiB. Mesurer un budget
   // « local » avec l'auth désactivée donne une fausse marge de ~65 KiB.
-  maxTotalJavascriptBytes: 1888 * 1024,
+  maxTotalJavascriptBytes: 1960 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

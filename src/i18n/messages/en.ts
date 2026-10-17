@@ -19,6 +19,7 @@ export const en: MessageCatalog = {
   "nav.profile": "Profile",
   "nav.profileShort": "Profile",
   "nav.library": "Library",
+  "nav.sujets": "Topics",
   "nav.review": "Review",
   "nav.animatedEcg": "Animated ECG",
   "nav.auscultation": "Auscultation",
