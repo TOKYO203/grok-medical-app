@@ -53,3 +53,16 @@ Démarrage -> QCM -> Fiche -> Flashcards -> Mindmap -> Fin de session (Récap).
 - Le contenu médical est le même.
 - Le programme change : nécessite `programmes/edn-2026.json`.
 - **Abstraction technique** : `programmeId` (`madagascar-2025`, `edn-2026`) obligatoire dès le début.
+
+## 13. Module "Signes & Triades" (Raisonnement inversé)
+
+**Concept** : Ne pas apprendre les triades par cœur. Les déduire d'une situation clinique.
+
+**Mécanique (UX)** :
+1. **Cas clinique** : Mini-scénario (ex: "Obésité, vergetures, HTA").
+2. **Question** : "Quel syndrome évoquez-vous ?" (Choix multiples).
+3. **Révélation** : La triade/tétrade s'affiche, les signes du cas sont surlignés.
+4. **Collection** : La carte est ajoutée au "Pokédex" de l'étudiant (gamification).
+
+**Contrainte** : Nécessite le cahier des charges médical du propriétaire (contient des signes cliniques).
+**Structure technique** : Réutiliser `quiz-player.tsx`. Créer un wrapper `CasCliniqueWrapper`.
