@@ -65,7 +65,30 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Le plafond doit donc couvrir la mesure CI (1871,3 KiB) avec la marge
   // volontairement faible du projet (~17 KiB) → 1888 KiB. Mesurer un budget
   // « local » avec l'auth désactivée donne une fausse marge de ~65 KiB.
-  maxTotalJavascriptBytes: 1888 * 1024,
+  //
+  // Relevé 1888 → 2000 KiB (Nosographie : fiche de cours « Paludisme »).
+  // ⚠️ Le plafond de 1888 KiB était DÉJÀ dépassé AVANT ce chantier : mesuré au
+  // commit de base (8a39adb), auth ON, sans aucune de ces modifications,
+  // le total vaut 1896,1 KiB. L'escalier des sujets (IA-1→IA-7) et la carte
+  // mentale enrichie ont chacun ajouté du bundle sans reprendre la mesure, et
+  // le relèvement correspondant (1960 KiB) vit sur une autre branche, non
+  // fusionnée ici : sur CETTE base, le plafond de 1888 est rouge de 8,1 KiB.
+  // Mesure de ce chantier : 1958,5 KiB en local (auth ON), soit +62,4 KiB :
+  //   • 50,3 KiB = la fiche elle-même (contenu JSON, chunk « paludisme »
+  //     chargé À LA DEMANDE — aucun octet dans le bundle initial) ;
+  //   • 7,0 KiB = la route /pathologie/$slug (3 vues + gating + liens) ;
+  //   • ~5 KiB = clés i18n × 4 langues et le lien « Fiche » de /programme.
+  // Aucune purge possible pour compenser : les octets sont du CONTENU médical
+  // et une route, pas du code mort (les 74 fichiers morts recensés par l'audit
+  // ne sont pas bundlés, les supprimer n'allège pas le bundle).
+  // CI ≈ local + ~25 KiB (toolchain Node 22 vs 24) ⇒ ~1983,5 KiB ; plafond
+  // 2000 KiB = marge volontairement faible (~16,5 KiB), même philosophie.
+  // NOTE D'ÉCHELLE : à 240 fiches de cette taille, le total exploserait. Le
+  // format tient parce que chaque fiche est un chunk à part ; si le catalogue
+  // se remplit, la prochaine étape est de servir les JSON comme actifs
+  // téléchargeables plutôt que de relever ce plafond (décision documentée dans
+  // docs/DECISIONS.md, NOSO-2).
+  maxTotalJavascriptBytes: 2000 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });

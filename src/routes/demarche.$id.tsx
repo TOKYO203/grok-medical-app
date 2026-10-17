@@ -198,7 +198,7 @@ function DemarchePage() {
 
         {enriched && view === "flashcards" ? (
           open ? (
-            <FlashcardsView content={enriched} />
+            <FlashcardsView content={enriched} trackId={enriched.diagnosticId} />
           ) : (
             <LockedPanel
               title="Collez les cartes en mémoire"

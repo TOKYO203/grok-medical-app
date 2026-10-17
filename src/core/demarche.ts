@@ -34,6 +34,19 @@ export type FicheBlock =
   | { type: "table"; columns: string[]; rows: string[][] }
   | { type: "callout"; tone: CalloutTone; title: string; text: string };
 
+/**
+ * Référence citée par une section précise (traçabilité éditoriale).
+ * Volontairement plus légère que `Source` : une section renvoie à une source
+ * déjà décrite en pied de fiche, elle n'a pas à la re-citer en entier.
+ */
+export type FicheSectionSource = {
+  id: string;
+  organization?: string;
+  title: string;
+  year?: number;
+  url?: string;
+};
+
 export type FicheSection = {
   id: string;
   /** Titre affiché, ex. « I. Introduction ». */
@@ -41,6 +54,8 @@ export type FicheSection = {
   /** Chapeau optionnel (1 phrase) affiché sous le titre. */
   summary?: string;
   blocks: FicheBlock[];
+  /** Sources mobilisées par cette section (affichées en pied de section). */
+  sources?: FicheSectionSource[];
 };
 
 /** Moyen mnémotechnique (DANGER, T.O.R.A.C., 3 E, A.I.R.). */
@@ -96,10 +111,15 @@ export type Mindmap = {
 
 /* ═══════════ 5. CONTENU COMPLET + INDEX ═══════════ */
 
-export type DemarcheContent = {
+/**
+ * Socle commun à tout contenu « fiche » : une démarche d'orientation
+ * diagnostique (`DemarcheContent`) et une fiche de nosographie
+ * (`PathologyContent`, cf. `@/core/pathology`) partagent exactement ces
+ * champs — c'est ce qui permet aux trois vues (fiche, flashcards, carte
+ * mentale) d'être rendues par les MÊMES composants.
+ */
+export type FicheContent = {
   schemaVersion: number;
-  /** Clé de rattachement au QCM : `id` d'un `DiagnosticCase`. */
-  diagnosticId: string;
   slug: string;
   title: string;
   subtitle: string;
@@ -111,6 +131,11 @@ export type DemarcheContent = {
   flashcards: Flashcard[];
   mindmap: Mindmap;
   sources: Source[];
+};
+
+export type DemarcheContent = FicheContent & {
+  /** Clé de rattachement au QCM : `id` d'un `DiagnosticCase`. */
+  diagnosticId: string;
 };
 
 export type DemarcheIndexEntry = {

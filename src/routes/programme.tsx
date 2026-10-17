@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Search, X } from "lucide-react";
+import { ArrowUpRight, BookOpen, Search, X } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
 import {
@@ -16,6 +16,7 @@ import {
   specialtyEmoji,
   specialtySlug,
 } from "@/lib/library/specialty-helpers";
+import { hasPathologyContent, listPathologySummaries } from "@/lib/pathologies/catalog";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/programme")({ component: ProgrammePage });
@@ -76,6 +77,21 @@ function ProgrammePage() {
     for (const label of librarySpecialtyLabels()) map.set(slugify(label), label);
     return map;
   }, []);
+
+  /**
+   * Items dont la fiche de nosographie est réellement ouvrable (déclarée au
+   * manifeste ET branchée sur un chargeur). Un item sans fiche n'affiche aucun
+   * lien : jamais de lien mort, même règle que les ancres de spécialité.
+   */
+  const itemFiches = useMemo(
+    () =>
+      new Set(
+        listPathologySummaries()
+          .filter((entry) => hasPathologyContent(entry.programmeId))
+          .map((entry) => entry.programmeId),
+      ),
+    [],
+  );
 
   const normalized = query.trim().toLowerCase();
 
@@ -303,6 +319,19 @@ function ProgrammePage() {
                                 <span className="truncate">{item.specialty}</span>
                               </p>
                             </div>
+                            {itemFiches.has(item.id) ? (
+                              <Link
+                                to="/pathologie/$slug"
+                                params={{ slug: item.id }}
+                                data-fiche-link={item.id}
+                                title={`Lire la fiche de nosographie « ${item.title} »`}
+                                className="mt-0.5 inline-flex h-8 shrink-0 items-center gap-1 rounded-[var(--radius-sm)] bg-primary-soft px-2 text-[11px] font-medium text-primary transition-colors hover:bg-primary/15"
+                              >
+                                <BookOpen className="size-3.5" aria-hidden />
+                                Fiche
+                                <span className="sr-only"> — {item.title}</span>
+                              </Link>
+                            ) : null}
                             {libraryLabel ? (
                               <Link
                                 to="/bibliotheque"

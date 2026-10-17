@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Hand, RotateCcw, Sparkles, ThumbsUp, TimerReset } from "lucide-react";
-import type { DemarcheContent, Flashcard } from "@/core/demarche";
+import type { FicheContent, Flashcard } from "@/core/demarche";
 import { useI18n } from "@/i18n";
 import { useOptimus } from "@/state/store";
 import { viewPanelId } from "./view-tabs";
@@ -20,7 +20,15 @@ const BADGE_STYLE: Record<"urgence" | "prudence", React.CSSProperties> = {
   prudence: { background: "var(--app-warn)", color: "#1b1408" },
 };
 
-export function FlashcardsView({ content }: { content: DemarcheContent }) {
+export function FlashcardsView({
+  content,
+  trackId,
+}: {
+  content: FicheContent;
+  /** Clé de progression (défaut : `slug`). Une démarche passe son `diagnosticId`
+   *  pour conserver la progression déjà enregistrée sous cette clé. */
+  trackId?: string;
+}) {
   const { t } = useI18n();
   const recordAnswer = useOptimus((s) => s.recordAnswer);
   const cards = content.flashcards;
@@ -57,7 +65,7 @@ export function FlashcardsView({ content }: { content: DemarcheContent }) {
   function answer(ok: boolean) {
     if (!card) return;
     recordAnswer({
-      deckId: content.diagnosticId,
+      deckId: trackId ?? content.slug,
       questionId: card.id,
       ok,
       xp: ok ? XP_PER_CARD : 0,

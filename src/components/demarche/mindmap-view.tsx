@@ -16,7 +16,7 @@ import {
   Search,
   X,
 } from "lucide-react";
-import type { DemarcheContent } from "@/core/demarche";
+import type { FicheContent } from "@/core/demarche";
 import { useI18n } from "@/i18n";
 import {
   CRITICITY_ORDER,
@@ -70,7 +70,7 @@ function normalize(text: string): string {
     .toLowerCase();
 }
 
-export function MindmapView({ content }: { content: DemarcheContent }) {
+export function MindmapView({ content }: { content: FicheContent }) {
   const { t } = useI18n();
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
   const [selectedId, setSelectedId] = useState(content.mindmap.root.id);

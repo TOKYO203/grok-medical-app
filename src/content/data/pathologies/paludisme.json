@@ -1,0 +1,995 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "paludisme",
+  "title": "Paludisme",
+  "subtitle": "Fiche de nosographie — infectiologie tropicale",
+  "objective": "Devant une fièvre en zone d'endémie ou au retour d'un voyage : confirmer le parasite, classer immédiatement la forme (simple ou grave) et traiter sans délai.",
+  "language": "fr",
+  "updatedAt": "2026-10-17",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 4,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 45,
+      "localNumber": 4,
+      "sectionLabel": "Médecine",
+      "title": "Paludisme",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": ["tropical"],
+    "caseIds": ["TROP-PALU-001"]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "filename": "Chapitre_04_Paludisme.pdf",
+      "title": "Chapitre 4 — Paludisme",
+      "pages": 4,
+      "receivedAt": "2026-10-17",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase du document source n'est reproduite : la structure du plan est conservée, chaque section est rédigée à nouveau. Les données chiffrées et les recommandations sont rattachées à une source officielle vérifiable, pas au document source.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le document source cite les lignes directrices OMS « mise à jour du 13 août 2025 ». Cette version a été remplacée depuis par celle du 10 septembre 2026 (vérifié sur who.int le 2026-10-17) : c'est la version courante qui est référencée ici.",
+      "Le document source cite un « World malaria report 2025 » signalant une forte augmentation des cas à Madagascar en 2024. La synthèse publique du rapport (publié le 4 décembre 2025) donne les chiffres mondiaux et régionaux mais ne détaille pas Madagascar : ce point précis reste à confirmer sur les annexes pays avant publication. Il n'est donc pas chiffré dans cette fiche.",
+      "La référence « Guidelines for the treatment of malaria » (document source, réf. 5) est l'ancien intitulé, remplacé par les lignes directrices consolidées (« WHO guidelines for malaria ») : conservée ici uniquement sous cette forme consolidée.",
+      "Les seuils des critères de gravité proviennent des critères OMS ; le protocole national malgache doit primer en cas d'écart et doit être ajouté à la bibliographie par le propriétaire (aucune version en ligne vérifiable pendant cette session).",
+      "Aucun moyen mnémotechnique n'est proposé : il n'existe pas d'acronyme validé pour le paludisme, et en inventer un serait de la décoration, pas de la pédagogie."
+    ],
+    "qcChecklist": [
+      "Exactitude des critères de gravité et de leurs seuils",
+      "Conformité des schémas thérapeutiques au protocole national en vigueur",
+      "Pertinence des priorités du contexte malgache",
+      "Absence de recopie du document source",
+      "Validité des liens et des versions de sources"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Définir la maladie, mesurer sa charge et comprendre pourquoi elle tue vite.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Malaria — fact sheet",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/malaria"
+        },
+        {
+          "id": "SRC-WMR-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "World malaria report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025"
+        },
+        {
+          "id": "SRC-WHO-DATA-MG",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO Data — Madagascar, health data overview (code M49 450)",
+          "year": 2025,
+          "url": "https://data.who.int/countries/450"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le paludisme est une infection parasitaire due à des protozoaires du genre Plasmodium, transmis à l'être humain par la piqûre d'un moustique femelle du genre Anopheles porteur du parasite. La maladie ne se transmet pas d'une personne à l'autre par contact : la contamination est vectorielle, et seulement de façon marginale sanguine (transfusion, matériel d'injection souillé) ou materno-fœtale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La charge mondiale reste considérable. En 2024, l'OMS estime à 282 millions le nombre de cas et à 610 000 le nombre de décès dans 80 pays. La Région africaine concentre à elle seule environ 95 % des cas et des décès, et les enfants de moins de cinq ans y représentent près des trois quarts de la mortalité. Par rapport à 2023, l'incidence progresse d'environ neuf millions de cas — une hausse qui s'accompagne d'une menace documentée : la résistance partielle aux dérivés de l'artémisinine est désormais confirmée ou suspectée dans au moins huit pays africains."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux espèces dominent la scène mondiale : Plasmodium falciparum, la plus meurtrière, majoritaire en Afrique subsaharienne, et Plasmodium vivax, prépondérante dans la plupart des régions hors de cette zone. Les trois autres espèces (P. ovale, P. malariae, P. knowlesi) sont plus rares mais peuvent également donner des formes sévères."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, la transmission n'est pas homogène : elle dépend de l'altitude, du climat, des saisons et de l'accès à l'eau, ce qui dessine des zones d'intensité très inégale d'un district à l'autre. La surveillance nationale et les rapports mondiaux signalent une pression croissante sur les cas, ce qui place le dépistage et le traitement précoces au premier rang des priorités opérationnelles."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'intérêt clinique tient à la vitesse d'évolution : une infection à P. falciparum non traitée peut se compliquer en moins de vingt-quatre heures. Certains terrains exposent davantage à une forme grave : le petit enfant, la femme enceinte, le sujet âgé, le voyageur sans immunité acquise — et, plus largement, quiconque présente déjà un signe de danger. Les mécanismes de décès sont le neuropaludisme, l'acidose, la détresse respiratoire, l'anémie sévère, l'hypoglycémie, l'insuffisance rénale et le choc."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Réflexe d'entrée",
+          "text": "Une fièvre chez une personne qui vit ou revient d'une zone d'endémie est un paludisme jusqu'à preuve parasitologique. À l'inverse, l'attente d'une confirmation ne doit jamais retarder la prise en charge d'un patient qui présente un signe de gravité."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Ce qui change dans la prise en charge"],
+          "rows": [
+            ["Nourrisson, enfant de moins de 5 ans", "Signes de danger peu spécifiques ; hypoglycémie et anémie rapides ; accès à la référence parfois long"],
+            ["Grossesse", "Séquestration placentaire : anémie maternelle, fausse couche, prématurité, faible poids de naissance"],
+            ["Voyageur, migrant de retour", "Immunité partielle et souvent perdue : évolution sévère possible dès le premier accès"],
+            ["Sujet âgé, comorbidités", "Défaillances d'organes en cascade ; tableau parfois atypique, fièvre absente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et mécanismes",
+      "summary": "Qui transmet, qui est à risque, et par quel mécanisme le parasite rend un patient grave.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-WHO-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Malaria — fact sheet",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/malaria"
+        },
+        {
+          "id": "SRC-SPILF-PALU",
+          "organization": "Société de pathologie infectieuse de langue française (SPILF)",
+          "title": "Prise en charge et prévention du paludisme d'importation",
+          "year": 2018,
+          "url": "https://www.infectiologie.com/fr/recommandations.html#palu"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cinq espèces de Plasmodium infectent l'être humain : P. falciparum, P. vivax, P. ovale, P. malariae et P. knowlesi. Devant une forme sévère, c'est P. falciparum qu'il faut suspecter d'abord sous nos latitudes africaines et malgaches. P. knowlesi, décrit en Asie du Sud-Est, a pour réservoir des primates non humains et peut également produire des tableaux graves."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le réservoir est l'être humain infecté, chez qui le moustique prélève des gamétocytes lors du repas sanguin. Le vecteur est la femelle Anopheles, active surtout entre le crépuscule et l'aube : la piqûre étant essentiellement nocturne, une moustiquaire imprégnée protège réellement pendant les heures où le risque est maximal. Trois voies non vectorielles existent : la transfusion, l'injection avec du matériel souillé et la transmission materno-fœtale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transmission augmente avec la saison des pluies et la présence de gîtes larvaires (eaux stagnantes, abords immédiats des habitations), un habitat peu protégé, l'absence de moustiquaire imprégnée, les activités nocturnes en extérieur et l'éloignement d'un lieu où le diagnostic est possible."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Séjour ou résidence en zone de transmission, y compris un retour récent",
+            "Fièvre récente ou récidivante, automédication antipaludique incomplète, retard de consultation",
+            "Grossesse, âge inférieur à cinq ans",
+            "Immunodépression (dont l'infection à VIH), splénectomie, drépanocytose",
+            "Absence de mesures de protection antivectorielle"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "L'immunité partielle n'est pas une protection",
+          "text": "En zone d'endémie, l'exposition répétée construit une immunité incomplète : elle atténue souvent la gravité des accès, mais n'empêche ni l'infection ni les formes sévères, et elle s'efface chez ceux qui ont quitté la zone. Un adulte « qui a déjà eu le paludisme » n'est donc pas un patient protégé."
+        },
+        {
+          "type": "paragraph",
+          "text": "Physiopathologie — Après l'inoculation, les sporozoïtes gagnent le foie, où ils se multiplient sans provoquer de symptôme pendant une à deux semaines. Les mérozoïtes libérés envahissent alors les globules rouges, s'y multiplient de façon cyclique (toutes les 48 heures pour P. falciparum, P. vivax et P. ovale, 72 heures pour P. malariae) et provoquent la lyse érythrocytaire : c'est ce cycle qui commande les accès fébriles et l'hémolyse."
+        },
+        {
+          "type": "list",
+          "items": [
+            "P. vivax et P. ovale laissent dans le foie des formes dormantes (hypnozoïtes), à l'origine de rechutes à distance.",
+            "Chez P. falciparum, les hématies parasitées expriment à leur surface des protéines d'adhésion (dont PfEMP1) qui les fixent à l'endothélium : elles se séquestrent dans la microcirculation.",
+            "Cette obstruction microvasculaire, associée à la réponse inflammatoire, rend compte de l'atteinte cérébrale, de l'acidose, de l'insuffisance rénale et de la souffrance multiviscérale.",
+            "L'hémolyse et la baisse de production médullaire provoquent une anémie ; la clairance splénique accrue explique la splénomégalie et une thrombopénie modérée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La séquestration explique la gravité",
+          "text": "Ce qui distingue un accès simple d'un neuropaludisme n'est pas seulement la quantité de parasites dans le sang circulant, mais ce qui est piégé dans les capillaires. C'est pourquoi une parasitémie modérée n'exclut pas une forme grave, et pourquoi le traitement parentéral rapide est la priorité des formes sévères."
+        },
+        {
+          "type": "paragraph",
+          "text": "Anatomo-pathologie — L'examen anatomopathologique n'a aucune place dans la prise en charge courante. Dans les formes graves à P. falciparum, ce que l'on observe est un piégeage massif des hématies infectées : cerveau, poumon, rein et placenta sont les territoires les plus touchés."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Évoquer, confirmer, classer : trois temps, dont le dernier commande tout le reste.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-WHO-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Malaria — fact sheet",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/malaria"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic se pose d'abord sur un contexte : une fièvre — aiguë ou traînante — chez quelqu'un qui réside en zone de transmission ou qui en revient. Certains signes renforcent la présomption : anémie ou ictère, rate augmentée, vomissements, fatigue marquée, douleurs musculaires, céphalées, sueurs et frissons. Le délai d'incubation habituel est de dix à quinze jours après la piqûre, parfois plus long lorsque la chimioprophylaxie a été partiellement suivie."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Fièvre en zone d'endémie ≠ fièvre palustre",
+          "text": "Les infections respiratoires et urinaires, le sepsis bactérien, la dengue ou la fièvre typhoïde circulent en même temps que le paludisme. Chercher systématiquement l'autre cause, y compris chez un patient dont le test revient positif."
+        },
+        {
+          "type": "paragraph",
+          "text": "Interrogatoire — Préciser la date de début et le rythme des accès, les antipaludiques déjà pris (et si la cure a été complète), la notion de voyage ou de séjour avec sa date de retour, une grossesse, un antécédent personnel de paludisme, une transfusion, et la protection réellement utilisée (moustiquaire, répulsif, chimioprophylaxie)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Examen clinique — Relever les constantes, l'état de conscience, la fréquence respiratoire, l'hydratation, la pâleur des conjonctives, la taille du foie et de la rate, et rechercher un foyer infectieux associé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chez l'enfant, rechercher activement : prostration, incapacité à boire ou à téter, vomissements répétés",
+            "Chez l'enfant, rechercher activement : convulsions, léthargie, détresse respiratoire",
+            "Chez l'enfant, rechercher activement : pâleur intense et hypoglycémie"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Examens complémentaires — La confirmation parasitologique précède le traitement chaque fois que cela ne retarde pas la prise en charge. L'OMS recommande de confirmer tout cas suspect par les outils diagnostiques disponibles."
+        },
+        {
+          "type": "table",
+          "columns": ["Examen", "Ce qu'il apporte", "Limite à connaître"],
+          "rows": [
+            [
+              "Goutte épaisse",
+              "Examen de référence : détecte les parasites et permet de quantifier la parasitémie, donc de suivre l'évolution",
+              "Lecture exigeante, temps de rendu, dépend de la qualité du laboratoire"
+            ],
+            [
+              "Frottis mince",
+              "Identification de l'espèce et aspect des hématies parasitées",
+              "Moins sensible que la goutte épaisse lorsque la parasitémie est faible"
+            ],
+            [
+              "TDR (test diagnostique rapide)",
+              "Antigènes parasitaires en quelques minutes, utilisable au niveau périphérique, sans électricité",
+              "Peut rester positif après guérison ; des délétions des gènes hrp2/3 rendent certains tests faussement négatifs ; ne quantifie pas la parasitémie"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan dès qu'une forme grave est suspectée : glycémie en premier, puis numération-formule sanguine, groupage et recherche d'agglutinines irrégulières ; fonction rénale avec créatinine et ionogramme ; lactates ou gaz du sang lorsqu'on en dispose ; bilan hépatique ; recherche d'une infection associée ; et, chez la femme enceinte, évaluation obstétricale."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Un TDR négatif ne blanchit pas un patient grave",
+          "text": "Devant un tableau très évocateur ou une forme sévère, un test rapide négatif n'autorise pas à écarter le paludisme : répéter le prélèvement, demander une goutte épaisse, et poursuivre en parallèle l'évaluation des autres causes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Formes cliniques — Le paludisme non compliqué se présente comme un syndrome fébrile : la fièvre s'accompagne volontiers de frissons, de sueurs, de céphalées et de douleurs musculaires, parfois de troubles digestifs. Aucun organe n'est en défaillance et aucun critère de gravité n'est réuni. Le paludisme grave est toute infection à Plasmodium accompagnée d'une atteinte d'organe ou d'un signe de danger ; le neuropaludisme en est la forme neurologique, définie par un coma ou des troubles neurologiques inexpliqués."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Grossesse : anémie sévère, fausse couche, prématurité, hypotension du poids de naissance",
+            "Nourrisson : tableau trompeur, fièvre parfois absente, déshydratation et hypoglycémie rapides",
+            "Anémie palustre : hémolyse et accès répétés, souvent au premier plan chez l'enfant",
+            "Paludisme transfusionnel : pas de phase hépatique, incubation plus courte",
+            "Voyageur non immun : évolution sévère possible dès le premier accès",
+            "Rechutes : P. vivax et P. ovale, à partir des hypnozoïtes hépatiques"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostic différentiel — En zone tropicale, la fièvre a mille causes et plusieurs peuvent cohabiter : pneumopathie, infection urinaire, bactériémie, dengue, typhoïde, méningite, leptospirose, hépatite virale, rougeole, gastro-entérite, méningo-encéphalite, COVID-19 ; chez l'enfant s'y ajoutent la déshydratation sévère et la pneumonie."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Deux maladies peuvent coexister",
+          "text": "Un test positif ne protège pas d'un diagnostic concurrent. Une raideur de nuque, un foyer pulmonaire, des signes urinaires ou une discordance entre la gravité et la parasitémie doivent faire chercher l'autre maladie plutôt que de tout attribuer au paludisme."
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostic de gravité — Un seul critère suffit à classer le paludisme en forme grave, donc à imposer une hospitalisation et un traitement parentéral immédiat. Les repères ci-dessous sont ceux des critères de gravité de l'OMS ; le protocole national prime en cas d'écart."
+        },
+        {
+          "type": "table",
+          "columns": ["Critère de gravité", "Repère"],
+          "rows": [
+            ["Trouble de la conscience", "Score de Glasgow < 11 chez l'adulte, score de Blantyre < 3 chez l'enfant"],
+            ["Convulsions", "Plus de deux épisodes dans les 24 heures"],
+            ["Prostration", "Incapacité à s'asseoir, à se tenir debout ou à marcher sans aide"],
+            ["Acidose / détresse respiratoire", "Respiration profonde, hyperventilation, acidose métabolique"],
+            ["Hypoglycémie", "Glycémie < 2,2 mmol/L (< 40 mg/dL)"],
+            ["Anémie sévère", "Hémoglobine ≤ 5 g/dL (≤ 7 g/dL chez l'adulte)"],
+            ["Atteinte rénale", "Créatinine > 265 µmol/L ou urée > 20 mmol/L"],
+            ["Ictère", "Ictère associé à une défaillance d'organe"],
+            ["Œdème pulmonaire", "Signes radiologiques ou cliniques d'œdème pulmonaire"],
+            ["Saignement anormal", "Hémorragie spontanée, y compris digestive"],
+            ["Choc", "Pression artérielle effondrée, marbrures, temps de recoloration cutanée allongé"],
+            ["Hyperparasitémie", "Parasitémie > 5 % ou > 200 000/µL"],
+            ["Hémoglobinurie", "Urines noires, hémolyse massive"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Enfant : le signe de danger est le diagnostic",
+          "text": "Tout signe de danger, toute incapacité à boire ou à téter, toute détresse respiratoire et toute somnolence anormale imposent une référence urgente, même si la parasitémie est faible et le test rapide négatif."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "summary": "Comprendre pourquoi ce patient s'aggrave, et ce qui peut encore être corrigé.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-SPILF-PALU",
+          "organization": "Société de pathologie infectieuse de langue française (SPILF)",
+          "title": "Prise en charge et prévention du paludisme d'importation",
+          "year": 2018,
+          "url": "https://www.infectiologie.com/fr/recommandations.html#palu"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La synthèse étiologique ne consiste pas à nommer le parasite : elle consiste à identifier, pour ce patient précis, trois choses : ce qui l'a exposé, ce qui le fait s'aggraver, et ce qui l'empêche d'être soigné — sans oublier l'éventuelle cause associée de fièvre ou de décompensation."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'espèce oriente la suite. P. falciparum est l'espèce des formes graves ; P. vivax et P. ovale exposent à des rechutes par réactivation des formes hépatiques dormantes, ce qui exige un traitement d'éradication en plus du traitement de l'accès."
+        },
+        {
+          "type": "table",
+          "columns": ["Facteur de mauvaise évolution", "Mécanisme ou conséquence"],
+          "rows": [
+            ["Retard de diagnostic ou de traitement", "Facteur de gravité le plus souvent évitable : chaque cycle de multiplication augmente la masse parasitaire"],
+            ["Grossesse", "Séquestration placentaire, anémie maternelle, prématurité, faible poids de naissance"],
+            ["Âge inférieur à 5 ans", "Réserve physiologique faible ; hypoglycémie et anémie rapides"],
+            ["Immunité limitée (voyageur, migrant de retour)", "Absence du contrôle immunologique partiel de l'exposition répétée"],
+            ["Rupture d'accès aux soins", "Catastrophe naturelle, éloignement, rupture de stock : diagnostic et traitement tardifs"],
+            ["Comorbidités", "VIH, drépanocytose, dénutrition, diabète : aggravation de l'anémie et des défaillances"],
+            ["Absence de protection antivectorielle", "Exposition répétée, réinfection, retard de recours au soin"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Bilan orienté",
+          "text": "Devant une fièvre qui persiste malgré un traitement correct, ou une dégradation inattendue, chercher une infection bactérienne associée, une anémie préexistante, une dénutrition, une infection à VIH, une drépanocytose, un diabète ou une grossesse — avant d'incriminer une inefficacité du traitement antipaludique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Espèce en cause et risque de rechute (hypnozoïtes de P. vivax et P. ovale)",
+            "Exposition vectorielle réelle et protection effectivement utilisée",
+            "Obstacles à l'accès au diagnostic, aux médicaments ou à la référence",
+            "Cause associée de fièvre ou de décompensation, y compris iatrogène"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Deux voies très différentes selon la forme — et deux façons seulement de perdre du temps.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-WHO-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Malaria — fact sheet",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/malaria"
+        },
+        {
+          "id": "SRC-WMR-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "World malaria report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025"
+        },
+        {
+          "id": "SRC-SPILF-PALU",
+          "organization": "Société de pathologie infectieuse de langue française (SPILF)",
+          "title": "Prise en charge et prévention du paludisme d'importation",
+          "year": 2018,
+          "url": "https://www.infectiologie.com/fr/recommandations.html#palu"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Éliminer le parasite le plus vite possible et empêcher l'évolution vers une forme grave",
+            "Corriger les défaillances vitales : hypoglycémie, anémie, hypoxie, troubles de la conscience, déshydratation",
+            "Éviter les rechutes, prévenir l'anémie et les complications de la grossesse, et réduire la transmission"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Paludisme non compliqué — Le traitement repose sur une association thérapeutique à base d'artémisinine (ACT), choisie selon le protocole national, le résultat parasitologique, l'espèce lorsqu'elle est connue et le terrain. La cure se prend en entier : une automédication incomplète laisse des parasites résiduels et sélectionne la résistance."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Antipyrétique adapté (paracétamol) ; hydratation prudente, sans surcharge",
+            "Alimentation maintenue ; correction de l'hypoglycémie",
+            "Traitement de la cause associée identifiée",
+            "Les anti-inflammatoires non stéroïdiens sont à écarter si le patient est déshydraté ou expose à un saignement"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux précisions issues des lignes directrices OMS 2026 : une dose unique de primaquine est recommandée comme gamétocytocide en complément de l'ACT dans les zones de transmission modérée à forte, pour réduire la transmission ; et une formulation d'artéméther-luméfantrine adaptée aux enfants de moins de 5 kg est désormais disponible. Leur emploi dépend du protocole national."
+        },
+        {
+          "type": "paragraph",
+          "text": "Paludisme grave — C'est une urgence hospitalière. On procède comme dans toute réanimation : libérer les voies aériennes, contrôler la ventilation puis la circulation, mesurer la glycémie sans attendre, oxygéner si la saturation est basse, poser une voie, monitorer, arrêter les convulsions, transfuser si l'anémie est profonde, et hydrater sans jamais dépasser ce que le poumon tolère."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'artésunate par voie injectable arrive en première ligne. Le schéma de référence est de 2,4 mg/kg par voie intraveineuse à H0, H12 et H24, puis une injection toutes les 24 heures ; dès que la voie orale est possible, une cure complète d'ACT prend le relais. Les posologies exactes doivent être confirmées sur le protocole national en vigueur."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le transfert ne se discute pas : le patient doit rejoindre une structure capable d'assurer une transfusion, une surveillance neurologique et respiratoire, des traitements injectables et la prise en charge des défaillances d'organes. Si l'accès est difficile, on stabilise et on administre le traitement pré-référence sans jamais différer l'évacuation ; chez l'enfant, l'artésunate rectal peut être utilisé dans ce cadre, selon les disponibilités et le protocole national."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne jamais retarder le transfert pour attendre un résultat",
+          "text": "Un traitement pré-référence correctement administré ne remplace pas l'hôpital : il achète le temps du transport. Attendre une confirmation biologique ou une place disponible fait perdre l'heure qui compte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Grossesse — Toute suspicion confirmée se traite, quel que soit le trimestre : le risque d'un paludisme non traité dépasse largement celui du traitement. Le choix du schéma tient compte de trois éléments : le terme de la grossesse, la sévérité du tableau et les directives nationales. En cas de forme grave, l'indication de l'artésunate injectable ne se discute pas, quel que soit le terme. En zone de transmission modérée à forte, la prévention associe la moustiquaire imprégnée et le traitement préventif intermittent de la grossesse selon la politique nationale."
+        },
+        {
+          "type": "paragraph",
+          "text": "P. vivax et P. ovale — L'éradication des formes hépatiques dormantes fait appel à la primaquine, après recherche d'un déficit en G6PD en raison du risque d'hémolyse. Elle ne se prescrit pas à l'aveugle chez la femme enceinte ni chez le nourrisson."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Devant un paludisme confirmé et non compliqué, appliquer sans délai le schéma localement recommandé",
+            "En urgence, quatre situations imposent la référence : la forme grave, la grossesse symptomatique, le petit enfant avec signe de danger, et l'impossibilité d'avaler comme celle de rester sous surveillance",
+            "Si l'hôpital est difficile d'accès : stabiliser, administrer le traitement pré-référence prévu par le protocole national, puis évacuer sans attendre"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Surveillance clinique — Température, conscience, fréquence respiratoire, saturation si disponible, pression artérielle, fréquence cardiaque, diurèse, vomissements, hydratation, capacité à boire ou à téter et tolérance du traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Surveillance biologique — Répéter la glycémie dans les formes graves et chez l'enfant ; suivre l'hémoglobine et la numération, la créatinine, les lactates (ou les gaz du sang lorsqu'on en dispose) ; refaire la parasitémie pour juger la réponse au traitement."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Trois pièges de la surveillance",
+          "text": "Un vomissement dans l'heure qui suit la prise impose de reprendre la dose. Une fièvre qui revient fait évoquer une rechute, une parasitémie persistante ou une autre maladie. Et une persistance de la parasitémie sous traitement correct doit faire discuter une résistance, jamais une simple augmentation de dose à l'aveugle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention — Elle repose sur deux piliers complémentaires : empêcher la piqûre et réduire le vecteur. Moustiquaires imprégnées d'insecticide (y compris les nouvelles générations à double principe actif, utiles face à la résistance) ; pulvérisation intradomiciliaire à effet rémanent ; répulsifs cutanés à base de DEET, d'IR3535 ou d'icaridine ; vêtements couvrants et écrans aux fenêtres ; assainissement et suppression des gîtes larvaires ; recours précoce au test diagnostique dès la fièvre."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez le voyageur, la chimioprophylaxie se discute avant le départ, se prend selon le schéma prescrit et se poursuit quatre semaines après la dernière exposition possible, car des parasites peuvent encore émerger du foie pendant cette période."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'OMS recommande par ailleurs des chimiopréventions ciblées chez les populations vulnérables : traitement préventif intermittent de la grossesse et du nourrisson, chimioprévention saisonnière, chimioprévention pérenne, chimioprévention post-hospitalière et administration de masse de médicaments — selon le contexte épidémiologique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Vaccins — Deux vaccins sont recommandés par l'OMS chez l'enfant dans les zones de transmission modérée à forte à P. falciparum : RTS,S/AS01 depuis octobre 2021 et R21/Matrix-M depuis octobre 2023. Leur mise en œuvre relève des choix de chaque pays et de la réalité des stocks ; leur impact est maximal lorsqu'ils s'ajoutent aux autres interventions (moustiquaires, chimioprévention, traitement précoce) et non lorsqu'ils les remplacent."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Trois menaces qui conditionnent la prévention de demain",
+          "text": "La résistance partielle aux dérivés de l'artémisinine est confirmée ou suspectée dans au moins huit pays africains ; la résistance des anophèles aux insecticides progresse ; et Anopheles stephensi, vecteur urbain résistant à de nombreux insecticides, s'est implanté dans plusieurs pays africains."
+        },
+        {
+          "type": "paragraph",
+          "text": "Contexte Madagascar — La réponse tient en quatre chantiers. Amener d'abord la parasitologie là où les patients arrivent réellement, c'est-à-dire dans les centres de santé de base. Garantir ensuite que les ACT et l'artésunate injectable ne manquent jamais : une rupture de stock fabrique des formes graves. Traiter la grossesse comme une situation à part, avec son propre circuit. Organiser enfin l'évacuation des formes sévères vers un hôpital capable de les recevoir, dans un délai que chacun connaît. En zone rurale, la famille est le premier maillon : repérer un enfant qui ne boit plus ou qui convulse vaut autant qu'une prescription."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Cinq phrases à garder sous la main.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-WMR-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "World malaria report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le paludisme tient en trois exigences : y penser devant toute fièvre en zone d'endémie, le confirmer par un test, et distinguer en quelques minutes la forme simple de la forme grave — parce que la première se traite en ambulatoire et que la seconde s'hospitalise et se transfuse."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Toute fièvre au retour d'une zone d'endémie est un paludisme jusqu'à preuve parasitologique.",
+            "La confirmation ne doit jamais retarder la prise en charge d'un patient grave.",
+            "Un seul critère de gravité suffit : hospitalisation et artésunate injectable.",
+            "Une cure d'ACT se termine toujours ; l'incomplète fabrique la résistance.",
+            "La prévention est double : moustiquaire et diagnostic précoce."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Phrase de garde",
+          "text": "Fièvre et retour de zone d'endémie : test aujourd'hui. Forme grave : artésunate tout de suite, hôpital tout de suite — le transfert ne s'attend pas."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles utilisées, vérifiées à la date de rédaction.",
+      "sources": [
+        {
+          "id": "SRC-WHO-GL",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guidelines for malaria",
+          "year": 2026,
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "SRC-WMR-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "World malaria report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025"
+        },
+        {
+          "id": "SRC-WHO-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Malaria — fact sheet",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/malaria"
+        },
+        {
+          "id": "SRC-WHO-DATA-MG",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO Data — Madagascar, health data overview (code M49 450)",
+          "year": 2025,
+          "url": "https://data.who.int/countries/450"
+        },
+        {
+          "id": "SRC-SPILF-PALU",
+          "organization": "Société de pathologie infectieuse de langue française (SPILF)",
+          "title": "Prise en charge et prévention du paludisme d'importation",
+          "year": 2018,
+          "url": "https://www.infectiologie.com/fr/recommandations.html#palu"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["N°", "Référence"],
+          "rows": [
+            ["1", "OMS. WHO guidelines for malaria — version du 10 septembre 2026 (remplace celle du 13 août 2025 citée par le document source). https://www.who.int/publications/i/item/guidelines-for-malaria"],
+            ["2", "OMS. World malaria report 2025. Genève : OMS ; 4 décembre 2025. https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025"],
+            ["3", "OMS. Malaria — fact sheet. Mise à jour du 4 décembre 2025. https://www.who.int/news-room/fact-sheets/detail/malaria"],
+            ["4", "OMS. WHO Data — Madagascar (code M49 450). https://data.who.int/countries/450"],
+            ["5", "SPILF. Prise en charge et prévention du paludisme d'importation. Texte court du comité des référentiels, 2018 (révision annoncée en cours sur la page officielle de la SPILF). https://www.infectiologie.com/fr/recommandations.html#palu"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux sources à ajouter par le propriétaire",
+          "text": "Le protocole national malgache en vigueur (Programme national de lutte contre le paludisme) et, le cas échéant, le guide de prise en charge des formes graves au niveau des centres de santé de base. Aucune version en ligne vérifiable de ces documents n'a été trouvée pendant la rédaction : ils constituent la référence qui prime sur les seuils et les schémas indiqués ici."
+        }
+      ]
+    }
+  ],
+  "mnemonics": [],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est le délai d'incubation habituel du paludisme après la piqûre ?",
+      "back": "Dix à quinze jours ; il peut être plus long lorsque la chimioprophylaxie a été partiellement suivie.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Devant une fièvre au retour d'une zone d'endémie, quel est le premier geste ?",
+      "back": "Confirmer par un test parasitologique (TDR de qualité ou goutte épaisse / frottis) — sans retarder la prise en charge si un signe de gravité est présent.",
+      "tags": ["diagnostic", "urgence"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Goutte épaisse ou frottis mince : lequel pour quoi ?",
+      "back": "La goutte épaisse détecte et quantifie la parasitémie (sensibilité). Le frottis mince identifie l'espèce et l'aspect des hématies parasitées.",
+      "tags": ["diagnostic", "examens"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Citez deux limites d'un test diagnostique rapide.",
+      "back": "Il peut rester positif après guérison, et des délétions des gènes hrp2/3 le rendent faussement négatif. Il ne quantifie pas non plus la parasitémie.",
+      "tags": ["diagnostic", "piège"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Combien de critères de gravité faut-il pour classer un paludisme en forme grave ?",
+      "back": "Un seul suffit : il impose l'hospitalisation et un traitement parentéral immédiat.",
+      "tags": ["urgence", "gravité"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Traitement de première intention du paludisme grave ?",
+      "back": "Artésunate injectable 2,4 mg/kg IV à H0, H12 et H24 puis toutes les 24 heures, relayé par une cure complète d'ACT dès que la voie orale est possible.",
+      "tags": ["traitement", "urgence"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Pourquoi une cure d'ACT doit-elle toujours être terminée ?",
+      "back": "Parce qu'une cure incomplète laisse des parasites résiduels et sélectionne la résistance aux dérivés de l'artémisinine.",
+      "tags": ["traitement", "prévention"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Forme grave chez une femme enceinte au premier trimestre : quel traitement ?",
+      "back": "Artésunate injectable, quel que soit le trimestre : dans une forme grave, le risque du traitement est très inférieur à celui de la maladie.",
+      "tags": ["grossesse", "traitement"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quel examen impose-t-on avant de prescrire de la primaquine, et pourquoi ?",
+      "back": "La recherche d'un déficit en G6PD, en raison du risque d'hémolyse.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Pourquoi une parasitémie modérée n'exclut-elle pas une forme grave ?",
+      "back": "Parce que la gravité dépend de la séquestration des hématies parasitées dans la microcirculation, pas seulement de la quantité de parasites circulants.",
+      "tags": ["physiopathologie", "gravité"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Combien de temps poursuit-on une chimioprophylaxie après le retour ?",
+      "back": "Quatre semaines après la dernière exposition possible, car des parasites peuvent encore émerger du foie pendant cette période.",
+      "tags": ["prévention", "voyage"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quels vaccins antipaludiques l'OMS recommande-t-elle chez l'enfant ?",
+      "back": "RTS,S/AS01 (recommandé en octobre 2021) et R21/Matrix-M (recommandé en octobre 2023), dans les zones de transmission modérée à forte à P. falciparum.",
+      "tags": ["prévention", "vaccins"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Paludisme",
+      "detail": "Fièvre + zone d'endémie = test parasitologique. Puis une seule question décisive : forme simple (ambulatoire, ACT) ou forme grave (hôpital, artésunate injectable)."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "retenir",
+        "detail": "Le paludisme n'a pas de tableau propre : c'est une fièvre dans un contexte d'exposition. Le contexte pèse plus que le symptôme.",
+        "children": [
+          {
+            "id": "rec-fievre",
+            "label": "Fièvre en zone d'endémie",
+            "detail": "Toute fièvre aiguë ou prolongée chez une personne qui vit ou revient d'une zone de transmission.",
+            "leaves": [
+              { "id": "rec-fievre-1", "label": "Frissons, sueurs", "detail": "Accès fébriles rythmés par le cycle de multiplication." },
+              { "id": "rec-fievre-2", "label": "Céphalées, myalgies", "detail": "Syndrome pseudo-grippal trompeur, souvent banalisé." }
+            ]
+          },
+          {
+            "id": "rec-delai",
+            "label": "Incubation 10 à 15 jours",
+            "detail": "Délai habituel après la piqûre, plus long si la chimioprophylaxie a été partiellement suivie.",
+            "leaves": [{ "id": "rec-delai-1", "label": "Retour de voyage", "detail": "Demander la date exacte du retour, pas la durée du séjour." }]
+          },
+          {
+            "id": "rec-autre",
+            "label": "Chercher l'autre cause",
+            "detail": "Dengue, typhoïde, sepsis, infection urinaire ou respiratoire circulent en même temps : une fièvre n'est pas synonyme de paludisme.",
+            "leaves": [{ "id": "rec-autre-1", "label": "Deux maladies possibles", "detail": "Un test positif ne protège pas d'un diagnostic concurrent." }]
+          }
+        ]
+      },
+      {
+        "id": "confirmer",
+        "label": "Confirmer",
+        "tone": "reflexe",
+        "detail": "La confirmation parasitologique est la règle, sauf si elle retarde la prise en charge d'un patient grave.",
+        "children": [
+          {
+            "id": "conf-tdr",
+            "label": "TDR en premier",
+            "detail": "Antigènes parasitaires en quelques minutes, utilisable au niveau périphérique, sans électricité.",
+            "leaves": [
+              { "id": "conf-tdr-1", "label": "Positif après guérison", "detail": "L'antigène peut persister : un TDR positif ne date pas l'infection." },
+              { "id": "conf-tdr-2", "label": "Délétions hrp2/3", "detail": "Certaines souches rendent le test faussement négatif." }
+            ]
+          },
+          {
+            "id": "conf-ge",
+            "label": "Goutte épaisse",
+            "detail": "Examen de référence : détecte et quantifie la parasitémie, donc sert aussi au suivi.",
+            "leaves": [{ "id": "conf-ge-1", "label": "Quantifier", "detail": "La parasitémie oriente la gravité et le suivi." }]
+          },
+          {
+            "id": "conf-frottis",
+            "label": "Frottis mince",
+            "detail": "Identification de l'espèce et aspect des hématies parasitées : ce qui décide du traitement d'éradication.",
+            "leaves": [{ "id": "conf-frottis-1", "label": "Espèce = suite du plan", "detail": "Vivax et ovale imposent un traitement des formes hépatiques." }]
+          },
+          {
+            "id": "conf-negatif",
+            "label": "TDR négatif",
+            "detail": "Devant un tableau très évocateur ou une forme sévère, un négatif n'écarte pas le diagnostic : répéter, demander une goutte épaisse.",
+            "leaves": [{ "id": "conf-negatif-1", "label": "Répéter le prélèvement", "detail": "Une parasitémie faible peut échapper au premier test." }]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "urgence",
+        "detail": "C'est l'étape qui décide de tout : ambulatoire ou réanimation. Un seul critère de gravité suffit.",
+        "children": [
+          {
+            "id": "cla-simple",
+            "label": "Non compliqué",
+            "detail": "Syndrome fébrile sans critère de gravité ni dysfonction viscérale : traitement oral ambulatoire.",
+            "leaves": [{ "id": "cla-simple-1", "label": "Pas de signe de danger", "detail": "Conscience, respiration, diurèse et prise orale normales." }]
+          },
+          {
+            "id": "cla-grave",
+            "label": "Grave",
+            "detail": "Atteinte d'organe ou signe de danger : conscience, convulsions, acidose, hypoglycémie, anémie sévère, choc, hyperparasitémie.",
+            "leaves": [
+              { "id": "cla-grave-1", "label": "Un seul critère suffit", "detail": "Pas besoin d'un tableau complet pour déclencher l'hôpital." },
+              { "id": "cla-grave-2", "label": "Neuropaludisme", "detail": "Coma ou troubles neurologiques inexpliqués." }
+            ]
+          },
+          {
+            "id": "cla-enfant",
+            "label": "Signe de danger, enfant",
+            "detail": "Prostration, incapacité à boire ou téter, convulsions, détresse respiratoire, somnolence anormale : référence urgente.",
+            "leaves": [{ "id": "cla-enfant-1", "label": "Référer sans attendre", "detail": "Le signe de danger vaut diagnostic de gravité." }]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Deux voies, deux logiques : tuer le parasite vite en ambulatoire, ou sauver les organes à l'hôpital.",
+        "children": [
+          {
+            "id": "tra-simple",
+            "label": "ACT, cure complète",
+            "detail": "Association à base d'artémisinine selon le protocole national ; cure entière, sans automédication partielle.",
+            "leaves": [
+              { "id": "tra-simple-1", "label": "Cure incomplète", "detail": "Laisse des parasites résiduels et sélectionne la résistance." },
+              { "id": "tra-simple-2", "label": "Pas d'AINS si déshydraté", "detail": "Risque rénal et hémorragique majoré." }
+            ]
+          },
+          {
+            "id": "tra-grave",
+            "label": "Artésunate injectable",
+            "detail": "Première intention : 2,4 mg/kg IV à H0, H12, H24 puis toutes les 24 h, relayé par une cure d'ACT dès que l'oral est possible.",
+            "leaves": [
+              { "id": "tra-grave-1", "label": "Glycémie immédiate", "detail": "L'hypoglycémie est fréquente et silencieuse." },
+              { "id": "tra-grave-2", "label": "Pas de surcharge", "detail": "Hydrater sans noyer : risque d'œdème pulmonaire." }
+            ]
+          },
+          {
+            "id": "tra-transfert",
+            "label": "Transfert",
+            "detail": "Vers une structure capable de transfuser, de surveiller le neurologique et le respiratoire et de gérer les défaillances.",
+            "leaves": [{ "id": "tra-transfert-1", "label": "Traiter avant de partir", "detail": "Le pré-référence achète le temps du transport, il ne le remplace pas." }]
+          }
+        ]
+      },
+      {
+        "id": "situations",
+        "label": "Situations",
+        "tone": "prudence",
+        "detail": "Certains terrains changent le raisonnement sans changer l'objectif : traiter tôt, traiter complètement.",
+        "children": [
+          {
+            "id": "sit-grossesse",
+            "label": "Grossesse",
+            "detail": "Toute suspicion confirmée se traite, quel que soit le trimestre ; la forme grave relève de l'artésunate injectable.",
+            "leaves": [{ "id": "sit-grossesse-1", "label": "Risque placentaire", "detail": "Anémie, fausse couche, prématurité, faible poids de naissance." }]
+          },
+          {
+            "id": "sit-nourrisson",
+            "label": "Nourrisson, enfant",
+            "detail": "Tableau trompeur, fièvre parfois absente, déshydratation et hypoglycémie rapides.",
+            "leaves": [{ "id": "sit-nourrisson-1", "label": "Moins de 5 kg", "detail": "Formulation d'artéméther-luméfantrine adaptée selon les lignes directrices 2026." }]
+          },
+          {
+            "id": "sit-voyageur",
+            "label": "Voyageur, migrant",
+            "detail": "Immunité partielle et souvent perdue : évolution sévère possible dès le premier accès.",
+            "leaves": [{ "id": "sit-voyageur-1", "label": "Prophylaxie +4 semaines", "detail": "Poursuite après la dernière exposition possible." }]
+          },
+          {
+            "id": "sit-rechute",
+            "label": "Vivax, ovale",
+            "detail": "Hypnozoïtes hépatiques : rechutes à distance, traitement d'éradication par primaquine après recherche du G6PD.",
+            "leaves": [{ "id": "sit-rechute-1", "label": "G6PD avant primaquine", "detail": "Risque d'hémolyse en cas de déficit." }]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "retenir",
+        "detail": "Deux piliers : empêcher la piqûre, et réduire le vecteur. Plus, chez les populations ciblées, une chimioprévention et des vaccins.",
+        "children": [
+          {
+            "id": "pre-vecteur",
+            "label": "Lutte antivectorielle",
+            "detail": "Moustiquaires imprégnées (dont nouvelles générations à double principe actif), pulvérisation intradomiciliaire, assainissement des gîtes.",
+            "leaves": [
+              { "id": "pre-vecteur-1", "label": "Répulsifs", "detail": "DEET, IR3535 ou icaridine, en complément de la moustiquaire." },
+              { "id": "pre-vecteur-2", "label": "Anopheles stephensi", "detail": "Vecteur urbain résistant, implanté dans plusieurs pays africains." }
+            ]
+          },
+          {
+            "id": "pre-chimio",
+            "label": "Chimioprévention",
+            "detail": "Traitement préventif intermittent (grossesse, nourrisson), chimioprévention saisonnière ou pérenne, post-hospitalière — selon le contexte.",
+            "leaves": [{ "id": "pre-chimio-1", "label": "Primaquine gamétocytocide", "detail": "Dose unique en complément de l'ACT en transmission modérée à forte." }]
+          },
+          {
+            "id": "pre-vaccins",
+            "label": "Vaccins",
+            "detail": "RTS,S/AS01 (2021) et R21/Matrix-M (2023) chez l'enfant en transmission modérée à forte à P. falciparum.",
+            "leaves": [{ "id": "pre-vaccins-1", "label": "En plus, pas à la place", "detail": "L'impact est maximal avec moustiquaires et traitement précoce." }]
+          }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Madagascar",
+        "tone": "memo",
+        "detail": "Transmission hétérogène selon l'altitude, les saisons et le climat : la priorité est l'accès au test et au traitement, pas un discours uniforme.",
+        "children": [
+          {
+            "id": "mg-csb",
+            "label": "Diagnostic au CSB",
+            "detail": "Rendre le test parasitologique disponible au niveau des centres de santé de base, y compris en zone rurale.",
+            "leaves": [{ "id": "mg-csb-1", "label": "TDR + goutte épaisse", "detail": "Le TDR dépiste, la goutte épaisse quantifie." }]
+          },
+          {
+            "id": "mg-stock",
+            "label": "ACT et artésunate",
+            "detail": "Éviter les ruptures de stock : ce sont elles qui transforment une forme simple en forme grave.",
+            "leaves": [{ "id": "mg-stock-1", "label": "Artésunate injectable", "detail": "Indispensable au niveau des structures qui réfèrent." }]
+          },
+          {
+            "id": "mg-reference",
+            "label": "Référence rapide",
+            "detail": "Femme enceinte, enfant avec signe de danger, impossibilité de prise orale : évacuation vers un hôpital adapté.",
+            "leaves": [{ "id": "mg-reference-1", "label": "Éduquer les familles", "detail": "Reconnaître les signes de danger pèse autant que le médicament." }]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-GL",
+      "title": "WHO guidelines for malaria",
+      "citation": "Organisation mondiale de la Santé. WHO guidelines for malaria. Genève : OMS ; version du 10 septembre 2026 (remplace les versions antérieures, dont celle du 13 août 2025).",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "10 septembre 2026",
+      "url": "https://www.who.int/publications/i/item/guidelines-for-malaria",
+      "verifiedAt": "2026-10-17",
+      "usedFor": ["Généralités", "Diagnostic", "Critères de gravité", "Traitement", "Prévention"]
+    },
+    {
+      "id": "SRC-WMR-2025",
+      "title": "World malaria report 2025",
+      "citation": "Organisation mondiale de la Santé. World malaria report 2025. Genève : OMS ; 4 décembre 2025.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "édition 2025",
+      "url": "https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025",
+      "verifiedAt": "2026-10-17",
+      "usedFor": ["Épidémiologie mondiale", "Résistance aux antipaludiques", "Madagascar (contexte)"]
+    },
+    {
+      "id": "SRC-WHO-FS",
+      "title": "Malaria — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Malaria — fact sheet. Mise à jour du 4 décembre 2025.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "4 décembre 2025",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/malaria",
+      "verifiedAt": "2026-10-17",
+      "usedFor": ["Épidémiologie", "Délai d'incubation", "Signes de gravité", "Vecteurs", "Vaccins", "Chimioprophylaxie"]
+    },
+    {
+      "id": "SRC-WHO-DATA-MG",
+      "title": "WHO Data — Madagascar, health data overview",
+      "citation": "Organisation mondiale de la Santé. WHO Data — Madagascar (code M49 450). Portail de données de l'OMS.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "portail, consultation du 2026-10-17",
+      "url": "https://data.who.int/countries/450",
+      "verifiedAt": "2026-10-17",
+      "usedFor": ["Contexte Madagascar"],
+      "note": "L'indicateur « malaria incidence » affiché sur la fiche pays porte sur 2022 : pas de chiffre d'incidence récent exploitable sans les annexes pays du rapport mondial."
+    },
+    {
+      "id": "SRC-SPILF-PALU",
+      "title": "Prise en charge et prévention du paludisme d'importation",
+      "citation": "Société de pathologie infectieuse de langue française. Prise en charge et prévention du paludisme d'importation. Texte court du comité des référentiels ; 2018.",
+      "organization": "Société de pathologie infectieuse de langue française (SPILF)",
+      "year": 2018,
+      "version": "texte court (révision annoncée en cours)",
+      "url": "https://www.infectiologie.com/fr/recommandations.html#palu",
+      "verifiedAt": "2026-10-17",
+      "usedFor": ["Paludisme d'importation", "Situations particulières", "Prévention du voyageur"],
+      "note": "La page officielle de la SPILF signale une révision en cours : vérifier la version en vigueur avant publication."
+    }
+  ]
+}

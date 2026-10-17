@@ -31,10 +31,14 @@ export function ViewTabs({
   value,
   onChange,
   views = VIEWS.map((view) => view.id),
+  ariaLabelKey = "demarche.tabsAria",
 }: {
   value: DemarcheView;
   onChange: (view: DemarcheView) => void;
   views?: DemarcheView[];
+  /** Clé i18n du nom du groupe d'onglets (une fiche de nosographie n'est pas
+   *  une « démarche » : le libellé d'accessibilité doit suivre). */
+  ariaLabelKey?: string;
 }) {
   const { t } = useI18n();
   const items = VIEWS.filter((view) => views.includes(view.id));
@@ -42,7 +46,7 @@ export function ViewTabs({
   return (
     <div
       role="tablist"
-      aria-label={t("demarche.tabsAria")}
+      aria-label={t(ariaLabelKey)}
       className="flex w-full gap-1 rounded-[var(--radius-lg)] bg-secondary p-1 shadow-[var(--shadow-border)]"
     >
       {items.map(({ id, labelKey, icon: Icon }) => {
