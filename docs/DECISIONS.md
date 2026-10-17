@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 622cb6d07d2c3515a20c0678dc3c64c57c94c750)# Journal des décisions — Optimus
+successfully downloaded text file (SHA: c70ec4d0cc5823241e5de926662369b73c57ef37)successfully downloaded text file (SHA: 622cb6d07d2c3515a20c0678dc3c64c57c94c750)# Journal des décisions — Optimus
 
 Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 
@@ -205,8 +205,16 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-17 | D38 | Badges « Nouveau » réinterprétés : pilule warn sur les cartes de contenu jamais exploré — `isNewContent` compare la carte aux sélecteurs `casesCompleted`/`diagnosticsCompleted` de la bibliothèque, prop `isNew` rendue par `content-card.tsx` | Le catalogue est gelé et ne porte pas de date d’ajout ; « jamais exploré » est le seul signal honnête disponible, calculé localement sans réseau | Vibe |
 | 2026-10-17 | — | D31 (recherche globale), D32 (swipe-back), D34 (« Reprendre où vous étiez »), D35 (pull-to-refresh) et D36 (filtres Bibliothèque simplifiés) consignés livrés en Session 10 — aucun nouveau code | Inventaire de l’existant avant tout patch (contrainte 1) ; on consigne l’état plutôt que dupliquer (précédent B11) | Vibe |
 
+## 2026-10-17 — Session 17 : crédibilité médicale (B19–B20)
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-17 | B19 | Changelog public : page `/changelog` pilotée par `src/content/changelog.ts` (`APP_CHANGELOG` — trois releases 1.0.0-beta / 1.0.0-rc / 1.0.0, entrées typées Nouveau / Amélioré / Corrigé), lienée depuis `/a-propos` (bouton « Journal des versions »), section « Contenu médical » renvoyant vers le conseil éditorial ; `routeTree.gen.ts` régénéré à la main (précédent Session 2) ; garde-fou dans `governance-ui.test.mjs` | Versionner l’application sous les yeux des étudiants sans exposer le dépôt ; le journal versionne l’app, pas le contenu médical (`medical-version.ts` et le champ `changelog` par deck restent les sources du contenu, gelés) | Vibe |
+| 2026-10-17 | B20 | Email institutionnel : carte « École, faculté ou association ? » sur `/contact` avec mailto prérempli (`SCHOOL_SUBJECT` « Devis École & Établissement », corps Établissement / Nombre de licences / Années), sujet « École ou établissement » ajouté au flux guidé (`ContactDraft.kind` étendu à `school`) ; garde-fou dans `business-model.test.mjs` | L’offre École affichée sur `/tarifs` (Session 1) aboutissait sur un contact générique ; un objet et un corps préremplis rendent la demande institutionnelle actionnable sans inventer une adresse email qui n’existe pas | Vibe |
+
 ## Sessions terminées
 
+- 2026-10-17 · **Session 17 (B19–B20, crédibilité)** — page `/changelog` (journal des versions public piloté par `src/content/changelog.ts`, liené depuis À propos, garde-fou governance-ui) et canal email institutionnel sur `/contact` (mailto prérempli « Devis École », sujet École dans le flux guidé, `ContactDraft` étendu à `school`, garde-fou business-model).
 - 2026-10-17 · **Session 16 (D29–D38, UX mobile)** — avatar unifié (composant `UserAvatar` partagé accueil/profil, fin des initialités recalculées), carte Profil local refondue (pilule de statut : synchronisé / N en attente / sur cet appareil), mode focus du lecteur de quiz (en-tête et navigation masqués, état persisté), empty states engageants sur revue/bibliothèque/examen, badges « Nouveau » = contenu jamais exploré ; D31/32/34/35/36 consignés livrés en Session 10.
 - 2026-10-17 · **Session 15 (G51, code-splitting)** — le catalogue médical (decks/cas/diagnostics) quitte le chunk partagé initial : cache léger `builtin-decks` semé par les 10 routes consommatrices, palette de commandes en import dynamique, garde-fou `eager-graph.test.mjs` ; routes déjà découpées par le framework, budget total inchangé.
 - 2026-10-17 · **Session 14 (F46–F50, accessibilité)** — audit consigné (F46), contrastes AA corrigés : or/avertissement/focus en clair `#7E5B12`, succès en sombre `#45a274` (F47), garde-fou WCAG AA sur les jetons de thème, ARIA (F49) et prefers-reduced-motion (F50) confirmés livrés, mode daltonien ECG différé (F48, gel moteur).

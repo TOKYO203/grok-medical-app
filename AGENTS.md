@@ -1,10 +1,10 @@
-successfully downloaded text file (SHA: 3888d1e87a7983bc1c3a042887d11e5892f8fd1b)# ⚠️ MISSION ACTIVE
+successfully downloaded text file (SHA: f6d6fb7ab09f13ad6a9ee09f2b02120bda417380)successfully downloaded text file (SHA: 3888d1e87a7983bc1c3a042887d11e5892f8fd1b)# ⚠️ MISSION ACTIVE
 
 **Toute session DOIT commencer par lire :**
 - `docs/MISSION-INTERNATIONAL.md` — 53 items priorisés, plan 6 sessions
 - `docs/DECISIONS.md` — journal des décisions
 
-**Sessions 1–16 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression, tests moteur ECG, examen blanc chronométré E44, accessibilité WCAG AA F46–F50, code-splitting des données G51, UX mobile D29–D38) — suite : puis vagues d'améliorations 🟢 ci-dessous
+**Sessions 1–17 livrées** (business model Sessions 1 & 8, onboarding, UX navigation, crédibilité médicale, i18n, audit prod Top 5, QA auscultation, bugs accueil #4/#5, bugs secondaires #6–#13, progression, tests moteur ECG, examen blanc chronométré E44, accessibilité WCAG AA F46–F50, code-splitting des données G51, UX mobile D29–D38, changelog public et email institutionnel B19–B20) — suite : puis vagues d'améliorations 🟢 ci-dessous
 
 **Securite** : voir docs/SECURITY-AUDIT.md (apres Session 1)
 

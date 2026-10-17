@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: b88678e8916a49ac3903a27cb42daa05c8cb52d5)# Mission International — Optimus
+successfully downloaded text file (SHA: 707ecc70d312b08842e4ed8bc3c413768da5cbd7)successfully downloaded text file (SHA: b88678e8916a49ac3903a27cb42daa05c8cb52d5)# Mission International — Optimus
 
 Chantier de mise à niveau vers un standard éditeur médical international.
 
@@ -55,8 +55,8 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - B16 Clarifier "Optimus Clinical AI" — ✅ livré (PR #49)
 - B17 Disclaimer médical au démarrage — ✅ livré (PR #49)
 - B18 Créditer Hampton/ESC dans l'UI — ✅ livré (PR #49)
-- B19 Changelog public
-- B20 Email institutionnel
+- B19 Changelog public — ✅ livré (Session 17)
+- B20 Email institutionnel — ✅ livré (Session 17)
 
 ### C — i18n (8)
 - C21 Architecture i18n (fr/en/es/pt) — ✅ livré (PR #50)
