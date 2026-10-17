@@ -10,6 +10,7 @@ import {
 } from "@/core/curriculum";
 import type { Deck, DeckProgress } from "@/core/types";
 import { deckProgressPct } from "@/core/mastery";
+import { deriveStepLabel, extractDeckLevel } from "@/lib/library/deck-series";
 import { cn } from "@/lib/utils";
 import { detectPreferredCurrency, formatPrice, PRICES_MGA } from "@/content/pricing";
 
@@ -25,6 +26,8 @@ type Props = {
 type DeckEntry = {
   deck: Deck;
   level: Level;
+  /** Nom de l'étape dans l'escalier (« Sémiologie », « Prise en charge »…). */
+  stepLabel: string | null;
   pct: number;
   locked: boolean;
 };
@@ -141,10 +144,21 @@ function BranchSection({
       .map((id): DeckEntry | null => {
         const deck = deckMap.get(id);
         if (!deck) return null;
-        const level = extractLevel(id) ?? branch.levels[branch.levels.length - 1];
+        const level = extractDeckLevel(id) ?? branch.levels[branch.levels.length - 1];
         const pct = deckProgressPct(deck, progress[deck.id]);
         const locked = !hasAccess(deck) && !explore;
-        return { deck, level, pct, locked };
+        return {
+          deck,
+          level,
+          /*
+           * Le nom d'étape n'a de sens que dans un escalier : sur une branche à
+           * un seul deck (« Anatomie », « Pharmacologie »), il n'y a pas de
+           * marche suivante — afficher « Synthèse » inventerait une progression.
+           */
+          stepLabel: branch.decks.length >= 2 ? deriveStepLabel(id, deck.title) : null,
+          pct,
+          locked,
+        };
       })
       .filter((x): x is DeckEntry => x !== null);
   }, [branch, deckMap, progress, hasAccess, explore]);
@@ -154,6 +168,14 @@ function BranchSection({
   if (entries.length === 0) return null;
 
   const doneCount = entries.filter((d) => d.pct >= 100 && !d.locked).length;
+  const lockedCount = entries.filter((d) => d.locked).length;
+  /*
+   * Le prix est affiché UNE fois par pathologie (en-tête de branche) et non plus
+   * sur chaque marche : cinq marches verrouillées affichaient cinq fois le même
+   * montant, à la place du niveau — l'escalier devenait illisible.
+   */
+  const lockedPrice =
+    lockedCount > 0 ? formatPrice(PRICES_MGA.deck, detectPreferredCurrency()) : null;
 
   return (
     <section className="rounded-[var(--radius-md)] bg-card shadow-[var(--shadow-border)]">
@@ -169,6 +191,14 @@ function BranchSection({
         <span className="min-w-0 flex-1 truncate text-[13px] font-medium">
           {branch.label}
         </span>
+        {lockedPrice ? (
+          <span
+            className="shrink-0 font-mono text-[10px] tabular-nums text-subtle"
+            title="Prix de déblocage d'un deck"
+          >
+            {lockedPrice}
+          </span>
+        ) : null}
         <span className="shrink-0 font-mono text-[10px] tabular-nums text-subtle">
           {doneCount}/{entries.length}
         </span>
@@ -203,7 +233,7 @@ function LevelPill({
   entry: DeckEntry;
   userLevel: Level;
 }) {
-  const { deck, level, pct, locked } = entry;
+  const { deck, level, stepLabel, pct, locked } = entry;
   const done = pct >= 100 && !locked;
   const started = pct > 0 && pct < 100 && !locked;
 
@@ -225,34 +255,30 @@ function LevelPill({
         started && "border-[#4A7A47] bg-[#4A7A47]/15 text-emerald-400",
         !locked && !done && !started && "border-[#A67C1E]/30 bg-secondary text-fg",
       )}
-      title={`${deck.title} · ${level}`}
+      title={`${deck.title} · ${level}${locked ? " — verrouillé" : ""}`}
     >
       {locked ? (
-        <>
-          <Lock className="size-3 shrink-0" aria-hidden />
-          <span className="font-sans text-[9px] font-semibold">
-            {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
-          </span>
-        </>
+        <Lock className="size-3 shrink-0" aria-hidden />
       ) : done ? (
         <Check className="size-3 shrink-0" aria-hidden />
       ) : started ? (
         <Play className="size-3 shrink-0 fill-current" aria-hidden />
       ) : null}
       <span className="font-mono font-medium">{label}</span>
+      {/* Le niveau seul ne dit pas ce qu'on apprend : l'étape le dit. */}
+      {stepLabel ? (
+        <>
+          <span className="text-[9px] opacity-50" aria-hidden>
+            ·
+          </span>
+          <span className="max-w-28 truncate text-[10px] font-medium">{stepLabel}</span>
+        </>
+      ) : null}
       {isAbove && !locked ? (
-        <span className="text-[9px] opacity-70">↑</span>
+        <span className="text-[9px] opacity-70" aria-hidden>
+          ↑
+        </span>
       ) : null}
     </Link>
   );
-}
-
-function extractLevel(deckId: string): Level | null {
-  const match = deckId.match(/-(l\d|intern|resident|senior)(?:$|-)/i);
-  if (!match) return null;
-  const raw = match[1].toUpperCase();
-  if (raw === "INTERN") return "INTERNE";
-  if (raw === "RESIDENT") return "RESIDENT";
-  if (raw === "SENIOR") return "SENIOR";
-  return LEVEL_ORDER.includes(raw as Level) ? (raw as Level) : null;
 }
