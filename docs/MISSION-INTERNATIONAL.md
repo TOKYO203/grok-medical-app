@@ -86,7 +86,7 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - E41 SRS type Anki
 - E42 Badges thématiques
 - E43 Sous-thèmes précis
-- E44 Examen blanc chronométré
+- E44 Examen blanc chronométré — ✅ livré (PR #61)
 - E45 Courbe de progression
 
 ### F — Accessibilité (5)
