@@ -1,4 +1,8 @@
 @import "tailwindcss";
+/* Design System — fondations (Session A) : typographie, espacement, rayons,
+   ombres et tones sémantiques. Importé en tête pour que les variables soient
+   disponibles avant le thème et la couche de composants ci-dessous. */
+@import "./styles/tokens.css";
 /* Polices auto-hébergées via @fontsource (Phase 2) — plus de CDN Google
    Fonts : un seul domaine, offline PWA, zéro tracking tiers. Mêmes noms de
    familles (« Figtree », « Fraunces », « IBM Plex Mono ») → tokens @theme inchangés. */

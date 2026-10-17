@@ -1,0 +1,286 @@
+/* ============================================================================
+   Optimus — Design System · Fondations (Session A)
+   ----------------------------------------------------------------------------
+   Couche SÉMANTIQUE du design system. Les tones pointent vers les variables de
+   thème `--app-*` définies dans `src/styles.css`, donc tout suit automatiquement
+   le thème clair / sombre ; seules les composantes d'ombre et les couleurs de
+   texte posées sur un remplissage plein sont littérales (elles n'ont pas
+   d'équivalent sémantique).
+
+   RÈGLES
+   1. Un composant ne code jamais une couleur, un espacement, un rayon ou une
+      ombre « en dur » : il consomme une variable de ce fichier.
+   2. Les tailles typographiques s'appliquent via les classes `.type-*`
+      (composées en `@layer components`, donc surchargeables par les utilitaires
+      Tailwind — `utilities` gagne sur `components`).
+   3. Ne pas renommer une variable existante sans migrer les composants : ce
+      fichier est le contrat public du design system.
+
+   ÉCHELLES
+   · Typographie : 9 niveaux, `display-xl` (le plus grand) → `micro`.
+   · Espacement  : `--sp-1` = 4 px … `--sp-16` = 64 px (pas strict de 4 px).
+   · Rayons      : `--r-sm` = 6 px … `--r-xl` = 20 px (+ `--r-pill`).
+   · Ombres      : `--sh-subtle`, `--sh-medium`, `--sh-overlay`.
+   · Tones       : danger, warn, info, success, accent (+ neutral pour Badge),
+                   chacune déclinée en base / hover / soft / border / fg /
+                   disabled.
+   ============================================================================ */
+
+:root {
+  /* -------------------------------------------------------------------------
+     1. Typographie — 9 niveaux (rem + clamp pour les tailles d'affichage)
+     Chaque niveau expose sa taille, son interlignage et son approche.
+     ------------------------------------------------------------------------- */
+  --fs-display-xl: clamp(2.75rem, 2.05rem + 3.5vw, 4rem); /* 44 → 64 px */
+  --lh-display-xl: 1.02;
+  --tr-display-xl: -0.04em;
+
+  --fs-display-lg: clamp(2.25rem, 1.85rem + 2vw, 3rem); /* 36 → 48 px */
+  --lh-display-lg: 1.06;
+  --tr-display-lg: -0.035em;
+
+  --fs-display-md: clamp(1.875rem, 1.65rem + 1.1vw, 2.25rem); /* 30 → 36 px */
+  --lh-display-md: 1.1;
+  --tr-display-md: -0.03em;
+
+  --fs-title-lg: 1.75rem; /* 28 px */
+  --lh-title-lg: 1.2;
+  --tr-title-lg: -0.022em;
+
+  --fs-title: 1.375rem; /* 22 px */
+  --lh-title: 1.3;
+  --tr-title: -0.018em;
+
+  --fs-subtitle: 1.125rem; /* 18 px */
+  --lh-subtitle: 1.4;
+  --tr-subtitle: -0.01em;
+
+  --fs-body: 1rem; /* 16 px */
+  --lh-body: 1.6;
+  --tr-body: 0em;
+
+  --fs-body-sm: 0.875rem; /* 14 px */
+  --lh-body-sm: 1.55;
+  --tr-body-sm: 0.005em;
+
+  --fs-micro: 0.75rem; /* 12 px — plancher de lisibilité mobile */
+  --lh-micro: 1.45;
+  --tr-micro: 0.06em;
+
+  /* -------------------------------------------------------------------------
+     2. Espacement — pas strict de 4 px : --sp-N = N × 4 px (N de 1 à 16)
+     ------------------------------------------------------------------------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 28px;
+  --sp-8: 32px;
+  --sp-9: 36px;
+  --sp-10: 40px;
+  --sp-11: 44px;
+  --sp-12: 48px;
+  --sp-13: 52px;
+  --sp-14: 56px;
+  --sp-15: 60px;
+  --sp-16: 64px;
+
+  /* -------------------------------------------------------------------------
+     3. Rayons — --r-sm 6 px … --r-xl 20 px (+ pilule pour les badges)
+     ------------------------------------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+
+  /* -------------------------------------------------------------------------
+     4. Ombres — 3 élévations (le thème sombre les redéfinit plus bas)
+     ------------------------------------------------------------------------- */
+  --sh-subtle:
+    inset 0 0 0 1px color-mix(in oklab, #a67c1e 24%, transparent), 0 1px 2px rgb(31 26 20 / 0.05);
+  --sh-medium:
+    0 10px 24px -16px rgb(31 26 20 / 0.28), 0 2px 6px -4px rgb(31 26 20 / 0.14),
+    inset 0 0 0 1px color-mix(in oklab, #a67c1e 26%, transparent);
+  --sh-overlay: 0 24px 64px -24px rgb(31 26 20 / 0.32), 0 8px 20px -12px rgb(31 26 20 / 0.18);
+
+  /* -------------------------------------------------------------------------
+     5. Tones sémantiques — 5 tones + neutral, mappées sur la palette Oxford
+        (--app-danger, --app-warn, --app-info, --app-success, --app-gold).
+        `soft` et `border` sont dérivées, donc identiques dans les deux thèmes ;
+        `fg`, `hover` et `disabled` sont redéfinis par thème plus bas.
+     ------------------------------------------------------------------------- */
+  --tone-danger: var(--app-danger);
+  --tone-danger-soft: color-mix(in oklab, var(--tone-danger) 12%, var(--app-card));
+  --tone-danger-border: color-mix(in oklab, var(--tone-danger) 34%, transparent);
+  --tone-danger-disabled: color-mix(in oklab, var(--tone-danger) 34%, var(--app-card));
+
+  --tone-warn: var(--app-warn);
+  --tone-warn-soft: color-mix(in oklab, var(--tone-warn) 12%, var(--app-card));
+  --tone-warn-border: color-mix(in oklab, var(--tone-warn) 34%, transparent);
+  --tone-warn-disabled: color-mix(in oklab, var(--tone-warn) 34%, var(--app-card));
+
+  --tone-info: var(--app-info);
+  --tone-info-soft: color-mix(in oklab, var(--tone-info) 12%, var(--app-card));
+  --tone-info-border: color-mix(in oklab, var(--tone-info) 34%, transparent);
+  --tone-info-disabled: color-mix(in oklab, var(--tone-info) 34%, var(--app-card));
+
+  --tone-success: var(--app-success);
+  --tone-success-soft: color-mix(in oklab, var(--tone-success) 12%, var(--app-card));
+  --tone-success-border: color-mix(in oklab, var(--tone-success) 34%, transparent);
+  --tone-success-disabled: color-mix(in oklab, var(--tone-success) 34%, var(--app-card));
+
+  /* L'accent est l'or de TEXTE (--app-gold, AA sur les deux thèmes) : le ton
+     pleinement saturé #A67C1E reste réservé aux filets décoratifs. */
+  --tone-accent: var(--app-gold);
+  --tone-accent-soft: color-mix(in oklab, var(--tone-accent) 12%, var(--app-card));
+  --tone-accent-border: color-mix(in oklab, var(--tone-accent) 34%, transparent);
+  --tone-accent-disabled: color-mix(in oklab, var(--tone-accent) 34%, var(--app-card));
+
+  --tone-neutral: var(--app-muted);
+  --tone-neutral-soft: var(--app-secondary);
+  --tone-neutral-border: color-mix(in oklab, var(--app-border) 50%, transparent);
+  --tone-neutral-disabled: color-mix(in oklab, var(--app-muted) 34%, var(--app-card));
+
+  /* Boutons — couleurs de survol des variantes non sémantiques. */
+  --button-primary-hover: color-mix(in oklab, var(--app-primary) 88%, #000);
+  --button-danger-hover: color-mix(in oklab, var(--tone-danger) 88%, #000);
+}
+
+/* --------------------------------------------------------------------------
+   Remplissage des tones : texte lisible sur le fond plein. L'or étant clair,
+   il reçoit un texte sombre (contraste AA) — les autres tones, sombres,
+   reçoivent du blanc.
+   -------------------------------------------------------------------------- */
+:root {
+  --tone-danger-fg: #ffffff;
+  --tone-warn-fg: #ffffff;
+  --tone-info-fg: #ffffff;
+  --tone-success-fg: #ffffff;
+  --tone-accent-fg: #1f1a14;
+  --tone-neutral-fg: var(--app-fg);
+
+  /* En thème clair, les tons s'assombrissent au survol. */
+  --tone-danger-hover: color-mix(in oklab, var(--tone-danger) 88%, #000);
+  --tone-warn-hover: color-mix(in oklab, var(--tone-warn) 88%, #000);
+  --tone-info-hover: color-mix(in oklab, var(--tone-info) 88%, #000);
+  --tone-success-hover: color-mix(in oklab, var(--tone-success) 88%, #000);
+  --tone-accent-hover: color-mix(in oklab, var(--tone-accent) 88%, #000);
+  --tone-neutral-hover: color-mix(in oklab, var(--tone-neutral) 88%, #000);
+}
+
+html[data-theme="dark"] {
+  /* Ombres : le noir profond remplace la teinte chaude du parchemin. */
+  --sh-subtle:
+    inset 0 0 0 1px color-mix(in oklab, #e7ede8 10%, transparent), 0 1px 2px rgb(0 0 0 / 0.5);
+  --sh-medium:
+    0 12px 28px -18px rgb(0 0 0 / 0.7), 0 2px 8px -4px rgb(0 0 0 / 0.5),
+    inset 0 0 0 1px color-mix(in oklab, #e7ede8 12%, transparent);
+  --sh-overlay: 0 28px 72px -28px rgb(0 0 0 / 0.8), 0 10px 24px -14px rgb(0 0 0 / 0.6);
+
+  /* Sur fond sombre les tones s'éclaircissent : texte sombre sur fond plein,
+     survol qui éclaircit encore (et non qui assombrit). */
+  --tone-danger-fg: #141a18;
+  --tone-warn-fg: #141a18;
+  --tone-info-fg: #141a18;
+  --tone-success-fg: #141a18;
+  --tone-accent-fg: #141a18;
+  --tone-neutral-fg: var(--app-fg);
+
+  --tone-danger-hover: color-mix(in oklab, var(--tone-danger) 88%, #fff);
+  --tone-warn-hover: color-mix(in oklab, var(--tone-warn) 88%, #fff);
+  --tone-info-hover: color-mix(in oklab, var(--tone-info) 88%, #fff);
+  --tone-success-hover: color-mix(in oklab, var(--tone-success) 88%, #fff);
+  --tone-accent-hover: color-mix(in oklab, var(--tone-accent) 88%, #fff);
+  --tone-neutral-hover: color-mix(in oklab, var(--tone-neutral) 88%, #fff);
+
+  --button-primary-hover: color-mix(in oklab, var(--app-primary) 88%, #fff);
+  --button-danger-hover: color-mix(in oklab, var(--tone-danger) 88%, #fff);
+}
+
+/* ============================================================================
+   Classes typographiques composées — `.type-<niveau>`
+   Elles vivent dans la couche `components` : un utilitaire Tailwind (ex.
+   `text-sm`, `text-danger`) garde la priorité pour une dérogation ponctuelle.
+   ============================================================================ */
+@layer components {
+  .type-display-xl {
+    font-family: var(--font-display);
+    font-size: var(--fs-display-xl);
+    font-weight: 500;
+    line-height: var(--lh-display-xl);
+    letter-spacing: var(--tr-display-xl);
+    text-wrap: balance;
+  }
+
+  .type-display-lg {
+    font-family: var(--font-display);
+    font-size: var(--fs-display-lg);
+    font-weight: 500;
+    line-height: var(--lh-display-lg);
+    letter-spacing: var(--tr-display-lg);
+    text-wrap: balance;
+  }
+
+  .type-display-md {
+    font-family: var(--font-display);
+    font-size: var(--fs-display-md);
+    font-weight: 500;
+    line-height: var(--lh-display-md);
+    letter-spacing: var(--tr-display-md);
+    text-wrap: balance;
+  }
+
+  .type-title-lg {
+    font-family: var(--font-display);
+    font-size: var(--fs-title-lg);
+    font-weight: 500;
+    line-height: var(--lh-title-lg);
+    letter-spacing: var(--tr-title-lg);
+  }
+
+  .type-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-title);
+    font-weight: 500;
+    line-height: var(--lh-title);
+    letter-spacing: var(--tr-title);
+  }
+
+  .type-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--fs-subtitle);
+    font-weight: 600;
+    line-height: var(--lh-subtitle);
+    letter-spacing: var(--tr-subtitle);
+  }
+
+  .type-body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: var(--lh-body);
+    letter-spacing: var(--tr-body);
+    text-wrap: pretty;
+  }
+
+  .type-body-sm {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body-sm);
+    font-weight: 400;
+    line-height: var(--lh-body-sm);
+    letter-spacing: var(--tr-body-sm);
+    text-wrap: pretty;
+  }
+
+  .type-micro {
+    font-family: var(--font-sans);
+    font-size: var(--fs-micro);
+    font-weight: 600;
+    line-height: var(--lh-micro);
+    letter-spacing: var(--tr-micro);
+    text-transform: uppercase;
+  }
+}
