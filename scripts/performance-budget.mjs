@@ -18,7 +18,14 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // d'isolement, surlignage de recherche, pulsation de repère) pèse ~2 KiB ;
   // après purge des 3 dégradés de profil morts (`cover-hautes-terres/baobab/
   // canal`, remplacés par des images) la feuille mesure 100,2 KiB.
-  maxStylesheetBytes: 104 * 1024,
+  // Relevé 104 → 120 KiB (Design System, Session A) : les fondations ajoutent
+  // ~5,8 KiB de jetons (typographie, espacement, rayons, ombres, 5 tones × 6
+  // déclinaisons — chaque `color-mix` est émis avec son repli `@supports`), les
+  // 9 classes `.type-*` (~1,5 KiB) et les utilitaires des composants pilotes.
+  // Mesure après optimisation de la vitrine (mise en page sur l'échelle
+  // Tailwind, identique à `--sp-N`) : 116,2 KiB. Marge volontairement faible
+  // (~3,8 KiB), même philosophie que les relevés précédents.
+  maxStylesheetBytes: 120 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DevRouteImport } from './routes/_dev'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as AchatsRouteImport } from './routes/achats'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -43,6 +44,7 @@ import { Route as SignesRouteImport } from './routes/signes'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
+import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
@@ -55,6 +57,10 @@ import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.a
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevRoute = DevRouteImport.update({
+  id: '/_dev',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AProposRoute = AProposRouteImport.update({
@@ -222,6 +228,11 @@ const ValidationCliniqueRoute = ValidationCliniqueRouteImport.update({
   path: '/validation-clinique',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DevKitchenSinkRoute = DevKitchenSinkRouteImport.update({
+  id: '/kitchen-sink',
+  path: '/kitchen-sink',
+  getParentRoute: () => DevRoute,
+} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -298,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
+  '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -342,6 +354,7 @@ export interface FileRoutesByTo {
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
+  '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -354,6 +367,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_dev': typeof DevRouteWithChildren
   '/a-propos': typeof AProposRoute
   '/achats': typeof AchatsRoute
   '/admin': typeof AdminRoute
@@ -387,6 +401,7 @@ export interface FileRoutesById {
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
+  '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -433,6 +448,7 @@ export interface FileRouteTypes {
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
+    | '/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -477,6 +493,7 @@ export interface FileRouteTypes {
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
+    | '/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -488,6 +505,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_dev'
     | '/a-propos'
     | '/achats'
     | '/admin'
@@ -521,6 +539,7 @@ export interface FileRouteTypes {
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
+    | '/_dev/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -533,6 +552,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DevRoute: typeof DevRouteWithChildren
   AProposRoute: typeof AProposRoute
   AchatsRoute: typeof AchatsRoute
   AdminRoute: typeof AdminRoute
@@ -579,6 +599,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_dev': {
+      id: '/_dev'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof DevRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/a-propos': {
@@ -812,6 +839,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ValidationCliniqueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_dev/kitchen-sink': {
+      id: '/_dev/kitchen-sink'
+      path: '/kitchen-sink'
+      fullPath: '/kitchen-sink'
+      preLoaderRoute: typeof DevKitchenSinkRouteImport
+      parentRoute: typeof DevRoute
+    }
     '/api/admin-verify': {
       id: '/api/admin-verify'
       path: '/api/admin-verify'
@@ -871,6 +905,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DevRouteChildren {
+  DevKitchenSinkRoute: typeof DevKitchenSinkRoute
+}
+
+const DevRouteChildren: DevRouteChildren = {
+  DevKitchenSinkRoute: DevKitchenSinkRoute,
+}
+
+const DevRouteWithChildren = DevRoute._addFileChildren(DevRouteChildren)
+
 interface CasRouteChildren {
   CasCaseIdRoute: typeof CasCaseIdRoute
 }
@@ -917,6 +961,7 @@ const ParcoursRouteWithChildren = ParcoursRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DevRoute: DevRouteWithChildren,
   AProposRoute: AProposRoute,
   AchatsRoute: AchatsRoute,
   AdminRoute: AdminRoute,
