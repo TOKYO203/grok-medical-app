@@ -1,40 +1,55 @@
+# Parcours utilisateur & Rétention — Spécification
 
----
+## 1. Les 3 profils utilisateurs
+- **Le candidat** (60%) : Concours National, 2-4h/jour.
+- **Le révisant** (30%) : Consolidation par spécialité, 30 min/jour.
+- **Le curieux** (10%) : Découverte, 5-10 min.
+
+## 2. Onboarding (3 écrans)
+1. Objectif (Concours, Spécialité, Découverte)
+2. Volume horaire (15min, 30min, 1h+)
+3. Diagnostic (Débutant, Révision, Urgence)
+
+## 3. L'écran "Parcours"
+Timeline verticale (style Duolingo). Nœuds = items. Boss tous les 5 items.
+Bouton CTA fixe en bas : "Reprendre".
+
+## 4. La boucle d'étude
+Démarrage -> QCM -> Fiche -> Flashcards -> Mindmap -> Fin de session (Récap).
+
+## 5. Gamification éthique
+- **XP** : 10 XP/QCM (débloque fiches bonus).
+- **Flamme** : Tolérance 2 gels par mois.
+- **Badges** : Maîtrise (ex: tous les items cardio >80%), pas de badges de simple présence.
+- **Classement** : Opt-in, par faculté, pas de compétition toxique.
+
+## 6. Notifications
+- Douces : "Ton item du jour : Embolie pulmonaire (20 min)."
+- Alerte de gel : "Tu as 4h pour garder ta série."
+
+## 7. Technique (Fichiers)
+- `src/lib/parcours/planner.ts` (génère le plan)
+- `src/components/parcours/path-node.tsx` (nœuds)
+- `src/components/resume-where-card.tsx` (existant à brancher)
+
+## 8. Anti-patterns (Interdits)
+- Pas de vies/cœurs bloquants.
+- Pas de gemmes payantes pour sauter des items.
+- Pas de dark patterns.
+- Pas de confettis roses.
 
 ## 11. Les Plans (offre produit)
+| Plan | Cible | Contenu | Modèle |
+|---|---|---|---|
+| **Concours National** | Madagascar | 240 items, 4 examens blancs | Freemium |
+| **Accéléré 30 jours** | Rattrapage | 60 items à fort rendement | Premium+ |
+| **EDN / International** | France/Québec | Programme EDN, QCM calibrés | Premium (€) |
+| **Libre** | Révision | Choix libre | Freemium |
 
-Le parcours n'est pas unique. Il est généré à partir d'un **Plan** choisi à l'inscription.
-
-| Plan | Cible | Durée | Contenu | Modèle |
-|---|---|---|---|---|
-| **Concours National (Madagascar)** | Étudiant préparant le concours d'internat | 12-16 sem. | Programme officiel, 240 items, 4 examens blancs | Freemium |
-| **Accéléré 30 jours** | Candidat pressé / rattrapage | 30 jours | 60 items à fort rendement, 4 examens blancs, fiches express | Premium+ |
-| **EDN / International** | Francophone visant la France / le Québec | 6-9 mois | Programme EDN, items transversaux, QCM calibrés | Premium (€) |
-| **Libre** | Révision par spécialité | Illimité | Choix libre dans les 240 items, suivi par spécialité | Freemium |
-
-**Règles de flexibilité** : un utilisateur peut changer de plan à tout moment. Le parcours est recalculé, la progression conservée.
-
-**Pricing (à valider avec le propriétaire)** :
-- Gratuit : 1 item offert (aperçu), fiche gratuite, pas de flashcards ni mindmap.
-- Premium Madagascar : vendu en Ariary via Mobile Money (Orange Money, MVola, Airtel Money).
-- Premium International : vendu en € via Stripe / PayPal.
-- L'essai de 7 jours reste disponible sur toutes les offres.
-
-**MVP (J14)** : seul le plan "Concours National" est actif. Les 3 autres sont **affichés** (teasing, "Bientôt") pour valider la demande avant de développer.
-
----
+**Flexibilité** : Changement de plan possible, progression conservée.
+**Pricing** : Mobile Money (Mada), Stripe (International). Essai 7j.
 
 ## 12. Internationalisation du parcours
-
-Le contenu médical est le même (les maladies ne changent pas). Ce qui change :
-- **Le programme** : l'EDN français n'a pas la même liste d'items que le concours malgache. Le plan international exige une **deuxième liste** (`programmes/edn-2026.json` par exemple).
-- **Les examens blancs** : calibrés sur le format local (durée, nombre de questions, style).
-- **La langue par défaut** : fr pour Madagascar et France, en pour le Québec / Afrique anglophone.
-
-**Conséquence technique** : le planner ne doit PAS être codé en dur sur le programme malgache. Il doit lire un `programmeId` (`madagascar-2025`, `edn-2026`, `quebec-2026`) et charger la liste correspondante.
-
-**Ce n'est pas pour aujourd'hui.** Mais le code doit être écrit **dès maintenant** avec cette abstraction, sinon on refait tout dans 6 mois.
-
----
-
-*Note ajoutée le 2026-10-17.*
+- Le contenu médical est le même.
+- Le programme change : nécessite `programmes/edn-2026.json`.
+- **Abstraction technique** : `programmeId` (`madagascar-2025`, `edn-2026`) obligatoire dès le début.
