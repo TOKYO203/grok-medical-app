@@ -7,6 +7,7 @@ import {
   Camera, ImagePlus,
   ChevronRight,
   ClipboardList,
+  Cloud,
   Download,
   Flame,
   GraduationCap,
@@ -768,37 +769,59 @@ function ProfilPage() {
           </nav>
         </section>
 
+        {/* D29 — refonte « Profil local + sync » (Session 16) : statut en pilule,
+            compteur de changements en attente lisible d'un coup d'œil, CTA
+            pleine largeur sur mobile (cible tactile h-11). */}
         <section className="mt-8 rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
             Compte et données
           </p>
-          <p className="mt-2 text-sm font-medium">
-            <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="size-4 text-primary" />
-              {authPending
-                ? "Vérification du compte…"
-                : connectedAccount
-                  ? "Compte Optimus connecté"
-                  : "Profil local"}
+          <div className="mt-3 flex items-start gap-3">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-secondary text-primary shadow-[var(--shadow-border)]">
+              <Cloud className="size-5" strokeWidth={1.7} aria-hidden />
             </span>
-          </p>
-          <p className="mt-1 text-xs leading-relaxed text-muted">
-            {authPending
-              ? "Vérification de la session cloud en cours."
-              : connectedAccount
-                ? `${pending} changement${pending !== 1 ? "s" : ""} en attente de synchronisation sur cet appareil.`
-                : "Votre profil et votre progression restent sur cet appareil tant que vous n’êtes pas connecté."}
-          </p>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="font-display text-xl font-medium tracking-tight">
+                  {authPending ? "Vérification du compte…" : connectedAccount ? "Compte Optimus connecté" : "Profil local"}
+                </h2>
+                <span
+                  className={cn(
+                    "optimus-status-pill shrink-0",
+                    connectedAccount ? "bg-primary-soft text-primary" : "bg-secondary text-muted",
+                  )}
+                >
+                  {authPending
+                    ? "…"
+                    : connectedAccount
+                      ? pending > 0
+                        ? `${pending} en attente`
+                        : "Synchronisé"
+                      : "Sur cet appareil"}
+                </span>
+              </div>
+              <p className="mt-1 text-xs leading-relaxed text-muted">
+                {authPending
+                  ? "Vérification de la session cloud en cours."
+                  : connectedAccount
+                    ? pending > 0
+                      ? `${pending} changement${pending !== 1 ? "s" : ""} en attente de synchronisation sur cet appareil — ils partiront à la prochaine connexion.`
+                      : "Tous vos changements sont synchronisés depuis cet appareil."
+                    : "Votre profil et votre progression restent sur cet appareil. Connectez-vous pour les retrouver partout."}
+              </p>
+            </div>
+          </div>
           {!authPending && !connectedAccount ? (
             cloudStatus?.ready ? (
               <Link
                 to="/login"
-                className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
+                className="mt-4 flex h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
               >
+                <Cloud className="size-4" aria-hidden />
                 Se synchroniser
               </Link>
             ) : cloudStatus ? (
-              <p className="mt-3 rounded-[var(--radius-md)] bg-secondary p-3 text-xs leading-relaxed text-muted">
+              <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-xs leading-relaxed text-muted">
                 {cloudStatus.message ??
                   "La connexion cloud n'est pas encore configurée sur ce déploiement."}
               </p>
@@ -807,7 +830,7 @@ function ProfilPage() {
           {!authPending && connectedAccount ? (
             <Link
               to="/donnees"
-              className="mt-3 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)]"
+              className="mt-4 flex h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)]"
             >
               Gérer mes données
             </Link>
