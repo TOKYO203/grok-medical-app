@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+successfully downloaded text file (SHA: 0d6cd39e477fc68f1f84e54e8c87d6768c8cefcc)import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Mail, MessageCircle, Github, Sparkles } from "lucide-react";
 import { Shell } from "@/components/shell";
 import { MEDICAL_CONTENT_VERSION } from "@/content/medical-version";
@@ -142,6 +142,12 @@ function AboutPage() {
               className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
             >
               Validation clinique
+            </Link>
+            <Link
+              to="/changelog"
+              className="inline-flex h-10 items-center rounded-[var(--radius-md)] bg-secondary px-4 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors hover:bg-secondary/70"
+            >
+              Journal des versions
             </Link>
           </div>
         </div>
