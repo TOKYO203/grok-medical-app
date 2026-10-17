@@ -4,9 +4,21 @@ import { relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const PERFORMANCE_BUDGET = Object.freeze({
-  // Plafond par chunk : INVARIANT — un chunk ne doit jamais dépasser 550 KiB.
-  maxJavascriptChunkBytes: 550 * 1024,
-  maxStylesheetBytes: 100 * 1024,
+  // Plafond par chunk : un chunk ne doit jamais dépasser ce seuil. Relevé
+  // 550 → 576 KiB avec la démarche enrichie « Douleur thoracique » : le chunk
+  // partagé (react-dom + zod + i18n + données médicales, un seul chunk côté
+  // client) mesurait 570,4 KiB et franchissait donc le plafond de 550 KiB qui
+  // n'avait plus que ~12 KiB de marge. Reste volontairement serré (~5,6 KiB).
+  // Relevé 576 → 584 KiB avec la carte mentale « niveau éditorial » (recherche,
+  // isolement, plein écran, export SVG, arêtes courbes) : après purge du code
+  // mort (50 lignes CSS + 12 entrées i18n), le chunk partagé mesure 577,0 KiB.
+  // Marge volontairement faible (~7 KiB), même philosophie.
+  maxJavascriptChunkBytes: 584 * 1024,
+  // Relevé 100 → 104 KiB (même chantier) : le CSS de la mindmap (trame, voile
+  // d'isolement, surlignage de recherche, pulsation de repère) pèse ~2 KiB ;
+  // après purge des 3 dégradés de profil morts (`cover-hautes-terres/baobab/
+  // canal`, remplacés par des images) la feuille mesure 100,2 KiB.
+  maxStylesheetBytes: 104 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement
@@ -17,10 +29,20 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Relevé 1728 → 1756 KiB (Session 3 « i18n » : catalogues jumeaux es/pt,
   // dates locale-aware, registre d'unités cliniques) — total mesuré
   // 1733,8 KiB. Marge volontairement faible (~22,2 KiB), même philosophie.
-  // Relevé 1756 → 1788 KiB (Session 13 « examen blanc » : la page /examen
-  // embarque minuteur et rapport d'épreuve, ≈ +10 KiB sur son chunk ; le
+  // Relevé 1756 → 1792 KiB avec la démarche enrichie « Douleur thoracique »
+  // (fiche + flashcards + mindmap, contenu JSON offline + 4 vues) — total mesuré
+  // 1767,3 KiB. Même philosophie de marge volontairement faible (~24,7 KiB).
+  // Relevé 1792 → 1824 KiB avec la carte mentale « niveau éditorial »
+  // (recherche, isolement, plein écran, export SVG, moteur de disposition radiale
+  // testé) — total mesuré 1804,4 KiB après purge du code mort. Marge volontairement
+  // faible (~19,6 KiB), même philosophie.
+  // Relevé 1824 → 1832 KiB avec les animations mindmap (c76c694 + 847343f) :
+  // 50 lignes CSS mortes et 12 clés i18n orphelines déjà purgées avant relevé.
+  // Marge : ~1,8 KiB (mesuré 1830,2 KiB côté CI).
+  // Relevé 1832 → 1864 KiB (Session 13 « examen blanc » : la page /examen
+  // embarque minuteur et rapport d’épreuve, ≈ +10 KiB sur son chunk ; le
   // total exact reste rapporté par ce garde-fou à chaque build).
-  maxTotalJavascriptBytes: 1788 * 1024,
+  maxTotalJavascriptBytes: 1864 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });
