@@ -3,9 +3,15 @@ import { ArrowLeft } from "lucide-react";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
 import { Page, Shell } from "@/components/shell";
 import { pickLessonQuestions, questionXp, type SessionMode } from "@/core/quiz-engine";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
+import { BUILTIN_DECKS } from "@/content/catalog";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
 
 type Search = { lesson?: number; preview?: boolean; mode?: SessionMode };
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/learn/$deckId")({
   validateSearch: (s: Record<string, unknown>): Search => ({

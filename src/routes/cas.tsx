@@ -6,10 +6,15 @@ import { ContentCard } from "@/components/content/content-card";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { CLINICAL_CASES } from "@/content/catalog";
+import { BUILTIN_DECKS, CLINICAL_CASES } from "@/content/catalog";
 import { buildContentIndex } from "@/lib/library/content-index";
 import { groupBySpecialty, specialtyEmoji, specialtySlug } from "@/lib/library/specialty-helpers";
+import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { useAllDecks, useOptimus } from "@/state/store";
+
+// G51 — code-splitting : le store ne charge plus le catalogue ; cette route
+// sème le cache des decks intégrés (évalué côté serveur comme côté client).
+seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
 
