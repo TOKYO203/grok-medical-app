@@ -46,7 +46,6 @@ import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
-import { Route as ApiAdminRotateRouteImport } from './routes/api.admin-rotate'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
@@ -240,11 +239,6 @@ const DevKitchenSinkRoute = DevKitchenSinkRouteImport.update({
   path: '/kitchen-sink',
   getParentRoute: () => DevRoute,
 } as any)
-const ApiAdminRotateRoute = ApiAdminRotateRouteImport.update({
-  id: '/api/admin-rotate',
-  path: '/api/admin-rotate',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiAdminVerifyRoute = ApiAdminVerifyRouteImport.update({
   id: '/api/admin-verify',
   path: '/api/admin-verify',
@@ -323,7 +317,6 @@ export interface FileRoutesByFullPath {
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
-  '/api/admin-rotate': typeof ApiAdminRotateRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -370,7 +363,6 @@ export interface FileRoutesByTo {
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
-  '/api/admin-rotate': typeof ApiAdminRotateRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -419,7 +411,6 @@ export interface FileRoutesById {
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
-  '/api/admin-rotate': typeof ApiAdminRotateRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/cas/$caseId': typeof CasCaseIdRoute
@@ -468,7 +459,6 @@ export interface FileRouteTypes {
     | '/tarifs'
     | '/validation-clinique'
     | '/kitchen-sink'
-    | '/api/admin-rotate'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -515,7 +505,6 @@ export interface FileRouteTypes {
     | '/tarifs'
     | '/validation-clinique'
     | '/kitchen-sink'
-    | '/api/admin-rotate'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -563,7 +552,6 @@ export interface FileRouteTypes {
     | '/tarifs'
     | '/validation-clinique'
     | '/_dev/kitchen-sink'
-    | '/api/admin-rotate'
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/cas/$caseId'
@@ -611,7 +599,6 @@ export interface RootRouteChildren {
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
-  ApiAdminRotateRoute: typeof ApiAdminRotateRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
@@ -879,13 +866,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DevKitchenSinkRouteImport
       parentRoute: typeof DevRoute
     }
-    '/api/admin-rotate': {
-      id: '/api/admin-rotate'
-      path: '/api/admin-rotate'
-      fullPath: '/api/admin-rotate'
-      preLoaderRoute: typeof ApiAdminRotateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/admin-verify': {
       id: '/api/admin-verify'
       path: '/api/admin-verify'
@@ -1036,7 +1016,6 @@ const rootRouteChildren: RootRouteChildren = {
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
-  ApiAdminRotateRoute: ApiAdminRotateRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
