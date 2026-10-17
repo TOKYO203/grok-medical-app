@@ -50,8 +50,7 @@ export function formatPrice(amountMga: number, currency: Currency): string {
   }
   const converted = convertFromMga(amountMga, currency);
   const formatted = converted.toLocaleString("fr-FR", {
-    min
-imumFractionDigits: converted < 10 ? 1 : 0,
+    minimumFractionDigits: converted < 10 ? 1 : 0,
     maximumFractionDigits: converted < 10 ? 1 : 0,
   });
   return currency === "USD" ? "≈ $" + formatted : "≈ " + formatted + " €";

@@ -61,8 +61,7 @@ function makeDeviceId(): string {
   return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-const defaultProfile = (): Pro
-file => ({
+const defaultProfile = (): Profile => ({
   displayName: "Nouveau",
   optimusId: "OM-GUEST",
   deviceId: "device-local",
@@ -130,8 +129,7 @@ export type OptimusState = PersistShape & {
   addContact: (kind: ContactDraft["kind"], body: string) => void;
   upsertPurchase: (order: PremiumOrder, status: PurchaseStatus, proofAttached?: boolean) => void;
   startPremiumTrial: () => void;
-  resetLocal
-: () => void;
+  resetLocal: () => void;
   setLocale: (locale: Locale) => void;
   logStudyTime: (ms: number) => void;
 };
@@ -184,8 +182,7 @@ function unlockBadges(state: PersistShape): BadgeId[] {
   if (state.diagnosticsCompleted.length >= 1) add("diagnostic");
   if (state.reviewsSucceeded >= 20) add("reviewer");
   const trop = state.progress.tropical;
-  if (trop && Object.keys(trop.seen).length 
->= 6) add("tropical");
+  if (trop && Object.keys(trop.seen).length >= 6) add("tropical");
   return [...have] as BadgeId[];
 }
 
@@ -244,8 +241,7 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
           deckNumber > 10)) ||
       typeof purchase.status !== "string" ||
       !statuses.has(purchase.status) ||
-      typeof purchase.createdAt !== "numb
-er" ||
+      typeof purchase.createdAt !== "number" ||
       !Number.isFinite(purchase.createdAt) ||
       typeof purchase.updatedAt !== "number" ||
       !Number.isFinite(purchase.updatedAt)
@@ -305,8 +301,7 @@ function deckForPersistence(deck: Deck): Deck {
   const { importVerified: _importVerified, ...persisted } = deck;
   return deck.importProof?.format === "optimus-encrypted-v1"
     ? { ...persisted, questions: [], sources: [], chapters: [] }
-    : persiste
-d;
+    : persisted;
 }
 
 function receiptEntitlement(receipt: LicenseReceipt): Entitlement {
@@ -371,8 +366,7 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     profile,
     importedDecks: restoreStoredDecks(saved.importedDecks),
     entitlements: [freeEntitlement()],
-    licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseRecei
-pts : [],
+    licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     purchases: restorePurchases(saved.purchases),
     premiumTrial: restoreTrial(saved.premiumTrial),
     locale: isLocale(saved.locale) ? saved.locale : DEFAULT_LOCALE,
@@ -428,8 +422,7 @@ export const useOptimus = create<OptimusState>()(
             for (const deck of indexedDecks) merged.set(deck.id, deck);
             for (const deck of state.importedDecks) merged.set(deck.id, deck);
             storedDecks = [...merged.values()];
-            await replaceImportedDecks
-(
+            await replaceImportedDecks(
               state.profile.optimusId,
               storedDecks.map(deckForPersistence),
             );
@@ -484,8 +477,7 @@ export const useOptimus = create<OptimusState>()(
             ...s.profile,
             ...p,
             onboarded: true,
-            deviceId: s.profile.deviceId === "device-local" ? makeDeviceId() : s.profil
-e.deviceId,
+            deviceId: s.profile.deviceId === "device-local" ? makeDeviceId() : s.profile.deviceId,
             optimusId: s.profile.optimusId === "OM-GUEST" ? makeOptimusId() : s.profile.optimusId,
           },
         })),
@@ -538,8 +530,7 @@ e.deviceId,
         }));
         return true;
       },
-      importDeck: 
-async (deck) => {
+      importDeck: async (deck) => {
         const state = get();
         const importedDecks = [...state.importedDecks.filter((d) => d.id !== deck.id), deck];
         try {
@@ -585,8 +576,7 @@ async (deck) => {
             id: uid("evt"),
             type: mode === "revue" ? "REVIEW_COMPLETED" : "QUESTION_ANSWERED",
             payload: { deckId, questionId, ok, xp, mode },
-            created
-At: Date.now(),
+            createdAt: Date.now(),
             synced: false,
           };
           const next: PersistShape = {
@@ -638,8 +628,7 @@ At: Date.now(),
       completeCase: (caseId, xp) =>
         set((s) => {
           if (s.casesCompleted.includes(caseId)) return { xp: s.xp + Math.round(xp * 0.25) };
-          const event: SyncEv
-ent = {
+          const event: SyncEvent = {
             id: uid("evt"),
             type: "CASE_COMPLETED",
             payload: { caseId, xp },
@@ -766,8 +755,7 @@ function pickPersist(s: PersistShape): PersistShape {
     reviewsSucceeded: s.reviewsSucceeded,
     studyMs: s.studyMs,
     syncQueue: s.syncQueue,
-    contacts: s.contact
-s,
+    contacts: s.contacts,
     purchases: s.purchases,
     premiumTrial: s.premiumTrial,
     locale: s.locale,
