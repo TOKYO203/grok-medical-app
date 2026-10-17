@@ -1,4 +1,4 @@
-export const COMPETENCIES = [
+successfully downloaded text file (SHA: faa136aac6b1b6b1397d107444bf988378b773b4)export const COMPETENCIES = [
   "recognize",
   "semiology",
   "diagnostic_orientation",
@@ -208,7 +208,7 @@ export type SyncEvent = {
 
 export type ContactDraft = {
   id: string;
-  kind: "contact" | "bug" | "correction" | "deck" | "idea";
+  kind: "contact" | "bug" | "correction" | "deck" | "idea" | "school";
   body: string;
   createdAt: number;
   sent: boolean;
