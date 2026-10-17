@@ -38,7 +38,7 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - A01 Prix multi-devises (MGA/USD/EUR auto) — ✅ livré (PR #48)
 - A02 Page Tarifs comparatif Free/Premium/École — ✅ livré (PR #48)
 - A03 Essai 7 jours Premium — ✅ livré (PR #48)
-- A04 Abonnement mensuel/annuel
+- A04 Abonnement mensuel/trimestriel — ✅ livré (Session 18 : 5 000 Ar/30 j · 12 000 Ar/90 j, remplace l'achat à vie)
 - A05 Teaser Premium vidéo 30s — ✅ livré (PR #48)
 - A06 Offre École multi-sièges
 - A07 Badges progressifs ("Encore 3 cas...") — ✅ livré (PR #48)
