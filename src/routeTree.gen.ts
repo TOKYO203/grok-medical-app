@@ -53,6 +53,7 @@ import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
+import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 
 const IndexRoute = IndexRouteImport.update({
@@ -274,6 +275,11 @@ const ParcoursDeckIdRoute = ParcoursDeckIdRouteImport.update({
   path: '/$deckId',
   getParentRoute: () => ParcoursRoute,
 } as any)
+const PathologieSlugRoute = PathologieSlugRouteImport.update({
+  id: '/pathologie/$slug',
+  path: '/pathologie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
   path: '/api/licenses/activate',
@@ -324,6 +330,7 @@ export interface FileRoutesByFullPath {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesByTo {
@@ -370,6 +377,7 @@ export interface FileRoutesByTo {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRoutesById {
@@ -418,6 +426,7 @@ export interface FileRoutesById {
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
+  '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
 }
 export interface FileRouteTypes {
@@ -466,6 +475,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/pathologie/$slug'
     | '/api/licenses/activate'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -512,6 +522,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/pathologie/$slug'
     | '/api/licenses/activate'
   id:
     | '__root__'
@@ -559,6 +570,7 @@ export interface FileRouteTypes {
     | '/ecg/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
+    | '/pathologie/$slug'
     | '/api/licenses/activate'
   fileRoutesById: FileRoutesById
 }
@@ -602,6 +614,7 @@ export interface RootRouteChildren {
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
+  PathologieSlugRoute: typeof PathologieSlugRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
 }
 
@@ -915,6 +928,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParcoursDeckIdRouteImport
       parentRoute: typeof ParcoursRoute
     }
+    '/pathologie/$slug': {
+      id: '/pathologie/$slug'
+      path: '/pathologie/$slug'
+      fullPath: '/pathologie/$slug'
+      preLoaderRoute: typeof PathologieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
       path: '/api/licenses/activate'
@@ -1019,6 +1039,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
+  PathologieSlugRoute: PathologieSlugRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
 }
 export const routeTree = rootRouteImport

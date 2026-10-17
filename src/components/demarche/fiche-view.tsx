@@ -7,7 +7,7 @@ import {
   Zap,
   type LucideIcon,
 } from "lucide-react";
-import type { CalloutTone, DemarcheContent, FicheBlock } from "@/core/demarche";
+import type { CalloutTone, FicheBlock, FicheContent } from "@/core/demarche";
 import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { viewPanelId } from "./view-tabs";
@@ -123,7 +123,7 @@ function Block({ block }: { block: FicheBlock }) {
   );
 }
 
-export function FicheView({ content }: { content: DemarcheContent }) {
+export function FicheView({ content }: { content: FicheContent }) {
   const { t } = useI18n();
 
   return (
@@ -168,6 +168,41 @@ export function FicheView({ content }: { content: DemarcheContent }) {
             {section.blocks.map((block, blockIndex) => (
               <Block key={blockIndex} block={block} />
             ))}
+
+            {section.sources?.length ? (
+              <div
+                className="border-t border-border/60 pt-2.5"
+                data-demarche-section-sources={section.id}
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-subtle">
+                  {t("demarche.fiche.sectionSources")}
+                </p>
+                <ul className="mt-1 space-y-0.5">
+                  {section.sources.map((source) => (
+                    <li key={source.id} className="text-[11px] leading-snug text-muted">
+                      {source.url ? (
+                        <a
+                          href={source.url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="text-primary underline-offset-4 hover:underline"
+                        >
+                          {source.organization ? `${source.organization} — ` : ""}
+                          {source.title}
+                          {source.year ? ` (${source.year})` : ""}
+                        </a>
+                      ) : (
+                        <>
+                          {source.organization ? `${source.organization} — ` : ""}
+                          {source.title}
+                          {source.year ? ` (${source.year})` : ""}
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </details>
       ))}
