@@ -76,7 +76,7 @@ export type MapLayout = {
  *  entre les secteurs voisins, la séparation finale étant garantie par Δmin. */
 const SECTOR_FILL = 0.92;
 const ROOT = { font: 15, maxWidth: 120, padX: 12, padY: 9 };
-const BRANCH = { font: 12, maxWidth: 85, padX: 9, padY: 6 };
+const BRANCH = { font: 12, maxWidth: 95, padX: 9, padY: 6 };
 const CHILD = { font: 11.5, maxWidth: 105, padX: 9, padY: 6 };
 const LEAF_FONT = 10;
 const LINE_HEIGHT = 1.24;
