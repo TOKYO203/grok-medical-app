@@ -90,11 +90,11 @@ Chantier de mise à niveau vers un standard éditeur médical international.
 - E45 Courbe de progression
 
 ### F — Accessibilité (5)
-- F46 Audit axe DevTools
-- F47 Contraste WCAG AA
-- F48 Mode daltonien ECG
-- F49 ARIA labels boutons icône
-- F50 prefers-reduced-motion
+- F46 Audit axe DevTools — ✅ livré (Session 14)
+- F47 Contraste WCAG AA — ✅ livré (Session 14)
+- F48 Mode daltonien ECG — reporté (gel moteur ECG, plan consigné Session 14)
+- F49 ARIA labels boutons icône — ✅ livré (Session 14, audit conforme)
+- F50 prefers-reduced-motion — ✅ livré (Session 14, consigné)
 
 ### G — Technique (3)
 - G51 Code-splitting routes

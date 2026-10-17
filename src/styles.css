@@ -91,14 +91,21 @@
   --app-primary-fg: #FFFFFF;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 12%, transparent);
   --app-accent: #A67C1E;
-  /* Signature dorée — or dédié (identique à l'accent en clair, éclairci en sombre). */
-  --app-gold: #A67C1E;
+  /* Signature dorée — or dédié (identique à l'accent en clair, éclairci en sombre).
+     #7E5B12 : or de TEXTE assombri pour WCAG AA — 4,75:1 sur --app-bg (parchemin)
+     et 6,19:1 sur --app-card (blanc) ; l'ancien #A67C1E ne donnait que 2,91:1.
+     L'accent décoratif (filets, dégradés) reste #A67C1E. */
+  --app-gold: #7E5B12;
   --app-gold-soft: #E8C97A;
   --app-paper: #FFFFFF;
   --app-paper-fg: #1F1A14;
-  --app-ring: #A67C1E;
+  /* #7E5B12 : indicateur de focus ≥ 3:1 (WCAG 1.4.11, non-texte) — l'ancien
+     #A67C1E ne donnait que 2,91:1 sur le parchemin. */
+  --app-ring: #7E5B12;
   --app-success: #4F6B2D;
-  --app-warn: #A67C1E;
+  /* #7E5B12 : avertissements AA — mêmes ratios que --app-gold ; l'ancien #A67C1E
+     échouait sur le parchemin (2,91:1). */
+  --app-warn: #7E5B12;
   --app-danger: #8B2E1F;
   /* #1B4B77 : bleu « examens » (criticité de la mindmap) — contraste ≥ 4.5:1 sur blanc. */
   --app-info: #1B4B77;
@@ -150,7 +157,9 @@ html[data-theme="dark"] {
   --app-paper: #e7ede8;
   --app-paper-fg: #141a18;
   --app-ring: #3d8f6b;
-  --app-success: #3d8f6b;
+  /* #45a274 : succès AA en sombre — 5,44:1 sur --app-card et 6,05:1 sur --app-bg ;
+     l'ancien #3d8f6b ne donnait que 4,36:1 sur la carte sombre. */
+  --app-success: #45a274;
   --app-warn: #c4a35a;
   --app-danger: #cc6655;
   --app-info: #74b0dd;
