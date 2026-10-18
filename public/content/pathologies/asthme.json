@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "asthme",
+  "title": "Asthme",
+  "subtitle": "Nosographie — pneumologie de l'adulte",
+  "objective": "Devant des symptômes respiratoires variables et récidivants, confirmer l'obstruction réversible, évaluer le contrôle et prévenir les exacerbations sans jamais laisser un patient sous bronchodilatateur seul.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 59,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 100,
+      "localNumber": 59,
+      "sectionLabel": "Médecine",
+      "title": "Asthme",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": ["semio"],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Aucun document source n'a été fourni pour cette fiche : elle est rédigée à partir des recommandations GINA 2026, de la fiche descriptive de l'OMS et du référentiel du Collège des Enseignants de Pneumologie, en reformulant chaque énoncé. Les posologies et les seuils sont rattachés à une source vérifiable section par section ; les éléments qui dépendent du protocole national malgache sont signalés comme tels.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche porte sur l'asthme de l'adulte, alors que l'intitulé officiel de l'item est simplement « Asthme » : le titre affiché reste celui du référentiel national, comme l'exige le garde-fou d'intégrité.",
+      "Les seuils de réversibilité (volume expiratoire maximal seconde augmenté d'au moins 12 % et 200 mL après bronchodilatateur) et de variabilité du débit expiratoire de pointe (plus de 10 % chez l'adulte) sont ceux de GINA 2026.",
+      "La stratégie thérapeutique retenue est celle de GINA : traitement de fond contenant toujours un corticoïde inhalé, bronchodilatateur de secours intégré chez l'adulte, et jamais de bêta-2-agoniste de courte durée seul. Les paliers et les alternatives sont décrits sans posologie détaillée, car le choix dépend de la disponibilité locale.",
+      "Aucune donnée de prévalence malgache récente et vérifiable n'est citée. Les chiffres mondiaux (363 millions de personnes en 2023, 442 000 décès) proviennent de la fiche descriptive de l'OMS consultée le 18 octobre 2026.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : aucune recommandation HAS n'est citée. Les sources retenues sont GINA, l'OMS et le CEP, toutes consultées et vérifiées."
+    ],
+    "qcChecklist": [
+      "Exactitude du seuil de réversibilité et de la distinction sévérité/contrôle",
+      "Vérifier qu'aucune situation ne laisse le patient sous bronchodilatateur seul",
+      "Contrôle des posologies de la corticothérapie systémique dans l'exacerbation",
+      "Cohérence entre les paliers décrits et les sources citées",
+      "Contrôle de la disponibilité des molécules citées dans le contexte national"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une maladie inflammatoire chronique des voies aériennes, définie par des symptômes variables et une obstruction réversible.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'asthme est une maladie inflammatoire chronique des voies aériennes inférieures. Elle associe une obstruction bronchique variable, une hyperréactivité aux stimuli et des symptômes qui changent d'un jour à l'autre : sifflements, essoufflement, oppression thoracique et toux. Ce caractère variable est un élément diagnostique, pas un détail sémiologique."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'OMS estime que l'asthme touchait environ 363 millions de personnes en 2023 et qu'il a causé 442 000 décès. La majorité de ces décès survient dans des pays à revenu faible ou intermédiaire, où le sous-diagnostic et le sous-traitement restent la règle. La maladie peut être contrôlée : un patient correctement traité doit pouvoir mener une vie normale."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le paradigme à retenir",
+          "text": "On ne traite pas un chiffre de débit expiratoire : on traite un patient dont on a évalué le contrôle, les exacerbations, l'observance et la technique d'inhalation. Le diagnostic repose sur une preuve objective de variabilité, jamais sur la seule réponse clinique à un bronchodilatateur."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-ASTHMA",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Asthma — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/asthma"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Inflammation, hyperréactivité et remodelage : trois mécanismes intriqués, avec des phénotypes différents.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'inflammation bronchique associe des cellules effectrices (éosinophiles, mastocytes, lymphocytes T helper de type 2, macrophages) et des médiateurs qui contractent le muscle lisse, augmentent la sécrétion de mucus et font fuir le plasma dans la paroi. L'hyperréactivité bronchique qui en résulte explique qu'un stimulus banal (froid, effort, fumée, allergène) déclenche un bronchospasme."
+        },
+        {
+          "type": "paragraph",
+          "text": "À long terme, un remodelage des voies aériennes (épaississement de la membrane basale, hypertrophie du muscle lisse, angiogenèse) peut rendre l'obstruction moins réversible. C'est un argument pour traiter tôt et pour ne pas laisser une inflammation non contrôlée pendant des années."
+        },
+        {
+          "type": "table",
+          "columns": ["Sévérité (rétrospective)", "Définition pratique", "Conséquence"],
+          "rows": [
+            ["Intermittent / léger", "Symptômes peu fréquents, fonction respiratoire normale entre les épisodes", "Traitement de secours contenant un corticoïde inhalé, ou faible dose de fond"],
+            ["Modéré", "Symptômes pluri-hebdomadaires ou réveils nocturnes", "Corticoïde inhalé à dose faible ou moyenne, souvent en association"],
+            ["Sévère", "Symptômes quotidiens, exacerbations répétées, limitation d'activité", "Traitement de fond renforcé, avis spécialisé et recherche de facteurs aggravants"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Sévérité et contrôle ne sont pas synonymes",
+          "text": "La sévérité se juge APRÈS plusieurs mois de traitement bien conduit : elle décrit ce qu'il faut pour contrôler la maladie. Le contrôle se juge à un instant donné, sur les quatre dernières semaines. Confondre les deux conduit à surtraiter un patient non observant ou à sous-traiter un asthme réellement sévère."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phénotype allergique : début dans l'enfance, rhinite et conjonctivite associées, sensibilisation documentée.",
+            "Phénotype éosinophilique tardif : début à l'âge adulte, polypose nasale possible, corticoïdes oraux récurrents.",
+            "Asthme d'effort : symptômes déclenchés par l'exercice, souvent associé à un asthme allergique sous-jacent.",
+            "Asthme professionnel : symptômes améliorés le week-end et pendant les congés, à rechercher systématiquement par l'interrogatoire.",
+            "Asthme avec obésité : contrôle plus difficile, réponse partielle aux traitements inhalés, perte de poids utile."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Des symptômes typiques ET une preuve objective de variabilité de l'obstruction.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic se construit en deux temps. D'abord la clinique : sifflements, essoufflement, oppression et toux, variables dans le temps, déclenchés par les infections virales, l'effort, le froid, les allergènes ou les irritants. Ensuite la spirométrie, qui doit montrer une obstruction et sa réversibilité, ou une variabilité du débit expiratoire de pointe."
+        },
+        {
+          "type": "table",
+          "columns": ["Examen", "Résultat évocateur", "Limite"],
+          "rows": [
+            ["Spirométrie", "Rapport VEMS/CVF abaissé, puis VEMS augmenté d'au moins 12 % et 200 mL après bêta-2-agoniste de courte durée", "Normale entre deux crises : ne pas conclure à l'absence d'asthme"],
+            ["Débit expiratoire de pointe", "Variabilité de plus de 10 % chez l'adulte, sur des mesures répétées", "Dépend de la technique et de l'appareil"],
+            ["Test de provocation", "Hyperréactivité à la méthacholine ou à l'exercice", "À réserver aux spirométries normales avec forte suspicion"],
+            ["Radiographie thoracique", "Souvent normale, utile pour écarter un autre diagnostic", "Jamais diagnostique d'asthme"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Pas de diagnostic sans preuve objective",
+          "text": "Une réponse subjective au salbutamol ne suffit pas. Chez l'adulte, toute suspicion d'asthme doit être confirmée par une spirométrie avec test de réversibilité, ou par une variabilité documentée du débit expiratoire de pointe. Une spirométrie normale impose de répéter l'examen à distance de l'épisode."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les diagnostics différentiels à écarter en priorité sont la bronchopneumopathie chronique obstructive (surtout après 40 ans et en cas de tabagisme), l'insuffisance cardiaque, la dysfonction des cordes vocales, les bronchectasies, la toux induite par les inhibiteurs de l'enzyme de conversion et l'embolie pulmonaire devant une dyspnée aiguë."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire : âge de début, saisonnalité, facteurs déclenchants, profession, tabac, allergènes domestiques.",
+            "Examen : sifflements expiratoires, rhinite, signes d'atopie, absence de crépitants (qui orienteraient vers un autre diagnostic).",
+            "Examens complémentaires ciblés : numération, Immunoglobuline E totale et spécifiques si indication, éosinophiles sanguins pour guider le traitement de fond.",
+            "Chez l'enfant et le sujet âgé, adapter les seuils et la technique : un test mal réalisé vaut mieux que pas de test, mais ne doit pas être surinterprété."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et évaluation initiale",
+      "summary": "Chercher ce qui entretient les symptômes : allergènes, tabac, observance, comorbidités.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'asthme n'a pas une cause unique. La recherche étiologique vise surtout les facteurs modifiables qui entretiennent l'inflammation ou miment une aggravation : exposition aux acariens et aux moisissures, animaux, tabac actif et passif, pollution, médicaments (aspirine, bêta-bloquants non cardiosélectifs), reflux gastro-œsophagien, rhinite et sinusite, obésité, anxiété."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vérifier l'observance réelle et la technique d'inhalation à chaque consultation : ce sont les deux premières causes de « résistance » au traitement.",
+            "Rechercher une exposition professionnelle : peintures, farines, latex, isocyanates, poussières de bois.",
+            "Évaluer le retentissement : sommeil, activité physique, absentéisme scolaire ou professionnel.",
+            "Rechercher des facteurs de risque d'exacerbation : exacerbation sévère dans l'année, recours répété à la corticothérapie orale, faible VEMS, tabagisme, éosinophilie élevée.",
+            "Dépister les comorbidités qui aggravent le contrôle : rhinosinusite, reflux, apnées du sommeil, obésité, anxiété et dépression."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Les 4 questions du contrôle",
+          "text": "Sur les quatre dernières semaines : symptômes diurnes plus de deux fois par semaine ? réveil nocturne ? recours au traitement de secours plus de deux fois par semaine ? limitation d'activité ? Aucune réponse positive signifie que l'asthme est bien contrôlé."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'évaluation initiale doit aussi préciser le terrain : grossesse, âge avancé, cardiopathie, insuffisance rénale, diabète, ostéoporose. Ces éléments ne changent pas le diagnostic mais modifient les seuils de surveillance et le choix des molécules, notamment pour la corticothérapie systémique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Un traitement de fond contenant un corticoïde inhalé, adapté au contrôle, et une prise en charge précoce des exacerbations.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le principe directeur est simple : tout patient asthmatique doit recevoir un traitement contenant un corticoïde inhalé, y compris pour les symptômes légers. Les bêta-2-agonistes de courte durée seuls ne sont plus acceptables : ils soulagent le bronchospasme sans traiter l'inflammation et augmentent le risque d'exacerbation sévère et de décès."
+        },
+        {
+          "type": "table",
+          "columns": ["Palier", "Traitement de fond", "Traitement de secours"],
+          "rows": [
+            ["1 — symptômes rares", "Faible dose de corticoïde inhalé, ou association corticoïde-formotérol à la demande selon la stratégie retenue", "Association corticoïde-formotérol à la demande"],
+            ["2 — symptômes fréquents", "Faible dose de corticoïde inhalé", "Association corticoïde-formotérol à la demande"],
+            ["3 — contrôle insuffisant", "Faible dose de corticoïde inhalé + bêta-2-agoniste de longue durée", "Association corticoïde-formotérol à la demande ou secours séparé"],
+            ["4 — contrôle insuffisant", "Dose moyenne ou forte de corticoïde inhalé + bêta-2-agoniste de longue durée", "Avis spécialisé, recherche de phénotype"],
+            ["5 — asthme sévère", "Traitement spécialisé, biothérapie ou corticoïde oral au long cours en dernier recours", "Plan d'action personnalisé"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Exacerbation : les gestes qui changent le pronostic",
+          "text": "Bronchodilatateur de courte durée répété, oxygène pour maintenir une saturation habituellement visée entre 93 et 95 %, corticothérapie systémique précoce (par exemple prednisolone 40 à 50 mg par jour pendant 5 à 7 jours chez l'adulte) et réévaluation rapprochée. En cas de crise sévère ne répondant pas au traitement initial, le sulfate de magnésium intraveineux (2 g sur 20 minutes) et l'avis réanimatoire sont discutés."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes de gravité : parole hachée, orthopnée, cyanose, silence auscultatoire, confusion, épuisement, saturation basse malgré l'oxygène.",
+            "Ne pas sedar un patient dyspnéique en crise : la somnolence peut être un signe d'hypercapnie.",
+            "Antibiotiques uniquement en cas de suspicion d'infection bactérienne documentée : la majorité des exacerbations est virale.",
+            "Réévaluer le traitement de fond dans les semaines qui suivent toute exacerbation : une crise est un signal d'échec du contrôle.",
+            "Éducation thérapeutique : reconnaître les signes d'aggravation, savoir quand consulter, utiliser un plan d'action écrit."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur l'éviction des déclencheurs, l'arrêt du tabac, la vaccination contre la grippe et le pneumocoque selon les recommandations locales, l'activité physique adaptée et le traitement des comorbidités. Chez l'enfant, la chambre et l'environnement domestique sont au premier plan ; chez l'adulte, l'exposition professionnelle doit être documentée et déclarée lorsqu'elle est reconnue."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "La disponibilité des corticoïdes inhalés et des associations fixes varie selon les structures. Le salbutamol seul, souvent accessible et peu coûteux, ne doit pas devenir le traitement de fond. Une chambre d'inhalation artisanale fabriquée à partir d'une bouteille plastique de 500 mL peut améliorer la déposition du médicament lorsque les spacers commerciaux sont indisponibles. Les protocoles nationaux et la liste des médicaments essentiels doivent primer sur les habitudes locales."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "SRC-WHO-ASTHMA",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Asthma — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/asthma"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages à retenir pour l'examen et pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Le diagnostic exige une preuve objective de variabilité : spirométrie avec réversibilité ou variabilité du débit expiratoire de pointe.",
+            "Le contrôle se mesure sur quatre questions simples et se réévalue à chaque consultation.",
+            "Tout traitement doit contenir un corticoïde inhalé ; le bronchodilatateur seul est une erreur thérapeutique.",
+            "Une exacerbation n'est pas un accident isolé : elle impose de revoir le traitement de fond, l'observance et la technique d'inhalation."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "L'asthme se diagnostique par la variabilité, se traite par l'inflammation et se surveille par le contrôle. Le patient qui utilise souvent son inhalateur de secours sans traitement de fond n'est pas un patient « difficile » : c'est un patient à risque."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles consultées pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous sont des documents de sociétés savantes ou d'agences internationales. Elles ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "GINA 2026 — Global Strategy for Asthma Management and Prevention.",
+            "OMS — Asthma, fact sheet mise à jour en 2026.",
+            "CEP — Référentiel du Collège des Enseignants de Pneumologie, 9e édition (2026)."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GINA-2026",
+          "organization": "Global Initiative for Asthma (GINA)",
+          "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+          "year": 2026,
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "SRC-WHO-ASTHMA",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Asthma — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/asthma"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-controle",
+      "label": "Les 4 questions du contrôle",
+      "intro": "Sur les quatre dernières semaines — aucune réponse positive = contrôlé.",
+      "entries": [
+        { "key": "1", "term": "Symptômes diurnes plus de deux fois par semaine." },
+        { "key": "2", "term": "Réveil nocturne attribuable à l'asthme." },
+        { "key": "3", "term": "Recours au traitement de secours plus de deux fois par semaine." },
+        { "key": "4", "term": "Limitation de l'activité physique ou des activités quotidiennes." }
+      ],
+      "note": "Une réponse positive suffit à classer l'asthme comme partiellement contrôlé ; trois ou quatre réponses positives signifient qu'il n'est pas contrôlé."
+    },
+    {
+      "id": "mn-preuve",
+      "label": "Les 3 preuves de la variabilité",
+      "intro": "Le diagnostic ne repose jamais sur la seule clinique.",
+      "entries": [
+        { "key": "R", "term": "Réversibilité : VEMS augmenté d'au moins 12 % et 200 mL après bronchodilatateur." },
+        { "key": "V", "term": "Variabilité du débit expiratoire de pointe de plus de 10 % chez l'adulte." },
+        { "key": "H", "term": "Hyperréactivité bronchique démontrée par un test de provocation lorsque la spirométrie est normale." }
+      ],
+      "note": "Une spirométrie normale entre deux épisodes n'élimine pas le diagnostic : répéter l'examen à distance de la crise."
+    },
+    {
+      "id": "mn-crise",
+      "label": "Les 4 gestes de la crise",
+      "intro": "Évaluer la gravité, puis traiter sans délai.",
+      "entries": [
+        { "key": "O", "term": "Oxygène : maintenir une saturation habituellement visée entre 93 et 95 %." },
+        { "key": "B", "term": "Bronchodilatateur de courte durée répété, par nébulisation ou chambre d'inhalation." },
+        { "key": "C", "term": "Corticoïde systémique précoce, sans attendre l'hospitalisation." },
+        { "key": "S", "term": "Surveillance rapprochée : signes de gravité, réévaluation, avis réanimatoire si échec." }
+      ],
+      "note": "Le sulfate de magnésium intraveineux et les traitements de seconde ligne se discutent en milieu hospitalier devant une crise sévère réfractaire."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels sont les deux piliers du diagnostic d'asthme ?",
+      "back": "Des symptômes respiratoires typiques et variables dans le temps, ET une preuve objective de variabilité de l'obstruction : réversibilité spirométrique ou variabilité du débit expiratoire de pointe.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel critère spirométrique définit une réversibilité significative chez l'adulte ?",
+      "back": "Une augmentation du VEMS d'au moins 12 % ET d'au moins 200 mL après administration d'un bêta-2-agoniste de courte durée.",
+      "tags": ["diagnostic", "spirométrie"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Que signifie un asthme « contrôlé » selon les quatre questions de GINA ?",
+      "back": "Aucun symptôme diurne plus de deux fois par semaine, aucun réveil nocturne, aucun recours au traitement de secours plus de deux fois par semaine et aucune limitation d'activité.",
+      "tags": ["contrôle"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Pourquoi un bêta-2-agoniste de courte durée seul est-il dangereux dans l'asthme ?",
+      "back": "Il soulage le bronchospasme sans traiter l'inflammation sous-jacente. La monothérapie par bronchodilatateur augmente le risque d'exacerbation sévère et de décès.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel est le traitement de secours recommandé par GINA chez l'adulte ?",
+      "back": "Une association corticoïde inhalé-formotérol à la demande, plutôt qu'un bêta-2-agoniste de courte durée seul.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelles sont les deux premières causes d'un asthme apparemment résistant au traitement ?",
+      "back": "Une mauvaise observance et une mauvaise technique d'inhalation. Elles doivent être vérifiées avant d'intensifier le traitement.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quel est le traitement initial d'une exacerbation d'asthme ?",
+      "back": "Bronchodilatateur de courte durée répété, oxygène pour une saturation habituellement visée entre 93 et 95 %, et corticothérapie systémique précoce (par exemple prednisolone 40 à 50 mg par jour pendant 5 à 7 jours).",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels signes imposent une prise en charge en urgence d'une crise d'asthme ?",
+      "back": "Parole hachée, orthopnée, cyanose, silence auscultatoire, confusion, épuisement, saturation basse malgré l'oxygène. Ces signes traduisent une crise sévère ou menaçante.",
+      "tags": ["urgence", "gravité"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Faut-il prescrire des antibiotiques devant toute exacerbation d'asthme ?",
+      "back": "Non. La majorité des exacerbations est virale. Les antibiotiques ne sont justifiés qu'en cas de suspicion ou de documentation d'infection bactérienne.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel est le principal diagnostic différentiel de l'asthme après 40 ans chez un fumeur ?",
+      "back": "La bronchopneumopathie chronique obstructive. La spirométrie et le test de réversibilité permettent de les distinguer, mais les deux maladies peuvent coexister.",
+      "tags": ["diagnostic différentiel"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quel rôle joue la chambre d'inhalation dans l'asthme ?",
+      "back": "Elle améliore la déposition bronchique du médicament et réduit les dépôts oropharyngés. Une chambre artisanale fabriquée à partir d'une bouteille plastique de 500 mL peut être utilisée lorsque les spacers commerciaux sont indisponibles.",
+      "tags": ["traitement", "Madagascar"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Que faire dans les semaines qui suivent une exacerbation ?",
+      "back": "Réévaluer le contrôle, l'observance, la technique d'inhalation et le traitement de fond. Une exacerbation est un signal d'échec du contrôle et un facteur de risque de récidive.",
+      "tags": ["suivi"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Asthme",
+      "detail": "Diagnostiquer la variabilité, mesurer le contrôle, traiter l'inflammation et prévenir les exacerbations. La crise est un échec du contrôle, pas un accident isolé."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "La clinique évoque, la spirométrie confirme. Aucun diagnostic d'asthme ne doit rester sans preuve objective de variabilité.",
+        "children": [
+          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Sifflements variables" }, { "id": "diag-clinique-2", "label": "Toux nocturne" }] },
+          { "id": "diag-spiro", "label": "Spirométrie", "leaves": [{ "id": "diag-spiro-1", "label": "Réversibilité 12 % + 200 mL" }, { "id": "diag-spiro-2", "label": "Répéter si normale" }] },
+          { "id": "diag-dep", "label": "Débit de pointe", "leaves": [{ "id": "diag-dep-1", "label": "Variabilité > 10 %" }] }
+        ]
+      },
+      {
+        "id": "controle",
+        "label": "Mesurer le contrôle",
+        "tone": "retenir",
+        "detail": "Quatre questions sur les quatre dernières semaines : symptômes diurnes, réveils nocturnes, recours au secours, limitation d'activité.",
+        "children": [
+          { "id": "ctrl-4q", "label": "4 questions", "leaves": [{ "id": "ctrl-4q-1", "label": "Symptômes > 2×/sem" }, { "id": "ctrl-4q-2", "label": "Réveil nocturne" }] },
+          { "id": "ctrl-exac", "label": "Exacerbations", "leaves": [{ "id": "ctrl-exac-1", "label": "Corticoïdes oraux" }, { "id": "ctrl-exac-2", "label": "Hospitalisation" }] }
+        ]
+      },
+      {
+        "id": "traitement-fond",
+        "label": "Traitement de fond",
+        "tone": "memo",
+        "detail": "Toujours un corticoïde inhalé. Les paliers s'adaptent au contrôle, pas à la sévérité ressentie le jour de la consultation.",
+        "children": [
+          { "id": "tf-csi", "label": "Corticoïde inhalé", "leaves": [{ "id": "tf-csi-1", "label": "Jamais seul" }, { "id": "tf-csi-2", "label": "Vérifier la technique" }] },
+          { "id": "tf-paliers", "label": "Paliers", "leaves": [{ "id": "tf-paliers-1", "label": "1 à 5" }, { "id": "tf-paliers-2", "label": "Réévaluer 3 mois" }] },
+          { "id": "tf-observance", "label": "Observance", "leaves": [{ "id": "tf-observance-1", "label": "Compter les prises" }] }
+        ]
+      },
+      {
+        "id": "crise",
+        "label": "Exacerbation",
+        "tone": "urgence",
+        "detail": "Bronchodilatateur répété, oxygène, corticoïde systémique précoce et surveillance. Rechercher les signes de gravité avant qu'il ne soit trop tard.",
+        "children": [
+          { "id": "crise-gravite", "label": "Signes de gravité", "leaves": [{ "id": "crise-gravite-1", "label": "Parole hachée" }, { "id": "crise-gravite-2", "label": "Silence auscultatoire" }] },
+          { "id": "crise-traitement", "label": "Traitement", "leaves": [{ "id": "crise-traitement-1", "label": "SABA répété" }, { "id": "crise-traitement-2", "label": "Prednisolone 40-50 mg" }] },
+          { "id": "crise-revoir", "label": "Après la crise", "leaves": [{ "id": "crise-revoir-1", "label": "Revoir le fond" }] }
+        ]
+      },
+      {
+        "id": "phenotypes",
+        "label": "Phénotypes",
+        "detail": "Le phénotype guide la recherche des facteurs modifiables et, en cas d'asthme sévère, le choix des biothérapies.",
+        "children": [
+          { "id": "pheno-allergique", "label": "Allergique", "leaves": [{ "id": "pheno-allergique-1", "label": "Rhinite associée" }] },
+          { "id": "pheno-eosino", "label": "Éosinophilique", "leaves": [{ "id": "pheno-eosino-1", "label": "Polypose nasale" }] },
+          { "id": "pheno-prof", "label": "Professionnel", "leaves": [{ "id": "pheno-prof-1", "label": "Amélioré au repos" }] }
+        ]
+      },
+      {
+        "id": "comorbidites",
+        "label": "Comorbidités",
+        "detail": "Traiter ce qui aggrave le contrôle : rhinosinusite, reflux, obésité, apnées du sommeil, anxiété et tabagisme.",
+        "children": [
+          { "id": "comorb-rhino", "label": "Rhinosinusite", "leaves": [{ "id": "comorb-rhino-1", "label": "Traiter le nez" }] },
+          { "id": "comorb-rgo", "label": "Reflux", "leaves": [{ "id": "comorb-rgo-1", "label": "Interroger le pyrosis" }] },
+          { "id": "comorb-tabac", "label": "Tabac", "leaves": [{ "id": "comorb-tabac-1", "label": "Arrêt indispensable" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "La disponibilité des corticoïdes inhalés et des associations fixes est variable. Le traitement de fond ne doit jamais être remplacé par un bronchodilatateur seul.",
+        "children": [
+          { "id": "mada-dispo", "label": "Disponibilité", "leaves": [{ "id": "mada-dispo-1", "label": "Vérifier la liste essentielle" }] },
+          { "id": "mada-spacer", "label": "Chambre d'inhalation", "leaves": [{ "id": "mada-spacer-1", "label": "Bouteille 500 mL" }] },
+          { "id": "mada-protocole", "label": "Protocole national", "leaves": [{ "id": "mada-protocole-1", "label": "Prévaloir sur la fiche" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-GINA-2026",
+      "title": "Global Strategy for Asthma Management and Prevention — 2026 update",
+      "citation": "Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2026 update. GINA ; 2026. Consulté le 18 octobre 2026.",
+      "organization": "Global Initiative for Asthma (GINA)",
+      "year": 2026,
+      "version": "2026 update",
+      "url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition",
+        "Critères de réversibilité",
+        "Évaluation du contrôle",
+        "Paliers thérapeutiques",
+        "Traitement de l'exacerbation"
+      ]
+    },
+    {
+      "id": "SRC-WHO-ASTHMA",
+      "title": "Asthma — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Asthma — fact sheet. Genève : OMS ; mise à jour 2026. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/asthma",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Traitement inhalé",
+        "Chambre d'inhalation artisanale",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-CEP-2026",
+      "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+      "citation": "Collège des Enseignants de Pneumologie. Référentiel du Collège des Enseignants de Pneumologie pour la préparation des épreuves dématérialisées nationales, 9e édition. CEP ; mise en ligne le 10 septembre 2026. Consulté le 18 octobre 2026.",
+      "organization": "Collège des Enseignants de Pneumologie (CEP)",
+      "year": 2026,
+      "version": "9e édition",
+      "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Sémiologie",
+        "Diagnostics différentiels",
+        "Évaluation initiale",
+        "Contexte français"
+      ]
+    }
+  ]
+}

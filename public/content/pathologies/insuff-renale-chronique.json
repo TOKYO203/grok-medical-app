@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "insuff-renale-chronique",
+  "title": "Insuffisance rénale chronique",
+  "subtitle": "Nosographie — néphrologie",
+  "objective": "Repérer une maladie rénale chronique par le débit de filtration glomérulaire et l'albuminurie, ralentir sa progression et prévenir ses complications avant le stade terminal.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 46,
+    "specialty": "Néphrologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 87,
+      "localNumber": 46,
+      "sectionLabel": "Médecine",
+      "title": "Insuffisance rénale chronique",
+      "specialty": "Néphrologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la recommandation KDIGO 2024 sur l'évaluation et la prise en charge de la maladie rénale chronique, de la recommandation NICE NG203 et du Manuel de néphrologie du Collège universitaire des enseignants de néphrologie (11e édition). Les seuils et les principes thérapeutiques sont reformulés et rattachés à une source.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La classification utilisée est celle de KDIGO : stades G1 à G5 selon le débit de filtration glomérulaire estimé, et catégories A1 à A3 selon le rapport albumine/créatinine urinaire.",
+      "Le seuil de débit de filtration glomérulaire retenu pour l'initiation d'un inhibiteur de SGLT2 est celui de KDIGO 2024 (à partir de 20 mL/min/1,73 m²), avec les indications et les précautions d'usage.",
+      "Les posologies ne sont pas détaillées : elles dépendent de la fonction rénale, du poids, du potassium et du protocole local. Les cibles de pression artérielle sont présentées comme des objectifs à individualiser.",
+      "Aucune donnée malgache chiffrée n'est citée. L'accès à la dialyse, à la transplantation et aux traitements récents est signalé comme limité, sans chiffre.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont KDIGO, NICE et le CUEN."
+    ],
+    "qcChecklist": [
+      "Exactitude des stades G et A",
+      "Formule d'estimation du débit de filtration glomérulaire",
+      "Place des inhibiteurs du système rénine-angiotensine et des SGLT2",
+      "Prise en charge des complications : anémie, troubles phosphocalciques, acidose, hyperkaliémie",
+      "Critères d'adressage au néphrologue"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une maladie silencieuse, définie par une anomalie rénale ou une baisse du débit de filtration persistante.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie rénale chronique est définie par une anomalie de la structure ou de la fonction rénale persistant depuis plus de trois mois, avec des implications pour la santé. Elle est le plus souvent asymptomatique aux stades précoces et découverte devant une créatinine élevée, une albuminurie ou une anomalie du sédiment urinaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "Son importance tient à deux risques : la progression vers l'insuffisance rénale terminale, qui nécessite la dialyse ou la transplantation, et l'augmentation du risque cardiovasculaire, qui est souvent le premier danger avant même le stade terminal. La maladie rénale chronique est un facteur de risque cardiovasculaire indépendant."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le message central",
+          "text": "La maladie rénale chronique se dépiste avec deux examens simples : le débit de filtration glomérulaire estimé et le rapport albumine/créatinine urinaire. Elle se traite en ralentissant la progression et en prévenant les complications, pas seulement en attendant la dialyse."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Néphrons perdus, hyperfiltration compensatrice et complications systémiques.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quelle que soit la cause initiale, la perte de néphrons entraîne une hyperfiltration des néphrons restants. Cette adaptation maintient temporairement la fonction rénale, mais elle entretient une sclérose glomérulaire et une fibrose interstitielle qui accélèrent la progression. C'est le cercle vicieux de la maladie rénale chronique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les conséquences sont multiples : rétention hydrosodée, hypertension artérielle, acidose métabolique, hyperkaliémie, anémie par défaut d'érythropoïétine, troubles du métabolisme phosphocalcique et hyperparathyroïdie secondaire. Le risque cardiovasculaire augmente dès les stades modérés."
+        },
+        {
+          "type": "table",
+          "columns": ["Stade", "Débit estimé (mL/min/1,73 m²)", "Catégorie"],
+          "rows": [
+            ["G1", "≥ 90 avec anomalie rénale", "Fonction préservée"],
+            ["G2", "60-89", "Légèrement diminuée"],
+            ["G3a", "45-59", "Modérément diminuée"],
+            ["G3b", "30-44", "Modérément à sévèrement diminuée"],
+            ["G4", "15-29", "Sévèrement diminuée"],
+            ["G5", "< 15", "Insuffisance rénale terminale"]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Catégorie", "Albuminurie (mg/g de créatinine)", "Signification"],
+          "rows": [
+            ["A1", "< 30", "Normale ou légèrement augmentée"],
+            ["A2", "30-300", "Modérément augmentée"],
+            ["A3", "> 300", "Sévèrement augmentée"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux chiffres, deux axes",
+          "text": "Le stade G décrit la fonction de filtration, la catégorie A décrit les lésions rénales. Un patient G1A3 n'a pas la même maladie qu'un patient G3A1 : l'albuminurie est un facteur pronostique majeur."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "SRC-CUEN-2025",
+          "organization": "Collège universitaire des enseignants de néphrologie (CUEN)",
+          "title": "Manuel de néphrologie — 11e édition 2025-2026",
+          "year": 2025,
+          "url": "https://cuen.fr/"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Confirmer la chronicité, estimer le débit, quantifier l'albuminurie et chercher la cause.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur la répétition des mesures à au moins trois mois d'intervalle. Le débit de filtration glomérulaire est estimé à partir de la créatinine, avec une formule validée et adaptée à la population. L'albuminurie est mesurée sur un échantillon d'urine par le rapport albumine/créatinine, confirmé si possible par un second prélèvement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Confirmer la chronicité : deux mesures anormales à trois mois d'intervalle au minimum.",
+            "Quantifier l'albuminurie par le rapport albumine/créatinine urinaire.",
+            "Examiner le sédiment urinaire : hématurie, leucocyturie, cylindres.",
+            "Réaliser une échographie rénale : taille des reins, obstacle, kystes, asymétrie.",
+            "Rechercher la cause : diabète, hypertension, glomérulonéphrite, polykystose, obstruction, médicaments néphrotoxiques.",
+            "Écarter une insuffisance rénale aiguë surajoutée : déshydratation, infection, obstruction, médicament."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Ne pas confondre aigu et chronique",
+          "text": "Une créatinine élevée peut être aiguë, chronique ou chronique aggravée. L'échographie (petits reins, corticale amincie), l'anémie et les troubles phosphocalciques orientent vers la chronicité, mais seul le suivi permet de trancher."
+        },
+        {
+          "type": "paragraph",
+          "text": "La recherche étiologique conditionne le traitement. Le diabète et l'hypertension sont les deux causes les plus fréquentes. Les glomérulonéphrites, les maladies systémiques, les uropathies obstructives et les néphropathies médicamenteuses doivent être recherchées selon le contexte. Une biopsie rénale est discutée devant une protéinurie significative, une hématurie ou une progression rapide."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "SRC-NICE-NG203",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic kidney disease: assessment and management (NG203)",
+          "year": 2021,
+          "url": "https://www.nice.org.uk/guidance/ng203"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et complications",
+      "summary": "Identifier la cause et dépister les complications systémiques.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les causes sont dominées par la néphropathie diabétique et la néphroangiosclérose hypertensive. Viennent ensuite les glomérulonéphrites primitives ou secondaires, la polykystose rénale, les uropathies obstructives, les néphropathies interstitielles et les néphropathies toxiques. Chez le sujet âgé, la maladie rénale chronique est souvent multifactorielle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Anémie normochrome normocytaire : rechercher une carence en fer, une inflammation, un déficit en érythropoïétine.",
+            "Troubles phosphocalciques : hyperphosphatémie, hypocalcémie, hyperparathyroïdie secondaire, carence en vitamine D.",
+            "Acidose métabolique : à corriger lorsqu'elle est significative, car elle aggrave le catabolisme et la maladie osseuse.",
+            "Hyperkaliémie : favorisée par les inhibiteurs du système rénine-angiotensine, les diurétiques épargneurs de potassium et l'acidose.",
+            "Surcharge hydrosodée et hypertension : facteurs de progression et de mortalité cardiovasculaire.",
+            "Malnutrition protéino-énergétique : surveiller le poids, l'albuminémie et les apports protéiques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Médicaments néphrotoxiques",
+          "text": "Les anti-inflammatoires non stéroïdiens, les aminosides, les produits de contraste iodés, certains antiviraux et la phytothérapie non contrôlée peuvent aggraver une maladie rénale chronique. Toute prescription doit être pesée et la fonction rénale surveillée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "SRC-CUEN-2025",
+          "organization": "Collège universitaire des enseignants de néphrologie (CUEN)",
+          "title": "Manuel de néphrologie — 11e édition 2025-2026",
+          "year": 2025,
+          "url": "https://cuen.fr/"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Ralentir la progression, traiter les complications et préparer le stade terminal.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement vise à ralentir la progression et à réduire le risque cardiovasculaire. Le contrôle de la pression artérielle est central : KDIGO propose un objectif systolique inférieur à 120 mmHg lorsqu'il est toléré, avec une mesure standardisée et une surveillance de la fonction rénale et du potassium. Les inhibiteurs de l'enzyme de conversion ou les antagonistes des récepteurs de l'angiotensine sont indiqués en cas d'albuminurie, avec une surveillance rapprochée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Inhibiteur de SGLT2 : recommandé chez l'adulte avec maladie rénale chronique et débit estimé à partir de 20 mL/min/1,73 m², selon les indications et avec les précautions d'usage.",
+            "Statine : selon le risque cardiovasculaire, souvent indiquée chez l'adulte avec maladie rénale chronique.",
+            "Contrôle du diabète : objectif individualisé, avec choix des molécules adapté à la fonction rénale.",
+            "Régime : réduction du sel, apports protéiques adaptés, contrôle du potassium et du phosphore selon les stades.",
+            "Anémie : rechercher et traiter une carence en fer avant de discuter un agent stimulant l'érythropoïèse.",
+            "Troubles phosphocalciques : contrôle du phosphore, supplémentation en vitamine D et avis néphrologique.",
+            "Acidose : bicarbonates si acidose métabolique significative, selon le protocole.",
+            "Vaccination : grippe, pneumocoque, hépatite B et autres selon le calendrier local.",
+            "Préparation au stade terminal : information sur la dialyse, la transplantation et les soins conservateurs."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Quand adresser au néphrologue ?",
+          "text": "Débit estimé inférieur à 30 mL/min/1,73 m², albuminurie sévère, progression rapide, hypertension résistante, hyperkaliémie récurrente, anémie ou troubles phosphocalciques difficiles à contrôler, suspicion de glomérulonéphrite ou de maladie héréditaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance comprend la pression artérielle, le poids, la créatinine, le potassium, le bicarbonate, l'hémoglobine, le calcium, le phosphore et la parathormone selon le stade. La iatrogénie doit être réévaluée à chaque consultation, car de nombreux médicaments nécessitent une adaptation posologique."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "L'accès à la dialyse et à la transplantation est limité et coûteux. La prévention, le dépistage précoce et le contrôle de la pression artérielle et du diabète sont donc prioritaires. Les protocoles nationaux, la disponibilité des médicaments et les possibilités de transport vers un centre de dialyse doivent être intégrés à la décision."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "SRC-NICE-NG203",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic kidney disease: assessment and management (NG203)",
+          "year": 2021,
+          "url": "https://www.nice.org.uk/guidance/ng203"
+        },
+        {
+          "id": "SRC-CUEN-2025",
+          "organization": "Collège universitaire des enseignants de néphrologie (CUEN)",
+          "title": "Manuel de néphrologie — 11e édition 2025-2026",
+          "year": 2025,
+          "url": "https://cuen.fr/"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "La maladie rénale chronique se définit par une anomalie rénale ou une baisse du débit persistant plus de trois mois.",
+            "Deux examens suffisent au dépistage : débit de filtration glomérulaire estimé et rapport albumine/créatinine.",
+            "Le traitement vise à ralentir la progression et à réduire le risque cardiovasculaire, pas seulement à préparer la dialyse.",
+            "Une créatinine qui monte ne doit pas faire oublier de chercher un facteur aigu surajouté et une cause spécifique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "La maladie rénale chronique est silencieuse mais pas inexorable : dépister tôt, contrôler la pression artérielle et l'albuminurie, et protéger le rein des agressions évitables."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "KDIGO 2024 — Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease.",
+            "NICE NG203 — Chronic kidney disease: assessment and management.",
+            "CUEN — Manuel de néphrologie, 11e édition 2025-2026."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KDIGO-2024-CKD",
+          "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+          "year": 2024,
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "SRC-NICE-NG203",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic kidney disease: assessment and management (NG203)",
+          "year": 2021,
+          "url": "https://www.nice.org.uk/guidance/ng203"
+        },
+        {
+          "id": "SRC-CUEN-2025",
+          "organization": "Collège universitaire des enseignants de néphrologie (CUEN)",
+          "title": "Manuel de néphrologie — 11e édition 2025-2026",
+          "year": 2025,
+          "url": "https://cuen.fr/"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-ga",
+      "label": "G + A — les deux axes",
+      "intro": "Un stade de fonction, une catégorie d'albuminurie.",
+      "entries": [
+        { "key": "G", "term": "Débit de filtration glomérulaire estimé : G1 à G5." },
+        { "key": "A", "term": "Albuminurie : A1 (< 30), A2 (30-300), A3 (> 300 mg/g)." }
+      ],
+      "note": "Les deux axes sont nécessaires : un patient G1A3 a une maladie rénale significative malgré un débit normal."
+    },
+    {
+      "id": "mn-complications",
+      "label": "Les 6 complications à dépister",
+      "intro": "Systématiques à partir des stades modérés.",
+      "entries": [
+        { "key": "A", "term": "Anémie : numération, fer, érythropoïétine." },
+        { "key": "C", "term": "Acidose métabolique : bicarbonates." },
+        { "key": "K", "term": "Kaliémie : hyperkaliémie favorisée par les traitements." },
+        { "key": "P", "term": "Phosphore et calcium : hyperparathyroïdie secondaire." },
+        { "key": "H", "term": "Hydratation et pression artérielle : surcharge et hypertension." },
+        { "key": "N", "term": "Nutrition : dénutrition protéino-énergétique." }
+      ],
+      "note": "Le risque cardiovasculaire est présent dès les stades modérés : il fait partie de la surveillance, même sans dialyse."
+    },
+    {
+      "id": "mn-adressage",
+      "label": "Quand appeler le néphrologue ?",
+      "intro": "Cinq situations à ne pas laisser traîner.",
+      "entries": [
+        { "key": "1", "term": "Débit estimé inférieur à 30 mL/min/1,73 m²." },
+        { "key": "2", "term": "Albuminurie sévère ou progression rapide." },
+        { "key": "3", "term": "Hypertension résistante ou hyperkaliémie récurrente." },
+        { "key": "4", "term": "Suspicion de glomérulonéphrite ou de maladie héréditaire." },
+        { "key": "5", "term": "Complications métaboliques ou hématologiques difficiles à contrôler." }
+      ],
+      "note": "Un adressage précoce permet de préparer la dialyse ou la transplantation dans de meilleures conditions, et parfois d'éviter une urgence."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Comment définit-on la maladie rénale chronique ?",
+      "back": "Par une anomalie de la structure ou de la fonction rénale persistant plus de trois mois, avec des implications pour la santé : débit de filtration glomérulaire abaissé, albuminurie, anomalie du sédiment ou de l'imagerie.",
+      "tags": ["définition"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels sont les deux examens de dépistage de la maladie rénale chronique ?",
+      "back": "Le débit de filtration glomérulaire estimé à partir de la créatinine et le rapport albumine/créatinine urinaire.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Que signifient les stades G1 à G5 ?",
+      "back": "G1 : débit ≥ 90 avec anomalie rénale ; G2 : 60-89 ; G3a : 45-59 ; G3b : 30-44 ; G4 : 15-29 ; G5 : < 15 mL/min/1,73 m².",
+      "tags": ["classification"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Que signifient les catégories A1, A2 et A3 ?",
+      "back": "A1 : albuminurie < 30 mg/g ; A2 : 30-300 mg/g ; A3 : > 300 mg/g de créatinine. L'albuminurie est un facteur pronostique majeur.",
+      "tags": ["classification"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel est l'objectif de pression artérielle proposé par KDIGO ?",
+      "back": "Une pression artérielle systolique inférieure à 120 mmHg lorsqu'elle est tolérée, avec une mesure standardisée et une surveillance de la fonction rénale et du potassium.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quand utiliser un inhibiteur de SGLT2 dans la maladie rénale chronique ?",
+      "back": "Chez l'adulte avec maladie rénale chronique et débit estimé à partir de 20 mL/min/1,73 m², selon les indications de KDIGO 2024 et avec les précautions d'usage.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelles sont les complications de la maladie rénale chronique ?",
+      "back": "Anémie, acidose métabolique, hyperkaliémie, troubles phosphocalciques avec hyperparathyroïdie secondaire, surcharge hydrosodée, hypertension, dénutrition et risque cardiovasculaire accru.",
+      "tags": ["complications"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Pourquoi une maladie rénale chronique augmente-t-elle le risque cardiovasculaire ?",
+      "back": "Par l'hypertension, la surcharge hydrosodée, les troubles phosphocalciques, l'anémie, l'inflammation et l'athérosclérose accélérée. Le risque cardiovasculaire est souvent le premier danger avant le stade terminal.",
+      "tags": ["complications"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quels médicaments faut-il éviter ou adapter en cas de maladie rénale chronique ?",
+      "back": "Les anti-inflammatoires non stéroïdiens, les aminosides, certains produits de contraste, les antiviraux néphrotoxiques et de nombreuses molécules nécessitant une adaptation posologique. La phytothérapie non contrôlée doit être interrogée.",
+      "tags": ["iatrogénie"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quand adresser un patient au néphrologue ?",
+      "back": "Débit estimé inférieur à 30 mL/min/1,73 m², albuminurie sévère, progression rapide, hypertension résistante, hyperkaliémie récurrente, suspicion de glomérulonéphrite ou complications difficiles à contrôler.",
+      "tags": ["orientation"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Comment préparer un patient au stade terminal ?",
+      "back": "Information sur la dialyse, la transplantation et les soins conservateurs, évaluation du capital veineux, vaccination, correction de l'anémie et des troubles métaboliques, et coordination avec le centre de référence.",
+      "tags": ["suivi", "Madagascar"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Insuffisance rénale chronique",
+      "detail": "Dépister avec le débit estimé et l'albuminurie, ralentir la progression, traiter les complications et préparer le stade terminal."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Deux mesures à trois mois d'intervalle, débit estimé et rapport albumine/créatinine, puis recherche de la cause.",
+        "children": [
+          { "id": "diag-debit", "label": "Débit estimé", "leaves": [{ "id": "diag-debit-1", "label": "Créatinine" }] },
+          { "id": "diag-albumine", "label": "Albuminurie", "leaves": [{ "id": "diag-albumine-1", "label": "Ratio A/C" }] },
+          { "id": "diag-cause", "label": "Cause", "leaves": [{ "id": "diag-cause-1", "label": "Diabète" }, { "id": "diag-cause-2", "label": "HTA" }] }
+        ]
+      },
+      {
+        "id": "classification",
+        "label": "Classer",
+        "tone": "memo",
+        "detail": "Stades G1 à G5 et catégories A1 à A3. Les deux axes sont indispensables pour évaluer le risque.",
+        "children": [
+          { "id": "class-g", "label": "G1-G5", "leaves": [{ "id": "class-g-1", "label": "Filtration" }] },
+          { "id": "class-a", "label": "A1-A3", "leaves": [{ "id": "class-a-1", "label": "Albuminurie" }] }
+        ]
+      },
+      {
+        "id": "complications",
+        "label": "Complications",
+        "detail": "Anémie, acidose, hyperkaliémie, troubles phosphocalciques, surcharge hydrosodée et dénutrition.",
+        "children": [
+          { "id": "comp-anemie", "label": "Anémie", "leaves": [{ "id": "comp-anemie-1", "label": "Fer" }, { "id": "comp-anemie-2", "label": "EPO" }] },
+          { "id": "comp-mbd", "label": "Os et phosphore", "leaves": [{ "id": "comp-mbd-1", "label": "PTH" }] },
+          { "id": "comp-acidose", "label": "Acidose", "leaves": [{ "id": "comp-acidose-1", "label": "Bicarbonates" }] }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Contrôle tensionnel, inhibition du système rénine-angiotensine si albuminurie, SGLT2, statine et traitement des complications.",
+        "children": [
+          { "id": "ttt-pa", "label": "Pression artérielle", "leaves": [{ "id": "ttt-pa-1", "label": "Objectif individualisé" }] },
+          { "id": "ttt-ras", "label": "IEC / ARA2", "leaves": [{ "id": "ttt-ras-1", "label": "Si albuminurie" }] },
+          { "id": "ttt-sglt2", "label": "SGLT2", "leaves": [{ "id": "ttt-sglt2-1", "label": "Débit ≥ 20" }] }
+        ]
+      },
+      {
+        "id": "iatrogenie",
+        "label": "Protéger le rein",
+        "tone": "prudence",
+        "detail": "Éviter les néphrotoxiques, adapter les posologies, hydrater avant certains examens et surveiller la fonction rénale.",
+        "children": [
+          { "id": "iatro-ains", "label": "AINS", "leaves": [{ "id": "iatro-ains-1", "label": "Éviter" }] },
+          { "id": "iatro-contraste", "label": "Contraste", "leaves": [{ "id": "iatro-contraste-1", "label": "Prévenir" }] },
+          { "id": "iatro-adapt", "label": "Posologies", "leaves": [{ "id": "iatro-adapt-1", "label": "Adapter" }] }
+        ]
+      },
+      {
+        "id": "orientation",
+        "label": "Orienter",
+        "detail": "Adresser au néphrologue avant le stade terminal pour préparer la dialyse, la transplantation ou les soins conservateurs.",
+        "children": [
+          { "id": "orient-seuil", "label": "Seuil", "leaves": [{ "id": "orient-seuil-1", "label": "DFG < 30" }] },
+          { "id": "orient-progression", "label": "Progression", "leaves": [{ "id": "orient-progression-1", "label": "Rapide" }] },
+          { "id": "orient-preparation", "label": "Préparation", "leaves": [{ "id": "orient-preparation-1", "label": "Dialyse" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "Dialyse et transplantation limitées et coûteuses : la prévention et le dépistage précoce sont prioritaires.",
+        "children": [
+          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Dialyse" }] },
+          { "id": "mada-prevention", "label": "Prévention", "leaves": [{ "id": "mada-prevention-1", "label": "HTA et diabète" }] },
+          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-KDIGO-2024-CKD",
+      "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+      "citation": "Kidney Disease: Improving Global Outcomes (KDIGO) CKD Work Group. KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney Int. 2024 ; 105 (4S) : S117-S314. Consulté le 18 octobre 2026.",
+      "organization": "Kidney Disease: Improving Global Outcomes (KDIGO)",
+      "year": 2024,
+      "version": "2024 guideline",
+      "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition",
+        "Classification G et A",
+        "Objectif tensionnel",
+        "Inhibiteurs de SGLT2",
+        "Complications",
+        "Critères d'adressage"
+      ]
+    },
+    {
+      "id": "SRC-NICE-NG203",
+      "title": "Chronic kidney disease: assessment and management (NG203)",
+      "citation": "National Institute for Health and Care Excellence. Chronic kidney disease: assessment and management. NICE guideline NG203. Londres : NICE ; 2021, mise à jour 2023. Consulté le 18 octobre 2026.",
+      "organization": "National Institute for Health and Care Excellence (NICE)",
+      "year": 2021,
+      "version": "NG203, mise à jour 2023",
+      "url": "https://www.nice.org.uk/guidance/ng203",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Dépistage",
+        "Estimation du débit",
+        "Albuminurie",
+        "Surveillance",
+        "Orientation"
+      ]
+    },
+    {
+      "id": "SRC-CUEN-2025",
+      "title": "Manuel de néphrologie — 11e édition 2025-2026",
+      "citation": "Collège universitaire des enseignants de néphrologie. Manuel de néphrologie, 11e édition 2025-2026. CUEN ; 2025. Consulté le 18 octobre 2026.",
+      "organization": "Collège universitaire des enseignants de néphrologie (CUEN)",
+      "year": 2025,
+      "version": "11e édition",
+      "url": "https://cuen.fr/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Sémiologie",
+        "Étiologies",
+        "Complications",
+        "Contexte francophone"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "meningites-purulentes",
+  "title": "Méningites purulentes",
+  "subtitle": "Nosographie — infectiologie",
+  "objective": "Reconnaître une méningite bactérienne devant une fièvre et un syndrome méningé, débuter une antibiothérapie probabiliste sans délai et organiser la prophylaxie de l'entourage.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 13,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 54,
+      "localNumber": 13,
+      "sectionLabel": "Médecine",
+      "title": "Méningites purulentes",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": ["infectio"],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la fiche descriptive de l'OMS sur la méningite, de l'initiative « Defeating meningitis by 2030 » et de la recommandation ESCMID sur le diagnostic et le traitement de la méningite bactérienne aiguë. Les schémas antibiotiques sont reformulés et rattachés à leur source.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La recommandation ESCMID date de 2016 : elle reste une référence structurante pour la méningite bactérienne aiguë de l'adulte, mais elle n'est pas la plus récente. La fiche le signale et s'appuie aussi sur les documents de l'OMS pour la santé publique et la vaccination.",
+      "Les posologies antibiotiques sont données à titre de repères adultes. Chez l'enfant, le nouveau-né, la femme enceinte et l'insuffisant rénal, elles doivent être adaptées au poids et au protocole local.",
+      "La dexaméthasone est présentée avec ses conditions d'utilisation : avant ou avec la première dose d'antibiotique, surtout en cas de suspicion de pneumocoque. Son bénéfice est moins établi dans les autres situations.",
+      "Aucune donnée malgache chiffrée n'est citée. La survenue d'épidémies de méningite à méningocoque et l'importance de la surveillance sont mentionnées sans chiffre.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont l'OMS et l'ESCMID."
+    ],
+    "qcChecklist": [
+      "Exactitude des indications de ponction lombaire et des contre-indications",
+      "Cohérence de l'antibiothérapie probabiliste avec l'âge et le terrain",
+      "Place et timing de la dexaméthasone",
+      "Durées de traitement par germe",
+      "Prophylaxie des contacts et vaccination"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une urgence infectieuse dont le pronostic dépend de la rapidité du traitement.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les méningites purulentes sont des infections bactériennes aiguës des méninges et du liquide céphalorachidien. Elles constituent une urgence médicale : la mortalité et les séquelles neurologiques augmentent avec le retard thérapeutique. La présentation associe classiquement fièvre, céphalées, raideur de nuque et troubles de la conscience."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les germes varient avec l'âge et le terrain. Chez l'adulte, Streptococcus pneumoniae et Neisseria meningitidis dominent ; chez le nouveau-né, le streptocoque du groupe B, Escherichia coli et Listeria monocytogenes ; chez le sujet âgé ou immunodéprimé, le pneumocoque, Listeria et les bacilles Gram négatif."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le message central",
+          "text": "Une suspicion de méningite bactérienne impose une antibiothérapie immédiate, sans attendre le résultat de la ponction lombaire si celle-ci ne peut pas être réalisée tout de suite. Le temps perdu se paie en séquelles neurologiques."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Colonisation rhinopharyngée, invasion sanguine et inflammation méningée.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La plupart des méningites bactériennes communautaires débutent par une colonisation du rhinopharynx, suivie d'une invasion de la circulation sanguine et d'un passage à travers la barrière hémato-encéphalique. L'inflammation qui en résulte augmente la perméabilité de la barrière et peut provoquer un œdème cérébral, une hypertension intracrânienne et une ischémie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transmission se fait par voie respiratoire, par des gouttelettes et des sécrétions rhinopharyngées. La promiscuité, les rassemblements et les conditions de vie en collectivité favorisent la diffusion, notamment pour le méningocoque."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Méningocoque : purpura fulminans, épidémies en collectivité, prophylaxie des contacts.",
+            "Pneumocoque : otite, sinusite, brèche ostéoméningée, asplénie, drépanocytose.",
+            "Listeria : sujet âgé, immunodéprimé, grossesse, nouveau-né.",
+            "Streptocoque du groupe B et Escherichia coli : nouveau-né, transmission materno-fœtale.",
+            "Haemophilus influenzae de type b : nettement diminué depuis la vaccination, persiste chez le non-vacciné."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Purpura fulminans",
+          "text": "Un purpura fébrile, surtout s'il est extensif ou nécrotique, évoque une méningococcémie. C'est une urgence vitale : antibiothérapie immédiate, remplissage vasculaire et transfert en réanimation, sans attendre la ponction lombaire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        },
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Ponction lombaire dès que possible, après avoir écarté les contre-indications.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de certitude repose sur l'analyse du liquide céphalorachidien. La ponction lombaire est réalisée dès que possible, mais elle ne doit pas retarder l'antibiothérapie. En cas de signes d'hypertension intracrânienne, de déficit focal, de convulsion récente, d'immunodépression ou de trouble de la conscience, une imagerie cérébrale précède la ponction."
+        },
+        {
+          "type": "table",
+          "columns": ["Paramètre", "Méningite bactérienne", "Méningite virale"],
+          "rows": [
+            ["Cellules", "Pléiocytose à prédominance polynucléaire", "Pléiocytose à prédominance lymphocytaire"],
+            ["Glucose", "Diminué, rapport glucorachie/glycémie abaissé", "Souvent normal"],
+            ["Protéines", "Augmentées", "Modérément augmentées"],
+            ["Gram", "Peut identifier le germe", "Négatif"],
+            ["Culture et PCR", "Positives selon le germe", "PCR virale positive si recherchée"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Avant la ponction, vérifier les contre-indications",
+          "text": "Signes focaux, crises convulsives récentes, trouble de la conscience, immunodépression, trouble de l'hémostase ou instabilité hémodynamique imposent une évaluation et parfois une imagerie avant la ponction. L'antibiothérapie doit être débutée avant le transfert si le diagnostic est probable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les hémocultures sont réalisées avant l'antibiothérapie lorsqu'elles ne retardent pas la prise en charge. La recherche d'une porte d'entrée ORL, d'une brèche ostéoméningée ou d'un foyer pulmonaire complète le bilan. Chez le nouveau-né, l'analyse du liquide doit être interprétée avec prudence, car la formule peut être atypique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        },
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et terrain",
+      "summary": "L'âge, l'immunité et la porte d'entrée orientent le germe et donc l'antibiothérapie.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'identification du germe conditionne le traitement. En attendant les résultats, le choix probabiliste repose sur l'âge, le terrain, la présentation clinique et les données épidémiologiques locales. Une méningite sur brèche ostéoméningée, une otite ou une sinusite oriente vers le pneumocoque ; un purpura vers le méningocoque ; une grossesse ou un âge avancé vers Listeria."
+        },
+        {
+          "type": "table",
+          "columns": ["Terrain", "Germes probables", "Particularité thérapeutique"],
+          "rows": [
+            ["Nouveau-né", "Streptocoque B, E. coli, Listeria", "Ampicilline + céfotaxime + aminoside"],
+            ["Enfant et adulte jeune", "Pneumocoque, méningocoque", "Céphalosporine de 3e génération"],
+            ["Sujet âgé ou immunodéprimé", "Pneumocoque, Listeria, Gram négatif", "Ajouter l'amoxicilline pour Listeria"],
+            ["Post-traumatique ou post-opératoire", "Staphylocoque, Gram négatif", "Adapter à la chirurgie et à l'écologie locale"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Une question simple : Listeria ?",
+          "text": "Si le patient a plus de 50 ans, est immunodéprimé, est enceinte ou est un nouveau-né, l'amoxicilline doit être ajoutée à la céphalosporine. Listeria est naturellement résistante aux céphalosporines de 3e génération."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Antibiothérapie immédiate, dexaméthasone selon le contexte, durée adaptée au germe.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'antibiothérapie probabiliste doit être débutée dès la suspicion. Chez l'adulte, la ceftriaxone (ou la céfotaxime) est la base ; l'amoxicilline est ajoutée lorsque Listeria est possible. La dexaméthasone, administrée avant ou avec la première dose d'antibiotique, réduit la mortalité et les séquelles auditives dans la méningite à pneumocoque ; elle est poursuivie quelques jours selon le protocole."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Méningocoque : 7 jours de céphalosporine de 3e génération.",
+            "Pneumocoque : 10 à 14 jours, selon l'évolution et la sensibilité.",
+            "Listeria : 21 jours, avec amoxicilline et gentamicine selon le protocole.",
+            "Bacilles Gram négatif : durée prolongée, adaptée à la sensibilité et à l'évolution.",
+            "Réanimation : remplissage vasculaire, contrôle de la pression artérielle, traitement de l'hypertension intracrânienne et des convulsions.",
+            "Ne pas oublier la porte d'entrée : otite, sinusite, brèche ostéoméningée, endocardite."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ce qui ne doit jamais attendre",
+          "text": "Une première dose d'antibiotique ne doit pas être retardée par la ponction lombaire, l'imagerie ou le transfert. Si le patient est instable ou présente un purpura fulminans, le traitement antibiotique précède toute autre étape."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur la vaccination (méningocoque, pneumocoque, Haemophilus influenzae de type b), la chimioprophylaxie des contacts d'un cas de méningite à méningocoque et les mesures d'hygiène respiratoire. La prophylaxie est organisée par les autorités sanitaires et doit être débutée rapidement après l'identification du cas index."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "Les méningites à méningocoque peuvent survenir en flambées, notamment dans les zones à faible couverture vaccinale et en période de saison sèche. La surveillance épidémiologique, la disponibilité de la ceftriaxone et l'organisation de la prophylaxie des contacts sont déterminantes. Les protocoles nationaux doivent primer sur les repères internationaux présentés ici."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        },
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        },
+        {
+          "id": "SRC-WHO-MENINGITIS-2030",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Defeating meningitis by 2030",
+          "year": 2021,
+          "url": "https://www.who.int/initiatives/defeating-meningitis-by-2030"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et santé publique",
+      "summary": "Vaccination, prophylaxie des contacts et surveillance des épidémies.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prophylaxie des contacts d'un cas de méningite à méningocoque vise à éliminer le portage rhinopharyngé. Elle est indiquée pour les personnes vivant sous le même toit, les contacts proches en collectivité et les soignants exposés sans protection. Le choix repose sur la rifampicine, la ciprofloxacine ou la ceftriaxone, selon les contre-indications et le protocole local."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vaccination contre le méningocoque selon les programmes nationaux et les souches circulantes.",
+            "Vaccination contre le pneumocoque chez les personnes à risque et dans le calendrier de l'enfance.",
+            "Vaccination contre Haemophilus influenzae de type b dans le calendrier vaccinal.",
+            "Hygiène respiratoire, ventilation des espaces clos et éviction des rassemblements en période épidémique.",
+            "Déclaration obligatoire et investigation rapide autour de chaque cas."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La prophylaxie n'est pas un traitement",
+          "text": "La chimioprophylaxie ne traite pas une méningite déclarée : elle prévient la maladie chez les contacts asymptomatiques. Un contact qui développe de la fièvre ou des céphalées doit être évalué en urgence."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        },
+        {
+          "id": "SRC-WHO-MENINGITIS-2030",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Defeating meningitis by 2030",
+          "year": 2021,
+          "url": "https://www.who.int/initiatives/defeating-meningitis-by-2030"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fièvre + céphalées + raideur de nuque = ponction lombaire dès que possible, sans retarder l'antibiotique.",
+            "Devant un purpura fébrile, le traitement et la réanimation précèdent la ponction lombaire.",
+            "Listeria doit être couverte chez le sujet âgé, l'immunodéprimé, la femme enceinte et le nouveau-né.",
+            "La prophylaxie des contacts est une urgence de santé publique, pas une simple information."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "La méningite bactérienne se traite d'abord, se documente ensuite. Le germe guide la durée, mais il ne doit jamais retarder la première dose."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "OMS — Meningitis, fact sheet 2026.",
+            "OMS — Defeating meningitis by 2030.",
+            "ESCMID 2016 — Guideline for the diagnosis and treatment of acute bacterial meningitis."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-MENINGITIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Meningitis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis"
+        },
+        {
+          "id": "SRC-WHO-MENINGITIS-2030",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Defeating meningitis by 2030",
+          "year": 2021,
+          "url": "https://www.who.int/initiatives/defeating-meningitis-by-2030"
+        },
+        {
+          "id": "SRC-ESCMID-2016",
+          "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+          "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.cmi.2016.01.007"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-urgence",
+      "label": "Les 4 gestes de la méningite",
+      "intro": "Reconnaître, ponctionner, traiter, surveiller.",
+      "entries": [
+        { "key": "R", "term": "Reconnaître les signes : fièvre, céphalées, raideur de nuque, troubles de conscience." },
+        { "key": "P", "term": "Ponction lombaire dès que possible, après avoir écarté les contre-indications." },
+        { "key": "A", "term": "Antibiothérapie immédiate, sans attendre le résultat du liquide." },
+        { "key": "S", "term": "Surveillance en réanimation si purpura, choc, convulsions ou troubles de conscience." }
+      ],
+      "note": "Chez un patient avec purpura fulminans, la séquence est : antibiotique et réanimation d'abord, ponction lombaire ensuite si elle est encore utile."
+    },
+    {
+      "id": "mn-listeria",
+      "label": "Listeria : quand y penser ?",
+      "intro": "Une question qui change l'antibiothérapie.",
+      "entries": [
+        { "key": "Â", "term": "Âge supérieur à 50 ans." },
+        { "key": "I", "term": "Immunodépression : corticothérapie, chimiothérapie, greffe, VIH." },
+        { "key": "G", "term": "Grossesse et post-partum." },
+        { "key": "N", "term": "Nouveau-né." }
+      ],
+      "note": "Listeria est résistante aux céphalosporines de 3e génération : l'amoxicilline doit être ajoutée lorsqu'elle est possible."
+    },
+    {
+      "id": "mn-prophylaxie",
+      "label": "Prophylaxie des contacts",
+      "intro": "Trois questions : qui, quand, avec quoi ?",
+      "entries": [
+        { "key": "Q", "term": "Qui : contacts du même foyer, collectivité proche, soignants exposés sans protection." },
+        { "key": "T", "term": "Quand : le plus tôt possible, idéalement dans les 24 à 48 heures." },
+        { "key": "M", "term": "Molécules : rifampicine, ciprofloxacine ou ceftriaxone selon le protocole." }
+      ],
+      "note": "La prophylaxie ne dispense pas de surveiller les contacts fébriles : toute suspicion de méningite reste une urgence."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle est la triade classique de la méningite ?",
+      "back": "Fièvre, céphalées et raideur de nuque. Les troubles de la conscience, les convulsions et le purpura sont des signes de gravité.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels sont les germes les plus fréquents chez l'adulte ?",
+      "back": "Streptococcus pneumoniae et Neisseria meningitidis. Chez le sujet âgé ou immunodéprimé, Listeria monocytogenes et les bacilles Gram négatif doivent aussi être évoqués.",
+      "tags": ["microbiologie"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quand faut-il réaliser une imagerie cérébrale avant la ponction lombaire ?",
+      "back": "En cas de signes focaux, de convulsion récente, de trouble de la conscience, d'immunodépression ou de suspicion d'hypertension intracrânienne. L'antibiothérapie ne doit pas être retardée pour autant.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel est le profil du liquide céphalorachidien dans une méningite bactérienne ?",
+      "back": "Une pléiocytose à prédominance polynucléaire, une hypoglycorachie avec un rapport glucorachie/glycémie abaissé, et une hyperprotéinorachie.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel est le traitement antibiotique probabiliste de l'adulte ?",
+      "back": "Une céphalosporine de 3e génération (ceftriaxone ou céfotaxime), avec ajout d'amoxicilline si Listeria est possible. Le traitement débute sans attendre la confirmation.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle est la place de la dexaméthasone ?",
+      "back": "Elle est administrée avant ou avec la première dose d'antibiotique, surtout en cas de suspicion de pneumocoque, et poursuivie quelques jours. Elle réduit la mortalité et les séquelles auditives.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelle est la durée de traitement d'une méningite à méningocoque ?",
+      "back": "Sept jours de céphalosporine de 3e génération. La durée est plus longue pour le pneumocoque (10 à 14 jours) et pour Listeria (21 jours).",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Que faire devant un purpura fébrile ?",
+      "back": "C'est une urgence vitale : antibiothérapie immédiate, remplissage vasculaire et transfert en réanimation, sans attendre la ponction lombaire.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi Listeria change-t-elle l'antibiothérapie ?",
+      "back": "Listeria est naturellement résistante aux céphalosporines de 3e génération. Il faut ajouter l'amoxicilline chez les patients à risque : sujet âgé, immunodéprimé, femme enceinte, nouveau-né.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Qui doit recevoir une chimioprophylaxie autour d'un cas de méningite à méningocoque ?",
+      "back": "Les personnes vivant sous le même toit, les contacts proches en collectivité et les soignants exposés sans protection. La prophylaxie doit être débutée rapidement.",
+      "tags": ["prévention"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelles vaccinations réduisent le risque de méningite bactérienne ?",
+      "back": "Les vaccins contre le méningocoque, le pneumocoque et Haemophilus influenzae de type b, selon les calendriers nationaux et les souches circulantes.",
+      "tags": ["prévention"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Méningites purulentes",
+      "detail": "Une urgence : reconnaître, ponctionner si possible, antibiotiquer sans délai, surveiller et protéger l'entourage."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Fièvre, céphalées, raideur de nuque. La ponction lombaire confirme, mais ne doit jamais retarder l'antibiotique.",
+        "children": [
+          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Raideur de nuque" }, { "id": "diag-clinique-2", "label": "Troubles de conscience" }] },
+          { "id": "diag-pl", "label": "Ponction lombaire", "leaves": [{ "id": "diag-pl-1", "label": "Contre-indications" }, { "id": "diag-pl-2", "label": "Biochimie et culture" }] },
+          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Avant PL si signes focaux" }] }
+        ]
+      },
+      {
+        "id": "germes",
+        "label": "Germes",
+        "detail": "Pneumocoque et méningocoque chez l'adulte ; Listeria chez le sujet âgé, l'immunodéprimé, la femme enceinte et le nouveau-né.",
+        "children": [
+          { "id": "germ-pneumo", "label": "Pneumocoque", "leaves": [{ "id": "germ-pneumo-1", "label": "Otite, sinusite" }] },
+          { "id": "germ-meningo", "label": "Méningocoque", "leaves": [{ "id": "germ-meningo-1", "label": "Purpura" }, { "id": "germ-meningo-2", "label": "Prophylaxie" }] },
+          { "id": "germ-listeria", "label": "Listeria", "leaves": [{ "id": "germ-listeria-1", "label": "Amoxicilline" }] }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Céphalosporine de 3e génération, ajout d'amoxicilline si Listeria possible, dexaméthasone selon le contexte.",
+        "children": [
+          { "id": "ttt-antibio", "label": "Antibiothérapie", "leaves": [{ "id": "ttt-antibio-1", "label": "Ceftriaxone" }, { "id": "ttt-antibio-2", "label": "Amoxicilline" }] },
+          { "id": "ttt-dexa", "label": "Dexaméthasone", "leaves": [{ "id": "ttt-dexa-1", "label": "Avant la 1re dose" }] },
+          { "id": "ttt-duree", "label": "Durée", "leaves": [{ "id": "ttt-duree-1", "label": "Selon le germe" }] }
+        ]
+      },
+      {
+        "id": "urgence",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Purpura fulminans, choc, convulsions et troubles de la conscience imposent la réanimation et l'antibiotique immédiat.",
+        "children": [
+          { "id": "urg-purpura", "label": "Purpura fulminans", "leaves": [{ "id": "urg-purpura-1", "label": "Réanimation" }] },
+          { "id": "urg-choc", "label": "Choc", "leaves": [{ "id": "urg-choc-1", "label": "Remplissage" }] },
+          { "id": "urg-convulsions", "label": "Convulsions", "leaves": [{ "id": "urg-convulsions-1", "label": "Traiter" }] }
+        ]
+      },
+      {
+        "id": "prevention",
+        "label": "Prévenir",
+        "detail": "Vaccination, prophylaxie des contacts et déclaration obligatoire.",
+        "children": [
+          { "id": "prev-vaccins", "label": "Vaccins", "leaves": [{ "id": "prev-vaccins-1", "label": "Méningocoque" }, { "id": "prev-vaccins-2", "label": "Pneumocoque" }] },
+          { "id": "prev-contacts", "label": "Contacts", "leaves": [{ "id": "prev-contacts-1", "label": "Rifampicine" }, { "id": "prev-contacts-2", "label": "Ciprofloxacine" }] },
+          { "id": "prev-declaration", "label": "Déclaration", "leaves": [{ "id": "prev-declaration-1", "label": "Investigation" }] }
+        ]
+      },
+      {
+        "id": "sequences",
+        "label": "Séquelles",
+        "detail": "Surdité, troubles cognitifs, épilepsie et déficits neurologiques : la surveillance ne s'arrête pas à la sortie.",
+        "children": [
+          { "id": "seq-auditive", "label": "Audition", "leaves": [{ "id": "seq-auditive-1", "label": "Audiogramme" }] },
+          { "id": "seq-neuro", "label": "Neurologique", "leaves": [{ "id": "seq-neuro-1", "label": "Suivi" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "Risque de flambées de méningite à méningocoque, accès variable à la ceftriaxone et importance de la surveillance épidémiologique.",
+        "children": [
+          { "id": "mada-epidemies", "label": "Épidémies", "leaves": [{ "id": "mada-epidemies-1", "label": "Surveillance" }] },
+          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Ceftriaxone" }] },
+          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-MENINGITIS",
+      "title": "Meningitis — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Meningitis — fact sheet. Genève : OMS ; 2026. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition",
+        "Germes",
+        "Transmission",
+        "Prévention",
+        "Vaccination"
+      ]
+    },
+    {
+      "id": "SRC-WHO-MENINGITIS-2030",
+      "title": "Defeating meningitis by 2030",
+      "citation": "Organisation mondiale de la Santé. Defeating meningitis by 2030. Genève : OMS ; 2021. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2021,
+      "version": "initiative",
+      "url": "https://www.who.int/initiatives/defeating-meningitis-by-2030",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Santé publique",
+        "Surveillance",
+        "Vaccination",
+        "Prophylaxie"
+      ]
+    },
+    {
+      "id": "SRC-ESCMID-2016",
+      "title": "ESCMID guideline: diagnosis and treatment of acute bacterial meningitis",
+      "citation": "van de Beek D, Cabellos C, Dzupova O, et al. ESCMID guideline: diagnosis and treatment of acute bacterial meningitis. Clin Microbiol Infect. 2016 ; 22 (Suppl 3) : S37-S62. doi:10.1016/j.cmi.2016.01.007.",
+      "organization": "European Society of Clinical Microbiology and Infectious Diseases (ESCMID)",
+      "year": 2016,
+      "version": "2016 guideline",
+      "url": "https://doi.org/10.1016/j.cmi.2016.01.007",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Ponction lombaire",
+        "Analyse du liquide",
+        "Antibiothérapie",
+        "Dexaméthasone",
+        "Durées de traitement"
+      ]
+    }
+  ]
+}

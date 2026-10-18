@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "insuffisance-cardiaque",
+  "title": "Insuffisance cardiaque",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Reconnaître un syndrome d'insuffisance cardiaque, identifier sa cause et sa fraction d'éjection, puis construire un traitement qui réduit la mortalité et les hospitalisations.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 21,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 62,
+      "localNumber": 21,
+      "sectionLabel": "Médecine",
+      "title": "Insuffisance cardiaque",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": ["cardio-ic-l5", "cardio-ic-int"],
+    "caseIds": ["CARDIO-IC-001"]
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2021 sur le diagnostic et le traitement de l'insuffisance cardiaque aiguë et chronique, de leur mise à jour ciblée 2023 et de la recommandation NICE NG106. Les classes thérapeutiques et les principes de titration sont reformulés ; aucune posologie détaillée n'est inventée.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La classification retenue est celle de l'ESC 2021, actualisée en 2023 : insuffisance cardiaque à fraction d'éjection réduite (≤ 40 %), modérément réduite (41-49 %) et préservée (≥ 50 %).",
+      "Le traitement de l'insuffisance cardiaque à fraction d'éjection réduite est présenté selon les quatre piliers de l'ESC : inhibiteur du système rénine-angiotensine (ou sacubitril-valsartan), bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes et inhibiteur de SGLT2. L'ordre et la vitesse de titration dépendent de la clinique.",
+      "Les posologies ne sont pas détaillées : elles dépendent du poids, de la fonction rénale, du potassium et du protocole local. Les cibles de titration doivent être recherchées selon la tolérance.",
+      "Aucune donnée malgache chiffrée n'est citée. L'accès inégal au sacubitril-valsartan, aux inhibiteurs de SGLT2 et aux dispositifs est signalé sans chiffre.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont ESC 2021, ESC 2023 et NICE NG106."
+    ],
+    "qcChecklist": [
+      "Exactitude des seuils de fraction d'éjection",
+      "Cohérence des quatre piliers thérapeutiques avec ESC 2021/2023",
+      "Place des diurétiques et des dispositifs",
+      "Absence de posologies non vérifiées",
+      "Prise en charge de l'insuffisance cardiaque aiguë et des facteurs déclenchants"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Un syndrome, pas une maladie unique : des symptômes, une cause et une fraction d'éjection.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'insuffisance cardiaque est un syndrome clinique associant des symptômes et des signes liés à une anomalie structurelle ou fonctionnelle du cœur. Elle se traduit par une congestion (dyspnée, œdèmes, crépitants) et/ou une diminution du débit cardiaque (fatigue, hypotension, insuffisance rénale)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce n'est pas une maladie unique mais le point final commun de nombreuses cardiopathies : maladie coronarienne, hypertension artérielle, valvulopathies, cardiomyopathies, troubles du rythme, toxiques. Identifier la cause est essentiel, car certaines sont curables ou justifient un traitement spécifique."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le message central",
+          "text": "Le diagnostic repose sur la clinique, les peptides natriurétiques et l'échocardiographie. La fraction d'éjection guide le traitement, mais la cause et les comorbidités décident du pronostic."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Fraction d'éjection, congestion et adaptation neurohormonale.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La fraction d'éjection du ventricule gauche permet de classer la maladie : réduite (inférieure ou égale à 40 %), modérément réduite (41 à 49 %) et préservée (supérieure ou égale à 50 %). Cette classification n'est pas qu'une affaire de chiffre : elle détermine les traitements dont le bénéfice est démontré."
+        },
+        {
+          "type": "paragraph",
+          "text": "La réduction du débit cardiaque active les systèmes sympathique et rénine-angiotensine-aldostérone. Cette activation maintient la pression artérielle à court terme, mais aggrave à long terme la rétention hydrosodée, la vasoconstriction et le remodelage cardiaque. C'est pourquoi les traitements qui bloquent ces systèmes réduisent la mortalité."
+        },
+        {
+          "type": "table",
+          "columns": ["Catégorie", "Fraction d'éjection", "Traitements à bénéfice démontré"],
+          "rows": [
+            ["Réduite", "≤ 40 %", "Inhibiteur du système rénine-angiotensine, bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes, inhibiteur de SGLT2"],
+            ["Modérément réduite", "41-49 %", "Inhibiteur de SGLT2, diurétiques, traitement de la cause et des comorbidités"],
+            ["Préservée", "≥ 50 %", "Inhibiteur de SGLT2, diurétiques pour la congestion, traitement des comorbidités"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Classe fonctionnelle NYHA : I (asymptomatique), II (symptômes pour une activité ordinaire), III (symptômes pour une activité modérée), IV (symptômes au repos).",
+            "Insuffisance cardiaque aiguë : installation ou aggravation rapide des symptômes, souvent avec congestion pulmonaire.",
+            "Insuffisance cardiaque chronique : symptômes stables ou lentement progressifs, avec traitement de fond.",
+            "Comorbidités fréquentes : fibrillation atriale, insuffisance rénale, anémie, diabète, dénutrition, dépression."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        },
+        {
+          "id": "SRC-ESC-2023-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/eurheartj/ehad195"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Clinique, peptides natriurétiques et échocardiographie.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic commence par la clinique : dyspnée d'effort, orthopnée, dyspnée paroxystique nocturne, œdèmes des membres inférieurs, fatigue, turgescence jugulaire, crépitants, reflux hépato-jugulaire. Aucun signe n'est spécifique, surtout chez le sujet âgé ou obèse."
+        },
+        {
+          "type": "table",
+          "columns": ["Examen", "Rôle", "Limite"],
+          "rows": [
+            ["Peptides natriurétiques", "Éliminer le diagnostic lorsque le taux est bas", "Élevés dans l'insuffisance rénale, l'âge, la fibrillation atriale"],
+            ["Électrocardiogramme", "Rechercher une cardiopathie, un trouble du rythme", "Souvent anormal mais non spécifique"],
+            ["Radiographie thoracique", "Évaluer la congestion, écarter une autre cause", "Peut être normale"],
+            ["Échocardiographie", "Mesurer la fraction d'éjection, les valves, les pressions", "Examen clé du diagnostic et de l'étiologie"],
+            ["Bilan biologique", "Fonction rénale, ionogramme, numération, thyroïde, fer", "Rechercher une cause et une comorbidité"],
+            ["Coronarographie", "Rechercher une maladie coronarienne", "Selon le contexte et la faisabilité"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Un peptide natriurétique bas rend le diagnostic peu probable",
+          "text": "Un taux bas de peptides natriurétiques a une bonne valeur d'exclusion, mais un taux élevé ne confirme pas à lui seul l'insuffisance cardiaque. L'échocardiographie reste l'examen central."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les diagnostics différentiels incluent la bronchopneumopathie chronique obstructive, l'asthme, l'embolie pulmonaire, l'anémie, l'insuffisance rénale, la cirrhose et le syndrome néphrotique. Chez le patient âgé, la confusion, la chute ou la perte d'autonomie peuvent être les seuls signes révélateurs."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        },
+        {
+          "id": "SRC-NICE-NG106",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic heart failure in adults: diagnosis and management (NG106)",
+          "year": 2018,
+          "url": "https://www.nice.org.uk/guidance/ng106"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "summary": "Chercher la cause cardiaque et les facteurs déclenchants.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La recherche étiologique est systématique. La maladie coronarienne et l'hypertension artérielle sont les causes les plus fréquentes. Les valvulopathies, les cardiomyopathies (dilatée, hypertrophique, restrictive), les myocardites, les toxiques (alcool, chimiothérapie) et les troubles du rythme doivent être recherchés."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Maladie coronarienne : douleur d'effort, antécédents, facteurs de risque, coronarographie selon l'indication.",
+            "Hypertension artérielle : hypertrophie ventriculaire gauche, cardiopathie hypertensive.",
+            "Valvulopathie : souffle, échocardiographie, indication chirurgicale à discuter.",
+            "Cardiomyopathie : antécédents familiaux, échocardiographie, imagerie par résonance magnétique si disponible.",
+            "Toxiques : alcool, cocaïne, chimiothérapie cardiotoxique, radiothérapie médiastinale.",
+            "Troubles du rythme : fibrillation atriale rapide, tachycardie prolongée.",
+            "Causes réversibles : anémie, dysthyroïdie, carence en fer, apnées du sommeil."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ne pas oublier le facteur déclenchant",
+          "text": "Chez un patient connu insuffisant cardiaque qui se décompense, chercher systématiquement une infection, un trouble du rythme, un écart de régime, un arrêt du traitement, une poussée hypertensive, une embolie pulmonaire ou une ischémie myocardique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        },
+        {
+          "id": "SRC-ESC-2023-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/eurheartj/ehad195"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Quatre piliers dans la fraction d'éjection réduite, diurétiques pour la congestion, traitement de la cause.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans l'insuffisance cardiaque à fraction d'éjection réduite, quatre classes réduisent la mortalité et les hospitalisations : un inhibiteur du système rénine-angiotensine (inhibiteur de l'enzyme de conversion ou sacubitril-valsartan), un bêta-bloquant, un antagoniste des récepteurs minéralocorticoïdes et un inhibiteur de SGLT2. Ils doivent être introduits et titrés progressivement, en surveillant la pression artérielle, la fonction rénale et le potassium."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diurétiques de l'anse : pour soulager la congestion, à la dose minimale efficace ; ils n'améliorent pas la mortalité.",
+            "Inhibiteur de SGLT2 : bénéfice démontré quel que soit le taux d'hémoglobine glyquée, y compris chez le non-diabétique.",
+            "Fer intraveineux : si carence martiale symptomatique documentée.",
+            "Ivabradine : si rythme sinusal et fréquence cardiaque persistante malgré un bêta-bloquant optimisé.",
+            "Digoxine : en cas de fibrillation atriale rapide ou de symptômes persistants, avec surveillance.",
+            "Dispositifs : défibrillateur implantable et resynchronisation selon la fraction d'éjection, les symptômes et le pronostic.",
+            "Traitement de la cause : revascularisation, chirurgie valvulaire, contrôle de la pression artérielle, abstention alcoolique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Insuffisance cardiaque aiguë",
+          "text": "Oxygène si hypoxémie, diurétique intraveineux en cas de congestion, vasodilatateur si pression artérielle suffisante, ventilation non invasive si détresse respiratoire. Les inotropes sont réservés aux patients avec bas débit et hypotension. Toujours traiter le facteur déclenchant."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance comprend le poids, les œdèmes, la dyspnée, la pression artérielle, la fréquence cardiaque, la fonction rénale et le potassium. L'éducation du patient porte sur le régime pauvre en sel, la limitation des apports hydriques si indiquée, la reconnaissance des signes de décompensation et l'observance. La réadaptation cardiaque améliore la capacité fonctionnelle et la qualité de vie."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "L'accès aux inhibiteurs de SGLT2, au sacubitril-valsartan et aux dispositifs implantables est limité dans de nombreuses structures. Les diurétiques, les inhibiteurs de l'enzyme de conversion, les bêta-bloquants et les antagonistes des récepteurs minéralocorticoïdes restent la base du traitement. Le protocole national, le coût et la disponibilité doivent guider les choix, sans renoncer à la recherche étiologique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        },
+        {
+          "id": "SRC-ESC-2023-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/eurheartj/ehad195"
+        },
+        {
+          "id": "SRC-NICE-NG106",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic heart failure in adults: diagnosis and management (NG106)",
+          "year": 2018,
+          "url": "https://www.nice.org.uk/guidance/ng106"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "L'insuffisance cardiaque est un syndrome : il faut en trouver la cause, pas seulement soulager les œdèmes.",
+            "L'échocardiographie est l'examen central ; les peptides natriurétiques aident surtout à exclure le diagnostic.",
+            "Dans la fraction d'éjection réduite, les quatre piliers thérapeutiques réduisent la mortalité et doivent être titrés.",
+            "Toute décompensation impose de rechercher un facteur déclenchant réversible."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "Le diurétique fait perdre du poids, mais ce sont les traitements neurohormonaux qui font gagner des années. Traiter la congestion ne dispense pas de traiter la maladie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "ESC 2021 — Guidelines for the diagnosis and treatment of acute and chronic heart failure.",
+            "ESC 2023 — Focused Update of the 2021 Guidelines.",
+            "NICE NG106 — Chronic heart failure in adults: diagnosis and management."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021,
+          "url": "https://doi.org/10.1093/eurheartj/ehab368"
+        },
+        {
+          "id": "SRC-ESC-2023-HF",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/eurheartj/ehad195"
+        },
+        {
+          "id": "SRC-NICE-NG106",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Chronic heart failure in adults: diagnosis and management (NG106)",
+          "year": 2018,
+          "url": "https://www.nice.org.uk/guidance/ng106"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-quatre-piliers",
+      "label": "Les 4 piliers de la fraction d'éjection réduite",
+      "intro": "Quatre classes, un bénéfice sur la mortalité.",
+      "entries": [
+        { "key": "A", "term": "Inhibiteur du système rénine-angiotensine : inhibiteur de l'enzyme de conversion ou sacubitril-valsartan." },
+        { "key": "B", "term": "Bêta-bloquant : un des quatre ayant démontré un bénéfice dans l'insuffisance cardiaque." },
+        { "key": "M", "term": "Antagoniste des récepteurs minéralocorticoïdes : spironolactone ou éplérénone." },
+        { "key": "S", "term": "Inhibiteur de SGLT2 : dapagliflozine ou empagliflozine, même sans diabète." }
+      ],
+      "note": "Les quatre classes doivent être introduites et titrées selon la tolérance : pression artérielle, fonction rénale et potassium."
+    },
+    {
+      "id": "mn-nyha",
+      "label": "N.Y.H.A. — les 4 classes",
+      "intro": "Décrire le retentissement fonctionnel, pas la gravité anatomique.",
+      "entries": [
+        { "key": "I", "term": "Aucune limitation : l'activité ordinaire ne provoque pas de symptômes." },
+        { "key": "II", "term": "Limitation légère : symptômes pour une activité ordinaire." },
+        { "key": "III", "term": "Limitation marquée : symptômes pour une activité modérée." },
+        { "key": "IV", "term": "Symptômes au repos ou pour le moindre effort." }
+      ],
+      "note": "La classe NYHA peut changer avec le traitement : elle se réévalue, elle n'est pas une étiquette définitive."
+    },
+    {
+      "id": "mn-decompensation",
+      "label": "Les 5 causes de décompensation",
+      "intro": "Chercher le facteur déclenchant avant d'augmenter les diurétiques.",
+      "entries": [
+        { "key": "I", "term": "Infection, en particulier respiratoire." },
+        { "key": "R", "term": "Rythme : fibrillation atriale rapide ou autre tachycardie." },
+        { "key": "T", "term": "Traitement interrompu ou inadapté, écart de régime." },
+        { "key": "E", "term": "Embolie pulmonaire ou ischémie myocardique." },
+        { "key": "H", "term": "Hypertension artérielle non contrôlée." }
+      ],
+      "note": "Chez le patient âgé, une infection urinaire ou une anémie peuvent suffire à décompenser une insuffisance cardiaque jusque-là stable."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Comment définit-on l'insuffisance cardiaque ?",
+      "back": "Un syndrome associant des symptômes et des signes liés à une anomalie structurelle ou fonctionnelle du cœur, avec congestion et/ou diminution du débit cardiaque.",
+      "tags": ["définition"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quelles sont les trois catégories selon la fraction d'éjection ?",
+      "back": "Fraction d'éjection réduite (≤ 40 %), modérément réduite (41-49 %) et préservée (≥ 50 %).",
+      "tags": ["classification"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel est l'examen clé du diagnostic d'insuffisance cardiaque ?",
+      "back": "L'échocardiographie, qui mesure la fraction d'éjection, évalue les valves et les pressions de remplissage, et oriente vers la cause.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelle est la valeur des peptides natriurétiques ?",
+      "back": "Un taux bas rend le diagnostic peu probable. Un taux élevé est évocateur mais non spécifique : il peut être élevé avec l'âge, l'insuffisance rénale ou la fibrillation atriale.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels sont les quatre piliers du traitement de la fraction d'éjection réduite ?",
+      "back": "Inhibiteur du système rénine-angiotensine (ou sacubitril-valsartan), bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes et inhibiteur de SGLT2.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est le rôle des diurétiques dans l'insuffisance cardiaque ?",
+      "back": "Soulager la congestion et améliorer les symptômes. Ils n'ont pas démontré de bénéfice sur la mortalité et doivent être utilisés à la dose minimale efficace.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-07",
+      "front": "L'inhibiteur de SGLT2 est-il réservé aux diabétiques ?",
+      "back": "Non. Son bénéfice est démontré dans l'insuffisance cardiaque indépendamment du statut diabétique.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels paramètres surveiller lors de la titration des traitements ?",
+      "back": "La pression artérielle, la fréquence cardiaque, la fonction rénale et le potassium. La titration se fait progressivement, selon la tolérance clinique et biologique.",
+      "tags": ["surveillance"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quel est le traitement initial d'une insuffisance cardiaque aiguë congestive ?",
+      "back": "Oxygène si hypoxémie, diurétique intraveineux, vasodilatateur si la pression artérielle le permet, ventilation non invasive si détresse respiratoire. Traiter le facteur déclenchant.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quelles sont les causes fréquentes de décompensation ?",
+      "back": "Infection, trouble du rythme, arrêt du traitement ou écart de régime, embolie pulmonaire, ischémie myocardique et poussée hypertensive.",
+      "tags": ["urgence", "étiologie"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quand discuter un défibrillateur implantable ou une resynchronisation ?",
+      "back": "Selon la fraction d'éjection, les symptômes persistants malgré un traitement optimisé, la présence d'un bloc de branche et le pronostic. La décision est multidisciplinaire.",
+      "tags": ["traitement", "dispositifs"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quelles mesures non médicamenteuses améliorent la qualité de vie ?",
+      "back": "Réadaptation cardiaque, éducation sur le poids et les signes d'alerte, régime adapté, activité physique, arrêt du tabac et de l'alcool, vaccination et prise en charge des comorbidités.",
+      "tags": ["prévention", "suivi"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Insuffisance cardiaque",
+      "detail": "Un syndrome à explorer : clinique, peptides natriurétiques, échocardiographie. La fraction d'éjection guide le traitement, la cause décide du pronostic."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Symptômes et signes de congestion, peptides natriurétiques et échocardiographie. Toujours rechercher la cause.",
+        "children": [
+          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Dyspnée" }, { "id": "diag-clinique-2", "label": "Œdèmes" }] },
+          { "id": "diag-bnp", "label": "Peptides natriurétiques", "leaves": [{ "id": "diag-bnp-1", "label": "Valeur d'exclusion" }] },
+          { "id": "diag-echo", "label": "Échocardiographie", "leaves": [{ "id": "diag-echo-1", "label": "Fraction d'éjection" }, { "id": "diag-echo-2", "label": "Valves" }] }
+        ]
+      },
+      {
+        "id": "classification",
+        "label": "Classer",
+        "tone": "memo",
+        "detail": "Fraction d'éjection réduite, modérément réduite ou préservée ; classe NYHA pour le retentissement fonctionnel.",
+        "children": [
+          { "id": "class-hfref", "label": "HFrEF", "leaves": [{ "id": "class-hfref-1", "label": "≤ 40 %" }] },
+          { "id": "class-hfmref", "label": "HFmrEF", "leaves": [{ "id": "class-hfmref-1", "label": "41-49 %" }] },
+          { "id": "class-hfpef", "label": "HFpEF", "leaves": [{ "id": "class-hfpef-1", "label": "≥ 50 %" }] }
+        ]
+      },
+      {
+        "id": "etiologies",
+        "label": "Étiologies",
+        "detail": "Coronaropathie, hypertension, valvulopathies, cardiomyopathies, toxiques et troubles du rythme.",
+        "children": [
+          { "id": "etio-coronaire", "label": "Coronaropathie", "leaves": [{ "id": "etio-coronaire-1", "label": "Ischémie" }] },
+          { "id": "etio-hta", "label": "Hypertension", "leaves": [{ "id": "etio-hta-1", "label": "HVG" }] },
+          { "id": "etio-valve", "label": "Valvulopathie", "leaves": [{ "id": "etio-valve-1", "label": "Chirurgie à discuter" }] }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Quatre piliers dans la fraction d'éjection réduite, diurétiques pour la congestion, traitement de la cause et des comorbidités.",
+        "children": [
+          { "id": "ttt-piliers", "label": "4 piliers", "leaves": [{ "id": "ttt-piliers-1", "label": "ARNI / IEC" }, { "id": "ttt-piliers-2", "label": "BB, MRA, SGLT2" }] },
+          { "id": "ttt-diur", "label": "Diurétiques", "leaves": [{ "id": "ttt-diur-1", "label": "Congestion" }] },
+          { "id": "ttt-dispositifs", "label": "Dispositifs", "leaves": [{ "id": "ttt-dispositifs-1", "label": "ICD / CRT" }] }
+        ]
+      },
+      {
+        "id": "aigu",
+        "label": "Insuffisance cardiaque aiguë",
+        "tone": "urgence",
+        "detail": "Oxygène, diurétique IV, vasodilatateur, ventilation non invasive. Chercher le facteur déclenchant.",
+        "children": [
+          { "id": "aigu-congestion", "label": "Congestion", "leaves": [{ "id": "aigu-congestion-1", "label": "Diurétique IV" }] },
+          { "id": "aigu-choc", "label": "Bas débit", "leaves": [{ "id": "aigu-choc-1", "label": "Inotropes" }] },
+          { "id": "aigu-facteur", "label": "Facteur déclenchant", "leaves": [{ "id": "aigu-facteur-1", "label": "Infection" }, { "id": "aigu-facteur-2", "label": "Rythme" }] }
+        ]
+      },
+      {
+        "id": "surveillance",
+        "label": "Surveiller",
+        "detail": "Poids, pression artérielle, fonction rénale, potassium, symptômes et observance. L'éducation du patient fait partie du traitement.",
+        "children": [
+          { "id": "surv-poids", "label": "Poids", "leaves": [{ "id": "surv-poids-1", "label": "Prise rapide" }] },
+          { "id": "surv-bio", "label": "Biologie", "leaves": [{ "id": "surv-bio-1", "label": "Créatinine" }, { "id": "surv-bio-2", "label": "Kaliémie" }] },
+          { "id": "surv-education", "label": "Éducation", "leaves": [{ "id": "surv-education-1", "label": "Signes d'alerte" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "Accès limité aux molécules récentes et aux dispositifs. Les traitements de base restent efficaces s'ils sont titrés et suivis.",
+        "children": [
+          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "SGLT2 / ARNI" }] },
+          { "id": "mada-base", "label": "Traitement de base", "leaves": [{ "id": "mada-base-1", "label": "IEC, BB, MRA" }] },
+          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2021-HF",
+      "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+      "citation": "McDonagh TA, Metra M, Adamo M, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J. 2021 ; 42 (36) : 3599-3726. doi:10.1093/eurheartj/ehab368.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2021,
+      "version": "2021 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehab368",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition",
+        "Classification",
+        "Diagnostic",
+        "Traitement de fond",
+        "Insuffisance cardiaque aiguë"
+      ]
+    },
+    {
+      "id": "SRC-ESC-2023-HF",
+      "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+      "citation": "McDonagh TA, Metra M, Adamo M, et al. 2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J. 2023 ; 44 (37) : 3627-3639. doi:10.1093/eurheartj/ehad195.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2023,
+      "version": "mise à jour ciblée 2023",
+      "url": "https://doi.org/10.1093/eurheartj/ehad195",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Inhibiteurs de SGLT2",
+        "Fraction d'éjection modérément réduite",
+        "Carence martiale",
+        "Comorbidités"
+      ]
+    },
+    {
+      "id": "SRC-NICE-NG106",
+      "title": "Chronic heart failure in adults: diagnosis and management (NG106)",
+      "citation": "National Institute for Health and Care Excellence. Chronic heart failure in adults: diagnosis and management. NICE guideline NG106. Londres : NICE ; 2018, mise à jour 2023. Consulté le 18 octobre 2026.",
+      "organization": "National Institute for Health and Care Excellence (NICE)",
+      "year": 2018,
+      "version": "NG106, mise à jour 2023",
+      "url": "https://www.nice.org.uk/guidance/ng106",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Diagnostic",
+        "Peptides natriurétiques",
+        "Suivi",
+        "Éducation du patient"
+      ]
+    }
+  ]
+}
