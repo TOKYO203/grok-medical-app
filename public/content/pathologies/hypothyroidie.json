@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hypothyroidie",
+  "title": "Hypothyroïdie",
+  "subtitle": "Fiche de nosographie — endocrinologie et métabolisme",
+  "objective": "Identifier une insuffisance thyroïdienne par la stratégie biologique TSH puis T4 libre, en préciser le mécanisme, distinguer forme patente et forme fruste, et conduire un traitement substitutif correctement surveillé.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 101,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 142,
+      "localNumber": 101,
+      "sectionLabel": "Médecine",
+      "title": "Hypothyroïdie",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations citées en bibliographie. Le texte est une reformulation originale ; chaque section renvoie aux sources qu'elle mobilise.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La stratégie diagnostique retenue (TSH en première intention, T4 libre en seconde, anticorps anti-thyroperoxydase en appui) est celle des recommandations de l'American Thyroid Association de 2014 pour le traitement de l'hypothyroïdie, qui restent la référence internationale malgré leur ancienneté ; l'année de publication d'origine est conservée et n'a pas été antidatée. Ce millésime est assumé : aucune recommandation de même niveau ne l'a remplacée sur l'ensemble du sujet.",
+      "Le consensus de la Société française d'endocrinologie sur les dysthyroïdies du sujet âgé (2019, publié en 2020 dans Annales d'Endocrinologie) est cité pour la conduite chez le patient âgé et pour la prudence sur le traitement des formes frustes.",
+      "Les recommandations de l'American Thyroid Association sur la thyroïde et la grossesse (2017) sont citées pour les seuils gestationnels et la conduite en cas de grossesse débutée sous traitement.",
+      "Aucune posologie de lévothyroxine n'est présentée comme une dose moyenne à appliquer : seule la notion de dose de remplacement complet, rapportée au poids, est mentionnée comme repère théorique, avec la règle explicite d'une introduction progressive chez le patient âgé ou coronarien.",
+      "Les référentiels français de la Haute Autorité de santé et du Collège des Enseignants d'Endocrinologie n'étaient pas accessibles depuis l'environnement de rédaction ; ils ne sont donc pas cités.",
+      "La carence iodée est présentée comme un enjeu de santé publique sans chiffre national : aucun chiffre malgache vérifié n'était disponible."
+    ],
+    "qcChecklist": [
+      "Cohérence de la stratégie TSH puis T4 libre",
+      "Distinction hypothyroïdie patente, fruste et centrale",
+      "Seuils de traitement de l'hypothyroïdie fruste présentés comme individualisés",
+      "Absence de dose moyenne plaquée sur le patient âgé ou coronarien",
+      "Conduite en cas de grossesse vérifiée",
+      "Signes de gravité (coma myxœdémateux) identifiés"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypothyroïdie est un déficit d'action des hormones thyroïdiennes sur les tissus. Elle ralentit le métabolisme de base et modifie la thermogenèse, le transit, le rythme cardiaque, la trophicité cutanée et le fonctionnement cérébral. Aucun de ces signes n'est spécifique, ce qui explique pourquoi le diagnostic est souvent retardé de plusieurs mois."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans la grande majorité des cas, la glande thyroïde elle-même est en cause : c'est l'hypothyroïdie primaire, où la thyroïde ne produit plus assez d'hormone et où l'hypophyse réagit en augmentant la sécrétion de TSH. Beaucoup plus rarement, l'hypophyse ou l'hypothalamus sont défaillants : c'est l'hypothyroïdie centrale, où la TSH reste basse ou normale alors que la T4 libre est effondrée. Cette distinction n'est pas académique : elle commande l'interprétation des examens et la recherche d'autres déficits hormonaux."
+        },
+        {
+          "type": "paragraph",
+          "text": "La forme la plus fréquente dans les pays à apport iodé suffisant est la thyroïdite auto-immune de Hashimoto. Dans les régions carencées en iode, la carence reste un déterminant majeur, avec goitre et hypothyroïdie parfois profonde. Les deux situations peuvent coexister, et le clinicien doit savoir laquelle il traite, car la supplémentation iodée n'a pas la même place."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit une progression simple : reconnaître les signes, interpréter le couple TSH et T4 libre, nommer le mécanisme, puis traiter et surveiller sans créer d'hyperthyroïdie iatrogène."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les hormones thyroïdiennes agissent par l'intermédiaire de récepteurs nucléaires qui modulent la transcription de nombreux gènes. Leur effet est ubiquitaire : augmentation de la consommation d'oxygène, stimulation de la synthèse protéique, régulation du rythme cardiaque et de la motilité digestive, maturation cérébrale chez le fœtus et le nourrisson. Le déficit retentit donc sur tous les appareils, ce qui explique la diversité du tableau clinique."
+        },
+        {
+          "type": "paragraph",
+          "text": "La synthèse hormonale dépend d'un apport suffisant en iode : la thyroïde capte l'iodure, l'organifie et l'incorpore à la thyroglobuline, sous l'effet de la thyroperoxydase. Une carence iodée prolongée produit un goitre puis une hypothyroïdie par épuisement de la glande. Une auto-immunité produit une thyroïdite lymphocytaire, avec destruction progressive du parenchyme et anticorps anti-thyroperoxydase."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le retentissement général est celui d'un ralentissement : frilosité, prise de poids modérée alors que l'appétit diminue, constipation, bradycardie, peau sèche, voix rauque, ralentissement idéomoteur. Sur le plan biologique, on observe souvent une hypercholestérolémie, une élévation de la créatine kinase, une hyponatrémie par dilution et une anémie, volontiers macrocytaire. Aucun de ces éléments n'est pathognomonique."
+        },
+        {
+          "type": "table",
+          "columns": ["Niveau de l'atteinte", "TSH", "T4 libre", "Exemple de cause"],
+          "rows": [
+            ["Hypothyroïdie primaire patente", "Élevée", "Basse", "Thyroïdite de Hashimoto, post-chirurgicale, post-iode radioactif"],
+            ["Hypothyroïdie primaire fruste", "Élevée", "Normale", "Thyroïdite débutante, surtraitement par antithyroïdiens"],
+            ["Hypothyroïdie centrale", "Basse ou normale", "Basse", "Adénome hypophysaire, chirurgie ou radiothérapie hypophysaire"],
+            ["Sujet euthyroïdien malade", "Basse ou normale", "Basse ou normale", "Pathologie aiguë sévère, médicaments"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "La TSH n'est pas interprétable partout",
+          "text": "En situation d'agression aiguë, la TSH peut être transitoirement basse alors que le patient n'est pas hyperthyroïdien. À l'inverse, une TSH élevée isolée doit être confirmée à distance de l'épisode. Un bilan thyroïdien demandé au décours immédiat d'une hospitalisation se réinterprète souvent à froid."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Deux hormones, deux rôles",
+          "text": "La T4 est la prohormone principale ; la T3 est l'hormone active, majoritairement produite par conversion périphérique. C'est pourquoi le traitement substitutif repose sur la lévothyroxine seule : l'organisme assure lui-même la conversion."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La stratégie est hiérarchisée. La TSH est l'examen de première intention parce qu'elle est le reflet le plus sensible d'une insuffisance thyroïdienne périphérique : elle s'élève avant que la T4 libre ne sorte de l'intervalle de référence. Si la TSH est élevée, on dose la T4 libre : une T4 libre basse définit l'hypothyroïdie patente, une T4 libre normale définit l'hypothyroïdie fruste."
+        },
+        {
+          "type": "list",
+          "items": [
+            "TSH en première intention, à distance d'un épisode aigu et sans traitement interférent.",
+            "T4 libre si la TSH est anormale, ou d'emblée si l'on suspecte une atteinte hypophysaire.",
+            "Anticorps anti-thyroperoxydase pour documenter l'origine auto-immune, sans les répéter inutilement.",
+            "Échographie thyroïdienne si goitre, nodule ou doute sur la cause, jamais pour poser le diagnostic d'hypothyroïdie.",
+            "Bilan associé : cholestérol, créatine kinase, sodium, numération formule sanguine, selon le tableau."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Conduite", "Pourquoi"],
+          "rows": [
+            ["TSH élevée, T4 libre basse", "Hypothyroïdie patente : traiter", "Le déficit est biologique et cliniquement significatif"],
+            ["TSH élevée, T4 libre normale", "Hypothyroïdie fruste : discuter le traitement", "Le bénéfice dépend de l'âge, des symptômes et du projet de grossesse"],
+            ["TSH basse ou normale, T4 libre basse", "Suspicion d'hypothyroïdie centrale : explorer l'hypophyse", "Risque d'insuffisance surrénale associée"],
+            ["TSH élevée isolée, patient hospitalisé", "Contrôler à distance", "Résolution spontanée fréquente après l'épisode aigu"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Devant une hypothyroïdie centrale, l'ordre des explorations a une importance vitale : il faut rechercher une insuffisance surrénale avant d'instaurer la lévothyroxine, car l'hormone thyroïdienne accélère le catabolisme du cortisol et peut décompenser une insuffisance surrénale latente. Le bilan comporte donc cortisol et stimulation par la corticotrophine, ainsi que l'exploration des autres axes hypophysaires."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Coma myxœdémateux",
+          "text": "Une hypothermie, une bradycardie, une hypoventilation, une hyponatrémie profonde et une altération de la conscience chez un patient hypothyroïdien doivent faire évoquer un coma myxœdémateux. C'est une urgence vitale : réchauffement, ventilation, hydrocortisone avant l'hormone thyroïdienne, puis traitement substitutif en milieu réanimatoire."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pièges de dosage",
+          "text": "La biotine à forte dose, certains anticorps hétérophiles et un dosage réalisé pendant une maladie aiguë peuvent fausser la TSH. Une discordance entre clinique et biologie doit faire répéter l'examen dans un laboratoire différent plutôt que multiplier les traitements d'épreuve."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" },
+        { "id": "SRC-ATA-PREG-2017", "organization": "American Thyroid Association (ATA)", "title": "Guidelines of the ATA for the Diagnosis and Management of Thyroid Disease During Pregnancy and the Postpartum", "year": 2017, "url": "https://doi.org/10.1089/thy.2016.0457" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "En pratique, trois familles de causes couvrent presque tous les cas : l'auto-immunité, l'iatrogénie et la carence iodée. Les causes plus rares — infiltrations, médicaments, anomalies de développement, résistance hormonale — se discutent lorsque le contexte ne rentre dans aucune des trois."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thyroïdite de Hashimoto : cause la plus fréquente en zone iodée suffisante, anticorps anti-thyroperoxydase positifs, goitre ferme et indolore.",
+            "Iatrogénie : thyroïdectomie, iode radioactif, radiothérapie cervicale, amiodarone, lithium, interféron, inhibiteurs de tyrosine kinase, immunothérapie anticancéreuse.",
+            "Carence iodée : cause nutritionnelle majeure dans les régions sans programme de supplémentation, responsable de goitre et d'hypothyroïdie.",
+            "Hypothyroïdie congénitale : dépistage néonatal systématique, traitement immédiat pour préserver le développement neurologique.",
+            "Thyroïdite du post-partum : épisode souvent transitoire, avec risque d'évolution vers une hypothyroïdie définitive.",
+            "Hypothyroïdie centrale : tumeur, chirurgie, radiothérapie ou infiltration hypophysaire, souvent associée à d'autres déficits."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une hypothyroïdie, trois questions",
+          "text": "Y a-t-il un goitre ou une cicatrice cervicale ? Le patient prend-il un médicament susceptible d'interférer ? Vit-il dans une zone de carence iodée connue ? Ces réponses orientent la cause avant toute échographie."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Amiodarone : le piège des deux extrêmes",
+          "text": "L'amiodarone, riche en iode, peut provoquer une hypothyroïdie comme une hyperthyroïdie. Le bilan thyroïdien doit être fait avant l'instauration puis surveillé, et toute anomalie impose un avis plutôt qu'un ajustement empirique."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement et surveillance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est une substitution par lévothyroxine, qui reproduit l'hormone naturelle. La dose de remplacement complet est classiquement estimée à environ 1,6 microgramme par kilogramme et par jour chez l'adulte hypothyroïdien sans cardiopathie. Ce repère est théorique : il ne s'applique ni au sujet âgé, ni au coronarien, ni au patient très maigre ou obèse, chez qui l'introduction doit être progressive et la dose titrée sur la TSH."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Principe d'instauration", "Surveillance"],
+          "rows": [
+            ["Adulte jeune sans cardiopathie", "Dose de remplacement complète d'emblée, puis ajustement", "TSH à 6 à 8 semaines"],
+            ["Sujet âgé ou coronarien", "Dose faible initiale, augmentation par paliers espacés", "TSH, tolérance cardiaque, clinique"],
+            ["Grossesse", "Augmentation immédiate de la dose dès le diagnostic de grossesse", "TSH toutes les 4 semaines jusqu'au milieu du 2e trimestre"],
+            ["Hypothyroïdie centrale", "Ajustement sur la T4 libre, pas sur la TSH", "T4 libre, cortisol, clinique"],
+            ["Hypothyroïdie fruste", "Décision individualisée", "TSH à 6 mois, puis annuelle si abstention"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les modalités de prise conditionnent l'efficacité. La lévothyroxine se prend à jeun, avec un délai avant le petit-déjeuner, et à distance du calcium, du fer, des pansements gastriques et des inhibiteurs de la pompe à protons, qui réduisent son absorption. Un changement de spécialité ou de dosage doit être signalé, car les préparations ne sont pas strictement interchangeables pour tous les patients."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ne pas traiter une TSH élevée isolée chez un patient asymptomatique très âgé sans discussion : le risque d'hyperthyroïdie iatrogène est réel.",
+            "Traiter une hypothyroïdie fruste si la TSH dépasse nettement le seuil supérieur, en cas de symptômes évocateurs, d'anticorps positifs ou de projet de grossesse.",
+            "Contrôler la TSH 6 à 8 semaines après toute modification de dose, pas avant.",
+            "Devant une TSH qui reste élevée malgré une dose élevée, vérifier l'observance et les interactions avant d'augmenter.",
+            "Chez la femme enceinte, la cible de TSH est plus basse que hors grossesse et doit être interprétée avec les seuils du trimestre."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le surtraitement n'est pas anodin",
+          "text": "Une TSH abaissée sous lévothyroxine expose à la fibrillation atriale et à la perte osseuse, en particulier chez le sujet âgé. La cible est une TSH dans l'intervalle de référence, pas une TSH effondrée."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Grossesse : ne jamais attendre",
+          "text": "Chez une femme hypothyroïdienne qui débute une grossesse, la dose doit être augmentée sans attendre le résultat biologique, puis ajustée sur des TSH répétées. Une hypothyroïdie non traitée augmente le risque de fausse couche et de complications obstétricales."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance au long cours est simple mais exige de la méthode : TSH à 6 à 8 semaines après chaque changement, puis une à deux fois par an une fois l'équilibre obtenu. Chez le patient âgé, la fréquence peut être espacée, mais toute modification d'état général, d'alimentation ou de traitement concomitant justifie un contrôle."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" },
+        { "id": "SRC-ATA-PREG-2017", "organization": "American Thyroid Association (ATA)", "title": "Guidelines of the ATA for the Diagnosis and Management of Thyroid Disease During Pregnancy", "year": 2017, "url": "https://doi.org/10.1089/thy.2016.0457" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et santé publique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention primaire de la thyroïdite auto-immune n'est pas connue. En revanche, deux actions sont efficaces et peu coûteuses : la supplémentation universelle en iode du sel, qui prévient le goitre et l'hypothyroïdie carentielle, et le dépistage néonatal de l'hypothyroïdie congénitale, qui évite un retard mental irréversible lorsqu'il est suivi d'un traitement précoce."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention secondaire consiste à ne pas créer la maladie : limiter les thyroïdectomies inutiles, surveiller la fonction thyroïdienne sous amiodarone, lithium et immunothérapie, et contrôler la TSH chez la femme ayant un projet de grossesse lorsqu'elle a des antécédents thyroïdiens."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Trois populations à dépister",
+          "text": "Femme avec projet de grossesse et antécédent thyroïdien, patient sous amiodarone ou lithium, et patient porteur d'une autre maladie auto-immune. Le reste du dépistage de masse n'est pas recommandé."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-PREG-2017", "organization": "American Thyroid Association (ATA)", "title": "Guidelines of the ATA for the Diagnosis and Management of Thyroid Disease During Pregnancy", "year": 2017, "url": "https://doi.org/10.1089/thy.2016.0457" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypothyroïdie se diagnostique par la biologie : TSH élevée avec T4 libre basse dans la forme primaire patente. La clinique aide à décider qui traiter, elle ne remplace pas les dosages. La cause est le plus souvent auto-immune ou iatrogène ; la carence iodée reste un déterminant de santé publique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement est simple en apparence et exigeant dans l'exécution : prise à jeun, distance des interactions, titration par paliers, contrôle de la TSH à distance. Les deux erreurs symétriques sont de traiter trop fort un sujet âgé et de laisser évoluer une hypothyroïdie patente chez une femme enceinte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPO-2014", "organization": "American Thyroid Association (ATA)", "title": "Guidelines for the Treatment of Hypothyroidism", "year": 2014, "url": "https://doi.org/10.1089/thy.2014.0028" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références retenues sont consultables en ligne et ont été vérifiées à la date indiquée. Leur millésime est conservé tel quel."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Jonklaas J, et al. Guidelines for the Treatment of Hypothyroidism: prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement. Thyroid 2014. doi:10.1089/thy.2014.0028.",
+            "Société Française d'Endocrinologie. Management of thyroid dysfunctions in the elderly. Consensus statement 2019, version longue. Annales d'Endocrinologie 2020. doi:10.1016/j.ando.2020.04.010.",
+            "Alexander EK, et al. 2017 Guidelines of the American Thyroid Association for the Diagnosis and Management of Thyroid Disease During Pregnancy and the Postpartum. Thyroid 2017. doi:10.1089/thy.2016.0457."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Vérifier avant d'appliquer",
+          "text": "Les seuils de TSH varient selon le laboratoire et le trimestre de grossesse. Les valeurs citées sont des repères de recommandation, à confronter aux intervalles de référence locaux."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-tsh-t4",
+      "label": "TSH d'abord",
+      "intro": "Un couple, deux lectures",
+      "entries": [
+        { "key": "1", "term": "TSH en première intention : le test le plus sensible d'une atteinte périphérique." },
+        { "key": "2", "term": "T4 libre en second : elle sépare la forme patente de la forme fruste." },
+        { "key": "3", "term": "Anticorps anti-thyroperoxydase : ils documentent la cause auto-immune." },
+        { "key": "4", "term": "Échographie seulement si goitre, nodule ou doute étiologique." }
+      ],
+      "note": "Une T4 libre basse avec TSH basse ou normale impose de chercher une cause centrale."
+    },
+    {
+      "id": "mn-hypo",
+      "label": "FROID",
+      "intro": "Les signes d'appel de l'hypothyroïdie",
+      "entries": [
+        { "key": "F", "term": "Fatigue et frilosité, avec ralentissement idéomoteur." },
+        { "key": "R", "term": "Rythme ralenti : bradycardie, constipation, voix rauque." },
+        { "key": "O", "term": "Œdème et peau sèche, prise de poids modérée malgré un appétit diminué." },
+        { "key": "I", "term": "Irrégularités menstruelles et troubles de l'humeur." },
+        { "key": "D", "term": "Dyslipidémie, créatine kinase élevée, hyponatrémie, anémie." }
+      ],
+      "note": "Chez le sujet âgé, le tableau se résume souvent à une asthénie et à un ralentissement cognitif."
+    },
+    {
+      "id": "mn-levo",
+      "label": "LÉVO",
+      "intro": "Les règles d'or de la lévothyroxine",
+      "entries": [
+        { "key": "L", "term": "Loin des repas : prise à jeun, avec un délai avant le petit-déjeuner." },
+        { "key": "E", "term": "Écarter les interactions : calcium, fer, pansements gastriques, inhibiteurs de la pompe à protons." },
+        { "key": "V", "term": "Vérifier la TSH 6 à 8 semaines après chaque changement de dose." },
+        { "key": "O", "term": "Observer le risque de surtraitement : fibrillation atriale, perte osseuse." }
+      ],
+      "note": "Chez le coronarien ou le sujet très âgé, l'introduction se fait par paliers."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quel est l'examen de première intention devant une suspicion d'hypothyroïdie ?", "back": "La TSH, complétée par la T4 libre si elle est anormale.", "tags": ["diagnostic"] },
+    { "id": "fc-02", "front": "Comment définit-on une hypothyroïdie patente sur le plan biologique ?", "back": "TSH élevée avec T4 libre basse.", "tags": ["diagnostic"] },
+    { "id": "fc-03", "front": "Comment définit-on une hypothyroïdie fruste ?", "back": "TSH élevée avec T4 libre dans l'intervalle de référence.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Quelle particularité biologique caractérise une hypothyroïdie centrale ?", "back": "Une TSH basse ou normale avec une T4 libre basse, signant une atteinte hypophysaire ou hypothalamique.", "tags": ["diagnostic"] },
+    { "id": "fc-05", "front": "Pourquoi faut-il explorer la fonction surrénale avant de traiter une hypothyroïdie centrale ?", "back": "L'hormone thyroïdienne accélère le catabolisme du cortisol et peut décompenser une insuffisance surrénale latente ; l'hydrocortisone précède la lévothyroxine.", "tags": ["urgence"] },
+    { "id": "fc-06", "front": "Quelle est la cause la plus fréquente d'hypothyroïdie en zone iodée suffisante ?", "back": "La thyroïdite chronique auto-immune de Hashimoto, avec anticorps anti-thyroperoxydase.", "tags": ["étiologie"] },
+    { "id": "fc-07", "front": "Quels médicaments exposent à une hypothyroïdie ?", "back": "L'amiodarone, le lithium, l'interféron, les inhibiteurs de tyrosine kinase et les immunothérapies anticancéreuses.", "tags": ["étiologie"] },
+    { "id": "fc-08", "front": "Quand contrôler la TSH après une modification de dose de lévothyroxine ?", "back": "Après 6 à 8 semaines, le temps que l'équilibre soit atteint.", "tags": ["traitement"] },
+    { "id": "fc-09", "front": "Pourquoi la lévothyroxine doit-elle être prise à jeun et à distance du calcium et du fer ?", "back": "Ces substances chélatent l'hormone et réduisent son absorption intestinale.", "tags": ["traitement"] },
+    { "id": "fc-10", "front": "Quel est le risque d'un surtraitement par lévothyroxine chez le sujet âgé ?", "back": "Fibrillation atriale et accélération de la perte osseuse.", "tags": ["piège"] },
+    { "id": "fc-11", "front": "Quelle conduite adopter chez une femme hypothyroïdienne qui débute une grossesse ?", "back": "Augmenter la dose sans attendre, puis contrôler la TSH toutes les 4 semaines avec des cibles gestationnelles.", "tags": ["urgence"] },
+    { "id": "fc-12", "front": "Quels signes évoquent un coma myxœdémateux ?", "back": "Hypothermie, bradycardie, hypoventilation, hyponatrémie et altération de la conscience chez un hypothyroïdien.", "tags": ["urgence"] },
+    { "id": "fc-13", "front": "Quel est l'intérêt du dépistage néonatal de l'hypothyroïdie congénitale ?", "back": "Prévenir un retard de développement neurologique irréversible grâce à un traitement substitutif précoce.", "tags": ["prévention"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Hypothyroïdie",
+      "detail": "Insuffisance d'action des hormones thyroïdiennes. La TSH est le test d'entrée, la T4 libre fait la gravité, la cause est le plus souvent auto-immune ou iatrogène, et le traitement substitutif se surveille par la TSH."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Un ralentissement diffus, sans signe pathognomonique, souvent banalisé.",
+        "children": [
+          {
+            "id": "rec-clinique",
+            "label": "Clinique",
+            "detail": "Frilosité, fatigue, prise de poids, constipation, peau sèche, bradycardie.",
+            "leaves": [
+              { "id": "rec-clinique-1", "label": "Sujet âgé", "detail": "Asthénie et troubles cognitifs." },
+              { "id": "rec-clinique-2", "label": "Femme", "detail": "Ménorragies, infertilité." }
+            ]
+          },
+          {
+            "id": "rec-biologie",
+            "label": "Biologie",
+            "detail": "Hypercholestérolémie, créatine kinase élevée, hyponatrémie, anémie macrocytaire.",
+            "leaves": [
+              { "id": "rec-biologie-1", "label": "Piège", "detail": "Anémie non expliquée." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "explorer",
+        "label": "Explorer",
+        "tone": "retenir",
+        "detail": "TSH puis T4 libre, avec une interprétation conditionnée au contexte.",
+        "children": [
+          {
+            "id": "exp-couple",
+            "label": "Couple hormonal",
+            "detail": "TSH élevée avec T4 libre basse : patente ; T4 libre normale : fruste.",
+            "leaves": [
+              { "id": "exp-couple-1", "label": "Centrale", "detail": "TSH basse ou normale." },
+              { "id": "exp-couple-2", "label": "Réflexe", "detail": "Pas d'échographie pour diagnostiquer." }
+            ]
+          },
+          {
+            "id": "exp-pieges",
+            "label": "Pièges",
+            "detail": "Maladie aiguë, biotine, anticorps hétérophiles, grossesse.",
+            "leaves": [
+              { "id": "exp-pieges-1", "label": "Contrôle", "detail": "Répéter à distance." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "causes",
+        "label": "Causes",
+        "tone": "prudence",
+        "detail": "Trois familles couvrent presque tous les cas.",
+        "children": [
+          {
+            "id": "cau-autoimmun",
+            "label": "Auto-immunité",
+            "detail": "Hashimoto, thyroïdite du post-partum, anticorps anti-thyroperoxydase.",
+            "leaves": [
+              { "id": "cau-autoimmun-1", "label": "Goitre", "detail": "Ferme, indolore." }
+            ]
+          },
+          {
+            "id": "cau-iatrogenie",
+            "label": "Iatrogénie",
+            "detail": "Chirurgie, iode radioactif, radiothérapie, amiodarone, lithium, immunothérapie.",
+            "leaves": [
+              { "id": "cau-iatrogenie-1", "label": "Amiodarone", "detail": "Hypo ou hyperthyroïdie." }
+            ]
+          },
+          {
+            "id": "cau-iode",
+            "label": "Carence iodée",
+            "detail": "Cause nutritionnelle, goitre, prévention par le sel iodé.",
+            "leaves": [
+              { "id": "cau-iode-1", "label": "Congénitale", "detail": "Dépistage néonatal." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "memo",
+        "detail": "Lévothyroxine, dose titrée sur la TSH, avec des règles de prise strictes.",
+        "children": [
+          {
+            "id": "tra-dose",
+            "label": "Dose",
+            "detail": "Remplacement complet chez l'adulte jeune, paliers chez le sujet âgé ou coronarien.",
+            "leaves": [
+              { "id": "tra-dose-1", "label": "Grossesse", "detail": "Augmentation immédiate." },
+              { "id": "tra-dose-2", "label": "Centrale", "detail": "Ajuster sur la T4 libre." }
+            ]
+          },
+          {
+            "id": "tra-prise",
+            "label": "Prise",
+            "detail": "À jeun, avant le petit-déjeuner, à distance du calcium, du fer et des antisécrétoires.",
+            "leaves": [
+              { "id": "tra-prise-1", "label": "Observance", "detail": "Vérifier avant d'augmenter." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "La cible est une TSH dans l'intervalle, pas une TSH effondrée.",
+        "children": [
+          {
+            "id": "sur-tsh",
+            "label": "TSH",
+            "detail": "À 6 à 8 semaines après chaque changement, puis une à deux fois par an.",
+            "leaves": [
+              { "id": "sur-tsh-1", "label": "Surtraitement", "detail": "Fibrillation atriale, ostéopénie." }
+            ]
+          },
+          {
+            "id": "sur-fruste",
+            "label": "Forme fruste",
+            "detail": "Décision individualisée selon l'âge, les symptômes et le projet de grossesse.",
+            "leaves": [
+              { "id": "sur-fruste-1", "label": "Âge avancé", "detail": "Abstention souvent préférable." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Deux situations menacent la vie ou le développement.",
+        "children": [
+          {
+            "id": "urg-coma",
+            "label": "Coma myxœdémateux",
+            "detail": "Hypothermie, bradycardie, hyponatrémie, troubles de conscience : réanimation, hydrocortisone puis hormone.",
+            "leaves": [
+              { "id": "urg-coma-1", "label": "Ordre", "detail": "Cortisol avant lévothyroxine." }
+            ]
+          },
+          {
+            "id": "urg-grossesse",
+            "label": "Grossesse",
+            "detail": "Hypothyroïdie non traitée : fausse couche et complications obstétricales.",
+            "leaves": [
+              { "id": "urg-grossesse-1", "label": "Délai", "detail": "Ne pas attendre la biologie." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ATA-HYPO-2014",
+      "title": "Guidelines for the Treatment of Hypothyroidism",
+      "citation": "Jonklaas J, Bianco AC, Bauer AJ, et al. Guidelines for the Treatment of Hypothyroidism: Prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement. Thyroid 2014 ; 24 (12) : 1670-1751. doi:10.1089/thy.2014.0028.",
+      "organization": "American Thyroid Association (ATA)",
+      "year": 2014,
+      "url": "https://doi.org/10.1089/thy.2014.0028",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Stratégie diagnostique", "Traitement substitutif", "Surveillance", "Causes"]
+    },
+    {
+      "id": "SRC-SFE-DYSTHY-2019",
+      "title": "Management of thyroid dysfunctions in the elderly — French Endocrine Society consensus statement 2019 (long version)",
+      "citation": "Société Française d'Endocrinologie. Management of thyroid dysfunctions in the elderly. French Endocrine Society consensus statement 2019. Long version. Annales d'Endocrinologie 2020. doi:10.1016/j.ando.2020.04.010.",
+      "organization": "Société Française d'Endocrinologie (SFE)",
+      "year": 2020,
+      "version": "consensus 2019, version longue",
+      "url": "https://doi.org/10.1016/j.ando.2020.04.010",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Conduite chez le sujet âgé", "Formes frustes", "Prudence du surtraitement"]
+    },
+    {
+      "id": "SRC-ATA-PREG-2017",
+      "title": "2017 Guidelines of the American Thyroid Association for the Diagnosis and Management of Thyroid Disease During Pregnancy and the Postpartum",
+      "citation": "Alexander EK, Pearce EN, Brent GA, et al. 2017 Guidelines of the American Thyroid Association for the Diagnosis and Management of Thyroid Disease During Pregnancy and the Postpartum. Thyroid 2017 ; 27 (3) : 315-389. doi:10.1089/thy.2016.0457.",
+      "organization": "American Thyroid Association (ATA)",
+      "year": 2017,
+      "url": "https://doi.org/10.1089/thy.2016.0457",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Hypothyroïdie et grossesse", "Dépistage ciblé", "Seuils gestationnels"]
+    }
+  ]
+}

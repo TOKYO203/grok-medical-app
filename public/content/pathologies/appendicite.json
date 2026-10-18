@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "appendicite",
+  "title": "Appendicite aiguë",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Reconnaître une appendicite aiguë par la migration de la douleur et les signes de fosses iliaque droite, savoir quand l'imagerie est nécessaire, et choisir entre appendicectomie et antibiothérapie sans méconnaître les formes compliquées.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 16,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 191,
+      "localNumber": 16,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Appendicite aiguë",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de la World Society of Emergency Surgery, de la revue de référence du Lancet et de l'essai randomisé comparant antibiotiques et appendicectomie. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche présente l'appendicectomie comme le traitement de référence et l'antibiothérapie seule comme une option discutée dans des formes sélectionnées, non compliquées, avec information du patient. Cette position suit les recommandations WSES 2020 et tient compte du taux de récidive observé dans l'essai CODA (2020) : elle ne consiste pas à présenter les deux options comme équivalentes.",
+      "Aucune posologie ni durée d'antibiotique n'est donnée pour l'appendicite : les protocoles varient selon l'écologie, la forme anatomique et le pays. Seuls les principes de couverture sont exposés.",
+      "Les scores cliniques (Alvarado, score de l'Association for the Surgery of Trauma) sont mentionnés comme aides à la décision, avec la mise en garde explicite qu'ils ne remplacent pas l'examen clinique et ne doivent pas retarder l'avis chirurgical.",
+      "La place de l'imagerie est présentée de façon nuancée : échographie chez l'enfant, la femme enceinte et le sujet mince, tomodensitométrie chez l'adulte et dans les présentations atypiques, avec la règle de ne pas retarder la chirurgie pour obtenir un examen chez un patient septique.",
+      "Les formes particulières — enfant, femme enceinte, sujet âgé, immunodéprimé — sont traitées séparément car elles constituent l'essentiel des erreurs diagnostiques.",
+      "La tumeur appendiculaire du sujet âgé est signalée comme un piège : une appendicite « atypique » après 50 ans peut révéler une néoplasie, et l'analyse histologique de la pièce est indispensable.",
+      "La page grand public de la Société Nationale Française de Gastro-Entérologie a été consultée pour le vocabulaire, mais n'est pas citée comme source scientifique.",
+      "Les recommandations de la Haute Autorité de santé n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Migration de la douleur et signes de fosse iliaque droite",
+      "Place des scores cliniques sans excès de confiance",
+      "Indications et limites de l'imagerie",
+      "Appendicectomie comme référence, antibiothérapie comme option sélectionnée",
+      "Formes compliquées : péritonite, abcès, plastron",
+      "Formes particulières : enfant, grossesse, sujet âgé",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicite aiguë est l'inflammation de l'appendice iléo-cæcal. C'est l'urgence chirurgicale abdominale la plus fréquente et l'une des premières causes de douleur abdominale aiguë chez l'adulte jeune. Son diagnostic paraît simple, et c'est précisément ce qui le rend dangereux : les présentations atypiques sont nombreuses, et une appendicite méconnue évolue vers la perforation et la péritonite."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie commence par une obstruction de la lumière appendiculaire, souvent par un fécalithe ou une hyperplasie lymphoïde. La distension, puis l'ischémie de la paroi, permettent l'invasion bactérienne. C'est cette séquence qui explique la douleur initiale péri-ombilicale, de type viscéral, puis la douleur de fosse iliaque droite, de type pariétal, lorsque l'inflammation atteint le péritoine."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement de référence reste l'appendicectomie. L'antibiothérapie seule est une option dans des formes sélectionnées, non compliquées, à condition d'informer le patient du risque de récidive et d'assurer un suivi. Cette nuance est importante : elle ne transforme pas l'appendicite en maladie médicale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit la chronologie de la consultation : reconnaître la douleur, examiner, décider de l'imagerie, opérer ou traiter, puis surveiller."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" },
+        { "id": "SRC-LANCET-APPENDICITIS-2015", "organization": "The Lancet", "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management", "year": 2015, "url": "https://doi.org/10.1016/S0140-6736(15)00275-5" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendice est un diverticule du cæcum, riche en tissu lymphoïde. Son obstruction est le mécanisme dominant : un fécalithe, une hyperplasie lymphoïde — surtout chez l'enfant et l'adulte jeune — ou, chez le sujet âgé, une tumeur. La pression intraluminale augmente, la vascularisation de la paroi se dégrade, la flore digestive envahit la paroi, et l'évolution se fait vers la perforation en quelques heures à quelques jours."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette séquence explique la clinique. La distension appendiculaire donne une douleur viscérale mal localisée, péri-ombilicale, accompagnée de nausées et d'anorexie. Lorsque l'inflammation atteint le péritoine pariétal, la douleur se fixe en fosse iliaque droite et devient précise, reproduite par la palpation et la décompression."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'âge modifie la présentation. Chez l'enfant, les signes digestifs dominent et l'examen est difficile. Chez la femme enceinte, l'utérus gravide déplace l'appendice vers le haut et la droite, ce qui déplace la douleur. Chez le sujet âgé et l'immunodéprimé, la fièvre et la défense peuvent manquer, alors que la perforation est plus fréquente : c'est là que les erreurs se paient le plus cher."
+        },
+        {
+          "type": "table",
+          "columns": ["Signe", "Mécanisme", "Valeur pratique"],
+          "rows": [
+            ["Douleur péri-ombilicale puis fosse iliaque droite", "Passage de la douleur viscérale à la douleur pariétale", "Signe le plus évocateur"],
+            ["Anorexie", "Réflexe digestif", "Très fréquente, mais non spécifique"],
+            ["Défense en fosse iliaque droite", "Irritation péritonéale localisée", "Signe de gravité locale"],
+            ["Signe de Blumberg", "Douleur à la décompression", "Évoque une irritation péritonéale"],
+            ["Température modérée", "Réponse inflammatoire", "Une fièvre élevée évoque une complication"],
+            ["Leucocytose et CRP", "Inflammation", "Aident au doute, ne décident pas seuls"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La migration de la douleur est le meilleur signe",
+          "text": "Une douleur qui commence autour de l'ombilic et se déplace vers la fosse iliaque droite en quelques heures a plus de valeur qu'une douleur déjà fixée, qui peut relever de nombreuses causes."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pas de fièvre n'exclut rien",
+          "text": "L'absence de fièvre est commune au début et fréquente chez le sujet âgé. C'est la douleur, la défense et l'évolution qui doivent alerter."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-LANCET-APPENDICITIS-2015", "organization": "The Lancet", "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management", "year": 2015, "url": "https://doi.org/10.1016/S0140-6736(15)00275-5" },
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est d'abord clinique. L'interrogatoire précise le début, la migration, l'anorexie, les vomissements, les antécédents, les traitements, une grossesse possible. L'examen recherche une défense localisée, un signe de Blumberg, une douleur provoquée par la toux ou la marche. Chez la femme, l'examen pelvien et un test de grossesse sont systématiques devant une douleur de fosse iliaque droite."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hémogramme et CRP : hyperleucocytose et élévation de la CRP orientent, mais des valeurs normales n'éliminent pas une appendicite débutante.",
+            "Bandelette urinaire et examen cytobactériologique si doute : une infection urinaire peut mimer une appendicite.",
+            "Test de grossesse chez la femme en âge de procréer : systématique.",
+            "Échographie abdominale : première intention chez l'enfant, la femme enceinte et le sujet mince.",
+            "Tomodensitométrie abdomino-pelvienne : meilleure performance chez l'adulte, en cas de doute, de présentation atypique ou d'obésité.",
+            "Imagerie par résonance magnétique : alternative chez la femme enceinte lorsque l'échographie n'est pas concluante.",
+            "Avis chirurgical : à demander tôt, même en cas de doute."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Diagnostic différentiel", "Distinction", "Examen clé"],
+          "rows": [
+            ["Adénolymphite mésentérique", "Contexte viral, enfant, douleur diffuse", "Échographie"],
+            ["Gastro-entérite", "Diarrhée, vomissements familiaux, douleur diffuse", "Clinique"],
+            ["Maladie de Crohn", "Douleur chronique, diarrhée, amaigrissement", "Scanner, iléocoloscopie"],
+            ["Colique néphrétique", "Douleur lombaire irradiante, agitation", "Échographie, scanner"],
+            ["Salpingite, torsion ovarienne", "Douleur pelvienne, pertes, contexte gynécologique", "Échographie pelvienne"],
+            ["Grossesse extra-utérine", "Retard de règles, douleur, métrorragies", "Test de grossesse, échographie"],
+            ["Cholécystite", "Douleur de l'hypochondre droit", "Échographie abdominale"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les scores cliniques existent et sont utiles pour structurer l'évaluation, en particulier en soins primaires. Ils ne remplacent ni l'examen répété ni l'avis chirurgical, et un score bas ne doit pas faire renvoyer un patient dont la douleur évolue. C'est l'évolution dans le temps qui a la meilleure valeur diagnostique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Péritonite",
+          "text": "Une défense généralisée, un ventre contracturé, une hypotension ou une altération de l'état général évoquent une perforation avec péritonite. Le patient relève d'une réanimation, d'une antibiothérapie et d'une chirurgie sans délai."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Plastron et abcès",
+          "text": "Une masse palpable en fosse iliaque droite avec fièvre persistante évoque un plastron ou un abcès. La conduite diffère : drainage et antibiothérapie pour un abcès, discussion du moment opératoire pour un plastron."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" },
+        { "id": "SRC-LANCET-APPENDICITIS-2015", "organization": "The Lancet", "title": "Acute appendicitis: modern understanding", "year": 2015, "url": "https://doi.org/10.1016/S0140-6736(15)00275-5" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes anatomocliniques et situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicite n'est pas une maladie unique. Sa position anatomique varie — pelvienne, rétro-cæcale, sous-hépatique — et chacune donne une sémiologie différente : signes urinaires pour une appendicite pelvienne, douleur lombaire pour une appendicite rétro-cæcale, douleur de l'hypochondre droit pour une appendicite sous-hépatique. C'est une cause classique d'errance diagnostique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Appendicite non compliquée : inflammation limitée à l'appendice, pas d'abcès ni de perforation.",
+            "Appendicite compliquée : perforation, abcès, péritonite localisée ou généralisée.",
+            "Plastron appendiculaire : masse inflammatoire enkystée, souvent d'évolution subaiguë.",
+            "Appendicite de l'enfant : signes digestifs et fièvre au premier plan, examen difficile.",
+            "Appendicite de la femme enceinte : douleur déplacée, risque fœtal, prise en charge multidisciplinaire.",
+            "Appendicite du sujet âgé : signes atténués, perforation plus fréquente, tumeur sous-jacente possible.",
+            "Appendicite de l'immunodéprimé : présentation trompeuse, évolution rapide."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Après 50 ans, penser néoplasie",
+          "text": "Une appendicite révélatrice d'une tumeur appendiculaire n'est pas exceptionnelle chez le sujet âgé. L'analyse histologique de la pièce d'appendicectomie est systématique, et une tumeur impose un suivi spécifique."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Grossesse : opérer n'est pas dangereux, attendre l'est",
+          "text": "L'appendicectomie, idéalement par voie cœlioscopique selon le terme, est réalisable pendant la grossesse. Le risque principal est celui d'une appendicite compliquée non traitée, qui menace la mère et le fœtus."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicectomie est le traitement de référence. La voie cœlioscopique est privilégiée lorsqu'elle est disponible, car elle réduit les douleurs postopératoires et la durée d'hospitalisation. En cas d'appendicite compliquée avec péritonite, la chirurgie est associée à une antibiothérapie et à une réanimation. L'acte peut être réalisé à froid après un plastron, selon l'évolution et l'équipe."
+        },
+        {
+          "type": "table",
+          "columns": ["Forme", "Traitement de référence", "Points de vigilance"],
+          "rows": [
+            ["Appendicite non compliquée", "Appendicectomie, laparoscopique si possible", "Antibiothérapie périopératoire, information sur l'option médicale"],
+            ["Appendicite compliquée", "Appendicectomie, lavage, antibiothérapie", "Réanimation, nutrition, surveillance des abcès"],
+            ["Plastron", "Antibiothérapie et drainage si abcès, appendicectomie différée discutée", "Risque de récidive et de tumeur sous-jacente"],
+            ["Péritonite", "Chirurgie en urgence, réanimation", "Choc septique, défaillance multiviscérale"],
+            ["Option antibiotique seule", "Formes sélectionnées, non compliquées, patient informé", "Récidive fréquente, suivi organisé"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'antibiothérapie seule a été étudiée dans des essais randomisés et peut être proposée à des patients sélectionnés, porteurs d'une appendicite non compliquée confirmée par l'imagerie, dans un contexte où le suivi est possible. Elle ne dispense pas d'une réévaluation clinique et d'une chirurgie en cas d'échec ou de récidive, qui est fréquente à quelques années. Le patient doit comprendre ce choix."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ne pas retarder la chirurgie pour obtenir une imagerie chez un patient septique ou péritonéal.",
+            "Antibiothérapie périopératoire adaptée à l'écologie locale, sans prolongation injustifiée.",
+            "Analgésie efficace : elle ne masque pas une appendicite et ne doit pas être retardée.",
+            "Reprise précoce de l'alimentation et mobilisation selon les protocoles.",
+            "Surveillance postopératoire : fièvre, douleur, transit, cicatrice.",
+            "Analyse histologique systématique de la pièce opératoire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre le matin",
+          "text": "Une appendicite évolutive ne se surveille pas à domicile. La douleur croissante, la défense et la fièvre imposent une réévaluation immédiate, car le risque de perforation augmente avec le délai."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Les antibiotiques ne remplacent pas le geste en cas de complication",
+          "text": "Devant une péritonite ou un abcès volumineux, l'antibiothérapie seule ne suffit pas : le contrôle de la source est indispensable."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" },
+        { "id": "SRC-CODA-2020", "organization": "New England Journal of Medicine", "title": "A Randomized Trial Comparing Antibiotics with Appendectomy for Appendicitis", "year": 2020, "url": "https://doi.org/10.1056/NEJMoa2014320" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicite ne se prévient pas par un traitement préventif identifié. La prévention consiste à réduire les formes compliquées : consulter tôt, réexaminer, opérer sans délai en cas de doute évolutif, et ne pas banaliser une douleur de fosse iliaque droite traitée par antispasmodiques. La prise en charge de la douleur ne doit pas retarder l'avis chirurgical."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les suites d'une appendicectomie simple sont habituellement courtes. Les complications à connaître sont l'infection pariétale, l'abcès intra-abdominal, l'iléus prolongé, l'occlusion sur bride et, plus rarement, la fistule du moignon. Une fièvre persistante après chirurgie impose une imagerie à la recherche d'un abcès."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Fièvre après appendicectomie",
+          "text": "Une fièvre qui persiste au-delà des premiers jours doit faire rechercher une collection intra-abdominale ou une infection pariétale, par examen et imagerie. Ce n'est pas une réponse normale à la chirurgie."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicite aiguë se reconnaît à une douleur qui migre vers la fosse iliaque droite, avec anorexie et défense localisée. Le diagnostic est clinique ; l'imagerie aide en cas de doute, sans retarder la chirurgie chez un patient septique."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'appendicectomie reste le traitement de référence, en particulier dans les formes compliquées. L'antibiothérapie seule est une option discutée dans les formes non compliquées sélectionnées, avec information du patient et suivi rapproché, en raison du risque de récidive."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-APPENDICITIS-2020", "organization": "World Society of Emergency Surgery (WSES)", "title": "Diagnosis and treatment of acute appendicitis: 2020 update", "year": 2020, "url": "https://doi.org/10.1186/s13017-020-00306-3" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Di Saverio S, Podda M, De Simone B, et al. Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines. World Journal of Emergency Surgery 2020. doi:10.1186/s13017-020-00306-3.",
+            "Bhangu A, Søreide K, Di Saverio S, et al. Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management. The Lancet 2015. doi:10.1016/S0140-6736(15)00275-5.",
+            "CODA Collaborative. A Randomized Trial Comparing Antibiotics with Appendectomy for Appendicitis. New England Journal of Medicine 2020. doi:10.1056/NEJMoa2014320."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-CODA-2020", "organization": "New England Journal of Medicine", "title": "A Randomized Trial Comparing Antibiotics with Appendectomy for Appendicitis", "year": 2020, "url": "https://doi.org/10.1056/NEJMoa2014320" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-migration",
+      "label": "MIGRE",
+      "intro": "La sémiologie qui doit faire évoquer le diagnostic",
+      "entries": [
+        { "key": "M", "term": "Migration de la douleur de l'ombilic vers la fosse iliaque droite." },
+        { "key": "I", "term": "Inappétence et nausées, souvent au premier plan." },
+        { "key": "G", "term": "Gêne à la marche et à la toux, signe d'irritation péritonéale." },
+        { "key": "R", "term": "Réaction fébrile modérée, parfois absente." },
+        { "key": "E", "term": "Examen répété : c'est l'évolution qui tranche." }
+      ],
+      "note": "Une douleur déjà fixée en fosse iliaque droite a moins de valeur diagnostique qu'une douleur qui a migré."
+    },
+    {
+      "id": "mn-formes",
+      "label": "POSITION",
+      "intro": "Les présentations atypiques selon la position de l'appendice",
+      "entries": [
+        { "key": "P", "term": "Pelvienne : signes urinaires, douleur pelvienne, toucher rectal douloureux." },
+        { "key": "O", "term": "Obscure : douleur diffuse, diagnostic retardé." },
+        { "key": "S", "term": "Sous-hépatique : douleur de l'hypochondre droit." },
+        { "key": "I", "term": "Iliaque : présentation classique." },
+        { "key": "T", "term": "Tardive : plastron, abcès, péritonite." },
+        { "key": "I", "term": "Immunodéprimé : signes atténués." },
+        { "key": "O", "term": "Obèse : examen difficile, imagerie utile." },
+        { "key": "N", "term": "Nouveau-né et enfant : vomissements et fièvre au premier plan." }
+      ],
+      "note": "La position de l'appendice explique la majorité des erreurs diagnostiques."
+    },
+    {
+      "id": "mn-traitement",
+      "label": "OPÉRER",
+      "intro": "Décider et surveiller",
+      "entries": [
+        { "key": "O", "term": "Opérer sans délai en cas de péritonite ou de sepsis." },
+        { "key": "P", "term": "Pas d'imagerie qui retarde la chirurgie chez un patient septique." },
+        { "key": "É", "term": "Évaluer l'option antibiotique uniquement dans une forme non compliquée sélectionnée." },
+        { "key": "R", "term": "Réévaluer le patient : la récidive est fréquente sous traitement médical." },
+        { "key": "E", "term": "Examen histologique systématique de la pièce." },
+        { "key": "R", "term": "Rechercher un abcès si la fièvre persiste après l'intervention." }
+      ],
+      "note": "L'antibiothérapie seule n'est pas un traitement par défaut : c'est une option négociée avec un patient suivi."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quel est le signe clinique le plus évocateur d'appendicite aiguë ?", "back": "La migration de la douleur de la région péri-ombilicale vers la fosse iliaque droite.", "tags": ["clinique"] },
+    { "id": "fc-02", "front": "Quel est le mécanisme initial de l'appendicite ?", "back": "L'obstruction de la lumière appendiculaire, par un fécalithe ou une hyperplasie lymphoïde, qui conduit à la distension puis à l'ischémie.", "tags": ["physiopathologie"] },
+    { "id": "fc-03", "front": "Quel examen d'imagerie privilégier chez l'enfant et la femme enceinte ?", "back": "L'échographie en première intention, complétée par l'IRM chez la femme enceinte si besoin.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Quel examen d'imagerie a la meilleure performance chez l'adulte ?", "back": "La tomodensitométrie abdomino-pelvienne.", "tags": ["diagnostic"] },
+    { "id": "fc-05", "front": "Quel est le traitement de référence de l'appendicite aiguë ?", "back": "L'appendicectomie, de préférence par voie cœlioscopique lorsque les conditions le permettent.", "tags": ["traitement"] },
+    { "id": "fc-06", "front": "Dans quelles conditions l'antibiothérapie seule peut-elle être proposée ?", "back": "Dans une appendicite non compliquée confirmée, chez un patient informé et suivi, avec acceptation du risque de récidive.", "tags": ["traitement"] },
+    { "id": "fc-07", "front": "Quels signes évoquent une péritonite appendiculaire ?", "back": "Défense généralisée, contracture, hypotension, altération de l'état général.", "tags": ["urgence"] },
+    { "id": "fc-08", "front": "Pourquoi la présentation est-elle atypique chez la femme enceinte ?", "back": "L'utérus gravide déplace l'appendice vers le haut et la droite, ce qui déplace la douleur et retarde le diagnostic.", "tags": ["clinique"] },
+    { "id": "fc-09", "front": "Pourquoi le sujet âgé est-il à haut risque ?", "back": "Les signes sont atténués, la perforation est plus fréquente et une tumeur appendiculaire peut être révélée.", "tags": ["clinique"] },
+    { "id": "fc-10", "front": "Quel examen est systématique chez la femme en âge de procréer ?", "back": "Le test de grossesse, pour éliminer une grossesse extra-utérine.", "tags": ["diagnostic"] },
+    { "id": "fc-11", "front": "Que faire devant une fièvre persistante après appendicectomie ?", "back": "Rechercher une infection pariétale ou un abcès intra-abdominal par examen et imagerie.", "tags": ["surveillance"] },
+    { "id": "fc-12", "front": "Pourquoi analyser systématiquement la pièce opératoire ?", "back": "Pour ne pas méconnaître une tumeur appendiculaire, en particulier chez le sujet âgé.", "tags": ["surveillance"] },
+    { "id": "fc-13", "front": "Quel est le risque d'une appendicite non opérée dans les formes compliquées ?", "back": "La perforation, la péritonite, le choc septique et la défaillance multiviscérale.", "tags": ["urgence"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Appendicite aiguë",
+      "detail": "Inflammation obstructive de l'appendice. La migration de la douleur fait le diagnostic, l'imagerie aide au doute, l'appendicectomie reste la référence et l'antibiothérapie seule est une option sélectionnée."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Douleur qui migre, anorexie, défense localisée.",
+        "children": [
+          {
+            "id": "rec-douleur",
+            "label": "Douleur",
+            "detail": "Péri-ombilicale puis fosse iliaque droite, continue, majorée par la toux.",
+            "leaves": [
+              { "id": "rec-douleur-1", "label": "Migration", "detail": "Signe le plus évocateur." },
+              { "id": "rec-douleur-2", "label": "Position", "detail": "Pelvienne, rétro-cæcale, sous-hépatique." }
+            ]
+          },
+          {
+            "id": "rec-examen",
+            "label": "Examen",
+            "detail": "Défense, Blumberg, fièvre modérée, langue saburrale.",
+            "leaves": [
+              { "id": "rec-examen-1", "label": "Absence de fièvre", "detail": "N'élimine pas." },
+              { "id": "rec-examen-2", "label": "Sujet âgé", "detail": "Signes atténués." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "explorer",
+        "label": "Explorer",
+        "tone": "retenir",
+        "detail": "Biologie, imagerie selon le terrain, avis chirurgical précoce.",
+        "children": [
+          {
+            "id": "exp-bio",
+            "label": "Biologie",
+            "detail": "Hémogramme, CRP, test de grossesse, urines.",
+            "leaves": [
+              { "id": "exp-bio-1", "label": "Normale", "detail": "N'élimine pas une forme débutante." }
+            ]
+          },
+          {
+            "id": "exp-imagerie",
+            "label": "Imagerie",
+            "detail": "Échographie chez l'enfant et la femme enceinte, scanner chez l'adulte.",
+            "leaves": [
+              { "id": "exp-imagerie-1", "label": "Doute", "detail": "Scanner si présentation atypique." },
+              { "id": "exp-imagerie-2", "label": "Urgence", "detail": "Ne pas retarder la chirurgie." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "formes",
+        "label": "Formes",
+        "tone": "prudence",
+        "detail": "Simple, compliquée, ou particulière par le terrain.",
+        "children": [
+          {
+            "id": "for-simple",
+            "label": "Non compliquée",
+            "detail": "Pas d'abcès ni de perforation.",
+            "leaves": [
+              { "id": "for-simple-1", "label": "Option", "detail": "Antibiothérapie discutée." }
+            ]
+          },
+          {
+            "id": "for-compliquee",
+            "label": "Compliquée",
+            "detail": "Perforation, abcès, plastron, péritonite.",
+            "leaves": [
+              { "id": "for-compliquee-1", "label": "Péritonite", "detail": "Chirurgie en urgence." },
+              { "id": "for-compliquee-2", "label": "Plastron", "detail": "Drainage et discussion différée." }
+            ]
+          },
+          {
+            "id": "for-terrain",
+            "label": "Terrains",
+            "detail": "Enfant, femme enceinte, sujet âgé, immunodéprimé, obèse.",
+            "leaves": [
+              { "id": "for-terrain-1", "label": "Grossesse", "detail": "Douleur déplacée." },
+              { "id": "for-terrain-2", "label": "Après 50 ans", "detail": "Penser tumeur." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Appendicectomie de référence, option médicale encadrée.",
+        "children": [
+          {
+            "id": "tra-chirurgie",
+            "label": "Appendicectomie",
+            "detail": "Cœlioscopie privilégiée, antibiothérapie périopératoire.",
+            "leaves": [
+              { "id": "tra-chirurgie-1", "label": "Compliquée", "detail": "Lavage et réanimation." },
+              { "id": "tra-chirurgie-2", "label": "Histologie", "detail": "Systématique." }
+            ]
+          },
+          {
+            "id": "tra-antibio",
+            "label": "Antibiothérapie seule",
+            "detail": "Formes sélectionnées, non compliquées, patient informé et suivi.",
+            "leaves": [
+              { "id": "tra-antibio-1", "label": "Récidive", "detail": "Fréquente à quelques années." },
+              { "id": "tra-antibio-2", "label": "Limite", "detail": "Pas en cas de complication." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "memo",
+        "detail": "Beaucoup de douleurs de fosse iliaque droite ne sont pas appendiculaires.",
+        "children": [
+          {
+            "id": "dif-digestif",
+            "label": "Digestif",
+            "detail": "Gastro-entérite, adénolymphite, Crohn, cholécystite.",
+            "leaves": [
+              { "id": "dif-digestif-1", "label": "Diarrhée", "detail": "Oriente ailleurs." }
+            ]
+          },
+          {
+            "id": "dif-uro",
+            "label": "Urinaire",
+            "detail": "Colique néphrétique, infection urinaire.",
+            "leaves": [
+              { "id": "dif-uro-1", "label": "Urines", "detail": "Bandelette et culture." }
+            ]
+          },
+          {
+            "id": "dif-gyneco",
+            "label": "Gynécologique",
+            "detail": "Salpingite, torsion ovarienne, grossesse extra-utérine.",
+            "leaves": [
+              { "id": "dif-gyneco-1", "label": "Réflexe", "detail": "Test de grossesse systématique." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Les suites simples n'excluent pas les complications.",
+        "children": [
+          {
+            "id": "sui-complications",
+            "label": "Complications",
+            "detail": "Infection pariétale, abcès intra-abdominal, iléus, occlusion sur bride.",
+            "leaves": [
+              { "id": "sui-complications-1", "label": "Fièvre", "detail": "Imagerie à la recherche d'un abcès." }
+            ]
+          },
+          {
+            "id": "sui-conseils",
+            "label": "Conseils",
+            "detail": "Reprise alimentaire, mobilisation, surveillance de la cicatrice.",
+            "leaves": [
+              { "id": "sui-conseils-1", "label": "Retour", "detail": "Consulter si fièvre ou douleur croissante." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WSES-APPENDICITIS-2020",
+      "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+      "citation": "Di Saverio S, Podda M, De Simone B, et al. Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines. World Journal of Emergency Surgery 2020 ; 15 : 27. doi:10.1186/s13017-020-00306-3.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2020,
+      "url": "https://doi.org/10.1186/s13017-020-00306-3",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic", "Scores cliniques", "Imagerie", "Indications chirurgicales", "Antibiothérapie"]
+    },
+    {
+      "id": "SRC-LANCET-APPENDICITIS-2015",
+      "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+      "citation": "Bhangu A, Søreide K, Di Saverio S, et al. Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management. The Lancet 2015 ; 386 (10000) : 1278-1287. doi:10.1016/S0140-6736(15)00275-5.",
+      "organization": "The Lancet",
+      "year": 2015,
+      "url": "https://doi.org/10.1016/S0140-6736(15)00275-5",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Physiopathologie", "Présentations atypiques", "Évolution"]
+    },
+    {
+      "id": "SRC-CODA-2020",
+      "title": "A Randomized Trial Comparing Antibiotics with Appendectomy for Appendicitis",
+      "citation": "CODA Collaborative. A Randomized Trial Comparing Antibiotics with Appendectomy for Appendicitis. New England Journal of Medicine 2020 ; 383 : 1907-1919. doi:10.1056/NEJMoa2014320.",
+      "organization": "New England Journal of Medicine",
+      "year": 2020,
+      "url": "https://doi.org/10.1056/NEJMoa2014320",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Option antibiotique", "Risque de récidive", "Information du patient"]
+    }
+  ]
+}

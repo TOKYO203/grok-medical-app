@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "leucemie-aigue",
+  "title": "Leucémie aiguë",
+  "subtitle": "Fiche de nosographie — hématologie",
+  "objective": "Reconnaître une insuffisance médullaire aiguë d'origine leucémique, obtenir un diagnostic de certitude par le myélogramme et l'immunophénotypage, traiter les urgences vitales et orienter vers une prise en charge spécialisée.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 89,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 130,
+      "localNumber": 89,
+      "sectionLabel": "Médecine",
+      "title": "Leucémie aiguë",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'European LeukemiaNet, de l'ESMO et de la classification de l'OMS. Texte intégralement reformulé ; les références sont indiquées section par section.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Aucune chimiothérapie n'est détaillée en protocole : la fiche décrit les principes (induction, consolidation, entretien, allogreffe) et les urgences, sans citer de schéma posologique. Un protocole de chimiothérapie ne se transpose pas d'un pays à l'autre et doit suivre le protocole du centre de référence.",
+      "La classification retenue est celle de la 5e édition de la classification OMS des tumeurs hématopoïétiques (2022), citée par sa publication dans Leukemia. La distinction leucémie aiguë myéloblastique et leucémie aiguë lymphoblastique est présentée comme la première étape, car elle conditionne tout le traitement.",
+      "Les recommandations ELN 2022 et ESMO 2020 sont citées pour les principes de stratification du risque et de traitement de la leucémie aiguë myéloblastique ; les recommandations ESMO 2016 pour la leucémie aiguë lymphoblastique de l'adulte. Leur millésime est conservé.",
+      "La leucémie aiguë promyélocytaire est traitée à part : c'est la seule urgence hématologique où un traitement non chimiothérapique (acide tout-trans-rétinoïque) doit être débuté sur la seule suspicion, avant confirmation moléculaire. Ce point est mis en avant car il modifie la mortalité précoce.",
+      "Le seuil de 20 % de blastes médullaires est celui de la classification OMS ; la fiche précise que certaines entités génétiques sont définies indépendamment de ce seuil, ce qui évite une lecture trop rigide.",
+      "Les thérapeutiques ciblées récentes (inhibiteurs de FLT3, de BCR-ABL1, anticorps conjugués) sont mentionnées sans indication de posologie ni de disponibilité, car leur accès varie fortement selon les pays.",
+      "Les recommandations françaises de la Haute Autorité de santé et de la Société Française d'Hématologie n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Définition cytologique et seuil de blastes",
+      "Distinction LAM / LAL et place de l'immunophénotypage",
+      "Urgences : neutropénie fébrile, lyse tumorale, leucostase, CIVD de la LAP",
+      "Place de l'acide tout-trans-rétinoïque sur simple suspicion",
+      "Absence de protocoles posologiques",
+      "Contexte de ressources limitées traité sans approximation"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les leucémies aiguës sont des hémopathies clonales caractérisées par la prolifération de précurseurs hématopoïétiques immatures, les blastes, qui envahissent la moelle et le sang. Ces cellules ne mûrissent pas et ne remplissent aucune fonction : elles occupent la place des cellules normales, d'où l'insuffisance médullaire qui fait la gravité immédiate de la maladie."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'évolution est rapide, en quelques semaines, parfois en quelques jours. Sans traitement, l'issue est fatale par infection, hémorragie ou infiltration. C'est pourquoi la leucémie aiguë est une urgence diagnostique : un myélogramme demandé sans délai change le pronostic, même si le traitement lui-même sera conduit dans un centre spécialisé."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux grandes familles se distinguent dès le départ : la leucémie aiguë lymphoblastique, qui touche surtout l'enfant et reste fréquente chez l'adulte jeune, et la leucémie aiguë myéloblastique, plus fréquente avec l'âge. Cette distinction n'est pas une nuance académique : les traitements, les rechutes et les pronostics diffèrent profondément."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche propose une lecture clinique : reconnaître le syndrome d'insuffisance médullaire, évoquer le diagnostic, identifier les urgences qui tuent avant la chimiothérapie, puis organiser l'orientation."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WHO-HAEM-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01613-1" },
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La leucémogenèse résulte de l'accumulation d'anomalies génétiques dans une cellule souche ou un progéniteur. Deux grandes catégories d'événements se combinent : des altérations qui bloquent la différenciation et des altérations qui favorisent la prolifération. C'est ce blocage de maturation qui explique la présence de blastes dans la moelle et le sang."
+        },
+        {
+          "type": "paragraph",
+          "text": "La classification actuelle repose sur trois axes : la lignée (myéloïde ou lymphoïde), la génétique (translocations, mutations, réarrangements) et le contexte (leucémie secondaire à un traitement ou à une hémopathie préexistante). Certaines entités sont définies par une anomalie génétique spécifique, indépendamment du pourcentage de blastes, ce qui montre que la biologie moléculaire a pris le pas sur la seule morphologie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les facteurs de risque reconnus sont l'exposition aux rayonnements ionisants, à certains agents alkylants et inhibiteurs de topoisomérase, au benzène, ainsi que certaines prédispositions constitutionnelles et hémopathies chroniques. La majorité des cas reste cependant sans facteur identifiable : l'absence d'antécédent ne doit jamais faire écarter le diagnostic."
+        },
+        {
+          "type": "table",
+          "columns": ["Élément", "Leucémie aiguë myéloblastique", "Leucémie aiguë lymphoblastique"],
+          "rows": [
+            ["Âge de prédilection", "Adulte, âge avançant", "Enfant, adulte jeune"],
+            ["Lignée", "Myéloïde", "Lymphoïde B ou T"],
+            ["Infiltration tissulaire", "Gencives, peau, parfois chlorome", "Ganglions, rate, système nerveux central, médiastin (T)"],
+            ["Marqueur clé", "Myéloperoxydase, immunophénotypage myéloïde", "Immunophénotypage lymphoïde, génétique (BCR-ABL1, KMT2A)"],
+            ["Pronostic", "Dépend de l'âge et de la génétique", "Meilleur chez l'enfant, dépend de la génétique et de la réponse"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le blaste explique tout le tableau",
+          "text": "Le blastose médullaire remplace les précurseurs normaux : l'anémie vient de l'absence d'érythropoïèse, l'infection de la neutropénie, l'hémorragie de la thrombopénie. Les trois signes se lisent comme un seul mécanisme."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Une numération normale n'élimine rien",
+          "text": "Une leucémie aiguë peut se présenter avec un chiffre de globules blancs normal ou bas. C'est la présence de blastes sur le frottis et la cytopénie qui alertent, pas le chiffre global."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WHO-HAEM-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01613-1" },
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur la mise en évidence de blastes dans la moelle, habituellement au-delà de 20 % des cellules médullaires selon la classification OMS, ou sur une anomalie génétique définissant l'entité. Le myélogramme est donc l'examen central ; il ne se diffère pas devant un tableau évocateur."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Numération formule sanguine et frottis : cytopénies, blastes circulants, corps d'Auer.",
+            "Myélogramme : morphologie, pourcentage de blastes, cytologie.",
+            "Immunophénotypage par cytométrie en flux : lignée et stade de différenciation.",
+            "Caryotype et biologie moléculaire : translocations, mutations, gènes de fusion, éléments pronostiques et cibles thérapeutiques.",
+            "Ponction lombaire : systématique dans la leucémie aiguë lymphoblastique, selon les protocoles.",
+            "Bilan préthérapeutique : fonction cardiaque, rénale, hépatique, sérologies, groupe sanguin, HLA si allogreffe envisagée."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Situation clinique", "Mécanisme", "Examen clé"],
+          "rows": [
+            ["Fièvre et neutropénie", "Infection sur insuffisance médullaire", "Numération, hémocultures, foyer"],
+            ["Ecchymoses, gingivorragies", "Thrombopénie", "Numération, bilan d'hémostase"],
+            ["Dyspnée avec hyperleucocytose", "Leucostase", "Numération, gaz du sang, fond d'œil"],
+            ["Douleurs osseuses de l'enfant", "Expansion médullaire", "Myélogramme"],
+            ["Gingivite hyperplasique", "Infiltration monocytaire", "Myélogramme"],
+            ["Saignement diffus et fièvre", "Coagulation intravasculaire disséminée de la leucémie promyélocytaire", "Fibrine, PDF, fibrinogène, myélogramme en urgence"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La leucémie aiguë promyélocytaire mérite une place à part. Elle associe une coagulopathie sévère et une mortalité précoce élevée, et son pronostic dépend de la rapidité d'introduction de l'acide tout-trans-rétinoïque. Devant un tableau évocateur, ce traitement se commence sur la suspicion, sans attendre la confirmation moléculaire, après avis hématologique immédiat."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Neutropénie fébrile",
+          "text": "Une fièvre chez un patient neutropénique est une urgence : hémocultures, prélèvements des foyers, puis antibiothérapie à large spectre sans attendre les résultats. Le délai de la première dose conditionne la mortalité."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Lyse tumorale",
+          "text": "Hyperkaliémie, hyperphosphatémie, hypocalcémie et insuffisance rénale aiguë peuvent survenir dès l'induction. L'hydratation, la surveillance biologique rapprochée et le traitement hypo-uricémiant sont institués avant et pendant le traitement."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" },
+        { "id": "SRC-ESMO-AML-2020", "organization": "European Society for Medical Oncology (ESMO)", "title": "Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines", "year": 2020, "url": "https://doi.org/10.1016/j.annonc.2020.02.018" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et facteurs pronostiques",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cause de la leucémie aiguë est le plus souvent inconnue. Les facteurs identifiables sont rares mais importants à rechercher, car ils changent la surveillance de l'entourage et parfois la classification. Le pronostic, lui, ne dépend pas de la cause mais de l'âge, de la biologie de la maladie et de la réponse au traitement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Exposition aux rayonnements ionisants, notamment à forte dose.",
+            "Chimiothérapie antérieure par agents alkylants ou inhibiteurs de topoisomérase : leucémie secondaire.",
+            "Exposition professionnelle au benzène.",
+            "Hémopathies préexistantes : syndrome myélodysplasique, néoplasme myéloprolifératif.",
+            "Prédispositions constitutionnelles : syndromes de prédisposition héréditaire aux cancers hématologiques.",
+            "Facteurs pronostiques : âge, leucocytose initiale, anomalies cytogénétiques et moléculaires, maladie résiduelle mesurable après induction."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "La génétique n'est pas un détail de laboratoire",
+          "text": "Une translocation peut définir une entité, orienter vers une thérapeutique ciblée ou imposer une allogreffe. Le résultat du caryotype et de la biologie moléculaire fait partie du diagnostic initial, pas d'un bilan de confort."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Leucémie aiguë du sujet âgé",
+          "text": "L'âge chronologique n'est pas le seul critère : les comorbidités et l'état général pèsent autant. Une décision thérapeutique ne se prend pas sur le seul chiffre de l'âge."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-AML-2020", "organization": "European Society for Medical Oncology (ESMO)", "title": "Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines", "year": 2020, "url": "https://doi.org/10.1016/j.annonc.2020.02.018" },
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Principes du traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement comporte toujours deux volets menés ensemble : un volet spécifique, qui vise à détruire le clone leucémique, et un volet de support, qui vise à faire traverser au patient l'aplasie induite. Négliger le second, c'est perdre le bénéfice du premier. Un centre qui traite une leucémie aiguë doit disposer de transfusion, d'antibiotiques et d'une biologie de garde."
+        },
+        {
+          "type": "table",
+          "columns": ["Phase", "Objectif", "Principe"],
+          "rows": [
+            ["Induction", "Obtenir une rémission complète", "Chimiothérapie combinée, parfois associée à une thérapie ciblée"],
+            ["Consolidation", "Éliminer la maladie résiduelle", "Cures séquentielles, allogreffe de cellules souches si risque élevé"],
+            ["Entretien", "Maintenir la rémission", "Surtout dans la leucémie aiguë lymphoblastique"],
+            ["Leucémie promyélocytaire", "Guérir sans chimiothérapie conventionnelle", "Acide tout-trans-rétinoïque associé à l'arsenic, selon les protocoles"],
+            ["Support", "Traverser l'aplasie", "Transfusions, anti-infectieux, nutrition, soins de bouche, prévention de la lyse"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'allogreffe de cellules souches hématopoïétiques est la seule option curative pour certains patients à haut risque ou en rechute. Elle exige un donneur, un état général compatible et une organisation spécialisée. Son indication se discute au diagnostic, car elle influence la stratégie d'induction et la recherche du donneur."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prévenir la lyse tumorale dès le premier jour, surtout en cas d'hyperleucocytose.",
+            "Traiter la neutropénie fébrile sans attendre, avec réévaluation quotidienne.",
+            "Prévenir les infections selon le protocole du centre et la disponibilité locale.",
+            "Préserver la fertilité avant tout traitement gonadotoxique lorsque le délai le permet.",
+            "Organiser l'annonce, l'accompagnement psychologique et l'information de la famille.",
+            "Discuter précocement des objectifs de soins chez les patients âgés ou très comorbides."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Leucostase : une urgence à part",
+          "text": "Une hyperleucocytose majeure avec dyspnée, confusion, troubles visuels ou douleur thoracique évoque une leucostase. Le traitement associe une réduction rapide du clone, une hydratation prudente et une surveillance en réanimation ou en unité spécialisée."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La rémission n'est pas la guérison",
+          "text": "Une rémission complète signifie que les blastes ont disparu des critères visibles, pas que la maladie est éradiquée. La maladie résiduelle mesurable et la consolidation décident de la suite."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" },
+        { "id": "SRC-ESMO-AML-2020", "organization": "European Society for Medical Oncology (ESMO)", "title": "Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines", "year": 2020, "url": "https://doi.org/10.1016/j.annonc.2020.02.018" },
+        { "id": "SRC-ESMO-ALL-2016", "organization": "European Society for Medical Oncology (ESMO)", "title": "Acute lymphoblastic leukaemia in adult patients: ESMO Clinical Practice Guidelines", "year": 2016, "url": "https://doi.org/10.1093/annonc/mdw025" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et organisation des soins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention primaire est limitée : elle concerne l'exposition professionnelle au benzène et aux rayonnements, et la surveillance des patients traités par chimiothérapie leucémogène. La prévention secondaire, elle, est décisive : elle consiste à ne pas laisser une leucémie aiguë se présenter en urgence vitale, en reconnaissant tôt les cytopénies inexpliquées et en adressant sans délai."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans les systèmes où les plateaux techniques sont concentrés, le circuit doit être écrit : qui fait la numération, qui réalise le myélogramme, où adresser le patient, comment obtenir l'acide tout-trans-rétinoïque en urgence, comment transfuser pendant le transport. Un diagnostic posé mais non orienté n'améliore pas le pronostic."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Trois éléments à transmettre au centre référent",
+          "text": "La numération complète avec le pourcentage de blastes, le résultat du myélogramme si disponible, et la présence de signes de gravité (fièvre, saignement, détresse respiratoire, grossesse). Ces trois éléments changent la décision d'admission."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-ALL-2016", "organization": "European Society for Medical Oncology (ESMO)", "title": "Acute lymphoblastic leukaemia in adult patients: ESMO Clinical Practice Guidelines", "year": 2016, "url": "https://doi.org/10.1093/annonc/mdw025" },
+        { "id": "SRC-WHO-HAEM-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01613-1" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La leucémie aiguë est une urgence hématologique : elle se manifeste par une insuffisance médullaire rapidement progressive et se confirme par le myélogramme avec immunophénotypage. La distinction entre forme myéloblastique et lymphoblastique, et l'identification des anomalies génétiques, conditionnent le traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les urgences qui précèdent la chimiothérapie — neutropénie fébrile, lyse tumorale, leucostase, coagulopathie de la leucémie promyélocytaire — doivent être connues de tout médecin, car ce sont elles qui tuent dans les premiers jours."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale. Les principes exposés ne remplacent pas le protocole du centre de référence."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ELN-AML-2022", "organization": "European LeukemiaNet (ELN)", "title": "Diagnosis and management of AML in adults: 2022 recommendations", "year": 2022, "url": "https://doi.org/10.1182/blood.2022016867" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées et vérifiées à la date indiquée ; leur millésime d'origine est conservé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Döhner H, Wei AH, Appelbaum FR, et al. Diagnosis and management of AML in adults: 2022 recommendations from an international expert panel on behalf of the ELN. Blood 2022. doi:10.1182/blood.2022016867.",
+            "Khoury JD, Solary E, Abla O, et al. The 5th edition of the WHO Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms. Leukemia 2022. doi:10.1038/s41375-022-01613-1.",
+            "ESMO Guidelines Committee. Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines. Annals of Oncology 2020. doi:10.1016/j.annonc.2020.02.018.",
+            "Hoelzer D, Bassan R, Dombret H, et al. Acute lymphoblastic leukaemia in adult patients: ESMO Clinical Practice Guidelines. Annals of Oncology 2016. doi:10.1093/annonc/mdw025."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WHO-HAEM-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01613-1" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-insuffisance",
+      "label": "ABC",
+      "intro": "Le syndrome d'insuffisance médullaire",
+      "entries": [
+        { "key": "A", "term": "Anémie : pâleur, asthénie, dyspnée, tachycardie." },
+        { "key": "B", "term": "Baisse des polynucléaires : infections, fièvre, angine." },
+        { "key": "C", "term": "Caillots insuffisants : purpura, ecchymoses, gingivorragies." }
+      ],
+      "note": "Les trois cytopénies peuvent être présentes ensemble ou successivement ; leur association doit faire demander un myélogramme."
+    },
+    {
+      "id": "mn-urgences",
+      "label": "FLAC",
+      "intro": "Les quatre urgences de la leucémie aiguë",
+      "entries": [
+        { "key": "F", "term": "Fièvre et neutropénie : antibiothérapie immédiate." },
+        { "key": "L", "term": "Lyse tumorale : hydratation, surveillance ionique, hypo-uricémiant." },
+        { "key": "A", "term": "Aplasie : support transfusionnel et prévention infectieuse." },
+        { "key": "C", "term": "Coagulopathie de la leucémie promyélocytaire : acide tout-trans-rétinoïque sans délai." }
+      ],
+      "note": "La leucostase s'ajoute à cette liste en cas d'hyperleucocytose majeure."
+    },
+    {
+      "id": "mn-bilan",
+      "label": "MILC",
+      "intro": "Le bilan qui fait le diagnostic",
+      "entries": [
+        { "key": "M", "term": "Myélogramme : pourcentage de blastes et morphologie." },
+        { "key": "I", "term": "Immunophénotypage : lignée myéloïde ou lymphoïde." },
+        { "key": "L", "term": "Liquide céphalorachidien : surtout dans la leucémie lymphoblastique." },
+        { "key": "C", "term": "Caryotype et biologie moléculaire : pronostic et cibles thérapeutiques." }
+      ],
+      "note": "Le bilan préthérapeutique (cardiaque, rénal, hépatique) se conduit en parallèle, sans retarder l'induction."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quel est le seuil de blastes médullaires retenu par la classification OMS pour définir une leucémie aiguë ?", "back": "Habituellement 20 % ou plus des cellules médullaires, certaines entités génétiques étant définies indépendamment de ce seuil.", "tags": ["diagnostic"] },
+    { "id": "fc-02", "front": "Quels sont les trois signes du syndrome d'insuffisance médullaire ?", "back": "Anémie, neutropénie et thrombopénie, qui expliquent respectivement la fatigue, l'infection et le saignement.", "tags": ["clinique"] },
+    { "id": "fc-03", "front": "Quel examen confirme le diagnostic de leucémie aiguë ?", "back": "Le myélogramme, complété par l'immunophénotypage et la génétique.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Quelle est la première distinction à établir devant une leucémie aiguë ?", "back": "Myéloblastique ou lymphoblastique, car le traitement et le pronostic diffèrent.", "tags": ["diagnostic"] },
+    { "id": "fc-05", "front": "Quelle est la particularité de la leucémie aiguë promyélocytaire ?", "back": "Elle est définie par une translocation spécifique et s'accompagne d'une coagulopathie sévère ; l'acide tout-trans-rétinoïque se commence sur simple suspicion.", "tags": ["urgence"] },
+    { "id": "fc-06", "front": "Quelle est la conduite devant une fièvre chez un patient neutropénique ?", "back": "Hémocultures et prélèvements, puis antibiothérapie à large spectre immédiate, sans attendre les résultats.", "tags": ["urgence"] },
+    { "id": "fc-07", "front": "Quels sont les signes biologiques du syndrome de lyse tumorale ?", "back": "Hyperkaliémie, hyperphosphatémie, hypocalcémie, hyperuricémie et insuffisance rénale aiguë.", "tags": ["urgence"] },
+    { "id": "fc-08", "front": "Quels signes évoquent une leucostase ?", "back": "Dyspnée, confusion, troubles visuels, douleur thoracique chez un patient très hyperleucocytaire.", "tags": ["urgence"] },
+    { "id": "fc-09", "front": "Quelles sont les grandes phases du traitement d'une leucémie aiguë ?", "back": "Induction, consolidation avec éventuelle allogreffe, puis entretien dans la leucémie lymphoblastique.", "tags": ["traitement"] },
+    { "id": "fc-10", "front": "Quel est l'objectif du traitement de support ?", "back": "Permettre au patient de traverser l'aplasie induite : transfusions, anti-infectieux, nutrition, prévention de la lyse.", "tags": ["traitement"] },
+    { "id": "fc-11", "front": "Que signifie une rémission complète ?", "back": "La disparition des blastes selon les critères cytologiques et la récupération de l'hématopoïèse, sans preuve d'éradication de la maladie.", "tags": ["traitement"] },
+    { "id": "fc-12", "front": "Quels facteurs pronostiques sont évalués au diagnostic ?", "back": "L'âge, la leucocytose initiale, le caryotype, les anomalies moléculaires et la maladie résiduelle mesurable après induction.", "tags": ["pronostic"] },
+    { "id": "fc-13", "front": "Quel examen est systématique dans la leucémie aiguë lymphoblastique ?", "back": "La ponction lombaire, à la recherche d'une atteinte méningée.", "tags": ["diagnostic"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Leucémie aiguë",
+      "detail": "Prolifération clonale de blastes envahissant la moelle. Le tableau est celui d'une insuffisance médullaire rapide ; le myélogramme confirme, la génétique classe, et les urgences de support précèdent la chimiothérapie."
+    },
+    "branches": [
+      {
+        "id": "clinique",
+        "label": "Clinique",
+        "tone": "reflexe",
+        "detail": "Trois cytopénies, plus les signes d'infiltration.",
+        "children": [
+          {
+            "id": "cli-cytopenies",
+            "label": "Cytopénies",
+            "detail": "Anémie, infections, saignements, souvent associés.",
+            "leaves": [
+              { "id": "cli-cytopenies-1", "label": "Fièvre", "detail": "Signe d'infection jusqu'à preuve du contraire." },
+              { "id": "cli-cytopenies-2", "label": "Purpura", "detail": "Thrombopénie profonde." }
+            ]
+          },
+          {
+            "id": "cli-infiltration",
+            "label": "Infiltration",
+            "detail": "Hépatosplénomégalie, adénopathies, gencives, peau, système nerveux central.",
+            "leaves": [
+              { "id": "cli-infiltration-1", "label": "Médiastin", "detail": "Évoque une lignée T." },
+              { "id": "cli-infiltration-2", "label": "Douleurs osseuses", "detail": "Surtout chez l'enfant." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "retenir",
+        "detail": "Myélogramme, immunophénotypage, génétique, sans délai.",
+        "children": [
+          {
+            "id": "dia-myelo",
+            "label": "Myélogramme",
+            "detail": "Pourcentage de blastes, morphologie, corps d'Auer.",
+            "leaves": [
+              { "id": "dia-myelo-1", "label": "Seuil", "detail": "20 % selon l'OMS, sauf entités génétiques." }
+            ]
+          },
+          {
+            "id": "dia-typage",
+            "label": "Typage",
+            "detail": "Cytométrie en flux, caryotype, biologie moléculaire.",
+            "leaves": [
+              { "id": "dia-typage-1", "label": "Cible", "detail": "Certaines anomalies ouvrent une thérapie ciblée." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Ce qui tue dans les premiers jours précède le traitement spécifique.",
+        "children": [
+          {
+            "id": "urg-neutropenie",
+            "label": "Neutropénie fébrile",
+            "detail": "Antibiothérapie à large spectre immédiate après prélèvements.",
+            "leaves": [
+              { "id": "urg-neutropenie-1", "label": "Délai", "detail": "Chaque heure compte." }
+            ]
+          },
+          {
+            "id": "urg-lyse",
+            "label": "Lyse tumorale",
+            "detail": "Hyperkaliémie, hyperphosphatémie, hypocalcémie, insuffisance rénale.",
+            "leaves": [
+              { "id": "urg-lyse-1", "label": "Prévention", "detail": "Hydratation et hypo-uricémiant." }
+            ]
+          },
+          {
+            "id": "urg-civd",
+            "label": "Coagulopathie",
+            "detail": "Leucémie promyélocytaire : acide tout-trans-rétinoïque sur suspicion.",
+            "leaves": [
+              { "id": "urg-civd-1", "label": "Priorité", "detail": "Ne pas attendre la génétique." }
+            ]
+          },
+          {
+            "id": "urg-leucostase",
+            "label": "Leucostase",
+            "detail": "Hyperleucocytose majeure avec détresse respiratoire ou neurologique.",
+            "leaves": [
+              { "id": "urg-leucostase-1", "label": "Réduction", "detail": "Traitement cytoréducteur rapide." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "memo",
+        "detail": "Induction, consolidation, entretien et allogreffe selon le risque.",
+        "children": [
+          {
+            "id": "tra-induction",
+            "label": "Induction",
+            "detail": "Obtenir la rémission complète, avec thérapie ciblée selon la génétique.",
+            "leaves": [
+              { "id": "tra-induction-1", "label": "Réponse", "detail": "Évaluée par la maladie résiduelle." }
+            ]
+          },
+          {
+            "id": "tra-consolidation",
+            "label": "Consolidation",
+            "detail": "Éradiquer la maladie résiduelle, allogreffe si risque élevé.",
+            "leaves": [
+              { "id": "tra-consolidation-1", "label": "Donneur", "detail": "Recherche dès le diagnostic." }
+            ]
+          },
+          {
+            "id": "tra-support",
+            "label": "Support",
+            "detail": "Transfusions, anti-infectieux, nutrition, soins de bouche, prévention de la lyse.",
+            "leaves": [
+              { "id": "tra-support-1", "label": "Équipe", "detail": "Centre entraîné indispensable." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pronostic",
+        "label": "Pronostic",
+        "tone": "prudence",
+        "detail": "Âge, biologie de la maladie et réponse au traitement.",
+        "children": [
+          {
+            "id": "pro-genetique",
+            "label": "Génétique",
+            "detail": "Translocations et mutations classent le risque et orientent les cibles.",
+            "leaves": [
+              { "id": "pro-genetique-1", "label": "Secondaire", "detail": "Leucémie après chimiothérapie : pronostic plus sombre." }
+            ]
+          },
+          {
+            "id": "pro-reponse",
+            "label": "Réponse",
+            "detail": "Maladie résiduelle mesurable après induction, facteur pronostique majeur.",
+            "leaves": [
+              { "id": "pro-reponse-1", "label": "Âge", "detail": "Un critère parmi d'autres, pas le seul." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "organisation",
+        "label": "Organiser",
+        "tone": "reflexe",
+        "detail": "Le circuit de soins fait partie du pronostic.",
+        "children": [
+          {
+            "id": "org-circuit",
+            "label": "Circuit",
+            "detail": "Numération, myélogramme, orientation, transfusion pendant le transfert.",
+            "leaves": [
+              { "id": "org-circuit-1", "label": "Écrit", "detail": "Procédure connue de tous." }
+            ]
+          },
+          {
+            "id": "org-famille",
+            "label": "Accompagnement",
+            "detail": "Annonce, psychologie, fertilité, objectifs de soins.",
+            "leaves": [
+              { "id": "org-famille-1", "label": "Fertilité", "detail": "À préserver avant traitement gonadotoxique." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ELN-AML-2022",
+      "title": "Diagnosis and management of AML in adults: 2022 recommendations from an international expert panel on behalf of the ELN",
+      "citation": "Döhner H, Wei AH, Appelbaum FR, et al. Diagnosis and management of AML in adults: 2022 recommendations from an international expert panel on behalf of the European LeukemiaNet. Blood 2022 ; 140 (12) : 1345-1377. doi:10.1182/blood.2022016867.",
+      "organization": "European LeukemiaNet (ELN)",
+      "year": 2022,
+      "url": "https://doi.org/10.1182/blood.2022016867",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic", "Stratification du risque", "Principes de traitement", "Maladie résiduelle"]
+    },
+    {
+      "id": "SRC-WHO-HAEM-2022",
+      "title": "The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms",
+      "citation": "Khoury JD, Solary E, Abla O, et al. The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms. Leukemia 2022 ; 36 (7) : 1703-1719. doi:10.1038/s41375-022-01613-1.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41375-022-01613-1",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Classification", "Seuil de blastes", "Entités génétiques"]
+    },
+    {
+      "id": "SRC-ESMO-AML-2020",
+      "title": "Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up",
+      "citation": "ESMO Guidelines Committee. Acute myeloid leukaemia in adult patients: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Annals of Oncology 2020. doi:10.1016/j.annonc.2020.02.018.",
+      "organization": "European Society for Medical Oncology (ESMO)",
+      "year": 2020,
+      "url": "https://doi.org/10.1016/j.annonc.2020.02.018",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Bilan diagnostique", "Principes de traitement", "Facteurs pronostiques"]
+    },
+    {
+      "id": "SRC-ESMO-ALL-2016",
+      "title": "Acute lymphoblastic leukaemia in adult patients: ESMO Clinical Practice Guidelines",
+      "citation": "Hoelzer D, Bassan R, Dombret H, et al. Acute lymphoblastic leukaemia in adult patients: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Annals of Oncology 2016. doi:10.1093/annonc/mdw025.",
+      "organization": "European Society for Medical Oncology (ESMO)",
+      "year": 2016,
+      "url": "https://doi.org/10.1093/annonc/mdw025",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Leucémie aiguë lymphoblastique de l'adulte", "Ponction lombaire", "Entretien"]
+    }
+  ]
+}

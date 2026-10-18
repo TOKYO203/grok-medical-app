@@ -1,0 +1,949 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "anemies-hypochromes",
+  "title": "Anémies hypochromes hyposidérémiques",
+  "subtitle": "Anémie ferriprive — carence martiale",
+  "objective": "Reconnaître une anémie microcytaire par carence en fer, en documenter la cause, distinguer la carence vraie de l'anémie inflammatoire et corriger le stock martial sans se contenter de normaliser l'hémoglobine.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 81,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 122,
+      "localNumber": 81,
+      "sectionLabel": "Médecine",
+      "title": "Anémies hypochromes hyposidérémiques",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'OMS sur l'hémoglobine et le statut martial et des recommandations de la British Society of Gastroenterology. Le texte est entièrement reformulé et les sources sont indiquées section par section.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "ÉCART À LA LETTRE DE LA MISSION, ASSUMÉ : la mission demande l'item « Anémie ferriprive ». Le référentiel national ne comporte pas cet intitulé : l'item correspondant est « Anémies hypochromes hyposidérémiques » (n=81). Le contrat du catalogue impose que le titre de la fiche soit identique au titre de l'item, et que le slug soit son identifiant. La fiche prend donc l'intitulé officiel, avec « anémie ferriprive » en sous-titre, et son contenu traite bien la carence martiale — c'est sa cause dominante — tout en rappelant les autres causes d'hypochromie.",
+      "Le seuil de ferritine retenu pour affirmer une carence martiale chez l'adulte est de 30 microgrammes par litre, seuil pragmatique des recommandations de la British Society of Gastroenterology (2021). Le seuil de 15 microgrammes par litre proposé par l'OMS concerne les populations apparemment saines sans inflammation : il est présenté comme un seuil de santé publique, pas comme un seuil clinique unique.",
+      "Les seuils d'hémoglobine sont présentés comme dépendants de l'âge, du sexe et de l'état de grossesse, conformément à la directive de l'OMS de 2024 sur les seuils d'hémoglobine. Ils ne sont pas donnés comme un chiffre unique valable pour tous : la fiche renvoie explicitement aux valeurs du référentiel OMS.",
+      "La posologie du fer oral n'est pas donnée en dose fixe : les recommandations discutent une administration intermittente ou un jour sur deux, mieux absorbée qu'une prise quotidienne répétée, et la dose dépend du poids et de la tolérance. Seuls les principes et les règles de prise sont exposés.",
+      "La ferritine étant un marqueur inflammatoire, la fiche rappelle explicitement que la CRP doit être interprétée conjointement : une ferritine normale ou élevée n'élimine pas une carence en contexte inflammatoire.",
+      "Le seuil de transfusion n'est pas fixé : il dépend de la tolérance clinique et du terrain, en particulier coronarien.",
+      "La recherche d'un saignement digestif par endoscopie chez l'homme et la femme ménopausée est présentée comme la règle, avec la nuance des situations où une autre cause évidente est documentée.",
+      "Les recommandations françaises de la Haute Autorité de santé et de la Société Nationale Française de Gastro-Entérologie n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Seuils d'hémoglobine dépendants de l'âge et du sexe",
+      "Place de la ferritine et de la CRP",
+      "Distinction carence martiale vraie / anémie inflammatoire / thalassémie",
+      "Recherche étiologique digestive",
+      "Absence de posologie fixe et de seuil transfusionnel arbitraire",
+      "Durée du traitement après correction de l'hémoglobine"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie hypochrome hyposidérémique est la traduction biologique d'un manque de fer disponible pour l'érythropoïèse. Les globules rouges produits sont plus petits et moins colorés que la normale : le volume globulaire moyen et la teneur corpusculaire moyenne en hémoglobine s'abaissent. La carence martiale est sa cause la plus fréquente, au point que les deux termes sont souvent employés l'un pour l'autre."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette anémie n'est jamais un diagnostic final. Chez l'adulte, et particulièrement chez l'homme et la femme ménopausée, une carence martiale signe presque toujours une perte sanguine ou un défaut d'absorption : elle impose de chercher la cause, pas seulement de prescrire du fer. C'est la règle qui gouverne toute la démarche."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'OMS considère l'anémie comme un problème de santé publique majeur, avec des conséquences sur le développement cognitif de l'enfant, la capacité de travail de l'adulte et la morbidité maternelle. La carence en fer est la cause la plus fréquente d'anémie dans le monde, en particulier chez la femme en âge de procréer et chez l'enfant."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit un ordre simple : affirmer l'anémie, affirmer la carence, en trouver la cause, puis traiter et vérifier que le stock est reconstitué."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HB-2024",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline on haemoglobin cutoffs to define anaemia in individuals and populations",
+          "year": 2024,
+          "url": "https://www.who.int/publications/i/item/9789240088542"
+        },
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le fer est un élément indispensable à l'hémoglobine, à la myoglobine et à de nombreuses enzymes. L'organisme en contient peu, le recycle à partir des globules rouges sénescents et n'en excrète que des quantités infimes. L'équilibre dépend donc presque entièrement de l'absorption intestinale, qui se fait au niveau du duodénum et du jéjunum proximal et qui est finement régulée par l'hepcidine."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hepcidine, produite par le foie, bloque l'exportation du fer hors des entérocytes et des macrophages. Elle augmente en cas d'inflammation et diminue en cas de carence ou d'hypoxie. C'est ce mécanisme qui explique deux situations apparemment paradoxales : l'anémie inflammatoire, où le fer est présent mais séquestré, et la meilleure absorption d'une prise de fer espacée plutôt que répétée chaque jour."
+        },
+        {
+          "type": "paragraph",
+          "text": "Trois stades se succèdent. D'abord la déplétion des réserves, avec une ferritine basse et une hémoglobine normale. Ensuite l'érythropoïèse ferriprive, avec une hémoglobine encore normale mais une saturation de la transferrine abaissée. Enfin l'anémie ferriprive franche, microcytaire et hypochrome. Comprendre cet ordre évite de considérer une ferritine basse isolée comme un simple détail biologique."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stade",
+            "Ferritine",
+            "Hémoglobine",
+            "Volume globulaire moyen"
+          ],
+          "rows": [
+            [
+              "Déplétion des réserves",
+              "Basse",
+              "Normale",
+              "Normal"
+            ],
+            [
+              "Érythropoïèse ferriprive",
+              "Basse",
+              "Normale",
+              "Normal ou limite"
+            ],
+            [
+              "Anémie ferriprive",
+              "Basse",
+              "Basse",
+              "Abaissé, hypochromie"
+            ],
+            [
+              "Anémie inflammatoire",
+              "Normale ou élevée",
+              "Basse",
+              "Normal ou discrètement abaissé"
+            ],
+            [
+              "Thalassémie mineure",
+              "Normale",
+              "Normale ou basse",
+              "Abaissé sans carence"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Microcytose n'égale pas carence martiale",
+          "text": "Une microcytose avec ferritine normale doit faire évoquer une thalassémie, une anémie inflammatoire ou une cause plus rare. Prescrire du fer sans vérifier la ferritine, c'est risquer de traiter pendant des mois une maladie qui n'en a pas besoin."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ferritine et inflammation",
+          "text": "La ferritine monte avec l'inflammation. En contexte infectieux, inflammatoire ou tumoral, une ferritine normale n'exclut pas une carence : la saturation de la transferrine et la CRP aident à interpréter."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FERRITIN-2020",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/9789240000124"
+        },
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic se construit en trois étapes. La numération formule sanguine affirme l'anémie et décrit la microcytose et l'hypochromie. Le bilan martial confirme la carence. La recherche étiologique explique pourquoi le fer manque. Sauter la troisième étape revient à traiter un symptôme sans nommer la maladie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Numération formule sanguine avec réticulocytes : anémie, volume globulaire moyen, teneur corpusculaire moyenne en hémoglobine, polyglobulie ou thrombopénie associée.",
+            "Ferritine sérique : seuil usuel de carence à 30 microgrammes par litre chez l'adulte, à interpréter avec la CRP.",
+            "Saturation de la transferrine : abaissée dans la carence et dans l'anémie inflammatoire, ce qui impose de les distinguer.",
+            "Récepteur soluble de la transferrine : élevé dans la carence vraie, normal dans l'inflammation, utile lorsque les marqueurs classiques sont discordants.",
+            "Bilan de retentissement : créatinine, bilan hépatique, TSH si anémie associée à une dysthyroïdie.",
+            "Recherche de sang occulte dans les selles et évaluation gynécologique selon le sexe et l'âge."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Paramètre",
+            "Carence martiale",
+            "Anémie inflammatoire",
+            "Thalassémie mineure"
+          ],
+          "rows": [
+            [
+              "Ferritine",
+              "Basse",
+              "Normale ou élevée",
+              "Normale"
+            ],
+            [
+              "Saturation de la transferrine",
+              "Basse",
+              "Basse",
+              "Normale ou élevée"
+            ],
+            [
+              "Récepteur soluble de la transferrine",
+              "Élevé",
+              "Normal",
+              "Normal"
+            ],
+            [
+              "Volume globulaire moyen",
+              "Abaissé",
+              "Normal ou abaissé",
+              "Abaissé"
+            ],
+            [
+              "Réponse au fer",
+              "Rapide",
+              "Absente",
+              "Absente"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la recherche d'une perte sanguine digestive est la règle devant une carence martiale, en particulier chez l'homme et la femme ménopausée, même en l'absence de symptômes digestifs. La sérologie cœliaque et la recherche d'une infection à Helicobacter pylori complètent le bilan lorsque l'endoscopie est normale ou en cas de signes d'orientation. Chez la femme en âge de procréer, une cause gynécologique est d'abord recherchée, sans exclure une cause digestive si le tableau ne concorde pas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Quand l'anémie met la vie en jeu",
+          "text": "Une dyspnée de repos, une tachycardie mal tolérée, des douleurs thoraciques, une syncope ou une défaillance cardiaque chez un patient sévèrement anémié imposent une évaluation immédiate et une discussion de transfusion : c'est la tolérance clinique qui décide, pas le chiffre seul."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Trois questions devant toute anémie ferriprive de l'adulte",
+          "text": "Le patient saigne-t-il ? Absorbe-t-il le fer ? Ses besoins sont-ils augmentés ou ses apports insuffisants ? Chaque réponse conduit à un examen différent."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        },
+        {
+          "id": "SRC-WHO-HB-2024",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline on haemoglobin cutoffs to define anaemia",
+          "year": 2024,
+          "url": "https://www.who.int/publications/i/item/9789240088542"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la hiérarchie des causes est simple : le saignement domine, puis le défaut d'absorption, puis l'augmentation des besoins. Chez l'enfant et la femme enceinte, la croissance et la grossesse déplacent l'équilibre, et l'insuffisance d'apport devient un facteur majeur. Dans les pays où la transition nutritionnelle est incomplète, plusieurs causes peuvent se cumuler chez le même patient."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Saignement digestif occulte : ulcère, cancer colorectal ou gastrique, angiodysplasie, parasitose selon la région.",
+            "Ménorragies : première cause chez la femme non ménopausée, à quantifier par un interrogatoire précis.",
+            "Malabsorption : maladie cœliaque, gastrite atrophique, chirurgie bariatrique, résection intestinale.",
+            "Augmentation des besoins : grossesse, allaitement, croissance, période d'entraînement intensif.",
+            "Apports insuffisants : alimentation peu diversifiée, régimes restrictifs, insécurité alimentaire.",
+            "Prise de médicaments : anti-inflammatoires, anticoagulants, aspirine, qui favorisent le saignement.",
+            "Anémie inflammatoire associée : maladies chroniques, cancers, infectieuses prolongées.",
+            "Hémoglobinopathies : thalassémies, qui donnent une microcytose sans carence et se distinguent par l'électrophorèse."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Le cancer n'est pas une cause rare",
+          "text": "Devant une anémie ferriprive de l'homme ou de la femme ménopausée, une lésion tumorale digestive doit être écartée jusqu'à preuve du contraire. C'est la raison pour laquelle une exploration endoscopique est recommandée même si le patient se sent bien."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Penser aux parasites selon la région",
+          "text": "Dans les zones d'endémie, une ankylostomiase ou une schistosomiase peuvent entretenir une carence martiale. Le contexte géographique et l'éosinophilie orientent, et le traitement antiparasitaire fait partie de la prise en charge."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de fond est la correction de la cause. Le fer n'est qu'un moyen : si le saignement persiste ou si la malabsorption n'est pas traitée, l'anémie récidivera. Une fois la cause identifiée ou en cours d'exploration, la supplémentation martiale s'organise selon trois voies : orale, intraveineuse ou transfusionnelle, cette dernière n'étant pas un traitement de la carence mais un sauvetage symptomatique."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Voie",
+            "Quand la privilégier",
+            "Points d'attention"
+          ],
+          "rows": [
+            [
+              "Fer oral",
+              "Majorité des carences, patient tolérant, pas de malabsorption",
+              "Prise à jeun, à distance du thé, du calcium et des antisécrétoires, tolérance digestive"
+            ],
+            [
+              "Fer intraveineux",
+              "Malabsorption, intolérance, carence sévère avec besoin rapide, inflammation chronique",
+              "Risque de réaction immédiate, structures formées, surveillance"
+            ],
+            [
+              "Transfusion",
+              "Anémie mal tolérée, terrain coronarien, urgence vitale",
+              "Risque transfusionnel, ne reconstitue pas le stock, camoufle transitoirement la cause"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Une administration espacée, un jour sur deux, est souvent mieux absorbée qu'une prise quotidienne répétée, par épuisement de l'effet de l'hepcidine.",
+            "La prise à jeun améliore l'absorption mais expose aux nausées : la tolérance prime sur l'optimalité théorique.",
+            "Le traitement se poursuit plusieurs mois après la normalisation de l'hémoglobine, jusqu'à reconstitution du stock (ferritine).",
+            "La réponse attendue est une remontée de l'hémoglobine de l'ordre de 10 à 20 grammes par litre en deux à quatre semaines, avec une réticulocytose précoce.",
+            "L'absence de réponse doit faire vérifier l'observance, l'absorption, la persistance du saignement et le diagnostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le fer n'est pas un placebo",
+          "text": "Une supplémentation prolongée sans preuve de carence expose à la surcharge martiale et à ses conséquences hépatiques et endocriniennes. La ferritine se contrôle, elle ne se suppose pas."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Normaliser l'hémoglobine ne guérit pas",
+          "text": "Un stock martial vide avec une hémoglobine normale laisse un patient symptomatique et récidivant. La fin du traitement se juge sur la ferritine, pas sur la couleur du teint."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        },
+        {
+          "id": "SRC-WHO-FERRITIN-2020",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guideline on use of ferritin concentrations",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/9789240000124"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et santé publique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur deux leviers. Le premier est nutritionnel et collectif : enrichissement des farines, supplémentation des groupes à risque, contrôle des parasitoses digestives, prise en charge des ménorragies. Le second est individuel : traiter une cause avant qu'elle ne vide les réserves, surveiller la ferritine dans les situations à besoins accrus, et ne pas banaliser une anémie chez un adulte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez la femme enceinte, la supplémentation systématique n'est pas universelle et dépend des politiques nationales. L'OMS recommande une supplémentation en fer et en acide folique pendant la grossesse dans les contextes où l'anémie est fréquente ; la conduite doit suivre le protocole national en vigueur."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Trois populations à supplémenter sans attendre l'anémie",
+          "text": "Femme enceinte en zone de forte prévalence, enfant en période de croissance dans un contexte de carence, et patient avec pertes sanguines chroniques connues. Chez eux, la ferritine basse suffit à traiter."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HB-2024",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline on haemoglobin cutoffs to define anaemia",
+          "year": 2024,
+          "url": "https://www.who.int/publications/i/item/9789240088542"
+        },
+        {
+          "id": "SRC-WHO-FERRITIN-2020",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO guideline on use of ferritin concentrations",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/9789240000124"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie ferriprive se reconnaît à une anémie microcytaire avec ferritine basse. Elle est la traduction d'un manque de fer, jamais un diagnostic en soi : la cause doit être nommée, et chez l'adulte le saignement digestif est la première à écarter."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe la correction de la cause, une supplémentation adaptée à la tolérance et une durée suffisante pour reconstituer le stock. La réponse biologique se vérifie : elle confirme le diagnostic autant qu'elle valide le traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les trois références ci-dessous sont librement consultables et ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Organisation mondiale de la Santé. Guideline on haemoglobin cutoffs to define anaemia in individuals and populations. Genève, 2024.",
+            "Organisation mondiale de la Santé. WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations. Genève, 2020.",
+            "Snook J, Bhala N, Beales ILP, et al. British Society of Gastroenterology guidelines for the management of iron deficiency anaemia in adults. Gut 2021. doi:10.1136/gutjnl-2021-325210."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BSG-IDA-2021",
+          "organization": "British Society of Gastroenterology (BSG)",
+          "title": "Guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021,
+          "url": "https://doi.org/10.1136/gutjnl-2021-325210"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-microcyte",
+      "label": "FERTILE",
+      "intro": "Les causes d'anémie microcytaire",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Ferritine basse : carence martiale, cause la plus fréquente."
+        },
+        {
+          "key": "E",
+          "term": "Épuration rénale : anémie de l'insuffisance rénale chronique."
+        },
+        {
+          "key": "R",
+          "term": "Rhumatisme et inflammation : anémie inflammatoire, ferritine normale ou élevée."
+        },
+        {
+          "key": "T",
+          "term": "Thalassémie : microcytose sans carence, électrophorèse de l'hémoglobine."
+        },
+        {
+          "key": "I",
+          "term": "Intoxication au plomb : cause rare, contexte professionnel."
+        },
+        {
+          "key": "L",
+          "term": "Longue maladie et médicaments : aspirine, anti-inflammatoires, anticoagulants."
+        },
+        {
+          "key": "E",
+          "term": "Enfant et grossesse : besoins accrus, apports parfois insuffisants."
+        }
+      ],
+      "note": "La première question reste toujours : y a-t-il une carence martiale ? Le reste se discute ensuite."
+    },
+    {
+      "id": "mn-bilan",
+      "label": "CRF",
+      "intro": "Trois examens pour trancher",
+      "entries": [
+        {
+          "key": "C",
+          "term": "CRP : elle conditionne l'interprétation de la ferritine."
+        },
+        {
+          "key": "R",
+          "term": "Récepteur soluble de la transferrine : élevé dans la carence vraie."
+        },
+        {
+          "key": "F",
+          "term": "Ferritine : basse dans la carence, normale ou élevée en inflammation."
+        }
+      ],
+      "note": "Une saturation de la transferrine basse ne dit pas si le fer manque ou s'il est séquestré."
+    },
+    {
+      "id": "mn-fer-oral",
+      "label": "FER",
+      "intro": "Réussir une supplémentation orale",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fractionner et espacer : un jour sur deux améliore l'absorption."
+        },
+        {
+          "key": "E",
+          "term": "Éviter les inhibiteurs : thé, calcium, antisécrétoires, phytates."
+        },
+        {
+          "key": "R",
+          "term": "Relais prolongé : plusieurs mois après le retour à une hémoglobine normale."
+        }
+      ],
+      "note": "La tolérance digestive conditionne l'observance : mieux vaut une dose acceptée qu'une dose théorique non prise."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelles sont les caractéristiques hématologiques d'une anémie ferriprive ?",
+      "back": "Anémie microcytaire et hypochrome : volume globulaire moyen et teneur corpusculaire moyenne en hémoglobine abaissés.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel seuil de ferritine retient-on habituellement pour affirmer une carence martiale chez l'adulte ?",
+      "back": "Un seuil de 30 microgrammes par litre, à interpréter avec la CRP ; l'OMS propose 15 microgrammes par litre en population apparemment saine.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Pourquoi la ferritine peut-elle être normale malgré une carence ?",
+      "back": "Parce qu'elle est un marqueur inflammatoire : une inflammation, une infection ou un cancer peuvent la faire monter artificiellement.",
+      "tags": [
+        "piège"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen distingue une carence martiale d'une anémie inflammatoire ?",
+      "back": "Le récepteur soluble de la transferrine, élevé dans la carence vraie et normal dans l'inflammation, avec l'aide de la CRP.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle est la première cause d'anémie ferriprive chez la femme non ménopausée ?",
+      "back": "Les ménorragies, sans exclure une cause digestive si le tableau ne concorde pas.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle exploration est recommandée devant une anémie ferriprive chez un homme ou une femme ménopausée ?",
+      "back": "Une exploration endoscopique digestive, à la recherche notamment d'une lésion tumorale.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quel régime de prise du fer oral améliore l'absorption ?",
+      "back": "Une prise espacée, un jour sur deux, plutôt qu'une prise quotidienne répétée, en raison du cycle de l'hepcidine.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Combien de temps poursuivre le fer après normalisation de l'hémoglobine ?",
+      "back": "Plusieurs mois, jusqu'à reconstitution du stock, contrôlée par la ferritine.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelle réponse biologique attend-on après deux à quatre semaines de fer ?",
+      "back": "Une remontée de l'hémoglobine d'environ 10 à 20 grammes par litre, précédée d'une réticulocytose.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quand discuter un fer intraveineux ?",
+      "back": "En cas de malabsorption, d'intolérance au fer oral, de carence sévère nécessitant une correction rapide ou d'inflammation chronique.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quand la transfusion est-elle justifiée dans une anémie ferriprive ?",
+      "back": "En cas de mauvaise tolérance clinique ou de terrain à risque, en urgence : elle ne reconstitue pas le stock martial.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quelle cause évoquer devant une microcytose sans carence martiale ?",
+      "back": "Une thalassémie, une anémie inflammatoire ou une cause plus rare ; l'électrophorèse de l'hémoglobine aide au diagnostic.",
+      "tags": [
+        "piège"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Quelles mesures collectives réduisent la prévalence de l'anémie ferriprive ?",
+      "back": "Enrichissement des aliments, supplémentation des groupes à risque, contrôle des parasitoses et prise en charge des ménorragies.",
+      "tags": [
+        "prévention"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Anémie ferriprive",
+      "detail": "Anémie microcytaire par manque de fer disponible. La ferritine confirme, la CRP nuance, la cause se cherche toujours et le traitement se juge sur la reconstitution du stock."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Une anémie mal tolérée, avec des signes qui débordent le globule rouge.",
+        "children": [
+          {
+            "id": "rec-signes",
+            "label": "Signes",
+            "detail": "Pâleur, fatigue, dyspnée à l'effort, tachycardie, céphalées.",
+            "leaves": [
+              {
+                "id": "rec-signes-1",
+                "label": "Pica",
+                "detail": "Envies de glace ou de terre."
+              },
+              {
+                "id": "rec-signes-2",
+                "label": "Ongles",
+                "detail": "Koïlonychie, perlèche."
+              }
+            ]
+          },
+          {
+            "id": "rec-grave",
+            "label": "Mauvaise tolérance",
+            "detail": "Dyspnée de repos, douleur thoracique, syncope, décompensation cardiaque.",
+            "leaves": [
+              {
+                "id": "rec-grave-1",
+                "label": "Terrain",
+                "detail": "Coronarien, sujet âgé."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "confirmer",
+        "label": "Confirmer",
+        "tone": "retenir",
+        "detail": "Numération formule sanguine puis bilan martial interprété ensemble.",
+        "children": [
+          {
+            "id": "con-nfs",
+            "label": "Numération",
+            "detail": "Microcytose et hypochromie, réticulocytes pour situer la réponse médullaire.",
+            "leaves": [
+              {
+                "id": "con-nfs-1",
+                "label": "Seuils",
+                "detail": "Variables selon l'âge et le sexe."
+              }
+            ]
+          },
+          {
+            "id": "con-martial",
+            "label": "Bilan martial",
+            "detail": "Ferritine, saturation de la transferrine, CRP et récepteur soluble.",
+            "leaves": [
+              {
+                "id": "con-martial-1",
+                "label": "Inflammation",
+                "detail": "Ferritine faussement normale."
+              },
+              {
+                "id": "con-martial-2",
+                "label": "Seuil",
+                "detail": "30 microgrammes par litre chez l'adulte."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "causes",
+        "label": "Causes",
+        "tone": "prudence",
+        "detail": "Saignement, malabsorption, besoins accrus : trois portes d'entrée.",
+        "children": [
+          {
+            "id": "cau-saignement",
+            "label": "Saignement",
+            "detail": "Digestif occulte, ménorragies, médicaments favorisants.",
+            "leaves": [
+              {
+                "id": "cau-saignement-1",
+                "label": "Cancer",
+                "detail": "À écarter après 50 ans."
+              },
+              {
+                "id": "cau-saignement-2",
+                "label": "Parasites",
+                "detail": "Selon la région."
+              }
+            ]
+          },
+          {
+            "id": "cau-absorption",
+            "label": "Absorption",
+            "detail": "Maladie cœliaque, gastrite atrophique, chirurgie bariatrique.",
+            "leaves": [
+              {
+                "id": "cau-absorption-1",
+                "label": "Sérologie",
+                "detail": "Anti-transglutaminase."
+              }
+            ]
+          },
+          {
+            "id": "cau-besoins",
+            "label": "Besoins et apports",
+            "detail": "Grossesse, croissance, alimentation peu diversifiée.",
+            "leaves": [
+              {
+                "id": "cau-besoins-1",
+                "label": "Prévention",
+                "detail": "Supplémentation ciblée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "memo",
+        "detail": "Toutes les microcytoses ne sont pas des carences.",
+        "children": [
+          {
+            "id": "dif-inflammatoire",
+            "label": "Anémie inflammatoire",
+            "detail": "Ferritine normale ou élevée, saturation basse, récepteur soluble normal.",
+            "leaves": [
+              {
+                "id": "dif-inflammatoire-1",
+                "label": "Traitement",
+                "detail": "Traiter la maladie, discuter le fer IV."
+              }
+            ]
+          },
+          {
+            "id": "dif-thalassemie",
+            "label": "Thalassémie",
+            "detail": "Microcytose sans carence, électrophorèse de l'hémoglobine.",
+            "leaves": [
+              {
+                "id": "dif-thalassemie-1",
+                "label": "Piège",
+                "detail": "Fer inutile et délétère."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Corriger la cause, reconstituer le stock, choisir la voie selon le contexte.",
+        "children": [
+          {
+            "id": "tra-oral",
+            "label": "Fer oral",
+            "detail": "Prise espacée, à jeun si tolérée, à distance des inhibiteurs d'absorption.",
+            "leaves": [
+              {
+                "id": "tra-oral-1",
+                "label": "Durée",
+                "detail": "Trois mois après normalisation."
+              }
+            ]
+          },
+          {
+            "id": "tra-iv",
+            "label": "Fer intraveineux",
+            "detail": "Malabsorption, intolérance, besoin rapide, inflammation chronique.",
+            "leaves": [
+              {
+                "id": "tra-iv-1",
+                "label": "Surveillance",
+                "detail": "Réaction immédiate."
+              }
+            ]
+          },
+          {
+            "id": "tra-transfusion",
+            "label": "Transfusion",
+            "detail": "Sauvetage symptomatique, jamais traitement de la carence.",
+            "leaves": [
+              {
+                "id": "tra-transfusion-1",
+                "label": "Décision",
+                "detail": "Tolérance clinique avant chiffre."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "La réponse biologique valide le diagnostic autant que le traitement.",
+        "children": [
+          {
+            "id": "sur-reponse",
+            "label": "Réponse",
+            "detail": "Réticulocytes à une semaine, hémoglobine à quatre semaines.",
+            "leaves": [
+              {
+                "id": "sur-reponse-1",
+                "label": "Échec",
+                "detail": "Observance, saignement, malabsorption."
+              }
+            ]
+          },
+          {
+            "id": "sur-stock",
+            "label": "Stock",
+            "detail": "Ferritine en fin de traitement, puis surveillance selon la cause.",
+            "leaves": [
+              {
+                "id": "sur-stock-1",
+                "label": "Récidive",
+                "detail": "Cause non traitée."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-HB-2024",
+      "title": "Guideline on haemoglobin cutoffs to define anaemia in individuals and populations",
+      "citation": "Organisation mondiale de la Santé. Guideline on haemoglobin cutoffs to define anaemia in individuals and populations. Genève : OMS ; 2024.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2024,
+      "url": "https://www.who.int/publications/i/item/9789240088542",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition de l'anémie",
+        "Seuils dépendants de l'âge et du sexe",
+        "Santé publique"
+      ]
+    },
+    {
+      "id": "SRC-WHO-FERRITIN-2020",
+      "title": "WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations",
+      "citation": "Organisation mondiale de la Santé. WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations. Genève : OMS ; 2020.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2020,
+      "url": "https://www.who.int/publications/i/item/9789240000124",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Interprétation de la ferritine",
+        "Inflammation",
+        "Seuils de population"
+      ]
+    },
+    {
+      "id": "SRC-BSG-IDA-2021",
+      "title": "British Society of Gastroenterology guidelines for the management of iron deficiency anaemia in adults",
+      "citation": "Snook J, Bhala N, Beales ILP, et al. British Society of Gastroenterology guidelines for the management of iron deficiency anaemia in adults. Gut 2021 ; 70 (11) : 2030-2051. doi:10.1136/gutjnl-2021-325210.",
+      "organization": "British Society of Gastroenterology (BSG)",
+      "year": 2021,
+      "url": "https://doi.org/10.1136/gutjnl-2021-325210",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Seuil de ferritine",
+        "Exploration étiologique",
+        "Traitement martial",
+        "Durée du traitement"
+      ]
+    }
+  ]
+}

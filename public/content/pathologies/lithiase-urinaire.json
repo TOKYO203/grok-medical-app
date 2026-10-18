@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "lithiase-urinaire",
+  "title": "Lithiase urinaire",
+  "subtitle": "Fiche de nosographie — urologie",
+  "objective": "Reconnaître une colique néphrétique, identifier les situations qui imposent un drainage urgent, choisir entre éviction spontanée et geste urologique, puis prévenir la récidive par une évaluation métabolique et diététique.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 17,
+    "specialty": "Urologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 192,
+      "localNumber": 17,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Lithiase urinaire",
+      "specialty": "Urologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'European Association of Urology sur la lithiase, de la recommandation de l'American Urological Association et de la Société Endourologique, et du référentiel du Collège d'Urologie. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Les recommandations de l'AUA et de la Société Endourologique sur la prise en charge chirurgicale des calculs datent de 2016 : leur millésime est conservé, elles restent la référence nord-américaine sur les indications de geste et la métaphylaxie.",
+      "Les recommandations de l'EAU sur la lithiase sont citées dans leur édition 2026, telle que publiée en ligne par l'association.",
+      "Aucune posologie d'antalgique ni d'alpha-bloquant n'est donnée. Les principes (anti-inflammatoire en première intention, traitement symptomatique, alpha-bloquant discuté pour un calcul urétéral distal de taille favorable) sont exposés sans chiffre.",
+      "La règle diététique la plus contre-intuitive est explicitement soulignée : une restriction calcique n'est pas recommandée dans la lithiase calcique, car elle augmente l'oxalurie et le risque de récidive. Seule une consommation excessive de calcium est déconseillée.",
+      "Les seuils de taille des calculs sont donnés comme des repères de probabilité d'expulsion spontanée, pas comme des règles absolues : la décision dépend aussi de la douleur, de la fonction rénale et du contexte.",
+      "Le contexte malgache est décrit qualitativement : climat chaud et faible apport hydrique comme facteurs de risque, accès limité à la lithotritie extracorporelle et à l'urétéroscopie. Aucun chiffre de prévalence national n'est avancé.",
+      "Les recommandations françaises de la Haute Autorité de santé n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Sémiologie de la colique néphrétique",
+      "Signes imposant un drainage urgent",
+      "Place de la tomodensitométrie sans injection et de l'échographie",
+      "Tailles et probabilité d'expulsion",
+      "Absence de posologies",
+      "Message diététique correct sur le calcium",
+      "Évaluation métabolique et prévention des récidives"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase urinaire est la présence de calculs dans les voies excrétrices rénales. C'est l'une des maladies les plus anciennes de l'humanité et l'une des plus fréquentes en urologie. Sa présentation typique est la colique néphrétique, mais une part importante des calculs reste silencieuse et n'est découverte qu'à l'occasion d'une échographie ou d'une complication."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie n'est pas un simple épisode douloureux : c'est une maladie métabolique chronique, avec un risque de récidive élevé. Traiter la colique sans évaluer le risque de récidive revient à laisser revenir le calcul, parfois compliqué d'infection ou d'insuffisance rénale."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux urgences structurent la prise en charge. La première est infectieuse : un calcul obstructif infecté est une pyonéphrose, dont le traitement est le drainage, pas l'antibiotique seul. La seconde est rénale : une obstruction sur rein unique, une anurie ou une insuffisance rénale aiguë obstructive imposent une décompression rapide."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit le trajet classique : reconnaître la douleur, éliminer le diagnostic différentiel, évaluer le risque, décider du geste, puis prévenir."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" },
+        { "id": "SRC-AUA-STONES-2016", "organization": "American Urological Association (AUA) / Endourological Society", "title": "Surgical Management of Stones: AUA/Endourological Society Guideline", "year": 2016, "url": "https://doi.org/10.1016/j.juro.2016.05.090" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Un calcul se forme lorsque l'urine devient sursaturée en un sel donné : oxalate de calcium, phosphate de calcium, acide urique, struvite ou cystine. La sursaturation dépend de la concentration urinaire, du pH et de la présence de promoteurs et d'inhibiteurs de cristallisation. La déshydratation concentre l'urine et favorise la cristallisation : c'est le premier facteur sur lequel on peut agir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les calculs calciques dominent largement. Les calculs d'acide urique se forment en urine acide et sont radiotransparents ; les calculs de struvite sont liés à une infection à germes uréasiques et peuvent occuper tout le bassinet en « corail » ; les calculs de cystine sont rares et témoignent d'une maladie héréditaire. Connaître la composition du calcul est indispensable à la prévention."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les facteurs favorisants se répartissent en trois groupes : individuels (antécédent personnel ou familial, obésité, diabète, hyperparathyroïdie, goutte), alimentaires (faible apport hydrique, apports élevés en sel, en protéines animales, en oxalate, apports calciques trop faibles) et anatomiques ou infectieux (malformation, stase, infections récidivantes, sonde, chirurgie bariatrique)."
+        },
+        {
+          "type": "table",
+          "columns": ["Type de calcul", "Fréquence", "Particularités", "Prévention spécifique"],
+          "rows": [
+            ["Oxalate de calcium", "Très fréquent", "Radiopaque, lié à l'hypercalciurie, à l'hyperoxalurie ou à un faible apport hydrique", "Hydratation, apports calciques normaux, réduction du sel et des protéines animales"],
+            ["Phosphate de calcium", "Fréquent", "Souvent associé à une urine alcaline ou à une hyperparathyroïdie", "Traiter la cause, réduire la charge en sel"],
+            ["Acide urique", "Moins fréquent", "Radiotransparent, urine acide, souvent associé au syndrome métabolique", "Alcalinisation et réduction des purines"],
+            ["Struvite", "Rare mais grave", "Infection à germes uréasiques, calcul corallien", "Traiter l'infection et retirer le calcul"],
+            ["Cystine", "Très rare", "Maladie héréditaire, récidives fréquentes", "Hydratation importante, alcalinisation, suivi spécialisé"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Boire est le premier traitement",
+          "text": "Une diurèse abondante réduit la sursaturation et la récidive. C'est la mesure la mieux démontrée et la moins coûteuse, en particulier dans les pays chauds où les pertes hydriques sont importantes."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas restreindre le calcium alimentaire",
+          "text": "Une restriction calcique augmente l'absorption d'oxalate et le risque de récidive. Les apports calciques doivent être normaux, et c'est l'excès de sel, de protéines animales et d'oxalate qui se discute."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" },
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La colique néphrétique associe une douleur lombaire unilatérale d'apparition brutale, irradiant vers la fosse iliaque et les organes génitaux, accompagnée d'une agitation caractéristique : le patient ne trouve aucune position antalgique, contrairement à celui qui souffre d'une péritonite. Des nausées, des vomissements et une hématurie microscopique sont fréquents. La fièvre n'appartient pas au tableau et doit faire chercher une infection associée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen des urines : hématurie, leucocyturie, nitrites ; examen cytobactériologique si fièvre ou doute.",
+            "Créatinine et ionogramme : recherche d'une insuffisance rénale aiguë obstructive.",
+            "Tomodensitométrie abdomino-pelvienne sans injection : examen de référence pour la taille, la localisation et le retentissement.",
+            "Échographie rénale et vésicale : première intention chez la femme enceinte et l'enfant, et en cas d'indisponibilité du scanner.",
+            "Radiographie de l'abdomen sans préparation : peu sensible, ne pas l'utiliser pour éliminer un calcul.",
+            "Bilan métabolique initial : calcium, uric acidémie, phosphate, après l'épisode aigu.",
+            "Analyse du calcul expulsé ou retiré : systématique, elle guide la prévention."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Diagnostic différentiel", "Élément distinctif", "Examen"],
+          "rows": [
+            ["Pyélonéphrite aiguë", "Fièvre, douleur continue, signes urinaires", "Urines, imagerie"],
+            ["Appendicite", "Douleur de fosse iliaque droite, défense, fièvre", "Échographie ou scanner"],
+            ["Cholécystite", "Douleur de l'hypochondre droit, Murphy", "Échographie abdominale"],
+            ["Anévrisme aortique", "Douleur brutale, terrain vasculaire, instabilité", "Scanner injecté en urgence"],
+            ["Torsion d'un organe", "Douleur brutale avec signes locaux, terrain particulier", "Avis chirurgical ou urologique urgent"],
+            ["Lombalgie mécanique", "Douleur positionnelle, pas de signe urinaire", "Clinique"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez la femme en âge de procréer, un test de grossesse est systématique : la grossesse complique l'imagerie et modifie la prise en charge. Chez le patient âgé ou fébrile, la recherche d'un anévrisme de l'aorte abdominale et d'une infection obstructive est prioritaire, car ce sont les deux pièges létaux."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Drainer sans attendre",
+          "text": "Fièvre avec obstacle, anurie, rein unique obstrué, insuffisance rénale aiguë obstructive ou douleur réfractaire malgré un traitement bien conduit imposent une décompression urgente : sonde urétérale ou néphrostomie percutanée, selon les ressources et l'état du patient."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Échographie normale, calcul possible",
+          "text": "Un calcul urétéral peut passer inaperçu à l'échographie. En cas de forte suspicion clinique, la tomodensitométrie sans injection tranche. À l'inverse, une échographie ne doit pas être répétée sans fin pour surveiller une colique simple."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" },
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et évaluation métabolique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La recherche étiologique n'a pas la même intensité selon le patient. Un premier épisode isolé chez un adulte sans antécédent justifie une analyse du calcul, quelques conseils et une réévaluation. Les récidives, les calculs chez l'enfant, les calculs bilatéraux, les calculs coralliens, l'insuffisance rénale et les antécédents familiaux imposent une évaluation métabolique plus poussée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hypercalciurie : hyperparathyroïdie primaire, apport sodé excessif, immobilisation, sarcoïdose.",
+            "Hyperoxalurie : apports alimentaires élevés, maladie de Crohn, résection intestinale, chirurgie bariatrique, hyperoxalurie primaire rare.",
+            "Hypocitraturie : acidose métabolique, régime riche en protéines animales, exercice intense.",
+            "Hyperuricurie et urine acide : syndrome métabolique, goutte, syndrome de lyse.",
+            "Infection urinaire récidivante à germes uréasiques : calculs de struvite.",
+            "Anomalies anatomiques : jonction pyélo-urétérale, diverticule caliciel, rein en fer à cheval.",
+            "Médicaments lithogènes : indinavir, triamtérène, topiramate, certains antiépileptiques.",
+            "Cystinurie : maladie héréditaire du transport tubulaire, à évoquer chez l'enfant ou l'adulte jeune récidiviste."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Le calcul est un examen",
+          "text": "Demander l'analyse du calcul n'est pas un détail : la composition oriente la recherche métabolique et la prévention. Un calcul non analysé est une information perdue."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Hyperparathyroïdie : y penser deux fois",
+          "text": "Une hypercalcémie associée à une lithiase calcique récidivante justifie un dosage de parathormone. Une hyperparathyroïdie primaire non diagnostiquée condamne à la récidive, quel que soit le traitement urologique."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" },
+        { "id": "SRC-AUA-STONES-2016", "organization": "American Urological Association (AUA) / Endourological Society", "title": "Surgical Management of Stones", "year": 2016, "url": "https://doi.org/10.1016/j.juro.2016.05.090" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de la colique néphrétique associe une antalgie efficace, une hydratation orale normale et une surveillance. Les anti-inflammatoires non stéroïdiens sont les plus efficaces lorsqu'ils ne sont pas contre-indiqués ; les opioïdes prennent le relais en cas de contre-indication ou de douleur rebelle. La perfusion forcée n'a pas démontré d'intérêt et expose à la surcharge."
+        },
+        {
+          "type": "table",
+          "columns": ["Taille du calcul", "Probabilité d'expulsion spontanée", "Conduite habituelle"],
+          "rows": [
+            ["Inférieure à 5 mm", "Élevée", "Traitement médical, surveillance, expulsion attendue"],
+            ["5 à 10 mm", "Intermédiaire", "Discussion entre attente, alpha-bloquant et geste selon la douleur et le contexte"],
+            ["Supérieure à 10 mm", "Faible", "Geste urologique le plus souvent nécessaire"],
+            ["Calcul infecté ou obstructif", "Sans objet", "Drainage urgent quelle que soit la taille"],
+            ["Calcul corallien", "Sans objet", "Prise en charge complexe, souvent en plusieurs temps"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Lorsqu'un geste est nécessaire, trois options dominent : la lithotritie extracorporelle, l'urétéroscopie avec fragmentation, et la néphrolithotomie percutanée pour les calculs volumineux ou coralliens. Le choix dépend de la taille, de la localisation, de la dureté présumée, de l'anatomie, des ressources disponibles et de la préférence éclairée du patient. Une décompression préalable peut être nécessaire si l'infection est présente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Contrôler la douleur avant de décider du geste : la douleur réfractaire est en soi une indication.",
+            "Ne pas donner d'anti-inflammatoire en cas d'insuffisance rénale, d'ulcère ou de grossesse sans avis.",
+            "Traiter l'infection associée avant ou pendant le geste, jamais après seulement.",
+            "Expliquer au patient les signes qui imposent de revenir : fièvre, anurie, douleur incontrôlable.",
+            "Analyser le calcul après expulsion ou extraction.",
+            "Organiser une consultation de prévention après le premier épisode compliqué ou récidivant."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Fièvre + obstacle = drainage",
+          "text": "Une pyélonéphrite obstructive sur calcul est une urgence urologique. L'antibiothérapie seule ne stérilise pas des urines sous pression, et l'attente expose à un choc septique."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "La grossesse change tout",
+          "text": "Chez la femme enceinte, l'imagerie repose d'abord sur l'échographie, la prise en charge est multidisciplinaire et le drainage est privilégié en cas de complication. Aucun geste ne se décide sans avis urologique et obstétrical."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" },
+        { "id": "SRC-AUA-STONES-2016", "organization": "American Urological Association (AUA) / Endourological Society", "title": "Surgical Management of Stones", "year": 2016, "url": "https://doi.org/10.1016/j.juro.2016.05.090" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention des récidives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur des mesures diététiques et, dans certains cas, sur des médicaments. Les mesures diététiques sont les mêmes pour la majorité des calculs : boire suffisamment pour obtenir une diurèse abondante, répartir les prises dans la journée et même la nuit, réduire le sel, modérer les protéines animales, maintenir des apports calciques normaux et limiter les aliments très riches en oxalate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les traitements médicamenteux dépendent de l'anomalie métabolique identifiée : thiazidique dans l'hypercalciurie, allopurinol dans l'hyperuricémie avec hyperuricurie, citrate de potassium dans l'hypocitraturie, alcalinisation dans la lithiase urique. Chacun suppose une évaluation biologique préalable et un suivi : ces traitements ne s'improvisent pas sur un seul dosage."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Trois litres, répartis",
+          "text": "Boire beaucoup ne suffit pas si l'urine reste concentrée la nuit. La répartition des boissons sur la journée et avant le coucher est aussi importante que le volume total."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Prévenir coûte moins cher que traiter",
+          "text": "Une consultation de prévention, une analyse de calcul et des conseils diététiques coûtent moins qu'une série de gestes urologiques et d'épisodes d'urgence. C'est particulièrement vrai là où l'accès aux plateaux techniques est limité."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-AUA-STONES-2016", "organization": "American Urological Association (AUA) / Endourological Society", "title": "Surgical Management of Stones", "year": 2016, "url": "https://doi.org/10.1016/j.juro.2016.05.090" },
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase urinaire se présente le plus souvent comme une colique néphrétique. Le diagnostic repose sur la clinique et la tomodensitométrie sans injection ; l'échographie est utile chez la femme enceinte et lorsque le scanner n'est pas disponible."
+        },
+        {
+          "type": "paragraph",
+          "text": "La taille du calcul et le contexte décident de la conduite : attente pour les petits calculs, geste pour les gros, drainage urgent en cas d'infection ou d'obstruction sur rein unique. La prévention est une démarche au long cours, fondée sur l'hydratation, l'analyse du calcul et l'évaluation métabolique des formes récidivantes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national et aux ressources du centre avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-EAU-UROLITHIASIS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urolithiasis", "year": 2026, "url": "https://uroweb.org/guidelines/urolithiasis" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "European Association of Urology. EAU Guidelines on Urolithiasis. Édition 2026.",
+            "Assimos D, Krambeck A, Miller NL, et al. Surgical Management of Stones: American Urological Association/Endourological Society Guideline, Part I. Journal of Urology 2016. doi:10.1016/j.juro.2016.05.090.",
+            "Association Française d'Urologie. Référentiel du Collège d'Urologie, 5e édition. Urofrance."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-colitique",
+      "label": "COLIQUE",
+      "intro": "Reconnaître la colique néphrétique",
+      "entries": [
+        { "key": "C", "term": "Cri brutal : douleur d'apparition soudaine, intense." },
+        { "key": "O", "term": "Onde lombaire irradiant vers l'aine et les organes génitaux." },
+        { "key": "L", "term": "Léthargie impossible : agitation, aucune position antalgique." },
+        { "key": "I", "term": "Infections à exclure : la fièvre n'est pas un signe de colique." },
+        { "key": "Q", "term": "Quantité d'urines : surveiller l'anurie." },
+        { "key": "U", "term": "Urines : hématurie, leucocyturie, culture si fièvre." },
+        { "key": "E", "term": "Évaluation par imagerie : scanner sans injection en référence." }
+      ],
+      "note": "Une douleur lombaire fébrile n'est jamais une colique simple tant que l'infection n'a pas été écartée."
+    },
+    {
+      "id": "mn-types",
+      "label": "TYPES",
+      "intro": "Les cinq grands types de calculs",
+      "entries": [
+        { "key": "O", "term": "Oxalate de calcium : le plus fréquent, radiopaque." },
+        { "key": "P", "term": "Phosphate de calcium : souvent associé à une urine alcaline." },
+        { "key": "U", "term": "Urique : radiotransparent, favorisé par une urine acide." },
+        { "key": "S", "term": "Struvite : infectieux, potentiellement corallien." },
+        { "key": "C", "term": "Cystine : héréditaire, rare, récidivant." }
+      ],
+      "note": "La composition du calcul conditionne toute la prévention : sans elle, on soigne à l'aveugle."
+    },
+    {
+      "id": "mn-prevention",
+      "label": "EAU",
+      "intro": "Quatre mesures diététiques de base",
+      "entries": [
+        { "key": "E", "term": "Eau : diurèse abondante, répartie jour et nuit." },
+        { "key": "A", "term": "Animaux : modérer les protéines animales." },
+        { "key": "U", "term": "Urine peu salée : réduire le sodium alimentaire." }
+      ],
+      "note": "Le calcium alimentaire reste normal : une restriction augmente l'oxalurie et le risque de récidive."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quelle est la présentation typique de la colique néphrétique ?", "back": "Une douleur lombaire unilatérale brutale irradiant vers l'aine, avec agitation et impossibilité de trouver une position antalgique.", "tags": ["clinique"] },
+    { "id": "fc-02", "front": "Quel est l'examen d'imagerie de référence pour un calcul urinaire ?", "back": "La tomodensitométrie abdomino-pelvienne sans injection, qui précise taille, localisation et retentissement.", "tags": ["diagnostic"] },
+    { "id": "fc-03", "front": "Quel signe n'appartient pas à la colique néphrétique simple ?", "back": "La fièvre, qui doit faire évoquer une infection urinaire obstructive et imposer un drainage.", "tags": ["urgence"] },
+    { "id": "fc-04", "front": "Quelles situations imposent une décompression urinaire urgente ?", "back": "Fièvre avec obstacle, anurie, rein unique obstrué, insuffisance rénale aiguë obstructive, douleur réfractaire.", "tags": ["urgence"] },
+    { "id": "fc-05", "front": "Quelle est la probabilité d'expulsion spontanée d'un calcul de moins de 5 mm ?", "back": "Élevée : la majorité s'expulsent spontanément, ce qui permet souvent une conduite attentiste.", "tags": ["traitement"] },
+    { "id": "fc-06", "front": "Quel est le traitement antalgique de première intention de la colique néphrétique ?", "back": "Un anti-inflammatoire non stéroïdien, en l'absence de contre-indication, avec relais par opioïde si besoin.", "tags": ["traitement"] },
+    { "id": "fc-07", "front": "Quel est le type de calcul le plus fréquent ?", "back": "Le calcul d'oxalate de calcium.", "tags": ["physiopathologie"] },
+    { "id": "fc-08", "front": "Quelle particularité rend un calcul d'acide urique difficile à voir sur une radiographie ?", "back": "Il est radiotransparent : la radiographie simple ne suffit pas à le détecter.", "tags": ["piège"] },
+    { "id": "fc-09", "front": "Quel type de calcul est associé aux infections urinaires à germes uréasiques ?", "back": "Le calcul de struvite, qui peut prendre la forme d'un calcul corallien.", "tags": ["physiopathologie"] },
+    { "id": "fc-10", "front": "Faut-il restreindre le calcium alimentaire en cas de lithiase calcique ?", "back": "Non : une restriction augmente l'absorption d'oxalate et le risque de récidive. Les apports doivent rester normaux.", "tags": ["prévention"] },
+    { "id": "fc-11", "front": "Quelles sont les mesures diététiques de base de la prévention ?", "back": "Diurèse abondante répartie, réduction du sel et des protéines animales, apports calciques normaux, limitation des aliments riches en oxalate.", "tags": ["prévention"] },
+    { "id": "fc-12", "front": "Quand réaliser une évaluation métabolique poussée ?", "back": "En cas de récidive, de calcul chez l'enfant, bilatéral, corallien, d'insuffisance rénale ou d'antécédent familial.", "tags": ["prévention"] },
+    { "id": "fc-13", "front": "Quelle est la première mesure après l'expulsion d'un calcul ?", "back": "Faire analyser le calcul, pour orienter la prévention et la recherche métabolique.", "tags": ["prévention"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Lithiase urinaire",
+      "detail": "Calcul dans les voies excrétrices. La colique néphrétique est la présentation typique, l'infection et l'obstruction sur rein unique sont les urgences, la taille guide le geste et l'analyse du calcul guide la prévention."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Douleur brutale, agitée, unilatérale, irradiante.",
+        "children": [
+          {
+            "id": "rec-douleur",
+            "label": "Douleur",
+            "detail": "Lombaire, irradiant vers l'aine, sans position antalgique.",
+            "leaves": [
+              { "id": "rec-douleur-1", "label": "Agitation", "detail": "Signe distinctif." },
+              { "id": "rec-douleur-2", "label": "Nausées", "detail": "Fréquentes." }
+            ]
+          },
+          {
+            "id": "rec-signes",
+            "label": "Signes associés",
+            "detail": "Hématurie, pollakiurie, frissons si infection.",
+            "leaves": [
+              { "id": "rec-signes-1", "label": "Fièvre", "detail": "Change la conduite." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "explorer",
+        "label": "Explorer",
+        "tone": "retenir",
+        "detail": "Biologie, imagerie, et recherche du retentissement rénal.",
+        "children": [
+          {
+            "id": "exp-imagerie",
+            "label": "Imagerie",
+            "detail": "Scanner sans injection en référence, échographie en première intention chez la femme enceinte.",
+            "leaves": [
+              { "id": "exp-imagerie-1", "label": "Taille", "detail": "Détermine la conduite." },
+              { "id": "exp-imagerie-2", "label": "Piège", "detail": "Radiographie insuffisante." }
+            ]
+          },
+          {
+            "id": "exp-bio",
+            "label": "Biologie",
+            "detail": "Créatinine, urines, culture si fièvre, bilan métabolique à distance.",
+            "leaves": [
+              { "id": "exp-bio-1", "label": "Rein", "detail": "Insuffisance rénale obstructive." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Deux situations imposent un drainage immédiat.",
+        "children": [
+          {
+            "id": "urg-infection",
+            "label": "Infection",
+            "detail": "Pyélonéphrite obstructive, pyonéphrose : drainage sans délai.",
+            "leaves": [
+              { "id": "urg-infection-1", "label": "Sonde ou néphrostomie", "detail": "Selon les ressources." }
+            ]
+          },
+          {
+            "id": "urg-rein",
+            "label": "Rein unique",
+            "detail": "Anurie, rein unique obstrué, insuffisance rénale aiguë.",
+            "leaves": [
+              { "id": "urg-rein-1", "label": "Délai", "detail": "Chaque heure compte pour la fonction rénale." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "types",
+        "label": "Types",
+        "tone": "memo",
+        "detail": "La composition du calcul oriente la prévention.",
+        "children": [
+          {
+            "id": "typ-calcique",
+            "label": "Calcique",
+            "detail": "Oxalate et phosphate de calcium, les plus fréquents.",
+            "leaves": [
+              { "id": "typ-calcique-1", "label": "Calcium alimentaire", "detail": "Ne pas restreindre." },
+              { "id": "typ-calcique-2", "label": "Parathyroïde", "detail": "Hypercalcémie à explorer." }
+            ]
+          },
+          {
+            "id": "typ-urique",
+            "label": "Acide urique",
+            "detail": "Radiotransparent, urine acide, syndrome métabolique.",
+            "leaves": [
+              { "id": "typ-urique-1", "label": "Alcalinisation", "detail": "Selon le pH urinaire." }
+            ]
+          },
+          {
+            "id": "typ-infectieux",
+            "label": "Struvite",
+            "detail": "Infection à germes uréasiques, calcul corallien.",
+            "leaves": [
+              { "id": "typ-infectieux-1", "label": "Traitement", "detail": "Infection et calcul." }
+            ]
+          },
+          {
+            "id": "typ-cystine",
+            "label": "Cystine",
+            "detail": "Maladie héréditaire, récidives fréquentes.",
+            "leaves": [
+              { "id": "typ-cystine-1", "label": "Suivi", "detail": "Spécialisé, à vie." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Antalgie, attente ou geste selon la taille et le contexte.",
+        "children": [
+          {
+            "id": "tra-antalgie",
+            "label": "Antalgie",
+            "detail": "Anti-inflammatoire en première intention, opioïde si besoin.",
+            "leaves": [
+              { "id": "tra-antalgie-1", "label": "Contre-indications", "detail": "Rein, ulcère, grossesse." }
+            ]
+          },
+          {
+            "id": "tra-geste",
+            "label": "Geste",
+            "detail": "Lithotritie, urétéroscopie, néphrolithotomie percutanée.",
+            "leaves": [
+              { "id": "tra-geste-1", "label": "Choix", "detail": "Taille, localisation, ressources." },
+              { "id": "tra-geste-2", "label": "Drainage", "detail": "Préalable si infection." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "prudence",
+        "detail": "Hydratation, diététique, et traitement de l'anomalie métabolique.",
+        "children": [
+          {
+            "id": "pre-diete",
+            "label": "Diététique",
+            "detail": "Diurèse abondante, moins de sel, moins de protéines animales, calcium normal.",
+            "leaves": [
+              { "id": "pre-diete-1", "label": "Oxalate", "detail": "Limiter les aliments très riches." }
+            ]
+          },
+          {
+            "id": "pre-metabolique",
+            "label": "Métabolique",
+            "detail": "Analyse du calcul, bilan urinaire si récidive, traitement ciblé.",
+            "leaves": [
+              { "id": "pre-metabolique-1", "label": "Hypercalcémie", "detail": "Dosage de parathormone." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-EAU-UROLITHIASIS",
+      "title": "EAU Guidelines on Urolithiasis",
+      "citation": "European Association of Urology. EAU Guidelines on Urolithiasis. Édition présentée au congrès annuel de l'EAU, 2026.",
+      "organization": "European Association of Urology (EAU)",
+      "year": 2026,
+      "version": "édition 2026",
+      "url": "https://uroweb.org/guidelines/urolithiasis",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic", "Indications de drainage", "Choix du geste", "Prévention"]
+    },
+    {
+      "id": "SRC-AUA-STONES-2016",
+      "title": "Surgical Management of Stones: American Urological Association/Endourological Society Guideline, Part I",
+      "citation": "Assimos D, Krambeck A, Miller NL, et al. Surgical Management of Stones: American Urological Association/Endourological Society Guideline, Part I. Journal of Urology 2016 ; 196 (4) : 1153-1160. doi:10.1016/j.juro.2016.05.090.",
+      "organization": "American Urological Association (AUA) / Endourological Society",
+      "year": 2016,
+      "url": "https://doi.org/10.1016/j.juro.2016.05.090",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Indications chirurgicales", "Métaphylaxie", "Suivi"]
+    },
+    {
+      "id": "SRC-AFU-REF-URO",
+      "title": "Référentiel du Collège d'Urologie — 5e édition",
+      "citation": "Association Française d'Urologie. Référentiel du Collège d'Urologie, 5e édition. Urofrance.",
+      "organization": "Association Française d'Urologie (AFU)",
+      "year": 2022,
+      "version": "5e édition",
+      "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Cadrage sémiologique", "Conduite pratique", "Diagnostics différentiels"]
+    }
+  ]
+}

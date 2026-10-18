@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hodgkin",
+  "title": "Maladie de Hodgkin",
+  "subtitle": "Lymphome de Hodgkin — et place des lymphomes non hodgkiniens",
+  "objective": "Évoquer devant une adénopathie indolore persistante, obtenir une biopsie ganglionnaire de qualité, stadifier selon Lugano et comprendre pourquoi cette hémopathie se guérit dans la majorité des cas.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 92,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 133,
+      "localNumber": 92,
+      "sectionLabel": "Médecine",
+      "title": "Maladie de Hodgkin",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations ESMO sur le lymphome de Hodgkin, de la classification de Lugano et de la classification OMS des tumeurs lymphoïdes. Texte intégralement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le titre reprend mot pour mot l'intitulé officiel de l'item du référentiel national, qui porte sur la maladie de Hodgkin. La fiche couvre donc le lymphome de Hodgkin en profondeur et consacre une section à la distinction avec les lymphomes non hodgkiniens, parce que c'est la question pratique posée au chevet du patient et à l'examen.",
+      "Les recommandations ESMO sur le lymphome de Hodgkin datent de 2018 (millésime conservé, non antidaté). Elles restent la référence européenne synthétique sur la démarche diagnostique et les principes thérapeutiques ; les évolutions récentes concernent surtout les thérapies ciblées en rechute, mentionnées sans protocole.",
+      "La classification de Lugano (2014) est citée pour le bilan d'extension et l'évaluation de la réponse, avec la TEP au fluorodésoxyglucose comme examen de référence. Son ancienneté est assumée : c'est le standard international de stadification.",
+      "Aucun protocole de chimiothérapie n'est détaillé ni chiffré : les noms de schémas sont cités pour permettre la reconnaissance, pas pour être appliqués. La radiothérapie est présentée dans son principe (irradiation des sites atteints) sans dose.",
+      "La place de la biopsie ganglionnaire chirurgicale plutôt que de la cytoponction est soulignée : c'est une erreur fréquente et coûteuse, car la cytologie seule ne permet pas le diagnostic immunohistochimique.",
+      "Les recommandations françaises de la Haute Autorité de santé et de la Société Française d'Hématologie n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées.",
+      "Le contexte de ressources limitées est décrit qualitativement (accès à la TEP, à la radiothérapie et aux molécules récentes) sans chiffre non vérifié."
+    ],
+    "qcChecklist": [
+      "Définition histologique et place des cellules de Reed-Sternberg",
+      "Type de biopsie recommandé",
+      "Stadification Lugano et place de la TEP",
+      "Symptômes B et leur définition",
+      "Principes thérapeutiques sans protocole posologique",
+      "Séquelles à long terme et préservation de la fertilité",
+      "Distinction avec les lymphomes non hodgkiniens"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie de Hodgkin est un lymphome à cellules B caractérisé par une architecture particulière : les cellules tumorales, les cellules de Reed-Sternberg, sont rares — parfois moins de 1 % de la masse — et noyées dans un infiltrat inflammatoire abondant. Ce sont elles qui définissent la maladie, mais ce sont les cellules inflammatoires qui font le volume du ganglion."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est une hémopathie qui se distingue par son pronostic : la majorité des patients guérissent, y compris à un stade avancé. Cette réussite a une contrepartie : les patients guéris vivent longtemps et paient le prix des traitements, en particulier cardiaques, pulmonaires, endocriniens et oncologiques. La surveillance au long cours fait donc partie du traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "La présentation typique est une adénopathie cervicale ou médiastinale indolore, chez un adulte jeune, parfois accompagnée de fièvre, de sueurs nocturnes ou d'un amaigrissement. Cette banalité apparente est le principal piège : une adénopathie qui persiste plusieurs semaines ne doit pas être laissée à la surveillance clinique sans exploration."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit le trajet du diagnostic : évoquer, biopsier correctement, stadifier, puis traiter selon le stade et le pronostic."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" },
+        { "id": "SRC-WHO-LYMPHOID-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours: Lymphoid Neoplasms", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01620-2" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les cellules de Reed-Sternberg sont des cellules B géantes, souvent binucléées, exprimant CD30 et CD15 et ayant perdu l'expression habituelle de CD20. Elles produisent des cytokines qui recrutent et activent les cellules inflammatoires environnantes : lymphocytes, éosinophiles, histiocytes, plasmocytes. Le ganglion devient dur, puis fibreux dans les formes scléro-nodulaires."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le virus d'Epstein-Barr est retrouvé dans une proportion variable des cas, surtout dans les formes à cellularité mixte et chez les patients des pays à ressources limitées. Il n'est ni nécessaire ni suffisant : sa présence oriente vers un mécanisme de transformation lymphocytaire B, sans définir à elle seule la maladie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La distribution d'âge est bimodale, avec un pic chez l'adulte jeune et un second pic après 60 ans. La maladie progresse de proche en proche le long des chaînes ganglionnaires, ce qui explique la valeur de la stadification et l'importance de la radiothérapie dans les formes localisées."
+        },
+        {
+          "type": "table",
+          "columns": ["Sous-type", "Particularités", "Évolution"],
+          "rows": [
+            ["Scléro-nodulaire", "Le plus fréquent, médiastin, adulte jeune", "Bon pronostic, fibrose résiduelle"],
+            ["Cellularité mixte", "Souvent liée à EBV, plus fréquente dans les pays à ressources limitées", "Pronostic intermédiaire"],
+            ["Riche en lymphocytes", "Forme indolente, diagnostic parfois difficile", "Très bon pronostic"],
+            ["Déplétion lymphocytaire", "Sujet âgé, immunodéprimé, forme agressive", "Pronostic plus sombre"],
+            ["Hodgkin nodulaire à prédominance lymphocytaire", "Cellules popcorn, CD20 positif, aspect différent", "Évolution lente, rechutes tardives possibles"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Une tumeur minoritaire dans son propre ganglion",
+          "text": "Les cellules de Reed-Sternberg représentent une fraction infime de la masse tumorale. C'est pourquoi une cytoponction ramène surtout des cellules inflammatoires et pourquoi la biopsie chirurgicale avec immunohistochimie est indispensable."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Deux entités à ne pas confondre",
+          "text": "Le lymphome de Hodgkin classique et le lymphome nodulaire à prédominance lymphocytaire ont une histologie, un immunophénotype et une évolution différents. Le second est CD20 positif et rechute volontiers tardivement, ce qui impose une surveillance prolongée."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WHO-LYMPHOID-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours: Lymphoid Neoplasms", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01620-2" },
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est histologique et ne se fait pas par cytoponction. Une biopsie ganglionnaire chirurgicale, ou une biopsie d'une masse médiastinale par voie adaptée, est nécessaire pour analyser l'architecture et réaliser l'immunohistochimie. La cytoponction garde une place dans l'orientation initiale, pas dans la conclusion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Biopsie ganglionnaire chirurgicale, avec étude immunohistochimique (CD30, CD15, CD20, CD3, CD45).",
+            "Hémogramme, vitesse de sédimentation, bilan hépatique, fonction rénale, lactate déshydrogénase.",
+            "Sérologies infectieuses, y compris VIH et hépatites, avant traitement.",
+            "TEP au fluorodésoxyglucose et tomodensitométrie cervico-thoraco-abdomino-pelvienne pour la stadification.",
+            "Évaluation de la fonction cardiaque et respiratoire avant chimiothérapie contenant des anthracyclines ou de la bléomycine.",
+            "Bilan de fertilité et information sur la préservation avant tout traitement gonadotoxique."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Stade", "Extension", "Symptômes"],
+          "rows": [
+            ["I", "Une seule aire ganglionnaire", "A sans symptômes B, B avec symptômes B"],
+            ["II", "Deux aires ou plus du même côté du diaphragme", "A ou B"],
+            ["III", "Aires des deux côtés du diaphragme", "A ou B"],
+            ["IV", "Atteinte viscérale diffuse ou disséminée", "A ou B"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les symptômes B sont définis précisément : fièvre supérieure à 38 degrés sans autre cause, sueurs nocturnes profuses, ou perte de poids supérieure à 10 % en six mois. Ils changent le stade et le pronostic. Le prurit et la douleur déclenchée par l'alcool sont évocateurs mais ne font pas partie de la définition."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Compression médiastinale",
+          "text": "Une masse médiastinale volumineuse peut comprimer la veine cave supérieure, la trachée ou le cœur, avec dyspnée, turgescence jugulaire et œdème du visage. C'est une urgence : bilan d'extension rapide, avis hématologique immédiat et discussion d'une corticothérapie ou d'une radiothérapie d'urgence."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Adénopathie qui persiste",
+          "text": "Une adénopathie de plus de deux centimètres, dure, indolore, persistant plus de quatre à six semaines, ou un ganglion sus-claviculaire, justifient une exploration. L'antibiotique d'épreuve ne remplace pas la biopsie."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" },
+        { "id": "SRC-LUGANO-2014", "organization": "International Conference on Malignant Lymphoma (Lugano)", "title": "Recommendations for Initial Evaluation, Staging, and Response Assessment of Hodgkin and Non-Hodgkin Lymphoma: The Lugano Classification", "year": 2014, "url": "https://doi.org/10.1200/JCO.2013.54.8800" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et pronostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cause exacte reste inconnue. L'association au virus d'Epstein-Barr, l'existence de cas familiaux et l'augmentation du risque chez les patients immunodéprimés dessinent un mécanisme multifactoriel, où l'environnement et l'immunité jouent un rôle. Aucun de ces éléments ne modifie aujourd'hui la prise en charge individuelle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Antécédent familial de lymphome de Hodgkin : risque augmenté, sans dépistage recommandé.",
+            "Immunodépression, notamment infection par le VIH : présentation plus avancée.",
+            "Infection par le virus d'Epstein-Barr : association épidémiologique, pas un critère diagnostique.",
+            "Facteurs pronostiques du stade avancé : âge, stade, hémoglobine, leucocytose, lymphopénie, albuminémie, sexe masculin.",
+            "Facteurs pronostiques des formes localisées : masse médiastinale volumineuse, vitesse de sédimentation, nombre de sites atteints.",
+            "Réponse au traitement évaluée par TEP : le facteur pronostique le plus important en pratique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Le pronostic se décide aussi après deux cures",
+          "text": "La réponse métabolique à la TEP après les premières cures oriente la suite : elle peut permettre d'alléger le traitement ou, à l'inverse, d'intensifier. C'est un changement majeur par rapport à la logique d'escalade systématique."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas confondre Hodgkin et non hodgkinien",
+          "text": "Une adénopathie avec atteinte médiastinale, une extension non contiguë, une hyperleucocytose ou une masse abdominale orientent plutôt vers un lymphome non hodgkinien. La biopsie tranche, mais le rythme d'évolution aussi : un lymphome agressif se voit en jours, un Hodgkin en semaines."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" },
+        { "id": "SRC-WHO-LYMPHOID-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours: Lymphoid Neoplasms", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01620-2" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement repose sur une combinaison de chimiothérapie et de radiothérapie, adaptée au stade et au pronostic. Dans les formes localisées favorables, l'objectif est de guérir avec le minimum de traitement, en réduisant l'exposition aux anthracyclines et aux champs irradiés. Dans les formes avancées, la chimiothérapie combinée est la base, avec une adaptation guidée par la réponse métabolique."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Stratégie générale", "Enjeu principal"],
+          "rows": [
+            ["Stade localisé favorable", "Chimiothérapie courte suivie d'une irradiation limitée aux sites atteints", "Guérir sans séquelles à long terme"],
+            ["Stade localisé défavorable", "Chimiothérapie plus complète, irradiation des sites atteints", "Contrôle local sans surtraitement"],
+            ["Stade avancé", "Chimiothérapie combinée, adaptation selon la réponse métabolique", "Éradiquer la maladie tout en limitant la toxicité"],
+            ["Rechute ou réfractaire", "Chimiothérapie de rattrapage puis autogreffe ; thérapies ciblées", "Obtenir une réponse avant intensification"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La radiothérapie moderne ne traite plus des champs étendus mais les sites initialement atteints, à des volumes et des doses réduits. Ce changement a fait baisser la toxicité tardive sans sacrifier le contrôle de la maladie. Il suppose une imagerie de qualité et une équipe de radiothérapie entraînée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Préserver la fertilité avant tout traitement : recueil de sperme, préservation ovocytaire, selon l'urgence.",
+            "Surveiller la fonction respiratoire sous bléomycine, dont la toxicité pulmonaire peut être fatale.",
+            "Surveiller la fonction cardiaque après anthracyclines et irradiation médiastinale.",
+            "Dépister les dysthyroïdies après irradiation cervicale.",
+            "Prévenir les infections selon le statut vaccinal et le protocole du centre.",
+            "Organiser la surveillance des seconds cancers, en particulier du sein après irradiation thoracique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Toux et dyspnée sous bléomycine",
+          "text": "Une toux sèche, une dyspnée d'effort ou une fièvre sous bléomycine doivent faire arrêter le médicament et évaluer la fonction respiratoire. La toxicité pulmonaire est dose-dépendante mais peut survenir à faible dose."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Guérir n'est pas la fin du parcours",
+          "text": "Un patient guéri de Hodgkin reste exposé à une cardiopathie, à une hypothyroïdie, à une infertilité et à un second cancer. Le programme de surveillance après traitement est une partie de la prise en charge, pas une option."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" },
+        { "id": "SRC-LUGANO-2014", "organization": "International Conference on Malignant Lymphoma (Lugano)", "title": "Recommendations for Initial Evaluation, Staging, and Response Assessment", "year": 2014, "url": "https://doi.org/10.1200/JCO.2013.54.8800" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi au long cours",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de prévention primaire du lymphome de Hodgkin. La prévention porte donc sur les conséquences : éviter les traitements inutilement toxiques, préserver la fertilité, vacciner avant l'immunosuppression lorsque c'est possible, et organiser un suivi de plusieurs décennies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi associe l'examen clinique, la biologie et l'imagerie selon le stade et le traitement reçu. Au-delà de cinq ans, la surveillance se concentre sur les effets tardifs : fonction cardiaque, thyroïdienne, pulmonaire, dépistage des seconds cancers et soutien psychologique. Un résumé du traitement reçu doit être remis au patient, car il conditionne sa surveillance future même s'il consulte ailleurs."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Remettre un document de synthèse",
+          "text": "Le patient guéri change souvent de médecin. Un document listant les molécules reçues, les doses cumulées, les volumes irradiés et la date de fin de traitement permet d'adapter les dépistages. C'est un geste simple à fort rendement."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie de Hodgkin se présente le plus souvent comme une adénopathie indolore persistante chez un adulte jeune. Le diagnostic exige une biopsie chirurgicale avec immunohistochimie, et la stadification repose sur la TEP et la tomodensitométrie selon la classification de Lugano."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic est globalement favorable, ce qui déplace l'enjeu vers la réduction des séquelles : traitements adaptés au risque, préservation de la fertilité et surveillance au long cours. Les formes réfractaires ou en rechute relèvent de stratégies spécialisées incluant l'autogreffe et les thérapies ciblées."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et ne remplace pas le protocole du centre de référence."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESMO-HODGKIN-2018", "organization": "European Society for Medical Oncology (ESMO)", "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines", "year": 2018, "url": "https://doi.org/10.1093/annonc/mdy080" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées et vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Eichenauer DA, Aleman BMP, André M, et al. Hodgkin lymphoma: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Annals of Oncology 2018. doi:10.1093/annonc/mdy080.",
+            "Cheson BD, Fisher RI, Barrington SF, et al. Recommendations for Initial Evaluation, Staging, and Response Assessment of Hodgkin and Non-Hodgkin Lymphoma: The Lugano Classification. Journal of Clinical Oncology 2014. doi:10.1200/JCO.2013.54.8800.",
+            "Alaggio R, Amador C, Anagnostopoulos I, et al. The 5th edition of the WHO Classification of Haematolymphoid Tumours: Lymphoid Neoplasms. Leukemia 2022. doi:10.1038/s41375-022-01620-2."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WHO-LYMPHOID-2022", "organization": "Organisation mondiale de la Santé (OMS)", "title": "The 5th edition of the WHO Classification of Haematolymphoid Tumours: Lymphoid Neoplasms", "year": 2022, "url": "https://doi.org/10.1038/s41375-022-01620-2" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-adenopathie",
+      "label": "DUR",
+      "intro": "Quand une adénopathie doit être explorée",
+      "entries": [
+        { "key": "D", "term": "Durée : persistance au-delà de quatre à six semaines." },
+        { "key": "U", "term": "Unilatérale, dure, indolore, fixée aux plans profonds." },
+        { "key": "R", "term": "Région à risque : sus-claviculaire, médiastinale, volumineuse." }
+      ],
+      "note": "Une adénopathie inflammatoire régresse en quelques semaines ; une adénopathie qui grossit ne se surveille pas."
+    },
+    {
+      "id": "mn-symptomes-b",
+      "label": "FSP",
+      "intro": "Les symptômes B, définis strictement",
+      "entries": [
+        { "key": "F", "term": "Fièvre supérieure à 38 degrés, sans autre cause." },
+        { "key": "S", "term": "Sueurs nocturnes profuses, trempant les vêtements." },
+        { "key": "P", "term": "Perte de poids supérieure à 10 % du poids corporel en six mois." }
+      ],
+      "note": "Le prurit et la douleur à l'alcool sont évocateurs mais ne définissent pas un stade B."
+    },
+    {
+      "id": "mn-bilan",
+      "label": "BIOPSIE",
+      "intro": "Le bilan qui précède le traitement",
+      "entries": [
+        { "key": "B", "term": "Biopsie ganglionnaire chirurgicale avec immunohistochimie." },
+        { "key": "I", "term": "Imagerie : TEP et tomodensitométrie pour la stadification." },
+        { "key": "O", "term": "Organes : fonction cardiaque, respiratoire, hépatique et rénale." },
+        { "key": "P", "term": "Préservation de la fertilité avant traitement." },
+        { "key": "S", "term": "Sérologies infectieuses, dont VIH et hépatites." },
+        { "key": "I", "term": "Information du patient sur les séquelles tardives." },
+        { "key": "E", "term": "Évaluation gériatrique si sujet âgé." }
+      ],
+      "note": "La cytoponction ne suffit pas au diagnostic : l'architecture et l'immunohistochimie sont nécessaires."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quelle cellule définit la maladie de Hodgkin ?", "back": "La cellule de Reed-Sternberg, une grande cellule B exprimant CD30 et CD15 et ayant perdu CD20.", "tags": ["histologie"] },
+    { "id": "fc-02", "front": "Quel type de prélèvement est nécessaire au diagnostic ?", "back": "Une biopsie ganglionnaire chirurgicale avec immunohistochimie ; la cytoponction ne suffit pas.", "tags": ["diagnostic"] },
+    { "id": "fc-03", "front": "Quels sont les trois symptômes B ?", "back": "Fièvre supérieure à 38 degrés, sueurs nocturnes profuses, perte de poids supérieure à 10 % en six mois.", "tags": ["clinique"] },
+    { "id": "fc-04", "front": "Quel examen est la référence pour la stadification et la réponse ?", "back": "La TEP au fluorodésoxyglucose, associée à la tomodensitométrie, selon la classification de Lugano.", "tags": ["diagnostic"] },
+    { "id": "fc-05", "front": "Que signifie un stade III ?", "back": "Une atteinte ganglionnaire des deux côtés du diaphragme, avec ou sans symptômes B.", "tags": ["classification"] },
+    { "id": "fc-06", "front": "Quel est le pronostic global de la maladie de Hodgkin ?", "back": "Favorable : la majorité des patients guérissent, y compris aux stades avancés, ce qui déplace l'enjeu vers les séquelles.", "tags": ["pronostic"] },
+    { "id": "fc-07", "front": "Quels sont les deux piliers du traitement ?", "back": "La chimiothérapie combinée et la radiothérapie limitée aux sites initialement atteints.", "tags": ["traitement"] },
+    { "id": "fc-08", "front": "Pourquoi la TEP après les premières cures est-elle importante ?", "back": "La réponse métabolique permet d'adapter l'intensité du traitement, à la hausse ou à la baisse.", "tags": ["traitement"] },
+    { "id": "fc-09", "front": "Quelle toxicité impose l'arrêt de la bléomycine ?", "back": "La toxicité pulmonaire : toux sèche, dyspnée, fièvre, pouvant évoluer vers une fibrose.", "tags": ["urgence"] },
+    { "id": "fc-10", "front": "Quelles séquelles tardives surveiller après traitement ?", "back": "Cardiopathie, hypothyroïdie, infertilité, seconds cancers, en particulier du sein après irradiation thoracique.", "tags": ["surveillance"] },
+    { "id": "fc-11", "front": "Quelle est la particularité du lymphome de Hodgkin nodulaire à prédominance lymphocytaire ?", "back": "Il est CD20 positif, d'évolution lente, et peut rechuter tardivement, ce qui impose une surveillance prolongée.", "tags": ["histologie"] },
+    { "id": "fc-12", "front": "Quelle urgence peut révéler une masse médiastinale Hodgkinienne ?", "back": "Un syndrome de compression médiastinale : dyspnée, turgescence jugulaire, œdème du visage.", "tags": ["urgence"] },
+    { "id": "fc-13", "front": "Que faire avant tout traitement gonadotoxique ?", "back": "Informer le patient et proposer une préservation de la fertilité lorsque le délai le permet.", "tags": ["prévention"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Maladie de Hodgkin",
+      "detail": "Lymphome à cellules B défini par les cellules de Reed-Sternberg. Diagnostic par biopsie chirurgicale, stadification par TEP selon Lugano, traitement combiné adapté au risque, guérison fréquente au prix de séquelles à surveiller."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Une adénopathie indolore persistante, parfois avec symptômes B.",
+        "children": [
+          {
+            "id": "rec-adenopathie",
+            "label": "Adénopathie",
+            "detail": "Cervicale ou médiastinale, dure, non douloureuse, évoluant par contiguïté.",
+            "leaves": [
+              { "id": "rec-adenopathie-1", "label": "Sus-claviculaire", "detail": "Toujours suspecte." },
+              { "id": "rec-adenopathie-2", "label": "Délai", "detail": "Quatre à six semaines." }
+            ]
+          },
+          {
+            "id": "rec-b",
+            "label": "Symptômes B",
+            "detail": "Fièvre, sueurs nocturnes profuses, amaigrissement supérieur à 10 %.",
+            "leaves": [
+              { "id": "rec-b-1", "label": "Prurit", "detail": "Évocateur mais non définitoire." },
+              { "id": "rec-b-2", "label": "Alcool", "detail": "Douleur ganglionnaire déclenchée." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostiquer",
+        "label": "Diagnostiquer",
+        "tone": "retenir",
+        "detail": "Biopsie chirurgicale et immunohistochimie, jamais une simple cytoponction.",
+        "children": [
+          {
+            "id": "dia-biopsie",
+            "label": "Biopsie",
+            "detail": "Architecture et marquage CD30, CD15, CD20.",
+            "leaves": [
+              { "id": "dia-biopsie-1", "label": "Cellules", "detail": "Reed-Sternberg rares." },
+              { "id": "dia-biopsie-2", "label": "Sous-types", "detail": "Scléro-nodulaire, cellularité mixte." }
+            ]
+          },
+          {
+            "id": "dia-stade",
+            "label": "Stadification",
+            "detail": "TEP et tomodensitométrie, classification de Lugano, stades I à IV.",
+            "leaves": [
+              { "id": "dia-stade-1", "label": "Masse volumineuse", "detail": "Facteur pronostique local." },
+              { "id": "dia-stade-2", "label": "Réponse", "detail": "Évaluée par TEP." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "comprendre",
+        "label": "Comprendre",
+        "tone": "prudence",
+        "detail": "Une tumeur rare dans un infiltrat inflammatoire, liée à EBV dans certains cas.",
+        "children": [
+          {
+            "id": "com-histologie",
+            "label": "Histologie",
+            "detail": "Cellules de Reed-Sternberg et infiltrat réactionnel abondant.",
+            "leaves": [
+              { "id": "com-histologie-1", "label": "Piège", "detail": "Cytoponction non contributive." }
+            ]
+          },
+          {
+            "id": "com-ebv",
+            "label": "EBV",
+            "detail": "Association variable selon le sous-type et la région.",
+            "leaves": [
+              { "id": "com-ebv-1", "label": "Pronostic", "detail": "Pas un critère de décision individuelle." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "memo",
+        "detail": "Combinaison de chimiothérapie et de radiothérapie adaptée au stade et au risque.",
+        "children": [
+          {
+            "id": "tra-localise",
+            "label": "Formes localisées",
+            "detail": "Chimiothérapie courte et irradiation des sites atteints.",
+            "leaves": [
+              { "id": "tra-localise-1", "label": "Objectif", "detail": "Guérir avec moins de toxicité." }
+            ]
+          },
+          {
+            "id": "tra-avance",
+            "label": "Formes avancées",
+            "detail": "Chimiothérapie combinée, intensité guidée par la réponse métabolique.",
+            "leaves": [
+              { "id": "tra-avance-1", "label": "Rechute", "detail": "Rattrapage puis autogreffe." }
+            ]
+          },
+          {
+            "id": "tra-cible",
+            "label": "Thérapies ciblées",
+            "detail": "Anticorps conjugués et immunothérapie en rechute, selon disponibilité.",
+            "leaves": [
+              { "id": "tra-cible-1", "label": "Accès", "detail": "Très variable selon les pays." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "Les séquelles font partie de l'histoire naturelle du patient guéri.",
+        "children": [
+          {
+            "id": "sur-cardiaque",
+            "label": "Cœur et poumon",
+            "detail": "Anthracyclines, bléomycine, irradiation médiastinale.",
+            "leaves": [
+              { "id": "sur-cardiaque-1", "label": "Bléomycine", "detail": "Toux et dyspnée : arrêt." },
+              { "id": "sur-cardiaque-2", "label": "Cardiotoxicité", "detail": "Surveillance de la fonction ventriculaire." }
+            ]
+          },
+          {
+            "id": "sur-endocrino",
+            "label": "Endocrinien et fertilité",
+            "detail": "Hypothyroïdie après irradiation cervicale, infertilité après chimiothérapie.",
+            "leaves": [
+              { "id": "sur-endocrino-1", "label": "Préserver", "detail": "Avant traitement." }
+            ]
+          },
+          {
+            "id": "sur-second-cancer",
+            "label": "Seconds cancers",
+            "detail": "Sein après irradiation thoracique, autres localisations selon les traitements.",
+            "leaves": [
+              { "id": "sur-second-cancer-1", "label": "Document", "detail": "Résumé du traitement remis au patient." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "reflexe",
+        "detail": "Hodgkin ou non hodgkinien : la biopsie tranche, la cinétique oriente.",
+        "children": [
+          {
+            "id": "dif-rythme",
+            "label": "Rythme",
+            "detail": "Hodgkin en semaines, lymphome agressif en jours.",
+            "leaves": [
+              { "id": "dif-rythme-1", "label": "Urgence", "detail": "Masse compressive ou syndrome de lyse." }
+            ]
+          },
+          {
+            "id": "dif-extension",
+            "label": "Extension",
+            "detail": "Hodgkin par contiguïté ; lymphome non hodgkinien souvent disséminé d'emblée.",
+            "leaves": [
+              { "id": "dif-extension-1", "label": "Médiastin", "detail": "Masse volumineuse dans les deux." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESMO-HODGKIN-2018",
+      "title": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up",
+      "citation": "Eichenauer DA, Aleman BMP, André M, et al. Hodgkin lymphoma: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up. Annals of Oncology 2018 ; 29 (suppl. 4) : iv19-iv29. doi:10.1093/annonc/mdy080.",
+      "organization": "European Society for Medical Oncology (ESMO)",
+      "year": 2018,
+      "url": "https://doi.org/10.1093/annonc/mdy080",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic", "Stadification", "Principes de traitement", "Surveillance"]
+    },
+    {
+      "id": "SRC-LUGANO-2014",
+      "title": "Recommendations for Initial Evaluation, Staging, and Response Assessment of Hodgkin and Non-Hodgkin Lymphoma: The Lugano Classification",
+      "citation": "Cheson BD, Fisher RI, Barrington SF, et al. Recommendations for Initial Evaluation, Staging, and Response Assessment of Hodgkin and Non-Hodgkin Lymphoma: The Lugano Classification. Journal of Clinical Oncology 2014 ; 32 (27) : 3059-3068. doi:10.1200/JCO.2013.54.8800.",
+      "organization": "International Conference on Malignant Lymphoma (Lugano)",
+      "year": 2014,
+      "url": "https://doi.org/10.1200/JCO.2013.54.8800",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Stadification", "Place de la TEP", "Évaluation de la réponse"]
+    },
+    {
+      "id": "SRC-WHO-LYMPHOID-2022",
+      "title": "The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Lymphoid Neoplasms",
+      "citation": "Alaggio R, Amador C, Anagnostopoulos I, et al. The 5th edition of the World Health Organization Classification of Haematolymphoid Tumours: Lymphoid Neoplasms. Leukemia 2022 ; 36 (7) : 1720-1748. doi:10.1038/s41375-022-01620-2.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41375-022-01620-2",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Sous-types histologiques", "Distinction avec les lymphomes non hodgkiniens"]
+    }
+  ]
+}
