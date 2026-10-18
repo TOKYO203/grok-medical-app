@@ -220,3 +220,18 @@ test("la tuile d'accueil est pilotée par le drapeau SIGNES_READY", async () => 
   assert.match(home, /<div\s+data-signes-card="soon"\s+aria-disabled="true"/, "la tuile désactivée n'est pas un div inerte");
   assert.match(home, /aria-disabled="true"/, "tuile désactivée sans aria-disabled");
 });
+
+
+test("/signes ouvre le groupe « S'entraîner » du tiroir mobile", async () => {
+  const navigation = await readFile(new URL("../src/lib/navigation.ts", import.meta.url), "utf8");
+  const afterTrain = navigation.split('labelKey: "nav.group.train"')[1] ?? "";
+  assert.ok(afterTrain.length > 0, "groupe nav.group.train introuvable");
+  // On ne lit QUE le bloc du groupe : le suivant commence à tools.
+  const trainBlock = afterTrain.split('labelKey: "nav.group.tools"')[0];
+  const targets = [...trainBlock.matchAll(/to:\s*"([^"]+)"/g)].map((match) => match[1]);
+
+  assert.ok(targets.length >= 5, "le groupe S'entraîner a perdu des entrées");
+  assert.equal(targets[0], "/signes", "/signes doit être la PREMIÈRE entrée du groupe");
+  assert.equal(targets.at(-1), "/examen", "/examen doit rester la dernière entrée du groupe");
+  assert.equal(new Set(targets).size, targets.length, "cible en double dans le groupe");
+});

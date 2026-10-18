@@ -375,3 +375,9 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | Date | ID | Décision | Motif | Auteur |
 |------|----|----------|-------|--------|
 | 2026-10-18 | SIG-4 | La tuile d'accueil est pilotée par `const SIGNES_READY = false` : **visible mais inerte** — un `<div aria-disabled="true" data-signes-card="soon">` (grisé, `saturate(0)`, badge « Bientôt »), jamais un `<Link>` | On annonce une fonctionnalité sans envoyer l'étudiant sur une démo. L'état désactivé est **structurel** (pas de lien = pas de navigation possible), pas seulement visuel : la QA vérifie qu'un vrai clic souris ne change pas l'URL | Vibe |
+
+## 2026-10-18 — Tiroir mobile : /signes ouvre le groupe « S'entraîner »
+
+| Date | ID | Décision | Motif | Auteur |
+|------|----|----------|-------|--------|
+| 2026-10-18 | SIG-5 | `/signes` devient la **première** entrée du groupe « S'entraîner » du tiroir mobile (avant Cas ECG, ECG animé, Auscultation), `/examen` restant en dernier | Le raisonnement inversé (cas → déduction → triade) est l'entraînement le plus formateur du groupe et il était le dernier item, donc invisible sans défilement. Un module caché dans un tiroir n'existe pas | Vibe |

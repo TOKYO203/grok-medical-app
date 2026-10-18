@@ -65,10 +65,13 @@ export const EXPLORE_GROUPS = [
   {
     labelKey: "nav.group.train",
     items: [
+      // « Signes & Syndromes » ouvre le groupe : c'est le raisonnement
+      // inversé (cas → déduction → triade), le plus formateur des
+      // entraînements — il ne doit plus être le dernier item du tiroir.
+      { to: "/signes", labelKey: "nav.signes", icon: Brain },
       { to: "/ecg", labelKey: "nav.ecgCases", icon: Activity },
       { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: HeartPulse },
       { to: "/auscultation", labelKey: "nav.auscultation", icon: AudioWaveform },
-      { to: "/signes", labelKey: "nav.signes", icon: Brain },
       { to: "/examen", labelKey: "nav.mockExam", icon: ClipboardCheck },
     ],
   },
