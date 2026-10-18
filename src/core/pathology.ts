@@ -90,7 +90,11 @@ export type PathologyIndexEntry = {
   slug: string;
   title: string;
   specialty: string;
-  /** Nom de fichier sous `src/content/data/pathologies/`. */
+  /**
+   * Nom de fichier de l'ACTIF STATIQUE, sous `public/content/pathologies/`.
+   * Le contenu n'est pas un module : il est publié tel quel sur le CDN et
+   * récupéré par `fetch()`, donc absent du bundle JavaScript.
+   */
   file: string;
   status: "available" | "planned";
   /** `id` de l'item correspondant dans le référentiel national. */

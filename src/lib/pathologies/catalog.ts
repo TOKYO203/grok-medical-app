@@ -1,62 +1,75 @@
-import indexJson from "@/content/data/pathologies/_index.json";
-import type { PathologyContent, PathologyIndex, PathologyIndexEntry } from "@/core/pathology";
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+import type { PathologyContent } from "@/core/pathology";
+import { pathologyAssetUrl, pathologyEntry } from "./manifest";
 
 /**
- * Catalogue des fiches de nosographie.
+ * CHARGEUR des fiches de nosographie.
  *
- * ⚠️ Le CONTENU est chargé à la demande (`loadPathologyContent`), jamais
- * importé statiquement : une fiche de cours pèse ~49 Kio minifiée, et le
- * référentiel compte 240 items. Les importer en tête ferait grossir le bundle
- * initial à chaque fiche ajoutée, alors qu'un lecteur n'en ouvre qu'une.
- * Seul le manifeste (`_index.json`, quelques centaines d'octets) est statique —
- * il alimente les liens de `/programme` sans télécharger de contenu.
+ * ⚠️ Le CONTENU n'est PAS un module : chaque fiche est un ACTIF STATIQUE
+ * (`public/content/pathologies/<slug>.json`), publié tel quel sur le CDN et
+ * récupéré par `fetch()`. Le bundle client ne contient donc ZÉRO octet de
+ * fiche — ajouter 40 fiches n'ajoute pas 2 Mo de JavaScript, seulement 40
+ * fichiers JSON téléchargés à la demande (et mis en cache « immutable »).
  *
- * ⚠️ Toute fiche déclarée `status: "available"` DOIT avoir un chargeur dans
- * `LOADERS`, sinon `loadPathologyContent()` renvoie `undefined` et la route
- * affiche « Fiche introuvable » alors que le manifeste l'annonce. Le garde-fou
- * `scripts/pathologies-catalog-integrity.test.mjs` verrouille ce lien.
+ * Historique : les fiches étaient chargées par `import()` dynamique, ce qui
+ * produisait bien un chunk séparé, mais chaque fiche restait un fichier
+ * JavaScript compilé, compté dans le budget de bundle et recompilé à chaque
+ * ajout. Mesure du batch 1 : 2 fiches = 81 Kio dans `dist/assets/`. À 43
+ * fiches, l'approche plafonnait par construction — d'où ce changement.
+ *
+ * Le manifeste (`./manifest.ts`) reste le seul contenu statique.
  */
-const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
-  "paludisme.json": () => import("@/content/data/pathologies/paludisme.json"),
-  "hta-essentielle.json": () => import("@/content/data/pathologies/hta-essentielle.json"),
-  "diabete-type-2.json": () => import("@/content/data/pathologies/diabete-type-2.json"),
-};
 
-const INDEX = indexJson as PathologyIndex;
+export {
+  PATHOLOGY_ASSET_BASE,
+  hasPathologyContent,
+  listPathologySummaries,
+  pathologyAssetUrl,
+  pathologyEntry,
+} from "./manifest";
 
-/** Toutes les entrées du manifeste (disponibles et planifiées). */
-export function listPathologySummaries(): PathologyIndexEntry[] {
-  return INDEX.fiches;
-}
-
-/** Entrée du manifeste, résolue par `slug` OU par `id` d'item du programme. */
-export function pathologyEntry(idOrSlug: string): PathologyIndexEntry | undefined {
-  return INDEX.fiches.find((entry) => entry.slug === idOrSlug || entry.programmeId === idOrSlug);
-}
+/** Nom de fichier accepté : un slug minuscule + `.json`, rien d'autre. */
+const assetName = z.object({
+  file: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/, "nom de fiche invalide"),
+});
 
 /**
- * `true` si une fiche est réellement ouvrable pour cet item : déclarée
- * disponible ET branchée. Utilisé par `/programme` pour ne pas produire de
- * lien mort — c'est la même règle que `hasDemarcheContent`.
+ * Lecture SSR. Passer par `createServerFn` (plutôt qu'un import direct de
+ * `./asset-reader.server`) garantit que la lecture disque est compilée
+ * UNIQUEMENT côté serveur : le handler est extrait du bundle client, avec ses
+ * imports. C'est le mécanisme déjà utilisé par `purchase-orders.ts` et
+ * `content-reports.ts`.
  */
-export function hasPathologyContent(idOrSlug: string): boolean {
-  const entry = pathologyEntry(idOrSlug);
-  return entry?.status === "available" && LOADERS[entry.file] !== undefined;
-}
+const readAssetOnServer = createServerFn({ method: "GET" })
+  .validator(assetName)
+  .handler(async ({ data }) => {
+    const { readPathologyAsset } = await import("./asset-reader.server");
+    return readPathologyAsset(data.file);
+  });
 
-/** Contenu d'une fiche, chargé à la demande (`undefined` si absente). */
+/**
+ * Contenu d'une fiche, chargé à la demande (`undefined` si absente).
+ *
+ * • Serveur (SSR) : lecture disque (ou origine en repli), sans requête HTTP
+ *   inutile — voir `asset-reader.server.ts`.
+ * • Navigateur : `fetch` de l'actif statique, servi par le CDN.
+ *
+ * `import.meta.env.SSR` est remplacé à la compilation : le bundle client ne
+ * contient même pas la référence au lecteur serveur.
+ */
 export async function loadPathologyContent(idOrSlug: string): Promise<PathologyContent | undefined> {
   const entry = pathologyEntry(idOrSlug);
   if (!entry || entry.status !== "available") return undefined;
-  const load = LOADERS[entry.file];
-  if (!load) return undefined;
-  const module = await load();
-  return module.default as PathologyContent;
-}
 
-/** Fichiers déclarés disponibles mais absents du registre (diagnostic d'intégrité). */
-export function missingPathologyFiles(): string[] {
-  return INDEX.fiches
-    .filter((entry) => entry.status === "available" && !LOADERS[entry.file])
-    .map((entry) => entry.file);
+  if (import.meta.env.SSR) {
+    const content = await readAssetOnServer({ data: { file: entry.file } });
+    return content ?? undefined;
+  }
+
+  const response = await fetch(pathologyAssetUrl(entry), {
+    headers: { accept: "application/json" },
+  });
+  if (!response.ok) return undefined;
+  return (await response.json()) as PathologyContent;
 }

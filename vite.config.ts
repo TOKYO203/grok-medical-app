@@ -199,6 +199,16 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
             // manifest + head-tag middleware). Nitro v3 defaults serverDir to
             // false, so removing this silently unwires /?install=1 on deploys.
             serverDir: "./server",
+            // Les fiches de nosographie sont des actifs statiques immuables.
+            // Cloudflare Pages et Netlify lisent `public/_headers` ; Vercel
+            // l'ignore, d'où ces règles (traduites en routes d'en-têtes dans
+            // `.vercel/output/config.json`). Même politique des deux côtés,
+            // sinon un déploiement servirait la fiche sans cache long.
+            routeRules: {
+              "/content/pathologies/**": {
+                headers: { "cache-control": "public, max-age=31536000, immutable" },
+              },
+            },
           }),
         ]
       : []),
