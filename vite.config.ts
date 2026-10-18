@@ -208,6 +208,12 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
               "/content/pathologies/**": {
                 headers: { "cache-control": "public, max-age=31536000, immutable" },
               },
+              // `**` (glob Nitro) est traduit en `/content/signes/(.*)` dans
+              // `.vercel/output/config.json` — c'est CETTE règle compilée qui
+              // fait foi côté Vercel.
+              "/content/signes/**": {
+                headers: { "cache-control": "public, max-age=31536000, immutable" },
+              },
             },
           }),
         ]
