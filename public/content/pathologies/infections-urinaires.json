@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "infections-urinaires",
+  "title": "Infections urinaires",
+  "subtitle": "Pyélonéphrite aiguë et infections urinaires de l'adulte",
+  "objective": "Distinguer une infection urinaire basse d'une pyélonéphrite aiguë, affirmer le diagnostic par l'examen cytobactériologique des urines, identifier les situations compliquées et choisir une antibiothérapie adaptée à l'écologie locale.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 49,
+    "specialty": "Néphrologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 90,
+      "localNumber": 49,
+      "sectionLabel": "Médecine",
+      "title": "Infections urinaires",
+      "specialty": "Néphrologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de la SPILF, du référentiel du Collège d'Urologie de l'Association Française d'Urologie et des recommandations de l'European Association of Urology. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "L'intitulé officiel de l'item du référentiel est « Infections urinaires ». La fiche en traite l'ensemble et met la pyélonéphrite aiguë au centre, parce que c'est la forme qui engage le pronostic et qui structure l'examen.",
+      "Les recommandations de la SPILF sur les infections urinaires bactériennes communautaires de l'adulte datent de 2015 (actualisation 2017). Leur millésime est conservé sans antidatage : elles restent la référence francophone sur les durées de traitement et les seuils bactériologiques. La SPILF a publié en 2026 une mise au point sur les indications de l'examen cytobactériologique des urines, citée en complément.",
+      "Aucune posologie ni aucune dose d'antibiotique n'est donnée. Les molécules sont citées par classe pour permettre le raisonnement, avec la règle explicite de suivre l'écologie locale et le protocole national : la résistance aux fluoroquinolones et aux céphalosporines de troisième génération varie fortement d'un pays à l'autre.",
+      "Les durées de traitement sont présentées comme des repères de recommandation (7 jours pour une pyélonéphrite simple traitée par une molécule à bonne diffusion, 10 à 14 jours dans les autres situations), avec la mention qu'elles se discutent selon le terrain et la réponse.",
+      "Le seuil de leucocyturie significative et les seuils de bactériurie sont présentés comme dépendant du contexte (cystite, pyélonéphrite, homme, grossesse) et non comme un chiffre unique.",
+      "Le référentiel du Collège d'Urologie est cité par sa page de publication ; son édition est indiquée telle qu'elle est présentée par l'AFU.",
+      "Les recommandations françaises de la Haute Autorité de santé n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Distinction infection basse / pyélonéphrite",
+      "Place de l'examen cytobactériologique avant antibiotique",
+      "Critères de gravité et d'obstruction",
+      "Absence de posologies",
+      "Durées de traitement présentées comme des repères",
+      "Écologie locale et résistances mentionnées",
+      "Grossesse et homme traités à part"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections urinaires regroupent des situations très différentes : une cystite simple chez une femme jeune n'a pas le même sens qu'une pyélonéphrite obstructive chez un diabétique. Ce qui les rapproche est le point de départ — la colonisation de l'arbre urinaire par des bactéries d'origine digestive — et ce qui les sépare est le niveau de l'atteinte et le terrain."
+        },
+        {
+          "type": "paragraph",
+          "text": "La pyélonéphrite aiguë est l'infection du parenchyme rénal. Elle se traduit par de la fièvre, des douleurs lombaires et des signes urinaires, et elle expose à deux complications redoutables : la bactériémie avec sepsis, et la pyélonéphrite obstructive, où un obstacle empêche l'évacuation des urines infectées et où l'antibiotique seul ne suffit pas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique et urinaire. La bandelette et l'examen cytobactériologique des urines font le diagnostic ; l'imagerie ne sert pas à confirmer mais à chercher un obstacle, un abcès ou une autre diagnosis. Cette hiérarchie évite deux erreurs symétriques : traiter sans preuve et multiplier les examens inutiles."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit l'ordre habituel : reconnaître le syndrome, distinguer les formes simples des formes compliquées, documenter, traiter et prévenir les récidives."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte — recommandations", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" },
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'urine est normalement stérile. Les bactéries qui provoquent les infections urinaires viennent du tube digestif et remontent par l'urètre. Cette ascension est favorisée par la brièveté de l'urètre féminin, les rapports sexuels, les sondages, les manœuvres instrumentales et la stase urinaire. Chez l'homme, l'hypertrophie prostatique et les infections prostatiques jouent un rôle particulier."
+        },
+        {
+          "type": "paragraph",
+          "text": "Escherichia coli est responsable de la majorité des infections urinaires communautaires, suivi de Klebsiella, Proteus, Enterococcus et Staphylococcus saprophyticus. Les infections associées aux soins et les infections sur matériel sont plus volontiers dues à des germes résistants ou à des champignons, ce qui change l'antibiothérapie empirique."
+        },
+        {
+          "type": "paragraph",
+          "text": "La distinction entre infection simple et infection à risque de complication structure la décision. Une pyélonéphrite simple survient chez une femme sans anomalie de l'arbre urinaire. Une pyélonéphrite à risque de complication associe un facteur qui rend l'évolution imprévisible : obstacle, grossesse, diabète, immunodépression, insuffisance rénale, sonde, chirurgie urologique récente, âge très avancé avec fragilité."
+        },
+        {
+          "type": "table",
+          "columns": ["Entité", "Clinique", "Urines", "Piège"],
+          "rows": [
+            ["Cystite aiguë simple", "Brûlures mictionnelles, pollakiurie, pas de fièvre", "Leucocyturie et bactériurie", "Ne pas traiter une bactériurie asymptomatique"],
+            ["Pyélonéphrite aiguë", "Fièvre, douleur lombaire, signes urinaires", "Leucocyturie, bactériurie", "Chercher un obstacle"],
+            ["Prostatite aiguë", "Fièvre, douleurs périnéales, troubles mictionnels", "Bactériurie", "Toucher rectal douloureux, pas de massage prostatique"],
+            ["Bactériurie asymptomatique", "Aucun symptôme", "Bactériurie isolée", "Traiter seulement dans des situations précises"],
+            ["Pyélonéphrite obstructive", "Fièvre, douleur, sepsis possible", "Bactériurie", "Drainage urgent si obstacle"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Bactériurie n'est pas infection",
+          "text": "La présence de bactéries dans les urines sans symptôme ne constitue pas une infection à traiter, sauf situations particulières comme la grossesse ou certaines chirurgies urologiques. Traiter une bactériurie asymptomatique sélectionne des germes résistants."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "La bandelette ne remplace pas l'analyse",
+          "text": "Une bandelette négative n'élimine pas formellement une infection, et une bandelette positive ne la confirme pas. Le diagnostic associe des symptômes et un examen urinaire, idéalement une culture avant antibiotique."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" },
+        { "id": "SRC-SPILF-ECBU-2026", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Indications de l'examen cytobactériologique des urines — synthèse", "year": 2026, "url": "https://www.infectiologie.com/UserFiles/File/spilf/recos/reco-ecbu-synthese-04032026-mel.pdf" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic d'infection urinaire repose sur l'association de signes cliniques et de la mise en évidence de leucocytes et de bactéries dans les urines. Le prélèvement doit être fait avant l'antibiothérapie, au milieu du jet, après toilette locale, et acheminé rapidement au laboratoire. Un prélèvement de mauvaise qualité produit un résultat ininterprétable et une antibiothérapie mal ciblée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire : brûlures, pollakiurie, impériosités, douleur lombaire, fièvre, frissons, facteurs de risque, notion de sondage ou de geste urologique.",
+            "Examen physique : température, pression artérielle, palpation lombaire, fosses lombaires, palpation abdominale, examen des organes génitaux.",
+            "Bandelette urinaire : leucocytes et nitrites, en dépistage ; elle ne remplace pas la culture devant une pyélonéphrite.",
+            "Examen cytobactériologique des urines avec antibiogramme : examen de référence.",
+            "Hémocultures si fièvre élevée, frissons, sepsis ou pyélonéphrite compliquée.",
+            "Créatinine, ionogramme, hémogramme, CRP pour évaluer le retentissement.",
+            "Imagerie : échographie en première intention devant une pyélonéphrite à risque, une douleur atypique ou une absence d'amélioration à 48 à 72 heures."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Analyse d'urines", "Pourquoi"],
+          "rows": [
+            ["Cystite simple de la femme", "Bandelette ou examen cytobactériologique", "Diagnostic souvent clinique et urinaire"],
+            ["Pyélonéphrite aiguë", "Examen cytobactériologique systematique, hémocultures si signes généraux", "Adapter l'antibiothérapie et documenter"],
+            ["Grossesse", "Dépistage par examen cytobactériologique", "Bactériurie asymptomatique à traiter"],
+            ["Homme avec signes urinaires", "Examen cytobactériologique avant tout traitement", "Évoquer une prostatite"],
+            ["Récidive ou échec", "Examen cytobactériologique et imagerie", "Chercher un obstacle ou une résistance"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les diagnostics différentiels dépendent du côté de la douleur : colique néphrétique, cholécystite, appendicite, salpingite, grossesse extra-utérine, lombalgie mécanique, pneumopathie basale. Une douleur lombaire fébrile n'est pas forcément une pyélonéphrite, et une pyélonéphrite peut masquer une occlusion ou une appendicite : le contexte et l'examen abdominal tranchent."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Sepsis et obstruction",
+          "text": "Une pyélonéphrite avec hypotension, confusion, marbrures ou oligurie est un sepsis : prélèvements, antibiothérapie immédiate et recherche d'un obstacle. Une pyélonéphrite sur obstacle nécessite un drainage en urgence, car l'antibiotique ne pénètre pas dans des urines sous pression."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pyélonéphrite qui ne répond pas",
+          "text": "L'absence d'amélioration après 48 à 72 heures doit faire évoquer un obstacle, un abcès, un germe résistant ou un autre diagnostic. C'est le moment de l'imagerie, pas de l'escalade antibiotique à l'aveugle."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" },
+        { "id": "SRC-EAU-URO-INFECTIONS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urological Infections", "year": 2026, "url": "https://uroweb.org/guidelines/urological-infections" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et facteurs de risque",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cause immédiate est bactérienne, mais la cause des récidives est souvent anatomique ou fonctionnelle. Chercher un obstacle, un reflux, un résidu post-mictionnel, une lithiase ou une anomalie de la vidange vaut mieux que répéter les cures d'antibiotiques. Chez l'homme, la prostate est un réservoir fréquent ; chez la femme, la période post-ménopausique et les troubles de la statique pelvienne modifient le risque."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Obstacle : lithiase, tumeur, sténose, compression, sonde obstruée.",
+            "Reflux vésico-urétéral et troubles de la vidange vésicale.",
+            "Diabète et immunodépression : formes sévères, abcès, pyélonéphrite emphysémateuse.",
+            "Grossesse : modifications anatomiques et hormonales, risque de pyélonéphrite.",
+            "Sondage urinaire et gestes instrumentaux : infections associées aux soins.",
+            "Rapports sexuels et contraception locale : facteur de cystites récidivantes chez la femme jeune.",
+            "Âge avancé et dépendance : présentation atypique, confusion isolée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Deux questions devant une récidive",
+          "text": "Y a-t-il un résidu ou un obstacle ? Le germe est-il le même à chaque épisode ? Un germe identique qui revient évoque une source locale non traitée ; des germes différents évoquent des contaminations répétées."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Chez le sujet âgé, la fièvre peut manquer",
+          "text": "Une confusion, une chute ou une décompensation cardiaque peuvent être le seul signe d'une infection urinaire. À l'inverse, une bactériurie isolée chez un patient confus ne suffit pas à expliquer la confusion : il faut chercher une autre cause."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" },
+        { "id": "SRC-EAU-URO-INFECTIONS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urological Infections", "year": 2026, "url": "https://uroweb.org/guidelines/urological-infections" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le principe est simple : documenter avant de traiter, traiter selon la gravité et l'écologie locale, puis désescalader dès que l'antibiogramme le permet. L'antibiothérapie probabiliste d'une pyélonéphrite doit couvrir les entérobactéries en tenant compte des résistances locales aux fluoroquinolones et aux céphalosporines de troisième génération. Les recommandations ne fixent pas une molécule universelle : elles fixent une méthode."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Principe", "Durée de référence"],
+          "rows": [
+            ["Cystite aiguë simple", "Traitement court, molécule de première intention selon l'écologie", "Quelques jours, selon le protocole"],
+            ["Pyélonéphrite simple", "Antibiothérapie à bonne diffusion rénale, relais oral selon l'antibiotique", "7 jours si molécule adaptée, sinon 10 à 14 jours"],
+            ["Pyélonéphrite à risque de complication", "Traiter la cause, durée adaptée au terrain", "Souvent 10 à 14 jours, à individualiser"],
+            ["Pyélonéphrite obstructive", "Drainage urinaire en urgence, antibiotique en parallèle", "Durée selon l'évolution et le geste"],
+            ["Prostatite aiguë", "Molécule diffusant dans la prostate", "Durée prolongée, selon le protocole"],
+            ["Grossesse", "Molécule compatible, surveillance rapprochée", "Selon le terme et l'évolution"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le drainage est un geste thérapeutique à part entière. Une pyélonéphrite sur obstacle ne guérit pas sous antibiotiques seuls : la sonde urétérale ou la néphrostomie percutanée lève la pression et permet aux défenses et aux médicaments d'agir. Le choix dépend de l'accessibilité, de l'état du patient et des compétences locales."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prélever avant la première dose, sans retarder le traitement en cas de sepsis.",
+            "Réévaluer à 48 à 72 heures : clinique, biologie, résultat de la culture.",
+            "Désescalader vers la molécule la plus étroite efficace dès que l'antibiogramme le permet.",
+            "Ne pas traiter une bactériurie asymptomatique, hors situations définies.",
+            "Chez la femme enceinte, dépister et traiter la bactériurie asymptomatique.",
+            "Chez l'homme, ne pas masser la prostate devant une prostatite aiguë.",
+            "Prévenir les récidives par des mesures simples : hydratation, mictions régulières, traitement de la constipation, révision des sondages."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "L'antibiotique ne remplace pas le drain",
+          "text": "Devant une pyélonéphrite obstructive febrile, le drainage précède ou accompagne l'antibiotique. Attendre l'effet de l'antibiothérapie expose à une urosepsis et à une perte de fonction rénale."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Fluoroquinolones : ne plus présumer",
+          "text": "La résistance d'Escherichia coli aux fluoroquinolones est élevée dans de nombreux pays. Une pyélonéphrite grave ne doit pas être traitée par une molécule dont la résistance locale est élevée, sans données de sensibilité."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" },
+        { "id": "SRC-EAU-URO-INFECTIONS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urological Infections", "year": 2026, "url": "https://uroweb.org/guidelines/urological-infections" },
+        { "id": "SRC-AFU-REF-URO", "organization": "Association Française d'Urologie (AFU)", "title": "Référentiel du Collège d'Urologie", "year": 2022, "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention des récidives repose moins sur les antibiotiques que sur la correction des facteurs favorisants. Une hydratation suffisante, des mictions régulières et complètes, le traitement de la constipation et la révision des indications de sondage ont plus d'effet que des cures répétées. La prophylaxie antibiotique au long cours se discute dans des cas sélectionnés, avec un rapport bénéfice-risque défavorable en cas d'usage large."
+        },
+        {
+          "type": "paragraph",
+          "text": "La grossesse impose un dépistage systématique de la bactériurie, car une bacteriurie asymptomatique non traitée évolue fréquemment vers une pyélonéphrite. Le choix de la molécule et la durée dépendent du terme, du résultat de la culture et du protocole local. L'infection urinaire haute de la femme enceinte justifie une surveillance obstétricale."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Sondage : chaque jour compte",
+          "text": "Le risque d'infection augmente avec la durée du sondage. La première mesure de prévention est de retirer la sonde dès qu'elle n'est plus nécessaire, et de ne pas la mettre pour une simple surveillance."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Chez l'homme, penser prostate",
+          "text": "Une infection urinaire fébrile chez l'homme est une prostatite jusqu'à preuve du contraire : le traitement doit diffuser dans le tissu prostatique et sa durée est plus longue qu'une cystite."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" },
+        { "id": "SRC-EAU-URO-INFECTIONS", "organization": "European Association of Urology (EAU)", "title": "EAU Guidelines on Urological Infections", "year": 2026, "url": "https://uroweb.org/guidelines/urological-infections" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La pyélonéphrite aiguë est une infection du parenchyme rénal qui se reconnaît à une fièvre avec douleur lombaire et signes urinaires. Le diagnostic se documente par l'examen cytobactériologique des urines, et l'imagerie cherche un obstacle plutôt qu'elle ne confirme l'infection."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe une antibiothérapie adaptée à l'écologie locale et, en cas d'obstacle, un drainage urgent. Les formes simples guérissent vite ; les formes compliquées se jugent sur le terrain et sur la réponse à 48 à 72 heures."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale. Les molécules et les durées doivent être confrontées au protocole national et aux données de résistance locales."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-IU", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Infections urinaires bactériennes communautaires de l'adulte", "year": 2015, "url": "https://www.infectiologie.com/fr/recommandations.html" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée ; leur millésime d'origine est conservé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Société de Pathologie Infectieuse de Langue Française. Infections urinaires bactériennes communautaires de l'adulte. Recommandations 2015, actualisation 2017.",
+            "Société de Pathologie Infectieuse de Langue Française. Indications de l'examen cytobactériologique des urines — synthèse. 2026.",
+            "Association Française d'Urologie. Référentiel du Collège d'Urologie. Urofrance.",
+            "European Association of Urology. EAU Guidelines on Urological Infections. Édition 2026."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-SPILF-ECBU-2026", "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)", "title": "Indications de l'examen cytobactériologique des urines", "year": 2026, "url": "https://www.infectiologie.com/UserFiles/File/spilf/recos/reco-ecbu-synthese-04032026-mel.pdf" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-pyelonephrite",
+      "label": "FIDÉLE",
+      "intro": "Les éléments du diagnostic de pyélonéphrite",
+      "entries": [
+        { "key": "F", "term": "Fièvre, souvent supérieure à 38,5 degrés, avec frissons." },
+        { "key": "I", "term": "Infection urinaire basse associée : brûlures, pollakiurie." },
+        { "key": "D", "term": "Douleur de la fosse lombaire, unilatérale, spontanée ou provoquée." },
+        { "key": "É", "term": "Évaluation de la gravité : hypotension, confusion, oligurie." },
+        { "key": "L", "term": "Leucocyturie et bactériurie à documenter avant antibiotique." },
+        { "key": "E", "term": "Échographie si obstacle suspecté ou évolution défavorable." }
+      ],
+      "note": "Le trépied diagnostique associe fièvre, douleur lombaire et signes urinaires ; deux éléments suffisent à déclencher les prélèvements."
+    },
+    {
+      "id": "mn-complication",
+      "label": "OBSTACLE",
+      "intro": "Ce qui rend une pyélonéphrite compliquée",
+      "entries": [
+        { "key": "O", "term": "Obstacle : lithiase, tumeur, sténose, sonde." },
+        { "key": "B", "term": "Bactériémie ou sepsis associé." },
+        { "key": "S", "term": "Sonde ou geste urologique récent." },
+        { "key": "T", "term": "Terrain : diabète, immunodépression, insuffisance rénale." },
+        { "key": "A", "term": "Âge très avancé et fragilité." },
+        { "key": "C", "term": "Chirurgie ou anomalie de l'arbre urinaire." },
+        { "key": "L", "term": "Lésion rénale : abcès, pyélonéphrite emphysémateuse." },
+        { "key": "E", "term": "Enfant et grossesse : situations à part." }
+      ],
+      "note": "Un seul de ces éléments suffit à changer la durée du traitement et à discuter une imagerie."
+    },
+    {
+      "id": "mn-traitement",
+      "label": "PRÉLÈVE",
+      "intro": "Six règles pour traiter juste",
+      "entries": [
+        { "key": "P", "term": "Prélèvement avant la première dose, sauf sepsis immédiat." },
+        { "key": "R", "term": "Résistances locales prises en compte pour le choix empirique." },
+        { "key": "É", "term": "Écologie : désescalade dès l'antibiogramme." },
+        { "key": "L", "term": "Lever l'obstacle : drainage si nécessaire." },
+        { "key": "È", "term": "Évaluation à 48 à 72 heures." },
+        { "key": "V", "term": "Vérifier la durée selon le terrain et la forme clinique." },
+        { "key": "E", "term": "Éviter les traitements inutiles de bactériurie asymptomatique." }
+      ],
+      "note": "La qualité du prélèvement conditionne tout le reste : un examen contaminé conduit à une antibiothérapie injustifiée."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quel est le trépied clinique de la pyélonéphrite aiguë ?", "back": "Fièvre, douleur lombaire et signes urinaires, souvent associés à des frissons.", "tags": ["clinique"] },
+    { "id": "fc-02", "front": "Quel est l'examen de référence pour documenter une infection urinaire ?", "back": "L'examen cytobactériologique des urines avec antibiogramme, réalisé avant l'antibiothérapie.", "tags": ["diagnostic"] },
+    { "id": "fc-03", "front": "Quand l'imagerie est-elle indiquée dans une pyélonéphrite ?", "back": "En cas de risque de complication, de doute diagnostique, d'absence d'amélioration à 48-72 heures, ou pour chercher un obstacle ou un abcès.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Quel est le principal germe des infections urinaires communautaires ?", "back": "Escherichia coli, responsable de la majorité des cas.", "tags": ["microbiologie"] },
+    { "id": "fc-05", "front": "Pourquoi traiter une pyélonéphrite obstructive est-il différent ?", "back": "Parce que l'antibiotique ne suffit pas : il faut lever l'obstacle par drainage urinaire.", "tags": ["urgence"] },
+    { "id": "fc-06", "front": "Faut-il traiter une bactériurie asymptomatique ?", "back": "En règle non ; exceptions comme la grossesse et certaines chirurgies urologiques, selon les protocoles.", "tags": ["piège"] },
+    { "id": "fc-07", "front": "Quelles sont les durées de référence du traitement d'une pyélonéphrite ?", "back": "Environ 7 jours avec une molécule à bonne diffusion, 10 à 14 jours dans les autres situations, à individualiser.", "tags": ["traitement"] },
+    { "id": "fc-08", "front": "Que signifie la désescalade antibiotique ?", "back": "Remplacer l'antibiothérapie probabiliste par la molécule la plus étroite efficace, selon l'antibiogramme.", "tags": ["traitement"] },
+    { "id": "fc-09", "front": "Quelle particularité présente une infection urinaire fébrile chez l'homme ?", "back": "Elle évoque une prostatite aiguë, nécessitant une molécule diffusant dans la prostate et une durée plus longue.", "tags": ["clinique"] },
+    { "id": "fc-10", "front": "Pourquoi dépister la bactériurie chez la femme enceinte ?", "back": "Parce qu'une bactériurie asymptomatique non traitée évolue fréquemment vers une pyélonéphrite.", "tags": ["prévention"] },
+    { "id": "fc-11", "front": "Quelles sont les mesures de prévention des récidives ?", "back": "Hydratation, mictions régulières, traitement de la constipation, révision des sondages et des facteurs anatomiques.", "tags": ["prévention"] },
+    { "id": "fc-12", "front": "Quel signe doit faire chercher une complication devant une pyélonéphrite ?", "back": "L'absence d'amélioration après 48 à 72 heures, ou l'apparition d'une hypotension, d'une confusion ou d'une oligurie.", "tags": ["urgence"] },
+    { "id": "fc-13", "front": "Quelles situations rendent une pyélonéphrite « à risque de complication » ?", "back": "Obstacle, grossesse, diabète, immunodépression, insuffisance rénale, sonde, geste urologique récent, âge avancé fragile.", "tags": ["classification"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Infections urinaires",
+      "detail": "De la cystite à la pyélonéphrite obstructive. Le diagnostic repose sur la clinique et l'examen cytobactériologique, le traitement sur l'écologie locale, et l'obstacle est le principal facteur de gravité."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Le niveau de l'infection se déduit de la fièvre et de la douleur lombaire.",
+        "children": [
+          {
+            "id": "rec-bas",
+            "label": "Forme basse",
+            "detail": "Brûlures, pollakiurie, impériosités, sans fièvre ni douleur lombaire.",
+            "leaves": [
+              { "id": "rec-bas-1", "label": "Femme jeune", "detail": "Cystite simple." },
+              { "id": "rec-bas-2", "label": "Homme", "detail": "Évoquer la prostate." }
+            ]
+          },
+          {
+            "id": "rec-haut",
+            "label": "Forme haute",
+            "detail": "Fièvre, frissons, douleur de fosse lombaire, signes urinaires.",
+            "leaves": [
+              { "id": "rec-haut-1", "label": "Sujet âgé", "detail": "Confusion ou chute." },
+              { "id": "rec-haut-2", "label": "Grossesse", "detail": "Risque materno-fœtal." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "documenter",
+        "label": "Documenter",
+        "tone": "retenir",
+        "detail": "Prélever avant de traiter, sans retarder en cas de sepsis.",
+        "children": [
+          {
+            "id": "doc-ecbu",
+            "label": "Examen cytobactériologique",
+            "detail": "Leucocyturie, bactériurie, antibiogramme.",
+            "leaves": [
+              { "id": "doc-ecbu-1", "label": "Qualité", "detail": "Prélèvement au milieu du jet." },
+              { "id": "doc-ecbu-2", "label": "Piège", "detail": "Contamination = faux diagnostic." }
+            ]
+          },
+          {
+            "id": "doc-imagerie",
+            "label": "Imagerie",
+            "detail": "Échographie en première intention, tomodensitométrie si doute ou complication.",
+            "leaves": [
+              { "id": "doc-imagerie-1", "label": "Obstacle", "detail": "Lithiase, sténose, tumeur." },
+              { "id": "doc-imagerie-2", "label": "Abcès", "detail": "Drainage discutée." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gravite",
+        "label": "Grave ?",
+        "tone": "urgence",
+        "detail": "Deux questions : sepsis et obstacle.",
+        "children": [
+          {
+            "id": "gra-sepsis",
+            "label": "Sepsis",
+            "detail": "Hypotension, confusion, marbrures, oligurie : antibiothérapie immédiate.",
+            "leaves": [
+              { "id": "gra-sepsis-1", "label": "Hémocultures", "detail": "Sans retarder la dose." }
+            ]
+          },
+          {
+            "id": "gra-obstacle",
+            "label": "Obstacle",
+            "detail": "Drainage par sonde urétérale ou néphrostomie.",
+            "leaves": [
+              { "id": "gra-obstacle-1", "label": "Règle", "detail": "L'antibiotique ne remplace pas le drain." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "memo",
+        "detail": "Probabiliste puis documenté, avec désescalade.",
+        "children": [
+          {
+            "id": "tra-empirique",
+            "label": "Empirique",
+            "detail": "Couvrir les entérobactéries selon les résistances locales.",
+            "leaves": [
+              { "id": "tra-empirique-1", "label": "Fluoroquinolones", "detail": "Résistance fréquente." }
+            ]
+          },
+          {
+            "id": "tra-duree",
+            "label": "Durée",
+            "detail": "7 jours si molécule adaptée, 10 à 14 jours sinon, à individualiser.",
+            "leaves": [
+              { "id": "tra-duree-1", "label": "Homme", "detail": "Plus long, prostatite." },
+              { "id": "tra-duree-2", "label": "Grossesse", "detail": "Protocole spécifique." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "prudence",
+        "detail": "Corriger les facteurs favorisants plutôt que multiplier les antibiotiques.",
+        "children": [
+          {
+            "id": "pre-facteurs",
+            "label": "Facteurs",
+            "detail": "Résidu, obstacle, constipation, sondage prolongé.",
+            "leaves": [
+              { "id": "pre-facteurs-1", "label": "Sonde", "detail": "Retirer dès que possible." }
+            ]
+          },
+          {
+            "id": "pre-bacteriurie",
+            "label": "Bactériurie asymptomatique",
+            "detail": "Ne pas traiter en dehors de situations définies.",
+            "leaves": [
+              { "id": "pre-bacteriurie-1", "label": "Exception", "detail": "Grossesse, chirurgie urologique." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "prudence",
+        "detail": "Une douleur lombaire fébrile n'est pas toujours une pyélonéphrite.",
+        "children": [
+          {
+            "id": "dif-abdomen",
+            "label": "Abdomen",
+            "detail": "Appendicite, cholécystite, occlusion, en particulier chez le sujet âgé.",
+            "leaves": [
+              { "id": "dif-abdomen-1", "label": "Examen", "detail": "Défense, douleur de fosse iliaque." }
+            ]
+          },
+          {
+            "id": "dif-gyneco",
+            "label": "Gynécologie",
+            "detail": "Salpingite, grossesse extra-utérine : test de grossesse systématique chez la femme en âge de procréer.",
+            "leaves": [
+              { "id": "dif-gyneco-1", "label": "Réflexe", "detail": "Toute douleur pelvienne fébrile." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-SPILF-IU",
+      "title": "Infections urinaires bactériennes communautaires de l'adulte — recommandations de pratique clinique",
+      "citation": "Société de Pathologie Infectieuse de Langue Française. Diagnostic et antibiothérapie des infections urinaires bactériennes communautaires de l'adulte. Recommandations 2015, actualisation 2017.",
+      "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)",
+      "year": 2015,
+      "version": "actualisation 2017",
+      "url": "https://www.infectiologie.com/fr/recommandations.html",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Définitions", "Seuils bactériologiques", "Durées de traitement", "Situations particulières"]
+    },
+    {
+      "id": "SRC-SPILF-ECBU-2026",
+      "title": "Indications de l'examen cytobactériologique des urines — synthèse",
+      "citation": "Société de Pathologie Infectieuse de Langue Française. Indications de l'examen cytobactériologique des urines : texte court. 2026.",
+      "organization": "Société de Pathologie Infectieuse de Langue Française (SPILF)",
+      "year": 2026,
+      "url": "https://www.infectiologie.com/UserFiles/File/spilf/recos/reco-ecbu-synthese-04032026-mel.pdf",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Place de l'examen cytobactériologique", "Situations où il n'est pas indiqué"]
+    },
+    {
+      "id": "SRC-AFU-REF-URO",
+      "title": "Référentiel du Collège d'Urologie — 5e édition",
+      "citation": "Association Française d'Urologie. Référentiel du Collège d'Urologie, 5e édition. Urofrance.",
+      "organization": "Association Française d'Urologie (AFU)",
+      "year": 2022,
+      "version": "5e édition",
+      "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-5eme-edition/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Cadrage urologique", "Facteurs favorisants", "Prise en charge des formes compliquées"]
+    },
+    {
+      "id": "SRC-EAU-URO-INFECTIONS",
+      "title": "EAU Guidelines on Urological Infections",
+      "citation": "European Association of Urology. EAU Guidelines on Urological Infections. Édition présentée au congrès annuel de l'EAU, 2026.",
+      "organization": "European Association of Urology (EAU)",
+      "year": 2026,
+      "version": "édition 2026",
+      "url": "https://uroweb.org/guidelines/urological-infections",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Antibiothérapie probabiliste", "Formes compliquées", "Prévention"]
+    }
+  ]
+}

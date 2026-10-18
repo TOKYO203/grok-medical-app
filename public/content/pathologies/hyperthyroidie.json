@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hyperthyroidie",
+  "title": "Hyperthyroïdie",
+  "subtitle": "Fiche de nosographie — endocrinologie et métabolisme",
+  "objective": "Confirmer une thyrotoxicose, en identifier le mécanisme, reconnaître la maladie de Basedow et choisir entre antithyroïdiens, iode radioactif et chirurgie sans méconnaître la crise aiguë.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 100,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 141,
+      "localNumber": 100,
+      "sectionLabel": "Médecine",
+      "title": "Hyperthyroïdie",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations internationales et françaises citées. Chaque section indique les références utilisées ; le texte est entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La distinction entre thyrotoxicose (excès d'hormone au niveau des tissus) et hyperthyroïdie (hyperproduction par la glande) est conservée tout au long de la fiche : elle décide de la place de l'iode radioactif et des antithyroïdiens.",
+      "La place de la scintigraphie ou de la mesure de la fixation de l'iode est présentée comme l'examen qui sépare les hyperthyroïdies de production (fixation élevée) des thyroïdites (fixation basse), conformément aux recommandations de l'European Thyroid Association sur la maladie de Basedow (2018) et de l'American Thyroid Association (2016).",
+      "Les recommandations de l'ATA de 2016 et de l'ETA de 2018 ont plus de cinq ans. Leur année de publication d'origine est conservée sans antidatage : elles restent la référence sur la prise en charge de l'hyperthyroïdie et n'ont pas été remplacées dans leur ensemble. Les recommandations EUGOGO 2021 sont citées en complément pour l'orbite basedowienne.",
+      "Aucune posologie d'antithyroïdien n'est donnée sous forme de dose moyenne : les doses dépendent de la gravité, du poids et de la tolérance. Seuls les principes (titration, durée, surveillance hématologique et hépatique) sont exposés.",
+      "Le consensus de la Société française d'endocrinologie sur les dysthyroïdies du sujet âgé (2019) est cité pour l'hyperthyroïdie du sujet âgé, souvent révélée par une fibrillation atriale ou une perte de poids.",
+      "Les recommandations de la Haute Autorité de santé n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées.",
+      "Le contexte malgache est décrit qualitativement (disponibilité des antithyroïdiens, accès limité à l'iode radioactif et à la chirurgie spécialisée) sans chiffre non vérifié."
+    ],
+    "qcChecklist": [
+      "Distinction thyrotoxicose / hyperthyroïdie / thyroïdite",
+      "Place exacte de la fixation iodée dans la stratégie",
+      "Signes de gravité et crise aiguë thyrotoxique",
+      "Surveillance hématologique et hépatique des antithyroïdiens",
+      "Conduite en cas de grossesse",
+      "Absence de posologies non vérifiées"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hyperthyroïdie est un excès d'hormones thyroïdiennes en circulation, avec retentissement tissulaire. Le terme recouvre deux situations qu'il faut distinguer : l'hyperproduction par une glande stimulée ou autonome, et la libération d'hormones préformées par une glande enflammée, qui n'est pas une hyperthyroïdie de production. La première se traite en réduisant la production, la seconde guérit le plus souvent seule."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie de Basedow est la cause la plus fréquente. C'est une maladie auto-immune dans laquelle des anticorps dirigés contre le récepteur de la TSH stimulent la glande de façon continue. Elle associe un goitre diffus, une thyrotoxicose et, dans une minorité de cas, une orbitopathie et une dermopathie. Les goitres multinodulaires toxiques et les adénomes toxiques viennent ensuite, surtout après 50 ans."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le retentissement est cardiovasculaire, neuropsychique, digestif et osseux. Chez le sujet âgé, l'hyperthyroïdie prend souvent le masque d'une fibrillation atriale ou d'une perte de poids inexpliquée, sans les signes bruyants du sujet jeune : c'est une cause classique d'hyperthyroïdie méconnue."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche organise le raisonnement en quatre temps : affirmer la thyrotoxicose, en identifier le mécanisme, évaluer la gravité, puis choisir et surveiller un traitement."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ETA-GRAVES-2018", "organization": "European Thyroid Association (ETA)", "title": "2018 ETA Guideline for the Management of Graves' Hyperthyroidism", "year": 2018, "url": "https://doi.org/10.1159/000490384" },
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les hormones thyroïdiennes augmentent la consommation d'oxygène et la thermogenèse, stimulent la contractilité cardiaque et la fréquence cardiaque, accélèrent le transit et le catabolisme protéique. L'excès produit donc un tableau d'accélération : amaigrissement avec appétit conservé, thermophobie, sueurs, tremblement fin, tachycardie, diarrhée, nervosité et insomnie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans la maladie de Basedow, l'anticorps anti-récepteur de la TSH se comporte comme un agoniste permanent. La glande est diffusément hypervascularisée et sécrète un excès de T4 et de T3. L'infiltration lymphocytaire de l'orbite, due à une réaction croisée contre le récepteur présent dans les fibroblastes orbitaires, explique l'exophtalmie, la rétraction palpébrale et la diplopie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans le goitre multinodulaire toxique et l'adénome toxique, l'hyperproduction est autonome, indépendante de la TSH. Le parenchyme environnant est au repos, ce qui explique l'aspect scintigraphique en mosaïque ou en nodule chaud avec extinction du reste de la glande."
+        },
+        {
+          "type": "table",
+          "columns": ["Cause", "Mécanisme", "Fixation iodée", "Orientation clinique"],
+          "rows": [
+            ["Maladie de Basedow", "Anticorps anti-récepteur de la TSH", "Élevée, diffuse", "Goitre diffus, orbitopathie, sujet jeune"],
+            ["Goitre multinodulaire toxique", "Autonomie de plusieurs nodules", "Élevée, hétérogène", "Goitre ancien, sujet âgé"],
+            ["Adénome toxique", "Autonomie d'un nodule", "Élevée, localisée", "Nodule unique, reste de la glande éteint"],
+            ["Thyroïdite subaiguë", "Libération d'hormones par inflammation", "Basse", "Douleur cervicale, syndrome inflammatoire"],
+            ["Thyroïdite du post-partum", "Libération liée à une thyroïdite lymphocytaire", "Basse", "Après l'accouchement, phase transitoire"],
+            ["Excès exogène", "Hormone apportée de l'extérieur", "Basse", "Pas de goitre, thyroglobuline basse"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La fixation iodée tranche le mécanisme",
+          "text": "Une thyrotoxicose avec fixation élevée est une hyperproduction : elle relève des antithyroïdiens, de l'iode radioactif ou de la chirurgie. Une thyrotoxicose avec fixation basse évoque une thyroïdite ou un excès exogène : les antithyroïdiens n'y ont pas de place."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Un sujet âgé qui maigrit n'est pas forcément déprimé",
+          "text": "Perte de poids, fibrillation atriale, insuffisance cardiaque à débit élevé et confusion sont des présentations fréquentes de l'hyperthyroïdie après 65 ans. La TSH fait partie du bilan de toute perte de poids inexpliquée."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La TSH est effondrée, voire indosable, dans l'immense majorité des hyperthyroïdies périphériques. La T4 libre est élevée dans les formes typiques ; il existe des formes à T3 prédominante où la T4 libre reste normale alors que la T3 libre est haute. Une TSH basse avec T4 et T3 libres normales définit une hyperthyroïdie fruste, ou biologique, qui ne relève pas du même traitement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "TSH : effondrée dans l'hyperthyroïdie périphérique, élevée ou normale dans l'adénome thyréotrope (exception rare).",
+            "T4 libre et T3 libre : précisent l'intensité et détectent les formes à T3.",
+            "Anticorps anti-récepteur de la TSH : élément clé du diagnostic de maladie de Basedow et de la surveillance.",
+            "Anticorps anti-thyroperoxydase : marqueur d'auto-immunité, sans valeur pronostique suffisante seul.",
+            "Fixation iodée ou scintigraphie : sépare hyperproduction et thyroïdite quand le diagnostic n'est pas évident.",
+            "Échographie cervicale : volume, nodule, vascularisation ; ne remplace pas la biologie."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "TSH", "T4 libre", "Conduite"],
+          "rows": [
+            ["Hyperthyroïdie patente", "Effondrée", "Élevée", "Confirmer la cause, traiter"],
+            ["Hyperthyroïdie à T3", "Effondrée", "Normale, T3 élevée", "Ne pas conclure à tort à une forme fruste"],
+            ["Hyperthyroïdie fruste", "Basse", "Normale", "Surveiller, traiter si âge élevé, cardiopathie ou ostéoporose"],
+            ["Adénome thyréotrope", "Élevée ou normale", "Élevée", "IRM hypophysaire, avis spécialisé"],
+            ["Thyrotoxicose factice", "Effondrée", "Élevée", "Thyroglobuline basse, pas de goitre"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'évaluation initiale ne s'arrête pas aux hormones. Il faut mesurer la fréquence cardiaque et la pression artérielle, chercher une fibrillation atriale, une insuffisance cardiaque, une altération de l'humeur, une faiblesse musculaire proximale, une hypercalcémie et une cytolyse hépatique. Chez la femme, le retentissement menstruel et un projet de grossesse conditionnent le choix thérapeutique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Crise thyrotoxique",
+          "text": "Fièvre élevée, tachycardie importante, troubles digestifs, agitation ou troubles de la conscience chez un patient thyrotoxique évoquent une crise aiguë, dont la mortalité est élevée. La prise en charge associe bêtabloquant, antithyroïdien, iode après l'antithyroïdien, glucocorticoides et traitement symptomatique en réanimation."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pas de scintigraphie pendant la grossesse",
+          "text": "La fixation iodée est contre-indiquée chez la femme enceinte et pendant l'allaitement. Le diagnostic repose alors sur la biologie et les anticorps, et la prise en charge est multidisciplinaire."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" },
+        { "id": "SRC-ETA-GRAVES-2018", "organization": "European Thyroid Association (ETA)", "title": "2018 ETA Guideline for the Management of Graves' Hyperthyroidism", "year": 2018, "url": "https://doi.org/10.1159/000490384" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie de Basedow domine par sa fréquence et par ses manifestations extraglandulaires. Les causes non auto-immunes — goitre multinodulaire toxique, adénome toxique — augmentent avec l'âge et l'ancienneté d'un goitre. Les thyroïdites, souvent douloureuses ou post-partum, se distinguent par une fixation basse et une évolution spontanément favorable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Maladie de Basedow : anticorps anti-récepteur de la TSH, goitre diffus, orbitopathie possible.",
+            "Goitre multinodulaire toxique : sujet âgé, goitre ancien, plusieurs nodules autonomes.",
+            "Adénome toxique : nodule unique hyperfixant, reste de la glande éteint.",
+            "Thyroïdite subaiguë de De Quervain : douleur cervicale, syndrome inflammatoire, fixation basse, évolution vers l'hypothyroïdie transitoire.",
+            "Thyroïdite du post-partum : dans les mois suivant l'accouchement, phase thyrotoxique puis hypothyroïdie, récidive possible.",
+            "Thyrotoxicose induite par l'amiodarone : deux mécanismes distincts, l'un par excès d'iode, l'autre par thyroïdite destructrice ; avis spécialisé indispensable.",
+            "Excès exogène d'hormones thyroïdiennes : thyroglobuline basse, pas de goitre, à rechercher devant une discordance clinique.",
+            "Adénome thyréotrope : TSH non freinée malgré des hormones élevées, à évoquer devant une hyperthyroïdie sans cause périphérique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Orbitopathie : penser à Basedow, mais pas seulement",
+          "text": "Une exophtalmie avec rétraction palpébrale chez un patient thyrotoxique est basedowienne jusqu'à preuve du contraire. Elle peut précéder l'hyperthyroïdie, l'accompagner ou la suivre, et elle évolue pour son propre compte : elle justifie une prise en charge conjointe avec un ophtalmologiste."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Amiodarone : ne pas se tromper de mécanisme",
+          "text": "Une thyrotoxicose sous amiodarone n'est pas une entité unique. Le traitement diffère selon qu'il s'agit d'une hyperproduction ou d'une thyroïdite destructrice, d'où la nécessité d'une échographie avec Doppler et d'un avis endocrinologique."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ETA-GRAVES-2018", "organization": "European Thyroid Association (ETA)", "title": "2018 ETA Guideline for the Management of Graves' Hyperthyroidism", "year": 2018, "url": "https://doi.org/10.1159/000490384" },
+        { "id": "SRC-EUGOGO-2021", "organization": "European Group on Graves' Orbitopathy (EUGOGO)", "title": "2021 EUGOGO clinical practice guidelines for the medical management of Graves' orbitopathy", "year": 2021, "url": "https://doi.org/10.1530/EJE-21-0479" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement et surveillance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Trois options existent et elles ne sont pas interchangeables. Les antithyroïdiens de synthèse freinent la synthèse hormonale et permettent d'attendre une rémission spontanée, surtout dans la maladie de Basedow. L'iode radioactif détruit progressivement le tissu thyroïdien et expose à une hypothyroïdie définitive, qu'il faut accepter et traiter. La chirurgie retire la glande et s'adresse à des situations précises : goitre compressif, nodule suspect, hyperthyroïdie résistante ou désir de grossesse rapide."
+        },
+        {
+          "type": "table",
+          "columns": ["Option", "Indications privilégiées", "Limites"],
+          "rows": [
+            ["Antithyroïdiens de synthèse", "Basedow, première intention, sujet jeune, grossesse", "Durée longue, toxicité hématologique et hépatique, rechute à l'arrêt"],
+            ["Iode radioactif", "Basedow récidivant, goitre multinodulaire toxique, contre-indication ou refus de la chirurgie", "Hypothyroïdie définitive, contre-indication pendant la grossesse et l'allaitement, orbitopathie active"],
+            ["Chirurgie", "Goitre volumineux ou compressif, nodule suspect, hyperthyroïdie non contrôlée", "Risque de lésion des nerfs laryngés et des parathyroïdes, nécessité d'une équipe entraînée"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement symptomatique n'est pas accessoire : les bêtabloquants réduisent la tachycardie, le tremblement et l'anxiété, et sont utiles dès le diagnostic, en particulier chez le sujet âgé et en cas de fibrillation atriale. Ils ne corrigent pas l'hyperthyroïdie et ne remplacent pas le traitement de fond. Une anticoagulation est discutée en cas de fibrillation atriale selon le risque embolique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Les antithyroïdiens se titrent sur la clinique et la T4 libre, avec une durée de traitement conventionnelle de 12 à 18 mois dans la maladie de Basedow.",
+            "Une fièvre, une angine ou une ulcération buccale imposent l'arrêt immédiat et une numération formule sanguine : l'agranulocytose est rare mais potentiellement mortelle.",
+            "Une cytolyse hépatique doit être recherchée avant traitement et surveillée, en particulier avec le propylthiouracile.",
+            "La grossesse modifie le choix de la molécule selon le trimestre : relais encadré, jamais d'arrêt brutal sans avis.",
+            "Après iode radioactif, la surveillance de la TSH est définitive : l'hypothyroïdie est fréquente et attendue.",
+            "En cas de crise thyrotoxique, l'iode ne s'administre qu'après l'antithyroïdien, jamais avant."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Angine sous antithyroïdien = arrêt immédiat",
+          "text": "Toute angine ou fièvre chez un patient traité par antithyroïdien de synthèse doit faire arrêter le médicament et réaliser une numération formule sanguine en urgence. L'agranulocytose se révèle souvent ainsi, et elle est mortelle si le médicament est poursuivi."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Fumer aggrave l'orbite",
+          "text": "Le tabac est le principal facteur de risque modifiable de l'orbitopathie basedowienne et de ses récidives après iode radioactif. L'arrêt du tabac fait partie du traitement, au même titre que l'hormone."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans un contexte de ressources limitées, l'arsenal se réduit souvent aux antithyroïdiens et aux bêtabloquants, avec un accès inégal à l'iode radioactif et à la chirurgie thyroïdienne. Cette contrainte impose une surveillance biologique régulière, une éducation sur les signes d'alerte hématologique et une durée de traitement décidée avec le patient plutôt qu'une succession d'essais."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Traiter l'hormone ne suffit pas",
+          "text": "La fibrillation atriale, l'ostéoporose et l'amaigrissement ont leur propre prise en charge. Réduire la thyrotoxine ne répare pas automatiquement ce qui s'est dégradé pendant des mois."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ETA-GRAVES-2018", "organization": "European Thyroid Association (ETA)", "title": "2018 ETA Guideline for the Management of Graves' Hyperthyroidism", "year": 2018, "url": "https://doi.org/10.1159/000490384" },
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" },
+        { "id": "SRC-EUGOGO-2021", "organization": "European Group on Graves' Orbitopathy (EUGOGO)", "title": "2021 EUGOGO clinical practice guidelines", "year": 2021, "url": "https://doi.org/10.1530/EJE-21-0479" }
+      ]
+    },
+    {
+      "id": "surveillance",
+      "title": "V. Surveillance et situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sous antithyroïdiens, la surveillance associe la clinique, la T4 libre et la numération formule sanguine. La TSH reste freinée longtemps après le retour à l'euthyroïdie : elle ne doit pas servir à augmenter la dose, sous peine de basculer en hypothyroïdie. En fin de traitement, la rechute est fréquente dans la maladie de Basedow ; elle est dépistée par la TSH et les anticorps anti-récepteur."
+        },
+        {
+          "type": "paragraph",
+          "text": "La grossesse est la situation qui exige le plus de rigueur. L'hyperthyroïdie non traitée menace la mère et le fœtus, mais les antithyroïdiens traversent le placenta. Le choix de la molécule dépend du trimestre, la dose est la plus faible efficace, et une surveillance rapprochée associe TSH maternelle, croissance fœtale et recherche d'anticorps anti-récepteur."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Après iode radioactif, la TSH reste à vie",
+          "text": "L'hypothyroïdie post-radique est fréquente et progressive. Un contrôle annuel de la TSH est nécessaire indéfiniment, même si le patient se sent bien et n'a plus de traitement."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" },
+        { "id": "SRC-SFE-DYSTHY-2019", "organization": "Société Française d'Endocrinologie (SFE)", "title": "Management of thyroid dysfunctions in the elderly — consensus 2019", "year": 2020, "url": "https://doi.org/10.1016/j.ando.2020.04.010" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hyperthyroïdie se reconnaît à une TSH effondrée avec hormones libres élevées. Le mécanisme se tranche par les anticorps anti-récepteur et la fixation iodée. La maladie de Basedow est la première cause et la seule qui associe une atteinte orbitaire nécessitant une prise en charge spécifique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement se choisit avec le patient, en fonction de l'étiologie, de l'âge, du projet de grossesse et des ressources disponibles. Les deux dangers à ne pas manquer sont la crise thyrotoxique et l'agranulocytose sous antithyroïdien."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ETA-GRAVES-2018", "organization": "European Thyroid Association (ETA)", "title": "2018 ETA Guideline for the Management of Graves' Hyperthyroidism", "year": 2018, "url": "https://doi.org/10.1159/000490384" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées et vérifiées à la date indiquée ; leur millésime d'origine est conservé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Kahaly GJ, Bartalena L, Hegedüs L, et al. 2018 European Thyroid Association Guideline for the Management of Graves' Hyperthyroidism. European Thyroid Journal 2018. doi:10.1159/000490384.",
+            "Ross DS, Burch HB, Cooper DS, et al. 2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis. Thyroid 2016. doi:10.1089/thy.2016.0229.",
+            "Bartalena L, Kahaly GJ, Baldeschi L, et al. The 2021 European Group on Graves' orbitopathy (EUGOGO) clinical practice guidelines for the medical management of Graves' orbitopathy. European Journal of Endocrinology 2021. doi:10.1530/EJE-21-0479.",
+            "Société Française d'Endocrinologie. Management of thyroid dysfunctions in the elderly. Consensus statement 2019. Annales d'Endocrinologie 2020. doi:10.1016/j.ando.2020.04.010."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ATA-HYPER-2016", "organization": "American Thyroid Association (ATA)", "title": "2016 ATA Guidelines", "year": 2016, "url": "https://doi.org/10.1089/thy.2016.0229" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-thyrotoxicose",
+      "label": "CHALEUR",
+      "intro": "Le tableau d'accélération",
+      "entries": [
+        { "key": "C", "term": "Cardiovasculaire : tachycardie, palpitations, fibrillation atriale." },
+        { "key": "H", "term": "Hyperthermie et thermophobie, sueurs." },
+        { "key": "A", "term": "Amaigrissement avec appétit conservé." },
+        { "key": "L", "term": "Labilité émotionnelle, anxiété, insomnie, tremblement." },
+        { "key": "E", "term": "Émissions digestives : diarrhée, selles fréquentes." },
+        { "key": "U", "term": "Utérus : cycles irréguliers, oligoménorrhée." },
+        { "key": "R", "term": "Regard : exophtalmie et rétraction palpébrale si Basedow." }
+      ],
+      "note": "Chez le sujet âgé, le tableau se résume souvent à une perte de poids et à un trouble du rythme."
+    },
+    {
+      "id": "mn-basedow",
+      "label": "BASEDOW",
+      "intro": "Les arguments diagnostiques",
+      "entries": [
+        { "key": "B", "term": "Basedow : goitre diffus, souffle vasculaire." },
+        { "key": "A", "term": "Anticorps anti-récepteur de la TSH positifs." },
+        { "key": "S", "term": "Signes oculaires : exophtalmie, rétraction palpébrale, diplopie." },
+        { "key": "E", "term": "Euthyroïdie impossible : TSH effondrée." },
+        { "key": "D", "term": "Dermopathie : myxœdème prétibial, plus rare." },
+        { "key": "O", "term": "Orbitopathie évoluant pour son propre compte." },
+        { "key": "W", "term": "Work-up : fixation iodée diffuse si besoin de confirmation." }
+      ],
+      "note": "L'orbitopathie peut précéder, accompagner ou suivre l'hyperthyroïdie."
+    },
+    {
+      "id": "mn-ati",
+      "label": "ATI",
+      "intro": "Surveillance des antithyroïdiens",
+      "entries": [
+        { "key": "A", "term": "Agranulocytose : angine ou fièvre impose l'arrêt et une numération immédiate." },
+        { "key": "T", "term": "T4 libre pour titrer, pas la TSH qui reste freinée longtemps." },
+        { "key": "I", "term": "Ictère et cytolyse : surveiller le foie, surtout avec le propylthiouracile." }
+      ],
+      "note": "Un traitement de 12 à 18 mois est la durée conventionnelle dans la maladie de Basedow."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quel est le profil biologique typique d'une hyperthyroïdie périphérique ?", "back": "TSH effondrée avec T4 libre élevée, parfois T3 libre élevée isolément.", "tags": ["diagnostic"] },
+    { "id": "fc-02", "front": "Quelle est la cause la plus fréquente d'hyperthyroïdie ?", "back": "La maladie de Basedow, liée à des anticorps anti-récepteur de la TSH.", "tags": ["étiologie"] },
+    { "id": "fc-03", "front": "Quel examen distingue une hyperthyroïdie de production d'une thyroïdite ?", "back": "La mesure de la fixation iodée ou la scintigraphie : élevée dans l'hyperproduction, basse dans la thyroïdite.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Quels sont les trois traitements curatifs de l'hyperthyroïdie ?", "back": "Antithyroïdiens de synthèse, iode radioactif et chirurgie.", "tags": ["traitement"] },
+    { "id": "fc-05", "front": "Quel signe impose l'arrêt immédiat d'un antithyroïdien ?", "back": "Une angine ou une fièvre, qui peuvent révéler une agranulocytose : arrêt et numération formule sanguine en urgence.", "tags": ["urgence"] },
+    { "id": "fc-06", "front": "Pourquoi la TSH ne sert-elle pas à titrer un antithyroïdien ?", "back": "Elle reste freinée longtemps après le retour à l'euthyroïdie ; on titre sur la T4 libre et la clinique.", "tags": ["piège"] },
+    { "id": "fc-07", "front": "Quelles sont les manifestations extraglandulaires de la maladie de Basedow ?", "back": "Orbitopathie (exophtalmie, rétraction palpébrale, diplopie) et dermopathie prétibiale, plus rarement acropachie.", "tags": ["clinique"] },
+    { "id": "fc-08", "front": "Quels signes évoquent une crise thyrotoxique ?", "back": "Fièvre élevée, tachycardie majeure, troubles digestifs, agitation ou troubles de la conscience.", "tags": ["urgence"] },
+    { "id": "fc-09", "front": "Dans quel ordre donner antithyroïdien et iode lors d'une crise thyrotoxique ?", "back": "L'antithyroïdien d'abord, l'iode ensuite : l'iode donné seul entretiendrait la production hormonale.", "tags": ["urgence"] },
+    { "id": "fc-10", "front": "Quelle est la conséquence attendue de l'iode radioactif ?", "back": "Une hypothyroïdie définitive fréquente, qui nécessite un traitement substitutif et une surveillance à vie.", "tags": ["traitement"] },
+    { "id": "fc-11", "front": "Pourquoi l'iode radioactif est-il contre-indiqué pendant la grossesse ?", "back": "Il traverse le placenta et détruit la thyroïde fœtale.", "tags": ["piège"] },
+    { "id": "fc-12", "front": "Comment se présente une hyperthyroïdie chez le sujet âgé ?", "back": "Souvent par une perte de poids, une fibrillation atriale, une insuffisance cardiaque ou une confusion, sans signes bruyants.", "tags": ["clinique"] },
+    { "id": "fc-13", "front": "Quel facteur aggrave l'orbitopathie basedowienne ?", "back": "Le tabac, qui augmente le risque de progression et de récidive après iode radioactif.", "tags": ["prévention"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Hyperthyroïdie",
+      "detail": "Excès d'hormones thyroïdiennes avec retentissement tissulaire. La TSH effondrée fait le diagnostic, les anticorps et la fixation iodée font le mécanisme, et le traitement se choisit entre antithyroïdiens, iode radioactif et chirurgie."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Un tableau d'accélération, parfois masqué chez le sujet âgé.",
+        "children": [
+          {
+            "id": "rec-signes",
+            "label": "Signes",
+            "detail": "Amaigrissement, thermophobie, sueurs, tremblement, palpitations, diarrhée, nervosité.",
+            "leaves": [
+              { "id": "rec-signes-1", "label": "Sujet âgé", "detail": "Perte de poids, fibrillation atriale." },
+              { "id": "rec-signes-2", "label": "Femme", "detail": "Oligoménorrhée, infertilité." }
+            ]
+          },
+          {
+            "id": "rec-grave",
+            "label": "Gravité",
+            "detail": "Fibrillation atriale, insuffisance cardiaque, dénutrition, troubles psychiques.",
+            "leaves": [
+              { "id": "rec-grave-1", "label": "Crise", "detail": "Fièvre et troubles de conscience." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "confirmer",
+        "label": "Confirmer",
+        "tone": "retenir",
+        "detail": "TSH effondrée, hormones libres élevées, puis identification du mécanisme.",
+        "children": [
+          {
+            "id": "con-bio",
+            "label": "Biologie",
+            "detail": "T4 libre et T3 libre, anticorps anti-récepteur, anti-thyroperoxydase.",
+            "leaves": [
+              { "id": "con-bio-1", "label": "Forme à T3", "detail": "T4 normale, T3 élevée." },
+              { "id": "con-bio-2", "label": "Fruste", "detail": "TSH basse, hormones normales." }
+            ]
+          },
+          {
+            "id": "con-fixation",
+            "label": "Fixation iodée",
+            "detail": "Élevée si hyperproduction, basse si thyroïdite ou excès exogène.",
+            "leaves": [
+              { "id": "con-fixation-1", "label": "Diffuse", "detail": "Basedow." },
+              { "id": "con-fixation-2", "label": "Localisée", "detail": "Adénome toxique." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "causes",
+        "label": "Causes",
+        "tone": "prudence",
+        "detail": "Basedow domine ; les causes autonomes augmentent avec l'âge.",
+        "children": [
+          {
+            "id": "cau-basedow",
+            "label": "Basedow",
+            "detail": "Auto-anticorps stimulants, goitre diffus, orbitopathie possible.",
+            "leaves": [
+              { "id": "cau-basedow-1", "label": "Orbite", "detail": "Évolue pour son propre compte." },
+              { "id": "cau-basedow-2", "label": "Tabac", "detail": "Aggrave l'orbitopathie." }
+            ]
+          },
+          {
+            "id": "cau-nodules",
+            "label": "Nodules autonomes",
+            "detail": "Goitre multinodulaire toxique ou adénome toxique, sujet plus âgé.",
+            "leaves": [
+              { "id": "cau-nodules-1", "label": "Scintigraphie", "detail": "Nodule chaud, reste éteint." }
+            ]
+          },
+          {
+            "id": "cau-thyroidites",
+            "label": "Thyroïdites",
+            "detail": "De Quervain, post-partum, amiodarone : libération d'hormones, fixation basse.",
+            "leaves": [
+              { "id": "cau-thyroidites-1", "label": "Pas d'antithyroïdien", "detail": "Le mécanisme n'est pas une production." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "memo",
+        "detail": "Trois options curatives, un traitement symptomatique toujours utile.",
+        "children": [
+          {
+            "id": "tra-ati",
+            "label": "Antithyroïdiens",
+            "detail": "Freinent la synthèse, durée de 12 à 18 mois dans la maladie de Basedow.",
+            "leaves": [
+              { "id": "tra-ati-1", "label": "Agranulocytose", "detail": "Fièvre ou angine : arrêt immédiat." },
+              { "id": "tra-ati-2", "label": "Foie", "detail": "Cytolyse à surveiller." }
+            ]
+          },
+          {
+            "id": "tra-ira",
+            "label": "Iode radioactif",
+            "detail": "Détruit le tissu, hypothyroïdie définitive attendue, contre-indiqué en grossesse.",
+            "leaves": [
+              { "id": "tra-ira-1", "label": "Orbitopathie", "detail": "Prudence si active." }
+            ]
+          },
+          {
+            "id": "tra-chir",
+            "label": "Chirurgie",
+            "detail": "Goitre compressif, nodule suspect, hyperthyroïdie non contrôlée.",
+            "leaves": [
+              { "id": "tra-chir-1", "label": "Risques", "detail": "Nerfs laryngés, parathyroïdes." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "symptomes",
+        "label": "Soulager",
+        "tone": "reflexe",
+        "detail": "Le bêtabloquant traite le symptôme en attendant l'effet du traitement de fond.",
+        "children": [
+          {
+            "id": "sym-beta",
+            "label": "Bêtabloquant",
+            "detail": "Réduit fréquence cardiaque, tremblement et anxiété, utile dès le diagnostic.",
+            "leaves": [
+              { "id": "sym-beta-1", "label": "Prudence", "detail": "Asthme, insuffisance cardiaque." }
+            ]
+          },
+          {
+            "id": "sym-fa",
+            "label": "Fibrillation atriale",
+            "detail": "Contrôle de la fréquence et discussion de l'anticoagulation selon le risque embolique.",
+            "leaves": [
+              { "id": "sym-fa-1", "label": "Spontanée", "detail": "Retour en rythme souvent après euthyroïdie." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "T4 libre sous traitement, TSH après iode radioactif, anticorps en fin de traitement.",
+        "children": [
+          {
+            "id": "sur-ati",
+            "label": "Sous antithyroïdiens",
+            "detail": "T4 libre, numération formule sanguine, bilan hépatique.",
+            "leaves": [
+              { "id": "sur-ati-1", "label": "Rechute", "detail": "Fréquente à l'arrêt dans Basedow." }
+            ]
+          },
+          {
+            "id": "sur-radique",
+            "label": "Après iode radioactif",
+            "detail": "TSH annuelle à vie, traitement substitutif dès que nécessaire.",
+            "leaves": [
+              { "id": "sur-radique-1", "label": "Définitif", "detail": "L'hypothyroïdie est attendue." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ETA-GRAVES-2018",
+      "title": "2018 European Thyroid Association Guideline for the Management of Graves' Hyperthyroidism",
+      "citation": "Kahaly GJ, Bartalena L, Hegedüs L, et al. 2018 European Thyroid Association Guideline for the Management of Graves' Hyperthyroidism. European Thyroid Journal 2018 ; 7 : 167-186. doi:10.1159/000490384.",
+      "organization": "European Thyroid Association (ETA)",
+      "year": 2018,
+      "url": "https://doi.org/10.1159/000490384",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic de la maladie de Basedow", "Choix thérapeutique", "Surveillance", "Grossesse"]
+    },
+    {
+      "id": "SRC-ATA-HYPER-2016",
+      "title": "2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis",
+      "citation": "Ross DS, Burch HB, Cooper DS, et al. 2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis. Thyroid 2016 ; 26 (10) : 1343-1421. doi:10.1089/thy.2016.0229.",
+      "organization": "American Thyroid Association (ATA)",
+      "year": 2016,
+      "url": "https://doi.org/10.1089/thy.2016.0229",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Causes de thyrotoxicose", "Fixation iodée", "Crise thyrotoxique", "Traitement"]
+    },
+    {
+      "id": "SRC-EUGOGO-2021",
+      "title": "The 2021 European Group on Graves' orbitopathy (EUGOGO) clinical practice guidelines for the medical management of Graves' orbitopathy",
+      "citation": "Bartalena L, Kahaly GJ, Baldeschi L, et al. The 2021 European Group on Graves' orbitopathy (EUGOGO) clinical practice guidelines for the medical management of Graves' orbitopathy. European Journal of Endocrinology 2021 ; 185 (4) : G43-G67. doi:10.1530/EJE-21-0479.",
+      "organization": "European Group on Graves' Orbitopathy (EUGOGO)",
+      "year": 2021,
+      "url": "https://doi.org/10.1530/EJE-21-0479",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Orbitopathie basedowienne", "Facteurs de risque", "Prise en charge conjointe"]
+    },
+    {
+      "id": "SRC-SFE-DYSTHY-2019",
+      "title": "Management of thyroid dysfunctions in the elderly — French Endocrine Society consensus statement 2019",
+      "citation": "Société Française d'Endocrinologie. Management of thyroid dysfunctions in the elderly. French Endocrine Society consensus statement 2019. Annales d'Endocrinologie 2020. doi:10.1016/j.ando.2020.04.010.",
+      "organization": "Société Française d'Endocrinologie (SFE)",
+      "year": 2020,
+      "version": "consensus 2019",
+      "url": "https://doi.org/10.1016/j.ando.2020.04.010",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Hyperthyroïdie du sujet âgé", "Formes frustes", "Surveillance"]
+    }
+  ]
+}

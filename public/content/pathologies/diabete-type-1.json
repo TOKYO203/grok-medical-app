@@ -1,0 +1,1017 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "diabete-type-1",
+  "title": "Diabète de type 1",
+  "subtitle": "Fiche de nosographie — endocrinologie et métabolisme",
+  "objective": "Reconnaître une carence insulinique absolue, la distinguer d'un diabète de type 2, prévenir la décompensation acidocétosique et installer un traitement insulinique que le patient peut réellement suivre.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 98,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 139,
+      "localNumber": 98,
+      "sectionLabel": "Médecine",
+      "title": "Diabète de type 1",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Aucun document source n'a été fourni pour cette fiche. Elle est rédigée à partir des recommandations citées en bibliographie et de la littérature de référence sur le diabète de type 1 ; chaque section indique les sources mobilisées et le texte est intégralement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Contrôle des millésimes ADA effectué le 2026-10-18 : Crossref enregistre la mise en ligne de ces deux sections le 8 décembre 2025 (date « issued ») mais la parution imprimée au 1er janvier 2026, dans le volume 49, supplément 1 de Diabetes Care. L'année retenue est donc 2026, celle du volume et de la citation officielle, et non 2025 : il ne s'agit pas d'un antidatage mais de deux dates de publication distinctes.",
+      "Les seuils diagnostiques (glycémie à jeun, charge en glucose, hémoglobine glyquée, glycémie aléatoire avec symptômes) sont ceux des Standards of Care de l'American Diabetes Association, section 2 de l'édition 2026, et rejoignent la classification de l'OMS de 2019.",
+      "Les sources françaises institutionnelles (Haute Autorité de santé, Collège des Enseignants d'Endocrinologie) n'étaient pas joignables depuis l'environnement de rédaction : aucune n'est citée. Les recommandations retenues (ADA 2026, OMS) sont vérifiées et librement consultables.",
+      "Aucune posologie chiffrée n'est donnée pour l'insuline : la dose initiale dépend du poids, de la phase de la maladie et de la réponse glycémique. Seuls des repères de protocole (schéma basal-bolus, seuils d'hypoglycémie, cibles d'hémoglobine glyquée) sont cités, avec la mention explicite qu'ils s'individualisent.",
+      "Les données mondiales de prévalence citées proviennent de la fiche descriptive de l'OMS sur le diabète (mise à jour du 14 novembre 2024). La proportion de diabète de type 1 parmi l'ensemble des diabètes (5 à 10 %) est un ordre de grandeur classique, non un chiffre issu d'un registre malgache.",
+      "Le contexte national est décrit de façon qualitative (chaîne du froid, accès aux bandelettes, disponibilité de l'insuline) : aucun chiffre de disponibilité n'a pu être vérifié pour Madagascar, il n'en est donc pas avancé.",
+      "La place du diabète de type 1 lent de l'adulte (LADA) est signalée parce qu'elle change la conduite : un adulte non obèse avec un diabète récent peut relever d'une insulinothérapie précoce malgré un tableau initial trompeur."
+    ],
+    "qcChecklist": [
+      "Exactitude des seuils diagnostiques et de la place de l'hémoglobine glyquée",
+      "Cohérence entre cibles glycémiques et risque d'hypoglycémie",
+      "Absence de posologies dépendantes du poids ou de la fonction rénale",
+      "Vérification du raisonnement de distinction type 1 / type 2",
+      "Repères de prise en charge de l'acidocétose conformes aux recommandations",
+      "Contexte de ressources limitées traité sans invention de chiffres"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 1 est une maladie auto-immune chronique dans laquelle les cellules bêta des îlots de Langerhans sont détruites par les lymphocytes T du patient. La conséquence n'est pas une résistance à l'insuline mais une absence progressive, puis complète, de sécrétion : le patient passe d'un déficit partiel, souvent silencieux, à un besoin d'insuline exogène vital."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette particularité commande toute la clinique. Un diabète de type 1 non traité ne se contente pas d'élever la glycémie : il libère des acides gras libres et produit des corps cétoniques, ce qui conduit à l'acidocétose. Celle-ci est souvent le mode de révélation, en particulier chez l'enfant et dans les pays où l'accès au diagnostic est tardif. Une acidocétose inaugurale n'est donc pas une complication de négligence : c'est fréquemment le premier symptôme d'une maladie qui n'a pas encore été nommée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sur le plan mondial, le diabète de type 1 représente une minorité des diabètes — classiquement 5 à 10 % — mais il concentre l'essentiel des urgences métaboliques et des besoins en insuline. L'OMS rappelle que plus de la moitié des personnes vivant avec un diabète, tous types confondus, ne recevaient aucun traitement en 2022 ; pour le type 1, cette absence de traitement est rapidement fatale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit l'ordre du raisonnement clinique : affirmer le diagnostic, démontrer la carence insulinique, écarter une acidocétose, construire un schéma insulinique de base, puis organiser une surveillance qui repose autant sur le patient que sur le soignant."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2 : Diagnosis and Classification of Diabetes",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La forme typique est le diabète de type 1A, auto-immun. Il existe une forme idiopathique, dite 1B, définie par l'absence d'auto-anticorps détectables : elle est plus fréquente dans certaines populations d'ascendance africaine ou asiatique et ne doit pas faire conclure à un type 2. La destruction des cellules bêta est progressive : la sécrétion d'insuline peut rester suffisante pendant des mois, ce qui explique une phase de rémission partielle après l'instauration du traitement, souvent appelée lune de miel."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le terrain génétique est dominé par les allèles HLA de classe II DR3-DQ2 et DR4-DQ8. Le risque familial existe mais reste modeste : la majorité des patients n'a aucun antécédent familial de diabète de type 1. Les auto-anticorps dirigés contre la décarboxylase de l'acide glutamique (GAD65), la tyrosine-phosphatase IA-2, le transporteur de zinc ZnT8 et l'insuline endogène sont des marqueurs de la maladie ; ils ne sont pas pathogènes en eux-mêmes mais témoignent de la réaction auto-immune."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'âge de survenue est bimodal, avec un pic vers 4 à 6 ans et un second pic à l'adolescence, mais aucun âge n'est protégé. Chez l'adulte, le diagnostic est souvent plus lent et le tableau initial peut mimer un type 2 : c'est le diabète de type 1 lent de l'adulte (LADA), défini par la présence d'auto-anticorps chez un patient non insulinodépendant au moment du diagnostic et qui le deviendra en quelques années."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Diabète de type 1",
+            "Diabète de type 2"
+          ],
+          "rows": [
+            [
+              "Mécanisme",
+              "Destruction auto-immune des cellules bêta",
+              "Insulinorésistance et déficit sécrétoire progressif"
+            ],
+            [
+              "Âge typique",
+              "Enfant, adolescent, adulte jeune",
+              "Adulte, âge avançant"
+            ],
+            [
+              "Corpulence",
+              "Souvent normale ou maigre",
+              "Souvent surpoids, obésité abdominale"
+            ],
+            [
+              "Cétose",
+              "Fréquente, y compris inaugurale",
+              "Possible en situation de stress (type 2 cétosique)"
+            ],
+            [
+              "Peptide C",
+              "Bas ou indosable",
+              "Normal ou élevé au début"
+            ],
+            [
+              "Auto-anticorps",
+              "Présents dans la forme 1A",
+              "Absents"
+            ],
+            [
+              "Traitement",
+              "Insuline dès le diagnostic",
+              "Mesures hygiéno-diététiques puis antidiabétiques oraux et/ou insuline"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Un adulte mince avec un diabète récent n'est pas forcément un type 2",
+          "text": "La distinction engage des années de traitement. Devant un diabète qui échoue rapidement sous antidiabétiques oraux, un amaigrissement marqué ou une cétose, il faut rechercher des auto-anticorps et un peptide C bas avant de conclure au type 2."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le diabète de type 1 est une maladie de l'insuline, pas du sucre",
+          "text": "L'hyperglycémie est la conséquence visible d'un déficit hormonal. Traiter le chiffre sans traiter l'insuline expose à l'acidocétose ; c'est pourquoi l'insulinothérapie ne se discute jamais dans cette forme."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-CLASS-DM",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Classification of diabetes mellitus (2019)",
+          "year": 2019,
+          "url": "https://www.who.int/publications/i/item/classification-of-diabetes-mellitus"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic biologique repose sur les mêmes quatre critères que pour tous les diabètes. En présence de symptômes typiques (polyuro-polydipsie, amaigrissement), une glycémie aléatoire supérieure ou égale à 11,1 mmol/L suffit. En l'absence de symptômes, un seul dosage pathologique ne suffit pas : il faut une confirmation sur un second prélèvement, à un autre moment."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glycémie à jeun supérieure ou égale à 7,0 mmol/L (126 mg/dL), à jeun depuis au moins 8 heures.",
+            "Glycémie 2 heures après charge orale de 75 g de glucose supérieure ou égale à 11,1 mmol/L.",
+            "Hémoglobine glyquée supérieure ou égale à 6,5 %, avec une méthode standardisée et fiable.",
+            "Glycémie aléatoire supérieure ou égale à 11,1 mmol/L avec symptômes d'hyperglycémie."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémoglobine glyquée mérite une réserve : toute condition qui raccourcit la durée de vie des globules rouges (anémie hémolytique, drépanocytose, saignement, grossesse récente, transfusion) ou qui modifie l'hémoglobine peut la fausser. Dans ces situations, et lorsque l'examen n'est pas disponible, la glycémie à jeun et la charge en glucose restent les examens de référence."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Examen de première intention",
+            "Ce qu'il apporte"
+          ],
+          "rows": [
+            [
+              "Symptômes typiques",
+              "Glycémie capillaire puis veineuse",
+              "Confirme l'hyperglycémie immédiatement"
+            ],
+            [
+              "Doute sur le type",
+              "Peptide C et auto-anticorps (GAD65, IA-2, ZnT8, insuline)",
+              "Documente la carence insulinique et l'auto-immunité"
+            ],
+            [
+              "Signes de décompensation",
+              "Corps cétoniques, gaz du sang, kaliémie, bicarbonates",
+              "Distingue cétose simple et acidocétose"
+            ],
+            [
+              "Bilan initial",
+              "Créatinine, ionogramme, bilan lipidique, TSH, transaminases",
+              "Dépiste les atteintes associées ou inaugurales"
+            ],
+            [
+              "Recherche d'associations auto-immunes",
+              "TSH, anticorps anti-transglutaminase, cortisol si suspicion",
+              "Thyroïdite, maladie cœliaque, insuffisance surrénale"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Acidocétose : le diagnostic ne doit pas retarder le traitement",
+          "text": "Devant des vomissements, une polypnée, une odeur acétonique de l'haleine ou une altération de la conscience, il faut doser les corps cétoniques et les gaz du sang sans attendre. Une acidocétose associe une hyperglycémie (souvent supérieure à 13,9 mmol/L, parfois normale), une cétose et une acidose métabolique avec bicarbonates abaissés. La prise en charge est une urgence : hydratation, insuline intraveineuse, surveillance de la kaliémie."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Glycémie normale n'exclut pas une acidocétose",
+          "text": "Chez le jeune enfant, la femme enceinte et le patient à jeun prolongé, l'acidocétose peut se présenter avec une glycémie peu élevée. C'est la cétonémie et l'acidose qui font le diagnostic, pas le chiffre glycémique seul."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-ADA-2026-GLY",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 6 : Glycemic Goals and Hyperglycemic Crises",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S006"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et formes particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 1 n'a pas de cause unique. La maladie résulte d'une prédisposition polygénique, de facteurs environnementaux encore discutés et d'une rupture de la tolérance immunologique. Les virus entériques (entérovirus), certains régimes alimentaires et la modification du microbiote intestinal ont été étudiés ; aucun n'a démontré de rôle causal individualisable, et aucun facteur ne permet aujourd'hui de prévenir la maladie en population."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diabète de type 1A auto-immun : présence d'au moins un auto-anticorps, forme la plus fréquente.",
+            "Diabète de type 1B idiopathique : carence insulinique sans auto-anticorps, plus fréquent dans certaines populations africaines et asiatiques.",
+            "Diabète de type 1 lent de l'adulte (LADA) : auto-anticorps chez un adulte initialement non insulinodépendant.",
+            "Diabète secondaire à une pancréatectomie ou à une pancréatite chronique : carence insulinique mais mécanisme non auto-immun.",
+            "Diabètes monogéniques (MODY) : transmission autosomique dominante, sujet jeune mince, pas d'auto-anticorps, hyperglycémie modérée et durable.",
+            "Diabète néonatal : révélation avant 6 mois, orientation vers une cause génétique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Trois questions qui classent un diabète",
+          "text": "Le patient est-il mince et jeune ? A-t-il une cétose ? Existe-t-il un antécédent familial marqué sur plusieurs générations ? Deux réponses positives orientent vers un type 1 ou un diabète monogénique et justifient les auto-anticorps."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qui ne change pas le diagnostic mais change la prise en charge",
+          "text": "Les associations auto-immunes sont fréquentes : thyroïdite de Hashimoto, maladie cœliaque, insuffisance surrénale, gastrite atrophique. Elles doivent être recherchées au diagnostic puis surveillées, car elles modifient la glycémie et le risque vital."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-CLASS-DM",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Classification of diabetes mellitus (2019)",
+          "year": 2019,
+          "url": "https://www.who.int/publications/i/item/classification-of-diabetes-mellitus"
+        },
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention des décompensations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est une insulinothérapie substitutive à vie, calquée sur la physiologie : une insuline basale couvre la période entre les repas et la nuit, des bolus d'insuline rapide couvrent les repas. Le schéma basal-bolus est la référence parce qu'il permet d'ajuster séparément le fond et les repas. Les analogues lents et rapides sont plus pratiques, mais les insulines humaines (NPH et insuline rapide) restent efficaces et sont souvent les seules disponibles : le schéma doit être construit avec ce que le patient peut réellement obtenir."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Objectif",
+            "Repère de protocole",
+            "Ce qu'il faut vérifier"
+          ],
+          "rows": [
+            [
+              "Cible d'hémoglobine glyquée",
+              "Inférieure à 7 % pour la majorité des adultes ; plus basse si elle est atteinte sans hypoglycémie ; plus haute chez le patient fragile",
+              "Fréquence des hypoglycémies, espérance de vie, comorbidités"
+            ],
+            [
+              "Glycémie avant repas",
+              "Repère usuel entre 4,4 et 7,2 mmol/L",
+              "Variabilité et capacité du patient à réagir"
+            ],
+            [
+              "Hypoglycémie",
+              "Seuil d'alerte à 3,9 mmol/L ; hypoglycémie sévère si assistance nécessaire",
+              "Éducation du patient et de l'entourage, glucagon disponible"
+            ],
+            [
+              "Autosurveillance",
+              "Plusieurs mesures par jour, avant les repas et en cas de symptômes",
+              "Accès aux bandelettes, technique, tenue d'un carnet"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'insulinothérapie n'est efficace que si elle est comprise. L'éducation thérapeutique est donc un traitement à part entière : reconnaissance et correction de l'hypoglycémie, adaptation des doses aux repas et à l'activité physique, technique d'injection et rotation des sites, conservation de l'insuline, gestion des jours de maladie. La règle des quinze grammes de glucides rapides, suivie d'un contrôle quinze minutes plus tard, est un repère simple et robuste pour corriger une hypoglycémie consciente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rotation systématique des sites d'injection pour prévenir les lipohypertrophies, qui rendent la glycémie imprévisible.",
+            "Contrôle des corps cétoniques dès que la glycémie dépasse le seuil convenu, en cas de vomissements ou de fièvre.",
+            "Ne jamais arrêter l'insuline basale pendant un épisode infectieux : la demande insulinique augmente, elle ne diminue pas.",
+            "Activité physique régulière avec adaptation des apports glucidiques et des doses, jamais au décours immédiat d'une hypoglycémie.",
+            "Vaccination et soins des pieds : deux gestes simples qui évitent des hospitalisations."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Règles du jour de maladie",
+          "text": "Fièvre, vomissements, diarrhée ou douleur abdominale chez un patient insulinotraité imposent une surveillance glycémique rapprochée, un contrôle des cétones et le maintien de l'insuline basale. Des vomissements répétés avec cétonurie imposent un avis médical immédiat : c'est ainsi qu'on évite l'acidocétose."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Hypoglycémie : la reconnaître avant qu'elle ne devienne sévère",
+          "text": "Sueurs, tremblements, palpitations, faim impérieuse et anxiété sont les signes adrénergiques ; confusion, troubles du comportement, somnolence et convulsions sont les signes neuroglucopéniques. Chez le patient dont le diabète est ancien, les signes d'alerte peuvent s'émousser : il faut alors s'appuyer sur les mesures et non sur les sensations."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance des complications doit être programmée et non subordonnée à la plainte : examen ophtalmologique, recherche d'albuminurie avec estimation du débit de filtration glomérulaire, examen des pieds, mesure de la pression artérielle, bilan lipidique. Un dépistage des maladies auto-immunes associées est recommandé au diagnostic, puis périodiquement : TSH, anticorps anti-transglutaminase, et exploration de la fonction surrénale si la clinique le suggère."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans un contexte de ressources limitées, la priorité est la continuité de l'approvisionnement en insuline et en consommables. Une chaîne du froid discontinue, une rupture de stock de bandelettes ou l'absence de seringues adaptées font plus de dégâts que l'absence d'analogue de dernière génération. Le protocole national et la liste des médicaments essentiels doivent primer sur les préférences théoriques ; lorsque l'hémoglobine glyquée n'est pas accessible, la glycémie capillaire consignée dans un carnet reste un outil de suivi valable."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le diabète de type 1 ne s'équilibre pas seul",
+          "text": "Une insulinothérapie sans éducation, sans autosurveillance et sans possibilité de joindre un soignant en cas de problème produit des acidocétoses évitables. Le dispositif de soins fait partie de la prescription."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-GLY",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 6",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S006"
+        },
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        }
+      ]
+    },
+    {
+      "id": "situations",
+      "title": "V. Situations à ne pas manquer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La grossesse est une situation à haut risque qui se prépare : la cible d'hémoglobine glyquée se resserre avant la conception, l'insulinothérapie est réévaluée et la surveillance devient mensuelle puis plus rapprochée. L'acidocétose y est particulièrement dangereuse pour le fœtus, et une hyperglycémie modérée peut suffire à la déclencher."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transition de l'adolescence vers l'âge adulte est une période de rupture connue : les rendez-vous s'espacent, l'équilibre se dégrade et les hospitalisations pour acidocétose augmentent. Une consultation de transition organisée, avec un interlocuteur nommé, réduit cette perte de suivi."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Chirurgie, jeûne et examens avec produit de contraste",
+          "text": "Chez un patient insulinotraité, toute interruption alimentaire impose un protocole écrit : perfusion glucosée, insuline basale maintenue ou adaptée, surveillance glycémique horaire. Laisser un patient à jeun sans insuline basale est une cause classique d'acidocétose hospitalière."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-GLY",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 6",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S006"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 1 est une maladie auto-immune dont le traitement est hormonal, substitutif et définitif. Le diagnostic repose sur une hyperglycémie documentée ; la classification repose sur la clinique, le peptide C et les auto-anticorps. L'acidocétose est l'urgence à connaître, car elle peut révéler la maladie et parce que sa prévention repose sur des gestes éducatifs simples."
+        },
+        {
+          "type": "paragraph",
+          "text": "La qualité de vie du patient dépend moins de la sophistication du matériel que de la régularité du suivi, de la compréhension du schéma insulinique et de la disponibilité des consommables. C'est ce continuum qu'il faut organiser, en particulier lorsque les ressources sont contraintes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale : les seuils et les protocoles cités doivent être confrontés au protocole national en vigueur avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous sont celles qui ont servi à la rédaction. Elles sont librement consultables et ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "American Diabetes Association. Standards of Care in Diabetes — 2026. Diabetes Care, sections 2 et 6. doi:10.2337/dc26-S002 et doi:10.2337/dc26-S006.",
+            "Organisation mondiale de la Santé. Classification of diabetes mellitus. Genève, 2019.",
+            "Organisation mondiale de la Santé. Diabetes — fact sheet. Mise à jour du 14 novembre 2024."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce que cette fiche ne remplace pas",
+          "text": "Les protocoles locaux d'insulinothérapie, la disponibilité réelle des molécules et les seuils de laboratoire du pays où exerce le lecteur. Une fiche de nosographie explique le raisonnement, elle ne se substitue pas à une procédure validée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026-DIAG",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes — 2026, section 2",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-quatre-criteres",
+      "label": "Les 4 critères",
+      "intro": "À jeun — Charge — HbA1c — Aléatoire avec symptômes",
+      "entries": [
+        {
+          "key": "J",
+          "term": "Jeun : glycémie à jeun supérieure ou égale à 7,0 mmol/L."
+        },
+        {
+          "key": "C",
+          "term": "Charge : 75 g de glucose, glycémie à 2 heures supérieure ou égale à 11,1 mmol/L."
+        },
+        {
+          "key": "H",
+          "term": "Hémoglobine glyquée supérieure ou égale à 6,5 % sur méthode fiable."
+        },
+        {
+          "key": "A",
+          "term": "Aléatoire : glycémie supérieure ou égale à 11,1 mmol/L avec symptômes."
+        }
+      ],
+      "note": "En l'absence de symptômes, deux dosages sont nécessaires pour affirmer le diagnostic."
+    },
+    {
+      "id": "mn-typer",
+      "label": "TYPER un diabète",
+      "intro": "Trois éléments suffisent souvent à trancher",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Taille et poids : sujet mince, amaigrissement récent."
+        },
+        {
+          "key": "Y",
+          "term": "Yeux de l'entourage : antécédents familiaux de diabète auto-immun."
+        },
+        {
+          "key": "P",
+          "term": "Peptide C : bas ou indosable en faveur d'une carence insulinique."
+        },
+        {
+          "key": "E",
+          "term": "Épisode cétosique : cétose ou acidocétose révélatrice."
+        },
+        {
+          "key": "R",
+          "term": "Réponse aux traitements : échec rapide des antidiabétiques oraux."
+        }
+      ],
+      "note": "Les auto-anticorps confirment la forme 1A mais leur absence n'élimine pas un type 1B."
+    },
+    {
+      "id": "mn-jour-maladie",
+      "label": "MALADE",
+      "intro": "Conduite à tenir lors d'un épisode infectieux",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Mesurer la glycémie toutes les 2 à 4 heures."
+        },
+        {
+          "key": "A",
+          "term": "Analyser les cétones dès que le seuil convenu est dépassé."
+        },
+        {
+          "key": "L",
+          "term": "Lutter contre la déshydratation avec des boissons sucrées si l'alimentation est réduite."
+        },
+        {
+          "key": "A",
+          "term": "Adapter les doses sans jamais arrêter l'insuline basale."
+        },
+        {
+          "key": "D",
+          "term": "Demander un avis en cas de vomissements répétés."
+        },
+        {
+          "key": "E",
+          "term": "Écrire ce qui a été fait pour la consultation suivante."
+        }
+      ],
+      "note": "L'arrêt de l'insuline basale pendant une infection est une cause majeure d'acidocétose évitable."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels sont les quatre critères diagnostiques du diabète ?",
+      "back": "Glycémie à jeun ≥ 7,0 mmol/L ; glycémie à 2 heures après 75 g de glucose ≥ 11,1 mmol/L ; hémoglobine glyquée ≥ 6,5 % ; glycémie aléatoire ≥ 11,1 mmol/L avec symptômes.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "En l'absence de symptômes, combien de dosages faut-il pour affirmer le diagnostic ?",
+      "back": "Deux dosages pathologiques, réalisés à des moments différents, sauf situation d'urgence évidente.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel anticorps est le plus souvent recherché dans le diabète de type 1 ?",
+      "back": "L'anticorps anti-GAD65 ; on peut aussi rechercher anti-IA-2, anti-ZnT8 et anticorps anti-insuline.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen biologique témoigne directement de la carence insulinique ?",
+      "back": "Le peptide C, bas ou indosable dans le diabète de type 1 évolué.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "En quoi consiste le schéma basal-bolus ?",
+      "back": "Une insuline basale couvre la nuit et l'intervalle entre les repas ; des bolus d'insuline rapide couvrent chaque repas, ce qui permet d'ajuster séparément les deux composantes.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Que faire devant une hypoglycémie consciente chez un patient capable de déglutir ?",
+      "back": "Donner 15 à 20 g de glucides rapides, recontrôler la glycémie après 15 minutes et répéter si elle reste basse, puis prendre un glucide lent.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelle est la règle essentielle lors d'un épisode infectieux chez un patient insulinotraité ?",
+      "back": "Ne jamais arrêter l'insuline basale, augmenter la surveillance glycémique et contrôler les corps cétoniques.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels éléments orientent vers un diabète de type 2 plutôt que de type 1 ?",
+      "back": "Sujet en surpoids, âge plus avancé, absence de cétose, peptide C conservé, absence d'auto-anticorps.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Qu'est-ce qu'un LADA ?",
+      "back": "Un diabète de type 1 lent de l'adulte : auto-anticorps présents chez un adulte initialement non insulinodépendant, qui le deviendra en quelques années.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quelles maladies auto-immunes faut-il rechercher dans le diabète de type 1 ?",
+      "back": "Thyroïdite auto-immune, maladie cœliaque, insuffisance surrénale ; plus rarement gastrite atrophique et vitiligo.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quand débuter le dépistage des complications microvasculaires chez un patient diabétique de type 1 ?",
+      "back": "Après plusieurs années d'évolution ou à partir de la puberté chez l'enfant, puis de façon annuelle : rétine, albuminurie, pieds, pression artérielle, lipides.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quels sont les trois piliers du traitement d'une acidocétose ?",
+      "back": "Hydratation, insulinothérapie et correction des désordres ioniques, en particulier la kaliémie, avec surveillance rapprochée.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Pourquoi l'hémoglobine glyquée peut-elle être faussement basse ?",
+      "back": "Toute situation qui raccourcit la vie des globules rouges : hémolyse, drépanocytose, saignement, transfusion récente, grossesse récente.",
+      "tags": [
+        "piège"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Diabète de type 1",
+      "detail": "Carence insulinique absolue d'origine auto-immune. Le diagnostic est biologique, la classification repose sur la clinique et les auto-anticorps, le traitement est une insulinothérapie à vie et l'acidocétose est l'urgence de référence."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Un enfant ou un adulte jeune qui boit, urine et maigrit ; parfois une acidocétose d'emblée.",
+        "children": [
+          {
+            "id": "rec-signes",
+            "label": "Signes cardinaux",
+            "detail": "Polyuro-polydipsie, amaigrissement, fatigue, appétit conservé ou augmenté.",
+            "leaves": [
+              {
+                "id": "rec-signes-1",
+                "label": "Enfant",
+                "detail": "Énurésie secondaire, cassure de la courbe de poids."
+              },
+              {
+                "id": "rec-signes-2",
+                "label": "Adulte",
+                "detail": "Amaigrissement rapide, asthénie inhabituelle."
+              }
+            ]
+          },
+          {
+            "id": "rec-cetose",
+            "label": "Cétose",
+            "detail": "Haleine acétonique, nausées, vomissements, douleurs abdominales, polypnée.",
+            "leaves": [
+              {
+                "id": "rec-cetose-1",
+                "label": "Signe d'alerte",
+                "detail": "Vomissements répétés : avis médical immédiat."
+              },
+              {
+                "id": "rec-cetose-2",
+                "label": "Piège",
+                "detail": "Glycémie parfois peu élevée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "confirmer",
+        "label": "Confirmer",
+        "tone": "retenir",
+        "detail": "Les seuils sont communs à tous les diabètes ; c'est la classification qui distingue les formes.",
+        "children": [
+          {
+            "id": "con-seuils",
+            "label": "Seuils",
+            "detail": "À jeun 7,0 mmol/L ; à 2 heures 11,1 mmol/L ; hémoglobine glyquée 6,5 % ; aléatoire 11,1 avec symptômes.",
+            "leaves": [
+              {
+                "id": "con-seuils-1",
+                "label": "Deux dosages",
+                "detail": "Si pas de symptômes."
+              },
+              {
+                "id": "con-seuils-2",
+                "label": "HbA1c faussée",
+                "detail": "Hémolyse, drépanocytose, grossesse."
+              }
+            ]
+          },
+          {
+            "id": "con-typage",
+            "label": "Typage",
+            "detail": "Peptide C, auto-anticorps GAD65, IA-2, ZnT8, et clinique.",
+            "leaves": [
+              {
+                "id": "con-typage-1",
+                "label": "Type 1B",
+                "detail": "Aucun auto-anticorps, carence insulinique."
+              },
+              {
+                "id": "con-typage-2",
+                "label": "MODY",
+                "detail": "Transmission dominante, sujet jeune mince."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Insuline substitutive selon un schéma basal-bolus, ajustée par le patient avec l'équipe soignante.",
+        "children": [
+          {
+            "id": "tra-schema",
+            "label": "Schéma",
+            "detail": "Insuline basale et bolus prandiaux ; analogues ou insulines humaines selon disponibilité.",
+            "leaves": [
+              {
+                "id": "tra-schema-1",
+                "label": "Sites",
+                "detail": "Rotation pour éviter les lipohypertrophies."
+              },
+              {
+                "id": "tra-schema-2",
+                "label": "Adaptation",
+                "detail": "Repas, activité, infections."
+              }
+            ]
+          },
+          {
+            "id": "tra-urgences",
+            "label": "Urgences",
+            "detail": "Hypoglycémie et acidocétose : deux protocoles à connaître par cœur.",
+            "leaves": [
+              {
+                "id": "tra-urgences-1",
+                "label": "Hypoglycémie",
+                "detail": "15 à 20 g de glucides rapides, contrôle à 15 minutes."
+              },
+              {
+                "id": "tra-urgences-2",
+                "label": "Acidocétose",
+                "detail": "Hydratation, insuline, potassium."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "La surveillance est un programme, pas une réponse aux plaintes.",
+        "children": [
+          {
+            "id": "sur-complications",
+            "label": "Complications",
+            "detail": "Rétine, rein, pied, cœur et lipides, une fois par an au minimum.",
+            "leaves": [
+              {
+                "id": "sur-complications-1",
+                "label": "Rein",
+                "detail": "Albuminurie et débit de filtration estimé."
+              },
+              {
+                "id": "sur-complications-2",
+                "label": "Pied",
+                "detail": "Peau, pouls, sensibilité."
+              }
+            ]
+          },
+          {
+            "id": "sur-autoimmun",
+            "label": "Auto-immunité",
+            "detail": "TSH, anticorps anti-transglutaminase, cortisol si suspicion d'insuffisance surrénale.",
+            "leaves": [
+              {
+                "id": "sur-autoimmun-1",
+                "label": "Thyroïde",
+                "detail": "Dysthyroïdie fréquente."
+              },
+              {
+                "id": "sur-autoimmun-2",
+                "label": "Cœliaque",
+                "detail": "Peut déstabiliser la glycémie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eduquer",
+        "label": "Éduquer",
+        "tone": "memo",
+        "detail": "Sans éducation, l'insuline est un médicament dangereux ; avec elle, c'est un traitement de longue durée tenable.",
+        "children": [
+          {
+            "id": "edu-gestes",
+            "label": "Gestes",
+            "detail": "Injection, conservation, autosurveillance, carnet.",
+            "leaves": [
+              {
+                "id": "edu-gestes-1",
+                "label": "Chaîne du froid",
+                "detail": "Insuline non congelée."
+              },
+              {
+                "id": "edu-gestes-2",
+                "label": "Carnet",
+                "detail": "Substitut d'HbA1c si absent."
+              }
+            ]
+          },
+          {
+            "id": "edu-jour-maladie",
+            "label": "Jour de maladie",
+            "detail": "Glycémie rapprochée, cétones, insuline basale maintenue, avis si vomissements.",
+            "leaves": [
+              {
+                "id": "edu-jour-maladie-1",
+                "label": "Hydratation",
+                "detail": "Boissons régulières."
+              },
+              {
+                "id": "edu-jour-maladie-2",
+                "label": "Entourage",
+                "detail": "Savoir reconnaître une hypoglycémie sévère."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "organiser",
+        "label": "Organiser",
+        "tone": "prudence",
+        "detail": "Le système de soins fait partie du traitement : continuité, transition, grossesse, chirurgie.",
+        "children": [
+          {
+            "id": "org-transition",
+            "label": "Transition",
+            "detail": "Adolescence vers adulte : période de rupture, interlocuteur nommé.",
+            "leaves": [
+              {
+                "id": "org-transition-1",
+                "label": "Perte de suivi",
+                "detail": "Hospitalisations évitables."
+              }
+            ]
+          },
+          {
+            "id": "org-situations",
+            "label": "Situations",
+            "detail": "Grossesse, chirurgie, jeûne, voyage : protocole écrit avant l'événement.",
+            "leaves": [
+              {
+                "id": "org-situations-1",
+                "label": "Grossesse",
+                "detail": "Cible resserrée avant conception."
+              },
+              {
+                "id": "org-situations-2",
+                "label": "Jeûne",
+                "detail": "Glucose et insuline basale."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ADA-2026-DIAG",
+      "title": "2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes — 2026",
+      "citation": "American Diabetes Association Professional Practice Committee. 2. Diagnosis and Classification of Diabetes: Standards of Care in Diabetes — 2026. Diabetes Care 2026 ; 49 (suppl. 1) : S27-S49. doi:10.2337/dc26-S002.",
+      "organization": "American Diabetes Association (ADA)",
+      "year": 2026,
+      "version": "édition 2026",
+      "url": "https://doi.org/10.2337/dc26-S002",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Classification",
+        "Place du peptide C et des auto-anticorps"
+      ]
+    },
+    {
+      "id": "SRC-ADA-2026-GLY",
+      "title": "6. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes — 2026",
+      "citation": "American Diabetes Association Professional Practice Committee. 6. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes — 2026. Diabetes Care 2026 ; 49 (suppl. 1) : S132-S149. doi:10.2337/dc26-S006.",
+      "organization": "American Diabetes Association (ADA)",
+      "year": 2026,
+      "version": "édition 2026",
+      "url": "https://doi.org/10.2337/dc26-S006",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Cibles glycémiques",
+        "Hypoglycémie",
+        "Acidocétose",
+        "Situations particulières"
+      ]
+    },
+    {
+      "id": "SRC-WHO-CLASS-DM",
+      "title": "Classification of diabetes mellitus",
+      "citation": "Organisation mondiale de la Santé. Classification of diabetes mellitus. Genève : OMS ; 2019.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2019,
+      "url": "https://www.who.int/publications/i/item/classification-of-diabetes-mellitus",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition des types de diabète",
+        "Place du diabète de type 1B"
+      ]
+    },
+    {
+      "id": "SRC-WHO-DIAB-FS",
+      "title": "Diabetes — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Diabetes — fact sheet. Mise à jour du 14 novembre 2024.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2024,
+      "version": "14 novembre 2024",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Accès au traitement"
+      ]
+    }
+  ]
+}

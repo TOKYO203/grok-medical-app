@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "occlusion-grele",
+  "title": "Occlusion intestinale du grêle",
+  "subtitle": "Occlusion intestinale aiguë — grêle et côlon",
+  "objective": "Reconnaître un syndrome occlusif, distinguer obstruction mécanique et iléus fonctionnel, identifier les signes de strangulation qui imposent la chirurgie, et conduire la réanimation et la décompression avant toute décision opératoire.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 15,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 190,
+      "localNumber": 15,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Occlusion intestinale du grêle",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de la World Society of Emergency Surgery sur l'occlusion sur bride et sur le volvulus sigmoïde, et de la recommandation de la Société Européenne d'Endoscopie Digestive sur les prothèses coliques. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "ÉCART À LA LETTRE DE LA MISSION, ASSUMÉ : le référentiel national ne comporte pas d'item intitulé « Occlusion intestinale aiguë » mais DEUX items distincts — « Occlusion intestinale du grêle » (n=15, ordinal 190) et « Occlusion intestinale du côlon » (n=41, ordinal 216). Le contrat technique du catalogue impose que le slug d'une fiche soit l'identifiant d'un item et que le titre de la fiche soit identique au titre de cet item. La fiche est donc rattachée à l'item du grêle, et son contenu couvre DÉLIBÉRÉMENT les deux niveaux, avec une section dédiée au côlon : c'est la seule façon de respecter à la fois le contrat et la demande de contenu.",
+      "Les recommandations de la WSES sur l'occlusion sur bride (Bologna, mise à jour 2017, publiée en 2018) et sur le volvulus sigmoïde (2023) sont citées, ainsi que la recommandation ESGE 2020 sur les prothèses coliques. Leur millésime d'origine est conservé sans antidatage.",
+      "Aucune posologie n'est donnée : ni produit de contraste, ni néostigmine, ni antibiotique. Les principes sont exposés, avec la mention explicite que la décision d'un traitement médicamenteux de l'iléus ou d'une décompression endoscopique dépend du contexte et du plateau technique.",
+      "Le délai de 48 à 72 heures de traitement non opératoire est présenté comme un repère de recommandation valable en l'absence de signe de strangulation, et non comme une règle absolue.",
+      "La distinction entre occlusion mécanique et iléus fonctionnel est mise en avant, car c'est l'erreur qui conduit à opérer un patient qui n'en a pas besoin — ou à retarder une strangulation.",
+      "Le contexte de ressources limitées est décrit qualitativement : disponibilité du scanner, de l'endoscopie interventionnelle et des prothèses coliques inégale, ce qui renforce la place de la clinique et de la radiographie dans le premier bilan.",
+      "Les recommandations françaises de la Haute Autorité de santé et de la Société Nationale Française de Gastro-Entérologie n'étaient pas accessibles depuis l'environnement de rédaction : elles ne sont pas citées."
+    ],
+    "qcChecklist": [
+      "Syndrome occlusif : douleur, vomissements, distension, arrêt des matières et des gaz",
+      "Distinction grêle / côlon et mécanique / fonctionnel",
+      "Signes de strangulation et de souffrance intestinale",
+      "Place du scanner avec injection et du contraste hydrosoluble",
+      "Réanimation et décompression avant décision",
+      "Conduite devant un volvulus et une occlusion colique néoplasique",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'occlusion intestinale est l'arrêt de la progression du contenu digestif. Elle se traduit par quatre signes cardinaux : douleur abdominale, vomissements, distension et arrêt des matières et des gaz. Cette définition clinique est simple, mais elle recouvre des situations très différentes, depuis l'occlusion sur bride qui se résout en deux jours sous traitement médical jusqu'à la strangulation intestinale qui perd un segment de grêle en quelques heures."
+        },
+        {
+          "type": "paragraph",
+          "text": "La première distinction à faire est mécanique ou fonctionnelle. Dans l'occlusion mécanique, un obstacle réel bloque la lumière : bride, hernie étranglée, tumeur, volvulus. Dans l'iléus fonctionnel, il n'y a pas d'obstacle, mais un intestin paralysé par une cause générale : chirurgie récente, sepsis, médicaments, désordre électrolytique. Le traitement de ces deux situations est presque opposé."
+        },
+        {
+          "type": "paragraph",
+          "text": "La deuxième distinction est topographique. L'occlusion du grêle se manifeste tôt par des vomissements et une distension modérée ; l'occlusion du côlon se manifeste surtout par une distension majeure et des vomissements tardifs, avec un risque de perforation caecale et un enjeu carcinologique chez l'adulte."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit la démarche d'urgence : reconnaître, classer, chercher les signes de gravité, réanimer, puis décider entre traitement médical et chirurgie."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" },
+        { "id": "SRC-WSES-SIGMOID-2023", "organization": "World Society of Emergency Surgery (WSES)", "title": "WSES consensus guidelines on sigmoid volvulus management", "year": 2023, "url": "https://doi.org/10.1186/s13017-023-00502-x" }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "En amont de l'obstacle, l'intestin se dilate et sécrète : le contenu liquidien s'accumule, la paroi s'étire, la motilité s'altère. Les vomissements et le troisième secteur provoquent une déshydratation avec perte de sodium et de potassium, et une alcalose métabolique dans les occlusions hautes. Cette séquence explique pourquoi la première mesure thérapeutique est la réanimation hydro-électrolytique, avant même la discussion chirurgicale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La gravité vient de deux mécanismes. Le premier est la strangulation : lorsque le segment intestinal se vrille sur son mésentère ou s'étrangle dans un orifice, la vascularisation s'interrompt, la paroi se nécrose et la perforation survient. Le second est la dilatation majeure avec hyperpression, qui menace la paroi, en particulier au niveau du cæcum dans les occlusions coliques."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'occlusion sur bride est la cause la plus fréquente d'occlusion du grêle dans les pays où la chirurgie abdominale est répandue. Les hernies étranglées restent une cause majeure là où l'accès à la chirurgie élective est limité, et elles constituent une urgence absolue car la strangulation est immédiate. Chez l'adulte, une occlusion colique évoque d'abord une tumeur."
+        },
+        {
+          "type": "table",
+          "columns": ["Mécanisme", "Grêle", "Côlon", "Signe d'alerte"],
+          "rows": [
+            ["Obstruction simple", "Bride, hernie non étranglée, tumeur", "Tumeur, sténose diverticulaire", "Résolution possible sous traitement médical"],
+            ["Strangulation", "Hernie étranglée, volvulus, invagination", "Volvulus du sigmoïde, volvulus du cæcum", "Douleur continue, fièvre, tachycardie"],
+            ["Occlusion en boucle fermée", "Bride double, hernie interne", "Volvulus, cancer avec valvule compétente", "Risque de nécrose rapide"],
+            ["Iléus fonctionnel", "Postopératoire, sepsis, médicaments", "Pseudo-obstruction du côlon", "Pas d'obstacle au scanner"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La strangulation change tout",
+          "text": "Une occlusion simple peut attendre quelques heures sous surveillance. Une strangulation ne le peut pas : la douleur devient continue, la fièvre et la tachycardie apparaissent, et la chirurgie ne se discute plus."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "L'iléus n'est pas une occlusion",
+          "text": "Après une chirurgie abdominale, un iléus est banal et ne s'opère pas. Mais une occlusion sur bride peut survenir dans les mêmes jours : c'est la persistance ou l'aggravation au-delà du délai attendu qui impose l'imagerie."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique, puis confirmé par l'imagerie. L'interrogatoire précise le début, le caractère continu ou colique de la douleur, les vomissements — précoces et alimentaires dans l'occlusion haute, tardifs et fécaloïdes dans l'occlusion basse —, l'arrêt des matières et des gaz, les antécédents chirurgicaux, les hernies connues et les traitements en cours."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen abdominal : distension, tympanisme, cicatrices, orifices herniaires, douleur localisée, défense.",
+            "Toucher rectal : ampoule rectale vide dans l'occlusion complète, fécalome, masse.",
+            "Recherche de signes de strangulation : douleur continue, défense, fièvre, tachycardie, marbrures.",
+            "Radiographie de l'abdomen sans préparation : niveaux hydro-aériques, distension, pneumopéritoine.",
+            "Tomodensitométrie abdominale avec injection : examen de référence, elle identifie le siège de l'obstacle, la cause, la souffrance pariétale et la boucle fermée.",
+            "Biologie : hémogramme, ionogramme, créatinine, gaz du sang, lactate, bilan hépatique, groupe sanguin.",
+            "Électrocardiogramme et évaluation cardiorespiratoire avant une éventuelle anesthésie."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Examen", "Ce qu'il apporte", "Ce qu'il ne remplace pas"],
+          "rows": [
+            ["Radiographie sans préparation", "Niveaux hydro-aériques, aérocolie, pneumopéritoine", "La recherche de la cause et de l'ischémie"],
+            ["Échographie abdominale", "Liquidien, épanchement, absence de péristaltisme", "Le scanner dans un tableau complexe"],
+            ["Scanner avec injection", "Siège, cause, boucle fermée, ischémie, épanchement", "L'évaluation clinique répétée"],
+            ["Lactate et gaz du sang", "Souffrance tissulaire, désordres métaboliques", "La décision chirurgicale à eux seuls"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le scanner occupe une place centrale parce qu'il répond à trois questions qui commandent le traitement : y a-t-il un obstacle mécanique ou un iléus ? Quelle est la cause ? Y a-t-il une souffrance intestinale ou une boucle fermée ? En l'absence de scanner, la radiographie et la clinique restent la base, avec une seuil de décision chirurgicale plus bas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes qui imposent la chirurgie",
+          "text": "Défense ou contracture, douleur continue intense, fièvre, tachycardie, hypotension, épanchement libre, pneumopéritoine, boucle fermée ou ischémie au scanner : la chirurgie ne se discute pas, et la réanimation se conduit en parallèle."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le piège de la douleur calmée",
+          "text": "Une douleur qui s'atténue sous antalgiques ne signifie pas que l'occlusion se résout. C'est la conjonction de la clinique, du débit de la sonde nasogastrique, du transit et de l'imagerie qui permet de conclure."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, l'occlusion du grêle est dominée par les brides postopératoires, suivies des hernies étranglées et des tumeurs. L'occlusion colique est dominée par le cancer, puis par le volvulus du sigmoïde et la sténose diverticulaire. La distinction n'est pas seulement topographique : elle détermine le geste, le pronostic et le suivi oncologique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Brides et adhérences : première cause d'occlusion du grêle, favorisées par toute chirurgie abdominale ou pelvienne.",
+            "Hernies étranglées : inguinale, crurale, ombilicale ; la strangulation est immédiate, l'examen des orifices est obligatoire.",
+            "Tumeurs du grêle et carcinose péritonéale : à évoquer devant une occlusion sans antécédent chirurgical.",
+            "Maladie de Crohn et sténoses inflammatoires.",
+            "Volvulus du sigmoïde : sujet âgé, constipation chronique, distension asymétrique.",
+            "Volvulus du cæcum : plus rare, risque de nécrose rapide.",
+            "Cancer colorectal : première cause d'occlusion colique, à confirmer par l'histologie.",
+            "Fécalome : sujet âgé, institutionnalisé, ou sous traitement ralentissant le transit.",
+            "Pseudo-obstruction aiguë du côlon : contexte médical, sans obstacle, à traiter médicalement.",
+            "Iléus fonctionnel : postopératoire, sepsis, hypokaliémie, opioïdes, troubles neurologiques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Une occlusion sans cicatrice doit faire chercher autre chose",
+          "text": "Un patient sans antécédent de chirurgie abdominale qui présente une occlusion du grêle a statistiquement une cause tumorale ou herniaire. C'est un argument fort pour un bilan d'imagerie complet et une exploration chirurgicale."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Volvulus du sigmoïde : la décompression d'abord",
+          "text": "Le volvulus sigmoïdien non compliqué se décompresse par voie endoscopique, mais la récidive est fréquente et une sigmoïdectomie élective est ensuite discutée. En cas de nécrose ou de perforation, la chirurgie est immédiate."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" },
+        { "id": "SRC-WSES-SIGMOID-2023", "organization": "World Society of Emergency Surgery (WSES)", "title": "WSES consensus guidelines on sigmoid volvulus management", "year": 2023, "url": "https://doi.org/10.1186/s13017-023-00502-x" }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge commence toujours par la réanimation : à jeun, sonde nasogastrique en aspiration, remplissage vasculaire par cristalloïdes isotoniques, correction du potassium, sondage vésical pour surveiller la diurèse, antalgiques, antiémétiques, prévention thromboembolique. Ce temps conditionne la tolérance d'un éventuel geste et ne doit jamais être sauté pour gagner du temps opératoire."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Conduite", "Point de décision"],
+          "rows": [
+            ["Occlusion du grêle non compliquée", "Traitement non opératoire 48 à 72 heures, surveillance rapprochée", "Absence d'amélioration ou apparition d'un signe de gravité"],
+            ["Occlusion du grêle avec bride", "Contraste hydrosoluble oral discuté, il a une valeur diagnostique et thérapeutique", "Contre-indication si strangulation suspectée"],
+            ["Hernie étranglée", "Chirurgie en urgence", "Réduction du segment et exploration"],
+            ["Volvulus du sigmoïde", "Décompression endoscopique puis sigmoïdectomie élective", "Nécrose ou perforation : chirurgie immédiate"],
+            ["Occlusion colique néoplasique", "Prothèse colique en pont ou chirurgie, selon le contexte et le plateau", "Score de risque opératoire, curabilité"],
+            ["Pseudo-obstruction du côlon", "Traitement de la cause, décompression, traitement médical", "Ischémie ou perforation : chirurgie"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans l'occlusion du grêle sur bride, l'absence de signe de strangulation autorise une conduite non opératoire sous surveillance. Le contraste hydrosoluble administré par la sonde a une place particulière : il peut lever l'obstacle fonctionnel, hâter la reprise du transit et, en l'absence de recoloration du côlon, orienter vers la chirurgie. Il est proscrit en cas de péritonite ou de suspicion de strangulation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans l'occlusion colique, deux enjeux se superposent : sortir le patient de l'urgence et traiter la maladie qui a provoqué l'obstacle. Une prothèse colique peut décomprimer et permettre une chirurgie programmée, ou pallier définitivement une obstruction maligne chez un patient non opérable. Elle expose toutefois à des complications, et son utilisation doit être discutée avec l'équipe digestive et le patient."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ne jamais opérer un iléus fonctionnel sans avoir écarté un obstacle par l'imagerie.",
+            "Surveiller le débit de la sonde nasogastrique, la douleur, le pouls, la température et les urines au moins toutes les 6 à 8 heures.",
+            "Réévaluer la clinique et la biologie à 24 et 48 heures avant de poursuivre un traitement médical.",
+            "Éviter les opioïdes à forte dose en cas d'iléus, sans laisser le patient souffrir.",
+            "Préparer une extraction dentaire et une évaluation cardiologique avant une chirurgie chez le sujet fragile.",
+            "Informer le patient et l'entourage de la possibilité de récidive, fréquente après occlusion sur bride."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Réanimer et opérer en parallèle",
+          "text": "Devant une strangulation ou une péritonite, la réanimation ne retarde pas la chirurgie : elle se conduit au bloc, avec le chirurgien et l'anesthésiste. Le temps passé à obtenir une normalisation complète des constantes est un temps perdu."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Dilatation du côlon : un seuil pour s'inquiéter",
+          "text": "Une dilatation colique majeure expose à la perforation cæcale. Une décompression doit être obtenue, par voie endoscopique ou chirurgicale, avant que la paroi ne cède."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" },
+        { "id": "SRC-ESGE-STENT-2020", "organization": "European Society of Gastrointestinal Endoscopy (ESGE)", "title": "Self-expandable metal stents for obstructing colonic and extracolonic cancer: ESGE Guideline — Update 2020", "year": 2020, "url": "https://doi.org/10.1055/a-1140-3017" }
+      ]
+    },
+    {
+      "id": "evolution",
+      "title": "V. Évolution et complications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'évolution dépend de la cause, du terrain et de la rapidité de la prise en charge. Une occlusion sur bride traitée médicalement peut se résoudre en 24 à 48 heures, mais récidive souvent les années suivantes. Une occlusion avec strangulation non opérée évolue vers la nécrose, la perforation et la péritonite, avec une mortalité élevée. Une occlusion colique néoplasique impose un traitement de la tumeur, pas seulement de l'obstacle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les complications postopératoires à surveiller sont l'iléus prolongé, l'infection pariétale, l'abcès intra-abdominal, la fistule et l'occlusion sur de nouvelles adhérences. Chez le patient âgé, la décompensation cardiaque ou pulmonaire et la confusion sont fréquentes et peuvent être plus menaçantes que l'occlusion elle-même."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Le suivi est aussi un traitement",
+          "text": "Après une occlusion sur bride, le patient doit savoir reconnaître les signes de récidive et consulter tôt. Une occlusion colique impose un suivi oncologique et une recherche de métastases."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-ESGE-STENT-2020", "organization": "European Society of Gastrointestinal Endoscopy (ESGE)", "title": "Self-expandable metal stents for obstructing colonic and extracolonic cancer", "year": 2020, "url": "https://doi.org/10.1055/a-1140-3017" }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de moyen validé de prévenir les adhérences. La prévention repose donc sur la réduction des facteurs de risque : une chirurgie aussi peu invasive que possible, une technique soigneuse, et chez la femme, la discussion des interventions pelviennes à haut risque d'adhérences. C'est un argument de plus pour éviter les gestes chirurgicaux sans bénéfice démontré."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pour l'occlusion colique, la prévention est celle du cancer colorectal : dépistage, traitement des polypes, consultation en cas de modification durable du transit. Pour les formes non tumorales, le traitement de la constipation chronique, la surveillance des hernies et une prise en charge des volvulus après un premier épisode limitent les récidives."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Réparer une hernie n'est pas de la chirurgie de confort",
+          "text": "Une hernie non compliquée qui peut être réparée à froid ne doit pas évoluer vers une strangulation. Chez un patient opérable, la discussion chirurgicale fait partie de la prévention de l'urgence."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" },
+        { "id": "SRC-WSES-SIGMOID-2023", "organization": "World Society of Emergency Surgery (WSES)", "title": "WSES consensus guidelines on sigmoid volvulus management", "year": 2023, "url": "https://doi.org/10.1186/s13017-023-00502-x" }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'occlusion intestinale aiguë se reconnaît à une douleur, des vomissements, une distension et un arrêt des matières et des gaz. Le scanner avec injection est l'examen qui tranche entre occlusion mécanique et iléus, identifie la cause et recherche une strangulation."
+        },
+        {
+          "type": "paragraph",
+          "text": "La réanimation précède et accompagne toute décision. Dans l'occlusion du grêle non compliquée, une conduite non opératoire de 48 à 72 heures est légitime ; en présence d'une strangulation, d'une péritonite ou d'une hernie étranglée, la chirurgie est immédiate. Dans l'occlusion colique, la décompression et le traitement de la cause — le plus souvent tumorale — se discutent ensemble."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-ASBO-2018", "organization": "World Society of Emergency Surgery (WSES)", "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction", "year": 2018, "url": "https://doi.org/10.1186/s13017-018-0185-2" }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée ; leur millésime d'origine est conservé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "ten Broek RPG, Krielen P, Di Saverio S, et al. Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update of the evidence-based guidelines from the World Society of Emergency Surgery ASBO working group. World Journal of Emergency Surgery 2018. doi:10.1186/s13017-018-0185-2.",
+            "Tian BWV, Vigutto G, Tan E, et al. WSES consensus guidelines on sigmoid volvulus management. World Journal of Emergency Surgery 2023. doi:10.1186/s13017-023-00502-x.",
+            "van Hooft JE, Veld JV, Arnold D, et al. Self-expandable metal stents for obstructing colonic and extracolonic cancer: European Society of Gastrointestinal Endoscopy (ESGE) Guideline — Update 2020. Endoscopy 2020. doi:10.1055/a-1140-3017."
+          ]
+        }
+      ],
+      "sources": [
+        { "id": "SRC-WSES-SIGMOID-2023", "organization": "World Society of Emergency Surgery (WSES)", "title": "WSES consensus guidelines on sigmoid volvulus management", "year": 2023, "url": "https://doi.org/10.1186/s13017-023-00502-x" }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-syndrome",
+      "label": "DVDA",
+      "intro": "Les quatre signes cardinaux du syndrome occlusif",
+      "entries": [
+        { "key": "D", "term": "Douleur abdominale, colique puis continue si strangulation." },
+        { "key": "V", "term": "Vomissements, précoces dans l'occlusion haute, fécaloïdes dans l'occlusion basse." },
+        { "key": "D", "term": "Distension abdominale, tympanisme, cicatrices à inspecter." },
+        { "key": "A", "term": "Arrêt des matières et des gaz, signe le plus constant." }
+      ],
+      "note": "Un seul de ces signes manque souvent au début : c'est la répétition de l'examen qui complète le tableau."
+    },
+    {
+      "id": "mn-gravite",
+      "label": "STRANGLE",
+      "intro": "Chercher activement une strangulation",
+      "entries": [
+        { "key": "S", "term": "Souffrance : douleur continue, sans rémission." },
+        { "key": "T", "term": "Tachycardie et hypotension." },
+        { "key": "R", "term": "Résistance abdominale, défense localisée." },
+        { "key": "A", "term": "Altération de l'état général, marbrures." },
+        { "key": "N", "term": "Nausées et vomissements incoercibles." },
+        { "key": "G", "term": "Gaz du sang : acidose lactique." },
+        { "key": "L", "term": "Leucocytose et CRP élevées." },
+        { "key": "E", "term": "Épanchement ou boucle fermée au scanner." }
+      ],
+      "note": "Deux de ces éléments suffisent à poser l'indication opératoire, sans attendre une confirmation supplémentaire."
+    },
+    {
+      "id": "mn-prise-en-charge",
+      "label": "SONDE",
+      "intro": "Les premières mesures, dans l'ordre",
+      "entries": [
+        { "key": "S", "term": "Sonde nasogastrique en aspiration, à jeun strict." },
+        { "key": "O", "term": "Osmolalité et ionogramme : remplissage et potassium." },
+        { "key": "N", "term": "Nouvelle évaluation clinique toutes les 6 à 8 heures." },
+        { "key": "D", "term": "Décision : imagerie si doute, chirurgie si gravité." },
+        { "key": "E", "term": "Équipe : chirurgien, anesthésiste, réanimateur." }
+      ],
+      "note": "La sonde nasogastrique soulage et permet de mesurer le débit, mais elle ne traite pas l'obstacle."
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-01", "front": "Quels sont les quatre signes cardinaux d'une occlusion intestinale ?", "back": "Douleur abdominale, vomissements, distension et arrêt des matières et des gaz.", "tags": ["clinique"] },
+    { "id": "fc-02", "front": "Quelle est la cause la plus fréquente d'occlusion du grêle de l'adulte opéré ?", "back": "Les brides et adhérences postopératoires.", "tags": ["étiologie"] },
+    { "id": "fc-03", "front": "Quel examen d'imagerie est la référence devant une occlusion ?", "back": "La tomodensitométrie abdominale avec injection, qui identifie le siège, la cause et la souffrance intestinale.", "tags": ["diagnostic"] },
+    { "id": "fc-04", "front": "Comment distinguer une occlusion mécanique d'un iléus fonctionnel ?", "back": "Par l'imagerie : l'iléus ne montre pas de zone de transition ni d'obstacle, et le contexte est général.", "tags": ["diagnostic"] },
+    { "id": "fc-05", "front": "Quels signes imposent une chirurgie immédiate ?", "back": "Défense, contracture, douleur continue, fièvre, tachycardie, hypotension, pneumopéritoine, boucle fermée ou ischémie au scanner.", "tags": ["urgence"] },
+    { "id": "fc-06", "front": "Combien de temps peut-on poursuivre un traitement non opératoire dans une occlusion du grêle non compliquée ?", "back": "Environ 48 à 72 heures, sous surveillance rapprochée, en l'absence de signe de strangulation.", "tags": ["traitement"] },
+    { "id": "fc-07", "front": "Quel est l'intérêt du contraste hydrosoluble dans l'occlusion sur bride ?", "back": "Il a une valeur diagnostique et thérapeutique : il peut lever l'obstacle et orienter vers la chirurgie si le côlon ne se recolore pas.", "tags": ["traitement"] },
+    { "id": "fc-08", "front": "Quand le contraste hydrosoluble est-il contre-indiqué ?", "back": "En cas de péritonite, de suspicion de strangulation ou d'instabilité hémodynamique.", "tags": ["piège"] },
+    { "id": "fc-09", "front": "Quelle est la première cause d'occlusion colique chez l'adulte ?", "back": "Le cancer colorectal.", "tags": ["étiologie"] },
+    { "id": "fc-10", "front": "Quelle est la prise en charge initiale d'un volvulus du sigmoïde non compliqué ?", "back": "Une décompression endoscopique, suivie d'une discussion de sigmoïdectomie élective en raison du risque de récidive.", "tags": ["traitement"] },
+    { "id": "fc-11", "front": "Quel est le risque d'une dilatation colique majeure ?", "back": "La perforation, en particulier cæcale, par hyperpression.", "tags": ["urgence"] },
+    { "id": "fc-12", "front": "Quelles sont les premières mesures de réanimation devant une occlusion ?", "back": "À jeun, sonde nasogastrique, remplissage par cristalloïdes, correction du potassium, surveillance de la diurèse et antalgie.", "tags": ["traitement"] },
+    { "id": "fc-13", "front": "Pourquoi une occlusion du grêle sans antécédent chirurgical inquiète-t-elle ?", "back": "Parce qu'elle évoque une cause tumorale ou une hernie, et justifie une imagerie complète et souvent une exploration.", "tags": ["piège"] }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Occlusion intestinale",
+      "detail": "Arrêt de la progression du contenu digestif. Mécanique ou fonctionnelle, grêle ou côlon, simple ou strangulée : trois questions décident de la réanimation, de l'imagerie et de la chirurgie."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Quatre signes, et un examen répété.",
+        "children": [
+          {
+            "id": "rec-signes",
+            "label": "Signes",
+            "detail": "Douleur, vomissements, distension, arrêt des matières et des gaz.",
+            "leaves": [
+              { "id": "rec-signes-1", "label": "Grêle", "detail": "Vomissements précoces." },
+              { "id": "rec-signes-2", "label": "Côlon", "detail": "Distension majeure, vomissements tardifs." }
+            ]
+          },
+          {
+            "id": "rec-examen",
+            "label": "Examen",
+            "detail": "Cicatrices, orifices herniaires, toucher rectal, défense.",
+            "leaves": [
+              { "id": "rec-examen-1", "label": "Hernie", "detail": "Toujours chercher l'orifice." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "retenir",
+        "detail": "Mécanique ou fonctionnelle, puis niveau et gravité.",
+        "children": [
+          {
+            "id": "cla-mecanique",
+            "label": "Mécanique",
+            "detail": "Bride, hernie, tumeur, volvulus, sténose.",
+            "leaves": [
+              { "id": "cla-mecanique-1", "label": "Boucle fermée", "detail": "Risque de nécrose rapide." },
+              { "id": "cla-mecanique-2", "label": "Strangulation", "detail": "Urgence chirurgicale." }
+            ]
+          },
+          {
+            "id": "cla-fonctionnel",
+            "label": "Fonctionnel",
+            "detail": "Iléus postopératoire, sepsis, médicaments, pseudo-obstruction.",
+            "leaves": [
+              { "id": "cla-fonctionnel-1", "label": "Piège", "detail": "Ne pas opérer sans imagerie." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "explorer",
+        "label": "Explorer",
+        "tone": "memo",
+        "detail": "Biologie, radiographie, scanner avec injection.",
+        "children": [
+          {
+            "id": "exp-scanner",
+            "label": "Scanner",
+            "detail": "Siège, cause, zone de transition, ischémie, épanchement.",
+            "leaves": [
+              { "id": "exp-scanner-1", "label": "Décision", "detail": "Oriente le geste." }
+            ]
+          },
+          {
+            "id": "exp-bio",
+            "label": "Biologie",
+            "detail": "Ionogramme, créatinine, lactate, hémogramme.",
+            "leaves": [
+              { "id": "exp-bio-1", "label": "Lactate", "detail": "Souffrance tissulaire." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "causes",
+        "label": "Causes",
+        "tone": "prudence",
+        "detail": "Grêle : brides, hernies, tumeurs. Côlon : cancer, volvulus.",
+        "children": [
+          {
+            "id": "cau-grele",
+            "label": "Grêle",
+            "detail": "Bride en premier, puis hernie étranglée et tumeur.",
+            "leaves": [
+              { "id": "cau-grele-1", "label": "Sans cicatrice", "detail": "Suspecter une tumeur." }
+            ]
+          },
+          {
+            "id": "cau-colon",
+            "label": "Côlon",
+            "detail": "Cancer, volvulus du sigmoïde, sténose diverticulaire, fécalome.",
+            "leaves": [
+              { "id": "cau-colon-1", "label": "Volvulus", "detail": "Décompression endoscopique." },
+              { "id": "cau-colon-2", "label": "Fécalome", "detail": "Sujet âgé." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Réanimation d'abord, puis traitement médical ou chirurgical.",
+        "children": [
+          {
+            "id": "tra-reanimation",
+            "label": "Réanimation",
+            "detail": "À jeun, sonde nasogastrique, remplissage, potassium, diurèse.",
+            "leaves": [
+              { "id": "tra-reanimation-1", "label": "Parallèle", "detail": "Ne retarde pas la chirurgie." }
+            ]
+          },
+          {
+            "id": "tra-medical",
+            "label": "Médical",
+            "detail": "Occlusion du grêle non compliquée : 48 à 72 heures de surveillance.",
+            "leaves": [
+              { "id": "tra-medical-1", "label": "Contraste", "detail": "Diagnostique et thérapeutique." },
+              { "id": "tra-medical-2", "label": "Limite", "detail": "Contre-indiqué si strangulation." }
+            ]
+          },
+          {
+            "id": "tra-chirurgie",
+            "label": "Chirurgie",
+            "detail": "Strangulation, péritonite, hernie étranglée, échec du traitement médical.",
+            "leaves": [
+              { "id": "tra-chirurgie-1", "label": "Colon", "detail": "Prothèse ou résection selon le contexte." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "prudence",
+        "detail": "Réévaluation clinique et biologique, puis suivi au long cours.",
+        "children": [
+          {
+            "id": "sur-evolution",
+            "label": "Évolution",
+            "detail": "Débit de sonde, douleur, transit, constantes, diurèse.",
+            "leaves": [
+              { "id": "sur-evolution-1", "label": "Aggravation", "detail": "Chirurgie sans délai." },
+              { "id": "sur-evolution-2", "label": "Récidive", "detail": "Fréquente après bride." }
+            ]
+          },
+          {
+            "id": "sur-apres",
+            "label": "Après",
+            "detail": "Suivi oncologique si tumeur, surveillance des hernies, prévention de la constipation.",
+            "leaves": [
+              { "id": "sur-apres-1", "label": "Information", "detail": "Signes de récidive à connaître." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WSES-ASBO-2018",
+      "title": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update of the evidence-based guidelines from the World Society of Emergency Surgery ASBO working group",
+      "citation": "ten Broek RPG, Krielen P, Di Saverio S, et al. Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2017 update of the evidence-based guidelines from the world society of emergency surgery ASBO working group. World Journal of Emergency Surgery 2018 ; 13 : 24. doi:10.1186/s13017-018-0185-2.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2018,
+      "url": "https://doi.org/10.1186/s13017-018-0185-2",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Diagnostic", "Contraste hydrosoluble", "Durée du traitement non opératoire", "Indications chirurgicales"]
+    },
+    {
+      "id": "SRC-WSES-SIGMOID-2023",
+      "title": "WSES consensus guidelines on sigmoid volvulus management",
+      "citation": "Tian BWV, Vigutto G, Tan E, et al. WSES consensus guidelines on sigmoid volvulus management. World Journal of Emergency Surgery 2023 ; 18 : 34. doi:10.1186/s13017-023-00502-x.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2023,
+      "url": "https://doi.org/10.1186/s13017-023-00502-x",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Volvulus du sigmoïde", "Décompression endoscopique", "Chirurgie élective"]
+    },
+    {
+      "id": "SRC-ESGE-STENT-2020",
+      "title": "Self-expandable metal stents for obstructing colonic and extracolonic cancer: European Society of Gastrointestinal Endoscopy (ESGE) Guideline — Update 2020",
+      "citation": "van Hooft JE, Veld JV, Arnold D, et al. Self-expandable metal stents for obstructing colonic and extracolonic cancer: European Society of Gastrointestinal Endoscopy (ESGE) Guideline — Update 2020. Endoscopy 2020 ; 52 (5) : 389-407. doi:10.1055/a-1140-3017.",
+      "organization": "European Society of Gastrointestinal Endoscopy (ESGE)",
+      "year": 2020,
+      "url": "https://doi.org/10.1055/a-1140-3017",
+      "verifiedAt": "2026-10-18",
+      "usedFor": ["Occlusion colique néoplasique", "Prothèse en pont", "Palliation"]
+    }
+  ]
+}
