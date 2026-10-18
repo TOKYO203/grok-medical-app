@@ -1,19 +1,25 @@
 # En-têtes servis par le CDN (Cloudflare Pages et Netlify lisent tous deux ce
-# fichier depuis la racine du dossier publié ; Vercel l'ignore et reçoit les
-# mêmes règles via `routeRules` dans vite.config.ts).
+# fichier depuis la racine du dossier publié ; Vercel reçoit ses règles via
+# `routeRules` dans vite.config.ts).
 #
-# Les fiches de nosographie sont des ACTIFS STATIQUES immuables : contenu
-# médical versionné, servi à la demande, jamais compilé dans le bundle.
-# 1 an + immutable = un seul téléchargement par fiche et par navigateur.
-# ⚠️ Pour corriger une fiche déjà publiée, purger le cache du CDN (le nom du
-# fichier ne change pas) — procédure dans docs/performance.md.
-/content/pathologies/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Les fiches « Signes & Syndromes » suivent la même politique : une fiche est
-# un actif immuable (une correction = un nouveau contenu + purge CDN).
-/content/signes/*
-  Cache-Control: public, max-age=31536000, immutable
+# ⚠️ SÉCURITÉ PREMIUM (session S1) — LIRE AVANT D'AJOUTER UNE RÈGLE /content/*
+#
+# Les fiches de nosographie et les cas « Signes & Syndromes » ne sont PLUS des
+# actifs statiques : ils vivent dans `private/content/**` et sont servis par le
+# worker, sous jeton (`Authorization: Bearer <jwt>`), via la route
+# `/content/$type/$file`.
+#
+# Il ne doit donc JAMAIS y avoir ici de `Cache-Control` public sur
+# `/content/pathologies/*` ni `/content/signes/*` : un cache CDN resservirait la
+# réponse 200 d'un client licencié à un visiteur anonyme — exactement la fuite
+# que ce chantier ferme. Les réponses protégées posent elles-mêmes
+# `Cache-Control: private, max-age=60` et `Vary: Authorization, Cookie`
+# (voir `src/server/content-guard.ts`).
+#
+# Les seules ressources publiques sous /content/ sont les MANIFESTES
+# (`_index.json`, listage d'ids) et les APERÇUS (`/content/previews/*.json`,
+# projection titre/objectif). Elles sont servies par le worker avec un cache
+# court côté fonction.
 
 # Manifeste PWA et service worker : jamais figés dans un cache immuable.
 /sw.js

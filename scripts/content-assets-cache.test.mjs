@@ -1,113 +1,107 @@
-/* Garde-fou CACHE des actifs de contenu (fiches de nosographie).
+/* Garde-fou CACHE & CONFIDENTIALITÉ des actifs de contenu.
 
-   POURQUOI CE TEST EXISTE
-   Les fiches ne sont plus des modules : ce sont des fichiers JSON publiés tels
-   quels (`public/content/pathologies/<slug>.json`) et récupérés par `fetch()`.
-   Le gain de l'architecture tient ENTIÈREMENT au cache long : sans lui, chaque
-   ouverture de fiche re-télécharge ~50 Kio depuis le CDN. Or la politique de
-   cache est déclarée DEUX FOIS, parce que les plateformes ne lisent pas le même
-   fichier :
+   POURQUOI CE TEST EXISTE (réécrit en session « Sécurité Premium S1 »)
+   Les fiches étaient des actifs PUBLICS (`public/content/**`) et ce test
+   verrouillait leur cache long des deux côtés (Cloudflare/Netlify via
+   `_headers`, Vercel via `routeRules` Nitro). Depuis S1, elles vivent dans
+   `private/content/**` et sont servies par le worker sous jeton : la propriété
+   à protéger a changé de sens.
 
-   • Cloudflare Pages et Netlify lisent `public/_headers` ;
-   • Vercel l'IGNORE et reçoit les règles via `routeRules` Nitro
-     (`vite.config.ts`), traduites en routes d'en-têtes dans
-     `.vercel/output/config.json`.
-
-   Deux déclarations = deux occasions d'en oublier une, et rien n'échouerait :
-   le build resterait vert, la page s'afficherait, seule la performance
-   s'effondrerait silencieusement sur une plateforme. Ce test verrouille :
-
-   1. `public/_headers` déclare le cache immutable sur `/content/pathologies/*` ;
-   2. `vite.config.ts` déclare la MÊME politique en `routeRules` ;
-   3. les deux couvrent le chemin réellement utilisé par le manifeste
-      (`PATHOLOGY_ASSET_BASE`), pour qu'un changement de dossier ne laisse pas
-      les en-têtes pointer sur une URL morte ;
-   4. `_headers` ne fige pas le service worker dans un cache immutable
-      (sinon une mise à jour de l'app ne serait jamais servie).
+   Ce qui doit être vrai maintenant — et que rien dans le compilateur ne
+   garantit :
+   1. AUCUNE règle de cache PUBLIC ne subsiste sur `/content/pathologies/*` ou
+      `/content/signes/*` (`_headers`, `routeRules`, `_redirects`) : un CDN qui
+      garde la réponse d'un client licencié la resservirait à un anonyme ;
+   2. le garde pose lui-même `private` + `Vary: Authorization, Cookie` ;
+   3. `_redirects` ne réécrit plus `/content/**` (une réécriture 200 passait
+      avant la fonction et pouvait contourner le garde) ;
+   4. les APERÇUS publics gardent un cache court et borné ;
+   5. le service worker n'est pas figé en `immutable` ;
+   6. l'ARTEFACT publié ne contient AUCUNE fiche (sinon le déploiement les
+      servirait en clair, quel que soit le code applicatif).
 */
 
 import assert from "node:assert/strict";
-import { existsSync, readFileSync, statSync } from "node:fs";
-import { readdir, readFile } from "node:fs/promises";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const HEADERS_PATH = join(ROOT, "public/_headers");
+const REDIRECTS_PATH = join(ROOT, "public/_redirects");
 const VITE_CONFIG_PATH = join(ROOT, "vite.config.ts");
-const MANIFEST_MODULE_PATH = join(ROOT, "src/lib/pathologies/manifest.ts");
+const GUARD_PATH = join(ROOT, "src/server/content-guard.ts");
 
 const headersSource = readFileSync(HEADERS_PATH, "utf8");
+const redirectsSource = readFileSync(REDIRECTS_PATH, "utf8");
 const viteSource = readFileSync(VITE_CONFIG_PATH, "utf8");
-const manifestSource = readFileSync(MANIFEST_MODULE_PATH, "utf8");
+const guardSource = readFileSync(GUARD_PATH, "utf8");
 
-/** Politique attendue, écrite une seule fois ici : c'est la référence du test. */
-const IMMUTABLE_POLICY = "public, max-age=31536000, immutable";
+/** Chemins dont le contenu est servi SOUS JETON. */
+const PROTECTED_PATHS = ["/content/pathologies", "/content/signes"];
 
-/** Chemin public des fiches, tel que déclaré par le module manifeste. */
-function declaredAssetBase() {
-  const match = manifestSource.match(/PATHOLOGY_ASSET_BASE\s*=\s*"([^"]+)"/);
-  assert.ok(match, "PATHOLOGY_ASSET_BASE introuvable dans src/lib/pathologies/manifest.ts");
-  return match[1];
-}
-
-/** Normalise une politique `Cache-Control` (espaces, casse). */
-const normalizePolicy = (value) =>
-  value
-    .split(",")
-    .map((directive) => directive.trim().toLowerCase())
-    .filter(Boolean)
-    .sort()
-    .join(", ");
-
-test("public/_headers déclare un cache immutable sur le dossier des fiches", () => {
-  const base = declaredAssetBase();
-  const expectedBlock = `${base}/*`;
-  const lines = headersSource.split("\n");
-
-  const index = lines.findIndex((line) => line.trim() === expectedBlock);
-  assert.notEqual(index, -1, `aucun bloc « ${expectedBlock} » dans public/_headers`);
-
-  // Le bloc s'arrête à la prochaine règle (ligne non indentée non vide) : on
-  // ne lit QUE ses directives, sinon un en-tête voisin pourrait valider le test.
-  const directives = [];
-  for (const line of lines.slice(index + 1)) {
-    if (line.trim() === "" || !/^\s/.test(line)) break;
-    directives.push(line.trim());
+test("aucune règle de cache public ne subsiste sur le contenu protégé (_headers)", () => {
+  for (const base of PROTECTED_PATHS) {
+    assert.doesNotMatch(
+      headersSource,
+      new RegExp(`^${base}/\\*$`, "m"),
+      `public/_headers déclare encore un bloc « ${base}/* » : une règle de cache ` +
+        "CDN s'appliquerait au contenu protégé",
+    );
   }
-
-  const cacheControl = directives.find((line) => /^cache-control:/i.test(line));
-  assert.ok(cacheControl, `bloc « ${expectedBlock} » sans en-tête Cache-Control`);
-  assert.equal(normalizePolicy(cacheControl.split(":").slice(1).join(":")), normalizePolicy(IMMUTABLE_POLICY));
-});
-
-test("vite.config.ts déclare la même politique pour Vercel (qui ignore _headers)", () => {
-  const base = declaredAssetBase();
-  const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  // Bloc `routeRules` de Nitro : la clé porte le motif `**` (glob) et non `*`.
-  const ruleRegex = new RegExp(`"${escaped}/\\*\\*"\\s*:\\s*\\{[^}]*"cache-control"\\s*:\\s*"([^"]+)"`);
-  const match = viteSource.match(ruleRegex);
-  assert.ok(
-    match,
-    `aucune routeRule "${base}/**" avec cache-control dans vite.config.ts : ` +
-      "Vercel servirait les fiches sans cache long",
+  assert.doesNotMatch(
+    headersSource,
+    /immutable/,
+    "public/_headers ne doit plus contenir de cache `immutable` sur le contenu",
   );
-  assert.equal(normalizePolicy(match[1]), normalizePolicy(IMMUTABLE_POLICY));
 });
 
-test("le test suit le dossier réellement utilisé par le manifeste", async () => {
-  const base = declaredAssetBase();
-  const directory = join(ROOT, "public", base.replace(/^\//, ""));
-  const files = (await readdir(directory)).filter((name) => name.endsWith(".json"));
-  assert.ok(files.length >= 1, `aucune fiche dans public${base}`);
-
-  const index = JSON.parse(await readFile(join(ROOT, "src/content/data/pathologies/_index.json"), "utf8"));
-  const available = index.fiches.filter((entry) => entry.status === "available");
-  for (const entry of available) {
-    assert.ok(files.includes(entry.file), `${entry.file} déclarée disponible mais absente de public${base}`);
+test("aucune routeRule publique ne subsiste sur le contenu protégé (Vercel)", () => {
+  for (const base of PROTECTED_PATHS) {
+    const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    assert.doesNotMatch(
+      viteSource,
+      new RegExp(`"${escaped}/\\*\\*"`),
+      `vite.config.ts déclare encore une routeRule pour ${base}/**`,
+    );
   }
+});
+
+test("le garde de contenu impose un cache privé et un Vary correct", () => {
+  assert.match(
+    guardSource,
+    /"Cache-Control": status === 200 \? "private, max-age=60" : "no-store"/,
+    "le 200 d'un contenu protégé doit être `private` (sinon cache partagé)",
+  );
+  assert.match(
+    guardSource,
+    /Vary: "Authorization, Cookie"/,
+    "sans `Vary: Authorization`, un cache peut servir la réponse d'un client à un autre",
+  );
+  assert.match(guardSource, /X-Content-Type-Options": "nosniff"/);
+});
+
+test("_redirects ne réécrit plus /content/** (contournement du garde)", () => {
+  const rules = redirectsSource
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"));
+  for (const rule of rules) {
+    assert.doesNotMatch(
+      rule,
+      /^\/content\//,
+      `règle « ${rule} » : une réécriture 200 de /content/** s'exécute avant la fonction serveur`,
+    );
+  }
+});
+
+test("les aperçus publics gardent un cache court et borné", () => {
+  assert.match(
+    viteSource,
+    /"\/content\/previews\/\*\*"\s*:\s*\{[^}]*"cache-control"\s*:\s*"public, max-age=60, s-maxage=300"/,
+    "les aperçus doivent rester cacheables (cache court), sinon chaque page verrouillée les re-demande",
+  );
 });
 
 test("le service worker n'est pas figé dans un cache immutable", () => {
@@ -122,18 +116,17 @@ test("le service worker n'est pas figé dans un cache immutable", () => {
   }
   const cacheControl = directives.find((line) => /^cache-control:/i.test(line));
   assert.ok(cacheControl, "bloc « /sw.js » sans en-tête Cache-Control");
-  assert.doesNotMatch(cacheControl, /immutable/i, "un service worker immutable ne pourrait plus jamais être mis à jour");
+  assert.doesNotMatch(
+    cacheControl,
+    /immutable/i,
+    "un service worker immutable ne pourrait plus jamais être mis à jour",
+  );
   assert.match(cacheControl, /no-cache|no-store|max-age=0/i);
 });
 
 /* ------------------------------------------------------------------ */
-/* 5. ARTEFACT — après `npm run build`                                  */
+/* ARTEFACT — après `npm run build`                                     */
 /* ------------------------------------------------------------------ */
-
-/* Ces deux vérifications ne peuvent être faites sur les sources : elles
-   prouvent que la règle SURVIT à la compilation, sur les deux plateformes.
-   Le test est ignoré quand aucun build n'est disponible (job CI `test`, qui
-   tourne avant `build`) — même stratégie que `scripts/bundle-content.test.mjs`. */
 
 const STATIC_DIR_CANDIDATES = [".vercel/output/static", ".netlify/static", ".output/public", "dist"];
 const builtStaticDirectory = STATIC_DIR_CANDIDATES.map((path) => join(ROOT, path)).find((path) => {
@@ -144,22 +137,87 @@ const builtStaticDirectory = STATIC_DIR_CANDIDATES.map((path) => join(ROOT, path
   }
 });
 
-test("l'artefact publié contient _headers (Cloudflare Pages / Netlify)", { skip: !builtStaticDirectory }, () => {
+/**
+ * Blocs de `_headers` → `{ path, directives }`, commentaires `#` ignorés.
+ *
+ * ⚠️ Le test lisait auparavant le fichier BRUT et interdisait le motif
+ * `/content/(pathologies|signes)/*` n'importe où — y compris dans le
+ * commentaire d'avertissement qui explique précisément pourquoi la règle ne
+ * doit pas exister. Le garde-fou criait donc au loup sur sa propre
+ * documentation. Ce qui est une faute, c'est une RÈGLE qui rend le contenu
+ * protégé cacheable publiquement : on analyse les règles.
+ */
+function parseHeaderRules(source) {
+  const rules = [];
+  let current = null;
+  for (const rawLine of source.split("\n")) {
+    const line = rawLine.trim();
+    if (line === "" || line.startsWith("#")) continue;
+    if (!rawLine.startsWith(" ") && !rawLine.startsWith("\t")) {
+      current = { path: line, directives: [] };
+      rules.push(current);
+      continue;
+    }
+    if (current) current.directives.push(line);
+  }
+  return rules;
+}
+
+const PROTECTED_PATH = /^\/(content\/(pathologies|signes)\/?\*?|content\/\$type)/;
+
+test("l'artefact publié ne rend pas le contenu protégé cacheable (Cloudflare Pages / Netlify)", { skip: !builtStaticDirectory }, () => {
   const published = join(builtStaticDirectory, "_headers");
-  assert.ok(existsSync(published), `_headers absent de ${builtStaticDirectory} : le cache long serait perdu au déploiement`);
-  assert.match(readFileSync(published, "utf8"), /\/content\/pathologies\/\*/);
+  assert.ok(existsSync(published), `_headers absent de ${builtStaticDirectory}`);
+
+  const offenders = parseHeaderRules(readFileSync(published, "utf8"))
+    .filter((rule) => PROTECTED_PATH.test(rule.path))
+    .flatMap((rule) =>
+      rule.directives
+        .filter((directive) => /^cache-control:/i.test(directive))
+        .filter((directive) => /\bpublic\b/i.test(directive))
+        .map((directive) => `${rule.path} → ${directive}`),
+    );
+
+  assert.deepEqual(
+    offenders,
+    [],
+    "l'artefact publié déclare un cache PUBLIC sur le contenu protégé : " +
+      "un CDN resservirait la réponse d'un client licencié à un visiteur anonyme.\n" +
+      offenders.join("\n"),
+  );
 });
 
-test("l'artefact Vercel contient la règle d'en-têtes traduite depuis routeRules", { skip: !builtStaticDirectory }, () => {
-  // `_headers` n'est lu que par Cloudflare Pages et Netlify : sur Vercel, la
-  // politique n'existe QUE si Nitro l'a traduite en route d'en-têtes.
+test("le déploiement ne publie AUCUNE fiche de contenu", { skip: !builtStaticDirectory }, () => {
+  for (const relativePath of ["content/pathologies", "content/signes"]) {
+    const directory = join(builtStaticDirectory, relativePath);
+    if (!existsSync(directory)) continue;
+    const files = readdirSync(directory).filter((name) => name.endsWith(".json"));
+    // `_index.json` (manifeste public) est le seul fichier toléré.
+    const leaked = files.filter((name) => name !== "_index.json");
+    assert.deepEqual(
+      leaked,
+      [],
+      `${relativePath} publie ${leaked.length} fiche(s) en clair (ex. ${leaked[0]}) : ` +
+        "elles seraient accessibles sans jeton, quel que soit le code applicatif",
+    );
+  }
+});
+
+test("le déploiement Vercel ne déclare pas de cache public pour le contenu", { skip: !builtStaticDirectory }, () => {
   const configPath = join(ROOT, ".vercel/output/config.json");
   if (!existsSync(configPath)) return; // build Netlify/Cloudflare : rien à vérifier ici
 
   const config = JSON.parse(readFileSync(configPath, "utf8"));
-  const rule = (config.routes ?? []).find(
-    (route) => typeof route.src === "string" && route.src.includes("content/pathologies") && route.headers,
+  const offenders = (config.routes ?? []).filter(
+    (route) =>
+      typeof route.src === "string" &&
+      /content\/(pathologies|signes)/.test(route.src) &&
+      route.headers &&
+      /public/.test(String(route.headers["cache-control"] ?? "")),
   );
-  assert.ok(rule, "aucune route d'en-têtes pour /content/pathologies dans .vercel/output/config.json");
-  assert.equal(normalizePolicy(rule.headers["cache-control"] ?? ""), normalizePolicy(IMMUTABLE_POLICY));
+  assert.deepEqual(
+    offenders.map((route) => route.src),
+    [],
+    "des routes d'en-têtes publiques visent le contenu protégé sur Vercel",
+  );
 });

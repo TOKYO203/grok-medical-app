@@ -41,6 +41,22 @@ export function clientIpFromHeaders(headers: Headers | null | undefined): string
     return singleIpHeader(headers, "x-nf-client-connection-ip");
   }
 
+  // Cloudflare Pages (la cible de production du module Premium) publie
+  // `cf-connecting-ip`, MAIS `CF_PAGES` est une variable de build absente du
+  // runtime du Worker : on reconnaît donc la plateforme à `cf-ray`, que
+  // Cloudflare ajoute (et surtout RÉÉCRIT) sur chaque requête proxifiée, en
+  // même temps que `cf-connecting-ip`.
+  //
+  // Sans cette branche, tout le trafic de production retombait sur le seau
+  // partagé `"shared"` : la limite « 10 vérifications de licence par heure »
+  // aurait été une limite GLOBALE, et le 11e étudiant de la journée se serait
+  // vu refuser sa licence. ⚠️ Un opérateur qui déploie derrière un proxy qui
+  // n'est PAS Cloudflare doit retirer les en-têtes `cf-*` avant de relayer
+  // (documenté dans docs/SECURITY-PREMIUM.md), sinon ils seraient forgeables.
+  if (headers.get("cf-ray")) {
+    return singleIpHeader(headers, "cf-connecting-ip");
+  }
+
   if (process.env.TRUST_PROXY_HEADERS === "true") {
     const first = headers.get("x-forwarded-for")?.split(",")[0]?.trim();
     return first && isIP(first) !== 0 ? first : null;

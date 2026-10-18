@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { EXPLORE_GROUPS, NAV, isActive } from "@/lib/navigation";
@@ -169,14 +169,20 @@ export function Page({
   children,
   className,
   header,
+  ...rest
 }: {
   children: ReactNode;
   className?: string;
   /** En-tête pleine largeur (PageHeader) rendu au-dessus du corps contraint par className. */
   header?: ReactNode;
-}) {
+} & HTMLAttributes<HTMLElement>) {
+  // ⚠️ `...rest` n'est pas décoratif : TypeScript ACCEPTE un attribut `data-*`
+  // sur un composant (les noms hyphenés échappent au contrôle des props), mais
+  // React ne le transmet que si le composant le relaie. Sans ce spread,
+  // `<Page data-pathologie-locked>` compilait sans erreur et n'émettait RIEN —
+  // un attribut de test silencieusement absent, donc une QA rouge sans bug réel.
   return (
-    <main id="main-content" tabIndex={-1} className="outline-none">
+    <main id="main-content" tabIndex={-1} className="outline-none" {...rest}>
       {header ? <div className="px-5 pt-6 md:px-10 md:pt-10">{header}</div> : null}
       <div className={cn("px-5 py-6 md:px-10 md:py-10", className)}>
         {children}

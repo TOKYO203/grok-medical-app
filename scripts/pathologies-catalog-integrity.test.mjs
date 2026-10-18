@@ -1,14 +1,16 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-/* Les FICHES sont des actifs statiques (`public/content/pathologies/`), pas des
-   modules : elles sont publiées telles quelles sur le CDN et récupérées par
-   `fetch()`. Seul le MANIFESTE reste dans `src/`, pour que `/programme` affiche
-   les liens sans télécharger de contenu. Ce test lit donc deux dossiers. */
+/* Les FICHES ont QUITTÉ le dossier publié (session Sécurité Premium S1) : elles
+   vivent dans `private/content/pathologies/`, hors de `public/`, et ne sortent
+   du serveur que contre un jeton de contenu (`/content/$type/$file`). Ce test
+   verrouille le manifeste, la présence des actifs privés, et l'absence de tout
+   contenu dans le graphe client. Seul le MANIFESTE reste dans `src/`, pour que
+   `/programme` affiche les liens sans télécharger de contenu. */
 
-const contentDir = new URL("../public/content/pathologies/", import.meta.url);
+const contentDir = new URL("../private/content/pathologies/", import.meta.url);
 const manifestDir = new URL("../src/content/data/pathologies/", import.meta.url);
 const readContent = (name) => readFile(new URL(name, contentDir), "utf8").then(JSON.parse);
 const readManifest = (name) => readFile(new URL(name, manifestDir), "utf8").then(JSON.parse);
@@ -45,7 +47,7 @@ const ordinalOf = new Map(programmeItems.map((item, i) => [item.id, i + 1]));
 const DECK_IDS = new Set(decks.map((deck) => deck.id));
 const CASE_IDS = new Set(cases.map((item) => item.id));
 
-/** Actifs réellement présents dans `public/content/pathologies/`. */
+/** Actifs réellement présents dans `private/content/pathologies/`. */
 const presentFiles = new Set(
   (await readdir(contentDir)).filter((name) => name.endsWith(".json")),
 );
@@ -93,11 +95,20 @@ test("le contenu a quitté src/ : aucune fiche n'est un module JavaScript", () =
     straySourceFiles,
     [],
     "des fiches sont encore dans src/content/data/pathologies/ : elles seraient " +
-      "compilées dans un chunk (elles doivent vivre dans public/content/pathologies/)",
+      "compilées dans un chunk (elles doivent vivre dans private/content/pathologies/)",
+  );
+
+  // ⚠️ Verrou de sécurité : plus AUCUNE fiche dans le dossier publié, sinon le
+  // CDN la servirait en clair à qui connaît l'URL, sans jeton.
+  const publishedDir = new URL("../public/content/pathologies/", import.meta.url);
+  assert.equal(
+    existsSync(publishedDir),
+    false,
+    "public/content/pathologies/ est réapparu : les fiches seraient servies sans jeton",
   );
 });
 
-test("le chargeur sert les fiches par URL d'actif statique, sans import de contenu", () => {
+test("le chargeur passe par le garde de contenu, sans import statique de JSON", () => {
   assert.ok(availableEntries.length >= 1, "aucune fiche disponible");
 
   // Aucun JSON de fiche ne doit être importé (statique OU dynamique) : le
@@ -112,7 +123,7 @@ test("le chargeur sert les fiches par URL d'actif statique, sans import de conte
       !catalogSource.includes(entry.file),
       `catalog.ts référence nommément ${entry.file} : la liste des fiches doit venir du manifeste`,
     );
-    assert.ok(presentFiles.has(entry.file), `${entry.file}: actif absent de public/content/pathologies/`);
+    assert.ok(presentFiles.has(entry.file), `${entry.file}: actif absent de private/content/pathologies/`);
   }
 
   // Le manifeste (module pur) porte la base publique ; le chargeur la consomme.
@@ -122,7 +133,28 @@ test("le chargeur sert les fiches par URL d'actif statique, sans import de conte
     /PATHOLOGY_ASSET_BASE = "\/content\/pathologies"/,
     "la base publique des fiches doit rester /content/pathologies",
   );
-  assert.match(catalogSource, /fetch\(/, "le chargeur doit récupérer l'actif par fetch()");
+  // Navigateur : appel protégé (jeton joint). Serveur : fonction serveur gardée.
+  assert.match(
+    catalogSource,
+    /fetchWithAuth\(/,
+    "le chargeur doit appeler l'actif protégé avec fetchWithAuth() (jeton de contenu joint)",
+  );
+  assert.match(catalogSource, /createServerFn/, "le chemin SSR doit rester une fonction serveur");
+
+  const readerSource = readFileSync(
+    new URL("../src/lib/pathologies/asset-reader.server.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    readerSource,
+    /authenticateCurrentRequest\(/,
+    "le lecteur serveur doit vérifier le jeton de la requête courante (sinon porte dérobée)",
+  );
+  assert.match(
+    readerSource,
+    /readProtectedAsset\(/,
+    "le lecteur serveur doit lire les actifs privés, plus le CDN",
+  );
 });
 
 test("chaque fiche disponible est complète et rattachée au bon item du programme", async () => {

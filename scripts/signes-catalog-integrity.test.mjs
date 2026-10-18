@@ -2,9 +2,10 @@
 
    POURQUOI CE TEST EXISTE
    Le contenu n'est plus un module importé : c'est un manifeste canonique
-   (`public/content/signes/_index.json`) + une fiche par actif
-   (`public/content/signes/<id>.json`), publiés tels quels et récupérés par
-   `fetch()`. Rien dans le compilateur ne relie le manifeste aux fichiers :
+   PUBLIC (`public/content/signes/_index.json`) + une fiche par actif
+   (`private/content/signes/<id>.json`), cette dernière étant servie UNIQUEMENT
+   contre un jeton de contenu (session Sécurité Premium S1). Rien dans le
+   compilateur ne relie le manifeste aux fichiers :
    une fiche renommée, un id dupliqué entre deux catégories ou un `correctIndex`
    hors plage produirait une page qui s'affiche — avec une fiche manquante ou
    une déduction insoluble. Ce test transforme ces pannes silencieuses en échec
@@ -15,8 +16,9 @@
    2. la forme éditoriale minimale (≥ 3 signes, ≥ 3 options, index valide) ;
    3. l'unicité des ids, y compris ENTRE catégories (le catalogue les fusionne) ;
    4. les sources : au moins une, en HTTPS, avec organisation + titre ;
-   5. le cache CDN déclaré des DEUX côtés (Cloudflare/Netlify via `_headers`,
-      Vercel via `routeRules`) — sans lui l'architecture perd tout son intérêt ;
+   5. les fiches SORTIES du dossier publié, et un cache JAMAIS public sur les
+      routes protégées (un cache public resservirait le 200 d'un client
+      autorisé à un visiteur anonyme — le défaut que S1 corrige) ;
    6. l'absence de contenu dans le bundle (aucun import statique de JSON) ;
    7. le mock déplacé hors de `public/` (fixture de test, jamais publiée).
 */
@@ -28,8 +30,11 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const ASSET_DIR = join(ROOT, "public/content/signes");
-const INDEX_PATH = join(ASSET_DIR, "_index.json");
+/** Fiches : PRIVÉES (hors dossier publié, servies sous jeton). */
+const ASSET_DIR = join(ROOT, "private/content/signes");
+/** Manifeste : PUBLIC (listage d'ids, aucun contenu médical). */
+const PUBLIC_INDEX_PATH = join(ROOT, "public/content/signes/_index.json");
+const INDEX_PATH = PUBLIC_INDEX_PATH;
 
 const index = JSON.parse(readFileSync(INDEX_PATH, "utf8"));
 const headersSource = readFileSync(join(ROOT, "public/_headers"), "utf8");
@@ -152,7 +157,27 @@ test("chaque fiche porte au moins une source HTTPS vérifiable", () => {
   }
 });
 
-test("le cache immutable est déclaré des deux côtés (CDN + Vercel)", () => {
+test("les fiches ne sont jamais mises en cache publiquement (ni CDN, ni Vercel)", () => {
+  // ⚠️ Assertion INVERSÉE par rapport à l'architecture « actif statique » : une
+  // fiche protégée ne doit avoir AUCUNE règle de cache public, sans quoi le
+  // CDN resservirait à un anonyme la réponse 200 d'un client licencié.
+  assert.doesNotMatch(
+    headersSource,
+    /^\/content\/signes\/\*$/m,
+    "public/_headers déclare encore un cache public pour /content/signes/*",
+  );
+  assert.doesNotMatch(
+    viteSource,
+    /"\/content\/signes\/\*\*"\s*:\s*\{[^}]*public, max-age=31536000/,
+    "routeRules déclare encore un cache public pour /content/signes/**",
+  );
+  // La protection, elle, doit être déclarée : le garde répond en privé.
+  const guardSource = readFileSync(join(ROOT, "src/server/content-guard.ts"), "utf8");
+  assert.match(guardSource, /private, max-age=60/);
+  assert.match(guardSource, /Vary: "Authorization, Cookie"/);
+});
+
+test("le format du cache public reste connu (garde-fou de forme)", () => {
   const policy = "public, max-age=31536000, immutable";
   const normalize = (value) =>
     value
@@ -162,24 +187,9 @@ test("le cache immutable est déclaré des deux côtés (CDN + Vercel)", () => {
       .sort()
       .join(", ");
 
-  const lines = headersSource.split("\n");
-  const start = lines.findIndex((line) => line.trim() === "/content/signes/*");
-  assert.notEqual(start, -1, "aucun bloc « /content/signes/* » dans public/_headers");
-  const directives = [];
-  for (const line of lines.slice(start + 1)) {
-    if (line.trim() === "" || !/^\s/.test(line)) break;
-    directives.push(line.trim());
-  }
-  const cacheControl = directives.find((line) => /^cache-control:/i.test(line));
-  assert.ok(cacheControl, "bloc /content/signes/* sans en-tête Cache-Control");
-  assert.equal(normalize(cacheControl.split(":").slice(1).join(":")), normalize(policy));
-
-  // Nitro attend un glob `**` ; il le compile en `/content/signes/(.*)` côté Vercel.
-  assert.match(
-    viteSource,
-    /"\/content\/signes\/\*\*"\s*:\s*\{[^}]*"cache-control"\s*:\s*"public, max-age=31536000, immutable"/,
-    "routeRules sans cache-control pour /content/signes/** : Vercel servirait les fiches sans cache long",
-  );
+  assert.equal(normalize(policy), "immutable, max-age=31536000, public");
+  // Le service worker, lui, ne doit jamais être figé (déjà couvert par
+  // scripts/content-assets-cache.test.mjs).
 });
 
 test("le contenu reste hors du bundle (aucun import statique de JSON)", () => {
@@ -195,13 +205,13 @@ test("le contenu reste hors du bundle (aucun import statique de JSON)", () => {
   );
   assert.match(
     catalogSource,
-    /fetch\(/,
-    "le catalogue doit charger les actifs par fetch() côté navigateur",
+    /fetchWithAuth\(/,
+    "le catalogue doit charger les actifs protégés avec fetchWithAuth() (jeton joint)",
   );
   assert.match(
     catalogSource,
-    /createServerFn/,
-    "le catalogue doit lire le disque côté SSR via createServerFn",
+    /SIGNES_CATALOG_URL/,
+    "le catalogue doit passer par l'endpoint groupé /content/signes/_catalog.json",
   );
 });
 
@@ -212,7 +222,7 @@ test("le mock est une fixture de test, plus jamais un actif publié", () => {
   );
   assert.ok(
     !existsSync(join(ASSET_DIR, "mock.json")),
-    "mock.json ne doit pas être publié dans public/content/signes/",
+    "mock.json ne doit pas être publié dans private/content/signes/",
   );
   assert.ok(
     !existsSync(join(ROOT, "src/content/data/signes/mock.json")),

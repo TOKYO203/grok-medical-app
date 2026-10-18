@@ -255,4 +255,10 @@ export const es: MessageCatalog = {
   "pathologie.lockedTitle": "Repasa la ficha en tarjetas",
   "pathologie.lockedBody": "Las tarjetas y el mapa mental forman parte del contenido Premium de la especialidad.",
   "pathologie.unlock": "Desbloquear la especialidad · 27 000 Ar",
+  "content.lockedKicker": "Contenido Premium",
+  "content.lockedTitle": "Ficha reservada a licencias activadas",
+  "content.lockedBody": "Esta ficha se sirve desde un servidor protegido: solo se abre con una licencia. Activa tu clave para consultarla; el acceso se reconoce después durante 24 h en este dispositivo.",
+  "content.lockedSession": "Tu acceso de 24 h ha caducado. Reactiva tu clave de licencia para continuar.",
+  "content.unlock": "Activar mi licencia",
+  "content.preview": "Vista previa gratuita",
 };

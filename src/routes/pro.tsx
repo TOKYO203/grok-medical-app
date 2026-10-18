@@ -8,6 +8,7 @@ import { Page, PageHeader, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { hasContentSession, requestContentToken } from "@/lib/auth/session";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
 import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
@@ -46,6 +47,14 @@ function ProPage() {
   const purchaseFlowKey = `${initialPurchase?.reference ?? orderReference ?? "new"}:${initialPurchase?.updatedAt ?? 0}`;
   const [activationKey, setActivationKey] = useState("");
   const [activating, setActivating] = useState(false);
+  // État de la session de CONTENU (jeton de 24 h). Volontairement initialisé à
+  // « idle » puis renseigné après le montage : lire localStorage pendant le
+  // rendu ferait diverger le HTML serveur et l'hydratation.
+  const [contentSession, setContentSession] = useState<"idle" | "unlocked" | "failed">("idle");
+
+  useEffect(() => {
+    if (hasContentSession()) setContentSession("unlocked");
+  }, []);
 
   useEffect(() => {
     if (isPending || !userId || userIsDevFallback) return;
@@ -84,8 +93,24 @@ function ProPage() {
       if (!(await activateLicense(result.receipt))) {
         throw new Error("La preuve d'activation reçue est invalide.");
       }
+
+      // La licence débloque les DROITS locaux ; le CONTENU Premium (133 fiches)
+      // est servi par un garde serveur et exige en plus un jeton de 24 h. On
+      // l'obtient dans le même geste pour que l'activation soit réellement
+      // complète : sans cet appel, l'utilisateur paierait et verrait encore
+      // « Premium requis ».
+      const unlocked = await requestContentToken(activationKey, profile.deviceId);
       setActivationKey("");
-      toast.success("Accès Premium activé sur cet appareil");
+      setContentSession(unlocked.ok ? "unlocked" : "failed");
+
+      if (unlocked.ok) {
+        toast.success("Accès Premium activé — contenu débloqué pour 24 h");
+      } else {
+        toast.warning(
+          "Licence activée sur cet appareil, mais le contenu reste verrouillé. Réessayez dans un instant.",
+        );
+        console.warn("[pro] contenu non débloqué:", unlocked.error);
+      }
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Activation impossible.");
     } finally {
@@ -204,6 +229,21 @@ function ProPage() {
                       >
                         {activating ? "Vérification…" : "Activer ma clé"}
                       </Button>
+
+                      {contentSession !== "idle" ? (
+                        <p
+                          className={
+                            contentSession === "unlocked"
+                              ? "mt-2 text-xs font-medium text-primary"
+                              : "mt-2 text-xs font-medium text-warn"
+                          }
+                          data-content-session={contentSession}
+                        >
+                          {contentSession === "unlocked"
+                            ? "Contenu Premium déverrouillé sur cet appareil (24 h)."
+                            : "Licence enregistrée, contenu non débloqué — réessayez dans un instant."}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
                 </section>

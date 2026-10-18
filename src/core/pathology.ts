@@ -91,9 +91,10 @@ export type PathologyIndexEntry = {
   title: string;
   specialty: string;
   /**
-   * Nom de fichier de l'ACTIF STATIQUE, sous `public/content/pathologies/`.
-   * Le contenu n'est pas un module : il est publié tel quel sur le CDN et
-   * récupéré par `fetch()`, donc absent du bundle JavaScript.
+   * Nom de fichier de l'actif, sous `private/content/pathologies/`.
+   * Le contenu n'est ni un module ni un fichier public : il est compilé dans le
+   * bundle SERVEUR et ne sort que par `/content/$type/$file`, sous jeton de
+   * contenu (session Sécurité Premium S1, docs/SECURITY-PREMIUM.md).
    */
   file: string;
   status: "available" | "planned";

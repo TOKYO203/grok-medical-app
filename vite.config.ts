@@ -199,20 +199,20 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
             // manifest + head-tag middleware). Nitro v3 defaults serverDir to
             // false, so removing this silently unwires /?install=1 on deploys.
             serverDir: "./server",
-            // Les fiches de nosographie sont des actifs statiques immuables.
-            // Cloudflare Pages et Netlify lisent `public/_headers` ; Vercel
-            // l'ignore, d'où ces règles (traduites en routes d'en-têtes dans
-            // `.vercel/output/config.json`). Même politique des deux côtés,
-            // sinon un déploiement servirait la fiche sans cache long.
+            // ⚠️ SÉCURITÉ PREMIUM (session S1) : les fiches de nosographie et
+            // les cas « Signes » ne sont PLUS des actifs statiques publics.
+            // Elles vivent dans `private/content/**` et sortent uniquement par
+            // la route `/content/$type/$file`, contre un jeton de contenu.
+            // Aucune règle de cache PUBLIC ne doit être déclarée ici : Nitro
+            // l'appliquerait à la réponse du worker et un CDN resservirait le
+            // 200 d'un client licencié à un visiteur anonyme. Le garde pose
+            // lui-même `Cache-Control: private, max-age=60` + `Vary`.
+            //
+            // Seuls les APERÇUS publics (projection titre/objectif) gardent un
+            // cache court : ils ne contiennent aucun contenu médical rédigé.
             routeRules: {
-              "/content/pathologies/**": {
-                headers: { "cache-control": "public, max-age=31536000, immutable" },
-              },
-              // `**` (glob Nitro) est traduit en `/content/signes/(.*)` dans
-              // `.vercel/output/config.json` — c'est CETTE règle compilée qui
-              // fait foi côté Vercel.
-              "/content/signes/**": {
-                headers: { "cache-control": "public, max-age=31536000, immutable" },
+              "/content/previews/**": {
+                headers: { "cache-control": "public, max-age=60, s-maxage=300" },
               },
             },
           }),

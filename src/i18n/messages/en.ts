@@ -255,4 +255,10 @@ export const en: MessageCatalog = {
   "pathologie.lockedTitle": "Revise the sheet as cards",
   "pathologie.lockedBody": "Flashcards and the mind map are part of the specialty Premium content.",
   "pathologie.unlock": "Unlock the specialty · 27,000 Ar",
+  "content.lockedKicker": "Premium content",
+  "content.lockedTitle": "Sheet reserved for activated licenses",
+  "content.lockedBody": "This sheet is served by a protected server: it only opens with a license. Activate your key to read it; access is then recognised for 24 hours on this device.",
+  "content.lockedSession": "Your 24-hour access has expired. Reactivate your license key to continue.",
+  "content.unlock": "Activate my license",
+  "content.preview": "Free preview",
 };

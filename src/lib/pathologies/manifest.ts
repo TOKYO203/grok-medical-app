@@ -11,13 +11,20 @@ import type { PathologyIndex, PathologyIndexEntry } from "@/core/pathology";
  * (qui embarque `createServerFn`). Une page qui n'a besoin que du manifeste
  * importe CE module et ne tire donc ni le chargeur ni son runtime.
  *
- * Toute fiche déclarée `status: "available"` DOIT avoir son actif statique dans
- * `public/content/pathologies/` : `scripts/pathologies-catalog-integrity.test.mjs`
- * verrouille manifeste ↔ fichiers, `scripts/bundle-content.test.mjs` verrouille
- * fichiers ↔ publication (dist) et absence dans les chunks JS.
+ * Toute fiche déclarée `status: "available"` DOIT avoir son actif dans
+ * `private/content/pathologies/` (contenu PROTÉGÉ depuis la session Sécurité
+ * Premium S1) : `scripts/pathologies-catalog-integrity.test.mjs` verrouille
+ * manifeste ↔ fichiers, `scripts/bundle-content.test.mjs` verrouille l'absence
+ * dans le dossier publié et dans les chunks client.
+ *
+ * Ce manifeste reste PUBLIC : il ne contient que slug, titre, spécialité et
+ * item du programme — de quoi lister un catalogue, pas de quoi le lire.
  */
 
-/** Base publique des fiches, servie par le CDN (cache immutable). */
+/**
+ * Base des fiches. ⚠️ Protégée : servie par `/content/$type/$file` contre un
+ * jeton de contenu (`Authorization: Bearer …`), jamais par le CDN.
+ */
 export const PATHOLOGY_ASSET_BASE = "/content/pathologies";
 
 const INDEX = indexJson as PathologyIndex;

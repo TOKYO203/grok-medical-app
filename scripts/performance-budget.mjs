@@ -113,12 +113,20 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   maxTotalJavascriptBytes: 1960 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
-  // Actifs de CONTENU (`public/content/**`) : fiches de nosographie servies
-  // telles quelles au CDN, hors bundle JS. Ils ne comptent PAS dans le total
-  // « public » (images, polices, manifeste) : leur volume suit le catalogue
-  // éditorial — 240 fiches × ~50 Kio ≈ 12 Mo, assumé et sans rapport avec une
-  // dérive de code. Le plafond par fichier reste, lui, strict : une fiche qui
-  // dépasserait 256 Kio serait un signal (mauvais découpage, pièce jointe).
+  // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
+  // Premium S1 (2026-10-18), il ne devrait PLUS y en avoir : les 133 fiches
+  // vivent dans `private/content/**` et sont compilées dans le bundle SERVEUR,
+  // donc hors du dossier publié et hors de ce budget client. Le plafond reste
+  // en veille pour deux raisons : (1) un actif de contenu qui réapparaîtrait
+  // dans `public/` doit rester borné (256 Kio/fichier = signal de mauvais
+  // découpage) ; (2) le manifeste public `public/content/signes/_index.json`
+  // est légitime et minuscule.
+  //
+  // Ce que le budget NE mesure PAS, volontairement : le contenu protégé pèse
+  // ~1,4 Mo de JSON brut (~255 Kio gzip) dans le bundle serveur. C'est une
+  // contrainte de plateforme (taille d'un Worker), pas un budget client —
+  // documentée dans docs/performance.md, avec la réponse d'échelle (R2/KV) si
+  // le catalogue atteint quelques centaines de fiches.
   maxContentAssetBytes: 256 * 1024,
 });
 
