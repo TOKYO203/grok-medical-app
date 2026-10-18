@@ -11,8 +11,8 @@ Le script `scripts/performance-budget.mjs` est exécuté automatiquement par `np
 | Un chunk JavaScript client | 584 KiB max |
 | Une feuille CSS client | 120 KiB max |
 | JavaScript client total produit par le build | 1 960 KiB max |
-| Une ressource du shell (`public/**, hors content/`) | 512 KiB max |
-| Une fiche de contenu (`public/content/**`) | 256 KiB max |
+| Une ressource du shell (`public/**`) | 512 KiB max |
+| Un actif de contenu s'il était publié (`public/content/**`) | 256 KiB max |
 
 La source de vérité est `PERFORMANCE_BUDGET` dans `scripts/performance-budget.mjs` (ce tableau ne fait que la refléter). Le build échoue si l'une de ces limites est dépassée ; chaque relèvement y est daté et motivé, avec une marge volontairement faible (le plafond est un garde-fou, pas une cible).
 
@@ -30,31 +30,34 @@ Commande manuelle après un build (mesure seule, sans rebuild) :
 npm run postbuild:budget
 ```
 
-## Contenu servi comme actif statique (fiches de nosographie)
+## Contenu Premium : hors CDN, hors bundle client (session S1)
 
-Depuis le 2026-10-18, les fiches de nosographie **ne sont pas des modules JavaScript**. Chaque fiche est un fichier `public/content/pathologies/<slug>.json`, publié tel quel et récupéré par `fetch()` :
+Depuis la session **Sécurité Premium S1** (2026-10-18), les 133 fiches (110 « Signes & Syndromes » + 23 de nosographie) ne sont plus des actifs publics. Elles vivent dans `private/content/**`, hors du dossier publié, et sont servies par le garde de contenu :
 
 ```
-navigateur ──fetch──▶ /content/pathologies/hta-essentielle.json   (CDN, 1 an, immutable)
-serveur SSR ─lit────▶ public/content/pathologies/*.json            (ou repli fetch origine)
+navigateur ──Bearer <jwt>──▶ /content/$type/$file ──▶ private/content/**   (bundle serveur)
+navigateur ──Cookie  <jwt>──▶ SSR de /pathologie/<slug>  (createServerFn gardé)
 ```
 
 Conséquences sur le budget :
 
-- **Zéro octet de contenu dans les chunks JS.** Ajouter 40 fiches n'ajoute aucun JavaScript ; les 40 fichiers pèsent leur poids de JSON, téléchargés un par un.
-- Le budget « actifs publics » **sépare** `public/content/**` des ressources du shell : un plafond **par fichier** (256 KiB) mais **aucun total**, sinon le catalogue éditorial (240 items × ~50 Kio ≈ 12 Mo à terme) ferait échouer un budget de code pour une raison qui n'est pas du code.
-- `npm run build` vérifie les deux côtés : `scripts/pathologies-catalog-integrity.test.mjs` (manifeste ↔ fichiers, aucun contenu resté dans `src/`) et `scripts/bundle-content.test.mjs` (payload absent de **tout** chunk, aucun chunk nommé d'après une fiche, chaque fiche publiée dans `dist/content/pathologies/`).
+- **Zéro octet de contenu dans le bundle CLIENT.** Ajouter 40 fiches n'ajoute aucun JavaScript côté navigateur : le budget `maxTotalJavascriptBytes` ne bouge pas quand le catalogue grandit.
+- Le contenu est en revanche **compilé dans le bundle SERVEUR** (`import.meta.glob(..., { query: "?raw" })`) : 133 fiches ≈ **1,4 Mo de JSON brut, ≈ 255 Kio gzip**. C'est la nouvelle contrainte d'échelle à surveiller : un Worker Cloudflare est limité à ~3 Mio compressés (plan gratuit) / 10 Mio (payant), et il partage cette enveloppe avec le code serveur. À quelques centaines de fiches, la réponse est un stockage objet (R2/KV) lu à la demande — **pas** un relèvement d'un plafond client.
+- `maxContentAssetBytes` (256 KiB/fichier) reste en veille : il ne s'applique plus qu'à un actif de contenu qui **réapparaîtrait** dans `public/content/**` — ce que `scripts/content-assets-cache.test.mjs` et `scripts/security-license.test.mjs` interdisent déjà.
+- `npm run build` vérifie l'artefact : `scripts/pathologies-catalog-integrity.test.mjs` (manifeste ↔ `private/content/`), `scripts/bundle-content.test.mjs` (aucun payload de fiche dans un chunk **client**), `scripts/content-assets-cache.test.mjs` (aucune fiche publiée dans le dossier statique).
 
-### En-têtes de cache (deux plateformes, deux mécanismes)
+### Cache : privé, court, et déclaré une seule fois
 
-| Plateforme | Source de la règle |
-| --- | --- |
-| Cloudflare Pages, Netlify | `public/_headers` → `/content/pathologies/*` = `public, max-age=31536000, immutable` |
-| Vercel | `routeRules` Nitro dans `vite.config.ts` (Vercel ignore `_headers`) |
+| Chemin | Cache | Qui le pose |
+| --- | --- | --- |
+| `/content/pathologies/*`, `/content/signes/*`, `/content/signes/_catalog.json` | `private, max-age=60` + `Vary: Authorization, Cookie` | `src/server/content-guard.ts` (`jsonResponse`) |
+| `/content/previews/*` (aperçu public : titre, objectif, intitulés de sections) | `public, max-age=60, s-maxage=300` | route `/content/$type/$file` |
+| `/content/signes/_index.json` (manifeste public) | actif statique du shell | `public/_headers` |
+| Réponses d'erreur (401, 404, 503) | `no-store` | `jsonResponse` |
 
-Le `Content-Type: application/json` n'est pas déclaré à la main : il est déduit de l'extension par les trois plateformes et par le serveur de prévisualisation. La QA vérifie le couple `content-type` + `cache-control` sur l'artefact de production.
+⚠️ **Aucune règle de cache public ne doit être ajoutée sur `/content/(pathologies|signes)`** dans `public/_headers`, `public/_redirects` ou les `routeRules` de `vite.config.ts` : un CDN qui garde la réponse 200 d'un client licencié la resservirait à un visiteur anonyme — exactement la fuite que S1 ferme. `scripts/content-assets-cache.test.mjs` échoue si l'une de ces règles réapparaît.
 
-> ⚠️ **Corriger une fiche déjà publiée exige une purge du cache CDN.** L'URL ne contient pas de hash (contrairement à `dist/assets/`) : tant que la purge n'est pas faite, les navigateurs qui ont déjà la fiche gardent l'ancienne version jusqu'à un an. Procédure : purger `/content/pathologies/<slug>.json` (Cloudflare : *Caching → Purge by URL* ; Netlify : *Deploys → Clear cache and retry deploy* ; Vercel : *Deployments → Purge CDN*), ou renommer la fiche. La règle `immutable` est un choix assumé : elle évite une revalidation à chaque ouverture de fiche.
+> La procédure de **purge CDN** qui figurait ici n'a plus d'objet pour les fiches : elles ne sont plus servies par le CDN. Une correction se déploie avec le serveur, et le cache navigateur est privé et court (60 s).
 
 ## Audit petits écrans
 
