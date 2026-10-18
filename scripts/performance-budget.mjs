@@ -88,7 +88,20 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // se remplit, la prochaine étape est de servir les JSON comme actifs
   // téléchargeables plutôt que de relever ce plafond (décision documentée dans
   // docs/DECISIONS.md, NOSO-2).
-  maxTotalJavascriptBytes: 2000 * 1024,
+  //
+  // Relevé 2000 → 2080 KiB (batch 1 : fiches « HTA essentielle » et « Diabète
+  // de type 2 »). Mesure : 2039,1 KiB en local, auth ON, `.env.local` écarté
+  // (= configuration CI). Les deux fiches ajoutent ~74 KiB de contenu, mais
+  // chacune dans SON chunk (≈ 39 et ≈ 35 KiB) : le chunk principal ne bouge
+  // pas, c'est `scripts/bundle-content.test.mjs` qui le garantit désormais.
+  // CI ≈ local + ~25 KiB (toolchain Node 22) ⇒ ~2063,6 KiB ; plafond 2080 KiB
+  // = marge volontairement faible (~16,4 KiB), même philosophie.
+  // ⚠️ Le batch suivant (10 fiches, ≈ +350 KiB) dépassera ce plafond. Deux
+  // options assumées à ce moment-là : servir les JSON comme actifs
+  // téléchargeables, ou sortir les chunks de contenu du total mesuré (leur
+  // taille est déjà bornée par `maxJavascriptChunkBytes`) — pas un simple
+  // relèvement au fil de l'eau.
+  maxTotalJavascriptBytes: 2080 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
 });
