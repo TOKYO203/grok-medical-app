@@ -37,7 +37,7 @@ seedBuiltinDecks(BUILTIN_DECKS);
  * fonction sans envoyer l'étudiant sur une démo. Passer ce drapeau à `true`
  * rend la carte cliquable — la route /signes, elle, est déjà fonctionnelle.
  */
-const SIGNES_READY = false;
+const SIGNES_READY = true;
 
 export const Route = createFileRoute("/")({ component: Home });
 
