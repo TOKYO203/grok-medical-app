@@ -1,55 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Shell } from "@/components/shell";
+import { ContentLocked } from "@/components/premium/content-locked";
 import { SigneView } from "@/components/signes/signe-view";
 import type { SignesCatalog } from "@/core/signes/types";
-import { loadSignesCatalog } from "@/lib/signes/catalog";
+import { loadSignesCatalog, type SignesLoad } from "@/lib/signes/catalog";
 
 /**
  * Raisonnement inversé : cas clinique → déduction → révélation de la triade.
  *
- * Le contenu n'est PAS importé (il ne doit pas peser dans le bundle) : le
- * catalogue est chargé PAR LE NAVIGATEUR depuis les actifs statiques
- * `public/content/signes/` — cache CDN « immutable » d'un an (un seul
- * téléchargement par navigateur) puis cache mémoire pour toute la navigation.
+ * ⚠️ Le contenu est PREMIUM depuis la session S1 : les 110 fiches vivent dans
+ * `private/content/signes/` et ne sortent du serveur que contre un jeton de
+ * contenu (`Authorization: Bearer …`, obtenu via `/api/licenses/verify`).
  *
- * Pourquoi le navigateur, alors que le chargement se faisait à l'origine côté
- * serveur (loader de route — voir DECISIONS.md SIGNES-8) : en production, le
- * worker Cloudflare n'a pas les actifs sur disque et le lecteur serveur se
- * repliait sur UN `fetch()` vers sa propre origine PAR FICHE. À ~110 fiches,
- * la limite de sous-requêtes du plan Workers (~50 par requête) était dépassée
- * et /signes affichait l'écran d'erreur. Le navigateur, lui, interroge le CDN
- * directement, sans cette limite.
+ * Le chargement reste côté NAVIGATEUR (`/content/signes/_catalog.json`, une
+ * seule requête pour tout le catalogue) : en production le worker n'a pas
+ * d'accès disque, et un chargement SSR ne pourrait de toute façon pas lire le
+ * `localStorage` du client.
+ *
+ * Trois états, distincts à l'écran :
+ *   • `locked`  → bandeau Premium (aucun cas n'est téléchargé) ;
+ *   • `missing` → contenu pas encore publié ;
+ *   • `ok`      → le parcours de déduction habituel.
  */
 export const Route = createFileRoute("/signes")({
   component: SignesPage,
 });
 
+type State = { status: "loading" } | SignesLoad<SignesCatalog>;
+
 function SignesPage() {
-  // `null` = chargement en cours ; `undefined` = aucun catalogue publié ;
-  // sinon le catalogue complet, dans l'ordre éditorial du manifeste.
-  const [catalog, setCatalog] = useState<SignesCatalog | null | undefined>(null);
+  const [state, setState] = useState<State>({ status: "loading" });
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
     loadSignesCatalog()
       .then((loaded) => {
-        if (!cancelled) setCatalog(loaded ?? undefined);
+        if (!cancelled) setState(loaded);
       })
       .catch(() => {
-        // Le catalogue est conçu pour ne jamais jeter (fiche manquante =
-        // ignorée) ; ce garde protège d'un échec réseau brut du navigateur.
-        if (!cancelled) setCatalog(undefined);
+        // Le catalogue est conçu pour ne jamais jeter ; ce garde protège d'un
+        // échec réseau brut du navigateur.
+        if (!cancelled) setState({ status: "missing" });
       });
     return () => {
       cancelled = true;
     };
   }, []);
 
-  const items = catalog?.items ?? [];
-
-  if (catalog === null) {
+  if (state.status === "loading") {
     return (
       <Shell title="Signes & Syndromes">
         <SignesPending />
@@ -57,7 +57,20 @@ function SignesPage() {
     );
   }
 
-  if (items.length === 0) {
+  if (state.status === "locked") {
+    return (
+      <Shell title="Signes & Syndromes">
+        <div className="mx-auto max-w-2xl" data-signes-catalog="locked">
+          <p className="text-sm text-muted">Raisonnement inversé — du cas au syndrome</p>
+          <ContentLocked />
+        </div>
+      </Shell>
+    );
+  }
+
+  const items = state.status === "ok" ? state.data.items : [];
+
+  if (state.status === "missing" || items.length === 0) {
     return (
       <Shell title="Signes & Syndromes">
         <SignesEmpty />

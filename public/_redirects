@@ -1,2 +1,11 @@
-/content/* /content/:splat 200
+# Netlify / Cloudflare Pages.
+#
+# ⚠️ SÉCURITÉ PREMIUM (session S1) : la règle historique
+#   /content/*  /content/:splat  200
+# a été SUPPRIMÉE. Elle réécrivait /content/** avant que la requête n'atteigne
+# la fonction serveur, ce qui pouvait court-circuiter le garde de jeton
+# (`src/server/content-guard.ts`). Le contenu protégé n'est plus un fichier
+# statique : il doit impérativement traverser la route `/content/$type/$file`.
+#
+# Repli SPA pour les routes de l'application.
 /* /index.html 200

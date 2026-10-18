@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BookOpen, FileText, Lock, ShieldAlert, Stethoscope } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
+import { ContentLocked } from "@/components/premium/content-locked";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { FicheView } from "@/components/demarche/fiche-view";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
@@ -10,7 +12,9 @@ import { getBuiltinDeck, getCase } from "@/content/catalog";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { useI18n } from "@/i18n";
 import { specialtyPackProduct } from "@/lib/library/content-index";
-import { loadPathologyContent } from "@/lib/pathologies/catalog";
+import { loadPathologyContent, loadPathologyPreview } from "@/lib/pathologies/catalog";
+import { pathologyEntry } from "@/lib/pathologies/manifest";
+import { consumeExpiredSessionFlag, getToken } from "@/lib/auth/session";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { hasEntitlement, useOptimus } from "@/state/store";
 
@@ -29,28 +33,35 @@ export const Route = createFileRoute("/pathologie/$slug")({
     vue: isPathologieView(search.vue) ? search.vue : undefined,
   }),
   /**
-   * Le contenu est chargé À LA DEMANDE (chunk séparé) mais résolu AVANT le
-   * rendu, côté serveur comme côté client : le HTML servi contient la fiche
-   * entière (pas de page vide à l'hydratation, pas de contenu fantôme pour
-   * les robots). Une fiche inconnue lève `notFound()` → 404 réelle.
+   * Le contenu est servi par le garde Premium (`/content/$type/$file`) : le
+   * loader distingue donc TROIS états, et non plus « fiche ou 404 ».
+   *   • `ok`      → fiche complète (jeton de contenu valide) ;
+   *   • `locked`  → pas de licence / jeton expiré : page 200 + bandeau Premium
+   *                 (un 401 en pleine navigation afficherait une erreur brute) ;
+   *   • `missing` → 404 réelle (slug inconnu).
    */
   loader: async ({ params }) => {
-    const content = await loadPathologyContent(params.slug);
-    if (!content) throw notFound();
-    return content;
+    const loaded = await loadPathologyContent(params.slug);
+    if (loaded.status === "missing") throw notFound();
+    return loaded;
   },
   pendingComponent: PathologiePending,
   notFoundComponent: PathologieNotFound,
 });
 
 function PathologiePage() {
-  const content = Route.useLoaderData();
+  const loaded = Route.useLoaderData();
   const { vue } = Route.useSearch();
   const navigate = useNavigate();
   const { t } = useI18n();
   const entitlements = useOptimus((s) => s.entitlements);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
 
+  // Tous les hooks sont appelés AVANT ce retour anticipé : l'ordre des hooks
+  // reste stable entre l'état verrouillé et l'état ouvert.
+  if (loaded.status === "locked") return <PathologieLocked />;
+
+  const content = loaded.data;
   const view: PathologieView = vue ?? "fiche";
   const specialty = content.curriculum.specialty;
   const premiumSpecialty = premiumSpecialtyIdFor(specialty);
@@ -294,6 +305,75 @@ function PathologieNotFound() {
         <Link to="/programme" className="mt-4 inline-flex text-sm font-medium text-primary">
           {t("pathologie.back")}
         </Link>
+      </Page>
+    </Shell>
+  );
+}
+
+/**
+ * État VERROUILLÉ d'une fiche de nosographie.
+ *
+ * Le loader a reçu un 401/503 du garde de contenu : rien de la fiche n'est
+ * présent dans la page. On affiche l'aperçu PUBLIC (titre, objectif, intitulés
+ * de sections) pour que l'écran reste informatif, puis le chemin d'activation.
+ */
+function PathologieLocked() {
+  const { slug } = Route.useParams();
+  const { t } = useI18n();
+
+  // Le MANIFESTE est public : il donne le titre et la spécialité sans requête,
+  // donc dès le rendu serveur (l'aperçu, lui, arrive par fetch après montage).
+  const entry = pathologyEntry(slug);
+
+  const [preview, setPreview] = useState<
+    { title?: string; subtitle?: string; objective?: string } | undefined
+  >(undefined);
+  const [expired, setExpired] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void loadPathologyPreview(slug).then((loaded) => {
+      if (!cancelled && loaded) setPreview(loaded);
+    });
+
+    // `getToken()` purge un éventuel jeton périmé ; le drapeau permet ensuite
+    // de distinguer « jamais activé » de « accès de 24 h expiré ».
+    getToken();
+    if (consumeExpiredSessionFlag() && !cancelled) setExpired(true);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  return (
+    <Shell title="Nosographie">
+      <Page className="mx-auto max-w-lg" data-pathologie-locked>
+        <Link
+          to="/programme"
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg"
+        >
+          <ArrowLeft className="size-4" aria-hidden />
+          {t("pathologie.back")}
+        </Link>
+
+        <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-subtle">
+          {t("nav.nosography")}
+        </p>
+        <h1 className="mt-1 font-display text-3xl font-medium tracking-tight">
+          {preview?.title ?? entry?.title ?? t("content.lockedTitle")}
+        </h1>
+        {preview?.subtitle ? <p className="mt-2 text-sm text-muted">{preview.subtitle}</p> : null}
+
+        <ContentLocked
+          preview={preview ? { subtitle: preview.subtitle, objective: preview.objective } : undefined}
+          sessionExpired={expired}
+        >
+          <Link to="/programme" className="font-medium text-primary">
+            {t("pathologie.back")}
+          </Link>
+        </ContentLocked>
       </Page>
     </Shell>
   );

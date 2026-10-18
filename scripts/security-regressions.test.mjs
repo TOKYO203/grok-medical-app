@@ -148,6 +148,14 @@ test("the env template documents the secrets the code actually requires", () => 
   assert.match(template, /^LICENSE_SIGNING_PRIVATE_KEY=/m);
   // Variables this codebase never reads: an operator copying the template would
   // configure the wrong thing.
-  assert.doesNotMatch(template, /JWT_SECRET/);
+  //
+  // ⚠️ Exception introduite en session « Sécurité Premium S1 » : le garde de
+  // contenu lit bien `LICENSE_JWT_SECRET` (JWT de contenu, 24 h). L'interdiction
+  // porte donc sur le `JWT_SECRET` NU (variable fantôme de l'ancien modèle,
+  // qu'aucun module ne lit) et sur toute variante préfixée `VITE_`, qui serait
+  // inlinée dans le bundle navigateur — c'est-à-dire publiée.
+  assert.doesNotMatch(template, /^JWT_SECRET=/m);
+  assert.doesNotMatch(template, /^VITE_[A-Z0-9_]*JWT_SECRET=/m);
+  assert.match(template, /^LICENSE_JWT_SECRET=/m);
   assert.doesNotMatch(template, /^PORT=/m);
 });

@@ -55,6 +55,8 @@ import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
+import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
+import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -285,6 +287,16 @@ const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   path: '/api/licenses/activate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
+  id: '/api/licenses/verify',
+  path: '/api/licenses/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContentTypeFileRoute = ContentTypeFileRouteImport.update({
+  id: '/content/$type/$file',
+  path: '/content/$type/$file',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -332,6 +344,8 @@ export interface FileRoutesByFullPath {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -379,6 +393,8 @@ export interface FileRoutesByTo {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -428,6 +444,8 @@ export interface FileRoutesById {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -477,6 +495,8 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/verify'
+    | '/content/$type/$file'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -524,6 +544,8 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/verify'
+    | '/content/$type/$file'
   id:
     | '__root__'
     | '/'
@@ -572,6 +594,8 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/verify'
+    | '/content/$type/$file'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -616,6 +640,8 @@ export interface RootRouteChildren {
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
+  ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
+  ContentTypeFileRoute: typeof ContentTypeFileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -942,6 +968,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiLicensesActivateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/licenses/verify': {
+      id: '/api/licenses/verify'
+      path: '/api/licenses/verify'
+      fullPath: '/api/licenses/verify'
+      preLoaderRoute: typeof ApiLicensesVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content/$type/$file': {
+      id: '/content/$type/$file'
+      path: '/content/$type/$file'
+      fullPath: '/content/$type/$file'
+      preLoaderRoute: typeof ContentTypeFileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1041,6 +1081,8 @@ const rootRouteChildren: RootRouteChildren = {
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
+  ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
+  ContentTypeFileRoute: ContentTypeFileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

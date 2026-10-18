@@ -34,13 +34,14 @@ export type SignesCatalog = {
 };
 
 /**
- * Manifeste `public/content/signes/_index.json`.
+ * Manifeste `public/content/signes/_index.json` (PUBLIC).
  *
  * ⚠️ Format CANONIQUE fourni par le contenu éditorial : une catégorie n'est pas
  * un fichier, c'est une LISTE D'IDS dont chaque fiche est un actif autonome
- * (`public/content/signes/<id>.json`). Le manifeste ne contient donc aucun
+ * (`private/content/signes/<id>.json`). Le manifeste ne contient donc aucun
  * texte médical — seulement la table des matières, lue avant de savoir quoi
- * télécharger.
+ * demander. Les fiches, elles, sont servies sous jeton de contenu
+ * (session Sécurité Premium S1).
  */
 export type SignesIndex = {
   schemaVersion: number;

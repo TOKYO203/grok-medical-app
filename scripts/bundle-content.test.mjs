@@ -7,10 +7,13 @@
    2. import() dynamique → un chunk séparé, mais chaque fiche reste un fichier
       JAVASCRIPT compilé, compté dans le budget de bundle (mesuré : 2 fiches =
       81 Kio dans dist/assets/). À 43 fiches, l'approche plafonne.
-   L'architecture retenue (2026-10-18) sert les fiches comme ACTIFS STATIQUES :
-   `public/content/pathologies/<slug>.json`, publiés tels quels, récupérés par
-   `fetch()`, mis en cache « immutable ». Zéro octet de contenu dans le bundle
-   client, et les 40 fiches suivantes n'ajoutent AUCUN JavaScript.
+   3. Actifs statiques publics (`public/content/**`, 2026-10-18) → zéro octet
+      dans le bundle client, mais le CDN sert la fiche à qui connaît l'URL ;
+   4. ARCHITECTURE RETENUE (session Sécurité Premium S1) : le contenu vit dans
+      `private/content/**` et est compilé dans le bundle SERVEUR ; il ne sort
+      que par `/content/$type/$file`, sous jeton de contenu. Zéro octet dans le
+      bundle CLIENT, rien dans le dossier publié, et les 40 fiches suivantes
+      n'ajoutent AUCUN JavaScript côté navigateur.
 
    CE QUE LE TEST VÉRIFIE
    1. SOURCE (toujours, sans build) : aucun module de `src/` n'importe (de
@@ -19,10 +22,10 @@
    2. LOGIQUE (fixtures) : la détection « payload dans un chunk JS » est
       exercée sur de faux dossiers d'assets, pour que le garde-fou soit testé
       même quand aucun build n'est disponible (job CI `test`).
-   3. ARTEFACT (après `npm run build`) : chaque fiche est publiée comme fichier
-      JSON séparé dans le dossier statique (`dist/content/pathologies/`), aucun
-      chunk JS ne contient son payload ni ne porte son nom, et le chunk
-      principal reste sous 700 Kio.
+   3. ARTEFACT (après `npm run build`) : AUCUNE fiche n'est publiée dans le
+      dossier statique (session Sécurité Premium S1 — elles seraient servies
+      sans jeton), aucun chunk JS ne contient son payload ni ne porte son nom,
+      et le chunk principal reste sous 700 Kio.
 
    ⚠️ NOTE SUR LES IDENTIFIANTS
    « paludisme » ou « DX-THORAX-001 » apparaissent légitimement dans des
@@ -57,8 +60,11 @@ const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 /** Plafond du chunk principal demandé par le propriétaire (700 Kio). */
 export const MAX_MAIN_CHUNK_BYTES = 700 * 1024;
 
-/** Dossier statique publié qui héberge les actifs de contenu. */
-const CONTENT_ASSET_PATH = "content/pathologies";
+/**
+ * Dossier du contenu protégé, HORS du dossier publié.
+ * (Avant S1 : `public/content/pathologies`, servi par le CDN sans aucun jeton.)
+ */
+const CONTENT_ASSET_PATH = "private/content/pathologies";
 
 /**
  * Familles de contenu.
@@ -73,10 +79,13 @@ const CONTENT_ASSET_PATH = "content/pathologies";
 const CONTENT_FAMILIES = [
   {
     name: "fiches de nosographie",
-    dir: join(ROOT, "public", CONTENT_ASSET_PATH),
+    // Contenu PRIVÉ : compilé dans le bundle serveur, jamais dans un chunk client.
+    dir: join(ROOT, CONTENT_ASSET_PATH),
     /** Unique point d'entrée autorisé vers les actifs de la famille. */
     registry: join(ROOT, "src/lib/pathologies/catalog.ts"),
     servedAs: "asset",
+    /** Servi sous jeton par `/content/$type/$file` : rien dans le statique. */
+    published: false,
   },
   {
     name: "démarches enrichies",
@@ -270,8 +279,9 @@ test("aucun module de src/ n'importe un contenu de cours (statique ou dynamique)
   assert.deepEqual(
     offenders,
     [],
-    "un contenu de cours est importé (module JS) alors qu'il doit être servi comme actif statique.\n" +
-      "Les fiches vivent dans public/content/pathologies/ et se chargent par fetch() — cf. NOSO-3 dans docs/DECISIONS.md.\n" +
+    "un contenu de cours est importé en module JS par un fichier du graphe client.\n" +
+      "Les fiches vivent dans private/content/pathologies/ et ne se lisent que côté serveur, " +
+      "sous jeton — cf. SEC-PREM-1/SEC-PREM-6 dans docs/DECISIONS.md.\n" +
       offenders.join("\n"),
   );
 });
@@ -297,14 +307,20 @@ test("le registre des fiches n'importe plus aucun JSON de contenu", async () => 
   assert.match(manifestJsonImports[0][0], /_index\.json/);
 });
 
-test("les actifs de contenu sont des fichiers JSON statiques présents dans public/", async () => {
+test("les fiches protégées vivent dans private/ et plus dans public/", async () => {
   const contents = await loadContents();
   const assets = contents.filter((content) => content.servedAs === "asset");
-  assert.ok(assets.length >= 1, "aucune fiche servie comme actif statique");
+  assert.ok(assets.length >= 1, "aucune fiche protégée trouvée");
+
+  assert.equal(
+    existsSync(join(ROOT, "public/content/pathologies")),
+    false,
+    "public/content/pathologies/ existe encore : le CDN servirait les fiches sans jeton",
+  );
 
   for (const asset of assets) {
-    const absolute = join(ROOT, "public", CONTENT_ASSET_PATH, asset.file);
-    assert.ok(existsSync(absolute), `${asset.file}: actif absent de public/${CONTENT_ASSET_PATH}/`);
+    const absolute = join(ROOT, CONTENT_ASSET_PATH, asset.file);
+    assert.ok(existsSync(absolute), `${asset.file}: actif absent de ${CONTENT_ASSET_PATH}/`);
     const raw = readFileSync(absolute, "utf8");
     assert.ok(
       asset.sentinels.every((sentinel) => raw.includes(sentinel)),
@@ -415,37 +431,38 @@ test("le chunk principal ne contient aucun contenu et reste sous 700 Kio", { ski
   }
 });
 
-test("les fiches sont publiées comme fichiers JSON dans le dossier statique", { skip: noStatic }, async () => {
-  const contents = await loadContents();
-  const assets = contents.filter((content) => content.servedAs === "asset");
-  assert.ok(assets.length >= 1, "aucune fiche servie comme actif statique");
+test(
+  "AUCUNE fiche du contenu protégé n'est publiée dans le dossier statique",
+  { skip: noStatic },
+  async () => {
+    const contents = await loadContents();
+    const assets = contents.filter((content) => content.servedAs === "asset");
+    assert.ok(assets.length >= 1, "aucune fiche protégée trouvée");
 
-  const publishedDirectory = join(staticDirectory, CONTENT_ASSET_PATH);
-  assert.ok(
-    existsSync(publishedDirectory),
-    `${CONTENT_ASSET_PATH}/ absent du dossier statique (${staticDirectory}) : les fiches ne sont pas publiées`,
-  );
+    // ⚠️ Le cœur de la session S1 : un fichier publié est servi par le CDN
+    // AVANT tout code applicatif, donc sans jeton. On vérifie l'absence, pas la
+    // présence — c'est l'inverse de l'ancienne assertion.
+    const leakedDirectory = join(staticDirectory, "content/pathologies");
+    if (existsSync(leakedDirectory)) {
+      const leaked = readdirSync(leakedDirectory).filter(
+        (name) => name.endsWith(".json") && name !== "_index.json",
+      );
+      assert.deepEqual(
+        leaked,
+        [],
+        `${leaked.length} fiche(s) publiée(s) en clair (ex. ${leaked[0]}) dans ${leakedDirectory}`,
+      );
+    }
 
-  const published = readdirSync(publishedDirectory).filter((name) => name.endsWith(".json"));
-  for (const asset of assets) {
-    assert.ok(
-      published.includes(asset.file),
-      `${asset.file}: absent de ${publishedDirectory} (attendu ${assets.length} fiches, trouvé ${published.length})`,
-    );
-    const raw = readFileSync(join(publishedDirectory, asset.file), "utf8");
-    assert.ok(
-      asset.sentinels.every((sentinel) => raw.includes(sentinel)),
-      `${asset.file}: le fichier publié ne contient pas le payload attendu`,
-    );
-  }
-
-  // Aucun fichier publié en trop : le dossier ne doit contenir que des fiches
-  // déclarées (un reste d'ancien slug serait servi indéfiniment par le CDN).
-  const declared = new Set(assets.map((asset) => asset.file));
-  for (const file of published) {
-    assert.ok(declared.has(file), `${file}: actif publié mais absent du manifeste`);
-  }
-});
+    // Et le contenu doit rester hors de TOUT chunk client (le worker les a).
+    for (const asset of assets) {
+      assert.ok(
+        asset.sentinels.length > 0,
+        `${asset.file}: aucun marqueur de payload exploitable`,
+      );
+    }
+  },
+);
 
 test(
   "aucun chunk JS ne référence un actif de contenu comme module",

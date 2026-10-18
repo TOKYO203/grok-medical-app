@@ -258,4 +258,10 @@ export const fr: MessageCatalog = {
   "pathologie.lockedTitle": "Révisez la fiche en cartes",
   "pathologie.lockedBody": "Les flashcards et la carte mentale font partie du contenu Premium de la spécialité.",
   "pathologie.unlock": "Débloquer la spécialité · 27 000 Ar",
+  "content.lockedKicker": "Contenu Premium",
+  "content.lockedTitle": "Fiche réservée aux licences activées",
+  "content.lockedBody": "Cette fiche est servie par un serveur protégé : elle ne s'ouvre qu'avec une licence. Activez votre clé pour la consulter ; l'accès est ensuite reconnu 24 h sur cet appareil.",
+  "content.lockedSession": "Votre accès de 24 h a expiré. Réactivez votre clé de licence pour continuer.",
+  "content.unlock": "Activer ma licence",
+  "content.preview": "Aperçu gratuit",
 };
