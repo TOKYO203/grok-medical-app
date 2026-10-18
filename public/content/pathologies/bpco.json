@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "bpco",
+  "title": "Bronchopneumopathies chroniques obstructives",
+  "subtitle": "Nosographie — pneumologie de l'adulte",
+  "objective": "Confirmer par spirométrie une obstruction bronchique persistante chez un patient exposé, classer le risque d'exacerbation et construire un traitement de fond qui réduit les symptômes et les hospitalisations.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 61,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 102,
+      "localNumber": 61,
+      "sectionLabel": "Médecine",
+      "title": "Bronchopneumopathies chroniques obstructives",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir du rapport GOLD 2026, de la fiche descriptive de l'OMS et du référentiel du Collège des Enseignants de Pneumologie, avec reformulation complète. Les seuils spirométriques et les règles de traitement sont rattachés à une source section par section ; les particularités malgaches sont signalées sans être inventées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le titre affiché est l'intitulé exact du référentiel national (« Bronchopneumopathies chroniques obstructives ») et non le sigle BPCO, afin de respecter le garde-fou manifeste ↔ référentiel.",
+      "La classification retenue est celle de GOLD 2026 : groupes A, B et E, fondés sur les symptômes (mMRC ou CAT) et l'historique d'exacerbations, et non plus sur une combinaison ABCD.",
+      "Le seuil spirométrique de définition reste un rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur. Ce seuil fixe surestime la maladie chez le sujet âgé et la sous-estime chez le sujet jeune : la fiche le signale.",
+      "Aucune donnée de prévalence malgache vérifiable n'est citée. Le rôle de la fumée de biomasse est mentionné comme facteur de risque reconnu, sans chiffre national.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont GOLD, l'OMS et le CEP."
+    ],
+    "qcChecklist": [
+      "Exactitude du seuil VEMS/CVF et de la distinction asthme/BPCO",
+      "Cohérence de la classification ABE avec GOLD 2026",
+      "Place de la corticothérapie inhalée et seuil d'éosinophiles",
+      "Absence de posologies non vérifiées",
+      "Contrôle du contexte de disponibilité (oxygène, bronchodilatateurs)"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une obstruction bronchique persistante, liée à des expositions, qui reste sous-diagnostiquée.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La bronchopneumopathie chronique obstructive est une maladie respiratoire hétérogène caractérisée par des symptômes persistants et une limitation chronique du débit aérien. Cette limitation est liée à des anomalies des voies aériennes et des alvéoles, généralement provoquées par une exposition prolongée à des particules ou à des gaz nocifs."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie est fréquemment diagnostiquée tardivement, alors que le patient a déjà perdu une partie de sa fonction respiratoire. La dyspnée d'effort est souvent attribuée à l'âge ou au déconditionnement, et la toux du fumeur banalisée. La spirométrie est donc l'examen qui transforme une intuition clinique en diagnostic."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le message central",
+          "text": "La BPCO se définit par la spirométrie, s'évalue par les symptômes et les exacerbations, et se traite par des mesures non médicamenteuses autant que par des médicaments. Arrêter le tabac reste l'intervention qui ralentit le plus la perte de fonction respiratoire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Tabac, biomasse et autres expositions ; obstruction fixée, distension et comorbidités systémiques.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tabagisme est le principal facteur de risque dans les pays à revenu élevé. Dans de nombreux pays à revenu faible ou intermédiaire, la fumée de biomasse issue de la cuisson et du chauffage domestique joue un rôle majeur, en particulier chez les femmes. Les poussières professionnelles, la pollution atmosphérique et les infections respiratoires répétées de l'enfance contribuent également."
+        },
+        {
+          "type": "paragraph",
+          "text": "La physiopathologie associe une inflammation bronchique chronique, une hypersecretion muqueuse, une destruction alvéolaire (emphysème) et une obstruction des petites voies aériennes. Il en résulte une limitation expiratoire peu réversible, une distension thoracique, des anomalies des échanges gazeux et, à terme, une hypertension artérielle pulmonaire et une insuffisance respiratoire."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bronchite chronique : toux et expectoration au moins trois mois par an pendant deux années consécutives, sans obligation d'obstruction.",
+            "Emphysème : destruction des parois alvéolaires, responsable d'une distension et d'une perte de surface d'échange.",
+            "Phénotype exacerbateur fréquent : deux exacerbations modérées ou plus par an, ou une hospitalisation pour exacerbation.",
+            "Comorbidités fréquentes : maladie cardiovasculaire, diabète, ostéoporose, anxiété, dépression, dénutrition et cancer bronchique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Asthme et BPCO peuvent coexister",
+          "text": "Un patient fumeur avec un asthme ancien peut avoir les deux maladies. La présence d'une réversibilité importante, d'une atopie ou d'une éosinophilie élevée doit faire discuter la composante asthmatique, car elle modifie la place de la corticothérapie inhalée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        },
+        {
+          "id": "SRC-WHO-COPD",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Chronic obstructive pulmonary disease (COPD) — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Spirométrie obligatoire, symptômes quantifiés, exacerbations comptées.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur une spirométrie montrant un rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur, chez un patient avec des symptômes évocateurs et une exposition à des facteurs de risque. La spirométrie doit être réalisée dans de bonnes conditions et interprétée avec la clinique : un rapport isolé ne suffit pas."
+        },
+        {
+          "type": "table",
+          "columns": ["Élément", "Ce qu'il faut documenter", "Pourquoi"],
+          "rows": [
+            ["Spirométrie", "VEMS, CVF, rapport VEMS/CVF après bronchodilatateur", "Confirmer l'obstruction et la classer en degrés"],
+            ["Symptômes", "Échelle mMRC ou questionnaire CAT", "Classer le patient en groupe A, B ou E"],
+            ["Exacerbations", "Nombre dans l'année, hospitalisations, recours aux urgences", "Déterminer le risque et le traitement de fond"],
+            ["Exposition", "Tabac en paquets-années, biomasse, profession", "Établir le lien causal et guider la prévention"],
+            ["Imagerie", "Radiographie thoracique ; scanner si doute ou dépistage", "Écarter un cancer, des bronchectasies ou une autre maladie"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Qui doit avoir une spirométrie ?",
+          "text": "Tout patient de plus de 40 ans avec dyspnée d'effort, toux chronique, expectoration ou sifflements, surtout s'il fume ou a fumé. La spirométrie est également indiquée avant une chirurgie thoracique et dans le suivi des patients exposés professionnellement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les diagnostics différentiels principaux sont l'asthme, l'insuffisance cardiaque, les bronchectasies, la tuberculose séquellaire, la bronchiolite oblitérante et la dysfonction des cordes vocales. La radiographie thoracique ne fait pas le diagnostic mais permet d'écarter certaines alternatives et de rechercher des complications."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et évaluation du risque",
+      "summary": "Classer en A, B ou E pour choisir le traitement initial et prévenir les exacerbations.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'évaluation ne s'arrête pas au VEMS. GOLD 2026 propose de classer les patients en trois groupes : A (peu de symptômes, aucune exacerbation ou une seule exacerbation modérée), B (symptômes importants, aucune exacerbation ou une seule exacerbation modérée) et E (au moins deux exacerbations modérées ou au moins une exacerbation ayant nécessité une hospitalisation)."
+        },
+        {
+          "type": "table",
+          "columns": ["Groupe", "Symptômes", "Exacerbations", "Traitement initial habituel"],
+          "rows": [
+            ["A", "mMRC 0-1 ou CAT < 10", "0-1 modérée", "Un bronchodilatateur de longue durée d'action"],
+            ["B", "mMRC ≥ 2 ou CAT ≥ 10", "0-1 modérée", "Association de deux bronchodilatateurs de longue durée d'action"],
+            ["E", "Variable", "≥ 2 modérées ou ≥ 1 hospitalisation", "Association de deux bronchodilatateurs de longue durée d'action, corticothérapie inhalée discutée selon les éosinophiles"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce que le VEMS ne dit pas",
+          "text": "Le VEMS est utile pour confirmer et suivre, mais il ne prédit pas à lui seul le handicap ni le risque d'exacerbation. Un patient avec un VEMS modérément abaissé peut être très symptomatique, et inversement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rechercher un déficit en alpha-1-antitrypsine chez un patient jeune, avec emphysème basal prédominant ou antécédents familiaux.",
+            "Évaluer la tolérance à l'effort et la saturation au repos et à l'effort avant de proposer une réadaptation.",
+            "Dépister l'hypertension artérielle pulmonaire devant une dyspnée disproportionnée, des œdèmes ou une désaturation majeure.",
+            "Rechercher une apnée du sommeil et une obésité, qui aggravent la dyspnée et l'hypoxémie nocturne."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Arrêt du tabac, bronchodilatateurs de longue durée, réadaptation, oxygène et prise en charge des exacerbations.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de fond associe des mesures non médicamenteuses et des bronchodilatateurs inhalés. L'arrêt du tabac, la vaccination, l'activité physique et la réadaptation respiratoire ont un effet au moins aussi important que l'optimisation des inhalateurs. La corticothérapie inhalée n'est pas systématique : elle est réservée aux patients avec exacerbations répétées et éosinophilie élevée, ou avec une composante asthmatique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Arrêt du tabac : conseil systématique, substituts nicotiniques et suivi rapproché.",
+            "Bronchodilatateurs de longue durée : bêta-2-agoniste et anticholinergique, en association si les symptômes persistent.",
+            "Corticothérapie inhalée : discuter si éosinophiles sanguins élevés ou antécédent d'asthme, jamais en monothérapie.",
+            "Réadaptation respiratoire : programme d'exercice, éducation et nutrition chez les patients symptomatiques.",
+            "Oxygénothérapie de longue durée : discuter devant une hypoxémie sévère documentée au repos, avec retentissement.",
+            "Chirurgie ou endoscopie de réduction de volume : cas très sélectionnés, en centre spécialisé."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Exacerbation : le traitement qui évite l'escalade",
+          "text": "Bronchodilatateur de courte durée, corticothérapie systémique courte (par exemple prednisone 40 mg par jour pendant 5 jours), antibiothérapie si l'exacerbation associe une augmentation de la dyspnée et des expectorations purulentes, et ventilation non invasive devant une acidose respiratoire hypercapnique. L'oxygène doit être titré pour éviter une hypercapnie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance comprend les symptômes, le nombre d'exacerbations, la technique d'inhalation, l'observance, la saturation et, lorsque c'est possible, la spirométrie. Une perte de poids, une dyspnée croissante ou une désaturation doivent faire rechercher une complication ou un diagnostic associé, notamment un cancer bronchique."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "La fumée de biomasse est un facteur de risque majeur dans les foyers utilisant le bois ou le charbon pour la cuisson. L'amélioration des foyers de cuisson et la ventilation des habitations sont des mesures de prévention de premier plan. La disponibilité de l'oxygène, des bronchodilatateurs de longue durée et des vaccinations varie fortement selon les structures : le protocole national et la liste des médicaments essentiels doivent guider les choix."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        },
+        {
+          "id": "SRC-WHO-COPD",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Chronic obstructive pulmonary disease (COPD) — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre réflexes pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Le diagnostic est spirométrique : rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur chez un patient exposé et symptomatique.",
+            "Le VEMS seul ne résume pas la maladie : il faut compter les exacerbations et mesurer les symptômes.",
+            "L'arrêt du tabac et la réadaptation sont des traitements, pas des conseils accessoires.",
+            "La corticothérapie inhalée n'est pas automatique : elle se discute selon les exacerbations et l'éosinophilie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "La BPCO se diagnostique avec un chiffre, s'évalue avec des questions et se traite avec des habitudes. Le patient qui continue de fumer et ne bouge plus a plus à gagner d'un sevrage et d'une réadaptation que d'une troisième molécule."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "GOLD 2026 — Global Strategy for the Diagnosis, Management and Prevention of COPD.",
+            "OMS — Chronic obstructive pulmonary disease (COPD), fact sheet 2026.",
+            "CEP — Référentiel du Collège des Enseignants de Pneumologie, 9e édition (2026)."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-GOLD-2026",
+          "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+          "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+          "year": 2026,
+          "url": "https://goldcopd.org/2026-gold-report/"
+        },
+        {
+          "id": "SRC-WHO-COPD",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Chronic obstructive pulmonary disease (COPD) — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)"
+        },
+        {
+          "id": "SRC-CEP-2026",
+          "organization": "Collège des Enseignants de Pneumologie (CEP)",
+          "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+          "year": 2026,
+          "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-abe",
+      "label": "A.B.E. — classer pour traiter",
+      "intro": "GOLD 2026 remplace l'ancien schéma ABCD par trois groupes.",
+      "entries": [
+        { "key": "A", "term": "Peu de symptômes et peu ou pas d'exacerbations : un bronchodilatateur de longue durée." },
+        { "key": "B", "term": "Symptômes importants mais peu d'exacerbations : deux bronchodilatateurs de longue durée." },
+        { "key": "E", "term": "Exacerbations fréquentes ou hospitalisation : traitement renforcé, corticothérapie inhalée à discuter." }
+      ],
+      "note": "Le groupe E (exacerbateur) justifie une attention particulière à la prévention : vaccination, arrêt du tabac, réadaptation et plan d'action."
+    },
+    {
+      "id": "mn-exacerbation",
+      "label": "Les 4 gestes de l'exacerbation",
+      "intro": "Reconnaître tôt pour traiter sans retard.",
+      "entries": [
+        { "key": "B", "term": "Bronchodilatateur de courte durée répété et oxygénothérapie titrée." },
+        { "key": "C", "term": "Corticothérapie systémique courte, par exemple prednisone 40 mg pendant 5 jours." },
+        { "key": "A", "term": "Antibiothérapie si dyspnée accrue et expectorations purulentes." },
+        { "key": "V", "term": "Ventilation non invasive si acidose respiratoire hypercapnique." }
+      ],
+      "note": "Une exacerbation qui nécessite une hospitalisation doit déclencher une réévaluation complète du traitement de fond."
+    },
+    {
+      "id": "mn-prevention",
+      "label": "Les 4 piliers non médicamenteux",
+      "intro": "Ce qui change réellement le pronostic.",
+      "entries": [
+        { "key": "T", "term": "Tabac : arrêt complet, avec substituts et suivi." },
+        { "key": "V", "term": "Vaccinations : grippe, pneumocoque et autres selon le calendrier local." },
+        { "key": "R", "term": "Réadaptation respiratoire : exercice, éducation, nutrition." },
+        { "key": "E", "term": "Environnement : réduire la fumée de biomasse et les expositions professionnelles." }
+      ],
+      "note": "Ces mesures ne remplacent pas les bronchodilatateurs, mais elles potentialisent leur effet et réduisent les exacerbations."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel critère spirométrique définit la BPCO ?",
+      "back": "Un rapport VEMS/CVF inférieur à 0,70 après administration d'un bronchodilatateur, chez un patient symptomatique et exposé à des facteurs de risque.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels sont les principaux facteurs de risque de BPCO ?",
+      "back": "Le tabagisme, la fumée de biomasse (cuisson et chauffage), les poussières professionnelles, la pollution atmosphérique et les infections respiratoires répétées de l'enfance.",
+      "tags": ["épidémiologie"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Comment classe-t-on un patient BPCO selon GOLD 2026 ?",
+      "back": "En groupe A, B ou E, selon les symptômes (mMRC ou CAT) et le nombre d'exacerbations dans l'année, une hospitalisation suffisant à classer en E.",
+      "tags": ["évaluation"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel est le traitement initial d'un patient du groupe B ?",
+      "back": "Une association de deux bronchodilatateurs de longue durée d'action, associée aux mesures non médicamenteuses.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quand discuter une corticothérapie inhalée dans la BPCO ?",
+      "back": "Chez les patients avec exacerbations répétées et éosinophiles sanguins élevés, ou avec une composante asthmatique. Elle n'est pas indiquée en monothérapie ni chez tous les patients.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est le traitement d'une exacerbation de BPCO ?",
+      "back": "Bronchodilatateur de courte durée, corticothérapie systémique courte (par exemple prednisone 40 mg pendant 5 jours), antibiothérapie si expectorations purulentes et dyspnée accrue, oxygène titré et ventilation non invasive si acidose hypercapnique.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Pourquoi faut-il titrer l'oxygène chez un patient BPCO ?",
+      "back": "Un débit excessif peut aggraver l'hypercapnie et provoquer une acidose respiratoire. L'objectif est une saturation adaptée au patient, généralement autour de 88 à 92 % en cas de risque d'hypercapnie.",
+      "tags": ["urgence", "piège"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelle est l'intervention qui ralentit le plus la perte de fonction respiratoire ?",
+      "back": "L'arrêt du tabac. Il doit être proposé à chaque consultation, avec un accompagnement et des substituts nicotiniques.",
+      "tags": ["prévention"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelle est la place de la réadaptation respiratoire ?",
+      "back": "Elle améliore la dyspnée, la tolérance à l'effort et la qualité de vie, et réduit les hospitalisations. Elle fait partie du traitement de fond des patients symptomatiques.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel diagnostic différentiel faut-il évoquer devant une BPCO qui se dégrade rapidement ?",
+      "back": "L'insuffisance cardiaque, l'embolie pulmonaire, le pneumothorax, une infection respiratoire, un cancer bronchique ou une exacerbation liée à un facteur environnemental.",
+      "tags": ["diagnostic différentiel"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quel est le rôle de la fumée de biomasse dans la BPCO ?",
+      "back": "C'est un facteur de risque majeur dans les pays où la cuisson et le chauffage se font au bois ou au charbon, en particulier chez les femmes. La ventilation des habitations et l'amélioration des foyers sont des mesures préventives.",
+      "tags": ["prévention", "Madagascar"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "BPCO",
+      "detail": "Confirmer l'obstruction par spirométrie, classer A/B/E, traiter les symptômes et prévenir les exacerbations. L'arrêt du tabac et la réadaptation sont des traitements."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Spirométrie obligatoire avec rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur, chez un patient exposé et symptomatique.",
+        "children": [
+          { "id": "diag-spiro", "label": "Spirométrie", "leaves": [{ "id": "diag-spiro-1", "label": "VEMS/CVF < 0,70" }, { "id": "diag-spiro-2", "label": "Après bronchodilatateur" }] },
+          { "id": "diag-symptomes", "label": "Symptômes", "leaves": [{ "id": "diag-symptomes-1", "label": "Dyspnée d'effort" }, { "id": "diag-symptomes-2", "label": "Toux chronique" }] },
+          { "id": "diag-expo", "label": "Expositions", "leaves": [{ "id": "diag-expo-1", "label": "Tabac" }, { "id": "diag-expo-2", "label": "Biomasse" }] }
+        ]
+      },
+      {
+        "id": "evaluation",
+        "label": "Évaluer",
+        "tone": "memo",
+        "detail": "Classer en A, B ou E avec mMRC ou CAT et l'historique d'exacerbations. Le VEMS seul ne suffit pas à décrire le handicap.",
+        "children": [
+          { "id": "eval-symptomes", "label": "Symptômes", "leaves": [{ "id": "eval-symptomes-1", "label": "mMRC" }, { "id": "eval-symptomes-2", "label": "CAT" }] },
+          { "id": "eval-exac", "label": "Exacerbations", "leaves": [{ "id": "eval-exac-1", "label": "≥ 2 modérées" }, { "id": "eval-exac-2", "label": "1 hospitalisation" }] },
+          { "id": "eval-comorb", "label": "Comorbidités", "leaves": [{ "id": "eval-comorb-1", "label": "Cardiovasculaires" }] }
+        ]
+      },
+      {
+        "id": "traitement-fond",
+        "label": "Traitement de fond",
+        "tone": "retenir",
+        "detail": "Bronchodilatateurs de longue durée selon le groupe, corticothérapie inhalée ciblée, et surtout arrêt du tabac, vaccination et réadaptation.",
+        "children": [
+          { "id": "tf-broncho", "label": "Bronchodilatateurs", "leaves": [{ "id": "tf-broncho-1", "label": "LABA ou LAMA" }, { "id": "tf-broncho-2", "label": "LABA + LAMA" }] },
+          { "id": "tf-csi", "label": "Corticoïde inhalé", "leaves": [{ "id": "tf-csi-1", "label": "Éosinophiles élevés" }, { "id": "tf-csi-2", "label": "Exacerbateur" }] },
+          { "id": "tf-nonmed", "label": "Non médicamenteux", "leaves": [{ "id": "tf-nonmed-1", "label": "Sevrage tabagique" }, { "id": "tf-nonmed-2", "label": "Réadaptation" }] }
+        ]
+      },
+      {
+        "id": "exacerbations",
+        "label": "Exacerbations",
+        "tone": "urgence",
+        "detail": "Reconnaître l'aggravation aiguë, traiter sans délai et rechercher un facteur déclenchant : infection, embolie, pneumothorax, insuffisance cardiaque.",
+        "children": [
+          { "id": "exa-traitement", "label": "Traitement", "leaves": [{ "id": "exa-traitement-1", "label": "SABA + corticoïde" }, { "id": "exa-traitement-2", "label": "Antibiotiques ciblés" }] },
+          { "id": "exa-gravite", "label": "Gravité", "leaves": [{ "id": "exa-gravite-1", "label": "Acidose hypercapnique" }, { "id": "exa-gravite-2", "label": "Épuisement" }] },
+          { "id": "exa-apres", "label": "Après", "leaves": [{ "id": "exa-apres-1", "label": "Revoir le fond" }] }
+        ]
+      },
+      {
+        "id": "comorbidites",
+        "label": "Comorbidités",
+        "detail": "Cardiopathie, diabète, ostéoporose, dénutrition, anxiété et cancer bronchique : elles aggravent le pronostic et compliquent la prise en charge.",
+        "children": [
+          { "id": "comorb-cardio", "label": "Cardiovasculaire", "leaves": [{ "id": "comorb-cardio-1", "label": "Traiter l'HTA" }] },
+          { "id": "comorb-cancer", "label": "Cancer bronchique", "leaves": [{ "id": "comorb-cancer-1", "label": "Imagerie si doute" }] },
+          { "id": "comorb-psy", "label": "Anxiété", "leaves": [{ "id": "comorb-psy-1", "label": "Ne pas banaliser" }] }
+        ]
+      },
+      {
+        "id": "prevention",
+        "label": "Prévention",
+        "tone": "prudence",
+        "detail": "Réduire les expositions, vacciner et organiser le suivi. La prévention est le seul levier qui modifie l'histoire naturelle de la maladie.",
+        "children": [
+          { "id": "prev-tabac", "label": "Tabac", "leaves": [{ "id": "prev-tabac-1", "label": "Sevrage" }] },
+          { "id": "prev-vaccins", "label": "Vaccins", "leaves": [{ "id": "prev-vaccins-1", "label": "Grippe" }, { "id": "prev-vaccins-2", "label": "Pneumocoque" }] },
+          { "id": "prev-env", "label": "Environnement", "leaves": [{ "id": "prev-env-1", "label": "Foyers améliorés" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "La fumée de biomasse et le tabac dominent les expositions. L'accès à l'oxygène, aux bronchodilatateurs de longue durée et aux vaccinations est inégal.",
+        "children": [
+          { "id": "mada-biomasse", "label": "Biomasse", "leaves": [{ "id": "mada-biomasse-1", "label": "Cuisine au bois" }] },
+          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Liste essentielle" }] },
+          { "id": "mada-protocole", "label": "Protocole national", "leaves": [{ "id": "mada-protocole-1", "label": "Prioritaire" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-GOLD-2026",
+      "title": "Global Strategy for the Diagnosis, Management and Prevention of COPD — 2026 report",
+      "citation": "Global Initiative for Chronic Obstructive Lung Disease. Global Strategy for the Diagnosis, Management and Prevention of COPD, 2026 report. GOLD ; 2026. Consulté le 18 octobre 2026.",
+      "organization": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+      "year": 2026,
+      "version": "2026 report",
+      "url": "https://goldcopd.org/2026-gold-report/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Définition",
+        "Classification ABE",
+        "Traitement de fond",
+        "Exacerbations",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-WHO-COPD",
+      "title": "Chronic obstructive pulmonary disease (COPD) — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Chronic obstructive pulmonary disease (COPD) — fact sheet. Genève : OMS ; 2026. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Facteurs de risque",
+        "Fumée de biomasse",
+        "Prévention",
+        "Accès aux traitements"
+      ]
+    },
+    {
+      "id": "SRC-CEP-2026",
+      "title": "Référentiel du Collège des Enseignants de Pneumologie — 9e édition",
+      "citation": "Collège des Enseignants de Pneumologie. Référentiel du Collège des Enseignants de Pneumologie pour la préparation des épreuves dématérialisées nationales, 9e édition. CEP ; mise en ligne le 10 septembre 2026. Consulté le 18 octobre 2026.",
+      "organization": "Collège des Enseignants de Pneumologie (CEP)",
+      "year": 2026,
+      "version": "9e édition",
+      "url": "https://cep.splf.fr/9eme-edition-du-referentiel-du-college-des-enseignants-de-pneumologie-cep-pour-la-preparation-des-epreuves-dematerialisees-nationales-edn/",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Sémiologie",
+        "Diagnostics différentiels",
+        "Suivi",
+        "Contexte français"
+      ]
+    }
+  ]
+}

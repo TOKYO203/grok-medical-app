@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "embolie-pulmonaire",
+  "title": "Embolie pulmonaire",
+  "subtitle": "Nosographie — pneumologie de l'adulte",
+  "objective": "Évoquer l'embolie pulmonaire devant toute dyspnée ou douleur thoracique inexpliquée, choisir une stratégie diagnostique fondée sur la probabilité clinique et stratifier le risque pour décider du traitement et du lieu de prise en charge.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 19,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 60,
+      "localNumber": 19,
+      "sectionLabel": "Médecine",
+      "title": "Embolie pulmonaire",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2019 sur l'embolie pulmonaire aiguë (élaborées avec l'European Respiratory Society), de la recommandation CHEST 2021 sur l'antithrombotique dans la maladie thromboembolique veineuse et de la recommandation NICE sur les maladies thromboemboliques veineuses. Chaque énoncé est reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Les recommandations ESC 2019 restent la référence européenne structurante pour la stratification du risque ; elles ont plus de cinq ans mais n'ont pas été remplacées par une version plus récente au moment de la rédaction. La fiche le signale.",
+      "Les scores de probabilité clinique (Wells, Genève révisé) sont présentés comme des outils d'orientation. Aucun score ne remplace l'évaluation clinique, en particulier chez la femme enceinte et le patient instable.",
+      "Les posologies anticoagulantes ne sont pas détaillées : elles dépendent du poids, de la fonction rénale, du choix de la molécule et du protocole local. Seules les durées et les principes sont donnés.",
+      "Aucune donnée malgache vérifiable sur l'incidence ou la disponibilité des anticoagulants n'est citée. La fiche mentionne les limites d'accès sans les chiffrer.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont ESC/ERS, CHEST et NICE."
+    ],
+    "qcChecklist": [
+      "Exactitude des critères de probabilité clinique et de la place des D-dimères",
+      "Cohérence de la stratification du risque avec ESC 2019",
+      "Absence de posologies non vérifiées",
+      "Place de la thrombolyse limitée aux formes à haut risque",
+      "Contrôle des situations particulières : grossesse, cancer, insuffisance rénale"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une urgence diagnostique et thérapeutique dont la présentation est souvent trompeuse.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'embolie pulmonaire est l'obstruction d'une ou plusieurs artères pulmonaires par un thrombus, le plus souvent migrant depuis une veine profonde des membres inférieurs. Elle fait partie de la maladie thromboembolique veineuse avec la thrombose veineuse profonde, dont elle est la complication la plus redoutée."
+        },
+        {
+          "type": "paragraph",
+          "text": "La présentation est protéiforme : dyspnée d'apparition brutale, douleur thoracique, toux, hémoptysie, syncope, tachycardie isolée. Aucun symptôme n'est spécifique, et l'absence de facteur de risque n'élimine pas le diagnostic. C'est la combinaison de la clinique, de la probabilité et des examens qui permet de trancher."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le message central",
+          "text": "Devant une dyspnée ou une douleur thoracique inexpliquée, l'embolie pulmonaire doit être évoquée avant d'être écartée. Chez un patient instable, l'échographie cardiaque au lit et la thrombolyse peuvent précéder la confirmation diagnostique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Thrombose veineuse, migration, obstruction artérielle et retentissement ventriculaire droit.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La thrombose se forme dans les veines profondes des membres inférieurs ou du bassin, favorisée par la stase, l'hypercoagulabilité et l'altération de la paroi. Le thrombus migre ensuite vers l'artère pulmonaire, où il augmente les résistances vasculaires et la charge du ventricule droit."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le retentissement hémodynamique dépend de la taille du thrombus et de la réserve cardiaque. Une obstruction importante peut provoquer une défaillance ventriculaire droite, une hypotension, un choc et le décès. À l'inverse, une embolie distale bien tolérée peut être asymptomatique ou se manifester uniquement par une tachycardie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs de risque transitoires : chirurgie récente, immobilisation, voyage prolongé, grossesse et post-partum, œstroprogestatifs, traumatisme.",
+            "Facteurs de risque persistants : cancer actif, antécédents de thrombose, thrombophilie, obésité, tabagisme.",
+            "Situations à haut risque : cancer en cours de traitement, immobilisation prolongée, chirurgie orthopédique majeure.",
+            "Chez le sujet jeune, rechercher une thrombophilie héréditaire ou un syndrome des antiphospholipides en cas de thrombose inhabituelle ou récidivante."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pas de facteur de risque ne veut pas dire pas d'embolie",
+          "text": "Une part importante des embolies pulmonaires est considérée comme non provoquée, sans facteur déclenchant évident. L'absence de facteur de risque ne doit jamais faire écarter le diagnostic devant une clinique compatible."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        },
+        {
+          "id": "SRC-CHEST-2021",
+          "organization": "American College of Chest Physicians (CHEST)",
+          "title": "Antithrombotic Therapy for VTE Disease — CHEST Guideline and Expert Panel Report",
+          "year": 2021,
+          "url": "https://doi.org/10.1016/j.chest.2021.07.055"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Probabilité clinique, D-dimères et imagerie : une stratégie par étapes.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La démarche commence par l'estimation de la probabilité clinique, à l'aide d'un score validé comme Wells ou le Genève révisé. Cette étape détermine l'examen suivant : chez un patient à faible probabilité, un D-dimère négatif permet d'exclure l'embolie ; chez un patient à forte probabilité, l'imagerie est réalisée d'emblée."
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Examen de première intention", "Commentaire"],
+          "rows": [
+            ["Patient stable, probabilité faible ou intermédiaire", "D-dimères", "Un résultat négatif, avec un seuil adapté à l'âge, permet d'écarter l'embolie"],
+            ["D-dimères positifs ou probabilité forte", "Angioscanner thoracique", "Examen de référence ; alternative : scintigraphie ventilation-perfusion"],
+            ["Insuffisance rénale ou allergie à l'iode", "Scintigraphie ventilation-perfusion", "Souvent préférée chez la femme enceinte"],
+            ["Patient instable", "Échographie cardiaque au lit", "Dysfonction ventriculaire droite peut justifier un traitement immédiat"],
+            ["Suspicion de thrombose veineuse associée", "Échographie Doppler des membres inférieurs", "Peut confirmer le diagnostic sans scanner"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Les D-dimères ne sont pas un test de dépistage",
+          "text": "Un D-dimère négatif n'a de valeur que chez un patient à faible ou intermédiaire probabilité. Chez un patient à forte probabilité, un D-dimère négatif n'élimine pas l'embolie : il faut réaliser l'imagerie."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'électrocardiogramme peut montrer une tachycardie sinusale, des signes de surcharge droite ou, plus rarement, un aspect de S1Q3T3. La radiographie thoracique est souvent normale ou non spécifique ; elle sert surtout à écarter une pneumonie, un pneumothorax ou un œdème pulmonaire. Les gaz du sang peuvent montrer une hypoxémie et une hypocapnie, mais une gazométrie normale n'élimine pas le diagnostic."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        },
+        {
+          "id": "SRC-NICE-NG158",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (NG158)",
+          "year": 2020,
+          "url": "https://www.nice.org.uk/guidance/ng158"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et stratification du risque",
+      "summary": "Distinguer l'embolie à haut risque, intermédiaire ou faible, et rechercher la cause.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La stratification du risque conditionne le traitement. L'embolie à haut risque associe une hypotension, un choc ou une syncope avec instabilité hémodynamique. L'embolie à risque intermédiaire est divisée en intermédiaire-élevé (dysfonction ventriculaire droite et troponine élevée) et intermédiaire-faible. L'embolie à faible risque a une fonction ventriculaire droite normale et des biomarqueurs normaux."
+        },
+        {
+          "type": "table",
+          "columns": ["Catégorie", "Marqueurs", "Orientation"],
+          "rows": [
+            ["Haut risque", "Choc, hypotension", "Réanimation, thrombolyse ou embolectomie"],
+            ["Intermédiaire-élevé", "Dysfonction ventriculaire droite + troponine élevée", "Surveillance rapprochée, discussion de reperfusion"],
+            ["Intermédiaire-faible", "Un seul marqueur ou aucun", "Hospitalisation, anticoagulation"],
+            ["Faible risque", "Pas de dysfonction, biomarqueurs normaux", "Traitement ambulatoire possible selon le contexte"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rechercher systématiquement un cancer occulte chez les patients avec embolie non provoquée, selon l'âge et les signes d'appel.",
+            "Rechercher un syndrome des antiphospholipides devant une thrombose récidivante ou inhabituelle, notamment chez le sujet jeune.",
+            "Chez la femme enceinte, la grossesse et le post-partum sont des périodes à haut risque : toute dyspnée doit être évaluée.",
+            "Chez le patient âgé, l'immobilisation, l'insuffisance cardiaque et le cancer sont les principaux facteurs favorisants."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Le ventricule droit est le héros de l'histoire",
+          "text": "La gravité de l'embolie pulmonaire est moins liée à la taille du caillot qu'à la capacité du ventricule droit à y faire face. C'est pourquoi l'échographie cardiaque et la troponine guident la décision dans les formes intermédiaires."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Anticoagulation précoce, durée adaptée au contexte, thrombolyse réservée aux formes à haut risque.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anticoagulation doit être débutée dès que la probabilité clinique est suffisante, sans attendre la confirmation si le risque hémorragique est acceptable. Les anticoagulants oraux directs sont le traitement de référence dans la majorité des cas, avec des exceptions : syndrome des antiphospholipides, valves mécaniques, grossesse et insuffisance rénale sévère. L'héparine de bas poids moléculaire reste la référence chez la femme enceinte et dans certains contextes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Durée minimale de trois mois pour toute embolie provoquée par un facteur transitoire.",
+            "Traitement prolongé au-delà de trois mois en cas d'embolie non provoquée, de récidive, de cancer actif ou de facteur de risque persistant.",
+            "Thrombolyse systémique réservée aux formes à haut risque avec instabilité hémodynamique, en l'absence de contre-indication.",
+            "Embolectomie chirurgicale ou traitement instrumental en cas de contre-indication à la thrombolyse ou d'échec.",
+            "Filtre cave inférieur réservé aux contre-indications absolues à l'anticoagulation et aux récidives malgré un traitement bien conduit.",
+            "Surveillance : signes hémorragiques, fonction rénale, numération, adhésion au traitement."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Quand thrombolyser ?",
+          "text": "La thrombolyse est réservée à l'embolie pulmonaire à haut risque, c'est-à-dire avec hypotension ou choc. Elle ne doit pas être proposée systématiquement aux formes intermédiaires-élevées, où la balance bénéfice-risque est discutée au cas par cas."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur la prophylaxie de la maladie thromboembolique veineuse chez les patients hospitalisés à risque, la mobilisation précoce après chirurgie, la compression veineuse et l'arrêt des œstroprogestatifs en cas d'antécédent de thrombose. Le patient doit être informé des signes d'alerte et de l'importance de l'observance."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "L'accès aux anticoagulants oraux directs, à l'angioscanner et à la thrombolyse est inégal. L'héparine de bas poids moléculaire et les antivitamines K restent souvent les options disponibles. Le protocole national, la fonction rénale et le risque hémorragique doivent guider le choix, sans renoncer à la durée minimale de trois mois."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        },
+        {
+          "id": "SRC-CHEST-2021",
+          "organization": "American College of Chest Physicians (CHEST)",
+          "title": "Antithrombotic Therapy for VTE Disease — CHEST Guideline and Expert Panel Report",
+          "year": 2021,
+          "url": "https://doi.org/10.1016/j.chest.2021.07.055"
+        },
+        {
+          "id": "SRC-NICE-NG158",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (NG158)",
+          "year": 2020,
+          "url": "https://www.nice.org.uk/guidance/ng158"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "L'embolie pulmonaire doit être évoquée devant toute dyspnée ou douleur thoracique inexpliquée, même sans facteur de risque.",
+            "La probabilité clinique guide les D-dimères et l'imagerie ; un D-dimère négatif ne vaut que chez un patient à faible probabilité.",
+            "La stratification du risque décide du lieu de prise en charge et de la place de la thrombolyse.",
+            "L'anticoagulation dure au moins trois mois, et plus longtemps si le facteur de risque persiste."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "Le diagnostic d'embolie pulmonaire se construit par étapes, mais le traitement peut commencer avant la certitude. Chez un patient instable, ne pas attendre le scanner peut sauver la vie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Les recommandations nationales malgaches, lorsqu'elles existent, prévalent sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "ESC/ERS 2019 — Guidelines for the diagnosis and management of acute pulmonary embolism.",
+            "CHEST 2021 — Antithrombotic Therapy for VTE Disease.",
+            "NICE NG158 — Venous thromboembolic diseases: diagnosis, management and thrombophilia testing."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "European Society of Cardiology / European Respiratory Society",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019,
+          "url": "https://doi.org/10.1093/eurheartj/ehz405"
+        },
+        {
+          "id": "SRC-CHEST-2021",
+          "organization": "American College of Chest Physicians (CHEST)",
+          "title": "Antithrombotic Therapy for VTE Disease — CHEST Guideline and Expert Panel Report",
+          "year": 2021,
+          "url": "https://doi.org/10.1016/j.chest.2021.07.055"
+        },
+        {
+          "id": "SRC-NICE-NG158",
+          "organization": "National Institute for Health and Care Excellence (NICE)",
+          "title": "Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (NG158)",
+          "year": 2020,
+          "url": "https://www.nice.org.uk/guidance/ng158"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-wells",
+      "label": "Wells — les items qui comptent",
+      "intro": "Un score d'orientation, pas une certitude.",
+      "entries": [
+        { "key": "1", "term": "Signes cliniques de thrombose veineuse profonde." },
+        { "key": "2", "term": "Embolie pulmonaire plus probable qu'un autre diagnostic." },
+        { "key": "3", "term": "Fréquence cardiaque supérieure à 100 par minute." },
+        { "key": "4", "term": "Immobilisation ou chirurgie récente, ou cancer actif." },
+        { "key": "5", "term": "Hémoptysie." }
+      ],
+      "note": "Le score de Wells comporte aussi l'antécédent de maladie thromboembolique et le critère « alternative moins probable » ; il doit être utilisé dans sa version validée complète."
+    },
+    {
+      "id": "mn-stratification",
+      "label": "Les 3 niveaux de risque",
+      "intro": "Ce qui décide du lieu et de l'intensité du traitement.",
+      "entries": [
+        { "key": "H", "term": "Haut risque : choc ou hypotension, thrombolyse ou embolectomie à discuter." },
+        { "key": "I", "term": "Intermédiaire : dysfonction ventriculaire droite et/ou troponine élevée, surveillance rapprochée." },
+        { "key": "F", "term": "Faible risque : biomarqueurs normaux, traitement ambulatoire possible." }
+      ],
+      "note": "L'échographie cardiaque et la troponine sont les deux outils qui font basculer un patient d'une catégorie à l'autre."
+    },
+    {
+      "id": "mn-duree",
+      "label": "Durée du traitement",
+      "intro": "Trois mois minimum, puis réévaluation.",
+      "entries": [
+        { "key": "3", "term": "Trois mois pour une embolie provoquée par un facteur transitoire." },
+        { "key": "6", "term": "Six mois ou plus en cas de facteur persistant, de cancer actif ou de récidive." },
+        { "key": "∞", "term": "Traitement prolongé sans limite fixée en cas d'embolie non provoquée avec risque de récidive élevé." }
+      ],
+      "note": "La décision de prolonger se prend avec le patient, après évaluation du risque hémorragique et du risque de récidive."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels sont les symptômes évocateurs d'une embolie pulmonaire ?",
+      "back": "Dyspnée brutale, douleur thoracique, tachycardie, toux, hémoptysie, syncope. Aucun n'est spécifique, et l'absence de facteur de risque n'élimine pas le diagnostic.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel est l'examen de référence pour confirmer une embolie pulmonaire chez un patient stable ?",
+      "back": "L'angioscanner thoracique. La scintigraphie ventilation-perfusion est une alternative, notamment en cas d'insuffisance rénale, d'allergie à l'iode ou de grossesse.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quand les D-dimères permettent-ils d'exclure une embolie pulmonaire ?",
+      "back": "Chez un patient à faible ou intermédiaire probabilité clinique, avec un seuil adapté à l'âge. Chez un patient à forte probabilité, un D-dimère négatif n'élimine pas le diagnostic.",
+      "tags": ["diagnostic", "piège"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Pourquoi l'embolie pulmonaire tue-t-elle ?",
+      "back": "Par défaillance du ventricule droit : l'augmentation brutale des résistances pulmonaires provoque une hypotension, un choc et une insuffisance circulatoire.",
+      "tags": ["physiopathologie"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels éléments définissent une embolie pulmonaire à haut risque ?",
+      "back": "Une instabilité hémodynamique : hypotension, choc ou syncope avec signes de bas débit. Ces patients relèvent d'une prise en charge en réanimation et d'une discussion de thrombolyse ou d'embolectomie.",
+      "tags": ["gravité"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel traitement anticoagulant privilégier en cas d'embolie pulmonaire ?",
+      "back": "Les anticoagulants oraux directs dans la majorité des cas. Les exceptions incluent le syndrome des antiphospholipides, les valves mécaniques, la grossesse et l'insuffisance rénale sévère.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelle est la durée minimale d'anticoagulation après une embolie pulmonaire ?",
+      "back": "Trois mois. Le traitement est prolongé au-delà en cas d'embolie non provoquée, de récidive, de cancer actif ou de facteur de risque persistant.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quand proposer une thrombolyse ?",
+      "back": "Dans l'embolie pulmonaire à haut risque avec instabilité hémodynamique, en l'absence de contre-indication. Elle n'est pas systématique dans les formes intermédiaires-élevées.",
+      "tags": ["urgence", "traitement"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Comment explorer une suspicion d'embolie pulmonaire chez la femme enceinte ?",
+      "back": "La scintigraphie ventilation-perfusion est souvent privilégiée, mais l'angioscanner peut être utilisé selon la disponibilité et le terme. L'anticoagulation repose sur l'héparine de bas poids moléculaire, les antivitamines K et les anticoagulants oraux directs étant contre-indiqués.",
+      "tags": ["grossesse"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel examen réaliser chez un patient instable avec suspicion d'embolie pulmonaire ?",
+      "back": "Une échographie cardiaque au lit, à la recherche d'une dysfonction ventriculaire droite. Elle peut permettre de débuter un traitement de reperfusion sans attendre le scanner.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelles mesures préviennent la maladie thromboembolique veineuse à l'hôpital ?",
+      "back": "L'évaluation systématique du risque, la prophylaxie par héparine de bas poids moléculaire ou anticoagulant oral direct, la mobilisation précoce, la compression veineuse et l'arrêt des œstroprogestatifs chez les patientes à risque.",
+      "tags": ["prévention"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Embolie pulmonaire",
+      "detail": "Évoquer tôt, stratifier le risque, anticoaguler sans retard et réévaluer la durée. L'instabilité hémodynamique change tout."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Probabilité clinique, D-dimères et imagerie. La stratégie dépend de la stabilité et de la probabilité.",
+        "children": [
+          { "id": "diag-proba", "label": "Probabilité", "leaves": [{ "id": "diag-proba-1", "label": "Wells" }, { "id": "diag-proba-2", "label": "Genève révisé" }] },
+          { "id": "diag-ddimeres", "label": "D-dimères", "leaves": [{ "id": "diag-ddimeres-1", "label": "Seuil adapté à l'âge" }, { "id": "diag-ddimeres-2", "label": "Faible probabilité" }] },
+          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Angioscanner" }, { "id": "diag-imagerie-2", "label": "Scintigraphie" }] }
+        ]
+      },
+      {
+        "id": "gravite",
+        "label": "Stratifier",
+        "tone": "urgence",
+        "detail": "Haut risque, intermédiaire ou faible. L'échographie cardiaque et la troponine guident la décision.",
+        "children": [
+          { "id": "grav-haut", "label": "Haut risque", "leaves": [{ "id": "grav-haut-1", "label": "Choc" }, { "id": "grav-haut-2", "label": "Hypotension" }] },
+          { "id": "grav-inter", "label": "Intermédiaire", "leaves": [{ "id": "grav-inter-1", "label": "Ventricule droit" }, { "id": "grav-inter-2", "label": "Troponine" }] },
+          { "id": "grav-faible", "label": "Faible", "leaves": [{ "id": "grav-faible-1", "label": "Ambulatoire possible" }] }
+        ]
+      },
+      {
+        "id": "facteurs",
+        "label": "Facteurs de risque",
+        "detail": "Transitoires ou persistants : chirurgie, immobilisation, cancer, grossesse, thrombophilie, œstroprogestatifs.",
+        "children": [
+          { "id": "fact-transi", "label": "Transitoires", "leaves": [{ "id": "fact-transi-1", "label": "Chirurgie" }, { "id": "fact-transi-2", "label": "Immobilisation" }] },
+          { "id": "fact-persist", "label": "Persistants", "leaves": [{ "id": "fact-persist-1", "label": "Cancer" }, { "id": "fact-persist-2", "label": "Thrombophilie" }] },
+          { "id": "fact-grossesse", "label": "Grossesse", "leaves": [{ "id": "fact-grossesse-1", "label": "Post-partum" }] }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Anticoagulation précoce, durée adaptée, thrombolyse réservée aux formes instables.",
+        "children": [
+          { "id": "ttt-anticoag", "label": "Anticoagulation", "leaves": [{ "id": "ttt-anticoag-1", "label": "AOD en 1re intention" }, { "id": "ttt-anticoag-2", "label": "HBPM si grossesse" }] },
+          { "id": "ttt-reperfusion", "label": "Reperfusion", "leaves": [{ "id": "ttt-reperfusion-1", "label": "Thrombolyse" }, { "id": "ttt-reperfusion-2", "label": "Embolectomie" }] },
+          { "id": "ttt-duree", "label": "Durée", "leaves": [{ "id": "ttt-duree-1", "label": "3 mois minimum" }] }
+        ]
+      },
+      {
+        "id": "situations",
+        "label": "Situations particulières",
+        "detail": "Grossesse, cancer, insuffisance rénale, syndrome des antiphospholipides : le choix de l'anticoagulant change.",
+        "children": [
+          { "id": "sit-grossesse", "label": "Grossesse", "leaves": [{ "id": "sit-grossesse-1", "label": "HBPM" }] },
+          { "id": "sit-cancer", "label": "Cancer", "leaves": [{ "id": "sit-cancer-1", "label": "AOD ou HBPM" }] },
+          { "id": "sit-rein", "label": "Insuffisance rénale", "leaves": [{ "id": "sit-rein-1", "label": "Adapter la dose" }] }
+        ]
+      },
+      {
+        "id": "prevention",
+        "label": "Prévenir",
+        "detail": "Prophylaxie chez les patients hospitalisés à risque, mobilisation précoce et information du patient.",
+        "children": [
+          { "id": "prev-prophy", "label": "Prophylaxie", "leaves": [{ "id": "prev-prophy-1", "label": "HBPM" }, { "id": "prev-prophy-2", "label": "Compression" }] },
+          { "id": "prev-mobil", "label": "Mobilisation", "leaves": [{ "id": "prev-mobil-1", "label": "Post-opératoire" }] },
+          { "id": "prev-info", "label": "Information", "leaves": [{ "id": "prev-info-1", "label": "Signes d'alerte" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "Accès inégal à l'angioscanner, aux anticoagulants oraux directs et à la thrombolyse. Adapter sans renoncer à la durée minimale.",
+        "children": [
+          { "id": "mada-imagerie", "label": "Imagerie", "leaves": [{ "id": "mada-imagerie-1", "label": "Disponibilité" }] },
+          { "id": "mada-anticoag", "label": "Anticoagulants", "leaves": [{ "id": "mada-anticoag-1", "label": "HBPM / AVK" }] },
+          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2019-PE",
+      "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+      "citation": "Konstantinides SV, Meyer G, Becattini C, et al. 2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism developed in collaboration with the European Respiratory Society (ERS). Eur Heart J. 2020 ; 41 (4) : 543-603. doi:10.1093/eurheartj/ehz405.",
+      "organization": "European Society of Cardiology / European Respiratory Society",
+      "year": 2019,
+      "version": "2019 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehz405",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Probabilité clinique",
+        "Stratification du risque",
+        "Thrombolyse",
+        "Durée de l'anticoagulation",
+        "Situations particulières"
+      ]
+    },
+    {
+      "id": "SRC-CHEST-2021",
+      "title": "Antithrombotic Therapy for VTE Disease — CHEST Guideline and Expert Panel Report",
+      "citation": "Stevens SM, Woller SC, Kreuziger LB, et al. Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline and Expert Panel Report. Chest. 2021 ; 160 (6) : e545-e608. doi:10.1016/j.chest.2021.07.055.",
+      "organization": "American College of Chest Physicians (CHEST)",
+      "year": 2021,
+      "version": "second update",
+      "url": "https://doi.org/10.1016/j.chest.2021.07.055",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Choix de l'anticoagulant",
+        "Durée du traitement",
+        "Traitement prolongé",
+        "Situations particulières"
+      ]
+    },
+    {
+      "id": "SRC-NICE-NG158",
+      "title": "Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (NG158)",
+      "citation": "National Institute for Health and Care Excellence. Venous thromboembolic diseases: diagnosis, management and thrombophilia testing. NICE guideline NG158. Londres : NICE ; 2020, mise à jour 2023. Consulté le 18 octobre 2026.",
+      "organization": "National Institute for Health and Care Excellence (NICE)",
+      "year": 2020,
+      "version": "NG158, mise à jour 2023",
+      "url": "https://www.nice.org.uk/guidance/ng158",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Stratégie diagnostique",
+        "Place des D-dimères",
+        "Imagerie",
+        "Suivi"
+      ]
+    }
+  ]
+}

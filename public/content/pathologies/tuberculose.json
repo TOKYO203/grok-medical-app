@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "tuberculose",
+  "title": "Tuberculose pulmonaire et primo-infection tuberculeuse",
+  "subtitle": "Nosographie — infectiologie",
+  "objective": "Devant une toux prolongée, une fièvre au long cours ou une opacité pulmonaire, confirmer la tuberculose par un examen microbiologique, traiter selon le profil de sensibilité et organiser le dépistage des contacts.",
+  "language": "fr",
+  "updatedAt": "2026-10-18",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 1,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 42,
+      "localNumber": 1,
+      "sectionLabel": "Médecine",
+      "title": "Tuberculose pulmonaire et primo-infection tuberculeuse",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": ["infectio", "tropical"],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la fiche descriptive de l'OMS sur la tuberculose, du rapport mondial sur la tuberculose 2025 et des lignes directrices consolidées de l'OMS sur le traitement de la tuberculose. Les schémas thérapeutiques sont reformulés et rattachés à la source ; les particularités nationales sont signalées comme dépendantes du programme national.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le titre est l'intitulé exact du référentiel national, qui regroupe tuberculose pulmonaire et primo-infection tuberculeuse. La fiche traite aussi la tuberculose extrapulmonaire et l'infection tuberculeuse latente, car ces situations sont indissociables de l'item.",
+      "Le schéma standard 2 mois de rifampicine-isoniazide-pyrazinamide-éthambutol puis 4 mois de rifampicine-isoniazide est présenté comme le schéma de référence. L'OMS propose aussi un schéma de 4 mois à la rifapentine et à la moxifloxacine chez certains patients : il est mentionné sans être détaillé, car sa mise en œuvre dépend des autorités nationales.",
+      "Les posologies ne sont pas détaillées : elles dépendent du poids, de l'âge et du protocole national. Le lecteur doit se référer au guide du programme national.",
+      "Aucune donnée malgache chiffrée n'est citée. Le rôle du Programme National de Lutte contre la Tuberculose est mentionné comme cadre de référence, sans inventer d'organisation locale.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : les sources retenues sont l'OMS (fiche, rapport mondial 2025 et lignes directrices)."
+    ],
+    "qcChecklist": [
+      "Exactitude du schéma thérapeutique standard et de sa durée",
+      "Distinction infection latente / maladie tuberculeuse",
+      "Place de la confirmation microbiologique et du test de sensibilité",
+      "Contrôle des effets indésirables majeurs des antituberculeux",
+      "Conformité au programme national et à la déclaration obligatoire"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une maladie infectieuse curable, dont le diagnostic repose sur la microbiologie.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La tuberculose est une maladie infectieuse causée par Mycobacterium tuberculosis. Elle se transmet par voie aérienne, à partir d'un patient atteint de tuberculose pulmonaire qui tousse et projette des gouttelettes contenant le bacille. L'infection peut rester latente pendant des années, puis évoluer vers une maladie active lorsque les défenses immunitaires diminuent."
+        },
+        {
+          "type": "paragraph",
+          "text": "La tuberculose reste l'une des principales causes de mortalité d'origine infectieuse dans le monde. La forme pulmonaire est la plus fréquente et la plus contagieuse ; les formes extrapulmonaires (pleurale, ganglionnaire, méningée, osseuse, génitale, miliaire) sont plus difficiles à diagnostiquer et souvent plus graves."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le message central",
+          "text": "Une toux de plus de deux semaines, une fièvre au long cours ou une opacité pulmonaire persistante doivent faire rechercher une tuberculose. Le diagnostic se confirme par un examen microbiologique, et le traitement doit être mené jusqu'au bout sous supervision."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "summary": "Primo-infection, latence et réactivation ; la contagiosité dépend de la forme pulmonaire.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Après inhalation, le bacille est phagocyté par les macrophages alvéolaires. Il peut être contrôlé par la réponse immunitaire et rester quiescent dans un granulome : c'est l'infection tuberculeuse latente, non contagieuse et asymptomatique. La maladie active survient lorsque le bacille échappe à ce contrôle, le plus souvent par baisse de l'immunité."
+        },
+        {
+          "type": "paragraph",
+          "text": "La primo-infection peut être asymptomatique ou se manifester par une fièvre modérée, un érythème noueux, une adénopathie hilaire ou un virage tuberculinique. La réactivation se traduit le plus souvent par une tuberculose pulmonaire du sommet, avec toux, expectoration, fièvre vespérale, sueurs nocturnes, anorexie et perte de poids."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Forme pulmonaire classique : opacités apicales, cavernes, expectoration parfois hémoptoïque.",
+            "Miliaire tuberculeuse : dissémination hématogène, tableau grave avec fièvre et syndrome interstitiel.",
+            "Tuberculose pleurale : épanchement unilatéral, souvent chez le sujet jeune.",
+            "Tuberculose ganglionnaire : adénopathies cervicales, surtout chez l'enfant et l'immunodéprimé.",
+            "Tuberculose méningée : céphalées, fièvre, troubles de conscience, mortalité élevée sans traitement précoce.",
+            "Tuberculose osseuse : rachis thoracique, douleur et destruction vertébrale."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Immunodépression",
+          "text": "L'infection par le VIH, les biothérapies, les corticoïdes au long cours, la dénutrition, le diabète et l'insuffisance rénale augmentent le risque de réactivation. Chez ces patients, la présentation peut être atypique et la dissémination plus fréquente."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        },
+        {
+          "id": "SRC-WHO-TB-REPORT-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Global Tuberculosis Report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Clinique, radiographie et confirmation microbiologique avec test de sensibilité.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La suspicion clinique repose sur une toux de plus de deux semaines, une expectoration, une fièvre au long cours, des sueurs nocturnes, une perte de poids et un contexte d'exposition. La radiographie thoracique oriente vers une forme apicale, une caverne, un épanchement ou une miliaire, mais elle n'est jamais suffisante pour affirmer le diagnostic."
+        },
+        {
+          "type": "table",
+          "columns": ["Examen", "Rôle", "Remarque"],
+          "rows": [
+            ["Xpert MTB/RIF", "Détection du bacille et de la résistance à la rifampicine", "Examen moléculaire de première intention selon l'OMS"],
+            ["Microscopie de l'expectoration", "Recherche de bacilles acido-alcoolo-résistants", "Sensibilité insuffisante, ne remplace pas la biologie moléculaire"],
+            ["Culture", "Confirmation et test de sensibilité", "Référence, mais délai de plusieurs semaines"],
+            ["Test de sensibilité", "Résistance aux antituberculeux", "Indispensable en cas de traitement antérieur ou d'échec"],
+            ["Radiographie thoracique", "Orientation et suivi", "Normale possible dans les formes précoces"],
+            ["Test immunologique (IDR ou IGRA)", "Infection tuberculeuse latente", "Ne distingue pas infection latente et maladie active"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Tout échantillon doit être adressé au laboratoire",
+          "text": "Devant une suspicion de tuberculose, l'expectoration (ou un autre prélèvement selon la localisation) doit être adressée pour examen moléculaire, microscopie et culture. Un seul examen négatif n'élimine pas la maladie : la sensibilité dépend de la qualité du prélèvement et de la forme clinique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les formes extrapulmonaires nécessitent des prélèvements ciblés (liquide pleural, liquide céphalorachidien, ganglion, urines, biopsie). La recherche d'une co-infection par le VIH est systématique dans les contextes de forte prévalence. Chez l'enfant, le diagnostic est souvent clinique et radiologique, car l'expectoration est difficile à recueillir."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        },
+        {
+          "id": "SRC-WHO-TB-MODULE4",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+          "year": 2022,
+          "url": "https://www.who.int/publications/i/item/9789240048126"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique et formes cliniques",
+      "summary": "Une seule espèce en cause, mais des présentations très différentes selon le terrain.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La tuberculose est due à Mycobacterium tuberculosis, transmis par voie aérienne. Les facteurs de risque de progression vers une maladie active sont l'âge jeune, l'infection par le VIH, la dénutrition, le diabète, le tabagisme, l'alcool, l'insuffisance rénale chronique et les traitements immunosuppresseurs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tuberculose pulmonaire commune : forme la plus contagieuse, à rechercher en priorité dans l'entourage.",
+            "Tuberculose miliaire : dissémination hématogène, urgence thérapeutique et recherche d'une immunodépression.",
+            "Tuberculose méningée : ponction lombaire urgente, traitement prolongé et corticothérapie associée selon les protocoles.",
+            "Tuberculose résistante : suspecter en cas d'échec, de rechute, de contact avec un cas résistant ou de provenance d'une zone de forte prévalence de résistance.",
+            "Infection tuberculeuse latente : traitement préventif chez les contacts à haut risque et les patients immunodéprimés."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Résistance : y penser avant de conclure à un échec",
+          "text": "Une mauvaise observance, une posologie inadaptée, une malabsorption ou une résistance peuvent expliquer un échec. Le test de sensibilité et l'entretien sur la prise des médicaments sont alors aussi importants que le changement de molécule."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-MODULE4",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+          "year": 2022,
+          "url": "https://www.who.int/publications/i/item/9789240048126"
+        },
+        {
+          "id": "SRC-WHO-TB-REPORT-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Global Tuberculosis Report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "summary": "Un traitement long, supervisé et adapté à la sensibilité ; une prévention qui repose sur le dépistage et le BCG.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de la tuberculose sensible associe une phase intensive de deux mois par rifampicine, isoniazide, pyrazinamide et éthambutol, puis une phase de continuation de quatre mois par rifampicine et isoniazide. Les médicaments sont souvent utilisés en association fixe pour réduire le risque d'erreur et de sélection de résistance."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Observance supervisée : la prise directement observée est un pilier de la réussite, en particulier dans les programmes nationaux.",
+            "Numération et bilan hépatique avant traitement, puis surveillance clinique et biologique : la toxicité hépatique est l'effet indésirable majeur.",
+            "Éthambutol : surveiller la vision ; isoniazide : surveiller les neuropathies, prévention par pyridoxine si nécessaire.",
+            "Rifampicine : interactions nombreuses, notamment avec les antirétroviraux et les contraceptifs oraux.",
+            "Isoniazide : rechercher les signes d'hépatite et arrêter en cas d'ictère ou d'élévation majeure des transaminases.",
+            "Durée : ne jamais raccourcir en cas de forme extrapulmonaire sévère, de tuberculose du système nerveux central ou de résistance."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Les formes qui ne tolèrent aucun retard",
+          "text": "La tuberculose méningée, la miliaire et la tuberculose chez un patient immunodéprimé doivent être traitées sans attendre la confirmation microbiologique lorsque la suspicion est forte. Le retard thérapeutique est un facteur de mortalité."
+        },
+        {
+          "type": "paragraph",
+          "text": "La tuberculose résistante à la rifampicine ou multirésistante nécessite un schéma spécifique, allongé ou raccourci selon les recommandations de l'OMS et la disponibilité des molécules. Ces schémas ne doivent pas être improvisés : ils relèvent d'un centre de référence et du programme national."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Contexte malgache",
+          "text": "La prise en charge s'inscrit dans le cadre du Programme National de Lutte contre la Tuberculose, qui organise le dépistage, le traitement supervisé, la distribution des antituberculeux et le suivi des contacts. La vaccination par le BCG est recommandée à la naissance selon le calendrier national. Les protocoles nationaux et les recommandations du programme doivent primer sur les schémas internationaux présentés ici."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-MODULE4",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+          "year": 2022,
+          "url": "https://www.who.int/publications/i/item/9789240048126"
+        },
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et santé publique",
+      "summary": "Dépistage des contacts, traitement de l'infection latente et vaccination.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lutte contre la tuberculose repose sur trois piliers : le diagnostic précoce et le traitement complet des cas contagieux, le dépistage et le traitement préventif des contacts, et la vaccination des nouveau-nés. La déclaration obligatoire permet de déclencher l'enquête autour d'un cas."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dépistage des contacts : interrogatoire, radiographie thoracique et test immunologique selon l'âge et le contexte.",
+            "Traitement de l'infection tuberculeuse latente chez les contacts à haut risque, les patients immunodéprimés et les enfants.",
+            "BCG à la naissance dans les pays à forte incidence, selon le calendrier national.",
+            "Mesures de contrôle de l'infection : ventilation des locaux, masques pour les patients contagieux, isolement respiratoire en milieu de soins.",
+            "Lutte contre le tabagisme, l'alcool et la dénutrition, qui augmentent le risque de progression."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La tuberculose ne se traite pas seul",
+          "text": "L'adhésion au traitement est un enjeu collectif : un patient qui interrompt son traitement risque sa propre rechute et favorise l'émergence de résistances transmissibles à son entourage."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        },
+        {
+          "id": "SRC-WHO-TB-REPORT-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Global Tuberculosis Report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Quatre messages pour la pratique.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Une toux de plus de deux semaines avec fièvre ou perte de poids impose une recherche de tuberculose.",
+            "Le diagnostic se confirme par un examen microbiologique avec test de sensibilité, pas par la seule radiographie.",
+            "Le traitement standard dure six mois et ne doit jamais être interrompu ; l'observance est un enjeu individuel et collectif.",
+            "Le dépistage des contacts et le traitement de l'infection latente font partie du traitement de la maladie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La phrase de synthèse",
+          "text": "La tuberculose se diagnostique par le laboratoire, se traite par la durée et se contrôle par le programme. Un patient qui va mieux au deuxième mois n'est pas guéri."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-MODULE4",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+          "year": 2022,
+          "url": "https://www.who.int/publications/i/item/9789240048126"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Documents officiels consultés pour cette fiche.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été consultées le 18 octobre 2026. Le guide du Programme National de Lutte contre la Tuberculose, lorsqu'il est disponible, prévaut sur les conduites proposées ici."
+        },
+        {
+          "type": "list",
+          "items": [
+            "OMS — Tuberculosis, fact sheet 2026.",
+            "OMS — Global Tuberculosis Report 2025.",
+            "OMS — Lignes directrices consolidées sur la tuberculose, module 4 : traitement de la tuberculose sensible."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-TB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Tuberculosis — fact sheet",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis"
+        },
+        {
+          "id": "SRC-WHO-TB-REPORT-2025",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Global Tuberculosis Report 2025",
+          "year": 2025,
+          "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025"
+        },
+        {
+          "id": "SRC-WHO-TB-MODULE4",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+          "year": 2022,
+          "url": "https://www.who.int/publications/i/item/9789240048126"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-rhze",
+      "label": "R.H.Z.E. — les quatre antituberculeux",
+      "intro": "Phase intensive de deux mois, puis rifampicine et isoniazide.",
+      "entries": [
+        { "key": "R", "term": "Rifampicine : puissance et interactions médicamenteuses nombreuses." },
+        { "key": "H", "term": "Isoniazide : neuropathie prévenue par la pyridoxine, hépatotoxicité." },
+        { "key": "Z", "term": "Pyrazinamide : hépatotoxicité et hyperuricémie." },
+        { "key": "E", "term": "Éthambutol : toxicité oculaire, surveillance de la vision." }
+      ],
+      "note": "Le schéma standard est 2 mois de RHZE puis 4 mois de RH. Les associations fixes réduisent le risque d'erreur et de résistance."
+    },
+    {
+      "id": "mn-suspicion",
+      "label": "Quand suspecter une tuberculose ?",
+      "intro": "Trois signes d'appel et un contexte.",
+      "entries": [
+        { "key": "T", "term": "Toux de plus de deux semaines, avec ou sans expectoration." },
+        { "key": "F", "term": "Fièvre au long cours, sueurs nocturnes, perte de poids." },
+        { "key": "C", "term": "Contage : entourage tuberculeux, milieu carcéral, soignant, immunodépression." }
+      ],
+      "note": "Chez l'enfant et l'immunodéprimé, la présentation peut être atypique : adénopathies, miliaire, méningite, altération de l'état général."
+    },
+    {
+      "id": "mn-prevention",
+      "label": "Les 3 piliers de la lutte antituberculeuse",
+      "intro": "Diagnostiquer, traiter, prévenir.",
+      "entries": [
+        { "key": "D", "term": "Diagnostic précoce et traitement complet des cas contagieux." },
+        { "key": "C", "term": "Dépistage et traitement des contacts, y compris l'infection latente." },
+        { "key": "V", "term": "Vaccination BCG à la naissance selon le calendrier national." }
+      ],
+      "note": "La déclaration obligatoire et l'enquête autour du cas sont des actes de santé publique, pas une formalité administrative."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est le principal mode de transmission de la tuberculose ?",
+      "back": "La voie aérienne, par des gouttelettes émises par un patient atteint de tuberculose pulmonaire contagieuse. Les formes extrapulmonaires fermées ne sont pas contagieuses.",
+      "tags": ["transmission"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quelle est la différence entre infection tuberculeuse latente et maladie tuberculeuse ?",
+      "back": "L'infection latente est asymptomatique et non contagieuse : le bacille est contrôlé par l'immunité. La maladie active correspond à la multiplication du bacille et à des symptômes ; elle est contagieuse dans sa forme pulmonaire.",
+      "tags": ["physiopathologie"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel examen microbiologique est recommandé en première intention selon l'OMS ?",
+      "back": "Le test moléculaire Xpert MTB/RIF, qui détecte le bacille et la résistance à la rifampicine. La microscopie et la culture restent complémentaires.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel est le schéma standard de traitement de la tuberculose sensible ?",
+      "back": "Deux mois de rifampicine, isoniazide, pyrazinamide et éthambutol, puis quatre mois de rifampicine et isoniazide, soit six mois au total.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels sont les principaux effets indésirables des antituberculeux ?",
+      "back": "Hépatotoxicité (isoniazide, pyrazinamide, rifampicine), neuropathie périphérique (isoniazide), toxicité oculaire (éthambutol), hyperuricémie (pyrazinamide) et interactions médicamenteuses (rifampicine).",
+      "tags": ["traitement", "surveillance"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Pourquoi la rifampicine impose-t-elle une vigilance sur les interactions ?",
+      "back": "C'est un inducteur enzymatique puissant : elle diminue l'efficacité de nombreux médicaments, notamment les antirétroviraux, les contraceptifs oraux et les anticoagulants.",
+      "tags": ["traitement", "piège"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelles formes de tuberculose imposent un traitement sans attendre la confirmation ?",
+      "back": "La tuberculose méningée, la miliaire et la tuberculose chez un patient immunodéprimé, lorsque la suspicion est forte. Le retard thérapeutique augmente la mortalité.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Que signifie une tuberculose multirésistante ?",
+      "back": "Une résistance au moins à l'isoniazide et à la rifampicine. Le traitement nécessite un schéma spécifique, plus long ou raccourci selon les recommandations, et une prise en charge par un centre de référence.",
+      "tags": ["résistance"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Comment prévenir la tuberculose dans l'entourage d'un cas ?",
+      "back": "Par le dépistage des contacts, la recherche de symptômes et d'une infection latente, le traitement préventif des personnes à haut risque et les mesures de contrôle de l'infection.",
+      "tags": ["prévention"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel est le rôle du BCG ?",
+      "back": "Il protège surtout contre les formes graves de la tuberculose de l'enfant, notamment la méningite et la miliaire. Il est recommandé à la naissance dans les pays à forte incidence, selon le calendrier national.",
+      "tags": ["prévention"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Un patient traité depuis deux mois se sent mieux : peut-il arrêter le traitement ?",
+      "back": "Non. L'amélioration clinique ne signifie pas guérison microbiologique. L'arrêt prématuré expose à la rechute et à l'émergence de résistances.",
+      "tags": ["traitement", "piège"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Tuberculose",
+      "detail": "Suspecter devant une toux prolongée, confirmer par la microbiologie, traiter six mois sous supervision et dépister l'entourage."
+    },
+    "branches": [
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Clinique, radiographie et confirmation microbiologique. Xpert MTB/RIF en première intention selon l'OMS.",
+        "children": [
+          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Toux > 2 semaines" }, { "id": "diag-clinique-2", "label": "Sueurs nocturnes" }] },
+          { "id": "diag-micro", "label": "Microbiologie", "leaves": [{ "id": "diag-micro-1", "label": "Xpert MTB/RIF" }, { "id": "diag-micro-2", "label": "Culture" }] },
+          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Cavernes apicales" }, { "id": "diag-imagerie-2", "label": "Miliaire" }] }
+        ]
+      },
+      {
+        "id": "formes",
+        "label": "Formes cliniques",
+        "detail": "Pulmonaire, pleurale, ganglionnaire, méningée, osseuse et miliaire. La forme et le terrain déterminent la gravité.",
+        "children": [
+          { "id": "formes-pulm", "label": "Pulmonaire", "leaves": [{ "id": "formes-pulm-1", "label": "Contagieuse" }] },
+          { "id": "formes-meningee", "label": "Méningée", "leaves": [{ "id": "formes-meningee-1", "label": "Urgence" }] },
+          { "id": "formes-miliaire", "label": "Miliaire", "leaves": [{ "id": "formes-miliaire-1", "label": "Dissémination" }] }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "2RHZE puis 4RH pour la forme sensible. Observance supervisée, surveillance hépatique et oculaire, interactions de la rifampicine.",
+        "children": [
+          { "id": "ttt-standard", "label": "Schéma standard", "leaves": [{ "id": "ttt-standard-1", "label": "2 mois RHZE" }, { "id": "ttt-standard-2", "label": "4 mois RH" }] },
+          { "id": "ttt-surveillance", "label": "Surveillance", "leaves": [{ "id": "ttt-surveillance-1", "label": "Transaminases" }, { "id": "ttt-surveillance-2", "label": "Vision" }] },
+          { "id": "ttt-resistance", "label": "Résistance", "leaves": [{ "id": "ttt-resistance-1", "label": "Test de sensibilité" }] }
+        ]
+      },
+      {
+        "id": "urgence",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Méningite, miliaire et immunodépression : traiter sans attendre la confirmation lorsque la suspicion est forte.",
+        "children": [
+          { "id": "urg-meningite", "label": "Méningite", "leaves": [{ "id": "urg-meningite-1", "label": "Pronostic vital" }] },
+          { "id": "urg-miliaire", "label": "Miliaire", "leaves": [{ "id": "urg-miliaire-1", "label": "Hypoxémie" }] },
+          { "id": "urg-vih", "label": "VIH", "leaves": [{ "id": "urg-vih-1", "label": "Formes atypiques" }] }
+        ]
+      },
+      {
+        "id": "prevention",
+        "label": "Prévenir",
+        "detail": "Dépistage des contacts, traitement de l'infection latente, BCG et contrôle de l'infection dans les lieux de soins.",
+        "children": [
+          { "id": "prev-contacts", "label": "Contacts", "leaves": [{ "id": "prev-contacts-1", "label": "Enquête" }] },
+          { "id": "prev-latente", "label": "Infection latente", "leaves": [{ "id": "prev-latente-1", "label": "Traitement préventif" }] },
+          { "id": "prev-bcg", "label": "BCG", "leaves": [{ "id": "prev-bcg-1", "label": "Naissance" }] }
+        ]
+      },
+      {
+        "id": "terrain",
+        "label": "Terrain",
+        "detail": "VIH, diabète, dénutrition, alcool, tabac, insuffisance rénale et biothérapies augmentent le risque de réactivation.",
+        "children": [
+          { "id": "terrain-vih", "label": "VIH", "leaves": [{ "id": "terrain-vih-1", "label": "Dépistage systématique" }] },
+          { "id": "terrain-diabete", "label": "Diabète", "leaves": [{ "id": "terrain-diabete-1", "label": "Contrôle glycémique" }] },
+          { "id": "terrain-nutrition", "label": "Nutrition", "leaves": [{ "id": "terrain-nutrition-1", "label": "Dénutrition" }] }
+        ]
+      },
+      {
+        "id": "madagascar",
+        "label": "Contexte malgache",
+        "detail": "Le Programme National de Lutte contre la Tuberculose organise le dépistage, le traitement supervisé et le suivi des contacts. Le guide national prime.",
+        "children": [
+          { "id": "mada-pnlt", "label": "Programme national", "leaves": [{ "id": "mada-pnlt-1", "label": "Guide PNLT" }] },
+          { "id": "mada-bcg", "label": "BCG", "leaves": [{ "id": "mada-bcg-1", "label": "Calendrier" }] },
+          { "id": "mada-observance", "label": "Observance", "leaves": [{ "id": "mada-observance-1", "label": "Traitement supervisé" }] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-TB-FS",
+      "title": "Tuberculosis — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Tuberculosis — fact sheet. Genève : OMS ; 2026. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Transmission",
+        "Formes cliniques",
+        "Diagnostic",
+        "Prévention",
+        "Vaccination BCG"
+      ]
+    },
+    {
+      "id": "SRC-WHO-TB-REPORT-2025",
+      "title": "Global Tuberculosis Report 2025",
+      "citation": "Organisation mondiale de la Santé. Global Tuberculosis Report 2025. Genève : OMS ; 2025. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "édition 2025",
+      "url": "https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Résistances",
+        "Priorités de santé publique"
+      ]
+    },
+    {
+      "id": "SRC-WHO-TB-MODULE4",
+      "title": "WHO consolidated guidelines on tuberculosis — Module 4: treatment, drug-susceptible tuberculosis treatment",
+      "citation": "Organisation mondiale de la Santé. WHO consolidated guidelines on tuberculosis. Module 4: Treatment — drug-susceptible tuberculosis treatment. Genève : OMS ; 2022. Consulté le 18 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2022,
+      "version": "module 4",
+      "url": "https://www.who.int/publications/i/item/9789240048126",
+      "verifiedAt": "2026-10-18",
+      "usedFor": [
+        "Schéma thérapeutique",
+        "Durée du traitement",
+        "Observance",
+        "Traitement de la tuberculose résistante"
+      ]
+    }
+  ]
+}
