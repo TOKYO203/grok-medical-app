@@ -292,3 +292,21 @@ test("les libellés de la tuile existent dans les quatre langues", () => {
     }
   }
 });
+
+/* ------------------------------------------------------------------ */
+/* NAVIGATION — le module passe au premier plan                        */
+/* ------------------------------------------------------------------ */
+
+const navigationSource = readFileSync(join(ROOT, "src/lib/navigation.ts"), "utf8");
+
+test("/signes ouvre le groupe « S'entraîner », /examen le ferme", () => {
+  const trainStart = navigationSource.indexOf('labelKey: "nav.group.train"');
+  assert.notEqual(trainStart, -1, "groupe nav.group.train introuvable");
+  const train = navigationSource.slice(trainStart, navigationSource.indexOf('labelKey: "nav.group.tools"'));
+  const targets = [...train.matchAll(/to: "([^"]+)"/g)].map((match) => match[1]);
+
+  assert.ok(targets.length >= 5, `groupe « train » incomplet : ${targets.join(", ")}`);
+  assert.equal(targets[0], "/signes", "le raisonnement inversé doit ouvrir le groupe");
+  assert.equal(targets[1], "/ecg", "Cas ECG reste juste après /signes");
+  assert.equal(targets[targets.length - 1], "/examen", "l'examen blanc reste le dernier entraînement");
+});
