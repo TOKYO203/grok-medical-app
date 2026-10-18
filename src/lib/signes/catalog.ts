@@ -25,6 +25,10 @@ import type {
  * ⚠️ Le manifeste est la SOURCE DE VÉRITÉ éditoriale : on le lit, on ne le
  * réécrit jamais depuis le code.
  *
+ * ⚠️ Aucune lecture d'actif ne doit lever (DECISIONS.md SIGNES-8) : une fiche
+ * inaccessible est ignorée, un catalogue introuvable donne un état vide. Une
+ * exception côté SSR faisait planter /signes en production.
+ *
  * Contrat public (utilisé par la route et par les futurs écrans par catégorie) :
  *   `loadSignesContent(category)`  → le catalogue d'UNE catégorie ;
  *   `loadSignesCatalog()`          → toutes les catégories, fusionnées.
@@ -64,7 +68,14 @@ let indexCache: SignesIndex | undefined;
 /** Lit un actif, quel que soit le contexte d'exécution. */
 async function readAsset(file: string): Promise<unknown | undefined> {
   if (import.meta.env.SSR) {
-    return (await readAssetOnServer({ data: { file } })) ?? undefined;
+    try {
+      return (await readAssetOnServer({ data: { file } })) ?? undefined;
+    } catch {
+      // Le lecteur serveur est neutre par contrat (`asset-reader.server.ts`),
+      // mais le transport `createServerFn` peut échouer pour une raison de
+      // runtime : une fiche inaccessible est ignorée, jamais la page entière.
+      return undefined;
+    }
   }
   const response = await fetch(`${SIGNES_ASSET_BASE}/${file}`, {
     headers: { accept: "application/json" },

@@ -1,27 +1,61 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Shell } from "@/components/shell";
 import { SigneView } from "@/components/signes/signe-view";
+import type { SignesCatalog } from "@/core/signes/types";
 import { loadSignesCatalog } from "@/lib/signes/catalog";
 
 /**
  * Raisonnement inversé : cas clinique → déduction → révélation de la triade.
  *
- * Le contenu n'est PAS importé (il ne doit pas peser dans le bundle) : il est
- * chargé par le `loader` depuis les actifs statiques `public/content/signes/`
- * — résolu AVANT le rendu, donc présent dans le HTML servi (pas d'écran vide
- * à l'hydratation, et les 10 fiches sont crawlables).
+ * Le contenu n'est PAS importé (il ne doit pas peser dans le bundle) : le
+ * catalogue est chargé PAR LE NAVIGATEUR depuis les actifs statiques
+ * `public/content/signes/` — cache CDN « immutable » d'un an (un seul
+ * téléchargement par navigateur) puis cache mémoire pour toute la navigation.
+ *
+ * Pourquoi le navigateur, alors que le chargement se faisait à l'origine côté
+ * serveur (loader de route — voir DECISIONS.md SIGNES-8) : en production, le
+ * worker Cloudflare n'a pas les actifs sur disque et le lecteur serveur se
+ * repliait sur UN `fetch()` vers sa propre origine PAR FICHE. À ~110 fiches,
+ * la limite de sous-requêtes du plan Workers (~50 par requête) était dépassée
+ * et /signes affichait l'écran d'erreur. Le navigateur, lui, interroge le CDN
+ * directement, sans cette limite.
  */
 export const Route = createFileRoute("/signes")({
   component: SignesPage,
-  loader: () => loadSignesCatalog(),
-  pendingComponent: SignesPending,
 });
 
 function SignesPage() {
-  const catalog = Route.useLoaderData();
-  const items = catalog?.items ?? [];
+  // `null` = chargement en cours ; `undefined` = aucun catalogue publié ;
+  // sinon le catalogue complet, dans l'ordre éditorial du manifeste.
+  const [catalog, setCatalog] = useState<SignesCatalog | null | undefined>(null);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadSignesCatalog()
+      .then((loaded) => {
+        if (!cancelled) setCatalog(loaded ?? undefined);
+      })
+      .catch(() => {
+        // Le catalogue est conçu pour ne jamais jeter (fiche manquante =
+        // ignorée) ; ce garde protège d'un échec réseau brut du navigateur.
+        if (!cancelled) setCatalog(undefined);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const items = catalog?.items ?? [];
+
+  if (catalog === null) {
+    return (
+      <Shell title="Signes & Syndromes">
+        <SignesPending />
+      </Shell>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -93,7 +127,7 @@ function SignesEmpty() {
         <p className="font-display text-lg">Contenu en préparation</p>
         <p className="mt-2 text-sm text-muted">
           Les cas de raisonnement inversé (cas clinique → déduction → triade) arrivent
-          prochainement. La mécanique d’entraînement est déjà en place.
+          prochainement. La mécanique d'entraînement est déjà en place.
         </p>
       </div>
     </div>

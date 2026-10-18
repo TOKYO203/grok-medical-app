@@ -20,6 +20,15 @@ import type { SigneItem, SignesCatalog, SignesIndex } from "@/core/signes/types"
  * le disque ne l'a pas (fonction serverless : `public/` est publié sur le CDN,
  * pas dans le bundle de la fonction).
  *
+ * ⚠️ CONTRAT DE NEUTRALITÉ : ce module ne lève JAMAIS d'exception. Un runtime
+ * sans disque (ex. worker), une limite de sous-requêtes atteinte, un actif
+ * introuvable : tout se traduit par `null` — c'est le catalogue qui décide
+ * (fiche ignorée, état vide), jamais la page ne plante. Leçon de l'incident
+ * du 2026-10-18 (DECISIONS.md SIGNES-8) : à ~110 fiches, le `fetch` de repli
+ * vers l'origine propre dépassait la limite de sous-requêtes du plan Workers
+ * Cloudflare (~50 par requête) et son exception non attrapée faisait planter
+ * /signes en production dès que le manifeste dépassait ~50 fiches.
+ *
  * ⚠️ Ce module est `.server.ts` et n'est importé QUE par le handler de
  * `createServerFn` (`./catalog.ts`) : il ne peut pas atteindre le client.
  */
@@ -39,7 +48,7 @@ const ASSET_RELATIVE_DIRECTORIES = [
  * les valeurs non sérialisables, ce qui est une bonne barrière — le catalogue
  * (`catalog.ts`) revérifie ensuite la forme réelle avec ses gardes.
  */
-export type SignesAsset = SignesIndex | SignesCatalog | SigneItem;
+export type SignesAsset = SigneIndex | SignesCatalog | SigneItem;
 
 /** Garde-fou : aucun actif de ce dossier ne doit peser plus que du texte. */
 const MAX_ASSET_BYTES = 2 * 1024 * 1024;
@@ -51,10 +60,22 @@ const MAX_ASSET_BYTES = 2 * 1024 * 1024;
  */
 const assetCache = new Map<string, SignesAsset>();
 
-/** Lit l'actif sur le disque, quel que soit l'emplacement de déploiement. */
+/**
+ * Lit l'actif sur le disque, quel que soit l'emplacement de déploiement.
+ * `null` si aucun emplacement n'est joignable (runtime sans disque : worker,
+ * fonction serverless), sans jamais lever.
+ */
 async function readFromDisk(file: string): Promise<SignesAsset | null> {
   for (const relativePath of ASSET_RELATIVE_DIRECTORIES) {
-    const absolutePath = resolve(process.cwd(), relativePath, file);
+    // `process` peut être absent ou dépourvu de `cwd()` selon le runtime :
+    // un emplacement injoignable n'est pas une erreur de contenu, on passe
+    // au suivant (le repli réseau prendra le relais).
+    let absolutePath: string;
+    try {
+      absolutePath = resolve(process.cwd(), relativePath, file);
+    } catch {
+      continue;
+    }
     let raw: string;
     try {
       raw = await readFile(absolutePath, "utf8");
@@ -69,7 +90,12 @@ async function readFromDisk(file: string): Promise<SignesAsset | null> {
   return null;
 }
 
-/** Repli : récupère l'actif depuis l'origine de la requête courante (CDN). */
+/**
+ * Repli : récupère l'actif depuis l'origine de la requête courante (CDN).
+ * `null` s'il est introuvable OU si le repli lui-même échoue (limite de
+ * sous-requêtes du runtime, origine injoignable) : une fiche manquante est
+ * ignorée par le catalogue, une exception casserait la page.
+ */
 async function readFromOrigin(file: string): Promise<SignesAsset | null> {
   let request: Request;
   try {
@@ -80,7 +106,15 @@ async function readFromOrigin(file: string): Promise<SignesAsset | null> {
   if (!request?.url) return null;
 
   const url = new URL(`/content/signes/${file}`, request.url);
-  const response = await fetch(url, { headers: { accept: "application/json" } });
+  let response: Response;
+  try {
+    response = await fetch(url, { headers: { accept: "application/json" } });
+  } catch {
+    // Limite de sous-requêtes dépassée (plan Workers gratuit ≈ 50 par requête)
+    // ou réseau indisponible : l'actif est traité comme absent, pas comme une
+    // erreur de la page.
+    return null;
+  }
   if (!response.ok) return null;
   return (await response.json()) as SignesAsset;
 }
