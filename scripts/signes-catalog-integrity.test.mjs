@@ -255,11 +255,11 @@ test("le mock est une fixture de test, plus jamais un actif publié", () => {
 
 const homeSource = readFileSync(join(ROOT, "src/routes/index.tsx"), "utf8");
 
-test("la tuile d'accueil est annoncée mais FERMÉE (SIGNES_READY=false)", () => {
+test("la tuile d'accueil est OUVERTE (SIGNES_READY=true) — 10 fiches prêtes", () => {
   assert.match(
     homeSource,
-    /const SIGNES_READY = false;/,
-    "SIGNES_READY doit valoir false tant que la banque n'est pas présentable",
+    /const SIGNES_READY = true;/,
+    "SIGNES_READY doit valoir true : la banque de 10 fiches est présentable",
   );
 
   // La tuile est branchée sur le drapeau : la passer à true suffit à l'ouvrir.
