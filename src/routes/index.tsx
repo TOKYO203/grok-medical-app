@@ -1,7 +1,19 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Stethoscope } from "lucide-react";
+import {
+  Activity,
+  Brain,
+  Calculator,
+  ChevronRight,
+  ClipboardCheck,
+  Flame,
+  Lock,
+  Sparkles,
+  Stethoscope,
+  Upload,
+  Zap,
+} from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -27,6 +39,17 @@ import { formatInt } from "@/lib/utils";
 // G51 — code-splitting : le store ne charge plus le catalogue ; cette route
 // sème le cache des decks intégrés (évalué côté serveur comme côté client).
 seedBuiltinDecks(BUILTIN_DECKS);
+
+/**
+ * Disponibilité du module « Signes & Syndromes » sur l'accueil.
+ *
+ * Le contenu (triades/tétrades) est produit par lots et servi en actifs
+ * statiques. Tant que la banque n'est pas jugée présentable, la tuile reste
+ * VISIBLE mais DÉSACTIVÉE (badge « Bientôt », aucun clic) : on annonce la
+ * fonction sans envoyer l'étudiant sur une démo. Passer ce drapeau à `true`
+ * rend la carte cliquable — la route /signes, elle, est déjà fonctionnelle.
+ */
+const SIGNES_READY = false;
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -358,6 +381,14 @@ function Dashboard() {
             label={t("nav.auscultation")}
             detail={t("dash.cardioPulmo")}
           />
+          <QuickAction
+            to="/signes"
+            icon={<Brain className="size-5" />}
+            label={t("nav.signes")}
+            detail={t("dash.signesDetail")}
+            signesState={SIGNES_READY ? "ready" : "soon"}
+            soonLabel={t("dash.soon")}
+          />
         </div>
       </section>
 
@@ -511,22 +542,53 @@ function QuickAction({
   icon,
   label,
   detail,
+  signesState,
+  soonLabel,
 }: {
-  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement";
+  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement" | "/signes";
   icon: ReactNode;
   label: string;
   detail: string;
+  /**
+   * Une tuile annoncée mais pas encore ouverte : on la garde dans la grille
+   * (l'utilisateur voit la fonction arriver) sans lien cliquable. Le clic ne
+   * fait rien, par construction : ce n'est pas un <Link>.
+   */
+  signesState?: "soon" | "ready";
+  soonLabel?: string;
 }) {
-  return (
-    <Link
-      to={to}
-      className="optimus-card optimus-interactive-card min-w-0 p-4 active:scale-[0.99]"
-    >
+  const body = (
+    <>
       <span className="flex size-10 items-center justify-center rounded-[var(--radius-sm)] bg-secondary text-primary shadow-[var(--shadow-border)]">
         {icon}
       </span>
       <span className="mt-3 block truncate text-sm font-medium">{label}</span>
       <span className="mt-0.5 block truncate text-xs text-muted">{detail}</span>
+    </>
+  );
+
+  if (signesState === "soon") {
+    return (
+      <div
+        data-signes-card="soon"
+        aria-disabled="true"
+        className="optimus-card relative min-w-0 cursor-not-allowed select-none p-4 opacity-60 saturate-0"
+      >
+        <span className="absolute right-2.5 top-2.5 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted">
+          {soonLabel}
+        </span>
+        {body}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      to={to}
+      data-signes-card={signesState}
+      className="optimus-card optimus-interactive-card min-w-0 p-4 active:scale-[0.99]"
+    >
+      {body}
     </Link>
   );
 }

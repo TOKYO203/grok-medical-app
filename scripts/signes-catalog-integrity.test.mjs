@@ -202,3 +202,21 @@ test("le cache CDN des signes est déclaré côté _headers ET côté routeRules
   assert.ok(rule, `aucune routeRule "${base}/**" dans vite.config.ts`);
   assert.equal(normalizePolicy(rule[1]), normalizePolicy(IMMUTABLE_POLICY));
 });
+
+test("la tuile d'accueil est pilotée par le drapeau SIGNES_READY", async () => {
+  const home = await readFile(new URL("../src/routes/index.tsx", import.meta.url), "utf8");
+
+  // Le drapeau existe et pilote l'état de la tuile (sa VALEUR est éditoriale :
+  // le contenu arrive par lots, on ne la fige pas dans un test).
+  assert.match(home, /const SIGNES_READY = (?:true|false);/, "drapeau SIGNES_READY absent de l'accueil");
+  assert.match(
+    home,
+    /signesState=\{SIGNES_READY \? "ready" : "soon"\}/,
+    "la tuile /signes n'est pas branchée sur SIGNES_READY",
+  );
+
+  // État « bientôt » : un <div aria-disabled>, jamais un lien → aucun clic ne
+  // peut naviguer. C'est la garantie structurelle, pas seulement visuelle.
+  assert.match(home, /<div\s+data-signes-card="soon"\s+aria-disabled="true"/, "la tuile désactivée n'est pas un div inerte");
+  assert.match(home, /aria-disabled="true"/, "tuile désactivée sans aria-disabled");
+});
