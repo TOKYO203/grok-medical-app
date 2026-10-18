@@ -18,6 +18,8 @@ import type { PathologyContent, PathologyIndex, PathologyIndexEntry } from "@/co
  */
 const LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   "paludisme.json": () => import("@/content/data/pathologies/paludisme.json"),
+  "hta-essentielle.json": () => import("@/content/data/pathologies/hta-essentielle.json"),
+  "diabete-type-2.json": () => import("@/content/data/pathologies/diabete-type-2.json"),
 };
 
 const INDEX = indexJson as PathologyIndex;

@@ -148,7 +148,35 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
     // ce qui distingue un contenu de cours d'un résumé de définitions.
     assert.ok(tonesSeen.has("urgence"), `${entry.file}: aucun encadré « urgence »`);
 
-    // 2. Flashcards
+    // 2. Mnémoniques — le contrat de RENDU, pas seulement la présence du champ.
+    //    `FicheView` fait `mnemonic.entries.map(...)` : un mnémonique écrit avec
+    //    une autre forme (`expansion` / `detail`) passait tous les contrôles
+    //    précédents et faisait planter le rendu SSR (« Cannot read properties of
+    //    undefined (reading 'map') ») — incident du batch 1 (HTA, Diabète).
+    const mnemonicIds = [];
+    for (const mnemonic of content.mnemonics ?? []) {
+      mnemonicIds.push(mnemonic.id);
+      assert.ok(mnemonic.id?.trim(), `${entry.file}: mnémonique sans id`);
+      assert.ok(mnemonic.label?.trim(), `${entry.file}/${mnemonic.id}: mnémonique sans label`);
+      assert.ok(
+        Array.isArray(mnemonic.entries) && mnemonic.entries.length >= 2,
+        `${entry.file}/${mnemonic.id}: « entries » doit être un tableau d'au moins 2 lettres (forme rendue par FicheView)`,
+      );
+      if (mnemonic.intro !== undefined) {
+        assert.ok(mnemonic.intro.trim().length >= 5, `${entry.file}/${mnemonic.id}: intro trop courte`);
+      }
+      for (const item of mnemonic.entries) {
+        assert.ok(item.key?.trim(), `${entry.file}/${mnemonic.id}: entrée sans clé`);
+        assert.ok(item.term?.trim().length >= 8, `${entry.file}/${mnemonic.id}: entrée « ${item.key} » trop courte`);
+      }
+    }
+    assert.equal(
+      new Set(mnemonicIds).size,
+      mnemonicIds.length,
+      `${entry.file}: identifiant de mnémonique dupliqué`,
+    );
+
+    // 3. Flashcards
     assert.ok(content.flashcards.length >= 10, `${entry.file}: trop peu de flashcards`);
     const cardIds = content.flashcards.map((card) => card.id);
     assert.equal(new Set(cardIds).size, cardIds.length, `${entry.file}: flashcard id dupliqué`);
@@ -157,7 +185,7 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
       assert.ok(card.back?.trim().length >= 8, `${entry.file}/${card.id}: verso trop court`);
     }
 
-    // 3. Mindmap — graphe valide et identifiants uniques
+    // 4. Mindmap — graphe valide et identifiants uniques
     const mapIds = [content.mindmap.root.id];
     assert.ok(content.mindmap.root.label?.trim(), `${entry.file}: racine sans label`);
     assert.ok(content.mindmap.root.detail?.trim(), `${entry.file}: racine sans détail`);
@@ -179,7 +207,7 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
     }
     assert.equal(new Set(mapIds).size, mapIds.length, `${entry.file}: identifiant de mindmap dupliqué`);
 
-    // 4. Références
+    // 5. Références
     assert.ok(content.sources.length >= 2, `${entry.file}: références absentes`);
     for (const source of content.sources) {
       assert.ok(source.title?.trim(), `${entry.file}: source sans titre`);
@@ -190,7 +218,7 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
       }
     }
 
-    // 5. Contenus compagnons — jamais de référence morte
+    // 6. Contenus compagnons — jamais de référence morte
     for (const deckId of content.related?.deckIds ?? []) {
       assert.ok(DECK_IDS.has(deckId), `${entry.file}: deck inconnu « ${deckId} »`);
     }
@@ -198,7 +226,7 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
       assert.ok(CASE_IDS.has(caseId), `${entry.file}: cas clinique inconnu « ${caseId} »`);
     }
 
-    // 6. Honnêteté éditoriale : une fiche non relue ne peut pas se dire relue
+    // 7. Honnêteté éditoriale : une fiche non relue ne peut pas se dire relue
     if (content.reviewStatus !== "reviewed") {
       assert.equal(content.editorial.reviewedBy, null, `${entry.file}: relecteur annoncé sans validation`);
       assert.ok(content.editorial.verificationNotes?.length >= 1, `${entry.file}: aucune note de vérification`);

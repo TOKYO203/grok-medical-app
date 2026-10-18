@@ -1,0 +1,872 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "diabete-type-2",
+  "title": "Diabète de type 2",
+  "subtitle": "Fiche de nosographie — endocrinologie et métabolisme",
+  "objective": "Confirmer une hyperglycémie chronique, distinguer le type 2 des autres diabètes, dépister d'emblée les complications et construire un traitement progressif, acceptable et durable pour le patient.",
+  "language": "fr",
+  "updatedAt": "2026-10-17",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 99,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 140,
+      "localNumber": 99,
+      "sectionLabel": "Médecine",
+      "title": "Diabète de type 2",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Aucun document source n'a été fourni pour cette fiche : elle est rédigée à partir des recommandations officielles citées en bibliographie, chaque énoncé étant reformulé et rattaché à une source vérifiable section par section.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Les chiffres épidémiologiques proviennent de la fiche descriptive de l'OMS sur le diabète, mise à jour le 14 novembre 2024 : 830 millions de personnes vivant avec un diabète en 2022 (contre 200 millions en 1990), plus de la moitié sans traitement cette année-là, et plus de deux millions de décès en 2021 attribués au diabète et à la maladie rénale diabétique.",
+      "Les seuils diagnostiques retenus sont ceux de l'OMS et de l'American Diabetes Association (Standards of Care in Diabetes—2026, section 2). Le seuil de l'hémoglobine glyquée (6,5 %) suppose une méthode standardisée et fiable : dans un laboratoire non certifié, la glycémie à jeun et l'hyperglycémie provoquée restent les examens de référence.",
+      "Les cibles d'hémoglobine glyquée sont présentées comme individualisées, car les recommandations ne fixent pas un chiffre unique : moins de 7 % pour la majorité, moins de 6,5 % si l'objectif est atteignable sans hypoglycémie, moins de 8 % chez le patient fragile ou très comorbide.",
+      "Les molécules citées (metformine, gliclazide, insuline, inhibiteurs de SGLT2, analogues du GLP-1) le sont sans posologie : la disponibilité et le coût varient fortement d'un pays à l'autre, et le protocole national malgache doit primer.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction : aucune recommandation HAS n'est citée. Les sources retenues sont l'OMS et l'American Diabetes Association, consultées et vérifiées.",
+      "Le diabète de type 2 cétosique, décrit chez les patients d'ascendance africaine, est mentionné parce qu'il change la conduite initiale : un tableau de cétonurie ne permet pas d'exclure un type 2, et inversement un type 1 ne se présente pas toujours par une acidocétose."
+    ],
+    "qcChecklist": [
+      "Exactitude des seuils diagnostiques (glycémie à jeun, HGPO, hémoglobine glyquée)",
+      "Cohérence des cibles glycémiques avec les sources citées",
+      "Distinction entre acidocétose et coma hyperosmolaire",
+      "Absence de posologies non vérifiées",
+      "Vérification de la disponibilité des traitements dans le contexte national"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 2 est une maladie métabolique chronique définie par une hyperglycémie prolongée, résultant de deux mécanismes qui s'aggravent l'un l'autre : une résistance des tissus à l'action de l'insuline et une défaillance progressive de la sécrétion d'insuline par la cellule bêta-pancréatique. Contrairement au diabète de type 1, il ne s'installe pas par destruction auto-immune : il se développe pendant des années, souvent sans symptôme, sur un terrain d'obésité abdominale, de sédentarité et de prédisposition familiale."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette lenteur explique pourquoi le diagnostic est fréquemment posé au stade des complications : une rétinopathie découverte lors d'un fond d'œil, une protéinurie, une plaie du pied qui ne cicatrise pas, ou un infarctus. On estime qu'une hyperglycémie peut précéder le diagnostic de plusieurs années, ce qui signifie qu'au moment où le patient est vu pour la première fois, il faut non seulement traiter le sucre, mais aussi chercher ce qui s'est déjà abîmé."
+        },
+        {
+          "type": "paragraph",
+          "text": "La charge mondiale est considérable. Selon l'OMS, le nombre de personnes vivant avec un diabète est passé de 200 millions en 1990 à 830 millions en 2022, avec une progression plus rapide dans les pays à revenu faible ou intermédiaire. Plus de la moitié des personnes concernées ne recevaient aucun traitement cette année-là, et le diabète avec la maladie rénale diabétique a causé plus de deux millions de décès en 2021. Autrement dit, l'enjeu n'est pas seulement d'innover, mais d'atteindre et de garder sous traitement des patients déjà nombreux."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit une logique clinique : confirmer le diagnostic, vérifier qu'il s'agit bien d'un type 2, dépister les complications dès le premier contact, puis construire un traitement par étapes en tenant compte du risque cardiovasculaire, du risque d'hypoglycémie et de ce que le patient peut réellement suivre."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        },
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et mécanismes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "À jeun, la glycémie est maintenue dans une marge étroite par l'insuline, qui freine la production hépatique de glucose et stimule sa captation musculaire. Dans le diabète de type 2, le muscle et le foie deviennent moins sensibles à l'insuline : le foie continue de produire du glucose alors qu'il devrait s'arrêter, et le muscle en capte moins. Le pancréas compense d'abord en sécrétant davantage d'insuline, ce qui explique la longue phase silencieuse, puis s'épuise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Plusieurs mécanismes complémentaires entretiennent l'hyperglycémie et sont devenus des cibles thérapeutiques : un déficit de l'effet des incrétines (GLP-1 et GIP) après les repas, une production excessive de glucagon, une réabsorption rénale accrue du glucose et une lipolyse augmentée qui entretient la résistance à l'insuline. C'est pourquoi des classes médicamenteuses très différentes — agissant sur l'insuline, sur les incrétines ou sur le rein — peuvent être associées."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hyperglycémie chronique provoque des lésions par deux voies. La voie microvasculaire touche les capillaires de la rétine, du glomérule et du nerf, d'où la rétinopathie, la néphropathie et la neuropathie. La voie macrovasculaire accélère l'athérosclérose, d'où la coronaropathie, les accidents vasculaires cérébraux et l'artériopathie des membres inférieurs. Cette dernière est particulièrement redoutable pour le pied, où neuropathie, ischémie et infection se potentialisent."
+        },
+        {
+          "type": "table",
+          "columns": ["Critère diagnostique", "Seuil", "Remarques"],
+          "rows": [
+            ["Glycémie à jeun", "≥ 7,0 mmol/L (1,26 g/L)", "À jeun depuis au moins 8 heures"],
+            ["Glycémie 2 heures après charge orale de 75 g de glucose", "≥ 11,1 mmol/L (2,00 g/L)", "Épreuve d'hyperglycémie provoquée"],
+            ["Hémoglobine glyquée", "≥ 6,5 % (48 mmol/mol)", "Méthode standardisée et certifiée obligatoire"],
+            ["Glycémie aléatoire", "≥ 11,1 mmol/L (2,00 g/L)", "Avec symptômes typiques ou décompensation aiguë"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "En dehors de l'urgence symptomatique, un résultat isolé ne suffit pas : le diagnostic est confirmé par un second dosage, si possible différent, réalisé un autre jour. Les états intermédiaires — hyperglycémie à jeun entre 6,1 et 6,9 mmol/L selon l'OMS, intolérance au glucose entre 7,8 et 11,0 mmol/L lors de l'épreuve, hémoglobine glyquée entre 5,7 et 6,4 % selon l'ADA — ne sont pas des diabètes, mais ils annoncent un risque élevé et justifient une surveillance annuelle et des mesures de prévention."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Type 2 n'égale pas « diabète léger »",
+          "text": "Le diabète de type 2 tue et handicape par ses complications vasculaires. L'absence de cétose au diagnostic ne dit rien de la gravité future : c'est la durée d'exposition à l'hyperglycémie et le contrôle des facteurs de risque associés qui déterminent le pronostic."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Deux pièges de classement",
+          "text": "Un patient jeune et mince peut avoir un diabète de type 2, et un patient d'âge mûr peut avoir un diabète de type 1 lent (LADA). Devant un doute, la recherche d'auto-anticorps et la vitesse de progression guident la décision."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-HEARTS-D",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "HEARTS D: diagnosis and management of type 2 diabetes",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/who-ucn-ncd-20.1"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic commence par une question simple : qui faut-il tester ? Le dépistage ciblé concerne les adultes à partir de 40 ans, plus tôt en présence d'un surpoids ou d'une obésité, d'un antécédent familial de diabète, d'une hypertension, d'un diabète gestationnel ou d'un syndrome des ovaires polykystiques. Une glycémie à jeun suffit pour commencer ; l'hémoglobine glyquée est plus pratique car elle ne demande pas d'être à jeun, mais elle est faussée par les anémies, les hémoglobinopathies et les états d'hémolyse — situations fréquentes qu'il faut connaître avant d'interpréter un résultat discordant."
+        },
+        {
+          "type": "paragraph",
+          "text": "Devant des symptômes francs — soif intense, urines abondantes, amaigrissement, fatigue — une glycémie élevée associée à un contrôle urinaire positif pour le glucose suffit à porter le diagnostic et il ne faut pas attendre un second dosage pour traiter. Le tableau peut être bruyant : infections récidivantes (urinaires, cutanées, génitales), cicatrisation qui traîne, vision qui se trouble, ou décompensation aiguë."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Confirmer le diagnostic par un second dosage, sauf urgence symptomatique.",
+            "Rechercher les signes de décompensation : cétonurie, respiration ample, déshydratation, troubles de conscience.",
+            "Mesurer la pression artérielle, le poids, la taille, le tour de taille.",
+            "Dosage de l'hémoglobine glyquée, du bilan lipidique, de la créatinine avec débit de filtration estimé.",
+            "Rapport albumine/créatinine urinaire sur un échantillon d'urine.",
+            "Électrocardiogramme et recherche de symptômes d'effort.",
+            "Examen des pieds : pouls, sensibilité au monofilament, état cutané et ongles.",
+            "Fond d'œil dilaté, ou avis ophtalmologique dès le diagnostic quand l'hyperglycémie est probablement ancienne."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le premier bilan sert à deux choses : préciser le retentissement déjà présent et poser la base du suivi. Il ne faut pas oublier les facteurs de risque associés, qui pèsent au moins autant que la glycémie — tabac, hypertension, dyslipidémie, obésité, sédentarité — ni les situations qui compliquent la prise en charge : précarité, coût des médicaments, isolement, troubles cognitifs, dépression."
+        },
+        {
+          "type": "table",
+          "columns": ["Élément", "Ce qu'il faut répondre", "Piège fréquent"],
+          "rows": [
+            ["Cétonurie ou cétonémie", "S'agit-il d'une acidocétose ?", "Une cétonurie modérée à jeun n'est pas synonyme d'acidocétose"],
+            ["Hémoglobine glyquée", "Depuis quand l'hyperglycémie est-elle installée ?", "Faussée par anémie et hémoglobinopathies"],
+            ["Créatinine et débit de filtration", "Rein déjà atteint ?", "Le débit doit être estimé, pas seulement constaté"],
+            ["Albumine/créatinine", "Néphropathie débutante ?", "Une infection urinaire peut fausser le résultat"],
+            ["Bilan lipidique", "Risque cardiovasculaire", "À interpréter avec le risque global, pas isolément"],
+            ["Électrocardiogramme", "Coronaropathie silencieuse ?", "Un ECG normal n'élimine pas une coronaropathie"],
+            ["Examen des pieds", "Risque de plaie ?", "Retirer chaussettes et chaussures, toujours"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de décompensation aiguë",
+          "text": "Cétonurie ou cétonémie positives avec douleurs abdominales, vomissements, respiration ample, déshydratation ou troubles de conscience : acidocétose jusqu'à preuve du contraire, hospitalisation et insulinothérapie. Une déshydratation majeure avec glycémie très élevée et conscience altérée évoque un coma hyperosmolaire."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Toujours retirer les chaussettes",
+          "text": "L'examen des pieds est un geste de dépistage, pas un rituel de consultation spécialisée. Une plaie méconnue, une mycose interdigitale ou une perte de sensibilité au monofilament changent immédiatement la conduite et le pronostic."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 2 est une maladie multifactorielle. La prédisposition génétique est nette — antécédent familial au premier degré — mais elle ne suffit pas : l'environnement et le mode de vie déterminent l'expression de la maladie. L'excès de tissu adipeux, en particulier viscéral, entretient une inflammation de bas grade et une résistance à l'insuline ; la sédentarité réduit la captation musculaire du glucose ; l'alimentation riche en sucres et en graisses aggrave l'ensemble."
+        },
+        {
+          "type": "paragraph",
+          "text": "Certaines situations accélèrent la maladie ou doivent faire évoquer un autre diagnostic : la prise de corticoïdes (diabète stéroïdien), certains antipsychotiques, les inhibiteurs de protéase et certains traitements antirétroviraux, la pancréatite chronique, l'hémochromatose, l'acromégalie et le syndrome de Cushing. Chez l'adulte jeune non obèse, l'antécédent de diabète gestationnel chez la femme ou un tableau familial très chargé doivent faire poser la question du type 1 lent ou d'un diabète monogénique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs non modifiables : âge, antécédent familial, origine ethnique, antécédent de diabète gestationnel.",
+            "Facteurs modifiables : obésité et graisse abdominale, sédentarité, alimentation, tabac, hypertension, dyslipidémie.",
+            "Causes médicamenteuses : corticoïdes, antipsychotiques atypiques, certains antirétroviraux.",
+            "Maladies associées : pancréatite chronique, hémochromatose, acromégalie, syndrome de Cushing, hyperthyroïdie.",
+            "Formes frontières : diabète de type 1 à révélation lente (LADA), diabète de type 2 cétosique, diabètes monogéniques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas classer trop vite",
+          "text": "Un diabète qui se révèle par une acidocétose chez un patient d'ascendance africaine n'est pas forcément de type 1 : le diabète de type 2 cétosique existe et peut ensuite évoluer sans insuline pendant des années. Inversement, un adulte d'âge mûr mince dont le traitement oral échoue rapidement doit faire évoquer un LADA."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La prévention fonctionne",
+          "text": "Chez le patient prédiabétique, les essais de prévention montrent qu'une perte de poids modérée associée à l'activité physique et à une alimentation adaptée diminue nettement le risque de progression, et que la metformine apporte un bénéfice supplémentaire chez les sujets à risque élevé."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe trois leviers indissociables : l'accompagnement du mode de vie, le contrôle des facteurs de risque cardiovasculaire et les médicaments hypoglycémiants. Traiter l'hyperglycémie sans traiter la pression artérielle, le tabac et les lipides laisse subsister l'essentiel du risque. Inversement, promettre une amélioration par le seul régime, sans traitement progressif, expose à une décennie d'hyperglycémie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La cible d'hémoglobine glyquée s'individualise. Moins de 7 % convient à la plupart des patients ; moins de 6,5 % est raisonnable chez un patient jeune, sans maladie cardiovasculaire et sans hypoglycémie ; moins de 8 % est préférable chez un patient fragile, âgé, comorbide ou à risque d'hypoglycémie sévère. Une cible mal choisie produit soit une inertie inutile, soit des hypoglycémies dangereuses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alimentation adaptée, sans régime intenable : réduire les boissons sucrées et les sucres rapides, privilégier légumes, légumineuses et céréales complètes.",
+            "Activité physique : au moins 150 minutes par semaine d'effort modéré, réparties sur au moins trois jours, complétées par deux séances de renforcement.",
+            "Perte de poids en cas de surpoids : une réduction de 5 à 10 % améliore l'équilibre glycémique, et une perte plus importante peut parfois amener une rémission.",
+            "Arrêt du tabac, réduction de l'alcool, traitement de la pression artérielle et des lipides selon le risque.",
+            "Éducation du patient : autosurveillance quand elle a un sens, reconnaissance des hypoglycémies, soins des pieds, conduite à tenir en cas de maladie intercurrente.",
+            "Vaccinations : grippe, pneumocoque, hépatite B et COVID selon les recommandations locales."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Classe", "Exemples", "Place dans la stratégie", "Points de vigilance"],
+          "rows": [
+            ["Biguanide", "Metformine", "Première intention, sauf contre-indication rénale sévère", "Troubles digestifs, carence en vitamine B12, acidose lactique exceptionnelle"],
+            ["Sulfamide hypoglycémiant", "Gliclazide", "Alternative de faible coût, souvent utilisée en seconde intention", "Hypoglycémie, prise de poids ; prudence chez le sujet âgé"],
+            ["Inhibiteur de SGLT2", "Dapagliflozine, empagliflozine", "Insuffisance cardiaque, maladie rénale chronique, risque cardiovasculaire élevé", "Infections génito-urinaires, déshydratation, acidocétose euglycémique"],
+            ["Analogue du GLP-1", "Liraglutide, sémaglutide", "Obésité, maladie cardiovasculaire athéromateuse", "Troubles digestifs, coût élevé, contre-indication en cas d'antécédent de pancréatite"],
+            ["Insuline basale", "Glargine, NPH", "Symptômes cataboliques, glycémie très élevée, échec des traitements oraux", "Hypoglycémie, prise de poids, éducation indispensable"],
+            ["Insuline rapide", "Asparte, insuline humaine", "Correction des hyperglycémies et schéma basal-bolus", "Hypoglycémie, erreurs de dose"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La stratégie de première intention reste la metformine, associée aux mesures hygiéno-diététiques, en l'absence de contre-indication. Chez les patients ayant une maladie cardiovasculaire athéromateuse, une insuffisance cardiaque ou une maladie rénale chronique, les recommandations de l'ADA placent au premier plan un inhibiteur de SGLT2 ou un analogue du GLP-1, indépendamment de l'hémoglobine glyquée : l'objectif n'est plus seulement le sucre, mais la protection des organes. En cas d'hyperglycémie marquée au diagnostic — par exemple une hémoglobine glyquée supérieure à 10 % ou des symptômes cataboliques — l'insuline est introduite d'emblée, puis allégée une fois l'équilibre obtenu."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans un contexte où le choix est limité par le coût et la disponibilité, l'OMS propose une démarche par étapes : metformine, puis adjonction d'un sulfamide, puis insuline si l'objectif n'est pas atteint. Cette progression est moins ambitieuse sur le plan cardiovasculaire que les stratégies modernes, mais elle est applicable partout ; elle doit être expliquée comme une étape, pas comme un échec."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hypoglycémie : reconnaître et traiter en trois minutes",
+          "text": "Sueurs, tremblements, palpitations, faim impérieuse, confusion ou trouble du comportement. Si le patient peut avaler : 15 à 20 g de glucose, puis contrôle après 15 minutes et collation. Si la conscience est altérée : glucagon ou glucose intraveineux, sans attendre."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Acidocétose ou coma hyperosmolaire ?",
+          "text": "L'acidocétose associe cétonurie, acidose et douleurs abdominales, avec une glycémie souvent modérément élevée. Le coma hyperosmolaire associe une glycémie très élevée, une déshydratation profonde et une osmolalité élevée, sans cétose significative. Les deux imposent une hospitalisation et une réhydratation prudente."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Règles du jour de maladie",
+          "text": "En cas de fièvre, de vomissements ou de jeûne prolongé : ne pas arrêter l'insuline, surveiller la glycémie plus souvent, boire suffisamment. Les inhibiteurs de SGLT2 sont suspendus pendant une maladie aiguë ou un jeûne, en raison du risque d'acidocétose euglycémique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi comprend l'hémoglobine glyquée tous les trois à six mois selon l'équilibre, le contrôle annuel du débit de filtration et de l'albumine urinaire, le bilan lipidique, la pression artérielle à chaque visite, un fond d'œil et un examen complet des pieds au moins une fois par an — plus souvent en cas de neuropathie. La prévention passe aussi par le dépistage du prédiabète, la prise en charge du surpoids et, chez la femme en âge de procréer, par une contraception adaptée et une préparation à la grossesse."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez la femme enceinte, les objectifs changent : l'insuline redevient le traitement de référence, les traitements oraux sont réévalués, les inhibiteurs du système rénine-angiotensine et les statines sont suspendus, et une supplémentation en acide folique à forte dose est prescrite en préconceptionnel. Un diabète gestationnel impose un dépistage ultérieur du diabète de type 2."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S009"
+        },
+        {
+          "id": "SRC-WHO-HEARTS-D",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "HEARTS D: diagnosis and management of type 2 diabetes",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/who-ucn-ncd-20.1"
+        },
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diabète de type 2 se traite par une trajectoire, pas par une ordonnance isolée. Le diagnostic confirmé, il faut immédiatement chercher les complications déjà présentes, évaluer le risque cardiovasculaire et négocier un objectif glycémique réaliste. Le traitement commence par l'accompagnement du mode de vie, mais il ne s'y arrête pas : l'escalade médicamenteuse doit être anticipée et expliquée, sinon elle arrive trop tard."
+        },
+        {
+          "type": "paragraph",
+          "text": "Trois erreurs reviennent souvent. Croire qu'un diabète de type 2 est bénin parce qu'il ne cétose pas. Vouloir normaliser l'hémoglobine glyquée au prix d'hypoglycémies chez un patient âgé. Oublier que le pied, l'œil et le rein se surveillent même quand le patient se sent bien. À l'inverse, trois réflexes changent le pronostic : examiner les pieds, contrôler la pression artérielle et le rein, et vérifier l'observance à chaque visite."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans un contexte de ressources limitées, la question décisive n'est pas la molécule la plus récente mais la continuité : un traitement disponible, abordable et pris tous les jours, avec un suivi qui permet de l'ajuster. C'est cette continuité qui évite l'amputation, la dialyse et l'accident vasculaire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-HEARTS-D",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "HEARTS D: diagnosis and management of type 2 diabetes",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/who-ucn-ncd-20.1"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les seuils diagnostiques, les cibles et les stratégies de cette fiche proviennent des documents suivants, consultés et vérifiés le 17 octobre 2026. Une recommandation nationale malgache, si elle existe, doit primer en cas d'écart."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Organisation mondiale de la Santé. Diabetes — fact sheet. Mise à jour du 14 novembre 2024.",
+            "American Diabetes Association. Standards of Care in Diabetes—2026. Diabetes Care 2026 ; 49 (supplément 1).",
+            "Organisation mondiale de la Santé. HEARTS D: diagnosis and management of type 2 diabetes. Genève : OMS ; 2020."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-DIAB-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Diabetes — fact sheet (14 novembre 2024)",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes"
+        },
+        {
+          "id": "SRC-ADA-2026",
+          "organization": "American Diabetes Association (ADA)",
+          "title": "Standards of Care in Diabetes—2026",
+          "year": 2026,
+          "url": "https://doi.org/10.2337/dc26-S002"
+        },
+        {
+          "id": "SRC-WHO-HEARTS-D",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "HEARTS D: diagnosis and management of type 2 diabetes",
+          "year": 2020,
+          "url": "https://www.who.int/publications/i/item/who-ucn-ncd-20.1"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-bilan",
+      "label": "Bilan du premier contact",
+      "intro": "Yeux — Pieds — Rein — Cœur — Lipides",
+      "entries": [
+        { "key": "Y", "term": "Yeux : fond d'œil à la recherche d'une rétinopathie." },
+        { "key": "P", "term": "Pieds : examen de la peau, des pouls et de la sensibilité." },
+        { "key": "R", "term": "Rein : créatinine avec débit de filtration estimé et albuminurie." },
+        { "key": "C", "term": "Cœur : pression artérielle et électrocardiogramme." },
+        { "key": "L", "term": "Lipides : bilan lipidique complet." }
+      ],
+      "note": "Cinq organes à évaluer dès le diagnostic, pas un an plus tard."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels sont les quatre critères diagnostiques du diabète ?",
+      "back": "Glycémie à jeun ≥ 7,0 mmol/L ; glycémie 2 h après 75 g de glucose ≥ 11,1 mmol/L ; hémoglobine glyquée ≥ 6,5 % ; glycémie aléatoire ≥ 11,1 mmol/L avec symptômes.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Faut-il confirmer un diagnostic de diabète par un second dosage ?",
+      "back": "Oui, sauf urgence symptomatique. Un second dosage, si possible différent, est réalisé un autre jour.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quelles situations faussent l'hémoglobine glyquée ?",
+      "back": "Les anémies, les hémoglobinopathies, l'hémolyse, la grossesse et l'insuffisance rénale avancée : la valeur ne reflète alors pas la glycémie moyenne réelle.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quels sont les deux mécanismes principaux du diabète de type 2 ?",
+      "back": "Une résistance à l'insuline (foie et muscle) et une défaillance progressive de la sécrétion d'insuline par la cellule bêta-pancréatique.",
+      "tags": ["physiopathologie"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle est la cible d'hémoglobine glyquée chez la plupart des patients ?",
+      "back": "Moins de 7 %. Elle est abaissée vers 6,5 % chez un patient jeune sans maladie cardiovasculaire, et relevée vers 8 % chez un patient fragile ou à risque d'hypoglycémie sévère.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est le traitement médicamenteux de première intention du diabète de type 2 ?",
+      "back": "La metformine, en association aux mesures hygiéno-diététiques, en l'absence de contre-indication rénale sévère.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Chez quels patients un inhibiteur de SGLT2 ou un analogue du GLP-1 est-il indiqué indépendamment de l'hémoglobine glyquée ?",
+      "back": "En cas de maladie cardiovasculaire athéromateuse, d'insuffisance cardiaque ou de maladie rénale chronique : l'objectif est la protection des organes.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels signes doivent faire évoquer une acidocétose ?",
+      "back": "Cétonurie ou cétonémie, douleurs abdominales, vomissements, respiration ample, déshydratation, troubles de conscience. Hospitalisation et insulinothérapie.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Qu'est-ce qui distingue le coma hyperosmolaire de l'acidocétose ?",
+      "back": "Le coma hyperosmolaire associe une glycémie très élevée, une déshydratation profonde et une osmolalité élevée, sans cétose significative. L'acidocétose associe cétonurie et acidose.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Comment traiter une hypoglycémie chez un patient conscient ?",
+      "back": "15 à 20 g de glucose par voie orale, contrôle de la glycémie après 15 minutes, puis collation. Si la conscience est altérée : glucagon ou glucose intraveineux.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quels examens de dépistage des complications réaliser au diagnostic ?",
+      "back": "Fond d'œil, examen des pieds, créatinine avec débit de filtration, rapport albumine/créatinine urinaire, bilan lipidique et électrocardiogramme.",
+      "tags": ["surveillance"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Que faire des inhibiteurs de SGLT2 pendant une maladie aiguë ou un jeûne ?",
+      "back": "Les suspendre : ils exposent à une acidocétose euglycémique, d'autant plus trompeuse que la glycémie reste modérément élevée.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-13",
+      "front": "Pourquoi un diabète de type 2 cétosique ne doit-il pas être classé en type 1 ?",
+      "back": "Parce qu'il peut se révéler par une acidocétose puis évoluer sans insuline pendant des années. Le classement se fait sur l'évolution et les auto-anticorps, pas sur le tableau initial.",
+      "tags": ["etiologie"]
+    },
+    {
+      "id": "fc-14",
+      "front": "Quelles mesures de prévention réduisent le risque de diabète chez un patient prédiabétique ?",
+      "back": "Une perte de poids modérée, au moins 150 minutes d'activité physique par semaine et une alimentation adaptée ; la metformine apporte un bénéfice supplémentaire chez les sujets à risque élevé.",
+      "tags": ["prévention"]
+    },
+    {
+      "id": "fc-15",
+      "front": "Quels traitements sont suspendus chez la femme diabétique qui débute une grossesse ?",
+      "back": "Les inhibiteurs de l'enzyme de conversion ou de l'angiotensine II, les statines et la plupart des traitements oraux : l'insuline redevient la référence.",
+      "tags": ["grossesse"]
+    },
+    {
+      "id": "fc-16",
+      "front": "Quels sont les deux versants des complications du diabète ?",
+      "back": "Microvasculaire (rétinopathie, néphropathie, neuropathie) et macrovasculaire (coronaropathie, accident vasculaire cérébral, artériopathie des membres inférieurs).",
+      "tags": ["complications"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Diabète de type 2",
+      "detail": "Confirmer, classer, dépister les complications, traiter par étapes. La cible glycémique s'individualise, et le risque cardiovasculaire se traite en même temps que le sucre."
+    },
+    "branches": [
+      {
+        "id": "diagnostiquer",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Quatre critères, un second dosage de confirmation hors urgence, et un dépistage ciblé des sujets à risque.",
+        "children": [
+          {
+            "id": "dia-criteres",
+            "label": "Critères",
+            "detail": "Glycémie à jeun ≥ 7,0 mmol/L, HGPO à 2 h ≥ 11,1 mmol/L, hémoglobine glyquée ≥ 6,5 %, glycémie aléatoire ≥ 11,1 avec symptômes.",
+            "leaves": [
+              {
+                "id": "dia-criteres-1",
+                "label": "Deux dosages",
+                "detail": "Confirmer un autre jour, sauf urgence."
+              },
+              {
+                "id": "dia-criteres-2",
+                "label": "HbA1c faussée",
+                "detail": "Anémie, hémoglobinopathie, hémolyse."
+              }
+            ]
+          },
+          {
+            "id": "dia-depistage",
+            "label": "Qui dépister",
+            "detail": "Adultes dès 40 ans, plus tôt si surpoids, antécédent familial, hypertension, diabète gestationnel ou ovaires polykystiques.",
+            "leaves": [
+              {
+                "id": "dia-depistage-1",
+                "label": "Prédiabète",
+                "detail": "Surveillance annuelle et mesures de prévention."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "prudence",
+        "detail": "Tous les diabètes ne sont pas de type 2 : le classement initial engage des années de traitement.",
+        "children": [
+          {
+            "id": "cla-type1",
+            "label": "Type 1 lent",
+            "detail": "Adulte mince, échec rapide des traitements oraux, auto-anticorps positifs : penser au LADA.",
+            "leaves": [
+              {
+                "id": "cla-type1-1",
+                "label": "Auto-anticorps",
+                "detail": "À demander en cas de doute sur le type."
+              }
+            ]
+          },
+          {
+            "id": "cla-cetosique",
+            "label": "Type 2 cétosique",
+            "detail": "Révélation par acidocétose chez un patient d'ascendance africaine, puis évolution possible sans insuline.",
+            "leaves": [
+              {
+                "id": "cla-cetosique-1",
+                "label": "Ne pas figer",
+                "detail": "Réévaluer la nécessité de l'insuline à distance."
+              }
+            ]
+          },
+          {
+            "id": "cla-secondaire",
+            "label": "Diabètes secondaires",
+            "detail": "Corticoïdes, antipsychotiques, antirétroviraux, pancréatite chronique, hémochromatose, acromégalie, Cushing.",
+            "leaves": [
+              {
+                "id": "cla-secondaire-1",
+                "label": "Interrogatoire",
+                "detail": "Médicaments et antécédents pancréatiques."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "complications",
+        "label": "Complications",
+        "tone": "retenir",
+        "detail": "Chercher dès le diagnostic ce qui s'est déjà abîmé : l'hyperglycémie précède souvent le diagnostic de plusieurs années.",
+        "children": [
+          {
+            "id": "com-micro",
+            "label": "Microvasculaires",
+            "detail": "Rétinopathie, néphropathie et neuropathie : fond d'œil, albumine urinaire, monofilament.",
+            "leaves": [
+              {
+                "id": "com-micro-1",
+                "label": "Albumine/créatinine",
+                "detail": "Marqueur précoce de néphropathie."
+              },
+              {
+                "id": "com-micro-2",
+                "label": "Fond d'œil",
+                "detail": "Dilaté, dès le diagnostic."
+              }
+            ]
+          },
+          {
+            "id": "com-macro",
+            "label": "Macrovasculaires",
+            "detail": "Coronaropathie, accidents vasculaires cérébraux, artériopathie des membres inférieurs.",
+            "leaves": [
+              {
+                "id": "com-macro-1",
+                "label": "ECG",
+                "detail": "Rechercher une coronaropathie silencieuse."
+              }
+            ]
+          },
+          {
+            "id": "com-pied",
+            "label": "Pied",
+            "detail": "Neuropathie, ischémie et infection se potentialisent : examen annuel minimum, plus souvent si risque.",
+            "leaves": [
+              {
+                "id": "com-pied-1",
+                "label": "Retirer les chaussettes",
+                "detail": "Geste de dépistage, pas de spécialiste."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Mode de vie pour tous, metformine en première intention, protection des organes quand le risque l'exige.",
+        "children": [
+          {
+            "id": "tra-mode",
+            "label": "Mode de vie",
+            "detail": "Alimentation, 150 minutes d'activité par semaine, perte de poids de 5 à 10 %, arrêt du tabac.",
+            "leaves": [
+              {
+                "id": "tra-mode-1",
+                "label": "Objectif réaliste",
+                "detail": "Un régime intenable ne survit pas à six mois."
+              }
+            ]
+          },
+          {
+            "id": "tra-medicaments",
+            "label": "Médicaments",
+            "detail": "Metformine, sulfamide, inhibiteur de SGLT2, analogue du GLP-1, insuline : la place dépend du risque et du coût.",
+            "leaves": [
+              {
+                "id": "tra-medicaments-1",
+                "label": "Protection d'organe",
+                "detail": "SGLT2 ou GLP-1 si cœur, rein ou athérome."
+              },
+              {
+                "id": "tra-medicaments-2",
+                "label": "Insuline d'emblée",
+                "detail": "Si symptômes cataboliques ou hyperglycémie très marquée."
+              }
+            ]
+          },
+          {
+            "id": "tra-cibles",
+            "label": "Cibles",
+            "detail": "Moins de 7 % pour la plupart ; 6,5 % si atteignable sans hypoglycémie ; 8 % si fragile.",
+            "leaves": [
+              {
+                "id": "tra-cibles-1",
+                "label": "Individualiser",
+                "detail": "Âge, comorbidités, risque d'hypoglycémie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Deux décompensations à ne pas confondre, une même règle : hospitaliser et réhydrater prudemment.",
+        "children": [
+          {
+            "id": "urg-cetose",
+            "label": "Acidocétose",
+            "detail": "Cétonurie, acidose, douleurs abdominales, vomissements ; glycémie parfois seulement modérée.",
+            "leaves": [
+              {
+                "id": "urg-cetose-1",
+                "label": "Insuline IV",
+                "detail": "Après début de la réhydratation."
+              }
+            ]
+          },
+          {
+            "id": "urg-hyperosmolaire",
+            "label": "Coma hyperosmolaire",
+            "detail": "Glycémie très élevée, déshydratation profonde, osmolalité élevée, absence de cétose significative.",
+            "leaves": [
+              {
+                "id": "urg-hyperosmolaire-1",
+                "label": "Mortalité élevée",
+                "detail": "Réhydratation progressive et surveillance rapprochée."
+              }
+            ]
+          },
+          {
+            "id": "urg-hypo",
+            "label": "Hypoglycémie",
+            "detail": "Sueurs, tremblements, confusion. 15 à 20 g de glucose si le patient avale, glucagon ou glucose IV sinon.",
+            "leaves": [
+              {
+                "id": "urg-hypo-1",
+                "label": "Recontrôler",
+                "detail": "Glycémie après 15 minutes, puis collation."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "memo",
+        "detail": "Un suivi structuré évite l'amputation, la dialyse et l'accident vasculaire : il se planifie, il ne s'improvise pas.",
+        "children": [
+          {
+            "id": "sur-hba1c",
+            "label": "Hémoglobine glyquée",
+            "detail": "Tous les trois à six mois selon l'équilibre, avec réévaluation de la cible.",
+            "leaves": [
+              {
+                "id": "sur-hba1c-1",
+                "label": "Inertie",
+                "detail": "Une valeur au-dessus de la cible sans changement de traitement est une erreur."
+              }
+            ]
+          },
+          {
+            "id": "sur-rein",
+            "label": "Rein",
+            "detail": "Créatinine et albumine urinaire au moins une fois par an, plus souvent si anomalie.",
+            "leaves": [
+              {
+                "id": "sur-rein-1",
+                "label": "IEC ou sartan",
+                "detail": "Si albuminurie, avec contrôle du potassium."
+              }
+            ]
+          },
+          {
+            "id": "sur-pieds",
+            "label": "Pieds et yeux",
+            "detail": "Examen des pieds et fond d'œil annuels ; éducation du patient entre deux consultations.",
+            "leaves": [
+              {
+                "id": "sur-pieds-1",
+                "label": "Chaussage",
+                "detail": "Inspecter l'intérieur des chaussures à chaque visite."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-DIAB-FS",
+      "title": "Diabetes — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Diabetes — fact sheet. Mise à jour du 14 novembre 2024.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2024,
+      "version": "14 novembre 2024",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/diabetes",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Définition",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-ADA-2026",
+      "title": "Standards of Care in Diabetes—2026",
+      "citation": "American Diabetes Association. Standards of Care in Diabetes—2026. Diabetes Care 2026 ; 49 (supplément 1). Sections 2 (diagnostic), 6 (objectifs glycémiques et hypoglycémies) et 9 (traitements pharmacologiques).",
+      "organization": "American Diabetes Association (ADA)",
+      "year": 2026,
+      "version": "édition 2026",
+      "url": "https://doi.org/10.2337/dc26-S002",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Objectifs glycémiques",
+        "Classes thérapeutiques",
+        "Surveillance des complications"
+      ]
+    },
+    {
+      "id": "SRC-WHO-HEARTS-D",
+      "title": "HEARTS D: diagnosis and management of type 2 diabetes",
+      "citation": "Organisation mondiale de la Santé. HEARTS D: diagnosis and management of type 2 diabetes. Genève : OMS ; 2020 (publié le 22 avril 2020).",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2020,
+      "version": "22 avril 2020",
+      "url": "https://www.who.int/publications/i/item/who-ucn-ncd-20.1",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Démarche par étapes en ressources limitées",
+        "Cibles",
+        "Suivi"
+      ]
+    }
+  ]
+}
