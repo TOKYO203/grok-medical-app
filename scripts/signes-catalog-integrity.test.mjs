@@ -248,3 +248,47 @@ test("le mock est une fixture de test, plus jamais un actif publié", () => {
   walk("src");
   assert.deepEqual(offenders, [], `la fixture de test est importée par l'application : ${offenders.join(", ")}`);
 });
+
+/* ------------------------------------------------------------------ */
+/* TUILE D'ACCUEIL — le module est annoncé, pas encore ouvert           */
+/* ------------------------------------------------------------------ */
+
+const homeSource = readFileSync(join(ROOT, "src/routes/index.tsx"), "utf8");
+
+test("la tuile d'accueil est annoncée mais FERMÉE (SIGNES_READY=false)", () => {
+  assert.match(
+    homeSource,
+    /const SIGNES_READY = false;/,
+    "SIGNES_READY doit valoir false tant que la banque n'est pas présentable",
+  );
+
+  // La tuile est branchée sur le drapeau : la passer à true suffit à l'ouvrir.
+  assert.match(
+    homeSource,
+    /signesState=\{SIGNES_READY \? "ready" : "soon"\}/,
+    "la tuile doit dériver son état du drapeau SIGNES_READY",
+  );
+});
+
+test("l'état « Bientôt » n'est pas un lien : le clic ne peut rien faire", () => {
+  const soon = homeSource.slice(
+    homeSource.indexOf('if (signesState === "soon")'),
+    homeSource.indexOf("<Link to={to}", homeSource.indexOf('if (signesState === "soon")')),
+  );
+  assert.ok(soon.length > 0, "branche « soon » introuvable dans QuickAction");
+  assert.match(soon, /<div/, "l'état « soon » doit être un <div>");
+  assert.doesNotMatch(soon, /<Link/, "l'état « soon » ne doit contenir AUCUN lien");
+  assert.match(soon, /aria-disabled="true"/, "l'état « soon » doit être aria-disabled");
+  assert.match(soon, /data-signes-card="soon"/, "l'état « soon » doit être marquable en QA");
+  assert.match(soon, /cursor-not-allowed/, "l'état « soon » doit signaler visuellement l'inactivité");
+  assert.match(homeSource, /soonLabel=\{t\("dash\.soon"\)\}/, "le badge doit être traduit");
+});
+
+test("les libellés de la tuile existent dans les quatre langues", () => {
+  for (const locale of ["fr", "en", "es", "pt"]) {
+    const catalog = readFileSync(join(ROOT, `src/i18n/messages/${locale}.ts`), "utf8");
+    for (const key of ["dash.signesDetail", "dash.soon"]) {
+      assert.ok(catalog.includes(`"${key}":`), `${locale} : clé manquante ${key}`);
+    }
+  }
+});
