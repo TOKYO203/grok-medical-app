@@ -23,3 +23,23 @@ export type SignesCatalog = {
   schemaVersion: number;
   items: SigneItem[];
 };
+
+/**
+ * Entrée du MANIFESTE (`public/content/signes/_index.json`) : une CATÉGORIE de
+ * contenu = un actif statique. `status: "planned"` annonce une catégorie sans
+ * fichier publié (le contenu arrive par lots, sans toucher au code).
+ */
+export type SignesCategoryEntry = {
+  id: SigneCategory;
+  /** Libellé affiché (porté par le contenu, comme les titres de decks). */
+  label: string;
+  file: string;
+  status: "available" | "planned";
+  /** Nombre d'items annoncé — contrôlé par le test d'intégrité. */
+  count?: number;
+};
+
+export type SignesIndex = {
+  schemaVersion: number;
+  categories: SignesCategoryEntry[];
+};

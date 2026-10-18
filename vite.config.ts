@@ -208,6 +208,12 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
               "/content/pathologies/**": {
                 headers: { "cache-control": "public, max-age=31536000, immutable" },
               },
+              // Signes & Syndromes : catégories servies comme actifs statiques.
+              // Une seule politique dans le dépôt (`public/_headers` + ici) :
+              // `scripts/signes-catalog-integrity.test.mjs` verrouille les deux.
+              "/content/signes/**": {
+                headers: { "cache-control": "public, max-age=31536000, immutable" },
+              },
             },
           }),
         ]

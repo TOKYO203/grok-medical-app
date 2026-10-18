@@ -10,6 +10,13 @@
 /content/pathologies/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Signes & Syndromes : même régime. Une catégorie = un actif JSON immuable
+# (`public/content/signes/<catégorie>.json`), téléchargé à la demande ; le
+# manifeste `_index.json` est volontairement dans ce dossier aussi, il est donc
+# cache un an comme le reste (il n'est relu qu'après purge du CDN).
+/content/signes/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Manifeste PWA et service worker : jamais figés dans un cache immuable.
 /sw.js
   Cache-Control: public, max-age=0, must-revalidate
