@@ -48,7 +48,7 @@ const ASSET_RELATIVE_DIRECTORIES = [
  * les valeurs non sérialisables, ce qui est une bonne barrière — le catalogue
  * (`catalog.ts`) revérifie ensuite la forme réelle avec ses gardes.
  */
-export type SignesAsset = SigneIndex | SignesCatalog | SigneItem;
+export type SignesAsset = SignesIndex | SignesCatalog | SigneItem;
 
 /** Garde-fou : aucun actif de ce dossier ne doit peser plus que du texte. */
 const MAX_ASSET_BYTES = 2 * 1024 * 1024;
