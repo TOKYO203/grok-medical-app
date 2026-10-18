@@ -10,6 +10,11 @@
 /content/pathologies/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Les fiches « Signes & Syndromes » suivent la même politique : une fiche est
+# un actif immuable (une correction = un nouveau contenu + purge CDN).
+/content/signes/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Manifeste PWA et service worker : jamais figés dans un cache immuable.
 /sw.js
   Cache-Control: public, max-age=0, must-revalidate

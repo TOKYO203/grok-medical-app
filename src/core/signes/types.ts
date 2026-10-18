@@ -1,5 +1,12 @@
 export type SigneCategory = "signe" | "syndrome" | "triade" | "tetrade" | "symptome";
 
+/** Référence vérifiable affichée sous chaque fiche (traçabilité éditoriale). */
+export type SigneSource = {
+  organization: string;
+  title: string;
+  url: string;
+};
+
 export type SigneItem = {
   id: string;
   category: SigneCategory;
@@ -17,9 +24,26 @@ export type SigneItem = {
   correctIndex: number;
   /** Explication (optionnelle) */
   explanation?: string;
+  /** Sources (optionnelles) — le contenu publié en porte toujours au moins une. */
+  sources?: SigneSource[];
 };
 
 export type SignesCatalog = {
   schemaVersion: number;
   items: SigneItem[];
+};
+
+/**
+ * Manifeste `public/content/signes/_index.json`.
+ *
+ * ⚠️ Format CANONIQUE fourni par le contenu éditorial : une catégorie n'est pas
+ * un fichier, c'est une LISTE D'IDS dont chaque fiche est un actif autonome
+ * (`public/content/signes/<id>.json`). Le manifeste ne contient donc aucun
+ * texte médical — seulement la table des matières, lue avant de savoir quoi
+ * télécharger.
+ */
+export type SignesIndex = {
+  schemaVersion: number;
+  description?: string;
+  categories: Record<string, string[]>;
 };

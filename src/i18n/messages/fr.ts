@@ -105,6 +105,8 @@ export const fr: MessageCatalog = {
   "dash.clinicalTools": "Outils cliniques",
   "dash.interpretation": "Interprétation",
   "dash.cardioPulmo": "Cardio · Pulmo",
+  "dash.signesDetail": "Raisonnement inversé",
+  "dash.soon": "Bientôt",
   "dash.dailyStreak": "Série quotidienne",
   "dash.streakDays": (p) => p.count + " jour" + (Number(p.count) > 1 ? "s" : "") + " d'affilée",
   "dash.startStreak": "Commence ta série aujourd'hui",
