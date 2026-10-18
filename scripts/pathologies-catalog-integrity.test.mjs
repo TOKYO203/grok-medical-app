@@ -1,12 +1,20 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const dir = new URL("../src/content/data/pathologies/", import.meta.url);
-const readJson = (name) => readFile(new URL(name, dir), "utf8").then(JSON.parse);
+/* Les FICHES sont des actifs statiques (`public/content/pathologies/`), pas des
+   modules : elles sont publiées telles quelles sur le CDN et récupérées par
+   `fetch()`. Seul le MANIFESTE reste dans `src/`, pour que `/programme` affiche
+   les liens sans télécharger de contenu. Ce test lit donc deux dossiers. */
+
+const contentDir = new URL("../public/content/pathologies/", import.meta.url);
+const manifestDir = new URL("../src/content/data/pathologies/", import.meta.url);
+const readContent = (name) => readFile(new URL(name, contentDir), "utf8").then(JSON.parse);
+const readManifest = (name) => readFile(new URL(name, manifestDir), "utf8").then(JSON.parse);
 
 const [index, programme, programmeCatalogue, decks, cases, catalogSource] = await Promise.all([
-  readJson("_index.json"),
+  readManifest("_index.json"),
   readFile(new URL("../src/content/data/programmes/madagascar-2025.json", import.meta.url), "utf8").then(
     JSON.parse,
   ),
@@ -37,9 +45,14 @@ const ordinalOf = new Map(programmeItems.map((item, i) => [item.id, i + 1]));
 const DECK_IDS = new Set(decks.map((deck) => deck.id));
 const CASE_IDS = new Set(cases.map((item) => item.id));
 
-/** Fichiers réellement présents dans le dossier (hors manifeste). */
+/** Actifs réellement présents dans `public/content/pathologies/`. */
 const presentFiles = new Set(
-  (await readdir(dir)).filter((name) => name.endsWith(".json") && name !== "_index.json"),
+  (await readdir(contentDir)).filter((name) => name.endsWith(".json")),
+);
+
+/** Fichiers de contenu restés dans `src/` (il ne doit plus y en avoir). */
+const straySourceFiles = (await readdir(manifestDir)).filter(
+  (name) => name.endsWith(".json") && name !== "_index.json",
 );
 
 const availableEntries = index.fiches.filter((entry) => entry.status === "available");
@@ -75,19 +88,46 @@ test("aucun fichier de fiche n'est orphelin (tout fichier est déclaré)", () =>
   }
 });
 
-test("chaque fiche disponible est branchée sur un chargeur du catalogue", () => {
+test("le contenu a quitté src/ : aucune fiche n'est un module JavaScript", () => {
+  assert.deepEqual(
+    straySourceFiles,
+    [],
+    "des fiches sont encore dans src/content/data/pathologies/ : elles seraient " +
+      "compilées dans un chunk (elles doivent vivre dans public/content/pathologies/)",
+  );
+});
+
+test("le chargeur sert les fiches par URL d'actif statique, sans import de contenu", () => {
   assert.ok(availableEntries.length >= 1, "aucune fiche disponible");
+
+  // Aucun JSON de fiche ne doit être importé (statique OU dynamique) : le
+  // bundle ne doit contenir que la base d'URL publique.
+  assert.doesNotMatch(
+    catalogSource,
+    /import\s*\([^)]*\.json/,
+    "catalog.ts importe encore un JSON de contenu : il reviendrait dans le bundle",
+  );
   for (const entry of availableEntries) {
     assert.ok(
-      catalogSource.includes(`"${entry.file}": () =>`),
-      `${entry.file}: aucun chargeur dans src/lib/pathologies/catalog.ts`,
+      !catalogSource.includes(entry.file),
+      `catalog.ts référence nommément ${entry.file} : la liste des fiches doit venir du manifeste`,
     );
+    assert.ok(presentFiles.has(entry.file), `${entry.file}: actif absent de public/content/pathologies/`);
   }
+
+  // Le manifeste (module pur) porte la base publique ; le chargeur la consomme.
+  const manifestSource = readFileSync(new URL("../src/lib/pathologies/manifest.ts", import.meta.url), "utf8");
+  assert.match(
+    manifestSource,
+    /PATHOLOGY_ASSET_BASE = "\/content\/pathologies"/,
+    "la base publique des fiches doit rester /content/pathologies",
+  );
+  assert.match(catalogSource, /fetch\(/, "le chargeur doit récupérer l'actif par fetch()");
 });
 
 test("chaque fiche disponible est complète et rattachée au bon item du programme", async () => {
   for (const entry of availableEntries) {
-    const content = await readJson(entry.file);
+    const content = await readContent(entry.file);
 
     assert.equal(content.kind, "pathology", `${entry.file}: kind divergent`);
     assert.equal(content.slug, entry.slug, `${entry.file}: slug divergent`);

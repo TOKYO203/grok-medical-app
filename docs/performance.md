@@ -10,7 +10,9 @@ Le script `scripts/performance-budget.mjs` est exécuté automatiquement par `np
 | --- | ---: |
 | Un chunk JavaScript client | 584 KiB max |
 | Une feuille CSS client | 120 KiB max |
-| JavaScript client total produit par le build | 2 080 KiB max |
+| JavaScript client total produit par le build | 1 960 KiB max |
+| Une ressource du shell (`public/**, hors content/`) | 512 KiB max |
+| Une fiche de contenu (`public/content/**`) | 256 KiB max |
 
 La source de vérité est `PERFORMANCE_BUDGET` dans `scripts/performance-budget.mjs` (ce tableau ne fait que la refléter). Le build échoue si l'une de ces limites est dépassée ; chaque relèvement y est daté et motivé, avec une marge volontairement faible (le plafond est un garde-fou, pas une cible).
 
@@ -27,6 +29,32 @@ Commande manuelle après un build (mesure seule, sans rebuild) :
 ```bash
 npm run postbuild:budget
 ```
+
+## Contenu servi comme actif statique (fiches de nosographie)
+
+Depuis le 2026-10-18, les fiches de nosographie **ne sont pas des modules JavaScript**. Chaque fiche est un fichier `public/content/pathologies/<slug>.json`, publié tel quel et récupéré par `fetch()` :
+
+```
+navigateur ──fetch──▶ /content/pathologies/hta-essentielle.json   (CDN, 1 an, immutable)
+serveur SSR ─lit────▶ public/content/pathologies/*.json            (ou repli fetch origine)
+```
+
+Conséquences sur le budget :
+
+- **Zéro octet de contenu dans les chunks JS.** Ajouter 40 fiches n'ajoute aucun JavaScript ; les 40 fichiers pèsent leur poids de JSON, téléchargés un par un.
+- Le budget « actifs publics » **sépare** `public/content/**` des ressources du shell : un plafond **par fichier** (256 KiB) mais **aucun total**, sinon le catalogue éditorial (240 items × ~50 Kio ≈ 12 Mo à terme) ferait échouer un budget de code pour une raison qui n'est pas du code.
+- `npm run build` vérifie les deux côtés : `scripts/pathologies-catalog-integrity.test.mjs` (manifeste ↔ fichiers, aucun contenu resté dans `src/`) et `scripts/bundle-content.test.mjs` (payload absent de **tout** chunk, aucun chunk nommé d'après une fiche, chaque fiche publiée dans `dist/content/pathologies/`).
+
+### En-têtes de cache (deux plateformes, deux mécanismes)
+
+| Plateforme | Source de la règle |
+| --- | --- |
+| Cloudflare Pages, Netlify | `public/_headers` → `/content/pathologies/*` = `public, max-age=31536000, immutable` |
+| Vercel | `routeRules` Nitro dans `vite.config.ts` (Vercel ignore `_headers`) |
+
+Le `Content-Type: application/json` n'est pas déclaré à la main : il est déduit de l'extension par les trois plateformes et par le serveur de prévisualisation. La QA vérifie le couple `content-type` + `cache-control` sur l'artefact de production.
+
+> ⚠️ **Corriger une fiche déjà publiée exige une purge du cache CDN.** L'URL ne contient pas de hash (contrairement à `dist/assets/`) : tant que la purge n'est pas faite, les navigateurs qui ont déjà la fiche gardent l'ancienne version jusqu'à un an. Procédure : purger `/content/pathologies/<slug>.json` (Cloudflare : *Caching → Purge by URL* ; Netlify : *Deploys → Clear cache and retry deploy* ; Vercel : *Deployments → Purge CDN*), ou renommer la fiche. La règle `immutable` est un choix assumé : elle évite une revalidation à chaque ouverture de fiche.
 
 ## Audit petits écrans
 

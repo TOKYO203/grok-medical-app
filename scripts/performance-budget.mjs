@@ -96,25 +96,57 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // pas, c'est `scripts/bundle-content.test.mjs` qui le garantit désormais.
   // CI ≈ local + ~25 KiB (toolchain Node 22) ⇒ ~2063,6 KiB ; plafond 2080 KiB
   // = marge volontairement faible (~16,4 KiB), même philosophie.
-  // ⚠️ Le batch suivant (10 fiches, ≈ +350 KiB) dépassera ce plafond. Deux
-  // options assumées à ce moment-là : servir les JSON comme actifs
-  // téléchargeables, ou sortir les chunks de contenu du total mesuré (leur
-  // taille est déjà bornée par `maxJavascriptChunkBytes`) — pas un simple
-  // relèvement au fil de l'eau.
-  maxTotalJavascriptBytes: 2080 * 1024,
+  // ⚠️ Le batch suivant (10 fiches, ≈ +350 KiB) aurait dépassé ce plafond.
+  // La réponse n'a PAS été de le relever : les fiches sont devenues des ACTIFS
+  // STATIQUES (public/content/pathologies/*.json) servis par fetch().
+  //
+  // Relevé 2080 → **1960 KIBI (ABAISSÉ)** le 2026-10-18 avec ce changement :
+  //   • avant : 2 039,1 KiB mesurés, dont ~121 KiB de chunks de fiches
+  //     (paludisme 50,3 + hta 42,1 + diabète 39,3) ;
+  //   • après : 1 909,6 KiB mesurés (auth ON, `.env.local` écarté) — les trois
+  //     chunks ont disparu, le reste du bundle n'a pas bougé.
+  // CI ≈ local + ~25 KiB ⇒ ~1 934,6 KiB ; plafond 1 960 KiB = marge
+  // volontairement faible (~25,4 KiB), même philosophie. Le plafond REDESCEND
+  // parce qu'il doit suivre le code, pas les circonstances : conserver 2 080
+  // aurait laissé 146 KiB de faux mou (quatre sessions de dérive silencieuse).
+  // Ajouter 40 fiches désormais : 0 octet de JavaScript, donc 0 octet de budget.
+  maxTotalJavascriptBytes: 1960 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
+  // Actifs de CONTENU (`public/content/**`) : fiches de nosographie servies
+  // telles quelles au CDN, hors bundle JS. Ils ne comptent PAS dans le total
+  // « public » (images, polices, manifeste) : leur volume suit le catalogue
+  // éditorial — 240 fiches × ~50 Kio ≈ 12 Mo, assumé et sans rapport avec une
+  // dérive de code. Le plafond par fichier reste, lui, strict : une fiche qui
+  // dépasserait 256 Kio serait un signal (mauvais découpage, pièce jointe).
+  maxContentAssetBytes: 256 * 1024,
 });
 
-const ASSET_DIR_CANDIDATES = [
-  ".vercel/output/static/assets",
-  ".netlify/static/assets",
-  ".output/public/assets",
-  "dist/assets",
+const STATIC_DIR_CANDIDATES = [
+  ".vercel/output/static",
+  ".netlify/static",
+  ".output/public",
+  "dist",
 ];
+
+const ASSET_DIR_CANDIDATES = STATIC_DIR_CANDIDATES.map((directory) => `${directory}/assets`);
 
 export function findAssetDirectory(root = process.cwd()) {
   for (const relativePath of ASSET_DIR_CANDIDATES) {
+    const absolute = resolve(root, relativePath);
+    if (existsSync(absolute) && statSync(absolute).isDirectory()) return absolute;
+  }
+  return null;
+}
+
+/**
+ * Dossier STATIQUE publié (celui que sert le CDN), indépendamment des chunks.
+ * Sert aux garde-fous qui vérifient que les actifs de contenu (fiches de
+ * nosographie) sont bien publiés comme fichiers, hors bundle JS.
+ * Même liste que `findAssetDirectory`, sans le suffixe `/assets`.
+ */
+export function findStaticDirectory(root = process.cwd()) {
+  for (const relativePath of STATIC_DIR_CANDIDATES) {
     const absolute = resolve(root, relativePath);
     if (existsSync(absolute) && statSync(absolute).isDirectory()) return absolute;
   }
@@ -148,13 +180,26 @@ export function inspectPublicAssetBudget(publicDirectory, budget = PERFORMANCE_B
   };
   walk(publicDirectory);
 
-  const totalPublicAssetBytes = files.reduce((sum, file) => sum + file.bytes, 0);
+  // Les actifs de CONTENU sont suivis séparément : ce sont des données
+  // téléchargées à la demande, pas les ressources du shell applicatif.
+  const contentAssets = files.filter((file) => file.name.startsWith("content/"));
+  const shellAssets = files.filter((file) => !file.name.startsWith("content/"));
+
+  const totalPublicAssetBytes = shellAssets.reduce((sum, file) => sum + file.bytes, 0);
+  const totalContentAssetBytes = contentAssets.reduce((sum, file) => sum + file.bytes, 0);
   const violations = [];
 
-  for (const file of files) {
+  for (const file of shellAssets) {
     if (file.bytes > budget.maxPublicAssetBytes) {
       violations.push(
         `${file.name}: public asset ${formatBytes(file.bytes)} exceeds ${formatBytes(budget.maxPublicAssetBytes)}`,
+      );
+    }
+  }
+  for (const file of contentAssets) {
+    if (file.bytes > budget.maxContentAssetBytes) {
+      violations.push(
+        `${file.name}: contenu ${formatBytes(file.bytes)} exceeds ${formatBytes(budget.maxContentAssetBytes)} (plafond par fiche)`,
       );
     }
   }
@@ -168,8 +213,13 @@ export function inspectPublicAssetBudget(publicDirectory, budget = PERFORMANCE_B
   return {
     ok: violations.length === 0,
     totalPublicAssetBytes,
-    publicAssetFiles: files.length,
-    largestPublicAssets: [...files].sort((a, b) => b.bytes - a.bytes).slice(0, 5),
+    publicAssetFiles: shellAssets.length,
+    largestPublicAssets: [...shellAssets].sort((a, b) => b.bytes - a.bytes).slice(0, 5),
+    contentAssets: {
+      totalBytes: totalContentAssetBytes,
+      files: contentAssets.length,
+      largest: [...contentAssets].sort((a, b) => b.bytes - a.bytes).slice(0, 5),
+    },
     violations,
   };
 }

@@ -16,7 +16,7 @@ import {
   specialtyEmoji,
   specialtySlug,
 } from "@/lib/library/specialty-helpers";
-import { hasPathologyContent, listPathologySummaries } from "@/lib/pathologies/catalog";
+import { hasPathologyContent, listPathologySummaries } from "@/lib/pathologies/manifest";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/programme")({ component: ProgrammePage });

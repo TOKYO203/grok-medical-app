@@ -1,67 +1,82 @@
 /* Garde-fou bundle du contenu de cours (Nosographie / démarches enrichies).
 
    POURQUOI CE TEST EXISTE
-   Une fiche de nosographie pèse ~50 Kio minifiée et le référentiel compte
-   240 items. Le contenu est donc chargé À LA DEMANDE (`loadPathologyContent`
-   → `import()`), jamais importé statiquement. Si un futur agent ajoute
-   `import palu from "@/content/data/pathologies/paludisme.json"` dans un
-   composant monté au premier rendu, la fiche revient dans le chunk initial :
-   le bundle grossit de 50 Kio PAR FICHE et plus personne ne le voit, parce
-   que rien n'échoue — le build reste vert, la page s'affiche.
+   Une fiche de nosographie pèse ~50 Kio et le référentiel compte 240 items.
+   Deux architectures ont été essayées :
+   1. import statique → la fiche entre dans le chunk initial (rejeté) ;
+   2. import() dynamique → un chunk séparé, mais chaque fiche reste un fichier
+      JAVASCRIPT compilé, compté dans le budget de bundle (mesuré : 2 fiches =
+      81 Kio dans dist/assets/). À 43 fiches, l'approche plafonne.
+   L'architecture retenue (2026-10-18) sert les fiches comme ACTIFS STATIQUES :
+   `public/content/pathologies/<slug>.json`, publiés tels quels, récupérés par
+   `fetch()`, mis en cache « immutable ». Zéro octet de contenu dans le bundle
+   client, et les 40 fiches suivantes n'ajoutent AUCUN JavaScript.
 
    CE QUE LE TEST VÉRIFIE
-   1. SOURCE (toujours, sans build) : aucun fichier de `src/` n'importe
-      statiquement un contenu ; hors du registre `catalog.ts` d'une famille,
-      les contenus ne peuvent être atteints que par `import()` dynamique.
-   2. LOGIQUE (fixture) : la détection « payload dans le chunk principal »
-      est exercée sur un faux dossier d'assets, pour que le garde-fou soit
-      testé même quand aucun build n'est disponible (job CI `test`).
-   3. ARTEFACT (après `npm run build`) : le chunk principal fait moins de
-      700 Kio, ne contient AUCUN payload de contenu, et chaque contenu vit
-      dans exactement un chunk séparé (nommé d'après la fiche).
+   1. SOURCE (toujours, sans build) : aucun module de `src/` n'importe (de
+      façon statique OU dynamique) un fichier de contenu, et le catalogue des
+      fiches ne contient plus aucun `import() de JSON`.
+   2. LOGIQUE (fixtures) : la détection « payload dans un chunk JS » est
+      exercée sur de faux dossiers d'assets, pour que le garde-fou soit testé
+      même quand aucun build n'est disponible (job CI `test`).
+   3. ARTEFACT (après `npm run build`) : chaque fiche est publiée comme fichier
+      JSON séparé dans le dossier statique (`dist/content/pathologies/`), aucun
+      chunk JS ne contient son payload ni ne porte son nom, et le chunk
+      principal reste sous 700 Kio.
 
    ⚠️ NOTE SUR LES IDENTIFIANTS
-   « DX-THORAX-001 » et « paludisme » apparaissent légitimement dans des
-   MANIFESTES chargés en eager (`src/content/data/diagnostics.json`,
-   `src/content/data/diagnostic-topics.json`,
-   `src/content/data/pathologies/_index.json`) : ce sont des clés de
-   navigation, pas du contenu. Un test qui exigerait l'absence de ces seules
-   chaînes serait donc faux — et, pire, il passerait au vert alors qu'un
-   agent aurait importé la fiche entière sous une autre forme. On vérifie
-   donc le PAYLOAD (objectif rédigé, texte de source), ce qui est strictement
-   plus fort. Le test vérifie aussi, explicitement, que l'identifiant
-   `DX-THORAX-001` n'est pas remonté dans le chunk initial par un import
-   statique du catalogue clinique.
+   « paludisme » ou « DX-THORAX-001 » apparaissent légitimement dans des
+   MANIFESTES chargés en eager (`src/content/data/pathologies/_index.json`,
+   `diagnostics.json`…) : ce sont des clés de navigation, pas du contenu. On
+   vérifie donc le PAYLOAD (objectif rédigé, texte de source), ce qui est
+   strictement plus fort qu'une recherche d'identifiant.
 
-   Le dossier d'assets dépend de la cible de déploiement : `.vercel/output/
-   static/assets` (Vercel, cas courant ici), `.netlify/static/assets`,
-   `.output/public/assets`, `dist/assets`. On réutilise la résolution déjà
-   éprouvée par `scripts/performance-budget.mjs` pour ne pas en maintenir
-   une deuxième. */
+   Le dossier statique dépend de la cible de déploiement : `.vercel/output/
+   static` (cas courant ici), `.netlify/static`, `.output/public`, `dist`. La
+   résolution est partagée avec `scripts/performance-budget.mjs`. */
 
 import assert from "node:assert/strict";
-import { readFileSync, readdirSync, statSync, writeFileSync, mkdirSync, mkdtempSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join, resolve, basename } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
-import { findAssetDirectory } from "./performance-budget.mjs";
+import { findAssetDirectory, findStaticDirectory } from "./performance-budget.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 
 /** Plafond du chunk principal demandé par le propriétaire (700 Kio). */
 export const MAX_MAIN_CHUNK_BYTES = 700 * 1024;
 
-/** Familles de contenu chargées à la demande. */
+/** Dossier statique publié qui héberge les actifs de contenu. */
+const CONTENT_ASSET_PATH = "content/pathologies";
+
+/**
+ * Familles de contenu.
+ *
+ * `servedAs` décide de la règle :
+ * • `asset`  — fichier JSON statique : le payload ne doit apparaître dans AUCUN
+ *   chunk JS et le fichier doit être publié tel quel dans le dossier statique ;
+ * • `module` — contenu encore importé par le registre (limitation connue des
+ *   démarches) : le payload doit rester hors du chunk initial, dans un chunk
+ *   unique nommé d'après la fiche.
+ */
 const CONTENT_FAMILIES = [
   {
     name: "fiches de nosographie",
-    dir: join(ROOT, "src/content/data/pathologies"),
-    /** Unique point d'entrée autorisé vers les fichiers de la famille. */
+    dir: join(ROOT, "public", CONTENT_ASSET_PATH),
+    /** Unique point d'entrée autorisé vers les actifs de la famille. */
     registry: join(ROOT, "src/lib/pathologies/catalog.ts"),
-    /** Exigence stricte : ce registre ne doit charger qu'en `import()`. */
-    lazilyLoaded: true,
+    servedAs: "asset",
   },
   {
     name: "démarches enrichies",
@@ -70,10 +85,10 @@ const CONTENT_FAMILIES = [
     /**
      * Le registre des démarches importe encore son JSON statiquement : le
      * contenu atterrit dans le chunk de la route `/demarche/$id` (46 Kio), pas
-     * dans le chunk initial. La règle stricte ne s'applique donc qu'aux fiches
-     * — cf. LIMITATION en fin de fichier.
+     * dans le chunk initial. La règle stricte « actif statique » ne s'applique
+     * donc qu'aux fiches — cf. LIMITATION en fin de fichier.
      */
-    lazilyLoaded: false,
+    servedAs: "module",
   },
 ];
 
@@ -103,11 +118,10 @@ async function loadContents() {
       const id = content.slug ?? content.diagnosticId ?? file;
       contents.push({
         family: family.name,
-        lazilyLoaded: family.lazilyLoaded,
+        servedAs: family.servedAs,
         file,
         id,
         sentinels: payloadSentinels(content),
-        markdown: readFileSync(join(family.dir, file), "utf8"),
       });
     }
   }
@@ -122,11 +136,11 @@ async function loadContents() {
  * Analyse les chunks JS d'un dossier d'assets.
  *
  * @param {string} assetDirectory dossier contenant les `.js` du client
- * @param {{id: string, file: string, sentinels: string[]}[]} contents
+ * @param {{id: string, file: string, servedAs: "asset" | "module", sentinels: string[]}[]} contents
  * @returns {{
  *   mainChunk: string,
  *   mainChunkBytes: number,
- *   placements: {id: string, chunk: string, chunks: string[]}[],
+ *   placements: {id: string, file: string, chunk: string | null, chunks: string[]}[],
  *   violations: string[],
  * }}
  */
@@ -157,9 +171,24 @@ export function analyseAssets(assetDirectory, contents, maxMainChunkBytes = MAX_
   }
 
   const placements = contents.map((content) => {
-    const chunksWithPayload = chunks
-      .filter((chunk) => content.sentinels.every((sentinel) => chunk.text.includes(sentinel)))
-      .map((chunk) => chunk.name);
+    const containsPayload = (chunk) => content.sentinels.every((sentinel) => chunk.text.includes(sentinel));
+    const chunksWithPayload = chunks.filter(containsPayload).map((chunk) => chunk.name);
+
+    // Actif statique : le contenu ne doit exister dans AUCUN chunk JS.
+    if (content.servedAs === "asset") {
+      if (chunksWithPayload.length > 0) {
+        violations.push(
+          `${content.file} : actif statique présent dans ${chunksWithPayload.length} chunk(s) JS (${chunksWithPayload.join(", ")}) — un import de JSON est revenu dans le graphe`,
+        );
+      }
+      const slugChunk = chunks.find((chunk) => basename(chunk.name).startsWith(`${content.id}-`));
+      if (slugChunk) {
+        violations.push(
+          `${content.file} : un chunk JS porte le nom de la fiche (${slugChunk.name}) — le contenu est encore compilé au lieu d'être servi comme actif`,
+        );
+      }
+      return { id: content.id, file: content.file, chunk: null, chunks: chunksWithPayload };
+    }
 
     if (main.text.includes(content.sentinels[0])) {
       violations.push(
@@ -179,7 +208,7 @@ export function analyseAssets(assetDirectory, contents, maxMainChunkBytes = MAX_
     if (chunksWithPayload.length === 1 && chunksWithPayload[0] === main.name) {
       violations.push(`${content.file} : le contenu est son propre chunk principal — découpage inopérant`);
     }
-    return { id: content.id, chunk: chunksWithPayload[0] ?? main.name, chunks: chunksWithPayload };
+    return { id: content.id, file: content.file, chunk: chunksWithPayload[0] ?? main.name, chunks: chunksWithPayload };
   });
 
   // Identifiant de la démarche pilote : il doit rester hors du chunk initial.
@@ -209,71 +238,128 @@ async function sourceFiles(directory) {
   return out;
 }
 
-test("aucun module de src/ n'importe statiquement un contenu de cours", async () => {
-  const contents = await loadContents();
-  assert.ok(contents.length >= 1, "aucun contenu trouvé dans src/content/data/{pathologies,demarches}");
+/** Échappe un nom de fichier pour l'utiliser dans une RegExp. */
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-  // Les registres (`catalog.ts`) sont le point d'entrée UNIQUE autorisé : ils
-  // décident du découpage. Tout autre module doit passer par eux.
+test("aucun module de src/ n'importe un contenu de cours (statique ou dynamique)", async () => {
+  const contents = await loadContents();
+  assert.ok(contents.length >= 1, "aucun contenu trouvé (pathologies / démarches)");
+
+  // Les registres (`catalog.ts`) historiques restent les seuls points d'entrée
+  // tolérés pour la famille encore chargée en module (démarches).
   const allowedRegistries = new Set(CONTENT_FAMILIES.map((family) => resolve(family.registry)));
 
   const offenders = [];
   for (const file of await sourceFiles(join(ROOT, "src"))) {
-    if (allowedRegistries.has(resolve(file))) continue;
     const source = await readFile(file, "utf8");
     for (const content of contents) {
       if (!source.includes(content.file)) continue;
-      // Import statique : `import x from "…/<file>.json"` (pas `import(`).
-      const staticImport = new RegExp(
-        `import\\s+(?:[\\w*{][^;]*?from\\s+)?["'\`][^"'\`]*${content.file.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'\`]`,
-      );
-      if (staticImport.test(source)) {
-        offenders.push(`${file.replace(ROOT + "/", "")} importe statiquement ${content.file}`);
+      if (content.servedAs === "module" && allowedRegistries.has(resolve(file))) continue;
+
+      const name = escapeRegExp(content.file);
+      // Import statique : `import x from "…/<file>.json"`.
+      const staticImport = new RegExp(`import\\s+(?:[\\w*{][^;]*?from\\s+)?["'\`][^"'\`]*${name}["'\`]`);
+      // Import dynamique : `import("…/<file>.json")` — interdit AUSSI pour les
+      // actifs statiques : le bundle recompilerait la fiche en chunk JS.
+      const dynamicImport = new RegExp(`import\\s*\\([^)]*${name}[^)]*\\)`);
+      if (staticImport.test(source) || dynamicImport.test(source)) {
+        offenders.push(`${file.replace(ROOT + "/", "")} importe ${content.file}`);
       }
     }
   }
   assert.deepEqual(
     offenders,
     [],
-    "un contenu de cours est importé statiquement : il reviendrait dans le bundle des pages concernées.\n" +
-      "Utiliser le chargeur à la demande (import() dans catalog.ts) — cf. NOSO-2 dans docs/DECISIONS.md.\n" +
+    "un contenu de cours est importé (module JS) alors qu'il doit être servi comme actif statique.\n" +
+      "Les fiches vivent dans public/content/pathologies/ et se chargent par fetch() — cf. NOSO-3 dans docs/DECISIONS.md.\n" +
       offenders.join("\n"),
   );
 });
 
-test("le registre des fiches de nosographie ne charge les contenus que par import()", async () => {
-  const family = CONTENT_FAMILIES.find((entry) => entry.lazilyLoaded);
+test("le registre des fiches n'importe plus aucun JSON de contenu", async () => {
+  const family = CONTENT_FAMILIES.find((entry) => entry.servedAs === "asset");
   const source = await readFile(family.registry, "utf8");
-  const staticJsonImports = [...source.matchAll(/import\s+(\w+)\s+from\s+["'][^"']*\.json["']/g)].map(
+  const jsonImports = [...source.matchAll(/import\s*(?:\(|[^;]*?from)\s*["'][^"']*\.json["']/g)].map(
     (match) => match[0],
   );
-  // Seul le manifeste `_index.json` a le droit d'être statique : il alimente
-  // `/programme` sans télécharger de contenu.
-  for (const statement of staticJsonImports) {
-    assert.match(
-      statement,
-      /_index\.json/,
-      `import statique de contenu dans catalog.ts : ${statement}\n` +
-        "Chaque fiche doit passer par LOADERS et import().",
+  assert.deepEqual(
+    jsonImports,
+    [],
+    `import de JSON dans catalog.ts : ${jsonImports.join(" | ")}\n` +
+      "Les fiches sont des actifs statiques : seul le manifeste (module pur) reste en import.",
+  );
+
+  // Le manifeste garde le droit d'importer `_index.json` : c'est un index de
+  // navigation, pas du contenu.
+  const manifestSource = await readFile(join(ROOT, "src/lib/pathologies/manifest.ts"), "utf8");
+  const manifestJsonImports = [...manifestSource.matchAll(/import\s+(\w+)\s+from\s+["'][^"']*\.json["']/g)];
+  assert.equal(manifestJsonImports.length, 1, "manifest.ts doit importer exactement _index.json");
+  assert.match(manifestJsonImports[0][0], /_index\.json/);
+});
+
+test("les actifs de contenu sont des fichiers JSON statiques présents dans public/", async () => {
+  const contents = await loadContents();
+  const assets = contents.filter((content) => content.servedAs === "asset");
+  assert.ok(assets.length >= 1, "aucune fiche servie comme actif statique");
+
+  for (const asset of assets) {
+    const absolute = join(ROOT, "public", CONTENT_ASSET_PATH, asset.file);
+    assert.ok(existsSync(absolute), `${asset.file}: actif absent de public/${CONTENT_ASSET_PATH}/`);
+    const raw = readFileSync(absolute, "utf8");
+    assert.ok(
+      asset.sentinels.every((sentinel) => raw.includes(sentinel)),
+      `${asset.file}: l'actif publié ne contient pas le payload attendu`,
     );
   }
-  assert.match(source, /import\(/, "catalog.ts doit garder au moins un import() de contenu");
 });
 
 /* ------------------------------------------------------------------ */
-/* 2. Logique de détection — exercée sur une fixture                    */
+/* 2. Logique de détection — exercée sur des fixtures                   */
 /* ------------------------------------------------------------------ */
 
-test("la détection signale un payload présent dans le chunk principal", () => {
+test("la détection signale un actif statique compilé dans un chunk JS", () => {
+  const root = mkdtempSync(join(tmpdir(), "optimus-bundle-"));
+  const assets = join(root, "assets");
+  mkdirSync(assets, { recursive: true });
+  const sentinel = "Objectif rédigé de la fiche, suffisamment long pour être unique.";
+  writeFileSync(join(assets, "index-aaa.js"), `const main="${"x".repeat(4096)}";`);
+  writeFileSync(join(assets, "fiche-bbb.js"), `const lazy=${JSON.stringify(sentinel)};`);
+
+  const report = analyseAssets(assets, [
+    { id: "fiche", file: "fiche.json", servedAs: "asset", sentinels: [sentinel] },
+  ]);
+  assert.ok(
+    report.violations.some((violation) => violation.includes("actif statique présent")),
+    `aucune violation détectée : ${JSON.stringify(report.violations)}`,
+  );
+});
+
+test("la détection accepte un actif statique absent de tous les chunks", () => {
+  const root = mkdtempSync(join(tmpdir(), "optimus-bundle-"));
+  const assets = join(root, "assets");
+  mkdirSync(assets, { recursive: true });
+  const sentinel = "Objectif rédigé de la fiche, suffisamment long pour être unique.";
+  writeFileSync(join(assets, "index-aaa.js"), `const url="/content/pathologies/fiche.json";`);
+  writeFileSync(join(assets, "route-bbb.js"), `const lazy=${"0".repeat(1024)};`);
+
+  const report = analyseAssets(assets, [
+    { id: "fiche", file: "fiche.json", servedAs: "asset", sentinels: [sentinel] },
+  ]);
+  assert.deepEqual(report.violations, [], report.violations.join("\n"));
+  assert.equal(report.placements[0].chunk, null);
+});
+
+test("la détection signale un payload présent dans le chunk principal (contenu modularisé)", () => {
   const root = mkdtempSync(join(tmpdir(), "optimus-bundle-"));
   const assets = join(root, "assets");
   mkdirSync(assets, { recursive: true });
   const sentinel = "Objectif rédigé de la fiche, suffisamment long pour être unique.";
   writeFileSync(join(assets, "index-aaa.js"), `const main=1;const leak=${JSON.stringify(sentinel)};`);
   writeFileSync(join(assets, "fiche-bbb.js"), `const lazy=${JSON.stringify(sentinel)};`);
-  writeFileSync(join(assets, "styles-ccc.css"), ".a{color:red}");
 
-  const report = analyseAssets(assets, [{ id: "fiche", file: "fiche.json", sentinels: [sentinel] }]);
+  const report = analyseAssets(assets, [
+    { id: "fiche", file: "fiche.json", servedAs: "module", sentinels: [sentinel] },
+  ]);
   assert.ok(
     report.violations.some((violation) => violation.includes("DANS le chunk principal")),
     `aucune violation détectée : ${JSON.stringify(report.violations)}`,
@@ -281,7 +367,7 @@ test("la détection signale un payload présent dans le chunk principal", () => 
   assert.ok(report.violations.some((violation) => violation.includes("dupliqué")));
 });
 
-test("la détection accepte un contenu isolé dans son propre chunk", () => {
+test("la détection accepte un contenu isolé dans son propre chunk (contenu modularisé)", () => {
   const root = mkdtempSync(join(tmpdir(), "optimus-bundle-"));
   const assets = join(root, "assets");
   mkdirSync(assets, { recursive: true });
@@ -290,7 +376,9 @@ test("la détection accepte un contenu isolé dans son propre chunk", () => {
   writeFileSync(join(assets, "index-aaa.js"), `const main="${"x".repeat(4096)}";`);
   writeFileSync(join(assets, "paludisme-bbb.js"), `const lazy=${JSON.stringify(sentinel)};`);
 
-  const report = analyseAssets(assets, [{ id: "paludisme", file: "paludisme.json", sentinels: [sentinel] }]);
+  const report = analyseAssets(assets, [
+    { id: "paludisme", file: "paludisme.json", servedAs: "module", sentinels: [sentinel] },
+  ]);
   assert.deepEqual(report.violations, [], report.violations.join("\n"));
   assert.equal(report.placements[0].chunk, "paludisme-bbb.js");
 });
@@ -300,7 +388,9 @@ test("la détection accepte un contenu isolé dans son propre chunk", () => {
 /* ------------------------------------------------------------------ */
 
 const assetDirectory = findAssetDirectory(ROOT);
+const staticDirectory = findStaticDirectory(ROOT);
 const noBuild = !assetDirectory;
+const noStatic = !staticDirectory;
 
 test("le chunk principal ne contient aucun contenu et reste sous 700 Kio", { skip: noBuild }, async () => {
   const contents = await loadContents();
@@ -313,8 +403,9 @@ test("le chunk principal ne contient aucun contenu et reste sous 700 Kio", { ski
     `chunk principal ${report.mainChunk} : ${(report.mainChunkBytes / 1024).toFixed(1)} Kio ≥ 700 Kio`,
   );
 
-  // Chaque contenu doit avoir SON chunk, distinct du chunk principal.
+  // Chaque contenu modularisé (démarches) garde SON chunk, distinct du principal.
   for (const placement of report.placements) {
+    if (placement.chunk === null) continue;
     assert.notEqual(
       placement.chunk,
       report.mainChunk,
@@ -322,14 +413,76 @@ test("le chunk principal ne contient aucun contenu et reste sous 700 Kio", { ski
     );
     assert.equal(placement.chunks.length, 1, `${placement.id} : contenu dans plusieurs chunks`);
   }
+});
 
-  // Les fiches se découpent par fichier : le chunk porte le nom du slug.
-  for (const placement of report.placements) {
-    if (!contents.find((content) => content.id === placement.id)?.lazilyLoaded) continue;
-    assert.match(
-      basename(placement.chunk),
-      new RegExp(`^${placement.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[-.]`),
-      `${placement.id} : chunk « ${placement.chunk} » non nommé d'après la fiche`,
+test("les fiches sont publiées comme fichiers JSON dans le dossier statique", { skip: noStatic }, async () => {
+  const contents = await loadContents();
+  const assets = contents.filter((content) => content.servedAs === "asset");
+  assert.ok(assets.length >= 1, "aucune fiche servie comme actif statique");
+
+  const publishedDirectory = join(staticDirectory, CONTENT_ASSET_PATH);
+  assert.ok(
+    existsSync(publishedDirectory),
+    `${CONTENT_ASSET_PATH}/ absent du dossier statique (${staticDirectory}) : les fiches ne sont pas publiées`,
+  );
+
+  const published = readdirSync(publishedDirectory).filter((name) => name.endsWith(".json"));
+  for (const asset of assets) {
+    assert.ok(
+      published.includes(asset.file),
+      `${asset.file}: absent de ${publishedDirectory} (attendu ${assets.length} fiches, trouvé ${published.length})`,
+    );
+    const raw = readFileSync(join(publishedDirectory, asset.file), "utf8");
+    assert.ok(
+      asset.sentinels.every((sentinel) => raw.includes(sentinel)),
+      `${asset.file}: le fichier publié ne contient pas le payload attendu`,
     );
   }
+
+  // Aucun fichier publié en trop : le dossier ne doit contenir que des fiches
+  // déclarées (un reste d'ancien slug serait servi indéfiniment par le CDN).
+  const declared = new Set(assets.map((asset) => asset.file));
+  for (const file of published) {
+    assert.ok(declared.has(file), `${file}: actif publié mais absent du manifeste`);
+  }
 });
+
+test(
+  "aucun chunk JS ne référence un actif de contenu comme module",
+  { skip: noBuild },
+  () => {
+    const manifest = JSON.parse(
+      readFileSync(join(ROOT, "src/content/data/pathologies/_index.json"), "utf8"),
+    );
+
+    // Un import de JSON laisserait dans le chunk une référence du type
+    // `…/content/pathologies/<slug>.json` sans fetch — la seule forme
+    // légitime est l'URL publique construite par `PATHOLOGY_ASSET_BASE`.
+    const chunkFiles = readdirSync(assetDirectory).filter((name) => name.endsWith(".js"));
+    const offenders = [];
+    for (const file of chunkFiles) {
+      const text = readFileSync(join(assetDirectory, file), "utf8");
+      for (const entry of manifest.fiches) {
+        if (text.includes(`content/pathologies/${entry.file}"`)) {
+          offenders.push(`${file} : référence ${entry.file}`);
+        }
+      }
+      if (/["'][^"']*\.json["']\s*\)/.test(text) && text.includes("content/pathologies")) {
+        offenders.push(`${file} : import() de JSON sous content/pathologies`);
+      }
+    }
+    assert.deepEqual(offenders, [], offenders.join("\n"));
+  },
+);
+
+/* ------------------------------------------------------------------ */
+/* LIMITATION ASSUMÉE                                                   */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Les DÉMARCHES enrichies (`src/content/data/demarches/*.json`) sont encore
+ * importées statiquement par `src/lib/demarches/catalog.ts` : leur contenu vit
+ * dans le chunk de la route `/demarche/$id`, jamais dans le chunk initial. Le
+ * coût est borné (une démarche pilote), mais la même migration vers des actifs
+ * statiques est la suite logique si le catalogue de démarches s'étoffe.
+ */
