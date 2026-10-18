@@ -1,0 +1,914 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hta-essentielle",
+  "title": "Hypertension artérielle essentielle de l'adulte",
+  "subtitle": "Fiche de nosographie — cardiologie de l'adulte",
+  "objective": "Confirmer une élévation tensionnelle par une mesure fiable, écarter une cause secondaire curable et évaluer le risque cardiovasculaire avant de choisir un traitement que le patient pourra suivre au long cours.",
+  "language": "fr",
+  "updatedAt": "2026-10-17",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 58,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 99,
+      "localNumber": 58,
+      "sectionLabel": "Médecine",
+      "title": "Hypertension artérielle essentielle de l'adulte",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": ["cardio-hta-l5", "cardio-hta-int"],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Aucun document source n'a été fourni pour cette fiche : elle est rédigée à partir des recommandations officielles citées en bibliographie, en reformulant chaque énoncé. Les seuils et les stratégies sont rattachés à une source vérifiable section par section, et les points qui dépendent du protocole national malgache sont signalés plutôt qu'inventés.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La prévalence de l'hypertension à Madagascar n'est pas citée : aucune donnée nationale récente et vérifiable n'a pu être consultée pendant cette session. Les chiffres mondiaux repris dans la fiche sont ceux de la fiche descriptive de l'OMS mise à jour le 25 septembre 2025 (1,4 milliard d'adultes de 30 à 79 ans en 2024, 33 % de cette classe d'âge, environ 600 millions de personnes ignorant leur hypertension).",
+      "Les seuils de mesure hors cabinet (domicile, automesure, holter) sont ceux des recommandations ESH 2023. Ils ne sont pas universels : la fiche le précise, car un lecteur qui applique un seuil de cabinet à une automesure sous-estime l'hypertension.",
+      "Les cibles tensionnelles restent débattues entre sociétés savantes : la fiche retient la cible de la ligne directrice OMS 2021 (moins de 140/90 mmHg pour tous, moins de 130/80 mmHg en cas de maladie cardiovasculaire, de diabète ou de maladie rénale chronique) et signale que les recommandations ESH 2023 visent plus souvent 130/80 mmHg chez l'adulte tolérant. Le protocole national malgache doit primer s'il diffère.",
+      "La liste des molécules cite des dénominations internationales courantes (hydrochlorothiazide, indapamide, énalapril, losartan, amlodipine, bisoprolol, spironolactone) sans posologie détaillée : le choix dépend de la disponibilité réelle et du plateau technique, deux éléments que la fiche ne peut pas vérifier.",
+      "La page de la Haute Autorité de santé n'était pas joignable depuis l'environnement de rédaction (échec de connexion répété) : aucune recommandation HAS n'est donc citée. Les sources retenues sont l'OMS et l'European Society of Hypertension, toutes deux consultées et vérifiées."
+    ],
+    "qcChecklist": [
+      "Exactitude des seuils diagnostiques et de la classification par grades",
+      "Cohérence entre les cibles tensionnelles et les sources citées",
+      "Absence de posologies non vérifiées",
+      "Distinction explicite entre urgence et élévation tensionnelle sans souffrance viscérale",
+      "Contrôle de la disponibilité des molécules citées dans le contexte national"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypertension artérielle est une élévation chronique de la pression artérielle dans les artères. On parle d'hypertension « essentielle » (ou primitive) lorsqu'aucune cause identifiable n'explique cette élévation : c'est le cas de la très grande majorité des patients adultes. L'adjectif ne signifie donc pas que la maladie est bénigne, mais qu'elle est liée à un ensemble de mécanismes — sel, génétique, obésité, vieillissement vasculaire — plutôt qu'à une lésion unique que l'on pourrait retirer."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie est silencieuse : la plupart des personnes hypertendues ne ressentent rien, et la découverte se fait lors d'un examen systématique, d'une complication (accident vasculaire cérébral, insuffisance cardiaque, insuffisance rénale, rétinopathie) ou d'un événement cardiovasculaire. C'est précisément ce silence qui la rend dangereuse : l'absence de symptôme n'est pas un argument pour ne pas traiter, et l'existence de céphalées n'est pas un argument pour traiter plus vite."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'ampleur du problème est mondiale. L'OMS estime qu'en 2024 environ 1,4 milliard d'adultes de 30 à 79 ans étaient hypertendus, soit un tiers de cette classe d'âge, et que deux tiers d'entre eux vivent dans des pays à revenu faible ou intermédiaire. Environ 44 % ignorent leur diagnostic et une proportion comparable n'est pas traitée : le principal gisement d'amélioration n'est donc pas la découverte d'un nouveau médicament, mais le dépistage, la confirmation et l'observance."
+        },
+        {
+          "type": "paragraph",
+          "text": "En pratique, la fiche suit toujours le même ordre : mesurer correctement, confirmer, classer, chercher une cause secondaire et une atteinte des organes cibles, puis traiter en fonction du risque global et non du seul chiffre. C'est cet ordre qui évite les deux erreurs symétriques — traiter un chiffre isolé chez un patient calme, ou rassurer un patient dont la pression est très élevée avec une atteinte viscérale débutante."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HTN-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Hypertension — fact sheet (25 septembre 2025)",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+        },
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et mécanismes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La pression artérielle résulte du produit du débit cardiaque et des résistances artériolaires périphériques. Elle est régulée par le système rénine-angiotensine-aldostérone, le tonus sympathique, la charge sodée et les propriétés de la paroi artérielle. Dans l'hypertension essentielle, plusieurs de ces systèmes sont déréglés en même temps : la rétention de sodium et la sensibilité au sel augmentent la volémie, l'activité sympathique élève les résistances, et le remodelage vasculaire entretient l'élévation une fois installée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le retentissement est progressif et concerne quatre organes principaux. Le ventricule gauche s'hypertrophie pour vaincre une post-charge élevée, ce qui prépare l'insuffisance cardiaque à fraction d'éjection préservée et les troubles du rythme. Les petites artères cérébrales subissent une artériolosclérose responsable de lacunes et d'une leucoencéphalopathie. Le rein développe une néphroangiosclérose avec baisse du débit de filtration et albuminurie. L'aorte et les gros vaisseaux se dilatent, exposant à l'anévrisme et à la dissection."
+        },
+        {
+          "type": "paragraph",
+          "text": "La classification par grades décrit l'importance de l'élévation, pas la gravité immédiate du patient. Un grade 3 asymptomatique sans souffrance viscérale aiguë n'est pas une urgence ; à l'inverse, une pression à 165/100 mmHg accompagnée d'une douleur thoracique ou d'un déficit neurologique impose une évaluation immédiate."
+        },
+        {
+          "type": "table",
+          "columns": ["Catégorie", "Systolique (mmHg)", "Diastolique (mmHg)"],
+          "rows": [
+            ["Optimale", "< 120", "< 80"],
+            ["Normale", "120 à 129", "80 à 84"],
+            ["Normale haute", "130 à 139", "85 à 89"],
+            ["Grade 1", "140 à 159", "90 à 99"],
+            ["Grade 2", "160 à 179", "100 à 109"],
+            ["Grade 3", "≥ 180", "≥ 110"],
+            ["Systolique isolée", "≥ 140", "< 90"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Les seuils ci-dessus sont des seuils de CABINET, mesurés par un professionnel dans de bonnes conditions.",
+            "Automesure à domicile : hypertension si la moyenne est ≥ 135/85 mmHg.",
+            "Moyenne des 24 heures au holter : hypertension si ≥ 130/80 mmHg.",
+            "Période diurne au holter : hypertension si ≥ 135/85 mmHg.",
+            "Période nocturne au holter : hypertension si ≥ 120/70 mmHg."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux situations de discordance doivent être connues. L'hypertension « de la blouse blanche » désigne une pression élevée au cabinet et normale hors du cabinet : elle justifie une surveillance, pas nécessairement un traitement médicamenteux d'emblée. L'hypertension « masquée » est l'inverse — normale au cabinet, élevée à domicile ou au holter — et elle expose au même risque que l'hypertension permanente ; elle doit être recherchée chez les patients à risque dont la pression de consultation paraît rassurante."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le grade ne dit pas l'urgence",
+          "text": "Un grade 3 sans atteinte viscérale aiguë se traite par voie orale, progressivement. Une urgence hypertensive se définit par la souffrance d'un organe (cerveau, cœur, rein, aorte, rétine), pas par le chiffre tensionnel seul."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Sensibilité au sel et origine africaine",
+          "text": "Chez les patients d'ascendance africaine, l'hypertension est plus souvent sensible au sel et associée à une activité rénine basse : les diurétiques et les inhibiteurs calciques y sont fréquemment plus efficaces que les bloqueurs du système rénine-angiotensine utilisés seuls."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        },
+        {
+          "id": "SRC-WHO-HTN-2021",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline for the pharmacological treatment of hypertension in adults",
+          "year": 2021,
+          "url": "https://www.who.int/publications/i/item/9789240033986"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur une mesure correcte, répétée. Une mesure unique, faite sur un patient pressé, avec un brassard inadapté ou le bras au-dessus du plan du cœur, surestime fréquemment la pression et peut conduire à traiter une personne qui n'en a pas besoin. La démarche se conduit donc en quatre temps : mesurer, confirmer, chercher une cause secondaire, évaluer le retentissement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Patient assis, dos soutenu, pieds au sol, après cinq minutes de repos et sans avoir parlé.",
+            "Bras posé sur une table, à hauteur du cœur, brassard adapté à la circonférence du bras.",
+            "Deux ou trois mesures espacées d'une à deux minutes, moyenne retenue.",
+            "Aux deux bras lors de la première consultation, puis au bras où la pression est la plus élevée.",
+            "Mesure debout à une et trois minutes chez le sujet âgé, le diabétique et en cas de neuropathie, pour dépister une hypotension orthostatique.",
+            "Contrôle par automesure ou holter quand ils sont disponibles, en particulier devant un grade 1, une variabilité importante ou une suspicion de blouse blanche."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le deuxième temps est la recherche d'une cause secondaire, guidée par la clinique et non par une batterie systématique d'examens. Un bilan exhaustif chez tous les patients coûte cher, produit des faux positifs et retarde le traitement. Les éléments qui font basculer vers une enquête étiologique sont : un début avant 30 ans ou après 55 ans, un début brutal, une hypertension résistante à trois médicaments dont un diurétique, une hypokaliémie spontanée, un souffle abdominal, une pression qui s'effondre en orthostatisme, ou encore une dégradation de la fonction rénale après l'introduction d'un inhibiteur de l'enzyme de conversion."
+        },
+        {
+          "type": "table",
+          "columns": ["Indice clinique", "Cause à évoquer"],
+          "rows": [
+            ["Hypokaliémie + alcalose métabolique", "Hyperaldostéronisme primaire"],
+            ["Souffle abdominal, créatinine qui monte sous IEC", "Sténose de l'artère rénale"],
+            ["Céphalées paroxystiques, palpitations, sueurs", "Phéochromocytome"],
+            ["Ronflements, somnolence diurne, obésité", "Apnée obstructive du sommeil"],
+            ["Prise de poids, faciès lunaire, vergetures", "Syndrome de Cushing"],
+            ["Tachycardie, tremblement, amaigrissement", "Hyperthyroïdie"],
+            ["Pouls fémoraux faibles, gradient bras-jambe", "Coarctation de l'aorte"],
+            ["Créatinine et protéinurie anormales d'emblée", "Maladie rénale parenchymateuse"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le troisième temps est l'évaluation du retentissement et du risque cardiovasculaire, car ce sont eux qui déterminent l'intensité du traitement. Le bilan minimal réalisable dans un contexte de ressources limitées comprend la créatinine avec débit de filtration estimé, le potassium, la bandelette urinaire avec recherche d'albuminurie, la glycémie ou l'hémoglobine glyquée, le bilan lipidique, l'électrocardiogramme, et la mesure du poids, de la taille et du tour de taille. Le fond d'œil, l'échocardiographie et l'écho-Doppler des artères rénales sont demandés de façon ciblée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atteinte cardiaque : hypertrophie ventriculaire gauche à l'électrocardiogramme ou à l'échocardiographie, insuffisance cardiaque.",
+            "Atteinte cérébrale : accident vasculaire cérébral ou accident ischémique transitoire, lacunes à l'imagerie.",
+            "Atteinte rénale : débit de filtration abaissé, albuminurie, insuffisance rénale chronique.",
+            "Atteinte oculaire : rétinopathie hypertensive au fond d'œil.",
+            "Atteinte vasculaire : plaque carotidienne, artériopathie des membres inférieurs, rigidité artérielle."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes à ne pas laisser passer",
+          "text": "Une pression ≥ 180/110 mmHg avec douleur thoracique, dyspnée, déficit neurologique, trouble visuel, confusion, oligurie ou douleur abdominale aiguë impose une prise en charge immédiate : c'est l'atteinte viscérale qui définit l'urgence, pas le chiffre."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Trois examens à ne jamais oublier",
+          "text": "Créatinine avec potassium, bandelette urinaire (protéinurie et sang) et électrocardiogramme. Ce sont eux qui détectent l'atteinte rénale et cardiaque, et qui dépistent une hypokaliémie pouvant révéler un hyperaldostéronisme."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HTN-2021",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline for the pharmacological treatment of hypertension in adults",
+          "year": 2021,
+          "url": "https://www.who.int/publications/i/item/9789240033986"
+        },
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans 90 à 95 % des cas, aucune cause unique n'est retrouvée : c'est l'hypertension essentielle, dont les déterminants se cumulent. L'âge et l'hérédité sont non modifiables ; l'excès de sel, l'obésité, la sédentarité, l'alcool et le tabac sont modifiables et concentrent l'essentiel de la prévention."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les 5 à 10 % restants relèvent d'une cause secondaire, dont certaines sont curables. Les plus fréquentes sont la maladie rénale parenchymateuse et la sténose de l'artère rénale ; chez l'adulte jeune, l'hyperaldostéronisme primaire est la cause endocrine la plus fréquente et doit être recherché devant une hypokaliémie ou une hypertension résistante. L'apnée obstructive du sommeil est très probablement sous-diagnostiquée, en particulier chez les patients obèses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rénales : glomérulonéphrites, néphropathies interstitielles, polykystose rénale, sténose athéromateuse ou dysplasie fibromusculaire de l'artère rénale.",
+            "Endocriniennes : hyperaldostéronisme primaire, phéochromocytome, syndrome de Cushing, hyperthyroïdie, hypothyroïdie, hyperparathyroïdie.",
+            "Vasculaires : coarctation de l'aorte, rigidité artérielle du sujet âgé.",
+            "Médicamenteuses et toxiques : anti-inflammatoires non stéroïdiens, œstrogènes, corticoïdes, vasoconstricteurs nasaux, réglisse, cocaïne et amphétamines, érythropoïétine, inhibiteurs de la néoangiogenèse, ciclosporine.",
+            "Liées à la grossesse : hypertension gestationnelle, pré-éclampsie.",
+            "Autres : apnée obstructive du sommeil, hyperventilation, hypertension de la douleur."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Quand chercher une cause secondaire",
+          "text": "Avant 30 ans ou après 55 ans, début brutal, hypertension résistante, hypokaliémie spontanée, souffle abdominal, asymétrie des pouls, dégradation rénale sous inhibiteur de l'enzyme de conversion, ou pression qui varie de façon paroxystique. En dehors de ces situations, la recherche systématique a un rendement faible."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Vérifier les médicaments avant tout bilan",
+          "text": "Un antihypertenseur peut en cacher un autre : anti-inflammatoires, corticoïdes, décongestionnants et réglisse sont des causes fréquentes d'hypertension apparemment résistante. L'interrogatoire médicamenteux précède les explorations coûteuses."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement, surveillance et prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "On ne traite pas un chiffre mais un risque. La décision associe trois éléments : le niveau de pression, le nombre de facteurs de risque et l'existence d'une atteinte des organes cibles ou d'une maladie cardiovasculaire. Un patient à 145/92 mmHg avec un diabète et une albuminurie est traité d'emblée ; un patient à 145/92 mmHg sans autre facteur de risque commence par les mesures hygiéno-diététiques avec une réévaluation rapprochée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les mesures non médicamenteuses ne sont pas un décor : elles abaissent la pression et améliorent l'effet des médicaments. Une réduction du sel à moins de 5 grammes par jour, une perte de poids en cas de surpoids, cent cinquante minutes d'activité physique modérée par semaine, une réduction de la consommation d'alcool et l'arrêt du tabac sont les mesures les mieux étayées. Elles sont expliquées au patient dès la première consultation, pas au moment de l'échec."
+        },
+        {
+          "type": "table",
+          "columns": ["Classe", "Exemples", "Situations où elle est privilégiée", "Effets indésirables à surveiller"],
+          "rows": [
+            ["Diurétique thiazidique", "Hydrochlorothiazide, indapamide", "Sujet âgé, hypertension systolique isolée, sensibilité au sel", "Hypokaliémie, hyponatrémie, hyperuricémie, hyperglycémie"],
+            ["Inhibiteur de l'enzyme de conversion", "Énalapril, lisinopril", "Diabète, maladie rénale avec albuminurie, insuffisance cardiaque, post-infarctus", "Toux, hyperkaliémie, insuffisance rénale aiguë, angio-œdème ; contre-indiqué pendant la grossesse"],
+            ["Antagoniste des récepteurs de l'angiotensine II", "Losartan, telmisartan", "Mêmes indications que l'inhibiteur de l'enzyme de conversion en cas de toux", "Hyperkaliémie, insuffisance rénale aiguë ; contre-indiqué pendant la grossesse"],
+            ["Inhibiteur calcique dihydropyridinique", "Amlodipine, nifédipine à libération prolongée", "Sujet âgé, hypertension systolique isolée, ascendance africaine, angor", "Œdèmes des chevilles, flush, céphalées"],
+            ["Bêtabloquant", "Bisoprolol, aténolol", "Coronaropathie, insuffisance cardiaque, contrôle de la fréquence dans la fibrillation atriale", "Bradycardie, asthénie ; n'est pas un premier choix en monothérapie"],
+            ["Diurétique de l'anse", "Furosémide", "Insuffisance cardiaque ou rénale avec surcharge hydrosodée", "Hypokaliémie, déshydratation ; n'a pas sa place dans l'hypertension non compliquée"],
+            ["Antialdostérone", "Spironolactone", "Hypertension résistante, après trois classes", "Hyperkaliémie, gynécomastie ; contrôle du potassium obligatoire"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La stratégie actuelle privilégie une bithérapie initiale à faible dose pour la majorité des patients, en dehors du sujet âgé fragile et du grade 1 à faible risque. L'OMS recommande explicitement une association de première intention — idéalement en comprimé unique — car elle contrôle la pression plus vite et améliore l'observance. Les combinaisons les plus utilisées associent un inhibiteur du système rénine-angiotensine à un inhibiteur calcique ou à un diurétique. L'association d'un inhibiteur de l'enzyme de conversion et d'un antagoniste de l'angiotensine II est à éviter."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Étape 1 : bithérapie faible dose (inhibiteur du système rénine-angiotensine + inhibiteur calcique ou diurétique).",
+            "Étape 2 : passage aux doses maximales tolérées de la même association.",
+            "Étape 3 : trithérapie associant les trois classes, dont un diurétique.",
+            "Étape 4 : hypertension résistante confirmée (observance, blouse blanche et causes secondaires écartées) — ajout de spironolactone avec surveillance du potassium.",
+            "Chez le sujet âgé fragile : monothérapie prudente, recherche d'hypotension orthostatique, cible individualisée."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les cibles doivent être annoncées au patient et réévaluées. La ligne directrice de l'OMS retient moins de 140/90 mmHg pour tous, et moins de 130/80 mmHg en cas de maladie cardiovasculaire, de diabète ou de maladie rénale chronique. Les recommandations de l'European Society of Hypertension visent plus souvent 130/80 mmHg chez l'adulte qui tolère le traitement, avec une individualisation chez le sujet très âgé ou fragile. Dans tous les cas, une hypotension symptomatique, une chute de la fonction rénale ou une déshydratation imposent de revenir en arrière."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi est rapproché au début : consultation mensuelle jusqu'au contrôle, puis tous les trois à six mois. La créatinine et le potassium sont contrôlés une à quatre semaines après l'introduction ou l'augmentation d'un inhibiteur du système rénine-angiotensine ou d'un diurétique. L'observance se vérifie à chaque visite par une question simple et sans jugement, car une hypertension dite résistante est le plus souvent une hypertension non prise."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence hypertensive : la vitesse compte plus que la baisse",
+          "text": "En cas de souffrance viscérale aiguë, la pression est abaissée sous surveillance, d'environ 20 à 25 % de la pression artérielle moyenne dans la première heure, puis vers 160/100 mmHg en quelques heures, et seulement ensuite vers la cible. Les exceptions sont la dissection aortique et l'éclampsie, qui exigent des protocoles spécifiques."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas baisser trop vite en dehors de l'urgence",
+          "text": "Une pression très élevée sans atteinte viscérale se traite par voie orale, avec une baisse progressive sur plusieurs jours. Les prises sublinguales répétées exposent à une chute brutale, à une ischémie cérébrale ou coronaire, et ne sont pas recommandées."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Grossesse : trois familles autorisées",
+          "text": "Labétalol, nifédipine à libération prolongée et méthyldopa sont les options de référence. Les inhibiteurs de l'enzyme de conversion, les antagonistes de l'angiotensine II et les inhibiteurs de la rénine sont contre-indiqués : ils exposent à une atteinte rénale fœtale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention est double. Prévention primaire collective : réduire l'apport de sel de la population, lutter contre l'obésité et la sédentarité. Prévention individuelle : mesurer la pression à chaque consultation à partir de 40 ans, plus tôt en cas d'antécédent familial, de diabète, d'obésité ou de maladie rénale, et traiter dès la confirmation pour éviter l'accumulation silencieuse des lésions d'organes."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HTN-2021",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline for the pharmacological treatment of hypertension in adults",
+          "year": 2021,
+          "url": "https://www.who.int/publications/i/item/9789240033986"
+        },
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        },
+        {
+          "id": "SRC-WHO-HTN-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Hypertension — fact sheet (25 septembre 2025)",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypertension artérielle essentielle se résume à une boucle simple : mesurer correctement, confirmer, évaluer le risque et le retentissement, traiter avec une association que le patient peut réellement prendre, puis revoir. Chaque étape compte autant que le choix de la molécule, et la plupart des échecs thérapeutiques se jouent avant la prescription : brassard inadapté, mesure unique, observance non interrogée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les deux erreurs à éviter sont symétriques. La première consiste à banaliser une pression élevée parce que le patient se sent bien. La seconde consiste à vouloir normaliser un chiffre en quelques heures chez un patient asymptomatique, au risque de l'ischémie. Entre les deux, il y a une maladie chronique à traiter patiemment, avec des cibles négociées et une surveillance biologique régulière."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans un contexte de ressources contraintes, le facteur pronostique décisif est la continuité : disponibilité des molécules, coût de l'association, et relation de suivi qui permet d'ajuster sans que le patient disparaisse. Une bithérapie simple, disponible et prise tous les jours vaut mieux qu'une stratégie théoriquement optimale qu'aucun patient ne peut suivre."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HTN-2021",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline for the pharmacological treatment of hypertension in adults",
+          "year": 2021,
+          "url": "https://www.who.int/publications/i/item/9789240033986"
+        },
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les valeurs seuils, les grades et les stratégies thérapeutiques de cette fiche proviennent des documents suivants, consultés et vérifiés le 17 octobre 2026. Les liens renvoient à la publication officielle ; une recommandation nationale malgache, si elle existe, doit primer en cas d'écart."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Organisation mondiale de la Santé. Hypertension — fact sheet. Mise à jour du 25 septembre 2025.",
+            "Organisation mondiale de la Santé. Guideline for the pharmacological treatment of hypertension in adults. Genève : OMS ; 2021.",
+            "European Society of Hypertension. 2023 ESH Guidelines for the management of arterial hypertension. Journal of Hypertension 2023 ; 41 (12) : 1874-2071."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-HTN-FS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Hypertension — fact sheet (25 septembre 2025)",
+          "year": 2025,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+        },
+        {
+          "id": "SRC-WHO-HTN-2021",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Guideline for the pharmacological treatment of hypertension in adults",
+          "year": 2021,
+          "url": "https://www.who.int/publications/i/item/9789240033986"
+        },
+        {
+          "id": "SRC-ESH-2023",
+          "organization": "European Society of Hypertension (ESH)",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023,
+          "url": "https://doi.org/10.1097/HJH.0000000000003480"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-confirmer",
+      "label": "Les 4 temps du diagnostic",
+      "intro": "Mesurer — Confirmer — Chercher — Évaluer",
+      "entries": [
+        { "key": "1", "term": "Mesurer correctement : brassard adapté, patient au repos, deux mesures." },
+        { "key": "2", "term": "Confirmer hors du cabinet (automesure ou holter) avant de traiter." },
+        { "key": "3", "term": "Chercher une cause secondaire, guidée par la clinique et non par une batterie d'examens." },
+        { "key": "4", "term": "Évaluer le retentissement viscéral et le risque cardiovasculaire global." }
+      ],
+      "note": "L'ordre compte : traiter un chiffre isolé, ou rassurer sans avoir cherché le retentissement, sont les deux erreurs symétriques."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "À partir de quels chiffres parle-t-on d'hypertension artérielle au cabinet ?",
+      "back": "À partir de 140/90 mmHg mesurés dans de bonnes conditions et confirmés par des mesures répétées. Une mesure unique ne suffit pas à poser le diagnostic.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels sont les seuils d'hypertension en automesure à domicile et au holter sur 24 heures ?",
+      "back": "Automesure : moyenne ≥ 135/85 mmHg. Holter sur 24 heures : moyenne ≥ 130/80 mmHg (diurne ≥ 135/85, nocturne ≥ 120/70).",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-03",
+      "front": "Comment définit-on une hypertension de grade 3 ?",
+      "back": "Pression systolique ≥ 180 mmHg et/ou diastolique ≥ 110 mmHg. Le grade décrit l'importance de l'élévation, pas l'urgence clinique.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-04",
+      "front": "Qu'est-ce qu'une hypertension masquée ?",
+      "back": "Une pression normale au cabinet mais élevée en automesure ou au holter. Elle expose au même risque cardiovasculaire qu'une hypertension permanente et doit être recherchée chez les patients à risque.",
+      "tags": ["diagnostic"]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle est la cause secondaire rénale la plus fréquente ?",
+      "back": "La maladie rénale parenchymateuse. La sténose de l'artère rénale (athéromateuse ou dysplasie fibromusculaire) vient ensuite et doit être évoquée devant un souffle abdominal ou une dégradation rénale sous inhibiteur de l'enzyme de conversion.",
+      "tags": ["etiologie"]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle cause endocrine rechercher devant une hypertension avec hypokaliémie spontanée ?",
+      "back": "Un hyperaldostéronisme primaire : c'est la cause endocrine la plus fréquente d'hypertension secondaire de l'adulte.",
+      "tags": ["etiologie"]
+    },
+    {
+      "id": "fc-07",
+      "front": "Citez quatre classes médicamenteuses pouvant élever la pression artérielle.",
+      "back": "Anti-inflammatoires non stéroïdiens, corticoïdes, œstrogènes (contraceptifs), vasoconstricteurs nasaux. À compléter par la réglisse, la cocaïne, l'érythropoïétine et les inhibiteurs de la néoangiogenèse.",
+      "tags": ["etiologie"]
+    },
+    {
+      "id": "fc-08",
+      "front": "Pourquoi une bithérapie d'emblée est-elle recommandée chez la plupart des patients ?",
+      "back": "Parce qu'elle contrôle la pression plus vite, avec moins d'effets indésirables qu'une monothérapie à forte dose, et qu'elle améliore l'observance — surtout en comprimé unique.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelles associations médicamenteuses faut-il privilégier en première intention ?",
+      "back": "Un inhibiteur du système rénine-angiotensine associé à un inhibiteur calcique ou à un diurétique thiazidique. L'association d'un inhibiteur de l'enzyme de conversion et d'un antagoniste de l'angiotensine II est à éviter.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quelles cibles tensionnelles retenir chez l'adulte traité ?",
+      "back": "Moins de 140/90 mmHg pour tous selon l'OMS, et moins de 130/80 mmHg en cas de maladie cardiovasculaire, de diabète ou de maladie rénale chronique. Les recommandations ESH visent plus souvent 130/80 mmHg si le traitement est bien toléré.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quand contrôler la créatinine et le potassium après avoir introduit un inhibiteur du système rénine-angiotensine ou un diurétique ?",
+      "back": "Une à quatre semaines après l'introduction ou l'augmentation de dose, puis régulièrement.",
+      "tags": ["surveillance"]
+    },
+    {
+      "id": "fc-12",
+      "front": "Qu'est-ce qui définit une urgence hypertensive ?",
+      "back": "Une atteinte viscérale aiguë associée à une pression élevée : encéphalopathie, syndrome coronarien, œdème pulmonaire, dissection aortique, insuffisance rénale aiguë, éclampsie, hémorragie ou œdème papillaire.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-13",
+      "front": "De combien faut-il abaisser la pression dans la première heure d'une urgence hypertensive ?",
+      "back": "D'environ 20 à 25 % de la pression artérielle moyenne, puis vers 160/100 mmHg en quelques heures, et seulement ensuite vers la cible. La dissection aortique et l'éclampsie ont des protocoles distincts.",
+      "tags": ["urgence"]
+    },
+    {
+      "id": "fc-14",
+      "front": "Quels antihypertenseurs sont autorisés pendant la grossesse ?",
+      "back": "Labétalol, nifédipine à libération prolongée et méthyldopa. Les inhibiteurs de l'enzyme de conversion et les antagonistes de l'angiotensine II sont contre-indiqués.",
+      "tags": ["grossesse"]
+    },
+    {
+      "id": "fc-15",
+      "front": "Quelles mesures hygiéno-diététiques ont démontré un effet sur la pression ?",
+      "back": "Réduction du sel à moins de 5 g par jour, perte de poids en cas de surpoids, 150 minutes d'activité physique modérée par semaine, réduction de l'alcool et arrêt du tabac.",
+      "tags": ["traitement"]
+    },
+    {
+      "id": "fc-16",
+      "front": "Quels signes font suspecter une hypertension secondaire ?",
+      "back": "Début avant 30 ans ou après 55 ans, début brutal, hypertension résistante à trois médicaments dont un diurétique, hypokaliémie spontanée, souffle abdominal, asymétrie des pouls ou dégradation rénale sous inhibiteur de l'enzyme de conversion.",
+      "tags": ["etiologie"]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "HTA essentielle",
+      "detail": "Mesurer, confirmer, chercher, évaluer, traiter. Le chiffre tensionnel n'est qu'une entrée : la décision se prend sur le risque cardiovasculaire et sur le retentissement viscéral."
+    },
+    "branches": [
+      {
+        "id": "mesurer",
+        "label": "Mesurer",
+        "tone": "reflexe",
+        "detail": "Une mesure correcte est la condition de tout le reste : la majorité des diagnostics erronés viennent de la technique, pas du patient.",
+        "children": [
+          {
+            "id": "mes-technique",
+            "label": "Technique",
+            "detail": "Patient assis, dos soutenu, cinq minutes de repos, brassard adapté, bras à hauteur du cœur.",
+            "leaves": [
+              {
+                "id": "mes-technique-1",
+                "label": "Aux deux bras",
+                "detail": "À la première consultation, retenir le bras le plus élevé."
+              },
+              {
+                "id": "mes-technique-2",
+                "label": "Debout à 1 et 3 min",
+                "detail": "Chez le sujet âgé, le diabétique et en cas de neuropathie."
+              }
+            ]
+          },
+          {
+            "id": "mes-hors",
+            "label": "Hors cabinet",
+            "detail": "Hors cabinet, les seuils sont plus bas : automesure ≥ 135/85, holter ≥ 130/80 sur 24 heures.",
+            "leaves": [
+              {
+                "id": "mes-hors-1",
+                "label": "Blouse blanche",
+                "detail": "Élevée au cabinet, normale à domicile."
+              },
+              {
+                "id": "mes-hors-2",
+                "label": "Masquée",
+                "detail": "Normale au cabinet, élevée à domicile."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "retenir",
+        "detail": "Les grades décrivent l'ampleur de l'élévation. Ils orientent la vitesse de prise en charge, ils ne la déterminent pas.",
+        "children": [
+          {
+            "id": "cla-grades",
+            "label": "Grades",
+            "detail": "Grade 1 : 140-159/90-99. Grade 2 : 160-179/100-109. Grade 3 : ≥ 180/110.",
+            "leaves": [
+              {
+                "id": "cla-grades-1",
+                "label": "Systolique isolée",
+                "detail": "≥ 140/< 90 mmHg, fréquente après 60 ans."
+              }
+            ]
+          },
+          {
+            "id": "cla-risque",
+            "label": "Risque global",
+            "detail": "Le nombre de facteurs de risque et l'atteinte des organes cibles pèsent plus que le grade isolé.",
+            "leaves": [
+              {
+                "id": "cla-risque-1",
+                "label": "Organes cibles",
+                "detail": "Cœur, cerveau, rein, rétine, aorte."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chercher",
+        "label": "Chercher",
+        "tone": "prudence",
+        "detail": "Une cause secondaire est retrouvée dans 5 à 10 % des cas. La rechercher de façon ciblée, pas systématique.",
+        "children": [
+          {
+            "id": "che-signes",
+            "label": "Signaux d'alarme",
+            "detail": "Début avant 30 ans ou après 55 ans, brutal, résistant, hypokaliémie, souffle abdominal, asymétrie des pouls.",
+            "leaves": [
+              {
+                "id": "che-signes-1",
+                "label": "Hypokaliémie",
+                "detail": "Évoquer un hyperaldostéronisme primaire."
+              },
+              {
+                "id": "che-signes-2",
+                "label": "Souffle abdominal",
+                "detail": "Évoquer une sténose de l'artère rénale."
+              }
+            ]
+          },
+          {
+            "id": "che-medicaments",
+            "label": "Médicaments",
+            "detail": "Anti-inflammatoires, corticoïdes, œstrogènes, vasoconstricteurs nasaux, réglisse.",
+            "leaves": [
+              {
+                "id": "che-medicaments-1",
+                "label": "Avant les examens",
+                "detail": "L'interrogatoire précède les explorations coûteuses."
+              }
+            ]
+          },
+          {
+            "id": "che-rein",
+            "label": "Rein",
+            "detail": "La maladie rénale parenchymateuse est la première cause secondaire : créatinine, protéinurie, échographie.",
+            "leaves": [
+              {
+                "id": "che-rein-1",
+                "label": "Après IEC",
+                "detail": "Une créatinine qui monte évoque une sténose bilatérale."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "retentir",
+        "label": "Retentissement",
+        "tone": "retenir",
+        "detail": "L'atteinte des organes cibles transforme une pression élevée en maladie déjà compliquée, et impose un traitement plus intensif.",
+        "children": [
+          {
+            "id": "ret-cardiaque",
+            "label": "Cœur",
+            "detail": "Hypertrophie ventriculaire gauche, insuffisance cardiaque à fraction d'éjection préservée, troubles du rythme.",
+            "leaves": [
+              {
+                "id": "ret-cardiaque-1",
+                "label": "ECG systématique",
+                "detail": "Rechercher une hypertrophie ventriculaire gauche."
+              }
+            ]
+          },
+          {
+            "id": "ret-renal",
+            "label": "Rein",
+            "detail": "Néphroangiosclérose, albuminurie, baisse du débit de filtration.",
+            "leaves": [
+              {
+                "id": "ret-renal-1",
+                "label": "Albumine/créatinine",
+                "detail": "Marqueur précoce, avant la baisse du débit de filtration."
+              }
+            ]
+          },
+          {
+            "id": "ret-neuro",
+            "label": "Cerveau et rétine",
+            "detail": "Lacunes, leucoencéphalopathie, accidents vasculaires ; rétinopathie hypertensive au fond d'œil.",
+            "leaves": [
+              {
+                "id": "ret-neuro-1",
+                "label": "Fond d'œil",
+                "detail": "Ciblé, en cas de céphalées ou de baisse visuelle."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Mesures hygiéno-diététiques pour tous, médicaments selon le risque, bithérapie d'emblée chez la plupart des patients.",
+        "children": [
+          {
+            "id": "tra-classes",
+            "label": "Première ligne",
+            "detail": "Diurétique thiazidique, inhibiteur de l'enzyme de conversion ou antagoniste de l'angiotensine II, inhibiteur calcique.",
+            "leaves": [
+              {
+                "id": "tra-classes-1",
+                "label": "Bêtabloquant",
+                "detail": "Seulement avec une indication cardiaque associée."
+              },
+              {
+                "id": "tra-classes-2",
+                "label": "Jamais IEC + ARA2",
+                "detail": "Association sans bénéfice et à risque rénal."
+              }
+            ]
+          },
+          {
+            "id": "tra-etapes",
+            "label": "Escalade",
+            "detail": "Bithérapie faible dose, puis doses pleines, puis trithérapie, puis spironolactone si résistance confirmée.",
+            "leaves": [
+              {
+                "id": "tra-etapes-1",
+                "label": "Résistance",
+                "detail": "Vérifier l'observance et la blouse blanche avant d'ajouter une molécule."
+              }
+            ]
+          },
+          {
+            "id": "tra-cibles",
+            "label": "Cibles",
+            "detail": "Moins de 140/90 pour tous ; moins de 130/80 si maladie cardiovasculaire, diabète ou maladie rénale chronique.",
+            "leaves": [
+              {
+                "id": "tra-cibles-1",
+                "label": "Sujet fragile",
+                "detail": "Cible individualisée, éviter l'hypotension orthostatique."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveiller",
+        "label": "Surveiller",
+        "tone": "memo",
+        "detail": "Le suivi est le traitement : sans contrôle biologique et sans vérification de l'observance, l'escalade thérapeutique est aveugle.",
+        "children": [
+          {
+            "id": "sur-bio",
+            "label": "Biologie",
+            "detail": "Créatinine et potassium une à quatre semaines après introduction ou augmentation de dose.",
+            "leaves": [
+              {
+                "id": "sur-bio-1",
+                "label": "Diurétique",
+                "detail": "Surveiller natrémie, kaliémie et uricémie."
+              }
+            ]
+          },
+          {
+            "id": "sur-observance",
+            "label": "Observance",
+            "detail": "À vérifier à chaque visite, sans jugement : la première cause d'hypertension résistante est un traitement non pris.",
+            "leaves": [
+              {
+                "id": "sur-observance-1",
+                "label": "Comprimé unique",
+                "detail": "Simplifier le schéma avant d'ajouter une molécule."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "situations",
+        "label": "Situations",
+        "tone": "urgence",
+        "detail": "Deux situations changent complètement la conduite : l'atteinte viscérale aiguë et la grossesse.",
+        "children": [
+          {
+            "id": "sit-urgence",
+            "label": "Urgence hypertensive",
+            "detail": "Pression élevée plus souffrance viscérale : baisse de 20 à 25 % de la pression moyenne dans la première heure.",
+            "leaves": [
+              {
+                "id": "sit-urgence-1",
+                "label": "Dissection aortique",
+                "detail": "Protocole distinct, baisse rapide et bêtabloquant en premier."
+              },
+              {
+                "id": "sit-urgence-2",
+                "label": "Sans atteinte viscérale",
+                "detail": "Voie orale, baisse progressive, pas de sublingual."
+              }
+            ]
+          },
+          {
+            "id": "sit-grossesse",
+            "label": "Grossesse",
+            "detail": "Labétalol, nifédipine ou méthyldopa. Inhibiteurs de l'enzyme de conversion et antagonistes de l'angiotensine II contre-indiqués.",
+            "leaves": [
+              {
+                "id": "sit-grossesse-1",
+                "label": "Pré-éclampsie",
+                "detail": "Sulfate de magnésium et protocole spécifique."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-HTN-FS",
+      "title": "Hypertension — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Hypertension — fact sheet. Mise à jour du 25 septembre 2025.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025,
+      "version": "25 septembre 2025",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/hypertension",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Définition",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-WHO-HTN-2021",
+      "title": "Guideline for the pharmacological treatment of hypertension in adults",
+      "citation": "Organisation mondiale de la Santé. Guideline for the pharmacological treatment of hypertension in adults. Genève : OMS ; 2021 (publiée le 24 août 2021).",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2021,
+      "version": "24 août 2021",
+      "url": "https://www.who.int/publications/i/item/9789240033986",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Seuil de traitement",
+        "Bithérapie initiale",
+        "Cibles tensionnelles",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-ESH-2023",
+      "title": "2023 ESH Guidelines for the management of arterial hypertension",
+      "citation": "European Society of Hypertension. 2023 ESH Guidelines for the management of arterial hypertension. Journal of Hypertension 2023 ; 41 (12) : 1874-2071. doi:10.1097/HJH.0000000000003480.",
+      "organization": "European Society of Hypertension (ESH)",
+      "year": 2023,
+      "version": "vol. 41, n° 12",
+      "url": "https://doi.org/10.1097/HJH.0000000000003480",
+      "verifiedAt": "2026-10-17",
+      "usedFor": [
+        "Grades tensionnels",
+        "Seuils hors cabinet",
+        "Causes secondaires",
+        "Stratégie thérapeutique",
+        "Urgences hypertensives",
+        "Grossesse"
+      ]
+    }
+  ]
+}

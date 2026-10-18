@@ -55,6 +55,13 @@ export type PathologyRelated = {
  * telle, c'est la condition pour publier du contenu généré sans mentir.
  */
 export type PathologyEditorial = {
+  /**
+   * Document fourni par le propriétaire (chapitre PDF) quand il existe.
+   * `null` est une valeur HONNÊTE et courante : une fiche rédigée à partir de
+   * recommandations publiées n'a aucun document source à déclarer. Le champ
+   * n'est pas rendu aujourd'hui, mais le type doit dire la vérité — c'est ce
+   * qui a manqué au batch 1 (deux fiches à `null` face à un type non nullable).
+   */
   sourceDocument: {
     filename: string;
     title: string;
@@ -62,7 +69,7 @@ export type PathologyEditorial = {
     receivedAt: string;
     /** Rôle réel du document : « référence de structure uniquement », jamais source de données. */
     role: string;
-  };
+  } | null;
   reformulation: string;
   reviewStatus: string;
   reviewedBy: string | null;
