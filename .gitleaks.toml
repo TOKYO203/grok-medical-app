@@ -32,9 +32,12 @@ tags = ["secret", "admin"]
 #    production (`GROK_AUTH_*` l'écrase). Ce n'est pas un secret du projet.
 # 2. `.env.example` : valeurs de gabarit évidentes (« changez-moi-… »), elles
 #    documentent les variables sans jamais fournir de valeur utilisable.
-# 3. Fixtures de tests : mots de passe factices de scripts/*.test.mjs et
-#    identifiants du conteneur PostgreSQL `localhost` de la CI — valeurs
-#    jetables, recréées à chaque exécution, sans portée.
+# 3. Fixtures de tests : mots de passe factices de scripts/*.test.mjs,
+#    identifiants du conteneur PostgreSQL `localhost` de la CI et secrets de
+#    test des tests unitaires `src/**/*.test.ts` (session S1 : deux HMAC de
+#    48 caractères construits pour être « assez longs » par le validateur du
+#    module JWT). Valeurs jetables, recréées à chaque exécution, sans portée —
+#    elles ne peuvent rien ouvrir : aucun service ne les accepte.
 # 4. `optimus-experience-v1` : nom de clé `localStorage`, pas un secret.
 [[allowlists]]
 description = "Client OAuth preview fourni par la plateforme (privilèges minimaux, hôtes *.grok-sandbox.com)"
@@ -47,6 +50,13 @@ paths = ['''\.env\.example$''']
 [[allowlists]]
 description = "Fixtures de tests : mots de passe factices et identifiants du Postgres de CI"
 paths = ['''scripts/.*\.test\.mjs$''', '''\.github/workflows/.*\.yml$''']
+
+# Restreint aux fichiers de test : un VRAI secret qui atterrirait dans un
+# fichier applicatif reste détecté (le chemin n'y est pas allowlisté).
+[[allowlists]]
+description = "Secrets de test des suites unitaires serveur (« …-de-test-… »)"
+regexes = ['''(?i)test[_-]?secret|secret[_-]?de[_-]?test''']
+paths = ['''src/.*\.test\.ts$''', '''scripts/.*\.test\.mjs$''']
 
 [[allowlists]]
 description = "Nom de clé localStorage (pas un secret)"
