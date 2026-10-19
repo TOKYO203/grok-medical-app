@@ -41,6 +41,9 @@ import { useI18n, LOCALES } from "@/i18n";
 import { markLocaleChosen } from "@/i18n/detect";
 import { getAuthRuntimeStatus, type AuthRuntimeStatus } from "@/lib/auth/runtime-status";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { signOutCloud } from "@/lib/cloud/session";
+import { syncWithCloud } from "@/lib/sync-engine";
+import { useAuth } from "@/hooks/useAuth";
 import {
   dataUrlToImageBlob,
   deleteProfileCover,
@@ -126,6 +129,8 @@ function ProfilPage() {
   const importedDecks = useOptimus((state) => state.importedDecks);
   const allProgress = useOptimus((state) => state.progress);
   const { user, isPending: authPending } = useCurrentUserState();
+  const cloudAuth = useAuth();
+  const [syncReport, setSyncReport] = useState<{ ok: boolean; message: string } | null>(null);
   const [name, setName] = useState(profile.displayName);
   const [editing, setEditing] = useState(false);
   const [customCoverUrl, setCustomCoverUrl] = useState<string | null>(null);
@@ -195,7 +200,10 @@ function ProfilPage() {
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
     "Médecine";
-  const connectedAccount = Boolean(user && !user.isDevFallback);
+  // Un compte est « connecté » dès qu'une identité réelle existe : Better Auth
+  // (déploiements historiques) ou session Supabase (backend Phase 1).
+  const connectedAccount =
+    Boolean(user && !user.isDevFallback) || cloudAuth.status === "authenticated";
 
   useEffect(() => {
     if (profile.cover !== "custom") {
@@ -834,6 +842,54 @@ function ProfilPage() {
             >
               Gérer mes données
             </Link>
+          ) : null}
+          {cloudAuth.status === "authenticated" ? (
+            <button
+              type="button"
+              data-cloud-sync-now
+              onClick={() => {
+                void syncWithCloud().then((result) => {
+                  if (result.status === "synced") {
+                    setSyncReport({
+                      ok: true,
+                      message: `${result.pushed} changement${result.pushed !== 1 ? "s" : ""} synchronisé${result.pushed !== 1 ? "s" : ""}.`,
+                    });
+                  } else if (result.status === "failed") {
+                    setSyncReport({ ok: false, message: result.diagnosis.message });
+                  } else if (result.status === "skipped" && result.reason === "offline") {
+                    setSyncReport({ ok: false, message: "Réseau indisponible : vos changements restent sur cet appareil." });
+                  } else {
+                    setSyncReport({ ok: true, message: "Rien à synchroniser pour le moment." });
+                  }
+                });
+              }}
+              className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-primary px-4 text-sm font-medium text-primary-fg"
+            >
+              <Cloud className="size-4" aria-hidden />
+              Synchroniser maintenant
+            </button>
+          ) : null}
+          {syncReport ? (
+            <p
+              className="mt-2 rounded-[var(--radius-md)] px-3 py-2 text-xs leading-relaxed text-fg"
+              style={{ backgroundColor: syncReport.ok ? "var(--tone-success-soft)" : "var(--tone-warn-soft)" }}
+              role={syncReport.ok ? "status" : "alert"}
+              data-cloud-sync-report={syncReport.ok ? "ok" : "issue"}
+            >
+              {syncReport.message}
+            </p>
+          ) : null}
+          {cloudAuth.status === "authenticated" ? (
+            <button
+              type="button"
+              onClick={() => {
+                void signOutCloud();
+              }}
+              className="mt-3 w-full text-center text-xs font-medium text-muted underline decoration-border-strong underline-offset-4 hover:text-fg"
+              data-cloud-signout
+            >
+              Se déconnecter du cloud
+            </button>
           ) : null}
         </section>
       </Page>

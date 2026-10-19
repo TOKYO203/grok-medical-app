@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link, Navigate } from "@tanstack/react-router";
 import { Cloud, CloudOff, LockKeyhole, ShieldCheck } from "lucide-react";
+import { AuthScreen } from "@/components/AuthScreen";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { authEnabled, signIn } from "@/lib/auth/client";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import {
   getAuthRuntimeStatus,
   type AuthRuntimeStatus,
@@ -39,6 +41,10 @@ function LoginPage() {
     };
   }, []);
 
+  // Supabase est la source d'authentification dès qu'il est configuré : /login
+  // et le gate de `__root.tsx` affichent alors le MÊME écran (une seule UI de
+  // connexion, pas deux systèmes concurrents).
+  if (isSupabaseConfigured) return <AuthScreen />;
   if (!authEnabled) return <Navigate to="/pro" replace />;
   if (!isPending && user) return <Navigate to="/pro" replace />;
 
