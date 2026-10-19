@@ -364,3 +364,143 @@ npm run build ............................ BUILD_EXIT=0
   ├ budget performance ................... 0 violation (JS client 1901,3 KiB / 1960 KiB)
   └ smoke serveur bâti ................... 19 routes UI + API éditoriale + sondages
 ```
+
+---
+
+## 12. Cohabitation avec Supabase (backend Phase 1, 2026-10-19)
+
+Cette section répond à une question précise : **le JWT de contenu introduit en S1
+et le JWT de session Supabase peuvent-ils se confondre ?** Non — et la réponse est
+structurelle, pas déclarative.
+
+### 12.1 Deux jetons, deux mondes
+
+| | **Jeton de contenu** (S1) | **Jeton de session Supabase** |
+|---|---|---|
+| Émetteur | notre serveur (`iss: optimus-medical`) | Supabase Auth (`<projet>.supabase.co/auth/v1`) |
+| Algorithme | **HS256** (secret partagé `LICENSE_JWT_SECRET`) | **RS256/ES256** (clés privées Supabase, clés publiques via JWKS) |
+| Audience | `optimus-content` | `authenticated` |
+| Durée | 24 h | 1 h (le refresh token est séparé) |
+| Stockage client | `localStorage.optimus_session` **+** cookie `optimus_session` (SameSite=Lax, requis pour le SSR) | `localStorage["sb-<ref>-auth-token"]`, géré par `supabase-js` |
+| Ce qu'il autorise | `GET /content/{pathologies,signes}/**` | les requêtes PostgREST soumises aux policies **RLS** (`profiles`, `progressions`, `licences`) |
+| Ce qu'il n'autorise **jamais** | une requête PostgREST / Supabase | `GET /content/**` |
+
+**Pourquoi l'un ne peut pas usurper l'autre**
+
+- Le garde de contenu (`src/server/content-guard.ts` → `verifyContentToken`) impose
+  **HS256 + `iss` + `aud`**. Un JWT Supabase est asymétrique : la vérification HMAC
+  échoue, même si l'attaquant connaît la clé publique Supabase. Il n'existe aucun
+  chemin de code qui accepte un jeton sans vérifier l'audience.
+- Symétriquement, PostgREST rejette le jeton de contenu : il est signé avec un secret
+  que Supabase ignore, et son audience n'est pas `authenticated`.
+
+**Règles à ne jamais enfreindre**
+
+1. La clé **`service_role`** ne quitte jamais le serveur (elle contourne RLS). Le
+   navigateur ne reçoit que `VITE_SUPABASE_ANON_KEY`.
+2. Un `user_id` **envoyé par le client** n'est jamais une preuve d'identité (IDOR).
+   L'identité vient du jeton vérifié côté serveur, point.
+3. `user_metadata` (y compris un éventuel champ `tier`) est **modifiable par
+   l'utilisateur** : ce n'est pas une source de droits.
+
+### 12.2 Pourquoi le JWT de contenu survit à Supabase
+
+Le jeton de contenu n'est pas un jeton d'identité : c'est un **reçu d'achat** émis
+après vérification d'une signature **Ed25519** (clé publique seule) ou d'une clé
+d'activation en base. Supabase ne connaît pas ces licences, et les faire transiter
+par lui reviendrait à déplacer la décision d'accès chez un tiers.
+
+Répartition retenue :
+
+- **Supabase** = identité + données de progression (RLS) ;
+- **JWT de contenu (S1)** = droit d'accès au contenu Premium ;
+- **point de jonction** = le `sub` / `user_id` Supabase.
+
+### 12.3 Phase 2 (paiement) — contrat préparé, non implémenté
+
+L'endpoint **existe déjà** : `POST /api/licenses/verify` (voir §3). Il n'y a **pas**
+de second handler à créer — un doublon ferait exactement le bug de « route
+shadowing » documenté au §4 (le gagnant dépend de dev/build). Trois ajouts sont
+prévus, dans cet ordre :
+
+1. **`POST /api/licenses/link`** — authentifié par le JWT Supabase
+   (`Authorization: Bearer <access_token>`). Vérifie la signature Ed25519 de la clé,
+   puis rattache la licence **une seule fois** :
+   `insert … on conflict (license_id) do update set user_id = excluded.user_id
+    where licences.user_id is null`.
+   RLS : `select` autorisé sur `user_id = auth.uid()`, **écriture réservée au service
+   role** (le navigateur n'écrit jamais dans `licences`).
+2. **`/api/licenses/verify` accepte AUSSI un access token Supabase** : si présent et
+   vérifié, on résout `user_id`, on lit la ligne `licences`, et on signe le jeton de
+   contenu sans redemander la clé. Le garde de contenu ne change pas d'une ligne.
+3. **Vérifier un access token Supabase côté serveur** : jamais de décodage sans
+   vérification. Soit `supabase.auth.getUser(jwt)` (aller-retour, fait autorité), soit
+   vérification JWKS locale avec cache. `SUPABASE_SERVICE_KEY` reste serveur.
+
+### 12.4 Session Supabase et gate de l'application
+
+- **Source unique** : `src/lib/cloud/session.ts` (store externe +
+  `useSyncExternalStore`). Un seul `onAuthStateChange` pour toute l'app, un instantané
+  serveur déterministe (pas de mismatch d'hydratation), et un **timeout de 2 s** : une
+  requête qui ne répond pas ne bloque plus l'écran.
+- **Décision d'accès** : `resolveCloudGate` (`src/lib/cloud/gate.ts`, module pur,
+  testé). Les surfaces publiques (tarifs, légal, contact, connexion…) restent
+  accessibles sans session — un mur total empêcherait d'acheter avant de s'inscrire.
+  Sans variables Supabase, **aucun verrou** n'est ajouté.
+- **On ne verrouille que sur une réponse explicite** (`anonymous`). Le statut
+  `unavailable` — chunk du SDK non téléchargé hors-ligne, ou aucune réponse dans
+  les 6 s — laisse passer en **mode local**. Verrouiller sur une absence de
+  réponse rendrait la PWA inutilisable sans réseau, y compris pour du contenu
+  déjà en cache ; une session retrouvée rebascule ensuite l'écran sans
+  navigation. Le verrou est une commodité d'interface, pas une frontière de
+  sécurité (les données sont tenues par RLS, le contenu par le jeton S1).
+- **`<Scripts />` toujours rendu, en enfant direct de `<body>`** : c'est le script qui
+  hydrate. Placé dans une branche conditionnelle, le HTML SSR ne contient aucun
+  script client et l'application reste figée sur son rendu initial — c'était
+  exactement le symptôme « Chargement… » infini.
+- **Synchronisation** : `decideCloudSync` + `removeSyncedEvents`
+  (`src/lib/cloud/sync-policy.ts`, testés). Hors-ligne ⇒ **aucun appel, file
+  intacte**. Chaque `upsert` contrôle `error` (PostgREST ne lève jamais), et la file
+  n'est purgée qu'après un **succès complet**, uniquement pour les ids réellement
+  envoyés.
+
+### 12.5 Vérifications de la session (mesurées, 2026-10-19)
+
+```
+HTML SSR /profil .................. contient <script type="module" …> (hydratation possible)
+/profil anonyme ................... écran de connexion, splash borné (< 12 s observé ~instantané)
+React hydraté ....................  clé __react présente sur le DOM
+identifiants invalides ........... « Email ou mot de passe incorrect. » (Supabase joignable)
+/tarifs et /login ................ accessibles sans session
+débordement horizontal 390×844 ... 0 px
+erreurs console .................. 0
+```
+
+**Contrôle des tables (lecture seule, clé anon) :**
+
+```
+GET /rest/v1/progressions?select=*&limit=1 → 401 (code 42501, permission denied)
+GET /rest/v1/profiles?select=*&limit=1     → 401 (code 42501)
+GET /rest/v1/licences?select=*&limit=1     → 401 (code 42501)
+```
+
+Interprétation : les trois tables **existent** (une table absente renverrait
+`PGRST205 — Could not find the table`), et `anon` n'a **aucun** privilège — ce qui est
+le bon défaut. ⚠️ **Point à vérifier après la première connexion réelle** : les
+policies RLS ne suffisent pas si le rôle `authenticated` n'a pas reçu les `GRANT`.
+
+Correctif unique, idempotent, à exécuter dans le **même** ordre (GRANT **et**
+policies — un `enable row level security` sans policy refuse tout avec le même code
+`42501`, donc l'interface ne peut pas distinguer les deux causes) :
+**`docs/supabase/002-grants.sql`**. Moindre privilège : `select, insert, update`
+sur `profiles` et `progressions`, `select` **seul** sur `licences` (l'écriture
+reste côté serveur), rien pour `anon`, et aucun `delete` à personne.
+
+### 12.6 Limites assumées
+
+- La connexion Supabase **n'émet pas** de jeton de contenu : les fiches Premium
+  restent débloquées par la clé de licence (S1), pas par le compte. Les deux chantiers
+  se rejoindront en Phase 2 (§12.3).
+- L'essai Premium 7 jours reste un état `localStorage`, non vérifiable côté serveur.
+- `startSyncLoop` s'arrête au démontage et à chaque changement de session ; une seule
+  minuterie peut vivre à la fois.
