@@ -288,6 +288,15 @@ async function runEnsure(): Promise<ContentSessionResult> {
   const subject = fresh?.user?.id ?? auth.session?.user?.id ?? null;
   if (!accessToken || !subject) return markNone("no-session");
 
+  /**
+   * Mémo négatif consulté AVANT toute I/O.
+   *
+   * ⚠️ Placé ici et pas dans le bloc de lecture client : si le navigateur ne
+   * peut pas lire `licences` (GRANT/RLS manquants), ce bloc est sauté — le mémo
+   * devait donc rester en amont, sinon chaque montage de page repayait un
+   * aller-retour serveur pour un compte sans licence (le cas le plus fréquent)
+   * jusqu'à épuiser le quota de 30 appels/heure.
+   */
   if (readMemo(subject)) return markNone("no-licence");
 
   /**
@@ -305,8 +314,6 @@ async function runEnsure(): Promise<ContentSessionResult> {
   const rows = await withTimeout(readLicences(client), STEP_TIMEOUT_MS);
 
   if (Array.isArray(rows)) {
-    if (readMemo(subject)) return markNone("no-licence");
-
     const licence = activeLicence(rows);
     if (!licence) {
       // Même règle que le serveur (LIC-BRIDGE-3) : inutile de lui demander.

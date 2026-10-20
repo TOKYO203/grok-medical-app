@@ -323,6 +323,19 @@ test("un refus serveur 403 pose aussi le mémo négatif", () => {
   assert.match(block.slice(0, 400), /writeMemo\(subject\)/);
 });
 
+test("le mémo négatif est consulté AVANT toute lecture réseau", () => {
+  const contentSession = read("src/lib/cloud/content-session.ts");
+  const memoIndex = contentSession.indexOf("if (readMemo(subject))");
+  const readIndex = contentSession.indexOf("await withTimeout(readLicences(client)");
+  const bridgeIndex = contentSession.indexOf("requestSessionToken(accessToken)");
+  assert.ok(memoIndex > 0, "le mémo doit exister");
+  // En amont des deux appels : sinon un compte sans licence (et dont la lecture
+  // client échoue) paierait un aller-retour serveur à chaque montage.
+  assert.ok(memoIndex < readIndex && memoIndex < bridgeIndex, "mémo avant les I/O");
+  // Et une seule fois (pas de doublon dans le bloc client).
+  assert.equal(contentSession.split("if (readMemo(subject))").length - 1, 1);
+});
+
 test("le pont n'est pas un chemin dérobé : aucun contenu servi sans licence", () => {
   const contentSession = read("src/lib/cloud/content-session.ts");
   // Le jeton n'est posé QUE sur une réponse serveur de succès.
