@@ -30,13 +30,31 @@ if (!dbUrl) {
 }
 if (!dbUrl) { console.error("DATABASE_URL introuvable"); process.exit(1); }
 
+// TLS est activé uniquement pour les hôtes Supabase gérés, décidé sur le
+// HOSTNAME PARSÉ — jamais sur une sous-chaîne de l'URL brute, qu'une URL
+// contrôlée par un attaquant pourrait placer n'importe où (identifiants,
+// query, domaine lookalike). Signalement CodeQL « incomplete URL substring
+// sanitization » corrige en conséquence.
+const dbHostname = (() => {
+  try {
+    return new URL(dbUrl).hostname;
+  } catch {
+    return "";
+  }
+})();
+const isManagedSupabase =
+  dbHostname.endsWith(".pooler.supabase.com") ||
+  dbHostname.endsWith(".supabase.co") ||
+  dbHostname === "pooler.supabase.com" ||
+  dbHostname === "supabase.co";
+
 const client = new pg.Client({
   connectionString: dbUrl,
   // Kept as an explicit opt-out variable only: silently disabling certificate
   // validation let a network attacker read or rewrite the admin password hash
   // in flight. Validation is on by default; PSQL_INSECURE_TLS=1 is the
   // deliberate escape hatch for a self-signed local database.
-  ssl: dbUrl.includes("supabase.com") || dbUrl.includes("supabase.co")
+  ssl: isManagedSupabase
     ? { rejectUnauthorized: process.env.PSQL_INSECURE_TLS !== "1" }
     : undefined,
 });
