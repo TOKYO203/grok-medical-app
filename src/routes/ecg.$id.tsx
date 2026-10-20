@@ -49,6 +49,7 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
     peakedT?: boolean;
     pAbsent?: boolean;
     sawTooth?: boolean;
+    fv?: boolean;
     prProgression?: "constant" | "wenckebach" | "mobitz2";
     pBlockedEvery?: number;
     rrVariability?: number;
@@ -59,6 +60,7 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
   if (data.rhythm === "flutter-auriculaire") d.sawTooth = true;
   if (data.rhythm === "tachycardie-ventriculaire") d.wideQrs = true;
   if (data.rhythm === "torsade-de-pointes") d.wideQrs = true;
+  if (data.rhythm === "fibrillation-ventriculaire") d.fv = true;
   if (t.includes("bav") && (t.includes("mobitz ii") || t.includes("bav iii"))) d.wideQrs = true;
   if (t.includes("hyperkali")) d.peakedT = true;
   // ⚠️ Clés de dérivation alignées sur le moniteur (« I », « II », « III ») —
@@ -91,6 +93,7 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
     if (t.wideQrs !== undefined) d.wideQrs = t.wideQrs;
     if (t.pAbsent !== undefined) d.pAbsent = t.pAbsent;
     if (t.sawTooth !== undefined) d.sawTooth = t.sawTooth;
+    if (t.fv !== undefined) d.fv = t.fv;
     if (t.peakedT !== undefined) d.peakedT = t.peakedT;
     if (t.tInverted) d.tInverted = t.tInverted;
   }
