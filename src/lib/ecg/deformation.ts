@@ -16,6 +16,12 @@ export type EcgDeformation = {
   peakedT?: boolean;
   pAbsent?: boolean;
   sawTooth?: boolean;
+  /**
+   * Fibrillation ventriculaire (issue #39) : chaos ventriculaire, ni P ni
+   * QRS analysables. Testée en premier par `analyzeEcg` — le type
+   * `EcgRythme` prévoyait « fv » sans jamais l'assigner.
+   */
+  fv?: boolean;
 
   // ── Déformations multi-cycles (v2) ────────────────────────────────────
   // Progression du PR entre cycles consécutifs :
