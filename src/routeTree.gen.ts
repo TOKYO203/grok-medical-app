@@ -55,6 +55,7 @@ import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
+import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
 import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
 
@@ -287,6 +288,11 @@ const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   path: '/api/licenses/activate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLicensesSessionRoute = ApiLicensesSessionRouteImport.update({
+  id: '/api/licenses/session',
+  path: '/api/licenses/session',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
   id: '/api/licenses/verify',
   path: '/api/licenses/verify',
@@ -344,6 +350,7 @@ export interface FileRoutesByFullPath {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -393,6 +400,7 @@ export interface FileRoutesByTo {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -444,6 +452,7 @@ export interface FileRoutesById {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
+  '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -495,6 +504,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/session'
     | '/api/licenses/verify'
     | '/content/$type/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -544,6 +554,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/session'
     | '/api/licenses/verify'
     | '/content/$type/$file'
   id:
@@ -594,6 +605,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/licenses/activate'
+    | '/api/licenses/session'
     | '/api/licenses/verify'
     | '/content/$type/$file'
   fileRoutesById: FileRoutesById
@@ -640,6 +652,7 @@ export interface RootRouteChildren {
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
+  ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
   ContentTypeFileRoute: typeof ContentTypeFileRoute
 }
@@ -968,6 +981,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiLicensesActivateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/licenses/session': {
+      id: '/api/licenses/session'
+      path: '/api/licenses/session'
+      fullPath: '/api/licenses/session'
+      preLoaderRoute: typeof ApiLicensesSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/verify': {
       id: '/api/licenses/verify'
       path: '/api/licenses/verify'
@@ -1081,6 +1101,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
+  ApiLicensesSessionRoute: ApiLicensesSessionRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
   ContentTypeFileRoute: ContentTypeFileRoute,
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate, useRouter } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, BookOpen, FileText, Lock, ShieldAlert, Stethoscope } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
@@ -15,6 +15,7 @@ import { specialtyPackProduct } from "@/lib/library/content-index";
 import { loadPathologyContent, loadPathologyPreview } from "@/lib/pathologies/catalog";
 import { pathologyEntry } from "@/lib/pathologies/manifest";
 import { consumeExpiredSessionFlag, getToken } from "@/lib/auth/session";
+import { ensureContentSession } from "@/lib/cloud/content-session";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { hasEntitlement, useOptimus } from "@/state/store";
 
@@ -320,6 +321,7 @@ function PathologieNotFound() {
 function PathologieLocked() {
   const { slug } = Route.useParams();
   const { t } = useI18n();
+  const router = useRouter();
 
   // Le MANIFESTE est public : il donne le titre et la spécialité sans requête,
   // donc dès le rendu serveur (l'aperçu, lui, arrive par fetch après montage).
@@ -346,6 +348,31 @@ function PathologieLocked() {
       cancelled = true;
     };
   }, [slug]);
+
+  /**
+   * DÉBLOCAGE AUTOMATIQUE — aucun clic, aucun rechargement.
+   *
+   * Le rendu SERVEUR de cette page a répondu 401 : soit l'utilisateur n'a pas
+   * de licence, soit il en a une dans Supabase mais aucun jeton de contenu
+   * n'existait encore au moment de la requête. On demande donc le jeton une
+   * fois, et s'il est obtenu on rejoue le loader — la fiche remplace le bandeau.
+   *
+   * ⚠️ On ne rejoue JAMAIS si un jeton existait déjà : un jeton refusé par le
+   * serveur (mauvais secret, horloge décalée) relancerait la page sans fin.
+   */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (getToken()) return;
+
+    let cancelled = false;
+    void ensureContentSession().then((result) => {
+      if (!cancelled && result.status === "ready") void router.invalidate();
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [router]);
 
   return (
     <Shell title="Nosographie">

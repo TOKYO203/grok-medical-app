@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
 import { SigneView } from "@/components/signes/signe-view";
 import type { SignesCatalog } from "@/core/signes/types";
+import {
+  awaitContentSessionIfLikely,
+  getContentServerSnapshot,
+  getContentSessionSnapshot,
+  subscribeContentSession,
+} from "@/lib/cloud/content-session";
 import { loadSignesCatalog, type SignesLoad } from "@/lib/signes/catalog";
 
 /**
@@ -22,6 +28,12 @@ import { loadSignesCatalog, type SignesLoad } from "@/lib/signes/catalog";
  *   • `locked`  → bandeau Premium (aucun cas n'est téléchargé) ;
  *   • `missing` → contenu pas encore publié ;
  *   • `ok`      → le parcours de déduction habituel.
+ *
+ * ⚠️ Le jeton de contenu n'est PAS saisi ici : il est établi automatiquement à
+ * partir de la licence Supabase (`ContentSessionBridge` + `ensureContentSession`).
+ * La page s'abonne donc à la `generation` de cette session : quand un jeton est
+ * obtenu APRÈS le premier chargement (cas d'un lien direct), le catalogue est
+ * redemandé tout seul — l'utilisateur n'a ni clic ni rechargement à faire.
  */
 export const Route = createFileRoute("/signes")({
   component: SignesPage,
@@ -32,22 +44,38 @@ type State = { status: "loading" } | SignesLoad<SignesCatalog>;
 function SignesPage() {
   const [state, setState] = useState<State>({ status: "loading" });
   const [index, setIndex] = useState(0);
+  const contentSession = useSyncExternalStore(
+    subscribeContentSession,
+    getContentSessionSnapshot,
+    getContentServerSnapshot,
+  );
 
   useEffect(() => {
     let cancelled = false;
-    loadSignesCatalog()
-      .then((loaded) => {
+    // Un nouveau jeton rend le contenu accessible : on repasse par « loading »
+    // UNIQUEMENT si rien n'est encore affiché, pour ne pas clignoter sur un
+    // catalogue déjà chargé.
+    setState((previous) => (previous.status === "ok" ? previous : { status: "loading" }));
+
+    void (async () => {
+      await awaitContentSessionIfLikely();
+      // ⚠️ Vérification APRÈS l'attente : obtenir un jeton incrémente la
+      // `generation`, donc CET effet est déjà remplacé par le suivant. Sans ce
+      // garde, on téléchargerait le catalogue complet deux fois au démarrage.
+      if (cancelled) return;
+      try {
+        const loaded = await loadSignesCatalog();
         if (!cancelled) setState(loaded);
-      })
-      .catch(() => {
+      } catch {
         // Le catalogue est conçu pour ne jamais jeter ; ce garde protège d'un
         // échec réseau brut du navigateur.
         if (!cancelled) setState({ status: "missing" });
-      });
+      }
+    })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [contentSession.generation]);
 
   if (state.status === "loading") {
     return (
@@ -60,7 +88,12 @@ function SignesPage() {
   if (state.status === "locked") {
     return (
       <Shell title="Signes & Syndromes">
-        <div className="mx-auto max-w-2xl" data-signes-catalog="locked">
+        <div
+          className="mx-auto max-w-2xl"
+          data-signes-catalog="locked"
+          // Diagnostic QA : distingue « pont en cours » de « pas de licence ».
+          data-content-session={contentSession.status}
+        >
           <p className="text-sm text-muted">Raisonnement inversé — du cas au syndrome</p>
           <ContentLocked />
         </div>
