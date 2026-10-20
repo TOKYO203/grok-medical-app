@@ -141,6 +141,7 @@ Variables serveur à configurer dans le gestionnaire de secrets du déploiement 
 - `RESPONSE_SALT` : secret aléatoire long utilisé uniquement côté serveur pour pseudonymiser l'adresse IP de l'anti-doublon des enquêtes. Il est obligatoire en production ; aucun `default_salt` n'est accepté.
 - `RATE_LIMIT_SALT` : secret aléatoire serveur distinct utilisé pour pseudonymiser les sujets des quotas API avant leur stockage dans `api_rate_limits`. Il est obligatoire en production.
 - `TRUST_PROXY_HEADERS` : laisser absent/`false` par défaut. Mettre `true` uniquement lorsque la plateforme de déploiement supprime les headers de forwarding fournis par le client et réinjecte ses propres valeurs de confiance.
+- `UPSTASH_REDIS_REST_URL` et `UPSTASH_REDIS_REST_TOKEN` : compteur **partagé** et nonce anti-replay. Sans elles, les quotas des endpoints publics (`/api/licenses/verify`, `/api/ai-stream`, `/api/admin-verify`, activation) sont appliqués **par instance** : en multi-région, le plafond réel est plus élevé que celui annoncé, et un nonce peut être rejoué sur une autre instance.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `SUPABASE_PUBLIC_BUCKET` : configuration du stockage éditorial. La clé de service reste strictement côté serveur ; le client ne choisit jamais le bucket.
 
 L'écran `/login` interroge l'état réel du serveur avant d'afficher Google/X. Si une version de test

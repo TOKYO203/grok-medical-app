@@ -18,7 +18,7 @@ export const Route = createFileRoute("/api/ai-stream")({
         // The subject is the TRUSTED client IP only. Reading `x-forwarded-for`
         // directly let a caller mint a fresh budget per request by rotating one
         // header, which left this unauthenticated, provider-billed proxy unmetered.
-        const rl = rateLimitRequest(request, "ai-stream", 20, 60_000);
+        const rl = await rateLimitRequest(request, "ai-stream", 20, 60_000);
         if (!rl.ok) {
           return new Response(
             JSON.stringify({ error: "Trop de requêtes. Réessayez dans une minute." }),

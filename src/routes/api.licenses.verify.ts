@@ -59,7 +59,7 @@ export const Route = createFileRoute("/api/licenses/verify")({
     handlers: {
       POST: async ({ request }) => {
         // 1. Quota — avant tout travail, même avant de lire le corps.
-        const decision = rateLimitRequest(
+        const decision = await rateLimitRequest(
           request,
           "license-verify",
           RATE_LIMIT_MAX,

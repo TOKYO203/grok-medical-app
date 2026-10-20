@@ -83,7 +83,7 @@ export const Route = createFileRoute("/api/licenses/activate")({
         // not) consumes the same budget, so the endpoint cannot be hammered or
         // used as an unthrottled oracle. Subject = trusted client IP
         // (`client-ip.server.ts`), which forged `x-forwarded-for` cannot widen.
-        const decision = rateLimitRequest(
+        const decision = await rateLimitRequest(
           request,
           "license-activate",
           RATE_LIMIT_MAX,
