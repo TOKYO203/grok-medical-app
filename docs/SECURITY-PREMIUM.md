@@ -177,7 +177,7 @@ moitié publique.
 | --- | --- | --- |
 | `LICENSE_PUBLIC_KEY` | oui | clé **publique** Ed25519 (base64url brut 32 octets, ou SPKI, ou hex 64) |
 | `LICENSE_JWT_SECRET` | oui | secret HMAC ≥ 32 caractères ; **jamais** préfixé `VITE_` |
-| `UPSTASH_REDIS_REST_URL` | recommandé | anti-replay atomique multi-instance |
+| `UPSTASH_REDIS_REST_URL` | recommandé | anti-replay atomique **et** compteur de quota partagé entre instances |
 | `UPSTASH_REDIS_REST_TOKEN` | recommandé | jeton Upstash |
 | `LICENSE_SIGNING_PRIVATE_KEY` | hors plateforme | **uniquement** pour signer les reçus d'activation (`/api/licenses/activate`) — déjà en place |
 
@@ -288,8 +288,20 @@ fiche complète avec jeton, `/pro` qui débloque, retour au cadenas après purge
    non vérifiable côté serveur ne peut pas ouvrir un contenu protégé). Suivi :
    émettre un jeton d'essai côté serveur (compte + date de début) si l'on veut
    que l'essai ouvre aussi les fiches.
-2. **Anti-replay mono-instance** si Upstash n'est pas configuré : le cache
-   mémoire ne voit que l'instance courante. Configurer Upstash en multi-région.
+2. **Quotas et anti-replay mono-instance si Upstash n'est pas configuré** : le
+   cache mémoire du nonce et le compteur du limiteur ne voient que l'instance
+   courante. Sur Cloudflare Workers (un isolate par requête), « 10 vérifications
+   par heure » devient donc « 10 par isolate », et un nonce peut être rejoué sur
+   une autre instance. **Configurer `UPSTASH_REDIS_REST_URL` +
+   `UPSTASH_REDIS_REST_TOKEN`** : le nonce (`src/server/replay-guard.ts`,
+   `SET … NX EX 300`) et le quota (`src/lib/security/rate-limit.server.ts`,
+   pipeline `INCR` + `PEXPIRE … NX` + `PTTL`) partagent alors le même backend,
+   donc la limite annoncée est réellement globale. Une panne Upstash ne coupe pas
+   le service : le limiteur journalise et retombe sur un seau mémoire **par
+   instance** (la limite redevient locale, elle n'est jamais nulle), tandis que
+   l'anti-replay, lui, reste **fail-closed** (`503`) — les deux doctrines diffèrent
+   volontairement : un quota moins strict laisse passer du trafic, un anti-replay
+   permissif laisse passer un rejeu.
 3. **Rotation du secret JWT** : changer `LICENSE_JWT_SECRET` invalide tous les
    jetons en circulation (les clients reçoivent 401 → re-saisie de la clé). À
    faire en connaissance de cause ; c'est aussi le levier de révocation globale.
