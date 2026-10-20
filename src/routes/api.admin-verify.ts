@@ -99,7 +99,7 @@ export const Route = createFileRoute("/api/admin-verify")({
         // Throttle before doing any work. Unparseable/oversized bodies and wrong
         // guesses all consume the same budget, so the endpoint cannot be used as
         // an unthrottled oracle.
-        const decision = rateLimitRequest(request, "admin-verify", 10, 5 * 60_000);
+        const decision = await rateLimitRequest(request, "admin-verify", 10, 5 * 60_000);
         if (!decision.ok) {
           return new Response(JSON.stringify({ error: "Trop de tentatives." }), {
             status: 429,
