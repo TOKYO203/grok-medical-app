@@ -2,8 +2,8 @@
  * analyzeEcg n'était couvert par aucun test : les branches BAV I / PR court /
  * axe gauche-droite-extrême / FV — précisément celles que l'issue #39 a
  * rouvertes — n'avaient aucune preuve. Import direct rendu possible par
- * l'extension explicite \"./analysis.ts\" (précédent : deformation.test.ts) ;
- * les imports \"@/core/ecg\" sont `import type`, donc effacés à l'exécution. */
+ * l'extension explicite "./analysis.ts" (précédent : deformation.test.ts) ;
+ * les imports "@/core/ecg" sont `import type`, donc effacés à l'exécution. */
 
 import assert from "node:assert/strict";
 import { test } from "node:test";
