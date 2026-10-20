@@ -7,6 +7,7 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { getCase } from "@/content/catalog";
+import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import { specialtyPackProduct } from "@/lib/library/content-index";
@@ -100,17 +101,22 @@ function CasePlay() {
               <ul className="space-y-2 text-sm text-muted">
                 <li>✓ Raisonnement clinique étape par étape</li>
                 <li>✓ Feedback immédiat sur chaque décision</li>
-                <li>✓ Cas avancés inclus dans la spécialité</li>
-                <li>✓ Accès hors-ligne sur cet appareil</li>
+                <li>✓ Tout le contenu de la spécialité, mis à jour</li>
+                <li>✓ Accès hors-ligne sur vos appareils connectés</li>
               </ul>
               <Link
                 to="/pro"
                 search={{ ...(premiumSpecialty ? { specialty: premiumSpecialty } : {}) }}
                 className={buttonVariants({ size: "lg", className: "mt-5 w-full" })}
               >
-                Débloquer la spécialité · 27 000 Ar
+                {premiumSpecialty
+                  ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, "MGA")}`
+                  : "Voir les offres et les tarifs"}
                 <ArrowRight className="size-4" />
               </Link>
+              <p className="mt-2 text-center text-xs text-muted">
+                Abonnement Trimestriel · tout le contenu Premium : bientôt disponible
+              </p>
               <Link to="/cas" className="mt-3 block text-center text-sm text-muted">
                 Essayer un autre cas
               </Link>

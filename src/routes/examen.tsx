@@ -141,7 +141,7 @@ function ExamPage() {
                   </h2>
                   <p className="mt-2 max-w-md text-sm leading-relaxed opacity-85">
                     {locked
-                      ? "Les examens complets sont inclus dans Optimus Pro. Un essai court de douze questions reste disponible."
+                      ? "Les examens complets sont inclus dans l’abonnement. Une épreuve découverte de douze questions reste disponible."
                       : "Une épreuve chronométrée, tous decks confondus, pour mesurer vos acquis en conditions réelles."}
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-3 text-xs opacity-85">

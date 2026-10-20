@@ -344,9 +344,34 @@ test("le pont n'est pas un chemin dérobé : aucun contenu servi sans licence", 
   assert.doesNotMatch(contentSession, /console\.(log|warn|error)\([^)]*key/);
 });
 
-test("/pro ne contient plus de texte commercial codé en dur sur Mobile Money", () => {
-  const pro = read("src/routes/pro.tsx");
-  assert.doesNotMatch(pro, /Mobile Money/);
-  assert.match(pro, /data-pro-pricing-link/);
-  assert.match(pro, /to="\/tarifs"/);
+test("/pro : Mobile Money n'est proposé que pour les offres à l'unité", () => {
+  // ⚠️ On retire les COMMENTAIRES avant d'asserter (même leçon que
+  // content-assets-cache et cloud-auth-gate) : la refonte abonnement du
+  // 2026-10-20 EXPLIQUE dans un commentaire pourquoi l'abonnement ne peut pas
+  // encore être vendu, et un test lisant la source brute échouait sur sa
+  // propre documentation. Ce qui compte reste la copie RÉELLEMENT RENDUE.
+  const raw = read("src/routes/pro.tsx");
+  const code = raw
+    .replace(/\/\*[\s\S]*?\*\//g, " ")
+    .split("\n")
+    .map((line) => (line.trimStart().startsWith("//") ? "" : line))
+    .join("\n");
+
+  const unit = code.indexOf("data-pro-unit-offers");
+  const pay = code.indexOf("Commander par Mobile Money");
+  const subscription = code.indexOf("data-pro-subscription-offer");
+
+  // Le tunnel de paiement est DANS le bloc des offres à l'unité : c'est la
+  // seule chose que le serveur sait facturer aujourd'hui.
+  assert.ok(unit > 0, "le bloc des offres à l'unité doit exister");
+  assert.ok(pay > unit, "le paiement mobile doit vivre dans le bloc à l'unité");
+  // … et l'abonnement vient APRÈS, marqué « prochainement », sans bouton de
+  // paiement : on n'annonce pas payable ce qu'on ne sait pas honorer.
+  assert.ok(subscription > pay, "l'abonnement est annoncé après les offres payables");
+  assert.match(code, /data-subscription-state="soon"/);
+  assert.doesNotMatch(code, /Payer via Mobile Money/);
+
+  // Les liens de référence restent : la page mène toujours aux tarifs.
+  assert.match(code, /data-pro-pricing-link/);
+  assert.match(code, /to="\/tarifs"/);
 });

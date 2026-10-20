@@ -84,19 +84,19 @@ test("les contrats de pluriel respectent les gabarits d'origine", () => {
   assert.equal(translate("pt", "dash.questionsUnit", {}, catalogs), "perguntas");
   assert.equal(
     translate("fr", "dash.idTooltip", {}, catalogs),
-    "Ton identifiant Optimus — il lie tes achats et licences à ce profil",
+    "Ton identifiant Optimus — il lie tes achats et ton abonnement à ce profil",
   );
   assert.equal(
     translate("en", "dash.idTooltip", {}, catalogs),
-    "Your Optimus ID — it links your purchases and licenses to this profile",
+    "Your Optimus ID — it links your purchases and subscription to this profile",
   );
   assert.equal(
     translate("es", "dash.idTooltip", {}, catalogs),
-    "Tu identificador Optimus — vincula tus compras y licencias a este perfil",
+    "Tu identificador Optimus — vincula tus compras y tu suscripción a este perfil",
   );
   assert.equal(
     translate("pt", "dash.idTooltip", {}, catalogs),
-    "O teu identificador Optimus — liga as tuas compras e licenças a este perfil",
+    "O teu identificador Optimus — liga as tuas compras e a tua subscrição a este perfil",
   );
   assert.equal(translate("fr", "nav.pricing", {}, catalogs), "Combien ça coûte ?");
   assert.equal(translate("en", "nav.pricing", {}, catalogs), "How much does it cost?");

@@ -142,7 +142,7 @@ function DataPage() {
           </p>
           <div className="mt-4 rounded-[var(--radius-lg)] bg-secondary p-4 text-xs leading-5 text-muted">
             <ShieldCheck className="mb-2 size-5 text-primary" />
-            Les clés privées de l’appareil et les fichiers bruts de preuve de paiement ne figurent pas
+            Les identifiants d’appareil et les fichiers bruts de preuve de paiement ne figurent pas
             dans l’export : Optimus ne les stocke pas dans le cloud.
           </div>
           <Button className="mt-4 w-full" onClick={() => void exportData()} disabled={busy !== null}>
@@ -181,7 +181,7 @@ function DataPage() {
           <SectionTitle kicker="Zone sensible" title="Supprimer ma progression cloud" />
           <p className="text-sm leading-6 text-muted">
             Cette action efface la sauvegarde pédagogique du serveur et suspend immédiatement la
-            synchronisation sur tous les appareils. Vos données locales, clés privées et contenus
+            synchronisation sur tous les appareils. Vos données locales, identifiants d’appareil et contenus
             Premium liés à l’appareil ne sont pas effacés.
           </p>
           <p className="mt-3 text-xs leading-5 text-muted">

@@ -20,6 +20,7 @@ import { BUILTIN_DECKS, YEARS } from "@/content/catalog";
 import { DECK_MEDICAL_REVIEW, REVIEW_STATUS_LABEL } from "@/content/deck-review-status";
 import { LESSONS } from "@/core/quiz-engine";
 import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
+import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { COMPETENCY_LABEL } from "@/core/types";
 import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
@@ -160,7 +161,7 @@ function DeckPage() {
             <div className="relative mt-5 rounded-[var(--radius-lg)] border border-current/10 bg-bg/15 p-4 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <Lock className="size-4 text-primary" />
-                Deck Premium
+                Contenu Premium
               </div>
               <p className="mt-2 text-sm opacity-75">
                 Essayez gratuitement 3 questions avant de choisir votre accès.
@@ -175,7 +176,7 @@ function DeckPage() {
                   Essayer l’aperçu
                 </Link>
                 <Link to="/pro" className={buttonVariants({ variant: "secondary", className: "w-full" })}>
-                  Voir les offres · dès 3 000 Ar
+                  Voir les offres · dès {formatPrice(PRICES_MGA.deck, "MGA")}
                 </Link>
               </div>
             </div>

@@ -11,11 +11,26 @@
 export const CURRENCIES = ["MGA", "USD", "EUR"] as const;
 export type Currency = (typeof CURRENCIES)[number];
 
-/** Prix de référence, alignés sur `orderAmount` de src/content/purchase-order.ts. */
+/**
+ * Prix de référence.
+ *
+ * `subscriptionQuarter` est l'offre MISE EN AVANT (Abonnement Trimestriel) :
+ * 15 000 Ar pour 3 mois, soit 5 000 Ar par mois. C'est le seul montant à
+ * modifier pour changer le prix affiché sur /tarifs et dans les CTA.
+ *
+ * `deck` et `specialty` restent les montants servis par le tunnel de commande
+ * historique (`orderAmount` dans src/content/purchase-order.ts) : ils ne sont
+ * plus mis en avant commercialement, mais le tunnel existe toujours et ses
+ * montants ne doivent PAS diverger de ce qu'il facture réellement.
+ */
 export const PRICES_MGA = {
+  subscriptionQuarter: 15_000,
   deck: 3_000,
   specialty: 27_000,
 } as const;
+
+/** Durée de l'abonnement, en mois (sert aux libellés « / 3 mois »). */
+export const SUBSCRIPTION_MONTHS = 3;
 
 /**
  * Taux indicatifs : 1 unité de devise = X Ariary.

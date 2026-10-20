@@ -31,6 +31,7 @@ import { ExperienceControls } from "@/components/experience-controls";
 import { ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
+import { Button as DsButton } from "@/components/ui/ds/Button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { BADGE_CATALOG, type BadgeId } from "@/content/badges";
@@ -41,6 +42,7 @@ import { useI18n, LOCALES } from "@/i18n";
 import { markLocaleChosen } from "@/i18n/detect";
 import { getAuthRuntimeStatus, type AuthRuntimeStatus } from "@/lib/auth/runtime-status";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { resetContentSession } from "@/lib/cloud/content-session";
 import { signOutCloud } from "@/lib/cloud/session";
 import { syncWithCloud } from "@/lib/sync-engine";
 import { useAuth } from "@/hooks/useAuth";
@@ -53,6 +55,7 @@ import {
 import { badgeGoals } from "@/lib/gamification/badge-progress";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/profil")({ component: ProfilPage });
 
@@ -204,6 +207,44 @@ function ProfilPage() {
   // (déploiements historiques) ou session Supabase (backend Phase 1).
   const connectedAccount =
     Boolean(user && !user.isDevFallback) || cloudAuth.status === "authenticated";
+
+  /**
+   * Email du compte connecté.
+   *
+   * Deux fournisseurs coexistent : la session Supabase (backend actuel) et
+   * Better Auth (déploiements historiques). On préfère Supabase, et on ignore
+   * l'utilisateur de secours du bac à sable — afficher « dev@example.com » à un
+   * visiteur non connecté serait un mensonge.
+   */
+  const accountEmail =
+    cloudAuth.session?.user?.email ??
+    (user && !user.isDevFallback ? user.primaryEmail : null) ??
+    null;
+
+  const [signingOut, setSigningOut] = useState(false);
+
+  /**
+   * Déconnexion : on referme la SESSION, pas les données.
+   *
+   * `resetContentSession()` purge le jeton de contenu (localStorage + cookie) et
+   * l'échéance affichée — sans lui, le serveur continuerait de rendre les fiches
+   * à un appareil déconnecté. La progression, les badges et le profil RESTENT
+   * sur l'appareil : se déconnecter n'est pas effacer (c'est /donnees qui le
+   * fait, avec confirmation).
+   */
+  async function handleSignOut() {
+    setSigningOut(true);
+    try {
+      resetContentSession();
+      await signOutCloud();
+      toast.success("Vous êtes déconnecté de votre compte.");
+    } catch (error) {
+      console.warn("[profil] déconnexion incomplète", error);
+      toast.error("La déconnexion n'a pas pu aboutir. Réessayez.");
+    } finally {
+      setSigningOut(false);
+    }
+  }
 
   useEffect(() => {
     if (profile.cover !== "custom") {
@@ -380,9 +421,14 @@ function ProfilPage() {
           <h1 className="font-display text-2xl font-medium tracking-tight">
             {profile.displayName}
           </h1>
+          {accountEmail ? (
+            <p className="mt-1 truncate text-xs font-medium text-muted" data-account-email>
+              {accountEmail}
+            </p>
+          ) : null}
           <p
             className="mt-0.5 font-mono text-xs text-muted"
-            title="Ton identifiant Optimus — personnel, il lie tes achats et licences à ce profil"
+            title="Ton identifiant Optimus — personnel, il lie tes achats et abonnements à ce profil"
           >
             {profile.optimusId}
             <span className="ml-1.5 font-sans">· ton identifiant Optimus</span>
@@ -880,16 +926,18 @@ function ProfilPage() {
             </p>
           ) : null}
           {cloudAuth.status === "authenticated" ? (
-            <button
-              type="button"
-              onClick={() => {
-                void signOutCloud();
-              }}
-              className="mt-3 w-full text-center text-xs font-medium text-muted underline decoration-border-strong underline-offset-4 hover:text-fg"
+            <DsButton
+              variant="danger"
+              size="md"
+              fullWidth
+              loading={signingOut}
+              loadingLabel="Déconnexion en cours"
+              onClick={() => void handleSignOut()}
+              className="mt-4"
               data-cloud-signout
             >
-              Se déconnecter du cloud
-            </button>
+              Se déconnecter
+            </DsButton>
           ) : null}
         </section>
       </Page>
