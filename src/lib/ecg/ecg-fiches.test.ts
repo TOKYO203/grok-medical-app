@@ -43,6 +43,7 @@ const KNOWN_DEFORMATION_KEYS = [
   "peakedT",
   "pAbsent",
   "sawTooth",
+  "fv",
   "prProgression",
   "pBlockedEvery",
   "rrVariability",

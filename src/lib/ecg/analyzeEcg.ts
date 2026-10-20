@@ -11,7 +11,10 @@
 
 import type { EcgTraceParams } from "@/core/ecg";
 import type { EcgDeformation } from "@/lib/ecg/deformation";
-import { qrsAxisDeg } from "./analysis";
+// Extension explicite : node --experimental-strip-types ne résout pas les
+// imports sans extension (cf. waveform.test.ts) — l'analyseur devient
+// chargeable sous Node et testé en direct par analyzeEcg.test.ts.
+import { qrsAxisDeg } from "./analysis.ts";
 
 export type EcgAlerteNiveau = "normal" | "info" | "warning" | "critical";
 
