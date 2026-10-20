@@ -110,7 +110,25 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // parce qu'il doit suivre le code, pas les circonstances : conserver 2 080
   // aurait laissé 146 KiB de faux mou (quatre sessions de dérive silencieuse).
   // Ajouter 40 fiches désormais : 0 octet de JavaScript, donc 0 octet de budget.
-  maxTotalJavascriptBytes: 1960 * 1024,
+  //
+  // Relevé 1960 → **2176 KIBI** le 2026-10-19 (backend Supabase, Phase 1).
+  //   • Le SDK `@supabase/supabase-js` pèse 208,8 KiB et il est INDISPENSABLE
+  //     (session, RLS, synchronisation de la progression).
+  //   • Il a d'abord été importé statiquement : le chunk d'ENTRÉE est passé de
+  //     577 à 608,2 KiB et les pages publiques (/tarifs, pages légales)
+  //     téléchargeaient un client d'authentification dont elles n'ont aucun
+  //     besoin. Il est désormais chargé **paresseusement** : l'entrée est
+  //     revenue à 398,5 KiB (−224 KiB sur le chemin critique), et le SDK vit
+  //     dans son propre chunk, compté dans le total.
+  //   • Mesures : 2 120,4 KiB en local (avec les variables Supabase, auth OFF
+  //     via `.env.local`) ; ~2 144 KiB en production (auth ON, +~24 KiB) ⇒
+  //     plafond 2 176 KiB = marge volontairement faible (~32 KiB).
+  //   • En CI GitHub, les variables `VITE_SUPABASE_*` sont absentes : le
+  //     `if (!isSupabaseConfigured) return` devient constant, le `import()`
+  //     dynamique est éliminé et le chunk n'est pas émis (~1 936 KiB). La
+  //     mesure CI est donc PLUS BASSE que la production : c'est le chiffre de
+  //     production qui fixe le plafond, pas celui de la CI.
+  maxTotalJavascriptBytes: 2176 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité

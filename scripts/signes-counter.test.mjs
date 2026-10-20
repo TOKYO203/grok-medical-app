@@ -112,22 +112,32 @@ test("le chargeur ne tronque pas le catalogue", () => {
   );
   assert.doesNotMatch(catalog, /\blimit\b/i, "catalog.ts applique une limite au catalogue");
 
-  // Le catalogue est la CONCATÉNATION de toutes les catégories du manifeste
-  // (`flatMap` sur chaque catégorie, chaque catégorie chargeant TOUS ses ids).
+  // Depuis S1 (e ´fb5824), le chemin nominal est UNE requête qui renvoie le
+  // catalogue complet : `_catalog.json`. L'invariant « aucun sous-ensemble »
+  // s'exprime donc ainsi : la réponse est mise en cache et renvoyée TELLE QUELLE
+  // (pas de `filter`, pas de `slice`, pas de `sort` sur les items).
   assert.match(
     catalog,
-    /catalogs\.flatMap\(/,
-    "catalog.ts doit concaténer toutes les catégories (flatMap) plutôt qu'en retenir quelques-unes",
+    /catalogCache = raw;\s*\n\s*return \{ status: "ok", data: raw \};/,
+    "catalog.ts doit renvoyer le catalogue complet reçu (aucun sous-ensemble)",
+  );
+
+  // Repli (déploiement sans endpoint groupé) : TOUS les ids de TOUTES les
+  // catégories du manifeste sont parcourus — `Object.values(...).flat()`.
+  assert.match(
+    catalog,
+    /Object\.values\(index\.categories\)\.flat\(\)/,
+    "le repli doit concaténer toutes les catégories du manifeste (flat)",
   );
   assert.match(
     catalog,
-    /ids\.map\(\(id\) =>/,
-    "chaque catégorie doit charger TOUS les ids du manifeste (pas un sous-ensemble)",
+    /for \(const id of ids\)/,
+    "chaque id du manifeste doit être demandé (pas un sous-ensemble)",
   );
   assert.match(
     catalog,
-    /assets\.filter\(/,
-    "les fiches illisibles sont écartées par filtrage, pas par troncature",
+    /items\.push\(raw\)/,
+    "les fiches valides sont ajoutées (filtrage par validation, pas troncature)",
   );
 });
 
