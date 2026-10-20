@@ -91,7 +91,15 @@ test("profile exposes clear study-comfort controls", () => {
 });
 
 test("Premium active state is user-facing rather than technical debug copy", () => {
-  assert.match(premium, /Premium actif/);
-  assert.match(premium, /Accès confirmé/);
+  // Refonte abonnement (2026-10-20) : l'état actif n'est plus un simple
+  // « Premium actif » sans échéance — il dit JUSQU'À QUAND et propose une
+  // action. On verrouille donc le nouveau contrat, pas l'ancienne copie.
+  assert.match(premium, /Abonnement actif/);
+  assert.match(premium, /Accès illimité/);
+  assert.match(premium, /Gérer mon abonnement/);
+  assert.match(premium, /data-subscription-manage/);
   assert.doesNotMatch(premium, /Statut local vérifié/);
+  // L'ancien modèle commercial ne doit pas revenir par copier-coller.
+  assert.doesNotMatch(premium, /Activer ma clé/);
+  assert.doesNotMatch(premium, /J’ai déjà reçu une clé/);
 });

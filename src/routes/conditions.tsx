@@ -73,9 +73,10 @@ function TermsPage() {
         <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
           <SectionTitle kicker="Licence" title="Contenus et propriété intellectuelle" />
           <p className="text-sm leading-6 text-muted">
-            Les contenus fournis par Optimus restent soumis à leurs licences et droits applicables. Un achat Premium
-            donne un droit d’utilisation dans le cadre prévu par l’offre ; il ne transfère pas les droits d’auteur et
-            n’autorise pas la redistribution du Deck, de ses clés ou de son mécanisme de protection.
+            Les contenus fournis par Optimus restent soumis à leurs licences et droits applicables. Un abonnement
+            Premium donne un droit d’utilisation personnel, dans le cadre prévu par l’offre et pour sa durée ; il ne
+            transfère pas les droits d’auteur et n’autorise pas la redistribution du contenu, de ses accès ou de ses
+            mécanismes de protection.
           </p>
         </section>
 

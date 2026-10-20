@@ -27,7 +27,7 @@ function PrivacyPage() {
             <li>• Qualité : signalements de contenu et informations nécessaires à leur traitement.</li>
           </ul>
           <p className="mt-3 text-xs leading-5 text-muted">
-            Les fichiers bruts de preuve de paiement et les clés privées d’appareil restent sur l’appareil ; ils ne
+            Les fichiers bruts de preuve de paiement et les identifiants d’appareil restent sur l’appareil ; ils ne
             font pas partie de la sauvegarde cloud Optimus.
           </p>
         </section>
@@ -48,7 +48,7 @@ function PrivacyPage() {
             le navigateur ou IndexedDB. Lorsque la synchronisation est active, la progression utile est copiée vers
             le serveur du compte. Les journaux applicatifs sont volontairement limités à des éléments techniques tels
             que l’identifiant de requête, la route, le statut HTTP et la durée ; ils ne doivent pas contenir le corps
-            des requêtes, les cookies, les réponses médicales, les références de preuve brutes ni les clés privées.
+            des requêtes, les cookies, les réponses médicales, les références de preuve brutes ni les identifiants d’appareil.
           </p>
         </section>
 

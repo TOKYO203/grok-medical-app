@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { getDiagnostic } from "@/content/catalog";
+import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { getDemarcheContent } from "@/lib/demarches/catalog";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
 import { FicheView } from "@/components/demarche/fiche-view";
@@ -246,9 +247,14 @@ function LockedPanel({
           search={{ ...(premiumSpecialty ? { specialty: premiumSpecialty } : {}) }}
           className={buttonVariants({ size: "lg", className: "w-full" })}
         >
-          Débloquer la spécialité · 27 000 Ar
+          {premiumSpecialty
+            ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, "MGA")}`
+            : "Voir les offres et les tarifs"}
           <ArrowRight className="size-4" />
         </Link>
+        <p className="mt-2 text-center text-xs text-muted">
+          Abonnement Trimestriel · tout le contenu Premium : bientôt disponible
+        </p>
         <Link to="/demarche" className="mt-3 block text-center text-sm text-muted">
           Retour aux démarches
         </Link>

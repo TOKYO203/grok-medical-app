@@ -129,13 +129,15 @@ function PurchasesPage() {
             </span>
             <h2 className="mt-4 font-display text-xl font-medium">Aucune commande</h2>
             <p className="mx-auto mt-2 max-w-sm text-sm text-muted">
-              Choisissez un Deck à 3 000 Ar ou une spécialité complète à 27 000 Ar.
+              Vos achats à l'unité (module ou spécialité) apparaîtront ici dès la validation
+              du paiement. L'abonnement trimestriel ouvrira prochainement ; l'essai de 7 jours
+              reste disponible depuis la page Abonnement.
             </p>
             <Link
               to="/pro"
               className="mt-5 inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-primary px-5 text-sm font-medium text-primary-fg"
             >
-              Découvrir Optimus Pro
+              Voir les offres
             </Link>
             <p className="mt-3 text-sm">
               <Link to="/tarifs" className="font-medium text-primary hover:underline">
@@ -161,8 +163,8 @@ function PurchasesPage() {
             </div>
 
             <p className="mt-5 rounded-[var(--radius-lg)] bg-secondary p-3 text-xs leading-relaxed text-muted">
-              🔐 La preuve complète, la clé privée de votre appareil et les Decks déchiffrés ne sont
-              pas enregistrés dans le registre commercial. Le serveur conserve uniquement les
+              🔐 La preuve de paiement, votre identifiant d'appareil et les contenus déchiffrés ne
+              sont pas enregistrés dans le registre commercial. Le serveur conserve uniquement les
               éléments nécessaires à la validation et à l’audit de la transaction.
             </p>
           </>

@@ -156,7 +156,7 @@ export function PremiumPurchaseFlow({
       rememberServerPurchase(result.purchase);
       setPaymentInstructions(result.instructions);
       if (!result.instructions.configured) {
-        toast.error("Le canal Mobile Money officiel n’est pas encore configuré. Ne payez pas.");
+        toast.error("Le paiement n’est pas encore ouvert sur ce déploiement. Ne payez rien pour l’instant.");
         return;
       }
       toast.success("Coordonnées officielles chargées depuis le serveur");
@@ -367,8 +367,8 @@ export function PremiumPurchaseFlow({
       {step === 1 ? (
         <div className="mt-5 space-y-4">
           <div aria-label="Choisir une offre" className="grid grid-cols-2 gap-3" role="radiogroup">
-            <OfferCard active={offer === "deck"} title="1 Deck" detail="Une étape" price="3 000 Ar" onClick={() => setOffer("deck")} />
-            <OfferCard active={offer === "specialty"} title="Spécialité" detail="10 Decks · 1 offert" price="27 000 Ar" recommended onClick={() => setOffer("specialty")} />
+            <OfferCard active={offer === "deck"} title="1 module" detail="Une étape de parcours" price="3 000 Ar" onClick={() => setOffer("deck")} />
+            <OfferCard active={offer === "specialty"} title="Spécialité" detail="Tout le contenu de la spécialité" price="27 000 Ar" recommended onClick={() => setOffer("specialty")} />
           </div>
 
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
@@ -391,7 +391,7 @@ export function PremiumPurchaseFlow({
                   value={deckNumber}
                   onChange={(event) => setDeckNumber(Number(event.target.value))}
                 >
-                  {Array.from({ length: 10 }, (_, index) => index + 1).map((number) => <option key={number} value={number}>Deck {number}/10</option>)}
+                  {Array.from({ length: 10 }, (_, index) => index + 1).map((number) => <option key={number} value={number}>Module {number}</option>)}
                 </select>
               </>
             ) : null}
@@ -486,7 +486,7 @@ export function PremiumPurchaseFlow({
               </p>
             ) : null}
 
-            <p className="mt-3 text-xs text-muted">🔐 Appareil : {deviceIdentity ? "clé sécurisée prête" : "préparation de la clé…"}</p>
+            <p className="mt-3 text-xs text-muted">🔐 Appareil : {deviceIdentity ? "identité vérifiée" : "vérification en cours…"}</p>
             <Button
               className="mt-4 w-full"
               disabled={!proof || !deviceIdentity || paymentReference.trim().length < 6 || sending}

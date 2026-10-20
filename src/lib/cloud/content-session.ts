@@ -1,4 +1,5 @@
 import {
+  clearToken,
   getToken,
   hasContentSession,
   requestContentToken,
@@ -8,6 +9,7 @@ import {
 import {
   activeLicence,
   isVerifiableLicenceKey,
+  licenceExpiry,
   licenceIdentity,
   licenceKeyFromRow,
   type LicenceRow,
@@ -67,6 +69,16 @@ export type ContentSessionSnapshot = {
   status: "idle" | "checking" | "ready" | "none";
   reason: ContentSessionReason | null;
   /**
+   * Échéance de la LICENCE (abonnement), en epoch ms — `null` si inconnue.
+   *
+   * Ce n'est PAS l'expiration du jeton de contenu (24 h) : c'est la fin de
+   * l'abonnement, telle que lue dans `public.licences.expires_at`. Elle ne sert
+   * qu'à AFFICHER « actif jusqu'au … » sur /pro ; aucune décision d'accès ne
+   * repose dessus (le serveur reste seul juge). `null` → on n'invente pas de
+   * date, l'interface dit simplement « abonnement actif ».
+   */
+  licenceExpiresAt: number | null;
+  /**
    * Incrémenté à CHAQUE nouveau jeton : les pages qui ont déjà chargé leur
    * contenu (et reçu un 401) s'en servent pour relancer leur chargement, sans
    * rechargement de page ni clic de l'utilisateur.
@@ -81,6 +93,7 @@ export type ContentSessionResult =
 const SERVER_SNAPSHOT: ContentSessionSnapshot = Object.freeze({
   status: "idle",
   reason: null,
+  licenceExpiresAt: null,
   generation: 0,
 });
 
@@ -92,7 +105,8 @@ function publish(next: ContentSessionSnapshot): void {
   if (
     next.status === snapshot.status &&
     next.reason === snapshot.reason &&
-    next.generation === snapshot.generation
+    next.generation === snapshot.generation &&
+    next.licenceExpiresAt === snapshot.licenceExpiresAt
   ) {
     return;
   }
@@ -106,15 +120,28 @@ function markReady(
   // La génération n'avance QUE sur une transition : une session déjà prête
   // n'oblige pas les pages à recharger leur contenu (aucun flash inutile).
   if (snapshot.status !== "ready") {
-    publish({ status: "ready", reason: null, generation: snapshot.generation + 1 });
+    publish({ ...snapshot, status: "ready", reason: null, generation: snapshot.generation + 1 });
   }
   clearMemo();
   return { status: "ready", source };
 }
 
 function markNone(reason: ContentSessionReason): ContentSessionResult {
-  publish({ status: "none", reason, generation: snapshot.generation });
+  publish({ ...snapshot, status: "none", reason });
   return { status: "none", reason };
+}
+
+/**
+ * Mémorise l'échéance de l'abonnement, sans toucher au statut.
+ *
+ * Appelé quand une licence ACTIVE est lue côté navigateur. Purement descriptif :
+ * si la lecture échoue (RLS, réseau), on garde `null` et l'interface n'affiche
+ * pas de date — mieux vaut aucune date qu'une date fausse.
+ */
+function markLicenceExpiry(row: LicenceRow | null): void {
+  const expiresAt = row ? licenceExpiry(row) : null;
+  if (expiresAt === snapshot.licenceExpiresAt) return;
+  publish({ ...snapshot, licenceExpiresAt: expiresAt });
 }
 
 /** `null` si le délai expire : aucun appel ne peut bloquer indéfiniment l'UI. */
@@ -262,7 +289,7 @@ async function runEnsure(): Promise<ContentSessionResult> {
     }
   }
 
-  publish({ status: "checking", reason: null, generation: snapshot.generation });
+  publish({ ...snapshot, status: "checking", reason: null });
 
   const auth = await waitForCloudAuth(AUTH_WAIT_MS);
   // Un autre appel (autre onglet, pont du root) a pu poser le jeton entre-temps.
@@ -315,6 +342,7 @@ async function runEnsure(): Promise<ContentSessionResult> {
 
   if (Array.isArray(rows)) {
     const licence = activeLicence(rows);
+    markLicenceExpiry(licence);
     if (!licence) {
       // Même règle que le serveur (LIC-BRIDGE-3) : inutile de lui demander.
       writeMemo(subject);
@@ -400,4 +428,29 @@ export function getContentSessionSnapshot(): ContentSessionSnapshot {
 /** Instantané serveur — constant, donc identique au premier rendu client. */
 export function getContentServerSnapshot(): ContentSessionSnapshot {
   return SERVER_SNAPSHOT;
+}
+
+/**
+ * Referme la session de contenu (déconnexion explicite).
+ *
+ * Trois choses à oublier, et rien d'autre :
+ *   · le jeton (localStorage + cookie `optimus_session`), sinon le SSR
+ *     continuerait de servir les fiches à un appareil déconnecté ;
+ *   · le mémo négatif, sinon un compte qui se reconnecte avec un abonnement
+ *     resterait « sans licence » jusqu'à la fin de la fenêtre de 60 s ;
+ *   · l'échéance affichée, pour que /pro ne montre pas un bandeau « actif ».
+ *
+ * ⚠️ On ne touche PAS à la progression locale, aux badges ni au profil : se
+ * déconnecter n'est pas effacer ses données (c'est `/donnees` qui le fait).
+ */
+export function resetContentSession(): void {
+  clearToken();
+  if (typeof window !== "undefined") clearMemo();
+  inflight = null;
+  publish({
+    status: "idle",
+    reason: null,
+    licenceExpiresAt: null,
+    generation: snapshot.generation,
+  });
 }

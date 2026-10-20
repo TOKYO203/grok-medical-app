@@ -36,9 +36,16 @@ test("un secret de moins de 32 caractères est refusé", async () => {
 
 test("signe et vérifie un jeton de contenu valide", async () => {
   useSecret(SECRET);
-  const signed = await signContentToken("lic-42");
+  // ⚠️ L'HORLOGE EST GELÉE, et elle est PASSÉE à `signContentToken`.
+  // `signContentToken` tronque à la seconde (`Math.floor(now / 1000)`) : deux
+  // appels séparés à `Date.now()` donnaient un écart de 1 000 ms dès qu'une
+  // frontière de milliseconde tombait entre eux, d'où un échec INTERMITTENT
+  // (mesuré : attendu 1792599731000, obtenu 1792599730000). Un test qui ne
+  // rejoue pas à l'identique ne protège rien : il apprend à relancer.
+  const now = Date.now();
+  const signed = await signContentToken("lic-42", now);
   assert.ok(signed, "le jeton doit être produit");
-  assert.equal(signed.expiresAt, Date.now() + CONTENT_TOKEN_TTL_SECONDS * 1000 - (Date.now() % 1000));
+  assert.equal(signed.expiresAt, now + CONTENT_TOKEN_TTL_SECONDS * 1000 - (now % 1000));
 
   const claims = await verifyContentToken(signed.token);
   assert.ok(claims);

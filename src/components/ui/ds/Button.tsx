@@ -42,6 +42,34 @@ const BASE_CLASSES =
   "active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100 " +
   "disabled:pointer-events-none disabled:opacity-45";
 
+/**
+ * Classes publiques du bouton — SOURCE UNIQUE.
+ *
+ * Exporté pour que les liens qui doivent avoir l'apparence d'un bouton
+ * (`ButtonLink`, CTA de navigation) consomment exactement les mêmes jetons,
+ * plutôt que de recopier des classes Tailwind brutes dans les pages. Toute
+ * évolution visuelle du bouton se propage ainsi aux liens.
+ */
+export function buttonClasses({
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  className,
+}: {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  fullWidth?: boolean;
+  className?: string;
+} = {}): string {
+  return cn(
+    BASE_CLASSES,
+    VARIANT_CLASSES[variant],
+    SIZE_CLASSES[size],
+    fullWidth && "w-full",
+    className,
+  );
+}
+
 export type ButtonProps = ComponentProps<"button"> & {
   /** Apparence du bouton. `primary` par défaut. */
   variant?: ButtonVariant;
@@ -98,13 +126,7 @@ export function Button({
       data-variant={variant}
       data-size={size}
       data-loading={loading ? "true" : "false"}
-      className={cn(
-        BASE_CLASSES,
-        VARIANT_CLASSES[variant],
-        SIZE_CLASSES[size],
-        fullWidth && "w-full",
-        className,
-      )}
+      className={buttonClasses({ variant, size, fullWidth, className })}
     >
       {loading ? <Spinner /> : null}
       <span className={cn(loading && "opacity-80")}>{children}</span>
