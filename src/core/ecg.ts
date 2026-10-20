@@ -233,6 +233,19 @@ export type EcgTraceParams = {
   };
   /** Déformation clinique optionnelle (ST, T, multi-cycles Wenckebach...). */
   deformation?: EcgDeformation;
+  /**
+   * PR explicite en millisecondes (issue #39) : active les branches BAV I
+   * (> 200 ms) et PR court (< 120 ms) de l'analyseur, codées mortes tant
+   * que le PR était figé à 160 ms. Défaut : dérivé de la morphologie
+   * (R.mu − P.mu), sinon 160 ms.
+   */
+  prIntervalMs?: number;
+  /**
+   * Amplitudes NETTES du QRS (mV) en DI et aVF pour le calcul de l'axe
+   * (issue #39). Indépendantes : sans elles, l'analyseur dérive tout de
+   * `waves.R` et l'axe reste « normal » quel que soit le cas.
+   */
+  axisAmplitudes?: { i: number; avf: number };
 };
 
 export type WaveGaussian = {
