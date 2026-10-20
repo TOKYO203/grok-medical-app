@@ -118,7 +118,7 @@ Autorité indépendante, dotée d'un pouvoir réglementaire et de sanction (art.
   d'**autorisation** CMIL + encadrement par un professionnel de santé assermenté
 - Un garde-fou technique doit être posé dans SECURITY-AUDIT.md
 
-**Transfert de données à l'étranger — Article 20 (cas Supabase / Neon)**
+**Transfert de données à l'étranger — Article 20 (cas Supabase)**
 Interdit vers un État n'assurant pas un niveau de protection similaire, **sauf** :
 - autorisation de la CMIL lorsque le responsable offre des garanties suffisantes
   (clauses contractuelles appropriées ou règles internes), **ou**
@@ -204,7 +204,6 @@ Directeur de la publication
 Hébergement
 -----------
 - Base + auth : Supabase, Inc. (Singapour)
-- Base secondaire : Neon, Inc. (USA) si applicable
 - Stockage assets : [Cloudflare R2 / S3 / autre]
 
 Propriété intellectuelle

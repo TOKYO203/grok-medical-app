@@ -4,7 +4,7 @@
  *
  * Runs during `npm run build` — on every configured deploy — applying pending
  * app migrations from ../migrations to DATABASE_URL. When authentication is
- * enabled it also applies ../migrations/auth so Neon and the PGLite fallback use
+ * enabled it also applies ../migrations/auth so Supabase and the PGLite fallback use
  * the same Better Auth schema. Each file is applied in one transaction and
  * recorded by basename in `_migrations`, so copied legacy auth migrations do not
  * run twice.

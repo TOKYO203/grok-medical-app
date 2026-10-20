@@ -55,7 +55,7 @@ Keep secrets in the deployment platform and GitHub repository secrets. Never com
 - Mobile Money provider/account/instructions variables
 - signing keys used by Deck/license issuance
 
-For staging validation, GitHub Actions expects `NEON_STAGING_DATABASE_URL` and the workflow `Neon staging DB validation` must be launched with confirmation `STAGING`.
+For staging validation, GitHub Actions expects `SUPABASE_STAGING_DATABASE_URL` and the workflow `Supabase staging DB validation` must be launched with confirmation `STAGING`.
 
 ## 2. Release gate
 
@@ -139,7 +139,7 @@ GitHub dependency review requires Dependency Graph to be enabled at repository l
 
 - `release:check` green on the exact release commit;
 - CodeQL/security checks green or explicitly triaged;
-- Neon staging migrations validated;
+- Supabase staging migrations validated;
 - OAuth tested with at least two independent sessions/devices;
 - real Mobile Money flow validated end to end;
 - database recovery smoke green;

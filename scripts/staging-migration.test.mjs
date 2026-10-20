@@ -11,25 +11,29 @@ const env = {
   GITHUB_REF: "refs/heads/release/v1-hardening",
   GITHUB_SHA: "a".repeat(40),
   STAGING_DATABASE_URL:
-    "postgresql://stage:secret@ep-test-123.eu-central-1.aws.neon.tech/staging?sslmode=verify-full",
-  STAGING_EXPECTED_HOST: "ep-test-123.eu-central-1.aws.neon.tech",
-  STAGING_EXPECTED_DATABASE: "staging",
-  STAGING_EXPECTED_ROLE: "stage",
+    "postgresql://postgres.stage01:secret@aws-0-eu-central-1.pooler.supabase.com:5432/postgres?sslmode=verify-full",
+  STAGING_EXPECTED_HOST: "aws-0-eu-central-1.pooler.supabase.com",
+  STAGING_EXPECTED_DATABASE: "postgres",
+  STAGING_EXPECTED_ROLE: "postgres.stage01",
 };
 test("target guard rejects unsafe or ambiguous targets without connecting", () => {
   assert.equal(stagingConfig(env).maxOrphans, 0);
   for (const patch of [
     { GITHUB_REF: "refs/heads/main" },
     { STAGING_CONFIRMATION: "STAGING; echo unsafe" },
-    { STAGING_EXPECTED_HOST: "ep-production.eu-central-1.aws.neon.tech" },
+    { STAGING_EXPECTED_HOST: "aws-0-eu-west-1.pooler.supabase.com" },
     { STAGING_EXPECTED_DATABASE: "production" },
     { STAGING_EXPECTED_ROLE: "owner" },
     { STAGING_MAX_ORPHANS: "-1" },
     { GITHUB_SHA: "main" },
     { STAGING_DATABASE_URL: env.STAGING_DATABASE_URL.replace("verify-full", "disable") },
     { STAGING_DATABASE_URL: env.STAGING_DATABASE_URL + "&options=-csearch_path=evil" },
+    { STAGING_DATABASE_URL: env.STAGING_DATABASE_URL.replace(":5432", ":6543") },
     {
-      STAGING_DATABASE_URL: env.STAGING_DATABASE_URL.replace("ep-test-123.", "ep-test-123-pooler."),
+      STAGING_DATABASE_URL: env.STAGING_DATABASE_URL.replace(
+        "aws-0-eu-central-1.pooler.supabase.com",
+        "db-0123456789ab.supabase.co",
+      ),
     },
   ])
     assert.throws(() => stagingConfig({ ...env, ...patch }));

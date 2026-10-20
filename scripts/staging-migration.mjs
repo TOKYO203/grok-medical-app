@@ -17,10 +17,10 @@ export function stagingConfig(env) {
     throw new Error("invalid staging URL");
   }
   assert.ok(["postgres:", "postgresql:"].includes(url.protocol), "PostgreSQL required");
-  assert.match(url.hostname, /^ep-[a-z0-9-]+\.[a-z0-9.-]+\.neon\.tech$/, "Neon endpoint required");
-  assert.ok(
-    !url.hostname.split(".")[0].endsWith("-pooler"),
-    "direct endpoint required for session locks",
+  assert.match(
+    url.hostname,
+    /^aws-[0-9]+-[a-z0-9-]+\.pooler\.supabase\.com$/,
+    "Supabase session pooler required",
   );
   assert.equal(url.hostname, env.STAGING_EXPECTED_HOST, "unexpected staging host");
   assert.equal(
@@ -33,7 +33,10 @@ export function stagingConfig(env) {
     env.STAGING_EXPECTED_DATABASE && env.STAGING_EXPECTED_ROLE && url.password,
     "target credentials required",
   );
-  assert.ok(!url.hash && (!url.port || url.port === "5432"), "unexpected URL endpoint options");
+  assert.ok(
+    !url.hash && (!url.port || url.port === "5432"),
+    "session pooler port 5432 required (transaction pooler 6543 cannot hold session locks)",
+  );
   for (const [key, value] of url.searchParams) {
     assert.ok(key === "sslmode" && value === "verify-full", "only sslmode=verify-full permitted");
   }
