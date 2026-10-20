@@ -510,9 +510,100 @@ reste côté serveur), rien pour `anon`, et aucun `delete` à personne.
 
 ### 12.6 Limites assumées
 
-- La connexion Supabase **n'émet pas** de jeton de contenu : les fiches Premium
-  restent débloquées par la clé de licence (S1), pas par le compte. Les deux chantiers
-  se rejoindront en Phase 2 (§12.3).
+- ~~La connexion Supabase **n'émet pas** de jeton de contenu~~ — **corrigé le
+  2026-10-20 (§13)** : `POST /api/licenses/session` échange une session Supabase
+  contre un JWT de contenu, sans qu'aucune clé ne soit saisissable. La clé reste
+  acceptée (clients déjà vendus).
 - L'essai Premium 7 jours reste un état `localStorage`, non vérifiable côté serveur.
 - `startSyncLoop` s'arrête au démontage et à chaque changement de session ; une seule
   minuterie peut vivre à la fois.
+
+## 13. Pont « licence Supabase → session de contenu » (2026-10-20)
+
+### 13.1 Le défaut, tel qu'il a été constaté
+
+Un client dont la licence est créée dans `public.licences` restait bloqué sur
+« Activer ma licence » **à vie**. Raison mesurée : le schéma est
+`licences(id, user_id, status, plan, created_at, expires_at, activated_at)` —
+**aucune colonne de clé**. Or le seul chemin d'obtention du JWT de contenu était
+`POST /api/licenses/verify`, qui exige une **clé** (`OPT1.…` ou `OPT-…`).
+Le client payait, le compte était `active`, et le contenu restait fermé.
+
+### 13.2 Les deux chemins (ils coexistent volontairement)
+
+| | `/api/licenses/verify` | `/api/licenses/session` (nouveau) |
+|---|---|---|
+| Preuve présentée | une **clé** de licence | un **jeton d'accès Supabase** |
+| Vérification | Ed25519 avec la clé **publique** seule, ou clé d'activation en base | `GET /auth/v1/user` (c'est **Supabase** qui vérifie), puis `licences` lu **avec ce jeton** + filtre `user_id=eq.<id vérifié>` |
+| Anti-replay | nonce `X-Nonce` à usage unique | pas de nonce : le porteur est éphémère et personnel |
+| Quota | 10 / h / IP | 30 / h / IP (le pont se déclenche au démarrage) |
+| Réponses d'erreur | 401 / 429 / 503 | 401 `unauthorized` / 403 `licence_required` / 429 / 503 |
+| Secret requis | `LICENSE_PUBLIC_KEY` | `SUPABASE_URL` + `SUPABASE_ANON_KEY` (jamais `service_role`) |
+
+**Pourquoi aucun `service_role`** : la lecture des licences est faite avec le jeton
+de l'utilisateur, donc sous RLS, plus un filtre explicite `user_id`. Le filtre n'est
+pas redondant avec RLS — si une policy était mal configurée, il empêche de servir la
+licence d'un autre compte. Un `service_role` contournerait précisément la barrière
+qu'on veut garder dans le chemin qui décide d'ouvrir du contenu payant.
+
+### 13.3 Une seule règle « licence active », partagée
+
+`src/lib/cloud/licence.ts` (module **pur**, aucune I/O) exporte `isActiveLicence`,
+utilisée par le **client** et par le **serveur**. Le biais est conservateur : un
+statut de révocation ferme toujours, un statut d'activation n'ouvre que si l'échéance
+n'est pas dépassée, un statut inconnu n'ouvre que sur preuve (échéance future, ou
+`activated_at` sans échéance = licence à vie). Deux règles divergentes donneraient le
+pire des états : un client qui se croit licencié et un serveur qui refuse.
+
+### 13.4 Déblocage sans clic ni rechargement
+
+- `ContentSessionBridge` (monté dans `__root.tsx`) tente le pont **au démarrage**, pas
+  dans `/pro` : un lien direct vers `/signes` ou `/pathologie/…` doit marcher.
+- Il attend la session cloud avec une borne, et **se rejoue à chaque transition** de
+  l'état cloud (`loading → authenticated`) : sur un démarrage à froid lent, un pont
+  lancé trop tôt aurait conclu « pas de session » et n'aurait jamais réessayé.
+- `/signes` s'abonne à la `generation` de la session et redemande son catalogue ;
+  `/pathologie/$slug` rejoue son loader (`router.invalidate()`) **seulement** si aucun
+  jeton n'existait avant l'appel (sinon un jeton refusé boucle sans fin).
+- Mémo négatif `sessionStorage` de 60 s sur « aucune licence » : pas de requête
+  Supabase à chaque montage, mais une licence ajoutée par l'administrateur prend effet
+  en moins d'une minute.
+- `/pro` lit le **même** état partagé : un jeton obtenu en arrière-plan s'y affiche
+  comme déverrouillé, sans rien saisir.
+
+### 13.5 Le client n'est jamais le juge
+
+**Bug révélé par la QA navigateur** (et non par les tests unitaires) : si la lecture
+**client** de `licences` échouait (RLS/GRANT manquants, réseau), le pont renvoyait
+`query-failed` et sortait **avant** l'appel serveur — c'est-à-dire que le seul chemin
+capable de débloquer une licence sans clé n'était jamais atteint, et l'utilisateur
+restait verrouillé malgré une licence valide. Le client ne sert plus qu'à deux choses :
+trouver une clé échangeable (parcours historique) et éviter un aller-retour évident.
+**Seul le serveur fait autorité.**
+
+### 13.6 Vérifications
+
+`scripts/content-licence-bridge.test.mjs` — 19 tests : règle « active » (révoquée /
+expirée / inconnue), échangeabilité des clés, contrat cookie client ↔
+`content-guard.ts`, pont serveur contre un faux Supabase (jeton refusé → `invalid`,
+aucune licence → `no-licence`, droits manquants ou panne → 503, filtre `user_id`
+présent, `apikey` = clé anonyme **jamais** `service_role`), unicité de la route,
+montage dans le shell, rejeu des loaders, et non-régression du `query-failed`.
+
+QA navigateur (`.qa-tmp/licence-bridge-cdp.mjs`, CDP `headless_shell`, 390×844, stub
+Supabase local) :
+
+1. anonyme → écran de connexion (gate Phase 1), **0** appel au pont ;
+2. session Supabase + licence `active` → `/signes` **110 cas** sans clic, **1 seul**
+   appel à `/api/licenses/session`, **1 seul** document chargé ;
+3. fiche de nosographie lue dès le rendu serveur (cookie) : 7 sections ;
+4. licence retirée → verrou revenu, mémo posé, aucune rafale de requêtes ;
+5. 0 erreur console, 0 débordement.
+
+### 13.7 Limites assumées
+
+- L'**essai Premium 7 jours** et les droits `localStorage` n'obtiennent pas de jeton :
+  cet état n'est pas vérifiable côté serveur. Il continue d'ouvrir cas/démarches
+  (droits locaux), pas les 133 fiches servies par le garde.
+- Sans `UPSTASH_REDIS_*`, le quota du pont est **par instance** (voir §6).
+- Faire tourner `LICENSE_JWT_SECRET` révoque tous les jetons, pont compris.

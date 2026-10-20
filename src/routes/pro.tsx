@@ -1,5 +1,5 @@
 import { authEnabled } from "@/lib/auth/client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, KeyRound, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
@@ -9,6 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { hasContentSession, requestContentToken } from "@/lib/auth/session";
+import {
+  getContentServerSnapshot,
+  getContentSessionSnapshot,
+  subscribeContentSession,
+} from "@/lib/cloud/content-session";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
 import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
@@ -52,9 +57,22 @@ function ProPage() {
   // rendu ferait diverger le HTML serveur et l'hydratation.
   const [contentSession, setContentSession] = useState<"idle" | "unlocked" | "failed">("idle");
 
+  /**
+   * La session de contenu peut venir de DEUX endroits : la clé saisie ici, ou
+   * le pont automatique (licence Supabase, voir `ContentSessionBridge`). On
+   * s'abonne donc à l'état partagé plutôt que de le lire une seule fois au
+   * montage : un jeton obtenu en arrière-plan doit s'afficher comme déverrouillé
+   * ici aussi, sans que l'utilisateur ait quoi que ce soit à saisir.
+   */
+  const sharedSession = useSyncExternalStore(
+    subscribeContentSession,
+    getContentSessionSnapshot,
+    getContentServerSnapshot,
+  );
+
   useEffect(() => {
-    if (hasContentSession()) setContentSession("unlocked");
-  }, []);
+    if (sharedSession.status === "ready" || hasContentSession()) setContentSession("unlocked");
+  }, [sharedSession.status, sharedSession.generation]);
 
   useEffect(() => {
     if (isPending || !userId || userIsDevFallback) return;
@@ -176,17 +194,19 @@ function ProPage() {
               onPurchaseUpdated={cacheServerPurchase}
             />
             ) : (
-              <section className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-                <h2 className="font-medium">Acheter un deck ou une spécialité</h2>
-                <p className="mt-1 text-sm leading-relaxed text-muted">
-                  Le paiement Mobile Money n'est pas encore activé sur ce déploiement. En
-                  attendant, l'essai Premium de 7 jours ouvre les cas cliniques et les
-                  démarches Premium.
-                </p>
-                <Link to="/tarifs" className="mt-3 inline-block text-sm font-medium text-primary">
-                  Voir la grille tarifaire →
-                </Link>
-              </section>
+              // Paiement indisponible sur ce déploiement : un lien vers les
+              // offres, rien de plus. Aucun texte commercial codé en dur ici —
+              // il vieillirait à la première ouverture du paiement.
+              <Link
+                to="/tarifs"
+                data-pro-pricing-link
+                className="flex items-center justify-between gap-3 rounded-[var(--radius-xl)] bg-card p-4 text-sm font-medium shadow-[var(--shadow-border)]"
+              >
+                <span>Voir les offres et les tarifs</span>
+                <span aria-hidden="true" className="text-primary">
+                  →
+                </span>
+              </Link>
             )}
 
             <details className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">

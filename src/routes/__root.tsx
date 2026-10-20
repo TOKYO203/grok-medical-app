@@ -2,6 +2,7 @@ import { createRootRoute, HeadContent, Outlet, Scripts, useRouterState } from "@
 import { useEffect } from "react";
 import { AuthScreen } from "@/components/AuthScreen";
 import { CloudSyncBridge } from "@/components/cloud-sync-bridge";
+import { ContentSessionBridge } from "@/components/content-session-bridge";
 import { useAuth } from "@/hooks/useAuth";
 import { resolveCloudGate } from "@/lib/cloud/gate";
 import { AuthProvider } from "@/lib/auth/provider";
@@ -143,6 +144,12 @@ function AppShell() {
   return (
     <AuthProvider>
       <LicenseRevocationBridge />
+      {/*
+        Session de contenu : établie depuis la licence Supabase, sans clic.
+        Montée dans le shell (et non dans une route) pour couvrir un lien direct
+        vers /signes ou /pathologie dès le premier chargement.
+      */}
+      <ContentSessionBridge />
       {legacyCloudSync ? <OptimusSyncBridge /> : null}
       <ExperienceMotionBridge />
       <ExperienceMilestoneBridge />
