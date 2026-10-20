@@ -1,4 +1,4 @@
-name: Neon staging DB validation
+name: Supabase staging DB validation
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: neon-staging-migrations
+  group: supabase-staging-migrations
   cancel-in-progress: false
 
 jobs:
@@ -26,11 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      STAGING_DATABASE_URL: ${{ secrets.NEON_STAGING_DATABASE_URL }}
-      STAGING_EXPECTED_HOST: ${{ vars.NEON_STAGING_HOST }}
-      STAGING_EXPECTED_DATABASE: ${{ vars.NEON_STAGING_DATABASE }}
-      STAGING_EXPECTED_ROLE: ${{ vars.NEON_STAGING_ROLE }}
-      STAGING_MAX_ORPHANS: ${{ vars.NEON_STAGING_MAX_ORPHANS || '0' }}
+      STAGING_DATABASE_URL: ${{ secrets.SUPABASE_STAGING_DATABASE_URL }}
+      STAGING_EXPECTED_HOST: ${{ vars.SUPABASE_STAGING_HOST }}
+      STAGING_EXPECTED_DATABASE: ${{ vars.SUPABASE_STAGING_DATABASE }}
+      STAGING_EXPECTED_ROLE: ${{ vars.SUPABASE_STAGING_ROLE }}
+      STAGING_MAX_ORPHANS: ${{ vars.SUPABASE_STAGING_MAX_ORPHANS || '0' }}
       STAGING_CONFIRMATION: ${{ inputs.confirmation }}
       DB_VALIDATION_TARGET: staging
 

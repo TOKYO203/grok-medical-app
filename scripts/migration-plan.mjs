@@ -1,7 +1,7 @@
 // @ts-check
 /**
  * Migration bookkeeping shared by the two appliers — `scripts/migrate.mjs`
- * (deploy / Neon) and `src/lib/db.ts` (PGLite preview).
+ * (deploy / Supabase) and `src/lib/db.ts` (PGLite preview).
  *
  * Applied files are keyed by BASENAME, so the same file applies once even when
  * it can be discovered from different directories. Root migrations win over an

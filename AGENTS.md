@@ -525,7 +525,7 @@ never:   build an app for a greeting/number/question; invent imagine_* calls;
 - Session 16 : WCAG base + tests moteur ECG
 
 **Jour 11 — Monitoring + backup**
-- Session 17 : Sentry + UptimeRobot + backup Neon
+- Session 17 : Sentry + UptimeRobot + backup Supabase
 
 **Jour 12 — Légal final**
 - Admin : NIF + CMIL

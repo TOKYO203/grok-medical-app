@@ -36,7 +36,7 @@ const client = new pg.Client({
   // validation let a network attacker read or rewrite the admin password hash
   // in flight. Validation is on by default; PSQL_INSECURE_TLS=1 is the
   // deliberate escape hatch for a self-signed local database.
-  ssl: dbUrl.includes("neon.tech")
+  ssl: dbUrl.includes("supabase.com") || dbUrl.includes("supabase.co")
     ? { rejectUnauthorized: process.env.PSQL_INSECURE_TLS !== "1" }
     : undefined,
 });

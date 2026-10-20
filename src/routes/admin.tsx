@@ -179,13 +179,13 @@ function AdminHubPage() {
           </p>
           <div className="mt-3 space-y-2">
             <a
-              href="https://console.neon.tech"
+              href="https://supabase.com/dashboard"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm text-muted transition-colors hover:text-fg"
             >
               <Database className="size-4" aria-hidden />
-              Base de données Neon
+              Base de données Supabase
             </a>
             <a
               href="https://vercel.com/justme-4fc3/grok-medical-app"

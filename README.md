@@ -18,7 +18,7 @@ Application web médicale gamifiée pour l'apprentissage des cas cliniques, des 
 ## 🛠️ Technologies
 
 - **Frontend** : React, TypeScript, Vite, TanStack Start, Tailwind CSS
-- **Backend** : PostgreSQL/Neon, avec PGLite pour la prévisualisation locale
+- **Backend** : PostgreSQL/Supabase, avec PGLite pour la prévisualisation locale
 - **Tests** : Node.js test runner
 - **CI/CD** : GitHub Actions
 
