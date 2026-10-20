@@ -11,6 +11,7 @@
 
 import type { EcgTraceParams } from "@/core/ecg";
 import type { EcgDeformation } from "@/lib/ecg/deformation";
+import { qrsAxisDeg } from "./analysis";
 
 export type EcgAlerteNiveau = "normal" | "info" | "warning" | "critical";
 
@@ -51,8 +52,18 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
   const fc = Math.round(trace.bpm);
 
   // ─── R : Rythme ────────────────────────────────────────────────────
+  // FV d'abord (issue #39) : le chaos ventriculaire prime sur toute autre
+  // lecture — « fv » existait dans le type sans jamais être assigné.
   let rythme: EcgRythme = "sinusal";
-  if (def?.prProgression === "wenckebach") {
+  if (def?.fv) {
+    rythme = "fv";
+    alertes.push({
+      niveau: "critical",
+      code: "fv",
+      label: "Fibrillation ventriculaire",
+      description: "Arrêt cardio-circulatoire — choc électrique immédiat + réanimation.",
+    });
+  } else if (def?.prProgression === "wenckebach") {
     rythme = "sinusal-irregulier";
   } else if (def?.pAbsent && (def.rrVariability ?? 0) > 0.1) {
     rythme = "fa";
@@ -64,7 +75,9 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
 
   // ─── P : Onde P et PR ──────────────────────────────────────────────
   let pr: EcgDiagnosis["pr"] = null;
-  if (!def?.pAbsent) {
+  if (def?.fv) {
+    pr = null; // ni P ni PR analysables en FV
+  } else if (!def?.pAbsent) {
     if (def?.prProgression === "wenckebach") {
       pr = { valueMs: 180, status: "progressif" };
       alertes.push({
@@ -82,7 +95,12 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
         description: "PR constant, blocage intermittent — risque de BAV complet.",
       });
     } else {
-      const prMs = 160;
+      // PR piloté par les données (issue #39) : valeur explicite de la fiche
+      // (`trace.prIntervalMs`) sinon dérivée de la morphologie (R.mu − P.mu),
+      // sinon 160 ms. Les branches BAV I (> 200 ms) et PR court (< 120 ms)
+      // sont désormais atteignables au lieu d'être du code mort.
+      const derivedPrMs = Math.round((trace.waves.R.mu - trace.waves.P.mu) * 1000);
+      const prMs = trace.prIntervalMs ?? (derivedPrMs > 0 ? derivedPrMs : 160);
       if (prMs > 200) {
         pr = { valueMs: prMs, status: "long" };
         alertes.push({ niveau: "info", code: "bav-1", label: "BAV I" });
@@ -116,18 +134,21 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
   }
 
   // ─── Axe (approximation à partir des amplitudes I / aVF) ───────────
-  // DI ≈ P.a du lead I (amplitude relative) ; aVF ≈ DII − DI/2
-  const ampI = trace.waves.R.a * 0.8;      // R en I
-  const ampII = trace.waves.R.a;           // R en II
-  const ampAVF = ampII - ampI / 2;
-  // Axe simplifié : si R dominant en I et aVF → normal ; sinon déviation
+  // Deux amplitudes INDÉPENDANTES (issue #39) : `trace.axisAmplitudes`
+  // porte les amplitudes nettes du QRS en DI et aVF ; sans lui, tout dérive
+  // du même `waves.R` et l'axe reste « normal » quoi qu'il arrive (branches
+  // gauche/droite inatteignables, « extreme » jamais assignée).
+  const ampI = trace.axisAmplitudes?.i ?? trace.waves.R.a * 0.8; // R en DI
+  const ampII = trace.waves.R.a; // R en DII
+  const ampAVF = trace.axisAmplitudes?.avf ?? ampII - ampI / 2; // aVF = DII − DI/2
+  // Degrés via atan2 (analysis.qrsAxisDeg) — valeurs homogènes par branche.
   let axeDegres = 60;
   let axeStatus: "normal" | "gauche" | "droite" | "extreme" = "normal";
   if (ampI > 0 && ampAVF > 0) {
-    axeDegres = 30;
+    axeDegres = qrsAxisDeg(ampI, ampAVF);
     axeStatus = "normal";
   } else if (ampI > 0 && ampAVF < 0) {
-    axeDegres = -45;
+    axeDegres = qrsAxisDeg(ampI, ampAVF);
     axeStatus = "gauche";
     alertes.push({
       niveau: "info",
@@ -136,13 +157,23 @@ export function analyzeEcg(trace: EcgTraceParams, def?: EcgDeformation): EcgDiag
       description: "Hémibloc antérieur gauche, HVG, ou infarctus inférieur.",
     });
   } else if (ampI < 0 && ampAVF > 0) {
-    axeDegres = 120;
+    axeDegres = qrsAxisDeg(ampI, ampAVF);
     axeStatus = "droite";
     alertes.push({
       niveau: "info",
       code: "axe-droit",
       label: "Déviation axiale droite",
       description: "HVD, embolie pulmonaire, ou bloc fasciculaire postérieur.",
+    });
+  } else if (ampI < 0 && ampAVF < 0) {
+    // Axe « extrême » (nord-ouest) — branche inatteignable avant l'issue #39.
+    axeDegres = qrsAxisDeg(ampI, ampAVF);
+    axeStatus = "extreme";
+    alertes.push({
+      niveau: "info",
+      code: "axe-extreme",
+      label: "Axe QRS extrême (nord-ouest)",
+      description: "IDM ancien étendu, hyperkaliémie sévère, ou dérivations mal posées.",
     });
   }
 
