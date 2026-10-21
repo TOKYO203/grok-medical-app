@@ -27,8 +27,20 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Run release readiness checks
-        run: npm run release:check
+      - name: Run release readiness checks (diagnostic)
+        run: |
+          set -o pipefail
+          npm run routes:generate
+          if ! npm test > /tmp/test.log 2>&1; then
+            echo "===== CONTEXTE DES ECHECS (not ok) ====="
+            grep -n -B 2 -A 15 "^not ok" /tmp/test.log | head -200 || true
+            echo "===== 100 DERNIERES LIGNES ====="
+            tail -100 /tmp/test.log || true
+            FAILED=$( (grep "^not ok" /tmp/test.log | head -10; tail -3 /tmp/test.log) | tr "\n" " " | cut -c1-900)
+            echo "::error::npm test FAILED >> $FAILED"
+            exit 1
+          fi
+          npm run typecheck && npm run lint && npm run build
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
@@ -111,3 +123,4 @@ jobs:
           test "$(psql "$DATABASE_URL" -Atc "select marker from disaster_recovery_probe where id = 1")" = "optimus-recovery-ok"
           test "$(psql "$DATABASE_URL" -Atc "select count(*) > 0 from _migrations")" = "t"
           echo "Database backup/restore smoke: OK"
+
