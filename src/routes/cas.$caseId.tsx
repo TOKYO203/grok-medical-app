@@ -6,7 +6,7 @@ import { OptimusAnalysisPanel } from "@/components/ai/OptimusAnalysisPanel";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { getCase } from "@/content/catalog";
+import { CLINICAL_CASES, getCase } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
@@ -23,6 +23,7 @@ function CasePlay() {
   const clinical = getCase(caseId);
   const navigate = useNavigate();
   const completeCase = useOptimus((s) => s.completeCase);
+  const done = useOptimus((s) => s.casesCompleted);
   const entitlements = useOptimus((s) => s.entitlements);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
   const [cursor, setCursor] = useState(0);
@@ -34,6 +35,21 @@ function CasePlay() {
     () => clinical?.steps.filter((s) => s.kind === "question").length ?? 0,
     [clinical],
   );
+
+  /**
+   * Dossier suivant à proposer en fin de parcours : premier dossier NON
+   * terminé de la même spécialité (sinon premier non terminé du catalogue).
+   * Le dossier courant n'est jamais lui-même proposé ; si tout est terminé,
+   * pas de bouton d'enchaînement — l'utilisateur retourne à la liste.
+   */
+  const nextCase = useMemo(() => {
+    if (!clinical) return null;
+    const sameSpecialty = CLINICAL_CASES.filter(
+      (candidate) => candidate.specialty === clinical.specialty && candidate.id !== clinical.id,
+    );
+    const pool = sameSpecialty.length > 0 ? sameSpecialty : CLINICAL_CASES;
+    return pool.find((candidate) => !done.includes(candidate.id)) ?? null;
+  }, [clinical, done]);
 
   if (!clinical) {
     return (
@@ -149,6 +165,22 @@ function CasePlay() {
             >
               Enregistrer le cas
             </Button>
+            {nextCase ? (
+              <Button
+                variant="secondary"
+                className="mt-3 w-full"
+                onClick={() => {
+                  completeCase(clinical.id, caseXp(correct, qCount));
+                  void navigate({
+                    to: "/cas/$caseId",
+                    params: { caseId: nextCase.id },
+                  });
+                }}
+              >
+                Enregistrer et enchaîner — {nextCase.title}
+                <ArrowRight className="size-4" />
+              </Button>
+            ) : null}
           </div>
         ) : step?.kind === "reveal" ? (
           <div className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
