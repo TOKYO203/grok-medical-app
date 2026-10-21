@@ -27,20 +27,15 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Run release readiness checks (diagnostic)
+      - name: Run release readiness checks
+        run: npm run release:check > /tmp/rc.log 2>&1 || { echo "::error::RC-FAILED >> $( (grep '^not ok' /tmp/rc.log | head -12; tail -4 /tmp/rc.log) | tr '\n' '|' | cut -c1-950)"; exit 1; }
+
+      - name: Dump release-check log (diagnostic)
+        if: failure()
         run: |
-          set -o pipefail
-          npm run routes:generate
-          if ! npm test > /tmp/test.log 2>&1; then
-            echo "===== CONTEXTE DES ECHECS (not ok) ====="
-            grep -n -B 2 -A 15 "^not ok" /tmp/test.log | head -200 || true
-            echo "===== 100 DERNIERES LIGNES ====="
-            tail -100 /tmp/test.log || true
-            FAILED=$( (grep "^not ok" /tmp/test.log | head -10; tail -3 /tmp/test.log) | tr "\n" " " | cut -c1-900)
-            echo "::error::npm test FAILED >> $FAILED"
-            exit 1
-          fi
-          npm run typecheck && npm run lint && npm run build
+          grep -n -B2 -A12 "^not ok" /tmp/rc.log | head -400 || true
+          echo "===== TAIL 150 ====="
+          tail -150 /tmp/rc.log || true
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
