@@ -120,8 +120,8 @@ test("total account erasure deletes identity and anonymizes commerce atomically"
       [userId, email],
     );
     await db.query(
-      `insert into "session" (id, "expiresAt", token, "userId")
-       values ('sess-1', now() + interval '1 day', 'tok-1', $1)`,
+      `insert into "session" (id, "expiresAt", token, "updatedAt", "userId")
+       values ('sess-1', now() + interval '1 day', 'tok-1', now(), $1)`,
       [userId],
     );
     await db.query(
