@@ -28,7 +28,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check
+        run: npm run release:check > /tmp/rc.log 2>&1 || { echo "::error::RC-FAILED >> $(grep -E 'exceeds|totalJavascript' /tmp/rc.log | head -n 6 | tr '\n' '@')"; exit 1; }
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built

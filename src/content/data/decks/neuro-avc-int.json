@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "neuro-avc-int",
+  "version": "1.0.0",
+  "title": "AVC — cas cliniques",
+  "subtitle": "Décisions en situation · INTERNE",
+  "subject": "Neurologie",
+  "specialty": "Clinique",
+  "studyYear": 6,
+  "difficulty": "advanced",
+  "competencies": [
+    "clinical_reasoning",
+    "management",
+    "diagnostic_orientation"
+  ],
+  "icon": "brain",
+  "status": "published",
+  "questions": [
+    {
+      "id": "avc-int-1",
+      "prompt": "Homme de 74 ans : aphasie et hémiparésie droites vues 35 minutes après la dernière constatation de normalité, scanner sans hémorragie, occlusion sylvienne M1 gauche. La décision est :",
+      "choices": [
+        "Altéplase intraveineuse immédiate et transfert sans délai pour thrombectomie",
+        "Aspirine seule et surveillance neurologique",
+        "Thrombectomie seule, la fenêtre de la thrombolyse intraveineuse étant dépassée",
+        "Attente de l'IRM à 24 heures avant toute décision"
+      ],
+      "correct": 0,
+      "explanation": "Fenêtre intraveineuse largement respectée (< 4 h 30), scanner sans saignement, occlusion d'un gros vaisseau : les deux voies de reperfusion se combinent (traitement intraveineux d'emblée, thrombectomie dès que possible). Chaque minute de retard réduit le bénéfice.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-2",
+      "prompt": "Femme de 81 ans sous rivaroxaban pour fibrillation atriale : hématome lobaire droit de 45 mL, pression artérielle à 195/105 mmHg. La priorité est :",
+      "choices": [
+        "Antagonisation de l'anti-Xa (andexanet alfa selon protocole), contrôle tensionnel et avis neurochirurgical",
+        "Thrombolyse intraveineuse de l'hématome",
+        "Poursuite du rivaroxaban à demi-dose",
+        "Injection de vitamine K seule, efficace ici"
+      ],
+      "correct": 0,
+      "explanation": "Hémorragie sous anticoagulant oral direct anti-Xa : andexanet alfa (la vitamine K est sans effet sur les AOD). S'y ajoutent le contrôle de la pression artérielle, la prévention des complications et l'avis neurochirurgical selon le volume et la détérioration. L'altéplase serait ici une erreur fatale.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "Guideline for the Management of Spontaneous Intracerebral Hemorrhage, 2022."
+        },
+        {
+          "title": "ANSM",
+          "citation": "Antagonisation des anticoagulants oraux directs — dossiers thématiques."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-3",
+      "prompt": "Femme de 29 ans, dix jours post-partum : céphalées, crise convulsive généralisée puis hémiparésie gauche ; l'IRM montre une thrombose veineuse cérébrale avec infarctus veineux hémorragique. Le traitement de référence est :",
+      "choices": [
+        "L'héparine à dose curative, malgré le caractère hémorragique de l'infarctus",
+        "L'altéplase intraveineuse",
+        "Les antiagrégants plaquettaires seuls",
+        "L'abstention thérapeutique jusqu'à résorption"
+      ],
+      "correct": 0,
+      "explanation": "La thrombose veineuse cérébrale (souvent post-partum) se traite par anticoagulation curative, y compris en cas d'infarctus veineux hémorragique : elle prévient l'extension du thrombus. Le pronostic est globalement favorable sous traitement, avec recherche de la cause (thrombophilie, infection, hormones).",
+      "sources": [
+        {
+          "title": "ESO",
+          "citation": "European Stroke Organisation guideline on cerebral venous thrombosis, 2017."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Cerebral Venous Thrombosis."
+        }
+      ],
+      "difficulty": "advanced",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-4",
+      "prompt": "Homme de 63 ans : amaurose fugace droite récidivante, sténose carotidienne interne droite à 80 %, scanner sans infarctus récent. La conduite est :",
+      "choices": [
+        "Endartériectomie carotidienne dans les deux semaines, sous couverture antiagrégante",
+        "Anticoagulation curative à vie d'emblée",
+        "Stenting systématique quel que le risque",
+        "Surveillance annuelle sans traitement"
+      ],
+      "correct": 0,
+      "explanation": "Une sténose carotidienne symptomatique de 50 à 99 % bénéficie de l'endartériectomie, idéalement dans les deux semaines de l'événement (essais NASCET/ECST), sous antiagrégant, statine et contrôle tensionnel. Le stenting reste une alternative discutée selon le profil du patient.",
+      "sources": [
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — sténose carotidienne symptomatique."
+        },
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-5",
+      "prompt": "Un hématome cérébelleux de 4 cm avec dilatation ventriculaire et Glasgow à 12 : la conduite est :",
+      "choices": [
+        "Avis neurochirurgical urgent : dérivation du liquide et/ou exérèse de l'hématome",
+        "Thrombolyse intraveineuse",
+        "Sortie avec antalgiques oraux",
+        "Ponction lombaire évacuatrice"
+      ],
+      "correct": 0,
+      "explanation": "Un hématome cérébelleux de plus de 3 cm, avec signes de compression du tronc ou hydrocéphalie, peut se décompenser brutalement : la neurochirurgie (dérivation ventriculaire, exérèse) est urgente. L'attentisme dans cette localisation expose à un engagement amygdalien du cervelet.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "Guideline for the Management of Spontaneous Intracerebral Hemorrhage, 2022."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-6",
+      "prompt": "Six heures après la fin d'une thrombolyse sans complication notée, le patient s'assombrit avec une pression artérielle à 190/100 mmHg. La conduite immédiate est :",
+      "choices": [
+        "Scanner cérébral urgent et contrôle tensionnel (< 180/105 mmHg), surveillance renforcée",
+        "Une nouvelle dose d'altéplase",
+        "Antalgiques et laisser dormir",
+        "Antibiothérapie à large spectre d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "Dans les 24 heures suivant l'altéplase, toute aggravation neurologique impose une imagerie immédiate (transformation hémorragique, œdème, réocclusion) et le maintien de la pression artérielle sous 180/105 mmHg. La surveillance en unité neurovasculaire est le standard.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — surveillance post-thrombolyse."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-7",
+      "prompt": "À trois heures d'un AVC sylvien gauche avec NIHSS à 16, l'hôpital ne dispose pas de plateau de thrombectomie. La bonne conduite est :",
+      "choices": [
+        "Thrombolyse intraveineuse sur place si les critères sont remplis, et transfert immédiat vers le centre thrombectomique",
+        "Attendre l'amélioration spontanée avant de décider",
+        "Transférer sans imagerie ni traitement",
+        "Aspirine seule puis retour à domicile"
+      ],
+      "correct": 0,
+      "explanation": "Le mode « drip and ship » : ne pas perdre la fenêtre intraveineuse sous prétexte d'attendre la thrombectomie. Déficit sévère + suspicion d'occlusion proximale = double dette : traiter ce qui est traitable localement et organiser le transfert en parallèle.",
+      "sources": [
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — filière AVC et transfert interhospitalier."
+        },
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-8",
+      "prompt": "Femme de 45 ans : céphalée en coup de tonnerre, scanner montrant une hémorragie sous-arachnoïdienne modérée, angioscanner : anévrisme de la communicante antérieure. Le traitement comprend :",
+      "choices": [
+        "Exclusion rapide de l'anévrisme (embolisation ou clip) et nimodipine",
+        "Anticoagulation curative précoce",
+        "Abstention en attendant la résorption spontanée",
+        "Thrombolyse intraveineuse"
+      ],
+      "correct": 0,
+      "explanation": "Le risque de resaignement est maximal les premiers jours : l'exclusion de l'anévrisme (embolisation endovasculaire ou clip chirurgical) est la priorité. La nimodipine améliore le pronostic en prévenant l'ischémie différée par vasospasme ; surveillance de l'hydrocéphalie et de l'hyponatrémie.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "Guidelines for the Management of Aneurysmal Subarachnoid Hemorrhage."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — hémorragie sous-arachnoïdienne."
+        }
+      ],
+      "difficulty": "advanced",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-9",
+      "prompt": "Deux mois après un infarctus cérébral modéré, le Holter révèle une fibrillation atriale paroxystique jusque-là asymptomatique. La conduite est :",
+      "choices": [
+        "Anticoagulation orale au long cours après évaluation du profil thrombotique et hémorragique",
+        "Aspirine seule au long cours",
+        "Aucun traitement, la FA étant paroxystique",
+        "Amiodarone isolée sans anticoagulation"
+      ],
+      "correct": 0,
+      "explanation": "Une fibrillation atriale découverte après un AVC/AIT impose l'anticoagulation orale au long cours (elle est supérieure à l'antiagrégant dans la prévention de la récidive embolique), sauf contre-indication formelle, après pesée du risque hémorragique. L'antiagrégant n'y est pas associé au long cours sans autre indication.",
+      "sources": [
+        {
+          "title": "ESC",
+          "citation": "2020 ESC Guidelines for the diagnosis and management of atrial fibrillation."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Cardioembolic Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "avc-int-10",
+      "prompt": "À 48 heures d'un infarctus sylvien droit massif (NIHSS 22), le patient somnole avec une mydriase droite. La complication probable est :",
+      "choices": [
+        "Un engagement temporal par œdème maligne : mesures anti-œdème et avis neurochirurgical urgent",
+        "Une pneumonie isolée sans rapport neurologique",
+        "Une épilepsie à traiter par antiépileptiques seuls",
+        "Une récidive thrombotique à thrombolyser à nouveau"
+      ],
+      "correct": 0,
+      "explanation": "L'infarctus sylvien malin se complique d'œdème maximal entre 48 et 96 heures, avec risque d'engagement : osmothérapie temporaire, contrôle ventilatoire, et surtout avis neurochirurgical — la craniectomie décompressive, réalisée à temps, sauve des vies et du handicap, surtout avant 60 ans.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — œdème cérébral post-infarctus."
+        }
+      ],
+      "difficulty": "advanced",
+      "competency": "clinical_reasoning"
+    }
+  ],
+  "deck_id": "neuro-avc-int",
+  "schema_version": 2,
+  "access_policy": {
+    "tier": "pro",
+    "entitlement": "NEURO_PACK_15"
+  },
+  "sources": [
+    {
+      "title": "AHA/ASA",
+      "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+    },
+    {
+      "title": "AHA/ASA",
+      "citation": "Guideline for the Management of Spontaneous Intracerebral Hemorrhage, 2022."
+    },
+    {
+      "title": "SFNV",
+      "citation": "Société Française Neuro-Vasculaire — situations cliniques de l'AVC."
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "neuro-avc-l4",
+  "version": "1.0.0",
+  "title": "AVC — imagerie et bilan étiologique",
+  "subtitle": "Imagerie, fenêtres, étiologie · L4",
+  "subject": "Neurologie",
+  "specialty": "Clinique",
+  "studyYear": 4,
+  "difficulty": "intermediate",
+  "competencies": [
+    "recognize",
+    "diagnostic_orientation",
+    "management"
+  ],
+  "icon": "brain",
+  "status": "published",
+  "questions": [
+    {
+      "id": "avc-l4-1",
+      "prompt": "Avant toute décision de thrombolyse, l'examen qui élimine une hémorragie cérébrale en hyperaiguë est :",
+      "choices": [
+        "Le scanner cérébral sans injection de produit de contraste",
+        "L'électroencéphalogramme",
+        "La radiographie du crâne de face",
+        "La seule échographie des vaisseaux du cou"
+      ],
+      "correct": 0,
+      "explanation": "Le scanner sans injection est rapide et largement disponible : il visualise le sang frais (hyperdensité spontanée) et constitue la première contre-indication à vérifier avant l'altéplase — une hémorragie visible interdit la thrombolyse intraveineuse.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — imagerie de l'AVC en hyperaiguë."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l4-2",
+      "prompt": "Sur l'IRM encéphalique, c'est la séquence de diffusion qui montre :",
+      "choices": [
+        "L'infarctus récent dès les premières minutes (hypersignal avec ADC abaissé)",
+        "Uniquement les saignements anciens",
+        "Les anévrismes non rompus sans injection",
+        "La démyélinisation plaquettaire chronique"
+      ],
+      "correct": 0,
+      "explanation": "La diffusion (DWI) avec cartographie ADC détecte l'œdème cytotoxique de l'ischémie en quelques minutes, bien avant le scanner. Le FLAIR aide à dater, la séquence T2* ou SWI cherche le sang, la perfusion évalue la pénombre : c'est le mismatch qui guide les fenêtres étendues.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke — imagerie."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l4-3",
+      "prompt": "Un infarctus sylvien est confirmé deux heures après le début des symptômes. La reperfusion intraveineuse par altéplase peut être administrée jusqu'à :",
+      "choices": [
+        "4 heures et demie après le début des symptômes",
+        "12 heures après le début",
+        "24 heures après le début",
+        "48 heures après le début"
+      ],
+      "correct": 0,
+      "explanation": "La fenêtre classique de la thrombolyse intraveineuse est de 4 heures 30 à partir du début des symptômes (ou de la dernière constatation de normalité). Au-delà, seule la thrombectomie, sur sélection d'imagerie, peut rester possible jusqu'à 24 heures.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — thrombolyse intraveineuse."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "avc-l4-4",
+      "prompt": "L'angioscanner des troncs supra-aortiques et du polygone de Willis est réalisé en urgence pour :",
+      "choices": [
+        "Détecter une occlusion d'un gros vaisseau (LVO) accessible à la thrombectomie",
+        "Mesurer la pression intracrânienne",
+        "Dater au jour près un infarctus ancien",
+        "Éliminer un anévrisme dans toute céphalée migraineuse"
+      ],
+      "correct": 0,
+      "explanation": "L'occlusion proximale (carotide terminale, sylvienne M1, artère basilaire) définit les candidats à la thrombectomie mécanique. L'imagerie multimodale (perfusion, DWI-FLAIR) sélectionne aussi les patients au-delà de 6 heures.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l4-5",
+      "prompt": "Un infarctus sylvien total, NIHSS à 17, avec occlusion proximale de l'artère cérébrale moyenne gauche à la deuxième heure : la stratégie adéquate est :",
+      "choices": [
+        "Thrombolyse intraveineuse et transfert immédiat pour thrombectomie",
+        "Antiagrégant seul et surveillance simple",
+        "Attente de l'IRM à 24 heures avant tout",
+        "Craniectomie décompressive d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "Occlusion d'un gros vaisseau + déficit sévère : la thrombectomie améliore nettement le pronostic, en association avec la thrombolyse intraveineuse quand la fenêtre est respectée. Ne pas transférer un candidat à la thrombectomie est une perte de chance majeure.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke (essais DAWN et DEFUSE-3)."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — filière de reperfusion."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "management"
+    },
+    {
+      "id": "avc-l4-6",
+      "prompt": "Le bilan étiologique d'un infarctus cérébral ischémique comprend typiquement :",
+      "choices": [
+        "ECG, enregistrement du rythme (Holter), échocardiographie et écho-doppler des troncs supra-aortiques",
+        "Un EEG seul",
+        "Un bilan thyroïdien isolé",
+        "Un scanner abdominal sans précision"
+      ],
+      "correct": 0,
+      "explanation": "Trois grandes causes : cardioembolique (fibrillation atriale, cherchée aussi par Holter prolongé), athérome des troncs supra-aortiques et maladie des petites artères. Chez le sujet jeune, on cherche en plus une dissection, une endocardite, un foramen ovale perméable ou une thrombophilie selon le contexte.",
+      "sources": [
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — bilan étiologique de l'infarctus cérébral."
+        },
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC : bilan et prévention, 2023."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l4-7",
+      "prompt": "Un homme de 35 ans présente un infarctus sylvien droit après une cervicalie gauche apparue lors d'un effort, avec un Claude-Bernard-Horner homolatéral. L'étiologie la plus probable est :",
+      "choices": [
+        "Une dissection artérielle cervicale",
+        "Une endocardite bactérienne",
+        "La rupture d'un anévrisme sylvien",
+        "Une thrombophilie constitutionnelle isolée"
+      ],
+      "correct": 0,
+      "explanation": "Cervicalie + syndrome de Claude-Bernard-Horner + infarctus du sujet jeune : la dissection carotidienne est la piste n°1 (traumatisme ou effort, parfois spontanée). L'imagerie cervicale (IRM avec séquences angiographiques) confirme ; le traitement antithrombotique est systématique.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke in the Young."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — dissections artérielles cervicales."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l4-8",
+      "prompt": "La source cardioembolique la plus fréquente des infarctus cérébraux est :",
+      "choices": [
+        "La fibrillation atriale",
+        "Le rétrécissement mitral calcifié",
+        "Le foramen ovale perméable isolé",
+        "Une endocardite non traitée"
+      ],
+      "correct": 0,
+      "explanation": "La fibrillation atriale multiplie par environ cinq le risque d'AVC ischémique et en est la première cause cardioembolique. Sa découverte modifie la prévention secondaire : anticoagulation orale au long cours, dosée selon le risque thrombotique et hémorragique.",
+      "sources": [
+        {
+          "title": "ESC",
+          "citation": "2020 ESC Guidelines for the diagnosis and management of atrial fibrillation."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Cardioembolic Stroke."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "avc-l4-9",
+      "prompt": "Tout AVC devrait être pris en charge si possible dans une unité neurovasculaire (UNV) parce que :",
+      "choices": [
+        "Elle réduit la mortalité et le handicap, indépendamment même de la thrombolyse",
+        "Elle remplace la rééducation ambulatoire",
+        "Elle dispense du bilan étiologique",
+        "Elle supprime à vie le risque de récidive"
+      ],
+      "correct": 0,
+      "explanation": "Les essais (méta-analyses des Stroke Unit Trials) montrent un bénéfice de l'UNV : monitorage neurologique et tensionnel, prévention des complications (pneumonies de déglutition, thromboses), mobilisation précoce coordonnée. Ce bénéfice existe même pour les patients non thrombolysés.",
+      "sources": [
+        {
+          "title": "Cochrane",
+          "citation": "Stroke Unit Trialists' Collaboration — organised stroke unit care, review."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — organisation de la filière AVC."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "avc-l4-10",
+      "prompt": "Chez un patient hypertendu et diabétique, un infarctus des petites artères (lacunaire) se manifeste typiquement par :",
+      "choices": [
+        "Un déficit focal pur (hémiplégie ou hémianesthésie) sans trouble de conscience",
+        "Une cécité corticale bilatérale",
+        "Un tableau méningé fébrile",
+        "Une hémorragie méningée inaugurale"
+      ],
+      "correct": 0,
+      "explanation": "Les lacunes siègent dans la capsule interne ou le tronc cérébral : déficit moteur et/ou sensitif pur, souvent régressif, sans aphasie ni négligence. L'HTA et le diabète en sont les principaux facteurs ; le pronostic de récupération est globalement meilleur que l'infarctus sylvien total.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Lacunar Infarcts."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    }
+  ],
+  "deck_id": "neuro-avc-l4",
+  "schema_version": 2,
+  "access_policy": {
+    "tier": "pro",
+    "entitlement": "NEURO_PACK_15"
+  },
+  "sources": [
+    {
+      "title": "AHA/ASA",
+      "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+    },
+    {
+      "title": "SFNV",
+      "citation": "Société Française Neuro-Vasculaire — imagerie, fenêtres et étiologies de l'AVC."
+    },
+    {
+      "title": "Harrison's",
+      "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke."
+    }
+  ]
+}

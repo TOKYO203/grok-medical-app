@@ -65,6 +65,13 @@ export const DECK_MEDICAL_REVIEW: Record<string, DeckMedicalReview> = {
   "urgences": { status: "priority_items_reviewed", verifiedAt: "2026-09-14" },
   "neuro-avc-l2": { status: "structural_only", verifiedAt: null },
   "neuro-epi-l3": { status: "structural_only", verifiedAt: null },
+  "neuro-avc-l3": { status: "structural_only", verifiedAt: null },
+  "neuro-avc-l4": { status: "structural_only", verifiedAt: null },
+  "neuro-avc-l5": { status: "structural_only", verifiedAt: null },
+  "neuro-avc-int": { status: "structural_only", verifiedAt: null },
+  "neuro-epi-l4": { status: "structural_only", verifiedAt: null },
+  "neuro-epi-l5": { status: "structural_only", verifiedAt: null },
+  "neuro-epi-int": { status: "structural_only", verifiedAt: null },
 };
 
 export const REVIEW_STATUS_LABEL: Record<MedicalReviewStatus, string> = {
