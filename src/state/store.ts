@@ -5,14 +5,16 @@ import { getDeviceEncryptionIdentity } from "@/content/device-encryption";
 import { isLicenseReceipt, verifyLicenseReceipt } from "@/content/license-receipt";
 import {
   advancePurchase,
+  ALL_SPECIALTIES,
+  isPremiumOffer,
   orderAmount,
   orderLabel,
   orderProduct,
   PREMIUM_SPECIALTIES,
   PURCHASE_STATUSES,
+  type OrderSpecialty,
   type PremiumOrder,
   type PremiumPurchase,
-  type PremiumSpecialtyId,
   type PurchaseStatus,
 } from "@/content/purchase-order";
 import { revalidateImportedDeck } from "@/content/validator";
@@ -225,8 +227,8 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
     if (
       typeof purchase.reference !== "string" ||
       purchase.reference.length < 6 ||
-      (purchase.offer !== "deck" && purchase.offer !== "specialty") ||
-      !specialtyIds.has(purchase.specialty ?? "") ||
+      !isPremiumOffer(purchase.offer) ||
+      !(specialtyIds.has(purchase.specialty ?? "") || purchase.specialty === ALL_SPECIALTIES) ||
       !Number.isInteger(deckNumber) ||
       deckNumber < 1 ||
       deckNumber > 10 ||
@@ -242,7 +244,7 @@ function restorePurchases(value: unknown): PremiumPurchase[] {
     const order: PremiumOrder = {
       reference: purchase.reference,
       offer: purchase.offer,
-      specialty: purchase.specialty as PremiumSpecialtyId,
+      specialty: purchase.specialty as OrderSpecialty,
       deckNumber,
     };
     return [

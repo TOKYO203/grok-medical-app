@@ -18,6 +18,7 @@ import {
   type DeviceEncryptionIdentity,
 } from "@/content/device-encryption";
 import {
+  ALL_SPECIALTIES,
   fulfillmentRequestMessage,
   orderAmount,
   orderLabel,
@@ -28,6 +29,7 @@ import {
   type PremiumPurchase,
   type PremiumSpecialtyId,
 } from "@/content/purchase-order";
+import { formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS } from "@/content/pricing";
 import type { Profile } from "@/core/types";
 import { authEnabled } from "@/lib/auth/client";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
@@ -35,8 +37,11 @@ import {
   advancePremiumPurchaseOrder,
   createPremiumPurchaseOrder,
   getPremiumPaymentInstructions,
+  getPurchaseLicense,
   type PremiumPaymentInstructions,
 } from "@/lib/purchase-orders";
+import { formatSubscriptionEnd } from "@/lib/cloud/subscription";
+import { useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -81,15 +86,29 @@ function paymentInstructionsMessage(instructions: PremiumPaymentInstructions): s
   ].join("\n");
 }
 
+/** Spécialité réellement sélectionnable (une commande d'abonnement porte `all`). */
+function specialtyOf(
+  purchase?: PremiumPurchase,
+  fallback?: PremiumSpecialtyId,
+): PremiumSpecialtyId {
+  const id = purchase?.specialty;
+  return PREMIUM_SPECIALTIES.some((item) => item.id === id)
+    ? (id as PremiumSpecialtyId)
+    : (fallback ?? "neurologie");
+}
+
 export function PremiumPurchaseFlow({
   profile,
   initialPurchase,
+  initialOffer,
   initialSpecialty,
   onRemember,
   onPurchaseUpdated,
 }: {
   profile: Profile;
   initialPurchase?: PremiumPurchase;
+  /** Offre pré-sélectionnée : `/pro` ouvre directement l'abonnement. */
+  initialOffer?: PremiumOffer;
   initialSpecialty?: PremiumSpecialtyId;
   onRemember: (message: string) => void;
   onPurchaseUpdated: (purchase: PremiumPurchase) => void;
@@ -102,9 +121,11 @@ export function PremiumPurchaseFlow({
       ? 2
       : 3;
   });
-  const [offer, setOffer] = useState<PremiumOffer>(initialPurchase?.offer ?? "specialty");
-  const [specialty, setSpecialty] = useState<PremiumSpecialtyId>(
-    initialPurchase?.specialty ?? initialSpecialty ?? "neurologie",
+  const [offer, setOffer] = useState<PremiumOffer>(
+    initialPurchase?.offer ?? initialOffer ?? "specialty",
+  );
+  const [specialty, setSpecialty] = useState<PremiumSpecialtyId>(() =>
+    specialtyOf(initialPurchase, initialSpecialty),
   );
   const [deckNumber, setDeckNumber] = useState(initialPurchase?.deckNumber ?? 1);
   const [clientRequestId] = useState(newClientRequestId);
@@ -117,7 +138,15 @@ export function PremiumPurchaseFlow({
   const [sending, setSending] = useState(false);
 
   const reference = purchase?.reference ?? "";
-  const order: PremiumOrder = { reference, offer, specialty, deckNumber };
+  // Un abonnement n'a pas de spécialité : on garde la sentinelle aussi dans
+  // l'ordre LOCAL, sinon le récapitulatif afficherait une spécialité choisie
+  // par défaut que le serveur n'a pas enregistrée.
+  const order: PremiumOrder = {
+    reference,
+    offer,
+    specialty: offer === "subscription" ? ALL_SPECIALTIES : specialty,
+    deckNumber,
+  };
 
   useEffect(() => {
     if (profile.optimusId === "OM-GUEST") return;
@@ -127,7 +156,7 @@ export function PremiumPurchaseFlow({
   function rememberServerPurchase(next: PremiumPurchase) {
     setPurchase(next);
     setOffer(next.offer);
-    setSpecialty(next.specialty);
+    setSpecialty(specialtyOf(next, specialty));
     setDeckNumber(next.deckNumber);
     onPurchaseUpdated(next);
   }
@@ -136,8 +165,13 @@ export function PremiumPurchaseFlow({
     if (!user || user.isDevFallback || profile.optimusId === "OM-GUEST") return;
     setCreating(true);
     try {
+      // Le serveur normalise (spécialité `all` + module 1 pour un abonnement) :
+      // on n'envoie que ce qui a un sens pour l'offre choisie.
       const created = await createPremiumPurchaseOrder({
-        data: { clientRequestId, offer, specialty, deckNumber },
+        data:
+          offer === "subscription"
+            ? { clientRequestId, offer }
+            : { clientRequestId, offer, specialty, deckNumber },
       });
       rememberServerPurchase(created);
       setStep(2);
@@ -330,16 +364,7 @@ export function PremiumPurchaseFlow({
   }
 
   if (purchase?.status === "delivered") {
-    return (
-      <section className="rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]">
-        <CheckCircle2 className="size-8 text-primary" />
-        <h2 className="mt-3 font-display text-2xl font-medium">Commande livrée</h2>
-        <p className="mt-2 text-sm text-muted">Référence : {purchase.reference}</p>
-        <Link to="/import" className="mt-4 inline-block text-sm font-medium text-primary">
-          Ouvrir ou importer mon contenu →
-        </Link>
-      </section>
-    );
+    return <DeliveredPurchaseCard purchase={purchase} />;
   }
 
   if (purchase?.status === "rejected" || purchase?.status === "refunded") {
@@ -366,21 +391,50 @@ export function PremiumPurchaseFlow({
 
       {step === 1 ? (
         <div className="mt-5 space-y-4">
-          <div aria-label="Choisir une offre" className="grid grid-cols-2 gap-3" role="radiogroup">
-            <OfferCard active={offer === "deck"} title="1 module" detail="Une étape de parcours" price="3 000 Ar" onClick={() => setOffer("deck")} />
-            <OfferCard active={offer === "specialty"} title="Spécialité" detail="Tout le contenu de la spécialité" price="27 000 Ar" recommended onClick={() => setOffer("specialty")} />
+          <div aria-label="Choisir une offre" className="grid gap-3 sm:grid-cols-3" role="radiogroup">
+            <OfferCard
+              active={offer === "subscription"}
+              title={`Abonnement ${SUBSCRIPTION_MONTHS} mois`}
+              detail="Tout le catalogue Premium, sans limite"
+              price={formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")}
+              recommended
+              onClick={() => setOffer("subscription")}
+            />
+            <OfferCard
+              active={offer === "specialty"}
+              title="Spécialité"
+              detail="Tout le contenu d'une spécialité"
+              price={formatPrice(PRICES_MGA.specialty, "MGA")}
+              onClick={() => setOffer("specialty")}
+            />
+            <OfferCard
+              active={offer === "deck"}
+              title="1 module"
+              detail="Une étape de parcours"
+              price={formatPrice(PRICES_MGA.deck, "MGA")}
+              onClick={() => setOffer("deck")}
+            />
           </div>
 
           <div className="rounded-[var(--radius-xl)] bg-card p-4 shadow-[var(--shadow-border)]">
-            <label className="text-xs font-medium text-muted" htmlFor="premium-specialty">Spécialité souhaitée</label>
-            <select
-              id="premium-specialty"
-              className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
-              value={specialty}
-              onChange={(event) => setSpecialty(event.target.value as PremiumSpecialtyId)}
-            >
-              {PREMIUM_SPECIALTIES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
-            </select>
+            {offer === "subscription" ? (
+              <p className="rounded-[var(--radius-lg)] bg-secondary p-3 text-xs leading-relaxed text-muted">
+                L&apos;abonnement ouvre tout le contenu Premium pendant {SUBSCRIPTION_MONTHS} mois,
+                quelle que soit la spécialité. Aucun engagement de reconduction.
+              </p>
+            ) : (
+              <>
+                <label className="text-xs font-medium text-muted" htmlFor="premium-specialty">Spécialité souhaitée</label>
+                <select
+                  id="premium-specialty"
+                  className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
+                  value={specialty}
+                  onChange={(event) => setSpecialty(event.target.value as PremiumSpecialtyId)}
+                >
+                  {PREMIUM_SPECIALTIES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+                </select>
+              </>
+            )}
 
             {offer === "deck" ? (
               <>
@@ -499,6 +553,109 @@ export function PremiumPurchaseFlow({
           <BackButton onClick={() => setStep(2)} />
         </div>
       ) : null}
+    </section>
+  );
+}
+
+/**
+ * Commande LIVRÉE — la licence s'active d'elle-même.
+ *
+ * Le serveur a créé la licence au passage en `delivered` (`activation_keys`,
+ * `expires_at` = +90 jours pour un abonnement, NULL pour un achat à l'unité).
+ * L'acheteur récupère ici le reçu signé de SA commande et le pose dans le store
+ * (`activateLicense`), ce qui débloque réellement le contenu : sans cette étape,
+ * « livré » restait un statut décoratif et il fallait qu'un opérateur envoie une
+ * clé à la main.
+ *
+ * Aucun échec ne bloque la page : si la signature n'est pas configurée ou si le
+ * réseau tombe, on affiche l'état et l'accès reste récupérable plus tard.
+ */
+function DeliveredPurchaseCard({ purchase }: { purchase: PremiumPurchase }) {
+  const activateLicense = useOptimus((state) => state.activateLicense);
+  const [state, setState] = useState<
+    | { status: "activating" }
+    | { status: "active"; expiresAt: number | null }
+    | { status: "unavailable" }
+    | { status: "error"; message: string }
+  >({ status: "activating" });
+
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const licence = await getPurchaseLicense({ data: { reference: purchase.reference } });
+        if (cancelled) return;
+        if (!licence) {
+          setState({ status: "error", message: "Aucune licence n’est rattachée à cette commande." });
+          return;
+        }
+        if (!licence.receipt) {
+          setState({ status: "unavailable" });
+          return;
+        }
+        const activated = await activateLicense(licence.receipt);
+        if (cancelled) return;
+        if (!activated) {
+          setState({
+            status: "error",
+            message: "Cette licence est liée à un autre appareil. Contactez le support pour la transférer.",
+          });
+          return;
+        }
+        setState({
+          status: "active",
+          expiresAt: licence.expiresAt ? Date.parse(licence.expiresAt) : null,
+        });
+      } catch (error) {
+        if (cancelled) return;
+        setState({
+          status: "error",
+          message: error instanceof Error ? error.message : "Activation impossible pour le moment.",
+        });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [activateLicense, purchase.reference]);
+
+  const end = state.status === "active" ? formatSubscriptionEnd(state.expiresAt) : null;
+
+  return (
+    <section
+      className="rounded-[var(--radius-xl)] bg-primary-soft p-5 shadow-[var(--shadow-border)]"
+      data-purchase-activation={state.status}
+    >
+      <CheckCircle2 className="size-8 text-primary" />
+      <h2 className="mt-3 font-display text-2xl font-medium">Commande livrée</h2>
+      <p className="mt-2 text-sm text-muted">Référence : {purchase.reference}</p>
+      <p className="mt-1 text-sm text-muted">{purchase.label}</p>
+
+      {state.status === "activating" ? (
+        <p className="mt-3 text-sm text-muted">Activation de votre accès…</p>
+      ) : null}
+
+      {state.status === "active" ? (
+        <p className="mt-3 text-sm font-medium text-fg">
+          {end ? `Accès illimité activé jusqu’au ${end}.` : "Accès illimité activé sur cet appareil."}
+        </p>
+      ) : null}
+
+      {state.status === "unavailable" ? (
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          Votre accès est enregistré côté serveur, mais la signature de la licence n’est pas
+          disponible sur ce déploiement. Il s’activera automatiquement à la prochaine connexion ;
+          vos commandes restent consultables.
+        </p>
+      ) : null}
+
+      {state.status === "error" ? (
+        <p className="mt-3 text-sm leading-relaxed text-muted">{state.message}</p>
+      ) : null}
+
+      <Link to="/achats" className="mt-4 inline-block text-sm font-medium text-primary">
+        Voir mes commandes →
+      </Link>
     </section>
   );
 }
