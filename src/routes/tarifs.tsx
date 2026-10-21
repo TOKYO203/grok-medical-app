@@ -1,15 +1,25 @@
-import { useMemo, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { useMemo, useRef, useState } from "react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   Building2,
   Check,
   Clock3,
+  CreditCard,
   Globe,
   Minus,
   Smartphone,
   Sparkles,
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  PRICE_EUR,
+  buildLemonCheckoutUrl,
+  formatEuroAmount,
+  isLemonCheckoutConfigured,
+  newCheckoutRequestId,
+  readLemonCheckoutConfig,
+} from "@/content/international";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { Badge } from "@/components/ui/ds/Badge";
 import { Button } from "@/components/ui/ds/Button";
@@ -107,6 +117,82 @@ function TarifsPage() {
   const quarter = PRICES_MGA.subscriptionQuarter;
   const monthly = useMemo(() => Math.round(quarter / SUBSCRIPTION_MONTHS), [quarter]);
 
+  /* ── Paiement international (Lemon Squeezy, merchant of record) ───────────
+     Le bouton ne paie pas « dans le navigateur » : il demande d'abord au
+     serveur de CRÉER la commande (référence CMD-…), puis part vers le checkout
+     hébergé. C'est cette référence qui revient dans `meta.custom_data` et
+     permet au webhook de retrouver l'acheteur — sans jamais faire confiance à
+     un montant ou un identifiant venus du client. */
+  const { session } = useAuth();
+  const navigate = useNavigate();
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState<string | null>(null);
+
+  // Un identifiant de demande stable : deux clics rapides produisent UNE
+  // commande (UNIQUE(user_id, client_request_id)), pas deux checkouts.
+  const requestIdRef = useRef<string | null>(null);
+
+  const lemonConfig = useMemo(
+    () => readLemonCheckoutConfig(import.meta.env as Record<string, string | undefined>),
+    [],
+  );
+  const cardReady = isLemonCheckoutConfigured(lemonConfig);
+
+  async function startCardPayment() {
+    if (paying) return;
+    setPayError(null);
+
+    if (!session?.user) {
+      void navigate({ to: "/login" });
+      return;
+    }
+    if (!cardReady) {
+      setPayError(
+        "Le paiement par carte n'est pas encore ouvert sur ce déploiement. Écrivez-nous : nous vous envoyons un lien de paiement sécurisé.",
+      );
+      return;
+    }
+
+    setPaying(true);
+    try {
+      requestIdRef.current ??= newCheckoutRequestId();
+      const response = await fetch("/api/checkout/lemonsqueezy", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ clientRequestId: requestIdRef.current }),
+      });
+
+      if (response.status === 401) {
+        setPaying(false);
+        void navigate({ to: "/login" });
+        return;
+      }
+      if (!response.ok) throw new Error(`checkout ${response.status}`);
+
+      const data = (await response.json().catch(() => null)) as { reference?: unknown } | null;
+      if (!data || typeof data.reference !== "string") throw new Error("checkout reference");
+
+      // `window.location.assign` plutôt que le routeur : on quitte l'application
+      // pour le checkout hébergé (aucun état de route à conserver).
+      window.location.assign(
+        buildLemonCheckoutUrl({
+          config: lemonConfig,
+          userId: session.user.id,
+          email: session.user.email,
+          orderReference: data.reference,
+        }),
+      );
+    } catch {
+      setPayError(
+        "Le paiement par carte n'a pas pu être ouvert. Vérifiez votre connexion et réessayez : aucun montant n'a été débité.",
+      );
+      setPaying(false);
+    }
+  }
+
   return (
     <Shell title="Tarifs">
       <Page
@@ -115,7 +201,7 @@ function TarifsPage() {
           <PageHeader
             kicker="Tarifs"
             title="Le contenu complet, au plus juste"
-            description={`L'abonnement trimestriel (${SUBSCRIPTION_MONTHS} mois, tout le contenu Premium) est payable par Mobile Money. Les modules et les spécialités restent disponibles à l'unité, sans engagement.`}
+            description={`L'abonnement trimestriel (${SUBSCRIPTION_MONTHS} mois, tout le contenu Premium) se règle par Mobile Money, ou par carte bancaire en euros depuis l'étranger. Les modules et les spécialités restent disponibles à l'unité, sans engagement.`}
           />
         }
       >
@@ -134,7 +220,8 @@ function TarifsPage() {
             </Button>
           ))}
           <p className="w-full text-xs leading-relaxed text-muted sm:w-auto sm:flex-1 sm:pl-2">
-            Conversion indicative : le paiement officiel est facturé en Ariary.
+            Conversion indicative. Le Mobile Money est facturé en Ariary ; le paiement
+            par carte (onglet International) est facturé {formatEuroAmount(PRICE_EUR.subscriptionQuarter)}.
           </p>
         </div>
 
@@ -271,19 +358,51 @@ function TarifsPage() {
                   aria-labelledby="canal-international-tab"
                   className="mt-4 rounded-[var(--r-lg)] bg-secondary p-[var(--sp-4)]"
                   data-tarifs-channel="international"
+                  data-tarifs-card-state={cardReady ? "ready" : "unconfigured"}
                 >
-                  <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="text-sm font-medium text-fg">Paiement par carte bancaire</p>
-                    <Badge tone="neutral">Bientôt</Badge>
+                    <p className="text-sm font-medium text-fg" data-tarifs-card-price>
+                      {formatEuroAmount(PRICE_EUR.subscriptionQuarter)}
+                      <span className="ml-1 font-normal text-muted">/ {SUBSCRIPTION_MONTHS} mois</span>
+                    </p>
                   </div>
                   <p className="mt-3 text-sm text-muted">
-                    Le paiement international (Lemon Squeezy) est en préparation. En attendant,
-                    l&apos;abonnement et les offres à l&apos;unité se règlent par Mobile Money à
-                    Madagascar.
+                    Carte bancaire, Apple&nbsp;Pay et Google&nbsp;Pay. Le paiement est encaissé en
+                    euros par Lemon&nbsp;Squeezy, notre intermédiaire de paiement : la TVA
+                    applicable est calculée automatiquement selon votre pays.
                   </p>
-                  <Button variant="secondary" fullWidth data-tarifs-pay="lemon-squeezy" disabled className="mt-4">
-                    Bientôt disponible
+                  <Button
+                    fullWidth
+                    className="mt-4"
+                    onClick={startCardPayment}
+                    loading={paying}
+                    loadingLabel="Ouverture du paiement sécurisé"
+                    data-tarifs-pay="lemon-squeezy"
+                    data-lemon-state={paying ? "paying" : payError ? "error" : "idle"}
+                  >
+                    <CreditCard className="size-4" aria-hidden="true" />
+                    Payer par Carte ({formatEuroAmount(PRICE_EUR.subscriptionQuarter)})
                   </Button>
+                  {payError ? (
+                    <p
+                      role="alert"
+                      className="mt-2 text-xs leading-relaxed text-[var(--tone-danger-fg)]"
+                      data-lemon-error
+                    >
+                      {payError}
+                    </p>
+                  ) : null}
+                  {!cardReady ? (
+                    <p className="mt-2 text-xs leading-relaxed text-muted" data-lemon-config-note>
+                      Le paiement par carte s&apos;ouvrira dès la validation de la boutique. En
+                      attendant, le Mobile Money fonctionne immédiatement.
+                    </p>
+                  ) : null}
+                  <p className="mt-2 text-xs leading-relaxed text-muted">
+                    Aucun prélèvement automatique : l&apos;accès s&apos;arrête à la fin des{" "}
+                    {SUBSCRIPTION_MONTHS} mois si vous ne renouvelez pas.
+                  </p>
                 </div>
               )}
             </div>

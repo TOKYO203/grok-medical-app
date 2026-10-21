@@ -54,6 +54,20 @@ Keep secrets in the deployment platform and GitHub repository secrets. Never com
 - `SUPABASE_PUBLIC_BUCKET`
 - Mobile Money provider/account/instructions variables
 - signing keys used by Deck/license issuance
+- international card payments (see `docs/PAYMENTS-INTERNATIONAL.md`):
+  `LEMONSQUEEZY_WEBHOOK_SECRET` (absent ⇒ the webhook answers **503** and
+  accepts nothing), `LEMONSQUEEZY_API_KEY`, `LEMONSQUEEZY_STORE_ID`,
+  `VITE_LEMONSQUEEZY_STORE_SLUG`, `VITE_LEMONSQUEEZY_VARIANT_ID` (absent ⇒ the
+  card button stays visible but announces the shop is not open — it never sends
+  a buyer to a non-existent checkout) and `SUPABASE_SERVICE_ROLE_KEY` (absent ⇒
+  the webhook answers **503** so Lemon Squeezy retries instead of losing a paid
+  order)
+
+  Lemon Squeezy webhook to declare: `POST https://<domain>/api/webhooks/lemonsqueezy`,
+  event `order_created`, signature secret = `LEMONSQUEEZY_WEBHOOK_SECRET`.
+  ⚠️ the secret **and the URL** differ between test mode and live mode.
+  After go-live, clean the test licences: `select count(*) from webhook_events
+  where detail->>'testMode' = 'true';`
 
 For staging validation, GitHub Actions expects `SUPABASE_STAGING_DATABASE_URL` and the workflow `Supabase staging DB validation` must be launched with confirmation `STAGING`.
 

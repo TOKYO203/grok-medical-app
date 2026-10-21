@@ -9,14 +9,79 @@
  * recorded by basename in `_migrations`, so copied legacy auth migrations do not
  * run twice.
  *
- * No DATABASE_URL (local / preview builds) -> skip; the PGLite fallback applies
- * the same applicable files at startup (see src/lib/db.ts).
+ * No DATABASE_URL anywhere (local / preview builds) -> skip; the PGLite fallback
+ * applies the same applicable files at startup (see src/lib/db.ts).
+ *
+ * ⚠️ DATABASE_URL is read from `.env.local` too, not just from the process.
+ * `vite.config.ts` injects non-`VITE_` variables from `.env.local` into
+ * `process.env` for the SERVER at runtime, so a workspace with
+ * `DATABASE_URL=postgres://…` runs on that Postgres — while this script, being
+ * a plain node process, used to see nothing and print "skipping". Migrations
+ * were therefore never applied to the database the app actually used: the
+ * schema silently lagged behind, and the symptom was a runtime
+ * `relation "…" does not exist` long after a green build. Reading the same
+ * files here removes that divergence.
  */
 import { readdir, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import pg from "pg";
 import { migrationPathsForAuth, pendingMigrations } from "./migration-plan.mjs";
+
+const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
+
+/**
+ * Minimal `.env` reader (no dependency, no interpolation).
+ *
+ * Deliberately dumb: values are taken VERBATIM after the first `=` (a DSN may
+ * contain `%`, `@`, `#`, quotes or `$`), comments and blank lines are dropped,
+ * and matching surrounding quotes are stripped. `${VAR}` interpolation is NOT
+ * performed — a connection string is data, not a template.
+ *
+ * @param {string} text
+ * @returns {Array<[string, string]>}
+ */
+export function parseEnvFile(text) {
+  const entries = [];
+  for (const rawLine of text.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+    const eq = line.indexOf("=");
+    if (eq <= 0) continue;
+    const key = line.slice(0, eq).trim().replace(/^export\s+/, "");
+    if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(key)) continue;
+    let value = line.slice(eq + 1).trim();
+    const quoted =
+      (value.startsWith('"') && value.endsWith('"') && value.length > 1) ||
+      (value.startsWith("'") && value.endsWith("'") && value.length > 1);
+    if (quoted) value = value.slice(1, -1);
+    entries.push([key, value]);
+  }
+  return entries;
+}
+
+/**
+ * `.env.local` is NOT loaded here on purpose: the platform injects production
+ * credentials into the process, and a checked-out `.env.local` must never
+ * override them. Precedence: process env first, then local files.
+ */
+if (!process.env.DATABASE_URL?.trim()) {
+  for (const file of [".env.local", ".env"]) {
+    let text;
+    try {
+      text = await readFile(join(projectRoot, file), "utf8");
+    } catch {
+      continue; // fichier absent : ce n'est pas une erreur
+    }
+    for (const [key, value] of parseEnvFile(text)) {
+      if (process.env[key] === undefined) process.env[key] = value;
+    }
+    if (process.env.DATABASE_URL?.trim()) {
+      console.log(`[migrate] DATABASE_URL lu depuis ${file}`);
+      break;
+    }
+  }
+}
 
 const databaseUrl = process.env.DATABASE_URL?.trim();
 if (!databaseUrl) {
@@ -26,7 +91,7 @@ if (!databaseUrl) {
   process.exit(0);
 }
 
-const migrationsDir = join(dirname(fileURLToPath(import.meta.url)), "..", "migrations");
+const migrationsDir = join(projectRoot, "migrations");
 const authMigrationsDir = join(migrationsDir, "auth");
 const authEnabled = process.env.VITE_AUTH_ENABLED !== "false";
 

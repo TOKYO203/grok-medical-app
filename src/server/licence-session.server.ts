@@ -1,4 +1,6 @@
-import { activeLicence, type LicenceRow } from "@/lib/cloud/licence";
+// Import RELATIF : ce module est chargé par des tests exécutés via
+// `node --experimental-strip-types`, qui ne résout pas l'alias `@/`.
+import { activeLicence, type LicenceRow } from "../lib/cloud/licence.ts";
 
 /**
  * PONT LICENCE SUPABASE → JWT DE CONTENU — serveur uniquement.

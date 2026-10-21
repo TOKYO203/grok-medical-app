@@ -833,9 +833,13 @@ export const getPurchaseLicense = createServerFn({ method: "POST" })
       expiresAt,
     };
 
-    const privateKey = (process.env.LICENSE_SIGNING_PRIVATE_KEY ?? "").trim();
-    if (!privateKey) {
-      console.warn("[purchase-license] LICENSE_SIGNING_PRIVATE_KEY manquante");
+    // La clé est lue dans un module *.server.ts : deux garde-fous du dépôt
+    // interdisent qu'une clé privée soit référencée dans un module isomorphe
+    // (celui-ci est importé par des composants clients).
+    const { readLicenseSigningKey } = await import("@/server/license-signing-key.server");
+    const signingKey = readLicenseSigningKey();
+    if (!signingKey) {
+      console.warn("[purchase-license] clé de signature absente : reçu non signé");
       return { ...base, status: "signing-unavailable" as const, receipt: null };
     }
 
@@ -851,7 +855,7 @@ export const getPurchaseLicense = createServerFn({ method: "POST" })
           issuedAt,
           expiresAt,
         },
-        privateKey,
+        signingKey,
       );
       return { ...base, status: "issued" as const, receipt };
     } catch (error) {

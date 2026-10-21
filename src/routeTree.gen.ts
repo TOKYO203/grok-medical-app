@@ -54,9 +54,11 @@ import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
+import { Route as ApiCheckoutLemonsqueezyRouteImport } from './routes/api.checkout.lemonsqueezy'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
+import { Route as ApiWebhooksLemonsqueezyRouteImport } from './routes/api.webhooks.lemonsqueezy'
 import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
 
 const IndexRoute = IndexRouteImport.update({
@@ -283,6 +285,11 @@ const PathologieSlugRoute = PathologieSlugRouteImport.update({
   path: '/pathologie/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiCheckoutLemonsqueezyRoute = ApiCheckoutLemonsqueezyRouteImport.update({
+  id: '/api/checkout/lemonsqueezy',
+  path: '/api/checkout/lemonsqueezy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
   path: '/api/licenses/activate',
@@ -296,6 +303,11 @@ const ApiLicensesSessionRoute = ApiLicensesSessionRouteImport.update({
 const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
   id: '/api/licenses/verify',
   path: '/api/licenses/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebhooksLemonsqueezyRoute = ApiWebhooksLemonsqueezyRouteImport.update({
+  id: '/api/webhooks/lemonsqueezy',
+  path: '/api/webhooks/lemonsqueezy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContentTypeFileRoute = ContentTypeFileRouteImport.update({
@@ -349,9 +361,11 @@ export interface FileRoutesByFullPath {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRoutesByTo {
@@ -399,9 +413,11 @@ export interface FileRoutesByTo {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRoutesById {
@@ -451,9 +467,11 @@ export interface FileRoutesById {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
 export interface FileRouteTypes {
@@ -503,9 +521,11 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/lemonsqueezy'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -553,9 +573,11 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/lemonsqueezy'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   id:
     | '__root__'
@@ -604,9 +626,11 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/lemonsqueezy'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   fileRoutesById: FileRoutesById
 }
@@ -651,9 +675,11 @@ export interface RootRouteChildren {
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
+  ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
+  ApiWebhooksLemonsqueezyRoute: typeof ApiWebhooksLemonsqueezyRoute
   ContentTypeFileRoute: typeof ContentTypeFileRoute
 }
 
@@ -974,6 +1000,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PathologieSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/checkout/lemonsqueezy': {
+      id: '/api/checkout/lemonsqueezy'
+      path: '/api/checkout/lemonsqueezy'
+      fullPath: '/api/checkout/lemonsqueezy'
+      preLoaderRoute: typeof ApiCheckoutLemonsqueezyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
       path: '/api/licenses/activate'
@@ -993,6 +1026,13 @@ declare module '@tanstack/react-router' {
       path: '/api/licenses/verify'
       fullPath: '/api/licenses/verify'
       preLoaderRoute: typeof ApiLicensesVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webhooks/lemonsqueezy': {
+      id: '/api/webhooks/lemonsqueezy'
+      path: '/api/webhooks/lemonsqueezy'
+      fullPath: '/api/webhooks/lemonsqueezy'
+      preLoaderRoute: typeof ApiWebhooksLemonsqueezyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/content/$type/$file': {
@@ -1100,9 +1140,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAiStreamRoute: ApiAiStreamRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
+  ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
+  ApiWebhooksLemonsqueezyRoute: ApiWebhooksLemonsqueezyRoute,
   ContentTypeFileRoute: ContentTypeFileRoute,
 }
 export const routeTree = rootRouteImport

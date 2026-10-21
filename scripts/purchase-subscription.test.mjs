@@ -215,8 +215,15 @@ test("l'acheteur récupère SA licence, et seulement la sienne", () => {
   // Rien à activer tant que la commande n'est pas livrée.
   assert.match(handler, /current\.status !== "delivered"/);
   // Le reçu est signé côté serveur, avec la clé privée — jamais renvoyée.
+  // Depuis INTL-14 la clé est lue dans un module *.server.ts : la référencer ici
+  // laissait le motif dans un module isomorphe (importé par des composants
+  // clients), ce que scripts/security-license.test.mjs interdit.
   assert.match(handler, /signLicenseReceipt\(/);
-  assert.match(handler, /process\.env\.LICENSE_SIGNING_PRIVATE_KEY/);
+  assert.match(handler, /readLicenseSigningKey\(\)/);
+  assert.doesNotMatch(handler, /process\.env\.LICENSE_SIGNING_PRIVATE_KEY/);
+  assert.doesNotMatch(handler, /privateKey/);
+  // Dégrader sans clé plutôt qu'échouer : la commande reste livrée.
+  assert.match(handler, /status: "signing-unavailable" as const/);
   // Le reçu est lié à l'appareil de la commande : inutilisable ailleurs.
   assert.match(handler, /deviceId: current\.device_id\.toLowerCase\(\)/);
   // Aucun secret dans la réponse.
