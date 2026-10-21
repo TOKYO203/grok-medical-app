@@ -144,5 +144,5 @@ GitHub dependency review requires Dependency Graph to be enabled at repository l
 - real Mobile Money flow validated end to end;
 - database recovery smoke green;
 - medical Deck V1 human review complete;
-- retention/anonymization policy approved;
+- retention/anonymization policy approved (see docs/DATA-RETENTION.md);
 - rollback target and previous deploy identified.

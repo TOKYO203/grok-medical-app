@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CloudOff, Download, ShieldCheck, Trash2 } from "lucide-react";
+import { CloudOff, Download, ShieldCheck, Trash2, UserX } from "lucide-react";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import {
+  deleteOptimusAccountEntirely,
   deleteOptimusCloudState,
   exportOptimusAccountData,
   pullOptimusState,
@@ -19,8 +20,9 @@ type CloudStatus = "loading" | "active" | "suspended" | "unavailable";
 function DataPage() {
   const { user, isPending } = useCurrentUserState();
   const [cloudStatus, setCloudStatus] = useState<CloudStatus>("loading");
-  const [busy, setBusy] = useState<"export" | "delete" | "resume" | null>(null);
+  const [busy, setBusy] = useState<"export" | "delete" | "resume" | "account" | null>(null);
   const [confirmation, setConfirmation] = useState("");
+  const [accountConfirmation, setAccountConfirmation] = useState("");
   const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -85,6 +87,21 @@ function DataPage() {
       setMessage("La suppression n’a pas abouti. Aucune donnée locale n’a été modifiée.");
     } finally {
       setBusy(null);
+    }
+  }
+
+  async function deleteEntireAccount() {
+    if (accountConfirmation !== "SUPPRIMER MON COMPTE") return;
+    setBusy("account");
+    setMessage(null);
+    try {
+      await deleteOptimusAccountEntirely({ data: { confirmation: "DELETE_MY_ACCOUNT" } });
+      // Le compte et toutes ses sessions sont supprimés côté serveur : le
+      // rechargement ramène l'application au profil local (non connecté).
+      window.location.reload();
+    } catch {
+      setBusy(null);
+      setMessage("La suppression du compte n'a pas abouti. Aucune donnée locale n'a été modifiée.");
     }
   }
 
@@ -207,6 +224,51 @@ function DataPage() {
           >
             <Trash2 className="size-4" />
             {busy === "delete" ? "Suppression…" : "Supprimer la progression cloud"}
+          </Button>
+        </section>
+
+        <section className="rounded-[var(--radius-xl)] border border-danger/30 bg-card p-5 shadow-[var(--shadow-border)]">
+          <SectionTitle kicker="Zone sensible" title="Supprimer mon compte définitivement" />
+          <p className="text-sm leading-6 text-muted">
+            Action <strong>irréversible</strong> : votre compte, vos sessions, votre progression
+            cloud, vos réponses aux enquêtes et vos signalements de contenu sont effacés du serveur,
+            et la synchronisation est définitivement fermée sur tous vos appareils.
+          </p>
+          <p className="mt-3 text-xs leading-5 text-muted">
+            Conformément à nos obligations comptables, les commandes et événements commerciaux sont
+            conservés sous forme anonymisée : identité remplacée par un pseudonyme irréversible,
+            identifiants d'appareil supprimés. Seuls les montants, références et statuts restent
+            pour l'audit financier. Détails dans la{" "}
+            <Link to="/confidentialite" className="font-medium text-primary hover:underline">
+              politique de confidentialité
+            </Link>
+            .
+          </p>
+          <p className="mt-3 text-xs leading-5 text-muted">
+            Vos données locales sur cet appareil ne sont pas effacées. L'accès Premium lié au compte
+            prend fin.
+          </p>
+          <label
+            className="mt-4 block text-xs font-medium text-muted"
+            htmlFor="delete-account-confirmation"
+          >
+            Saisissez SUPPRIMER MON COMPTE pour confirmer
+          </label>
+          <Input
+            id="delete-account-confirmation"
+            className="mt-2"
+            value={accountConfirmation}
+            onChange={(event) => setAccountConfirmation(event.target.value.toUpperCase())}
+            autoComplete="off"
+          />
+          <Button
+            variant="danger"
+            className="mt-4 w-full"
+            disabled={accountConfirmation !== "SUPPRIMER MON COMPTE" || busy !== null}
+            onClick={() => void deleteEntireAccount()}
+          >
+            <UserX className="size-4" />
+            {busy === "account" ? "Suppression…" : "Supprimer mon compte définitivement"}
           </Button>
         </section>
 
