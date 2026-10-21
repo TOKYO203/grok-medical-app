@@ -1,5 +1,81 @@
 [
   {
+    "id": "CARDIO-FA-001",
+    "title": "Cœur irrégulier",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 78 ans, palpitations et dyspnée d'effort depuis 2 jours, pouls irrégulier à 130/min.",
+    "patient": {
+      "age": 78,
+      "sex": "F",
+      "context": "HTA traitée par amlodipine, marche 30 minutes par jour, pas de diabète connu."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Palpitations en continu depuis 2 jours, avec essoufflement à la montée des escaliers et fatigue. Pas de douleur thoracique, pas de syncope, pas de fièvre."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 142/86, FC 132 irrégulière en fréquence et en amplitude, pouls radial irrégulier. Auscultation sans souffle, pas de crépitants, pas d'œdèmes, pas de turgescence jugulaire."
+      },
+      {
+        "kind": "reveal",
+        "title": "ECG / biologie",
+        "body": "ECG : rythme irrégulier, aucune onde P identifiable, QRS fins, pas de pré-excitation, pas de sus-décalage. Troponine hs normale, TSH normale, Hb 13,4 g/dL, créatinine 74 µmol/L. Échographie : FEVG 55 %, oreillette gauche 42 mm, pas de valvulopathie."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le trouble du rythme sur cet ECG est :",
+        "choices": [
+          "Tachycardie sinusale sur anémie",
+          "Flutter atrial",
+          "Fibrillation atriale",
+          "Tachycardie supraventriculaire paroxystique"
+        ],
+        "correct": 2,
+        "explanation": "Absence totale d'ondes P et irrégularité totale des intervalles RR = fibrillation atriale. Le flutter garde des ondes F en dents de scie (II, III, aVF) et un rythme le plus souvent régulier ; l'anémie est écartée (Hb 13,4) ; une TSV est un rythme régulier à début et fin brusques."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le score CHA2DS2-VASc de cette patiente (HTA, 78 ans, sexe féminin) vaut :",
+        "choices": [
+          "1 point : pas d'anticoagulation",
+          "2 points : antiagrégant plaquettaire seul",
+          "4 points : anticoagulation orale indiquée, AOD en première intention",
+          "6 points : anticoagulation et antiagrégant associés"
+        ],
+        "correct": 2,
+        "explanation": "HTA (1) + âge > 75 ans (2) + sexe féminin (1) = 4 points. Chez la femme, l'ESC recommande l'anticoagulation à partir de 3 points ; un anticoagulant oral direct est préféré aux AVK en l'absence de valvulopathie mécanique ou de rétrécissement mitral moyen à serré. L'association systématique anticoagulant + antiagrégant majore le risque hémorragique sans bénéfice démontré."
+      },
+      {
+        "kind": "question",
+        "prompt": "Concernant le rythme à la phase aiguë (FA documentée depuis environ 48 heures, patiente stable) :",
+        "choices": [
+          "Cardioversion électrique immédiate sans anticoagulation préalable",
+          "Contrôle de la fréquence (bêtabloquant) et anticoagulation débutée ; cardioversion seulement après 3 semaines d'anticoagulation ou échographie transœsophagienne",
+          "Amiodarone IV d'emblée à visée rythmique chez tous",
+          "Digoxine en première intention"
+        ],
+        "correct": 1,
+        "explanation": "Patiente stable : le contrôle de la fréquence et la mise en route de l'anticoagulation priment. Au-delà de 48 heures (ou de durée inconnue), une cardioversion ne se tente qu'après au moins 3 semaines d'anticoagulation efficace ou après échographie transœsophagienne excluant un thrombus. La digoxine est réservée au contrôle de la fréquence en cas d'insuffisance cardiaque ; l'amiodarone n'est pas un traitement d'attaque systématique."
+      }
+    ],
+    "diagnosis": "Fibrillation atriale rapide (≈130/min) chez une femme de 78 ans hypertendue, à haut risque thrombo-embolique (CHA2DS2-VASc ≥ 3), sans insuffisance cardiaque ni valvulopathie.",
+    "management": "Contrôle de la fréquence par bêtabloquant adapté à la FEVG, anticoagulation orale directe préférée aux AVK en l'absence de contre-indication (CHA2DS2-VASc ≥ 3 chez la femme), réévaluation à distance d'une éventuelle stratégie de contrôle du rythme, éducation : prise du pouls, signes d'alerte AVC, observance de l'anticoagulation.",
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "2020 ESC Guidelines for the diagnosis and management of atrial fibrillation, European Heart Journal 2021;42:373-498.",
+        "organization": "ESC",
+        "year": 2021
+      }
+    ]
+  },
+  {
     "id": "CARDIO-IC-001",
     "title": "Dyspnée et œdèmes",
     "specialty": "Cardiologie",
@@ -82,6 +158,401 @@
         "citation": "Guidelines for the management of heart failure, 2026.",
         "organization": "ESC",
         "year": 2026
+      }
+    ],
+    "access": "free"
+  },
+  {
+    "id": "CARDIO-SCA-001",
+    "title": "Douleur thoracique",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 61 ans, douleur constrictive, sueurs, ECG en cours.",
+    "patient": {
+      "age": 61,
+      "sex": "M",
+      "context": "Tabac, LDL inconnu, père infarctus à 54 ans."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Douleur rétro-sternale constrictive depuis 40 minutes, irradiation mâchoire, nausées, sueurs."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Patient anxieux, TA 108/68, FC 92, SpO2 96 %. Auscultation libre, pas de souffle, pas de turgescence jugulaire. Pouls symétriques."
+      },
+      {
+        "kind": "reveal",
+        "title": "ECG / bio",
+        "body": "Sus-décalage ST en V1–V4, miroir inférieur. Troponine en cours. Cliché thorax normal."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic ECG est :",
+        "choices": ["SCA ST+ antérieur (STEMI)", "Péricardite aiguë", "SCA ST−", "TV soutenue"],
+        "correct": 0,
+        "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
+      },
+      {
+        "kind": "question",
+        "prompt": "La stratégie de reperfusion de référence, si le délai porte-à-ballon est court :",
+        "choices": [
+          "Thrombolyse systématique",
+          "Angioplastie primaire",
+          "Héparine seule et surveillance",
+          "Test d'effort à J2"
+        ],
+        "correct": 1,
+        "explanation": "Angioplastie primaire si réalisable dans les délais ESC. Thrombolyse seulement si PCI impossible à temps."
+      },
+      {
+        "kind": "question",
+        "prompt": "Double antiagrégation : association typique avant la salle :",
+        "choices": [
+          "Aspirine + ticagrélor ou prasugrel (selon profil)",
+          "Aspirine seule",
+          "Clopidogrel + AOD",
+          "Aspirine + warfarine"
+        ],
+        "correct": 0,
+        "explanation": "Aspirine 150–300 mg + inhibiteur P2Y12 puissant, sauf si haut risque hémorragique ou indication particulière au clopidogrel."
+      }
+    ],
+    "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
+    "management": "Filière d’urgence / USIC, traitement antithrombotique adapté et angioplastie primaire sans délai inutile. Puis prévention secondaire individualisée : statine à haute intensité, contrôle des facteurs de risque, bêtabloquant et IEC/ARA2 selon les indications, réadaptation cardiaque.",
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "Guidelines for the management of acute coronary syndromes, 2023.",
+        "organization": "ESC",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "id": "ENDO-DCD-001",
+    "title": "Soif et amaigrissement rapides",
+    "specialty": "Endocrinologie / Diabétologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Homme de 22 ans, soif intense, urines abondantes, amaigrissement de 8 kg, vomissements.",
+    "patient": {
+      "age": 22,
+      "sex": "M",
+      "context": "Aucun antécédent ; un frère diabétique de type 1."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 3 semaines : soif intense, urines abondantes y compris la nuit, amaigrissement de 8 kg malgré un appétit conservé. Depuis 24 heures : vomissements et douleurs abdominales diffuses."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Conscient mais fatigué. FR 28/min, respiration ample et profonde (Kussmaul), haleine acétonique. TA 102/64 couché, FC 108/min, langue sèche, pli cutané persistant. Abdomen souple, douleur diffuse sans défense."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Glycémie 4,2 g/L (23,3 mmol/L), cétonurie 3+, HbA1c 11,8 %. Gaz du sang : pH 7,16, bicarbonates 7 mmol/L. Na+ 131 mmol/L, K+ 3,4 mmol/L, créatinine 108 µmol/L."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic métabolique est :",
+        "choices": [
+          "Acidocétose diabétique, probablement inaugurale d'un diabète de type 1",
+          "Hyperglycémie hyperosmolaire sans cétose",
+          "Acidose lactique sur choc septique",
+          "Diabète de type 2 décompensé sans acidose"
+        ],
+        "correct": 0,
+        "explanation": "Triade : hyperglycémie > 2,5 g/L, cétonurie, acidose métabolique (pH < 7,30, bicarbonates < 18 mmol/L) = acidocétose. Sujet jeune + amaigrissement rapide + antécédent familial de diabète de type 1 : type 1 probable. L'état hyperosmolaire touche plutôt le sujet âgé, sans cétose ni acidose franche ; il n'y a pas de signe de choc."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge initiale est :",
+        "choices": [
+          "Insuline rapide sous-cutanée seule, à domicile",
+          "Remplissage par chlorure de sodium à 0,9 % puis insuline en IVSE à 0,1 U/kg/h",
+          "Bicarbonate IV systématique car pH < 7,2",
+          "Metformine per os immédiate"
+        ],
+        "correct": 1,
+        "explanation": "Priorités : remplissage par chlorure de sodium à 0,9 %, puis insuline en IVSE à 0,1 U/kg/h (instaurable car K+ > 3,3 mmol/L), glycémie capillaire horaire. Le bicarbonate n'est pas systématique (risque d'œdème cérébral) ; la metformine est contre-indiquée en acidose ; l'insuline sous-cutanée seule est insuffisante à la phase aiguë."
+      },
+      {
+        "kind": "question",
+        "prompt": "La surveillance la plus critique dans les premières heures est :",
+        "choices": [
+          "L'hémoglobine glyquée",
+          "La kaliémie : apporter du potassium dans les solutés dès que K+ < 5,2 mmol/L, surveiller l'ECG",
+          "Le bilan lipidique à jeun",
+          "La seule glycémie capillaire, sans autre paramètre"
+        ],
+        "correct": 1,
+        "explanation": "L'insuline fait rentrer le potassium dans les cellules : l'hypokaliémie est la complication qui tue (arythmies). ADA : kaliémie < 3,3 mmol/L → corriger avant d'instaurer l'insuline ; entre 3,3 et 5,2 mmol/L → supplémenter les solutés (20–30 mmol/L) et surveiller kaliémie et ECG. La glycémie horaire guide le débit, mais l'hypokaliémie est l'urgence silencieuse."
+      }
+    ],
+    "diagnosis": "Acidocétose inaugurale d'un diabète de type 1 (pH 7,16, bicarbonates 7 mmol/L, glycémie 4,2 g/L, HbA1c 11,8 %).",
+    "management": "Hospitalisation : remplissage par chlorure de sodium à 0,9 %, insuline IVSE à 0,1 U/kg/h, supplémentation potassique guidée par la kaliémie et l'ECG, glycémie capillaire horaire, recherche du facteur déclenchant (probable décompensation inaugurale ici), relais sous-cutané à la reprise alimentaire, éducation thérapeutique (insulinothérapie, autosurveillance glycémique, cétose, hydratation) et suivi diabétologique.",
+    "sources": [
+      {
+        "title": "ADA",
+        "citation": "Standards of Care in Diabetes—2025 : hyperglycemic crises (section 16), Diabetes Care 2025;48(Suppl. 1).",
+        "organization": "American Diabetes Association",
+        "year": 2025
+      },
+      {
+        "title": "Harrison's",
+        "citation": "Principles of Internal Medicine, 21e éd. — Diabetic ketoacidosis.",
+        "organization": "McGraw Hill",
+        "year": 2022
+      }
+    ],
+    "access": "free"
+  },
+  {
+    "id": "GYN-PEC-001",
+    "title": "Céphalées et tension haute à 32 SA",
+    "specialty": "Gynécologie / Obstétrique",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 26 ans, 32 SA, céphalées, phosphènes, TA 168/112, protéinurie 3+.",
+    "patient": {
+      "age": 26,
+      "sex": "F",
+      "context": "G2P1, grossesse peu suivie (dernière consultation à 20 SA), pas d'HTA connue avant."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "32 SA + 4 jours. Depuis 3 jours : céphalées frontales permanentes, phosphènes, bourdonnements d'oreille, œdèmes du visage et des mains apparus le matin."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 168/112 confirmée aux deux bras après repos, FC 96/min. Bandelette urinaire : protéinurie 3+. ROT vifs, pas de douleur épigastrique en barre, pas de contraction utérine. Rythme cardiaque fœtal normal (146/min)."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Hb 11,2 g/dL, plaquettes 118 G/L, ASAT 78 UI/L, ALAT 65 UI/L, LDH élevées, créatinine 96 µmol/L."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "HTA gestationnelle isolée",
+          "Pré-éclampsie sévère (HTA ≥ 160/110 et atteintes d'organes)",
+          "Migraine de la grossesse",
+          "Éclampsie"
+        ],
+        "correct": 1,
+        "explanation": "HTA ≥ 160/110 + protéinurie massive + atteintes d'organes (thrombopénie, cytolyse hépatique, créatinine élevée) après 20 SA = pré-éclampsie sévère. L'éclampsie impose une crise convulsive (absente ici) ; l'HTA gestationnelle n'entraîne ni protéinurie ni atteinte d'organe ; la migraine n'explique ni la tension ni le bilan."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement à débuter sans délai est :",
+        "choices": [
+          "Sulfate de magnésium IV (dose de charge lente) puis entretien",
+          "Diazépam IV à titre préventif",
+          "Furosémide IV pour les œdèmes",
+          "Ramipril per os"
+        ],
+        "correct": 0,
+        "explanation": "Le sulfate de magnésium est le traitement de référence pour prévenir l'éclampsie d'une pré-éclampsie sévère : il réduit environ de moitié le risque de crise comparé au diazépam ou à la phénytoïne (Collaborative Eclampsia Trial). Le diurétique n'est indiqué que devant un œdème aigu du poumon ; les IEC et ARA2 sont contre-indiqués pendant la grossesse (fœtotoxicité)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour la tension (168/112), la conduite correcte est :",
+        "choices": [
+          "Ne pas la traiter avant l'accouchement",
+          "Antihypertenseur IV (labétalol, nicardipine ou hydralazine) pour une cible autour de 130–150 / 80–100 mmHg",
+          "Baisse rapide sous 120 mmHg de systolique",
+          "Spironolactone orale"
+        ],
+        "correct": 1,
+        "explanation": "Une TA ≥ 160/110 mmHg doit être traitée pour prévenir l'hémorragie cérébrale, sans baisse brutale qui compromettrait la perfusion utéro-placentaire : cible OMS 130–150 / 80–100 mmHg. À 32 SA : transfert en maternité adaptée, corticothérapie de maturation fœtale, surveillance maternelle et fœtale continue, décision d'accouchement en équipe spécialisée après stabilisation."
+      }
+    ],
+    "diagnosis": "Pré-éclampsie sévère à 32 SA (HTA 168/112, protéinurie 3+, thrombopénie et cytolyse hépatique).",
+    "management": "Transfert en maternité de niveau adapté : sulfate de magnésium (dose de charge IV lente puis entretien, surveillance des réflexes, de la diurèse et de la fréquence respiratoire), antihypertenseur IV pour une cible 130–150 / 80–100 mmHg, bilan répété (plaquettes, ASAT/ALAT, créatinine), corticothérapie de maturation à 32 SA, monitoring fœtal continu, accouchement décidé selon l'évolution maternelle et fœtale ; surveillance rapprochée du post-partum immédiat (risque maximal dans les 48 premières heures).",
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO recommendations for prevention and treatment of pre-eclampsia and eclampsia, Genève, 2011.",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2011
+      },
+      {
+        "title": "The Lancet",
+        "citation": "Which anticonvulsant for women with eclampsia? Evidence from the Collaborative Eclampsia Trial, Lancet 1995;345:1455-63.",
+        "organization": "Collaborative Eclampsia Trial",
+        "year": 1995
+      }
+    ],
+    "access": "free"
+  },
+  {
+    "id": "INF-PAC-001",
+    "title": "Fièvre et douleur thoracique",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Homme de 54 ans, fièvre, toux, douleur basithoracique droite.",
+    "patient": {
+      "age": 54,
+      "sex": "M",
+      "context": "Tabac 20 PA, pas de comorbidité connue."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fièvre 39 °C depuis 48 h, toux productive rouillée, point de côté droit inspiratoire."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "FR 28, SpO2 90 % air, TA 118/70, FC 108. Matité et souffle tubaire base droite. Pas de souffle cardiaque. Pas de purpura."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie / radio",
+        "body": "GB 17 G/L, CRP 240. Urée 8,2. Radio : foyer alvéolaire lobaire inférieur droit, pas d'épanchement franc. Antigène urinaire pneumocoque positif."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic de travail est :",
+        "choices": [
+          "Embolie pulmonaire fébrile",
+          "Pneumonie communautaire à pneumocoque",
+          "Tuberculose cavitaire",
+          "Péricardite virale"
+        ],
+        "correct": 1,
+        "explanation": "Syndrome de foyer, radio lobaire, antigène urinaire pneumocoque : PAC à S. pneumoniae jusqu'à preuve du contraire."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le score le plus utile ici pour décider de l'hospitalisation est :",
+        "choices": ["Wells", "CURB-65 / CRB-65", "CHA2DS2-VASc", "Child-Pugh"],
+        "correct": 1,
+        "explanation": "CURB-65 (confusion, urée, FR, TA, âge) oriente ambulatoire vs hospit. Ici FR 28 et urée 8,2 : au moins 1–2 points, hospit. raisonnable, d'autant que SpO2 90 %."
+      },
+      {
+        "kind": "question",
+        "prompt": "Antibiothérapie probabiliste de première intention, hors allergie, forme hospitalisée non grave :",
+        "choices": [
+          "Amoxicilline ± macrolide selon gravité / atypiques",
+          "Ciprofloxacine seule",
+          "Vancomycine + amikacine",
+          "Ceftriaxone + métronidazole d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "PAC non grave : amoxicilline (pneumocoque). Un macrolide s'ajoute si atypiques suspectés ou forme plus grave. Les anti-anaérobies ne sont pas de première intention ici."
+      }
+    ],
+    "diagnosis": "Pneumonie communautaire lobaire inférieure droite à pneumocoque, hypoxémiante.",
+    "management": "O2, amoxicilline (ou association si gravité), hydratation, prévention thrombo-embolique, contrôle à 48–72 h, vaccination ultérieure.",
+    "sources": [
+      {
+        "title": "CMIT / Pilly",
+        "citation": "Référentiel d'infectiologie — pneumonie communautaire."
+      },
+      {
+        "title": "SPLF",
+        "citation": "Prise en charge des infections respiratoires basses de l'adulte.",
+        "organization": "SPLF"
+      }
+    ],
+    "access": "free"
+  },
+  {
+    "id": "INF-TYPH-001",
+    "title": "Fièvre continue depuis huit jours",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Étudiante de 19 ans, fièvre en plateau 39–40 °C, douleurs abdominales, splénomégalie.",
+    "patient": {
+      "age": 19,
+      "sex": "F",
+      "context": "Antananarivo, repas de rue fréquents, eau de robinet parfois non filtrée."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fièvre continue entre 39 et 40 °C depuis 8 jours, céphalées, douleurs abdominales diffuses, anorexie ; constipation initiale puis 2 selles molles par jour. Pas de toux, pas de dysurie, pas de voyage hors de la ville."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Jeune femme abattue, légèrement ralentie. T 39,6 °C, FC 76/min (dissociation pouls–fièvre), TA 108/66. Abdomen douleur diffuse, splénomégalie modérée, quelques taches rosées du tronc. Pas de raideur de nuque."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Leucocytes 3,2 G/L (leuconeutropénie), Hb 11,8 g/dL, CRP 96 mg/L. TDR paludisme négatif. Hémoculture positive à Salmonella Typhi (poussée à 24 h). Sérodiagnostic de Widal : TO 1/200 — non interprétable isolément."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'examen qui a établi le diagnostic avec certitude est :",
+        "choices": [
+          "Le sérodiagnostic de Widal",
+          "L'hémoculture à Salmonella Typhi",
+          "La coproculture",
+          "La numération formule sanguine"
+        ],
+        "correct": 1,
+        "explanation": "L'hémoculture est l'examen de référence de la fièvre typhoïde (meilleure sensibilité en première semaine, ici poussée à 24 h). Le Widal n'est pas fiable seul : faux positifs après vaccination ou lors d'autres infections salmonelliques, seuils variables selon l'endémie — l'OMS ne le recommande pas comme outil diagnostique isolé. La NFS n'oriente que par la leuconeutropénie ; la coproculture est utile plus tardivement ou chez les porteurs."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'antibiothérapie de première intention ici est :",
+        "choices": [
+          "Ofloxacine orale 7 jours, sans attendre l'antibiogramme",
+          "Ceftriaxone IV ou azithromycine orale selon la gravité",
+          "Amoxicilline à forte dose 14 jours",
+          "Métronidazole associé à l'amoxicilline"
+        ],
+        "correct": 1,
+        "explanation": "Les résistances de S. Typhi aux fluoroquinolones sont désormais répandues (dont des souches à résistance étendue) : l'OMS recommande la ceftriaxone (formes hospitalisées ou sévères) ou l'azithromycine (formes légères à modérées). L'amoxicilline est réservée aux souches documentées sensibles ; surveiller les complications digestives : toute douleur abdominale brutale évoque une perforation iléale, urgence chirurgicale."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour l'entourage et la communauté, la mesure la plus utile est :",
+        "choices": [
+          "Isolement strict de la patiente jusqu'à la défervescence",
+          "Eau potable sûre, hygiène des mains et des aliments ; recherche et traitement des porteurs chroniques parmi les proches manipulateurs d'aliments",
+          "Antibioprophylaxie pour tous les contacts familiaux",
+          "Vaccination immédiate de tous les proches"
+        ],
+        "correct": 1,
+        "explanation": "La transmission est fécale-orale (eau et aliments souillés) : les leviers sont l'eau sûre et l'hygiène, plus la recherche du portage chronique (porteurs biliaires, en particulier ceux qui manipulent des aliments). La chimioprophylaxie des contacts n'est pas systématique ; la vaccination des contacts n'est pas l'outil de contrôle d'un cas sporadique."
+      }
+    ],
+    "diagnosis": "Fièvre typhoïde confirmée par hémoculture (Salmonella Typhi) : fièvre prolongée, dissociation pouls–fièvre, leuconeutropénie, splénomégalie.",
+    "management": "Ceftriaxone IV 10 à 14 jours (relais possible par azithromycine selon le protocole local et l'évolution), hydratation, surveillance des complications (perforation iléale, hémorragie digestive), réévaluation à 72 h. Mesures associées : information dans le cadre de la surveillance, enquête sur l'eau et les aliments, éducation à l'hygiène, dépistage du portage chez les proches travaillant dans l'alimentation.",
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Typhoid vaccines: WHO position paper, Relevé épidémiologique hebdomadaire 2018;93:329-44.",
+        "organization": "OMS",
+        "year": 2018
+      },
+      {
+        "title": "OMS",
+        "citation": "Fièvre typhoïde — aide-mémoire.",
+        "organization": "OMS",
+        "year": 2018
       }
     ],
     "access": "free"
@@ -174,150 +645,82 @@
     "access": "free"
   },
   {
-    "id": "INF-PAC-001",
-    "title": "Fièvre et douleur thoracique",
-    "specialty": "Infectiologie",
+    "id": "PEDI-GAS-001",
+    "title": "Diarrhée et yeux creux",
+    "specialty": "Pédiatrie",
     "studyYear": 4,
-    "difficulty": "advanced",
-    "summary": "Homme de 54 ans, fièvre, toux, douleur basithoracique droite.",
+    "difficulty": "intermediate",
+    "summary": "Enfant de 5 ans, diarrhée liquidienne depuis 3 jours, très abattue, refuse de boire.",
     "patient": {
-      "age": 54,
-      "sex": "M",
-      "context": "Tabac 20 PA, pas de comorbidité connue."
+      "age": 5,
+      "sex": "F",
+      "context": "Enfant de 5 ans, village périurbain, eau de puits non traitée, pas de vaccination contre le rotavirus."
     },
     "steps": [
       {
         "kind": "reveal",
         "title": "Motif",
-        "body": "Fièvre 39 °C depuis 48 h, toux productive rouillée, point de côté droit inspiratoire."
+        "body": "Diarrhée liquidienne abondante (une dizaine de selles par jour) depuis 3 jours, vomissements depuis hier. L'enfant est très abattue et refuse le verre d'eau qu'on lui présente."
       },
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "FR 28, SpO2 90 % air, TA 118/70, FC 108. Matité et souffle tubaire base droite. Pas de souffle cardiaque. Pas de purpura."
-      },
-      {
-        "kind": "reveal",
-        "title": "Biologie / radio",
-        "body": "GB 17 G/L, CRP 240. Urée 8,2. Radio : foyer alvéolaire lobaire inférieur droit, pas d'épanchement franc. Antigène urinaire pneumocoque positif."
+        "body": "Poids 16 kg (−1,2 kg en 3 jours). Yeux creux, muqueuses sèches, repli cutané qui revient très lentement (plus de 2 secondes), pleurs sans larmes. Consciente mais très abattue, pas de fièvre, tachycardie discrète, temps de recoloration 2 secondes."
       },
       {
         "kind": "question",
-        "prompt": "Le diagnostic de travail est :",
+        "prompt": "Le degré de déshydratation est :",
         "choices": [
-          "Embolie pulmonaire fébrile",
-          "Pneumonie communautaire à pneumocoque",
-          "Tuberculose cavitaire",
-          "Péricardite virale"
+          "Déshydratation absente : diarrhée simple",
+          "Déshydratation sévère : refus de boire, yeux creux, repli cutané très lent",
+          "Déshydratation modérée : elle boit avidement",
+          "Choc décompensé avec coma"
         ],
         "correct": 1,
-        "explanation": "Syndrome de foyer, radio lobaire, antigène urinaire pneumocoque : PAC à S. pneumoniae jusqu'à preuve du contraire."
+        "explanation": "OMS : déshydratation sévère si au moins deux signes parmi abattement profond, yeux creux, incapacité à boire, repli cutané très lent. Ici les trois sont présents, sans trouble de conscience profond ni choc installé : réhydratation IV urgente (plan C). La déshydratation modérée se repère à une soif vive : l'enfant boit avidement, yeux légèrement creux, repli cutané lent ; l'absence regroupe les enfants qui boivent et jouent normalement."
       },
       {
         "kind": "question",
-        "prompt": "Le score le plus utile ici pour décider de l'hospitalisation est :",
-        "choices": ["Wells", "CURB-65 / CRB-65", "CHA2DS2-VASc", "Child-Pugh"],
-        "correct": 1,
-        "explanation": "CURB-65 (confusion, urée, FR, TA, âge) oriente ambulatoire vs hospit. Ici FR 28 et urée 8,2 : au moins 1–2 points, hospit. raisonnable, d'autant que SpO2 90 %."
-      },
-      {
-        "kind": "question",
-        "prompt": "Antibiothérapie probabiliste de première intention, hors allergie, forme hospitalisée non grave :",
+        "prompt": "La réhydratation de première intention est :",
         "choices": [
-          "Amoxicilline ± macrolide selon gravité / atypiques",
-          "Ciprofloxacine seule",
-          "Vancomycine + amikacine",
-          "Ceftriaxone + métronidazole d'emblée"
+          "SRO à domicile en petites quantités fréquentes (plan B)",
+          "Ringer-lactate IV 100 mL/kg : 30 mL/kg en 30 minutes puis 70 mL/kg en 2 h 30 (plan C)",
+          "Antibiothérapie probabiliste immédiate",
+          "Eau de riz et boissons sucrées à volonté"
+        ],
+        "correct": 1,
+        "explanation": "Déshydratation sévère = plan C : Ringer-lactate (ou soluté de Hartmann) 100 mL/kg par voie IV, 30 mL/kg en 30 minutes puis 70 mL/kg en 2 h 30 chez l'enfant de 12 mois et plus, avec réévaluation clinique rapprochée et relais par SRO dès que l'enfant boit. Le plan B est réservé à la déshydratation modérée ; l'antibiothérapie n'est pas systématique (la plupart des gastro-entérites sont virales, pas de sang dans les selles) ; eau de riz et boissons sucrées n'apportent pas les électrolytes nécessaires."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après stabilisation, la suite est :",
+        "choices": [
+          "SRO à osmolarité réduite + zinc 20 mg/jour pendant 10 à 14 jours, réalimentation précoce selon l'âge",
+          "Jeûne de 24 heures pour mettre l'intestin au repos",
+          "Anti-diarrhéique pour réduire le nombre de selles",
+          "Poursuite de la perfusion seule jusqu'à la fin des selles liquides"
         ],
         "correct": 0,
-        "explanation": "PAC non grave : amoxicilline (pneumocoque). Un macrolide s'ajoute si atypiques suspectés ou forme plus grave. Les anti-anaérobies ne sont pas de première intention ici."
+        "explanation": "OMS : SRO à osmolarité réduite et zinc 20 mg/jour pendant 10 à 14 jours chez l'enfant de 6 mois et plus (le zinc raccourcit la durée de la diarrhée et réduit les récidives), réalimentation précoce et poursuite de l'alimentation habituelle. Le jeûne aggrave la dénutrition ; les anti-diarrhéiques sont dangereux chez l'enfant ; la perfusion seule ne remplace pas la réalimentation."
       }
     ],
-    "diagnosis": "Pneumonie communautaire lobaire inférieure droite à pneumocoque, hypoxémiante.",
-    "management": "O2, amoxicilline (ou association si gravité), hydratation, prévention thrombo-embolique, contrôle à 48–72 h, vaccination ultérieure.",
+    "diagnosis": "Gastro-entérite aiguë probablement virale avec déshydratation sévère (perte d'environ 7 % du poids).",
+    "management": "Plan C : Ringer-lactate 100 mL/kg IV (30 mL/kg en 30 minutes puis 70 mL/kg en 2 h 30), réévaluation clinique rapprochée ; puis SRO à osmolarité réduite à la cuillère, zinc 20 mg/jour pendant 10 à 14 jours, réalimentation précoce, éducation (eau traitée, hygiène des mains, signes imposant un retour immédiat), suivi pondéral à une semaine.",
     "sources": [
       {
-        "title": "CMIT / Pilly",
-        "citation": "Référentiel d'infectiologie — pneumonie communautaire."
+        "title": "OMS",
+        "citation": "The treatment of diarrhoea — a manual for physicians and other senior health workers, 4e révision.",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2005
       },
       {
-        "title": "SPLF",
-        "citation": "Prise en charge des infections respiratoires basses de l'adulte.",
-        "organization": "SPLF"
+        "title": "OMS",
+        "citation": "Pocket book of hospital care for children, deuxième édition.",
+        "organization": "OMS",
+        "year": 2013
       }
     ],
     "access": "free"
-  },
-  {
-    "id": "CARDIO-SCA-001",
-    "title": "Douleur thoracique",
-    "specialty": "Cardiologie",
-    "studyYear": 5,
-    "difficulty": "advanced",
-    "summary": "Homme de 61 ans, douleur constrictive, sueurs, ECG en cours.",
-    "patient": {
-      "age": 61,
-      "sex": "M",
-      "context": "Tabac, LDL inconnu, père infarctus à 54 ans."
-    },
-    "steps": [
-      {
-        "kind": "reveal",
-        "title": "Motif",
-        "body": "Douleur rétro-sternale constrictive depuis 40 minutes, irradiation mâchoire, nausées, sueurs."
-      },
-      {
-        "kind": "reveal",
-        "title": "Examen",
-        "body": "Patient anxieux, TA 108/68, FC 92, SpO2 96 %. Auscultation libre, pas de souffle, pas de turgescence jugulaire. Pouls symétriques."
-      },
-      {
-        "kind": "reveal",
-        "title": "ECG / bio",
-        "body": "Sus-décalage ST en V1–V4, miroir inférieur. Troponine en cours. Cliché thorax normal."
-      },
-      {
-        "kind": "question",
-        "prompt": "Le diagnostic ECG est :",
-        "choices": ["SCA ST+ antérieur (STEMI)", "Péricardite aiguë", "SCA ST−", "TV soutenue"],
-        "correct": 0,
-        "explanation": "Douleur + sus-ST convexe V1–V4 + miroir = STEMI antérieur, urgence de reperfusion. La péricardite a un sus-ST concave diffus sans miroir."
-      },
-      {
-        "kind": "question",
-        "prompt": "La stratégie de reperfusion de référence, si le délai porte-à-ballon est court :",
-        "choices": [
-          "Thrombolyse systématique",
-          "Angioplastie primaire",
-          "Héparine seule et surveillance",
-          "Test d'effort à J2"
-        ],
-        "correct": 1,
-        "explanation": "Angioplastie primaire si réalisable dans les délais ESC. Thrombolyse seulement si PCI impossible à temps."
-      },
-      {
-        "kind": "question",
-        "prompt": "Double antiagrégation : association typique avant la salle :",
-        "choices": [
-          "Aspirine + ticagrélor ou prasugrel (selon profil)",
-          "Aspirine seule",
-          "Clopidogrel + AOD",
-          "Aspirine + warfarine"
-        ],
-        "correct": 0,
-        "explanation": "Aspirine 150–300 mg + inhibiteur P2Y12 puissant, sauf si haut risque hémorragique ou indication particulière au clopidogrel."
-      }
-    ],
-    "diagnosis": "STEMI antérieur, occlusion probable de l'IVA proximale.",
-    "management": "Filière d’urgence / USIC, traitement antithrombotique adapté et angioplastie primaire sans délai inutile. Puis prévention secondaire individualisée : statine à haute intensité, contrôle des facteurs de risque, bêtabloquant et IEC/ARA2 selon les indications, réadaptation cardiaque.",
-    "sources": [
-      {
-        "title": "ESC",
-        "citation": "Guidelines for the management of acute coronary syndromes, 2023.",
-        "organization": "ESC",
-        "year": 2023
-      }
-    ]
   },
   {
     "id": "TROP-PALU-001",

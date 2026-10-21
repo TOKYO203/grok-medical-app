@@ -5,6 +5,7 @@ import test from "node:test";
 const home = readFileSync(new URL("../src/routes/index.tsx", import.meta.url), "utf8");
 const parcours = readFileSync(new URL("../src/routes/parcours.tsx", import.meta.url), "utf8");
 const cases = readFileSync(new URL("../src/routes/cas.tsx", import.meta.url), "utf8");
+const caseDetail = readFileSync(new URL("../src/routes/cas.$caseId.tsx", import.meta.url), "utf8");
 const contentCard = readFileSync(
   new URL("../src/components/content/content-card.tsx", import.meta.url),
   "utf8",
@@ -114,4 +115,16 @@ test("progress motion still honors the global reduced-motion escape hatch", () =
   assert.match(styles, /optimus-progress-fill/);
   assert.match(styles, /data-optimus-motion="reduced"/);
   assert.match(styles, /prefers-reduced-motion: reduce/);
+});
+
+test("clinical case navigation keeps search, specialty filters and chaining explicit", () => {
+  // Vague 2 : /cas doit rester parcourable sur mobile — recherche plein texte,
+  // filtres par spécialité (flex-wrap, aucun débordement) et enchaînement des dossiers.
+  assert.match(cases, /data-cas-search/);
+  assert.match(cases, /specialtyFacets/);
+  assert.match(cases, /resolveSpecialty/);
+  assert.match(cases, /Filtrer par spécialité/);
+  assert.match(cases, /Aucun dossier ne correspond/);
+  assert.match(caseDetail, /CLINICAL_CASES/);
+  assert.match(caseDetail, /Enregistrer et enchaîner/);
 });

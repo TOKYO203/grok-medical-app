@@ -196,3 +196,36 @@ test("reviewed Guillain-Barré and severe head injury content fails safely", () 
     severeHeadInjury?.sources.some((source) => source.title === "Brain Trauma Foundation"),
   );
 });
+
+test("vague 2 : les cas cliniques multi-spécialités restent sourcés et sûrs", () => {
+  const byId = new Map(cases.map((clinical) => [clinical.id, clinical]));
+  const waveTwo = ["CARDIO-FA-001", "ENDO-DCD-001", "GYN-PEC-001", "INF-TYPH-001", "PEDI-GAS-001"];
+  for (const id of waveTwo) {
+    const clinical = byId.get(id);
+    assert.ok(clinical, `${id}: missing`);
+    assert.ok(clinical.sources.length >= 1, `${id}: missing source`);
+    const questions = (clinical.steps ?? []).filter((step) => step.kind === "question");
+    assert.ok(questions.length >= 3, `${id}: expected at least 3 questions`);
+  }
+
+  const fa = JSON.stringify(byId.get("CARDIO-FA-001"));
+  assert.match(fa, /CHA2DS2-VASc/);
+  assert.match(fa, /anticoagulation orale/);
+
+  const ketoacidosis = JSON.stringify(byId.get("ENDO-DCD-001"));
+  assert.match(ketoacidosis, /0,1 U\/kg\/h/);
+  assert.match(ketoacidosis, /chlorure de sodium à 0,9/);
+
+  const preeclampsia = JSON.stringify(byId.get("GYN-PEC-001"));
+  assert.match(preeclampsia, /sulfate de magn[ée]sium/);
+  assert.match(preeclampsia, /160\/110/);
+
+  const typhoid = JSON.stringify(byId.get("INF-TYPH-001"));
+  assert.match(typhoid, /h[ée]moculture/);
+  assert.match(typhoid, /ceftriaxone|azithromycine/);
+
+  const gastroenteritis = JSON.stringify(byId.get("PEDI-GAS-001"));
+  assert.match(gastroenteritis, /100 mL\/kg/);
+  assert.match(gastroenteritis, /[Zz]inc/);
+  assert.doesNotMatch(gastroenteritis, /lop[ée]ramide/);
+});

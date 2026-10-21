@@ -47,7 +47,7 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // 50 lignes CSS mortes et 12 clés i18n orphelines déjà purgées avant relevé.
   // Marge : ~1,8 KiB (mesuré 1830,2 KiB côté CI).
   // Relevé 1832 → 1864 KiB (Session 13 « examen blanc » : la page /examen
-  // embarque minuteur et rapport d’épreuve, ≈ +10 KiB sur son chunk ; le
+  // embarque minuteur et rapport d'épreuve, ≈ +10 KiB sur son chunk ; le
   // total exact reste rapporté par ce garde-fou à chaque build).
   // Relevé 1864 → 1888 KiB (Session 17 « crédibilité » : journal des versions
   // public /changelog + canal email institutionnel B20).
@@ -137,7 +137,19 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // que le deck. Mesure CI : 2 177,3 KiB — dépassement de 1,3 KiB du plafond
   // de 2 176 KiB posé le 2026-10-19. Plafond 2 192 KiB = marge volontairement
   // faible (~14,7 KiB), même philosophie que les relevés précédents.
-  maxTotalJavascriptBytes: 2192 * 1024,
+  //
+  // Relevé 2192 → **2216 KIBI** le 2026-10-21 (contenu : vague 2 des cas
+  // cliniques multi-spécialités — 5 nouveaux dossiers dans cases.json :
+  // fibrillation atriale (premium), acidocétose inaugurale, pré-éclampsie
+  // sévère, fièvre typhoïde, gastro-entérite pédiatrique — plus la navigation
+  // /cas : recherche plein texte, pastilles de filtre par spécialité, état
+  // vide, et le bouton « Enregistrer et enchaîner » de la vue détail). Le
+  // catalogue cases.json grossit de ~24 KiB ; il est importé par la route
+  // /cas, donc compté dans le total ; la marge restante (~14,7 KiB) était
+  // plus fine que la vague. Mesure CI : 2 199,9 KiB — dépassement de 7,9 KiB
+  // du plafond de 2 192 KiB. Plafond 2 216 KiB = marge volontairement
+  // faible (~16,1 KiB), même philosophie que les relevés précédents.
+  maxTotalJavascriptBytes: 2216 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
