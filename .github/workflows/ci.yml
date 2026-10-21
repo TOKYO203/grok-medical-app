@@ -28,14 +28,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check > /tmp/rc.log 2>&1 || { echo "::error::RC-FAILED >> $( (grep '^not ok' /tmp/rc.log | head -12; tail -4 /tmp/rc.log) | tr '\n' '|' | cut -c1-950)"; exit 1; }
-
-      - name: Dump release-check log (diagnostic)
-        if: failure()
-        run: |
-          grep -n -B2 -A12 "^not ok" /tmp/rc.log | head -400 || true
-          echo "===== TAIL 150 ====="
-          tail -150 /tmp/rc.log || true
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
@@ -118,4 +111,3 @@ jobs:
           test "$(psql "$DATABASE_URL" -Atc "select marker from disaster_recovery_probe where id = 1")" = "optimus-recovery-ok"
           test "$(psql "$DATABASE_URL" -Atc "select count(*) > 0 from _migrations")" = "t"
           echo "Database backup/restore smoke: OK"
-
