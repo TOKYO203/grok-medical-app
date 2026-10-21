@@ -87,13 +87,25 @@ test("/tarifs : l'abonnement payable passe devant les offres à l'unité", () =>
   assert.match(tarifs, /PRICES_MGA\.specialty/);
   assert.match(tarifs, /to="\/pro"/);
 
-  // 4. Les deux canaux restent décrits ; l'international est annoncé et
-  //    EXPLICITEMENT désactivé (un bouton mort serait un mensonge de plus).
+  // 4. Les deux canaux restent décrits. Depuis INTL-13 le canal international
+  //    est RÉELLEMENT commandable — mais sa payabilité est DÉRIVÉE de la
+  //    configuration, jamais écrite en dur : un bouton de paiement qui mène à
+  //    un checkout inexistant serait un mensonge de plus que l'ancien bouton
+  //    grisé qu'il remplace.
   assert.match(tarifs, /data-tarifs-channel="mobile"/);
   assert.match(tarifs, /data-tarifs-channel="international"/);
-  assert.match(tarifs, /Lemon Squeezy/);
-  assert.match(tarifs, /Bientôt disponible/);
-  assert.match(tarifs, /data-tarifs-pay="lemon-squeezy"[\s\S]{0,80}disabled/);
+  // `Lemon&nbsp;Squeezy` : l'espace insécable est typographique, pas une
+  // esquive — on l'accepte plutôt que d'imposer une faute de frappe française.
+  assert.match(tarifs, /Lemon(?:\s|&nbsp;)+Squeezy/);
+  assert.match(tarifs, /data-tarifs-card-state=\{cardReady \? "ready" : "unconfigured"\}/);
+  assert.match(tarifs, /isLemonCheckoutConfigured\(lemonConfig\)/);
+  // Le message affiché quand la boutique n'est pas branchée, et le bouton qui
+  // n'annonce plus « Bientôt » : le prix affiché est celui DÉBITÉ.
+  assert.match(tarifs, /data-lemon-config-note/);
+  assert.match(tarifs, /Payer par Carte \(/);
+  assert.match(tarifs, /formatEuroAmount\(PRICE_EUR\.subscriptionQuarter\)/);
+  assert.doesNotMatch(tarifs, /Bientôt disponible/);
+  assert.doesNotMatch(tarifs, /<Badge tone="neutral">Bientôt<\/Badge>/);
 });
 
 test("/pro : plus de vente à la clé ni de Deck à importer", () => {
