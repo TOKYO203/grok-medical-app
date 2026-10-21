@@ -1,7 +1,7 @@
 import { authEnabled } from "@/lib/auth/client";
 import { useEffect, useSyncExternalStore } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Bell, CalendarClock, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { CalendarClock, CheckCircle2, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
 import { PremiumPurchaseFlow } from "@/components/premium-purchase-flow";
 import { PremiumTeaser } from "@/components/premium-teaser";
 import { Page, PageHeader, Shell } from "@/components/shell";
@@ -53,10 +53,9 @@ export const Route = createFileRoute("/pro")({
  * Ce qu'elle fait :
  *   · un BANDEAU D'ABONNEMENT daté quand le compte est actif, avec l'action
  *     « Gérer mon abonnement » ;
- *   · pour les autres : l'aperçu, l'essai de 7 jours, le tunnel de commande
- *     réel (Mobile Money, offres à l'unité) — seule voie d'encaissement
- *     branchée — puis l'abonnement trimestriel ANNONCÉ, sans bouton de
- *     paiement tant qu'il n'est pas facturable côté serveur (ABO-1).
+ *   · pour les autres : l'aperçu, l'essai de 7 jours, puis le tunnel de commande
+ *     réel — ABONNEMENT TRIMESTRIEL en premier (offre principale, ABO-11), les
+ *     offres à l'unité repliées en second plan.
  *
  * ⚠️ L'état « actif » ne vient pas seulement de `profile.tier` : il vient aussi
  * de la LICENCE Supabase (session de contenu). Sans ça, un abonné dont la
@@ -74,6 +73,15 @@ function ProPage() {
   const userIsDevFallback = user?.isDevFallback ?? false;
   const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
+  /**
+   * Un lien `?order=…` ne reprend la commande que dans la carte de SON offre :
+   * sinon une commande d'abonnement s'afficherait dans le formulaire des achats
+   * à l'unité (et inversement).
+   */
+  const subscriptionPurchase =
+    initialPurchase?.offer === "subscription" ? initialPurchase : undefined;
+  const unitPurchase =
+    initialPurchase && initialPurchase.offer !== "subscription" ? initialPurchase : undefined;
   const purchaseFlowKey = `${initialPurchase?.reference ?? orderReference ?? "new"}:${initialPurchase?.updatedAt ?? 0}`;
 
   /**
@@ -207,32 +215,70 @@ function ProPage() {
               </Card>
             ) : null}
 
-            {/* 1 — Ce qui est payable AUJOURD'HUI : les offres à l'unité.
-                Le tunnel de commande ne sait facturer que celles-là (voir
-                src/content/purchase-order.ts) : elles passent donc en premier,
-                avec leur prix réel lu dans pricing.ts. */}
-            <Card data-pro-unit-offers>
+            {/* 1 — L'OFFRE PRINCIPALE : l'abonnement trimestriel, payable.
+                `initialOffer="subscription"` pré-sélectionne l'offre dans le
+                tunnel : le premier écran ne propose pas « autre chose » que ce
+                que la carte annonce (leçon ABO-1). */}
+            <Card data-pro-subscription-offer data-subscription-state="available">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="font-medium">Contenu à l&apos;unité</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-medium">
+                      Abonnement Trimestriel — Accès Illimité {SUBSCRIPTION_MONTHS} mois
+                    </p>
+                    <Badge tone="accent">Recommandé</Badge>
+                  </div>
                   <p className="mt-1 text-sm text-muted">
-                    {formatPrice(PRICES_MGA.deck, "MGA")} le module ·{" "}
-                    {formatPrice(PRICES_MGA.specialty, "MGA")} la spécialité — payable maintenant.
+                    {formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")} / {SUBSCRIPTION_MONTHS} mois —
+                    tout le contenu Premium, toutes spécialités, sur votre compte.
                   </p>
                 </div>
                 <Badge tone="success">Disponible</Badge>
               </div>
 
               {authEnabled ? (
+                <div className="mt-4" data-pro-subscription-order>
+                  <PremiumPurchaseFlow
+                    key={`sub:${purchaseFlowKey}`}
+                    profile={profile}
+                    initialPurchase={subscriptionPurchase}
+                    initialOffer="subscription"
+                    onRemember={(message) => addContact("deck", message)}
+                    onPurchaseUpdated={cacheServerPurchase}
+                  />
+                </div>
+              ) : (
+                <ButtonLink to="/tarifs" variant="secondary" fullWidth className="mt-3" data-pro-pricing-link>
+                  <Smartphone className="size-4" aria-hidden="true" />
+                  Voir les offres et les tarifs
+                </ButtonLink>
+              )}
+            </Card>
+
+            {/* 2 — Les offres à l'unité : toujours vendables, en second plan. */}
+            <Card data-pro-unit-offers>
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="font-medium">Contenu à l&apos;unité</p>
+                  <p className="mt-1 text-sm text-muted">
+                    {formatPrice(PRICES_MGA.deck, "MGA")} le module ·{" "}
+                    {formatPrice(PRICES_MGA.specialty, "MGA")} la spécialité — payé une fois, sans
+                    engagement.
+                  </p>
+                </div>
+                <Badge tone="neutral">Sans abonnement</Badge>
+              </div>
+
+              {authEnabled ? (
                 <details className="mt-4" data-pro-order-disclosure>
                   <summary className="cursor-pointer list-none text-sm font-medium text-primary">
-                    Commander par Mobile Money
+                    Commander un module ou une spécialité
                   </summary>
                   <div className="mt-3">
                     <PremiumPurchaseFlow
-                      key={purchaseFlowKey}
+                      key={`unit:${purchaseFlowKey}`}
                       profile={profile}
-                      initialPurchase={initialPurchase}
+                      initialPurchase={unitPurchase}
                       initialSpecialty={specialty}
                       onRemember={(message) => addContact("deck", message)}
                       onPurchaseUpdated={cacheServerPurchase}
@@ -247,36 +293,6 @@ function ProPage() {
                   Voir les offres et les tarifs
                 </ButtonLink>
               )}
-            </Card>
-
-            {/* 2 — L'abonnement : annoncé avec son prix, pas encore vendable.
-                Aucun bouton de paiement ici : on n'encaisse pas ce qu'on ne sait
-                pas encore honorer côté serveur. */}
-            <Card data-pro-subscription-offer data-subscription-state="soon">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <p className="font-medium">Abonnement Trimestriel</p>
-                    <Badge tone="neutral">Prochainement</Badge>
-                  </div>
-                  <p className="mt-1 text-sm text-muted">
-                    {formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")} / {SUBSCRIPTION_MONTHS} mois —
-                    tout le contenu Premium, sur votre compte.
-                  </p>
-                </div>
-                <ButtonLink to="/tarifs" variant="secondary" data-pro-pricing-link>
-                  Voir les tarifs
-                </ButtonLink>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                L&apos;abonnement n&apos;est pas encore commercialisé : aucun paiement ne peut être
-                encaissé pour lui à ce jour. Les offres à l&apos;unité ci-dessus restent, elles,
-                disponibles immédiatement.
-              </p>
-              <ButtonLink to="/contact" variant="secondary" fullWidth className="mt-3" data-pro-notify>
-                <Bell className="size-4" aria-hidden="true" />
-                Être averti de l&apos;ouverture
-              </ButtonLink>
             </Card>
 
             <p className="flex items-start gap-2 text-xs leading-relaxed text-subtle">

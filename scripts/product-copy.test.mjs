@@ -58,33 +58,42 @@ test("/tarifs : boutons exclusivement issus du Design System", () => {
   assert.doesNotMatch(tarifs, /<button\b/);
 });
 
-test("/tarifs : on n'annonce payable que ce qui est payable", () => {
+test("/tarifs : l'abonnement payable passe devant les offres à l'unité", () => {
   const tarifs = readCode("src/routes/tarifs.tsx");
 
-  // 1. Les offres réellement facturables par le tunnel (module / spécialité)
-  //    viennent en premier, avec leur prix lu dans pricing.ts.
-  const unit = tarifs.indexOf('data-tarifs-offers="unit"');
-  const pay = tarifs.indexOf('data-tarifs-pay="mobile-money"');
+  // 1. Depuis ABO-11 l'abonnement trimestriel est facturé par le MÊME tunnel :
+  //    il est annoncé EN PREMIER, avec le bouton de paiement Mobile Money.
   const subscription = tarifs.indexOf('data-tarifs-offer="subscription"');
-  assert.ok(unit > 0, "bloc « disponible aujourd'hui » attendu");
-  assert.ok(pay > unit, "le bouton de paiement doit vivre dans ce bloc");
-  assert.ok(subscription > pay, "l'abonnement doit être annoncé APRÈS");
+  const available = tarifs.indexOf('data-tarifs-subscription-state="available"');
+  const pay = tarifs.indexOf('data-tarifs-pay="mobile-money"');
+  const unit = tarifs.indexOf('data-tarifs-offers="unit"');
+  assert.ok(subscription > 0, "carte d'abonnement attendue");
+  assert.ok(available > subscription, "l'abonnement doit être marqué disponible");
+  assert.ok(pay > subscription, "le paiement Mobile Money vit dans la carte abonnement");
+  assert.ok(unit > pay, "les offres à l'unité viennent après l'abonnement");
+  assert.match(tarifs, /Payer via Mobile Money/);
+  assert.match(tarifs, /Abonnement Trimestriel — Accès Illimité/);
+
+  // 2. Aucun état « bientôt » résiduel pour l'abonnement : ni drapeau, ni
+  //    promesse d'être averti. Le seul « Bientôt » restant est le canal carte
+  //    bancaire, qui n'est effectivement pas branché.
+  assert.doesNotMatch(tarifs, /data-tarifs-subscription-state="soon"/);
+  assert.doesNotMatch(tarifs, /data-tarifs-notify/);
+  assert.doesNotMatch(tarifs, /Prochainement/);
+
+  // 3. Les prix restent lus dans pricing.ts (une seule source, ABO-2).
+  assert.match(tarifs, /PRICES_MGA\.subscriptionQuarter/);
   assert.match(tarifs, /PRICES_MGA\.deck/);
   assert.match(tarifs, /PRICES_MGA\.specialty/);
   assert.match(tarifs, /to="\/pro"/);
 
-  // 2. L'abonnement trimestriel est annoncé (prix + « prochainement ») mais
-  //    AUCUN bouton ne prétend l'encaisser : c'est la règle ABO-1.
-  assert.match(tarifs, /data-tarifs-subscription-state="soon"/);
-  assert.match(tarifs, /Prochainement/);
-  assert.match(tarifs, /data-tarifs-notify/);
-  assert.doesNotMatch(tarifs, /Payer via Mobile Money/);
-
-  // 3. Les deux canaux restent décrits, l'international est annoncé.
+  // 4. Les deux canaux restent décrits ; l'international est annoncé et
+  //    EXPLICITEMENT désactivé (un bouton mort serait un mensonge de plus).
   assert.match(tarifs, /data-tarifs-channel="mobile"/);
   assert.match(tarifs, /data-tarifs-channel="international"/);
   assert.match(tarifs, /Lemon Squeezy/);
   assert.match(tarifs, /Bientôt disponible/);
+  assert.match(tarifs, /data-tarifs-pay="lemon-squeezy"[\s\S]{0,80}disabled/);
 });
 
 test("/pro : plus de vente à la clé ni de Deck à importer", () => {
@@ -135,15 +144,19 @@ test("le vocabulaire du modèle mort ne revient pas dans la copie produit", () =
   }
 });
 
-test("l'accueil ne promet ni « à vie » ni une durée non ouverte (i18n ×4)", () => {
+test("l'accueil ne promet pas « à vie » et n'annonce que la durée réelle (i18n ×4)", () => {
   for (const locale of ["fr", "en", "es", "pt"]) {
     const catalog = read(`src/i18n/messages/${locale}.ts`);
     const line = catalog.split("\n").find((row) => row.includes("comparePremiumLine")) ?? "";
     assert.ok(line.length > 0, locale);
     // Le modèle mort ne revient pas…
     assert.doesNotMatch(line, /à vie|for life|para siempre|para sempre/i, locale);
-    // …et l'accueil n'annonce pas une durée que l'offre n'a pas encore.
-    assert.doesNotMatch(line, /\b3 mois\b|\b3 months\b|\b3 meses\b/i, locale);
+    // …et s'il annonce une durée, c'est bien celle de l'offre ouverte (3 mois,
+    // ABO-11) : aucune autre durée ne doit apparaître.
+    const otherDurations = line.match(/\d+\s*(?:mois|months?|meses|mês)/gi) ?? [];
+    for (const duration of otherDurations) {
+      assert.match(duration, /^3\s*(?:mois|months?|meses|mês)$/i, `${locale} : ${duration}`);
+    }
     // Ce qui est promis reste le contenu Premium.
     assert.match(line, /Premium/, locale);
   }

@@ -1,4 +1,5 @@
 import type { Entitlement } from "@/core/types";
+import { SUBSCRIPTION_PRODUCT } from "../../content/purchase-order.ts";
 
 /**
  * ÉTAT D'ABONNEMENT — module PUR (aucune I/O, testable sous Node).
@@ -19,8 +20,15 @@ import type { Entitlement } from "@/core/types";
  * dit « Abonnement actif », sans « jusqu'au … ».
  */
 
-/** Produit du droit local qui ouvre l'intégralité du contenu Premium. */
-export const SUBSCRIPTION_PRODUCT = "OPTIMUS_PRO";
+/**
+ * Produit du droit local qui ouvre l'intégralité du contenu Premium.
+ *
+ * Défini dans le domaine commerce (`src/content/purchase-order.ts`) : c'est le
+ * produit émis par `orderProduct()` pour l'offre `subscription`. Une seule
+ * valeur, donc la licence émise à la livraison et le contrôle d'accès local ne
+ * peuvent pas diverger.
+ */
+export { SUBSCRIPTION_PRODUCT };
 
 export type SubscriptionSource = "licence" | "receipt" | null;
 

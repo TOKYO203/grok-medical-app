@@ -344,12 +344,11 @@ test("le pont n'est pas un chemin dérobé : aucun contenu servi sans licence", 
   assert.doesNotMatch(contentSession, /console\.(log|warn|error)\([^)]*key/);
 });
 
-test("/pro : Mobile Money n'est proposé que pour les offres à l'unité", () => {
+test("/pro : l'abonnement payable passe devant les offres à l'unité", () => {
   // ⚠️ On retire les COMMENTAIRES avant d'asserter (même leçon que
-  // content-assets-cache et cloud-auth-gate) : la refonte abonnement du
-  // 2026-10-20 EXPLIQUE dans un commentaire pourquoi l'abonnement ne peut pas
-  // encore être vendu, et un test lisant la source brute échouait sur sa
-  // propre documentation. Ce qui compte reste la copie RÉELLEMENT RENDUE.
+  // content-assets-cache et cloud-auth-gate) : les commentaires EXPLIQUENT le
+  // modèle commercial, et un test lisant la source brute échouait sur sa propre
+  // documentation. Ce qui compte reste la copie RÉELLEMENT RENDUE.
   const raw = read("src/routes/pro.tsx");
   const code = raw
     .replace(/\/\*[\s\S]*?\*\//g, " ")
@@ -357,19 +356,22 @@ test("/pro : Mobile Money n'est proposé que pour les offres à l'unité", () =>
     .map((line) => (line.trimStart().startsWith("//") ? "" : line))
     .join("\n");
 
-  const unit = code.indexOf("data-pro-unit-offers");
-  const pay = code.indexOf("Commander par Mobile Money");
   const subscription = code.indexOf("data-pro-subscription-offer");
+  const subscriptionTunnel = code.indexOf("data-pro-subscription-order");
+  const unit = code.indexOf("data-pro-unit-offers");
 
-  // Le tunnel de paiement est DANS le bloc des offres à l'unité : c'est la
-  // seule chose que le serveur sait facturer aujourd'hui.
-  assert.ok(unit > 0, "le bloc des offres à l'unité doit exister");
-  assert.ok(pay > unit, "le paiement mobile doit vivre dans le bloc à l'unité");
-  // … et l'abonnement vient APRÈS, marqué « prochainement », sans bouton de
-  // paiement : on n'annonce pas payable ce qu'on ne sait pas honorer.
-  assert.ok(subscription > pay, "l'abonnement est annoncé après les offres payables");
-  assert.match(code, /data-subscription-state="soon"/);
-  assert.doesNotMatch(code, /Payer via Mobile Money/);
+  // L'abonnement trimestriel est l'offre PRINCIPALE depuis ABO-11 : son tunnel
+  // de commande est rendu en premier, sans disclosure à ouvrir.
+  assert.ok(subscription > 0, "la carte d'abonnement doit exister");
+  assert.ok(subscriptionTunnel > subscription, "le tunnel d'abonnement vit dans sa carte");
+  assert.ok(unit > subscriptionTunnel, "les offres à l'unité viennent après");
+  assert.match(code, /data-subscription-state="available"/);
+  assert.doesNotMatch(code, /data-subscription-state="soon"/);
+  // L'abonnement est pré-sélectionné dans son propre tunnel : il ne peut pas
+  // afficher « 1 module » au premier écran après avoir annoncé 15 000 Ar.
+  assert.match(code, /initialOffer="subscription"/);
+  // Le tunnel des achats à l'unité reste, lui, intitulé sans ambiguïté.
+  assert.match(code, /Commander un module ou une spécialité/);
 
   // Les liens de référence restent : la page mène toujours aux tarifs.
   assert.match(code, /data-pro-pricing-link/);

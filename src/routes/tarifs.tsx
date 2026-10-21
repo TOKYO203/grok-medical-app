@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Bell,
   Building2,
   Check,
   Clock3,
@@ -32,24 +31,18 @@ export const Route = createFileRoute("/tarifs")({ component: TarifsPage });
 
    RÈGLE DE CETTE PAGE : n'annoncer payable que ce qui est RÉELLEMENT payable.
 
-   Le produit va devenir un ABONNEMENT TRIMESTRIEL nominatif (3 mois). Le tunnel
-   de commande, lui, ne sait facturer aujourd'hui que les offres à l'unité
-   (1 module, 1 spécialité) : il enregistre une référence de paiement Mobile
-   Money et la valide côté serveur. Vendre l'abonnement tant que son produit
-   n'existe pas côté serveur reviendrait à encaisser un paiement qu'on ne sait
-   pas honorer — le pire état possible pour la confiance.
+   Depuis ABO-11, l'ABONNEMENT TRIMESTRIEL est facturé par le MÊME tunnel que les
+   offres à l'unité (`orderProduct()` émet `OPTIMUS_PRO`, `orderAmount()` lit
+   `PRICES_MGA.subscriptionQuarter`, et la livraison crée une licence datée de
+   `SUBSCRIPTION_MONTHS` mois). Il passe donc en PREMIER, avec le bouton de
+   paiement Mobile Money.
 
-   La page est donc construite en deux blocs, dans cet ordre :
-     1. « Disponible aujourd'hui » — les offres à l'unité, avec le tunnel réel
-        (Mobile Money) et le prix lu dans `pricing.ts` ;
-     2. « Abonnement Trimestriel » — annoncé, daté et prix affiché, mais marqué
-        « Prochainement » : aucune action de paiement tant qu'il n'est pas
-        facturable, seulement un moyen d'être averti de l'ouverture.
+   Les offres à l'unité restent vendables (module / spécialité) mais ne sont plus
+   mises en avant : c'est une offre de secours, pas le produit principal.
 
-   ⚠️ Le prix vit dans `src/content/pricing.ts` (source unique) : aucun montant
-   n'est écrit en dur dans cette page. Le jour où l'abonnement devient
-   facturable, c'est CE fichier et `orderProduct()` qui changent — et le bloc 2
-   remonte en bloc 1 (voir docs/DECISIONS.md, ABO-1).
+   ⚠️ Aucun montant n'est écrit en dur ici : tout vient de `src/content/pricing.ts`
+   (source unique, ABO-2). Le jour d'un changement tarifaire, un seul fichier
+   change — et le prix affiché restera celui que le serveur facture.
    ============================================================================ */
 
 type FeatureValue = boolean | "limité";
@@ -73,26 +66,28 @@ const MOBILE_MONEY_STEPS = [
   "Après paiement, un SMS de confirmation valide la transaction : l'accès s'active sur votre compte.",
 ] as const;
 
-/**
- * Offres réellement facturables aujourd'hui par le tunnel de commande
- * (`src/content/purchase-order.ts` : offres `deck` et `specialty`).
- * Le prix n'est jamais recopié ici : il est lu dans `pricing.ts`.
- */
+/** Offres à l'unité — toujours facturables, désormais en second plan. */
 const UNIT_OFFERS = [
   {
     id: "deck",
     title: "1 module",
     detail: "Une étape de parcours : questions, corrections et progression.",
     price: PRICES_MGA.deck,
-    recommended: false,
   },
   {
     id: "specialty",
     title: "1 spécialité",
     detail: "Tout le contenu d'une spécialité, mis à jour pendant l'accès.",
     price: PRICES_MGA.specialty,
-    recommended: true,
   },
+] as const;
+
+/** Ce que l'abonnement ouvre, en clair. */
+const SUBSCRIPTION_FEATURES = [
+  "Cours, cas cliniques et démarches : tout le catalogue Premium",
+  "Toutes les spécialités, sans supplément",
+  "Mises à jour de contenu incluses pendant l'abonnement",
+  "Hors-ligne sur tous vos appareils connectés",
 ] as const;
 
 function FeatureCell({ value }: { value: FeatureValue }) {
@@ -120,7 +115,7 @@ function TarifsPage() {
           <PageHeader
             kicker="Tarifs"
             title="Le contenu complet, au plus juste"
-            description={`L'abonnement trimestriel (${SUBSCRIPTION_MONTHS} mois, tout le contenu Premium) ouvre prochainement. En attendant, chaque module et chaque spécialité reste payable à l'unité, sans engagement.`}
+            description={`L'abonnement trimestriel (${SUBSCRIPTION_MONTHS} mois, tout le contenu Premium) est payable par Mobile Money. Les modules et les spécialités restent disponibles à l'unité, sans engagement.`}
           />
         }
       >
@@ -167,83 +162,35 @@ function TarifsPage() {
           </Card>
         </section>
 
-        {/* 1 — Ce qui est facturable aujourd'hui : les offres à l'unité */}
-        <section className="mt-12" aria-labelledby="offres-titre" data-tarifs-offers="unit">
+        {/* 1 — L'OFFRE PRINCIPALE : l'abonnement trimestriel, payable */}
+        <section
+          className="mt-12"
+          aria-labelledby="abonnement-titre"
+          data-tarifs-offers="subscription"
+          data-tarifs-offer="subscription"
+          data-tarifs-subscription-state="available"
+        >
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div className="min-w-0">
-              <h2 id="offres-titre" className="font-display text-2xl font-medium tracking-tight">
-                Disponible aujourd&apos;hui
+              <h2 id="abonnement-titre" className="font-display text-2xl font-medium tracking-tight">
+                Abonnement Trimestriel — Accès Illimité {SUBSCRIPTION_MONTHS} mois
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Paiement mobile, accès ouvert dès la validation de la transaction.
+                Tout le contenu Premium, sur votre compte, payable par Mobile Money.
               </p>
             </div>
             <Badge tone="success">Paiement ouvert</Badge>
           </div>
 
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {UNIT_OFFERS.map((offer) => (
-              <Card
-                key={offer.id}
-                data-tarifs-unit={offer.id}
-                className={offer.recommended ? "border-[var(--tone-accent-border)]" : undefined}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <p className="font-medium text-fg">{offer.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{offer.detail}</p>
-                  </div>
-                  {offer.recommended ? <Badge tone="accent">Le plus choisi</Badge> : null}
-                </div>
-                <p className="mt-3 font-display text-2xl font-medium text-fg" data-tarifs-unit-price>
-                  {formatPrice(offer.price, currency)}
-                </p>
-              </Card>
-            ))}
-          </div>
-
-          <Card className="mt-3">
-            <div className="flex items-center gap-2">
-              <Smartphone className="size-4 shrink-0 text-[var(--tone-accent)]" aria-hidden="true" />
-              <p className="text-sm font-medium text-fg">Comment payer</p>
-            </div>
-            <ol className="mt-3 space-y-2 text-sm text-muted">
-              {MOBILE_MONEY_STEPS.map((step, index) => (
-                <li key={step} className="flex gap-2">
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary font-mono text-[10px] font-semibold text-muted">
-                    {index + 1}
-                  </span>
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ol>
-            <ButtonLink to="/pro" fullWidth className="mt-4" data-tarifs-pay="mobile-money">
-              Commander par Mobile Money
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </ButtonLink>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Aucune carte bancaire n&apos;est demandée. La commande est enregistrée côté serveur,
-              puis validée après réception du paiement.
-            </p>
-          </Card>
-        </section>
-
-        {/* 2 — L'abonnement : annoncé avec son prix, pas encore facturable */}
-        <section className="mt-12" aria-labelledby="abonnement-titre">
-          <Card
-            className="relative"
-            padding="lg"
-            data-tarifs-offer="subscription"
-            data-tarifs-subscription-state="soon"
-          >
+          <Card className="mt-4 relative border-[var(--tone-accent-border)]" padding="lg">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0">
-                <Badge tone="neutral">Prochainement</Badge>
-                <h2 id="abonnement-titre" className="mt-3 font-display text-2xl font-medium tracking-tight">
-                  Abonnement Trimestriel
-                </h2>
+                <Badge tone="accent">Recommandé</Badge>
+                <p className="mt-3 font-display text-xl font-medium text-fg">
+                  Accès Illimité {SUBSCRIPTION_MONTHS} mois
+                </p>
                 <p className="mt-1 text-sm text-muted">
-                  Tout le contenu Premium, {SUBSCRIPTION_MONTHS} mois, sur votre compte.
+                  Un seul abonnement, valable quelle que soit la spécialité.
                 </p>
               </div>
               <div className="text-right" data-tarifs-price>
@@ -258,12 +205,7 @@ function TarifsPage() {
             </div>
 
             <ul className="mt-5 grid gap-2 text-sm text-muted sm:grid-cols-2">
-              {[
-                "Cours, cas cliniques et démarches : tout le catalogue Premium",
-                "Mises à jour de contenu incluses pendant l'abonnement",
-                "Hors-ligne sur tous vos appareils connectés",
-                "Un seul abonnement, valable quelle que soit la spécialité",
-              ].map((line) => (
+              {SUBSCRIPTION_FEATURES.map((line) => (
                 <li key={line} className="flex gap-2">
                   <Check className="mt-0.5 size-4 shrink-0 text-[var(--tone-accent)]" aria-hidden="true" />
                   {line}
@@ -271,9 +213,8 @@ function TarifsPage() {
               ))}
             </ul>
 
-            {/* Canaux de paiement prévus — aucun bouton actif avant l'ouverture. */}
             <div className="mt-6" data-tarifs-channels>
-              <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Moyen de paiement prévu">
+              <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Moyen de paiement">
                 <Button
                   size="sm"
                   role="tab"
@@ -310,12 +251,18 @@ function TarifsPage() {
                 >
                   <p className="text-sm font-medium text-fg">Paiement par Mobile Money</p>
                   <p className="mt-2 text-sm text-muted">
-                    À l&apos;ouverture, l&apos;abonnement se règle comme les offres actuelles :
-                    coordonnées officielles envoyées depuis votre compte, puis validation par SMS.
+                    Vous lancez la commande, vous recevez les coordonnées officielles et le montant
+                    exact, puis la validation de la transaction active votre accès.
                   </p>
-                  <Button variant="secondary" fullWidth disabled className="mt-4" data-tarifs-pay="mobile-money-soon">
-                    Bientôt disponible
-                  </Button>
+                  <ButtonLink
+                    to="/pro"
+                    fullWidth
+                    className="mt-4"
+                    data-tarifs-pay="mobile-money"
+                  >
+                    Payer via Mobile Money
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </ButtonLink>
                 </div>
               ) : (
                 <div
@@ -331,22 +278,77 @@ function TarifsPage() {
                   </div>
                   <p className="mt-3 text-sm text-muted">
                     Le paiement international (Lemon Squeezy) est en préparation. En attendant,
-                    les offres à l&apos;unité restent payables par Mobile Money à Madagascar.
+                    l&apos;abonnement et les offres à l&apos;unité se règlent par Mobile Money à
+                    Madagascar.
                   </p>
-                  <Button variant="secondary" fullWidth disabled className="mt-4" data-tarifs-pay="lemon-squeezy">
+                  <Button variant="secondary" fullWidth data-tarifs-pay="lemon-squeezy" disabled className="mt-4">
                     Bientôt disponible
                   </Button>
                 </div>
               )}
             </div>
 
-            <ButtonLink to="/contact" variant="secondary" fullWidth className="mt-4" data-tarifs-notify>
-              <Bell className="size-4" aria-hidden="true" />
-              Être averti de l&apos;ouverture
-            </ButtonLink>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Aucun prélèvement et aucune reconduction : cet abonnement n&apos;est pas encore
-              commercialisé, et rien ne peut être acheté avant son ouverture.
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              Aucun prélèvement automatique et aucune reconduction : l&apos;accès s&apos;arrête à la
+              fin des {SUBSCRIPTION_MONTHS} mois si vous ne renouvelez pas.
+            </p>
+          </Card>
+        </section>
+
+        {/* 2 — Les offres à l'unité : toujours vendables, en second plan */}
+        <section className="mt-12" aria-labelledby="offres-titre" data-tarifs-offers="unit">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div className="min-w-0">
+              <h2 id="offres-titre" className="font-display text-2xl font-medium tracking-tight">
+                Aussi disponible à l&apos;unité
+              </h2>
+              <p className="mt-1 text-sm text-muted">
+                Sans engagement : un module ou une spécialité, payé une fois.
+              </p>
+            </div>
+            <Badge tone="neutral">Sans abonnement</Badge>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {UNIT_OFFERS.map((offer) => (
+              <Card key={offer.id} data-tarifs-unit={offer.id}>
+                <div className="min-w-0">
+                  <p className="font-medium text-fg">{offer.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{offer.detail}</p>
+                </div>
+                <p className="mt-3 font-display text-2xl font-medium text-fg" data-tarifs-unit-price>
+                  {formatPrice(offer.price, currency)}
+                </p>
+              </Card>
+            ))}
+          </div>
+
+          <ButtonLink to="/pro" variant="secondary" fullWidth className="mt-3" data-tarifs-pay="unit">
+            Commander à l&apos;unité
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </ButtonLink>
+        </section>
+
+        {/* Comment payer — le même tunnel pour les deux familles d'offres */}
+        <section className="mt-8">
+          <Card>
+            <div className="flex items-center gap-2">
+              <Smartphone className="size-4 shrink-0 text-[var(--tone-accent)]" aria-hidden="true" />
+              <p className="text-sm font-medium text-fg">Comment payer</p>
+            </div>
+            <ol className="mt-3 space-y-2 text-sm text-muted">
+              {MOBILE_MONEY_STEPS.map((step, index) => (
+                <li key={step} className="flex gap-2">
+                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary font-mono text-[10px] font-semibold text-muted">
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              Aucune carte bancaire n&apos;est demandée. La commande est enregistrée côté serveur,
+              avec sa référence et son montant, puis validée après réception du paiement.
             </p>
           </Card>
         </section>
@@ -397,9 +399,9 @@ function TarifsPage() {
         <section className="mt-10 flex items-start gap-2 rounded-[var(--r-md)] bg-secondary p-[var(--sp-4)] text-sm text-muted">
           <Clock3 className="mt-0.5 size-4 shrink-0 text-[var(--tone-accent)]" aria-hidden="true" />
           <span>
-            Facturation en Ariary (MVola, Orange Money, Airtel Money) sur les offres à l'unité. Les
-            montants en dollars et en euros sont indicatifs, convertis au moment de l'affichage. Un
-            accès acheté est nominatif : il suit votre compte, pas un appareil.
+            Facturation en Ariary (MVola, Orange Money, Airtel Money). Les montants en dollars et en
+            euros sont indicatifs, convertis au moment de l&apos;affichage. Un accès acheté est
+            nominatif : il suit votre compte, pas un appareil.
           </span>
         </section>
       </Page>

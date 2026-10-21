@@ -1,14 +1,21 @@
-import { randomBytes } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import {
+  licenseExpiryFor,
+  normalizePremiumOrderInput,
   orderAmount,
   orderLabel,
   orderProduct,
+  purchaseReferencePrefix,
+  PURCHASE_REFERENCE_PATTERN,
+  type OrderSpecialty,
+  type PremiumOffer,
   type PremiumOrder,
   type PremiumPurchase,
   type PurchaseStatus,
 } from "@/content/purchase-order";
+import type { LicenseReceipt } from "@/core/types";
 import { authMiddleware } from "@/lib/auth/middleware";
 
 const specialtySchema = z.enum([
@@ -19,13 +26,20 @@ const specialtySchema = z.enum([
   "dermatologie",
 ]);
 
-const referenceSchema = z.string().regex(/^CMD-[A-Z0-9]+-[A-F0-9]{8}$/);
+/** Aligné sur `PURCHASE_REFERENCE_PATTERN` (domaine) : une seule vérité. */
+const referenceSchema = z.string().regex(PURCHASE_REFERENCE_PATTERN);
 
+/**
+ * Entrée de création volontairement TOLÉRANTE sur `specialty` / `deckNumber` :
+ * un abonnement n'en a pas besoin, mais le client déjà déployé les envoie
+ * toujours. La forme canonique est décidée par `normalizePremiumOrderInput()`
+ * (côté serveur) — jamais par le client.
+ */
 const createSchema = z.object({
   clientRequestId: z.string().uuid(),
-  offer: z.enum(["deck", "specialty"]),
-  specialty: specialtySchema,
-  deckNumber: z.number().int().min(1).max(10),
+  offer: z.enum(["deck", "specialty", "subscription"]),
+  specialty: specialtySchema.optional(),
+  deckNumber: z.number().int().min(1).max(10).optional(),
 });
 
 const clientStatusSchema = z.enum([
@@ -61,8 +75,8 @@ type PurchaseRow = {
   reference: string;
   user_id: string;
   optimus_id: string;
-  offer: "deck" | "specialty";
-  specialty: "neurologie" | "cardiologie" | "infectiologie" | "urgences" | "dermatologie";
+  offer: PremiumOffer;
+  specialty: OrderSpecialty;
   deck_number: number;
   product: string;
   label: string;
@@ -120,9 +134,38 @@ function toPurchase(row: PurchaseRow): PremiumPurchase {
   };
 }
 
-function makeReference(): string {
+/** `timestamptz` (chaîne ou Date selon le pilote) → ISO 8601, `null` si absent. */
+function toIsoOrNull(value: string | Date | null): string | null {
+  if (value === null) return null;
+  const parsed = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+/**
+ * Référence de commande unique — `CMD-…` (à l'unité) / `CMD-SUB-…` (abonnement).
+ *
+ * L'aléa de 32 bits + la clé primaire `purchase_orders.reference` garantissent
+ * l'unicité ; le segment `SUB` rend l'abonnement identifiable dans une
+ * conversation Mobile Money, sans jamais servir de contrôle (le serveur relit
+ * `offer` en base).
+ */
+function makeReference(offer: PremiumOffer): string {
   const suffix = randomBytes(4).toString("hex").toUpperCase();
-  return `CMD-${Date.now().toString(36).toUpperCase()}-${suffix}`;
+  return `${purchaseReferencePrefix(offer)}-${Date.now().toString(36).toUpperCase()}-${suffix}`;
+}
+
+/**
+ * Empreinte d'une clé d'activation jamais communiquée.
+ *
+ * La livraison crée une ligne `activation_keys` pour trois raisons : elle donne
+ * à la licence un identifiant réel (`licenseId` du reçu), elle la fait compter
+ * dans le back-office, et surtout elle la fait RÉVOQUER automatiquement par le
+ * remboursement (qui cible `purchase_reference`). Le reçu signé reste le seul
+ * moyen d'accès remis à l'acheteur : on jette donc le texte de clé et on ne
+ * stocke que son empreinte — aucune clé en clair ne circule.
+ */
+function discardableKeyHash(): string {
+  return createHash("sha256").update(randomBytes(32).toString("hex"), "utf8").digest("hex");
 }
 
 function purchaseAdmins(): Set<string> {
@@ -218,6 +261,14 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
       throw new Error("Connectez et synchronisez votre compte Optimus avant de créer une commande.");
     }
 
+    // Forme canonique décidée ICI : un abonnement ne retient ni spécialité ni
+    // numéro de module, une offre à l'unité exige les deux.
+    const normalized = normalizePremiumOrderInput({
+      offer: data.offer,
+      specialty: data.specialty,
+      deckNumber: data.deckNumber,
+    });
+
     const existing = await sql.query<PurchaseRow & { client_request_id: string }>(
       `select * from purchase_orders
        where user_id = $1 and client_request_id = $2
@@ -227,9 +278,9 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
     if (existing[0]) {
       const expectedOrder: PremiumOrder = {
         reference: existing[0].reference,
-        offer: data.offer,
-        specialty: data.specialty,
-        deckNumber: data.deckNumber,
+        offer: normalized.offer,
+        specialty: normalized.specialty,
+        deckNumber: normalized.deckNumber,
       };
       if (existing[0].product !== orderProduct(expectedOrder)) {
         throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
@@ -237,12 +288,12 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
       return toPurchase(existing[0]);
     }
 
-    const reference = makeReference();
+    const reference = makeReference(normalized.offer);
     const order: PremiumOrder = {
       reference,
-      offer: data.offer,
-      specialty: data.specialty,
-      deckNumber: data.deckNumber,
+      offer: normalized.offer,
+      specialty: normalized.specialty,
+      deckNumber: normalized.deckNumber,
     };
     const product = orderProduct(order);
     const label = orderLabel(order);
@@ -261,9 +312,9 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
         context.userId,
         data.clientRequestId,
         optimusId,
-        data.offer,
-        data.specialty,
-        data.deckNumber,
+        normalized.offer,
+        normalized.specialty,
+        normalized.deckNumber,
         product,
         label,
         amount,
@@ -274,9 +325,9 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
 
     const canonicalOrder: PremiumOrder = {
       reference: row.reference,
-      offer: data.offer,
-      specialty: data.specialty,
-      deckNumber: data.deckNumber,
+      offer: normalized.offer,
+      specialty: normalized.specialty,
+      deckNumber: normalized.deckNumber,
     };
     if (row.product !== orderProduct(canonicalOrder)) {
       throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
@@ -284,6 +335,7 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
 
     if (row.reference === reference) {
       await auditEvent(sql, row.reference, context.userId, "created", {
+        offer: normalized.offer,
         product: row.product,
         amount: Number(row.amount),
       });
@@ -511,7 +563,7 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
         );
         revokedLicenses = Number(count[0]?.count ?? 0);
       }
-      return { purchase: toPurchase(current), revokedLicenses };
+      return { purchase: toPurchase(current), revokedLicenses, licenceExpiresAt: null };
     }
 
     if (data.decision === "payment_verified") {
@@ -572,6 +624,7 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
         return {
           purchase: toPurchase(next),
           revokedLicenses: Number(next.revoked_licenses ?? 0),
+          licenceExpiresAt: null,
         };
       }
 
@@ -584,18 +637,100 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
             where purchase_reference = $1 and revoked_at is not null`,
           [data.reference],
         );
-        return { purchase: toPurchase(latest), revokedLicenses: Number(count[0]?.count ?? 0) };
+        return {
+          purchase: toPurchase(latest),
+          revokedLicenses: Number(count[0]?.count ?? 0),
+          licenceExpiresAt: null,
+        };
+      }
+      throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
+    }
+
+    /**
+     * LIVRAISON — le moment où la licence naît.
+     *
+     * L'abonnement est vendu pour `SUBSCRIPTION_MONTHS` mois : la commande
+     * porte déjà l'appareil de l'acheteur (exigé avant `verification_pending`),
+     * donc la licence est créée DANS LA MÊME instruction que le passage en
+     * `delivered` — impossible d'avoir une commande livrée sans licence, ou une
+     * licence sans commande livrée, même sous deux requêtes concurrentes (la
+     * mise à jour n'aboutit que sur `status = 'payment_verified'`).
+     *
+     * `expires_at` vient de `licenseExpiryFor(offer)` (90 jours = 3 × 30) ;
+     * un achat à l'unité reste `NULL`, donc perpétuel comme avant. La ligne
+     * `activation_keys` est ce qui rend le remboursement révocatoire : le
+     * chemin `refunded` ci-dessus cible `purchase_reference`.
+     */
+    if (data.decision === "delivered") {
+      const licenceExpiresAt = licenseExpiryFor(current.offer);
+      const delivered = await sql.query<
+        PurchaseRow & { licence_expires_at: string | Date | null; licence_id: string | null }
+      >(
+        `with updated as (
+           update purchase_orders
+              set status = 'delivered',
+                  delivered_at = coalesce(delivered_at, now()),
+                  updated_at = now()
+            where reference = $1 and status = $2
+            returning *
+         ), licence as (
+           insert into activation_keys (
+             key_hash, optimus_id, product, expires_at, purchase_reference, device_id, activated_at
+           )
+           select $3, optimus_id, product, $4::timestamptz, reference, device_id, now()
+             from updated
+            where device_id is not null
+              and not exists (
+                select 1 from activation_keys existing
+                 where existing.purchase_reference = updated.reference
+              )
+           returning id, expires_at
+         ), event as (
+           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
+           select reference,
+                  $5,
+                  'delivered',
+                  jsonb_build_object(
+                    'note', $6::text,
+                    'offer', offer,
+                    'licenceId', (select id from licence),
+                    'licenceExpiresAt', (select expires_at from licence)
+                  )
+             from updated
+         )
+         select updated.*,
+                (select id from licence) as licence_id,
+                (select expires_at from licence) as licence_expires_at
+           from updated`,
+        [
+          data.reference,
+          "payment_verified",
+          discardableKeyHash(),
+          licenceExpiresAt,
+          context.userId,
+          data.note ?? null,
+        ],
+      );
+      const next = delivered[0];
+      if (next) {
+        return {
+          purchase: toPurchase(next),
+          revokedLicenses: 0,
+          licenceExpiresAt: toIsoOrNull(next.licence_expires_at),
+        };
+      }
+
+      const latest = await purchaseByReference(sql, data.reference);
+      if (!latest) throw new Error("Commande introuvable.");
+      if (latest.status === "delivered") {
+        return { purchase: toPurchase(latest), revokedLicenses: 0, licenceExpiresAt: null };
       }
       throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
     }
 
     const expectedStatus = current.status;
     const timestampColumn =
-      data.decision === "payment_verified"
-        ? "payment_verified_at"
-        : data.decision === "delivered"
-          ? "delivered_at"
-          : "rejected_at";
+      data.decision === "payment_verified" ? "payment_verified_at" : "rejected_at";
 
     const updated = await sql.query<PurchaseRow>(
       `with updated as (
@@ -614,10 +749,113 @@ export const reviewPremiumPurchaseOrder = createServerFn({ method: "POST" })
       [data.reference, data.decision, context.userId, expectedStatus, data.note ?? null],
     );
     const next = updated[0];
-    if (next) return { purchase: toPurchase(next), revokedLicenses: 0 };
+    if (next) return { purchase: toPurchase(next), revokedLicenses: 0, licenceExpiresAt: null };
 
     const latest = await purchaseByReference(sql, data.reference);
     if (!latest) throw new Error("Commande introuvable.");
-    if (latest.status === data.decision) return { purchase: toPurchase(latest), revokedLicenses: 0 };
+    if (latest.status === data.decision) {
+      return { purchase: toPurchase(latest), revokedLicenses: 0, licenceExpiresAt: null };
+    }
     throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
+  });
+
+/**
+ * Licence d'une commande livrée, POUR SON PROPRIÉTAIRE.
+ *
+ * Pourquoi ce chemin existe : jusqu'ici, livrer une commande ne produisait aucun
+ * accès local — il fallait qu'un opérateur lance `scripts/issue-activation-key.mjs`
+ * et transmette une clé à la main (modèle de vente mort, ABO-7). Ici l'acheteur
+ * récupère lui-même le reçu signé de SA commande :
+ *   · `reference` doit appartenir à `context.userId` (aucune énumération) ;
+ *   · la commande doit être `delivered` (sinon `null`, rien à activer) ;
+ *   · le reçu est lié à l'appareil enregistré sur la commande — le voler ne sert
+ *     à rien, `verifyLicenseReceipt()` refuse un autre appareil ;
+ *   · l'échéance est `activation_keys.expires_at` (90 jours pour l'abonnement,
+ *     `null` pour un achat à l'unité), donc identique à ce que le serveur a écrit.
+ *
+ * Si la clé de signature n'est pas configurée, on renvoie la licence SANS reçu
+ * (`status: "signing-unavailable"`) : la commande reste livrée, l'erreur est
+ * journalisée côté serveur, jamais exposée. Le contenu d'un abonné peut aussi
+ * s'ouvrir par la licence Supabase (`/api/licenses/session`).
+ */
+export const getPurchaseLicense = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(z.object({ reference: referenceSchema }))
+  .handler(async ({ data, context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+    const current = await ownedPurchase(sql, data.reference, context.userId);
+    if (!current) throw new Error("Commande introuvable.");
+    if (current.status !== "delivered" || !current.device_id) return null;
+
+    // Crée la licence si la commande a été livrée avant cette version (idempotent).
+    const rows = await sql.query<{
+      id: string;
+      expires_at: string | Date | null;
+      activated_at: string | Date;
+    }>(
+      `with existing as (
+         select id, expires_at, activated_at
+           from activation_keys
+          where purchase_reference = $1
+          order by created_at asc
+          limit 1
+       ), inserted as (
+         insert into activation_keys (
+           key_hash, optimus_id, product, expires_at, purchase_reference, device_id, activated_at
+         )
+         select $2, $3, $4, $5::timestamptz, $1, $6, now()
+          where not exists (select 1 from existing)
+         returning id, expires_at, activated_at
+       )
+       select * from existing
+       union all
+       select * from inserted`,
+      [
+        current.reference,
+        discardableKeyHash(),
+        current.optimus_id,
+        current.product,
+        licenseExpiryFor(current.offer),
+        current.device_id,
+      ],
+    );
+    const licence = rows[0];
+    if (!licence) throw new Error("Licence introuvable.");
+
+    const issuedAt = toIsoOrNull(licence.activated_at) ?? new Date().toISOString();
+    const expiresAt = toIsoOrNull(licence.expires_at);
+    const base = {
+      reference: current.reference,
+      product: current.product,
+      licenseId: licence.id,
+      issuedAt,
+      expiresAt,
+    };
+
+    const privateKey = (process.env.LICENSE_SIGNING_PRIVATE_KEY ?? "").trim();
+    if (!privateKey) {
+      console.warn("[purchase-license] LICENSE_SIGNING_PRIVATE_KEY manquante");
+      return { ...base, status: "signing-unavailable" as const, receipt: null };
+    }
+
+    try {
+      const { signLicenseReceipt } = await import("@/content/license-receipt.server");
+      const receipt: LicenseReceipt = signLicenseReceipt(
+        {
+          version: 1,
+          licenseId: licence.id,
+          product: current.product,
+          optimusId: current.optimus_id,
+          deviceId: current.device_id.toLowerCase(),
+          issuedAt,
+          expiresAt,
+        },
+        privateKey,
+      );
+      return { ...base, status: "issued" as const, receipt };
+    } catch (error) {
+      console.warn("[purchase-license] sign failed:", (error as Error).message);
+      return { ...base, status: "signing-unavailable" as const, receipt: null };
+    }
   });
