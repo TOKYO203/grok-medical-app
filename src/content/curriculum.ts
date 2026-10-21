@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (45 decks, 477 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=1 · infectio=2 · dermato=1 · urgences=1
+ * Répartition cible (47 decks, 497 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=3 · infectio=2 · dermato=1 · urgences=1
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -147,7 +147,7 @@ export const CURRICULUM_NEURO: CurriculumSpecialty = {
       decks: ["neuro"],
     },
     { id: "avc", label: "AVC", icon: "🚨", levels: ["L2", "L3", "L4", "L5", "INTERNE"], description: "Ischémique, hémorragique, thrombolyse.", decks: ["neuro-avc-l2"] },
-    { id: "epilepsie", label: "Épilepsie", icon: "⚡", levels: ["L3", "L4", "L5"], description: "Crises, classification, traitement.", decks: [], skeleton: true },
+    { id: "epilepsie", label: "Épilepsie", icon: "⚡", levels: ["L3", "L4", "L5"], description: "Crises, classification, traitement.", decks: ["neuro-epi-l3"] },
     { id: "degeneratif", label: "Syndromes dégénératifs", icon: "🧬", levels: ["L4", "L5", "INTERNE"], description: "Parkinson, Alzheimer, SLA.", decks: [], skeleton: true },
     { id: "nerfs", label: "Nerfs périphériques", icon: "🪢", levels: ["L3", "L4"], description: "Neuropathies, syndromes canalaires.", decks: [], skeleton: true },
   ],

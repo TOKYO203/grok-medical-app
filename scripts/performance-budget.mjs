@@ -128,7 +128,16 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   //     dynamique est éliminé et le chunk n'est pas émis (~1 936 KiB). La
   //     mesure CI est donc PLUS BASSE que la production : c'est le chiffre de
   //     production qui fixe le plafond, pas celui de la CI.
-  maxTotalJavascriptBytes: 2176 * 1024,
+  //
+  // Relevé 2176 → **2192 KIBI** le 2026-10-21 (contenu : deck pilote premium
+  // « neuro-epi-l3 » — épilepsie L3, 10 questions sourcées ILAE/HAS/OMS).
+  // Le deck ajoute ~13,5 KiB de JSON répartis dans le chunk du catalogue
+  // (entrée decks.json, chargée à la demande mais comptée dans le total) et
+  // le chunk du deck lui-même ; la marge restante (~12 KiB) était plus fine
+  // que le deck. Mesure CI : 2 177,3 KiB — dépassement de 1,3 KiB du plafond
+  // de 2 176 KiB posé le 2026-10-19. Plafond 2 192 KiB = marge volontairement
+  // faible (~14,7 KiB), même philosophie que les relevés précédents.
+  maxTotalJavascriptBytes: 2192 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
