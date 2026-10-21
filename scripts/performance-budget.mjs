@@ -149,7 +149,18 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // plus fine que la vague. Mesure CI : 2 199,9 KiB — dépassement de 7,9 KiB
   // du plafond de 2 192 KiB. Plafond 2 216 KiB = marge volontairement
   // faible (~16,1 KiB), même philosophie que les relevés précédents.
-  maxTotalJavascriptBytes: 2216 * 1024,
+  //
+  // Relevé 2216 → **2296 KIBI** le 2026-10-21 (contenu : pack NEURO complet —
+  // 7 decks premium : neuro-avc-l3/l4/l5/int (AVC L3→INTERNE) et
+  // neuro-epi-l4/l5/int (épilepsie L4→INTERNE), 10 questions sourcées chacun,
+  // accès pro / NEURO_PACK_15). decks.json grossit de ~98 KiB (47 → 54 decks,
+  // 497 → 567 questions) : l'entrée du catalogue est comptée dans le total et
+  // chaque deck vit dans son propre chunk chargé à la demande ; la marge
+  // restante (~16,1 KiB) était plus fine que le pack. Mesure CI : 2 279,6 KiB
+  // — dépassement de 63,6 KiB du plafond de 2 216 KiB posé le 2026-10-21.
+  // Plafond 2 296 KiB = marge volontairement faible (~16,4 KiB), même
+  // philosophie que les relevés précédents.
+  maxTotalJavascriptBytes: 2296 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
