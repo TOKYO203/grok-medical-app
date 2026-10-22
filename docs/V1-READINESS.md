@@ -22,7 +22,7 @@ API Lemon Squeezy, PostgREST, workflows CI). Chaque affirmation est étiquetée
 | Gating Premium (jeton de contenu) | ✅ opérationnel, fail-closed mesuré | non |
 | Quotas / rate limiting | ✅ 6 routes sensibles couvertes, Upstash configuré | non |
 | Webhooks Lemon Squeezy | ✅ idempotents (PK + `ON CONFLICT DO NOTHING`), rejeu sûr | non |
-| **Achat international (Lemon Squeezy)** | ❌ variante `pending`, checkout renvoie la boutique | **OUI** |
+| **Achat international (Lemon Squeezy)** | ✅ checkout vérifié au navigateur (19,00 € / 3 mois) — reste la bascule en live | non |
 | **Back-office admin** | ❌ GRANT/policies manquants + faille `is_admin` | **OUI** |
 | **Sauvegardes production** | ❌ aucune stratégie réelle | **OUI** |
 | Modèle d'accès admin | ⚠️ deux systèmes concurrents | oui (à trancher) |
@@ -56,25 +56,33 @@ licences, lire les signalements — et donc **s'offrir Premium**.
 **Action** : incluse dans `003` (GRANT UPDATE par colonne + 2 triggers + RPC vérifiées).
 **Effort** : inclus dans P0-1.
 
-### P0-3 · L'achat international ne peut pas aboutir
+### P0-3 · ~~L'achat international ne peut pas aboutir~~ — CORRIGÉ : le checkout fonctionne
 
-**Preuve** `[mesuré]` via l'API Lemon Squeezy :
+> **Rectification du 2026-10-22 (après vérification au navigateur).** La première version de
+> ce document affirmait qu'aucune vente n'était possible. **C'était faux**, et la cause de
+> l'erreur mérite d'être conservée : le diagnostic reposait sur le code HTTP d'une page
+> **SPA** (`302` puis `404` via `fetch`), alors qu'un navigateur affiche normalement le
+> récapitulatif. Preuve : `screenshots/lemonsqueezy-checkout-purchasable.png` — titre
+> « Optimus Premium Trimestre - Checkout », **19,00 € facturés tous les 3 mois**, moyens de
+> paiement carte + PayPal.
 
-| Objet | État réel |
+**État réel mesuré** `[navigateur + API]` :
+
+| Objet | État |
 | --- | --- |
-| Boutique 502254 « Optimus » | EUR, mode **test** |
+| Boutique 502254 « Optimus » (slug `optimus888`) | EUR, mode **test** |
 | Produit 1459192 « Optimus Premium Trimestre » | `published` |
-| Variante `46f60d57-…` (slug configuré) | **`status: "pending"`**, `is_subscription: true`, 1900, interval `month` ×3 |
-| URL de checkout configurée | `302 → https://optimus888.lemonsqueezy.com/checkout` (accueil boutique, **pas** la page produit) |
+| Variante `46f60d57-…` | `status: "pending"` — **statut NORMAL** : la documentation Lemon Squeezy précise que la variante unique d'un produit est la variante par défaut, jamais affichée séparément, et qu'elle porte ce statut |
+| Prix | 19,00 € / 3 mois (abonnement), `buy_now_url` généré par LS = l'URL configurée |
+| Checkout au navigateur | **fonctionnel** : prix, formulaire, bouton de paiement |
 | Webhook | déclaré en **test**, `order_created` + `subscription_created`, vers `https://optimusmedical.pages.dev/api/webhooks/lemonsqueezy` |
 
-**Impact** : un visiteur qui clique « Payer par carte » arrive sur une page boutique sans
-produit à acheter. Aucune vente possible.
-**Action** : dans Lemon Squeezy → Produits → *Optimus Premium Trimestre* → variante
-« Default » → **activer/publier** (`pending` → `published`), puis revérifier que
-`https://optimus888.lemonsqueezy.com/checkout/buy/46f60d57-e97e-4acd-8199-53c564fc69f2`
-affiche bien le récapitulatif 19 € / 3 mois.
-**Effort** : 5 min.
+**Ce qui reste réellement à faire** : la **bascule en live** (P0-8). Le produit est vendable
+dès aujourd'hui, mais en mode test — les paiements ne sont pas encaissés.
+
+**Règle de méthode retenue** : ne jamais juger une page SPA sur son code HTTP. Comparer
+l'URL à celle que le prestataire génère (`buy_now_url`), puis ouvrir la page une fois dans un
+navigateur avant de conclure.
 
 ### P0-4 · Le back-office observe des tables que personne n'écrit
 
@@ -148,7 +156,7 @@ Checklist exhaustive (chaque ligne est vérifiable) :
 
 | # | Action | Où | Détail |
 | --- | --- | --- | --- |
-| 1 | Publier la variante (`pending` → `published`) | LS → Produit → Variante | prérequis P0-3 |
+| 1 | ~~Publier la variante~~ **déjà fait** | — | la variante unique est la variante par défaut (`pending` est normal) |
 | 2 | Passer la boutique en **live** | LS → Settings → Stores | le mode test/live est par boutique |
 | 3 | Générer une **clé API live** | LS → Settings → API | remplace `LEMONSQUEEZY_API_KEY` |
 | 4 | Créer un **webhook live** (URL identique, **secret différent**) | LS → Settings → Webhooks | `order_created` + `subscription_created` ; le secret test ne vérifie **pas** les payloads live |
@@ -351,7 +359,8 @@ pour que chaque action soit attribuable à une personne, pas à un mot de passe 
 
 ### 4.5 Monétisation — reste à faire (résumé exécutable)
 
-1. **Publier la variante** Lemon Squeezy (aujourd'hui `pending`) — P0-3.
+1. ~~Publier la variante Lemon Squeezy~~ — **sans objet** : le checkout est vérifié
+   fonctionnel (19,00 € / 3 mois). Seule la bascule en **live** reste à faire (P0-8).
 2. **Mode live** : clé API live, **nouveau secret de webhook**, environnement, **rebuild**
    pour les variables `VITE_*` — P0-8.
 3. **Purge des données de test** (`webhook_events` test, licences de test, paiements `QA-*`).

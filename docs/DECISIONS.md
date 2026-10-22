@@ -538,9 +538,25 @@ s'efface devant `navigator.doNotTrack`, `globalPrivacyControl` ou l'interrupteur
 `optimus.analytics.optOut`. Marché à connexion instable : un événement perdu est sans
 conséquence, une interface bloquée ne l'est pas.
 
-**PAY-1 — Le blocage de vente était invisible.** La variante Lemon Squeezy était `pending`
-et l'URL de checkout renvoyait `302` vers l'ACCUEIL de la boutique : le visiteur n'avait
-aucun produit à acheter, et aucun test ne pouvait le dire (la panne est chez le prestataire).
+**PAY-1 — ⚠️ ERREUR CORRIGÉE LE MÊME JOUR : le checkout FONCTIONNE.** La première rédaction
+affirmait que « la variante était `pending` et l'URL de checkout renvoyait vers l'accueil de
+la boutique, donc aucune vente n'était possible ». **C'était faux.** Deux causes d'erreur, à
+retenir pour toute vérification de prestataire :
+
+1. **`pending` n'est pas un défaut.** Documentation Lemon Squeezy : « If only one variant
+   exists for a product, it is considered the default variant and it is not shown as a
+   separate option at checkout. **It will also have a pending status.** » Une variante unique
+   porte donc `pending` par construction.
+2. **Un code HTTP ne dit rien d'une SPA.** `fetch` recevait `302` puis `404` (coquille vide)
+   alors qu'un navigateur rend la page complète. Vérification au navigateur (headless_shell
+   + CDP) : titre « Optimus Premium Trimestre - Checkout », **19,00 € facturés tous les
+   3 mois**, carte + PayPal. Capture :
+   `screenshots/lemonsqueezy-checkout-purchasable.png`.
+
+**Règle de méthode** : pour un prestataire externe, comparer à ce que **l'API du prestataire
+génère** (`buy_now_url`) et **ouvrir la page une fois dans un navigateur** avant de conclure à
+une panne. `scripts/payment-readiness.mjs` a été corrigé en conséquence : il ne se fie plus au
+code HTTP, accepte `pending` sur une variante unique, et compare notre lien à `buy_now_url`.
 `scripts/payment-readiness.mjs` (`npm run payment:readiness`) vérifie en lecture seule :
 variables serveur/client, boutique, produit, **statut de la variante**, cohérence
 webhook/variante (un secret test ne vérifie pas un payload live), mode test/live, l'URL de
@@ -554,5 +570,12 @@ injectées, y compris la clé `anon` (publique, mais un log se partage).
 
 **PAY-3 — Mesuré le 2026-10-22** : `purchase_orders` = **0**, `webhook_events` = **0**. La
 chaîne de paiement n'a jamais été exercée en production. La migration 0015 est bien appliquée
-(`CHECK … 'subscription'`), donc l'abonnement Mobile Money est facturable. Restent deux
-actions de dashboard : publier la variante, passer en live (nouveau secret de webhook).
+(`CHECK … 'subscription'`), donc l'abonnement Mobile Money est facturable. Reste **une seule**
+action de dashboard : passer la boutique en live (clé API live + **nouveau secret de
+webhook** + rebuild, les variables `VITE_*` étant inlinées au build). La variante n'a rien à
+publier.
+
+**PAY-4 — État du back-office, mesuré le 2026-10-22 après merge de #108** :
+`service_role` reçoit toujours `403 42501` sur `admin_actions` et `error_reports` → le script
+`003-admin-dashboard.sql` n'a **pas** été exécuté. Le dashboard reste en mode dégradé honnête
+(bannière + messages exacts) tant que ce n'est pas fait.

@@ -205,7 +205,7 @@ essai 7 jours, licences vérifiées cryptographiquement.
 
 | Manque | Détail | Priorité |
 | --- | --- | --- |
-| **Encaisser, tout simplement** | la variante Lemon Squeezy est `pending` → le bouton carte renvoie vers l'accueil boutique (cf. `V1-READINESS` P0-3) | **P0** |
+| **Encaisser, tout simplement** | le checkout carte est vérifié fonctionnel (19,00 € / 3 mois) mais la boutique est en **mode test** → la bascule en live (clés, secret de webhook, rebuild) reste à faire | **P0** |
 | **Abonnement Mobile Money vendable** | l'offre trimestrielle n'est pas dans `orderProduct()` : payer 15 000 Ar ne produit aucune licence (ABO-10) | **P0** |
 | **E-mails de cycle de vie** | aucun : bienvenue, relance, échéance, réactivation | **P1** |
 | **Codes promo / bourses** | aucun moyen de faire une offre ciblée (écoles, promos, parrainage) | P1 |
@@ -225,7 +225,7 @@ Effort exprimé en jours-homme de développement (hors production de contenu mé
 | # | Chantier | Effort | Impact |
 | --- | --- | --- | --- |
 | P0-1 | Exécuter `003-admin-dashboard.sql` (GRANT + RLS + anti-escalade `is_admin`) | 0,25 j | back-office opérationnel, faille fermée |
-| P0-2 | Publier la variante Lemon Squeezy (`pending` → `published`) | 0,1 j | **rend l'achat carte possible** |
+| P0-2 | Basculer Lemon Squeezy en **live** (clé API, **nouveau secret de webhook**, rebuild) | 0,5 j | rend l'encaissement **réel** |
 | P0-3 | Rendre l'abonnement Mobile Money vendable (ABO-10 : `orderProduct`, contrainte SQL) | 1 j | **rend l'offre principale possible** |
 | P0-4 | Sauvegardes : plan Supabase (2 projets), `pg_dump` quotidien hors site, **restauration testée** | 1 j | survie de l'activité |
 | P0-5 | Un seul back-office, actions attribuées à `admin_user_id` | 1 j | traçabilité, révocabilité |
@@ -325,7 +325,7 @@ fait en 12 minutes, et n'a plus rien à décider.
 
 | Jours | Chantier | Livrable |
 | --- | --- | --- |
-| 1-2 | Encaissement (P0-2, P0-3, P0-6) | achat carte **et** MVola produisent une licence |
+| 1-2 | Encaissement (P0-2, P0-6) | bascule live + achat réel carte **et** MVola produisant une licence |
 | 3 | Exécuter `003` + recette `ADMIN_QA_MODE=ready` + purge des tests | back-office vert, faille fermée |
 | 4-5 | Sauvegardes + restauration testée | RPO/RTO écrits, restauration prouvée |
 | 6-8 | Analytics + e-mails (P1-4) | 7 événements, 5 séquences, tableau de bord simple |

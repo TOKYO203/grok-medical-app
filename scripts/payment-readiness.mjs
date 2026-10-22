@@ -86,6 +86,11 @@ for (const name of CLIENT_VARS) {
 const LS_API = "https://api.lemonsqueezy.com/v1";
 const API_KEY = ENV.LEMONSQUEEZY_API_KEY;
 
+/** Le slug de variante peut être un UUID ou l'id numérique : on compare l'URL finale. */
+function normaliseCheckout(url) {
+  return String(url).trim().replace(/\/+$/, "").toLowerCase();
+}
+
 async function ls(path) {
   const res = await fetch(`${LS_API}${path}`, {
     headers: { Authorization: `Bearer ${API_KEY}`, Accept: "application/vnd.api+json" },
@@ -112,6 +117,8 @@ if (API_KEY && !PLACEHOLDER.test(API_KEY)) {
       });
       if (byId.status === 200) {
         variant = (await byId.json()).data;
+        const prod = await ls(`/products/${variant.attributes?.product_id}`);
+        globalThis.__lsBuyNowUrl = prod.json?.data?.attributes?.buy_now_url ?? null;
       } else {
         // L'endpoint n'accepte que l'id numérique ; l'UUID est le *slug*.
         const products = await ls(`/products?filter[store_id]=${store?.id}`);
@@ -122,6 +129,8 @@ if (API_KEY && !PLACEHOLDER.test(API_KEY)) {
           );
           if (match) {
             variant = match;
+            // Lemon Squeezy expose le lien d'achat qu'il a lui-même généré.
+            globalThis.__lsBuyNowUrl = product.attributes?.buy_now_url ?? null;
             break;
           }
         }
@@ -129,15 +138,41 @@ if (API_KEY && !PLACEHOLDER.test(API_KEY)) {
     }
 
     if (!variant) {
-      check("ls:variant", "fail", "variante configurée introuvable chez Lemon Squeezy", `VITE_LEMONSQUEEZY_VARIANT_ID=${variantId ?? "absent"}`, "Le slug de variante ne correspond à aucune variante publiée : l'URL de checkout mènera nulle part.");
+      check("ls:variant", "fail", "variante configurée introuvable chez Lemon Squeezy", `VITE_LEMONSQUEEZY_VARIANT_ID=${variantId ?? "absent"}`, "Le slug de variante ne correspond à aucune variante : l'URL de checkout ne trouvera aucun produit.");
     } else {
+      // DOCUMENTATION LEMON SQUEEZY : « If only one variant exists for a product,
+      // it is considered the default variant and it is not shown as a separate
+      // option at checkout. It will also have a pending status. »
+      // `pending` n'est donc PAS un défaut quand la variante est la seule du
+      // produit : c'est la forme normale. Le confondre avec « non publiée » a
+      // produit un faux blocage le 2026-10-22 (checkout vérifié fonctionnel au
+      // navigateur, 19,00 € facturés tous les 3 mois).
+      const productVariants = await ls(`/variants?filter[product_id]=${variant.attributes?.product_id}`);
+      const siblings = productVariants.json?.data ?? [];
+      const isSoleVariant = siblings.length <= 1;
       const published = variant.attributes?.status === "published";
+      const acceptable = published || (isSoleVariant && variant.attributes?.status === "pending");
       check(
         "ls:variant",
-        published ? "ok" : "fail",
-        `variante ${variant.attributes?.status === "published" ? "publiée" : `en statut « ${variant.attributes?.status} »`}`,
-        `#${variant.id} « ${variant.attributes?.name} » · ${(variant.attributes?.price ?? 0) / 100} ${store?.attributes?.currency ?? ""} · ${variant.attributes?.is_subscription ? `abonnement ${variant.attributes?.interval_count} ${variant.attributes?.interval}(s)` : "paiement unique"} · slug ${variant.attributes?.slug}`,
-        published ? "" : "Lemon Squeezy → Produits → variante → PUBLIER. Sans cela le checkout renvoie l'accueil de la boutique et AUCUNE vente n'est possible.",
+        acceptable ? "ok" : "fail",
+        published
+          ? "variante publiée"
+          : acceptable
+            ? "variante par défaut (statut « pending » = normal)"
+            : `variante en statut « ${variant.attributes?.status} »`,
+        `#${variant.id} « ${variant.attributes?.name} » · ${(variant.attributes?.price ?? 0) / 100} ${store?.attributes?.currency ?? ""} · ${variant.attributes?.is_subscription ? `abonnement ${variant.attributes?.interval_count} ${variant.attributes?.interval}(s)` : "paiement unique"} · slug ${variant.attributes?.slug} · ${siblings.length} variante(s)`,
+        acceptable
+          ? ""
+          : "Lemon Squeezy → Produits → variante → publier. Sans cela le checkout ne trouve aucun produit à vendre.",
+      );
+
+      const price = variant.attributes?.price ?? 0;
+      check(
+        "ls:price",
+        price > 0 ? "ok" : "fail",
+        price > 0 ? "prix renseigné" : "aucun prix : le checkout ne peut rien facturer",
+        `${price / 100} ${store?.attributes?.currency ?? ""}${variant.attributes?.is_subscription ? ` / ${variant.attributes?.interval_count} ${variant.attributes?.interval}(s)` : ""}`,
+        price > 0 ? "" : "Renseigner un prix sur la variante.",
       );
 
       const testMode = variant.attributes?.test_mode;
@@ -172,26 +207,36 @@ if (API_KEY && !PLACEHOLDER.test(API_KEY)) {
   check("ls:api", "skip", "API Lemon Squeezy non interrogée", "clé API absente");
 }
 
-/* ─── 3. L'URL de checkout mène-t-elle à un produit ? ────────────────────── */
+/* ─── 3. L'URL de checkout est-elle celle que Lemon Squeezy génère ? ─────── */
+//
+// PIÈGE MESURÉ LE 2026-10-22 : la page de checkout est une SPA servie par
+// Cloudflare. Un `fetch` reçoit un 302 vers /checkout puis un document vide en
+// 404 — alors que la page RÉELLE, chargée dans un navigateur, affiche le prix,
+// le formulaire et le bouton de paiement. Juger sur le code HTTP produit donc un
+// FAUX BLOCAGE. On compare au contraire notre URL à `buy_now_url`, que Lemon
+// Squeezy génère lui-même : c'est la source de vérité, sans navigateur.
+//
+// L'ultime vérification reste humaine : ouvrir l'URL une fois et voir le prix.
 
 if (storeSlug && variantId && !PLACEHOLDER.test(storeSlug)) {
-  const url = `https://${storeSlug}.lemonsqueezy.com/checkout/buy/${variantId}`;
-  try {
-    const res = await fetch(url, { redirect: "manual" });
-    const location = res.headers.get("location") || "";
-    const toStoreHome = res.status >= 300 && res.status < 400 && /lemonsqueezy\.com\/checkout\/?$/.test(location);
+  const composed = `https://${storeSlug}.lemonsqueezy.com/checkout/buy/${variantId}`;
+  const official = globalThis.__lsBuyNowUrl;
+  if (official) {
+    const same = normaliseCheckout(official) === normaliseCheckout(composed);
     check(
-      "checkout:url",
-      toStoreHome ? "fail" : "ok",
-      toStoreHome ? "le checkout renvoie vers l'ACCUEIL de la boutique" : "URL de checkout exploitable",
-      `HTTP ${res.status}${location ? ` → ${location.replace(/^https:\/\/([^.]+)\./, "$1.")}` : ""}`,
-      toStoreHome ? "Cause : variante non publiée (voir ls:variant). Le visiteur n'a aucun produit à acheter." : "",
+      "checkout:link",
+      same ? "ok" : "warn",
+      same ? "URL de checkout conforme à celle générée par Lemon Squeezy" : "URL de checkout différente de celle générée par Lemon Squeezy",
+      `notre lien ${composed.replace(/^https:\/\/[^.]+\./, "….")}`,
+      same
+        ? "Vérifier une fois à l'œil : ouvrir le lien, le prix doit s'afficher."
+        : `Lemon Squeezy génère : ${official}. Utiliser cette valeur pour VITE_LEMONSQUEEZY_VARIANT_ID.`,
     );
-  } catch (e) {
-    check("checkout:url", "fail", "checkout injoignable", e.message);
+  } else {
+    check("checkout:link", "skip", "lien de checkout non comparé", "produit non résolu via l'API");
   }
 } else {
-  check("checkout:url", "skip", "checkout non testé", "slug de boutique ou variante absent");
+  check("checkout:link", "skip", "lien de checkout non testé", "slug de boutique ou variante absent");
 }
 
 /* ─── 4 & 5. Base de données serveur ─────────────────────────────────────── */
