@@ -30,9 +30,57 @@ const tracked = execFileSync("git", ["ls-files"], { encoding: "utf8" })
 
 // ─────────────────── 1. aucun fichier d'environnement suivi ──────────────────
 
+/**
+ * EXCEPTION ASSUMÉE EN V1 — `.env.production` est suivi volontairement.
+ *
+ * Il ne contient que des valeurs `VITE_*` PUBLIQUES par design : l'URL du projet
+ * Supabase, sa clé `anon` (déjà inlinée dans le bundle client, donc publique) et
+ * les identifiants de la variante Lemon Squeezy. Aucune n'est un secret serveur.
+ *
+ * POURQUOI IL EST SUIVI : les variables d'environnement Cloudflare Pages ne sont
+ * pas poussées dans l'environnement Vite par `scripts/with-app-env.mjs`, donc
+ * `.env.production` est le seul moyen FIABLE de compiler un déploiement avec la
+ * configuration cloud. À remplacer en V1.1 par une injection au build
+ * (cf. `docs/DECISIONS.md`, AUTH-5).
+ *
+ * GARDE-FOU : un fichier `.env` suivi reste interdit SAUF ceux listés ici, et
+ * chacun doit passer le test suivant — toute variable NON préfixée `VITE_` y
+ * serait un secret serveur publié, et fait échouer la suite.
+ */
+const TRACKED_ENV_ALLOWLIST = new Set([".env.production"]);
+
 test("no .env file is ever tracked by git", () => {
-  const offenders = tracked.filter((f) => /(^|\/)\.env(\.|$)/.test(f) && !f.endsWith(".example"));
+  const offenders = tracked.filter(
+    (f) =>
+      /(^|\/)\.env(\.|$)/.test(f) && !f.endsWith(".example") && !TRACKED_ENV_ALLOWLIST.has(f),
+  );
   assert.deepEqual(offenders, [], "un fichier .env est suivi par git — retirer de l'index et purger l'historique");
+});
+
+test("un .env suivi ne contient que des variables VITE_* (publiques par construction)", () => {
+  for (const file of TRACKED_ENV_ALLOWLIST) {
+    assert.ok(tracked.includes(file), `${file} est allowlisté mais absent de git — mettre à jour la liste`);
+    const content = read(`../${file}`);
+    const assignments = content
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith("#"));
+    assert.ok(assignments.length > 0, `${file} ne contient aucune variable`);
+    for (const line of assignments) {
+      const name = line.slice(0, line.indexOf("=")).trim();
+      /**
+       * `VITE_` est la seule garantie acceptable : ces variables finissent DANS
+       * le bundle navigateur. Un secret n'a donc rien à y faire — et inversement,
+       * tout ce qui n'est pas `VITE_` dans un fichier publié est un secret
+       * serveur exposé.
+       */
+      assert.match(
+        name,
+        /^VITE_[A-Z0-9_]+$/,
+        `${file} : « ${name} » n'est pas préfixée VITE_ — un fichier suivi ne doit contenir que des valeurs publiques`,
+      );
+    }
+  }
 });
 
 test(".gitignore ignores every .env flavour and the temp work dirs", () => {

@@ -579,3 +579,45 @@ publier.
 `service_role` reçoit toujours `403 42501` sur `admin_actions` et `error_reports` → le script
 `003-admin-dashboard.sql` n'a **pas** été exécuté. Le dashboard reste en mode dégradé honnête
 (bannière + messages exacts) tant que ce n'est pas fait.
+
+---
+
+## 2026-10-22 — Identité unique : fin de la double authentification (AUTH)
+
+**AUTH-1 — Un seul fournisseur d'identité.** L'application interrogeait Supabase (porte
+d'entrée, contenu, synchronisation) **et** Better Auth (tunnel Mobile Money, `/achats`,
+`/donnees`, export de compte). Un utilisateur connecté par Supabase lisait donc
+« Connexion requise pour un achat Premium » sur `/pro` : le symptôme de « double
+authentification ». Correctif : `src/hooks/useAppUser.ts` est désormais la **seule** réponse à
+« qui est connecté » ; Better Auth n'est consulté que si Supabase n'est pas configuré (bac à
+sable, déploiements historiques).
+
+**AUTH-2 — Le serveur juge le jeton par son émetteur.** `authMiddleware` transporte le jeton
+d'accès Supabase ; `requireUserId` le fait vérifier par `GET <url>/auth/v1/user` avec la clé
+**anonyme** (jamais `service_role`), et n'utilise que le `sub` **de la réponse**. Quatre issues
+distinctes, qui n'appellent pas la même réponse HTTP : vérifié → identité ; refusé → 401 ;
+Supabase injoignable → 503 (on ne déconnecte pas sur une panne) ; jeton non-Supabase → repli
+historique. Un jeton est reconnu comme Supabase uniquement si son `iss` vaut **exactement**
+`<url>/auth/v1` — une correspondance floue enverrait un jeton Better Auth à Supabase, qui le
+refuserait, déconnectant un utilisateur légitime du bac à sable.
+
+**AUTH-3 — Provisionnement de l'Optimus ID.** Le tunnel de commande exige une identité stable
+(`profile.optimusId !== "OM-GUEST"`) ; un appareil neuf restait donc bloqué sur
+« Finalisation du compte Optimus » même une fois l'authentification réparée.
+`CloudIdentityBridge` génère l'Optimus ID et l'identifiant d'appareil dès la première session
+cloud, localement, sans appel réseau.
+
+**AUTH-4 — `/login` ne redemande plus une connexion déjà faite.** Un utilisateur authentifié
+qui suivait un lien vers `/login` voyait un formulaire vide et croyait sa session perdue ;
+la page redirige maintenant vers `/pro` dès que la session est résolue.
+
+**AUTH-5 — `.env.production` reste suivi en V1 (dette V1.1).** Les variables d'environnement
+Cloudflare Pages ne sont **pas** poussées dans l'environnement Vite par
+`scripts/with-app-env.mjs` ; `.env.production` est donc le seul moyen **fiable** de compiler un
+déploiement avec la configuration cloud. Le fichier ne contient que des valeurs `VITE_*`
+publiques par design (URL Supabase, clé `anon` déjà inlinée dans le bundle, identifiants
+Lemon Squeezy) — aucune n'est un secret serveur. Comme il est publié, il est **interdit** d'y
+ajouter quoi que ce soit d'autre : `scripts/secret-hygiene.test.mjs` allowliste explicitement
+ce fichier **et** vérifie que chaque variable y est préfixée `VITE_`, donc qu'aucun secret
+serveur ne peut y entrer sans faire échouer la suite. À remplacer en V1.1 par une injection au
+build (variables de plateforme → `process.env` → `define` Vite).
