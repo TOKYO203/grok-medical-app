@@ -80,11 +80,11 @@ const COVERS: {
     id: "clinique",
     label: "Clinique",
     className: "cover-clinique",
-    image: "/profile-covers/clinique.svg",
+    image: "/profile-covers/clinique.jpg",
   },
-  { id: "tsingy", label: "Tsingy de Bemaraha", image: "/profile-covers/tsingy.svg" },
-  { id: "ocean", label: "Océan Indien", image: "/profile-covers/ocean.svg" },
-  { id: "rizieres", label: "Rizières", image: "/profile-covers/rizieres.svg" },
+  { id: "tsingy", label: "Tsingy de Bemaraha", image: "/profile-covers/tsingy.jpg" },
+  { id: "ocean", label: "Océan Indien", image: "/profile-covers/ocean.jpg" },
+  { id: "rizieres", label: "Rizières", image: "/profile-covers/rizieres.jpg" },
 ];
 
 const BADGE_ICONS: Record<string, LucideIcon> = {
