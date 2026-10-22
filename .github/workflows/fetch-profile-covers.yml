@@ -26,6 +26,8 @@ jobs:
       - name: Télécharger et vérifier les photos du manifeste
         run: node scripts/fetch-profile-covers.mjs
 
+      # actions/checkout laisse le runner en HEAD détachée : le push doit
+      # cibler explicitement la branche qui a déclenché le workflow.
       - name: Publier les photos sur la branche
         run: |
           git config user.name "github-actions[bot]"
@@ -35,5 +37,5 @@ jobs:
             echo "Aucun changement à publier."
           else
             git commit -m "chore(covers): photos de couverture importées depuis le manifeste"
-            git push
+            git push origin HEAD:"${{ github.ref_name }}"
           fi
