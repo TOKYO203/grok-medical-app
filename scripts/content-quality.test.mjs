@@ -229,3 +229,61 @@ test("vague 2 : les cas cliniques multi-spécialités restent sourcés et sûrs"
   assert.match(gastroenteritis, /[Zz]inc/);
   assert.doesNotMatch(gastroenteritis, /lop[ée]ramide/);
 });
+
+test("pack NEURO : les 7 decks AVC/épilepsie restent premium, sourcés et sûrs", () => {
+  const byId = new Map(decks.map((deck) => [deck.id, deck]));
+  const packNeuro = [
+    "neuro-avc-l3",
+    "neuro-avc-l4",
+    "neuro-avc-l5",
+    "neuro-avc-int",
+    "neuro-epi-l4",
+    "neuro-epi-l5",
+    "neuro-epi-int",
+  ];
+
+  for (const id of packNeuro) {
+    const deck = byId.get(id);
+    assert.ok(deck, `${id}: missing`);
+    assert.equal(deck.access_policy?.tier, "pro", `${id}: expected premium tier`);
+    assert.equal(
+      deck.access_policy?.entitlement,
+      "NEURO_PACK_15",
+      `${id}: expected NEURO_PACK_15 entitlement`,
+    );
+    assert.equal(deck.questions.length, 10, `${id}: expected 10 questions`);
+    for (const question of deck.questions) {
+      assert.ok(question.sources.length >= 1, `${id}/${question.id}: missing source`);
+    }
+  }
+
+  const avcL3 = JSON.stringify(byId.get("neuro-avc-l3"));
+  assert.match(avcL3, /coup de tonnerre/);
+  assert.match(avcL3, /hypoglyc/);
+
+  const avcL4 = JSON.stringify(byId.get("neuro-avc-l4"));
+  assert.match(avcL4, /4 heures et demie/);
+  assert.match(avcL4, /séquence de diffusion/);
+  assert.match(avcL4, /dissection/);
+
+  const avcL5 = JSON.stringify(byId.get("neuro-avc-l5"));
+  assert.match(avcL5, /185\/110/);
+  assert.match(avcL5, /0,9 mg\/kg/);
+
+  const avcInt = JSON.stringify(byId.get("neuro-avc-int"));
+  assert.match(avcInt, /andexanet/);
+  assert.match(avcInt, /héparine/);
+
+  const epiL4 = JSON.stringify(byId.get("neuro-epi-l4"));
+  assert.match(epiL4, /sclérose hippocampique/);
+  assert.match(epiL4, /cysticercose/);
+
+  const epiL5 = JSON.stringify(byId.get("neuro-epi-l5"));
+  assert.match(epiL5, /SUDEP/);
+  assert.match(epiL5, /lamotrigine/);
+
+  const epiInt = JSON.stringify(byId.get("neuro-epi-int"));
+  assert.match(epiInt, /thiamine/);
+  assert.match(epiInt, /sulfate de magn[ée]sium/);
+  assert.match(epiInt, /benzodiaz[ée]pine/);
+});

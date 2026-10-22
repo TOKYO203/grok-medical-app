@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "neuro-avc-l3",
+  "version": "1.0.0",
+  "title": "AVC — sémiologie et signes d'alerte",
+  "subtitle": "Reconnaître, alerter, orienter · L3",
+  "subject": "Neurologie",
+  "specialty": "Clinique",
+  "studyYear": 3,
+  "difficulty": "intermediate",
+  "competencies": [
+    "recognize",
+    "semiology",
+    "diagnostic_orientation"
+  ],
+  "icon": "brain",
+  "status": "published",
+  "questions": [
+    {
+      "id": "avc-l3-1",
+      "prompt": "Un homme de 70 ans ne peut plus lever le bras droit et articule soudain avec difficulté depuis vingt minutes. Le message à transmettre au régulateur du SAMU (15) est :",
+      "choices": [
+        "Un déficit neurologique brutal et focal : suspicion d'AVC, urgence absolue",
+        "Une simple fatigue musculaire à surveiller à domicile",
+        "Un malaise digestif à traiter avant tout transfert",
+        "Une urgence ophtalmologique isolée sans gravité"
+      ],
+      "correct": 0,
+      "explanation": "Un déficit brutal et focal est un AVC jusqu'à preuve du contraire : le délai conditionne la reperfusion, chaque minute compte (des millions de neurones meurent par heure). L'appel immédiat au 15, sans attendre une amélioration spontanée, est la première action à enseigner.",
+      "sources": [
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC : messages clés pour les professionnels, 2023."
+        },
+        {
+          "title": "OMS",
+          "citation": "Accident vasculaire cérébral — aide-mémoire."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "avc-l3-2",
+      "prompt": "Une patiente sourit en tirant uniquement la commissure gauche et n'arrive pas à lever le bras droit. Le déficit touche :",
+      "choices": [
+        "L'hémicorps droit : visage et membres controlatéraux à la lésion",
+        "L'hémicorps gauche, du même côté que la lésion",
+        "Les quatre membres de façon symétrique",
+        "Uniquement la musculature oculaire"
+      ],
+      "correct": 0,
+      "explanation": "Les voies motrices croisent : une lésion hémisphérique gauche donne un déficit droit (et inversement). Le dépistage au lit demande de sourire, lever les deux bras et parler : toute asymétrie brutale signe une atteinte focale en regard.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke."
+        },
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "semiology"
+    },
+    {
+      "id": "avc-l3-3",
+      "prompt": "Un patient comprend les ordres simples mais produit un langage haché, pauvre et effortful, sans trouble de la compréhension. Cette aphasie :",
+      "choices": [
+        "Est dite de Broca et signe une atteinte de l'hémisphère gauche dominant",
+        "Est dite de Wernicke, avec jargon fluent",
+        "Correspond à une aphasie globale sans localisation",
+        "Traduit toujours une atteinte du cervelet"
+      ],
+      "correct": 0,
+      "explanation": "L'aphasie de Broca est non fluente : production pauvre, compréhension préservée, lésion frontale inférieure gauche. L'aphasie de Wernicke est fluente mais incompréhensible, avec mauvaise compréhension (temporal gauche). Toute aphasie brutale oriente vers l'artère sylvienne gauche.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Aphasia and Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "avc-l3-4",
+      "prompt": "Un patient décrit vertiges rotatoires brusques, hoquet, voix nasonnée, anesthésie de l'hémiface droite et insensibilité du bras gauche. Ce tableau évoque :",
+      "choices": [
+        "Un infarctus latéral bulbaire (syndrome de Wallenberg)",
+        "Un infarctus sylvien superficial hémisphérique",
+        "Une névrite vestibulaire isolée",
+        "Une migraine sans aura"
+      ],
+      "correct": 0,
+      "explanation": "Le syndrome de Wallenberg (territoire de l'artère vertébro-cérébelleuse postéro-inférieure) associe des signes croisés : atteinte sensitive ipsilatérale de la face et controlatérale du corps, vertige, hoquet, dysphagie, dysphonie. Il signe une atteinte du tronc cérébral, à distinguer d'un vertige périphérique.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — prise en charge de l'AVC."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "avc-l3-5",
+      "prompt": "Devant un déficit neurologique brutal, aucune décision thérapeutique ne se prend sans imagerie cérébrale car :",
+      "choices": [
+        "La clinique seule ne distingue pas de façon fiable l'infarctus de l'hémorragie",
+        "L'imagerie remplace l'examen neurologique",
+        "Elle mesure la glycémie capillaire",
+        "Elle est exigée uniquement pour la sortie d'hôpital"
+      ],
+      "correct": 0,
+      "explanation": "Infarctus et hématome se présentent de façon semblable à l'examen : seul le scanner cérébral sans injection (ou l'IRM) tranche, et l'hémorragie contre-indique la thrombolyse. D'où la règle : imagerie en urgence pour tout déficit brutal, avant tout traitement spécifique.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — imagerie et reperfusion de l'AVC."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l3-6",
+      "prompt": "Une céphalée brutale en coup de tonnerre, en moins d'une minute, avec vomissements et raideur de nuque doit d'abord faire évoquer :",
+      "choices": [
+        "Une hémorragie sous-arachnoïdienne par rupture anévrismale",
+        "Un infarctus lacunaire profond",
+        "Une céphalée de tension chronique",
+        "Un vertige paroxystique bénin"
+      ],
+      "correct": 0,
+      "explanation": "La céphalée en coup de tonnerre est une urgence absolue : hémorragie sous-arachnoïdienne jusqu'à preuve du contraire (scanner sans injection en urgence, ponction lombaire si le scanner est normal et la suspicion persiste). Une migraine typique ne s'installe pas en moins d'une minute avec raideur de nuque.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Subarachnoid Hemorrhage."
+        },
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — hémorragie sous-arachnoïdienne."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l3-7",
+      "prompt": "Un diabétique confus présente une hémiparésie. Avant d'incriminer un AVC, l'examen initial comporte impérativement :",
+      "choices": [
+        "Une glycémie capillaire, car l'hypoglycémie simule un déficit focal",
+        "Une ponction lombaire systématique",
+        "Un fond d'œil en urgence",
+        "Une radiographie de thorax"
+      ],
+      "correct": 0,
+      "explanation": "L'hypoglycémie est le grand simulateur de l'AVC (déficit focal, troubles de la conscience, crises). La glycémie fait partie des gestes immédiats, avec les constantes : la corriger peut faire régresser le tableau en minutes et évite une errance diagnostique.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        },
+        {
+          "title": "HAS",
+          "citation": "Guide du parcours de santé — AVC : messages clés, 2023."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l3-8",
+      "prompt": "Le score NIHSS remplit principalement :",
+      "choices": [
+        "La quantification du déficit pour suivre l'évolution et décider de la reperfusion",
+        "La prédiction de la mortalité en oncologie",
+        "La mesure de l'intensité douloureuse",
+        "L'évaluation de l'autonomie à la marche"
+      ],
+      "correct": 0,
+      "explanation": "Le NIHSS évalue 15 domaines (conscience, regards, champs visuels, motricité, langage, négligence…) sur 42 points. Un score sévère avec occlusion d'un gros vaisseau oriente vers la thrombectomie ; la réévaluation objective toute aggravation ou amélioration.",
+      "sources": [
+        {
+          "title": "AHA/ASA",
+          "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "avc-l3-9",
+      "prompt": "Un homme de 66 ans décrit une perte de vision de l'œil droit « comme un rideau », indolore, résolutive en cinq minutes. Il s'agit :",
+      "choices": [
+        "D'une amaurose fugace : accident ischémique transitoire rétinien à prendre au sérieux",
+        "D'une neuropathie optique inflammatoire",
+        "D'un glaucome aigu par fermeture de l'angle",
+        "D'un symptôme bénin sans risque vasculaire"
+      ],
+      "correct": 0,
+      "explanation": "L'amaurose fugace traduit une ischémie rétinienne, souvent liée à une sténose carotidienne ipsilatérale : c'est un AIT symptomatique qui impose un bilan urgent (écho-doppler des troncs supra-aortiques) et un traitement préventif avant l'AVC constitué.",
+      "sources": [
+        {
+          "title": "SFNV",
+          "citation": "Société Française Neuro-Vasculaire — AIT et sténose carotidienne symptomatique."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Stroke."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "avc-l3-10",
+      "prompt": "Contrairement à un déficit ischémique, une aura migraineuse s'installe :",
+      "choices": [
+        "Progressivement sur 5 à 20 minutes, avec des phénomènes souvent positifs (scotomes scintillants)",
+        "Instantanément, d'emblée maximale",
+        "Après l'âge de 60 ans, de façon permanente",
+        "Avec une raideur de nuque fébrile"
+      ],
+      "correct": 0,
+      "explanation": "L'aura migraineuse progresse sur plusieurs minutes, est souvent positive (lumières, scintillements, paresthesies) et régresse en moins d'une heure, céphalée ensuite. Le déficit vasculaire est brutal, négatif (perte de fonction) et maximal d'emblée. Toute première aura après 40 ans ou aura atypique justifie une évaluation.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd., chap. Headache and Migraine."
+        },
+        {
+          "title": "ICHD-3",
+          "citation": "Classification internationale des céphalées, 3e éd., critères de l'aura migraineuse."
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    }
+  ],
+  "deck_id": "neuro-avc-l3",
+  "schema_version": 2,
+  "access_policy": {
+    "tier": "pro",
+    "entitlement": "NEURO_PACK_15"
+  },
+  "sources": [
+    {
+      "title": "SFNV",
+      "citation": "Société Française Neuro-Vasculaire — reconnaissance et alerte de l'AVC."
+    },
+    {
+      "title": "AHA/ASA",
+      "citation": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke."
+    },
+    {
+      "title": "HAS",
+      "citation": "Guide du parcours de santé — AVC, 2023."
+    }
+  ]
+}
