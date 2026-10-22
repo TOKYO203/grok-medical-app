@@ -1,0 +1,38 @@
+name: Couvertures de profil — import de photos
+
+# Importe les photos de couverture décrites dans le manifeste et les commite
+# sur la branche qui a modifié le manifeste. Les outils MCP ne poussent que du
+# texte : les octets JPEG/WebP sont donc importés par la CI, puis vérifiés par
+# le garde-fou `scripts/profile-covers.test.mjs` au build suivant.
+on:
+  push:
+    paths:
+      - "scripts/profile-covers.manifest.json"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Télécharger et vérifier les photos du manifeste
+        run: node scripts/fetch-profile-covers.mjs
+
+      - name: Publier les photos sur la branche
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/profile-covers/
+          if git diff --cached --quiet; then
+            echo "Aucun changement à publier."
+          else
+            git commit -m "chore(covers): photos de couverture importées depuis le manifeste"
+            git push
+          fi
