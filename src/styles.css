@@ -1029,6 +1029,34 @@ html[data-theme="dark"][data-accent="marine"] {
   --app-ring: #3B82F6;
 }
 
+html[data-accent="vert"] {
+  --app-accent: #059669;
+  --app-gold: #065F46;
+  --app-gold-soft: #6EE7B7;
+  --app-ring: #065F46;
+}
+
+html[data-theme="dark"][data-accent="vert"] {
+  --app-accent: #34D399;
+  --app-gold: #6EE7B7;
+  --app-gold-soft: #6EE7B7;
+  --app-ring: #10B981;
+}
+
+html[data-accent="violet"] {
+  --app-accent: #7C3AED;
+  --app-gold: #4C1D95;
+  --app-gold-soft: #C4B5FD;
+  --app-ring: #4C1D95;
+}
+
+html[data-theme="dark"][data-accent="violet"] {
+  --app-accent: #A78BFA;
+  --app-gold: #C4B5FD;
+  --app-gold-soft: #C4B5FD;
+  --app-ring: #8B5CF6;
+}
+
 /* Pastilles du sélecteur « Couleur d'accent » (profil) — un point de couleur
    par palette, assombri ou éclairci selon le thème pour rester représentatif
    de ce que verra l'utilisateur. Le composant ne code aucun hex : il consomme
@@ -1038,6 +1066,8 @@ html[data-theme="dark"][data-accent="marine"] {
   --accent-swatch-rose: #E11D48;
   --accent-swatch-marron: #8B5A2B;
   --accent-swatch-marine: #1D4ED8;
+  --accent-swatch-vert: #059669;
+  --accent-swatch-violet: #7C3AED;
 }
 
 html[data-theme="dark"] {
@@ -1045,4 +1075,6 @@ html[data-theme="dark"] {
   --accent-swatch-rose: #F43F5E;
   --accent-swatch-marron: #C08552;
   --accent-swatch-marine: #60A5FA;
+  --accent-swatch-vert: #34D399;
+  --accent-swatch-violet: #A78BFA;
 }
