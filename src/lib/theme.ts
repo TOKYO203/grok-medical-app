@@ -5,7 +5,8 @@ export type ResolvedTheme = "light" | "dark";
 
 /**
  * Palette d'accent — réglage ORTHOGONAL au thème : elle colore la signature
- * dorée (kickers, filets, focus, badges) dans les trois modes
+ * dorée (kickers, filets, focus, badges) ET teinte les surfaces de fond
+ * (immersion — voir les blocs de palette de styles.css) dans les trois modes
  * clair / sombre / système. « defaut » garde l'or Oxford d'origine.
  */
 export type AccentPalette = "defaut" | "rose" | "marron" | "marine" | "vert" | "violet";
@@ -63,6 +64,22 @@ export function readAccentPalette(): AccentPalette {
   }
 }
 
+/**
+ * Barre du navigateur (meta theme-color) : suit le fond RÉEL de l'écran — le
+ * parchemin de base ou le fond teinté par la palette d'accent (immersion).
+ */
+function syncThemeColorMeta(resolved: ResolvedTheme) {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) return;
+  let tinted = "";
+  try {
+    tinted = getComputedStyle(document.documentElement).getPropertyValue("--app-bg").trim();
+  } catch {
+    /* style indisponible — repli sur les fonds de base ci-dessous */
+  }
+  meta.setAttribute("content", tinted || (resolved === "dark" ? "#0c1110" : "#EDE0C8"));
+}
+
 /** Applique le thème au document (attribut `data-theme` + couleur de barre navigateur). */
 export function applyTheme(mode: ThemeMode): ResolvedTheme {
   const resolved = resolveTheme(mode);
@@ -70,8 +87,7 @@ export function applyTheme(mode: ThemeMode): ResolvedTheme {
     const root = document.documentElement;
     root.setAttribute("data-theme", resolved);
     root.style.colorScheme = resolved;
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", resolved === "dark" ? "#0c1110" : "#EDE0C8");
+    syncThemeColorMeta(resolved);
   }
   return resolved;
 }
@@ -80,6 +96,8 @@ export function applyTheme(mode: ThemeMode): ResolvedTheme {
 export function applyAccentPalette(palette: AccentPalette) {
   if (typeof document !== "undefined") {
     document.documentElement.setAttribute("data-accent", palette);
+    // Le fond teinté change avec la palette : la barre du navigateur suit.
+    syncThemeColorMeta(resolveTheme(readThemeMode()));
   }
 }
 
