@@ -1,0 +1,54 @@
+name: Diag release-check
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Diagnose release check step by step
+        run: |
+          set -o pipefail
+          run_step() {
+            name="$1"; shift
+            if "$@" > /tmp/step.log 2>&1; then
+              echo "[diag] $name OK"
+            else
+              {
+                echo "### release:check — échec à l'étape [$name]"
+                echo '~~~'
+                tail -n 80 /tmp/step.log
+                echo '~~~'
+              } >> "$GITHUB_STEP_SUMMARY"
+              echo "::error title=$name::release:check a échoué à l'étape [$name] — dernieres lignes :"
+              tail -n 8 /tmp/step.log | while IFS= read -r l; do
+                printf '::error title=%s::%s
+' "$name" "$(printf '%s' "$l" | sed 's/%/%%25/g; s/\r$//')"
+              done
+              exit 1
+            fi
+          }
+          run_step routes-generate npm run routes:generate
+          run_step test npm test
+          run_step typecheck npm run typecheck
+          run_step lint npm run lint
+          run_step build npm run build
