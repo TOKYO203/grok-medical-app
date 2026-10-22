@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { authEnabled } from "@/lib/auth/client";
 import { useAppUser } from "@/hooks/useAppUser";
 import {
+  buildOptimusSnapshot,
   mergeOptimusSnapshots,
-  optimusSyncSnapshotSchema,
   type OptimusSyncSnapshot,
 } from "@/lib/optimus-sync-model";
 import { pullOptimusState, pushOptimusState } from "@/lib/optimus-sync";
@@ -12,37 +12,6 @@ import { useOptimus, type OptimusState } from "@/state/store";
 const OWNER_KEY = "optimus.sync.user-id";
 const SYNC_DEBOUNCE_MS = 1_500;
 const RETRY_MS = 15_000;
-
-function buildSnapshot(state: OptimusState): OptimusSyncSnapshot {
-  return optimusSyncSnapshotSchema.parse({
-    version: 1,
-    profile: {
-      displayName: state.profile.displayName,
-      optimusId: state.profile.optimusId,
-      studyYear: state.profile.studyYear,
-      studyLevel: state.profile.studyLevel,
-      country: state.profile.country,
-      faculty: state.profile.faculty,
-      goal: state.profile.goal,
-      prioritySubjects: state.profile.prioritySubjects,
-      avatar: state.profile.avatar,
-      // A custom cover is a device-local image asset. Do not pretend it exists on another device.
-      cover: state.profile.cover === "custom" ? "hautes-terres" : state.profile.cover,
-      onboarded: state.profile.onboarded,
-    },
-    xp: state.xp,
-    streak: state.streak,
-    lastActiveDay: state.lastActiveDay,
-    weeklyXp: state.weeklyXp,
-    weeklyKey: state.weeklyKey,
-    daily: state.daily,
-    progress: state.progress,
-    badges: state.badges,
-    casesCompleted: state.casesCompleted,
-    diagnosticsCompleted: state.diagnosticsCompleted,
-    reviewsSucceeded: state.reviewsSucceeded,
-  });
-}
 
 function applySnapshot(snapshot: OptimusSyncSnapshot): void {
   useOptimus.setState((current) => ({
@@ -153,7 +122,7 @@ export function OptimusSyncBridge() {
         return;
       }
 
-      const snapshot = buildSnapshot(useOptimus.getState());
+      const snapshot = buildOptimusSnapshot(useOptimus.getState());
       const serialized = JSON.stringify(snapshot);
       if (serialized === lastSerialized) return;
 
@@ -228,7 +197,7 @@ export function OptimusSyncBridge() {
           useOptimus.getState().createFreeAccount(userDisplayName ?? "Étudiant");
         }
 
-        const local = buildSnapshot(useOptimus.getState());
+        const local = buildOptimusSnapshot(useOptimus.getState());
         const remote = await pullOptimusState();
         if (disposed) return;
 
@@ -298,7 +267,7 @@ export function OptimusSyncBridge() {
         }
 
         saveLocalOwner(userId);
-        lastSerialized = JSON.stringify(buildSnapshot(useOptimus.getState()));
+        lastSerialized = JSON.stringify(buildOptimusSnapshot(useOptimus.getState()));
         initialized = true;
         unsubscribe = useOptimus.subscribe(() => schedulePush());
         window.addEventListener("online", schedulePush);
