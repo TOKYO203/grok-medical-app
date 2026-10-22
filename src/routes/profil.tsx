@@ -76,7 +76,15 @@ const COVERS: {
     image: "/profile-covers/baobabs.webp",
   },
   { id: "canal", label: "Canal des Pangalanes", image: "/profile-covers/canal.jpg" },
-  { id: "clinique", label: "Clinique", className: "cover-clinique" },
+  {
+    id: "clinique",
+    label: "Clinique",
+    className: "cover-clinique",
+    image: "/profile-covers/clinique.svg",
+  },
+  { id: "tsingy", label: "Tsingy de Bemaraha", image: "/profile-covers/tsingy.svg" },
+  { id: "ocean", label: "Océan Indien", image: "/profile-covers/ocean.svg" },
+  { id: "rizieres", label: "Rizières", image: "/profile-covers/rizieres.svg" },
 ];
 
 const BADGE_ICONS: Record<string, LucideIcon> = {

@@ -214,7 +214,15 @@ export type ContactDraft = {
   sent: boolean;
 };
 
-export type CoverId = "hautes-terres" | "baobab" | "canal" | "clinique" | "custom";
+export type CoverId =
+  | "hautes-terres"
+  | "baobab"
+  | "canal"
+  | "clinique"
+  | "tsingy"
+  | "ocean"
+  | "rizieres"
+  | "custom";
 
 export type Profile = {
   displayName: string;
