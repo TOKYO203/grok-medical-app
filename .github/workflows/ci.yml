@@ -13,9 +13,6 @@ jobs:
   release-check:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    permissions:
-      contents: read
-      pull-requests: write
 
     steps:
       - name: Checkout code
@@ -31,41 +28,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -o pipefail
-          # instrumentation temporaire — commande originale du step : run: npm run release:check
-          run_step() {
-            name="$1"; shift
-            if "$@" > /tmp/step.log 2>&1; then
-              echo "[diag] $name OK"
-            else
-              echo "::error title=$name::release:check a échoué à l'étape [$name] — extrait du test en échec :"
-              grep -B 3 -A 18 '^not ok' /tmp/step.log | head -n 9 | while IFS= read -r l; do
-                printf '::error title=%s::%s\n' "$name" "$(printf '%s' "$l" | sed 's/%/%%25/g; s/\r$//')"
-              done
-              if [ -n "${PR_NUMBER:-}" ]; then
-                {
-                  echo "### Diagnostic release:check — échec à l'étape [$name] (instrumentation temporaire v3)"
-                  echo '~~~'
-                  grep -B 10 -A 60 '^not ok' /tmp/step.log | head -n 150
-                  echo '~~~'
-                  echo '~~~'
-                  tail -n 40 /tmp/step.log
-                  echo '~~~'
-                } > /tmp/comment.md
-                gh pr comment "$PR_NUMBER" --body-file /tmp/comment.md || true
-              fi
-              exit 1
-            fi
-          }
-          run_step routes-generate npm run routes:generate
-          run_step test npm test
-          run_step typecheck npm run typecheck
-          run_step lint npm run lint
-          run_step build npm run build
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
