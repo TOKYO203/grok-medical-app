@@ -611,6 +611,30 @@ cloud, localement, sans appel réseau.
 qui suivait un lien vers `/login` voyait un formulaire vide et croyait sa session perdue ;
 la page redirige maintenant vers `/pro` dès que la session est résolue.
 
+**AUTH-6 — Provisionnement serveur de l'identité (`optimus_user_state`).** Le tunnel de
+commande lit `optimus_user_state` (table du projet serveur) et refuse de créer une commande
+sans cette ligne : « Connectez et synchronisez votre compte Optimus avant de créer une
+commande. » Cette ligne n'était écrite que par le pont Better Auth (`OptimusSyncBridge`),
+lui-même suspendu dès qu'une session Supabase existe (AUTH-1). **Conséquence mesurée en QA** :
+l'identité était corrigée, `/pro` affichait bien le tunnel, mais la commande échouait — une
+correction incomplète. `CloudIdentityBridge` provisionne désormais la ligne, avec trois
+garde-fous : on **lit d'abord** (un instantané existant interdit l'écriture, sinon un appareil
+neuf écraserait la progression cloud de l'utilisateur), un compte en cours d'effacement
+(`syncSuspended`) n'est **jamais** ressuscité, et on attend que l'Optimus ID local existe
+(l'instantané serait invalide). Le constructeur d'instantané, jusque-là privé au pont Better
+Auth, est extrait dans `buildOptimusSnapshot` (`src/lib/optimus-sync-model.ts`) pour que les
+deux ponts envoient **exactement** la même forme. Garde-fou : `scripts/single-identity.test.mjs`.
+
+**AUTH-7 — Les erreurs de server function ne portent PAS de statut HTTP (dette V1.1).**
+`UnauthorizedError` déclare `status = 401` et `IdentityUnavailableError` `status = 503`, mais
+TanStack Start sérialise toute exception de handler dans le corps d'une réponse **200**
+(`{"c":"$TSR/Error","s":{"message":…}}`). Mesuré en configuration de production (sans jeton) :
+`HTTP 200` + `{"message":"Unauthorized"}`. Ce n'est donc pas « un 500 générique » : **aucun
+code 4xx/5xx n'est émis**. Fonctionnellement l'application est correcte (le contrat documenté
+est `err.message === "Unauthorized"`), mais aucune couche d'exploitation (monitoring, cache,
+WAF, CDN) ne peut distinguer un refus d'authentification d'un succès. À traiter en V1.1 par un
+mapping explicite (`setResponseStatus`) sur les erreurs connues.
+
 **AUTH-5 — `.env.production` reste suivi en V1 (dette V1.1).** Les variables d'environnement
 Cloudflare Pages ne sont **pas** poussées dans l'environnement Vite par
 `scripts/with-app-env.mjs` ; `.env.production` est donc le seul moyen **fiable** de compiler un
@@ -621,3 +645,64 @@ ajouter quoi que ce soit d'autre : `scripts/secret-hygiene.test.mjs` allowliste 
 ce fichier **et** vérifie que chaque variable y est préfixée `VITE_`, donc qu'aucun secret
 serveur ne peut y entrer sans faire échouer la suite. À remplacer en V1.1 par une injection au
 build (variables de plateforme → `process.env` → `define` Vite).
+
+**AUTH-8 — Un build sans configuration cloud ne peut plus être publié.** Le symptôme n°1 de
+l'audit (« la connexion cloud n'est pas encore configurée ») n'était pas un bug de code : un
+artefact compilé **sans** `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY` a été publié, donc
+`isSupabaseConfigured` valait `false` et l'application retombait sur Better Auth. Aucun gate ne
+pouvait le voir : `tsc`, `eslint`, les tests, le budget de performance et le smoke test passent
+tous parfaitement sur un bundle **muet**. `scripts/assert-supabase-build.mjs` lit donc
+l'ARTEFACT publié et cherche les deux valeurs attendues (priorité à l'environnement, puis
+`.env.production`) dans les fichiers réellement servis — preuve directe, puisque Vite remplace
+`import.meta.env.VITE_*` par un littéral au build. Il tourne dans `postbuild:cloud`, branché sur
+`build`, `build:netlify` **et** `build:cloudflare` (les trois voies de publication). Deux
+décisions : (1) une seule moitié ne suffit pas — `isSupabaseConfigured` exige les DEUX, donc
+l'URL seule échoue aussi ; (2) échappatoire explicite `ALLOW_CLOUDLESS_BUILD=1` pour les builds
+volontairement hors-ligne (QA), qui avertit au lieu d'échouer — une publication silencieuse
+reste donc impossible. Garde-fou : `scripts/assert-supabase-build.test.mjs` (8 tests, dont
+« une seule moitié échoue » et « l'échappatoire reste visible dans le rapport »).
+
+**AUTH-9 — Le message de repli dit la vérité, et le code mort Better Auth est parti.** Deux
+nettoyages de la phase C de l'audit. (1) « La connexion cloud n'est pas encore configurée sur ce
+déploiement » est remplacé par un texte qui nomme la cause : cet artefact a été **compilé sans
+configuration cloud**, réessayer ne changera rien. L'ancienne formulation laissait croire à une
+panne passagère, ce qui fait tourner l'utilisateur en rond. (2) `src/lib/auth/gates.tsx`
+(composants `RequireAuth`/`AuthGate` autour de `useCurrentUserState`) est **supprimé** : jamais
+importé depuis la bascule sur Supabase, il ne restait qu'un piège — un futur écran l'aurait
+monté et aurait réintroduit une seconde source d'identité. Le fichier reste consultable dans
+l'historique (`git log -- src/lib/auth/gates.tsx`).
+
+**AUTH-10 — Ce qui a réellement bloqué la QA (et non l'application).** Le verdict de la QA
+« identité unique » restait rouge sur deux lignes, `server function sans jeton → 401` et
+`server function avec jeton → 200`, avec `403` dans les deux cas. Mesures : (1) un `fetch()` Node
+**sans en-tête `Origin`** reçoit `403` du garde **CSRF** de TanStack Start — le harnais ne
+mesurait que sa propre omission, pas une décision de l'application ; (2) une server function
+`POST` ne reçoit **pas** son entrée dans le corps, TanStack l'attend dans `?payload=…` : rejouer
+le corps donnait `500 SerovalDeserializationError` ; (3) le jeton lu depuis un **fichier**
+(`.gate-tmp/qa-token.txt`) pouvait être expiré (JWT 1 h). Le protocole retenu rejoue la requête
+capturée **telle quelle** deux fois, en n'effaçant que le jeton du payload : jeton effacé → refus,
+jeton intact → réponse. C'est un vrai A/B, la seule variable est le jeton. Corollaire :
+**`VITE_AUTH_ENABLED=false` dans `.env.local` rendait ce contrôle impossible** — l'identité est
+alors le `dev-user` partagé, donc une requête sans jeton réussit légitimement. La QA a été
+rejouée avec le drapeau **absent** (configuration de production, cf. audit §7), et non `false`.
+
+**AUTH-11 — Le garde-fou « chunk principal » mesurait la mauvaise chose.** `npm test` échouait
+localement sur `bundle-content.test.mjs` : « DX-THORAX-001 est remonté dans le chunk
+principal ». Faux positif : le test définissait le chunk principal comme **le plus gros fichier
+JS**. Depuis que le SDK Supabase a quitté l'entrée (chargé paresseusement), le chunk de DONNÉES
+partagé `catalog-*.js` (478 Kio, manifestes cliniques) est devenu plus gros que l'entrée
+`index-*.js` (417 Kio) — sans devenir pour autant le script initial. Le critère retenu est le
+**chunk d'entrée** (`pickEntryChunk`, vérifié sur l'artefact : le document charge
+`/assets/index-<hash>.js`), ce qui correspond à l'intention (« rien de lourd avant le premier
+rendu ») et ne dépend plus de l'ordre des tailles ; les autres chunks restent bornés un par un
+par `maxJavascriptChunkBytes`. Deux tests verrouillent ce choix. **Cause du silence en CI** :
+`release:check` exécute `npm test` AVANT `npm run build`, donc les assertions sur l'artefact sont
+sautées (`skip: noBuild`) — elles ne peuvent se déclencher qu'en local après un build.
+
+**AUTH-12 — Un répertoire de travail non ignoré gonflait le CSS publié de 6 Kio.** Tailwind v4
+détecte ses sources en scannant la racine du projet et ne respecte que `.gitignore` : un dossier
+de sorties de tâches de fond (`.gate-tmp/`, contenant une copie d'artefact de build) faisait
+entrer ses classes utilitaires dans la feuille publiée — `styles.css` à 129,3 Kio pour un
+plafond de 128, et un build rouge pour une raison **étrangère au code applicatif**. `.gate-tmp/`
+est désormais ignoré par git **et** par ESLint ; la feuille est revenue à 123,5 Kio. Règle :
+tout nouveau répertoire de travail local doit être ajouté aux deux listes, tenues en phase.
