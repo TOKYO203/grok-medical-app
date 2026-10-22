@@ -141,6 +141,16 @@ try {
     });
     await waitForServer(DEV_URL, DEV_START_TIMEOUT_MS, "dev server");
 
+    // Préchauffage : au premier chargement Vite pré-optimise ses dépendances et
+    // RECHARGE la page (« optimized dependencies changed »). Mesuré en CI : le
+    // smoke tombait dans cette fenêtre et échouait sur `504 (Outdated Optimize
+    // Dep)` + deux `404` — un artefact de démarrage à froid, pas un défaut
+    // applicatif. Ce passage ne juge rien (erreurs ignorées), il stabilise.
+    const warmup = await runAudit("scripts/dev-server-warmup.mjs", DEV_URL);
+    if (warmup !== 0) {
+      console.error("[qa:mobile:built] préchauffage du serveur de dev en échec (les smokes décideront)");
+    }
+
     const persistenceExitCode = await runAudit("scripts/imported-deck-browser-smoke.mjs", DEV_URL);
     if (persistenceExitCode !== 0) {
       process.exitCode = persistenceExitCode;

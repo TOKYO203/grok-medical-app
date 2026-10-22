@@ -771,3 +771,15 @@ le marqueur `optimus.locale.chosen.v1`, sinon `applyDetectedLocale` relit `navig
 (en-US en headless) et réécrit la locale en anglais. Ajout assumé : `/tarifs` et `/login`
 rejoignent l'audit de mise en page (vérifiés propres à 320/360/390 px) — sans elles, l'audit ne
 mesurait plus aucune page commerciale réelle.
+
+**AUTH-16 — Le préchauffage du serveur de dev fait partie du contrat de QA.** Troisième et dernier
+échec de `release-check`, une fois la porte franchie (AUTH-15) : `[imported-deck-browser-smoke]
+browser console errors: 504 (Outdated Optimize Dep), 404, 404`. Aucun défaut applicatif : au tout
+premier chargement, Vite pré-optimise ses dépendances, logue « optimized dependencies changed.
+reloading » et **recharge la page en cours** — le smoke tombait exactement dans cette fenêtre. Le
+correctif n'est pas de tolérer des erreurs console dans les smokes (cela affaiblirait un contrôle
+qui a déjà attrapé de vrais défauts), mais de stabiliser le serveur AVANT de mesurer :
+`scripts/dev-server-warmup.mjs` charge `/`, `/import` et `/parcours` deux fois en ignorant
+volontairement les erreurs (il ne juge rien), puis les smokes restent intransigeants. Un test
+vérifie l'ORDRE (préchauffage avant smoke) et pas seulement la présence des appels : un préchauffage
+exécuté après le smoke serait un code mort rassurant.

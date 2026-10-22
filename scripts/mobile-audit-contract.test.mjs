@@ -136,3 +136,22 @@ test("la cible sans porte est obtenue par configuration, pas par un drapeau de t
     "aucun drapeau de contournement ne doit exister : la porte est une décision produit",
   );
 });
+
+test("le serveur de dev est préchauffé avant les smokes de fonctionnalité", () => {
+  const runner = read(QA_BUILT);
+  // Vite pré-optimise ses dépendances au premier chargement et recharge la page
+  // en cours (« optimized dependencies changed »). Mesuré en CI : le smoke de
+  // l'import tombait dans cette fenêtre et échouait sur `504 (Outdated Optimize
+  // Dep)` + deux `404`, sans aucun défaut applicatif.
+  assert.match(
+    runner,
+    /runAudit\("scripts\/dev-server-warmup\.mjs", DEV_URL\)/,
+    "un préchauffage doit précéder les smokes de fonctionnalité",
+  );
+  const warmupIndex = runner.indexOf('runAudit("scripts/dev-server-warmup.mjs", DEV_URL)');
+  const persistenceIndex = runner.indexOf('runAudit("scripts/imported-deck-browser-smoke.mjs", DEV_URL)');
+  assert.ok(
+    warmupIndex !== -1 && persistenceIndex !== -1 && warmupIndex < persistenceIndex,
+    "le préchauffage doit être exécuté AVANT le smoke de l'import",
+  );
+});
