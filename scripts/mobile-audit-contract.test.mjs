@@ -90,3 +90,49 @@ test("un document sans repère principal reste un échec d'audit", () => {
   );
   assert.match(audit, /bottomNavTargetsTooSmall > 0/, "le seuil tactile de 44 px reste exigé");
 });
+
+// ─────────── Deux cibles de QA : artefact publié vs fonctionnalités ──────────
+
+const QA_BUILT = "scripts/qa-built-mobile.mjs";
+
+test("les smokes de fonctionnalité ne sont pas joués derrière la porte de connexion", () => {
+  const runner = read(QA_BUILT);
+  // `/import` et le parcours critique décrivent le monde SANS COMPTE
+  // (OM-GUEST, IndexedDB). Dans l'artefact de production, ces écrans sont
+  // derrière la porte : les y jouer échoue sur un `textarea` introuvable, ce qui
+  // ne dit rien de la fonctionnalité. Mesuré en CI avant correctif.
+  assert.match(
+    runner,
+    /runAudit\("scripts\/imported-deck-browser-smoke\.mjs", DEV_URL\)/,
+    "l'import de Deck doit être joué sur la cible sans porte (serveur de dev)",
+  );
+  assert.match(
+    runner,
+    /runAudit\("scripts\/mobile-critical-journey-smoke\.mjs", DEV_URL\)/,
+    "le parcours critique doit être joué sur la cible sans porte",
+  );
+  // L'audit de MISE EN PAGE reste, lui, sur l'artefact réellement publié.
+  assert.match(
+    runner,
+    /runAudit\("scripts\/mobile-ui-smoke\.mjs", BASE_URL\)/,
+    "l'audit de mise en page doit rester sur l'artefact de production",
+  );
+});
+
+test("la cible sans porte est obtenue par configuration, pas par un drapeau de test", () => {
+  const runner = read(QA_BUILT);
+  // Neutraliser la configuration cloud utilise le comportement PRODUIT
+  // (`configured:false` ⇒ porte transparente). Un `VITE_QA_MODE` créerait un
+  // chemin de contournement capable d'atteindre la production s'il était déployé.
+  assert.match(runner, /VITE_SUPABASE_URL: ""/, "l'URL cloud doit être vidée sur la cible sans porte");
+  assert.match(
+    runner,
+    /VITE_SUPABASE_ANON_KEY: ""/,
+    "les DEUX variables doivent être vidées : une seule ne suffit pas à désactiver le client",
+  );
+  assert.doesNotMatch(
+    runner,
+    /VITE_QA_MODE|QA_GATE_BYPASS|DISABLE_AUTH/,
+    "aucun drapeau de contournement ne doit exister : la porte est une décision produit",
+  );
+});

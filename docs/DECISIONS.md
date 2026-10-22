@@ -743,3 +743,31 @@ commerciales. Vérifié avant ajout aux 3 largeurs. Couverture **assumée** en r
 applicatifs (derrière la porte) ne sont plus mesurés à 320 px par la CI ; ils le restent en
 développement — le gate y est transparent faute de configuration cloud, c'est le cas des E2E — et
 à la main. Rejouer l'audit avec une session (projet de test dédié) reste le suivi ouvert.
+
+**AUTH-15 — Deux cibles de QA, parce qu'elles ne mesurent pas la même chose.** Une fois le repère
+`<main>` rétabli (AUTH-14), `release-check` est passé au rouge sur l'étape suivante : `/import` sans
+`textarea`, puis le parcours critique mobile. Même cause racine — depuis AUTH-8, l'artefact de
+production porte la configuration cloud, donc la porte de connexion est **active** et un visiteur
+anonyme ne voit que l'écran de connexion. Or `imported-deck-browser-smoke` et
+`mobile-critical-journey-smoke` décrivent explicitement le monde **sans compte** (identité
+`OM-GUEST`, IndexedDB locale, onboarding, nom saisi) : les jouer derrière une porte qui exige
+justement un compte ne teste plus la fonctionnalité, mais la porte. `scripts/qa-built-mobile.mjs`
+lance donc deux cibles : (1) l'**artefact publié** (preview, 8081) pour l'audit de mise en page — le
+seul qui doive porter sur ce qui est réellement publié ; (2) un **serveur de développement** dont la
+configuration cloud est neutralisée (`VITE_SUPABASE_URL` et `VITE_SUPABASE_ANON_KEY` vides, 8082)
+pour les deux smokes de fonctionnalité. Neutraliser la configuration plutôt que retirer les
+contrôles est le point important : `resolveCloudGate` rend la porte transparente quand Supabase
+n'est pas configuré — comportement **produit** (l'application reste utilisable sans cloud), pas une
+exception de test. Aucun `VITE_QA_MODE` n'est introduit, donc **aucun chemin de contournement ne
+peut atteindre la production** ; le garde-fou le vérifie par l'absence de tout drapeau de ce type.
+Preuve avant de pousser (CDP `headless_shell`, Playwright indisponible sous Termux) sur cette
+cible : accueil rendu sans mur, un seul `<main>`, `/import` affiche son formulaire,
+« Enregistré dans IndexedDB » puis le Deck réapparaît sur `/parcours` après rechargement,
+onboarding 5 écrans → « Bonjour, QA Mobile » → Deck démarrable → profil conservé, 0 erreur console.
+Piège de harnais confirmé : une saisie `Input.insertText` **avant l'hydratation** est écrasée par le
+re-render (`value=""` réappliqué) — il faut rejouer la saisie jusqu'à ce que le bouton « Valider »
+s'active, exactement comme le fait le script Playwright. Deuxième piège : forcer le français exige
+le marqueur `optimus.locale.chosen.v1`, sinon `applyDetectedLocale` relit `navigator.languages`
+(en-US en headless) et réécrit la locale en anglais. Ajout assumé : `/tarifs` et `/login`
+rejoignent l'audit de mise en page (vérifiés propres à 320/360/390 px) — sans elles, l'audit ne
+mesurait plus aucune page commerciale réelle.
