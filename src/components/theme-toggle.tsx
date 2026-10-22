@@ -1,11 +1,18 @@
 import { Monitor, Moon, Sun } from "lucide-react";
-import { useTheme, type ThemeMode } from "@/lib/theme";
+import { useTheme, type AccentPalette, type ThemeMode } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const MODES: { id: ThemeMode; label: string; icon: typeof Sun }[] = [
   { id: "light", label: "Clair", icon: Sun },
   { id: "dark", label: "Sombre", icon: Moon },
   { id: "system", label: "Système", icon: Monitor },
+];
+
+const ACCENTS: { id: AccentPalette; label: string; swatch: string }[] = [
+  { id: "defaut", label: "Défaut", swatch: "var(--accent-swatch-defaut)" },
+  { id: "rose", label: "Rose", swatch: "var(--accent-swatch-rose)" },
+  { id: "marron", label: "Marron", swatch: "var(--accent-swatch-marron)" },
+  { id: "marine", label: "Bleu marine", swatch: "var(--accent-swatch-marine)" },
 ];
 
 /** Bascule de thème compacte (icône) — idéale en barre latérale / barre mobile. */
@@ -61,6 +68,52 @@ export function ThemeSelector({ className }: { className?: string }) {
             )}
           >
             <Icon className="size-3.5" aria-hidden />
+            {label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * Sélecteur de palette d'accent (Défaut · Rose · Marron · Bleu marine).
+ * Réglage orthogonal au thème : la palette colore la signature dorée dans
+ * les modes clair, sombre ET système. Les pastilles consomment
+ * `--accent-swatch-*` (définies dans styles.css) — aucun hex dans le composant.
+ */
+export function AccentSelector({ className }: { className?: string }) {
+  const { accent, setAccent } = useTheme();
+
+  return (
+    <div
+      role="radiogroup"
+      aria-label="Couleur d’accent"
+      className={cn(
+        "inline-flex items-center gap-1 rounded-[var(--radius-md)] bg-secondary p-1 shadow-[var(--shadow-border)]",
+        className,
+      )}
+    >
+      {ACCENTS.map(({ id, label, swatch }) => {
+        const active = accent === id;
+        return (
+          <button
+            key={id}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            onClick={() => setAccent(id)}
+            title={label}
+            className={cn(
+              "flex min-h-8 items-center gap-2 rounded-[var(--radius-sm)] px-2.5 text-xs font-medium transition-colors",
+              active ? "bg-card text-fg shadow-[var(--shadow-border)]" : "text-muted hover:text-fg",
+            )}
+          >
+            <span
+              aria-hidden
+              className="inline-block size-3.5 shrink-0 rounded-full shadow-[inset_0_0_0_1px_rgb(0_0_0/0.15)]"
+              style={{ backgroundColor: swatch }}
+            />
             {label}
           </button>
         );
