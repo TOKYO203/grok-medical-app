@@ -13,6 +13,9 @@ jobs:
   release-check:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+      pull-requests: write
 
     steps:
       - name: Checkout code
@@ -28,6 +31,9 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -o pipefail
           run_step() {
@@ -35,10 +41,22 @@ jobs:
             if "$@" > /tmp/step.log 2>&1; then
               echo "[diag] $name OK"
             else
-              echo "::error title=$name::release:check a échoué à l'étape [$name] — dernieres lignes :"
-              tail -n 8 /tmp/step.log | while IFS= read -r l; do
+              echo "::error title=$name::release:check a échoué à l'étape [$name] — extrait du test en échec :"
+              grep -B 3 -A 18 '^not ok' /tmp/step.log | head -n 9 | while IFS= read -r l; do
                 printf '::error title=%s::%s\n' "$name" "$(printf '%s' "$l" | sed 's/%/%%25/g; s/\r$//')"
               done
+              if [ -n "${PR_NUMBER:-}" ]; then
+                {
+                  echo "### Diagnostic release:check — échec à l'étape [$name] (instrumentation temporaire)"
+                  echo '~~~'
+                  grep -B 10 -A 60 '^not ok' /tmp/step.log | head -n 150
+                  echo '~~~'
+                  echo '~~~'
+                  tail -n 40 /tmp/step.log
+                  echo '~~~'
+                } > /tmp/comment.md
+                gh pr comment "$PR_NUMBER" --body-file /tmp/comment.md || true
+              fi
               exit 1
             fi
           }
@@ -83,6 +101,9 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
 
       - name: Ensure PostgreSQL client is available
         run: |
