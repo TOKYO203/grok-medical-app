@@ -11,7 +11,14 @@ import {
   Smartphone,
   Sparkles,
 } from "lucide-react";
+import { signOutCloud } from "@/lib/cloud/session";
 import { useAuth } from "@/hooks/useAuth";
+import {
+  CARD_AUTH_MESSAGES,
+  decideCardAuthGate,
+  describeCheckoutFailure,
+  parseCheckoutFailureBody,
+} from "@/lib/checkout/messages";
 import {
   PRICE_EUR,
   buildLemonCheckoutUrl,
@@ -123,10 +130,15 @@ function TarifsPage() {
      hébergé. C'est cette référence qui revient dans `meta.custom_data` et
      permet au webhook de retrouver l'acheteur — sans jamais faire confiance à
      un montant ou un identifiant venus du client. */
-  const { session } = useAuth();
+  const { session, status: authStatus } = useAuth();
   const navigate = useNavigate();
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
+  // Étiquette stable du dernier échec (QA + journaux) : « http-503-database ».
+  const [payErrorCode, setPayErrorCode] = useState<string | null>(null);
+  // Le serveur a REFUSÉ le jeton alors qu'une session existait : on propose une
+  // reconnexion explicite au lieu de rediriger automatiquement.
+  const [sessionRejected, setSessionRejected] = useState(false);
 
   // Un identifiant de demande stable : deux clics rapides produisent UNE
   // commande (UNIQUE(user_id, client_request_id)), pas deux checkouts.
@@ -141,12 +153,26 @@ function TarifsPage() {
   async function startCardPayment() {
     if (paying) return;
     setPayError(null);
+    setPayErrorCode(null);
+    setSessionRejected(false);
 
-    if (!session?.user) {
+    /* 1. PEUT-ON seulement tenter ? On ne renvoie vers /login que si l'on SAIT
+       qu'il n'y a pas de session. `loading`/`unavailable` ne sont PAS des
+       déconnexions : y réagir par une redirection rejouerait exactement le
+       symptôme de « double authentification » corrigé en AUTH-8. */
+    const gate = decideCardAuthGate(authStatus, Boolean(session?.access_token));
+    if (gate === "login") {
       void navigate({ to: "/login" });
       return;
     }
+    if (gate !== "proceed") {
+      setPayErrorCode(`auth-${gate}`);
+      setPayError(CARD_AUTH_MESSAGES[gate]);
+      return;
+    }
+
     if (!cardReady) {
+      setPayErrorCode("config-missing");
       setPayError(
         "Le paiement par carte n'est pas encore ouvert sur ce déploiement. Écrivez-nous : nous vous envoyons un lien de paiement sécurisé.",
       );
@@ -154,43 +180,85 @@ function TarifsPage() {
     }
 
     setPaying(true);
+
+    // `requestIdRef` rend le clic idempotent : deux clics rapides produisent UNE
+    // commande (UNIQUE(user_id, client_request_id)), pas deux checkouts.
+    requestIdRef.current ??= newCheckoutRequestId();
+
+    let response: Response | null = null;
     try {
-      requestIdRef.current ??= newCheckoutRequestId();
-      const response = await fetch("/api/checkout/lemonsqueezy", {
+      response = await fetch("/api/checkout/lemonsqueezy", {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${session.access_token}`,
+          authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({ clientRequestId: requestIdRef.current }),
       });
-
-      if (response.status === 401) {
-        setPaying(false);
-        void navigate({ to: "/login" });
-        return;
-      }
-      if (!response.ok) throw new Error(`checkout ${response.status}`);
-
-      const data = (await response.json().catch(() => null)) as { reference?: unknown } | null;
-      if (!data || typeof data.reference !== "string") throw new Error("checkout reference");
-
-      // `window.location.assign` plutôt que le routeur : on quitte l'application
-      // pour le checkout hébergé (aucun état de route à conserver).
-      window.location.assign(
-        buildLemonCheckoutUrl({
-          config: lemonConfig,
-          userId: session.user.id,
-          email: session.user.email,
-          orderReference: data.reference,
-        }),
-      );
     } catch {
-      setPayError(
-        "Le paiement par carte n'a pas pu être ouvert. Vérifiez votre connexion et réessayez : aucun montant n'a été débité.",
-      );
-      setPaying(false);
+      response = null;
     }
+
+    if (!response) {
+      const failure = describeCheckoutFailure({ status: null });
+      setPayErrorCode(failure.code);
+      setPayError(failure.message);
+      setPaying(false);
+      return;
+    }
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => null);
+      const failure = describeCheckoutFailure({
+        status: response.status,
+        ...parseCheckoutFailureBody(body),
+      });
+      setPaying(false);
+      setPayErrorCode(failure.code);
+      setPayError(failure.message);
+      // ⚠️ NE PAS rediriger ici. `/login` renvoie un utilisateur SESSIONNÉ vers
+      // `/pro` (login.tsx) : sur un jeton refusé, l'acheteur rebondissait vers la
+      // page d'achat sans jamais apprendre pourquoi — mesuré en QA, et c'est
+      // exactement ce qui fait dire « le bouton ne marche pas ».
+      if (failure.kind === "login") setSessionRejected(true);
+      return;
+    }
+
+    const data = (await response.json().catch(() => null)) as { reference?: unknown } | null;
+    if (!data || typeof data.reference !== "string") {
+      // Réponse 200 sans référence : on n'envoie JAMAIS l'acheteur vers un
+      // checkout sans commande en face (le webhook n'aurait rien à livrer).
+      const failure = describeCheckoutFailure({ status: 503 });
+      setPayErrorCode("reference-missing");
+      setPayError(failure.message);
+      setPaying(false);
+      return;
+    }
+
+    // `window.location.assign` plutôt que le routeur : on quitte l'application
+    // pour le checkout hébergé (aucun état de route à conserver).
+    window.location.assign(
+      buildLemonCheckoutUrl({
+        config: lemonConfig,
+        userId: session?.user?.id ?? "",
+        email: session?.user?.email ?? null,
+        orderReference: data.reference,
+      }),
+    );
+  }
+
+  /**
+   * Reconnexion volontaire : on DÉCONNECTE d'abord, sinon `/login` renvoie
+   * aussitôt vers `/pro` (session encore présente) et l'utilisateur ne voit
+   * jamais le formulaire.
+   */
+  async function restartSession() {
+    try {
+      await signOutCloud();
+    } catch {
+      /* la déconnexion est un confort : on continue vers /login */
+    }
+    void navigate({ to: "/login" });
   }
 
   return (
@@ -389,8 +457,31 @@ function TarifsPage() {
                       role="alert"
                       className="mt-2 text-xs leading-relaxed text-[var(--tone-danger-fg)]"
                       data-lemon-error
+                      data-lemon-error-code={payErrorCode ?? undefined}
                     >
                       {payError}
+                    </p>
+                  ) : null}
+                  {/* Le serveur a refusé le jeton : reconnexion EXPLICITE.
+                      Un `<Button>` du Design System, comme le reste de la page
+                      (`scripts/product-copy.test.mjs` interdit un `<button>`
+                      natif ici — et cette règle a du sens : un bouton doit
+                      suivre les tokens, pas un style local). */}
+                  {sessionRejected ? (
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="mt-2"
+                      onClick={() => void restartSession()}
+                      data-lemon-reauth
+                    >
+                      Se reconnecter
+                    </Button>
+                  ) : null}
+                  {(authStatus === "anonymous" || authStatus === "unconfigured") && !payError ? (
+                    <p className="mt-2 text-xs leading-relaxed text-muted" data-lemon-auth-note>
+                      Un compte Optimus est nécessaire : le paiement ouvre votre accès sur ce
+                      compte.
                     </p>
                   ) : null}
                   {!cardReady ? (

@@ -28,6 +28,11 @@
 // (`--experimental-strip-types`), qui ne résout pas l'alias `@/` du tsconfig.
 import { licenseExpiryFor } from "../../content/purchase-order.ts";
 import { SUBSCRIPTION_MONTHS } from "../../content/pricing.ts";
+import {
+  mergedServerEnv,
+  resolveSupabaseServiceKey,
+  resolveSupabaseUrl,
+} from "../supabase-env.server.ts";
 import type { LemonEvent } from "./signature.ts";
 
 type Env = Record<string, string | undefined>;
@@ -116,11 +121,14 @@ export type SupabaseAdminConfig = { url: string; key: string };
  * `docs/supabase/002-grants.sql` n'autorisent pour `authenticated` qu'un
  * `SELECT`. Elle ne quitte jamais le serveur et n'est jamais journalisée.
  */
-export function supabaseAdminConfig(env: Env = process.env as Env): SupabaseAdminConfig | null {
-  const url = (env.SUPABASE_URL ?? env.VITE_SUPABASE_URL ?? "").trim().replace(/\/+$/, "");
-  const key = (env.SUPABASE_SERVICE_ROLE_KEY ?? env.SUPABASE_SERVICE_KEY ?? "").trim();
+export function supabaseAdminConfig(env?: Env): SupabaseAdminConfig | null {
+  // Résolution PARTAGÉE (`../supabase-env.server.ts`) : elle inclut les valeurs
+  // inlinées au build. Sans cela, un worker déployé sans `SUPABASE_URL` explicite
+  // ne pouvait pas livrer la licence d'une commande pourtant payée.
+  const merged = mergedServerEnv(env);
+  const url = resolveSupabaseUrl(merged);
+  const key = resolveSupabaseServiceKey(merged);
   if (!url || !key) return null;
-  if (!/^https?:\/\//i.test(url)) return null;
   return { url, key };
 }
 

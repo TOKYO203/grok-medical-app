@@ -69,6 +69,36 @@ Keep secrets in the deployment platform and GitHub repository secrets. Never com
   After go-live, clean the test licences: `select count(*) from webhook_events
   where detail->>'testMode' = 'true';`
 
+### 1 bis. Cloudflare Pages — variables d'exécution (incident du 2026-10-22)
+
+Un fichier `.env.production` versionné est un fichier de **build** : il inline les
+`VITE_*` dans le bundle mais ne crée **aucune** variable pour le worker. Le
+bouton « Payer par Carte » a répondu 503 en production pour cette raison.
+
+Checklist après chaque changement d'environnement :
+
+1. Cloudflare Pages → **Settings → Variables and Secrets** (Production **et**
+   Preview) :
+   - `DATABASE_URL` (secret) — sans elle, la base retombe sur PGLite/WASM et
+     **aucune** commande ne peut être enregistrée : le paiement est refusé ;
+   - `SUPABASE_URL` + `SUPABASE_ANON_KEY` (recommandé ; le code sait aussi lire
+     les `VITE_*` inlinées, mais une variable d'exécution reste prioritaire) ;
+   - `SUPABASE_SERVICE_ROLE_KEY`, `LICENSE_JWT_SECRET`, `LICENSE_PUBLIC_KEY`,
+     `LEMONSQUEEZY_*`, `UPSTASH_REDIS_REST_URL/TOKEN`.
+2. Cloudflare Pages → **Settings → Runtime → Compatibility flags** :
+   `nodejs_compat` doit être actif (nécessaire à `pg`/`pg-cloudflare`,
+   `node:crypto`, `node:buffer`).
+3. Redéployer, puis mesurer **l'environnement réel** (pas le poste de dev) :
+
+```bash
+curl -s https://<domaine>/api/health/checkout | jq
+npm run payment:readiness -- --host https://<domaine>
+```
+
+`ready: true` est la seule preuve acceptable avant d'annoncer la vente. Cet
+endpoint ne renvoie que des booléens et une source de base — jamais une URL ni
+une clé.
+
 For staging validation, GitHub Actions expects `SUPABASE_STAGING_DATABASE_URL` and the workflow `Supabase staging DB validation` must be launched with confirmation `STAGING`.
 
 ## 2. Release gate

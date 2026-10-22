@@ -5,6 +5,7 @@ import {
   supabaseServerConfig,
   type SupabaseServerConfig,
 } from "../../server/licence-session.server.ts";
+import { mergedServerEnv } from "../../server/supabase-env.server.ts";
 
 /**
  * IDENTITÉ SUPABASE CÔTÉ SERVEUR — la seule source d'identité en production.
@@ -106,10 +107,15 @@ function writeCache(key: string, result: SupabaseIdentityResult, now: number): v
  * Supabase l'a émise. (La clé anonyme est publique : elle est déjà dans le
  * bundle client, il n'y a donc rien à protéger ici.)
  */
+/**
+ * Environnement serveur = valeurs inlinées au build, écrasées par l'exécution.
+ *
+ * La fusion vivait ici en propre ; elle est désormais partagée
+ * (`server/supabase-env.server.ts`) pour qu'aucun autre module serveur ne
+ * puisse l'oublier — c'est exactement ce qui a cassé le tunnel de paiement.
+ */
 function serverEnv(): Env {
-  const viteEnv =
-    (import.meta as { env?: Record<string, string | undefined> }).env ?? {};
-  return { ...viteEnv, ...process.env } as Env;
+  return mergedServerEnv() as Env;
 }
 
 const BASE64URL_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";

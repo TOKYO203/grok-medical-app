@@ -1,6 +1,11 @@
 // Import RELATIF : ce module est chargé par des tests exécutés via
 // `node --experimental-strip-types`, qui ne résout pas l'alias `@/`.
 import { activeLicence, type LicenceRow } from "../lib/cloud/licence.ts";
+import {
+  mergedServerEnv,
+  readServerSupabaseConfig,
+  type EnvLike,
+} from "./supabase-env.server.ts";
 
 /**
  * PONT LICENCE SUPABASE → JWT DE CONTENU — serveur uniquement.
@@ -57,15 +62,16 @@ type Deps = {
   now?: () => number;
 };
 
-/** URL + clé publique Supabase côté serveur (les `VITE_*` sont un repli). */
-export function supabaseServerConfig(
-  env: Record<string, string | undefined> = process.env as Record<string, string | undefined>,
-): SupabaseServerConfig | null {
-  const url = (env.SUPABASE_URL ?? env.VITE_SUPABASE_URL ?? "").trim().replace(/\/+$/, "");
-  const anonKey = (env.SUPABASE_ANON_KEY ?? env.VITE_SUPABASE_ANON_KEY ?? "").trim();
-  if (!url || !anonKey) return null;
-  if (!/^https?:\/\//i.test(url)) return null;
-  return { url, anonKey };
+/**
+ * URL + clé publique Supabase côté serveur.
+ *
+ * ⚠️ La résolution vit dans `./supabase-env.server.ts` : elle doit inclure les
+ * valeurs INLINÉES au build (`import.meta.env`). Une version locale qui ne lisait
+ * que `process.env` rendait ce module aveugle sur le worker déployé — c'est la
+ * cause du 503 du bouton « Payer par Carte » en production (2026-10-22).
+ */
+export function supabaseServerConfig(env?: EnvLike): SupabaseServerConfig | null {
+  return readServerSupabaseConfig(mergedServerEnv(env));
 }
 
 /** Garde-fou de forme : un jeton d'accès est court, opaque, sans espace. */

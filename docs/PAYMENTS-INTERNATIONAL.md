@@ -44,6 +44,60 @@ le comportement voulu.
 
 ---
 
+### 2 bis. Variables d'exécution vs variables de BUILD (incident du 2026-10-22)
+
+Le bouton « Payer par Carte » répondait **503** en production alors que la
+variante était bien configurée. Cause : `.env.production` est un fichier de
+**build**. Vite l'inline dans le bundle (`import.meta.env`) ; il ne crée
+**aucune** variable d'environnement pour le worker déployé.
+
+| Source | Visible du navigateur | Visible du serveur déployé |
+|---|---|---|
+| `.env.production` (`VITE_*`) | ✅ inliné au build | ❌ pas d'environnement |
+| Variables du projet (Cloudflare/Netlify/Vercel) | ✅ si `VITE_*` | ✅ `process.env` |
+
+La résolution serveur vit donc dans **un seul module**, `src/server/supabase-env.server.ts`,
+qui lit `process.env.SUPABASE_URL` → `process.env.VITE_SUPABASE_URL` →
+`import.meta.env.VITE_SUPABASE_URL` (inliné). Trois conséquences :
+
+1. l'identité de l'acheteur est vérifiable même si la plateforme ne définit que
+   les `VITE_*` ;
+2. la **licence** peut être livrée par le webhook (même résolution pour
+   `SUPABASE_SERVICE_ROLE_KEY`) ;
+3. `DATABASE_URL`, elle, **ne peut pas être inlinée** (secret) : elle doit
+   exister dans l'environnement du déploiement, sinon la commande ne peut pas
+   être enregistrée — et l'on préfère **ne pas encaisser** plutôt que de vendre
+   un accès impossible à livrer.
+
+**Vérifier un déploiement en une commande :**
+
+```bash
+curl -s https://<domaine>/api/health/checkout | jq
+npm run payment:readiness -- --host https://<domaine>
+```
+
+`/api/health/checkout` ne renvoie que des booléens et une source de base
+(`postgres` / `pglite`) : aucune URL, aucune clé, jamais un message de driver.
+
+```json
+{
+  "ready": true,
+  "supabase": { "identity": true, "serviceKey": true },
+  "database": { "source": "postgres", "reachable": true },
+  "lemon": { "apiKey": true, "webhookSecret": true, "checkoutConfigured": true }
+}
+```
+
+Lecture :
+- `supabase.identity: false` → variables Supabase absentes **à l'exécution**
+  (ou build sans `VITE_SUPABASE_*`) ;
+- `database.source: "pglite"` → `DATABASE_URL` absente : repli WASM, inutilisable
+  sur un worker → ajouter la variable et redéployer ;
+- `database.source: "postgres"` + `reachable: false` → base configurée mais
+  injoignable (pooler, mot de passe, TLS, flag `nodejs_compat`).
+
+---
+
 ## 3. Flux complet
 
 ```
@@ -212,3 +266,6 @@ Les tests unitaires couvrent le reste sans réseau :
 | webhook → 200 `unmatched / order-not-found` | commande créée sur un autre environnement | vérifier `DATABASE_URL` (prod vs staging) |
 | bouton désactivé malgré la configuration | `VITE_LEMONSQUEEZY_VARIANT_ID` absente/malformée | UUID de variante, puis **rebuild** (variable inlinée) |
 | licence absente après un paiement réussi | `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` absentes au runtime | voir la matrice fail-closed, docs/SECURITY-PREMIUM.md |
+| bouton actif, clic → 503, **aucune** requête Lemon Squeezy | environnement d'exécution sans Supabase (`identity_unconfigured`) ou base injoignable (`database`) | `curl /api/health/checkout`, puis ajouter `DATABASE_URL` / redéployer |
+| clic → `/login` alors que l'utilisateur est connecté | session encore `loading`/`unavailable` traitée comme une déconnexion | corrigé (2026-10-22) : `decideCardAuthGate` ne redirige que sur `anonymous` |
+| message « vérifiez votre connexion » sur une panne serveur | 503 traduit en erreur réseau | corrigé : chaque code a son message (`src/lib/checkout/messages.ts`), lisible via `data-lemon-error-code` |
