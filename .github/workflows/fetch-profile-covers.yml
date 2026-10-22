@@ -23,7 +23,12 @@ jobs:
         with:
           node-version: 22
 
-      - name: Télécharger et vérifier les photos du manifeste
+      # jimp (devDependency, pur JS) est requis pour recadrer en 1200×400
+      # et recompresser en JPEG qualité 72 — le traitement maison.
+      - name: Installer les dépendances
+        run: npm install --no-audit --no-fund
+
+      - name: Télécharger, recadrer et vérifier les photos du manifeste
         run: node scripts/fetch-profile-covers.mjs
 
       # actions/checkout laisse le runner en HEAD détachée : le push doit
