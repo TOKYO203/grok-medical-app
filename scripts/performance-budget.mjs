@@ -25,7 +25,12 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // Mesure après optimisation de la vitrine (mise en page sur l'échelle
   // Tailwind, identique à `--sp-N`) : 116,2 KiB. Marge volontairement faible
   // (~3,8 KiB), même philosophie que les relevés précédents.
-  maxStylesheetBytes: 120 * 1024,
+  // Relevé 120 → 128 KiB (accents de couleur personnalisables, PR #106) : les
+  // 8 blocs d'accent (rose, marron, marine × clair/sombre) et les pastilles du
+  // sélecteur ajoutent ~1,2 KiB compilées ; la feuille était au plafond exact.
+  // Mesure CI : 121,2 KiB. Marge volontairement faible (~6,8 KiB), même
+  // philosophie que les relevés précédents.
+  maxStylesheetBytes: 128 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement
