@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+  <title>Couverture Clinique — tracé ECG apaisé</title>
+  <defs>
+    <linearGradient id="clinique-bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e6f1ea"/>
+      <stop offset="1" stop-color="#c3d9cd"/>
+    </linearGradient>
+    <radialGradient id="clinique-glow" cx="0.25" cy="0.05" r="0.9">
+      <stop offset="0" stop-color="#4a90a4" stop-opacity="0.38"/>
+      <stop offset="0.6" stop-color="#4a90a4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#clinique-bg)"/>
+  <rect width="1200" height="400" fill="url(#clinique-glow)"/>
+  <g fill="none" stroke="#2e6b78" stroke-opacity="0.14" stroke-width="2">
+    <circle cx="1050" cy="90" r="140"/>
+    <circle cx="1050" cy="90" r="88"/>
+    <circle cx="140" cy="330" r="120"/>
+    <circle cx="140" cy="330" r="72"/>
+  </g>
+  <path d="M1116 76h24v28h28v24h-28v28h-24v-28h-28v-24h28z" fill="#2e6b78" fill-opacity="0.12"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 210h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h16" stroke="#ffffff" stroke-width="14" stroke-opacity="0.4"/>
+    <path d="M0 210h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h170q14 -10 28 0h20l10 24l16 -104l14 142l12 -62h26h16" stroke="#2e6b78" stroke-width="4"/>
+  </g>
+  <path d="M0 332q100 -22 200 0t200 0 200 0 200 0 200 0 200 0v68H0z" fill="#ffffff" fill-opacity="0.16"/>
+  <path d="M0 356q120 -20 240 0t240 0 240 0 240 0 240 0v44H0z" fill="#ffffff" fill-opacity="0.12"/>
+</svg>
