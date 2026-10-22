@@ -50,9 +50,9 @@ jobs:
               tail -n 60 /tmp/diag.txt >> "$GITHUB_STEP_SUMMARY"
               echo '```' >> "$GITHUB_STEP_SUMMARY"
               summary="$summary $name=FAIL;"
-              msg="$(grep -aE 'error|Error|ERROR|not ok|✖|✗|fail|Fail|FAIL|problem|Problem' /tmp/diag.txt | head -n 10 || true)"
-              if [ -z "$msg" ]; then msg="$(tail -n 10 /tmp/diag.txt || true)"; fi
-              msg="$(printf '%s' "$msg" | awk 'BEGIN{ORS=""} {gsub(/%/,"%25"); gsub(/:/,"%3A"); print $0 "%0A"}' | cut -c1-900 || true)"
+              msg="$(grep -aE 'not ok|✖|✗|# fail [1-9]|failing tests|exceeds|Error:|error TS|ELIFECYCLE|command failed' /tmp/diag.txt | head -n 14 || true)"
+              if [ -z "$msg" ]; then msg="$(tail -n 14 /tmp/diag.txt || true)"; fi
+              msg="$(printf '%s' "$msg" | awk 'BEGIN{ORS=""} {gsub(/%/,"%25"); gsub(/:/,"%3A"); print $0 "%0A"}' | cut -c1-1600 || true)"
               echo "::error title=diag $name::$msg"
             fi
           }
