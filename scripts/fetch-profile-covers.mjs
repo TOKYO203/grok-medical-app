@@ -13,15 +13,20 @@
  * Déclenché par `.github/workflows/fetch-profile-covers.yml` quand le
  * manifeste change : les octets binaires ne peuvent pas être committés via
  * l'outillage MCP (texte seul), c'est donc la CI qui les importe.
+ *
+ * ⚠️ Wikimedia refuse (HTTP 403) les clients sans User-Agent descriptif —
+ * la politique d'accès l'exige explicitement.
  */
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { dirname, join, relative, resolve } from "node:path";
+import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(fileURLToPath(import.meta.url), "..", "..");
 const COVERS_DIRECTORY = join(ROOT, "public", "profile-covers");
 const MAX_ASSET_BYTES = 512 * 1024;
 const MAX_TOTAL_PUBLIC_BYTES = 2 * 1024 * 1024;
+const USER_AGENT =
+  "grok-medical-app-cover-import/1.0 (https://github.com/TOKYO203/grok-medical-app; import des couvertures de profil, licence CC BY-SA)";
 
 function readManifest() {
   const manifestPath = join(ROOT, "scripts", "profile-covers.manifest.json");
@@ -34,11 +39,12 @@ function readManifest() {
 
 function assertImage(id, bytes) {
   const isJpeg = bytes.length > 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
-  const riff = bytes.toString("ascii", 0, 4) === "RIFF";
-  const webp = bytes.toString("ascii", 8, 12) === "WEBP";
-  const isWebp = bytes.length > 12 && riff && webp;
+  const isWebp =
+    bytes.length > 12 &&
+    bytes.toString("ascii", 0, 4) === "RIFF" &&
+    bytes.toString("ascii", 8, 12) === "WEBP";
   if (!isJpeg && !isWebp) {
-    throw new Error(`${id} : le téléchargement n'est ni un JPEG ni un WebP.`);
+    throw new Error(`${id} : la réponse n'est ni un JPEG ni un WebP (reçu ${bytes.length} octets).`);
   }
   if (bytes.length > MAX_ASSET_BYTES) {
     throw new Error(
@@ -47,17 +53,38 @@ function assertImage(id, bytes) {
   }
 }
 
+function delay(ms) {
+  return new Promise((resolveTimer) => {
+    setTimeout(resolveTimer, ms);
+  });
+}
+
 async function fetchCover(cover) {
-  const response = await fetch(cover.url, { redirect: "follow" });
-  if (!response.ok) {
-    throw new Error(`${cover.id} : HTTP ${response.status} pour ${cover.url}`);
+  let lastError = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(cover.url, {
+        redirect: "follow",
+        headers: { "User-Agent": USER_AGENT },
+      });
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status} (type ${response.headers.get("content-type") ?? "inconnu"})`,
+        );
+      }
+      const bytes = Buffer.from(await response.arrayBuffer());
+      assertImage(cover.id, bytes);
+      const target = join(ROOT, cover.file);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, bytes);
+      return { cover, target, bytes: bytes.length };
+    } catch (error) {
+      lastError = error;
+      console.warn(`[covers] ${cover.id} : tentative ${attempt}/3 échouée — ${error.message}`);
+      await delay(1500 * attempt);
+    }
   }
-  const bytes = Buffer.from(await response.arrayBuffer());
-  assertImage(cover.id, bytes);
-  const target = join(ROOT, cover.file);
-  mkdirSync(dirname(target), { recursive: true });
-  writeFileSync(target, bytes);
-  return { cover, bytes: bytes.length };
+  throw new Error(`${cover.id} : échec après 3 tentatives — ${lastError?.message ?? lastError}`);
 }
 
 function writeCredits(manifest) {
@@ -69,7 +96,9 @@ function writeCredits(manifest) {
     "",
   ];
   for (const cover of manifest.covers) {
-    lines.push(`- **${cover.title}** (\`${cover.file}\`) — ${cover.author}, ${cover.license} — [page source](${cover.source})`);
+    lines.push(
+      `- **${cover.title}** (\`${cover.file}\`) — ${cover.author}, ${cover.license} — [page source](${cover.source})`,
+    );
   }
   lines.push("");
   writeFileSync(join(COVERS_DIRECTORY, "CREDITS.md"), lines.join("\n"));
@@ -78,7 +107,7 @@ function writeCredits(manifest) {
 function totalPublicBytes(directory) {
   let total = 0;
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
-    const absolute = resolve(directory, entry.name);
+    const absolute = join(directory, entry.name);
     if (entry.isDirectory()) total += totalPublicBytes(absolute);
     else if (entry.isFile()) total += statSync(absolute).size;
   }
@@ -102,10 +131,12 @@ async function main() {
 
   const report = imported.map(
     (item) =>
-      `- ${relative(ROOT, join(item.cover.file))} : ${(item.bytes / 1024).toFixed(1)} KiB (${item.cover.license}, ${item.cover.author})`,
+      `- ${relative(ROOT, item.target)} : ${(item.bytes / 1024).toFixed(1)} KiB (${item.cover.license}, ${item.cover.author})`,
   );
   console.log(`[covers] ${imported.length} photo(s) importée(s).\n${report.join("\n")}`);
-  console.log(`[covers] total public/ : ${(totalBytes / 1024).toFixed(1)} KiB / ${(MAX_TOTAL_PUBLIC_BYTES / 1024).toFixed(0)} KiB`);
+  console.log(
+    `[covers] total public/ : ${(totalBytes / 1024).toFixed(1)} KiB / ${(MAX_TOTAL_PUBLIC_BYTES / 1024).toFixed(0)} KiB`,
+  );
 }
 
 await main();
