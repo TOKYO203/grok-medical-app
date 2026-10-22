@@ -91,7 +91,19 @@ export function AuthScreen() {
   const isSignUp = mode === "signup";
 
   return (
-    <div
+    /*
+     * `<main>` et non `<div>` : pour un visiteur anonyme dans un build de
+     * production, CET écran EST la page. Sans repère principal, le document
+     * n'avait plus AUCUN landmark (constaté par l'audit mobile : `mainCount: 0`
+     * sur les 5 écrans audités), ce qui prive la navigation au lecteur d'écran
+     * de son point d'entrée.
+     *
+     * Volontairement SANS `id="main-content"` : cet écran peut être rendu à
+     * l'intérieur du `Shell` (route `/login`), dont les pages portent déjà cet
+     * identifiant — un doublon d'id serait invalide, et deux `<main>` dans le
+     * même document aussi. Ici le gate remplace la page, il ne s'y ajoute pas.
+     */
+    <main
       className="flex min-h-screen flex-col items-center justify-center bg-bg px-5 py-10 text-fg"
       data-cloud-auth="screen"
       data-cloud-auth-mode={mode}
@@ -210,6 +222,6 @@ export function AuthScreen() {
           </Link>
         </p>
       </div>
-    </div>
+    </main>
   );
 }

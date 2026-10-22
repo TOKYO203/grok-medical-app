@@ -18,7 +18,15 @@ const VIEWPORTS = [
   { name: "mobile390", width: 390, height: 844 },
 ];
 
-const ROUTES = ["/", "/parcours", "/cas", "/profil", "/pro"];
+/*
+ * Écrans « principaux » + les deux surfaces PUBLIQUES qu'un visiteur voit
+ * réellement (`/tarifs`, `/login`). Depuis que l'artefact de production porte la
+ * configuration cloud (AUTH-8), les routes protégées affichent la porte d'entrée
+ * à un visiteur anonyme : sans ces deux routes, l'audit ne mesurerait plus que le
+ * même écran de connexion, et son « OK » ne dirait rien des pages commerciales.
+ * Mesuré avant ajout : `/tarifs` et `/login` sont propres à 320/360/390 px.
+ */
+const ROUTES = ["/", "/parcours", "/cas", "/profil", "/pro", "/tarifs", "/login"];
 
 async function launchAuditBrowser() {
   const common = {
@@ -112,6 +120,20 @@ try {
       // frame: CI runners can need several seconds to execute the client bundle,
       // so give the real UI a generous window before declaring a layout failure.
       await page.locator("main").first().waitFor({ state: "attached", timeout: 10_000 }).catch(() => {});
+      // Le `<main>` est présent dès le HTML serveur (écran de chargement du gate).
+      // On attend la FIN de cet écran pour mesurer une page stabilisée : sinon le
+      // résultat dépend du moment où l'évaluation tombe (chargement ou connexion),
+      // et deux exécutions du même commit ne disent pas la même chose.
+      // Signature Playwright : waitForFunction(fn, arg, options) — passer les
+      // options en 2e position les ferait interpréter comme `arg` et le délai
+      // serait ignoré (attente jusqu'au défaut de 30 s).
+      await page
+        .waitForFunction(
+          () => !document.querySelector('[data-cloud-gate="splash"]'),
+          undefined,
+          { timeout: 10_000 },
+        )
+        .catch(() => {});
       await page.waitForTimeout(100);
 
       const metrics = await page.evaluate(() => {
@@ -123,6 +145,17 @@ try {
               return { width: rect.width, height: rect.height };
             })
           : [];
+        // Quel écran a RÉELLEMENT été mesuré ? Depuis que l'artefact de
+        // production porte la configuration cloud (AUTH-8), un visiteur anonyme
+        // voit l'écran d'entrée sur les routes protégées : la mesure porte alors
+        // sur la porte d'entrée, pas sur l'application. Le champ est publié dans
+        // le verdict pour que personne ne lise « l'app est propre à 320 px »
+        // quand seule la porte a été auditée (cf. AUTH-14).
+        const gate = document.querySelector('[data-cloud-gate="splash"]')
+          ? "splash"
+          : document.querySelector('[data-cloud-auth="screen"]')
+            ? "locked"
+            : "app";
         return {
           horizontalOverflow: root.scrollWidth > root.clientWidth + 1,
           scrollWidth: root.scrollWidth,
@@ -132,6 +165,7 @@ try {
           ).length,
           mobileNavTargetSizes: navTargets,
           mainCount: document.querySelectorAll("main").length,
+          gate,
         };
       });
 
@@ -147,6 +181,7 @@ try {
         bottomNavTargetsTooSmall: metrics.bottomNavTargetsTooSmall,
         mobileNavTargetSizes: metrics.mobileNavTargetSizes,
         mainCount: metrics.mainCount,
+        gate: metrics.gate,
         consoleErrors,
         pageErrors,
         failedResponses,
@@ -170,6 +205,17 @@ try {
   const layoutFailures = Object.entries(results).filter(
     ([, result]) => result.bottomNavTargetsTooSmall > 0 || result.mainCount === 0,
   );
+
+  /*
+   * Résumé lisible de ce qui a été mesuré. Sur l'artefact de production, les
+   * routes protégées rendent la porte d'entrée : compter les écrans par état
+   * évite de confondre « l'application est propre à 320 px » et « la porte
+   * d'entrée est propre à 320 px » (AUTH-14).
+   */
+  const gates = {};
+  for (const result of Object.values(results)) {
+    gates[result.gate] = (gates[result.gate] ?? 0) + 1;
+  }
   const exitCode = Math.max(exitCodeFor(verdictInput), layoutFailures.length > 0 ? 1 : 0);
 
   console.log(
@@ -179,6 +225,7 @@ try {
         baseUrl,
         viewports: VIEWPORTS,
         routes: ROUTES,
+        gates,
         results,
         layoutFailures: layoutFailures.map(([key]) => key),
       },

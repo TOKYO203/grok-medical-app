@@ -719,3 +719,27 @@ de `VITE_SUPABASE_URL`. Une clé `service_role` — qui contourne toutes les pol
 retrouverait alors dans le bundle navigateur — fait échouer la suite avec un message explicite
 (vérifié en l'injectant). Règle générale : toute exception à un scanner doit être accompagnée d'un
 test qui prouve que ce qu'elle laisse passer est inoffensif, sinon l'exception devient le trou.
+
+**AUTH-14 — Une porte d'entrée est une page : elle porte un repère `<main>`.** `release-check`
+restait rouge après la correction sur un point qui n'était pas un bug d'authentification mais sa
+**conséquence visible** : l'audit mobile (320/360/390 px) échouait sur `mainCount: 0` pour les 5
+routes, à toutes les largeurs, sans aucun autre défaut (ni débordement, ni erreur console). Cause
+exacte : depuis que l'artefact de production porte la configuration cloud (AUTH-8), un visiteur
+anonyme ne voit plus l'application sur ces routes mais la **porte d'entrée** — écran de chargement
+au rendu serveur (`getServerSnapshot` renvoie toujours « loading »), puis écran de connexion. Ces
+deux écrans étaient des `<div>` : le document n'avait donc **aucun landmark**, ni pour le lecteur
+d'écran, ni pour le lien d'évitement. Correctif : `CloudSplash` (`__root.tsx`) et `AuthScreen`
+sont des `<main>`. Ils ne portent **pas** `id="main-content"` : `AuthScreen` peut être monté dans
+l'Outlet du `Shell` (route `/login`) qui possède déjà cet identifiant — un doublon d'id serait
+invalide, et deux `<main>` dans un même document aussi. L'audit publie désormais `gate`
+(`splash` | `locked` | `app`) par écran et un décompte global : sans cela, « 15 écrans propres à
+320 px » pouvait signifier « la même porte d'entrée mesurée 15 fois », et personne ne l'aurait su.
+Garde-fou : `scripts/mobile-audit-contract.test.mjs` (5 tests) vérifie que tout écran du gate est un
+`<main>` sans dupliquer l'id du Shell, que l'audit dit ce qu'il mesure **et** qu'il continue
+d'échouer sur `mainCount === 0` (supprimer ce critère aurait transformé le rouge en faux vert).
+L'audit inclut désormais les deux surfaces **publiques réelles** (`/tarifs`, `/login`) : sans
+elles, il ne mesurait plus que le même écran de connexion et son « OK » ne disait rien des pages
+commerciales. Vérifié avant ajout aux 3 largeurs. Couverture **assumée** en revanche : les écrans
+applicatifs (derrière la porte) ne sont plus mesurés à 320 px par la CI ; ils le restent en
+développement — le gate y est transparent faute de configuration cloud, c'est le cas des E2E — et
+à la main. Rejouer l'audit avec une session (projet de test dédié) reste le suivi ouvert.
