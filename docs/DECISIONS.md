@@ -513,3 +513,46 @@ Format : `YYYY-MM-DD | ID | Décision | Motif | Auteur`
 | 2026-10-21 | INTL-14 | **`purchase_orders.currency` + `licences` réel schéma : `licence_hash` (NOT NULL) = `lemonsqueezy:<order_id>`**, `plan = 'premium'`, durée portée par `expires_at` | Mesuré en production : sans `licence_hash`, PostgREST répond `23502` et la livraison échoue ; `plan` des lignes existantes vaut `'premium'`. Utiliser la référence de COMMANDE comme clé d'idempotence de la licence rend le rejeu indépendant du temps : deux livraisons écrivent la même valeur, et non deux lignes aux échéances recalculées | Vibe |
 | 2026-10-21 | INTL-15 | **`npm run db:migrate` lit désormais `.env.local`** (lecteur maison, sans dépendance, préfixe process prioritaire) | DÉFAUT DE FOND découvert en testant : `vite.config.ts` injecte les variables non-`VITE_` de `.env.local` dans `process.env` du serveur, donc l'app tournait sur le Postgres de `.env.local` — pendant que `db:migrate`, simple processus node, ne voyait rien et affichait « skipping ». Les migrations 0015 et 0016 n'avaient JAMAIS été appliquées à la base réellement utilisée ; le symptôme était `relation "webhook_events" does not exist` sur un build vert. Le script cible maintenant la même base que l'app | Vibe |
 | 2026-10-21 | INTL-16 | **Les `catch` du webhook journalisent la cause** (`describeError`, DSN masqué, 400 car. max) | Un `catch` muet rend une panne d'exploitation indistinguable d'un bug : c'est exactement ce qui a masqué `23502 licence_hash` puis `23503` (FK `auth.users`) pendant la recette. Le verdict `failed` seul ne dit pas quelle requête a échoué | Vibe |
+
+## 2026-10-22 — Mesure produit & contrôle d'encaissement
+
+**MESURE-1 — On ne pilotait rien.** Aucun analytics, aucun envoi d'e-mail : un inscrit
+qui lisait une fiche puis disparaissait était indistinguable d'un étudiant quotidien.
+Ajout d'une mesure produit **auto-hébergée** (`migrations/0017_product_events.sql`,
+`src/lib/analytics/events.ts`, `src/lib/analytics/client.ts`, `POST /api/events`) :
+pas de tiers, pas de cookie, pas de bannière de consentement supplémentaire.
+
+**MESURE-2 — Liste blanche, pas de texte libre.** Un système de mesure est une porte
+d'entrée sur la base : noms d'événements connus (7), propriétés sur liste fermée (10 clés,
+scalaires courts, 6 max), lot ≤ 25. Ce qui n'est pas borné ici finit par entrer — un message
+d'erreur complet, un e-mail. Vérifié par `src/lib/analytics/events.test.ts` (11 tests).
+
+**MESURE-3 — `anon_id` n'est jamais une identité.** Un test a montré qu'un **UUID** passait
+la borne « 16-40 caractères alphanumériques » : une version modifiée du client aurait pu y
+placer l'identifiant d'un compte et rendre la mesure nominative. La forme UUID est désormais
+rejetée côté TypeScript **et** par contrainte SQL.
+
+**MESURE-4 — La mesure ne doit jamais gêner l'utilisateur.** `track()` ne lève pas, groupe
+les envois (2 s / 10 événements), utilise `sendBeacon` à la fermeture de l'onglet, et
+s'efface devant `navigator.doNotTrack`, `globalPrivacyControl` ou l'interrupteur
+`optimus.analytics.optOut`. Marché à connexion instable : un événement perdu est sans
+conséquence, une interface bloquée ne l'est pas.
+
+**PAY-1 — Le blocage de vente était invisible.** La variante Lemon Squeezy était `pending`
+et l'URL de checkout renvoyait `302` vers l'ACCUEIL de la boutique : le visiteur n'avait
+aucun produit à acheter, et aucun test ne pouvait le dire (la panne est chez le prestataire).
+`scripts/payment-readiness.mjs` (`npm run payment:readiness`) vérifie en lecture seule :
+variables serveur/client, boutique, produit, **statut de la variante**, cohérence
+webhook/variante (un secret test ne vérifie pas un payload live), mode test/live, l'URL de
+checkout mène-t-elle à un produit, migration 0015 appliquée, commande livrée sans licence,
+et si la chaîne a **déjà** été exercée en production.
+
+**PAY-2 — Un secret ne s'affiche pas dans un terminal.** Le script résume chaque clé
+(longueur + empreinte SHA-256 tronquée) au lieu de l'imprimer. Verrouillé par
+`scripts/payment-readiness.test.mjs` : la sortie ne doit contenir aucune des valeurs
+injectées, y compris la clé `anon` (publique, mais un log se partage).
+
+**PAY-3 — Mesuré le 2026-10-22** : `purchase_orders` = **0**, `webhook_events` = **0**. La
+chaîne de paiement n'a jamais été exercée en production. La migration 0015 est bien appliquée
+(`CHECK … 'subscription'`), donc l'abonnement Mobile Money est facturable. Restent deux
+actions de dashboard : publier la variante, passer en live (nouveau secret de webhook).

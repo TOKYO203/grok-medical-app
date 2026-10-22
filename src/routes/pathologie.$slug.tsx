@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound, useNavigate, useRouter } from "@tansta
 import { ArrowLeft, ArrowRight, BookOpen, FileText, Lock, ShieldAlert, Stethoscope } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
+import { track } from "@/lib/analytics/client";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { FicheView } from "@/components/demarche/fiche-view";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
@@ -57,6 +58,17 @@ function PathologiePage() {
   const { t } = useI18n();
   const entitlements = useOptimus((s) => s.entitlements);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
+
+  // Mesure : une fiche lue = le premier acte d'activation ; un verrou rencontré
+  // est le point de décision commercial. On mesure AVANT le retour anticipé
+  // pour garder l'ordre des hooks stable entre l'état verrouillé et l'état ouvert.
+  useEffect(() => {
+    if (loaded.status === "locked") {
+      track("paywall_viewed", { surface: "fiche", reason: "no_licence" });
+      return;
+    }
+    track("first_content_viewed", { surface: "fiche", item: loaded.data.slug });
+  }, [loaded]);
 
   // Tous les hooks sont appelés AVANT ce retour anticipé : l'ordre des hooks
   // reste stable entre l'état verrouillé et l'état ouvert.

@@ -3,6 +3,7 @@ import { ChevronDown, ChevronLeft, Sparkles } from "lucide-react";
 import { GOALS } from "@/content/catalog";
 import type { StudyLevel } from "@/core/types";
 import { SUBJECT_CATEGORIES, DAILY_GOALS } from "@/data/onboarding";
+import { track } from "@/lib/analytics/client";
 import { MadagascarMark, Wordmark } from "@/components/brand/marks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -105,6 +106,7 @@ export function Onboarding() {
       window.localStorage.removeItem(ONBOARDING_DRAFT_KEY);
     }
     void requestNotificationPermission();
+    track("onboarding_done", { step, plan: "free" });
     complete({
       displayName: name.trim() || "Nouveau",
       studyYear: typeof group.value === "number" ? group.value : 0,
