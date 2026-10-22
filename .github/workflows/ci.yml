@@ -30,6 +30,37 @@ jobs:
       - name: Run release readiness checks
         run: npm run release:check
 
+      # INSTRUMENTATION TEMPORAIRE (diagnostic PR #106) : si release:check
+      # échoue, rejouer chaque sous-étape et verser sa fin de sortie dans le
+      # résumé du job — les logs bruts sont illisibles sans session GitHub.
+      # À supprimer dès le diagnostic terminé.
+      - name: Diagnose release-check failure (temporary)
+        if: failure()
+        run: |
+          {
+            echo "## Diagnostic release-check (instrumentation temporaire)"
+            echo "### routes:generate"
+            echo '```'
+            npm run routes:generate 2>&1 | tail -n 30 || true
+            echo '```'
+            echo "### npm test (scripts)"
+            echo '```'
+            node --test 'scripts/**/*.test.mjs' 2>&1 | tail -n 120 || true
+            echo '```'
+            echo "### typecheck"
+            echo '```'
+            npm run typecheck 2>&1 | tail -n 60 || true
+            echo '```'
+            echo "### lint"
+            echo '```'
+            npm run lint 2>&1 | tail -n 60 || true
+            echo '```'
+            echo "### build"
+            echo '```'
+            npm run build 2>&1 | tail -n 100 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
 

@@ -62,6 +62,16 @@ paths = ['''src/.*\.test\.ts$''', '''scripts/.*\.test\.mjs$''']
 description = "Nom de clé localStorage (pas un secret)"
 regexes = ['''optimus-experience-v1''']
 
+# Mêmes clés `localStorage` que l'exception précédente, élargies à la famille
+# des préférences d'apparence : le thème (clair/sombre/système) et la palette
+# d'accent du profil. La règle générique « api-key » voit `THEME_STORAGE_KEY =
+# "optimus-theme-v1"` (mot-clé KEY + valeur entre guillemets) et croit à un
+# secret ; ces noms ne sont lus que par `localStorage.getItem` côté client,
+# aucun service ne les accepte — ce sont des préférences d'affichage.
+[[allowlists]]
+description = "Noms de clés localStorage du thème et de l'accent (préférences d'apparence, pas des secrets)"
+regexes = ['''optimus-(theme|accent)-v1''']
+
 [[allowlists]]
 description = "Postgres local du conteneur de CI (optimus/optimus@localhost)"
 regexes = ['''postgres(ql)?://optimus:optimus@localhost(:[0-9]+)?/''']
