@@ -706,3 +706,16 @@ entrer ses classes utilitaires dans la feuille publiée — `styles.css` à 129,
 plafond de 128, et un build rouge pour une raison **étrangère au code applicatif**. `.gate-tmp/`
 est désormais ignoré par git **et** par ESLint ; la feuille est revenue à 123,5 Kio. Règle :
 tout nouveau répertoire de travail local doit être ajouté aux deux listes, tenues en phase.
+
+**AUTH-13 — Une exception de scanner de secrets doit être démontrée, pas déclarée.** `main` est
+ROUGE sur `Secret scan (delta)` depuis la PR #110 : rendre `.env.production` suivi y a fait entrer
+`VITE_SUPABASE_ANON_KEY`, que la règle `jwt` de gitleaks signale (`Entropy 5,53`, reproductible par
+`gitleaks stdin < .env.production`). Cette clé est publique par conception (JWT `role: anon`,
+inlinée dans le bundle, servie à chaque visiteur), mais l'exception est écrite de deux façons
+solidaires : (1) allowlist gitleaks liée à la **ligne** (nom de variable + forme `eyJ`) et non au
+fichier — vérifié, le même jeton sous un autre nom est toujours détecté ; (2)
+`scripts/secret-hygiene.test.mjs` **décode** le JWT et exige `role: "anon"` avec le `ref` du projet
+de `VITE_SUPABASE_URL`. Une clé `service_role` — qui contourne toutes les policies RLS et se
+retrouverait alors dans le bundle navigateur — fait échouer la suite avec un message explicite
+(vérifié en l'injectant). Règle générale : toute exception à un scanner doit être accompagnée d'un
+test qui prouve que ce qu'elle laisse passer est inoffensif, sinon l'exception devient le trou.
