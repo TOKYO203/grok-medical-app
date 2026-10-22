@@ -3,15 +3,33 @@ import { useEffect, useState } from "react";
 export type ThemeMode = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
+/**
+ * Palette d'accent — réglage ORTHOGONAL au thème : elle colore la signature
+ * dorée (kickers, filets, focus, badges) dans les trois modes
+ * clair / sombre / système. « defaut » garde l'or Oxford d'origine.
+ */
+export type AccentPalette = "defaut" | "rose" | "marron" | "marine";
+
 export const THEME_STORAGE_KEY = "optimus-theme-v1";
+export const ACCENT_STORAGE_KEY = "optimus-accent-v1";
 const CHANGE_EVENT = "optimus:theme";
+const ACCENT_CHANGE_EVENT = "optimus:accent";
 const DEFAULT_MODE: ThemeMode = "light";
+const DEFAULT_ACCENT: AccentPalette = "defaut";
+
+/** Catalogue des palettes proposées par le profil (source du sélecteur). */
+export const ACCENT_PALETTES: AccentPalette[] = ["defaut", "rose", "marron", "marine"];
+
+function isAccentPalette(value: string | null): value is AccentPalette {
+  return ACCENT_PALETTES.includes(value as AccentPalette);
+}
 
 /**
- * Script inline injecté dans <head> : applique le thème avant le premier paint
- * pour éviter tout flash clair/sombre. Doit rester en phase avec `theme.ts`.
+ * Script inline injecté dans <head> : applique le thème ET la palette d'accent
+ * avant le premier paint pour éviter tout flash clair/sombre ou or/rose.
+ * Doit rester en phase avec `theme.ts`.
  */
-export const THEME_BOOT_SCRIPT = `(function(){try{var m=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_MODE}';var d=m==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;var r=d==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',r);document.documentElement.style.colorScheme=r;}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
+export const THEME_BOOT_SCRIPT = `(function(){try{var m=localStorage.getItem('${THEME_STORAGE_KEY}')||'${DEFAULT_MODE}';var d=m==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;var r=d==='dark'?'dark':'light';var a=localStorage.getItem('${ACCENT_STORAGE_KEY}')||'${DEFAULT_ACCENT}';document.documentElement.setAttribute('data-theme',r);document.documentElement.setAttribute('data-accent',a);document.documentElement.style.colorScheme=r;}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
 function prefersDark(): boolean {
   if (typeof window === "undefined" || !window.matchMedia) return false;
@@ -33,6 +51,16 @@ export function readThemeMode(): ThemeMode {
   }
 }
 
+export function readAccentPalette(): AccentPalette {
+  if (typeof window === "undefined") return DEFAULT_ACCENT;
+  try {
+    const stored = window.localStorage.getItem(ACCENT_STORAGE_KEY);
+    return isAccentPalette(stored) ? stored : DEFAULT_ACCENT;
+  } catch {
+    return DEFAULT_ACCENT;
+  }
+}
+
 /** Applique le thème au document (attribut `data-theme` + couleur de barre navigateur). */
 export function applyTheme(mode: ThemeMode): ResolvedTheme {
   const resolved = resolveTheme(mode);
@@ -46,6 +74,13 @@ export function applyTheme(mode: ThemeMode): ResolvedTheme {
   return resolved;
 }
 
+/** Applique la palette d'accent au document (attribut `data-accent` sur <html>). */
+export function applyAccentPalette(palette: AccentPalette) {
+  if (typeof document !== "undefined") {
+    document.documentElement.setAttribute("data-accent", palette);
+  }
+}
+
 export function writeThemeMode(mode: ThemeMode) {
   if (typeof window === "undefined") return;
   try {
@@ -55,6 +90,17 @@ export function writeThemeMode(mode: ThemeMode) {
   }
   applyTheme(mode);
   window.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail: mode }));
+}
+
+export function writeAccentPalette(palette: AccentPalette) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(ACCENT_STORAGE_KEY, palette);
+  } catch {
+    /* stockage indisponible — l'accent reste appliqué pour la session */
+  }
+  applyAccentPalette(palette);
+  window.dispatchEvent(new CustomEvent(ACCENT_CHANGE_EVENT, { detail: palette }));
 }
 
 export function subscribeTheme(listener: (mode: ThemeMode) => void) {
@@ -82,15 +128,41 @@ export function subscribeTheme(listener: (mode: ThemeMode) => void) {
   };
 }
 
-/** Hook React : mode de thème courant + setter persistant. */
+export function subscribeAccent(listener: (palette: AccentPalette) => void) {
+  if (typeof window === "undefined") return () => undefined;
+  const refresh = () => listener(readAccentPalette());
+  const onCustom = (event: Event) => {
+    const detail = (event as CustomEvent<AccentPalette>).detail;
+    listener(detail ?? readAccentPalette());
+  };
+
+  window.addEventListener("storage", refresh);
+  window.addEventListener(ACCENT_CHANGE_EVENT, onCustom);
+  return () => {
+    window.removeEventListener("storage", refresh);
+    window.removeEventListener(ACCENT_CHANGE_EVENT, onCustom);
+  };
+}
+
+/** Hook React : mode de thème + palette d'accent, avec setters persistants. */
 export function useTheme() {
   const [mode, setMode] = useState<ThemeMode>(DEFAULT_MODE);
+  const [accent, setAccentState] = useState<AccentPalette>(DEFAULT_ACCENT);
 
   useEffect(() => {
-    const current = readThemeMode();
-    setMode(current);
-    applyTheme(current);
-    return subscribeTheme(setMode);
+    const currentMode = readThemeMode();
+    setMode(currentMode);
+    applyTheme(currentMode);
+    const currentAccent = readAccentPalette();
+    setAccentState(currentAccent);
+    applyAccentPalette(currentAccent);
+
+    const unsubscribeTheme = subscribeTheme(setMode);
+    const unsubscribeAccent = subscribeAccent(setAccentState);
+    return () => {
+      unsubscribeTheme();
+      unsubscribeAccent();
+    };
   }, []);
 
   const setTheme = (next: ThemeMode) => {
@@ -98,5 +170,10 @@ export function useTheme() {
     setMode(next);
   };
 
-  return { mode, resolved: resolveTheme(mode), setTheme };
+  const setAccent = (next: AccentPalette) => {
+    writeAccentPalette(next);
+    setAccentState(next);
+  };
+
+  return { mode, resolved: resolveTheme(mode), setTheme, accent, setAccent };
 }

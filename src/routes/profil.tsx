@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { UserAvatar, USER_AVATARS } from "@/components/user-avatar";
 import { ExperienceControls } from "@/components/experience-controls";
-import { ThemeSelector } from "@/components/theme-toggle";
+import { AccentSelector, ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Button as DsButton } from "@/components/ui/ds/Button";
@@ -519,6 +519,13 @@ function ProfilPage() {
               Apparence
             </p>
             <ThemeSelector className="mt-2" />
+            <p className="mt-5 mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+              Couleur d’accent
+            </p>
+            <AccentSelector />
+            <p className="mt-1.5 text-xs leading-relaxed text-muted">
+              La palette colore la signature dorée dans les trois thèmes — clair, sombre et système.
+            </p>
             <p className="mt-5 mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
               {t("profil.language")}
             </p>

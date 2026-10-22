@@ -97,13 +97,16 @@
   --r-pill: 999px;
 
   /* -------------------------------------------------------------------------
-     4. Ombres — 3 élévations (le thème sombre les redéfinit plus bas)
+     4. Ombres — 3 élévations (le thème sombre les redéfinit plus bas).
+     Les filets suivent la palette d'accent (`--app-accent`, voir
+     styles.css) : rose, marron ou bleu marine colorent les cartes autant
+     que l'or Oxford par défaut.
      ------------------------------------------------------------------------- */
   --sh-subtle:
-    inset 0 0 0 1px color-mix(in oklab, #a67c1e 24%, transparent), 0 1px 2px rgb(31 26 20 / 0.05);
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 24%, transparent), 0 1px 2px rgb(31 26 20 / 0.05);
   --sh-medium:
     0 10px 24px -16px rgb(31 26 20 / 0.28), 0 2px 6px -4px rgb(31 26 20 / 0.14),
-    inset 0 0 0 1px color-mix(in oklab, #a67c1e 26%, transparent);
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 26%, transparent);
   --sh-overlay: 0 24px 64px -24px rgb(31 26 20 / 0.32), 0 8px 20px -12px rgb(31 26 20 / 0.18);
 
   /* -------------------------------------------------------------------------
