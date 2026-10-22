@@ -36,6 +36,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -o pipefail
+          # instrumentation temporaire — commande originale du step : run: npm run release:check
           run_step() {
             name="$1"; shift
             if "$@" > /tmp/step.log 2>&1; then
@@ -47,7 +48,7 @@ jobs:
               done
               if [ -n "${PR_NUMBER:-}" ]; then
                 {
-                  echo "### Diagnostic release:check — échec à l'étape [$name] (instrumentation temporaire)"
+                  echo "### Diagnostic release:check — échec à l'étape [$name] (instrumentation temporaire v3)"
                   echo '~~~'
                   grep -B 10 -A 60 '^not ok' /tmp/step.log | head -n 150
                   echo '~~~'
