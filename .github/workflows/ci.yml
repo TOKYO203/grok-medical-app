@@ -37,29 +37,32 @@ jobs:
       - name: Diagnose release-check failure (temporary)
         if: failure()
         run: |
-          {
-            echo "## Diagnostic release-check (instrumentation temporaire)"
-            echo "### routes:generate"
-            echo '```'
-            npm run routes:generate 2>&1 | tail -n 30 || true
-            echo '```'
-            echo "### npm test (scripts)"
-            echo '```'
-            node --test 'scripts/**/*.test.mjs' 2>&1 | tail -n 120 || true
-            echo '```'
-            echo "### typecheck"
-            echo '```'
-            npm run typecheck 2>&1 | tail -n 60 || true
-            echo '```'
-            echo "### lint"
-            echo '```'
-            npm run lint 2>&1 | tail -n 60 || true
-            echo '```'
-            echo "### build"
-            echo '```'
-            npm run build 2>&1 | tail -n 100 || true
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
+          summary=""
+          diag() {
+            name="$1"; shift
+            echo "### $name" >> "$GITHUB_STEP_SUMMARY"
+            if "$@" >/tmp/diag.txt 2>&1; then
+              echo "OK" >> "$GITHUB_STEP_SUMMARY"
+              summary="$summary $name=OK;"
+            else
+              echo "ÉCHEC — 60 dernières lignes :" >> "$GITHUB_STEP_SUMMARY"
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+              tail -n 60 /tmp/diag.txt >> "$GITHUB_STEP_SUMMARY"
+              echo '```' >> "$GITHUB_STEP_SUMMARY"
+              summary="$summary $name=FAIL;"
+              msg="$(grep -aE 'error|Error|ERROR|not ok|✖|✗|fail|Fail|FAIL|problem|Problem' /tmp/diag.txt | head -n 10 || true)"
+              if [ -z "$msg" ]; then msg="$(tail -n 10 /tmp/diag.txt || true)"; fi
+              msg="$(printf '%s' "$msg" | awk 'BEGIN{ORS=""} {gsub(/%/,"%25"); gsub(/:/,"%3A"); print $0 "%0A"}' | cut -c1-900 || true)"
+              echo "::error title=diag $name::$msg"
+            fi
+          }
+          diag routes:generate npm run routes:generate
+          diag npm-test-scripts node --test 'scripts/**/*.test.mjs'
+          diag npm-test-src node --experimental-strip-types --test src/content/imported-deck-integrity.test.ts src/content/license-receipt.test.ts src/content/purchase-order.test.ts src/lib/auth/gate-identity.test.ts src/lib/auscultation/phonocardiogram.test.ts src/lib/auscultation/catalog.test.ts src/lib/ecg/deformation.test.ts src/lib/ecg/analyzeEcg.test.ts src/lib/ecg/waveform.test.ts src/lib/ecg/ecg-fiches.test.ts src/lib/cloud/subscription.test.ts src/lib/imported-deck-storage.test.ts src/lib/library/specialty-label.test.ts src/lib/library/deck-series.test.ts src/lib/optimus-sync-model.test.ts src/state/persist-migrations.test.ts src/i18n/messages.test.ts src/i18n/detect.test.ts src/i18n/format.test.ts src/lib/units.test.ts src/server/jwt.test.ts src/server/replay-guard.test.ts src/server/license-verify.test.ts src/content/international.test.ts src/server/lemonsqueezy/signature.test.ts src/server/lemonsqueezy/webhook.test.ts src/server/lemonsqueezy/checkout.server.test.ts
+          diag typecheck npm run typecheck
+          diag lint npm run lint
+          diag build npm run build
+          echo "::notice title=diag summary::$summary"
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
