@@ -83,6 +83,76 @@ test("un .env suivi ne contient que des variables VITE_* (publiques par construc
   }
 });
 
+/**
+ * CONTRÔLE COMPAGNON DE L'EXCEPTION GITLEAKS (`jwt` sur la clé `anon`).
+ *
+ * `.gitleaks.toml` exempte la ligne `VITE_SUPABASE_ANON_KEY=…` parce que cette
+ * clé est PUBLIQUE par conception. Une exception de scanner n'est acceptable que
+ * si ce qu'elle laisse passer est *démontrablement* inoffensif : ce test le
+ * démontre à chaque exécution, au lieu de le supposer.
+ *
+ * Trois propriétés vérifiées, et pourquoi chacune compte :
+ *
+ *   1. `role === "anon"` — une clé `service_role` contourne TOUTES les policies
+ *      RLS. Si l'une d'elles atterrissait ici (copier-coller depuis le tableau de
+ *      bord Supabase : c'est l'erreur la plus facile à commettre), elle serait
+ *      publiée dans le bundle navigateur, donc pour n'importe qui. L'exception
+ *      gitleaks la masquerait : c'est ce test qui la démasque.
+ *   2. `ref` = projet de `VITE_SUPABASE_URL` — empêche qu'une clé d'un AUTRE
+ *      projet (bac à sable, production) s'immisce dans le fichier suivi.
+ *   3. signature présente (`xxxxx.yyyyy.zzzzz`) — une clé tronquée ou un
+ *      gabarit « changez-moi » ferait échouer l'authentification en production
+ *      sans que rien ne le signale avant déploiement.
+ */
+test("la clé Supabase suivie est publique ET non privilégiée (justifie l'exception gitleaks)", () => {
+  const file = ".env.production";
+  const values = new Map();
+  for (const line of read(`../${file}`).split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const separator = trimmed.indexOf("=");
+    if (separator <= 0) continue;
+    values.set(
+      trimmed.slice(0, separator).trim(),
+      trimmed
+        .slice(separator + 1)
+        .trim()
+        .replace(/^["']|["']$/g, ""),
+    );
+  }
+
+  const url = values.get("VITE_SUPABASE_URL");
+  const key = values.get("VITE_SUPABASE_ANON_KEY");
+  assert.ok(url, `${file} doit déclarer VITE_SUPABASE_URL`);
+  assert.ok(key, `${file} doit déclarer VITE_SUPABASE_ANON_KEY`);
+
+  const parts = key.split(".");
+  assert.equal(parts.length, 3, "la clé doit être un JWT complet (en-tête.payload.signature)");
+  assert.ok(parts[2].length >= 16, "la signature du JWT est absente ou tronquée");
+
+  let claims;
+  try {
+    claims = JSON.parse(Buffer.from(parts[1].replace(/-/g, "+").replace(/_/g, "/"), "base64").toString("utf8"));
+  } catch {
+    assert.fail("le payload de la clé n'est pas un JSON décodable — clé corrompue");
+  }
+
+  assert.notEqual(
+    claims.role,
+    "service_role",
+    "DANGER : une clé service_role est publiée dans le bundle navigateur — elle contourne toutes les policies RLS. " +
+      "Utiliser la clé `anon` côté client ; la clé privilégiée ne doit exister que dans l'environnement serveur.",
+  );
+  assert.equal(claims.role, "anon", `rôle inattendu « ${claims.role} » : une clé client doit être « anon »`);
+
+  const projectRef = new URL(url).hostname.split(".")[0];
+  assert.equal(
+    claims.ref,
+    projectRef,
+    `la clé vient d'un autre projet Supabase (« ${claims.ref} » vs « ${projectRef} ») — vérifier les variables du déploiement`,
+  );
+});
+
 test(".gitignore ignores every .env flavour and the temp work dirs", () => {
   const ignore = read("../.gitignore");
   assert.match(ignore, /^\.env\*$/m, ".env* doit être ignoré (couvre .env, .env.local, .env.*.local)");
