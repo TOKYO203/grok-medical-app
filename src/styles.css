@@ -973,7 +973,7 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
    Palettes d'accent — « Couleur d'accent » du profil (réglage orthogonal)
    ----------------------------------------------------------------------------
    `data-accent` sur <html> choisit la palette ; `data-theme` reste maître du
-   clair / sombre / système. Chaque palette redéfinit 4 variables :
+   clair / sombre / système. Chaque palette redéfinit 5 variables :
    · --app-accent    : filets et remplissages décoratifs (pastilles, filets
                        premium, barres d'avancement, ombres de cartes)
    · --app-gold      : or de TEXTE (kickers, KPI) — contraste AA (≥ 4,5:1)
@@ -981,6 +981,9 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
                        verrouillé par scripts/accent-palette.test.mjs
    · --app-gold-soft : or clair des kickers sur hero à fond olive
    · --app-ring      : indicateur de focus — ≥ 3:1 (WCAG 1.4.11)
+   · --app-bg        : fond de page TEINTÉ (immersion) — fg, muted, subtle
+                       et l'or y restent AA (≥ 4,5:1), verrouillé par
+                       scripts/accent-palette.test.mjs
    Les blocs sombres portent DEUX attributs pour gagner la course de
    spécificité contre le bloc clair de la même palette (0,2,1 > 0,1,1).
    La palette « defaut » n'a pas de bloc dédié : l'or Oxford des blocs de
@@ -992,6 +995,7 @@ html[data-accent="rose"] {
   --app-gold: #9F1239;
   --app-gold-soft: #FDA4AF;
   --app-ring: #9F1239;
+  --app-bg: #F5C9BB;
 }
 
 html[data-theme="dark"][data-accent="rose"] {
@@ -999,6 +1003,7 @@ html[data-theme="dark"][data-accent="rose"] {
   --app-gold: #FDA4AF;
   --app-gold-soft: #FDA4AF;
   --app-ring: #FB7185;
+  --app-bg: #271A19;
 }
 
 html[data-accent="marron"] {
@@ -1006,6 +1011,7 @@ html[data-accent="marron"] {
   --app-gold: #5D3A1A;
   --app-gold-soft: #D9B48F;
   --app-ring: #5D3A1A;
+  --app-bg: #E1D0B9;
 }
 
 html[data-theme="dark"][data-accent="marron"] {
@@ -1013,6 +1019,7 @@ html[data-theme="dark"][data-accent="marron"] {
   --app-gold: #E3B98A;
   --app-gold-soft: #E3B98A;
   --app-ring: #D9A05B;
+  --app-bg: #1E1D18;
 }
 
 html[data-accent="marine"] {
@@ -1020,6 +1027,7 @@ html[data-accent="marine"] {
   --app-gold: #1E3A8A;
   --app-gold-soft: #93B4F0;
   --app-ring: #1E3A8A;
+  --app-bg: #CCD6EC;
 }
 
 html[data-theme="dark"][data-accent="marine"] {
@@ -1027,6 +1035,7 @@ html[data-theme="dark"][data-accent="marine"] {
   --app-gold: #93C5FD;
   --app-gold-soft: #93C5FD;
   --app-ring: #3B82F6;
+  --app-bg: #131E23;
 }
 
 html[data-accent="vert"] {
@@ -1034,6 +1043,7 @@ html[data-accent="vert"] {
   --app-gold: #065F46;
   --app-gold-soft: #6EE7B7;
   --app-ring: #065F46;
+  --app-bg: #C5D7C0;
 }
 
 html[data-theme="dark"][data-accent="vert"] {
@@ -1041,6 +1051,7 @@ html[data-theme="dark"][data-accent="vert"] {
   --app-gold: #6EE7B7;
   --app-gold-soft: #6EE7B7;
   --app-ring: #10B981;
+  --app-bg: #121F1A;
 }
 
 html[data-accent="violet"] {
@@ -1048,6 +1059,7 @@ html[data-accent="violet"] {
   --app-gold: #4C1D95;
   --app-gold-soft: #C4B5FD;
   --app-ring: #4C1D95;
+  --app-bg: #DACEDE;
 }
 
 html[data-theme="dark"][data-accent="violet"] {
@@ -1055,6 +1067,43 @@ html[data-theme="dark"][data-accent="violet"] {
   --app-gold: #C4B5FD;
   --app-gold-soft: #C4B5FD;
   --app-ring: #8B5CF6;
+  --app-bg: #1A1D25;
+}
+
+/* ── Immersion ambiante ──────────────────────────────────────────────────────
+   Les palettes ne colorent pas que les filets : le bloc partagé ci-dessous
+   teinte les SURFACES — fond de page, surfaces secondaires, filets, squelettes
+   et halo du dégradé de fond — à partir de --app-accent et du --app-bg teinté
+   de chaque palette. « defaut » en est EXCLU ([data-accent]:not(...)) : l'or
+   Oxford des blocs de base reste le décor strict, sans dérive. Les contrastes
+   AA du fond teinté (textes de base + or + focus) sont verrouillés par
+   scripts/accent-palette.test.mjs. */
+html[data-accent]:not([data-accent="defaut"]) {
+  --app-border: var(--app-accent);
+  --app-border-strong: color-mix(in oklab, var(--app-accent) 80%, transparent);
+  --app-secondary: color-mix(in oklab, var(--app-bg) 86%, var(--app-accent) 14%);
+  --app-surface-2: color-mix(in oklab, var(--app-bg) 88%, var(--app-accent) 12%);
+  --app-skeleton-a: color-mix(in oklab, var(--app-bg) 74%, var(--app-accent) 26%);
+  --app-skeleton-b: color-mix(in oklab, var(--app-bg) 88%, var(--app-accent) 12%);
+  --app-shadow-soft: 0 18px 40px -28px color-mix(in oklab, var(--app-accent) 24%, transparent);
+  --app-accent-soft: color-mix(in oklab, var(--app-accent) 14%, transparent);
+  --app-accent-faint: color-mix(in oklab, var(--app-accent) 7%, transparent);
+  --app-body-bg:
+    radial-gradient(64rem 32rem at 88% -12%, var(--app-accent-soft), transparent 60%),
+    radial-gradient(44rem 28rem at -12% 42%, var(--app-accent-faint), transparent 65%),
+    color-mix(in oklab, var(--app-bg) 62%, #FFFFFF 38%);
+}
+
+html[data-theme="dark"][data-accent]:not([data-accent="defaut"]) {
+  --app-border: color-mix(in oklab, var(--app-accent) 36%, transparent);
+  --app-border-strong: color-mix(in oklab, var(--app-accent) 58%, transparent);
+  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 30%, transparent);
+  --app-bg-elevated: color-mix(in oklab, var(--app-bg) 88%, #FFFFFF 12%);
+  --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
+  --app-body-bg:
+    radial-gradient(70rem 34rem at 85% -8%, var(--app-accent-soft), transparent 60%),
+    radial-gradient(42rem 28rem at -12% 45%, var(--app-accent-faint), transparent 65%),
+    var(--app-bg);
 }
 
 /* Pastilles du sélecteur « Couleur d'accent » (profil) — un point de couleur

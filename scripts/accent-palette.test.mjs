@@ -19,6 +19,15 @@ const BASE = {
   dark: { bg: "#0c1110", card: "#161d1b" },
 };
 
+/* Jetons de TEXTE des blocs de base (verrouillés par a11y-contrast.test.mjs) :
+   l'immersion teinte --app-bg par palette — chaque texte doit aussi rester
+   AA (≥ 4,5:1) sur le fond teinté correspondant, pas seulement sur le
+   parchemin de base. */
+const BASE_TEXT = {
+  light: { fg: "#1F1A14", muted: "#5E4D35", subtle: "#6A5738" },
+  dark: { fg: "#E7EDE8", muted: "#93A09A", subtle: "#7C8881" },
+};
+
 function luminance(hex) {
   const h = hex.replace("#", "");
   const [r, g, b] = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255);
@@ -74,7 +83,24 @@ test("accent palettes are declared, styled and offered end to end", () => {
       stylesSource.includes(`html[data-theme="dark"][data-accent="${id}"]`),
       `${id} : bloc sombre manquant dans styles.css (sans lui, le bloc clair gagnerait en thème sombre)`,
     );
+    for (const selector of [
+      `html[data-accent="${id}"]`,
+      `html[data-theme="dark"][data-accent="${id}"]`,
+    ]) {
+      assert.ok(
+        blockFor(stylesSource, selector).includes("--app-bg:"),
+        `${id} : fond teinté --app-bg manquant (${selector}) — pas d'immersion`,
+      );
+    }
   }
+  assert.ok(
+    stylesSource.includes(`html[data-accent]:not([data-accent="defaut"])`),
+    "bloc d'immersion clair manquant dans styles.css",
+  );
+  assert.ok(
+    stylesSource.includes(`html[data-theme="dark"][data-accent]:not([data-accent="defaut"])`),
+    "bloc d'immersion sombre manquant dans styles.css",
+  );
   assert.ok(
     profilSource.includes("<AccentSelector"),
     "profil.tsx n'expose pas l'AccentSelector",
@@ -128,6 +154,41 @@ test("accent gold and ring stay AA on both themes", () => {
       assert.ok(
         contrast(ring, base.card) >= 3,
         `${id}/${theme} : --app-ring ${ring} ne donne que ${contrast(ring, base.card).toFixed(2)}:1 sur --app-card (WCAG 1.4.11 ≥ 3:1)`,
+      );
+    }
+  }
+});
+
+test("accent immersion keeps every base text token AA on the tinted background", () => {
+  // L'immersion teinte --app-bg par palette : le contrat AA se déplace avec
+  // le fond. fg / muted / subtle (jetons de base), l'or et le focus doivent
+  // rester lisibles sur le fond teinté de CHAQUE palette, dans les DEUX
+  // thèmes — sinon la teinte « avale » le texte (confort de lecture).
+  for (const id of palettes) {
+    if (id === "defaut") continue;
+    for (const [theme, texts] of Object.entries(BASE_TEXT)) {
+      const selector =
+        theme === "light"
+          ? `html[data-accent="${id}"]`
+          : `html[data-theme="dark"][data-accent="${id}"]`;
+      const block = blockFor(stylesSource, selector);
+      const bg = block.match(/--app-bg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      assert.ok(bg, `${id}/${theme} : fond teinté --app-bg introuvable (${selector})`);
+      for (const [token, hex] of Object.entries(texts)) {
+        assert.ok(
+          contrast(hex, bg) >= 4.5,
+          `${id}/${theme} : ${token} ${hex} ne donne que ${contrast(hex, bg).toFixed(2)}:1 sur le fond teinté ${bg} (AA ≥ 4,5:1)`,
+        );
+      }
+      const gold = block.match(/--app-gold:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      const ring = block.match(/--app-ring:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      assert.ok(
+        contrast(gold, bg) >= 4.5,
+        `${id}/${theme} : --app-gold ${gold} ne donne que ${contrast(gold, bg).toFixed(2)}:1 sur le fond teinté ${bg} (AA ≥ 4,5:1)`,
+      );
+      assert.ok(
+        contrast(ring, bg) >= 3,
+        `${id}/${theme} : --app-ring ${ring} ne donne que ${contrast(ring, bg).toFixed(2)}:1 sur le fond teinté ${bg} (WCAG 1.4.11 ≥ 3:1)`,
       );
     }
   }
