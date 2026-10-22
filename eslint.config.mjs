@@ -26,6 +26,7 @@ export default tseslint.config(
       "admin-local/**",
       ".devx/**",
       ".calc-tmp/**",
+      ".gate-tmp/**",
       ".optimus-backups/**",
       ".robust-backup/**",
       "screenshots/**",

@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { AuthScreen } from "@/components/AuthScreen";
+import { CloudIdentityBridge } from "@/components/cloud-identity-bridge";
 import { CloudSyncBridge } from "@/components/cloud-sync-bridge";
 import { ContentSessionBridge } from "@/components/content-session-bridge";
 import { useAuth } from "@/hooks/useAuth";
@@ -161,6 +162,10 @@ function AppShell() {
         vers /signes ou /pathologie dès le premier chargement.
       */}
       <ContentSessionBridge />
+      {/* L'Optimus ID natif est provisionné dès la première session cloud :
+          sans lui, le tunnel de commande resterait bloqué sur « Finalisation
+          du compte Optimus » alors que l'authentification est réparée. */}
+      <CloudIdentityBridge />
       {legacyCloudSync ? <OptimusSyncBridge /> : null}
       <ExperienceMotionBridge />
       <ExperienceMilestoneBridge />
@@ -169,17 +174,29 @@ function AppShell() {
   );
 }
 
-/** Chargement borné à 2 s par `CLOUD_SESSION_TIMEOUT_MS` : jamais d'écran figé. */
+/**
+ * Chargement borné à 2 s par `CLOUD_SESSION_TIMEOUT_MS` : jamais d'écran figé.
+ *
+ * `<main>` et non `<div>` : au rendu SERVEUR, `getServerSnapshot` renvoie
+ * toujours « loading », donc ce composant est **le document entier** de toute
+ * route protégée (y compris pour un robot d'indexation ou un lecteur d'écran).
+ * Sans repère principal, le document n'avait aucun landmark avant hydratation —
+ * l'audit mobile le mesurait (`mainCount: 0`).
+ */
 function CloudSplash() {
   return (
-    <div
+    <main
       className="flex min-h-screen flex-col items-center justify-center gap-4 bg-bg px-6 text-fg"
-      role="status"
-      aria-live="polite"
+      aria-busy="true"
       data-cloud-gate="splash"
     >
-      <span className="size-8 animate-spin rounded-full border-2 border-border-strong border-t-primary motion-reduce:animate-none" />
-      <p className="text-sm text-muted">Connexion à Optimus…</p>
-    </div>
+      <span
+        className="size-8 animate-spin rounded-full border-2 border-border-strong border-t-primary motion-reduce:animate-none"
+        aria-hidden="true"
+      />
+      <p className="text-sm text-muted" role="status">
+        Connexion à Optimus…
+      </p>
+    </main>
   );
 }

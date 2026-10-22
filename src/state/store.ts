@@ -112,6 +112,20 @@ export type OptimusState = PersistShape & {
   importedDeckStorageReady: boolean;
   finishHydration: () => void;
   restoreLicenses: () => Promise<void>;
+  /**
+   * Provisionne l'identité Optimus NATIVE (Optimus ID + identifiant d'appareil)
+   * dès qu'un compte cloud est connu.
+   *
+   * POURQUOI : l'appareil démarre avec `OM-GUEST` / `device-local`, et le tunnel
+   * de commande exige une identité stable (`profile.optimusId !== "OM-GUEST"`).
+   * Sans ce provisionnement, un utilisateur fraîchement connecté voyait
+   * « Finalisation du compte Optimus » — l'achat restait bloqué un cran APRÈS la
+   * réparation de l'authentification.
+   *
+   * N'écrase jamais une valeur existante et ne renomme l'utilisateur que s'il
+   * porte encore le nom par défaut.
+   */
+  ensureOptimusIdentity: (opts?: { displayName?: string | null }) => void;
   completeOnboarding: (p: Partial<Profile>) => void;
   updateProfile: (p: Partial<Profile>) => void;
   createFreeAccount: (name: string) => void;
@@ -461,6 +475,25 @@ export const useOptimus = create<OptimusState>()(
           hydrated: true,
         }));
       },
+      ensureOptimusIdentity: (opts) =>
+        set((s) => {
+          const needsOptimusId = !s.profile.optimusId || s.profile.optimusId === "OM-GUEST";
+          const needsDeviceId = !s.profile.deviceId || s.profile.deviceId === "device-local";
+          const suggested = opts?.displayName?.trim() ?? "";
+          const defaultName = !s.profile.displayName || s.profile.displayName === "Nouveau";
+          const shouldRename = Boolean(suggested) && defaultName;
+          if (!needsOptimusId && !needsDeviceId && !shouldRename) return {};
+          return {
+            profile: {
+              ...s.profile,
+              optimusId: needsOptimusId ? makeOptimusId() : s.profile.optimusId,
+              deviceId: needsDeviceId ? makeDeviceId() : s.profile.deviceId,
+              displayName: shouldRename ? suggested : s.profile.displayName,
+              // `guest` n'a plus de sens dès qu'une identité réelle existe.
+              tier: s.profile.tier === "guest" ? "free" : s.profile.tier,
+            },
+          };
+        }),
       completeOnboarding: (p) =>
         set((s) => ({
           profile: {

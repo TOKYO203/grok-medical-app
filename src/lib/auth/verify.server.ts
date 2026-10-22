@@ -1,6 +1,7 @@
 import { getRequest } from "@tanstack/react-start/server";
 import { gateIdentityEnabled } from "./gate-identity.server";
 import { auth, authConfigured } from "./server";
+import { resolveSupabaseBearer } from "./supabase-identity.server";
 
 /**
  * Server-side session resolution (server-only).
@@ -42,6 +43,21 @@ export class UnauthorizedError extends Error {
   }
 }
 
+/**
+ * L'identité n'a pas pu être VÉRIFIÉE (Supabase ne répond pas).
+ *
+ * Distinct de `UnauthorizedError` à dessein : renvoyer 401 ferait afficher
+ * « reconnectez-vous » alors que la session est parfaitement valide et que la
+ * seule chose en cause est une panne passagère. `status: 503` dit « réessayez ».
+ */
+export class IdentityUnavailableError extends Error {
+  readonly status = 503;
+  constructor() {
+    super("La vérification du compte est momentanément indisponible. Réessayez dans un instant.");
+    this.name = "IdentityUnavailableError";
+  }
+}
+
 export type VerifiedUser = { id: string; email: string | null };
 
 /**
@@ -73,15 +89,28 @@ export async function getSessionUser(
 /**
  * Resolve the current user id for a server function, or throw when unauthorized.
  * Prefer `authMiddleware` (`./middleware`), which calls this for you.
- * - Auth enabled -> the verified session user id; throws
- *   `UnauthorizedError` when signed out. Works in the sandbox preview too (real
- *   sign-in via the baked preview client).
- * - Auth disabled (`VITE_AUTH_ENABLED=false`) + `DATABASE_URL` set -> throw (fail
- *   closed): one shared dev user on a real database would let every visitor
- *   read/write everyone's rows.
- * - Auth disabled + no database -> the shared dev user id.
+ *
+ * ORDRE DE RÉSOLUTION — Supabase d'abord, Better Auth ensuite.
+ *
+ * Supabase est l'identité de PRODUCTION : c'est le seul fournisseur capable
+ * d'ouvrir une session sur le déploiement (l'ancien `/api/auth/*` n'y répond
+ * pas). Better Auth ne sert plus que de repli pour le bac à sable de
+ * prévisualisation et les déploiements historiques.
+ *
+ *   1. jeton Supabase vérifié par son émetteur -> son `sub` ;
+ *   2. jeton Supabase refusé -> `UnauthorizedError` (401) — on ne retombe PAS
+ *      sur Better Auth : un jeton falsifié ne doit pas devenir une identité ;
+ *   3. Supabase injoignable -> `IdentityUnavailableError` (503, « réessayez ») ;
+ *   4. jeton absent ou émis par un autre système -> chemin Better Auth historique
+ *      (auth désactivée + base réelle = échec fermé ; auth désactivée sans base
+ *      = utilisateur de développement partagé).
  */
 export async function requireUserId(bearerToken?: string): Promise<string> {
+  const supabase = await resolveSupabaseBearer(bearerToken);
+  if (supabase.kind === "verified") return supabase.userId;
+  if (supabase.kind === "rejected") throw new UnauthorizedError();
+  if (supabase.kind === "unreachable") throw new IdentityUnavailableError();
+
   if (!authConfigured && !gateIdentityEnabled()) {
     if (databaseConfigured) {
       throw new Error(

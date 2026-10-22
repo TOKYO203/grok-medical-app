@@ -1,4 +1,7 @@
 import { z } from "zod";
+// Import de TYPE seulement : effacé à la compilation, donc aucun cycle d'exécution
+// avec le store (ce module reste chargeable sous `node --experimental-strip-types`).
+import type { OptimusState } from "@/state/store";
 
 const numericStudyLevelSchema = z.union([
   z.literal(1),
@@ -77,6 +80,46 @@ export const optimusSyncPushSchema = z.object({
   baseRevision: z.number().int().min(0).nullable(),
   snapshot: optimusSyncSnapshotSchema,
 });
+
+/**
+ * Construit l'instantané synchronisable depuis l'état local.
+ *
+ * Extrait de `optimus-sync-bridge.tsx` pour être partagé : les deux ponts
+ * (Better Auth historique et Supabase) doivent envoyer EXACTEMENT la même
+ * forme au serveur. `optimus_user_state` n'accepte qu'un instantané valide, et
+ * la commande Premium exige que cette ligne existe.
+ */
+export function buildOptimusSnapshot(state: OptimusState): OptimusSyncSnapshot {
+  return optimusSyncSnapshotSchema.parse({
+    version: 1,
+    profile: {
+      displayName: state.profile.displayName,
+      optimusId: state.profile.optimusId,
+      studyYear: state.profile.studyYear,
+      studyLevel: state.profile.studyLevel,
+      country: state.profile.country,
+      faculty: state.profile.faculty,
+      goal: state.profile.goal,
+      prioritySubjects: state.profile.prioritySubjects,
+      avatar: state.profile.avatar,
+      // Une couverture personnalisée est une image LOCALE à l'appareil : ne pas
+      // prétendre qu'elle existe sur un autre appareil.
+      cover: state.profile.cover === "custom" ? "hautes-terres" : state.profile.cover,
+      onboarded: state.profile.onboarded,
+    },
+    xp: state.xp,
+    streak: state.streak,
+    lastActiveDay: state.lastActiveDay,
+    weeklyXp: state.weeklyXp,
+    weeklyKey: state.weeklyKey,
+    daily: state.daily,
+    progress: state.progress,
+    badges: state.badges,
+    casesCompleted: state.casesCompleted,
+    diagnosticsCompleted: state.diagnosticsCompleted,
+    reviewsSucceeded: state.reviewsSucceeded,
+  });
+}
 
 function uniqueStrings(left: readonly string[], right: readonly string[]): string[] {
   return [...new Set([...left, ...right])];

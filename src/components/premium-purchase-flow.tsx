@@ -31,8 +31,9 @@ import {
 } from "@/content/purchase-order";
 import { formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS } from "@/content/pricing";
 import type { Profile } from "@/core/types";
+import { useAppUser } from "@/hooks/useAppUser";
 import { authEnabled } from "@/lib/auth/client";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import {
   advancePremiumPurchaseOrder,
   createPremiumPurchaseOrder,
@@ -113,7 +114,14 @@ export function PremiumPurchaseFlow({
   onRemember: (message: string) => void;
   onPurchaseUpdated: (purchase: PremiumPurchase) => void;
 }) {
-  const { user, isPending: authPending } = useCurrentUserState();
+  /**
+   * Identité unique : Supabase quand il est configuré, repli Better Auth sinon.
+   * Avant, ce composant interrogeait `useCurrentUserState()` (Better Auth) alors
+   * que la porte d'entrée authentifiait par Supabase : un utilisateur connecté
+   * lisait donc « Connexion requise » ici — la double authentification.
+   */
+  const { user, isPending: authPending } = useAppUser();
+  const ensureOptimusIdentity = useOptimus((state) => state.ensureOptimusIdentity);
   const [purchase, setPurchase] = useState<PremiumPurchase | undefined>(initialPurchase);
   const [step, setStep] = useState<1 | 2 | 3>(() => {
     if (!initialPurchase) return 1;
@@ -321,7 +329,12 @@ export function PremiumPurchaseFlow({
     );
   }
 
-  if (!authEnabled || !user || user.isDevFallback) {
+  /**
+   * Une commande exige une identité SERVEUR vérifiable. `isSupabaseConfigured`
+   * couvre la production ; `authEnabled` ne subsiste que pour un déploiement
+   * historique sans Supabase (bac à sable).
+   */
+  if (!user || user.isDevFallback || (!isSupabaseConfigured && !authEnabled)) {
     return (
       <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
         <h2 className="font-display text-xl font-medium">Connexion requise pour un achat Premium</h2>
@@ -345,12 +358,18 @@ export function PremiumPurchaseFlow({
       <section className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
         <h2 className="font-display text-xl font-medium">Finalisation du compte Optimus</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Votre session est connectée. L’Optimus ID sécurisé doit encore être synchronisé avant de
-          créer une commande.
+          Votre session est connectée. Il reste à générer l&apos;identité Optimus de cet appareil,
+          qui rattachera la commande à votre compte.
         </p>
-        <Link to="/profil" className="mt-4 inline-block text-sm font-medium text-primary">
-          Ouvrir mon profil →
-        </Link>
+        <Button
+          className="mt-4"
+          onClick={() => ensureOptimusIdentity({ displayName: user.displayName })}
+        >
+          Finaliser mon identité Optimus
+        </Button>
+        <p className="mt-2 text-xs text-muted">
+          Générée localement sur cet appareil — aucune donnée n&apos;est envoyée.
+        </p>
       </section>
     );
   }

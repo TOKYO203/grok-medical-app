@@ -174,6 +174,73 @@ export function getCloudAuthServerSnapshot(): CloudAuthSnapshot {
   return SERVER_SNAPSHOT;
 }
 
+/**
+ * Jeton d'accès à présenter aux server functions.
+ *
+ * POURQUOI CE HELPER
+ * `authMiddleware` doit prouver l'identité au serveur. L'ancien code ne
+ * transmettait que le jeton du bac à sable de prévisualisation (stocké en
+ * `sessionStorage`), d'où des 401 sur un déploiement où seule la session
+ * Supabase existe.
+ *
+ * Coût maîtrisé : quand l'instantané porte un jeton encore valable plus de
+ * 30 secondes, on le renvoie SANS I/O. Sinon on interroge `getSession()` (qui
+ * rafraîchit au besoin) — un appel local, réseau seulement à l'approche de
+ * l'expiration.
+ *
+ * Ne lève jamais : sans session, on renvoie `null` et l'appelant décide.
+ */
+export async function getFreshAccessToken(): Promise<string | null> {
+  const current = snapshot.session?.access_token ?? null;
+  if (current && !expiresSoon(current)) return current;
+
+  const client = await loadSupabase();
+  if (!client) return current;
+  try {
+    const { data } = await client.auth.getSession();
+    return data.session?.access_token ?? current;
+  } catch {
+    return current;
+  }
+}
+
+const EXPIRY_MARGIN_MS = 30_000;
+
+/** Le jeton expire-t-il dans moins de 30 s (ou est-il illisible) ? */
+function expiresSoon(token: string): boolean {
+  const parts = token.split(".");
+  if (parts.length !== 3) return true;
+  try {
+    const payload = JSON.parse(
+      new TextDecoder().decode(decodeBase64UrlBytes(parts[1])),
+    ) as { exp?: unknown };
+    if (typeof payload.exp !== "number") return true;
+    return payload.exp * 1000 - Date.now() < EXPIRY_MARGIN_MS;
+  } catch {
+    return true;
+  }
+}
+
+/** base64url -> octets, sans `Buffer` ni `atob` (navigateur comme Worker). */
+function decodeBase64UrlBytes(input: string): Uint8Array {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  const clean = input.replace(/=+$/, "");
+  const bytes: number[] = [];
+  let buffer = 0;
+  let bits = 0;
+  for (const char of clean) {
+    const value = alphabet.indexOf(char);
+    if (value === -1) throw new Error("invalid base64url");
+    buffer = (buffer << 6) | value;
+    bits += 6;
+    if (bits >= 8) {
+      bits -= 8;
+      bytes.push((buffer >> bits) & 0xff);
+    }
+  }
+  return Uint8Array.from(bytes);
+}
+
 /** Déconnexion Supabase ; l'état est ensuite mis à jour par `SIGNED_OUT`. */
 export async function signOutCloud(): Promise<void> {
   const client = await loadSupabase();

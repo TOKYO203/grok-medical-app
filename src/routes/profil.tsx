@@ -41,7 +41,7 @@ import { STUDY_LEVEL_LABEL, type CoverId, type StudyLevel } from "@/core/types";
 import { useI18n, LOCALES } from "@/i18n";
 import { markLocaleChosen } from "@/i18n/detect";
 import { getAuthRuntimeStatus, type AuthRuntimeStatus } from "@/lib/auth/runtime-status";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { useAppUser } from "@/hooks/useAppUser";
 import { resetContentSession } from "@/lib/cloud/content-session";
 import { signOutCloud } from "@/lib/cloud/session";
 import { syncWithCloud } from "@/lib/sync-engine";
@@ -139,7 +139,13 @@ function ProfilPage() {
   const diagnosticsCompleted = useOptimus((state) => state.diagnosticsCompleted);
   const importedDecks = useOptimus((state) => state.importedDecks);
   const allProgress = useOptimus((state) => state.progress);
-  const { user, isPending: authPending } = useCurrentUserState();
+  /**
+   * Identité unique : Supabase en production, repli Better Auth sinon. Avant, le
+   * bandeau « compte connecté » et le reste de la page pouvaient répondre deux
+   * choses différentes (« Compte Optimus connecté » à côté d'un formulaire
+   * demandant de se connecter).
+   */
+  const { user, isPending: authPending } = useAppUser();
   const cloudAuth = useAuth();
   const [syncReport, setSyncReport] = useState<{ ok: boolean; message: string } | null>(null);
   const [name, setName] = useState(profile.displayName);
@@ -211,23 +217,14 @@ function ProfilPage() {
     (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
     YEARS.find((item) => item.year === profile.studyYear)?.label ??
     "Médecine";
-  // Un compte est « connecté » dès qu'une identité réelle existe : Better Auth
-  // (déploiements historiques) ou session Supabase (backend Phase 1).
-  const connectedAccount =
-    Boolean(user && !user.isDevFallback) || cloudAuth.status === "authenticated";
-
   /**
-   * Email du compte connecté.
-   *
-   * Deux fournisseurs coexistent : la session Supabase (backend actuel) et
-   * Better Auth (déploiements historiques). On préfère Supabase, et on ignore
-   * l'utilisateur de secours du bac à sable — afficher « dev@example.com » à un
-   * visiteur non connecté serait un mensonge.
+   * Un compte est « connecté » dès qu'une identité RÉELLE existe. `useAppUser()`
+   * est la seule source : il n'y a plus de second fournisseur susceptible de
+   * contredire ce bandeau. L'utilisateur de secours du bac à sable est écarté —
+   * afficher « dev@example.com » à un visiteur non connecté serait un mensonge.
    */
-  const accountEmail =
-    cloudAuth.session?.user?.email ??
-    (user && !user.isDevFallback ? user.primaryEmail : null) ??
-    null;
+  const connectedAccount = Boolean(user && !user.isDevFallback);
+  const accountEmail = user && !user.isDevFallback ? user.primaryEmail : null;
 
   const [signingOut, setSigningOut] = useState(false);
 
@@ -892,7 +889,7 @@ function ProfilPage() {
             ) : cloudStatus ? (
               <p className="mt-4 rounded-[var(--radius-md)] bg-secondary p-3 text-xs leading-relaxed text-muted">
                 {cloudStatus.message ??
-                  "La connexion cloud n'est pas encore configurée sur ce déploiement."}
+                  "Le service de connexion ne répond pas pour l'instant. Votre progression reste sur cet appareil."}
               </p>
             ) : null
           ) : null}

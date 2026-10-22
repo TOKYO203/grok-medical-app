@@ -75,3 +75,19 @@ regexes = ['''optimus-(theme|accent)-v1''']
 [[allowlists]]
 description = "Postgres local du conteneur de CI (optimus/optimus@localhost)"
 regexes = ['''postgres(ql)?://optimus:optimus@localhost(:[0-9]+)?/''']
+
+# 5. Clé `anon` de Supabase dans `.env.production` : c'est un JWT (`role: anon`)
+#    que la règle `jwt` signale, mais il est PUBLIC par conception — il est
+#    inliné dans le bundle navigateur et servi à chaque visiteur ; il ne donne
+#    accès qu'à ce que les policies RLS autorisent à un visiteur anonyme.
+#    L'exception est liée à la LIGNE (nom de variable + forme du JWT), pas au
+#    fichier : un JWT posé ailleurs reste détecté, et un secret serveur — qui ne
+#    peut pas s'appeler `VITE_*` sans être publié — ne peut pas en profiter.
+#    Garantie structurelle : `scripts/secret-hygiene.test.mjs` décode ce JWT et
+#    exige `role: "anon"` avec le `ref` du projet de `VITE_SUPABASE_URL`, donc
+#    une clé `service_role` (ou d'un autre projet) glissée ici fait échouer la
+#    suite de tests au lieu de passer sous l'exception.
+[[allowlists]]
+description = "Clé anonyme Supabase (JWT role=anon, publique par conception) dans .env.production"
+regexTarget = "line"
+regexes = ['''(?i)VITE_SUPABASE_ANON_KEY\s*=\s*["']?eyJ''']

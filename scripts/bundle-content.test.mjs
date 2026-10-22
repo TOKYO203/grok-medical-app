@@ -153,6 +153,20 @@ async function loadContents() {
  *   violations: string[],
  * }}
  */
+/**
+ * Choisit le chunk d'ENTRÉE parmi les chunks triés par taille décroissante.
+ *
+ * Vite nomme le chunk d'entrée d'après son module source ; ici c'est `index-…`
+ * (le document HTML charge `/assets/index-<hash>.js` — vérifié sur l'artefact de
+ * production). On prend le plus gros `index-*.js` s'il y en a plusieurs, sinon on
+ * retombe sur le plus gros chunk (comportement historique), pour ne jamais
+ * échouer sur un artefact dont le nommage aurait changé.
+ */
+export function pickEntryChunk(chunks) {
+  const entries = chunks.filter((chunk) => basename(chunk.name).startsWith("index-"));
+  return entries.length > 0 ? entries[0] : chunks[0];
+}
+
 export function analyseAssets(assetDirectory, contents, maxMainChunkBytes = MAX_MAIN_CHUNK_BYTES) {
   const chunks = readdirSync(assetDirectory)
     .filter((name) => name.endsWith(".js"))
@@ -167,10 +181,23 @@ export function analyseAssets(assetDirectory, contents, maxMainChunkBytes = MAX_
     throw new Error(`aucun chunk JS dans ${assetDirectory}`);
   }
 
-  // « Chunk principal » = le plus gros JS du client. C'est la définition
-  // demandée, et c'est aussi celle qui attrape un import statique ajouté
-  // depuis un module du graphe initial (racine, Shell, store).
-  const main = chunks[0];
+  // « Chunk principal » = le chunk d'ENTRÉE, celui que le document charge en
+  // premier (`<script type="module" src="/assets/index-….js">`).
+  //
+  // POURQUOI CE N'EST PLUS « LE PLUS GROS FICHIER » : cette définition a produit
+  // un FAUX POSITIF mesuré le 2026-10-22. Depuis que le SDK Supabase a quitté le
+  // chunk d'entrée (chargé paresseusement, cf. `src/lib/supabase.ts`), l'entrée
+  // a minci (577 → 417 Kio) et le chunk de DONNÉES partagé (`catalog-*.js`,
+  // 478 Kio : catalogue clinique, manifestes) est devenu le plus gros fichier du
+  // build — sans devenir pour autant le script initial. Le garde-fou se mettait
+  // alors à accuser le catalogue clinique de contenir `DX-THORAX-001`, ce qui est
+  // exact mais légitime : cet identifiant est une CLÉ DE NAVIGATION du manifeste.
+  // Le critère « entrée » est celui qui correspond à l'intention (« rien de lourd
+  // avant le premier rendu ») et il ne dépend plus de l'ordre des tailles.
+  //
+  // Les autres chunks restent bornés, un par un, par le budget de performance
+  // (`maxJavascriptChunkBytes`, 584 Kio) — voir `scripts/performance-budget.mjs`.
+  const main = pickEntryChunk(chunks);
   const violations = [];
 
   if (main.bytes > maxMainChunkBytes) {
@@ -381,6 +408,47 @@ test("la détection signale un payload présent dans le chunk principal (contenu
     `aucune violation détectée : ${JSON.stringify(report.violations)}`,
   );
   assert.ok(report.violations.some((violation) => violation.includes("dupliqué")));
+});
+
+test("le chunk principal est l'ENTRÉE, pas le plus gros fichier du build", () => {
+  /**
+   * RÉGRESSION MESURÉE le 2026-10-22 : l'ancienne définition (« le plus gros
+   * JS ») accusait à tort le chunk de données partagé `catalog-*.js` (478 Kio)
+   * de contenir `DX-THORAX-001`, alors que le script initial est
+   * `index-*.js` (417 Kio). Un garde-fou qui dépend de l'ordre des tailles
+   * change de verdict sans qu'une ligne de code applicatif bouge.
+   */
+  const chunks = [
+    { name: "catalog-big.js", bytes: 478_000, text: "" },
+    { name: "index-entry.js", bytes: 417_000, text: "" },
+  ];
+  assert.equal(pickEntryChunk(chunks).name, "index-entry.js");
+
+  // Sans chunk d'entrée reconnaissable, on garde le comportement historique.
+  assert.equal(
+    pickEntryChunk([{ name: "a.js", bytes: 2 }, { name: "b.js", bytes: 1 }]).name,
+    "a.js",
+  );
+});
+
+test("un identifiant de manifeste dans un chunk de données n'est pas une fuite", () => {
+  const root = mkdtempSync(join(tmpdir(), "optimus-bundle-"));
+  const assets = join(root, "assets");
+  mkdirSync(assets, { recursive: true });
+  const sentinel = "Objectif rédigé de la fiche, suffisamment long pour être unique.";
+  // L'entrée est plus PETITE que le chunk de données, qui porte la clé de nav.
+  writeFileSync(join(assets, "index-entry.js"), `const entry=1;`);
+  writeFileSync(
+    join(assets, "catalog-data.js"),
+    `const nav="DX-THORAX-001";const data="${"y".repeat(2048)}";`,
+  );
+  writeFileSync(join(assets, "fiche-bbb.js"), `const lazy=${JSON.stringify(sentinel)};`);
+
+  const report = analyseAssets(assets, [
+    { id: "fiche", file: "fiche.json", servedAs: "module", sentinels: [sentinel] },
+  ]);
+  assert.deepEqual(report.violations, [], report.violations.join("\n"));
+  assert.equal(report.mainChunk, "index-entry.js");
 });
 
 test("la détection accepte un contenu isolé dans son propre chunk (contenu modularisé)", () => {

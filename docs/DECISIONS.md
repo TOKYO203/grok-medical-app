@@ -579,3 +579,223 @@ publier.
 `service_role` reçoit toujours `403 42501` sur `admin_actions` et `error_reports` → le script
 `003-admin-dashboard.sql` n'a **pas** été exécuté. Le dashboard reste en mode dégradé honnête
 (bannière + messages exacts) tant que ce n'est pas fait.
+
+---
+
+## 2026-10-22 — Identité unique : fin de la double authentification (AUTH)
+
+**AUTH-1 — Un seul fournisseur d'identité.** L'application interrogeait Supabase (porte
+d'entrée, contenu, synchronisation) **et** Better Auth (tunnel Mobile Money, `/achats`,
+`/donnees`, export de compte). Un utilisateur connecté par Supabase lisait donc
+« Connexion requise pour un achat Premium » sur `/pro` : le symptôme de « double
+authentification ». Correctif : `src/hooks/useAppUser.ts` est désormais la **seule** réponse à
+« qui est connecté » ; Better Auth n'est consulté que si Supabase n'est pas configuré (bac à
+sable, déploiements historiques).
+
+**AUTH-2 — Le serveur juge le jeton par son émetteur.** `authMiddleware` transporte le jeton
+d'accès Supabase ; `requireUserId` le fait vérifier par `GET <url>/auth/v1/user` avec la clé
+**anonyme** (jamais `service_role`), et n'utilise que le `sub` **de la réponse**. Quatre issues
+distinctes, qui n'appellent pas la même réponse HTTP : vérifié → identité ; refusé → 401 ;
+Supabase injoignable → 503 (on ne déconnecte pas sur une panne) ; jeton non-Supabase → repli
+historique. Un jeton est reconnu comme Supabase uniquement si son `iss` vaut **exactement**
+`<url>/auth/v1` — une correspondance floue enverrait un jeton Better Auth à Supabase, qui le
+refuserait, déconnectant un utilisateur légitime du bac à sable.
+
+**AUTH-3 — Provisionnement de l'Optimus ID.** Le tunnel de commande exige une identité stable
+(`profile.optimusId !== "OM-GUEST"`) ; un appareil neuf restait donc bloqué sur
+« Finalisation du compte Optimus » même une fois l'authentification réparée.
+`CloudIdentityBridge` génère l'Optimus ID et l'identifiant d'appareil dès la première session
+cloud, localement, sans appel réseau.
+
+**AUTH-4 — `/login` ne redemande plus une connexion déjà faite.** Un utilisateur authentifié
+qui suivait un lien vers `/login` voyait un formulaire vide et croyait sa session perdue ;
+la page redirige maintenant vers `/pro` dès que la session est résolue.
+
+**AUTH-6 — Provisionnement serveur de l'identité (`optimus_user_state`).** Le tunnel de
+commande lit `optimus_user_state` (table du projet serveur) et refuse de créer une commande
+sans cette ligne : « Connectez et synchronisez votre compte Optimus avant de créer une
+commande. » Cette ligne n'était écrite que par le pont Better Auth (`OptimusSyncBridge`),
+lui-même suspendu dès qu'une session Supabase existe (AUTH-1). **Conséquence mesurée en QA** :
+l'identité était corrigée, `/pro` affichait bien le tunnel, mais la commande échouait — une
+correction incomplète. `CloudIdentityBridge` provisionne désormais la ligne, avec trois
+garde-fous : on **lit d'abord** (un instantané existant interdit l'écriture, sinon un appareil
+neuf écraserait la progression cloud de l'utilisateur), un compte en cours d'effacement
+(`syncSuspended`) n'est **jamais** ressuscité, et on attend que l'Optimus ID local existe
+(l'instantané serait invalide). Le constructeur d'instantané, jusque-là privé au pont Better
+Auth, est extrait dans `buildOptimusSnapshot` (`src/lib/optimus-sync-model.ts`) pour que les
+deux ponts envoient **exactement** la même forme. Garde-fou : `scripts/single-identity.test.mjs`.
+
+**AUTH-7 — Les erreurs de server function ne portent PAS de statut HTTP (dette V1.1).**
+`UnauthorizedError` déclare `status = 401` et `IdentityUnavailableError` `status = 503`, mais
+TanStack Start sérialise toute exception de handler dans le corps d'une réponse **200**
+(`{"c":"$TSR/Error","s":{"message":…}}`). Mesuré en configuration de production (sans jeton) :
+`HTTP 200` + `{"message":"Unauthorized"}`. Ce n'est donc pas « un 500 générique » : **aucun
+code 4xx/5xx n'est émis**. Fonctionnellement l'application est correcte (le contrat documenté
+est `err.message === "Unauthorized"`), mais aucune couche d'exploitation (monitoring, cache,
+WAF, CDN) ne peut distinguer un refus d'authentification d'un succès. À traiter en V1.1 par un
+mapping explicite (`setResponseStatus`) sur les erreurs connues.
+
+**AUTH-5 — `.env.production` reste suivi en V1 (dette V1.1).** Les variables d'environnement
+Cloudflare Pages ne sont **pas** poussées dans l'environnement Vite par
+`scripts/with-app-env.mjs` ; `.env.production` est donc le seul moyen **fiable** de compiler un
+déploiement avec la configuration cloud. Le fichier ne contient que des valeurs `VITE_*`
+publiques par design (URL Supabase, clé `anon` déjà inlinée dans le bundle, identifiants
+Lemon Squeezy) — aucune n'est un secret serveur. Comme il est publié, il est **interdit** d'y
+ajouter quoi que ce soit d'autre : `scripts/secret-hygiene.test.mjs` allowliste explicitement
+ce fichier **et** vérifie que chaque variable y est préfixée `VITE_`, donc qu'aucun secret
+serveur ne peut y entrer sans faire échouer la suite. À remplacer en V1.1 par une injection au
+build (variables de plateforme → `process.env` → `define` Vite).
+
+**AUTH-8 — Un build sans configuration cloud ne peut plus être publié.** Le symptôme n°1 de
+l'audit (« la connexion cloud n'est pas encore configurée ») n'était pas un bug de code : un
+artefact compilé **sans** `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY` a été publié, donc
+`isSupabaseConfigured` valait `false` et l'application retombait sur Better Auth. Aucun gate ne
+pouvait le voir : `tsc`, `eslint`, les tests, le budget de performance et le smoke test passent
+tous parfaitement sur un bundle **muet**. `scripts/assert-supabase-build.mjs` lit donc
+l'ARTEFACT publié et cherche les deux valeurs attendues (priorité à l'environnement, puis
+`.env.production`) dans les fichiers réellement servis — preuve directe, puisque Vite remplace
+`import.meta.env.VITE_*` par un littéral au build. Il tourne dans `postbuild:cloud`, branché sur
+`build`, `build:netlify` **et** `build:cloudflare` (les trois voies de publication). Deux
+décisions : (1) une seule moitié ne suffit pas — `isSupabaseConfigured` exige les DEUX, donc
+l'URL seule échoue aussi ; (2) échappatoire explicite `ALLOW_CLOUDLESS_BUILD=1` pour les builds
+volontairement hors-ligne (QA), qui avertit au lieu d'échouer — une publication silencieuse
+reste donc impossible. Garde-fou : `scripts/assert-supabase-build.test.mjs` (8 tests, dont
+« une seule moitié échoue » et « l'échappatoire reste visible dans le rapport »).
+
+**AUTH-9 — Le message de repli dit la vérité, et le code mort Better Auth est parti.** Deux
+nettoyages de la phase C de l'audit. (1) « La connexion cloud n'est pas encore configurée sur ce
+déploiement » est remplacé par un texte qui nomme la cause : cet artefact a été **compilé sans
+configuration cloud**, réessayer ne changera rien. L'ancienne formulation laissait croire à une
+panne passagère, ce qui fait tourner l'utilisateur en rond. (2) `src/lib/auth/gates.tsx`
+(composants `RequireAuth`/`AuthGate` autour de `useCurrentUserState`) est **supprimé** : jamais
+importé depuis la bascule sur Supabase, il ne restait qu'un piège — un futur écran l'aurait
+monté et aurait réintroduit une seconde source d'identité. Le fichier reste consultable dans
+l'historique (`git log -- src/lib/auth/gates.tsx`).
+
+**AUTH-10 — Ce qui a réellement bloqué la QA (et non l'application).** Le verdict de la QA
+« identité unique » restait rouge sur deux lignes, `server function sans jeton → 401` et
+`server function avec jeton → 200`, avec `403` dans les deux cas. Mesures : (1) un `fetch()` Node
+**sans en-tête `Origin`** reçoit `403` du garde **CSRF** de TanStack Start — le harnais ne
+mesurait que sa propre omission, pas une décision de l'application ; (2) une server function
+`POST` ne reçoit **pas** son entrée dans le corps, TanStack l'attend dans `?payload=…` : rejouer
+le corps donnait `500 SerovalDeserializationError` ; (3) le jeton lu depuis un **fichier**
+(`.gate-tmp/qa-token.txt`) pouvait être expiré (JWT 1 h). Le protocole retenu rejoue la requête
+capturée **telle quelle** deux fois, en n'effaçant que le jeton du payload : jeton effacé → refus,
+jeton intact → réponse. C'est un vrai A/B, la seule variable est le jeton. Corollaire :
+**`VITE_AUTH_ENABLED=false` dans `.env.local` rendait ce contrôle impossible** — l'identité est
+alors le `dev-user` partagé, donc une requête sans jeton réussit légitimement. La QA a été
+rejouée avec le drapeau **absent** (configuration de production, cf. audit §7), et non `false`.
+
+**AUTH-11 — Le garde-fou « chunk principal » mesurait la mauvaise chose.** `npm test` échouait
+localement sur `bundle-content.test.mjs` : « DX-THORAX-001 est remonté dans le chunk
+principal ». Faux positif : le test définissait le chunk principal comme **le plus gros fichier
+JS**. Depuis que le SDK Supabase a quitté l'entrée (chargé paresseusement), le chunk de DONNÉES
+partagé `catalog-*.js` (478 Kio, manifestes cliniques) est devenu plus gros que l'entrée
+`index-*.js` (417 Kio) — sans devenir pour autant le script initial. Le critère retenu est le
+**chunk d'entrée** (`pickEntryChunk`, vérifié sur l'artefact : le document charge
+`/assets/index-<hash>.js`), ce qui correspond à l'intention (« rien de lourd avant le premier
+rendu ») et ne dépend plus de l'ordre des tailles ; les autres chunks restent bornés un par un
+par `maxJavascriptChunkBytes`. Deux tests verrouillent ce choix. **Cause du silence en CI** :
+`release:check` exécute `npm test` AVANT `npm run build`, donc les assertions sur l'artefact sont
+sautées (`skip: noBuild`) — elles ne peuvent se déclencher qu'en local après un build.
+
+**AUTH-12 — Un répertoire de travail non ignoré gonflait le CSS publié de 6 Kio.** Tailwind v4
+détecte ses sources en scannant la racine du projet et ne respecte que `.gitignore` : un dossier
+de sorties de tâches de fond (`.gate-tmp/`, contenant une copie d'artefact de build) faisait
+entrer ses classes utilitaires dans la feuille publiée — `styles.css` à 129,3 Kio pour un
+plafond de 128, et un build rouge pour une raison **étrangère au code applicatif**. `.gate-tmp/`
+est désormais ignoré par git **et** par ESLint ; la feuille est revenue à 123,5 Kio. Règle :
+tout nouveau répertoire de travail local doit être ajouté aux deux listes, tenues en phase.
+
+**AUTH-13 — Une exception de scanner de secrets doit être démontrée, pas déclarée.** `main` est
+ROUGE sur `Secret scan (delta)` depuis la PR #110 : rendre `.env.production` suivi y a fait entrer
+`VITE_SUPABASE_ANON_KEY`, que la règle `jwt` de gitleaks signale (`Entropy 5,53`, reproductible par
+`gitleaks stdin < .env.production`). Cette clé est publique par conception (JWT `role: anon`,
+inlinée dans le bundle, servie à chaque visiteur), mais l'exception est écrite de deux façons
+solidaires : (1) allowlist gitleaks liée à la **ligne** (nom de variable + forme `eyJ`) et non au
+fichier — vérifié, le même jeton sous un autre nom est toujours détecté ; (2)
+`scripts/secret-hygiene.test.mjs` **décode** le JWT et exige `role: "anon"` avec le `ref` du projet
+de `VITE_SUPABASE_URL`. Une clé `service_role` — qui contourne toutes les policies RLS et se
+retrouverait alors dans le bundle navigateur — fait échouer la suite avec un message explicite
+(vérifié en l'injectant). Règle générale : toute exception à un scanner doit être accompagnée d'un
+test qui prouve que ce qu'elle laisse passer est inoffensif, sinon l'exception devient le trou.
+
+**AUTH-14 — Une porte d'entrée est une page : elle porte un repère `<main>`.** `release-check`
+restait rouge après la correction sur un point qui n'était pas un bug d'authentification mais sa
+**conséquence visible** : l'audit mobile (320/360/390 px) échouait sur `mainCount: 0` pour les 5
+routes, à toutes les largeurs, sans aucun autre défaut (ni débordement, ni erreur console). Cause
+exacte : depuis que l'artefact de production porte la configuration cloud (AUTH-8), un visiteur
+anonyme ne voit plus l'application sur ces routes mais la **porte d'entrée** — écran de chargement
+au rendu serveur (`getServerSnapshot` renvoie toujours « loading »), puis écran de connexion. Ces
+deux écrans étaient des `<div>` : le document n'avait donc **aucun landmark**, ni pour le lecteur
+d'écran, ni pour le lien d'évitement. Correctif : `CloudSplash` (`__root.tsx`) et `AuthScreen`
+sont des `<main>`. Ils ne portent **pas** `id="main-content"` : `AuthScreen` peut être monté dans
+l'Outlet du `Shell` (route `/login`) qui possède déjà cet identifiant — un doublon d'id serait
+invalide, et deux `<main>` dans un même document aussi. L'audit publie désormais `gate`
+(`splash` | `locked` | `app`) par écran et un décompte global : sans cela, « 15 écrans propres à
+320 px » pouvait signifier « la même porte d'entrée mesurée 15 fois », et personne ne l'aurait su.
+Garde-fou : `scripts/mobile-audit-contract.test.mjs` (5 tests) vérifie que tout écran du gate est un
+`<main>` sans dupliquer l'id du Shell, que l'audit dit ce qu'il mesure **et** qu'il continue
+d'échouer sur `mainCount === 0` (supprimer ce critère aurait transformé le rouge en faux vert).
+L'audit inclut désormais les deux surfaces **publiques réelles** (`/tarifs`, `/login`) : sans
+elles, il ne mesurait plus que le même écran de connexion et son « OK » ne disait rien des pages
+commerciales. Vérifié avant ajout aux 3 largeurs. Couverture **assumée** en revanche : les écrans
+applicatifs (derrière la porte) ne sont plus mesurés à 320 px par la CI ; ils le restent en
+développement — le gate y est transparent faute de configuration cloud, c'est le cas des E2E — et
+à la main. Rejouer l'audit avec une session (projet de test dédié) reste le suivi ouvert.
+
+**AUTH-15 — Deux cibles de QA, parce qu'elles ne mesurent pas la même chose.** Une fois le repère
+`<main>` rétabli (AUTH-14), `release-check` est passé au rouge sur l'étape suivante : `/import` sans
+`textarea`, puis le parcours critique mobile. Même cause racine — depuis AUTH-8, l'artefact de
+production porte la configuration cloud, donc la porte de connexion est **active** et un visiteur
+anonyme ne voit que l'écran de connexion. Or `imported-deck-browser-smoke` et
+`mobile-critical-journey-smoke` décrivent explicitement le monde **sans compte** (identité
+`OM-GUEST`, IndexedDB locale, onboarding, nom saisi) : les jouer derrière une porte qui exige
+justement un compte ne teste plus la fonctionnalité, mais la porte. `scripts/qa-built-mobile.mjs`
+lance donc deux cibles : (1) l'**artefact publié** (preview, 8081) pour l'audit de mise en page — le
+seul qui doive porter sur ce qui est réellement publié ; (2) un **serveur de développement** dont la
+configuration cloud est neutralisée (`VITE_SUPABASE_URL` et `VITE_SUPABASE_ANON_KEY` vides, 8082)
+pour les deux smokes de fonctionnalité. Neutraliser la configuration plutôt que retirer les
+contrôles est le point important : `resolveCloudGate` rend la porte transparente quand Supabase
+n'est pas configuré — comportement **produit** (l'application reste utilisable sans cloud), pas une
+exception de test. Aucun `VITE_QA_MODE` n'est introduit, donc **aucun chemin de contournement ne
+peut atteindre la production** ; le garde-fou le vérifie par l'absence de tout drapeau de ce type.
+Preuve avant de pousser (CDP `headless_shell`, Playwright indisponible sous Termux) sur cette
+cible : accueil rendu sans mur, un seul `<main>`, `/import` affiche son formulaire,
+« Enregistré dans IndexedDB » puis le Deck réapparaît sur `/parcours` après rechargement,
+onboarding 5 écrans → « Bonjour, QA Mobile » → Deck démarrable → profil conservé, 0 erreur console.
+Piège de harnais confirmé : une saisie `Input.insertText` **avant l'hydratation** est écrasée par le
+re-render (`value=""` réappliqué) — il faut rejouer la saisie jusqu'à ce que le bouton « Valider »
+s'active, exactement comme le fait le script Playwright. Deuxième piège : forcer le français exige
+le marqueur `optimus.locale.chosen.v1`, sinon `applyDetectedLocale` relit `navigator.languages`
+(en-US en headless) et réécrit la locale en anglais. Ajout assumé : `/tarifs` et `/login`
+rejoignent l'audit de mise en page (vérifiés propres à 320/360/390 px) — sans elles, l'audit ne
+mesurait plus aucune page commerciale réelle.
+
+**AUTH-16 — Le préchauffage du serveur de dev fait partie du contrat de QA.** Troisième et dernier
+échec de `release-check`, une fois la porte franchie (AUTH-15) : `[imported-deck-browser-smoke]
+browser console errors: 504 (Outdated Optimize Dep), 404, 404`. Aucun défaut applicatif : au tout
+premier chargement, Vite pré-optimise ses dépendances, logue « optimized dependencies changed.
+reloading » et **recharge la page en cours** — le smoke tombait exactement dans cette fenêtre. Le
+correctif n'est pas de tolérer des erreurs console dans les smokes (cela affaiblirait un contrôle
+qui a déjà attrapé de vrais défauts), mais de stabiliser le serveur AVANT de mesurer :
+`scripts/dev-server-warmup.mjs` charge `/`, `/import` et `/parcours` deux fois en ignorant
+volontairement les erreurs (il ne juge rien), puis les smokes restent intransigeants. Un test
+vérifie l'ORDRE (préchauffage avant smoke) et pas seulement la présence des appels : un préchauffage
+exécuté après le smoke serait un code mort rassurant.
+
+**AUTH-17 — Sur la cible « sans compte », l'authentification est neutralisée AUSSI.** Dernier écart
+de `release-check` : deux `404` dans les smokes de fonctionnalité, une fois le préchauffage en place
+(AUTH-16). Mesuré sur une cible de dev à cloud neutralisé mais authentification ACTIVE :
+`404 http://127.0.0.1:8083/api/auth/get-session` — les routes serveur (plugin `nitro`) ne sont
+montées que pour `build`/`preview`, donc toute route `/api/*` est introuvable en développement (fait
+déjà documenté, mais jamais rencontré en CI jusqu'ici parce que la passerelle ne s'activait pas).
+La configuration de la cible « sans compte » neutralise donc aussi `VITE_AUTH_ENABLED` : ces deux
+scénarios décrivent un profil local, une identité `OM-GUEST` et IndexedDB — l'authentification n'y
+joue aucun rôle, et l'activer ne teste qu'un service absent. Vérifié après correctif sur la cible
+exacte : import (641 caractères saisis → « Enregistré dans IndexedDB » → Deck présent dans
+IndexedDB et ABSENT de localStorage → réapparaît sur `/parcours` après rechargement) et parcours
+critique (onboarding 5 écrans → « Bonjour, QA Mobile » → Deck démarrable → profil conservé), 0
+erreur console, verdicts `ok:true`. La neutralisation ne peut pas fuiter dans le build : elle est
+posée sur l'environnement du seul serveur de développement, et le garde-fou interdit explicitement
+une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
