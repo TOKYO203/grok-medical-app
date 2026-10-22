@@ -56,6 +56,7 @@ import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
 import { Route as ApiCheckoutLemonsqueezyRouteImport } from './routes/api.checkout.lemonsqueezy'
+import { Route as ApiHealthCheckoutRouteImport } from './routes/api.health.checkout'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
@@ -296,6 +297,11 @@ const ApiCheckoutLemonsqueezyRoute = ApiCheckoutLemonsqueezyRouteImport.update({
   path: '/api/checkout/lemonsqueezy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiHealthCheckoutRoute = ApiHealthCheckoutRouteImport.update({
+  id: '/api/health/checkout',
+  path: '/api/health/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiLicensesActivateRoute = ApiLicensesActivateRouteImport.update({
   id: '/api/licenses/activate',
   path: '/api/licenses/activate',
@@ -369,6 +375,7 @@ export interface FileRoutesByFullPath {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
+  '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
@@ -422,6 +429,7 @@ export interface FileRoutesByTo {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
+  '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
@@ -477,6 +485,7 @@ export interface FileRoutesById {
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
+  '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
@@ -532,6 +541,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/checkout/lemonsqueezy'
+    | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
@@ -585,6 +595,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/checkout/lemonsqueezy'
+    | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
@@ -639,6 +650,7 @@ export interface FileRouteTypes {
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/api/checkout/lemonsqueezy'
+    | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
@@ -689,6 +701,7 @@ export interface RootRouteChildren {
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
+  ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
@@ -1027,6 +1040,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiCheckoutLemonsqueezyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/health/checkout': {
+      id: '/api/health/checkout'
+      path: '/api/health/checkout'
+      fullPath: '/api/health/checkout'
+      preLoaderRoute: typeof ApiHealthCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/licenses/activate': {
       id: '/api/licenses/activate'
       path: '/api/licenses/activate'
@@ -1162,6 +1182,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
+  ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,

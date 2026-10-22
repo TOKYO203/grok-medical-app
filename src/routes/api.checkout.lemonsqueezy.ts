@@ -21,7 +21,10 @@ import {
  *   400 `invalid_body`
  *   401 `unauthorized`      (jeton Supabase absent/refusé)
  *   429 `rate_limited`
- *   503 `checkout_unavailable` (Supabase non configuré ou injoignable, base HS)
+ *   503 `checkout_unavailable` + `reason` : `identity_unconfigured` (variables
+ *       Supabase absentes à l'exécution), `identity_unreachable` (Supabase n'a pas
+ *       répondu) ou `database` (base injoignable : la commande ne peut pas être
+ *       enregistrée, donc on n'encaisse pas).
  */
 
 /** 10 ouvertures de paiement par IP et par minute : au-delà, c'est un robot. */
@@ -86,7 +89,21 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
         const identity = await verifyCheckoutIdentity(bearerToken(request.headers.get("authorization")));
         if (!identity.ok) {
           if (identity.reason === "invalid") return json({ error: "unauthorized" }, 401);
-          return json({ error: "checkout_unavailable" }, 503);
+          // 503 : on ne peut pas JUGER l'identité (configuration absente ou
+          // service injoignable). Le `reason` est grossier et volontairement
+          // technique : il ne contient ni URL, ni clé, ni message de driver, mais
+          // il évite le diagnostic à l'aveugle — c'est ce qui a coûté une session
+          // entière le 2026-10-22 (503 indistinguable d'une base en panne).
+          return json(
+            {
+              error: "checkout_unavailable",
+              reason:
+                identity.reason === "unconfigured"
+                  ? "identity_unconfigured"
+                  : "identity_unreachable",
+            },
+            503,
+          );
         }
 
         let sql: CheckoutSql | null = null;
@@ -95,9 +112,9 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
           sql = (await getSql()) as unknown as CheckoutSql;
         } catch (error) {
           console.error("[checkout/lemonsqueezy] base indisponible", error);
-          return json({ error: "checkout_unavailable" }, 503);
+          return json({ error: "checkout_unavailable", reason: "database" }, 503);
         }
-        if (!sql) return json({ error: "checkout_unavailable" }, 503);
+        if (!sql) return json({ error: "checkout_unavailable", reason: "database" }, 503);
 
         const order = await createInternationalOrder({
           sql,
@@ -106,7 +123,7 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
         });
         if (!order.ok) {
           console.error("[checkout/lemonsqueezy] création de commande impossible");
-          return json({ error: "checkout_unavailable" }, 503);
+          return json({ error: "checkout_unavailable", reason: "database" }, 503);
         }
 
         return json({

@@ -2,8 +2,11 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    Optimus — « peut-on encaisser ? » en une commande.
 
-     node scripts/payment-readiness.mjs            # lecture seule
+     node scripts/payment-readiness.mjs            # lecture seule (poste de dev)
      node scripts/payment-readiness.mjs --json     # sortie machine
+     node scripts/payment-readiness.mjs --host https://optimusmedical.pages.dev
+                                                   # + audit du DÉPLOIEMENT
+                                                   #   (environnement d'exécution réel)
 
    POURQUOI : le 2026-10-22, la variante Lemon Squeezy était `pending` et l'URL
    de checkout renvoyait sur l'ACCUEIL de la boutique. Un visiteur cliquait
@@ -17,6 +20,11 @@
      3. l'URL de checkout mène bien à une PAGE PRODUIT (pas à l'accueil)
      4. migr. 0015 appliquée (contrainte `offer` accepte 'subscription')
      5. aucun webhook orphelin / aucune commande livrée sans licence
+     6. (--host) l'environnement d'exécution DÉPLOYÉ sait réellement encaisser :
+        Supabase résolu, base joignable, Lemon configuré. Le 2026-10-22, tout
+        était vert ici et le bouton carte répondait 503 en production : les
+        variables existaient dans `.env.production` (donc dans le bundle) mais
+        pas dans l'environnement du worker. Un audit local ne peut pas le voir.
 
    Aucun secret n'est affiché : les clés sont résumées en longueur + empreinte.
    Aucune écriture : uniquement des SELECT et des GET.
@@ -26,6 +34,13 @@ import { createHash } from "node:crypto";
 import pg from "pg";
 
 const JSON_OUT = process.argv.includes("--json");
+
+/** `--host <url>` : audite aussi l'environnement d'exécution DÉPLOYÉ. */
+const HOST_INDEX = process.argv.indexOf("--host");
+const REMOTE_HOST =
+  HOST_INDEX !== -1 && process.argv[HOST_INDEX + 1]
+    ? process.argv[HOST_INDEX + 1].trim().replace(/\/+$/, "")
+    : null;
 
 function readEnvFile(file) {
   if (!existsSync(file)) return {};
@@ -299,6 +314,101 @@ if (!ENV.DATABASE_URL) {
     check("db", "warn", "base serveur non joignable", e.message.slice(0, 120));
   } finally {
     await client.end().catch(() => {});
+  }
+}
+
+/* ─── 6. Le DÉPLOIEMENT sait-il encaisser ? (--host) ─────────────────────── */
+//
+// `GET /api/health/checkout` ne renvoie que des booléens : jamais une URL, une
+// clé ou un message de driver. C'est suffisant pour distinguer les trois pannes
+// qui produisent le MÊME 503 côté navigateur :
+//   • variables Supabase absentes à l'exécution → identité invérifiable ;
+//   • `DATABASE_URL` absente → repli PGLite/WASM, inutilisable sur un worker ;
+//   • base fournie mais injoignable (réseau, pooler, mot de passe).
+
+if (REMOTE_HOST) {
+  try {
+    const res = await fetch(`${REMOTE_HOST}/api/health/checkout`, {
+      headers: { accept: "application/json" },
+    });
+    const report = await res.json().catch(() => null);
+    if (res.status !== 200 || !report || typeof report !== "object") {
+      check(
+        "remote:route",
+        "fail",
+        "endpoint de santé du déploiement indisponible",
+        `HTTP ${res.status}`,
+        "Déployer une version qui expose /api/health/checkout, puis relancer cet audit.",
+      );
+    } else {
+      check(
+        "remote:supabase",
+        report.supabase?.identity ? "ok" : "fail",
+        report.supabase?.identity
+          ? "déploiement : configuration Supabase résolue"
+          : "déploiement : configuration Supabase ABSENTE à l'exécution",
+        report.supabase?.identity ? "" : "identité invérifiable → le tunnel carte répond 503",
+        report.supabase?.identity
+          ? ""
+          : "Ajouter SUPABASE_URL + SUPABASE_ANON_KEY dans les variables du projet, OU vérifier que le build a bien inliné les VITE_SUPABASE_*.",
+      );
+      check(
+        "remote:service-key",
+        report.supabase?.serviceKey ? "ok" : "fail",
+        report.supabase?.serviceKey
+          ? "déploiement : clé de service présente"
+          : "déploiement : SUPABASE_SERVICE_ROLE_KEY absente",
+        "",
+        report.supabase?.serviceKey ? "" : "Sans elle, une commande payée ne peut pas écrire la licence.",
+      );
+      const source = report.database?.source ?? "inconnue";
+      check(
+        "remote:db-source",
+        source === "postgres" ? "ok" : "fail",
+        source === "postgres"
+          ? "déploiement : base Postgres configurée"
+          : `déploiement : base = « ${source} » (repli embarqué, non déployable)`,
+        source === "postgres" ? "" : "DATABASE_URL absente de l'environnement d'exécution",
+        source === "postgres"
+          ? ""
+          : "Ajouter DATABASE_URL (secret) dans les variables du projet, puis redéployer.",
+      );
+      check(
+        "remote:db-reachable",
+        report.database?.reachable === true ? "ok" : "fail",
+        report.database?.reachable === true
+          ? "déploiement : base joignable depuis le worker"
+          : "déploiement : base INJOIGNABLE depuis le worker",
+        report.database?.reason ?? "",
+        report.database?.reachable === true
+          ? ""
+          : "Vérifier le flag de compatibilité `nodejs_compat` et l'URL du pooler (sslmode=require).",
+      );
+      check(
+        "remote:lemon",
+        report.lemon?.apiKey && report.lemon?.webhookSecret && report.lemon?.checkoutConfigured
+          ? "ok"
+          : "fail",
+        "déploiement : configuration Lemon Squeezy",
+        `clé API ${report.lemon?.apiKey ? "oui" : "non"} · webhook ${report.lemon?.webhookSecret ? "oui" : "non"} · variante ${report.lemon?.checkoutConfigured ? "oui" : "non"}`,
+      );
+      check(
+        "remote:ready",
+        report.ready ? "ok" : "fail",
+        report.ready
+          ? "déploiement : encaissement possible"
+          : "déploiement : encaissement IMPOSSIBLE en l'état",
+        report.ready ? "" : "Corriger les points ci-dessus puis relancer : la production refuse aujourd'hui tout paiement par carte.",
+      );
+    }
+  } catch (e) {
+    check(
+      "remote:reachable",
+      "fail",
+      "déploiement injoignable",
+      String(e.message ?? e).slice(0, 120),
+      "Vérifier l'URL passée à --host.",
+    );
   }
 }
 
