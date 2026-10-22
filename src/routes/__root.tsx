@@ -14,6 +14,7 @@ import { ExperienceMotionBridge } from "@/components/experience-motion-bridge";
 import { LicenseRevocationBridge } from "@/components/license-revocation-bridge";
 import { OptimusSyncBridge } from "@/components/optimus-sync-bridge";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { installAnalyticsFlush } from "@/lib/analytics/client";
 import { applyDetectedLocale } from "@/i18n/detect";
 import { useOptimus } from "@/state/store";
 import { Toaster } from "sonner";
@@ -83,6 +84,15 @@ const selectPathname = (state: { location: { pathname: string } }) => state.loca
  * Corollaire : tout ce qui est un contrat de plateforme (pont de preview,
  * toaster, service worker) est monté ici, hors de toute condition de session.
  */
+/**
+ * Vide la file de mesure quand l'onglet passe en arrière-plan : sans cela le
+ * dernier événement d'une visite (session terminée, achat) serait perdu.
+ */
+function AnalyticsFlushBridge() {
+  useEffect(() => installAnalyticsFlush(), []);
+  return null;
+}
+
 function RootDocument() {
   return (
     <html lang="fr" className="antialiased" suppressHydrationWarning>
@@ -92,6 +102,7 @@ function RootDocument() {
       </head>
       <body>
         <PreviewHostBridge />
+        <AnalyticsFlushBridge />
         <LocaleDetectionBridge />
         <AppResumeBridge />
         <CloudSyncBridge />

@@ -53,6 +53,40 @@ Le fichier fait **deux** choses, et les deux sont nécessaires :
   distinguer les deux causes, donc un script qui ne ferait qu'une moitié
   renverrait l'utilisateur vers un correctif déjà appliqué.
 
+## 2 bis. Back-office admin — `003-admin-dashboard.sql`
+
+`002` couvre l'application (profil, progression, lecture de ses licences).
+Le **dashboard admin** a besoin de plus, et manquait de tout : mesuré le
+2026-10-22, `authenticated` recevait `403 42501` sur `admin_actions` et
+`error_reports`, ne pouvait ni écrire `paiements` ni créer de `licences`, et ne
+voyait aucune ligne de licence, **même en tant qu'administrateur**. Pire, un
+compte standard pouvait s'auto-promouvoir :
+
+```http
+PATCH /rest/v1/profiles?id=eq.<soi>   {"is_admin": true}   → 204
+GET  /rest/v1/rpc/is_admin                                  → true
+```
+
+Exécuter [`003-admin-dashboard.sql`](./003-admin-dashboard.sql) après `002` :
+
+- GRANT des 6 tables (dont `service_role`, aujourd'hui incapable de lire
+  `profiles`, `paiements`, `admin_actions`, `error_reports`) ;
+- **`is_admin` retiré des colonnes modifiables** + 2 triggers de garde ;
+- policies d'administration (`optimus_is_admin(auth.uid())`), `anon` sans rien ;
+- 5 RPC transactionnelles (`admin_validate_payment`, `admin_revoke_licence`,
+  `admin_revoke_expired_licences`, `admin_set_report_status`,
+  `admin_cleanup_actions`) qui vérifient le rôle **avant** d'écrire ;
+- retrait aux clients des RPC héritées `cleanup_old_admin_actions` et
+  `revoke_expired_licences`, qu'un compte non admin pouvait appeler.
+
+Puis désigner l'administrateur (§6 du script) et rejouer la recette :
+
+```bash
+ADMIN_QA_MODE=ready node admin-local/qa-admin.mjs
+```
+
+Détail des mesures et des correctifs : [`../ADMIN-DASHBOARD-QA.md`](../ADMIN-DASHBOARD-QA.md).
+
 ## 3. Vérifier depuis l'application
 
 Depuis **Profil → Se connecter** (le gate d'authentification de `__root.tsx`),

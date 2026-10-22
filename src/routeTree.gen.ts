@@ -48,6 +48,7 @@ import { Route as ValidationCliniqueRouteImport } from './routes/validation-clin
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
+import { Route as ApiEventsRouteImport } from './routes/api.events'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
@@ -255,6 +256,11 @@ const ApiAiStreamRoute = ApiAiStreamRouteImport.update({
   path: '/api/ai-stream',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiEventsRoute = ApiEventsRouteImport.update({
+  id: '/api/events',
+  path: '/api/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasCaseIdRoute = CasCaseIdRouteImport.update({
   id: '/$caseId',
   path: '/$caseId',
@@ -355,6 +361,7 @@ export interface FileRoutesByFullPath {
   '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
+  '/api/events': typeof ApiEventsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
@@ -407,6 +414,7 @@ export interface FileRoutesByTo {
   '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
+  '/api/events': typeof ApiEventsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
@@ -461,6 +469,7 @@ export interface FileRoutesById {
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
+  '/api/events': typeof ApiEventsRoute
   '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
@@ -515,6 +524,7 @@ export interface FileRouteTypes {
     | '/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
+    | '/api/events'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
@@ -567,6 +577,7 @@ export interface FileRouteTypes {
     | '/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
+    | '/api/events'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
@@ -620,6 +631,7 @@ export interface FileRouteTypes {
     | '/_dev/kitchen-sink'
     | '/api/admin-verify'
     | '/api/ai-stream'
+    | '/api/events'
     | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
@@ -673,6 +685,7 @@ export interface RootRouteChildren {
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
+  ApiEventsRoute: typeof ApiEventsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
@@ -958,6 +971,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAiStreamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/events': {
+      id: '/api/events'
+      path: '/api/events'
+      fullPath: '/api/events'
+      preLoaderRoute: typeof ApiEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cas/$caseId': {
       id: '/cas/$caseId'
       path: '/$caseId'
@@ -1138,6 +1158,7 @@ const rootRouteChildren: RootRouteChildren = {
   ValidationCliniqueRoute: ValidationCliniqueRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
+  ApiEventsRoute: ApiEventsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
