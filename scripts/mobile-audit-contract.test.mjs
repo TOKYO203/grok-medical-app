@@ -137,6 +137,27 @@ test("la cible sans porte est obtenue par configuration, pas par un drapeau de t
   );
 });
 
+test("l'authentification est neutralisée sur la cible sans porte", () => {
+  const runner = read(QA_BUILT);
+  // Avec l'auth active, la passerelle historique appelle `/api/auth/get-session` ;
+  // les routes serveur (nitro) n'existant qu'en `build`/`preview`, cette route
+  // répond 404 en développement. Mesuré : deux erreurs console suffisaient à faire
+  // échouer un smoke sans aucun défaut applicatif.
+  assert.match(
+    runner,
+    /VITE_AUTH_ENABLED: "false"/,
+    "la cible sans compte doit aussi neutraliser l'authentification",
+  );
+  // Le build, lui, ne doit JAMAIS recevoir cette valeur : c'est le rôle de
+  // `scripts/assert-supabase-build.mjs` côté publication, et le smoke de prod
+  // tourne sur un artefact où l'auth est celle du déploiement.
+  assert.doesNotMatch(
+    runner,
+    /process\.env\.VITE_AUTH_ENABLED\s*=\s*"false"/,
+    "la neutralisation ne doit pas fuiter dans l'environnement du build",
+  );
+});
+
 test("le serveur de dev est préchauffé avant les smokes de fonctionnalité", () => {
   const runner = read(QA_BUILT);
   // Vite pré-optimise ses dépendances au premier chargement et recharge la page

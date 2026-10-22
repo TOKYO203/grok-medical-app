@@ -783,3 +783,19 @@ qui a déjà attrapé de vrais défauts), mais de stabiliser le serveur AVANT de
 volontairement les erreurs (il ne juge rien), puis les smokes restent intransigeants. Un test
 vérifie l'ORDRE (préchauffage avant smoke) et pas seulement la présence des appels : un préchauffage
 exécuté après le smoke serait un code mort rassurant.
+
+**AUTH-17 — Sur la cible « sans compte », l'authentification est neutralisée AUSSI.** Dernier écart
+de `release-check` : deux `404` dans les smokes de fonctionnalité, une fois le préchauffage en place
+(AUTH-16). Mesuré sur une cible de dev à cloud neutralisé mais authentification ACTIVE :
+`404 http://127.0.0.1:8083/api/auth/get-session` — les routes serveur (plugin `nitro`) ne sont
+montées que pour `build`/`preview`, donc toute route `/api/*` est introuvable en développement (fait
+déjà documenté, mais jamais rencontré en CI jusqu'ici parce que la passerelle ne s'activait pas).
+La configuration de la cible « sans compte » neutralise donc aussi `VITE_AUTH_ENABLED` : ces deux
+scénarios décrivent un profil local, une identité `OM-GUEST` et IndexedDB — l'authentification n'y
+joue aucun rôle, et l'activer ne teste qu'un service absent. Vérifié après correctif sur la cible
+exacte : import (641 caractères saisis → « Enregistré dans IndexedDB » → Deck présent dans
+IndexedDB et ABSENT de localStorage → réapparaît sur `/parcours` après rechargement) et parcours
+critique (onboarding 5 écrans → « Bonjour, QA Mobile » → Deck démarrable → profil conservé), 0
+erreur console, verdicts `ok:true`. La neutralisation ne peut pas fuiter dans le build : elle est
+posée sur l'environnement du seul serveur de développement, et le garde-fou interdit explicitement
+une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.

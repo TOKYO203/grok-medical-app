@@ -53,11 +53,19 @@ const qaEnv = {
  * `/import` et le parcours critique supposent le monde sans compte. Vider les
  * deux variables rend la porte transparente (`configured: false`), comportement
  * produit documenté — aucun drapeau de test n'entre dans le bundle.
+ *
+ * `VITE_AUTH_ENABLED="false"` va avec : avec l'authentification active, la
+ * passerelle historique interroge `/api/auth/get-session`, or les routes serveur
+ * (plugin nitro) ne sont montées QUE pour `build`/`preview`. Mesuré : en dev,
+ * cette route répond 404 — deux erreurs console qui faisaient échouer un smoke
+ * sans aucun défaut applicatif. Ces deux scénarios décrivant précisément le
+ * monde sans compte, l'auth n'y a pas de rôle.
  */
 const featureEnv = {
   ...qaEnv,
   VITE_SUPABASE_URL: "",
   VITE_SUPABASE_ANON_KEY: "",
+  VITE_AUTH_ENABLED: "false",
 };
 
 function spawnInherited(command, args, options = {}) {
