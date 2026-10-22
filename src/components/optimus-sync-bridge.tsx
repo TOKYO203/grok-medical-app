@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { authEnabled } from "@/lib/auth/client";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { useAppUser } from "@/hooks/useAppUser";
 import {
   mergeOptimusSnapshots,
   optimusSyncSnapshotSchema,
@@ -93,7 +93,13 @@ function saveLocalOwner(userId: string): void {
  * Commerce, entitlements, device keys and Premium content deliberately use separate stores.
  */
 export function OptimusSyncBridge() {
-  const { user, isPending } = useCurrentUserState();
+  /**
+   * Repli Better Auth SEULEMENT : ce pont est monté par `__root.tsx` quand aucune
+   * session Supabase n'est active (`CloudSyncBridge` fait alors foi). Avec
+   * `useAppUser()`, un build Supabase configuré sans session renvoie `user: null`
+   * et le pont ne tente donc aucun appel inutile.
+   */
+  const { user, isPending } = useAppUser();
   const hydrated = useOptimus((state) => state.hydrated);
   const userId = user?.id ?? null;
   const userDisplayName = user?.displayName ?? null;

@@ -4,7 +4,7 @@ import { CloudOff, Download, ShieldCheck, Trash2, UserX } from "lucide-react";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { useAppUser } from "@/hooks/useAppUser";
 import {
   deleteOptimusAccountEntirely,
   deleteOptimusCloudState,
@@ -18,7 +18,9 @@ export const Route = createFileRoute("/donnees")({ component: DataPage });
 type CloudStatus = "loading" | "active" | "suspended" | "unavailable";
 
 function DataPage() {
-  const { user, isPending } = useCurrentUserState();
+  // Identité unique : export et suppression de compte passent par les server
+  // functions protégées, qui vérifient désormais le jeton Supabase.
+  const { user, isPending } = useAppUser();
   const [cloudStatus, setCloudStatus] = useState<CloudStatus>("loading");
   const [busy, setBusy] = useState<"export" | "delete" | "resume" | "account" | null>(null);
   const [confirmation, setConfirmation] = useState("");

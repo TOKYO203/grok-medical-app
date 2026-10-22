@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Clock3, Copy, PackageCheck, ReceiptText, ShieldAlert } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import type { PremiumPurchase, PurchaseStatus } from "@/content/purchase-order";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { useAppUser } from "@/hooks/useAppUser";
 import { replacePurchaseCache } from "@/lib/purchase-cache";
 import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
 import { cn } from "@/lib/utils";
@@ -59,7 +59,8 @@ const PURCHASE_DATE = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" });
 
 function PurchasesPage() {
   const purchases = useOptimus((state) => state.purchases);
-  const { user, isPending } = useCurrentUserState();
+  // Identité unique : la même que la porte d'entrée et que le tunnel de commande.
+  const { user, isPending } = useAppUser();
   const userId = user?.id ?? null;
   const userIsDevFallback = user?.isDevFallback ?? false;
   const [refreshing, setRefreshing] = useState(false);

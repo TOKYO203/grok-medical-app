@@ -134,7 +134,17 @@ test("/pro : bandeau d'abonnement daté + action de gestion", () => {
 test("/profil : email du compte affiché et déconnexion explicite", () => {
   const profil = readCode("src/routes/profil.tsx");
   assert.match(profil, /data-account-email/);
-  assert.match(profil, /cloudAuth\.session\?\.user\?\.email/);
+  // Depuis l'unification d'identité (2026-10-22), l'email vient de `useAppUser()`
+  // — la source UNIQUE (Supabase en production, repli Better Auth sinon).
+  assert.match(profil, /useAppUser/);
+  assert.match(profil, /user\.primaryEmail/);
+  /**
+   * Anti-régression « double authentification » : `/profil` ne doit plus lire la
+   * session d'un second fournisseur pour décider si le compte est connecté. Le
+   * bandeau « Compte connecté » et le formulaire de connexion pouvaient sinon se
+   * contredire sur la même page — c'était le symptôme rapporté par les utilisateurs.
+   */
+  assert.doesNotMatch(profil, /cloudAuth\.session\?\.user\?\.email/);
   assert.match(profil, /variant="danger"/);
   assert.match(profil, /resetContentSession\(\)/);
   assert.match(profil, /signOutCloud\(\)/);

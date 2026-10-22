@@ -1,4 +1,3 @@
-import { authEnabled } from "@/lib/auth/client";
 import { useEffect, useSyncExternalStore } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarClock, CheckCircle2, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
@@ -20,7 +19,9 @@ import {
   formatSubscriptionEnd,
   resolveSubscription,
 } from "@/lib/cloud/subscription";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { authEnabled } from "@/lib/auth/client";
+import { isSupabaseConfigured } from "@/lib/supabase";
+import { useAppUser } from "@/hooks/useAppUser";
 import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
 import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
@@ -68,9 +69,21 @@ function ProPage() {
   const purchases = useOptimus((s) => s.purchases);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
   const startPremiumTrial = useOptimus((s) => s.startPremiumTrial);
-  const { user, isPending } = useCurrentUserState();
+  /**
+   * Identité unique (Supabase en production, repli Better Auth sinon). Avant, cet
+   * écran interrogeait Better Auth : un compte connecté par Supabase voyait
+   * « Connexion requise pour un achat Premium » — la double authentification.
+   */
+  const { user, isPending } = useAppUser();
   const userId = user?.id ?? null;
   const userIsDevFallback = user?.isDevFallback ?? false;
+  /**
+   * Le tunnel de commande est proposé dès qu'une identité serveur est possible :
+   * Supabase (production) ou, à défaut, un déploiement historique sans Supabase
+   * où Better Auth assure encore l'authentification. Sans ni l'un ni l'autre,
+   * afficher un formulaire de commande serait mensonger — d'où le lien /tarifs.
+   */
+  const purchaseFlowAvailable = isSupabaseConfigured || authEnabled;
   const { order: orderReference, specialty } = Route.useSearch();
   const initialPurchase = purchases.find((purchase) => purchase.reference === orderReference);
   /**
@@ -236,7 +249,7 @@ function ProPage() {
                 <Badge tone="success">Disponible</Badge>
               </div>
 
-              {authEnabled ? (
+              {purchaseFlowAvailable ? (
                 <div className="mt-4" data-pro-subscription-order>
                   <PremiumPurchaseFlow
                     key={`sub:${purchaseFlowKey}`}
@@ -269,7 +282,7 @@ function ProPage() {
                 <Badge tone="neutral">Sans abonnement</Badge>
               </div>
 
-              {authEnabled ? (
+              {purchaseFlowAvailable ? (
                 <details className="mt-4" data-pro-order-disclosure>
                   <summary className="cursor-pointer list-none text-sm font-medium text-primary">
                     Commander un module ou une spécialité

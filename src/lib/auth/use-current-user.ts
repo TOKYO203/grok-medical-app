@@ -1,3 +1,4 @@
+import { isSupabaseConfigured } from "@/lib/supabase";
 import { authClient, authEnabled } from "./client";
 
 /** Normalized user shape used across the app, auth on or off. */
@@ -34,28 +35,26 @@ export type CurrentUserState = {
 };
 
 /**
- * Current user + loading state. Same behavior in live preview and when deployed:
- *   - Auth enabled -> the real signed-in user; `user` is `null` while
- *                            the session resolves (`isPending: true`) and when
- *                            signed out (`isPending: false`). Session comes from
- *                            Better Auth `useSession()` → `/api/auth/get-session`
- *                            (cookie when deployed; bearer in live preview).
- *   - Auth disabled (`VITE_AUTH_ENABLED=false`) -> `DEV_USER`, never pending.
+ * Current user + loading state.
  *
- * Protect a route by waiting out `isPending` before acting on `user` —
- * redirecting on `user: null` alone bounces signed-in visitors to sign-in on
- * every hard reload:
+ * ⚠️ AMORÇAGE — CE HOOK N'EST PLUS LE POINT D'ENTRÉE DES ÉCRANS.
+ * Utilisez `useAppUser()` (`@/hooks/useAppUser`), qui fait autorité sur « qui est
+ * connecté » en combinant Supabase et ce repli. Ce hook ne répond plus que pour
+ * l'ancien système, et il est **court-circuité dès que Supabase est configuré** :
+ *   - Supabase configuré (toujours vrai en production) → `{ user: null }`
+ *     immédiatement. Sans ce garde, chaque page déclenchait un appel à
+ *     `/api/auth/get-session`, qui répond 500 sur le déploiement (runtime sans
+ *     base Better Auth) — une erreur console par navigation, pour rien.
+ *   - Auth désactivée (`VITE_AUTH_ENABLED=false`) → `DEV_USER`, jamais pending.
+ *   - Sinon → Better Auth `useSession()` (cookie déployé ; jeton en prévisualisation).
  *
- *   import { RedirectToSignIn } from "@/lib/auth/gates";
- *   const { user, isPending } = useCurrentUserState();
- *   if (isPending) return null;              // still resolving — don't redirect yet
- *   if (!user) return <RedirectToSignIn />;  // definitely signed out
- *
- * `authEnabled` is a module-level constant fixed at load, so the guarded hook
- * call keeps a stable hook order across every render of a given component.
+ * `authEnabled` et `isSupabaseConfigured` sont des constantes figées au
+ * chargement du module, donc l'ordre des hooks reste stable d'un rendu à
+ * l'autre (même garantie que le garde historique sur `authEnabled`).
  */
 export function useCurrentUserState(): CurrentUserState {
   if (!authEnabled) return { user: DEV_USER, isPending: false };
+  if (isSupabaseConfigured) return { user: null, isPending: false };
   const { data, isPending } = authClient.useSession();
   const user = data?.user;
   return {

@@ -27,11 +27,24 @@ import { createMiddleware } from "@tanstack/react-start";
  */
 export const authMiddleware = createMiddleware({ type: "function" })
   .client(async ({ next }) => {
-    // Live preview (partitioned iframe): the session rides a bearer token, not a
-    // cookie, so forward it to the server. Null when deployed (cookie auth), so
-    // this is a no-op there.
+    /**
+     * Deux jetons possibles, dans cet ordre :
+     *
+     *  1. **Supabase** — l'identité de production. Le serveur la vérifie auprès
+     *     de l'émetteur (`verify.server.ts` → `supabase-identity.server.ts`).
+     *     Sans ce transport, un utilisateur connecté par Supabase recevait 401
+     *     sur le tunnel Mobile Money : c'était la « double authentification ».
+     *  2. **Better Auth** — repli du bac à sable de prévisualisation, où l'iframe
+     *     a des cookies partitionnés et où la session voyage en jeton.
+     *
+     * Supabase d'abord : dès qu'une session Supabase existe, c'est elle qui
+     * fait autorité (un seul cloud de référence, comme pour la synchronisation).
+     */
+    const { getFreshAccessToken } = await import("@/lib/cloud/session");
+    const supabaseToken = await getFreshAccessToken();
     const { getBearerToken } = await import("./client");
-    return next({ sendContext: { bearerToken: getBearerToken() ?? undefined } });
+    const bearerToken = supabaseToken ?? getBearerToken() ?? undefined;
+    return next({ sendContext: { bearerToken } });
   })
   .server(async ({ next, context }) => {
     // ONLY import `*.server` modules here. This file is dual client/server

@@ -11,7 +11,7 @@ import {
   getAuthRuntimeStatus,
   type AuthRuntimeStatus,
 } from "@/lib/auth/runtime-status";
-import { useCurrentUserState } from "@/lib/auth/use-current-user";
+import { useAppUser } from "@/hooks/useAppUser";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/login")({ component: LoginPage });
@@ -21,7 +21,7 @@ function friendlySignInError(): string {
 }
 
 function LoginPage() {
-  const { user, isPending } = useCurrentUserState();
+  const { user, isPending } = useAppUser();
   const [runtime, setRuntime] = useState<AuthRuntimeStatus | null>(null);
   const [runtimeError, setRuntimeError] = useState(false);
   const [busyProvider, setBusyProvider] = useState<string | null>(null);
@@ -41,12 +41,23 @@ function LoginPage() {
     };
   }, []);
 
+  /**
+   * DÉJÀ CONNECTÉ ? ON N'IMPOSE PAS UNE SECONDE CONNEXION.
+   *
+   * `AuthScreen` ne testait pas la session : un utilisateur authentifié qui
+   * suivait un lien vers `/login` (par exemple depuis la carte d'achat qui
+   * l'envoyait ici) retrouvait un formulaire vide et pouvait croire sa session
+   * perdue — c'est ce qui donnait l'impression de devoir « se connecter deux
+   * fois ». La redirection est évaluée AVANT le rendu du formulaire, et seulement
+   * une fois la session résolue (`!isPending`).
+   */
+  if (!isPending && user && !user.isDevFallback) return <Navigate to="/pro" replace />;
+
   // Supabase est la source d'authentification dès qu'il est configuré : /login
   // et le gate de `__root.tsx` affichent alors le MÊME écran (une seule UI de
   // connexion, pas deux systèmes concurrents).
   if (isSupabaseConfigured) return <AuthScreen />;
   if (!authEnabled) return <Navigate to="/pro" replace />;
-  if (!isPending && user) return <Navigate to="/pro" replace />;
 
   const checking = isPending || (!runtime && !runtimeError);
   const ready = Boolean(runtime?.ready);

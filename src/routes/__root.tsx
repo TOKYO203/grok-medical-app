@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { AuthScreen } from "@/components/AuthScreen";
+import { CloudIdentityBridge } from "@/components/cloud-identity-bridge";
 import { CloudSyncBridge } from "@/components/cloud-sync-bridge";
 import { ContentSessionBridge } from "@/components/content-session-bridge";
 import { useAuth } from "@/hooks/useAuth";
@@ -161,6 +162,10 @@ function AppShell() {
         vers /signes ou /pathologie dès le premier chargement.
       */}
       <ContentSessionBridge />
+      {/* L'Optimus ID natif est provisionné dès la première session cloud :
+          sans lui, le tunnel de commande resterait bloqué sur « Finalisation
+          du compte Optimus » alors que l'authentification est réparée. */}
+      <CloudIdentityBridge />
       {legacyCloudSync ? <OptimusSyncBridge /> : null}
       <ExperienceMotionBridge />
       <ExperienceMilestoneBridge />
