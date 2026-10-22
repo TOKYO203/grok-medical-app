@@ -973,7 +973,7 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
    Palettes d'accent — « Couleur d'accent » du profil (réglage orthogonal)
    ----------------------------------------------------------------------------
    `data-accent` sur <html> choisit la palette ; `data-theme` reste maître du
-   clair / sombre / système. Chaque palette redéfinit 5 variables :
+   clair / sombre / système. Chaque palette redéfinit 7 variables :
    · --app-accent    : filets et remplissages décoratifs (pastilles, filets
                        premium, barres d'avancement, ombres de cartes)
    · --app-gold      : or de TEXTE (kickers, KPI) — contraste AA (≥ 4,5:1)
@@ -984,6 +984,9 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
    · --app-bg        : fond de page TEINTÉ (immersion) — fg, muted, subtle
                        et l'or y restent AA (≥ 4,5:1), verrouillé par
                        scripts/accent-palette.test.mjs
+   · --app-primary / --app-primary-fg : boutons primaires et nav active —
+                       mêmes hexes AA que --app-gold, texte lisible sur le
+                       remplissage plein ET sur le fond teinté (test AA)
    Les blocs sombres portent DEUX attributs pour gagner la course de
    spécificité contre le bloc clair de la même palette (0,2,1 > 0,1,1).
    La palette « defaut » n'a pas de bloc dédié : l'or Oxford des blocs de
@@ -996,6 +999,8 @@ html[data-accent="rose"] {
   --app-gold-soft: #FDA4AF;
   --app-ring: #9F1239;
   --app-bg: #F5C9BB;
+  --app-primary: #9F1239;
+  --app-primary-fg: #FFFFFF;
 }
 
 html[data-theme="dark"][data-accent="rose"] {
@@ -1004,6 +1009,8 @@ html[data-theme="dark"][data-accent="rose"] {
   --app-gold-soft: #FDA4AF;
   --app-ring: #FB7185;
   --app-bg: #271A19;
+  --app-primary: #FDA4AF;
+  --app-primary-fg: #06120d;
 }
 
 html[data-accent="marron"] {
@@ -1012,6 +1019,8 @@ html[data-accent="marron"] {
   --app-gold-soft: #D9B48F;
   --app-ring: #5D3A1A;
   --app-bg: #E1D0B9;
+  --app-primary: #5D3A1A;
+  --app-primary-fg: #FFFFFF;
 }
 
 html[data-theme="dark"][data-accent="marron"] {
@@ -1020,6 +1029,8 @@ html[data-theme="dark"][data-accent="marron"] {
   --app-gold-soft: #E3B98A;
   --app-ring: #D9A05B;
   --app-bg: #1E1D18;
+  --app-primary: #E3B98A;
+  --app-primary-fg: #06120d;
 }
 
 html[data-accent="marine"] {
@@ -1028,6 +1039,8 @@ html[data-accent="marine"] {
   --app-gold-soft: #93B4F0;
   --app-ring: #1E3A8A;
   --app-bg: #CCD6EC;
+  --app-primary: #1E3A8A;
+  --app-primary-fg: #FFFFFF;
 }
 
 html[data-theme="dark"][data-accent="marine"] {
@@ -1036,6 +1049,8 @@ html[data-theme="dark"][data-accent="marine"] {
   --app-gold-soft: #93C5FD;
   --app-ring: #3B82F6;
   --app-bg: #131E23;
+  --app-primary: #93C5FD;
+  --app-primary-fg: #06120d;
 }
 
 html[data-accent="vert"] {
@@ -1044,6 +1059,8 @@ html[data-accent="vert"] {
   --app-gold-soft: #6EE7B7;
   --app-ring: #065F46;
   --app-bg: #C5D7C0;
+  --app-primary: #065F46;
+  --app-primary-fg: #FFFFFF;
 }
 
 html[data-theme="dark"][data-accent="vert"] {
@@ -1052,6 +1069,8 @@ html[data-theme="dark"][data-accent="vert"] {
   --app-gold-soft: #6EE7B7;
   --app-ring: #10B981;
   --app-bg: #121F1A;
+  --app-primary: #6EE7B7;
+  --app-primary-fg: #06120d;
 }
 
 html[data-accent="violet"] {
@@ -1060,6 +1079,8 @@ html[data-accent="violet"] {
   --app-gold-soft: #C4B5FD;
   --app-ring: #4C1D95;
   --app-bg: #DACEDE;
+  --app-primary: #4C1D95;
+  --app-primary-fg: #FFFFFF;
 }
 
 html[data-theme="dark"][data-accent="violet"] {
@@ -1068,6 +1089,8 @@ html[data-theme="dark"][data-accent="violet"] {
   --app-gold-soft: #C4B5FD;
   --app-ring: #8B5CF6;
   --app-bg: #1A1D25;
+  --app-primary: #C4B5FD;
+  --app-primary-fg: #06120d;
 }
 
 /* ── Immersion ambiante ──────────────────────────────────────────────────────

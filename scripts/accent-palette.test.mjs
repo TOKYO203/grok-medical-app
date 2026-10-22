@@ -193,3 +193,36 @@ test("accent immersion keeps every base text token AA on the tinted background",
     }
   }
 });
+
+test("accent palettes immerse primary buttons and active navigation", () => {
+  // Complément d'immersion : sans ces surcharges, les boutons primaires et les
+  // éléments de nav actifs resteraient olive Oxford pendant que le reste de
+  // l'interface est teinté par la palette. --app-primary reprend l'or AA de
+  // la palette : lisible sur le remplissage plein, le fond teinté et la carte.
+  for (const id of palettes) {
+    if (id === "defaut") continue; // l'olive Oxford de base EST le défaut
+    for (const [theme, base] of Object.entries(BASE)) {
+      const selector =
+        theme === "light" ? `html[data-accent="${id}"]` : `html[data-theme="dark"][data-accent="${id}"]`;
+      const block = blockFor(stylesSource, selector);
+      const primary = block.match(/--app-primary:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      const primaryFg = block.match(/--app-primary-fg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      const bg = block.match(/--app-bg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+      assert.ok(primary, `${id}/${theme} : --app-primary manquant (boutons et nav actifs restent olive)`);
+      assert.ok(primaryFg, `${id}/${theme} : --app-primary-fg manquant`);
+      assert.ok(bg, `${id}/${theme} : fond teinté --app-bg introuvable`);
+      assert.ok(
+        contrast(primary, primaryFg) >= 4.5,
+        `${id}/${theme} : --app-primary ${primary} sur --app-primary-fg ${primaryFg} ne donne que ${contrast(primary, primaryFg).toFixed(2)}:1 (AA ≥ 4,5:1)`,
+      );
+      assert.ok(
+        contrast(primary, bg) >= 4.5,
+        `${id}/${theme} : text-primary ${primary} ne donne que ${contrast(primary, bg).toFixed(2)}:1 sur le fond teinté ${bg} (AA ≥ 4,5:1)`,
+      );
+      assert.ok(
+        contrast(primary, base.card) >= 4.5,
+        `${id}/${theme} : text-primary ${primary} ne donne que ${contrast(primary, base.card).toFixed(2)}:1 sur --app-card (AA ≥ 4,5:1)`,
+      );
+    }
+  }
+});
