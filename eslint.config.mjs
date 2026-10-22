@@ -22,6 +22,8 @@ export default tseslint.config(
       ".bak/**",
       ".audit-tmp/**",
       ".qa-tmp/**",
+      ".admin-qa/**",
+      "admin-local/**",
       ".devx/**",
       ".calc-tmp/**",
       ".optimus-backups/**",
