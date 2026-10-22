@@ -95,8 +95,22 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       ready: false,
       mode: "missing-deployment-config",
       providers: [],
+      /**
+       * FORMULATION CORRIGÉE (audit du 2026-10-22).
+       *
+       * L'ancien texte — « la connexion cloud n'est pas encore configurée sur ce
+       * déploiement » — laissait croire à un service temporairement indisponible,
+       * alors que la cause est DÉFINITIVE pour cet artefact : il a été compilé
+       * sans les variables `VITE_SUPABASE_*`, donc le bundle ne contient aucune
+       * adresse de cloud. Aucune reconnexion ne peut réussir, et le dire
+       * autrement fait tourner l'utilisateur en rond.
+       *
+       * Le contrôle `scripts/assert-supabase-build.mjs` empêche désormais qu'un
+       * tel build soit publié ; ce message ne doit plus jamais apparaître en
+       * production, seulement sur un artefact local volontairement sans cloud.
+       */
       message:
-        "La connexion cloud n'est pas encore configurée sur ce déploiement. Vous pouvez continuer à utiliser Optimus localement.",
+        "Cette version a été compilée sans configuration cloud : la connexion est impossible ici, et réessayer ne changera rien. Optimus reste entièrement utilisable localement ; vos données vous suivront dès la première connexion d'une version configurée.",
     };
   },
 );
