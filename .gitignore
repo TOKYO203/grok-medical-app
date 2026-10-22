@@ -63,6 +63,12 @@ ton-app-grok-build-main(1)/
 .audit-tmp/
 .qa-tmp/
 .calc-tmp/
+# Sorties des tâches de fond (build, tests, lint) et sauvegardes d'artefacts.
+# IMPORTANT : Tailwind v4 détecte ses sources en scannant la racine du projet et
+# n'ignore que ce que `.gitignore` ignore. Un répertoire de travail non ignoré
+# contenant une copie de build faisait entrer ses classes utilitaires dans la
+# feuille de style publiée (+7 Kio mesurés, plafond `maxStylesheetBytes` franchi).
+.gate-tmp/
 # Documents sources reçus pour rédiger du contenu (jamais versionnés : droits tiers)
 .content-tmp/
 .devx/
