@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { authMiddleware } from "@/lib/auth/middleware";
@@ -416,3 +417,145 @@ export const resumeOptimusCloudSync = createServerFn({ method: "POST" })
     await sql.query("delete from optimus_sync_controls where user_id = $1", [context.userId]);
     return { ok: true as const, syncSuspended: false as const };
   });
+
+/**
+ * TOTAL account erasure — irreversible, single atomic SQL statement (all
+ * data-modifying CTEs share one snapshot, so a failure leaves NOTHING erased).
+ * Deletes the Better Auth identity (user, sessions, OAuth accounts,
+ * verification tokens) and every personal dataset attached to it:
+ *
+ *  - learning snapshot + durable tombstone ('account_erasure') so no other
+ *    device can silently recreate it — mirrors the pedagogical erasure flow;
+ *  - survey responses and content reports are deleted;
+ *  - publications and surveys are kept as application content but detached
+ *    (created_by = null) so no orphan reference survives;
+ *  - commercial records (purchase_orders, purchase_order_events) are RETAINED
+ *    for the legally mandated accounting period yet immediately anonymized:
+ *    user_id becomes an irreversible pseudonym and every device identifier is
+ *    removed; amounts, references, statuses and dates remain for financial
+ *    audit only — see docs/DATA-RETENTION.md;
+ *  - Supabase Phase 1 rows (profiles, progressions) are erased best-effort by
+ *    email when those tables exist in the same database project.
+ *
+ * Success is terminal for the caller: sessions are cascade-deleted, so the
+ * next authenticated request fails and the client falls back to a local profile.
+ */
+export const deleteOptimusAccountEntirely = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(z.object({ confirmation: z.literal("DELETE_MY_ACCOUNT") }))
+  .handler(async ({ context }) => {
+    const { getSql } = await import("@/lib/db");
+    const sql = await getSql();
+
+    // Pseudonyme commercial irréversible, stable par compte et jamais
+    // réutilisé : un nouveau compte produit un nouvel identifiant, donc un
+    // nouveau pseudonyme. Voir docs/DATA-RETENTION.md §5.
+    const pseudonym = `erased:${createHash("sha256")
+      .update(`optimus-account-erasure-v1:${context.userId}`)
+      .digest("hex")}`;
+
+    // Les tables Supabase Phase 1 ne sont pas gérées par ce dépôt : elles
+    // peuvent être absentes (PGLite preview, déploiement non unifié). Le
+    // nettoyage ne s'exécute que si les tables existent dans la même base.
+    const supabaseTables = await sql.query<{ profiles: string | null; progressions: string | null }>(
+      `select to_regclass('public.profiles') as profiles,
+              to_regclass('public.progressions') as progressions`,
+    );
+    const supabaseCleanup = [supabaseTables[0]?.profiles, supabaseTables[0]?.progressions].every(
+      Boolean,
+    )
+      ? `del_progressions as (
+         delete from progressions
+          where user_id in (
+            select id from profiles where email = (select email from "user" where id = $1)
+          )
+          returning deck_id
+       ),
+       del_profiles as (
+         delete from profiles where email = (select email from "user" where id = $1) returning id
+       ),
+       `
+      : "";
+
+    const result = await sql.query<{
+      learning_deleted: number;
+      survey_responses_deleted: number;
+      publications_detached: number;
+      surveys_detached: number;
+      content_reports_deleted: number;
+      orders_anonymized: number;
+      order_events_anonymized: number;
+      verification_deleted: number;
+      user_deleted: number;
+    }>(
+      `with del_learning as (
+         delete from optimus_user_state where user_id = $1 returning user_id
+       ),
+       tomb as (
+         insert into optimus_sync_controls (user_id, suspended_at, reason)
+         values ($1, now(), 'account_erasure')
+         on conflict (user_id)
+         do update set suspended_at = excluded.suspended_at, reason = excluded.reason
+         returning user_id
+       ),
+       del_survey_responses as (
+         delete from survey_responses where respondent_id = $1 returning id
+       ),
+       detach_publications as (
+         update publications set created_by = null where created_by = $1 returning id
+       ),
+       detach_surveys as (
+         update surveys set created_by = null where created_by = $1 returning id
+       ),
+       del_content_reports as (
+         delete from content_reports where user_id = $1 returning id
+       ),
+       anon_orders as (
+         update purchase_orders
+            set user_id = $2,
+                device_id = null,
+                device_key_id = null,
+                device_public_key = null
+          where user_id = $1
+          returning reference
+       ),
+       anon_order_events as (
+         update purchase_order_events
+            set actor_user_id = null,
+                metadata = metadata - 'deviceId' - 'device_id' - 'optimusId' - 'optimus_id' - 'email'
+          where actor_user_id = $1
+          returning id
+       ),
+       ${supabaseCleanup}del_verification as (
+         delete from verification
+          where identifier = (select email from "user" where id = $1)
+          returning id
+       ),
+       del_user as (
+         delete from "user" where id = $1 returning id
+       )
+       select
+         (select count(*)::int from del_learning) as learning_deleted,
+         (select count(*)::int from del_survey_responses) as survey_responses_deleted,
+         (select count(*)::int from detach_publications) as publications_detached,
+         (select count(*)::int from detach_surveys) as surveys_detached,
+         (select count(*)::int from del_content_reports) as content_reports_deleted,
+         (select count(*)::int from anon_orders) as orders_anonymized,
+         (select count(*)::int from anon_order_events) as order_events_anonymized,
+         (select count(*)::int from del_verification) as verification_deleted,
+         (select count(*)::int from del_user) as user_deleted`,
+      [context.userId, pseudonym],
+    );
+
+    const counts = result[0];
+    if (!counts || counts.user_deleted !== 1) {
+      throw new Error("La suppression du compte n'a pas abouti.");
+    }
+    return {
+      ok: true as const,
+      accountDeleted: true as const,
+      retainedCategories: ["commerce_anonymized_audit"] as const,
+      counts,
+    };
+  });
+
