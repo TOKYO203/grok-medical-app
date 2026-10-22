@@ -8,7 +8,7 @@ export type ResolvedTheme = "light" | "dark";
  * dorée (kickers, filets, focus, badges) dans les trois modes
  * clair / sombre / système. « defaut » garde l'or Oxford d'origine.
  */
-export type AccentPalette = "defaut" | "rose" | "marron" | "marine";
+export type AccentPalette = "defaut" | "rose" | "marron" | "marine" | "vert" | "violet";
 
 export const THEME_STORAGE_KEY = "optimus-theme-v1";
 export const ACCENT_STORAGE_KEY = "optimus-accent-v1";
@@ -18,7 +18,9 @@ const DEFAULT_MODE: ThemeMode = "light";
 const DEFAULT_ACCENT: AccentPalette = "defaut";
 
 /** Catalogue des palettes proposées par le profil (source du sélecteur). */
-export const ACCENT_PALETTES: AccentPalette[] = ["defaut", "rose", "marron", "marine"];
+export const ACCENT_PALETTES: AccentPalette[] = [
+  "defaut", "rose", "marron", "marine", "vert", "violet",
+];
 
 function isAccentPalette(value: string | null): value is AccentPalette {
   return ACCENT_PALETTES.includes(value as AccentPalette);

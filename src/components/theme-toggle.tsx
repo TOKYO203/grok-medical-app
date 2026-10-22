@@ -13,6 +13,8 @@ const ACCENTS: { id: AccentPalette; label: string; swatch: string }[] = [
   { id: "rose", label: "Rose", swatch: "var(--accent-swatch-rose)" },
   { id: "marron", label: "Marron", swatch: "var(--accent-swatch-marron)" },
   { id: "marine", label: "Bleu marine", swatch: "var(--accent-swatch-marine)" },
+  { id: "vert", label: "Vert émeraude", swatch: "var(--accent-swatch-vert)" },
+  { id: "violet", label: "Violet", swatch: "var(--accent-swatch-violet)" },
 ];
 
 /** Bascule de thème compacte (icône) — idéale en barre latérale / barre mobile. */
@@ -77,7 +79,8 @@ export function ThemeSelector({ className }: { className?: string }) {
 }
 
 /**
- * Sélecteur de palette d'accent (Défaut · Rose · Marron · Bleu marine).
+ * Sélecteur de palette d'accent (Défaut · Rose · Marron · Bleu marine ·
+ * Vert émeraude · Violet).
  * Réglage orthogonal au thème : la palette colore la signature dorée dans
  * les modes clair, sombre ET système. Les pastilles consomment
  * `--accent-swatch-*` (définies dans styles.css) — aucun hex dans le composant.
