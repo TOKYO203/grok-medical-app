@@ -68,3 +68,51 @@ test("la route sert la prédiction, le débrief enrichi et le maillage", () => {
     assert.ok(caseRouteSource.includes(anchor), "cas.$caseId.tsx: " + anchor + " manquant");
   }
 });
+
+
+const storeSource = await readFile(new URL("../src/state/store.ts", import.meta.url), "utf8");
+const migrationsSource = await readFile(
+  new URL("../src/state/persist-migrations.ts", import.meta.url),
+  "utf8",
+);
+const casListSource = await readFile(new URL("../src/routes/cas.tsx", import.meta.url), "utf8");
+
+test("la reprise de dossier et l'historique des hypothèses sont persistés", () => {
+  for (const anchor of [
+    "caseSessions",
+    "caseHypotheses",
+    "saveCaseSession",
+    "recordCaseHypothesis",
+    "restoreCaseSessions",
+    "restoreCaseHypotheses",
+  ]) {
+    assert.ok(storeSource.includes(anchor), "store.ts: " + anchor + " manquant");
+  }
+  for (const anchor of [
+    "caseSessions",
+    "caseHypotheses",
+  ]) {
+    assert.ok(migrationsSource.includes(anchor), "persist-migrations.ts: " + anchor + " manquant");
+  }
+  assert.ok(
+    migrationsSource.includes("OPTIMUS_PERSIST_VERSION = 5"),
+    "persist-migrations.ts: version 5 attendue pour la persistance des cas",
+  );
+});
+
+test("la route reprend la session et archive les hypothèses engagées", () => {
+  for (const anchor of [
+    "data-case-resume",
+    "data-case-hypotheses",
+    "saveCaseSession",
+    "recordCaseHypothesis",
+    "caseHypotheses",
+    "commitHypothesis",
+  ]) {
+    assert.ok(caseRouteSource.includes(anchor), "cas.$caseId.tsx: " + anchor + " manquant");
+  }
+  assert.ok(
+    casListSource.includes("data-cas-resume"),
+    "cas.tsx: bannière « Reprendre » manquante",
+  );
+});
