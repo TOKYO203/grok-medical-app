@@ -27,7 +27,16 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check
+        run: npm run release:check 2>&1 | tee /tmp/release-check.log
+
+      - name: Emit failure details as annotations (temporary diagnostic)
+        if: failure()
+        run: |
+          if [ -f /tmp/release-check.log ]; then
+            grep -nE "not ok|AssertionError|error TS|Error:|exceeds|failed|ERR_|Cannot find|not found|✖" /tmp/release-check.log | tail -60 | while IFS= read -r line; do
+              echo "::error::DIAG $line"
+            done
+          fi
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
