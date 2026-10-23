@@ -47,13 +47,39 @@ function buildSystem(full) {
 }
 
 async function callMistral(messages, model, maxTokens) {
-  const r = await fetch(API_URL, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model, messages, temperature: 0.2, max_tokens: maxTokens }),
-  });
-  if (!r.ok) { console.error(`Mistral ${r.status}:`, await r.text()); process.exit(3); }
-  return r.json();
+  const maxRetries = 3;
+  const retryDelay = 5000;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const r = await fetch(API_URL, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ model, messages, temperature: 0.2, max_tokens: maxTokens }),
+      });
+      if (r.status === 429) {
+        if (attempt < maxRetries) {
+          console.error(`Rate limit atteint (essai ${attempt}/${maxRetries}). Attente de 5s...`);
+          await new Promise(resolve => setTimeout(resolve, retryDelay));
+          continue;
+        } else {
+          console.error(`Rate limit atteint après ${maxRetries} essais. Abandon.`);
+          process.exit(3);
+        }
+      }
+      if (!r.ok) {
+        console.error(`Mistral ${r.status}:`, await r.text());
+        process.exit(3);
+      }
+      return r.json();
+    } catch (error) {
+      console.error(`Erreur réseau (essai ${attempt}/${maxRetries}):`, error);
+      if (attempt < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
+      } else {
+        process.exit(3);
+      }
+    }
+  }
 }
 
 function parseArgs(argv) {
