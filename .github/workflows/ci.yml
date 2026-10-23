@@ -42,7 +42,16 @@ jobs:
           fi
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built
+        run: npm run qa:mobile:built 2>&1 | tee /tmp/qa-mobile.log
+
+      - name: Report qa tail (temporary diagnostic)
+        if: always()
+        run: |
+          if [ -f /tmp/qa-mobile.log ]; then
+            tail -30 /tmp/qa-mobile.log | while IFS= read -r line; do
+              echo "::error::QA-TAIL $line"
+            done
+          fi
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
