@@ -175,6 +175,16 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // le chantier. Mesure CI : 2 306,4 KiB — dépassement de 10,4 KiB du plafond
   // de 2 296 KiB posé le 2026-10-21. Plafond 2 320 KiB = marge volontairement
   // faible (~13,6 KiB), même philosophie que les relevés précédents.
+  // Relevé 2320 → **2340 KIBI** le 2026-10-23 (UX Phase 3 « cas cliniques
+  // immersifs » — calibration : après la révélation du diagnostic, le joueur
+  // déclare l'issue de son hypothèse (« dans le vrai / en partie / à côté »),
+  // la page /cas agrège la justesse par niveau de confiance déclarée ; plus
+  // 3 nouveaux dossiers : asthme, cirrhose alcoolique, appendicite).
+  // cases.json grossit de ~14,7 KiB (10 → 13 dossiers) et les routes
+  // cas.$caseId.tsx / cas.tsx de ~1,5 KiB ; la marge restante (~13,6 KiB)
+  // était plus fine que la vague. Estimation : ~2 322,6 KiB — dépassement
+  // de ~2,6 KiB du plafond de 2 320 KiB posé le 2026-10-23. Plafond 2 340
+  // KiB = marge volontairement faible (~17 KiB), même philosophie.
   maxTotalJavascriptBytes: 2320 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
