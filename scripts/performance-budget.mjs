@@ -165,7 +165,17 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // — dépassement de 63,6 KiB du plafond de 2 216 KiB posé le 2026-10-21.
   // Plafond 2 296 KiB = marge volontairement faible (~16,4 KiB), même
   // philosophie que les relevés précédents.
-  maxTotalJavascriptBytes: 2296 * 1024,
+  // Relevé 2296 → **2320 KIBI** le 2026-10-23 (UX Phase 1 « cas cliniques
+  // immersifs » — écran de prédiction avant diagnostic avec calibration de
+  // confiance, débrief « piège classique / clé à retenir », récap de
+  // l’hypothèse et maillage « Approfondir » vers fiches et decks). La route
+  // cas.$caseId.tsx grossit (~21 KiB : écran d’engagement, débrief enrichi,
+  // section related) et cases.json de ~6 KiB (pitfall/keyTakeaway/related
+  // sur les 10 dossiers) ; la marge restante (~16,4 KiB) était plus fine que
+  // le chantier. Mesure CI : 2 306,4 KiB — dépassement de 10,4 KiB du plafond
+  // de 2 296 KiB posé le 2026-10-21. Plafond 2 320 KiB = marge volontairement
+  // faible (~13,6 KiB), même philosophie que les relevés précédents.
+  maxTotalJavascriptBytes: 2320 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité

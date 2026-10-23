@@ -27,15 +27,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check 2>&1 | tee /tmp/release-check.log; exit ${PIPESTATUS[0]}
-
-      - name: Expose failing lines as annotations
-        if: failure()
-        run: |
-          grep -niE "not ok|assertionerror|error|failed|exceeds|ELIFECYCLE|over budget|✘|✖" /tmp/release-check.log | grep -viE "^\\s*[0-9]+:ok |Subtest" | head -40 | while IFS= read -r line; do
-            msg=$(printf '%s' "$line" | cut -c1-240)
-            echo "::error::${msg}"
-          done || true
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
         run: npm run qa:mobile:built
@@ -98,7 +90,7 @@ jobs:
           );
           insert into disaster_recovery_probe (id, marker)
           values (1, 'optimus-recovery-ok')
-          on conflict (id) do update set marker = excluded.marker;
+          on conflict (id) do update marker = excluded.marker;
           SQL
 
       - name: Backup database
