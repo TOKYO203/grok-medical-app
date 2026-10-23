@@ -27,31 +27,10 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check 2>&1 | tee /tmp/release-check.log
-
-      - name: Report key lines (temporary diagnostic)
-        if: always()
-        run: |
-          if [ -f /tmp/release-check.log ]; then
-            tail -30 /tmp/release-check.log | while IFS= read -r line; do
-              echo "::error::DIAG-TAIL $line"
-            done
-            grep -nE "tests [0-9]+|pass [0-9]+|fail [0-9]+|not ok|AssertionError|total client JS|exceeds|Error:|error TS|✖" /tmp/release-check.log | tail -40 | while IFS= read -r line; do
-              echo "::error::DIAG $line"
-            done
-          fi
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built 2>&1 | tee /tmp/qa-mobile.log
-
-      - name: Report qa tail (temporary diagnostic)
-        if: always()
-        run: |
-          if [ -f /tmp/qa-mobile.log ]; then
-            tail -30 /tmp/qa-mobile.log | while IFS= read -r line; do
-              echo "::error::QA-TAIL $line"
-            done
-          fi
+        run: npm run qa:mobile:built
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
