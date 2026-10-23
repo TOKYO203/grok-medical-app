@@ -226,3 +226,44 @@ test("accent palettes immerse primary buttons and active navigation", () => {
     }
   }
 });
+
+test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
+  // Phase 4 — harmonisation dark mode : sans ces surcharges, les cartes et
+  // surfaces restaient verdâtres (thème sombre de base #161d1b / #1a221f) et
+  // le hero + la couverture « Clinique » restaient verts Oxford pour TOUTES
+  // les palettes — le rendu « moche » du sombre avec rose/marine/violet.
+  for (const id of palettes) {
+    if (id === "defaut") continue;
+    const block = blockFor(stylesSource, 'html[data-theme="dark"][data-accent="' + id + '"]');
+    const card = block.match(/--app-card:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+    const surface = block.match(/--app-surface:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+    const bg = block.match(/--app-bg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+    const primaryFg = block.match(/--app-primary-fg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
+    assert.ok(card, id + " : --app-card sombre manquant (cartes verdâtres du thème de base)");
+    assert.ok(surface, id + " : --app-surface sombre manquant");
+    assert.ok(card !== "#161d1b", id + " : --app-card sombre retombe sur la valeur verdâtre de base");
+    assert.ok(surface !== "#1a221f", id + " : --app-surface sombre retombe sur la valeur verdâtre de base");
+    assert.ok(card !== bg, id + " : carte sombre identique au fond (plus de séparation visuelle)");
+    assert.ok(card !== surface, id + " : carte et surface sombres confondues");
+    assert.ok(primaryFg && primaryFg !== "#06120d", id + " : --app-primary-fg sombre doit être teinté par palette");
+    // La carte re-teintée reste une surface sombre lisible : fg de base ≥ 7:1 (AAA grand texte)
+    assert.ok(
+      contrast("#E7EDE8", card) >= 4.5,
+      id + " : fg de base ne donne que " + contrast("#E7EDE8", card).toFixed(2) + ":1 sur la carte re-teintée " + card,
+    );
+  }
+  const shared = blockFor(
+    stylesSource,
+    'html[data-theme="dark"][data-accent]:not([data-accent="defaut"])',
+  );
+  for (const token of ["--hero-from:", "--hero-to:", "--cover-1-from:", "--cover-1-to:"]) {
+    assert.ok(
+      shared.includes(token),
+      "bloc sombre partagé : " + token + " manquant (hero/couverture restent verts Oxford)",
+    );
+  }
+  assert.ok(
+    shared.includes("var(--app-accent) 52%"),
+    "bloc sombre partagé : le hero doit suivre l'accent de la palette",
+  );
+});
