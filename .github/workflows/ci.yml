@@ -27,21 +27,10 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run release readiness checks
-        run: npm run release:check 2>&1 | tee /tmp/release-check.log
-
-      - name: Emit failure details as annotations (temporary diagnostic)
-        if: failure()
-        run: |
-          for log in /tmp/release-check.log /tmp/qa-mobile.log; do
-            if [ -f "$log" ]; then
-              grep -nE "not ok|AssertionError|error TS|Error:|exceeds|failed|ERR_|Cannot find|not found|✖|overflow|expect" "$log" | tail -60 | while IFS= read -r line; do
-                echo "::error::DIAG $line"
-              done
-            fi
-          done
+        run: npm run release:check
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built 2>&1 | tee /tmp/qa-mobile.log
+        run: npm run qa:mobile:built
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
