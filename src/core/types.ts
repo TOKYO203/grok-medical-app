@@ -252,6 +252,14 @@ export type CaseStepQuestion = {
 };
 export type CaseStep = CaseStepReveal | CaseStepQuestion;
 
+/** Contenus liés à un dossier clinique (liens « Approfondir » du débrief). */
+export type CaseRelated = {
+  /** Slugs du manifeste public des fiches de nosographie. */
+  pathologySlugs?: string[];
+  /** Identifiants des decks du catalogue intégré. */
+  deckIds?: string[];
+};
+
 export type ClinicalCase = {
   id: string;
   title: string;
@@ -264,6 +272,12 @@ export type ClinicalCase = {
   steps: CaseStep[];
   diagnosis: string;
   management: string;
+  /** Piège classique du dossier — mis en avant dans le débrief final. */
+  pitfall?: string;
+  /** Clé de mémorisation du dossier — synthèse du débrief final. */
+  keyTakeaway?: string;
+  /** Maillage fiche ↔ deck ↔ dossier, servi en fin de parcours. */
+  related?: CaseRelated;
   sources: Source[];
   access?: AccessTier;
 };
@@ -285,4 +299,27 @@ export type DiagnosticCase = {
   vignette: string;
   steps: DiagnosticStep[];
   synthesis: string;
+};
+
+/** Niveau de confiance déclaré avant la révélation du diagnostic (calibration). */
+export type CaseConfidenceValue = "hesitant" | "sure" | "certain";
+
+/** Dossier clinique en cours — permet de reprendre un cas interrompu. */
+export type CaseSession = {
+  caseId: string;
+  cursor: number;
+  correct: number;
+  asked: number;
+  hypothesis: string;
+  confidence: CaseConfidenceValue | null;
+  committed: boolean;
+  updatedAt: number;
+};
+
+/** Hypothèse engagée avant la révélation du diagnostic — historique de calibration. */
+export type CaseHypothesis = {
+  caseId: string;
+  hypothesis: string;
+  confidence: CaseConfidenceValue | null;
+  createdAt: number;
 };

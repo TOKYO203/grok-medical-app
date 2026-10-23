@@ -24,6 +24,8 @@ import { applyReview, emptyStats } from "@/core/spaced-repetition";
 import { leagueFromWeeklyXp, type LeagueId } from "@/core/scoring";
 import type {
   AccountTier,
+  CaseHypothesis,
+  CaseSession,
   ContactDraft,
   CoverId,
   Deck,
@@ -98,6 +100,8 @@ type PersistShape = {
   badges: BadgeId[];
   casesCompleted: string[];
   diagnosticsCompleted: string[];
+  caseSessions: Record<string, CaseSession>;
+  caseHypotheses: CaseHypothesis[];
   reviewsSucceeded: number;
   studyMs: number;
   syncQueue: SyncEvent[];
@@ -140,6 +144,12 @@ export type OptimusState = PersistShape & {
   }) => void;
   completeLesson: (deckId: string, lessonIndex: number) => void;
   completeCase: (caseId: string, xp: number) => void;
+  saveCaseSession: (session: CaseSession) => void;
+  recordCaseHypothesis: (entry: {
+    caseId: string;
+    hypothesis: string;
+    confidence: CaseSession["confidence"];
+  }) => void;
   completeDiagnostic: (id: string, xp: number) => void;
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
@@ -291,6 +301,73 @@ function restoreTrial(value: unknown): PremiumTrial | null {
   return { startedAt: trial.startedAt, expiresAt: trial.expiresAt };
 }
 
+const CASE_CONFIDENCE_VALUES = new Set<string>(["hesitant", "sure", "certain"]);
+
+/**
+ * Phase 2 UX — sessions de reprise. La forme persistée n'est JAMAIS crue sur
+ * parole : chaque session est revalidée champ par champ, comme les achats.
+ */
+function restoreCaseSessions(value: unknown): Record<string, CaseSession> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  const sessions: Record<string, CaseSession> = {};
+  for (const [caseId, raw] of Object.entries(value as Record<string, unknown>)) {
+    if (!raw || typeof raw !== "object") continue;
+    const session = raw as Partial<CaseSession>;
+    if (session.caseId !== caseId) continue;
+    if (typeof session.cursor !== "number" || !Number.isFinite(session.cursor) || session.cursor < 0) {
+      continue;
+    }
+    sessions[caseId] = {
+      caseId,
+      cursor: Math.floor(session.cursor),
+      correct:
+        typeof session.correct === "number" && Number.isFinite(session.correct)
+          ? Math.max(0, Math.floor(session.correct))
+          : 0,
+      asked:
+        typeof session.asked === "number" && Number.isFinite(session.asked)
+          ? Math.max(0, Math.floor(session.asked))
+          : 0,
+      hypothesis: typeof session.hypothesis === "string" ? session.hypothesis.slice(0, 2000) : "",
+      confidence:
+        session.confidence != null && CASE_CONFIDENCE_VALUES.has(session.confidence)
+          ? session.confidence
+          : null,
+      committed: session.committed === true,
+      updatedAt:
+        typeof session.updatedAt === "number" && Number.isFinite(session.updatedAt)
+          ? session.updatedAt
+          : 0,
+    };
+  }
+  return sessions;
+}
+
+/** Phase 2 UX — historique des hypothèses engagées, revalidé après hydration. */
+function restoreCaseHypotheses(value: unknown): CaseHypothesis[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((candidate) => {
+    if (!candidate || typeof candidate !== "object") return [];
+    const entry = candidate as Partial<CaseHypothesis>;
+    if (typeof entry.caseId !== "string" || !entry.caseId) return [];
+    if (typeof entry.hypothesis !== "string" || !entry.hypothesis.trim()) return [];
+    return [
+      {
+        caseId: entry.caseId,
+        hypothesis: entry.hypothesis.slice(0, 2000),
+        confidence:
+          entry.confidence != null && CASE_CONFIDENCE_VALUES.has(entry.confidence)
+            ? entry.confidence
+            : null,
+        createdAt:
+          typeof entry.createdAt === "number" && Number.isFinite(entry.createdAt)
+            ? entry.createdAt
+            : 0,
+      },
+    ];
+  });
+}
+
 function deliverPurchases(purchases: PremiumPurchase[], products: Iterable<string>) {
   const delivered = new Set(products);
   if (delivered.size === 0) return purchases;
@@ -341,6 +418,8 @@ const persistDefaults: PersistShape = {
   badges: [],
   casesCompleted: [],
   diagnosticsCompleted: [],
+  caseSessions: {},
+  caseHypotheses: [],
   reviewsSucceeded: 0,
   studyMs: 0,
   syncQueue: [],
@@ -373,6 +452,8 @@ function mergePersistedState(persistedState: unknown, currentState: OptimusState
     licenseReceipts: Array.isArray(saved.licenseReceipts) ? saved.licenseReceipts : [],
     purchases: restorePurchases(saved.purchases),
     premiumTrial: restoreTrial(saved.premiumTrial),
+    caseSessions: restoreCaseSessions(saved.caseSessions),
+    caseHypotheses: restoreCaseHypotheses(saved.caseHypotheses),
     locale: isLocale(saved.locale) ? saved.locale : DEFAULT_LOCALE,
     hydrated: false,
     importedDeckStorageReady: false,
@@ -619,6 +700,8 @@ export const useOptimus = create<OptimusState>()(
             badges: s.badges,
             casesCompleted: s.casesCompleted,
             diagnosticsCompleted: s.diagnosticsCompleted,
+            caseSessions: s.caseSessions,
+            caseHypotheses: s.caseHypotheses,
             syncQueue: [...s.syncQueue, event],
             contacts: s.contacts,
             purchases: s.purchases,
@@ -658,14 +741,35 @@ export const useOptimus = create<OptimusState>()(
             createdAt: Date.now(),
             synced: false,
           };
+          // Le dossier est terminé : sa session de reprise devient inutile.
+          const caseSessions = { ...s.caseSessions };
+          delete caseSessions[caseId];
           const next: PersistShape = {
             ...pickPersist(s),
             casesCompleted: [...s.casesCompleted, caseId],
+            caseSessions,
             xp: s.xp + xp,
             syncQueue: [...s.syncQueue, event],
           };
           return { ...next, badges: unlockBadges(next) };
         }),
+      /**
+       * Phase 2 UX — persistance de la session de dossier : chaque étape,
+       * décision, hypothèse et engagement est sauvegardé pour reprendre le cas
+       * après un refresh ou une interruption.
+       */
+      saveCaseSession: (session) =>
+        set((s) => ({
+          caseSessions: { ...s.caseSessions, [session.caseId]: session },
+        })),
+      /**
+       * Phase 2 UX — historique de calibration : l'hypothèse engagée avant la
+       * révélation du diagnostic est archivée, une par révélation.
+       */
+      recordCaseHypothesis: (entry) =>
+        set((s) => ({
+          caseHypotheses: [...s.caseHypotheses, { ...entry, createdAt: Date.now() }],
+        })),
       completeDiagnostic: (id, xp) =>
         set((s) => {
           if (s.diagnosticsCompleted.includes(id)) return s;
@@ -774,6 +878,8 @@ function pickPersist(s: PersistShape): PersistShape {
     badges: s.badges,
     casesCompleted: s.casesCompleted,
     diagnosticsCompleted: s.diagnosticsCompleted,
+    caseSessions: s.caseSessions,
+    caseHypotheses: s.caseHypotheses,
     reviewsSucceeded: s.reviewsSucceeded,
     studyMs: s.studyMs,
     syncQueue: s.syncQueue,

@@ -1,12 +1,25 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, Lock, Sparkles, X } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Check,
+  FileText,
+  History,
+  Lightbulb,
+  Lock,
+  RotateCcw,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { OptimusAnalysisPanel } from "@/components/ai/OptimusAnalysisPanel";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { CLINICAL_CASES, getCase } from "@/content/catalog";
+import { CLINICAL_CASES, getBuiltinDeck, getCase } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
@@ -14,9 +27,30 @@ import { specialtyPackProduct } from "@/lib/library/content-index";
 import type { ClinicalCase } from "@/core/types";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
+import { pathologyEntry } from "@/lib/pathologies/manifest";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/cas/$caseId")({ component: CasePlay });
+
+/**
+ * Calibration de confiance : trois niveaux, assez pour se situer sans figer
+ * la réponse. L’étiquette choisie est rejouée dans le débrief final.
+ */
+const CONFIDENCE = [
+  { value: "hesitant", label: "Peu sûr" },
+  { value: "sure", label: "Plutôt sûr" },
+  { value: "certain", label: "Très sûr" },
+] as const;
+
+/**
+ * Durée estimée du dossier : environ 30 s par révélation et 1 min par
+ * décision, plancher de 2 min — de quoi choisir son cas selon son temps.
+ */
+function caseDurationMinutes(clinical: ClinicalCase): number {
+  const decisions = clinical.steps.filter((step) => step.kind === "question").length;
+  const reveals = clinical.steps.length - decisions;
+  return Math.max(2, Math.ceil(reveals * 0.5 + decisions));
+}
 
 function CasePlay() {
   const { caseId } = Route.useParams();
@@ -26,15 +60,90 @@ function CasePlay() {
   const done = useOptimus((s) => s.casesCompleted);
   const entitlements = useOptimus((s) => s.entitlements);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
+  const hydrated = useOptimus((s) => s.hydrated);
+  const caseHypotheses = useOptimus((s) => s.caseHypotheses);
+  const saveCaseSession = useOptimus((s) => s.saveCaseSession);
+  const recordCaseHypothesis = useOptimus((s) => s.recordCaseHypothesis);
   const [cursor, setCursor] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
   const [asked, setAsked] = useState(0);
+  const [hypothesis, setHypothesis] = useState("");
+  const [confidence, setConfidence] = useState<(typeof CONFIDENCE)[number] | null>(null);
+  const [committed, setCommitted] = useState(false);
+  const [appliedResume, setAppliedResume] = useState(false);
+  const [resumedCursor, setResumedCursor] = useState<number | null>(null);
 
   const qCount = useMemo(
     () => clinical?.steps.filter((s) => s.kind === "question").length ?? 0,
     [clinical],
   );
+
+  /**
+   * Phase 2 — reprise : le store s'hydrate APRÈS le premier rendu ; la session
+   * sauvegardée n'est donc appliquée qu'une fois, quand elle existe. Un dossier
+   * déjà terminé n'a pas de session (elle est nettoyée par completeCase).
+   */
+  useEffect(() => {
+    if (!hydrated || appliedResume) return;
+    setAppliedResume(true);
+    const saved = useOptimus.getState().caseSessions[caseId];
+    if (!saved) return;
+    setCursor(saved.cursor);
+    setCorrect(saved.correct);
+    setAsked(saved.asked);
+    setHypothesis(saved.hypothesis);
+    setConfidence(CONFIDENCE.find((level) => level.value === saved.confidence) ?? null);
+    setCommitted(saved.committed);
+    if (saved.cursor > 0 && !saved.committed) setResumedCursor(saved.cursor);
+  }, [hydrated, appliedResume, caseId]);
+
+  /**
+   * Phase 2 — persistance : chaque étape, décision, hypothèse et engagement est
+   * sauvegardé au fil de l'eau pour permettre la reprise après un refresh.
+   * Stop dès que le dossier est terminé : la session est nettoyée par le store.
+   */
+  useEffect(() => {
+    if (!appliedResume || done.includes(caseId)) return;
+    saveCaseSession({
+      caseId,
+      cursor,
+      correct,
+      asked,
+      hypothesis,
+      confidence: confidence?.value ?? null,
+      committed,
+      updatedAt: Date.now(),
+    });
+  }, [
+    appliedResume,
+    done,
+    caseId,
+    cursor,
+    correct,
+    asked,
+    hypothesis,
+    confidence,
+    committed,
+    saveCaseSession,
+  ]);
+
+  /** Historique des hypothèses engagées sur CE dossier, la plus récente d'abord. */
+  const hypothesesForCase = useMemo(
+    () => [...caseHypotheses].filter((entry) => entry.caseId === clinical?.id).reverse(),
+    [caseHypotheses, clinical?.id],
+  );
+
+  // Liens « Approfondir » du débrief : manifeste public (fiches) et catalogue
+  // intégré (decks) — un dossier terminé doit ouvrir sur la révision.
+  const relatedPathologies = (clinical?.related?.pathologySlugs ?? []).flatMap((slug) => {
+    const entry = pathologyEntry(slug);
+    return entry && entry.status === "available" ? [entry] : [];
+  });
+  const relatedDecks = (clinical?.related?.deckIds ?? []).flatMap((id) => {
+    const deck = getBuiltinDeck(id);
+    return deck ? [deck] : [];
+  });
 
   /**
    * Dossier suivant à proposer en fin de parcours : premier dossier NON
@@ -70,6 +179,19 @@ function CasePlay() {
   const step = clinical.steps[cursor];
   const finished = cursor >= clinical.steps.length;
 
+  /** Phase 2 — engagement : archiver l'hypothèse (si écrite) PUIS révéler. */
+  const commitHypothesis = () => {
+    const text = hypothesis.trim();
+    if (text) {
+      recordCaseHypothesis({
+        caseId: clinical.id,
+        hypothesis: text,
+        confidence: confidence?.value ?? null,
+      });
+    }
+    setCommitted(true);
+  };
+
   return (
     <Shell title={clinical.title}>
       <Page className="mx-auto max-w-lg">
@@ -85,6 +207,17 @@ function CasePlay() {
           {clinical.patient.sex === "F" ? "Femme" : "Homme"}, {clinical.patient.age} ans —{" "}
           {clinical.patient.context}
         </p>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 text-[11px] text-subtle">
+          <span className="font-mono tabular-nums">
+            ≈ {caseDurationMinutes(clinical)} min
+          </span>
+          <span aria-hidden>·</span>
+          <span>
+            {clinical.steps.length} étape{clinical.steps.length > 1 ? "s" : ""}
+          </span>
+          <span aria-hidden>·</span>
+          <span>{qCount} décision{qCount > 1 ? "s" : ""}</span>
+        </p>
 
         {!open ? (
           <div className="mt-5 flex items-center gap-2 rounded-[var(--radius-lg)] bg-primary-soft px-4 py-3 text-sm">
@@ -96,6 +229,17 @@ function CasePlay() {
             <Sparkles className="size-4 shrink-0 text-primary" />
             Essai Premium · {trialRemainingDays(premiumTrial)} jour{trialRemainingDays(premiumTrial) > 1 ? "s" : ""} restants — dossier complet ouvert
           </div>
+        ) : null}
+
+        {resumedCursor !== null && !finished && !previewFinished ? (
+          <p
+            data-case-resume
+            className="mt-3 flex items-center gap-2 text-xs text-muted"
+          >
+            <RotateCcw className="size-4 shrink-0" aria-hidden />
+            Dossier repris — étape {Math.min(cursor + 1, clinical.steps.length)} sur{" "}
+            {clinical.steps.length}
+          </p>
         ) : null}
 
         {previewFinished ? (
@@ -138,6 +282,61 @@ function CasePlay() {
               </Link>
             </div>
           </section>
+        ) : finished && !committed ? (
+          <section
+            data-case-prediction
+            className="mt-8 rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]"
+          >
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              Avant le diagnostic
+            </p>
+            <h2 className="mt-2 font-display text-2xl font-medium tracking-tight">
+              Engagez votre hypothèse
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Écrire votre hypothèse avant la réponse l’ancre dans la mémoire, même si vous vous
+              trompez.
+            </p>
+            <textarea
+              id="case-hypothesis"
+              value={hypothesis}
+              onChange={(event) => setHypothesis(event.target.value)}
+              rows={3}
+              placeholder="Votre hypothèse diagnostique et vos arguments cliniques…"
+              aria-label="Votre hypothèse diagnostique"
+              className="mt-4 w-full resize-none rounded-[var(--radius-lg)] border-none bg-surface px-4 py-3 text-sm leading-relaxed text-fg shadow-[var(--shadow-border)] outline-none focus:ring-1 focus:ring-primary/40"
+            />
+            <div className="mt-3 flex gap-2">
+              {CONFIDENCE.map((level) => {
+                const active = confidence?.value === level.value;
+                return (
+                  <button
+                    key={level.value}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setConfidence(level)}
+                    className={cn(
+                      "flex-1 rounded-[var(--radius-lg)] px-3 py-2.5 text-sm font-medium transition-colors",
+                      active ? "bg-primary-soft text-primary" : "bg-card text-fg hover:bg-surface",
+                    )}
+                  >
+                    {level.label}
+                  </button>
+                );
+              })}
+            </div>
+            <Button className="mt-5 w-full" onClick={commitHypothesis}>
+              Révéler le diagnostic
+              <ArrowRight className="size-4" />
+            </Button>
+            <button
+              type="button"
+              onClick={() => setCommitted(true)}
+              className="mt-3 w-full text-center text-sm text-muted hover:text-fg"
+            >
+              Passer sans m’engager
+            </button>
+          </section>
         ) : finished ? (
           <div className="mt-8">
             <p className="text-sm text-muted">
@@ -147,6 +346,60 @@ function CasePlay() {
             <p className="mt-2 text-sm leading-relaxed">{clinical.diagnosis}</p>
             <h2 className="mt-6 font-display text-xl font-medium">Prise en charge</h2>
             <p className="mt-2 text-sm leading-relaxed">{clinical.management}</p>
+            {clinical.pitfall ? (
+              <div
+                data-case-pitfall
+                className="mt-4 rounded-[var(--radius-lg)] bg-warn/10 p-4 ring-1 ring-warn/35"
+              >
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-warn">
+                  <AlertTriangle className="size-4 shrink-0" aria-hidden />
+                  Le piège classique
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-fg">{clinical.pitfall}</p>
+              </div>
+            ) : null}
+            {clinical.keyTakeaway ? (
+              <div
+                data-case-takeaway
+                className="mt-3 rounded-[var(--radius-lg)] bg-primary-soft p-4"
+              >
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  <Lightbulb className="size-4 shrink-0" aria-hidden />
+                  La clé à retenir
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-fg">{clinical.keyTakeaway}</p>
+              </div>
+            ) : null}
+            {hypothesis.trim() ? (
+              <p data-case-hypothesis-recap className="mt-3 text-xs leading-relaxed text-muted">
+                Votre hypothèse : « {hypothesis.trim()} »
+                {confidence ? ` · ${confidence.label}` : ""} — comparez-la au diagnostic ci-dessus.
+              </p>
+            ) : null}
+            {hypothesesForCase.length > 0 ? (
+              <div
+                data-case-hypotheses
+                className="mt-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]"
+              >
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <History className="size-4 shrink-0" aria-hidden />
+                  Vos hypothèses sur ce dossier
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {hypothesesForCase.map((entry, index) => (
+                    <li
+                      key={`${entry.createdAt}-${index}`}
+                      className="text-xs leading-relaxed text-muted"
+                    >
+                      « {entry.hypothesis} »
+                      {entry.confidence
+                        ? ` · ${CONFIDENCE.find((level) => level.value === entry.confidence)?.label ?? ""}`
+                        : ""}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <MedicalSources sources={clinical.sources} />
             <ReportContentError
               target={{
@@ -156,6 +409,55 @@ function CasePlay() {
               }}
               className="mt-3 w-full"
             />
+            {relatedPathologies.length > 0 || relatedDecks.length > 0 ? (
+              <section data-case-related className="mt-6">
+                <h2 className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+                  Approfondir
+                </h2>
+                <ul className="mt-3 space-y-2">
+                  {relatedPathologies.map((entry) => (
+                    <li key={entry.slug}>
+                      <Link
+                        to="/pathologie/$slug"
+                        params={{ slug: entry.slug }}
+                        className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card px-4 py-3 shadow-[var(--shadow-border)] transition-colors hover:bg-surface"
+                      >
+                        <FileText className="size-4 shrink-0 text-accent" aria-hidden />
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[11px] uppercase tracking-[0.12em] text-subtle">
+                            Fiche nosographie
+                          </span>
+                          <span className="mt-0.5 block truncate text-sm font-medium text-fg">
+                            {entry.title}
+                          </span>
+                        </span>
+                        <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden />
+                      </Link>
+                    </li>
+                  ))}
+                  {relatedDecks.map((deck) => (
+                    <li key={deck.id}>
+                      <Link
+                        to="/parcours/$deckId"
+                        params={{ deckId: deck.id }}
+                        className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card px-4 py-3 shadow-[var(--shadow-border)] transition-colors hover:bg-surface"
+                      >
+                        <BookOpen className="size-4 shrink-0 text-accent" aria-hidden />
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[11px] uppercase tracking-[0.12em] text-subtle">
+                            Deck
+                          </span>
+                          <span className="mt-0.5 block truncate text-sm font-medium text-fg">
+                            {deck.title}
+                          </span>
+                        </span>
+                        <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
             <Button
               className="mt-6 w-full"
               onClick={() => {
