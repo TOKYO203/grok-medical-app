@@ -2,10 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
 import {
   checkoutRequestSchema,
-  createInternationalOrder,
   verifyCheckoutIdentity,
-  type CheckoutSql,
 } from "@/server/lemonsqueezy/checkout.server";
+import { createInternationalOrderRest } from "@/server/lemonsqueezy/checkout-rest.server";
 
 /**
  * `POST /api/checkout/lemonsqueezy` — ouvre un paiement international.
@@ -106,18 +105,7 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
           );
         }
 
-        let sql: CheckoutSql | null = null;
-        try {
-          const { getSql } = await import("@/lib/db");
-          sql = (await getSql()) as unknown as CheckoutSql;
-        } catch (error) {
-          console.error("[checkout/lemonsqueezy] base indisponible", error);
-          return json({ error: "checkout_unavailable", reason: "database" }, 503);
-        }
-        if (!sql) return json({ error: "checkout_unavailable", reason: "database" }, 503);
-
-        const order = await createInternationalOrder({
-          sql,
+        const order = await createInternationalOrderRest({
           identity: identity.identity,
           clientRequestId: parsed.data.clientRequestId,
         });
