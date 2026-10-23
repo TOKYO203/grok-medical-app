@@ -39,7 +39,10 @@
     "build:cloudflare": "node scripts/with-app-env.mjs vite build && npm run postbuild:cloud",
     "secret:scan": "node scripts/secret-scan.mjs",
     "payment:readiness": "node scripts/payment-readiness.mjs",
-    "postbuild:cloud": "node scripts/assert-supabase-build.mjs"
+    "postbuild:cloud": "node scripts/assert-supabase-build.mjs",
+    "devx": "node scripts/devx/devx.mjs",
+    "devx:full": "node scripts/devx/devx.mjs --full",
+    "devx:chat": "node scripts/devx/devx.mjs --chat"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
