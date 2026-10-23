@@ -90,7 +90,7 @@ jobs:
           );
           insert into disaster_recovery_probe (id, marker)
           values (1, 'optimus-recovery-ok')
-          on conflict (id) do update marker = excluded.marker;
+          on conflict (id) do update set marker = excluded.marker;
           SQL
 
       - name: Backup database
