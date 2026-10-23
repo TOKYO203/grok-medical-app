@@ -183,9 +183,12 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // cases.json grossit de ~14,7 KiB (10 → 13 dossiers) et les routes
   // cas.$caseId.tsx / cas.tsx de ~1,5 KiB ; la marge restante (~13,6 KiB)
   // était plus fine que la vague. Mesure CI : 2 325,7 KiB — dépassement
-  // de 5,7 KiB du plafond de 2 320 KiB posé le 2026-10-23. Plafond 2 340
-  // KiB = marge volontairement faible (~14,3 KiB), même philosophie.
-  maxTotalJavascriptBytes: 2340 * 1024,
+  // de 5,7 KiB du plafond de 2 320 KiB posé le 2026-10-23. Plafond 2 334
+  // KiB = marge volontairement faible (~8,3 KiB), borné par le garde-fou
+  // scripts/performance-budget.test.mjs (quatre chunks de floor(plafond/4)+1
+  // doivent rester sous le plafond par chunk de 584 KiB), même philosophie
+  // que les relevés précédents.
+  maxTotalJavascriptBytes: 2334 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
