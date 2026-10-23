@@ -25,6 +25,7 @@ import { leagueFromWeeklyXp, type LeagueId } from "@/core/scoring";
 import type {
   AccountTier,
   CaseHypothesis,
+  CaseHypothesisOutcome,
   CaseSession,
   ContactDraft,
   CoverId,
@@ -150,6 +151,7 @@ export type OptimusState = PersistShape & {
     hypothesis: string;
     confidence: CaseSession["confidence"];
   }) => void;
+  assessCaseHypothesis: (caseId: string, outcome: CaseHypothesisOutcome) => void;
   completeDiagnostic: (id: string, xp: number) => void;
   enqueue: (type: SyncEventType, payload: Record<string, unknown>) => void;
   addContact: (kind: ContactDraft["kind"], body: string) => void;
@@ -363,6 +365,10 @@ function restoreCaseHypotheses(value: unknown): CaseHypothesis[] {
           typeof entry.createdAt === "number" && Number.isFinite(entry.createdAt)
             ? entry.createdAt
             : 0,
+        outcome:
+          entry.outcome === "correct" || entry.outcome === "partial" || entry.outcome === "wrong"
+            ? entry.outcome
+            : null,
       },
     ];
   });
@@ -770,6 +776,18 @@ export const useOptimus = create<OptimusState>()(
         set((s) => ({
           caseHypotheses: [...s.caseHypotheses, { ...entry, createdAt: Date.now() }],
         })),
+      /**
+       * Phase 3 UX — calibration : le joueur déclare l'issue de sa dernière
+       * hypothèse sur un dossier après la révélation du diagnostic.
+       */
+      assessCaseHypothesis: (caseId, outcome) =>
+        set((s) => {
+          const lastIndex = s.caseHypotheses.map((e) => e.caseId).lastIndexOf(caseId);
+          if (lastIndex < 0) return {};
+          const caseHypotheses = [...s.caseHypotheses];
+          caseHypotheses[lastIndex] = { ...caseHypotheses[lastIndex], outcome };
+          return { caseHypotheses };
+        }),
       completeDiagnostic: (id, xp) =>
         set((s) => {
           if (s.diagnosticsCompleted.includes(id)) return s;

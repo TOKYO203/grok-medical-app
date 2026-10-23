@@ -25,6 +25,13 @@ seedBuiltinDecks(BUILTIN_DECKS);
 
 export const Route = createFileRoute("/cas")({ component: CasPage });
 
+/** Niveaux de confiance déclarés avant révélation — ordre croissant d'assurance. */
+const CALIBRATION_LEVELS = [
+  { value: "hesitant", label: "Peu sûr" },
+  { value: "sure", label: "Plutôt sûr" },
+  { value: "certain", label: "Très sûr" },
+] as const;
+
 /** Préfixe des identifiants de cas dans l'index de contenu (`case:<id>`). */
 const CASE_ID_PREFIX = "case:";
 
@@ -44,6 +51,23 @@ function CasPage() {
   const tier = profile.tier;
   const done = useOptimus((s) => s.casesCompleted);
   const caseSessions = useOptimus((s) => s.caseSessions);
+  const caseHypotheses = useOptimus((s) => s.caseHypotheses);
+  /** Stats de calibration : justesse déclarée, agrégée par niveau de confiance. */
+  const assessedHypotheses = useMemo(
+    () => caseHypotheses.filter((entry) => entry.outcome != null),
+    [caseHypotheses],
+  );
+  const calibrationStats = useMemo(() => {
+    const stats = new Map<string, { assessed: number; correct: number }>();
+    for (const entry of assessedHypotheses) {
+      const level = entry.confidence ?? "none";
+      const current = stats.get(level) ?? { assessed: 0, correct: 0 };
+      current.assessed += 1;
+      if (entry.outcome === "correct") current.correct += 1;
+      stats.set(level, current);
+    }
+    return stats;
+  }, [assessedHypotheses]);
   const [query, setQuery] = useState("");
   const [specialtyFilter, setSpecialtyFilter] = useState<string | null>(null);
   const index = useMemo(
@@ -131,6 +155,41 @@ function CasPage() {
               : `${resumableCases.length} dossiers en cours — reprendre « ${resumableCases[0].title} »`}
             <ArrowRight className="size-4" />
           </Link>
+        ) : null}
+        {assessedHypotheses.length > 0 ? (
+          <section
+            data-cas-calibration
+            className="optimus-card mt-3 p-4"
+            aria-label="Vos statistiques de calibration"
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+              Votre calibration · {assessedHypotheses.length} hypothèse
+              {assessedHypotheses.length > 1 ? "s" : ""} évaluée
+              {assessedHypotheses.length > 1 ? "s" : ""}
+            </p>
+            <ul className="mt-2 space-y-1.5">
+              {CALIBRATION_LEVELS.map((level) => {
+                const stat = calibrationStats.get(level.value);
+                return (
+                  <li
+                    key={level.value}
+                    className="flex items-center justify-between gap-2 text-xs text-muted"
+                  >
+                    <span>{level.label}</span>
+                    <span className="font-mono tabular-nums text-fg">
+                      {stat && stat.assessed > 0
+                        ? `${Math.round((stat.correct / stat.assessed) * 100)} % de justesse (${stat.assessed})`
+                        : "—"}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="mt-2 text-[11px] leading-relaxed text-muted">
+              Bien calibré : la justesse augmente avec la confiance. Un « très sûr » souvent
+              à côté signale une surconfiance à travailler.
+            </p>
+          </section>
         ) : null}
 
         {/* Navigation du catalogue : recherche plein texte + facettes de
