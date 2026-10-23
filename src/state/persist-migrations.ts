@@ -1,4 +1,4 @@
-export const OPTIMUS_PERSIST_VERSION = 4;
+export const OPTIMUS_PERSIST_VERSION = 5;
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -89,6 +89,13 @@ export function migrateOptimusPersistedState(
         xp: finiteNumber(daily.xp, 0),
       }
     : { key: "", answered: 0, xp: 0 };
+
+  // v5 — reprise des dossiers cliniques (caseSessions) + historique des
+  // hypothèses engagées (caseHypotheses). La forme persistée est revalidée
+  // champ par champ par le store (restoreCaseSessions/restoreCaseHypotheses)
+  // après hydration.
+  next.caseSessions = asRecord(source.caseSessions) ?? {};
+  next.caseHypotheses = arrayValue(source.caseHypotheses);
 
   return next;
 }

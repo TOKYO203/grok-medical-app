@@ -300,3 +300,26 @@ export type DiagnosticCase = {
   steps: DiagnosticStep[];
   synthesis: string;
 };
+
+/** Niveau de confiance déclaré avant la révélation du diagnostic (calibration). */
+export type CaseConfidenceValue = "hesitant" | "sure" | "certain";
+
+/** Dossier clinique en cours — permet de reprendre un cas interrompu. */
+export type CaseSession = {
+  caseId: string;
+  cursor: number;
+  correct: number;
+  asked: number;
+  hypothesis: string;
+  confidence: CaseConfidenceValue | null;
+  committed: boolean;
+  updatedAt: number;
+};
+
+/** Hypothèse engagée avant la révélation du diagnostic — historique de calibration. */
+export type CaseHypothesis = {
+  caseId: string;
+  hypothesis: string;
+  confidence: CaseConfidenceValue | null;
+  createdAt: number;
+};

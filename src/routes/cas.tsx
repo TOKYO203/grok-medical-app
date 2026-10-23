@@ -43,6 +43,7 @@ function CasPage() {
   const profile = useOptimus((s) => s.profile);
   const tier = profile.tier;
   const done = useOptimus((s) => s.casesCompleted);
+  const caseSessions = useOptimus((s) => s.caseSessions);
   const [query, setQuery] = useState("");
   const [specialtyFilter, setSpecialtyFilter] = useState<string | null>(null);
   const index = useMemo(
@@ -83,6 +84,21 @@ function CasPage() {
     done.includes(clinical.id),
   ).length;
 
+  /**
+   * Phase 2 — reprise : dossiers NON terminés dont une session en cours existe
+   * (au moins une étape franchie). Le premier servi par la bannière « Reprendre ».
+   */
+  const resumableCases = useMemo(
+    () =>
+      CLINICAL_CASES.filter(
+        (clinical) =>
+          caseSessions[clinical.id] &&
+          !done.includes(clinical.id) &&
+          caseSessions[clinical.id].cursor > 0,
+      ),
+    [caseSessions, done],
+  );
+
   if (pathname !== "/cas" && pathname !== "/cas/") {
     return <Outlet />;
   }
@@ -102,6 +118,20 @@ function CasPage() {
           <Summary label="Accessibles" value={accessibleCases.length} accent />
           <Summary label="Terminés" value={completedClinicalCount} />
         </div>
+
+        {resumableCases.length > 0 ? (
+          <Link
+            data-cas-resume
+            to="/cas/$caseId"
+            params={{ caseId: resumableCases[0].id }}
+            className={buttonVariants({ className: "mt-3 w-full" })}
+          >
+            {resumableCases.length === 1
+              ? `Reprendre « ${resumableCases[0].title} »`
+              : `${resumableCases.length} dossiers en cours — reprendre « ${resumableCases[0].title} »`}
+            <ArrowRight className="size-4" />
+          </Link>
+        ) : null}
 
         {/* Navigation du catalogue : recherche plein texte + facettes de
             spécialité. `flex-wrap` obligatoire : l'audit mobile 320 px refuse

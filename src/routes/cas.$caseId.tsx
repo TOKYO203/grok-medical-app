@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -7,8 +7,10 @@ import {
   BookOpen,
   Check,
   FileText,
+  History,
   Lightbulb,
   Lock,
+  RotateCcw,
   Sparkles,
   X,
 } from "lucide-react";
@@ -58,6 +60,10 @@ function CasePlay() {
   const done = useOptimus((s) => s.casesCompleted);
   const entitlements = useOptimus((s) => s.entitlements);
   const premiumTrial = useOptimus((s) => s.premiumTrial);
+  const hydrated = useOptimus((s) => s.hydrated);
+  const caseHypotheses = useOptimus((s) => s.caseHypotheses);
+  const saveCaseSession = useOptimus((s) => s.saveCaseSession);
+  const recordCaseHypothesis = useOptimus((s) => s.recordCaseHypothesis);
   const [cursor, setCursor] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
@@ -65,10 +71,67 @@ function CasePlay() {
   const [hypothesis, setHypothesis] = useState("");
   const [confidence, setConfidence] = useState<(typeof CONFIDENCE)[number] | null>(null);
   const [committed, setCommitted] = useState(false);
+  const [appliedResume, setAppliedResume] = useState(false);
+  const [resumedCursor, setResumedCursor] = useState<number | null>(null);
 
   const qCount = useMemo(
     () => clinical?.steps.filter((s) => s.kind === "question").length ?? 0,
     [clinical],
+  );
+
+  /**
+   * Phase 2 — reprise : le store s'hydrate APRÈS le premier rendu ; la session
+   * sauvegardée n'est donc appliquée qu'une fois, quand elle existe. Un dossier
+   * déjà terminé n'a pas de session (elle est nettoyée par completeCase).
+   */
+  useEffect(() => {
+    if (!hydrated || appliedResume) return;
+    setAppliedResume(true);
+    const saved = useOptimus.getState().caseSessions[caseId];
+    if (!saved) return;
+    setCursor(saved.cursor);
+    setCorrect(saved.correct);
+    setAsked(saved.asked);
+    setHypothesis(saved.hypothesis);
+    setConfidence(CONFIDENCE.find((level) => level.value === saved.confidence) ?? null);
+    setCommitted(saved.committed);
+    if (saved.cursor > 0 && !saved.committed) setResumedCursor(saved.cursor);
+  }, [hydrated, appliedResume, caseId]);
+
+  /**
+   * Phase 2 — persistance : chaque étape, décision, hypothèse et engagement est
+   * sauvegardé au fil de l'eau pour permettre la reprise après un refresh.
+   * Stop dès que le dossier est terminé : la session est nettoyée par le store.
+   */
+  useEffect(() => {
+    if (!appliedResume || done.includes(caseId)) return;
+    saveCaseSession({
+      caseId,
+      cursor,
+      correct,
+      asked,
+      hypothesis,
+      confidence: confidence?.value ?? null,
+      committed,
+      updatedAt: Date.now(),
+    });
+  }, [
+    appliedResume,
+    done,
+    caseId,
+    cursor,
+    correct,
+    asked,
+    hypothesis,
+    confidence,
+    committed,
+    saveCaseSession,
+  ]);
+
+  /** Historique des hypothèses engagées sur CE dossier, la plus récente d'abord. */
+  const hypothesesForCase = useMemo(
+    () => [...caseHypotheses].filter((entry) => entry.caseId === clinical?.id).reverse(),
+    [caseHypotheses, clinical?.id],
   );
 
   // Liens « Approfondir » du débrief : manifeste public (fiches) et catalogue
@@ -116,6 +179,19 @@ function CasePlay() {
   const step = clinical.steps[cursor];
   const finished = cursor >= clinical.steps.length;
 
+  /** Phase 2 — engagement : archiver l'hypothèse (si écrite) PUIS révéler. */
+  const commitHypothesis = () => {
+    const text = hypothesis.trim();
+    if (text) {
+      recordCaseHypothesis({
+        caseId: clinical.id,
+        hypothesis: text,
+        confidence: confidence?.value ?? null,
+      });
+    }
+    setCommitted(true);
+  };
+
   return (
     <Shell title={clinical.title}>
       <Page className="mx-auto max-w-lg">
@@ -153,6 +229,17 @@ function CasePlay() {
             <Sparkles className="size-4 shrink-0 text-primary" />
             Essai Premium · {trialRemainingDays(premiumTrial)} jour{trialRemainingDays(premiumTrial) > 1 ? "s" : ""} restants — dossier complet ouvert
           </div>
+        ) : null}
+
+        {resumedCursor !== null && !finished && !previewFinished ? (
+          <p
+            data-case-resume
+            className="mt-3 flex items-center gap-2 text-xs text-muted"
+          >
+            <RotateCcw className="size-4 shrink-0" aria-hidden />
+            Dossier repris — étape {Math.min(cursor + 1, clinical.steps.length)} sur{" "}
+            {clinical.steps.length}
+          </p>
         ) : null}
 
         {previewFinished ? (
@@ -238,7 +325,7 @@ function CasePlay() {
                 );
               })}
             </div>
-            <Button className="mt-5 w-full" onClick={() => setCommitted(true)}>
+            <Button className="mt-5 w-full" onClick={commitHypothesis}>
               Révéler le diagnostic
               <ArrowRight className="size-4" />
             </Button>
@@ -288,6 +375,30 @@ function CasePlay() {
                 Votre hypothèse : « {hypothesis.trim()} »
                 {confidence ? ` · ${confidence.label}` : ""} — comparez-la au diagnostic ci-dessus.
               </p>
+            ) : null}
+            {hypothesesForCase.length > 0 ? (
+              <div
+                data-case-hypotheses
+                className="mt-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]"
+              >
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <History className="size-4 shrink-0" aria-hidden />
+                  Vos hypothèses sur ce dossier
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {hypothesesForCase.map((entry, index) => (
+                    <li
+                      key={`${entry.createdAt}-${index}`}
+                      className="text-xs leading-relaxed text-muted"
+                    >
+                      « {entry.hypothesis} »
+                      {entry.confidence
+                        ? ` · ${CONFIDENCE.find((level) => level.value === entry.confidence)?.label ?? ""}`
+                        : ""}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ) : null}
             <MedicalSources sources={clinical.sources} />
             <ReportContentError

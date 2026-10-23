@@ -49,7 +49,7 @@ test("legacy unversioned Optimus state keeps XP, progress and learner profile", 
   };
 
   const migrated = migrateOptimusPersistedState(legacy, 0);
-  assert.equal(OPTIMUS_PERSIST_VERSION, 4);
+  assert.equal(OPTIMUS_PERSIST_VERSION, 5);
   assert.equal(migrated.xp, 2450);
   assert.equal(migrated.streak, 8);
   assert.equal(migrated.studyMs, 0);
@@ -135,4 +135,38 @@ test("already current data is preserved while unsafe collection shapes are norma
   assert.equal(migrated.studyMs, 123456);
   assert.deepEqual(migrated.progress, current.progress);
   assert.equal((migrated.profile as Record<string, unknown>).studyLevel, "senior");
+});
+
+test("v5 preserves clinical case sessions and hypothesis history", () => {
+  // Install venant de la v4 : sessions de reprise et historique d'hypothèses.
+  const v4 = {
+    caseSessions: {
+      "CARDIO-FA-001": {
+        caseId: "CARDIO-FA-001",
+        cursor: 3,
+        correct: 1,
+        asked: 2,
+        hypothesis: "Fibrillation atriale",
+        confidence: "sure",
+        committed: false,
+        updatedAt: 1234,
+      },
+    },
+    caseHypotheses: [
+      { caseId: "CARDIO-FA-001", hypothesis: "Fibrillation atriale", confidence: "sure", createdAt: 4567 },
+    ],
+  };
+
+  const migrated = migrateOptimusPersistedState(v4, 4);
+  assert.deepEqual(migrated.caseSessions, v4.caseSessions);
+  assert.deepEqual(migrated.caseHypotheses, v4.caseHypotheses);
+
+  // Formes invalides : normalisées, jamais crues sur parole (le store
+  // revalide ensuite champ par champ via restoreCaseSessions/...Hypotheses).
+  const repaired = migrateOptimusPersistedState(
+    { caseSessions: [], caseHypotheses: "broken" },
+    4,
+  );
+  assert.deepEqual(repaired.caseSessions, {});
+  assert.deepEqual(repaired.caseHypotheses, []);
 });
