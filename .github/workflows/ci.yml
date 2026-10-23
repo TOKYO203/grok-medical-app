@@ -39,7 +39,19 @@ jobs:
           fi
 
       - name: Audit primary screens at 320 / 360 / 390 px
-        run: npm run qa:mobile:built
+        run: npm run qa:mobile:built 2>&1 | tee /tmp/qa-mobile.log
+
+      - name: Emit failure details as annotations (temporary diagnostic)
+        if: failure()
+        run: |
+          for log in /tmp/release-check.log /tmp/qa-mobile.log; do
+            if [ -f "$log" ]; then
+              echo "::error::DIAG LOG=$log"
+              grep -nE "not ok|AssertionError|error TS|Error:|exceeds|failed|ERR_|Cannot find|not found|✖|Expected|timeout|Timeout" "$log" | tail -60 | while IFS= read -r line; do
+                echo "::error::DIAG $line"
+              done
+            fi
+          done
 
   database-recovery-smoke:
     name: PostgreSQL backup / restore smoke
