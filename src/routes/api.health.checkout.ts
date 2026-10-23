@@ -66,9 +66,8 @@ async function probeDatabase(): Promise<{ reachable: boolean | null; reason?: st
     });
     await Promise.race([query, timeout]);
     return { reachable: true };
-  } catch {
-    // Le détail (message du driver, code SQLSTATE) reste dans les journaux du
-    // serveur : il peut contenir un hôte, un utilisateur ou un nom de base.
+  } catch (err) {
+    console.error("[db-probe] Échec de la connexion Postgres :", err);
     return { reachable: false, reason: "query-failed" };
   } finally {
     if (timer) clearTimeout(timer);
