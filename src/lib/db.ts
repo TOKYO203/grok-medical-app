@@ -87,21 +87,27 @@ function toSql(run: Run): Sql {
 
 function createPostgresSql(): Promise<Sql> {
   globalRef.__pgSqlPromise__ ??= (async () => {
-    // Regular Postgres driver: node-postgres (`pg`) — works with any managed
-    // Postgres; deployed via Supabase's session pooler. One pool per process;
-    // warm serverless instances reuse it.
-    const { Pool, types } = await import("pg");
-    types.setTypeParser(OID_INT8, Number);
-    types.setTypeParser(OID_DATE, identity);
-    types.setTypeParser(OID_INTERVAL, identity);
+    // Driver: `postgres` (porsager) — pure JS, uses cloudflare:sockets on Workers.
+    // `pg` (node-postgres) needs net.Socket, absent on Workers even with nodejs_compat,
+    // hence `query-failed` on every DB call from production.
+    const postgres = (await import("postgres")).default;
     let connectionString = databaseUrl || '';
     if (connectionString.includes('pooler.supabase.com:6543') && !connectionString.includes('pgbouncer=true')) {
       connectionString += connectionString.includes('?') ? '&pgbouncer=true' : '?pgbouncer=true';
     }
-    const pool = new Pool({ connectionString, ssl: { rejectUnauthorized: false }, max: 1 });
+    const client = postgres(connectionString, {
+      ssl: { rejectUnauthorized: false },
+      max: 1,
+      prepare: false,
+      types: {
+        int8: { to: 20, from: [20], serialize: (x: unknown) => x, parse: (x: string) => Number(x) },
+        date: { to: 1082, from: [1082], serialize: (x: unknown) => x, parse: (x: string) => x },
+        interval: { to: 1186, from: [1186], serialize: (x: unknown) => x, parse: (x: string) => x },
+      },
+    });
     return toSql(async <T>(text: string, params: unknown[]) => {
-      const res = await pool.query(text, params);
-      return res.rows as T[];
+      const rows = await client.unsafe(text, params as never[]);
+      return rows as unknown as T[];
     });
   })().catch((err) => {
     globalRef.__pgSqlPromise__ = undefined;
