@@ -116,3 +116,58 @@ test("la route reprend la session et archive les hypothèses engagées", () => {
     "cas.tsx: bannière « Reprendre » manquante",
   );
 });
+
+test("l'évaluation des hypothèses alimente les stats de calibration", () => {
+  for (const anchor of ["assessCaseHypothesis", "CaseHypothesisOutcome"]) {
+    assert.ok(storeSource.includes(anchor), "store.ts: " + anchor + " manquant");
+  }
+  for (const anchor of ["data-case-assessment", "assessCaseHypothesis"]) {
+    assert.ok(caseRouteSource.includes(anchor), "cas.$caseId.tsx: " + anchor + " manquant");
+  }
+  assert.ok(
+    casListSource.includes("data-cas-calibration"),
+    "cas.tsx: section « Votre calibration » manquante",
+  );
+});
+
+test("la structure des dossiers reste intègre (invariants d'immersion)", () => {
+  for (const clinical of cases) {
+    assert.ok(
+      clinical.patient && typeof clinical.patient.age === "number",
+      clinical.id + ": patient manquant",
+    );
+    assert.ok(clinical.steps.length >= 5, clinical.id + ": moins de 5 étapes");
+    const reveals = clinical.steps.filter((step) => step.kind === "reveal");
+    const questions = clinical.steps.filter((step) => step.kind === "question");
+    for (const step of reveals) {
+      assert.ok(step.title?.trim(), clinical.id + ": reveal sans titre");
+      assert.ok(
+        step.body?.trim().length >= 40,
+        clinical.id + ": reveal sans corps (40 caractères minimum)",
+      );
+    }
+    assert.ok(questions.length >= 3, clinical.id + ": moins de 3 questions");
+    for (const step of questions) {
+      assert.ok(step.choices?.length >= 3, clinical.id + ": moins de 3 choix");
+      assert.ok(
+        typeof step.correct === "number" &&
+          step.correct >= 0 &&
+          step.correct < step.choices.length,
+        clinical.id + ": index de réponse invalide",
+      );
+      assert.ok(
+        step.explanation?.trim().length >= 40,
+        clinical.id + ": explication trop courte (40 caractères minimum)",
+      );
+    }
+    assert.ok(
+      clinical.diagnosis?.trim().length >= 30,
+      clinical.id + ": diagnostic trop court (30 caractères minimum)",
+    );
+    assert.ok(
+      clinical.management?.trim().length >= 40,
+      clinical.id + ": prise en charge trop courte (40 caractères minimum)",
+    );
+    assert.ok(clinical.sources?.length >= 1, clinical.id + ": aucune source");
+  }
+});

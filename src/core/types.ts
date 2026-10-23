@@ -304,6 +304,9 @@ export type DiagnosticCase = {
 /** Niveau de confiance déclaré avant la révélation du diagnostic (calibration). */
 export type CaseConfidenceValue = "hesitant" | "sure" | "certain";
 
+/** Issue déclarée après la révélation du diagnostic — nourrit les statistiques de calibration. */
+export type CaseHypothesisOutcome = "correct" | "partial" | "wrong";
+
 /** Dossier clinique en cours — permet de reprendre un cas interrompu. */
 export type CaseSession = {
   caseId: string;
@@ -322,4 +325,5 @@ export type CaseHypothesis = {
   hypothesis: string;
   confidence: CaseConfidenceValue | null;
   createdAt: number;
+  outcome?: CaseHypothesisOutcome | null;
 };

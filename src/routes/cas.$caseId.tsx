@@ -32,6 +32,20 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/cas/$caseId")({ component: CasePlay });
 
+/** Étiquettes de calibration : issue déclarée face au diagnostic révélé. */
+const OUTCOME_LABEL: Record<string, string> = {
+  correct: "✔ dans le vrai",
+  partial: "≈ en partie",
+  wrong: "✘ à côté",
+};
+
+/** Options d'auto-évaluation présentées après la révélation du diagnostic. */
+const OUTCOMES = [
+  { value: "correct", label: "Dans le vrai" },
+  { value: "partial", label: "En partie" },
+  { value: "wrong", label: "À côté" },
+] as const;
+
 /**
  * Calibration de confiance : trois niveaux, assez pour se situer sans figer
  * la réponse. L’étiquette choisie est rejouée dans le débrief final.
@@ -64,6 +78,7 @@ function CasePlay() {
   const caseHypotheses = useOptimus((s) => s.caseHypotheses);
   const saveCaseSession = useOptimus((s) => s.saveCaseSession);
   const recordCaseHypothesis = useOptimus((s) => s.recordCaseHypothesis);
+  const assessCaseHypothesis = useOptimus((s) => s.assessCaseHypothesis);
   const [cursor, setCursor] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
@@ -133,6 +148,9 @@ function CasePlay() {
     () => [...caseHypotheses].filter((entry) => entry.caseId === clinical?.id).reverse(),
     [caseHypotheses, clinical?.id],
   );
+
+  /** Issue déclarée sur la dernière hypothèse de ce dossier — feedback de calibration. */
+  const latestOutcome = hypothesesForCase.length > 0 ? (hypothesesForCase[0].outcome ?? null) : null;
 
   // Liens « Approfondir » du débrief : manifeste public (fiches) et catalogue
   // intégré (decks) — un dossier terminé doit ouvrir sur la révision.
@@ -395,9 +413,41 @@ function CasePlay() {
                       {entry.confidence
                         ? ` · ${CONFIDENCE.find((level) => level.value === entry.confidence)?.label ?? ""}`
                         : ""}
+                      {entry.outcome ? ` · ${OUTCOME_LABEL[entry.outcome]}` : ""}
                     </li>
                   ))}
                 </ul>
+              </div>
+            ) : null}
+            {hypothesesForCase.length > 0 ? (
+              <div
+                data-case-assessment
+                className="mt-3 rounded-[var(--radius-lg)] bg-card p-4 shadow-[var(--shadow-border)]"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  Face au diagnostic, votre hypothèse était :
+                </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {OUTCOMES.map((option) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      aria-pressed={latestOutcome === option.value}
+                      onClick={() => assessCaseHypothesis(clinical.id, option.value)}
+                      className={cn(
+                        "rounded-[var(--radius-md)] px-3 py-1.5 text-xs font-medium transition-colors",
+                        latestOutcome === option.value
+                          ? "bg-primary-soft text-primary"
+                          : "bg-surface text-fg hover:bg-card",
+                      )}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-[11px] leading-relaxed text-muted">
+                  Votre réponse alimente vos statistiques de calibration sur la page Cas.
+                </p>
               </div>
             ) : null}
             <MedicalSources sources={clinical.sources} />
