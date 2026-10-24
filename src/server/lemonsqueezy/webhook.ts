@@ -30,6 +30,7 @@ import {
   type DeliveryOutcome,
   type WebhookSql,
 } from "./delivery.ts";
+import { deliverLemonEventRest } from "./delivery-rest.ts";
 
 type Env = Record<string, string | undefined>;
 
@@ -130,25 +131,12 @@ export async function handleLemonWebhook(
   if (!event) return json({ ok: false, error: "invalid_body" }, 400);
 
   // 4. Effets métier.
-  let sql = deps.sql;
-  if (!sql) {
-    try {
-      const { getSql } = await import("@/lib/db");
-      sql = (await getSql()) as unknown as WebhookSql;
-    } catch (error) {
-      console.error("[lemonsqueezy] base indisponible", error);
-      return json({ ok: false, error: "database_unavailable" }, 503);
-    }
+  let outcome: DeliveryOutcome;
+  if (deps.sql) {
+    outcome = await deliverLemonEvent(event, { sql: deps.sql, fetchImpl: deps.fetchImpl, env, now: deps.now });
+  } else {
+    outcome = await deliverLemonEventRest(event, { env, now: deps.now });
   }
-
-  const deliveryDeps: DeliveryDeps = {
-    sql,
-    fetchImpl: deps.fetchImpl,
-    env,
-    now: deps.now,
-  };
-
-  const outcome = await deliverLemonEvent(event, deliveryDeps);
   if (outcome.kind === "delivered") {
     console.info(
       `[lemonsqueezy] ${event.name} ${event.orderId} → ${outcome.reference} livrée`,
