@@ -3,6 +3,7 @@ import { randomBytes } from "node:crypto";
 import { orderLabel, orderProduct, purchaseReferencePrefix, PURCHASE_REFERENCE_PATTERN, type PremiumOrder } from "../../content/purchase-order.ts";
 import { subscriptionAmountCents } from "../../content/international.ts";
 import type { CheckoutIdentity } from "./checkout.server.ts";
+import { mergedServerEnv } from "../supabase-env.server.ts";
 
 const SUBSCRIPTION_ORDER: PremiumOrder = { reference: "CMD-SUB-PREVIEW-00000000", offer: "subscription", specialty: "all", deckNumber: 1 };
 const ORDER_CURRENCY = "EUR";
@@ -15,8 +16,9 @@ export function makeInternationalReference(now = Date.now()): string {
 type Result = { ok: true; reference: string; userId: string; created: boolean; expiresAt: string | null } | { ok: false; reason: "database" };
 
 export async function createInternationalOrderRest(input: { identity: CheckoutIdentity; clientRequestId: string; now?: number }): Promise<Result> {
-  const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const env = mergedServerEnv();
+  const url = (env.SUPABASE_URL || env.VITE_SUPABASE_URL || "").trim();
+  const key = (env.SUPABASE_SERVICE_ROLE_KEY || "").trim();
   if (!url || !key) { console.error("[checkout-rest] SUPABASE_URL ou SERVICE_ROLE absent"); return { ok: false, reason: "database" }; }
 
   const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
