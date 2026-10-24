@@ -267,3 +267,25 @@ test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
     "bloc sombre partagé : le hero doit suivre l'accent de la palette",
   );
 });
+
+test("light accent palettes: hero follows the palette accent", () => {
+  // Phase 4 (suite) — sans cette surcharge, le hero restait olive Oxford
+  // (#3E4A2A → #1F2716) pour TOUTES les palettes en thème clair.
+  const shared = blockFor(
+    stylesSource,
+    'html[data-accent]:not([data-accent="defaut"])',
+  );
+  assert.ok(
+    shared.includes("--hero-from: color-mix(in oklab, var(--app-accent) 52%, #0d0d0d)"),
+    "bloc clair partagé : --hero-from doit suivre l'accent de la palette",
+  );
+  assert.ok(
+    shared.includes("--hero-to: color-mix(in oklab, var(--app-accent) 18%, #0a0a0a)"),
+    "bloc clair partagé : --hero-to doit suivre l'accent de la palette",
+  );
+  const base = blockFor(stylesSource, ":root");
+  assert.ok(
+    base.includes("--hero-from: #3E4A2A"),
+    "la palette defaut doit conserver son hero olive Oxford (#3E4A2A)",
+  );
+});
