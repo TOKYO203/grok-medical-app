@@ -110,8 +110,8 @@ export const Route = createFileRoute("/api/checkout/lemonsqueezy")({
           clientRequestId: parsed.data.clientRequestId,
         });
         if (!order.ok) {
-          console.error("[checkout/lemonsqueezy] création de commande impossible");
-          return json({ error: "checkout_unavailable", reason: "database" }, 503);
+          console.error("[checkout/lemonsqueezy] création de commande impossible", (order as any).debug);
+          return json({ error: "checkout_unavailable", reason: "database", debug: (order as any).debug }, 503);
         }
 
         return json({

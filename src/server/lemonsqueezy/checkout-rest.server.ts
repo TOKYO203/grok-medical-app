@@ -19,7 +19,7 @@ export async function createInternationalOrderRest(input: { identity: CheckoutId
   const env = mergedServerEnv();
   const url = (env.SUPABASE_URL || env.VITE_SUPABASE_URL || "").trim();
   const key = (env.SUPABASE_SERVICE_ROLE_KEY || "").trim();
-  if (!url || !key) { console.error("[checkout-rest] SUPABASE_URL ou SERVICE_ROLE absent"); return { ok: false, reason: "database" }; }
+  if (!url || !key) { console.error("[checkout-rest] SUPABASE_URL ou SERVICE_ROLE absent"); return { ok: false, reason: "database", debug: "env:url=" + Boolean(url) + " key=" + Boolean(key) } as any; }
 
   const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
   const now = input.now ?? Date.now();
@@ -40,9 +40,9 @@ export async function createInternationalOrderRest(input: { identity: CheckoutId
     p_email: input.identity.email,
   });
 
-  if (error) { console.error("[checkout-rest] RPC échouée :", error.message); return { ok: false, reason: "database" }; }
+  if (error) { console.error("[checkout-rest] RPC échouée :", error.message); return { ok: false, reason: "database", debug: "rpc:" + error.message } as any; }
   const row = Array.isArray(data) ? data[0] : data;
-  if (!row || typeof row.out_reference !== "string" || typeof row.out_user_id !== "string") { console.error("[checkout-rest] Réponse inattendue :", data); return { ok: false, reason: "database" }; }
+  if (!row || typeof row.out_reference !== "string" || typeof row.out_user_id !== "string") { console.error("[checkout-rest] Réponse inattendue :", data); return { ok: false, reason: "database", debug: "shape:" + JSON.stringify(data).substring(0, 200) } as any; }
 
   return { ok: true, reference: row.out_reference, userId: row.out_user_id, created: row.was_created === true, expiresAt: null };
 }
