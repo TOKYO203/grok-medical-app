@@ -1010,7 +1010,9 @@ html[data-theme="dark"][data-accent="rose"] {
   --app-ring: #FB7185;
   --app-bg: #271A19;
   --app-primary: #FDA4AF;
-  --app-primary-fg: #06120d;
+  --app-card: #301D1E;
+  --app-surface: #382425;
+  --app-primary-fg: #1f0d10;
 }
 
 html[data-accent="marron"] {
@@ -1030,7 +1032,9 @@ html[data-theme="dark"][data-accent="marron"] {
   --app-ring: #D9A05B;
   --app-bg: #1E1D18;
   --app-primary: #E3B98A;
-  --app-primary-fg: #06120d;
+  --app-card: #27231C;
+  --app-surface: #2e2920;
+  --app-primary-fg: #1c130a;
 }
 
 html[data-accent="marine"] {
@@ -1050,7 +1054,9 @@ html[data-theme="dark"][data-accent="marine"] {
   --app-ring: #3B82F6;
   --app-bg: #131E23;
   --app-primary: #93C5FD;
-  --app-primary-fg: #06120d;
+  --app-card: #1B2930;
+  --app-surface: #213039;
+  --app-primary-fg: #0b1016;
 }
 
 html[data-accent="vert"] {
@@ -1070,7 +1076,9 @@ html[data-theme="dark"][data-accent="vert"] {
   --app-ring: #10B981;
   --app-bg: #121F1A;
   --app-primary: #6EE7B7;
-  --app-primary-fg: #06120d;
+  --app-card: #192822;
+  --app-surface: #20302A;
+  --app-primary-fg: #0a1512;
 }
 
 html[data-accent="violet"] {
@@ -1090,7 +1098,9 @@ html[data-theme="dark"][data-accent="violet"] {
   --app-ring: #8B5CF6;
   --app-bg: #1A1D25;
   --app-primary: #C4B5FD;
-  --app-primary-fg: #06120d;
+  --app-card: #232636;
+  --app-surface: #2A2E40;
+  --app-primary-fg: #120F1C;
 }
 
 /* ── Immersion ambiante ──────────────────────────────────────────────────────
@@ -1118,6 +1128,14 @@ html[data-accent]:not([data-accent="defaut"]) {
 }
 
 html[data-theme="dark"][data-accent]:not([data-accent="defaut"]) {
+  /* Phase 4 — harmonisation dark mode : le hero et la couverture « Clinique »
+     suivaient le vert Oxford du thème de base pour TOUTES les palettes ; ils
+     suivent désormais l'accent de la palette. */
+  --hero-from: color-mix(in oklab, var(--app-accent) 52%, #0d0d0d);
+  --hero-to: color-mix(in oklab, var(--app-accent) 18%, #0a0a0a);
+  --hero-glow: rgb(255 255 255 / 0.2);
+  --cover-1-from: color-mix(in oklab, var(--app-accent) 16%, var(--app-bg));
+  --cover-1-to: color-mix(in oklab, var(--app-accent) 4%, #0a0a0a);
   --app-border: color-mix(in oklab, var(--app-accent) 36%, transparent);
   --app-border-strong: color-mix(in oklab, var(--app-accent) 58%, transparent);
   --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 30%, transparent);
