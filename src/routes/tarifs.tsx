@@ -161,6 +161,7 @@ function TarifsPage() {
        déconnexions : y réagir par une redirection rejouerait exactement le
        symptôme de « double authentification » corrigé en AUTH-8. */
     const gate = decideCardAuthGate(authStatus, Boolean(session?.access_token));
+    console.log("[checkout] called", { paying, gate, authStatus, hasToken: Boolean(session?.access_token), cardReady });
     if (gate === "login") {
       void navigate({ to: "/login" });
       return;
@@ -237,14 +238,20 @@ function TarifsPage() {
 
     // `window.location.assign` plutôt que le routeur : on quitte l'application
     // pour le checkout hébergé (aucun état de route à conserver).
-    window.location.assign(
-      buildLemonCheckoutUrl({
-        config: lemonConfig,
-        userId: session?.user?.id ?? "",
-        email: session?.user?.email ?? null,
-        orderReference: data.reference,
-      }),
-    );
+    try {
+      window.location.assign(
+        buildLemonCheckoutUrl({
+          config: lemonConfig,
+          userId: session?.user?.id ?? "",
+          email: session?.user?.email ?? null,
+          orderReference: data.reference,
+        }),
+      );
+    } catch (err) {
+      console.error("[checkout] redirect failed", err);
+      setPaying(false);
+      setPayError("La redirection a été bloquée. Vérifiez que les popups sont autorisées pour ce site.");
+    }
   }
 
   /**
