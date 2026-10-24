@@ -27,6 +27,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { UserAvatar, USER_AVATARS } from "@/components/user-avatar";
+import ProfileHeader from "@/components/profile-header";
 import { ExperienceControls } from "@/components/experience-controls";
 import { AccentSelector, ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
@@ -407,48 +408,21 @@ function ProfilPage() {
       </div>
 
       <Page className="-mt-12 pt-0">
-        <div className="flex items-end justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => setEditing(true)}
-            aria-label="Changer l’avatar"
-            className="relative flex size-24 items-center justify-center rounded-full border-4 border-bg bg-primary-soft text-primary shadow-[var(--shadow-md)]"
-          >
-            <UserAvatar photo={avatarSrc} className="size-full" />
-            <span className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full border-2 border-bg bg-primary text-primary-fg">
-              <Pencil className="size-3.5" />
-            </span>
-          </button>
-          
-        </div>
-
-        <div className="mt-2 min-w-0 flex-1">
-          <h1 className="font-display text-2xl font-medium tracking-tight">
-            {profile.displayName}
-          </h1>
-          {accountEmail ? (
-            <p className="mt-1 truncate text-xs font-medium text-muted" data-account-email>
-              {accountEmail}
-            </p>
-          ) : null}
-          <p
-            className="mt-0.5 font-mono text-xs text-muted"
-            title="Ton identifiant Optimus — personnel, il lie tes achats et abonnements à ce profil"
-          >
-            {profile.optimusId}
-            <span className="ml-1.5 font-sans">· ton identifiant Optimus</span>
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
-            <span className="inline-flex items-center gap-1.5">
-              <GraduationCap className="size-4" /> {studyLabel}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="size-4" /> {profile.faculty || profile.country}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Flame className="size-4" /> Série de {streak} jour{streak !== 1 ? "s" : ""}
-            </span>
-          </div>
+        <div className="flex items-end justify-between gap-3"><ProfileHeader
+  name={profile.displayName}
+  avatarSrc={avatarSrc}
+  editing={editing}
+  onEditToggle={() => setEditing(!editing)}
+  onAvatarFile={onAvatarFile}
+  onNameChange={(val: string) => { setName(val); update({ displayName: val }); }}
+/>
+<div className="mt-2 min-w-0 flex-1">
+  {accountEmail ? (
+    <p className="mt-1 truncate text-xs font-medium text-muted" data-account-email>
+      {accountEmail}
+    </p>
+  ) : null}
+</div>
         </div>
 
         <div className="mt-5 grid grid-cols-2 overflow-hidden rounded-[var(--radius-xl)] bg-card shadow-[var(--shadow-border)]">
