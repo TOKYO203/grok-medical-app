@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (54 decks, 567 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=2 · dermato=1 · urgences=1
+ * Répartition cible (59 decks, 617 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=2 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -262,6 +262,14 @@ export const CURRICULUM_URGENCES: CurriculumSpecialty = {
       levels: ["INTERNE"],
       description: "Les gestes qui sauvent.",
       decks: ["urgences"],
+    },
+    {
+      id: "choc",
+      label: "Choc — État de choc",
+      icon: "🚑",
+      levels: [...LEVELS_PATHO],
+      description: "Reconnaître, catégoriser et réanimer le choc.",
+      decks: ["urgences-choc-l2", "urgences-choc-l3", "urgences-choc-l4", "urgences-choc-l5", "urgences-choc-int"],
     },
     { id: "gestes", label: "Gestes de secours", icon: "🆘", levels: ["L3", "L4"], description: "PLS, RCP, DAE.", decks: [], skeleton: true },
     { id: "intoxications", label: "Intoxications", icon: "☠️", levels: ["L4", "L5"], description: "Médicaments, produits ménagers, champignons.", decks: [], skeleton: true },

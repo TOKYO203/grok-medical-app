@@ -1,0 +1,1011 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "etat-de-choc",
+  "title": "État de choc",
+  "subtitle": "Fiche de nosographie — urgences et réanimation",
+  "objective": "Devant un patient qui s'effondre : reconnaître l'état de choc en moins d'une minute, identifier la famille en cause et engager les gestes et traitements qui sauvent.",
+  "language": "fr",
+  "updatedAt": "2026-10-24",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 7,
+    "specialty": "Réanimation",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 48,
+      "localNumber": 7,
+      "sectionLabel": "Médecine",
+      "title": "État de choc",
+      "specialty": "Réanimation"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "urgences",
+      "urgences-choc-l5"
+    ]
+  },
+  "editorial": {
+    "reformulation": "Cette fiche est rédigée à partir des recommandations internationales citées en bibliographie, sans reproduction d'aucun texte source : le plan, les tableaux, les mnémoniques et les formulations sont une création pédagogique originale, adaptée au contexte malgache.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Millésimes vérifiés le 2026-10-24 sur les pages officielles : Surviving Sepsis Campaign 2021 (Intensive Care Medicine 2021;47:1181-1247), Sepsis-3 (JAMA 2016;315:801-810), ERC 2021 (Resuscitation 2021;161:152-219), EAACI Anaphylaxis 2021 update (Allergy 2022;77:357-377), CRASH-2 (The Lancet 2010;376:23-32) et ATLS 10e édition. Aucune version plus récente n'a remplacé ces références pour la prise en charge du choc.",
+      "Aucun protocole national malgache de réanimation de l'état de choc n'a été trouvé en ligne sous forme vérifiable : les seuils cités sont ceux des référentiels internationaux. Le protocole du service ou du ministère, s'il existe, prime sur ces seuils et doit être ajouté à la bibliographie par le propriétaire.",
+      "Les décimales suivent l'usage francophone (virgule) et les doses sont celles de l'adulte sauf mention contraire ; les posologies pédiatriques, les adaptations de grossesse et les contraintes locales de disponibilité (vasopresseurs, produits sanguins) relèvent du protocole du service."
+    ],
+    "qcChecklist": [
+      "Exactitude des seuils (PAM 65 mmHg, lactate 2 et 4 mmol/L, temps de recoloration 3 secondes, diurèse 0,5 mL/kg/h)",
+      "Conformité des schémas thérapeutiques aux recommandations citées (SSC 2021, Sepsis-3, ERC 2021, EAACI, CRASH-2, ATLS)",
+      "Cohérence entre cette fiche, les decks « urgences-choc » et le manifeste des fiches",
+      "Absence de toute recommandation non sourcée et de toute phrase recopiée d'une source"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Définir le choc par le mécanisme — l'hypoperfusion cellulaire — et non par un chiffre de tension.",
+      "sources": [
+        {
+          "id": "SRC-OMS-SEPSIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "OMS — Sepsis, aide-mémoire",
+          "year": 2020,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
+        },
+        {
+          "id": "SRC-SSC-2021",
+          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+          "title": "Surviving Sepsis Campaign 2021",
+          "year": 2021,
+          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'état de choc est une urgence absolue : la circulation ne remplit plus sa mission, et les cellules privées d'oxygène basculent en métabolisme anaérobie puis meurent. La définition n'est pas un chiffre de tension artérielle : c'est une inadéquation entre les besoins en oxygène des tissus et l'apport réel — une hypoperfusion tissulaire qui, si elle n'est pas corrigée, conduit à la défaillance multiviscérale et à la mort."
+        },
+        {
+          "type": "paragraph",
+          "text": "Toutes les familles de choc se rejoignent sur ce mécanisme. Hypovolémique parce que le réservoir est vide ; cardiogénique parce que la pompe est en panne ; obstructif parce que le tuyau est comprimé ; distributif enfin parce que le circuit est dilaté : le sang existe encore, mais il n'atteint plus correctement les cellules."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'enjeu de la première heure est double : reconnaître, car le choc s'installe bien avant de s'effondrer, et traiter le mécanisme, pas seulement le chiffre de tension. Chaque famille a un geste qui lui appartient en propre, et le pronostic se joue sur la rapidité avec laquelle on trouve la famille et on applique son traitement."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le chiffre qui rassure peut tuer",
+          "text": "Une pression artérielle normale n'élimine pas un choc. Chez l'adulte jeune, les mécanismes de compensation maintiennent la tension jusqu'à ce qu'environ un tiers du volume sanguin soit perdu : l'effondrement tensionnel est un signe tardif, pas un signal de départ."
+        }
+      ]
+    },
+    {
+      "id": "reconnaitre",
+      "title": "I. Reconnaître le choc avant l'effondrement",
+      "summary": "Marbrures, temps de recoloration, diurèse, index de choc : lire l'hypoperfusion avant la chute de tension.",
+      "sources": [
+        {
+          "id": "SRC-SSC-2021",
+          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+          "title": "Surviving Sepsis Campaign 2021",
+          "year": 2021,
+          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
+        },
+        {
+          "id": "SRC-OMS-SEPSIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "OMS — Sepsis, aide-mémoire",
+          "year": 2020,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
+        },
+        {
+          "id": "SRC-ERC-2021",
+          "organization": "European Resuscitation Council",
+          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
+          "year": 2021,
+          "url": "https://www.cprguidelines.eu/"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le choc s'annonce par des signes d'hypoperfusion périphérique que l'examen trouve en moins d'une minute : marbrures des genoux s'étendant vers les racines des cuisses, temps de recoloration cutanée allongé au-delà de 3 secondes, peau moite et froide, tachycardie, polypnée, soif intense, agitation puis somnolence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Marbrures des genoux : premier signe visible de la vasoconstriction de compensation",
+            "Temps de recoloration cutanée supérieur à 3 secondes",
+            "Tachycardie supérieure à 100/min, fréquence respiratoire supérieure à 22/min",
+            "Diurèse horaire inférieure à 0,5 mL/kg/h : la sonde urinaire est un monitorage, pas un confort",
+            "Troubles de la conscience : agitation d'abord, somnolence ensuite"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'index de choc — fréquence cardiaque divisée par la pression artérielle systolique — dépasse 1 bien avant que la tension ne s'effondre. Le qSOFA réunit trois items cliniques simples : pression systolique ≤ 100 mmHg, fréquence respiratoire ≥ 22/min, score de Glasgow inférieur à 15 ; deux items sur trois suffisent à signaler un patient à haut risque de mauvaise issue. Le lactate, supérieur à 2 mmol/L, confirme le passage des cellules en métabolisme anaérobie."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signe",
+            "Repère d'alerte"
+          ],
+          "rows": [
+            [
+              "Marbrures",
+              "Genoux d'abord, racines des cuisses ensuite"
+            ],
+            [
+              "Temps de recoloration cutanée",
+              "Supérieur à 3 secondes"
+            ],
+            [
+              "Index de choc (FC/PAS)",
+              "Supérieur à 1 chez l'adulte"
+            ],
+            [
+              "Diurèse horaire",
+              "Inférieure à 0,5 mL/kg/h"
+            ],
+            [
+              "Lactate",
+              "Supérieur à 2 mmol/L ; 4 mmol/L = urgence absolue"
+            ],
+            [
+              "qSOFA",
+              "Deux items sur trois = haut risque"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Trois pièges du dépistage",
+          "text": "Le sujet âgé et le patient sous bêtabloquant peuvent ne pas tachycardiser. L'absence de fièvre n'écarte rien : l'hypothermie est un signe de gravité. Et le choc de l'enfant se manifeste d'abord par des membres froids et une oligurie, pas par une chute de tension."
+        }
+      ]
+    },
+    {
+      "id": "familles",
+      "title": "II. Les quatre familles de choc",
+      "summary": "Classer pour traiter : chaque famille désigne le geste qui sauve.",
+      "sources": [
+        {
+          "id": "SRC-SEPSIS3",
+          "organization": "Journal of the American Medical Association / ESICM",
+          "title": "Sepsis-3",
+          "year": 2016,
+          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
+        },
+        {
+          "id": "SRC-ERC-2021",
+          "organization": "European Resuscitation Council",
+          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
+          "year": 2021,
+          "url": "https://www.cprguidelines.eu/"
+        },
+        {
+          "id": "SRC-EAACI-2022",
+          "organization": "European Academy of Allergy and Clinical Immunology",
+          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
+          "year": 2022,
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "ATLS — 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Classer le choc, c'est choisir le traitement. Quatre familles couvrent l'essentiel des situations : hypovolémique, cardiogénique, obstructif et distributif — ce dernier regroupant les chocs septique, anaphylactique et neurogène, où le lit vasculaire est dilaté et le sang mal réparti."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Famille",
+            "Mécanisme",
+            "Signes d'appel au lit du patient"
+          ],
+          "rows": [
+            [
+              "Hypovolémique",
+              "Réservoir vide : hémorragie, déshydratation, brûlure",
+              "Peau froide et pâle, veines jugulaires vides, soif intense"
+            ],
+            [
+              "Cardiogénique",
+              "Pompe en panne : infarctus, arythmie, myocardite",
+              "Jugulaires turgescentes, crépitants, galop (B3), cyanose"
+            ],
+            [
+              "Obstructif",
+              "Tuyau comprimé : tamponnade, embolie pulmonaire, pneumothorax suffocant",
+              "Jugulaires pleines, poumons clairs, triade de Beck"
+            ],
+            [
+              "Distributif",
+              "Circuit dilaté : septique, anaphylactique, neurogène",
+              "Peau chaude, fièvre ou urticaire, hypotonie, bradycardie relative"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La triade de Beck — hypotension, turgescence des veines jugulaires, assourdissement des bruits du cœur — signe la tamponnade péricardique. Le choc anaphylactique associe urticaire, œdème et sibilants à un contexte immédiat : piqûre de guêpe, médicament, aliment. Le choc neurogène, lui, montre une peau chaude avec bradycardie relative après un traumatisme médullaire."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Deux indices classent presque tout",
+          "text": "La peau et les jugulaires : peau froide avec jugulaires vides fait pencher pour l'hypovolémie ; peau froide avec jugulaires pleines et poumons clairs pour l'obstacle ; peau chaude avec fièvre ou urticaire pour le choc distributif. Devant une diarrhée profuse, une piqûre de guêpe ou un infarctus récent, la famille est déjà désignée par le contexte."
+        }
+      ]
+    },
+    {
+      "id": "gestes",
+      "title": "III. Gestes et traitements immédiats",
+      "summary": "La première minute ne demande aucun plateau technique — mais chaque minute compte.",
+      "sources": [
+        {
+          "id": "SRC-ERC-2021",
+          "organization": "European Resuscitation Council",
+          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
+          "year": 2021,
+          "url": "https://www.cprguidelines.eu/"
+        },
+        {
+          "id": "SRC-EAACI-2022",
+          "organization": "European Academy of Allergy and Clinical Immunology",
+          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
+          "year": 2022,
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
+        },
+        {
+          "id": "SRC-CRASH2",
+          "organization": "London School of Hygiene & Tropical Medicine",
+          "title": "CRASH-2",
+          "year": 2010,
+          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "ATLS — 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La première minute ne demande aucun plateau technique : alerter, allonger le patient sans oreiller, couvrir, libérer les voies aériennes, oxygéner, vérifier la glycémie, poser une voie veineuse — et ne jamais faire boire, car un patient en état de choc peut s'anesthésier sur un liquide avalé. S'il devient inconscient et respire, on l'installe en position latérale de sécurité en attendant les secours."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alerter sans délai : le choc relève d'un transport médicalisé, pas d'un traitement d'attente",
+            "Voies aériennes libres, oxygénothérapie si la saturation baisse",
+            "Voie veineuse avec cathéter de gros calibre ; prélèvements sans retarder le traitement",
+            "Glycémie capillaire systématique : l'hypoglycémie imite et aggrave le choc",
+            "Ne jamais faire boire ; position latérale de sécurité si le patient est inconscient et respire"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chaque famille a son geste propre. Anaphylaxie : adrénaline en intramusculaire, 0,5 mg chez l'adulte dans la face antéro-latérale de la cuisse, en première intention et sans attendre — corticoïdes et antihistaminiques ne viennent qu'en second rang. Hémorragie : compression directe, garrot si un membre saigne, acide tranexamique le plus tôt possible dans les trois premières heures, et contrôle de la source avant le remplissage lorsque le saignement relève du bloc opératoire. Tamponnade : péricardocentèse en urgence dès que le diagnostic est évoqué — aucun remplissage ne décomprime un péricarde plein."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Adrénaline : la seule qui sauve",
+          "text": "Dans l'anaphylaxie, rien ne remplace l'adrénaline intramusculaire. Un patient sous bêtabloquant peut ne pas tachycardiser : l'absence de tachycardie ne doit pas faire récuser le diagnostic. Corticoïdes et antihistaminiques sont des traitements de seconde ligne, après l'adrénaline, jamais à sa place."
+        }
+      ]
+    },
+    {
+      "id": "choc-septique",
+      "title": "IV. Choc septique : la course de l'heure 1",
+      "summary": "Vasopresseurs pour une PAM d'au moins 65 mmHg, lactate supérieur à 2 : la définition commande le rythme.",
+      "sources": [
+        {
+          "id": "SRC-SEPSIS3",
+          "organization": "Journal of the American Medical Association / ESICM",
+          "title": "Sepsis-3",
+          "year": 2016,
+          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
+        },
+        {
+          "id": "SRC-SSC-2021",
+          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+          "title": "Surviving Sepsis Campaign 2021",
+          "year": 2021,
+          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
+        },
+        {
+          "id": "SRC-OMS-SEPSIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "OMS — Sepsis, aide-mémoire",
+          "year": 2020,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Depuis les définitions de Sepsis-3, le choc septique est posé lorsque le patient requiert des vasopresseurs pour maintenir une pression artérielle moyenne d'au moins 65 mmHg et que le lactate persiste au-dessus de 2 mmol/L malgré un remplissage adéquat. Lactate, pression artérielle et vasopresseurs se lisent donc ensemble, jamais séparément."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Action de l'heure 1",
+            "Délai",
+            "Repère"
+          ],
+          "rows": [
+            [
+              "Hémocultures (deux prélèvements)",
+              "Avant l'antibiotique, sans le retarder",
+              "Prélèvements périphériques et sur cathéter"
+            ],
+            [
+              "Antibiothérapie à large spectre",
+              "Dans l'heure suivant la reconnaissance",
+              "Dose de charge par voie intraveineuse"
+            ],
+            [
+              "Remplissage par cristalloïdes",
+              "Dès l'hypotension ou un lactate ≥ 4 mmol/L",
+              "30 mL/kg dans les premières heures"
+            ],
+            [
+              "Noradrénaline",
+              "Si PAM inférieure à 65 mmHg malgré le remplissage",
+              "Cible : PAM ≥ 65 mmHg"
+            ],
+            [
+              "Contrôle de la source",
+              "Dès que l'état le permet",
+              "Drainage, ablation de matériel, chirurgie"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le contrôle de la source n'est pas un supplément : un abcès non drainé ou un matériel infecté laissé en place condamne le traitement antibiotique. Une pyélonéphrite obstructive se draine, une perforation d'organe se opère — la recherche et le traitement de la source font partie du bundle, au même titre que l'antibiotique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le même principe vaut pour les autres familles : le choc cardiogénique post-infarctus relève de la revascularisation urgente, le choc obstructif de la levée de l'obstacle — péricardocentèse d'une tamponnade, traitement d'une embolie pulmonaire grave. On corrige toujours le mécanisme, pas seulement le chiffre de tension."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "L'heure 1 décide du reste",
+          "text": "Antibiotique dans l'heure, remplissage dosé sur les signes, vasopresseurs pour une PAM de 65 mmHg, source contrôlée : la première heure du choc septique concentre l'essentiel du bénéfice, et chaque élément manqué se paie en jours de réanimation."
+        }
+      ]
+    },
+    {
+      "id": "objectifs",
+      "title": "V. Objectifs de réanimation et surveillance",
+      "summary": "Des cibles explicites, réévaluées sans cesse : PAM, diurèse, lactate, marbrures, conscience.",
+      "sources": [
+        {
+          "id": "SRC-SSC-2021",
+          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+          "title": "Surviving Sepsis Campaign 2021",
+          "year": 2021,
+          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "ATLS — 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Réanimer un choc, c'est viser des objectifs explicites et les réévaluer sans cesse : pression artérielle moyenne d'au moins 65 mmHg, diurèse horaire revenue au-dessus de 0,5 mL/kg/h, conscience qui s'éclaircit, marbrures qui refluent, temps de recoloration qui se normalise, et lactate qui baisse d'au moins 20 % toutes les deux heures."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le remplissage s'évalue de façon dynamique : veine cave inférieure à l'échographie au lit, variation au lever de jambes passif ou à la respiration. Remplir trop noie le poumon, et la surcharge est une erreur aussi meurtrière que la sous-remplissage. Si la perfusion reste basse malgré une pression artérielle moyenne correcte, la dobutamine soutient le débit cardiaque ; l'hydrocortisone ne se discute que si le choc reste réfractaire aux vasopresseurs."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans l'hémorragie grave, la transfusion vise des ratios équilibrés entre plasma, concentrés globulaires et plaquettes, et la réanimation lutte contre le triangle de la mort — hypothermie, acidose, coagulopathie — qui s'auto-entretient. Le patient traumatisé crânien exige en outre une pression de perfusion cérébrale : l'hypotension y est intolérable et la cible tensionnelle est plus haute que celle du choc septique."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Cinq chiffres à suivre de près",
+          "text": "PAM ≥ 65 mmHg, diurèse ≥ 0,5 mL/kg/h, lactate en baisse de 20 % toutes les 2 heures, hémoglobine et ionogramme selon le contexte : ces chiffres réévalués ensemble au lit du malade valent mieux qu'une tension isolée redevenue normale."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles utilisées, vérifiées à la date de rédaction.",
+      "sources": [
+        {
+          "id": "SRC-SSC-2021",
+          "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+          "title": "Surviving Sepsis Campaign 2021",
+          "year": 2021,
+          "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines"
+        },
+        {
+          "id": "SRC-SEPSIS3",
+          "organization": "Journal of the American Medical Association / ESICM",
+          "title": "Sepsis-3",
+          "year": 2016,
+          "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461"
+        },
+        {
+          "id": "SRC-ERC-2021",
+          "organization": "European Resuscitation Council",
+          "title": "ERC 2021 — circonstances particulières et péri-arrêt",
+          "year": 2021,
+          "url": "https://www.cprguidelines.eu/"
+        },
+        {
+          "id": "SRC-EAACI-2022",
+          "organization": "European Academy of Allergy and Clinical Immunology",
+          "title": "EAACI — Anaphylaxie (mise à jour 2021)",
+          "year": 2022,
+          "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
+        },
+        {
+          "id": "SRC-CRASH2",
+          "organization": "London School of Hygiene & Tropical Medicine",
+          "title": "CRASH-2",
+          "year": 2010,
+          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
+        },
+        {
+          "id": "SRC-OMS-SEPSIS",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "OMS — Sepsis, aide-mémoire",
+          "year": 2020,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "ATLS — 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org/quality-programs/trauma/education/atls/"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "N°",
+            "Référence"
+          ],
+          "rows": [
+            [
+              "1",
+              "Evans L., et al. — Surviving Sepsis Campaign 2021. Intensive Care Medicine 2021;47:1181-1247. https://www.sccm.org/survivingsepsiscampaign/guidelines"
+            ],
+            [
+              "2",
+              "Singer M., et al. — Sepsis-3. JAMA 2016;315:801-810. https://jamanetwork.com/journals/jama/fullarticle/2496461"
+            ],
+            [
+              "3",
+              "Lott C., et al. — ERC 2021 : circonstances particulières. Resuscitation 2021;161:152-219. https://www.cprguidelines.eu/"
+            ],
+            [
+              "4",
+              "Muraro A., et al. — EAACI Guidelines : Anaphylaxis (2021 update). Allergy 2022;77:357-377. https://onlinelibrary.wiley.com/doi/10.1111/all.15082"
+            ],
+            [
+              "5",
+              "CRASH-2 Collaborators. The Lancet 2010;376:23-32. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext"
+            ],
+            [
+              "6",
+              "OMS — Sepsis, aide-mémoire, 2020. https://www.who.int/news-room/fact-sheets/detail/sepsis"
+            ],
+            [
+              "7",
+              "American College of Surgeons — ATLS, 10e édition, 2018. https://www.facs.org/quality-programs/trauma/education/atls/"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "À compléter par le propriétaire",
+          "text": "Le protocole national malgache de réanimation et celui du service (disponibilité des vasopresseurs, seuils transfusionnels locaux) doivent être ajoutés à cette bibliographie par le propriétaire : aucune version en ligne vérifiable n'a été trouvée pendant la rédaction."
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-choc",
+      "label": "CHOC — les quatre familles",
+      "intro": "Quatre mécanismes, une seule question : la pompe, le réservoir, le tuyau ou le circuit ?",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cardiogénique — la pompe en panne"
+        },
+        {
+          "key": "H",
+          "term": "Hypovolémique — le réservoir vide"
+        },
+        {
+          "key": "O",
+          "term": "Obstructif — le tuyau comprimé"
+        },
+        {
+          "key": "C",
+          "term": "Choc distributif — le circuit dilaté"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-aaa",
+      "label": "AAA — le réflexe anaphylaxie",
+      "intro": "Trois A pour ne pas perdre la première minute.",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Adrénaline intramusculaire sans délai"
+        },
+        {
+          "key": "A",
+          "term": "Alerter et installer en décubitus"
+        },
+        {
+          "key": "A",
+          "term": "Anticiper la récidive sous observation"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Comment définit-on l'état de choc, en une phrase ?",
+      "back": "Une insuffisance circulatoire aiguë avec hypoperfusion tissulaire : l'oxygène n'arrive plus aux cellules en quantité suffisante, qui basculent en métabolisme anaérobie.",
+      "tags": [
+        "definition"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Citez les quatre familles de choc et leur mécanisme.",
+      "back": "Hypovolémique (réservoir vide), cardiogénique (pompe en panne), obstructif (tuyau comprimé) et distributif (circuit dilaté : septique, anaphylactique, neurogène).",
+      "tags": [
+        "classification"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel temps de recoloration cutanée doit alerter ?",
+      "back": "Supérieur à 3 secondes : il signe une vasoconstriction de compensation déjà installée, donc une hypoperfusion réelle.",
+      "tags": [
+        "semioologie"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Où rechercher les premières marbrures d'un choc ?",
+      "back": "Aux genoux, s'étendant vers les racines des cuisses : elles précèdent l'effondrement tensionnel.",
+      "tags": [
+        "semioologie"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel débit urinaire horaire définit l'oligurie du choc chez l'adulte ?",
+      "back": "Moins de 0,5 mL/kg/h : la diurèse horaire est un monitorage de la perfusion, pas un confort.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Comment calcule-t-on l'index de choc, et quel seuil alerte ?",
+      "back": "Fréquence cardiaque divisée par la pression artérielle systolique ; supérieur à 1 chez l'adulte, il signe un choc débutant ou constitué.",
+      "tags": [
+        "semioologie"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Une pression artérielle normale élimine-t-elle un choc ?",
+      "back": "Non : la compensation (tachycardie, vasoconstriction) maintient la tension jusqu'à une perte d'environ 30 % du volume sanguin ; l'effondrement est un signe tardif.",
+      "tags": [
+        "piege"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels sont les trois items du qSOFA ?",
+      "back": "Pression systolique ≤ 100 mmHg, fréquence respiratoire ≥ 22/min et score de Glasgow inférieur à 15 ; deux items sur trois signalent un haut risque.",
+      "tags": [
+        "gravite"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Que signifie un lactate supérieur à 2 mmol/L en contexte de choc ?",
+      "back": "Une hypoperfusion qui force les cellules au métabolisme anaérobie ; au-delà de 4 mmol/L, la mortalité augmente nettement.",
+      "tags": [
+        "biologie"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel est le traitement de première intention de l'anaphylaxie ?",
+      "back": "L'adrénaline en intramusculaire, 0,5 mg chez l'adulte dans la face antéro-latérale de la cuisse, à renouveler toutes les 5 à 15 minutes si nécessaire.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle est la triade de Beck ?",
+      "back": "Hypotension artérielle, turgescence des veines jugulaires et assourdissement des bruits du cœur : elle signe une tamponnade à décomprimer en urgence.",
+      "tags": [
+        "semioologie"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quel objectif de pression artérielle moyenne viser dans le choc septique ?",
+      "back": "Au moins 65 mmHg, en première intention avec la noradrénaline, réévalué sur les signes de perfusion et pas sur le chiffre seul.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Dans quel délai administrer l'acide tranexamique d'un choc hémorragique ?",
+      "back": "Le plus tôt possible, dans les trois premières heures après le traumatisme ; au-delà, le bénéfice disparaît.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-14",
+      "front": "Quel rythme de baisse du lactate viser chez un patient en choc traité ?",
+      "back": "Une clairance d'au moins 20 % toutes les 2 heures : c'est un objectif de réanimation réévalué en continu, pas un simple contrôle.",
+      "tags": [
+        "surveillance"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "État de choc",
+      "detail": "Hypoperfusion aiguë : reconnaître avant l'effondrement, classer dans l'une des quatre familles, puis corriger le mécanisme. Une tension normale ne rassure jamais."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "urgence",
+        "detail": "Marbrures des genoux, temps de recoloration supérieur à 3 secondes, tachycardie, oligurie : l'hypoperfusion se voit avant la chute de tension.",
+        "children": [
+          {
+            "id": "rec-signes",
+            "label": "Signes précoces",
+            "detail": "Marbrures des genoux, peau moite et froide, TRC supérieur à 3 s, tachycardie, polypnée, soif, agitation puis somnolence.",
+            "leaves": [
+              {
+                "id": "rec-signes-1",
+                "label": "Oligurie < 0,5 mL/kg/h",
+                "detail": "La sonde urinaire monitorise la perfusion rénale."
+              },
+              {
+                "id": "rec-signes-2",
+                "label": "Index de choc > 1",
+                "detail": "Fréquence cardiaque divisée par la pression systolique."
+              }
+            ]
+          },
+          {
+            "id": "rec-pa",
+            "label": "Tension encore normale ?",
+            "detail": "Le choc compensé maintient la pression artérielle jusqu'à près d'un tiers du volume perdu : la normotension n'élimine rien.",
+            "leaves": [
+              {
+                "id": "rec-pa-1",
+                "label": "qSOFA ≥ 2",
+                "detail": "PAS ≤ 100, FR ≥ 22, Glasgow < 15 : haut risque."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "familles-map",
+        "label": "Quatre familles",
+        "tone": "retenir",
+        "detail": "Hypovolémique (réservoir vide), cardiogénique (pompe en panne), obstructif (tuyau comprimé), distributif (circuit dilaté : septique, anaphylactique, neurogène).",
+        "children": [
+          {
+            "id": "fam-hypo",
+            "label": "Hypovolémique",
+            "detail": "Peau froide, jugulaires vides : hémorragie, diarrhée profuse, brûlure, déshydratation.",
+            "leaves": [
+              {
+                "id": "fam-hypo-1",
+                "label": "Choc hémorragique",
+                "detail": "Contrôle de la source avant le remplissage."
+              }
+            ]
+          },
+          {
+            "id": "fam-cardio",
+            "label": "Cardiogénique",
+            "detail": "Jugulaires pleines, crépitants, galop B3 : infarctus, arythmie, myocardite.",
+            "leaves": [
+              {
+                "id": "fam-cardio-1",
+                "label": "Revascularisation",
+                "detail": "Le choc post-infarctus relève de la reperfusion."
+              }
+            ]
+          },
+          {
+            "id": "fam-obst",
+            "label": "Obstructif",
+            "detail": "Jugulaires pleines et poumons clairs : tamponnade, embolie pulmonaire, pneumothorax suffocant.",
+            "leaves": [
+              {
+                "id": "fam-obst-1",
+                "label": "Triade de Beck",
+                "detail": "Tamponnade : péricardocentèse en urgence."
+              }
+            ]
+          },
+          {
+            "id": "fam-dist",
+            "label": "Distributif",
+            "detail": "Peau chaude, fièvre ou urticaire, hypotonie : septique, anaphylactique, neurogène.",
+            "leaves": [
+              {
+                "id": "fam-dist-1",
+                "label": "Urticaire + sibilants",
+                "detail": "Anaphylaxie : adrénaline IM immédiate."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gestes-map",
+        "label": "Gestes immédiats",
+        "tone": "reflexe",
+        "detail": "Alerter, allonger, oxygéner, poser une voie, vérifier la glycémie — puis traiter le mécanisme : adrénaline, contrôle du saignement, remplissage.",
+        "children": [
+          {
+            "id": "ges-alerte",
+            "label": "Première minute",
+            "detail": "Alerter, allonger sans oreiller, couvrir, libérer les voies aériennes, ne jamais faire boire, PLS si inconscient respirant.",
+            "leaves": [
+              {
+                "id": "ges-alerte-1",
+                "label": "Glycémie systématique",
+                "detail": "L'hypoglycémie imite et aggrave le choc."
+              }
+            ]
+          },
+          {
+            "id": "ges-adre",
+            "label": "Anaphylaxie",
+            "detail": "Adrénaline intramusculaire 0,5 mg dans la cuisse, sans délai, en première intention.",
+            "leaves": [
+              {
+                "id": "ges-adre-1",
+                "label": "Corticoïdes en 2e rang",
+                "detail": "Jamais à la place de l'adrénaline."
+              }
+            ]
+          },
+          {
+            "id": "ges-hemo",
+            "label": "Hémorragie",
+            "detail": "Compression directe, garrot de membre, acide tranexamique dans les 3 premières heures.",
+            "leaves": [
+              {
+                "id": "ges-hemo-1",
+                "label": "La source d'abord",
+                "detail": "Saignement chirurgical : contrôle avant remplissage."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "septique-map",
+        "label": "Choc septique",
+        "tone": "urgence",
+        "detail": "Vasopresseurs pour une PAM d'au moins 65 mmHg et lactate supérieur à 2 mmol/L persistant : l'heure 1 décide du reste.",
+        "children": [
+          {
+            "id": "sep-bundle",
+            "label": "Bundle de l'heure 1",
+            "detail": "Hémocultures puis antibiotique dans l'heure, cristalloïdes 30 mL/kg, noradrénaline si PAM inférieure à 65.",
+            "leaves": [
+              {
+                "id": "sep-bundle-1",
+                "label": "Lactate > 2 mmol/L",
+                "detail": "Anaérobie : la cellule crie sa soif d'oxygène."
+              }
+            ]
+          },
+          {
+            "id": "sep-source",
+            "label": "Contrôle de la source",
+            "detail": "Drainer, retirer le matériel infecté, opérer : aucun antibiotique ne remplace un abcès non drainé.",
+            "leaves": [
+              {
+                "id": "sep-source-1",
+                "label": "Choc réfractaire",
+                "detail": "Toujours rechercher une source non contrôlée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveillance-map",
+        "label": "Objectifs et surveillance",
+        "tone": "prudence",
+        "detail": "PAM d'au moins 65 mmHg, diurèse d'au moins 0,5 mL/kg/h, lactate en clairance de 20 % toutes les 2 h : réévaluer sans cesse.",
+        "children": [
+          {
+            "id": "sur-cibles",
+            "label": "Cibles de perfusion",
+            "detail": "PAM, diurèse horaire, conscience, marbrures, temps de recoloration, lactate : la réévaluation est le traitement.",
+            "leaves": [
+              {
+                "id": "sur-cibles-1",
+                "label": "Clairance ≥ 20 % / 2 h",
+                "detail": "Objectif de réanimation, pas de simple contrôle."
+              }
+            ]
+          },
+          {
+            "id": "sur-pieges",
+            "label": "Pièges",
+            "detail": "Sujet âgé sans fièvre ni tachycardie, bêtabloquant qui masque, surcharge du remplissage non évaluée dynamiquement.",
+            "leaves": [
+              {
+                "id": "sur-pieges-1",
+                "label": "Triangle de la mort",
+                "detail": "Hypothermie, acidose, coagulopathie s'auto-entretiennent."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-SSC-2021",
+      "title": "Surviving Sepsis Campaign 2021",
+      "citation": "Evans L., Alhazzani W., et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock. Intensive Care Medicine 2021;47(11):1181-1247.",
+      "organization": "Society of Critical Care Medicine / European Society of Intensive Care Medicine",
+      "year": 2021,
+      "version": "édition 2021",
+      "url": "https://www.sccm.org/survivingsepsiscampaign/guidelines",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Reconnaissance du choc",
+        "Choc septique",
+        "Objectifs de réanimation"
+      ]
+    },
+    {
+      "id": "SRC-SEPSIS3",
+      "title": "Sepsis-3",
+      "citation": "Singer M., Deutschman C.S., Seymour C.W., et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA 2016;315(8):801-810.",
+      "organization": "Journal of the American Medical Association / ESICM",
+      "year": 2016,
+      "version": "consensus 2016",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2496461",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Définitions du sepsis et du choc septique"
+      ]
+    },
+    {
+      "id": "SRC-ERC-2021",
+      "title": "ERC 2021 — circonstances particulières et péri-arrêt",
+      "citation": "Lott C., Truhlář A., Alfonzo A., et al. — Cardiac arrest in special circumstances: 2021 European Resuscitation Council Guidelines. Resuscitation 2021;161:152-219.",
+      "organization": "European Resuscitation Council",
+      "year": 2021,
+      "version": "édition 2021",
+      "url": "https://www.cprguidelines.eu/",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Anaphylaxie",
+        "Choc hémorragique",
+        "Gestes immédiats"
+      ]
+    },
+    {
+      "id": "SRC-EAACI-2022",
+      "title": "EAACI — Anaphylaxie (mise à jour 2021)",
+      "citation": "Muraro A., Worm M., Alviani C., et al. — EAACI Guidelines: Anaphylaxis (2021 update). Allergy 2022;77(2):357-377.",
+      "organization": "European Academy of Allergy and Clinical Immunology",
+      "year": 2022,
+      "version": "mise à jour 2021, publiée 2022",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/all.15082",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Anaphylaxie : adrénaline intramusculaire"
+      ]
+    },
+    {
+      "id": "SRC-CRASH2",
+      "title": "CRASH-2",
+      "citation": "CRASH-2 Collaborators — Effects of tranexamic acid on death, vascular occlusion, and blood transfusion in trauma patients (CRASH-2). The Lancet 2010;376(9734):23-32.",
+      "organization": "London School of Hygiene & Tropical Medicine",
+      "year": 2010,
+      "version": "essai CRASH-2",
+      "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)60835-5/fulltext",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Acide tranexamique du choc hémorragique"
+      ]
+    },
+    {
+      "id": "SRC-OMS-SEPSIS",
+      "title": "OMS — Sepsis, aide-mémoire",
+      "citation": "Organisation mondiale de la Santé — Sepsis, aide-mémoire, 2020.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2020,
+      "version": "aide-mémoire 2020",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/sepsis",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Charge mondiale du sepsis",
+        "Reconnaissance du choc"
+      ]
+    },
+    {
+      "id": "SRC-ATLS",
+      "title": "ATLS — 10e édition",
+      "citation": "American College of Surgeons — Advanced Trauma Life Support (ATLS), 10e édition, 2018.",
+      "organization": "American College of Surgeons",
+      "year": 2018,
+      "version": "10e édition",
+      "url": "https://www.facs.org/quality-programs/trauma/education/atls/",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Choc hémorragique traumatique",
+        "Triangle de la mort",
+        "Transfusion massive"
+      ]
+    }
+  ]
+}
