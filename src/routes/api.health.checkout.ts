@@ -96,16 +96,29 @@ export const Route = createFileRoute("/api/health/checkout")({
         const lemon = readLemonCheckoutConfig(env);
         const database = await probeDatabase();
 
+        let rpcTest: { ok: boolean; error: string | null } = { ok: false, error: "not-tested" };
+        if (supabase && serviceKey) {
+          try {
+            const { createInternationalOrderRest } = await import("@/server/lemonsqueezy/checkout-rest.server");
+            const testResult = await createInternationalOrderRest({
+              identity: { userId: "00000000-0000-0000-0000-000000000000", email: "diag@test.local" },
+              clientRequestId: crypto.randomUUID(),
+            });
+            rpcTest = testResult.ok
+              ? { ok: true, error: null }
+              : { ok: false, error: (testResult as any).debug || testResult.reason || "unknown" };
+          } catch (e: any) {
+            rpcTest = { ok: false, error: "thrown:" + (e?.message || String(e)) };
+          }
+        }
+
         const report = {
           ready: Boolean(supabase) && Boolean(serviceKey) && database.reachable === true,
           supabase: {
-            /** URL + clé publique résolues (indispensable pour vérifier une identité). */
             identity: Boolean(supabase),
-            /** Clé de service (écriture de `licences` à la livraison). */
             serviceKey: Boolean(serviceKey),
           },
           database: {
-            /** `postgres` = `DATABASE_URL` fournie ; `pglite` = repli local, non déployable. */
             source: dbSource,
             reachable: database.reachable,
             ...(database.reason ? { reason: database.reason } : {}),
@@ -113,9 +126,14 @@ export const Route = createFileRoute("/api/health/checkout")({
           lemon: {
             apiKey: Boolean((env.LEMONSQUEEZY_API_KEY ?? "").trim()),
             webhookSecret: Boolean((env.LEMONSQUEEZY_WEBHOOK_SECRET ?? "").trim()),
-            /** Variante lue au build : sans elle, le bouton n'ouvre aucun checkout. */
             checkoutConfigured: isLemonCheckoutConfigured(lemon),
           },
+          env: {
+            SUPABASE_URL: Boolean((env.SUPABASE_URL ?? "").trim()),
+            VITE_SUPABASE_URL: Boolean((env.VITE_SUPABASE_URL ?? "").trim()),
+            SUPABASE_SERVICE_ROLE_KEY: Boolean((env.SUPABASE_SERVICE_ROLE_KEY ?? "").trim()),
+          },
+          rpcTest,
         };
 
         return json(report);
