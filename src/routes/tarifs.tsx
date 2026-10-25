@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { signOutCloud } from "@/lib/cloud/session";
 import { useAuth } from "@/hooks/useAuth";
+import { useOptimus } from "@/state/store";
 import {
   CARD_AUTH_MESSAGES,
   decideCardAuthGate,
@@ -131,6 +132,8 @@ function TarifsPage() {
      permet au webhook de retrouver l'acheteur — sans jamais faire confiance à
      un montant ou un identifiant venus du client. */
   const { session, status: authStatus } = useAuth();
+  const tier = useOptimus((s) => s.profile.tier);
+  const isPro = tier === "pro";
   const navigate = useNavigate();
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
@@ -447,18 +450,29 @@ function TarifsPage() {
                     euros par Lemon&nbsp;Squeezy, notre intermédiaire de paiement : la TVA
                     applicable est calculée automatiquement selon votre pays.
                   </p>
-                  <Button
-                    fullWidth
-                    className="mt-4"
-                    onClick={startCardPayment}
-                    loading={paying}
-                    loadingLabel="Ouverture du paiement sécurisé"
-                    data-tarifs-pay="lemon-squeezy"
-                    data-lemon-state={paying ? "paying" : payError ? "error" : "idle"}
-                  >
-                    <CreditCard className="size-4" aria-hidden="true" />
-                    Payer par Carte ({formatEuroAmount(PRICE_EUR.subscriptionQuarter)})
-                  </Button>
+                  {isPro ? (
+                    <Button
+                      fullWidth
+                      variant="secondary"
+                      className="mt-4"
+                      data-tarifs-manage
+                    >
+                      ✓ Abonnement actif · Gérer
+                    </Button>
+                  ) : (
+                    <Button
+                      fullWidth
+                      className="mt-4"
+                      onClick={startCardPayment}
+                      loading={paying}
+                      loadingLabel="Ouverture du paiement sécurisé"
+                      data-tarifs-pay="lemon-squeezy"
+                      data-lemon-state={paying ? "paying" : payError ? "error" : "idle"}
+                    >
+                      <CreditCard className="size-4" aria-hidden="true" />
+                      Payer par Carte ({formatEuroAmount(PRICE_EUR.subscriptionQuarter)})
+                    </Button>
+                  )}
                   {payError ? (
                     <p
                       role="alert"
