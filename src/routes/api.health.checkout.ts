@@ -114,7 +114,7 @@ export const Route = createFileRoute("/api/health/checkout")({
         }
 
         const report = {
-          ready: Boolean(supabase) && Boolean(serviceKey) && database.reachable === true,
+          ready: Boolean(supabase) && Boolean(serviceKey) && rpcTest.ok === true,
           supabase: {
             identity: Boolean(supabase),
             serviceKey: Boolean(serviceKey),
