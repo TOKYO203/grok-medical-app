@@ -1428,5 +1428,328 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "INF-MENINGITE-001",
+    "title": "Fièvre et nuque raide chez un étudiant",
+    "specialty": "Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 19 ans, fièvre à 39,8 °C, céphalées intenses et vomissements depuis 12 heures, purpura apparu ce matin.",
+    "patient": {
+      "age": 19,
+      "sex": "M",
+      "context": "Étudiant en cité universitaire à Antananarivo, vaccination anti-méningococcique inconnue, plusieurs cas de fièvre dans l'entourage proche récent."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Céphalées brutales et intenses depuis la veille au soir, fièvre à 39,8 °C, vomissements en jet, photophobie. Ce matin, apparition de taches violacées sur les jambes qui ne s'effacent pas à la pression. Confusion légère constatée par son voisin de chambre."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 92/54, FC 118/min, FR 24/min, température 39,8 °C, SpO2 96 %. Confusion temporo-spatiale, nuque raide, signe de Kernig positif. Purpura pétéchial des membres inférieurs ne s'effaçant pas à la vitropression. Pas de signe de focalisation : pas d'anisocorie, pas de déficit moteur, patient mobilisable."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie / LCR",
+        "body": "Leucocytes 22 000/mm³ à 90 % de polynucléaires neutrophiles, CRP 210 mg/L, plaquettes 88 000/mm³. Hémocultures prélevées. LCR trouble : 4 200 éléments/mm³ à prédominance de PNN, protéinorachie 2,8 g/L, glycorachie 1,1 mmol/L pour une glycémie à 5,6 mmol/L. Examen direct en cours."
+      },
+      {
+        "kind": "question",
+        "prompt": "Devant ce purpura fébrile ne s'effaçant pas à la vitropression, la première action est :",
+        "choices": [
+          "Ceftriaxone ou céfotaxime IV immédiate, avant tout examen complémentaire, avec remplissage vasculaire",
+          "Attendre l'examen direct du LCR avant d'antibiotiquer",
+          "Scanner céréral d'abord systématiquement",
+          "Paracétamol seul et surveillance"
+        ],
+        "correct": 0,
+        "explanation": "Un purpura fébrile est une urgence thérapeutique absolue : l'antibiothérapie IV doit être administrée dans la minute, avant même la PL ou le scanner, devant l'instabilité hémodynamique. Le purpura fulminans (méningocoque) tue en quelques heures ; chaque minute sans antibiotique augmente la mortalité."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'analyse du LCR décrit ici correspond à :",
+        "choices": [
+          "Méningite bactérienne purulente : hypercytose à PNN, protéinorachie élevée, glycorachie effondrée",
+          "Méningite virale : lymphocytes, glycorachie normale",
+          "Hémorragie sous-arachnoïdienne",
+          "Méningite tuberculeuse typique"
+        ],
+        "correct": 0,
+        "explanation": "4 200 éléments à prédominance de PNN avec protéinorachie élevée et glycorachie effondrée est le profil bactérien typique. La méningite virale donne un LCR clair, lymphocytaire, à glycorachie normale ; l'hémorragie donne un LCR hémorragique ; la tuberculose évolue de façon subaiguë avec lymphocytes et hypoglycorachie."
+      },
+      {
+        "kind": "question",
+        "prompt": "En plus du traitement du patient, la mesure de santé publique indispensable est :",
+        "choices": [
+          "Chimioprophylaxie des contacts proches dès la suspicion, information de la collectivité et déclaration obligatoire",
+          "Rien : la maladie n'est pas contagieuse",
+          "Fermeture de l'université pour un mois",
+          "Vaccination de tous les contacts seulement après l'examen direct"
+        ],
+        "correct": 0,
+        "explanation": "Le méningocoque se transmet par gouttelettes et contacts proches ; la vie en collectivité crée un risque épidémique. La chimioprophylaxie des contacts étroits (rifampicine, ciprofloxacine ou céftriaxone selon le protocole national) doit être mise en œuvre dès la suspicion, sans attendre le germe, avec déclaration obligatoire aux autorités sanitaires."
+      },
+      {
+        "kind": "question",
+        "prompt": "Au décours, l'élément qui améliore le plus le pronostic neurologique si un pneumocoque est suspecté est :",
+        "choices": [
+          "La dexaméthasone administrée juste avant ou avec la première dose d'antibiotique",
+          "La corticothérapie débutée après 24 heures",
+          "Un anticoagulant systématique",
+          "L'absence de toute corticothérapie"
+        ],
+        "correct": 0,
+        "explanation": "Chez l'adulte avec suspicion de méningite à pneumocoque, la dexaméthasone administrée avant ou avec la première dose d'antibiotique réduit les séquelles neurologiques et la mortalité ; donnée après 24 heures, elle perd son bénéfice. Elle n'est pas systématique dans toutes les formes, selon le germe suspecté et le protocole national."
+      }
+    ],
+    "diagnosis": "Méningite bactérienne purulente avec purpura fulminans débutant (probable méningocoque) : syndrome méningé fébrile, purpura pétéchial, LCR à prédominance de PNN, glycorachie effondrée, syndrome inflammatoire majeur.",
+    "management": "Antibiothérapie IV immédiate (ceftriaxone ou céfotaxime aux doses méningées) devant le purpura, hémocultures puis PL déjà réalisées, dexaméthasone selon le germe suspecté et le protocole national, remplissage et soutien hémodynamique, surveillance en unité de soins intensifs, isolement gouttelettes jusqu'à 24 heures d'antibiothérapie. Déclaration obligatoire et chimioprophylaxie immédiate des contacts proches, information de la collectivité, vaccination de rattrapage selon les recommandations locales.",
+    "pitfall": "Le piège du scanner systématique : devant un purpura fébrile ou une méningite grave, l'imagerie ne doit jamais retarder l'antibiotique — le scanner ne sert qu'en cas de signes de focalisation ou de trouble de conscience profond, et l'antibiothérapie précède alors la PL. L'autre piège : attendre l'examen direct pour traiter, alors que le méningocoque tue en quelques heures.",
+    "keyTakeaway": "Purpura fébrile + nuque raide = méningocoque jusqu'à preuve du contraire, ceftriaxone IV dans la minute, avant tout examen. LCR à PNN avec glycorachie effondrée = méningite bactérienne. Ne jamais oublier la santé publique : chimioprophylaxie des contacts et déclaration obligatoire, sans attendre le germe.",
+    "related": {
+      "pathologySlugs": [
+        "meningites-purulentes"
+      ],
+      "deckIds": [
+        "infectio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Defeating meningitis by 2030: global roadmap, Genève, 2020.",
+        "organization": "OMS",
+        "year": 2020,
+        "url": "https://www.who.int/publications/i/item/9789241546081",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "IDSA",
+        "citation": "Tunkel et al. — Practice Guidelines for the Management of Bacterial Meningitis, Clinical Infectious Diseases 2004;39:1267-84.",
+        "organization": "IDSA",
+        "year": 2004
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "PNEUMO-BPCO-001",
+    "title": "Souffle court et crachats verts",
+    "specialty": "Pneumologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 66 ans, BPCO ancien, majoration de la dyspnée et des crachats purulents depuis 4 jours.",
+    "patient": {
+      "age": 66,
+      "sex": "M",
+      "context": "Ancien mineur, tabagique à 45 PA, BPCO sévère connue, oxygène de domicile non observé, plusieurs exacerbations l'an dernier. Vivant à Ambatovy, saison fraîche et humide."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 4 jours : toux plus intense, crachats jaune-vert plus abondants, essoufflement nettement majoré au moindre effort, sifflements habituels plus présents, réveils nocturnes pour respirer. Deux bouffées de salbutamol par jour habituellement, inefficaces depuis 2 jours."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Émacié, respirant à lèvres pincées, speech haché. TA 132/74, FC 104/min, FR 26/min, SpO2 86 % en air, 90 % sous 2 L/min d'oxygène. Auscultation : sibilants diffus, expiration allongée, ronflements, crépitants aux bases. Pas d'œdème, pas de turgescence jugulaire nette. Pas de fièvre mesurée à 37,9 °C."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "CRP 68 mg/L, leucocytes 13,2 G/L. Radio thoracique : hyperinflation, pas de foyer alvéolaire, pas d'épanchement, cœur étiré. Gaz du sang sous 2 L d'O2 : pH 7,36, PaO2 58 mmHg, PaCO2 52 mmHg, HCO3- 28 mmol/L. ECG sinusal, pas de signe d'ischémie aiguë."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le tableau est :",
+        "choices": [
+          "Exacerbation de BPCO sur infection des voies respiratoires, hypoxémiante, sans détresse majeure",
+          "Pneumonie communautaire lobaire",
+          "Insuffisance cardiaque gauche aiguë",
+          "Pneumothorax spontané"
+        ],
+        "correct": 0,
+        "explanation": "Le triade d'Anthonisen (majoration de la dyspnée, du volume des expectorations, purulence) définit une exacerbation probablement d'origine infectieuse de BPCO. La radio sans foyer et l'absence de tableau cardiaque ou de décollement écartent les autres diagnostics ; la rétention modérée de CO2 est habituelle dans les BPCO sévères."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge de l'exacerbation comprend :",
+        "choices": [
+          "Bronchodilatateurs de courte durée, corticoïde systémique 5 jours, antibiothérapie ciblée sur la purulence, oxygène titré vers SpO2 88-92 %",
+          "Oxygène haut débit sans mesure de la SpO2 pour remonter à 99 %",
+          "Corticoïde seul sans bronchodilatateur",
+          "Diurétique IV d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Bronchodilatateurs, corticoïde systémique et antibiothérapie (si purulence ou CRP élevée) sont le socle du traitement. L'oxygène est titré vers une cible 88-92 % : une hyperoxie aggrave l'hypercapnie en supprimant le stimulus hypoxique et en majorant le piégeage. Le diurétique n'a pas d'indication sans surcharge droite documentée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si le patient s'épuise : somnolence, PaCO2 qui monte à 68 mmHg, pH 7,28, la conduite est :",
+        "choices": [
+          "Ventilation non invasive (VNI) en biphasique en milieu surveillé, avec réévaluation horaire",
+          "Intubation immédiate sans essai de VNI",
+          "Sédatif pour l'agitation du patient",
+          "Augmenter seul l'oxygène à haut débit"
+        ],
+        "correct": 0,
+        "explanation": "L'acidose respiratoire (pH < 7,35) avec hypercapnie de l'exacerbation de BPCO est l'indication élective de la VNI, qui réduit l'intubation et la mortalité dans cette indication. La sédation est dangereuse (dépression respiratoire) ; l'oxygène seul aggrave la rétention ; l'intubation se réserve à l'échec de la VNI ou à la contre-indication."
+      },
+      {
+        "kind": "question",
+        "prompt": "À distance, la mesure qui réduit le mieux le risque d'exacerbation suivante est :",
+        "choices": [
+          "Arrêt du tabac, réhabilitation respiratoire, vaccinations (grippe, pneumocoque) et observance du traitement de fond inhalé",
+          "Antibiotique continu au long cours",
+          "Corticoïdes oraux en continu",
+          "Aucune mesure : les exacerbations sont inévitables"
+        ],
+        "correct": 0,
+        "explanation": "Le sevrage tabagique est la seule mesure qui modifie l'histoire naturelle de la maladie ; la réhabilitation et la vaccination réduisent significativement les exacerbations. L'antibiothérapie continue sélectionne des résistances, la corticothérapie orale au long cours expose à la myopathie et aux infections, et l'oxygène de longue durée n'est indiqué que selon les critères d'hypoxémie chronique."
+      }
+    ],
+    "diagnosis": "Exacerbation aiguë de BPCO sur infection des voies respiratoires, hypoxémiante, avec hypercapnie modérée compensée, sans détresse respiratoire majeure au stade actuel.",
+    "management": "Hospitalisation : oxygène titré vers SpO2 88-92 %, bronchodilatateurs nébulisés, corticoïde systémique 5 jours, antibiothérapie devant la purulence et la CRP, surveiller conscience, SpO2 et gaz du sang ; VNI si acidose respiratoire. Sortie : plan inhalateurs vérifiés, réhabilitation programmée, vaccinations à jour, arrêt du tabac, suivi pneumologique et contrôle à 2-4 semaines.",
+    "pitfall": "Le piège de l'oxygène : monter la SpO2 à 99 % chez le BPCO hypercapnique peut précipiter le coma hypercapnique. Cible 88-92 %, gaz du sang de contrôle. Autre piège : banaliser une exacerbation répétée sans chercher le facteur déclenchant ni renforcer le traitement de fond après la crise.",
+    "keyTakeaway": "Exacerbation de BPCO = bronchodilatateur + corticoïde court + antibiotique si purulence, oxygène titré à 88-92 %. Acidose respiratoire : VNI d'emblée en milieu surveillé. La prévention est hors crise : sevrage, réhabilitation, vaccins.",
+    "related": {
+      "pathologySlugs": [
+        "bpco"
+      ],
+      "deckIds": [
+        "semio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "GOLD",
+        "citation": "Global Strategy for the Diagnosis, Management and Prevention of COPD, rapport 2025.",
+        "organization": "GOLD",
+        "year": 2025,
+        "url": "https://goldcopd.org/2025-gold-report/",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "OMS",
+        "citation": "Chronic obstructive pulmonary disease (COPD) — fact sheet, 2024.",
+        "organization": "OMS",
+        "year": 2024
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "CARDIO-HTA-001",
+    "title": "Tension haute et mal de tête",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 52 ans, céphalées et phosphènes, TA à 210/124 aux deux bras, jamais suivie.",
+    "patient": {
+      "age": 52,
+      "sex": "F",
+      "context": "Marchande ambulante, HTA découverte il y a 3 ans mais jamais traitée, prise de « tisanes » et de rhumeau. Ménopause il y a 2 ans. Excès de sel : bouillon cubes quotidien."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Céphalées postérieures avec phosphènes et bourdonnements d'oreille depuis 3 jours, sans déficit ni trouble de la parole. Aucun antécédent cardiaque, pas de douleur thoracique, pas de dyspnée. Rien de particulier au réveil sinon la persistance des céphalées."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 210/124 aux deux bras confirmée après 10 minutes de repos, FC 82/min régulière, pas de souffle abdominal ni fémoral, pouls périphériques présents et symétriques. Pas d'œdème, pas de crépitants. Fond d'œil : rétrécissement artériolaire diffus, quelques hémorragies flammées, pas de œdème papillaire. Reste de l'examen neurologique normal, Glasgow 15."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "ECG : sinusal, hypertrophie ventriculaire gauche (indice de Sokolow positif). Créatinine 92 µmol/L, pas de protéinurie significative à la bandelette, pas d'hématurie. Hb 12,4 g/dL. Glycémie 1,04 g/L. Échographie cardiaque disponible en ville la semaine suivante. Pas de kaliémie en urgence."
+      },
+      {
+        "kind": "question",
+        "prompt": "La situation est :",
+        "choices": [
+          "Urgence hypertensive : TA ≥ 180/110 avec souffrance d'organe débutante (rétinopathie hypertensive, HVG), sans atteinte vitale immédiate",
+          "Poussée tensionnelle simple sans aucun risque",
+          "HTA maligne avec insuffisance rénale avérée",
+          "Crise hypertensive paroxystique du phéochromocytome certain"
+        ],
+        "correct": 0,
+        "explanation": "TA ≥ 180/110 avec signe de souffrance d'organe (rétinopathie à hémorragies, HVG électrique) définit une urgence hypertensive, à traiter en milieu hospitalier avec baisse contrôlée. L'HTA maligne s'accompagne classiquement d'insuffisance rénale et de protéinurie sévères avec œdème papillaire ; le phéochromocytome est une cause rare à rechercher si paroxysmes avec sueurs et palpitations."
+      },
+      {
+        "kind": "question",
+        "prompt": "La vitesse de baisse tensionnelle adaptée ici est :",
+        "choices": [
+          "Réduction progressive sur 24-48 heures vers un objectif autour de 160/100 le premier jour, avec antihypertenseur oral ou IV titré",
+          "Normalisation à 120/80 en moins d'une heure",
+          "Baisse de moitié de la TA dans la première heure",
+          "Attendre l'échographie cardiaque avant tout traitement"
+        ],
+        "correct": 0,
+        "explanation": "Une baisse brutale de la pression de perfusion cérébrale chez un patient à autoregulation déplacée expose à l'ischémie cérébrale et coronarienne, voire au décès. La baisse se fait de façon contrôlée sur 24-48 heures, pas de normalisation en urgence, sauf dissection aortique ouHTA de la grossesse (baisse rapide nécessaire)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de première ligne de cette urgence hypertensive est :",
+        "choices": [
+          "Antihypertenseur oral titré (ex. inhibiteur calcique) avec monitorage hospitalier et réévaluation rapprochée",
+          "Nitroprussiate de sodium en IVSE à forte dose",
+          "Furosémide IV à haute dose seul",
+          "Antalgique seul et sortie le soir même"
+        ],
+        "correct": 0,
+        "explanation": "L'urgence hypertensive sans complication immédiatement vitale se traite par voie orale titrée sous surveillance hospitalière (inhibiteur calcique, IEC selon la fonction rénale et la kaliémie). Les antihypertenseurs IV puissants sont réservés aux urgences vitales (dissection, encéphalopathie, œdème pulmonaire). Le furosémide ne traite pas une HTA sans surcharge, et la sortie sans traitement ni plan de suivi serait une faute."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après stabilisation, la clé du pronostic à long terme est :",
+        "choices": [
+          "Observance d'un traitement de fond adapté avec suivi régulier, réduction du sel, et recherche des causes secondaires et du diabète",
+          "Poursuite des tisanes seules",
+          "Un unique contrôle tensionnel à un mois, puis plus rien",
+          "Régime sans sucre seul"
+        ],
+        "correct": 0,
+        "explanation": "L'HTA est une maladie chronique : le pronostic dépend de l'observance au long cours, de la réduction du sel (le bouillon industriel est très riche en sodium), de la perte de poids si besoin, et du dépistage du diabète et des atteintes d'organes (fond d'œil, ECG/HVG, fonction rénale, protéinurie). Un traitement intermittent par « cures » ne protège ni le cerveau ni le rein."
+      }
+    ],
+    "diagnosis": "Urgence hypertensive sur HTA essentielle anciennement connue mais jamais traitée : TA 210/124, rétinopathie hypertensive (hémorragies flammées), hypertrophie ventriculaire gauche électrique, sans insuffisance rénale ni atteinte neurologique focale.",
+    "management": "Hospitalisation courte : baisse tensionnelle progressive sur 24-48 heures par antihypertenseur oral titré (inhibiteur calcique ; IEC après kaliémie et créatinine), monitorage, fond d'œil et bilan d'atteinte d'organe (ECG, créatinine, protéinurie, glycémie), échographie cardiaque. Sortie : bithérapie si besoin, éducation (sel, observance, auto-mesures), suivi mensuel jusqu'à contrôle, dépistage du diabète, et plan écrit des signes devant faire reconsulter.",
+    "pitfall": "Le piège de la baisse trop rapide : chez l'hypertendu ancien, l'autorégulation cérébrale est décalée vers le haut ; normaliser la tension en une heure peut provoquer un AVC ischémique iatrogène. L'autre piège : traiter la crise et oublier le fond — sans traitement au long cours et réduction du sel, la récidive est la règle.",
+    "keyTakeaway": "TA ≥ 180/110 + souffrance d'organe (fond d'œil, HVG) = urgence hypertensive : baisse progressive sur 24-48 heures, jamais de normalisation en urgence. Le fond de la prise en charge est la observance du traitement, le sel et le suivi — la crise n'est que le symptôme.",
+    "related": {
+      "pathologySlugs": [
+        "hta-essentielle"
+      ],
+      "deckIds": [
+        "cardio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO Guideline for the pharmacological treatment of hypertension in adults, Genève, 2021.",
+        "organization": "OMS",
+        "year": 2021,
+        "url": "https://www.who.int/publications/i/item/9789240033986",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "ESC",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension, European Heart Journal 2024;45:3912-4018.",
+        "organization": "ESC",
+        "year": 2024
+      }
+    ],
+    "access": "pro"
   }
 ]
