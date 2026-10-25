@@ -1135,5 +1135,621 @@
         "year": 2020
       }
     ]
+  },
+  {
+    "id": "INF-TB-001",
+    "title": "Toux qui traîne",
+    "specialty": "Infectiologie / Pneumologie",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Femme de 28 ans, toux productive depuis 6 semaines, sueurs nocturnes, amaigrissement de 6 kg.",
+    "patient": {
+      "age": 28,
+      "sex": "F",
+      "context": "Vendeuse au marché d'Analakely, Antananarivo. Deux pièces partagées avec cinq personnes, un cousin traité pour tuberculose il y a deux ans."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Toux productive depuis six semaines, non amendée par deux antibiotiques achetés en pharmacie. Sueurs nocturnes profuses, amaigrissement de 6 kg, fatigue majeure. Pas de fièvre élevée au thermomètre, plutôt 37,8 °C le soir."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 110/70, FC 88, FR 20, SpO2 96 % en air ambiant. Consciente, amaigrie (IMC 17). Auscultation : crépitants discrets des deux apex, un peu plus nets à droite. Pas de matité, pas d'adénopathie périphérique palpable."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Radio thoracique de face : infiltrats réticulonodulaires des deux sommets, plus denses à droite, pas de cavité franche ni d'épanchement. NFS : Hb 10,8 g/dL, GB 9,2 G/L. CRP 42 mg/L. Sérologie VIH en cours de proposition, acceptée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le critère qui fait de cette toux une toux de dépistage de tuberculose est :",
+        "choices": [
+          "Toux depuis plus de 2 semaines dans un pays d'endémie, sans amélioration sous antibiotique",
+          "Toux du soir uniquement chez une fumeuse",
+          "Toux avec wheezing majoré la nuit",
+          "Toux précédant un rhume banal"
+        ],
+        "correct": 0,
+        "explanation": "Le Programme national de tuberculose et l'OMS définissent le cas suspect pulmonaire par une toux de plus de 2 semaines, a fortiori de 6 semaines avec sueurs nocturnes, amaigrissement et contage familial, dans un pays à haute incidence. Un wheezing nocturne évoque l'asthme ; la toux du fumeur ne s'accompagne pas de ce tableau général."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'examen de confirmation de première intention ici est :",
+        "choices": [
+          "La recherche de BAAR sur deux crachats (microscopie), complétée si possible par un test moléculaire rapide type Xpert MTB/RIF",
+          "Une sérologie tuberculeuse",
+          "Un scanner thoracique d'emblée",
+          "Une intradermoréaction à la tuberculine"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic de tuberculose pulmonaire à frottis positif repose sur la microscopie de deux échantillons de crachats ; le test moléculaire rapide (Xpert MTB/RIF) est recommandé par l'OMS en première intention quand il est disponible car il détecte aussi la résistance à la rifampicine. La sérologie et l'IDR ne diagnostiquent pas une tuberculose maladie ; le scanner n'est pas nécessaire au diagnostic."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de première intention d'une tuberculose pulmonaire sensible, sans signe de gravité, est :",
+        "choices": [
+          "Isoniazide + rifampicine + pyrazinamide + éthambutol pendant 2 mois, puis isoniazide + rifampicine pendant 4 mois (2 RHZE / 4 HR)",
+          "Amoxicilline 7 jours",
+          "Isoniazide seul pendant 6 mois",
+          "Ceftriaxone IV 10 jours"
+        ],
+        "correct": 0,
+        "explanation": "Le schéma standard de 6 mois (2 mois quadrithérapie RHZE puis 4 mois bithérapie HR) reste le traitement de référence de la tuberculose pulmonaire sensible de l'adulte. Le schéma plus court de 4 mois contenant rifapentine et moxifloxacine est réservé à certaines situations selon les recommandations OMS et le protocole national. Une monothérapie expose à la résistance ; une bêta-lactamine n'a aucun effet sur M. tuberculosis."
+      }
+    ],
+    "diagnosis": "Tuberculose pulmonaire présumée BAAR+ (toux > 2 semaines, contage familial, infiltrats apicaux bilatéraux, syndrome inflammatoire modéré), forme de l'adulte probablement sensible à confirmer par microscopie et test moléculaire.",
+    "management": "Confirmation par deux crachats (microscopie ± Xpert MTB/RIF), déclaration au Programme national de lutte antituberculeuse, mise en route du traitement 2 RHZE / 4 HR avec observation directe du traitement si possible, information et dépistage des contacts domiciliaires (dont les enfants), recherche du VIH et du diabète, supplémentation nutritionnelle, éducation : couvrir la bouche quand elle tousse, aérer, ne pas arrêter le traitement malgré l'amélioration à 2-3 mois.",
+    "pitfall": "Deux antibiotiques achetés en pharmacie et une radio « pas de cavité » ne rassurent pas : la tuberculose peut être paucibacillaire et l'image infiltrative des sommets suffit à suspecter. Ne jamais traiter sans confirmation ni déclaration — le patient repart porteur d'une maladie transmissible, et une monothérapie improvisée crée une résistance que l'on ne retrouve qu'au test moléculaire.",
+    "keyTakeaway": "Toux > 2 semaines + sueurs nocturnes + amaigrissement + contage en pays d'endémie = tuberculose pulmonaire jusqu'à preuve du contraire : deux crachats pour la microscopie ± Xpert MTB/RIF, puis 2 RHZE / 4 HR avec dépistage des contacts et déclaration.",
+    "related": {
+      "pathologySlugs": [
+        "tuberculose"
+      ],
+      "deckIds": [
+        "infectio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO operational handbook on tuberculosis, Module 4: treatment, Genève, 2022.",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2022,
+        "url": "https://www.who.int/publications/i/item/9789240063020"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO consolidated guidelines on tuberculosis, Module 3: diagnosis, Genève, 2021.",
+        "organization": "OMS",
+        "year": 2021
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "NEPHRO-IRA-001",
+    "title": "Plus d'urine depuis deux jours",
+    "specialty": "Néphrologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 65 ans, diarrhée et vomissements depuis 3 jours, AINS automédiqués, puis absence d'urine.",
+    "patient": {
+      "age": 65,
+      "sex": "M",
+      "context": "Hypertendu traité par ramipril et furosémide, diabète de type 2. Vivant seul à Fianarantsoa, hydratation réduite pendant la diarrhée."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Diarrhée liquidienne et vomissements depuis 3 jours. Les urines sont devenues rares depuis 24 heures, quasi absentes ce matin. Prise de diclofénac (anti-inflammatoire acheté en pharmacie) pendant 2 jours pour les douleurs abdominales."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 96/58 couché, FC 102, FR 18, langue sèche, pli cutané persistant, yeux creux, pas de marbrures ni de cyanose. Abdomen souple, sensible sans défense. Pas d'œdème. Globe vésical absent. La sonde vésicale posée aux urgences ramène 40 mL d'urines foncées."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Créatinine 520 µmol/L (dossier antérieur il y a 6 mois : 96 µmol/L). Urée 28 mmol/L. K+ 6,3 mmol/L, Na+ 133 mmol/L. Hb 12,1 g/dL. Gaz du sang : pH 7,18, HCO3- 12 mmol/L. ECBU : pas de leucocyturie. Échographie : deux reins de taille normale, pas de dilatation des voies urinaires."
+      },
+      {
+        "kind": "reveal",
+        "title": "ECG",
+        "body": "Rythme sinusal à 100/min. Ondes T amples et pointues dans les précordiales, QRS élargi à 120 ms, discrète onde P invisible en II."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le mécanisme principal de cette insuffisance rénale est :",
+        "choices": [
+          "Fonctionnel (prérénal) sur déplétion volémique aggravée par les AINS, sur un double traitement néphrotoxique",
+          "Obstructif par hypertrophie prostatique",
+          "Glomérulonéphrite aiguë post-infectieuse",
+          "Insuffisance rénale chronique terminale connue"
+        ],
+        "correct": 0,
+        "explanation": "Diarrhée + vomissements = déplétion volémique ; ramipril (blocage de l'angiotensine II) et furosémide altèrent l'autorégulation ; un AINS inhibe la vasodilatation prostaglandine-dépendante de l'artériole afférente. Ensemble, ces facteurs provoquent une nécrose tubulaire aiguë ischémique (insuffisance rénale aiguë fonctionnelle dépassée). La créatinine de base normale il y a 6 mois, l'absence de dilatation et la vessie vide écartent l'obstacle et la chronicité ; pas de syndrome néphritique."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'urgence immédiate, avant tout autre geste, est :",
+        "choices": [
+          "Traitement de l'hyperkaliémie : gluconate de calcium IV pour stabiliser le myocarde, puis insuline + dextrose, arrêt des néphrotoxiques et remplissage prudent",
+          "Furosémide à forte dose d'emblée",
+          "Antibiothérapie probabiliste large spectre",
+          "Bicarbonate de sodium seul à forte dose"
+        ],
+        "correct": 0,
+        "explanation": "K+ à 6,3 mmol/L avec ondes T pointues et QRS élargi = hyperkaliémie menaçante : le calcium IV protège le cœur en quelques minutes, l'insuline-dextrose fait transférer le potassium vers les cellules. Le furosémide est peu efficace sur un rein hypoperfusé ; le bicarbonate seul n'est pas le traitement de première intention de l'hyperkaliémie ; il n'y a pas d'argument infectieux."
+      },
+      {
+        "kind": "question",
+        "prompt": "La conduite la plus adaptée pour les médicaments est :",
+        "choices": [
+          "Arrêter immédiatement l'AINS, le ramipril et le furosémide, reprendre les antihypertenseurs seulement après récupération rénale",
+          "Poursuivre tous les traitements à doses identiques",
+          "Doubler la dose de furosémide pour « forcer » la diurèse",
+          "Remplacer le ramipril par un autre IEC"
+        ],
+        "correct": 0,
+        "explanation": "Le triptyque déplétion + IEC/ARI + AINS est la cause : on arrête tout agent néphrotoxique ou hémodynamiquement actif sur le rein, on restaure la volémie prudemment (diabétique, âgé : réévaluation clinique régulière, voire contrôle échographique si besoin). Les antihypertenseurs reprennent secondairement, une fois la fonction rénale récupérée."
+      }
+    ],
+    "diagnosis": "Insuffisance rénale aiguë oligurique sur nécrose tubulaire aiguë ischémique (mécanisme fonctionnel dépassé) : déplétion volémique sur gastro-entérite, IEC + diurétique, automédication par AINS, avec hyperkaliémie à 6,3 mmol/L avec signes ECG et acidose métabolique.",
+    "management": "Urgence hospitalière : monitorage ECG continu, calcium IV (stabilisation myocardique), insuline rapide + dextrose, résine échangeuse si disponible, arrêt des néphrotoxiques (AINS, IEC, diurétique), remplissage prudent par NaCl 0,9 % avec réévaluation clinique régulière, contrôle de la kaliémie et de l'ECG à 1-2 heures, arrêt temporaire de la metformine, contrôle glycémique, éviction de tout contraste iodé, réévaluation du besoin de dialyse (hyperkaliémie réfractaire, acidose profonde, surcharge ou urée majeure), éducation à la renonciation aux AINS automédiqués pendant les épisodes de déshydratation.",
+    "pitfall": "Ne pas confondre « pas d'urines » et « vessie pleine » : la sonde vide écarte l'obstruction, et un furosémide donné à tort peut faire croire à une réponse diurétique alors qu'il aggrave l'hypoperfusion. Autre piège : l'hyperkaliémie peut être asymptomatique quelques heures puis tuer — l'ECG précède la douleur et l'alerte clinique doit partir de l'ionogramme, pas de la plainte du patient.",
+    "keyTakeaway": "Diarrhée + IEC + AINS = insuffisance rénale aiguë fonctionnelle dépassée jusqu'à preuve du contraire. L'hyperkaliémie ECG se traite avant le diagnostic étiologique : calcium IV d'abord, insuline-dextrose ensuite, néphrotoxiques arrêtés immédiatement.",
+    "related": {
+      "pathologySlugs": [
+        "insuff-renale-chronique",
+        "infections-urinaires"
+      ]
+    },
+    "sources": [
+      {
+        "title": "KDIGO",
+        "citation": "KDIGO Clinical Practice Guideline for Acute Kidney Injury, Kidney International Supplements 2012;2:1-138.",
+        "organization": "KDIGO",
+        "year": 2012
+      },
+      {
+        "title": "OMS",
+        "citation": "Potassium intake, hypertension and cardiovascular disease risk : WHO guideline, 2023.",
+        "organization": "OMS",
+        "year": 2023
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "HEME-ANEMIE-001",
+    "title": "Fatigue depuis des mois",
+    "specialty": "Hématologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 24 ans, asthénie majeure, essoufflement à l'étage, règles abondantes depuis 8 mois.",
+    "patient": {
+      "age": 24,
+      "sex": "F",
+      "context": "Étudiante à Toamasina, régime quasi végétarien sans viande rouge, thé après chaque repas."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fatigue croissante depuis 8 mois, essoufflement à la montée des escaliers, vertiges quand elle se lève vite. Règles très abondantes (ménorragies) depuis la pose d'un stérilet en cuivre il y a un an, durant 7 à 8 jours chaque mois."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Pâleur cutanéo-muqueuse nette (conjunctives, paumes sans teinte rose). TA 100/62, FC 98, FR 16. Pas de souffle cardiaque pathologique, pas d'hépatosplénomégalie, pas de purpura, pas de glossite ni d'onychorrhixe franche."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "Hb 7,9 g/dL, VGM 66 fL, CCMH 29 %, réticulocytes 45 000/mm³ (faibles au regard de l'anémie). Ferritine 4 µg/L, fer sérique bas, CRP normale. Leucocytes et plaquettes normaux. Pas de saignement digestif rapporté."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le syndrome biologique est :",
+        "choices": [
+          "Anémie microcytaire hypochrome arégénérative, compatible avec une carence martiale profonde",
+          "Anémie macrocytaire régénérative par carence en B12",
+          "Anémie hémolytique à réticulocytes élevés",
+          "Syndrome myélodysplasique du sujet jeune"
+        ],
+        "correct": 0,
+        "explanation": "VGM 66 fL et CCMH effondrée = microcytose hypochrome ; réticulocytes non augmentés = arégénérative ; ferritine à 4 µg/L signe la carence martiale profonde (la ferritine est le marqueur le plus précoce et le plus spécifique en l'absence d'inflammation — CRP normale ici). Une hémolyse donnerait des réticulocytes élevés ; une carence B12 une macrocytose."
+      },
+      {
+        "kind": "question",
+        "prompt": "La cause la plus probable de la carence ici est :",
+        "choices": [
+          "Saignements gynécologiques chroniques (ménorragies sur stérilet) sur apports martiaux réduits",
+          "Malabsorption intestinale isolée",
+          "Hémorragie digestive occulte haute certaine",
+          "Anémie inflammatoire chronique"
+        ],
+        "correct": 0,
+        "explanation": "Le stérilet en cuivre est une cause classique de ménorragies, et les pertes menstruelles chroniques épuisent les réserves ; s'y ajoutent des apports faibles (pas de viande rouge) et le thé qui inhibe l'absorption du fer. L'anémie inflammatoire élève la ferritine (ici effondrée) ; une cause digestive doit être recherchée selon le contexte mais rien ne l'impose d'emblée chez cette patiente."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge correcte est :",
+        "choices": [
+          "Fer oral (sels ferreux) à dose efficace, à jeun ou avec un aliment non inhibiteur, poursuite 3 mois après correction de l'hémoglobine, ET traitement de la cause (prise en charge des ménorragies)",
+          "Transfusion systématique en première intention",
+          "Fer en injection intraveineuse d'emblée chez tous",
+          "Acide folique seul, sans fer"
+        ],
+        "correct": 0,
+        "explanation": "Hb à 7,9 g/dL bien tolérée chez une jeune femme : correction orale (60-80 mg de fer élémentaire/jour en prises espacées), poursuivie 3 mois après normalisation de l'Hb pour reconstituer les réserves (ferritine). Traiter la cause est indispensable sinon la carence récidive. La transfusion est réservée à l'intolérance ou Hg < 7 g/dL selon contexte ; le IV est réservé à l'échec/contre-indication/intolérance digestive ou nécessité de reconstitution rapide. Le folate ne corrige pas une carence martiale."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'évolution attendue sous traitement bien conduit est :",
+        "choices": [
+          "Réticulocytose vers J7-10, Hb qui monte d'environ 1 g/dL par 2 à 3 semaines",
+          "Normalisation de l'Hb en une semaine",
+          "Aucune modification avant 2 mois",
+          "Baisse de l'Hb sous fer oral"
+        ],
+        "correct": 0,
+        "explanation": "Le premier signe d'efficacité est la réticulocytose (J7-10), puis la remontée de l'hémoglobine d'environ 1 g/dL toutes les 2-3 semaines. L'absence de réponse doit faire reconsidérer l'observance (le fer oral est mal toléré : teintes noires, nausées), une cause non traitée, un dosage insuffisant ou un autre diagnostic."
+      }
+    ],
+    "diagnosis": "Anémie ferriprive profonde (Hb 7,9 g/dL, VGM 66 fL, ferritine 4 µg/L, arégénérative) par ménorragies chroniques sur stérilet en cuivre, aggravée par une alimentation pauvre en fer et la consommation de thé.",
+    "management": "Sels ferreux oraux à dose efficace (60-80 mg de fer élémentaire par jour, en une ou deux prises espacées, à distance du thé et des aliments inhibiteurs), poursuite 3 mois après normalisation de l'hémoglobine avec contrôle de la ferritine, prise en charge gynécologique des ménorragies (discussion du stérilet), conseils diététiques (sources de fer, association vitamine C), éducation sur la coloration noire des selles et l'observance, contrôle de l'Hb à 1 mois (absence de progression = réévaluer cause et diagnostic), recherche systématique d'une autre source de saignement si l'évolution est défavorable.",
+    "pitfall": "Ne jamais traiter une anémie microcytaire sans chercher la cause : une carence martiale chez un homme ou une femme ménopausée est un cancer digestif jusqu'à preuve du contraire. Chez cette patiente, le piège inverse existe : arrêter le fer dès la normalisation de l'Hb laisse les réserves vides (ferritine basse) et la carence récidive en quelques mois.",
+    "keyTakeaway": "Microcytose + ferritine effondrée = carence martiale ; réticulocytes bas = régénération insuffisante. Traiter le fer ET la cause, poursuivre 3 mois après la normalisation de l'Hb ; l'efficacité se surveille d'abord sur la réticulocytose à J7-10.",
+    "related": {
+      "pathologySlugs": [
+        "anemies-hypochromes"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Guidance on iron and folic acid supplementation for non-pregnant adolescents and women, Genève, 2020.",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2020,
+        "url": "https://www.who.int/publications/i/item/9789240015026"
+      },
+      {
+        "title": "OMS",
+        "citation": "Haemoglobin concentrations for the diagnosis of anaemia and assessment of severity, Genève, 2011.",
+        "organization": "OMS",
+        "year": 2011
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "INF-MENINGITE-001",
+    "title": "Fièvre et nuque raide chez un étudiant",
+    "specialty": "Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 19 ans, fièvre à 39,8 °C, céphalées intenses et vomissements depuis 12 heures, purpura apparu ce matin.",
+    "patient": {
+      "age": 19,
+      "sex": "M",
+      "context": "Étudiant en cité universitaire à Antananarivo, vaccination anti-méningococcique inconnue, plusieurs cas de fièvre dans l'entourage proche récent."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Céphalées brutales et intenses depuis la veille au soir, fièvre à 39,8 °C, vomissements en jet, photophobie. Ce matin, apparition de taches violacées sur les jambes qui ne s'effacent pas à la pression. Confusion légère constatée par son voisin de chambre."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 92/54, FC 118/min, FR 24/min, température 39,8 °C, SpO2 96 %. Confusion temporo-spatiale, nuque raide, signe de Kernig positif. Purpura pétéchial des membres inférieurs ne s'effaçant pas à la vitropression. Pas de signe de focalisation : pas d'anisocorie, pas de déficit moteur, patient mobilisable."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie / LCR",
+        "body": "Leucocytes 22 000/mm³ à 90 % de polynucléaires neutrophiles, CRP 210 mg/L, plaquettes 88 000/mm³. Hémocultures prélevées. LCR trouble : 4 200 éléments/mm³ à prédominance de PNN, protéinorachie 2,8 g/L, glycorachie 1,1 mmol/L pour une glycémie à 5,6 mmol/L. Examen direct en cours."
+      },
+      {
+        "kind": "question",
+        "prompt": "Devant ce purpura fébrile ne s'effaçant pas à la vitropression, la première action est :",
+        "choices": [
+          "Ceftriaxone ou céfotaxime IV immédiate, avant tout examen complémentaire, avec remplissage vasculaire",
+          "Attendre l'examen direct du LCR avant d'antibiotiquer",
+          "Scanner céréral d'abord systématiquement",
+          "Paracétamol seul et surveillance"
+        ],
+        "correct": 0,
+        "explanation": "Un purpura fébrile est une urgence thérapeutique absolue : l'antibiothérapie IV doit être administrée dans la minute, avant même la PL ou le scanner, devant l'instabilité hémodynamique. Le purpura fulminans (méningocoque) tue en quelques heures ; chaque minute sans antibiotique augmente la mortalité."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'analyse du LCR décrit ici correspond à :",
+        "choices": [
+          "Méningite bactérienne purulente : hypercytose à PNN, protéinorachie élevée, glycorachie effondrée",
+          "Méningite virale : lymphocytes, glycorachie normale",
+          "Hémorragie sous-arachnoïdienne",
+          "Méningite tuberculeuse typique"
+        ],
+        "correct": 0,
+        "explanation": "4 200 éléments à prédominance de PNN avec protéinorachie élevée et glycorachie effondrée est le profil bactérien typique. La méningite virale donne un LCR clair, lymphocytaire, à glycorachie normale ; l'hémorragie donne un LCR hémorragique ; la tuberculose évolue de façon subaiguë avec lymphocytes et hypoglycorachie."
+      },
+      {
+        "kind": "question",
+        "prompt": "En plus du traitement du patient, la mesure de santé publique indispensable est :",
+        "choices": [
+          "Chimioprophylaxie des contacts proches dès la suspicion, information de la collectivité et déclaration obligatoire",
+          "Rien : la maladie n'est pas contagieuse",
+          "Fermeture de l'université pour un mois",
+          "Vaccination de tous les contacts seulement après l'examen direct"
+        ],
+        "correct": 0,
+        "explanation": "Le méningocoque se transmet par gouttelettes et contacts proches ; la vie en collectivité crée un risque épidémique. La chimioprophylaxie des contacts étroits (rifampicine, ciprofloxacine ou céftriaxone selon le protocole national) doit être mise en œuvre dès la suspicion, sans attendre le germe, avec déclaration obligatoire aux autorités sanitaires."
+      },
+      {
+        "kind": "question",
+        "prompt": "Au décours, l'élément qui améliore le plus le pronostic neurologique si un pneumocoque est suspecté est :",
+        "choices": [
+          "La dexaméthasone administrée juste avant ou avec la première dose d'antibiotique",
+          "La corticothérapie débutée après 24 heures",
+          "Un anticoagulant systématique",
+          "L'absence de toute corticothérapie"
+        ],
+        "correct": 0,
+        "explanation": "Chez l'adulte avec suspicion de méningite à pneumocoque, la dexaméthasone administrée avant ou avec la première dose d'antibiotique réduit les séquelles neurologiques et la mortalité ; donnée après 24 heures, elle perd son bénéfice. Elle n'est pas systématique dans toutes les formes, selon le germe suspecté et le protocole national."
+      }
+    ],
+    "diagnosis": "Méningite bactérienne purulente avec purpura fulminans débutant (probable méningocoque) : syndrome méningé fébrile, purpura pétéchial, LCR à prédominance de PNN, glycorachie effondrée, syndrome inflammatoire majeur.",
+    "management": "Antibiothérapie IV immédiate (ceftriaxone ou céfotaxime aux doses méningées) devant le purpura, hémocultures puis PL déjà réalisées, dexaméthasone selon le germe suspecté et le protocole national, remplissage et soutien hémodynamique, surveillance en unité de soins intensifs, isolement gouttelettes jusqu'à 24 heures d'antibiothérapie. Déclaration obligatoire et chimioprophylaxie immédiate des contacts proches, information de la collectivité, vaccination de rattrapage selon les recommandations locales.",
+    "pitfall": "Le piège du scanner systématique : devant un purpura fébrile ou une méningite grave, l'imagerie ne doit jamais retarder l'antibiotique — le scanner ne sert qu'en cas de signes de focalisation ou de trouble de conscience profond, et l'antibiothérapie précède alors la PL. L'autre piège : attendre l'examen direct pour traiter, alors que le méningocoque tue en quelques heures.",
+    "keyTakeaway": "Purpura fébrile + nuque raide = méningocoque jusqu'à preuve du contraire, ceftriaxone IV dans la minute, avant tout examen. LCR à PNN avec glycorachie effondrée = méningite bactérienne. Ne jamais oublier la santé publique : chimioprophylaxie des contacts et déclaration obligatoire, sans attendre le germe.",
+    "related": {
+      "pathologySlugs": [
+        "meningites-purulentes"
+      ],
+      "deckIds": [
+        "infectio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "Defeating meningitis by 2030: global roadmap, Genève, 2020.",
+        "organization": "OMS",
+        "year": 2020,
+        "url": "https://www.who.int/publications/i/item/9789241546081",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "IDSA",
+        "citation": "Tunkel et al. — Practice Guidelines for the Management of Bacterial Meningitis, Clinical Infectious Diseases 2004;39:1267-84.",
+        "organization": "IDSA",
+        "year": 2004
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "PNEUMO-BPCO-001",
+    "title": "Souffle court et crachats verts",
+    "specialty": "Pneumologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 66 ans, BPCO ancien, majoration de la dyspnée et des crachats purulents depuis 4 jours.",
+    "patient": {
+      "age": 66,
+      "sex": "M",
+      "context": "Ancien mineur, tabagique à 45 PA, BPCO sévère connue, oxygène de domicile non observé, plusieurs exacerbations l'an dernier. Vivant à Ambatovy, saison fraîche et humide."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 4 jours : toux plus intense, crachats jaune-vert plus abondants, essoufflement nettement majoré au moindre effort, sifflements habituels plus présents, réveils nocturnes pour respirer. Deux bouffées de salbutamol par jour habituellement, inefficaces depuis 2 jours."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Émacié, respirant à lèvres pincées, speech haché. TA 132/74, FC 104/min, FR 26/min, SpO2 86 % en air, 90 % sous 2 L/min d'oxygène. Auscultation : sibilants diffus, expiration allongée, ronflements, crépitants aux bases. Pas d'œdème, pas de turgescence jugulaire nette. Pas de fièvre mesurée à 37,9 °C."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "CRP 68 mg/L, leucocytes 13,2 G/L. Radio thoracique : hyperinflation, pas de foyer alvéolaire, pas d'épanchement, cœur étiré. Gaz du sang sous 2 L d'O2 : pH 7,36, PaO2 58 mmHg, PaCO2 52 mmHg, HCO3- 28 mmol/L. ECG sinusal, pas de signe d'ischémie aiguë."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le tableau est :",
+        "choices": [
+          "Exacerbation de BPCO sur infection des voies respiratoires, hypoxémiante, sans détresse majeure",
+          "Pneumonie communautaire lobaire",
+          "Insuffisance cardiaque gauche aiguë",
+          "Pneumothorax spontané"
+        ],
+        "correct": 0,
+        "explanation": "Le triade d'Anthonisen (majoration de la dyspnée, du volume des expectorations, purulence) définit une exacerbation probablement d'origine infectieuse de BPCO. La radio sans foyer et l'absence de tableau cardiaque ou de décollement écartent les autres diagnostics ; la rétention modérée de CO2 est habituelle dans les BPCO sévères."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge de l'exacerbation comprend :",
+        "choices": [
+          "Bronchodilatateurs de courte durée, corticoïde systémique 5 jours, antibiothérapie ciblée sur la purulence, oxygène titré vers SpO2 88-92 %",
+          "Oxygène haut débit sans mesure de la SpO2 pour remonter à 99 %",
+          "Corticoïde seul sans bronchodilatateur",
+          "Diurétique IV d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Bronchodilatateurs, corticoïde systémique et antibiothérapie (si purulence ou CRP élevée) sont le socle du traitement. L'oxygène est titré vers une cible 88-92 % : une hyperoxie aggrave l'hypercapnie en supprimant le stimulus hypoxique et en majorant le piégeage. Le diurétique n'a pas d'indication sans surcharge droite documentée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si le patient s'épuise : somnolence, PaCO2 qui monte à 68 mmHg, pH 7,28, la conduite est :",
+        "choices": [
+          "Ventilation non invasive (VNI) en biphasique en milieu surveillé, avec réévaluation horaire",
+          "Intubation immédiate sans essai de VNI",
+          "Sédatif pour l'agitation du patient",
+          "Augmenter seul l'oxygène à haut débit"
+        ],
+        "correct": 0,
+        "explanation": "L'acidose respiratoire (pH < 7,35) avec hypercapnie de l'exacerbation de BPCO est l'indication élective de la VNI, qui réduit l'intubation et la mortalité dans cette indication. La sédation est dangereuse (dépression respiratoire) ; l'oxygène seul aggrave la rétention ; l'intubation se réserve à l'échec de la VNI ou à la contre-indication."
+      },
+      {
+        "kind": "question",
+        "prompt": "À distance, la mesure qui réduit le mieux le risque d'exacerbation suivante est :",
+        "choices": [
+          "Arrêt du tabac, réhabilitation respiratoire, vaccinations (grippe, pneumocoque) et observance du traitement de fond inhalé",
+          "Antibiotique continu au long cours",
+          "Corticoïdes oraux en continu",
+          "Aucune mesure : les exacerbations sont inévitables"
+        ],
+        "correct": 0,
+        "explanation": "Le sevrage tabagique est la seule mesure qui modifie l'histoire naturelle de la maladie ; la réhabilitation et la vaccination réduisent significativement les exacerbations. L'antibiothérapie continue sélectionne des résistances, la corticothérapie orale au long cours expose à la myopathie et aux infections, et l'oxygène de longue durée n'est indiqué que selon les critères d'hypoxémie chronique."
+      }
+    ],
+    "diagnosis": "Exacerbation aiguë de BPCO sur infection des voies respiratoires, hypoxémiante, avec hypercapnie modérée compensée, sans détresse respiratoire majeure au stade actuel.",
+    "management": "Hospitalisation : oxygène titré vers SpO2 88-92 %, bronchodilatateurs nébulisés, corticoïde systémique 5 jours, antibiothérapie devant la purulence et la CRP, surveiller conscience, SpO2 et gaz du sang ; VNI si acidose respiratoire. Sortie : plan inhalateurs vérifiés, réhabilitation programmée, vaccinations à jour, arrêt du tabac, suivi pneumologique et contrôle à 2-4 semaines.",
+    "pitfall": "Le piège de l'oxygène : monter la SpO2 à 99 % chez le BPCO hypercapnique peut précipiter le coma hypercapnique. Cible 88-92 %, gaz du sang de contrôle. Autre piège : banaliser une exacerbation répétée sans chercher le facteur déclenchant ni renforcer le traitement de fond après la crise.",
+    "keyTakeaway": "Exacerbation de BPCO = bronchodilatateur + corticoïde court + antibiotique si purulence, oxygène titré à 88-92 %. Acidose respiratoire : VNI d'emblée en milieu surveillé. La prévention est hors crise : sevrage, réhabilitation, vaccins.",
+    "related": {
+      "pathologySlugs": [
+        "bpco"
+      ],
+      "deckIds": [
+        "semio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "GOLD",
+        "citation": "Global Strategy for the Diagnosis, Management and Prevention of COPD, rapport 2025.",
+        "organization": "GOLD",
+        "year": 2025,
+        "url": "https://goldcopd.org/2025-gold-report/",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "OMS",
+        "citation": "Chronic obstructive pulmonary disease (COPD) — fact sheet, 2024.",
+        "organization": "OMS",
+        "year": 2024
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "CARDIO-HTA-001",
+    "title": "Tension haute et mal de tête",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 52 ans, céphalées et phosphènes, TA à 210/124 aux deux bras, jamais suivie.",
+    "patient": {
+      "age": 52,
+      "sex": "F",
+      "context": "Marchande ambulante, HTA découverte il y a 3 ans mais jamais traitée, prise de « tisanes » et de rhumeau. Ménopause il y a 2 ans. Excès de sel : bouillon cubes quotidien."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Céphalées postérieures avec phosphènes et bourdonnements d'oreille depuis 3 jours, sans déficit ni trouble de la parole. Aucun antécédent cardiaque, pas de douleur thoracique, pas de dyspnée. Rien de particulier au réveil sinon la persistance des céphalées."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 210/124 aux deux bras confirmée après 10 minutes de repos, FC 82/min régulière, pas de souffle abdominal ni fémoral, pouls périphériques présents et symétriques. Pas d'œdème, pas de crépitants. Fond d'œil : rétrécissement artériolaire diffus, quelques hémorragies flammées, pas de œdème papillaire. Reste de l'examen neurologique normal, Glasgow 15."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "ECG : sinusal, hypertrophie ventriculaire gauche (indice de Sokolow positif). Créatinine 92 µmol/L, pas de protéinurie significative à la bandelette, pas d'hématurie. Hb 12,4 g/dL. Glycémie 1,04 g/L. Échographie cardiaque disponible en ville la semaine suivante. Pas de kaliémie en urgence."
+      },
+      {
+        "kind": "question",
+        "prompt": "La situation est :",
+        "choices": [
+          "Urgence hypertensive : TA ≥ 180/110 avec souffrance d'organe débutante (rétinopathie hypertensive, HVG), sans atteinte vitale immédiate",
+          "Poussée tensionnelle simple sans aucun risque",
+          "HTA maligne avec insuffisance rénale avérée",
+          "Crise hypertensive paroxystique du phéochromocytome certain"
+        ],
+        "correct": 0,
+        "explanation": "TA ≥ 180/110 avec signe de souffrance d'organe (rétinopathie à hémorragies, HVG électrique) définit une urgence hypertensive, à traiter en milieu hospitalier avec baisse contrôlée. L'HTA maligne s'accompagne classiquement d'insuffisance rénale et de protéinurie sévères avec œdème papillaire ; le phéochromocytome est une cause rare à rechercher si paroxysmes avec sueurs et palpitations."
+      },
+      {
+        "kind": "question",
+        "prompt": "La vitesse de baisse tensionnelle adaptée ici est :",
+        "choices": [
+          "Réduction progressive sur 24-48 heures vers un objectif autour de 160/100 le premier jour, avec antihypertenseur oral ou IV titré",
+          "Normalisation à 120/80 en moins d'une heure",
+          "Baisse de moitié de la TA dans la première heure",
+          "Attendre l'échographie cardiaque avant tout traitement"
+        ],
+        "correct": 0,
+        "explanation": "Une baisse brutale de la pression de perfusion cérébrale chez un patient à autoregulation déplacée expose à l'ischémie cérébrale et coronarienne, voire au décès. La baisse se fait de façon contrôlée sur 24-48 heures, pas de normalisation en urgence, sauf dissection aortique ou HTA de la grossesse (baisse rapide nécessaire)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de première ligne de cette urgence hypertensive est :",
+        "choices": [
+          "Antihypertenseur oral titré (ex. inhibiteur calcique) avec monitorage hospitalier et réévaluation rapprochée",
+          "Nitroprussiate de sodium en IVSE à forte dose",
+          "Furosémide IV à haute dose seul",
+          "Antalgique seul et sortie le soir même"
+        ],
+        "correct": 0,
+        "explanation": "L'urgence hypertensive sans complication immédiatement vitale se traite par voie orale titrée sous surveillance hospitalière (inhibiteur calcique, IEC selon la fonction rénale et la kaliémie). Les antihypertenseurs IV puissants sont réservés aux urgences vitales (dissection, encéphalopathie, œdème pulmonaire). Le furosémide ne traite pas une HTA sans surcharge, et la sortie sans traitement ni plan de suivi serait une faute."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après stabilisation, la clé du pronostic à long terme est :",
+        "choices": [
+          "Observance d'un traitement de fond adapté avec suivi régulier, réduction du sel, et recherche des causes secondaires et du diabète",
+          "Poursuite des tisanes seules",
+          "Un unique contrôle tensionnel à un mois, puis plus rien",
+          "Régime sans sucre seul"
+        ],
+        "correct": 0,
+        "explanation": "L'HTA est une maladie chronique : le pronostic dépend de l'observance au long cours, de la réduction du sel (le bouillon industriel est très riche en sodium), de la perte de poids si besoin, et du dépistage du diabète et des atteintes d'organes (fond d'œil, ECG/HVG, fonction rénale, protéinurie). Un traitement intermittent par « cures » ne protège ni le cerveau ni le rein."
+      }
+    ],
+    "diagnosis": "Urgence hypertensive sur HTA essentielle anciennement connue mais jamais traitée : TA 210/124, rétinopathie hypertensive (hémorragies flammées), hypertrophie ventriculaire gauche électrique, sans insuffisance rénale ni atteinte neurologique focale.",
+    "management": "Hospitalisation courte : baisse tensionnelle progressive sur 24-48 heures par antihypertenseur oral titré (inhibiteur calcique ; IEC après kaliémie et créatinine), monitorage, fond d'œil et bilan d'atteinte d'organe (ECG, créatinine, protéinurie, glycémie), échographie cardiaque. Sortie : bithérapie si besoin, éducation (sel, observance, auto-mesures), suivi mensuel jusqu'à contrôle, dépistage du diabète, et plan écrit des signes devant faire reconsulter.",
+    "pitfall": "Le piège de la baisse trop rapide : chez l'hypertendu ancien, l'autorégulation cérébrale est décalée vers le haut ; normaliser la tension en une heure peut provoquer un AVC ischémique iatrogène. L'autre piège : traiter la crise et oublier le fond — sans traitement au long cours et réduction du sel, la récidive est la règle.",
+    "keyTakeaway": "TA ≥ 180/110 + souffrance d'organe (fond d'œil, HVG) = urgence hypertensive : baisse progressive sur 24-48 heures, jamais de normalisation en urgence. Le fond de la prise en charge est la observance du traitement, le sel et le suivi — la crise n'est que le symptôme.",
+    "related": {
+      "pathologySlugs": [
+        "hta-essentielle"
+      ],
+      "deckIds": [
+        "cardio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO Guideline for the pharmacological treatment of hypertension in adults, Genève, 2021.",
+        "organization": "OMS",
+        "year": 2021,
+        "url": "https://www.who.int/publications/i/item/9789240033986",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "ESC",
+        "citation": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension, European Heart Journal 2024;45:3912-4018.",
+        "organization": "ESC",
+        "year": 2024
+      }
+    ],
+    "access": "pro"
   }
 ]
