@@ -637,3 +637,51 @@ définition (structure des fiches, niveau de détail, sources, etc.).
   - `src/content/data/signes/mock.json` (données factices)
 - **Navigation** : Ajouté dans `src/lib/navigation.ts` (groupe "S'entraîner").
 - **⚠️ CONTENU MÉDICAL** : Ne PAS générer de cas cliniques réels, de triades ou de syndromes. Données de démonstration uniquement. Même consigne que le reste du contenu médical.
+
+---
+
+## 🖼️ RÈGLES SPÉCIFIQUES — MODULE IMAGERIE
+
+Ces règles s'ajoutent aux règles médicales générales et les renforcent pour l'imagerie radiologique.
+
+### Sources autorisées (liste fermée)
+
+| Source | Licence | Usage commercial | Vérification |
+|---|---|---|---|
+| **NIH Visible Human** | Domaine public | ✅ Oui | Aucune |
+| **MedPix (NLM)** | Variable (souvent CC BY) | ✅ Si marquée CC BY | Lire l'onglet "Licensing" de CHAQUE image |
+| **Open-i (NLM)** | Variable (souvent CC BY-NC-ND) | ❌ Souvent interdit | Filtrer par licence AVANT usage |
+| **Public Health Image Library (CDC)** | Domaine public | ✅ Oui | Aucune |
+| **Zenodo (datasets CC0)** | CC0 1.0 | ✅ Oui | Vérifier la mention CC0 |
+| **Wikimedia Commons** | Variable | ✅ Si CC BY/CC0 | Vérifier chaque fichier |
+
+### Sources INTERDITES (jamais, même avec attribution)
+
+- ❌ **Radiopaedia** (CC BY-NC-SA = interdit commercial)
+- ❌ **Images de manuels** (HAS, Elsevier, MedG)
+- ❌ **UWorld, Amboss** (copyright strict)
+- ❌ **Google Images** (aucune vérification de licence)
+- ❌ **Articles sans vérification explicite de licence ouverte**
+
+### Garde-fous médicaux (renforcés pour l'imagerie)
+
+1. **Aucun diagnostic définitif dans le texte** : "évoque", "compatible avec", jamais "diagnostic de…".
+2. **Aucune posologie** dans les cas cliniques d'imagerie.
+3. **Toujours citer** : source de l'image + licence + référentiel du signe radiologique (SFR, HAS, collèges).
+4. **Disclaimer obligatoire** dans chaque fiche : "Contenu pédagogique, ne remplace pas le jugement clinique. Toute anomalie doit être confirmée par un radiologue."
+5. **Pas d'images de patients identifiables** (anonymisation vérifiée).
+6. **Champ `reviewedBy`** obligatoire avant publication (nom + date du relecteur médical humain).
+
+### Ce que l'agent IMAGING ne fait JAMAIS
+
+- ❌ Copier une image sans vérifier sa licence
+- ❌ Décrire un signe sans le relier à une source
+- ❌ Inventer une prévalence ou une statistique
+- ❌ Publier une fiche sans `reviewedBy` renseigné
+- ❌ Utiliser une image de patient identifiable
+
+### Collaboration
+
+- **medx** produit le contenu et le JSON
+- **devx** crée les composants de rendu (viewer d'image, zoom, annotations)
+- **Un humain (toi ou un interne)** valide les signes radiologiques
