@@ -3352,87 +3352,90 @@
     "access": "pro"
   },
   {
-    "id": "TROP-SERPENT-001",
-    "title": "Morsure de serpent au bord du champ",
-    "specialty": "Urgences / Médecine tropicale",
+    "id": "TROP-PALU-002",
+    "title": "Enfant fiévreux qui ne se réveille plus",
+    "specialty": "Pédiatrie / Infectiologie",
     "studyYear": 5,
     "difficulty": "advanced",
-    "summary": "Riziculteur de 28 ans mordu au pied il y a 3 heures par un serpent nocturne, œdème douloureux remontant à la jambe, saignement de la plaie.",
+    "summary": "Garçon de 5 ans, fièvre depuis 3 jours, convulsion puis coma au retour de la côte Est ; TDR paludisme positif.",
     "patient": {
-      "age": 28,
+      "age": 5,
       "sex": "M",
-      "context": "Riziculteur dans la région d'Ambositra, travaillait pieds nus au bord de la rizière au crépuscule. Le serpent, brun, n'a pas été identifié et s'est échappé. Un garrot improvisé en écorce a été posé par un voisin."
+      "context": "Vit à Toamasina dans un quartier périurbain, moustiquaire déchirée. Fièvre traitée à domicile par un antipyrétique et une tisane, sans consultation. Pas de vaccination particulière, pas d'antécédent."
     },
     "steps": [
       {
         "kind": "reveal",
         "title": "Motif",
-        "body": "Morsure à la face dorsale du pied gauche il y a 3 heures : douleur immédiate intense, puis œdème progressif remontant jusqu'au mollet. Saignement persistant de la plaie, nausées depuis une heure. Un garrot serré en écorce a été posé par un voisin une heure après la morsure."
+        "body": "Fièvre depuis 3 jours avec vomissements, puis ce matin : convulsion généralisée d'une minute suivie d'un sommeil anormal dont l'enfant ne sort pas. La mère l'amène en urgence. Il n'a pas bu depuis 12 heures."
       },
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "Deux crochets visibles sur le dos du pied, plaie suintant activement. Œdème dur et douloureux du pied et du mollet, avec ecchymoses diffuses. T 37,8 °C, TA 104/62, FC 108, FR 22, SpO2 96 %. Pas de trismus, pas de ptosis, pas de dysphagie, pas de troubles visuels. Urines de couleur normale à la question."
+        "body": "Coma : ne répond pas à la voix, ouvre les yeux à la douleur (score de Blantyre 1/5), opisthotonos modéré, nuque raide. T 39,5 °C, TA 84/48, FC 150, FR 36, SpO2 94 %. Pâleur conjonctivale franche, rate palpable 2 cm. Pas de purpura. Glycémie capillaire 0,42 g/L."
       },
       {
         "kind": "reveal",
         "title": "Compléments",
-        "body": "Temps de saignement prolongé au niveau de la piqûre veineuse, plaie de morsure qui continue de saigner. Hémoglobine 13,4 g/dL en attente du bilan complet. Aucun signe de coagulopathie systémique encore visible, mais les gingivorragies apparaissent à l'examen buccal."
+        "body": "TDR paludisme positif à P. falciparum. Hb 6,2 g/dL, plaquettes 34 G/L, glycémie confirmée basse, créatinine 68 µmol/L. Pas de ponction lombaire encore réalisée. Goutte épaisse demandée et en cours."
       },
       {
         "kind": "question",
-        "prompt": "La première mesure correcte à l'arrivée est :",
+        "prompt": "Le coma fébrile chez cet enfant de zone d'endémie correspond d'abord à :",
         "choices": [
-          "Retirer le garrot, immobiliser le membre, position neutre, analgésie, nettoyage de la plaie, et avertir le centre antivenin",
-          "Renforcer le garrot pour empêcher le venin de monter",
-          "Inciser la plaie et aspirer le venin",
-          "Poser une attelle et attendre de voir si l'œdème progresse"
+          "Paludisme grave cérébral (critères OMS : coma, convulsions, hypoglycémie, anémie sévère) à traiter comme tel sans attendre",
+          "Méningite bactérienne, le paludisme étant une coïncidence de surface",
+          "Encéphalite virale isolée",
+          "Convulsion fébrile simple compliquée d'un sommeil postcritique"
         ],
         "correct": 0,
-        "explanation": "Le garrot est contre-productif : il concentre le venin et le tissu, aggrave l'ischémie et provoque une libération brutale à son retrait. La prise en charge est le retrait du garrot, l'immobilisation du membre, l'analgésie (pas d'AINS ni d'aspirine : risque hémorragique), le nettoyage, la prophylaxie tétanique, et la préparation de l'antivenin selon le syndrome. L'incision-aspiration et la succion sont inefficaces et dangereuses."
+        "explanation": "TDR positif + coma + convulsion + hypoglycémie (0,42 g/L, critère OMS de gravité) + anémie sévère : paludisme grave, le coma palustre est défini par un score de Blantyre ≤ 2 chez l'enfant. La méningite reste une différentielle à écarter, mais ne doit pas retarder le traitement antipaludique parentéral : les deux urgences (artésunate et bilan méningé si le tableau est ambigu) se mènent en parallèle. Une convulsion fébrile simple ne laisse pas un coma prolongé avec hypoglycémie et anémie profonde."
       },
       {
         "kind": "question",
-        "prompt": "Le tableau (morsure, œdème local, saignement persistant, gingivorragies) évoque une envenimation vipérine avec coagulopathie. Le traitement spécifique est :",
+        "prompt": "Le traitement antipaludique de première intention est :",
         "choices": [
-          "Antivenin polyvalent administré par voie IV dès que disponible, avec surveillance allergique rapprochée",
-          "Corticoïdes et antihistaminiques seuls",
-          "Antibiothérapie seule qui neutralise le venin",
-          "Attendre les résultats de coagulation avant toute décision"
+          "Artésunate par voie intraveineuse (ou intramusculaire si IV impossible) dès maintenant, suivi d'une combinaison thérapeutique à base d'artémisinine après au moins 24 h et reprise de l'alimentation",
+          "Quinine orale par sonde nasogastrique",
+          "Combinaison orale CTA immédiate",
+          "Chloroquine intramusculaire"
         ],
         "correct": 0,
-        "explanation": "L'antivenin est le seul traitement qui neutralise le venin ; il s'administre par voie IV en cas d'envenimation significative (coagulopathie, œdème extensif, saignements), avec surveillance de la réaction anaphylactique et réévaluation : une coagulopathie non corrigée à 6 heures peut nécessiter une réinjection. Corticoïdes et antihistaminiques ne remplacent pas l'antivenin ; l'antibiotique traite la surinfection, pas le venin ; et attendre la biologie pour une envenimation cliniquement évidente retarde le traitement."
+        "explanation": "Tout paludisme grave, y compris cérébral, reçoit de l'artésunate parentéral en première ligne (préférable à la quinine IV sur la mortalité, essais SEAQUAMAT et AQUAMAT), avec relais par CTA orale après au moins 24 heures d'artésunate et amélioration. La voie orale est exclue dans le coma ; la chloroquine n'a plus aucune place à P. falciparum."
       },
       {
         "kind": "question",
-        "prompt": "Les mesures associées correctes comprennent :",
+        "prompt": "Les mesures simultanées indispensables dans l'heure comprennent :",
         "choices": [
-          "Antibioprophylaxie active sur la flore buccale du serpent, prophylaxie tétanique, surveillance de la diurèse et de la coagulation, pas d'AINS ni d'aspirine",
-          "Aspirine à forte dose pour l'œdème",
-          "Diurétiques pour dégonfler le membre",
-          "Exsanguination du membre au bandage"
+          "Resucrage immédiat de l'hypoglycémie, oxygène, contrôle de la fièvre, position latérale, surveillance glycémique horaire, et recherche de l'anémie menaçante (transfusion si Hb < 5 g/dL ou défaillance)",
+          "Remplissage massif systématique à haute pression",
+          "Corticoïdes à forte dose pour l'œdème cérébral",
+          "Sédation profonde pour éviter les convulsions"
         ],
         "correct": 0,
-        "explanation": "La plaie de morsure se contamine par la flore buccale du serpent : antibioprophylaxie raisonnable (amoxicilline-clavulanique ou métronidazole selon disponibilité), prophylaxie tétanique systématique, surveillance horaire (œdème, diurèse — la couleur brun-noir des urines signe une rhabdomyolyse ou une hémoglobinurie), numération et coagulation répétées. Aspirine et AINS majorent le saignement ; les diurétiques et l'exsanguination n'ont aucune place."
+        "explanation": "L'hypoglycémie est à la fois un critère de gravité et une cause d'aggravation : resucrage immédiat puis surveillance horaire, car elle récidive sous artésunate. L'anémie sévère (Hb < 5 g/dL ou avec signes de défaillance) impose la transfusion. Le remplissage systématique majore l'œdème cérébral et l'œdème pulmonaire, les corticoïdes et la sédation profonde n'ont pas de place démontrée et masquent l'évolution neurologique."
       },
       {
         "kind": "question",
-        "prompt": "Le signe qui impose un traitement urgent supplémentaire dans les heures suivantes est :",
+        "prompt": "Après guérison, la mesure de prévention la plus importante à ce foyer est :",
         "choices": [
-          "Urines brun-noir avec douleur musculaire : rhabdomyolyse, imposant hydratation IV forte et surveillance de la fonction rénale et de la kaliémie",
-          "Fièvre isolée à 38 °C",
-          "Douleur de la plaie persistante",
-          "Insomnie liée à l'anxiété"
+          "Moustiquaire imprégnée d'insecticide intacte pour toute la famille, avec recherche rapide de tout épisode fébrile et consultation précoce",
+          "Antibioprophylaxie mensuelle pour les enfants du foyer",
+          "Chimioprophylaxie palustre pour les habitants de Toamasina",
+          "Pulvérisation de smoke domestique et rien d'autre"
         ],
         "correct": 0,
-        "explanation": "Les venins de vipères et de certaines espèces locales peuvent provoquer une rhabdomyolyse : urines brun-noir, douleurs musculaires, élévation de la créatinine et de la kaliémie — l'insuffisance rénale aiguë et l'hyperkaliémie sont les complications qui tuent après la coagulopathie. Hyperhydratation IV, surveillance de la diurèse et de la kaliémie, éventuel traitement de l'hyperkaliémie. La fièvre et la douleur se gèrent sans urgence vitale immédiate."
+        "explanation": "La prévention du paludisme à Madagascar repose sur la moustiquaire imprégnée d'insecticide à longue durée (campagne nationale de distribution) et le traitement précoce de toute fièvre : c'est le retard de consultation qui transforme un paludisme simple en coma. La chimioprophylaxie n'est pas indiquée pour les résidents en zone d'endémie ; les répulsifs et vêtements couvrants le soir complètent l'arsenal."
       }
     ],
-    "diagnosis": "Envenimation vipérine de grade II à III (morsure du pied gauche avec œdème extensif, coagulopathie locale et gingivorragies, sans signe neurotoxique) : antivenin polyvalent indiqué en urgence.",
-    "management": "Retrait du garrot, immobilisation et position neutre du membre, analgésie sans AINS ni aspirine, antivenin polyvalent IV avec surveillance allergique, antibioprophylaxie et prophylaxie tétanique, surveillance rapprochée de l'œdème (marquage horaire), de la diurèse et de la coagulation, prévention de l'insuffisance rénale (hydratation IV, équilibre ionique), soins de la plaie, et éducation du patient à la prévention (chaussures, lampe la nuit).",
-    "pitfall": "Le piège du garrot bien intentionné : le voisin pensait protéger le patient, mais le garrot concentre le venin, ischémie le membre et provoque une libération brutale à son retrait. Autre piège : attendre la biologie avant d'administrer l'antivenin à un patient qui saigne activement — les gingivorragies signent la coagulopathie au lit du malade, et l'antivenin est le seul médicament qui marche.",
-    "keyTakeaway": "Morsure de serpent = retirer tout garrot, immobiliser, antivenin IV si envenimation significative (coagulopathie, œdème extensif), prophylaxie tétanique et antibiotique, surveiller diurèse et coagulation. Ni incision, ni succion, ni garrot : ces gestes de cinéma aggrave l'œdème et la mort tissulaire.",
+    "diagnosis": "Paludisme grave à P. falciparum chez un enfant de 5 ans : coma (Blantyre 1), convulsion, hypoglycémie à 0,42 g/L et anémie sévère, à Toamasina.",
+    "management": "Artésunate IV immédiat (relais CTA orale après au moins 24 heures et reprise alimentaire), resucrage et surveillance glycémique horaire, contrôle thermique, oxygène, position latérale et surveillance neurologique rapprochée, transfusion selon protocole pour l'anémie sévère, hydratation prudente sans surcharge, ponction lombaire à réévaluer si l'évolution est atypique, déclaration du cas, et éducation de la mère : moustiquaire imprégnée intacte, consultation immédiate pour toute fièvre.",
+    "pitfall": "Le piège du sommeil postcritique : un enfant qui ne se réveille pas après une convulsion fébrile en zone d'endémie est un paludisme grave jusqu'à preuve du contraire — attendre est la seule faute qui ne se rattrape pas. Autre piège : l'hypoglycémie récidivante sous artésunate, qui agite le coma alors même que le parasite disparaît.",
+    "keyTakeaway": "Enfant + fièvre + coma + TDR positif = paludisme grave : artésunate IV d'emblée, resucrer l'hypoglycémie et la surveiller toutes les heures, transfuser l'anémie menaçante, hydratation prudente. Le relais CTA ne se prend qu'après au moins 24 heures et reprise de l'alimentation.",
     "related": {
+      "pathologySlugs": [
+        "paludisme"
+      ],
       "deckIds": [
         "tropical",
         "urgences"
@@ -3441,223 +3444,240 @@
     "sources": [
       {
         "title": "OMS",
-        "citation": "WHO — Guidelines for the management of snakebites, 2e édition, Région Sud-Est asiatique.",
+        "citation": "WHO guidelines for malaria, édition consolidée, mise à jour 2025 — traitement du paludisme grave.",
         "organization": "OMS",
-        "year": 2016
+        "year": 2025,
+        "url": "https://www.who.int/publications/i/item/guidelines-for-malaria",
+        "verifiedAt": "2026-10-26"
       },
       {
-        "title": "OMS",
-        "citation": "WHO — Snakebite envenoming: a strategy for prevention and control, Genève.",
-        "organization": "OMS",
-        "year": 2019
+        "title": "Lancet / AQUAMAT",
+        "citation": "Dondorp AM et al. Artesunate versus quinine in the treatment of severe falciparum malaria in African children (AQUAMAT), Lancet 2010;376:1647-57.",
+        "organization": "Lancet",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21047850/",
+        "verifiedAt": "2026-10-26"
       }
     ],
     "access": "pro"
   },
   {
-    "id": "INF-CHOLERA-001",
-    "title": "Diarrhée aqueuse massive chez un pêcheur",
-    "specialty": "Infectiologie / Urgences",
+    "id": "PNEUMO-BPCO-002",
+    "title": "Crachats verts et souffle de plus en plus court",
+    "specialty": "Pneumologie / Urgences",
     "studyYear": 4,
     "difficulty": "intermediate",
-    "summary": "Pêcheur de 32 ans, diarrhée « eau de riz » indolore depuis 12 heures, déshydratation rapide, plusieurs cas similaires dans le quartier portuaire.",
+    "summary": "Homme de 66 ans, BPCO tabagique, exacerbation avec crachats purulents et dyspnée de repos, SpO2 88 %.",
     "patient": {
-      "age": 32,
+      "age": 66,
       "sex": "M",
-      "context": "Pêcheur à Majunga, quartier portuaire où trois voisins ont présenté la même diarrhée depuis une semaine. Eau de distribution irrégulière, souvent stockée en bidons ouverts. Aucun antécédent, pas de traitement en cours."
+      "context": "Retraité à Antananarivo, ancien briquetier, tabac 45 paquets-années, toujours 5 cigarettes par jour. BPCO connue depuis 4 ans, inhalateurs pris « quand ça coince », pas de vaccination antigrippale ni antipneumococcique. Deux exacerbations l'an dernier, aucune hospitalisation."
     },
     "steps": [
       {
         "kind": "reveal",
         "title": "Motif",
-        "body": "Depuis minuit : diarrhée aqueuse abondante, blanche, sans sang ni glaires, indolore, plus de 15 selles en 12 heures, avec vomissements aqueux. Aucune fièvre ressentie. Soif extrême, crampes musculaires des mollets. Impossible de travailler depuis ce matin."
+        "body": "Depuis 4 jours : toux accrue, crachats passés du blanc clair au vert épais, essoufflement au moindre effort puis au repos depuis hier. N'a pas dormi la nuit dernière, obligé de dormir assis. Pas de douleur thoracique, pas de fièvre élevée mesurée."
       },
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "T 37,4 °C, TA 88/56 couché, FC 118, FR 24. Yeux creux, pli cutané très lent, langue sèche et épaisse, voix éteinte. Abdomen souple, indolore. Crampes des membres inférieurs. Diurèse quasi nulle depuis ce matin."
+        "body": "T 37,9 °C, TA 138/78, FC 104, FR 28, SpO2 88 % en air ambiant. Distension thoracique, temps expiratoire allongé, sibilants diffus, ronchis. Pas d'œdème, pas de turgescence jugulaire. Auscultation cardiaque normale. Expulsion des crachats verdâtres pendant l'examen."
       },
       {
         "kind": "reveal",
-        "title": "Contexte épidémiologique",
-        "body": "Trois voisins du même quartier portuaire présentent la même symptomatologie depuis une semaine. Les selles sont comparées à de l'eau de riz. Le patient a bu de l'eau stockée en bidon ouvert et mangé du poisson séché acheté au marché."
+        "title": "Compléments",
+        "body": "Gaz du sang en air ambiant : pH 7,36, PaO2 56 mmHg, PaCO2 46 mmHg, bicarbonates 27 mmol/L (compensation débutante). Radiographie thoracique : distension, pas de foyer franc, pas de pneumothorax. ECG : rythme sinusal. Le VEMS récent est inconnu, exacerbations antérieures ambulatoires."
       },
       {
         "kind": "question",
-        "prompt": "Le diagnostic le plus probable est :",
+        "prompt": "Le diagnostic le plus cohérent est :",
         "choices": [
-          "Choléra avec déshydratation sévère (diarrhée aqueuse indolore massive, épidémie de quartier, contexte portuaire)",
-          "Gastro-entérite virale bénigne",
-          "Fièvre typhoïde",
-          "Amibiase intestinale"
+          "Exacerbation aiguë de BPCO (augmentation de la dyspnée, du volume et de la purulence des crachats) probablement d'origine infectieuse",
+          "Pneumonie franche lobaire aiguë",
+          "Insuffisance cardiaque gauche décompensée",
+          "Embolie pulmonaire de haut risque"
         ],
         "correct": 0,
-        "explanation": "Diarrhée « eau de riz » abondante et indolore, vomissements, déshydratation fulgurante, et contexte épidémique : choléra jusqu'à preuve du contraire. La GE virale est moins abondante et moins rapidement déshydratante ; la typhoïde donne une fièvre prolongée ; l'amibiase donne une dysenterie glairo-sanglante et fébrile. La confirmation bactériologique existe (coproculture sur milieu spécifique, tests rapides) mais ne doit jamais retarder la réhydratation."
+        "explanation": "La triade d'Anthonisen réunit ici les trois critères (dyspnée majorée, volume accru, purulence), ce qui prédit le bénéfice de l'antibiothérapie. Pas de foyer alvéolaire sur la radio (contre la pneumonie), pas de crépitants ni de surcharge (contre l'OAP), pas de signes d'embolie et une SpO2 cohérente avec une exacerbation connue de BPCO — le diagnostic d'exacerbation reste clinique, la radio servant à écarter les diagnostics différentiels."
       },
       {
         "kind": "question",
-        "prompt": "La priorité absolue dans l'heure qui suit est :",
+        "prompt": "La prise en charge immédiate comprend :",
         "choices": [
-          "Réhydratation IV massive et rapide : Ringer-lactate 100 mL/kg dans les 3 premières heures (dont 30 mL/kg dans les 30 premières minutes) chez l'adulte, sous surveillance constante",
-          "Antibiothérapie orale en premier",
-          "Lopéramide pour freiner la diarrhée",
-          "Attendre la coproculture pour décider"
+          "Bronchodilatateurs de courte durée d'action (salbutamol ± ipratropium) en nébulisation, corticoïde oral 5 jours, oxygène avec cible de SpO2 88-92 %, et antibiothérapie car purulence franche",
+          "Oxygène au masque à haute concentration pour viser une SpO2 à 100 %",
+          "Corticoïdes IV à forte dose pendant 2 semaines",
+          "Attente de la culture des crachats avant tout antibiotique"
         ],
         "correct": 0,
-        "explanation": "Le choléra tue par déshydratation en quelques heures : la réhydratation IV agressive est le traitement qui sauve, avant toute autre considération. L'OMS recommande Ringer-lactate (contient du potassium, utile vu les crampes) 100 mL/kg chez l'adulte en 3 heures. Le ralentisseur du transit est contre-indiqué (il prolonge le contact toxinique) ; l'antibiothérapie est adjuvante, jamais prioritaire face au choc ; la coproculture épidémiologique ne doit pas retarder le traitement."
+        "explanation": "Bronchodilatateurs courts, corticoïde systémique 5 jours (GOLD : prednisolone 40 mg/j), oxygène titré avec une cible 88-92 % pour éviter l'hypercapnie d'aggravation, et antibiotique devant la purulence (amoxicilline ou macrolide selon le contexte local, 5 à 7 jours). Viser une saturation normale avec un débit d'oxygène élevé est l'erreur classique qui fait monter la PaCO2 ; la culture des expectorations ne guide pas la décision initiale."
       },
       {
         "kind": "question",
-        "prompt": "Une fois la réhydratation engagée, l'antibiothérapie adaptée est :",
+        "prompt": "Si le patient s'aggravait dans les heures suivantes avec un coma et un pH à 7,25, la mesure salvatrice serait :",
         "choices": [
-          "Doxycycline 300 mg en dose unique (ou azithromycine selon la résistance locale), qui raccourcit la durée de l'élimination et la diarrhée",
-          "Amoxicilline 7 jours systématique",
-          "Corticoïdes pour le choc",
-          "Métronidazole"
+          "Ventilation non invasive (VNI) avec pression positive, en réanimation ou soins intensifs, associée au traitement médical maximal",
+          "Intubation immédiate systématique",
+          "Sédatifs forts pour diminuer la polypnée",
+          "Diurétiques à forte dose"
         ],
         "correct": 0,
-        "explanation": "Chez l'adulte, la doxycycline en dose unique (ou l'azithromycine selon les profils de résistance) réduit la durée de la diarrhée et la période d'élimination bactérienne, ce qui limite la contamination — elle est adjuvante à la réhydratation, jamais un substitut. L'amoxicilline et le métronidazole n'ont pas d'indication ; le corticoïde ne traite pas le choc hypovolémique."
+        "explanation": "L'acidose respiratoire (pH < 7,35) avec défaillance respiratoire aiguë relève de la VNI en première intention dans l'exacerbation de BPCO : elle réduit la mortalité, le taux d'intubation et la durée d'hospitalisation. L'intubation devient nécessaire si la VNI échoue ou si le patient est trop conscient-inconscient pour la tolérer (coma profond, troubles de déglutition, instabilité). Sédatifs et diurétiques aggraveraient l'hypercapnie et l'hypoxémie."
       },
       {
         "kind": "question",
-        "prompt": "Pour le quartier portuaire, la mesure de santé publique prioritaire est :",
+        "prompt": "À distance de cette exacerbation, les mesures qui diminuent le risque de la suivante sont :",
         "choices": [
-          "Déclaration immédiate aux autorités sanitaires, chloration et contrôle de l'eau de boisson, désinfection des points d'eau suspects, éducation communautaire (lavage des mains, SRO précoces, isolation des selles) et vaccination réactive selon les recommandations",
-          "Attendre la confirmation de laboratoire avant d'alerter",
-          "Fermer uniquement le marché de poisson",
-          "Antibioprophylaxie de masse pour toute la population du quartier"
+          "Arrêt du tabac avec accompagnement, vaccination antigrippale et antipneumococcique, réhabilitation respiratoire, observance du traitement de fond et plan d'action écrit",
+          "Antibiotique à faible dose en continu",
+          "Corticoïdes oraux au long cours",
+          "Simple augmentation des nébulisations à domicile"
         ],
         "correct": 0,
-        "explanation": "Le choléra est une maladie à déclaration immédiate : tout cas suspect dans un contexte épidémique déclenche l'alerte sans attendre la confirmation. Les leviers sont l'eau (chloration, points d'eau sûrs), l'hygiène (mains, selles, aliments) et la prise en charge précoce avec SRO disponibles dans les ménages. L'antibioprophylaxie de masse n'est pas recommandée (résistance, faux sentiment de sécurité) ; la vaccination réactive se discute selon les recommandations OMS et le contexte local."
+        "explanation": "Le sevrage tabagique est la seule mesure qui modifie l'histoire naturelle de la BPCO ; les vaccins antigrippal et antipneumococcique et la réhabilitation respiratoire réduisent les exacerbations et les hospitalisations ; le traitement de fond régulier (et non « quand ça coince ») et un plan d'action écrit pour reconnaître tôt la prochaine exacerbation complètent la prévention. L'antibiothérapie continue sélectionne des résistances, les corticoïdes oraux au long cours ont une mortalité propre, et les nébulisations à domicile sans plan sont un trompe-l'œil."
       }
     ],
-    "diagnosis": "Choléra avec déshydratation sévère (choc hypovolémique) sur contexte épidémique de quartier portuaire, à confirmer bactériologiquement sans retarder le traitement.",
-    "management": "Réhydratation IV immédiate par Ringer-lactate selon plan OMS adulte (100 mL/kg en 3 heures, dont un tiers en 30 minutes), surveillance horaire (pouls, TA, diurèse), relais par SRO dès que le patient boit, doxycycline 300 mg en dose unique (ou azithromycine selon résistance locale), compensation des pertes continues selles par selles, apports potassiques, déclaration immédiate aux autorités sanitaires, mesures d'eau et d'hygiène au niveau communautaire, et éducation du patient à l'isolement des selles pendant la phase d'élimination.",
-    "pitfall": "Le piège du « c'est une gastro » : une diarrhée aqueuse indolore et massive avec déshydratation en quelques heures dans un contexte épidémique est un choléra. Autre piège : croire que l'antibiotique est le traitement principal — c'est la réhydratation qui sauve, l'antibiotique ne fait que raccourcir les selles. Enfin, prescrire un ralentisseur du transit, c'est prolonger l'intoxication.",
-    "keyTakeaway": "Diarrhée eau de riz + déshydratation foudroyante + contexte épidémique = choléra : Ringer-lactate IV massif d'abord (100 mL/kg en 3 h), SRO en relais, doxycycline en dose unique, déclaration immédiate. Le choléra ne tue pas par l'infection, il tue par l'eau perdue.",
+    "diagnosis": "Exacerbation aiguë de BPCO à phénotype bronchitique (3 critères d'Anthonisen), hypoxémique avec hypercapnie compensée, sur terrain tabagique non vacciné et traitement de fond irrégulier.",
+    "management": "Bronchodilatateurs de courte durée en nébulisations rapprochées, corticoïde oral 5 jours, antibiothérapie 5 à 7 jours devant la purulence (amoxicilline ou alternative selon le protocole local), oxygène titré cible SpO2 88-92 %, surveillance clinique et gazométrique, VNI si acidose respiratoire. À distance : arrêt du tabac accompagné, vaccins antigrippal et antipneumococcique, réhabilitation respiratoire, traitement de fond régulier et plan d'action écrit, suivi pneumologique avec évaluation du VEMS.",
+    "pitfall": "Le piège de l'oxygène « à fond » : chez le BPCO hypercapnique, viser une saturation normale au masque à haute concentration fait grimper la PaCO2 jusqu'au coma — la cible est 88-92 %, pas la perfection. Autre piège : traiter l'exacerbation sans toucher au fond (tabac, vaccins, observance), c'est programmer la récidive qui finira en réanimation.",
+    "keyTakeaway": "Dyspnée + crachats purulents + toux chez un BPCO = exacerbation : bronchodilatateurs courts, corticoïde 5 jours, antibiotique si purulence, oxygène cible 88-92 %, VNI si pH < 7,35. À distance : sevrage tabagique, vaccins, réhabilitation et plan d'action écrit.",
     "related": {
+      "pathologySlugs": [
+        "bpco",
+        "bronchites-pneumo"
+      ],
       "deckIds": [
-        "tropical",
-        "infectio",
+        "semio",
         "urgences"
       ]
     },
     "sources": [
       {
-        "title": "OMS",
-        "citation": "WHO — Cholera outbreak: assessing the outbreak response and improving preparedness, guide pratique.",
-        "organization": "OMS",
-        "year": 2004
+        "title": "GOLD",
+        "citation": "GOLD 2024 Report — Global Strategy for the Diagnosis, Management and Prevention of COPD, chapitre exacerbations.",
+        "organization": "Global Initiative for Chronic Obstructive Lung Disease",
+        "year": 2024,
+        "url": "https://goldcopd.org/2024-gold-report/",
+        "verifiedAt": "2026-10-26"
       },
       {
         "title": "OMS",
-        "citation": "WHO — Recommendations for cholera control, note technique et position paper sur les vaccins anticholériques oraux, mise à jour 2024.",
+        "citation": "WHO — Chronic obstructive pulmonary disease (COPD), fiche d'information.",
         "organization": "OMS",
-        "year": 2024
+        "year": 2024,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)",
+        "verifiedAt": "2026-10-26"
       }
     ],
     "access": "pro"
   },
   {
-    "id": "PEDI-ROUGEOLE-001",
-    "title": "Éruption et toux chez un enfant non vacciné",
-    "specialty": "Pédiatrie / Infectiologie",
-    "studyYear": 4,
-    "difficulty": "intermediate",
-    "summary": "Enfant de 2 ans, jamais vacciné, fièvre, toux, conjonctivite et éruption descendante ; petite épidémie familiale.",
+    "id": "HEPATO-CIRRHOSE-002",
+    "title": "Vomissement de sang chez un buveur",
+    "specialty": "Hépatologie / Urgences",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 52 ans, cirrhose alcoolique connue, hématémèse massive et malaise ; choc hémorragique.",
     "patient": {
-      "age": 2,
-      "sex": "F",
-      "context": "Petite fille de 2 ans à Antananarivo, périphérie. Aucune vaccination reçue selon le carnet (la mère a eu peur des rumeurs). Deux cousins du même foyer ont eu fièvre et éruption il y a 2 semaines. Allaitement terminé, alimentation familiale."
+      "age": 52,
+      "sex": "M",
+      "context": "Pêcheur à Toliara, cirrhose alcoolique diagnostiquée il y a 2 ans après une première décompensation œdémato-ascitique, sevrage jamais obtenu, suivi interrompu. Aucune endoscopie de surveillance connue, pas de bêtabloquant."
     },
     "steps": [
       {
         "kind": "reveal",
         "title": "Motif",
-        "body": "Depuis 4 jours : fièvre à 39 °C, toux sèche importante, écoulement nasal abondant, yeux rouges qui pleurent et photophobie. Depuis hier : éruption derrière les oreilles et sur le visage, descendant vers le tronc. L'enfant refuse de manger et boit peu."
+        "body": "Il y a une heure : premier vomissement de sang rouge abondant, environ un bol, puis malaise, sueurs et sensation de mort imminente. Deux nouveaux vomissements hématiques en route vers l'hôpital. Pas de prise d'anti-inflammatoires ni d'aspirine, pas de traumatisme."
       },
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "T 39,2 °C, FR 40, SpO2 95 %, FC 140. Enfant abattue, conjonctivite franche, rhinite. Éruption maculo-papuleuse morbilliforme derrière les oreilles, sur le visage et le haut du tronc, non prurigineuse. Signe de Koplik recherché : petites taches blanches sur la muqueuse jugale. Pas de détresse respiratoire, pas d'otite franche, pas de raideur."
+        "body": "Pâleur intense, marbrures des genoux, TA 76/44 couché, impérable debout, FC 128 filant, FR 26, SpO2 97 %, Glasgow 14 confus. Ictère cutanéo-muqueux modéré, circulation collatérale abdominale, ascite discrète, flapping tremblement des mains tendues. T 37,8 °C."
       },
       {
         "kind": "reveal",
-        "title": "Contexte",
-        "body": "Deux cousins vivant dans la même maison ont présenté la même éruption il y a environ 2 semaines. Le carnet de vaccination de l'enfant est vierge. La mère dit avoir entendu dire que les vaccins étaient dangereux et refuse les piqûres pour l'instant. Le centre de santé le plus proche est à 40 minutes de marche."
+        "title": "Compléments",
+        "body": "Hb 7,8 g/dL (en cours de chute, groupe ABO réalisé, 2 culots commandés), plaquettes 88 G/L, TP 48 %, créatinine 132 µmol/L, INR 1,9, lactates élevés. Échographie au lit : foie dysmorphique, ascite modérée, flux porte hépatopète, pas de thrombose. Pas encore d'endoscopie réalisable sur place dans l'heure."
       },
       {
         "kind": "question",
-        "prompt": "Le diagnostic le plus probable est :",
+        "prompt": "La première action correcte est :",
         "choices": [
-          "Rougeole au stade éruptif (fièvre + catarrhe oculo-respiratoire + Koplik + éruption descendante, non vaccinée, contage familial)",
-          "Rubéole",
-          "Scarlatine",
-          "Dengue"
+          "Remplissage prudent par cristalloïdes et gestion transfusionnelle par culots globulaires (cible Hb 7-8 g/dL), correction ciblée de la coagulation, et préparation immédiate de l'endoscopie",
+          "Remplissage massif par cristalloïdes jusqu'à normaliser la tension",
+          "Transfusion visant une Hb à 12 g/dL",
+          "Attendre l'endoscopie avant tout traitement"
         ],
         "correct": 0,
-        "explanation": "Chez un enfant non vacciné, la triade catarrhale (toux, rhinite, conjonctivite) suivie d'une éruption morbilliforme débutant derrière les oreilles et descendant, avec Koplik et contage familial documenté : rougeole, quasi certaine cliniquement. La rubéole est une maladie bénigne sans catarrhe et avec des adénopathies ; la scarlatine donne une éruption granitique en granité de peau avec angine ; la dengue donne fièvre et éruption sans catarrhe ni Koplik."
+        "explanation": "Hémorragie digestive sur cirrhose : remplissage prudent (l'hyperremplissage augmente la pression portale et rallume le saignement), cible transfusionnelle restrictive Hb 7-8 g/dL (transfuser au-dessus élève la pression portale et la récidive), correction ciblée des troubles (fibrinogène, plasma selon bilan), et surtout ne pas retarder l'endoscopie diagnostique et hémostatique. L'attentisme devant un choc hémorragique est la faute majeure."
       },
       {
         "kind": "question",
-        "prompt": "La complication à surveiller en priorité chez cet enfant est :",
+        "prompt": "Le traitement vasoconstricteur à débuter sans attendre l'endoscopie est :",
         "choices": [
-          "Pneumonie et laryngite : détresse respiratoire, tirage, saturation, et diarrhée déshydratante",
-          "Éruption purpurique",
-          "Arthrite chronique",
-          "Perforation tympanique isolée"
+          "Terlipressine IV (ou somatostatine/octréotide selon disponibilité), associée à une antibioprophylaxie par céphalosporine de 3e génération type ceftriaxone",
+          "Anticoagulation curative pour le flux porte ralenti",
+          "AINS pour l'œdème, prednisone pour le flapping",
+          "Aucun traitement avant l'endoscopie"
         ],
         "correct": 0,
-        "explanation": "Les complications qui tuent la rougeole sont la pneumonie (cause principale de décès, d'autant que la toux et la fièvre sont déjà présentes), la laryngite obstructive, la déshydratation sur diarrhée, et à distance la panencéphalite subaiguë sclérosante (exceptionnelle, fatale, qui survient des années après). Toute aggravation respiratoire chez un enfant rougeoleux impose une consultation immédiate. La vitamine A réduit la mortalité et la sévérité."
+        "explanation": "Les vasoconstricteurs splanchniques (terlipressine en première intention, ou analogue de la somatostatine) réduisent la pression portale et le saignement et doivent être débutés dès la suspicion, avant l'endoscopie. L'antibioprophylaxie par ceftriaxone (7 jours max) réduit l'infection, la récidive hémorragique et la mortalité — recommandée chez tout cirrhotique qui saigne, même sans ascite cliniquement évidente. L'anticoagulation serait une catastrophe hémorragique ; les AINS aggravent tout."
       },
       {
         "kind": "question",
-        "prompt": "La prise en charge de cet enfant comprend :",
+        "prompt": "À l'endoscopie (disponible à 3 heures), on trouve des varices œsophagiennes grade II avec saignement actif. Le geste hémostatique de référence est :",
         "choices": [
-          "Vitamine A adaptée à l'âge selon protocole OMS (deux doses à 24 h d'intervalle), antipyrétiques, hydratation, soins oculaires, surveillance respiratoire, alimentation continue, et recherche des autres cas dans l'entourage",
-          "Antibiothérapie systématique d'emblée",
-          "Corticoïdes pour l'éruption",
-          "Isolement strict à l'hôpital pendant toute la durée"
+          "Ligature élastique des varices (banding) pendant l'endoscopie, à répéter selon le protocole d'éradication",
+          "Injection de sclérosant seul comme traitement définitif",
+          "Sonde de Blackmore laissée en place plusieurs jours",
+          "Chirurgie de dérivation portale en urgence"
         ],
         "correct": 0,
-        "explanation": "Le traitement de la rougeole est symptomatique, avec la vitamine A en deux doses selon l'âge (elle réduit la mortalité et les complications oculaires, essentiel en zone de malnutrition et de carence), l'hydratation, la nutrition, les soins des yeux et la surveillance de la respiration. L'antibiotique ne se prescrit que si une surinfection est documentée (otite, pneumonie bactérienne) ; la corticothérapie n'a pas de place ; l'hospitalisation ne s'impose que pour les formes compliquées."
+        "explanation": "La ligature élastique endoscopique est le traitement hémostatique de référence du saignement variqueux œsophagien (supérieure à la sclérothérapie), complétée par la prophylaxie secondaire (bêtabloquant non cardiosélectif ± ligatures itératives pour éradiquer les varices). La sonde de Blackmore n'est qu'un pont de sauvetage temporaire si l'endoscopie est impossible ; la chirurgie de dérivation n'a plus d'indication en urgence en 2024."
       },
       {
         "kind": "question",
-        "prompt": "Sur le plan communautaire, la conduite la plus efficace est :",
+        "prompt": "Après hémostase, le contrôle du saignement passe aussi par :",
         "choices": [
-          "Vaccination en raffale de tous les contacts non immunisés de 6 mois et plus (y compris vaccination anticipée dès 6 mois en épidémie), information des familles du foyer et du quartier, recherche active des autres cas, et éducation vaccinale avec la mère",
-          "Quarantène de tous les enfants du quartier pendant 3 semaines",
-          "Rien, la rougeole est une maladie bénigne de l'enfance",
-          "Antibioprophylaxie de tous les enfants du foyer"
+          "Poursuite du vasoconstricteur 2 à 5 jours, antibioprophylaxie complète, prévention secondaire par bêtabloquant non cardiosélectif et programme de ligatures, soutien au sevrage alcoolique et surveillance de l'encéphalopathie",
+          "Arrêt de tout traitement une fois le saignement stoppé",
+          "Antiagrégant plaquettaire pour prévenir la thrombose porte",
+          "Alimentation orale libre dès le lendemain sans surveillance"
         ],
         "correct": 0,
-        "explanation": "La rougeole est l'une des maladies les plus contagieuses qui existent : la réponse est la vaccination des contacts sensibles, qui protège si elle est donnée dans les 72 heures suivant le contage, et la vaccination anticipée dès 6 mois en zone épidémique (suivie des doses de routine). La vaccination du foyer et du quartier, la recherche active des cas et la communication sur la sécurité vaccinale sont les outils. L'antibioprophylaxie n'a aucun sens, et l'histoire « maladie bénigne » méconnaît la mortalité réelle par pneumonie chez les enfants non vaccinés."
+        "explanation": "La récidive précoce est fréquente dans les 5 premiers jours : le vasoconstricteur se poursuit, l'antibioprophylaxie se termine, et la prophylaxie secondaire (bêtabloquant ± ligatures itératives) réduit durablement la récidive. Le sevrage alcoolique, avec ou sans aide pharmacologique et social, est le seul traitement étiologique. Un antiagrégant après rupture variqueuse augmenterait le risque de resaignement ; la reprise alimentaire est prudente sous surveillance de l'encéphalopathie."
       }
     ],
-    "diagnosis": "Rougeole au stade éruptif chez un enfant de 2 ans non vacciné, avec contage familial documenté, à surveiller pour complications respiratoires et digestives.",
-    "management": "Vitamine A en deux doses selon protocole OMS à 24 heures d'intervalle, antipyrétiques et hydratation, soins de la conjonctivite, surveillance respiratoire rapprochée (pneumonie, laryngite), poursuite de l'alimentation, antibiothérapie seulement sur surinfection documentée, éducation de la mère à la reconnaissance des signes de gravité, vaccination des contacts sensibles du foyer et du quartier, déclaration dans le cadre de la surveillance, et accompagnement pour la mise à jour vaccinale complète de l'enfant après guérison.",
-    "pitfall": "Le piège de « rougeole = maladie bénigne » : chez un enfant non vacciné et mal nourri, elle tue par pneumonie et par diarrhée, c'est l'une des premières causes de décès évitables chez l'enfant. Autre piège : oublier la vitamine A, le seul traitement qui a prouvé une réduction de la mortalité. Et le signe de Koplik, qui disparaît dès l'éruption, est le diagnostic au stade catarrhal, quand l'isolement et la vaccination des contacts sont encore utiles.",
-    "keyTakeaway": "Fièvre + catarrhe oculo-respiratoire + Koplik puis éruption descendante chez un non-vacciné = rougeole : vitamine A en deux doses, surveiller la pneumonie et la déshydratation, vacciner les contacts sous 72 heures (dès 6 mois en épidémie). Contagiosité extrême : la vaccination est l'outil de contrôle, pas la quarantaine.",
+    "diagnosis": "Rupture de varices œsophagiennes sur cirrhose alcoolique (hypertension portale) avec choc hémorragique, à haut risque de récidive précoce, sur terrain de sevrage non obtenu.",
+    "management": "Deux voies veineuses, remplissage prudent, transfusion cible Hb 7-8 g/dL, terlipressine IV dès la suspicion, antibioprophylaxie par ceftriaxone 7 jours, correction ciblée de l'hémostase, endoscopie avec ligature élastique dès stabilisation, poursuite du vasoconstricteur 2 à 5 jours, prévention secondaire par bêtabloquant non cardiosélectif et programme d'éradication des varices, prise en charge du sevrage alcoolique avec accompagnement social, surveillance de l'encéphalopathie et du bilan hépatique, suivi hépatologique régulier.",
+    "pitfall": "Le piège de la sur-transfusion : remplir et transfuser massivement un cirrhotique qui saigne augmente la pression portale et rallume l'hémorragie — la cible est Hb 7-8 g/dL, pas la normale du manuel. Autre piège : oublier la ceftriaxone, qui réduit la mortalité autant que les traitements endoscopiques dans les essais ; et traiter la varice sans traiter l'alcool, c'est recoller un bouchon sur une conduite percée.",
+    "keyTakeaway": "Hématémèse + choc + stigmates d'hypertension portale = rupture variqueuse : remplissage prudent, Hb 7-8 g/dL, terlipressine + ceftriaxone dès la suspicion, endoscopie avec ligature dès stabilisation, prophylaxie secondaire (bêtabloquant + ligatures) et sevrage. La sur-correction tensionnelle et la sur-transfusion sont les deux erreurs qui tuent.",
     "related": {
+      "pathologySlugs": [
+        "cirrhose-alcoolique"
+      ],
       "deckIds": [
-        "infectio",
-        "tropical",
+        "urgences",
         "semio"
       ]
     },
     "sources": [
       {
-        "title": "OMS",
-        "citation": "WHO — Measles vaccines: WHO position paper, Relevé épidémiologique hebdomadaire 2022;97:241-264.",
-        "organization": "OMS",
-        "year": 2022
+        "title": "Baveno VII",
+        "citation": "de Franchis R et al. Baveno VII — Renewing consensus in portal hypertension, Journal of Hepatology 2022;67:353-64 (PMID 35120736).",
+        "organization": "Baveno Cooperation",
+        "year": 2022,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35120736/",
+        "verifiedAt": "2026-10-26"
       },
       {
-        "title": "OMS",
-        "citation": "WHO — Guide for the clinical management of measles, guide de prise en charge clinique et protocole vitamine A.",
-        "organization": "OMS",
-        "year": 2004
+        "title": "EASL",
+        "citation": "EASL Clinical Practice Guidelines for decompensated cirrhosis, Journal of Hepatology 2018;69:406-60.",
+        "organization": "EASL",
+        "year": 2018,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29653741/",
+        "verifiedAt": "2026-10-26"
       }
     ],
     "access": "pro"
