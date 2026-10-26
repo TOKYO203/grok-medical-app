@@ -1,6 +1,4 @@
 import { clientIpSubject } from "./client-ip.server.ts";
-import { Redis } from "@upstash/redis/cloudflare";
-import { Ratelimit } from "@upstash/ratelimit";
 
 export type RateLimitResult = {
   ok: boolean;
@@ -8,7 +6,7 @@ export type RateLimitResult = {
   resetAt: number;
 };
 
-// Fallback en mémoire (dev local / si Upstash absent)
+// Fallback en mémoire
 type Bucket = { count: number; resetAt: number };
 const buckets = new Map<string, Bucket>();
 const WINDOW_MS = 60_000;
@@ -39,26 +37,40 @@ function rateLimitMemory(key: string, max = MAX_REQ, windowMs = WINDOW_MS): Rate
   return { ok: true, remaining: max - b.count, resetAt: b.resetAt };
 }
 
-// ⚠️ LAZY INIT : Cloudflare Workers interdit l'init asynchrone en global scope.
-let limiterCache: Ratelimit | null = null;
-
-function getUpstashLimiter(): Ratelimit | null {
-  if (limiterCache) return limiterCache;
-
-  // Cloudflare expose les variables d'env via process.env au moment de l'exécution du handler
+// ⚠️ Lazy : pas d'I/O au module load (Cloudflare Workers interdit)
+function getUpstashConfig(): { url: string; token: string } | null {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return { url, token };
+}
 
-  if (url && token) {
-    const redis = new Redis({ url, token });
-    limiterCache = new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(10, "1 h"),
-      analytics: true,
-      prefix: "@upstash/ratelimit/optimus",
+async function rateLimitUpstash(key: string, max: number, windowMs: number): Promise<RateLimitResult | null> {
+  const cfg = getUpstashConfig();
+  if (!cfg) return null;
+  try {
+    const res = await fetch(`${cfg.url}/pipeline`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${cfg.token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([
+        ["INCR", key],
+        ["PEXPIRE", key, windowMs, "NX"],
+        ["PTTL", key],
+      ]),
     });
+    if (!res.ok) return null;
+    const data = (await res.json()) as Array<{ result: number }>;
+    const count = Number(data[0]?.result ?? 0);
+    const pttl = Number(data[2]?.result ?? windowMs);
+    const resetAt = Date.now() + Math.max(0, pttl);
+    return { ok: count <= max, remaining: Math.max(0, max - count), resetAt };
+  } catch (err) {
+    console.warn("[rate-limit] Upstash error:", err);
+    return null;
   }
-  return limiterCache;
 }
 
 export async function rateLimitRequest(
@@ -68,18 +80,14 @@ export async function rateLimitRequest(
   windowMs = WINDOW_MS,
 ): Promise<RateLimitResult> {
   const subject = clientIpSubject(request.headers);
-  const key = `${scope}:${subject}`;
-  const upstashLimiter = getUpstashLimiter();
+  const key = `optimus:ratelimit:${scope}:${subject}`;
+  const upstash = await rateLimitUpstash(key, max, windowMs);
+  if (upstash) return upstash;
+  return rateLimitMemory(key, max, windowMs);
+}
 
-  if (upstashLimiter) {
-    try {
-      const { success, remaining, reset } = await upstashLimiter.limit(key);
-      return { ok: success, remaining, resetAt: reset };
-    } catch (error) {
-      console.warn("[rate-limit] Upstash indisponible, fallback mémoire:", error);
-    }
-  }
-
+// Sync fallback pour admin-auth.server.ts
+export function rateLimit(key: string, max = MAX_REQ, windowMs = WINDOW_MS): RateLimitResult {
   return rateLimitMemory(key, max, windowMs);
 }
 
