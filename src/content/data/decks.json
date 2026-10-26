@@ -17991,5 +17991,1306 @@
         "competency": "clinical_reasoning"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-vih-l2",
+    "version": "1.0.0",
+    "title": "VIH — notions de base",
+    "subtitle": "Virus, transmission, dépistage · L2",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "management",
+      "canmeds_health_advocate"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-vih-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — VIH et sida",
+        "citation": "HIV and AIDS. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "ONUSIDA — Statistiques VIH",
+        "citation": "Global HIV & AIDS statistics — Fact sheet, juillet 2026."
+      },
+      {
+        "title": "CDC — HIV Nexus",
+        "citation": "HIV Nexus: CDC resources for clinicians, 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "vih-l2-1",
+        "prompt": "Quel type de cellule immunitaire le VIH détruit-il principalement ?",
+        "choices": [
+          "Les hépatocytes",
+          "Les lymphocytes T CD4",
+          "Les plaquettes",
+          "Les globules rouges"
+        ],
+        "correct": 1,
+        "explanation": "Le VIH cible les lymphocytes T CD4, pivots de l'immunité cellulaire ; leur destruction progressive ouvre la voie aux infections opportunistes.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-2",
+        "prompt": "Quelle est la première voie de contamination par le VIH dans le monde ?",
+        "choices": [
+          "Les rapports sexuels non protégés",
+          "Les piqûres de moustique",
+          "Les poignées de main",
+          "Les aliments souillés"
+        ],
+        "correct": 0,
+        "explanation": "La transmission sexuelle domine partout dans le monde ; le préservatif en est la protection de base, renforcée par le traitement suppressif des personnes vivant avec le VIH.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-3",
+        "prompt": "Le partage de seringue expose-t-il au VIH ?",
+        "choices": [
+          "Non, jamais",
+          "Oui, par le sang contaminé du matériel partagé",
+          "Seulement si la seringue est neuve",
+          "Uniquement par voie digestive"
+        ],
+        "correct": 1,
+        "explanation": "La voie sanguine passe par le partage de matériel d'injection : du sang infecté reste dans la seringue et l'aiguille. Matériel à usage unique et réduction des risques coupent cette transmission.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-4",
+        "prompt": "Une femme enceinte vivant avec le VIH peut-elle contaminer son bébé ?",
+        "choices": [
+          "Non, le placenta bloque tout",
+          "Oui : grossesse, accouchement et allaitement",
+          "Seulement au moment de l'accouchement",
+          "Uniquement par hérédité génétique"
+        ],
+        "correct": 1,
+        "explanation": "Sans prise en charge, le risque de transmission mère-enfant atteint 15 à 45 % sur l'ensemble grossesse-accouchement-allaitement ; les antirétroviraux le font tomber sous 5 %.",
+        "sources": [
+          {
+            "title": "ONUSIDA — VIH",
+            "citation": "Global HIV & AIDS statistics — Fact sheet, 2026.",
+            "organization": "ONUSIDA",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-5",
+        "prompt": "Quel moyen protège à la fois du VIH et des autres infections sexuellement transmissibles ?",
+        "choices": [
+          "Le préservatif à chaque rapport",
+          "Le lavage soigneux du corps",
+          "Les répulsifs antimoustiques",
+          "Les vitamines quotidiennes"
+        ],
+        "correct": 0,
+        "explanation": "Le préservatif, correctement utilisé à chaque rapport, est la seule barrière physique qui protège simultément du VIH et des autres IST.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "vih-l2-6",
+        "prompt": "À qui faut-il proposer un dépistage du VIH ?",
+        "choices": [
+          "Aux seuls malades hospitalisés",
+          "Toute personne exposée, et systématiquement pendant la grossesse",
+          "Uniquement aux populations clés",
+          "Personne sans signe apparent"
+        ],
+        "correct": 1,
+        "explanation": "L'OMS recommande un dépistage largement proposé : routine prénatale obligatoire, et offre systématique devant tuberculose, IST, amaigrissement ou exposition à risque.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-7",
+        "prompt": "Que signifie un test rapide VIH « réactif » ?",
+        "choices": [
+          "Le patient est séropositif à vie",
+          "Une confirmation par l'algorithme national est obligatoire",
+          "Le test est invalide",
+          "Le patient est déjà guéri"
+        ],
+        "correct": 1,
+        "explanation": "Un test rapide réactif n'est jamais rendu seul : des tests séquentiels sur un nouveau prélèvement confirment avant l'annonce du résultat et la mise sous traitement.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-8",
+        "prompt": "Existe-t-il aujourd'hui un traitement qui guérit définitivement du VIH ?",
+        "choices": [
+          "Oui, en sept jours de gélules",
+          "Non, mais les antirétroviraux contrôlent le virus à vie",
+          "Oui, par une opération chirurgicale",
+          "Non, et aucune arme n'existe"
+        ],
+        "correct": 1,
+        "explanation": "Il n'y a pas de guérison connue : la trithérapie antirétrovirale, prise à vie, rend la charge virale indétectable et permet une espérance de vie presque normale.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-9",
+        "prompt": "Combien de personnes vivaient avec le VIH fin 2025 selon l'OMS ?",
+        "choices": [
+          "Environ 410 000",
+          "Environ 41 millions",
+          "Environ 410 millions",
+          "Environ 41 000"
+        ],
+        "correct": 1,
+        "explanation": "41,0 millions de personnes vivaient avec le VIH fin 2025, dont 64 % dans la Région africaine ; l'année 2025 a compté 1,2 million de nouvelles infections et 570 000 décès liés au VIH.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "vih-l2-10",
+        "prompt": "Que signifie le principe « indétectable = intransmissible » ?",
+        "choices": [
+          "Tout porteur de virus est protecteur",
+          "Une charge virale durablement indétectable supprime la transmission sexuelle",
+          "Un test négatif rend le rapport protégé",
+          "Le préservatif devient inutile pour tous"
+        ],
+        "correct": 1,
+        "explanation": "Une personne sous traitement avec une charge virale supprimée ne transmet pas le VIH par voie sexuelle : traiter chaque patient, c'est aussi protéger son entourage.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-vih-l3",
+    "version": "1.0.0",
+    "title": "VIH — sémiologie clinique",
+    "subtitle": "Primo-infection, stades, signes d'alerte · L3",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "recognize"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-vih-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — VIH et sida",
+        "citation": "HIV and AIDS. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "CDC — HIV Nexus",
+        "citation": "HIV Nexus: CDC resources for clinicians, 2026."
+      },
+      {
+        "title": "ONUSIDA — Statistiques VIH",
+        "citation": "Global HIV & AIDS statistics — Fact sheet, juillet 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "vih-l3-1",
+        "prompt": "Deux semaines après un rapport à risque : fièvre, angine, éruption et adénopathies cervicales. Quel diagnostic évoquer ?",
+        "choices": [
+          "Une grippe banale sans gravité",
+          "Une primo-infection à VIH",
+          "Une rougeole ancienne",
+          "Un paludisme chronique"
+        ],
+        "correct": 1,
+        "explanation": "La primo-infection survient deux à quatre semaines après la contamination : tableau pseudo-mononucléosique très contaminant, avec une sérologie encore possiblement négative.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "vih-l3-2",
+        "prompt": "Comment évoluent les lymphocytes T CD4 pendant la phase de latence clinique ?",
+        "choices": [
+          "Ils restent stables toute la vie",
+          "Ils baissent d'environ 50 à 100 cellules par an",
+          "Ils remontent spontanément",
+          "Ils sont indépendants de l'infection"
+        ],
+        "correct": 1,
+        "explanation": "Pendant des années de silence clinique, la réplication continue érode le stock de CD4 d'environ 50 à 100 cellules par an, jusqu'aux premiers signes d'immunodépression.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "vih-l3-3",
+        "prompt": "Quels signes définissent le stade clinique 2 de l'OMS ?",
+        "choices": [
+          "Aucune manifestation",
+          "Candidose orale, zona, éruptions et amaigrissement modéré",
+          "Pneumocystose et cachexie",
+          "Cryptococcose neuroméningée"
+        ],
+        "correct": 1,
+        "explanation": "Le stade 2 regroupe les manifestations modérées de l'immunodépression débutante : candidose orale récidivante, zona, éruptions et perte de poids modérée.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "vih-l3-4",
+        "prompt": "Quelle éruption dermatologique chez un adulte jeune doit faire proposer un test VIH ?",
+        "choices": [
+          "Une acné juvénile",
+          "Un zona multi-dermatomique",
+          "Un eczéma des mains",
+          "Un psoriasis stable"
+        ],
+        "correct": 1,
+        "explanation": "Le zona du sujet jeune, surtout multi-dermatomique ou récidivant, est un marqueur classique d'immunodépression débutante à VIH.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "vih-l3-5",
+        "prompt": "Diarrhée chronique avec amaigrissement marqué depuis trois mois : quel stade OMS est le plus probable ?",
+        "choices": [
+          "Stade 1",
+          "Stade 2",
+          "Stade 3",
+          "Stade 0"
+        ],
+        "correct": 2,
+        "explanation": "Le stade 3 dit « avancé » : diarrhée chronique inexpliquée, amaigrissement marqué, fièvre prolongée, tuberculose pulmonaire — sans encore les infections opportunistes majeures du stade 4.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "vih-l3-6",
+        "prompt": "Pourquoi toute tuberculose doit-elle faire rechercher une infection à VIH ?",
+        "choices": [
+          "Les deux maladies sont dues au même germe",
+          "Le VIH favorise la tuberculose, première cause de mortalité associée",
+          "La tuberculose se transmet sexuellement",
+          "Le vaccin BCG crée une séropositivité"
+        ],
+        "correct": 1,
+        "explanation": "La tuberculose peut révéler une infection à VIH à tous les stades et reste la première cause de décès des personnes vivant avec le VIH : le dépistage est systématique dans les deux sens.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "vih-l3-7",
+        "prompt": "Quelle anomalie hématologique inexpliquée justifie un dépistage VIH ?",
+        "choices": [
+          "Une polyglobulie de haute altitude",
+          "Une thrombopénie ou une anémie réfractaire",
+          "Une hyperéosinophilie parasitaire isolée",
+          "Une réticulocytose régénérative"
+        ],
+        "correct": 1,
+        "explanation": "Cytopénies chroniques inexpliquées — thrombopénie immunologique, anémie ou leuconeutropénie — : le VIH atteint aussi la moelle osseuse et doit être éliminé.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "vih-l3-8",
+        "prompt": "Adulte avec muguet buccal récidivant et odynophagie : quelle orientation diagnostique ?",
+        "choices": [
+          "Candidose œsophagienne sur immunodépression : proposer un test VIH",
+          "Simple reflux gastro-œsophagien",
+          "Allergie alimentaire saisonnière",
+          "Angine streptococcique banale"
+        ],
+        "correct": 0,
+        "explanation": "La candidose œsophagienne de l'adulte est un marqueur d'immunodépression : elle annonce souvent des CD4 sous 200 et impose la sérologie VIH.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "vih-l3-9",
+        "prompt": "Polyadénopathies généralisées persistant depuis quatre mois chez un adulte de 25 ans : quelle conduite ?",
+        "choices": [
+          "Antibiothérapie d'attente de dix jours",
+          "Proposer un dépistage du VIH avant toute corticothérapie",
+          "Exérèse ganglionnaire d'emblée",
+          "Corticoïdes oraux sans bilan"
+        ],
+        "correct": 1,
+        "explanation": "La polyadénopathie persistante de l'adulte jeune fait partie du tableau de la primo-infection puis du stade 1-2 : le test VIH précède tout traitement immunosuppresseur.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "vih-l3-10",
+        "prompt": "À partir de quel seuil de CD4 surviennent les infections opportunistes majeures ?",
+        "choices": [
+          "Dès la contamination initiale",
+          "Sous 200 CD4 par millimètre cube",
+          "Au-dessus de 800 CD4",
+          "Jamais chez l'adulte traité"
+        ],
+        "correct": 1,
+        "explanation": "Sous 200 CD4, le stade 4 OMS s'ouvre : pneumocystose, toxoplasmose cérébrale, cryptococcose, candidose œsophagienne — c'est le stade de sida.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-vih-l4",
+    "version": "1.0.0",
+    "title": "VIH — diagnostic et traitement",
+    "subtitle": "Algorithme, bilan initial, trithérapie · L4",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "clinical_reasoning"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-vih-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — VIH et sida",
+        "citation": "HIV and AIDS. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — Populations clés",
+        "citation": "Consolidated guidelines on HIV, viral hepatitis and STI for key populations, 2022."
+      },
+      {
+        "title": "CDC — HIV Nexus",
+        "citation": "HIV Nexus: CDC resources for clinicians, 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "vih-l4-1",
+        "prompt": "Quelle est la fenêtre sérologique d'un test de quatrième génération (antigène p24 + anticorps) ?",
+        "choices": [
+          "Vingt-quatre heures",
+          "Deux à six semaines",
+          "Six mois obligatoires",
+          "Trois années"
+        ],
+        "correct": 1,
+        "explanation": "Le test combiné antigène-anticorps détecte l'infection dès deux à six semaines après l'exposition ; un test rapide négatif récent doit être répété selon le délai depuis la dernière exposition.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l4-2",
+        "prompt": "Forte suspicion de primo-infection mais sérologie négative : quel examen trancher ?",
+        "choices": [
+          "Attendre six mois sans rien faire",
+          "Doser l'ARN viral plasmatique",
+          "Débuter les ARV sans aucune preuve",
+          "Ignorer les symptômes du patient"
+        ],
+        "correct": 1,
+        "explanation": "La charge virale plasmatique détecte le virus avant les anticorps : elle tranche la primo-infection quand la sérologie est encore négative, en répétant la sérologie de contrôle.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l4-3",
+        "prompt": "Que comporte le bilan initial d'une infection à VIH nouvellement confirmée ?",
+        "choices": [
+          "Uniquement la sérologie de confirmation",
+          "Charge virale, CD4, tuberculose, hépatites B et C, syphilis",
+          "Une radiographie de poignet isolée",
+          "Un seul électrocardiogramme"
+        ],
+        "correct": 1,
+        "explanation": "Le bilan de départ évalue le retentissement (charge virale, CD4, NFS) et cherche les co-infections : tuberculose, hépatites B et C, syphilis — elles changent le traitement et le pronostic.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l4-4",
+        "prompt": "Quel est le bon moment pour débuter les antirétroviraux après un diagnostic confirmé ?",
+        "choices": [
+          "Après la première infection opportuniste",
+          "Le jour même, pour tous les patients, quel que soit le taux de CD4",
+          "Uniquement sous 100 CD4",
+          "Après six mois d'observation"
+        ],
+        "correct": 1,
+        "explanation": "Recommandation OMS « traiter tous » : le traitement débute dès le diagnostic, à tout taux de CD4 et à tout stade — y compris pour prévenir la transmission.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l4-5",
+        "prompt": "Quel schéma de première intention l'OMS privilégie-t-elle en 2026 ?",
+        "choices": [
+          "Une monothérapie de zidovudine",
+          "TLD : ténofovir + lamivudine + dolutégravir en un comprimé",
+          "Une bithérapie de corticoïdes",
+          "De l'interféron seul"
+        ],
+        "correct": 1,
+        "explanation": "La combinaison fixe TLD est le traitement de référence : dolutégravir (inhibiteur de l'intégrase) pour toutes les populations, y compris femmes enceintes et en âge de procréer.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l4-6",
+        "prompt": "Quel objectif virologique attend-on à six mois de traitement bien conduit ?",
+        "choices": [
+          "Des CD4 supérieurs à 3000",
+          "Une charge virale inférieure à 50 copies par millilitre",
+          "Une sérologie devenue négative",
+          "Un poids supérieur à 80 kilos"
+        ],
+        "correct": 1,
+        "explanation": "La suppression virale — moins de 50 copies par millilitre — est l'objectif à trois puis six mois ; elle conditionne la santé, la remontée des CD4 et la protection du partenaire.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l4-7",
+        "prompt": "Pourquoi l'observance quotidienne est-elle le point névralgique du traitement ?",
+        "choices": [
+          "Pour éviter les douleurs abdominales",
+          "Les oublis répétés sélectionnent des virus résistants",
+          "Pour économiser les comprimés restants",
+          "Pour obtenir le remboursement du traitement"
+        ],
+        "correct": 1,
+        "explanation": "Chaque prise insuffisante laisse le virus se répliquer sous pression du médicament : des variants résistants émergent et brûlent les lignes thérapeutiques suivantes.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l4-8",
+        "prompt": "Quelle surveillance impose la zidovudine encore présente dans certains protocoles ?",
+        "choices": [
+          "Un fond d'œil semestriel",
+          "La numération formule sanguine à la recherche d'anémie",
+          "Une audiométrie annuelle",
+          "Une coloration verte des urines"
+        ],
+        "correct": 1,
+        "explanation": "La zidovudine est toxique pour la moelle : anémie et neutropénie imposent une NFS régulière ; le dolutégravir, lui, fait surtout surveiller la prise de poids.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l4-9",
+        "prompt": "Un mois après le début des ARV, les adénopathies du patient augmentent avec de la fièvre : quel syndrome reconnaître ?",
+        "choices": [
+          "Un échec thérapeutique certain",
+          "Un syndrome inflammatoire de reconstitution immunitaire",
+          "Une nouvelle infection bactérienne nosocomiale",
+          "Une allergie au dolutégravir"
+        ],
+        "correct": 1,
+        "explanation": "L'IRIS signe le réveil immunitaire des premières semaines de traitement : réaction inflammatoire contre des antigènes persistants ; on traite l'infection en cause et on poursuit les ARV.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-l4-10",
+        "prompt": "Quelle prophylaxie primaire débuter quand les CD4 passent sous 200 par millimètre cube ?",
+        "choices": [
+          "De l'isoniazide seul",
+          "Du cotrimoxazole",
+          "De l'amphotéricine orale",
+          "De la vitamine K"
+        ],
+        "correct": 1,
+        "explanation": "Le cotrimoxazole prévient pneumocystose, toxoplasmose et infections bactériennes intercurrentes ; il se poursuit jusqu'à la remontée des CD4 au-dessus de 200 sous traitement.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-vih-l5",
+    "version": "1.0.0",
+    "title": "VIH — formes graves et stratégie",
+    "subtitle": "Infections opportunistes, PTME, PrEP, PPE · L5",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-vih-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — VIH et sida",
+        "citation": "HIV and AIDS. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "ONUSIDA — Statistiques VIH",
+        "citation": "Global HIV & AIDS statistics — Fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — Populations clés",
+        "citation": "Consolidated guidelines on HIV, viral hepatitis and STI for key populations, 2022."
+      }
+    ],
+    "questions": [
+      {
+        "id": "vih-l5-1",
+        "prompt": "Quels dépistages systématiques s'imposent avant d'initier les ARV chez un patient très immunodéprimé ?",
+        "choices": [
+          "Recherche d'antigène cryptococcique et de tuberculose",
+          "Une radiographie dentaire complète",
+          "Une fibroscopie gastrique systématique",
+          "Un test cutané à la tuberculine seul"
+        ],
+        "correct": 0,
+        "explanation": "Sous 200 CD4 : antigène cryptococcique sanguin et dépistage de la tuberculose — traiter ces infections d'abord évite les formes engagent le pronostic vital dès l'initiation des ARV.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l5-2",
+        "prompt": "Céphalées subaiguës depuis trois semaines chez un patient à 40 CD4 : quel agent en première hypothèse ?",
+        "choices": [
+          "Cryptococcus neoformans",
+          "Streptococcus pneumoniae",
+          "Plasmodium falciparum",
+          "Salmonella Typhi"
+        ],
+        "correct": 0,
+        "explanation": "La cryptococcose neuroméningée donne des céphalées subaiguës avec syndrome méningé discret : ponction lombaire avec encre de Chine, antigène cryptococcique ; traitement par amphotéricine B puis fluconazole.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l5-3",
+        "prompt": "Dyspnée sèche fébrile avec désaturation à 90 CD4 : quel traitement instaurer en urgence ?",
+        "choices": [
+          "Amoxicilline orale simple",
+          "Cotrimoxazole fortes doses, corticoïdes si hypoxie",
+          "Corticoïdes seuls",
+          "Oxygène sans médicament"
+        ],
+        "correct": 1,
+        "explanation": "Le tableau est celui d'une pneumocystose : cotrimoxazole à fortes doses par voie adaptée, corticoïdes si l'oxygénation est basse, puis prophylaxie secondaire au long cours.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-l5-4",
+        "prompt": "Abcès cérébraux multiples en imagerie chez un patient à 80 CD4 : quelle étiologie probable ?",
+        "choices": [
+          "Toxoplasmose cérébrale",
+          "Un gliome infiltrant",
+          "Un accident vasculaire ischémique",
+          "Un abcès dentaire embolique"
+        ],
+        "correct": 0,
+        "explanation": "La toxoplasmose cérébrale survient sous 100 CD4 : lésions multiples en cocarde, céphalées et signes focaux ; traitement anti-toxoplasmique, confirmation souvent évolutif-radiologique.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l5-5",
+        "prompt": "Baisse d'acuité visuelle progressive chez un patient à 30 CD4 : quelle complication redouter ?",
+        "choices": [
+          "Une rétinite à cytomégalovirus",
+          "Une cataracte sénile précoce",
+          "Un glaucome aigu par fermeture",
+          "Une dégénérescence maculaire"
+        ],
+        "correct": 0,
+        "explanation": "La rétinite à CMH des CD4 très bas fond le fond d'œil en « fromage fondu » : urgence ophtalmologique, traitement ganciclovir, et ARV sans délai pour restaurer l'immunité.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-l5-6",
+        "prompt": "Quelle stratégie la prévention de la transmission mère-enfant repose-t-elle ?",
+        "choices": [
+          "Option B+ : trithérapie maternelle à vie, dès le diagnostic de grossesse",
+          "Une dose unique de névirapine à l'accouchement",
+          "Aucun traitement si les CD4 sont normaux",
+          "Une interruption systématique de grossesse"
+        ],
+        "correct": 0,
+        "explanation": "Option B+ : toute femme enceinte vivant avec le VIH prend une trithérapie à vie, avec prophylaxie du nourrisson et PCR précoce ; 87 % des femmes enceintes étaient couvertes en 2025.",
+        "sources": [
+          {
+            "title": "ONUSIDA — VIH",
+            "citation": "Global HIV & AIDS statistics — Fact sheet, 2026.",
+            "organization": "ONUSIDA",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l5-7",
+        "prompt": "Quelle offre de prévention pour une personne séronégative exposée à un risque substantiel d'infection ?",
+        "choices": [
+          "La PrEP orale à base de ténofovir, avec suivi régulier",
+          "Des antibiotiques mensuels en continu",
+          "Le vaccin anti-VIH disponible en pharmacie",
+          "Aucune mesure tant que la sérologie est négative"
+        ],
+        "correct": 0,
+        "explanation": "L'OMS recommande la prophylaxie pré-exposition orale pour les populations clés et les partenaires exposés : efficacité conditionnée par l'observance, avec un suivi sérologique et rénal.",
+        "sources": [
+          {
+            "title": "OMS — Populations clés",
+            "citation": "Consolidated guidelines on HIV, viral hepatitis and STI for key populations, 2022.",
+            "organization": "OMS",
+            "year": 2022
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "vih-l5-8",
+        "prompt": "Après une exposition accidentelle au sang, dans quel laps de temps la PPE garde-t-elle son efficacité ?",
+        "choices": [
+          "Dans le mois qui suit",
+          "Débutée au plus tôt, sans jamais dépasser 72 heures",
+          "Après une semaine de réflexion",
+          "Seulement une fois la source prouvée positive"
+        ],
+        "correct": 1,
+        "explanation": "La prophylaxie post-exposition se prescrit immédiatement — au mieux dans les heures suivant l'exposition, au plus tard 72 heures — puis se poursuit 28 jours avec un suivi sérologique.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-l5-9",
+        "prompt": "Une cryptococcose neuroméningée vient d'être diagnostiquée avant l'initiation des ARV : quelle séquence thérapeutique ?",
+        "choices": [
+          "Débuter les ARV le jour même",
+          "Traiter d'abord la cryptococcose, puis introduire les ARV après stabilisation",
+          "Renoncer définitivement aux ARV",
+          "Donner des corticoïdes seuls à forte dose"
+        ],
+        "correct": 1,
+        "explanation": "Débuter les ARV sur une cryptococcose non contrôlée précipite l'engagement cérébral : amphotéricine B (± flucytosine) d'abord, ARV ensuite selon le protocole national.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-l5-10",
+        "prompt": "Un IRIS sévère avec détresse respiratoire dans le premier mois d'ARV : quelle conduite ?",
+        "choices": [
+          "Arrêter définitivement le traitement antirétroviral",
+          "Poursuivre les ARV, traiter l'infection en cause et discuter la corticothérapie",
+          "Doubler toutes les doses d'antirétroviraux",
+          "Surveillance simple sans traitement"
+        ],
+        "correct": 1,
+        "explanation": "L'IRIS grave se traite sans casser la reconstitution immunitaire : ARV poursuivis, infection sous-jacente traitée, corticoïdes selon la sévérité.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-vih-int",
+    "version": "1.0.0",
+    "title": "VIH — cas cliniques critiques",
+    "subtitle": "Gardes, urgences, décisions et annonces · Interne",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "diagnosis",
+      "management",
+      "canmeds_communicator"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-vih-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — VIH et sida",
+        "citation": "HIV and AIDS. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "CDC — HIV Nexus",
+        "citation": "HIV Nexus: CDC resources for clinicians, 2026."
+      },
+      {
+        "title": "ONUSIDA — Statistiques VIH",
+        "citation": "Global HIV & AIDS statistics — Fact sheet, juillet 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "vih-int-1",
+        "prompt": "Homme de 28 ans, VIH connu non traité, CD4 à 35 : céphalées depuis deux semaines sans raideur de nuque. Quel examen demander en premier ?",
+        "choices": [
+          "Ponction lombaire avec encre de Chine et antigène cryptococcique",
+          "Un scanner abdominal injecté",
+          "Un électroencéphalogramme de veille",
+          "Des hémocultures seules à 72 heures"
+        ],
+        "correct": 0,
+        "explanation": "Céphalées subaiguës + CD4 très bas = cryptococcose neuroméningée jusqu'à preuve du contraire : la ponction lombaire avec encre de Chine et antigène cryptococcique tranche et guide le traitement.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-int-2",
+        "prompt": "Patiente sous ARV depuis quatre semaines : fièvre, toux et infiltrats pulmonaires d'aggravation rapide. Quelle hypothèse prioritaire ?",
+        "choices": [
+          "Un IRIS réveillant une tuberculose méconnue",
+          "Une grippe saisonnière simple",
+          "Une crise d'asthme aiguë",
+          "Une embolie pulmonaire isolée"
+        ],
+        "correct": 0,
+        "explanation": "L'aggravation dans le premier mois d'ARV évoque un IRIS sur tuberculose non diagnostiquée : chercher la TB (prélèvements, imagerie), la traiter, poursuivre les ARV, discuter les corticoïdes.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-int-3",
+        "prompt": "Anémie profonde avec neutropénie après trois mois de zidovudine : quelle décision thérapeutique ?",
+        "choices": [
+          "Poursuivre en se contentant de surveiller",
+          "Remplacer la zidovudine dans le schéma antirétroviral",
+          "Transfuser sans rien changer au traitement",
+          "Arrêter définitivement tous les antirétroviraux"
+        ],
+        "correct": 1,
+        "explanation": "La myélotoxicité de la zidovudine impose son remplacement dans la combinaison — l'efficacité du traitement doit être maintenue par une autre colonne vertébrale.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-int-4",
+        "prompt": "Éruption bulleuse avec atteinte des muqueuses huit jours après l'introduction de névirapine : quel geste ?",
+        "choices": [
+          "Poursuivre en diminuant la dose de moitié",
+          "Arrêt immédiat et définitif de la névirapine, réévaluation du schéma",
+          "Une pommade dermocorticoïde en attendant",
+          "Doubler les antihistaminiques oraux"
+        ],
+        "correct": 1,
+        "explanation": "Syndrome de Stevens-Johnson sous inhibiteur non nucléosidique : urgence médicale — arrêt du médicament incriminé, hospitalisation, remplacement par une autre classe (inhibiteur de l'intégrase en priorité).",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "vih-int-5",
+        "prompt": "Femme enceinte de 26 ans, VIH découvert à 28 semaines d'aménorrhée, asymptomatique : quel plan de prise en charge ?",
+        "choices": [
+          "Différer le traitement après l'accouchement",
+          "Trithérapie immédiate à base de dolutégravir et prophylaxie du nouveau-né",
+          "Césarienne programmée sans traitement maternel",
+          "Allaitement maternel exclusif sans antirétroviraux"
+        ],
+        "correct": 1,
+        "explanation": "Option B+ : le traitement maternel commence sans délai et se poursuit à vie, le nouveau-né reçoit sa prophylaxie et un suivi virologique précoce par PCR ; l'accouchement se planifie avec l'équipe obstétricale.",
+        "sources": [
+          {
+            "title": "ONUSIDA — VIH",
+            "citation": "Global HIV & AIDS statistics — Fact sheet, 2026.",
+            "organization": "ONUSIDA",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-int-6",
+        "prompt": "Patient perdu de vue depuis deux ans, charge virale très élevée, CD4 à 120 : quelle démarche avant de réintroduire les ARV ?",
+        "choices": [
+          "Reprendre les mêmes comprimés sans nouveau bilan",
+          "Refaire le bilan complet et chercher tuberculose et infections opportunistes",
+          "Attendre une nouvelle chute des CD4",
+          "L'hospitaliser définitivement sans réévaluation"
+        ],
+        "correct": 1,
+        "explanation": "Après une rupture de suivi, tout est à réévaluer : charge virale, CD4, tuberculose, hépatites, grossesse éventuelle — puis reprise d'un schéma adapté, en s'interrogeant sur les résistances possibles.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "vih-int-7",
+        "prompt": "Aiguille souillée sur patient source inconnu, consultation 60 heures après l'accident : que prescrire ?",
+        "choices": [
+          "Rien du tout au-delà de 48 heures",
+          "Une PPE de 28 jours débutée immédiatement, avec suivi sérologique",
+          "Un vaccin anti-VIH en deux doses",
+          "Uniquement un test de contrôle dans trois mois"
+        ],
+        "correct": 1,
+        "explanation": "À 60 heures, la fenêtre utile des 72 heures n'est pas fermée : la PPE se débute immédiatement pour 28 jours, le dépistage de la source se poursuit en parallèle, et le suivi sérologique est programmé.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "vih-int-8",
+        "prompt": "Un patient indétectable depuis trois ans demande à arrêter ses comprimés car il se sent parfaitement bien : quelle réponse ?",
+        "choices": [
+          "Accepter sa demande sans discussion",
+          "Expliquer le risque de rebond viral, de résistances et de transmission, puis construire un plan de soutien à l'observance",
+          "Le passer d'office à un traitement injectable non validé",
+          "Le menacer d'une sortie de la file active"
+        ],
+        "correct": 1,
+        "explanation": "L'arrêt des ARV s'accompagne d'un rebond de charge virale en quelques semaines, avec risque de résistances et de transmission : écouter les raisons (stigmatisation, effets indésirables), renforcer l'accompagnement, ne jamais valider un arrêt.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "vih-int-9",
+        "prompt": "Annonce d'une séropositivité à un patient de 19 ans consulté pour une IST : quelle attitude soignante ?",
+        "choices": [
+          "Annoncer le résultat brutalement pour gagner du temps",
+          "Confidentialité, temps d'écoute, explication du traitement immédiat et organisation du dépistage des partenaires",
+          "Ne rien dire en attendant un second test de confirmation",
+          "Prévenir la famille sans l'accord du patient"
+        ],
+        "correct": 1,
+        "explanation": "L'annonce est un acte médical structuré : cadre confidentiel, vérification que le patient entend, message clair (maladie chronique traitable, traitement le jour même), plan pour les partenaires et le suivi.",
+        "sources": [
+          {
+            "title": "OMS — VIH",
+            "citation": "HIV and AIDS. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "vih-int-10",
+        "prompt": "Homme de 35 ans à 60 CD4 : diarrhée liquide depuis six semaines et amaigrissement de 10 kilos malgré le cotrimoxazole. Quelle étiologie opportuniste suspecter ?",
+        "choices": [
+          "Cryptosporidiose ou microsporidiose intestinale",
+          "Une appendicite chronique",
+          "Une rectocolite hémorragique",
+          "Une maladie de Crohn débutante"
+        ],
+        "correct": 0,
+        "explanation": "Les diarrhées opportunistes des CD4 très bas — cryptosporidiose, microsporidiose, isosporose — résistent au cotrimoxazole dans certains cas : coproscopies adaptées, réhydratation, et surtout ARV pour restaurer l'immunité.",
+        "sources": [
+          {
+            "title": "CDC — VIH",
+            "citation": "HIV Nexus: CDC resources for clinicians, 2026.",
+            "organization": "CDC",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      }
+    ]
   }
 ]
