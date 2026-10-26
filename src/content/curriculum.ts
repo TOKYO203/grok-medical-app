@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (59 decks, 617 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=2 · dermato=1 · urgences=6
+ * Répartition cible (64 decks, 667 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=7 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -191,6 +191,15 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       description: "Paludisme, vecteurs, urgences de l'océan Indien.",
       decks: ["tropical"],
     },
+    {
+      id: "typho",
+      label: "Fièvres typhoïdes",
+      icon: "🧫",
+      levels: [...LEVELS_PATHO],
+      description: "Reconnaître, diagnostiquer et traiter la fièvre typhoïde.",
+      decks: ["infectio-typho-l2", "infectio-typho-l3", "infectio-typho-l4", "infectio-typho-l5", "infectio-typho-int"],
+    },
+
     { id: "sepsis", label: "Sepsis et choc septique", icon: "🚨", levels: ["L4", "L5", "INTERNE"], description: "Reconnaissance, antibiothérapie, réanimation.", decks: [], skeleton: true },
     { id: "atb", label: "Antibiothérapie", icon: "💊", levels: ["L3", "L4", "L5"], description: "Classes, spectre, résistances.", decks: [], skeleton: true },
     { id: "vih", label: "VIH et IST", icon: "🎗️", levels: ["L4", "L5"], description: "Dépistage, traitements, prophylaxie.", decks: [], skeleton: true },

@@ -1,0 +1,1037 @@
+{
+  "kind": "pathology",
+  "slug": "fievres-typhoides",
+  "schemaVersion": 1,
+  "title": "Fièvres typhoïdes",
+  "subtitle": "Fiche de nosographie — infectiologie tropicale",
+  "language": "fr",
+  "updatedAt": "2026-10-24",
+  "objective": "Devant toute fièvre prolongée à Madagascar : évoquer la typhoïde, éliminer le paludisme, confirmer par hémoculture, initier l'antibiothérapie adaptée aux résistances et reconnaître les urgences digestives.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 2,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 43,
+      "localNumber": 2,
+      "sectionLabel": "Médecine",
+      "title": "Fièvres typhoïdes",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une infection systémique féco-orale, endémique à Madagascar, dont le maître symptôme est une fièvre prolongée.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        },
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les fièvres typhoïdes sont des infections systémiques provoquées par des salmonelles mineures strictement adaptées à l'être humain : Salmonella enterica serovar Typhi pour la fièvre typhoïde, et les serovars Paratyphi A, B et C pour des tableaux proches, dits paratyphoïdiques. La transmission est féco-orale : l'eau et les aliments souillés par les excrétions d'un malade ou d'un porteur sain en sont les véhicules. Le réservoir est strictement humain, ce qui rend la maladie contrôlable par l'eau potable et l'hygiène."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'OMS estime à environ neuf millions le nombre de cas annuels dans le monde et à cent dix mille le nombre de décès, avec la charge la plus lourde en Asie du Sud. Les données africaines sont moins complètes, mais la typhoïde est endémique dans toute l'Afrique subsaharienne et dans l'océan Indien, Madagascar compris, partout où l'accès à l'eau traitée et à l'assainissement reste insuffisant."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sur le terrain malgache, la typhoïde est l'un des grands diagnostics d'une fièvre qui traîne : le paludisme vient toujours en tête, mais il n'explique pas tout. Un test de diagnostic rapide du paludisme négatif devant une fièvre de plus d'une semaine doit faire chercher autre chose, et l'hémoculture est alors l'examen pivot. La résistance croissante de Salmonella Typhi aux antibiotiques usuels, notamment aux fluoroquinolones via le clone H58, complique le traitement et impose de raisonner en fonction du contexte local."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit la progression du cursus : reconnaître et alerter, comprendre la maladie, affirmer le diagnostic, traiter en tenant compte des résistances, prendre en charge les urgences digestives et organiser la prévention. Elle est complétée par cinq decks de questions, du niveau L2 à l'internat."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le réflexe de base",
+          "text": "Toute fièvre qui dure au-delà de cinq jours à Madagascar n'est pas un paludisme jusqu'à preuve du contraire : le test rapide oriente, l'hémoculture tranche, et une douleur abdominale qui survient en cours d'évolution impose d'éliminer une perforation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Repère"
+          ],
+          "rows": [
+            [
+              "Agent",
+              "Salmonella Typhi (salmonelle mineure, réservoir humain)"
+            ],
+            [
+              "Transmission",
+              "Féco-orale : eau et aliments souillés"
+            ],
+            [
+              "Incubation",
+              "Huit à quatorze jours en général"
+            ],
+            [
+              "Examen pivot",
+              "Hémoculture, idéalement en première semaine"
+            ],
+            [
+              "Complication majeure",
+              "Perforation iléale (troisième semaine)"
+            ],
+            [
+              "Vaccin",
+              "Vaccin conjugué (TCV), recommandé par l'OMS dès 6 mois"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physiopathologie",
+      "title": "I. Agent, transmission et physiopathologie",
+      "summary": "Du verre d'eau souillée à la bactériémie : la marche en trois semaines de la typhoïde.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        },
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Salmonella Typhi est un bacille Gram négatif mobile, strictement adapté à l'espèce humaine : il n'y a ni réservoir animal ni vecteur. Le malade excrète le germe dans les selles dès la première semaine et jusqu'à la guérison ; deux à cinq pour cent des adultes guéris deviennent porteurs chroniques, le germe persistant dans la vésicule biliaire, souvent sur lithiase. Ces porteurs, s'ils manipulent des aliments, entretiennent la transmission."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après ingestion, le germe franchit la barrière gastrique — l'acidité gastrique est protectrice, et son défaut (achlorhydrie, traitement antisécrétoire, gastro-entérite intercurrente) abaisse la dose infectante. Il colonise puis envahit les plaques de Peyer de l'iléon terminal, est internalisé par les macrophages où il multiplie, puis gagne par voie lymphatique les ganglions mésentériques, le foie, la rate et la moelle : c'est la bactériémie primaire, encore silencieuse. La nouvelle dissémination sanguine qui suit marque le début de la maladie fébrile."
+        },
+        {
+          "type": "paragraph",
+          "text": "La bile chargeée en germes réinocule ensuite l'intestin : les plaques de Peyer tuméfiées s'ulcèrent en deuxième et troisième semaines, au contact direct de la muqueuse — c'est de ces ulcérations que naissent les deux complications digestives, la perforation et l'hémorragie. Cette chronologie en trois semaines structure toute la sémiologie et toute la surveillance."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Eau non traitée et aliments crus ou manipulés sans hygiène : véhicules principaux.",
+            "Enfants d'âge scolaire et adolescents : groupe d'âge le plus touché dans les zones d'endémie.",
+            "Achlorhydrie gastrique et traitements antisécrétoires : porte d'entrée facilitée.",
+            "Drépanocytose : terrain des formes focalisées (ostéites, arthrites) à Salmonella Typhi.",
+            "Porteurs chroniques biliaires : maillons de chaînes de transmission familiales et professionnelles."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Résistances : le clone H58",
+          "text": "Le clone H58, dominant en Asie et largement diffusé en Afrique de l'Est et à Madagascar, porte des résistances aux fluoroquinolones qui rendent ces molécules peu fiables en probabiliste. Des souches extensivement résistantes ont émergé en Asie du Sud. L'antibiogramme n'est pas un luxe : azithromycine et céphalosporines de troisième génération sont les piliers actuels."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Semaine",
+            "Dominante physiopathologique",
+            "Piège clinique"
+          ],
+          "rows": [
+            [
+              "Première",
+              "Bactériémie : l'hémoculture est à son meilleur rendement",
+              "La fièvre monte et le paludisme éclipse le diagnostic"
+            ],
+            [
+              "Deuxième",
+              "Signes systémiques : taches rosées, splénomégalie, tuphos",
+              "Le Widal isolé peut déjà être positif sans rien prouver"
+            ],
+            [
+              "Troisième",
+              "Ulcérations des plaques de Peyer",
+              "Perforation et hémorragie digestives"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "summary": "Une fièvre en plateau chez un adulte jeune : clinique orientée, hémoculture pivot, Widal sur-interprété.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        },
+        {
+          "id": "SRC-CDC-YB-2026",
+          "title": "CDC Yellow Book 2026 — Typhoid and Paratyphoid Fever",
+          "url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tableau classique est celui d'un adulte jeune dont la fièvre monte progressivement en plateau autour de trente-neuf à quarante degrés, sans grands frissons, avec céphalées, anorexie, douleurs abdominales diffuses et une altération de la conscience d'allure tranquille, le tuphos. La constipation est classique chez l'adulte ; le nourrisson et le petit enfant présentent plus souvent une diarrhée profuse. La fièvre en plateau avec bradycardie relative, si le patient n'est pas sous bêtabloquant, reste un couple sémiologique enseigné et recherché."
+        },
+        {
+          "type": "paragraph",
+          "text": "À l'examen, la langue est saburrale, l'abdomen est souple avec une sensibilité de la fosse iliaque droite ; on cherche les taches rosées lenticulaires du thorax et de l'abdomen, petites macules qui effacent à la vitropression, fugaces et inconstantes ; une splénomégalie modérée est fréquente, parfois une hépatomégalie avec discrète cytolyse."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémoculture est l'examen pivot : son rendement, de l'ordre de quarante à quatre-vingts pour cent, est maximal en première semaine et avant toute prise d'antibiotique ; on prélève si possible deux flacons aérobies. La coproculture prend le relais en deuxième et troisième semaines. Le sérodiagnostic de Widal et Félix ne doit jamais être interprété isolément en zone d'endémie : les faux positifs y sont nombreux (paludisme, hépatites virales, cirrhose, connectivites) et seule une séroconversion entre deux prélèvements espacés de dix à quinze jours a de la valeur. La NFS montre une leuconeutropénie évocatrice, contrairement aux supplications bactériennes pyogènes ; la VS est accélérée."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Douleur abdominale brutale",
+          "text": "Une douleur abdominale brutale avec défense, qui survient chez un patient suivi pour fièvre prolongée, est une perforation iléale jusqu'à preuve du contraire : radiographie de thorax de face debout à la recherche d'un pneumopéritoine, chirurgien sans délai, antibiothérapie intraveineuse et réanimation. Toute heure perdue pèse sur le pronostic."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Paludisme : test rapide systématique ; une co-infection est possible, un test négatif n'interdit pas la poursuite du bilan.",
+            "Dengue et autres arboviroses : fièvre, céphalées, arthralgies, thrombopénie.",
+            "Leptospirose : contexte d'exposition, myalgies, ictère conjonctival, atteinte rénale.",
+            "Hépatites virales, tuberculose disséminée, brucellose, endocardite, lymphome : les autres fièvres prolongées de l'adulte jeune."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Examen",
+            "Rendement et place",
+            "Moment idéal"
+          ],
+          "rows": [
+            [
+              "Hémoculture",
+              "Examen pivot, 40 à 80 % de rendement",
+              "Première semaine, avant antibiotiques"
+            ],
+            [
+              "Coproculture",
+              "Positive en deuxième et troisième semaines",
+              "Semaines deux et trois, contrôle de guérison"
+            ],
+            [
+              "Widal et Félix",
+              "Seule la séroconversion compte, faux positifs fréquents",
+              "Deux prélèvements espacés de dix à quinze jours"
+            ],
+            [
+              "Test rapide paludisme",
+              "Systématique à l'admission de toute fièvre",
+              "Dès la première consultation"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "complications",
+      "title": "III. Complications et formes graves",
+      "summary": "Perforation, hémorragie, sepsis : la troisième semaine est celle de tous les dangers.",
+      "sources": [
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        },
+        {
+          "id": "SRC-CDC-YB-2026",
+          "title": "CDC Yellow Book 2026 — Typhoid and Paratyphoid Fever",
+          "url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La perforation iléale, qui survient classiquement dans la deuxième moitié de l'évolution, réalise un tableau chirurgical : douleur brutale de la fosse iliaque droite généralisée, défense, arrêt du transit, puis choc. La fièvre peut paradoxalement baisser dans les premières heures. Le pneumopéritoire sur le cliché debout confirme, mais son absence n'exclut rien. Le traitement est chirurgical, associé à une antibiothérapie intraveineuse à large spectre et à la réanimation ; la mortalité des perforations opérées tard reste lourde."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémorragie digestive, méléna ou rectorragies, traduit l'érosion d'un ulcère au niveau d'une plaque de Peyer : elle peut être discrète, se révéler par une chute de l'hémoglobine, ou menacer l'état hémodynamique et imposer la transfusion. Le choc septique, plus rare, s'observe dans les formes malignes et chez les vulnérables ; il se prend en charge selon les règles du sepsis sévère, antibiothérapie comprise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les autres atteintes sont moins bruyantes mais à connaître : myocardite à surveiller sur l'électrocardiogramme, hépatite ictérique, pneumopathie, cystite, orchite ; les formes neurologiques vont de l'agitation et du délire au coma de la typhoïde maligne, urgence vitale. Chez la femme enceinte, la maladie menace la grossesse, avec un risque d'avortement et d'accouchement prématuré. Chez le drépanocytaire, Salmonella Typhi est une cause classique d'ostéomyélite focale."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Admettre en réanimation",
+          "text": "Quatre situations imposent un transfert immédiat : un état de choc, un coma ou une confusion fébrile, un pneumopéritoine, une hémorragie digestive active. La typhoïde tue par ses complications de la troisième semaine, pas par sa fièvre de la première."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Complication",
+            "Signe d'appel",
+            "Conduite immédiate"
+          ],
+          "rows": [
+            [
+              "Perforation iléale",
+              "Douleur brutale, défense, cliché debout",
+              "Bloc opératoire, antibiothérapie intraveineuse"
+            ],
+            [
+              "Hémorragie digestive",
+              "Méléna, chute de l'hémoglobine",
+              "Transfusion, avis chirurgical"
+            ],
+            [
+              "Choc septique",
+              "Hypotension, marbrures, oligurie",
+              "Remplissage, lactates, antibiothérapie dans l'heure"
+            ],
+            [
+              "Typhoïde maligne",
+              "Coma, signes neurologiques focaux",
+              "Réanimation, antibiothérapie intraveineuse"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "summary": "Confirmer avant de traiter, traiter selon les résistances, surveiller la fièvre et l'abdomen.",
+      "sources": [
+        {
+          "id": "SRC-CDC-YB-2026",
+          "title": "CDC Yellow Book 2026 — Typhoid and Paratyphoid Fever",
+          "url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        },
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est antibiotique. Préalable : ne jamais débuter l'antibiothérapie sans avoir prélevé les hémocultures, sauf urgence vitale ; dans les formes graves, on prélève et l'on traite dans la même heure. Le traitement de soutien — réhydratation, antipyrétiques, nutrition, repos — accompagne toujours l'antibiothérapie ; on évite les laxatifs et les lavements, qui risquent de précipiter une perforation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans les formes non compliquées, l'azithromycine orale est la référence actuelle en zone de haute résistance ; le céfixime oral est une alternative, l'amoxicilline ne se conçoit que sur souche sensible documentée. Les fluoroquinolones ne doivent plus être utilisées en probabiliste dans les régions où le clone H58 domine : leurs échecs cliniques sont décrits malgré une sensibilité apparente sur l'antibiogramme. Dans les formes graves, la ceftriaxone intraveineuse est l'arrière-ban solide ; le relais oral se règle sur l'antibiogramme."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance est clinique : la fièvre doit céder en trois à cinq jours. Une fièvre qui persiste au-delà impose de réévaluer — complication digestive occulte, souche résistante, ou autre diagnostic, notamment un paludisme passé inaperçu. La guérison bactériologique se vérifie sur des coprocultures de contrôle après la fin du traitement, surtout chez les professionnels de l'alimentation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le porteur chronique, défini par une excrétion qui se prolonge au-delà d'un an, relève d'une antibiothérapie prolongée guidée par l'antibiogramme — plusieurs semaines — et, en cas de lithiase vésiculaire associée, d'une cholécystectomie. L'éviction professionnelle des manipulateurs d'aliments se lève sur des coprocultures de contrôle négatives, selon la réglementation locale."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Le test rapide négatif ne ferme pas le dossier",
+          "text": "Un test de paludisme négatif ne clôt jamais une fièvre prolongée : il ouvre au contraire le bilan, hémoculture comprise, et une co-infection typhoïde-paludisme est toujours possible. C'est l'erreur de tri la plus dangereuse de la saison des pluies."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Antibiothérapie de référence",
+            "Durée usuelle"
+          ],
+          "rows": [
+            [
+              "Forme non compliquée",
+              "Azithromycine orale",
+              "Cinq à sept jours"
+            ],
+            [
+              "Forme non compliquée, alternative",
+              "Céfixime oral",
+              "Sept à quatorze jours"
+            ],
+            [
+              "Forme grave ou sepsis",
+              "Ceftriaxone intraveineuse",
+              "Sept à dix jours, relais selon antibiogramme"
+            ],
+            [
+              "Porteur chronique",
+              "Antibiothérapie prolongée selon antibiogramme",
+              "Plusieurs semaines, cholécystectomie si lithiase"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et contrôle",
+      "summary": "L'eau d'abord, les vaccins conjugués ensuite : deux bras indissociables.",
+      "sources": [
+        {
+          "id": "SRC-WHO-PP-2026",
+          "title": "WHO position paper on typhoid vaccines, August 2026",
+          "url": "https://www.who.int/publications/i/item/who-wer10132-166-180",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la typhoïde est d'abord celle de toute maladie féco-orale : eau de boisson chlorée ou bouillie, latrines hygiéniques, lavage des mains au savon, aliments cuits et consommés chauds, protection des réserves d'eau. Ces mesures collectives sont celles qui font baisser l'incidence ; elles valent aussi pour le choléra et les diarrhées aiguës, leurs compagnes d'endémie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La vaccination a changé d'échelle avec les vaccins antityphoïdiques conjugués : deux d'entre eux sont préqualifiés par l'OMS depuis décembre 2017, administrables dès l'âge de six mois. Le document de position de l'OMS d'août 2026, qui remplace celui de 2018, confirme la priorité donnée aux vaccins conjugués dans les programmes de vaccination des pays endémiques, avec des campagnes de rattrapage et une place dans la réponse aux flambées. Les voyageurs venant de zones non endémiques restent une cible classique de la vaccination préalable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vaccin conjugué (TCV) : dès six mois, pivot des programmes nationaux selon la position OMS 2026.",
+            "Vaccin Vi polysaccharidique : dès deux ans, non conjugué, sans effet chez le nourrisson.",
+            "Vaccin Ty21a oral vivant atténué : contre-indiqué chez l'immunodéprimé et la femme enceinte."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans une flambée, la vaccination réactive complète — sans la remplacer — la sécurisation de l'eau : chloration au point d'usage, recherche de la source commune, porte-à-porte d'hygiène, et dépistage des porteurs parmi les entourage et les manipulateurs d'aliments. Le protocole national malgache de prise en charge et de déclaration prime sur toute synthèse : le propriétaire du contenu veillera à l'insérer dans la bibliographie locale."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Vaccin et eau potable : le couple inséparable",
+          "text": "La vaccination contre la typhoïde ne remplace pas l'eau potable : elle protège l'individu pendant que l'assainissement protège la communauté, et c'est leur somme qui interrompt la transmission. Annoncer l'un sans l'autre, c'est préparer l'échec."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Trois semaines, un examen pivot, deux urgences digestives, une prévention à deux bras.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La fièvre typhoïde reste, à Madagascar comme dans l'ensemble de la zone intertropicale, une cause banale et sous-diagnostiquée de fièvre prolongée. Sa chronologie en trois semaines, son examen pivot qu'est l'hémoculture, ses deux urgences digestives de la troisième semaine et sa prévention à deux bras — eau et vaccin conjugué — constituent l'ossature que tout candidat à l'examen national doit posséder."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le piège du terrain n'est pas la rareté mais le voisinage : le paludisme masque et falsifie, le Widal rassure à tort, les fluoroquinolones promettent plus qu'elles ne tiennent. La discipline diagnostique — test rapide, hémoculture, antibiogramme — et la vigilance abdominale sauvent plus de vies que n'importe quelle molécule."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir en une phrase",
+          "text": "Fièvre prolongée à Madagascar : paludisme d'abord éliminé, hémoculture toujours, abdomen surveillé chaque jour, azithromycine ou ceftriaxone selon la gravité, eau potable et vaccin conjugué pour demain."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles vérifiées lors de la rédaction.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TYPH",
+          "title": "Typhoid — fact sheet",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2023
+        },
+        {
+          "id": "SRC-WHO-PP-2026",
+          "title": "WHO position paper on typhoid vaccines, August 2026",
+          "url": "https://www.who.int/publications/i/item/who-wer10132-166-180",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-CDC-YB-2026",
+          "title": "CDC Yellow Book 2026 — Typhoid and Paratyphoid Fever",
+          "url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WAIN-2015",
+          "title": "Typhoid fever (revue)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+          "organization": "The Lancet",
+          "year": 2015
+        }
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "N°",
+            "Référence"
+          ],
+          "rows": [
+            [
+              "1",
+              "OMS. Typhoid — fact sheet. Genève : Organisation mondiale de la Santé ; mise à jour du 30 mars 2023. https://www.who.int/news-room/fact-sheets/detail/typhoid"
+            ],
+            [
+              "2",
+              "OMS. WHO position paper on typhoid vaccines, August 2026. Relevé épidémiologique hebdomadaire 2026 ; 101 : 166-180 (remplace le document de position de 2018). https://www.who.int/publications/i/item/who-wer10132-166-180"
+            ],
+            [
+              "3",
+              "CDC. Typhoid and Paratyphoid Fever. In : CDC Yellow Book 2026 — Health Information for International Travel. https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html"
+            ],
+            [
+              "4",
+              "Wain J, Hendriksen RS, Mikoleit ML, Keddy KH, Ochiai RL. Typhoid fever. The Lancet 2015 ; 385 : 1136-1145. https://pubmed.ncbi.nlm.nih.gov/25458731/"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-3s",
+      "label": "Les trois semaines de la typhoïde",
+      "intro": "Chaque semaine a sa dominante et son piège.",
+      "entries": [
+        {
+          "key": "S1",
+          "term": "Semaine du sang : fièvre qui monte, hémoculture positive, tuphos qui s'installe"
+        },
+        {
+          "key": "S2",
+          "term": "Semaine des signes : taches rosées lenticulaires, splénomégalie, douleur de la fosse iliaque droite"
+        },
+        {
+          "key": "S3",
+          "term": "Semaine des suppurations : ulcères des plaques de Peyer, perforation et hémorragie digestive"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est l'agent responsable de la fièvre typhoïde ?",
+      "back": "Salmonella enterica serovar Typhi, bacille Gram négatif à réservoir strictement humain.",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Combien de temps dure l'incubation de la typhoïde ?",
+      "back": "Huit à quatorze jours en général, parfois plus longue selon la dose infectante.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel couple sémiologique décrit la fièvre typhoïde ?",
+      "back": "Une fièvre en plateau à 39-40 °C avec une bradycardie relative, en dehors de tout traitement ralentissant le cœur.",
+      "tags": [
+        "semio"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelles lésions cutanées rechercher à la deuxième semaine ?",
+      "back": "Les taches rosées lenticulaires, macules fugaces du thorax et de l'abdomen, inconstantes.",
+      "tags": [
+        "semio"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Comment nomme-t-on l'obnubilation tranquille du typhique ?",
+      "back": "Le tuphos : le malade est indifférent, comme coupé du monde.",
+      "tags": [
+        "semio"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est l'examen pivot du diagnostic et quand le prélever ?",
+      "back": "L'hémoculture, idéalement en première semaine et avant toute antibiothérapie ; rendement de 40 à 80 %.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelle est la vraie valeur du sérodiagnostic de Widal ?",
+      "back": "Seule compte une séroconversion entre deux prélèvements à dix-quinze jours d'intervalle ; isolé, il n'exclut ni ne confirme rien en zone d'endémie.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quel signe de la numération formule sanguine évoque la typhoïde ?",
+      "back": "Une leuconeutropénie, contrastant avec l'hyperleucocytose des infections pyogènes.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelle complication digestive redouter à la troisième semaine ?",
+      "back": "La perforation iléale sur ulcère des plaques de Peyer : douleur brutale, défense, pneumopéritoine.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quelle est l'antibiothérapie de référence d'une forme simple en zone de haute résistance ?",
+      "back": "L'azithromycine orale pendant cinq à sept jours ; le céfixime oral est l'alternative.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle molécule utiliser dans une forme grave ?",
+      "back": "La ceftriaxone par voie intraveineuse, relais oral guidé par l'antibiogramme.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Pourquoi ne plus utiliser les fluoroquinolones en probabiliste ?",
+      "back": "Le clone H58, dominant en Afrique de l'Est et à Madagascar, porte des résistances qui exposent aux échecs cliniques.",
+      "tags": [
+        "resistance"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Où persiste Salmonella Typhi chez le porteur chronique ?",
+      "back": "Dans la vésicule biliaire, souvent sur lithiase ; l'excrétion se prolonge au-delà d'un an.",
+      "tags": [
+        "porteur"
+      ]
+    },
+    {
+      "id": "fc-14",
+      "front": "Quel vaccin l'OMS recommande-t-elle dès six mois dans les pays endémiques ?",
+      "back": "Le vaccin antityphoïdique conjugué (TCV), confirmé par le document de position d'août 2026.",
+      "tags": [
+        "prevention"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Fièvres typhoïdes",
+      "detail": "Fièvre prolongée de l'adulte jeune à Madagascar : paludisme éliminé, hémoculture prélevée, abdomen surveillé."
+    },
+    "branches": [
+      {
+        "id": "br-reconnaitre",
+        "label": "Reconnaître",
+        "tone": "retenir",
+        "detail": "Aucun tableau ne dit son nom : c'est l'ancienneté de la fièvre et le contexte d'eau souillée qui orientent.",
+        "children": [
+          {
+            "id": "rec-fievre",
+            "label": "Fièvre prolongée",
+            "leaves": [
+              {
+                "id": "rec-f1",
+                "label": "Montée en plateau, 39-40 °C"
+              },
+              {
+                "id": "rec-f2",
+                "label": "Céphalées, anorexie, tuphos"
+              },
+              {
+                "id": "rec-f3",
+                "label": "Bradycardie relative"
+              }
+            ]
+          },
+          {
+            "id": "rec-signes",
+            "label": "Signes d'accompagnement",
+            "leaves": [
+              {
+                "id": "rec-s1",
+                "label": "Taches rosées lenticulaires"
+              },
+              {
+                "id": "rec-s2",
+                "label": "Splénomégalie modérée"
+              },
+              {
+                "id": "rec-s3",
+                "label": "Douleur de la fosse iliaque droite"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-confirmer",
+        "label": "Confirmer",
+        "detail": "Le diagnostic de certitude est bactériologique ; la sérologie seule ne décide rien en zone d'endémie.",
+        "children": [
+          {
+            "id": "cf-hemo",
+            "label": "Hémoculture",
+            "leaves": [
+              {
+                "id": "cf-h1",
+                "label": "Pivot, 40 à 80 % de rendement"
+              },
+              {
+                "id": "cf-h2",
+                "label": "Première semaine, avant antibiotiques"
+              }
+            ]
+          },
+          {
+            "id": "cf-widal",
+            "label": "Widal et Félix",
+            "leaves": [
+              {
+                "id": "cf-w1",
+                "label": "Séroconversion seule interprétable"
+              },
+              {
+                "id": "cf-w2",
+                "label": "Faux positifs : paludisme, hépatites"
+              }
+            ]
+          },
+          {
+            "id": "cf-diff",
+            "label": "Éliminer le voisin",
+            "leaves": [
+              {
+                "id": "cf-d1",
+                "label": "Test rapide paludisme systématique"
+              },
+              {
+                "id": "cf-d2",
+                "label": "Dengue, leptospirose, tuberculose"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-traiter",
+        "label": "Traiter",
+        "detail": "Antibiothérapie guidée par la gravité et les résistances locales, surveillance de la fièvre et de l'abdomen.",
+        "children": [
+          {
+            "id": "tr-simple",
+            "label": "Forme simple",
+            "leaves": [
+              {
+                "id": "tr-s1",
+                "label": "Azithromycine orale 5 à 7 jours"
+              },
+              {
+                "id": "tr-s2",
+                "label": "Alternative : céfixime oral"
+              }
+            ]
+          },
+          {
+            "id": "tr-grave",
+            "label": "Forme grave",
+            "leaves": [
+              {
+                "id": "tr-g1",
+                "label": "Ceftriaxone intraveineuse"
+              },
+              {
+                "id": "tr-g2",
+                "label": "Hémocultures puis traitement dans l'heure"
+              }
+            ]
+          },
+          {
+            "id": "tr-surv",
+            "label": "Surveillance",
+            "leaves": [
+              {
+                "id": "tr-v1",
+                "label": "Apyrexie attendue en 3 à 5 jours"
+              },
+              {
+                "id": "tr-v2",
+                "label": "Abdomen examiné chaque jour"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "La troisième semaine concentre le risque vital : trois tableaux à connaître par cœur.",
+        "children": [
+          {
+            "id": "ug-perf",
+            "label": "Perforation iléale",
+            "leaves": [
+              {
+                "id": "ug-p1",
+                "label": "Douleur brutale, défense"
+              },
+              {
+                "id": "ug-p2",
+                "label": "Bloc opératoire sans délai"
+              }
+            ]
+          },
+          {
+            "id": "ug-hemo",
+            "label": "Hémorragie digestive",
+            "leaves": [
+              {
+                "id": "ug-h1",
+                "label": "Méléna, chute de l'hémoglobine"
+              },
+              {
+                "id": "ug-h2",
+                "label": "Transfusion si instabilité"
+              }
+            ]
+          },
+          {
+            "id": "ug-sepsis",
+            "label": "Choc septique",
+            "leaves": [
+              {
+                "id": "ug-s1",
+                "label": "Remplissage prudent, lactates"
+              },
+              {
+                "id": "ug-s2",
+                "label": "Antibiothérapie dans l'heure"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-prevenir",
+        "label": "Prévenir",
+        "detail": "Deux bras indissociables : l'eau potable pour la communauté, le vaccin conjugué pour l'individu.",
+        "children": [
+          {
+            "id": "pv-eau",
+            "label": "Eau et hygiène",
+            "leaves": [
+              {
+                "id": "pv-e1",
+                "label": "Eau chlorée ou bouillie"
+              },
+              {
+                "id": "pv-e2",
+                "label": "Lavage des mains, aliments cuits"
+              }
+            ]
+          },
+          {
+            "id": "pv-vaccin",
+            "label": "Vaccin conjugué",
+            "leaves": [
+              {
+                "id": "pv-v1",
+                "label": "Dès 6 mois, position OMS 2026"
+              },
+              {
+                "id": "pv-v2",
+                "label": "Campagnes de rattrapage, flambées"
+              }
+            ]
+          },
+          {
+            "id": "pv-porteurs",
+            "label": "Porteurs chroniques",
+            "leaves": [
+              {
+                "id": "pv-p1",
+                "label": "Vésicule biliaire, lithiase"
+              },
+              {
+                "id": "pv-p2",
+                "label": "Éviction des métiers de l'aliment"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-FS-TYPH",
+      "title": "Typhoid — fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2023,
+      "citation": "Organisation mondiale de la Santé. Typhoid — fact sheet. Genève : OMS ; mise à jour du 30 mars 2023.",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Épidémiologie",
+        "Définition",
+        "Vaccination",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-WHO-PP-2026",
+      "title": "WHO position paper on typhoid vaccines, August 2026",
+      "url": "https://www.who.int/publications/i/item/who-wer10132-166-180",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "citation": "Organisation mondiale de la Santé. WHO position paper on typhoid vaccines, août 2026. Relevé épidémiologique hebdomadaire 2026 ; 101 : 166-180 (remplace le document de position de 2018).",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Vaccination",
+        "Recommandations 2026"
+      ]
+    },
+    {
+      "id": "SRC-CDC-YB-2026",
+      "title": "CDC Yellow Book 2026 — Typhoid and Paratyphoid Fever",
+      "url": "https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/typhoid-and-paratyphoid-fever.html",
+      "organization": "Centers for Disease Control and Prevention (CDC)",
+      "year": 2026,
+      "citation": "Centers for Disease Control and Prevention. Typhoid and Paratyphoid Fever. In : CDC Yellow Book 2026 — Health Information for International Travel.",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Diagnostic",
+        "Traitement",
+        "Conseils aux voyageurs"
+      ]
+    },
+    {
+      "id": "SRC-WAIN-2015",
+      "title": "Typhoid fever (revue)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25458731/",
+      "organization": "The Lancet",
+      "year": 2015,
+      "citation": "Wain J, Hendriksen RS, Mikoleit ML, Keddy KH, Ochiai RL. Typhoid fever. The Lancet 2015 ; 385 : 1136-1145.",
+      "verifiedAt": "2026-10-24",
+      "usedFor": [
+        "Physiopathologie",
+        "Sémiologie",
+        "Complications"
+      ]
+    }
+  ],
+  "related": {
+    "deckIds": [
+      "infectio",
+      "tropical",
+      "infectio-typho-l5"
+    ],
+    "caseIds": [
+      "INF-TYPH-001"
+    ]
+  },
+  "reviewStatus": "pending-medical-review",
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°2 (Fièvres typhoïdes)",
+      "reference": "madagascar-2025, ordinal 43",
+      "receivedAt": "2026-10-24",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase d'un document source n'est reproduite : la structure du plan suit l'item du programme national et chaque section est rédigée à partir des sources officielles citées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le document de position OMS sur les vaccins antityphoïdiques d'août 2026 (WER 2026 ; 101 : 166-180) remplace celui de 2018 : c'est la version courante qui est référencée (page consultée le 2026-10-24).",
+      "La fiche d'information OMS « Typhoid » date du 30 mars 2023 : c'est la plus récente disponible sur who.int au 2026-10-24 ; les estimations de charge qu'elle donne (environ 9 millions de cas, 110 000 décès) portent sur 2019.",
+      "Aucune donnée nationale malgache récente et vérifiable en ligne n'a été trouvée pour chiffrer l'incidence locale : la fiche reste donc qualitative sur le contexte malgache, et le protocole national de prise en charge devra être ajouté à la bibliographie par le propriétaire.",
+      "Les posologies précises (mg/kg) sont volontairement absentes des decks et renvoyées au protocole national et au guide thérapeutique de référence : seules les molécules, les durées usuelles et les situations d'emploi sont testées."
+    ],
+    "qcChecklist": [
+      "Exactitude de la chronologie en trois semaines et des complications digestives",
+      "Conformité de l'antibiothérapie aux recommandations en contexte de résistance H58",
+      "Cohérence du discours sur le Widal et le test rapide paludisme",
+      "Validité des liens et des versions des sources au 2026-10-24"
+    ]
+  }
+}
