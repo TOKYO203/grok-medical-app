@@ -2725,5 +2725,333 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "INF-PYELONEPHRITE-001",
+    "title": "Fièvre et douleur au rein depuis deux jours",
+    "specialty": "Infectiologie / Néphrologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 27 ans, fièvre à 39 °C, douleur lombaire droite, brûlures mictionnelles ; 4e épisode en deux ans.",
+    "patient": {
+      "age": 27,
+      "sex": "F",
+      "context": "Vendeuse à Ambatondrazaka, mère de deux enfants. Quatrième épisode de fièvre avec douleur lombaire en deux ans, jamais exploré. Première grossesse à 19 ans compliquée d'une infection urinaire."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 48 heures : fièvre à 39 °C avec frissons, douleur de la fosse lombaire droite, majorée à la percussion, brûlures mictionnelles et envies fréquentes d'uriner. Deux vomissements hier, pas de diarrhée, pas de toux. Se sent comme les autres fois, mais plus fort."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 39,2 °C, TA 106/64, FC 108/min, FR 20. Douleur exquise à la percussion de la fosse lombaire droite, sans défense abdominale. Pas d'œdème, pas de globe vésical. Urines troubles à l'inspection. Règles il y a 10 jours, pas de signe de grossesse."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Bandelette urinaire : leucocytes +++, nitrites positifs, sang +. NFS : leucocytes 15,8 G/L, CRP 128 mg/L. Créatinine 72 µmol/L. TDR paludisme négatif. Échographie en ville : reins de taille normale, pas de dilatation des cavités, pas de calcul visible."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Paludisme simple",
+          "Pyélonéphrite aiguë droite (fièvre + douleur lombaire + leuco-nitrites positives)",
+          "Colique néphrétique fébrile sur lithiase obstructive",
+          "Fièvre typhoïde"
+        ],
+        "correct": 1,
+        "explanation": "Fièvre élevée + douleur lombaire unilatérale + leucocyturie et nitrites positifs = pyélonéphrite aiguë. Le paludisme est écarté par le TDR négatif et l'atteinte urinaire ; la colique sur lithiase obstructive donnerait une dilatation à l'échographie — son absence ici est rassurante mais sera contrôlée ; la fièvre typhoïde donne une fièvre prolongée sans signe urinaire."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'examen indispensable à réaliser est :",
+        "choices": [
+          "Échographie rénale et des voies urinaires : chercher un obstacle (lithiase, dilatation) derrière chaque pyélonéphrite",
+          "Scanner cérébral",
+          "Frottis sanguin pour paludisme répété une seule fois",
+          "Cystoscopie d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Derrière toute pyélonéphrite, l'imagerie recherche un obstacle : une pyélonéphrite sur urine non drainée (lithiase, malformation, grossesse) est une urgence de drainage, l'antibiothérapie seule échoue. L'échographie, accessible et sans injection, est l'examen de première intention — elle est ici déjà réalisée et rassurante."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'antibiothérapie probabiliste adaptée est :",
+        "choices": [
+          "Ceftriaxone IV ou fluoroquinolone selon protocole local et gravité, relayée par voie orale après apyrexie, durée totale 10 à 14 jours",
+          "Amoxicilline orale 3 jours, comme une cystite simple",
+          "Métronidazole seul",
+          "Abstention, en attendant l'antibiogramme de quelques jours"
+        ],
+        "correct": 0,
+        "explanation": "Une pyélonéphrite fébrile se traite par une antibiothérapie active sur E. coli et atteignant le parenchyme rénal : céphalosporine de 3e génération IV (ou fluoroquinolone selon la résistance locale) puis relais oral à l'apyrexie, pour 10 à 14 jours au total. Le schéma court de 3 jours, valable pour la cystite simple, échoue ici ; attendre l'antibiogramme sans traiter une fièvre à 39 °C serait une perte de chance."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après guérison, compte tenu des récidives, la conduite correcte est :",
+        "choices": [
+          "Bilan urologique à distance (recherche de lithiase résiduelle, anomalie, diabète), ECBU de contrôle, éducation à l'hydratation et à la miction, dépistage du diabète",
+          "Rien : les infections urinaires sont bénignes chez la femme jeune",
+          "Antibioprophylaxie continue à vie d'emblée",
+          "Cystoscopie systématique à chaque épisode"
+        ],
+        "correct": 0,
+        "explanation": "Quatre épisodes en deux ans chez une jeune femme imposent de chercher un facteur favorisant : lithiase résiduelle, trouble de la vidange, diabète non diagnostiqué, hygiène hydrique insuffisante. L'ECBU de contrôle confirme la stérilisation des urines, et l'éducation (hydratation abondante, miction régulière, ne pas se retenir) réduit les récidives. La prophylaxie antibiotique continue n'est pas un réflexe de première intention."
+      }
+    ],
+    "diagnosis": "Pyélonéphrite aiguë droite, quatrième épisode en deux ans, sans obstacle à l'échographie, sur terrain à explorer (récidives, antécédent d'infection urinaire gravidique).",
+    "management": "Antibiothérapie probabiliste IV (céphalosporine de 3e génération selon protocole local) relayée par voie orale à l'apyrexie, durée totale 10 à 14 jours, antalgiques et hydratation abondante. ECBU avec antibiogramme avant traitement, contrôle de l'apyrexie à 72 heures. À distance : bilan urologique des récidives (échographie, lithiase résiduelle), dépistage du diabète, éducation à l'hydratation et à la miction, calendrier de surveillance, et avis urologique si nouvel épisode.",
+    "pitfall": "Le piège de la pyélonéphrite banalisée : une fièvre lombaire chez une femme jeune en zone d'endémie palustre se voit prescrire un antipaludique d'office — la bandelette urinaire et le TDR font la différence en dix minutes. Autre piège : ne pas chercher l'obstacle ; une pyélonéphrite sur voie excrétrice bloquée est une urgence de drainage, pas une question d'antibiotique.",
+    "keyTakeaway": "Fièvre + douleur lombaire + leuco-nitrites positives = pyélonéphrite : échographie à la recherche d'un obstacle, antibiotique actif sur le parenchyme 10 à 14 jours, ECBU de contrôle. Des récidives répétées imposent de chercher un facteur favorisant — jamais de traitement au coup par coup.",
+    "related": {
+      "pathologySlugs": [
+        "infections-urinaires",
+        "lithiase-urinaire"
+      ],
+      "deckIds": [
+        "infectio",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Urinary tract infections, guidelines for primary care in resource-limited settings, note technique 2023.",
+        "organization": "OMS",
+        "year": 2023
+      },
+      {
+        "title": "EAU",
+        "citation": "European Association of Urology — Guidelines on Urological Infections, 2025.",
+        "organization": "EAU",
+        "year": 2025,
+        "url": "https://uroweb.org/guidelines/urological-infections",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "NEPHRO-IRC-001",
+    "title": "Fatigue, nausées et tension difficile à tenir",
+    "specialty": "Néphrologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 54 ans, HTA et diabète de type 2, fatigue croissante, nausées matinales, anémie et créatinine élevée.",
+    "patient": {
+      "age": 54,
+      "sex": "M",
+      "context": "Chauffeur à Mahajanga, HTA connue depuis 12 ans traitée quand il a les comprimés, diabète de type 2 depuis 6 ans sous metformine irrégulière. Père mort d'une maladie de reins."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 3 mois : fatigue majeure avec essoufflement d'effort, nausées matinales, perte d'appétit, goût métallique, démangeaisons diffuses surtout le soir, et besoin d'uriner deux à trois fois par nuit. Prise de 2 kg malgré l'anorexie, avec chevilles gonflées le soir."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 172/98 aux deux bras, FC 88/min régulière. Pâleur cutanéo-muqueuse, peau sèche et prurigineuse. Œdèmes malléolaires bilatéraux mous. Pas de souffle abdominal. Pas de déficit neurologique focal, mais paresthésies des pieds évoquées par le patient."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Créatinine 628 µmol/L, DFG estimé 11 mL/min/1,73 m2. Urée 24 mmol/L. Hb 8,9 g/dL, VGM 86 fL, ferritine normale, EPO basse. K+ 5,9 mmol/L, bicarbonates 17 mmol/L, phosphore élevé, calcium corrigé bas, PTH élevée. Protéinurie 2,2 g/jour. Échographie : reins petits, différenciés, sans obstacle."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'interprétation correcte est :",
+        "choices": [
+          "Insuffisance rénale chronique terminale (DFG < 15) sur néphropathie hypertensive et diabétique probable, avec syndrome urémique, anémie et hyperparathyroïdie secondaire",
+          "Insuffisance rénale aiguë sur déshydratation",
+          "Néphropathie lithiasique chronique",
+          "Syndrome néphrotique isolé"
+        ],
+        "correct": 0,
+        "explanation": "DFG à 11 mL/min, reins petits échographiques (chronicité), antécédents d'HTA et de diabète mal suivis, protéinurie significative, anémie par carence en EPO et troubles phosphocalciques avec PTH élevée : IRC terminale. Une IRA garderait des reins de taille normale ; pas de calcul ; le syndrome néphrotique exige une protéinurie supérieure à 3 g/j sans insuffisance rénale avancée."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'hyperkaliémie à 5,9 mmol/L avec acidose impose :",
+        "choices": [
+          "Mesures immédiates : régime pauvre en potassium, arrêt des médicaments hyperkaliémiants (IEC, AINS), bicarbonate selon protocole, ECG, avis néphrologique urgent",
+          "Attendre l'avis néphrologique programmé dans un mois",
+          "Diurétique seul sans contrôle ECG",
+          "Insuline IV systématique sans glycémie élevée"
+        ],
+        "correct": 0,
+        "explanation": "Une kaliémie proche de 6 mmol/L est une urgence : ECG à la recherche de signes d'hyperkaliémie menaçante, arrêt des facteurs iatrogènes (IEC, AINS, épargneurs de potassium), régime pauvre en potassium, correction de l'acidose par bicarbonate selon protocole. Toute hyperkaliémie au-dessus de 6 ou avec signes ECG relève d'un traitement d'urgence (calcium, insuline-dextrose selon contexte) et d'un transfert néphrologique sans délai."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge de fond comprend :",
+        "choices": [
+          "Préparation à la suppléance rénale (dialyse péritonéale ou hémodialyse, fistule artério-veineuse à créer tôt), traitement de l'anémie (fer puis agents stimulant l'érythropoïèse), chélation du phosphore et cholécalciférol, contrôle tensionnel strict, arrêt de la metformine",
+          "Poursuite de la metformine à pleine dose",
+          "Corticoïdes à forte dose",
+          "Régime hyperprotéiné pour compenser la fonte musculaire"
+        ],
+        "correct": 0,
+        "explanation": "Au stade 5 (DFG < 15), la préparation de la suppléance est prioritaire : information et choix de méthode, création précoce de l'abord vasculaire (une fistule nécessite des semaines pour mûrir). L'anémie se traite par fer puis EPO, l'hyperphosphorémie par chélateur et régime, l'hyperparathyroïdie par cholécalciférol selon protocole. La metformine est contre-indiquée au DFG < 30 ; les corticoïdes n'ont pas d'indication ici ; le régime hyperprotéiné aggrave l'urée et l'acidose."
+      },
+      {
+        "kind": "question",
+        "prompt": "Sur le plan tensionnel, la cible et le traitement adaptés sont :",
+        "choices": [
+          "Contrôle strict vers 120-130 systolique si toléré, par antagoniste du calcium et/ou bêtabloquant, IEC discutés seulement en néphrologie avec contrôle de la kaliémie",
+          "Laisser la tension telle quelle car le rein est déjà détruit",
+          "Diurétique de l'anse à forte dose d'emblée seul",
+          "Arrêt de tout antihypertenseur pour éviter l'hypotension"
+        ],
+        "correct": 0,
+        "explanation": "Le contrôle tensionnel reste bénéfique même au stade avancé : il protège le cœur et les vaisseaux et limite la protéinurie. Au stade 5, les inhibiteurs du système rénine-angiotensine ne se poursuivent ou s'introduisent qu'avec surveillance rapprochée de la kaliémie et de la créatinine — d'où un antagoniste calcique et/ou un bêtabloquant en première ligne locale."
+      }
+    ],
+    "diagnosis": "Insuffisance rénale chronique terminale (DFG 11 mL/min) sur néphropathie hypertensive et diabétique probable, avec syndrome urémique, anémie rénale, hyperkaliémie, acidose métabolique et hyperparathyroïdie secondaire.",
+    "management": "Avis néphrologique urgent : mesures immédiates contre l'hyperkaliémie (ECG, régime pauvre en potassium, arrêt des hyperkaliémiants), préparation à la suppléance rénale (information, choix de méthode, création précoce de l'abord vasculaire), traitement de l'anémie (fer puis EPO), prise en charge phosphocalcique (chélation, cholécalciférol, PTH), contrôle tensionnel strict, arrêt de la metformine, vaccination (hépatite B), prise en charge du diabète adaptée à la fonction rénale, et plan social (coûts de dialyse, accompagnement familial).",
+    "pitfall": "Le piège de l'anémie isolée : une Hb à 8,9 g/dL chez un diabétique hypertendu se traite par fer seul pendant des mois, alors que la créatinine — jamais dosée — disait la vérité. Autre piège : la metformine poursuivie au stade terminal, source d'acidose lactique ; et l'hyperkaliémie silencieuse, qui tue par trouble du rythme sans prévenir.",
+    "keyTakeaway": "Fatigue + nausées + anémie + HTA du diabétique = créatinine et DFG, pas seulement de la ferritine. Reins petits = IRC : préparer la suppléance tôt (la fistule mûrit en semaines), corriger K+ et acidose, arrêter metformine et IEC si kaliémie menaçante. Le retard au diagnostic prive le patient de mois de préparation.",
+    "related": {
+      "pathologySlugs": [
+        "insuff-renale-chronique",
+        "hta-essentielle",
+        "diabete-type-2"
+      ],
+      "deckIds": [
+        "semio",
+        "cardio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "KDIGO",
+        "citation": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease.",
+        "organization": "KDIGO",
+        "year": 2024,
+        "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Renal replacement therapy in resource-limited settings, rapport technique 2022.",
+        "organization": "OMS",
+        "year": 2022
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "NEURO-HEMAT-001",
+    "title": "Céphalée brutale et bras faible",
+    "specialty": "Neurologie / Urgences",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 62 ans, céphalée en coup de tonnerre, vomissements, hémiparésie droite ; hypertendu non traité.",
+    "patient": {
+      "age": 62,
+      "sex": "M",
+      "context": "Retraité à Antsirabe, HTA connue depuis 10 ans, traitement arrêté parce qu'il se sentait bien. Tabac 30 ans. Pas d'anticoagulant, pas de traumatisme récent."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Il y a 3 heures, pendant un effort de portage : céphalée brutale en coup de tonnerre, maximale d'emblée, avec vomissements en jet puis sensation de faiblesse du bras et de la jambe droits et parole légèrement embarrassée. Aucune convulsion, pas de perte de connaissance initiale."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Glasgow 14 (confus, ouvre les yeux à la demande), TA 216/118, FC 96/min, SpO2 96 % en air ambiant. Hémiparésie droite prédominant au membre supérieur, déviation faciale droite centrale. Nuque souple. Glycémie 1,45 g/L. Pas d'anomalie pupillaire."
+      },
+      {
+        "kind": "reveal",
+        "title": "Imagerie",
+        "body": "TDM cérébral sans injection : hyperdensité spontanée du noyau lenticulaire gauche avec débord ventriculaire modéré, pas d'hydrocéphalie, pas de signe d'engagement. Angio-TDM : pas de malformation artério-veineuse, pas d'anévrisme visible sur les troncs proximaux explorés."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Hémorragie cérébrale (hémorragie intraparenchymateuse des noyaux gris centraux) sur hypertension artérielle",
+          "AVC ischémique sylvien total",
+          "Méningite aiguë",
+          "Encéphalite herpétique"
+        ],
+        "correct": 0,
+        "explanation": "Céphalée brutale pendant un effort + HTA sévère non traitée + hyperdensité spontanée des noyaux gris centraux au TDM sans injection : hémorragie intracérébrale hypertensive. Un AVC ischémique ne donne pas d'hyperdensité parenchymateuse spontanée au scanner précoce ; la méningite aiguë donne fièvre et raideur de nuque ; l'encéphalite herpétique touche préférentiellement le lobe temporal avec fièvre et troubles de conscience."
+      },
+      {
+        "kind": "question",
+        "prompt": "Concernant la pression artérielle à la phase aiguë :",
+        "choices": [
+          "Baisse contrôlée et prudente vers 140 systolique si possible, sous monitoring, sans normalisation brutale",
+          "Normalisation immédiate à 120/80",
+          "Laisser la tension très élevée pour perfuser le cerveau",
+          "Baisse par diurétique seul"
+        ],
+        "correct": 0,
+        "explanation": "Une TA très élevée aggrave le saignement et l'œdème, mais une chute brutale menace la pénombre ischémique : la baisse est contrôlée, titrée (inhibiteur calcique IV selon protocole) vers une cible autour de 140 mmHg selon les recommandations récentes, sous surveillance rapprochée. Ni l'abstention complète ni la normalisation en urgence ne sont des options."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'élément qui changerait radicalement la stratégie est :",
+        "choices": [
+          "Une dilatation ventriculaire ou une aggravation neurologique : hydrocéphalie ou extension du saignement, imposant avis neurochirurgical urgent",
+          "La fièvre isolée",
+          "La glycémie à 1,45 g/L",
+          "L'âge du patient"
+        ],
+        "correct": 0,
+        "explanation": "Les deux urgences vitales de l'hémorragie cérébrale sont l'hydrocéphalie (dérivation ventriculaire possible) et l'aggravation par extension de l'hématome : toute détérioration du Glasgow ou des pupilles impose un TDM répété et un avis neurochirurgical immédiat. La glycémie à 1,45 g/L se corrige mais ne redéfinit pas la stratégie ; la fièvre impose de chercher une infection sans urgence chirurgicale."
+      },
+      {
+        "kind": "question",
+        "prompt": "Sur le plan du traitement de fond et de la prévention secondaire :",
+        "choices": [
+          "Contrôle tensionnel strict à distance, arrêt du tabac, rééducation précoce, suivi de l'hématome par imagerie",
+          "Anticoagulation préventive à faible dose",
+          "Antiagrégants dès la première semaine",
+          "Pas de suivi tensionnel, le mal est fait"
+        ],
+        "correct": 0,
+        "explanation": "Le pronostic dépend du contrôle tensionnel au long cours (le premier facteur de récidive est l'HTA non traitée) et de la rééducation précoce. Antiagrégants et anticoagulants sont proscrits précocement après une hémorragie cérébrale, sauf indication vitale impérative ; leur introduction à distance se discute individuellement selon l'indication."
+      }
+    ],
+    "diagnosis": "Hémorragie cérébrale hypertensive du noyau lenticulaire gauche avec débord ventriculaire modéré, hémiparésie droite, sur HTA sévère non traitée, sans malformation sous-jacente visible.",
+    "management": "Hospitalisation en unité neurovasculaire ou soins intensifs si possible : monitoring neurologique rapproché (Glasgow, pupilles, déficit), baisse tensionnelle titrée selon protocole, contrôle glycémique et thermique, prévention des complications de décubitus et thrombo-emboliques (compression, pas d'anticoagulation précoce), TDM répété à 24 heures ou à toute aggravation, avis neurochirurgical si hydrocéphalie ou extension. À distance : contrôle tensionnel strict, arrêt du tabac, rééducation précoce et suivi de l'hématome.",
+    "pitfall": "Le piège du scanner précoce normal : au tout début d'une hémorragie ou d'un infarctus, le TDM peut être trompeur — ici l'hyperdensité fait le diagnostic, mais un scanner précoce normal n'écarte rien devant une céphalée brutale : répéter. Autre piège : normaliser la tension en urgence ; la cible est contrôlée, pas la tension d'avant. Enfin, l'HTA non traitée parce que le patient se sent bien est la première usine à hémorragies.",
+    "keyTakeaway": "Céphalée en coup de tonnerre à l'effort + HTA non traitée + hyperdensité des noyaux gris centraux = hémorragie cérébrale : baisse tensionnelle titrée vers 140, monitoring rapproché, TDM répété à 24 h, avis neurochirurgical si aggravation. Jamais d'antiagrégant précoce ; à distance, le contrôle tensionnel est le traitement de la récidive.",
+    "related": {
+      "pathologySlugs": [
+        "avc-ischemique",
+        "hta-essentielle"
+      ],
+      "deckIds": [
+        "neuro",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "AHA / ASA",
+        "citation": "2024 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage, Stroke 2024.",
+        "organization": "American Heart Association / American Stroke Association",
+        "year": 2024,
+        "url": "https://www.ahajournals.org/journal/str",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Hypertension control and stroke prevention in primary care, note technique 2023.",
+        "organization": "OMS",
+        "year": 2023
+      }
+    ],
+    "access": "pro"
   }
 ]
