@@ -20594,4 +20594,1306 @@
       }
     ]
   }
+,
+  {
+    "schemaVersion": 2,
+    "id": "infectio-rougeole-l2",
+    "version": "1.0.0",
+    "title": "Rougeole — notions de base",
+    "subtitle": "Virus, contagion, vaccin · L2",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "semiology",
+      "management",
+      "canmeds_health_advocate"
+    ],
+    "icon": "bug",
+    "status": "published",
+    "deck_id": "infectio-rougeole-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Rougeole",
+        "citation": "Measles. WHO fact sheet, 2026."
+      },
+      {
+        "title": "OMS — Vaccins antirougeoleux",
+        "citation": "Measles vaccines: WHO position paper, avril 2017."
+      }
+    ],
+    "questions": [
+      {
+        "id": "rougeole-l2-1",
+        "prompt": "Quel est l'agent responsable de la rougeole ?",
+        "choices": [
+          "Un morbillivirus, virus à ARN enveloppé de la famille des Paramyxoviridae",
+          "Un entérovirus nu de la famille des Picornaviridae",
+          "Un herpesvirus à ADN qui persiste à vie dans l'organisme",
+          "Une bactérie encapsulée du genre Streptococcus"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole est due à un virus du genre Morbillivirus, strictement humain : il n'existe ni réservoir animal ni porteur chronique, ce qui rend son élimination mondiale possible.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l2-2",
+        "prompt": "Comment le virus passe-t-il d'un malade à un enfant sain qui ne l'a pas touché ?",
+        "choices": [
+          "Par voie aérienne : gouttelettes et aérosols qui persistent jusqu'à deux heures dans un air clos",
+          "Par contact cutané avec les lésions de l'éruption",
+          "Par l'eau de boisson souillée",
+          "Par les selles des malades"
+        ],
+        "correct": 0,
+        "explanation": "La transmission est aérienne : le virus survit jusqu'à deux heures en suspension. Un enfant qui partage une salle d'attente avec un cas contagieux peut être contaminé sans aucun contact direct.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l2-3",
+        "prompt": "Pourquoi dit-on que la rougeole est l'une des maladies les plus contagieuses qui existent ?",
+        "choices": [
+          "Un cas peut entraîner plus d'une dizaine de cas chez des personnes non immunes, et le virus survit en suspension",
+          "Le virus résiste des mois dans le sol et l'eau",
+          "Elle se transmet par les objets et les vêtements pendant des années",
+          "Tous les malades toussent du sang et contaminent massivement"
+        ],
+        "correct": 0,
+        "explanation": "Chez des personnes non immunes, un seul cas peut en provoquer plus d'une dizaine ; combinée à la persistance de l'aérosol, cette contagiosité explique les flambées foudroyantes dès que la couverture vaccinale baisse.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l2-4",
+        "prompt": "Quel délai sépare typiquement la contamination du début de la fièvre ?",
+        "choices": [
+          "Environ dix à douze jours, avec des extrêmes jusqu'à vingt et un jours",
+          "Vingt-quatre à quarante-huit heures",
+          "Trois à quatre mois",
+          "Six mois à un an"
+        ],
+        "correct": 0,
+        "explanation": "L'incubation silencieuse dure environ dix à douze jours : la recherche du contact épidémique remonte donc à près de deux semaines avant la fièvre.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l2-5",
+        "prompt": "Quels trois signes forment le catarrhe oculo-respiratoire qui précède l'éruption ?",
+        "choices": [
+          "Conjonctivite, coryza et toux, sur une fièvre souvent élevée",
+          "Diarrhée, vomissements et douleurs abdominales",
+          "Arthralgies, purpura et adénopathies",
+          "Splénomégalie, ictère et prurit"
+        ],
+        "correct": 0,
+        "explanation": "L'enfant a les yeux qui coulent, le nez qui coule et une toux sèche : ce catarrhe oculo-respiratoire, précédé de fièvre, constitue la période la plus trompeuse parce qu'il mime une grippe qui ne guérit pas.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l2-6",
+        "prompt": "Où et quand cherche-t-on le signe de Köplik ?",
+        "choices": [
+          "Sur la muqueuse buccale en regard des premières molaires, pendant la fièvre catarrhale, avant l'éruption",
+          "Sur le tronc, au moment de la desquamation",
+          "Sur la conjonctive, au pic de l'éruption",
+          "Sur la plante des pieds, pendant la convalescence"
+        ],
+        "correct": 0,
+        "explanation": "Köplik, ce sont de petits foyers blancs sur base rouge de la muqueuse jugale : éphémères, ils disparaissent un à deux jours après le début de l'éruption — les chercher, c'est diagnostiquer avant que la rougeole ne se montre.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l2-7",
+        "prompt": "Où débute l'éruption de la rougeole et comment évolue-t-elle ?",
+        "choices": [
+          "Derrière les oreilles et sur le front, puis elle descend au visage, au tronc et aux membres",
+          "Aux membres inférieurs, puis elle remonte vers le visage",
+          "Sur le tronc en même temps qu'aux paumes",
+          "Sur tout le corps d'un seul tenant, sans ordre apparent"
+        ],
+        "correct": 0,
+        "explanation": "L'éruption maculopapuleuse débute rétro-auriculairement et sur le front, puis descend en une à deux jours — ce sens de propagation, avec le catarrhe qui l'a précédée, la distingue de la plupart des autres exanthèmes.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l2-8",
+        "prompt": "Un enfant rougeoleux est contagieux autour de l'éruption : de quand à quand ?",
+        "choices": [
+          "De quatre jours avant à quatre jours après le début de l'éruption",
+          "Uniquement pendant les trois jours de l'éruption",
+          "De la contamination jusqu'à la première fièvre",
+          "Pendant les deux semaines qui suivent la guérison"
+        ],
+        "correct": 0,
+        "explanation": "Dater le premier jour de l'éruption est un geste clinique : il fixe la fin de l'isolement et la fenêtre de prophylaxie de l'entourage. Chez l'immunodéprimé, la contagiosité dure plus longtemps.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l2-9",
+        "prompt": "Existe-t-il un médicament antiviral qui guérit la rougeole ?",
+        "choices": [
+          "Non : des soins de support rigoureux, de la vitamine A et le traitement des surinfections",
+          "Oui, l'aciclovir par voie orale pendant sept jours",
+          "Oui, une antibiothérapie systématique dès la fièvre",
+          "Oui, la corticothérapie à forte dose pour tous les malades"
+        ],
+        "correct": 0,
+        "explanation": "Aucun antiviral spécifique n'existe : la guérison dépend des soins de support — réhydratation, nutrition, vitamine A — et de la surveillance des complications, qui seules tuent.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l2-10",
+        "prompt": "À partir de quel âge le vaccin antirougeoleux est-il administré dans le calendrier malgache ?",
+        "choices": [
+          "À partir de neuf mois, avec une seconde dose apportée par les campagnes",
+          "Dès la maternité, à la naissance",
+          "À dix-huit mois seulement",
+          "À l'entrée à l'école primaire"
+        ],
+        "correct": 0,
+        "explanation": "Le programme élargi de vaccination de Madagascar administre le vaccin antirougeoleux à partir de neuf mois — tôt, parce que les anticorps maternels protecteurs disparaissent dans la première année et que l'épidémie frappe les tout-petits.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          },
+          {
+            "title": "Gavi — Madagascar",
+            "citation": "À Madagascar, le grand rattrapage rime avec la routinisation des vaccins, 2026.",
+            "organization": "Gavi",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  }
+,
+  {
+    "schemaVersion": 2,
+    "id": "infectio-rougeole-l3",
+    "version": "1.0.0",
+    "title": "Rougeole — sémiologie clinique",
+    "subtitle": "Chronologie, Köplik, éruption, différentiels · L3",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "diagnosis",
+      "recognize",
+      "clinical_reasoning"
+    ],
+    "icon": "bug",
+    "status": "published",
+    "deck_id": "infectio-rougeole-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Rougeole",
+        "citation": "Measles. WHO fact sheet, 2026."
+      },
+      {
+        "title": "OMS — Vaccins antirougeoleux",
+        "citation": "Measles vaccines: WHO position paper, avril 2017."
+      }
+    ],
+    "questions": [
+      {
+        "id": "rougeole-l3-1",
+        "prompt": "Racontez la chronologie type d'une rougeole non compliquée, du contact à la guérison.",
+        "choices": [
+          "Dix à douze jours d'incubation, puis fièvre avec catarrhe et Köplik deux à quatre jours, puis éruption descendante et déférescence en trois à quatre jours",
+          "Deux jours d'incubation, puis éruption immédiate et fièvre pendant une semaine",
+          "Trois semaines de fièvre isolée, puis éruption hémorragique",
+          "Un mois de toux sèche, puis éruption fixée et arthralgies"
+        ],
+        "correct": 0,
+        "explanation": "La chronologie fait le diagnostic : incubation silencieuse, catarrhe avec Köplik, éruption rétro-auriculaire qui descend, puis déférescence. Tout écart — fièvre qui persiste, chronologie raccourcie chez le vacciné — doit faire revoir le diagnostic ou chercher une complication.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l3-2",
+        "prompt": "Quel est l'intérêt décisif du signe de Köplik pour le soignant de première ligne ?",
+        "choices": [
+          "Il affirme la rougeole avant l'éruption et permet de signaler le cas sans attendre l'évidence",
+          "Il indique le jour exact de la contamination",
+          "Il mesure le risque de cécité du malade",
+          "Il annonce une immunité définitive acquise"
+        ],
+        "correct": 0,
+        "explanation": "Köplik est le signe qui devance l'éruption : le voir, c'est pouvoir isoler, notifier et vacciner l'entourage avant même la phase la plus contagieuse. Le chercher, c'est gagner deux jours de riposte.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l3-3",
+        "prompt": "Que devient l'éruption au fil des jours chez un malade typique ?",
+        "choices": [
+          "Macules puis maculopapules, parfois confluentes sur le visage, avec desquamation fine en fin de poussée",
+          "Vésicules groupées en bouquets, puis croûtes jaunâtres",
+          "Pustules omphiliques, puis cicatrices punctiformes définitives",
+          "Purpura déclive qui s'efface à la vitropression"
+        ],
+        "correct": 0,
+        "explanation": "L'éruption passe du macule à la maculopapule, peut confluer sur le visage, dure quatre à sept jours et se desquame finement. Ni vésicules ni pustules ni purpura : ces éléments tirent le diagnostic vers la varicelle, un impétigo ou une vascularite.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "semiology"
+      },
+      {
+        "id": "rougeole-l3-4",
+        "prompt": "Devant une éruption fébrile, quels éléments orientent vers la rubéole plutôt que vers la rougeole ?",
+        "choices": [
+          "Catarrhe discret, adénopathies cervicales postérieures et éruption fugace sur un malade peu fébrile",
+          "Conjonctivite intense avec photophobie et Köplik",
+          "Éruption granitique rugueuse sur une pharyngite amygdalienne",
+          "Vésicules centrifuges avec fièvre modérée"
+        ],
+        "correct": 0,
+        "explanation": "La rubéole est discrète : peu de fièvre, peu de catarrhe, des adénopathies typiquement postérieures, une éruption fugace. La rougeole, elle, écrase l'enfant : fièvre haute, catarrhe oculo-respiratoire, Köplik, éruption descendante.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "rougeole-l3-5",
+        "prompt": "Quel élément clinique oriente vers la scarlatine et non vers la rougeole ?",
+        "choices": [
+          "Un exanthème granitique sur un fond d'amygdalite purulente, sans catarrhe oculo-respiratoire",
+          "Une conjonctivite avec larmoiement et photophobie",
+          "Des taches blanches en regard des molaires",
+          "Une éruption qui débute derrière les oreilles et descend vers les membres"
+        ],
+        "correct": 0,
+        "explanation": "La scarlatine est une éruption granitique, rugueuse au toucher, sur une angine : l'examen de la gorge et l'absence de catarrhe oculo-respiratoire tranchent en faveur du streptocoque — et vers la pénicilline.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "rougeole-l3-6",
+        "prompt": "Un enfant est à son cinquième jour d'éruption et la fièvre n'est toujours pas tombée. Quelle est votre lecture ?",
+        "choices": [
+          "La déférescence attendue a trahi : je réexamine l'enfant et je cherche une complication, notamment une pneumonie",
+          "C'est le cours habituel : je poursuis le traitement symptomatique",
+          "La fièvre de la rougeole ne tombe jamais avant la desquamation",
+          "Je change uniquement d'antipyrétique et je revois l'enfant dans une semaine"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole simple défervescence en trois à quatre jours après le début de l'éruption. Une fièvre qui persiste ou qui repart est le signal d'alarme majeur d'une surinfection — le jour même, l'enfant est réexaminé, ses poumons auscultés.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "rougeole-l3-7",
+        "prompt": "Un nourrisson de sept mois, non vacciné, présente depuis trois jours une fièvre élevée avec catarrhe. Que redoutez-vous en priorité ?",
+        "choices": [
+          "Une rougeole : les anticorps maternels ont disparu et il est en dessous de l'âge vaccinal malgache — je cherche Köplik",
+          "Une simple poussée dentaire : je rassure la mère",
+          "Une allergie alimentaire au lait maternel",
+          "Un paludisme grave, sans autre diagnostic à envisager"
+        ],
+        "correct": 0,
+        "explanation": "Entre six et neuf mois, l'enfant n'a plus les anticorps de sa mère et n'est pas encore vacciné : c'est la fenêtre de vulnérabilité de la rougeole en zone épidémique. Le catarrhe fébrile de ce nourrisson mérite Köplik et la notification si confirmé.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "rougeole-l3-8",
+        "prompt": "Que signifie l'« amnésie immunitaire » provoquée par la rougeole ?",
+        "choices": [
+          "Le virus efface une partie de la mémoire immunitaire : l'enfant redevient vulnérable, des mois durant, aux infections déjà combattues",
+          "Le malade conserve des troubles de la mémoire après l'encéphalite",
+          "Le vaccin devient inefficace à vie après la maladie",
+          "Les anticorps antirougeole disparaissent en quelques semaines"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole cible les cellules immunitaires : elle efface une partie du répertoire de défenses déjà construit. L'enfant guéri reste fragilisé pendant des mois — d'où l'importance de remettre à jour tout le calendrier vaccinal après la guérison.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l3-9",
+        "prompt": "Dans quelle situation la confirmation biologique d'une rougeole suspectée est-elle utile ?",
+        "choices": [
+          "Hors épidémie, sur des cas suspects isolés : IgM ou PCR aident à trancher et à déclencher la riposte",
+          "Jamais : le diagnostic est toujours purement clinique",
+          "Toujours : aucun signalement n'est possible sans PCR",
+          "Uniquement chez l'adulte, jamais chez l'enfant"
+        ],
+        "correct": 0,
+        "explanation": "En épidémie déclarée, le diagnostic clinique suffit et la riposte ne se fait pas attendre. En dehors, un cas isolé suspecté mérite confirmation — IgM sur sérum ou PCR sur écouvillon — parce que la première notification conditionne toute la réponse du district.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "rougeole-l3-10",
+        "prompt": "Vous suivez une rougeole en pleine période catarrhale, avant toute éruption : votre patient est-il contagieux ?",
+        "choices": [
+          "Oui, depuis quatre jours avant l'éruption : isolement et le signalement s'imposent dès la suspicion",
+          "Non : la contagiosité ne commence qu'avec les premières taches",
+          "Non : le catarrhe n'est pas infectieux",
+          "Impossible à savoir avant le résultat biologique"
+        ],
+        "correct": 0,
+        "explanation": "La contagiosité précède l'éruption de quatre jours — la période catarrhale est la plus trompeuse et la plus contaminante. Le malade qui tousse dans la salle d'attente y contamine tout enfant sensible présent.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  }
+,
+  {
+    "schemaVersion": 2,
+    "id": "infectio-rougeole-l4",
+    "version": "1.0.0",
+    "title": "Rougeole — complications et traitement",
+    "subtitle": "Pneumonie, encéphalite, vitamine A · L4",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "clinical_reasoning",
+      "canmeds_health_advocate"
+    ],
+    "icon": "bug",
+    "status": "published",
+    "deck_id": "infectio-rougeole-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Rougeole",
+        "citation": "Measles. WHO fact sheet, 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "rougeole-l4-1",
+        "prompt": "Quelle est la première cause de décès chez l'enfant rougeoleux ?",
+        "choices": [
+          "La pneumonie, virale d'abord puis souvent surinfectée par une bactérie",
+          "L'encéphalite post-éruptive, constante chez tous les malades",
+          "La pharyngite ulcéreuse",
+          "La cytolyse hépatique fulminante"
+        ],
+        "correct": 0,
+        "explanation": "La pneumonie emporte la majorité des enfants que la rougeole tue : polypnée, tirage, fièvre qui ne cède pas doivent la faire chercher dès la première consultation et l'hospitaliser.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-l4-2",
+        "prompt": "Dans les jours qui suivent l'éruption, quels signes font craindre une encéphalite post-éruptive ?",
+        "choices": [
+          "Convulsions, troubles de conscience ou somnolence anormale — une urgence d'hospitalisation",
+          "Une desquamation fine du visage",
+          "Une reprise de l'appétit avec diarrhée modérée",
+          "Des sueurs nocturnes isolées sans fièvre"
+        ],
+        "correct": 0,
+        "explanation": "L'encéphalite est rare mais dévastatrice : tout trouble neurologique pendant une rougeole — convulsions, confusion, somnolence — impose le transfert immédiat, sans attendre la confirmation.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-l4-3",
+        "prompt": "Un enfant dénutri, en pleine rougeole, garde les yeux fermés et photophobie au point de ne plus ouvrir les paupières. Que craignez-vous ?",
+        "choices": [
+          "Une kératomalacie par carence en vitamine A : vitamine A immédiate et avis ophtalmologique, sinon cécité définitive",
+          "Une simple conjonctivite banale qui se soignera seule",
+          "Un orgelet mécanique sans gravité",
+          "Un glaucome congénital révélé par la fièvre"
+        ],
+        "correct": 0,
+        "explanation": "Chez l'enfant carencé, la rougeole précipite la kératomalacie : ulcérations cornéennes puis cécité en quelques jours. La vitamine A donnée sans délai et l'avis ophtalmologique font la différence entre un enfant qui voit et un enfant aveugle.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-l4-4",
+        "prompt": "Comment gérez-vous la diarrhée qui accompagne souvent la rougeole ?",
+        "choices": [
+          "Comme une urgence hydro-électrolytique : réhydratation adaptée, nutrition maintenue par repas fractionnés, réévaluation quotidienne",
+          "En la laissant évoluer : elle cède avec l'éruption",
+          "Par un jeûne de quarante-huit heures pour mettre l'intestin au repos",
+          "Par un antidiarrhéique isolé, sans réhydratation"
+        ],
+        "correct": 0,
+        "explanation": "La diarrhée profuse déshydrate en quelques jours un enfant déjà affaibli — et la déshydratation tue plus vite que l'éruption ne guérit. Réhydrater et nourrir font partie du traitement autant que la vitamine A.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l4-5",
+        "prompt": "À quels malades la vitamine A doit-elle être administrée ?",
+        "choices": [
+          "À tout enfant atteint de rougeole, en deux doses espacées de vingt-quatre heures",
+          "Uniquement aux enfants dont la cornée est déjà ulcérée",
+          "À aucun : c'est un supplément réservé aux enfants sains",
+          "Aux seuls adultes immunodéprimés"
+        ],
+        "correct": 0,
+        "explanation": "L'OMS recommande la vitamine A chez tout enfant rougeoleux, deux doses à vingt-quatre heures d'intervalle : elle réduit la mortalité, la durée d'hospitalisation et le risque de cécité. C'est un traitement, pas un supplément d'appoint.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l4-6",
+        "prompt": "Quelle est la place exacte des antibiotiques dans la prise en charge de la rougeole ?",
+        "choices": [
+          "Réservés aux surinfections bactériennes documentées ou probables — pneumonie surinfectée, otite purulente",
+          "Systématiques dès la première fièvre, pour tous les malades",
+          "Contre-indiqués pendant toute la maladie",
+          "Utiles seulement à titre préventif chez les contacts"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole est virale : l'antibiotique ne la traite pas. Mais dès que la pneumonie ou l'otite se surinfectent, il devient vital. Les prescrire à tous, c'est sélectionner des résistances ; les refuser à l'enfant surinfecté, c'est le perdre.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l4-7",
+        "prompt": "Quel enfant traité à domicile doit revenir en consultation très vite ?",
+        "choices": [
+          "Celui qui boit mal, respire vite, ou dont la mère dit qu'il « s'éteint » — réévaluation sous vingt-quatre heures",
+          "Celui qui joue normalement mais tousse encore un peu",
+          "Celui dont l'éruption a fini de desquamer",
+          "Celui qui a retrouvé son appétit avec une fièvre modérée résiduelle"
+        ],
+        "correct": 0,
+        "explanation": "La surveillance à domicile repose sur des critères précis donnés à la mère : boire, manger, respirer, rester éveillé et réactif. Tout franchissement de ces seuils impose le retour immédiat — pas le surlendemain.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "rougeole-l4-8",
+        "prompt": "Une femme enceinte non immune contracte la rougeole : quels risques encourt-elle ?",
+        "choices": [
+          "Un risque accru de complications maternelles sévères, de prématurité et de faible poids de naissance",
+          "Aucun : la grossesse protège contre les formes graves",
+          "Uniquement une éruption plus étendue, sans risque fœtal",
+          "Une immunisation définitive du nouveau-né in utero"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole de la femme enceinte est une forme à risque : pneumonie maternelle sévère, accouchement prématuré, faible poids. Le vaccin vivant étant contre-indiqué pendant la grossesse, la protection se joue avant — d'où la vaccination des femmes en âge de procréer.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-l4-9",
+        "prompt": "Des années après une rougeole passée inaperçue, un adolescent développe des troubles neurologiques progressifs. De quelle complication fatale s'agit-il ?",
+        "choices": [
+          "La panencéphalite sclérosante subaiguë, complication tardive et mortelle de la rougeole",
+          "Une méningite tuberculeuse réactivée",
+          "Une sclérose en plaques d'origine virale",
+          "Une encéphalite herpétique récurrente"
+        ],
+        "correct": 0,
+        "explanation": "La PESS est la cicatrice lointaine de la rougeole : des années après, parfois après une forme silencieuse, le virus persistant détruit le système nerveux central, sans traitement curatif. Une raison de plus pour éradiquer la maladie en amont.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-l4-10",
+        "prompt": "Pendant une rougeole, l'examen retrouve une otite moyenne purulente. Quelle est la bonne conduite ?",
+        "choices": [
+          "La traiter comme une surinfection bactérienne : antibiothérapie selon le protocole national, sans attendre la fin de l'éruption",
+          "L'ignorer : l'otite fait partie de la rougeole",
+          "Prescrire uniquement des gouttes auriculaires antalgiques",
+          "Hospitaliser d'office toute otite de la rougeole en réanimation"
+        ],
+        "correct": 0,
+        "explanation": "L'otite purulente est banale mais grave si elle n'est pas traitée : c'est une surinfection qui relève de l'antibiothérapie protocollaire, associée aux soins de support — et c'est l'examen du tympan à chaque consultation qui la détecte.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      }
+    ]
+  }
+,
+  {
+    "schemaVersion": 2,
+    "id": "infectio-rougeole-l5",
+    "version": "1.0.0",
+    "title": "Rougeole — prophylaxie et riposte vaccinale",
+    "subtitle": "Contacts, campagnes, élimination · L5",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "canmeds_health_advocate",
+      "clinical_reasoning",
+      "canmeds_professional"
+    ],
+    "icon": "bug",
+    "status": "published",
+    "deck_id": "infectio-rougeole-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Rougeole",
+        "citation": "Measles. WHO fact sheet, 2026."
+      },
+      {
+        "title": "OMS — Vaccins antirougeoleux",
+        "citation": "Measles vaccines: WHO position paper, avril 2017."
+      },
+      {
+        "title": "OMS AFRO — Madagascar",
+        "citation": "Madagascar intensifie la protection contre la poliomyélite et la rougeole, octobre 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "rougeole-l5-1",
+        "prompt": "Le petit frère de quatre ans, non vacciné, a dormi hier dans la chambre d'un cas confirmé. Quelle est la meilleure décision ?",
+        "choices": [
+          "Le vacciner dans les soixante-douze heures : le vaccin peut encore empêcher la maladie",
+          "Attendre les premiers symptômes pour décider",
+          "Lui donner uniquement de la vitamine A préventive",
+          "Le mettre immédiatement sous antibiotique prophylactique"
+        ],
+        "correct": 0,
+        "explanation": "La prophylaxie vaccinale post-exposition fonctionne dans les soixante-douze heures : c'est l'un des rares cas où vacciner un contact déjà exposé peut empêcher la maladie — à condition de ne pas attendre.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l5-2",
+        "prompt": "Quel contact sensible relève des immunoglobulines plutôt que du vaccin ?",
+        "choices": [
+          "Le nourrisson trop jeune pour être vacciné, l'immunodéprimé ou la femme enceinte non immune, vus dans les six jours",
+          "Tout enfant de plus de neuf mois en bonne santé",
+          "Les adultes déjà vaccinés deux fois",
+          "Les soignants porteurs du masque"
+        ],
+        "correct": 0,
+        "explanation": "Pour ceux que le vaccin vivant ne peut pas atteindre — trop jeunes, immunodéprimés, enceintes — les immunoglobulines offrent une protection passive dans les six jours suivant le contact. Les recenser fait partie de la riposte du cas index.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l5-3",
+        "prompt": "Pourquoi la vaccination antirougeoleuse est-elle contre-indiquée pendant la grossesse ?",
+        "choices": [
+          "C'est un vaccin vivant atténué : l'immunité doit être acquise avant la grossesse, jamais pendant",
+          "Parce qu'il ne fonctionne pas chez la femme enceinte",
+          "Parce qu'il provoque systématiquement la maladie",
+          "Parce que l'allaitement l'interdit aussi"
+        ],
+        "correct": 0,
+        "explanation": "Le vaccin antirougeoleux est vivant atténué, donc contre-indiqué chez la femme enceinte : la protection de la maternité se joue en amont, en vaccinant toute femme en âge de procréer dont le statut est inconnu ou négatif.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "recognize"
+      },
+      {
+        "id": "rougeole-l5-4",
+        "prompt": "Pourquoi le calendrier vaccinal exige-t-il deux doses de vaccin antirougeoleux ?",
+        "choices": [
+          "La première laisse des échecs vaccinaux que la seconde comble, consolidant aussi l'immunité de groupe",
+          "Parce qu'une dose perd tout son effet au bout d'un an",
+          "Pour compenser les ruptures de chaîne du froid",
+          "Uniquement pour les enfants nés pendant une épidémie"
+        ],
+        "correct": 0,
+        "explanation": "Une première dose protège la grande majorité des enfants, pas tous : la seconde comble les échecs primaires et porte la couverture protectrice au niveau requis pour couper la transmission. Une dose, c'est une protection individuelle ; deux doses, une protection collective.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "rougeole-l5-5",
+        "prompt": "Quel niveau de couverture vaccinale faut-il pour couper la transmission de la rougeole ?",
+        "choices": [
+          "Au moins 95 %, avec deux doses — en dessous, chaque trou vaccinal devient une flambée",
+          "Environ 50 % suffisent pour une maladie bénigne",
+          "70 %, comme pour la plupart des maladies infantiles",
+          "100 % : tout enfant non vacciné relance l'épidémie à lui seul"
+        ],
+        "correct": 0,
+        "explanation": "La contagiosité extrême de la rougeole impose une couverture d'au moins 95 % : c'est le seuil au-delà duquel le virus ne trouve plus assez d'hôtes sensibles pour circuler — l'objectif que chaque district doit suivre, dose par dose.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "rougeole-l5-6",
+        "prompt": "Face à la recrudescence de rougeole de 2026, quelle riposte nationale Madagascar a-t-il déployée ?",
+        "choices": [
+          "Une campagne intégrée rougeole-poliomyélite avec vitamine A, du 5 au 9 octobre 2026, dans les 23 régions et 115 districts",
+          "Une simple circulaire demandant aux parents de consulter",
+          "La fermeture des écoles pendant trois mois",
+          "Un traitement antiviral distribué porte à porte"
+        ],
+        "correct": 0,
+        "explanation": "Du 5 au 9 octobre 2026, une campagne nationale intégrée a vacciné contre la rougeole et la poliomyélite, avec supplémentation en vitamine A, dans toutes les régions et tous les districts : la riposte vaccinale de masse est l'outil qui éteint les flambées.",
+        "sources": [
+          {
+            "title": "OMS AFRO — Madagascar",
+            "citation": "Madagascar intensifie la protection contre la poliomyélite et la rougeole, octobre 2026.",
+            "organization": "OMS AFRO",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "rougeole-l5-7",
+        "prompt": "Comment isole-t-on un cas de rougeole hospitalisé ?",
+        "choices": [
+          "Chambre seule, ventilation : le virus persiste jusqu'à deux heures dans l'air — isolement maintenu jusqu'à quatre jours après le début de l'éruption",
+          "Simple précautions de contact avec gants, sans masque",
+          "Aucun isolement : la rougeole ne se transmet pas à l'hôpital",
+          "Isolement strict pendant vingt et un jours après la guérison"
+        ],
+        "correct": 0,
+        "explanation": "L'isolement est aérien : chambre seule, air contrôlé si possible, et une durée calée sur la contagiosité — quatre jours après l'éruption, plus longtemps chez l'immunodéprimé. Le déplacer dans un couloir bondé, c'est contaminer l'hôpital.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-l5-8",
+        "prompt": "Que doit faire le soignant de première ligne dès qu'il suspecte une rougeole ?",
+        "choices": [
+          "Signaler le cas au district sanitaire le jour même, recenser les contacts et déclencher la prophylaxie",
+          "Attendre la guérison pour remplir la fiche de notification",
+          "Transmettre le dossier au laboratoire et ne rien faire d'autre",
+          "Confier la notification au parent du malade"
+        ],
+        "correct": 0,
+        "explanation": "La rougeole est à déclaration obligatoire : la notification du jour même conditionne la riposte du district — vaccination des contacts, recherche des zéro dose, communication communautaire. Chaque jour d'attente, c'est une chaîne de transmission de plus.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_professional"
+      },
+      {
+        "id": "rougeole-l5-9",
+        "prompt": "Une petite fille vient de guérir d'une rougeole ; sa mère demande si les autres vaccins servent encore. Que répondez-vous ?",
+        "choices": [
+          "Plus que jamais : la rougeole a effacé une partie de sa mémoire immunitaire — je vérifie le carnet et remets à jour chaque vaccin manqué",
+          "Non : la rougeole l'a protégée contre toutes les maladies",
+          "Il faut attendre un an avant tout autre vaccin",
+          "Seul le vaccin antirougeoleux doit être refait"
+        ],
+        "correct": 0,
+        "explanation": "L'amnésie immunitaire laisse l'enfant vulnérable pendant des mois aux infections qu'il avait déjà apprivoisées : après une rougeole, remettre le carnet à jour n'est pas du zèle, c'est la suite logique de la maladie.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "rougeole-l5-10",
+        "prompt": "Trois cas groupés dans un même fokontany en une semaine : quelle stratégie le district déploie-t-il ?",
+        "choices": [
+          "Investigation des cas, vaccination de riposte des contacts et de la zone, recherche des enfants « zéro dose », communication communautaire",
+          "Attendre le cinquième cas pour confirmer l'épidémie",
+          "Fermer le marché du fokontany et distribuer des masques",
+          "Réserver la vaccination aux enfants déjà malades"
+        ],
+        "correct": 0,
+        "explanation": "Un agrégat de cas signale une chaîne de transmission active : la fenêtre d'action se compte en jours. Investigation, vaccination de riposte, rattrapage des zéro dose et communication — la surveillance de quartier est le gardien du statut épidémique du district.",
+        "sources": [
+          {
+            "title": "OMS AFRO — Madagascar",
+            "citation": "Madagascar intensifie la protection contre la poliomyélite et la rougeole, octobre 2026.",
+            "organization": "OMS AFRO",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  }
+,
+  {
+    "schemaVersion": 2,
+    "id": "infectio-rougeole-int",
+    "version": "1.0.0",
+    "title": "Rougeole — cas cliniques en garde",
+    "subtitle": "Nourrissons, complications, contacts, riposte · Interne",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "diagnosis",
+      "management",
+      "canmeds_communicator",
+      "canmeds_leader"
+    ],
+    "icon": "bug",
+    "status": "published",
+    "deck_id": "infectio-rougeole-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Rougeole",
+        "citation": "Measles. WHO fact sheet, 2026."
+      },
+      {
+        "title": "OMS — Vaccins antirougeoleux",
+        "citation": "Measles vaccines: WHO position paper, avril 2017."
+      },
+      {
+        "title": "OMS AFRO — Madagascar",
+        "citation": "Madagascar intensifie la protection contre la poliomyélite et la rougeole, octobre 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "rougeole-int-1",
+        "prompt": "Nourrisson de sept mois, troisième jour de fièvre à 39 °C avec catarrhe, qui refuse le sein depuis ce matin et a une diarrhée liquide. Vous examinez la bouche. Quelle est votre conduite ?",
+        "choices": [
+          "Je cherche Köplik, je donne la vitamine A, je réhydrate et j'hospitalise : refus de boire à cet âge, c'est une urgence pédiatrique",
+          "Je le renvoie avec un antipyrétique et une consigne de revoir dans une semaine",
+          "Je vaccine immédiatement contre la rougeole pour raccourcir la maladie",
+          "Je pose le diagnostic de poussée dentaire et rassure la mère"
+        ],
+        "correct": 0,
+        "explanation": "Sous neuf mois, non vacciné, en épidémie : la rougeole est en tête des hypothèses. Le refus de boire et la diarrhée disent déshydratation imminente — vitamine A, réhydratation et hospitalisation se décident le jour même, pas la signature Köplik.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "rougeole-int-2",
+        "prompt": "Au cinquième jour d'éruption, un enfant de deux ans respire à cinquante par minute, la fièvre est remontée à 39,5 °C et le tirage est visible. Quelle est votre interprétation ?",
+        "choices": [
+          "Une pneumonie surinfectée : hospitalisation, oxygène, antibiothérapie selon le protocole, vitamine A",
+          "Un simple sursaut fébrile de fin d'éruption",
+          "Une réaction au paracétamol mal dosé",
+          "Une bronchiolite virale sans rapport avec la rougeole"
+        ],
+        "correct": 0,
+        "explanation": "La déférescence attendue a trahi : polypnée, tirage et fièvre reprise au-delà du quatrième jour signent la surinfection pulmonaire — le premier tueur de la rougeole. L'hospitalisation avec oxygène et antibiothérapie ne se discute pas.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-int-3",
+        "prompt": "Deux jours après le début de l'éruption, l'enfant fait une convulsion généralisée puis devient somnolent. Quel diagnostic craignez-vous et que faites-vous ?",
+        "choices": [
+          "Une encéphalite post-éruptive : hospitalisation immédiate, maintien des fonctions vitales, avis neurologique",
+          "Une simple fièvre convulsive à traiter à domicile",
+          "Une hypoglycémie isolée à corriger par voie orale",
+          "Une méningite tuberculeuse à traiter en ambulatoire"
+        ],
+        "correct": 0,
+        "explanation": "Tout trouble neurologique pendant une rougeole est une encéphalite jusqu'à preuve du contraire : la somnolence post-critique d'un enfant rougeoleux ne se confond pas avec une banale convulsion hyperpyrétique. Le transfert se fait le jour même.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-int-4",
+        "prompt": "Un enfant de trois ans dénutri, au quatrième jour d'éruption, garde les deux yeux fermés ; on voit une tache grise sur une cornée. Quelle est l'urgence ?",
+        "choices": [
+          "Kératomalacie : vitamine A immédiate en deux doses, protection oculaire et avis ophtalmologique — la cécité se joue en quelques jours",
+          "Conjonctivite purulente banale : lavages au sérum salé et attente",
+          "Variole oculaire : isolement strict et abstention en attendant la confirmation",
+          "Cataracte congénitale découverte à l'occasion de la fièvre"
+        ],
+        "correct": 0,
+        "explanation": "La tache cornéenne d'un enfant dénutri rougeoleux est une kératomalacie : sans vitamine A donnée dans l'heure, la cornée fond et la cécité devient définitive. C'est l'urgence ophtalmologique la plus spectaculaire de la maladie.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "rougeole-int-5",
+        "prompt": "Un cas de rougeole catarrhale attend depuis deux heures dans la salle commune du centre de santé, à côté de nourrissons en consultation. Comment organisez-vous la suite ?",
+        "choices": [
+          "Salle d'attente réorganisée : le cas suspect part en chambre séparée immédiatement, tout suspect fébrile éruptif est masqué et priorisé en fin de file",
+          "Le cas reste en salle commune : la contagiosité est minime avant l'éruption",
+          "Je fais désinfecter la salle et ne change rien à l'attente",
+          "Je renvoie le cas à domicile sans l'examiner"
+        ],
+        "correct": 0,
+        "explanation": "Le virus persiste deux heures dans un air clos : la salle d'attente est l'endroit le plus dangereux du centre. Triage des fébriles, chambre séparée pour les suspects, examen à distance des nourrissons — l'organisation du flux de patients fait partie du traitement.",
+        "sources": [
+          {
+            "title": "OMS — Rougeole",
+            "citation": "Measles. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      },
+      {
+        "id": "rougeole-int-6",
+        "prompt": "Hier soir, votre cousin de dix ans, non vacciné, a joué toute la soirée avec le petit voisin dont la rougeole vient d'être confirmée. Il est à votre consultation ce matin. Que faites-vous ?",
+        "choices": [
+          "Je le vaccine sur-le-champ : nous sommes dans la fenêtre des soixante-douze heures",
+          "Je le mets sous vitamine A et j'attends",
+          "Je le vaccine seulement s'il développe de la fièvre",
+          "Je prescris un antibiotique pour éviter la maladie"
+        ],
+        "correct": 0,
+        "explanation": "Le vaccin post-exposition administré dans les soixante-douze heures peut empêcher la maladie de déclarer. Le contact date d'hier : la fenêtre est grande ouverte — vacciner maintenant, puis recenser les autres contacts du foyer.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-int-7",
+        "prompt": "Dans le foyer d'un cas confirmé vit un nourrisson prématuré de quatre mois, récupéré de la néonatalogie. Quelle prophylaxie choisissez-vous ?",
+        "choices": [
+          "Des immunoglobulines dans les six jours : trop jeune et trop fragile pour le vaccin vivant",
+          "Le vaccin antirougeoleux immédiat, à double dose",
+          "Aucune prophylaxie : les anticorps maternels le protègent encore",
+          "Un isolement à domicile seul, sans produit"
+        ],
+        "correct": 0,
+        "explanation": "À quatre mois, un ancien prématuré n'a plus d'anticorps maternels fiables et ne supporte pas le vaccin vivant : la protection passive par immunoglobulines, dans les six jours, est prévue pour exactement ce profil — à ne pas confondre avec la vaccination, qui viendra plus tard.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-int-8",
+        "prompt": "Une femme enceinte de huit semaines, sans antécédent vaccinal, a soigné son neveu rougeoleux il y a trois jours. Que faites-vous ?",
+        "choices": [
+          "Immunoglobulines dans les six jours, jamais de vaccin vivant, information claire des risques et surveillance",
+          "Vaccination antirougeoleuse immédiate pour la protéger elle et le fœtus",
+          "Rien : le premier trimestre protège le fœtus",
+          "Interruption de grossesse d'emblée, sans autre évaluation"
+        ],
+        "correct": 0,
+        "explanation": "Femme enceinte non immune + contact récent : immunoglobulines sans délai, le vaccin vivant étant contre-indiqué pendant la grossesse. S'ajoutent l'information sincère sur les risques de la rougeole au premier trimestre et le suivi rapproché — pas de décisions hâtives sans argument.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "rougeole-int-9",
+        "prompt": "Une mère refuse la seconde dose du vaccin : « la première a suffi, il n'est jamais tombé malade ». Que lui répondez-vous ?",
+        "choices": [
+          "J'explique les échecs de la première dose et l'immunité de groupe : une dose protège son enfant, deux doses protègent le quartier — et je propose de rattraper la dose dès aujourd'hui",
+          "Je la menace d'une sanction administrative en cas de refus",
+          "Je valide son choix : une dose suffit effectivement",
+          "Je fais signer une décharge et je classe le dossier"
+        ],
+        "correct": 0,
+        "explanation": "La première dose laisse des enfants sensibles ; la seconde comble ces échecs et porte la couverture au seuil qui coupe la transmission. Convaincre sans contraindre, en partant de ce que la mère observe — son enfant en bonne santé — est la méthode qui fait revenir les familles.",
+        "sources": [
+          {
+            "title": "OMS — Vaccins antirougeoleux",
+            "citation": "Measles vaccines: WHO position paper, avril 2017.",
+            "organization": "OMS",
+            "year": 2017
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "rougeole-int-10",
+        "prompt": "Vous êtes interne responsable du district : deux cas groupés de rougeole viennent d'être notifiés dans un fokontany où la couverture vaccinale est faible. Décrivez votre riposte des premières 48 heures.",
+        "choices": [
+          "Vérification des cas, vaccination de riposte des contacts et du voisinage, recherche des enfants « zéro dose », alerte du district et communication communautaire",
+          "Attente du bilan sérologique pour confirmer avant tout geste",
+          "Distribution d'antibiotiques à toute la population du fokontany",
+          "Communication dans la presse uniquement, sans vaccination"
+        ],
+        "correct": 0,
+        "explanation": "La fenêtre d'une riposte réussie se compte en heures : confirmer, vacciner autour des cas — en cercle croissant —, rattraper les zéro dose, mobiliser les CHW et informer les chefs de quartier. L'épidémie de 2018-2019 est née d'un retard de quelques semaines.",
+        "sources": [
+          {
+            "title": "OMS AFRO — Madagascar",
+            "citation": "Madagascar intensifie la protection contre la poliomyélite et la rougeole, octobre 2026.",
+            "organization": "OMS AFRO",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_leader"
+      }
+    ]
+  }
 ]

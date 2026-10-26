@@ -1,0 +1,965 @@
+{
+  "kind": "pathology",
+  "slug": "rougeole",
+  "schemaVersion": 1,
+  "title": "Rougeole",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "updatedAt": "2026-10-26",
+  "objective": "Devant toute fièvre avec catarrhe oculo-respiratoire chez un enfant non vacciné : savoir reconnaître la rougeole au stade utile — le signe de Köplik avant l'éruption — identifier ceux qui vont décompenser, engager les soins de support et la vitamine A, et déclencher autour de chaque cas la prophylaxie de l'entourage et la notification au district.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 5,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 46,
+      "localNumber": 5,
+      "sectionLabel": "Médecine",
+      "title": "Rougeole",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole n'est pas une banale éruption de l'enfance : c'est l'une des maladies les plus contagieuses qui existent, capable de balayer en quelques semaines les enfants d'un quartier, d'un district, d'une île. Un seul cas peut en entraîner plus d'une dizaine chez des personnes non immunes, et le virus se transmet par la simple respiration d'un air contaminé."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le paradoxe de la rougeole est qu'un vaccin sûr, ancien et peu coûteux existe depuis plus de soixante ans : la maladie demeure meurtrière là où la vaccination de routine reste fragile. En 2024, environ 95 000 personnes en sont mortes dans le monde, presque toutes des enfants de moins de cinq ans non vaccinés ou insuffisamment vaccinés — alors que la vaccination a évité près de 59 millions de décès entre 2000 et 2024."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, la rougeole reste une menace réelle : le pays a connu une épidémie majeure en 2018-2019, et une recrudescence de cas a de nouveau été observée en 2026, au point qu'au moins deux districts sont entrés en phase épidémique. Du 5 au 9 octobre 2026, une campagne nationale intégrée de vaccination contre la rougeole et la poliomyélite, associée à une supplémentation en vitamine A, a couvert les 23 régions et les 115 districts du pays."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit l'item n°5 de la section Médecine du programme national : reconnaître la maladie et son calendrier, comprendre ce qui la rend grave, la traiter sans antiviral miracle, et surtout la prévenir — car à la différence de bien des maladies de ce programme, la rougeole s'élimine presque entièrement par le vaccin."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Les chiffres à retenir",
+          "text": "Environ 95 000 décès dans le monde en 2024, essentiellement des enfants de moins de cinq ans ; 84 % des enfants ont reçu une première dose en 2025, contre 86 % en 2019 ; près de 59 millions de décès évités par la vaccination entre 2000 et 2024 ; à Madagascar, vaccin antirougeoleux administré à partir de neuf mois, avec des campagnes nationales de rattrapage régulières."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Repère",
+            "Valeur",
+            "Ce qu'il dit au clinicien"
+          ],
+          "rows": [
+            [
+              "Décès mondiaux (2024)",
+              "Environ 95 000",
+              "Une maladie encore meurtrière, pas une éruption bénigne"
+            ],
+            [
+              "Couverture mondiale 1re dose (2025)",
+              "84 %",
+              "La couverture recule : chaque trou vaccinal devient une épidémie"
+            ],
+            [
+              "Décès évités par le vaccin (2000-2024)",
+              "Près de 59 millions",
+              "Le vaccin antirougeoleux est l'un des plus rentables de la médecine"
+            ],
+            [
+              "Âge de la VAR à Madagascar",
+              "À partir de neuf mois",
+              "Avant neuf mois, l'enfant reste protégé par les anticorps maternels — sauf épidémie"
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-AFRO-MG-2026",
+          "title": "Madagascar intensifie la protection de millions d'enfants contre la poliomyélite et la rougeole",
+          "url": "https://www.afro.who.int/fr/countries/madagascar/news/madagascar-intensifie-la-protection-de-millions-denfants-contre-la-poliomyelite-et-la-rougeole",
+          "organization": "OMS — Bureau régional de l'Afrique",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "agent-physiopathologie",
+      "title": "I. Agent et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole est due à un virus à ARN enveloppé de la famille des Paramyxoviridae, genre Morbillivirus. C'est un virus strictement humain : il n'y a ni réservoir animal, ni porteur sain chronique — chaque chaîne de transmission part d'un malade. Cette caractéristique est la raison pour laquelle l'élimination mondiale de la rougeole est possible."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transmission est aérienne, par les gouttelettes respiratoires émises en toussant, en éternuant ou simplement en parlant, mais aussi par des aérosols qui persistent dans l'air et sur les surfaces pendant jusqu'à deux heures dans un espace clos. Un enfant qui partage la salle d'attente d'un centre de santé avec un cas contagieux peut être contaminé sans contact direct."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après contamination, le virus colonise d'abord la muqueuse respiratoire puis se dissémine par le sang : c'est la virémie, silencieuse, qui explique l'incubation d'une dizaine de jours. Le virus se multiplie ensuite dans l'épithélium respiratoire, la conjonctive et la peau, et cible les cellules immunitaires portant la protéine CD150 — d'où le tropisme du virus pour l'appareil respiratoire et l'immunité."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Incubation : environ dix à douze jours entre la contamination et la fièvre (jusqu'à vingt et un jours).",
+            "Période catarrhale : deux à quatre jours de fièvre, toux, coryza, conjonctivite — la contagiosité est déjà maximale.",
+            "Phase éruptive : l'éruption maculopapuleuse descend du visage vers le tronc puis les membres ; la fièvre régresse en quelques jours.",
+            "Contagiosité : quatre jours avant jusqu'à quatre jours après le début de l'éruption — plus longtemps chez l'immunodéprimé.",
+            "Immunité : définitive après la maladie ; l'immunité vaccinale nécessite deux doses pour être solide."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "L'amnésie immunitaire — le piège de la rougeole",
+          "text": "La rougeole efface une partie de la mémoire immunitaire de l'enfant : pendant des mois, voire des années après la guérison, les infections qu'il avait déjà apprises à combattre reviennent le frapper. Ce phénomène, l'amnésie immunitaire, fait de chaque épisode de rougeole bien plus qu'une maladie aiguë — et impose, après guérison, de vérifier que les autres vaccins du calendrier sont à jour."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-ROUGEOLE-2017",
+          "title": "Note de position de l'OMS relative aux vaccins antirougeoleux",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2017
+        }
+      ]
+    },
+    {
+      "id": "semiologie",
+      "title": "II. Reconnaître : le catarrhe, Köplik, l'éruption",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de la rougeole est clinique, et il se joue avant l'éruption. La période catarrhale est une pseudo-grippe qui ne guérit pas : fièvre souvent élevée, puis les trois signes qui font le syndrome catarrhal oculo-respiratoire — la toux sèche, le coryza avec éternuements, la conjonctivite avec larmoiement et photophobie. L'enfant a les yeux qui coulent, le nez qui coule, et il tousse : il a « la tête en feu » avant d'avoir la moindre tache sur la peau."
+        },
+        {
+          "type": "paragraph",
+          "text": "Au fond de ce catarrhe, le signe qui signe la rougeole apparaît chez la plupart des malades : le signe de Köplik. Ce sont de petits foyers blancs, sur une base érythémateuse, siégeant sur la muqueuse buccale en regard des premières molaires. Éphémères, ils disparaissent un ou deux jours après le début de l'éruption : les chercher devant toute fièvre catarrhale chez un enfant non vacciné, c'est diagnostiquer la rougeole avant qu'elle ne se montre."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'éruption survient au troisième ou quatrième jour de fièvre : macules puis maculopapules, derrière les oreilles et sur le front d'abord, qui descendent en une à deux jours au visage, au tronc, puis aux membres. Elle peut confluer en plaques sur le visage, dure quatre à sept jours, peut se desquamer finement en fin de poussée — et s'accompagne d'une aggravation transitoire de la toux. La fièvre tombe ensuite ; l'enfant qui reste fébrile au-delà du quatrième jour d'éruption doit faire rechercher une complication."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Étape",
+            "Calendrier",
+            "Ce qu'on voit"
+          ],
+          "rows": [
+            [
+              "Contamination",
+              "Jour 0",
+              "Rien — l'enfant respire l'air d'un malade"
+            ],
+            [
+              "Incubation",
+              "Jours 0 à 10-12",
+              "Rien — virémie silencieuse"
+            ],
+            [
+              "Catarrhe",
+              "Jours 10-12 à 14",
+              "Fièvre, toux, coryza, conjonctivite, signe de Köplik"
+            ],
+            [
+              "Éruption",
+              "Vers le 14e jour",
+              "Maculopapules rétro-auriculaires qui descendent"
+            ],
+            [
+              "Guérison",
+              "4 à 7 jours plus tard",
+              "Déférescence, desquamation fine — ou complication si la fièvre persiste"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : chercher Köplik avant l'éruption",
+          "text": "Toute fièvre avec catarrhe oculo-respiratoire chez un enfant non vacciné ou de statut inconnu mérite un examen de la bouche à la lumière, en regard des molaires, et l'heure du début exacte de l'éruption notée dans le dossier : ces deux gestes font le diagnostic et datent la contagiosité — quatre jours avant, quatre jours après l'éruption."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "complications",
+      "title": "III. Complications : ce qui tue et ce qui aveugle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole tue par ses complications, pas par son éruption. La plus meurtrière est la pneumonie — virale d'abord, puis souvent surinfectée par une bactérie : c'est elle qui emporte la majorité des enfants qui décèdent. Elle se manifeste par une fièvre qui repart ou qui ne tombe jamais, une polypnée, une toux qui s'enlise, des signes de lutte ; elle impose l'hospitalisation et fait de la rougeole une urgence respiratoire autant qu'une maladie éruptive."
+        },
+        {
+          "type": "paragraph",
+          "text": "La deuxième urgence est digestive : la diarrhée profuse, fréquente, déshydrate en quelques jours un enfant déjà affaibli — et la déshydratation tue plus vite que l'éruption ne guérit. À côté de ces deux tueuses, l'otite moyenne purulente est banale mais grave si elle n'est pas traitée, et l'encéphalite post-éruptive, rare, est dévastatrice : convulsions, troubles de conscience, parfois décès ou séquelles neurologiques définitives, dans les jours qui suivent l'éruption."
+        },
+        {
+          "type": "paragraph",
+          "text": "La complication silencieuse, elle, atteint les yeux : chez l'enfant carencé en vitamine A, la rougeole abaisse encore un peu plus le taux de cette vitamine et provoque une kératomalacie — ulcérations de la cornée, puis cécité définitive. Un enfant rougeoleux qui ferme les yeux, qui photophobie au point de ne plus ouvrir les paupières, ou dont on voit une tache grise sur la cornée est une urgence ophtalmologique et nutritionnelle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Les plus à risque : nourrissons de moins de neuf mois non vaccinés, enfants dénutris ou carencés en vitamine A, immunodéprimés, femmes enceintes non immunes.",
+            "Complications précoces : pneumonie, diarrhée déshydratante, otite moyenne, laryngite obstructive.",
+            "Complications neurologiques : encéphalite aiguë post-éruptive ; panencéphalite sclérosante subaiguë (PESS), fatale, des années après une rougeole passée inaperçue.",
+            "Complication oculaire : kératite et kératomalacie par carence en vitamine A — cécité définitive sans supplémentation d'urgence.",
+            "Dernier piège, invisible : l'amnésie immunitaire, qui laisse l'enfant vulnérable aux autres infections pendant des mois."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hospitaliser sans discuter",
+          "text": "Un enfant rougeoleux qui respire vite ou tire, dont la fièvre persiste au-delà du quatrième jour d'éruption, qui boit mal ou refuse de manger, qui présente des convulsions ou une somnolence anormale, qui ferme les yeux douloureusement ou montre une tache cornéenne, ou qui est dénutri, doit être hospitalisé le jour même : ces signes disent pneumonie, déshydratation, encéphalite ou kératomalacie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Prise en charge : hydrater, nourrir, supplémenter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe aucun traitement antiviral spécifique de la rougeole : la prise en charge est faite de soins de support rigoureux, appliqués tôt, et de la recherche systématique des complications. Le socle est simple à énoncer et exigeant à tenir : réhydrater l'enfant qui a de la fièvre et de la diarrhée, maintenir une alimentation fractionnée et énergétique — la rougeole brûle des réserves déjà maigres —, apaiser la toux, déclencher la fièvre sans sur-transfusion de médicaments, et surtout ne pas masquer une complication en traitant symptomatiquement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux traitements sauvent des vies. La vitamine A d'abord : l'OMS la recommande chez tout enfant atteint de rougeole, en deux doses espacées de vingt-quatre heures — elle réduit la mortalité, la durée d'hospitalisation et le risque de cécité. Les antibiotiques ensuite : ils ne traitent pas la rougeole, qui est virale, mais ils deviennent nécessaires dès qu'une surinfection bactérienne est documentée ou probable — pneumonie surinfectée, otite purulente. Les prescrire systématiquement à tous les malades, c'est sélectionner des résistances ; les refuser à l'enfant qui se surinfecte, c'est le perdre."
+        },
+        {
+          "type": "paragraph",
+          "text": "La place de l'hospitalisation se décide sur la gravité, pas sur l'éruption : détresse respiratoire, déshydratation, refus alimentaire, dénutrition, convulsions, somnolence, atteinte oculaire, rougeole du nourrisson, de l'immunodéprimé ou de la femme enceinte. À l'hôpital comme à domicile, le malade est contagieux quatre jours après le début de l'éruption : l'isolement n'est pas de la théorie, et les soignants non immuns ne doivent pas exposer sans protection une grossesse ou un patient fragile."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Décision",
+            "Pourquoi"
+          ],
+          "rows": [
+            [
+              "Rougeole simple, enfant vigoureux, qui boit et mange",
+              "Soins à domicile, conseils de retour immédiat, vitamine A",
+              "La plupart des cas non compliqués guérissent avec un bon support"
+            ],
+            [
+              "Fièvre persistante au-delà du 4e jour d'éruption",
+              "Réexaminer, rechercher une pneumonie, hospitaliser si confirmée",
+              "La déférescence attendue fait foi — son absence est un signal"
+            ],
+            [
+              "Polypnée, tirage, refus de boire, déshydratation",
+              "Hospitalisation le jour même",
+              "Urgence respiratoire et hydro-électrolytique"
+            ],
+            [
+              "Convulsions, somnolence, troubles de conscience",
+              "Hospitalisation en urgence",
+              "Encéphalite post-éruptive jusqu'à preuve du contraire"
+            ],
+            [
+              "Photophobie intense, larmoiement unilatéral, tache cornéenne",
+              "Hospitalisation, vitamine A immédiate, avis ophtalmologique",
+              "Kératomalacie : la cécité se joue en quelques jours"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "La vitamine A n'est pas un supplément optionnel",
+          "text": "Chez tout enfant rougeoleux, y compris celui traité à domicile, l'administration de vitamine A en deux doses espacées de vingt-quatre heures fait partie du traitement — pas de la prévention : elle réduit la mortalité et prévient la cécité. L'omettre devant une rougeole, c'est la même faute que d'oublier l'anatoxine devant une plaie : le médicament le moins cher de la fiche est aussi celui qui sauve la vue et la vie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-ROUGEOLE-2017",
+          "title": "Note de position de l'OMS relative aux vaccins antirougeoleux",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2017
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention : le vaccin, l'arme la plus sûre",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le vaccin antirougeoleux est un vaccin vivant atténué, administré par injection sous-cutanée, parmi les plus efficaces et les plus anciens de l'humanité : une première dose protège la grande majorité des enfants, une seconde dose comble les échecs primaires et confère une immunité solide, quasi définitive. Il n'y a pas de guérison de la rougeole qui protège l'entourage — mais il y a un vaccin qui empêche la chaîne de transmission de démarrer."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, le calendrier du programme élargi de vaccination administre le vaccin antirougeoleux (VAR) à partir de neuf mois — tôt, parce que l'épidémie frappe avant l'âge occidental de la première dose et que les anticorps maternels protecteurs disparaissent dans la première année. La seconde dose est apportée par les campagnes nationales de vaccination supplémentaire, comme celle d'octobre 2026, menée conjointement contre la poliomyélite avec une supplémentation en vitamine A dans les 23 régions du pays. La couverture de routine reste le vrai rempart : une campagne rattrape les enfants « zéro dose », elle ne remplace pas un calendrier tenu toute l'année."
+        },
+        {
+          "type": "paragraph",
+          "text": "Autour d'un cas, la prophylaxie de l'entourage a une fenêtre très courte, et elle ne pardonne pas la lenteur. Le vaccin administré dans les soixante-douze heures qui suivent le contact peut empêcher la maladie de déclarer. Pour les contacts à haut risque — nourrissons trop jeunes pour être vaccinés, immunodéprimés, femmes enceintes non immunes — ce sont les immunoglobulines, dans les six jours, qui offrent une protection passive. Chaque cas signalé doit donc déclencher, dans les vingt-quatre heures, l'identification et la vaccination des contacts encore sensibles."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Contact sensible",
+            "Délai depuis le contact",
+            "Conduite"
+          ],
+          "rows": [
+            [
+              "Enfant de plus de neuf mois non vacciné",
+              "Moins de 72 heures",
+              "Vacciner immédiatement — le vaccin peut empêcher la maladie"
+            ],
+            [
+              "Enfant vacciné avec une seule dose",
+              "Quel que soit le délai",
+              "Rattraper la seconde dose dès que possible"
+            ],
+            [
+              "Nourrisson de moins de six mois",
+              "Moins de 6 jours",
+              "Immunoglobulines, selon le protocole national"
+            ],
+            [
+              "Femme enceinte non immune",
+              "Moins de 6 jours",
+              "Immunoglobulines — jamais le vaccin vivant pendant la grossesse"
+            ],
+            [
+              "Immunodéprimé, quelle que soit la cause",
+              "Moins de 6 jours",
+              "Immunoglobulines — jamais le vaccin vivant"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Deux doses, pas une",
+          "text": "Une seule dose de vaccin antirougeoleux laisse des enfants sensibles ; deux doses espaçées protègent durablement et font barrage à la transmission. Pour l'élimination, il faut une couverture d'au moins 95 % : c'est le seul chiffre qui compte pour couper la chaîne — et celui que chaque district doit surveiller."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "surveillance-riposte",
+      "title": "Surveillance et riposte épidémique à Madagascar",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole est une maladie à déclaration obligatoire : tout cas suspect — fièvre et éruption maculopapuleuse avec catarrhe, chez un non-vacciné — doit être signalé au district sanitaire, que le diagnostic soit confirmé ou non. La confirmation peut être clinique en période d'épidémie ; ailleurs, la sérologie (IgM) ou la PCR sur écouvillon gorgeux aident à trancher. Un cas isolé dans un district est toujours une alerte : la rougeole ne circule jamais « un peu »."
+        },
+        {
+          "type": "paragraph",
+          "text": "La riposte suit des règles immuables : isoler le malade pendant sa contagiosité — quatre jours après le début de l'éruption —, recenser les contacts sensibles, les vacciner dans les soixante-douze heures, et prévenir la communauté sans attendre la confirmation. En 2026, devant la recrudescence des cas et l'entrée de districts en phase épidémique, Madagascar a lancé du 5 au 9 octobre une campagne nationale intégrée rougeole-poliomyélite avec vitamine A, couvrant les 23 régions et les 115 districts : la riposte vaccinale de masse est l'outil qui éteint les flambées."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'épidémie de 2018-2019 avait déjà montré la mécanique : des poches d'enfants « zéro dose » accumulées pendant des années, une introduction du virus, et une flambée nationale en quelques mois. La surveillance de la couverture vaccinale district par district, le rattrapage systématique des enfants manqués, et la vitesse de réaction aux premiers cas sont les trois verrous qui empêchent la répétition — et chacun commence au centre de santé, par la fiche de notification remplie le jour même."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce que fait le clinicien de première ligne",
+          "text": "Devant chaque cas : isoler, dater l'éruption pour savoir jusqu'à quand le malade est contagieux, donner la vitamine A, notifier au district le jour même, recenser et vacciner les contacts sensibles sous soixante-douze heures, et chercher à l'hôpital les enfants « zéro dose » de la famille pour remettre le calendrier à jour — la riposte commence au lit du malade."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-AFRO-MG-2026",
+          "title": "Madagascar intensifie la protection de millions d'enfants contre la poliomyélite et la rougeole",
+          "url": "https://www.afro.who.int/fr/countries/madagascar/news/madagascar-intensifie-la-protection-de-millions-denfants-contre-la-poliomyelite-et-la-rougeole",
+          "organization": "OMS — Bureau régional de l'Afrique",
+          "year": 2026
+        },
+        {
+          "id": "SRC-GAVI-MG-2026",
+          "title": "À Madagascar, le grand rattrapage rime avec la routinisation des vaccins",
+          "url": "https://www.gavi.org/fr/vaccineswork/madagascar-rattrapage-rime-routinisation-vaccins",
+          "organization": "Gavi, l'Alliance du Vaccin",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole se reconnaît avant l'éruption, se traite sans antiviral — avec des soins de support tenus et de la vitamine A — et se prévient presque totalement par deux doses de vaccin. Le clinicien malgache qui voit un enfant fébrile doit penser au catarrhe oculo-respiratoire, chercher Köplik, dater l'éruption, redouter la pneumonie, la diarrhée et la kératomalacie, et traiter l'enfant dénutri comme une urgence nutritionnelle autant qu'infectieuse."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mais le vrai geste de santé publique se joue autour du malade : notifier, isoler pendant la contagiosité, vacciner les contacts sensibles dans les soixante-douze heures et tenir la couverture vaccinale au-dessus de 95 % district par district. Chaque enfant « zéro dose » est la prochaine épidémie ; chaque fiche de notification bien remplie est une flambée éteinte plus tôt. C'est la leçon des années 2018-2019 et celle, renouvelée, de la campagne nationale d'octobre 2026."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Source",
+            "Référence",
+            "Usage principal"
+          ],
+          "rows": [
+            [
+              "OMS — Rougeole",
+              "Fiche de synthèse « Measles », mise à jour 2026 (données 2024-2025), consultée le 2026-10-26",
+              "Épidémiologie mondiale, clinique, complications, principes de traitement"
+            ],
+            [
+              "OMS — Bureau régional de l'Afrique",
+              "Communiqué du 5 octobre 2026 sur la campagne nationale intégrée rougeole-poliomyélite de Madagascar",
+              "Surveillance, riposte, campagne d'octobre 2026"
+            ],
+            [
+              "OMS — Note de position",
+              "Note de position relative aux vaccins antirougeoleux, Relevé épidémiologique hebdomadaire, avril 2017",
+              "Calendrier vaccinal, prophylaxie des contacts, élimination"
+            ],
+            [
+              "Gavi — Alliance du Vaccin",
+              "« À Madagascar, le grand rattrapage rime avec la routinisation des vaccins », 2026",
+              "Programme élargi de vaccination, enfants « zéro dose », contexte malgache"
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-ROUGEOLE-2026",
+          "title": "Rougeole — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-AFRO-MG-2026",
+          "title": "Madagascar intensifie la protection de millions d'enfants contre la poliomyélite et la rougeole",
+          "url": "https://www.afro.who.int/fr/countries/madagascar/news/madagascar-intensifie-la-protection-de-millions-denfants-contre-la-poliomyelite-et-la-rougeole",
+          "organization": "OMS — Bureau régional de l'Afrique",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-ROUGEOLE-2017",
+          "title": "Note de position de l'OMS relative aux vaccins antirougeoleux",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2017
+        },
+        {
+          "id": "SRC-GAVI-MG-2026",
+          "title": "À Madagascar, le grand rattrapage rime avec la routinisation des vaccins",
+          "url": "https://www.gavi.org/fr/vaccineswork/madagascar-rattrapage-rime-routinisation-vaccins",
+          "organization": "Gavi, l'Alliance du Vaccin",
+          "year": 2026
+        }
+      ]
+    }
+  ],
+  "related": {
+    "deckIds": [
+      "infectio",
+      "urgences",
+      "infectio-rougeole-l5"
+    ]
+  },
+  "reviewStatus": "pending-medical-review",
+  "mnemonics": [
+    {
+      "id": "mnemo-3c",
+      "label": "Les trois C du catarrhe rougeoleux",
+      "intro": "Le syndrome catarrhal oculo-respiratoire précède toujours l'éruption.",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Conjonctivite — larmoiement, photophobie, yeux rouges"
+        },
+        {
+          "key": "2",
+          "term": "Coryza — nez qui coule, éternuements, voix enrouée"
+        },
+        {
+          "key": "3",
+          "term": "Toux — sèche, insistante, qui enraye la nuit"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-calendrier",
+      "label": "10 — K — 4+4 : le calendrier qui fait le diagnostic",
+      "intro": "Quatre repères chronologiques à réciter devant toute fièvre éruptive.",
+      "entries": [
+        {
+          "key": "10",
+          "term": "Dix à douze jours d'incubation silencieuse entre la contamination et la fièvre"
+        },
+        {
+          "key": "K",
+          "term": "Köplik pendant le catarrhe — le signe qui devance l'éruption de un à deux jours"
+        },
+        {
+          "key": "4+",
+          "term": "Contagieux dès quatre jours avant le début de l'éruption"
+        },
+        {
+          "key": "4-",
+          "term": "Contagieux encore quatre jours après le début de l'éruption — puis isoler moins, surveiller plus"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-5verrous",
+      "label": "Les cinq verrous de la prise en charge",
+      "intro": "Cinq verrous à verrouiller dans l'ordre, pour chaque malade, dès la première consultation.",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Dater et isoler — noter le jour de l'éruption, prévenir la contagion à l'attente et à la maison"
+        },
+        {
+          "key": "2",
+          "term": "Hydrater et nourrir — la rougeole vide les réserves de l'enfant plus vite qu'elle ne guérit"
+        },
+        {
+          "key": "3",
+          "term": "Vitamine A en deux doses à vingt-quatre heures d'intervalle — pour la survie et pour la vue"
+        },
+        {
+          "key": "4",
+          "term": "Surveiller et traiter les surinfections — antibiothérapie seulement si la pneumonie ou l'otite le justifie"
+        },
+        {
+          "key": "5",
+          "term": "Notifier et vacciner l'entourage — la fiche au district, le vaccin aux contacts sous soixante-douze heures"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-rougeole-1",
+      "front": "Quel est l'agent de la rougeole ?",
+      "back": "Un virus à ARN enveloppé du genre Morbillivirus (famille des Paramyxoviridae), strictement humain — d'où la possibilité d'une élimination mondiale."
+    },
+    {
+      "id": "fc-rougeole-2",
+      "front": "Comment la rougeole se transmet-elle ?",
+      "back": "Par voie aérienne : gouttelettes et aérosols qui persistent jusqu'à deux heures dans un air clos — un contact direct n'est pas nécessaire."
+    },
+    {
+      "id": "fc-rougeole-3",
+      "front": "Quelle est la durée d'incubation de la rougeole ?",
+      "back": "Environ dix à douze jours entre la contamination et la fièvre, avec des extrêmes jusqu'à vingt et un jours."
+    },
+    {
+      "id": "fc-rougeole-4",
+      "front": "Quels sont les trois signes du catarrhe oculo-respiratoire ?",
+      "back": "La conjonctivite (larmoiement, photophobie), le coryza et la toux — précédés d'une fièvre élevée, avant toute éruption."
+    },
+    {
+      "id": "fc-rougeole-5",
+      "front": "Où cherche-t-on le signe de Köplik et à quel moment ?",
+      "back": "Sur la muqueuse buccale, en regard des premières molaires : petits foyers blancs sur base rouge, pendant le catarrhe, disparus un à deux jours après le début de l'éruption."
+    },
+    {
+      "id": "fc-rougeole-6",
+      "front": "Comment débute et descend l'éruption de rougeole ?",
+      "back": "Derrière les oreilles et sur le front, puis visage, tronc, membres en une à deux jours ; macules puis maculopapules parfois confluentes, desquamation fine en fin de poussée."
+    },
+    {
+      "id": "fc-rougeole-7",
+      "front": "Pendant combien de temps un malade est-il contagieux ?",
+      "back": "De quatre jours avant à quatre jours après le début de l'éruption — plus longtemps chez l'immunodéprimé."
+    },
+    {
+      "id": "fc-rougeole-8",
+      "front": "Quelle est la complication la plus meurtrière de la rougeole ?",
+      "back": "La pneumonie — virale puis souvent surinfectée ; elle emporte la majorité des enfants qui décèdent."
+    },
+    {
+      "id": "fc-rougeole-9",
+      "front": "Quelle complication oculaire redoute-t-on chez l'enfant carencé ?",
+      "back": "La kératomalacie par carence en vitamine A : ulcérations cornéennes qui mènent à la cécité définitive en quelques jours sans supplémentation."
+    },
+    {
+      "id": "fc-rougeole-10",
+      "front": "Quel supplément l'OMS recommande-t-elle chez tout enfant rougeoleux ?",
+      "back": "La vitamine A, en deux doses espacées de vingt-quatre heures — elle réduit la mortalité, la durée d'hospitalisation et le risque de cécité."
+    },
+    {
+      "id": "fc-rougeole-11",
+      "front": "À quel âge le vaccin antirougeoleux est-il administré à Madagascar ?",
+      "back": "À partir de neuf mois selon le programme élargi de vaccination, puis une seconde dose par les campagnes nationales de vaccination supplémentaire."
+    },
+    {
+      "id": "fc-rougeole-12",
+      "front": "Que fait-on pour un contact non vacciné vu dans les 72 heures ?",
+      "back": "On le vaccine immédiatement : le vaccin donné dans les soixante-douze heures peut empêcher la maladie de déclarer."
+    },
+    {
+      "id": "fc-rougeole-13",
+      "front": "Quels contacts reçoivent des immunoglobulines plutôt que le vaccin ?",
+      "back": "Les contacts à haut risque vus dans les six jours : nourrissons trop jeunes, immunodéprimés, femmes enceintes non immunes — jamais de vaccin vivant chez ces deux derniers."
+    },
+    {
+      "id": "fc-rougeole-14",
+      "front": "Qu'est-ce que l'amnésie immunitaire de la rougeole ?",
+      "back": "L'effacement d'une partie de la mémoire immunitaire : pendant des mois après la guérison, l'enfant redevient vulnérable aux infections qu'il avait déjà combattues."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "mm-rougeole",
+      "label": "Rougeole",
+      "detail": "Maladie virale éruptive la plus contagieuse qui soit — se reconnaît avant l'éruption, tue par ses complications, s'élimine par deux doses de vaccin."
+    },
+    "branches": [
+      {
+        "id": "br-reconnaitre",
+        "label": "Reconnaître",
+        "detail": "Le diagnostic est clinique et se joue pendant le catarrhe, avant l'éruption.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "br-reconnaitre-catarrhe",
+            "label": "Le catarrhe des 3 C",
+            "leaves": [
+              {
+                "id": "lf-conjonctivite",
+                "label": "Conjonctivite, photophobie"
+              },
+              {
+                "id": "lf-coryza",
+                "label": "Coryza, éternuements"
+              },
+              {
+                "id": "lf-toux",
+                "label": "Toux sèche persistante"
+              }
+            ]
+          },
+          {
+            "id": "br-reconnaitre-koplik",
+            "label": "Le signe de Köplik",
+            "leaves": [
+              {
+                "id": "lf-koplik-siege",
+                "label": "Muqueuse buccale en regard des molaires"
+              },
+              {
+                "id": "lf-koplik-moment",
+                "label": "Pendant le catarrhe, disparu dès l'éruption"
+              }
+            ]
+          },
+          {
+            "id": "br-reconnaitre-eruption",
+            "label": "L'éruption qui descend",
+            "leaves": [
+              {
+                "id": "lf-eruption-depart",
+                "label": "Rétro-auriculaire et front"
+              },
+              {
+                "id": "lf-eruption-sens",
+                "label": "Visage, puis tronc, puis membres"
+              },
+              {
+                "id": "lf-eruption-suite",
+                "label": "Déférescence en 3-4 jours, sinon complication"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-grader",
+        "label": "Grader",
+        "detail": "Ce qui menace et qui est en danger : la gravité se juge sur le retentissement, pas sur l'étendue de l'éruption.",
+        "tone": null,
+        "children": [
+          {
+            "id": "br-grader-tueurs",
+            "label": "Ce qui tue",
+            "leaves": [
+              {
+                "id": "lf-pneumonie",
+                "label": "Pneumonie — premier tueur"
+              },
+              {
+                "id": "lf-diarrhee",
+                "label": "Diarrhée déshydratante"
+              },
+              {
+                "id": "lf-encephalite",
+                "label": "Encéphalite post-éruptive"
+              }
+            ]
+          },
+          {
+            "id": "br-grader-yveux",
+            "label": "Ce qui aveugle",
+            "leaves": [
+              {
+                "id": "lf-keratomalacie",
+                "label": "Kératomalacie par carence en vitamine A"
+              }
+            ]
+          },
+          {
+            "id": "br-grader-risque",
+            "label": "Qui est en danger",
+            "leaves": [
+              {
+                "id": "lf-nourrisson",
+                "label": "Nourrisson de moins de neuf mois non vacciné"
+              },
+              {
+                "id": "lf-denutri",
+                "label": "Dénutri, carencé en vitamine A"
+              },
+              {
+                "id": "lf-immunodeprime",
+                "label": "Immunodéprimé, femme enceinte non immune"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-traiter",
+        "label": "Traiter",
+        "detail": "Pas d'antiviral : des soins de support tenus, une vitamine A systématique et des surinfections traitées à bon escient.",
+        "tone": "urgence",
+        "children": [
+          {
+            "id": "br-traiter-support",
+            "label": "Le socle",
+            "leaves": [
+              {
+                "id": "lf-hydrater",
+                "label": "Réhydrater, nourrir fractionné"
+              },
+              {
+                "id": "lf-vitamineA",
+                "label": "Vitamine A : deux doses à 24 h"
+              },
+              {
+                "id": "lf-isoler",
+                "label": "Isoler jusqu'à 4 jours après l'éruption"
+              }
+            ]
+          },
+          {
+            "id": "br-traiter-surinfection",
+            "label": "Les surinfections",
+            "leaves": [
+              {
+                "id": "lf-antibio",
+                "label": "Antibiotique seulement si pneumonie ou otite bactérienne"
+              },
+              {
+                "id": "lf-hospitaliser",
+                "label": "Hospitaliser : détresse, déshydratation, coma, œil rouge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-prevenir",
+        "label": "Prévenir",
+        "detail": "Le vaccin vivant atténué, deux doses, reste l'arme la plus sûre — autour de chaque cas, la prophylaxie se joue en heures.",
+        "tone": null,
+        "children": [
+          {
+            "id": "br-prevenir-vaccin",
+            "label": "Le vaccin",
+            "leaves": [
+              {
+                "id": "lf-var9",
+                "label": "VAR à partir de neuf mois à Madagascar"
+              },
+              {
+                "id": "lf-2doses",
+                "label": "Deux doses, couverture visée : 95 %"
+              },
+              {
+                "id": "lf-campagnes",
+                "label": "Campagnes nationales : octobre 2026"
+              }
+            ]
+          },
+          {
+            "id": "br-prevenir-riposte",
+            "label": "La riposte",
+            "leaves": [
+              {
+                "id": "lf-notifier",
+                "label": "Notifier chaque cas au district"
+              },
+              {
+                "id": "lf-pep72",
+                "label": "Vacciner les contacts sous 72 heures"
+              },
+              {
+                "id": "lf-ig6",
+                "label": "Immunoglobulines sous 6 jours pour les fragiles"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-FS-ROUGEOLE-2026",
+      "citation": "Organisation mondiale de la Santé. Rougeole — fiche de synthèse. Genève : OMS ; mise à jour 2026 (données 2024-2025).",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Épidémiologie mondiale",
+        "Agent et transmission",
+        "Clinique et complications",
+        "Principes de traitement",
+        "Vaccination"
+      ],
+      "title": "Rougeole — fiche de synthèse",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026
+    },
+    {
+      "id": "SRC-WHO-AFRO-MG-2026",
+      "citation": "OMS — Bureau régional de l'Afrique. Madagascar intensifie la protection de millions d'enfants contre la poliomyélite et la rougeole. Antananarivo : OMS AFRO ; communiqué du 5 octobre 2026.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Surveillance et riposte à Madagascar",
+        "Campagne nationale d'octobre 2026"
+      ],
+      "title": "Madagascar intensifie la protection de millions d'enfants contre la poliomyélite et la rougeole",
+      "url": "https://www.afro.who.int/fr/countries/madagascar/news/madagascar-intensifie-la-protection-de-millions-denfants-contre-la-poliomyelite-et-la-rougeole",
+      "organization": "OMS — Bureau régional de l'Afrique",
+      "year": 2026
+    },
+    {
+      "id": "SRC-WHO-POS-ROUGEOLE-2017",
+      "citation": "Organisation mondiale de la Santé. Note de position de l'OMS relative aux vaccins antirougeoleux. Relevé épidémiologique hebdomadaire, avril 2017.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Calendrier vaccinal",
+        "Prophylaxie des contacts",
+        "Objectifs d'élimination"
+      ],
+      "title": "Note de position de l'OMS relative aux vaccins antirougeoleux",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2017
+    },
+    {
+      "id": "SRC-GAVI-MG-2026",
+      "citation": "Gavi, l'Alliance du Vaccin. À Madagascar, le grand rattrapage rime avec la routinisation des vaccins. Genève : Gavi ; 2026.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Programme élargi de vaccination malgache",
+        "Enfants « zéro dose »"
+      ],
+      "title": "À Madagascar, le grand rattrapage rime avec la routinisation des vaccins",
+      "url": "https://www.gavi.org/fr/vaccineswork/madagascar-rattrapage-rime-routinisation-vaccins",
+      "organization": "Gavi, l'Alliance du Vaccin",
+      "year": 2026
+    }
+  ],
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°5 (Rougeole)",
+      "reference": "madagascar-2025, ordinal 46",
+      "receivedAt": "2026-10-26",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase d'un document source n'est reproduite : la structure du plan suit l'item du programme national et chaque section est rédigée à partir des sources officielles citées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche de synthèse OMS « Rougeole » (page consultée le 2026-10-26) fournit les chiffres cités : environ 95 000 décès estimés en 2024, surtout avant cinq ans ; près de 59 millions de décès évités entre 2000 et 2024 ; couverture de première dose à 84 % en 2025 contre 86 % en 2019.",
+      "La campagne nationale intégrée rougeole-poliomyélite du 5 au 9 octobre 2026, couvrant 23 régions et 115 districts avec supplémentation en vitamine A, provient du communiqué OMS AFRO du 5 octobre 2026 (consulté le 2026-10-26) ; l'entrée de districts en phase épidémique en 2026 devra être recoupée avec le bulletin épidémiologique national en vigueur.",
+      "Le calendrier du programme élargi de vaccination de Madagascar (vaccin antirougeoleux administré à partir de neuf mois) provient de sources secondaires et devra être recoupé avec le protocole national en vigueur.",
+      "Les posologies précises (UI de vitamine A, âges exacts des immunoglobulines) sont volontairement absentes et renvoyées au protocole national et au guide thérapeutique de référence : seules les molécules, les stratégies et les fenêtres décisionnelles (72 heures, 6 jours) sont testées dans les decks."
+    ],
+    "qcChecklist": [
+      "Exactitude des chiffres OMS 2024-2025 repris de la fiche de synthèse consultée le 2026-10-26",
+      "Conformité de la chronologie clinique (incubation, catarrhe, Köplik, éruption, contagiosité 4 jours avant/après) aux descriptions de référence",
+      "Conformité des fenêtres de prophylaxie (vaccin sous 72 heures, immunoglobulines sous 6 jours) à la note de position OMS",
+      "Validité des liens et des versions des sources au 2026-10-26"
+    ]
+  }
+}
