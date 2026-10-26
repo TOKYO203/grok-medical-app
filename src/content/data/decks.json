@@ -19292,5 +19292,1306 @@
         "competency": "clinical_reasoning"
       }
     ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-tetanos-l2",
+    "version": "1.0.0",
+    "title": "Tétanos — notions de base",
+    "subtitle": "Bacille, spores, plaies, vaccins · L2",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 2,
+    "difficulty": "intro",
+    "competencies": [
+      "recognize",
+      "management",
+      "canmeds_health_advocate"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-tetanos-l2",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Tétanos",
+        "citation": "Tetanus. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — Position tétanos",
+        "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024."
+      },
+      {
+        "title": "OMS — MNTE",
+        "citation": "Maternal and neonatal tetanus elimination — WHO initiative, juillet 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "tetanos-l2-1",
+        "prompt": "Quel micro-organisme est responsable du tétanos ?",
+        "choices": [
+          "Clostridium tetani, bacille anaérobie sporulé",
+          "Clostridium perfringens, agent de la gangrène gazeuse",
+          "Staphylococcus aureus, cocque Gram positif",
+          "Mycobacterium tuberculosis, bacille acido-alcoolo-résistant"
+        ],
+        "correct": 0,
+        "explanation": "Le tétanos est dû à Clostridium tetani, bacille anaérobie strict dont les spores survivent indéfiniment dans la terre, les cendres et les excréments.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l2-2",
+        "prompt": "Où trouve-t-on habituellement les spores tétaniques dans l'environnement ?",
+        "choices": [
+          "Uniquement dans les services hospitaliers",
+          "Dans le sol, les poussières, les cendres et les excréments d'animaux",
+          "Exclusivement dans l'eau de mer profonde",
+          "Seulement sur les plantes vénéneuses"
+        ],
+        "correct": 1,
+        "explanation": "Les spores sont omniprésentes : terre, poussière, cendres, objets rouillés, intestins et excréments des animaux et de l'homme — toute plaie souillée est une porte d'entrée possible.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l2-3",
+        "prompt": "Un patient atteint de tétanos peut-il contaminer son entourage ?",
+        "choices": [
+          "Oui, par toux et postillons",
+          "Oui, par contact cutané direct",
+          "Non : il n'existe aucune transmission interhumaine",
+          "Oui, pendant les trois premiers jours de la maladie"
+        ],
+        "correct": 2,
+        "explanation": "Le tétanos n'est pas contagieux : la maladie vient de la toxine produite dans la plaie du patient lui-même, jamais d'un portage humain. Aucune mesure d'isolement n'est justifiée.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "tetanos-l2-4",
+        "prompt": "Quelle est la durée d'incubation habituelle du tétanos ?",
+        "choices": [
+          "Trois à vingt et un jours, le plus souvent moins de quatorze",
+          "Deux à trois mois en moyenne",
+          "Quelques heures après le contact",
+          "Plusieurs années de latence systématique"
+        ],
+        "correct": 0,
+        "explanation": "L'incubation classique va de 3 à 21 jours, la plupart des cas survenant en moins de deux semaines ; une incubation courte annonce une forme grave.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l2-5",
+        "prompt": "Quel signe ouvre le plus souvent le tableau du tétanos chez l'adulte ?",
+        "choices": [
+          "Une éruption cutanée généralisée",
+          "Un trismus : impossibilité d'ouvrir la bouche",
+          "Une diarrhée liquide fébrile",
+          "Un ictère d'apparition rapide"
+        ],
+        "correct": 1,
+        "explanation": "Le trismus, contraction involontaire et douloureuse des muscles masticateurs, est le signe le plus constant et souvent le premier : toute bouche qui ne s'ouvre plus après une plaie évoque un tétanos.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l2-6",
+        "prompt": "Quelle est la porte d'entrée typique du tétanos néonatal ?",
+        "choices": [
+          "Le cordon ombilical coupé dans des conditions non stériles",
+          "La circulation placentaire pendant la grossesse",
+          "Le passage dans la filière génitale à l'accouchement",
+          "L'allaitement maternel exclusif"
+        ],
+        "correct": 0,
+        "explanation": "Le tétanos du nouveau-né survient quand le cordon est coupé ou soigné avec un instrument souillé, ou quand des substances telluriques y sont appliquées : c'est la cible des accouchements et soins de cordon propres.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l2-7",
+        "prompt": "Combien de doses de vaccin antitétanique l'OMS recommande-t-elle au cours d'une vie ?",
+        "choices": [
+          "Une dose unique qui protège définitivement",
+          "Deux doses espacées d'un mois",
+          "Six doses : trois primaires puis trois rappels",
+          "Un rappel tous les six mois à vie"
+        ],
+        "correct": 2,
+        "explanation": "Le schéma de référence comporte six doses d'anatoxine à vie : trois doses primaires dès l'âge de six semaines, puis trois rappels dans l'enfance et l'adolescence — conférant une protection durable contre toutes les formes de tétanos.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "tetanos-l2-8",
+        "prompt": "Un patient vient de guérir d'un tétanos. Que lui conseiller pour l'avenir ?",
+        "choices": [
+          "Il est désormais immunisé à vie",
+          "Aucune mesure : la guérison vaut vaccination",
+          "Recevoir le schéma vaccinal complet, car la maladie n'immunise pas",
+          "Une simple dose de rappel tous les vingt ans"
+        ],
+        "correct": 2,
+        "explanation": "La quantité de toxine responsable de la maladie est trop faible pour induire une immunité : tout guéri reste réceptive au tétanos et doit recevoir l'anatoxine selon le calendrier complet.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l2-9",
+        "prompt": "Sur quoi repose le diagnostic du tétanos ?",
+        "choices": [
+          "L'hémoculture prélevée en phase de spasmes",
+          "La sérologie antitoxinique du patient",
+          "La clinique seule : aucun examen de confirmation n'est utile",
+          "La ponction lombaire systématique"
+        ],
+        "correct": 2,
+        "explanation": "Il n'existe ni examen direct ni sérologie utile : le diagnostic est purement clinique, guidé par le contexte de plaie et le tableau typique ; les explorations ne servent qu'à écarter les diagnostics différentiels.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tetanos-l2-10",
+        "prompt": "Quelle stratégie protège le mieux le nouveau-né du tétanos ?",
+        "choices": [
+          "Une antibioprophylaxie systématique à la naissance",
+          "La vaccination de la femme enceinte et un accouchement propre",
+          "L'isolement du nourrisson pendant un mois",
+          "Une transfusion d'immunoglobulines à tous les nouveau-nés"
+        ],
+        "correct": 1,
+        "explanation": "La mère vaccinée transmet ses anticorps par le placenta, et des soins de cordon propres éliminent la porte d'entrée : ce duo vaccination maternelle et accouchement hygiénique est le socle de l'élimination du tétanos néonatal.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "base",
+        "competency": "canmeds_health_advocate"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-tetanos-l3",
+    "version": "1.0.0",
+    "title": "Tétanos — sémiologie clinique",
+    "subtitle": "Trismus, risus, opisthotonos, pièges · L3",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 3,
+    "difficulty": "intermediate",
+    "competencies": [
+      "semiology",
+      "diagnostic_orientation",
+      "recognize"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-tetanos-l3",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Tétanos",
+        "citation": "Tetanus. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — MNTE",
+        "citation": "Maternal and neonatal tetanus elimination — WHO initiative, juillet 2026."
+      },
+      {
+        "title": "OMS — Position tétanos",
+        "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024."
+      }
+    ],
+    "questions": [
+      {
+        "id": "tetanos-l3-1",
+        "prompt": "Que décrit le risus sardonicus ?",
+        "choices": [
+          "Une paralysie faciale périphérique asymétrique",
+          "Un sourire figé par la contraction des muscles de la face",
+          "Un trismus limité à la mâchoire inférieure",
+          "Un spasme isolé des muscles du cou"
+        ],
+        "correct": 1,
+        "explanation": "Le risus sardonicus est la contraction soutenue des muscles faciaux — front plissé, paupières serrées, commissures tirées — donnant ce sourire figé caractéristique du tétanos.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-2",
+        "prompt": "Comment se définit l'opisthotonos ?",
+        "choices": [
+          "Une flexion permanente de la tête sur le thorax",
+          "Un arc de cercle du corps en extension, talons et crâne en arrière",
+          "Une contracture limitée aux membres inférieurs",
+          "Une rotation involontaire du tronc sur lui-même"
+        ],
+        "correct": 1,
+        "explanation": "L'opisthotonos est la contracture des muscles paravertébraux qui cambe le corps en arrière : la tête et les talons se rapprochent du plan du lit — signe majeur d'un tétanos évolué.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-3",
+        "prompt": "Comment est la conscience du patient au début d'un tétanos typique ?",
+        "choices": [
+          "Altérée d'emblée avec confusion franche",
+          "Comateuse dès les premiers spasmes",
+          "Normale : le patient reste lucide et souffre de ses spasmes",
+          "Fluctuante entre somnolence et agitation"
+        ],
+        "correct": 2,
+        "explanation": "La toxine n'atteint pas le cortex : le patient reste parfaitement conscient, ce qui rend la maladie d'autant plus impressionnante — et exclut d'emblée un coma méningo-encéphalitique.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-4",
+        "prompt": "Qu'est-ce qui déclenche typiquement les paroxysmes du tétanos ?",
+        "choices": [
+          "Le repas et la digestion",
+          "Le sommeil profond",
+          "Les stimuli sensoriels : bruit, lumière, toucher",
+          "L'administration de benzodiazépines"
+        ],
+        "correct": 2,
+        "explanation": "Les spasmes sont réflexogènes : tout brusquement sensoriel — claquement de porte, lumière vive, soin, mobilisation — déclenche une tempête contractile ; d'où la chambre sombre et le silence.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-5",
+        "prompt": "Après une plaie de la face ou une otite, on voit apparaître un trismus avec paralysie d'un nerf crânien. Comment nommer cette forme ?",
+        "choices": [
+          "Tétanos céphalique",
+          "Tétanos chronique indolore",
+          "Forme fruste abortive",
+          "Tétanos des nouveau-nés"
+        ],
+        "correct": 0,
+        "explanation": "Le tétanos céphalique, rare, suit une plaie cranio-faciale ou une otite : trismus localisé et atteintes de nerfs crâniens, parfois sans généralisation — une forme trompeuse à connaître.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "tetanos-l3-6",
+        "prompt": "Dans quel contexte survient le tétanos maternel ?",
+        "choices": [
+          "Au premier trimestre d'une grossesse non suivie",
+          "Dans les suites d'un accouchement ou d'un avortement dans des conditions souillées",
+          "Par contamination du lait maternel",
+          "Lors de la première relation sexuelle du post-partum"
+        ],
+        "correct": 1,
+        "explanation": "Le tétanos maternel complique un accouchement ou un avortement non médicalisé : endométrite sur matériel souillé, toxine, puis trismus et spasmes du post-partum — forme de pronostic redoutable.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-7",
+        "prompt": "Que traduisent les poussées hypertensives paroxystiques alternant avec des chutes tensionnelles chez un tétanosique ?",
+        "choices": [
+          "Un choc septique associé",
+          "Une dysautonomie : tempête adrénergique de la maladie grave",
+          "Un effet des immunoglobulines",
+          "Une hémorragie interne occulte"
+        ],
+        "correct": 1,
+        "explanation": "La dysautonomie tétanique associe paroxystiquement hypertension, tachycardies, sueurs profuses puis hypotension et bradycardies : elle marque une forme grave, à risque de mort subite, imposant surveillance de réanimation.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      },
+      {
+        "id": "tetanos-l3-8",
+        "prompt": "Quel diagnostic différentiel évoquer devant un trismus fébrile d'apparition rapide ?",
+        "choices": [
+          "Un abcès péri-amygdalien ou une complication dentaire",
+          "Une polymyosite inflammatoire",
+          "Une sclérose en plaques inaugurale",
+          "Une maladie de Parkinson débutante"
+        ],
+        "correct": 0,
+        "explanation": "Devant un trismus fébrile, il faut d'abord éliminer une cause locorégionale douloureuse — abcès amygdalien, phlegmon dentaire, atteinte articulaire temporo-mandibulaire — avant de retenir le tétanos, dont les spasmes sont indépendants de la mastication.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "diagnostic_orientation"
+      },
+      {
+        "id": "tetanos-l3-9",
+        "prompt": "Selon la définition de l'OMS, comment reconnaît-on un tétanos néonatal ?",
+        "choices": [
+          "Un nourrisson qui tète et pleure normalement les deux premiers jours, puis perd ces capacités entre le troisième et le vingt-huitième jour",
+          "Un nouveau-né hypotonique dès la première heure de vie",
+          "Un bébé qui refuse le sein dès le premier jour sans autre signe",
+          "Un prématuré qui présente des apnées du cinquième jour"
+        ],
+        "correct": 0,
+        "explanation": "La définition de cas de l'OMS est précise : succion et pleur normaux pendant les deux premiers jours de vie, puis perte de ces capacités entre J3 et J28 avec raideur ou spasmes — tout nourrisson qui arrête brusquement de téter dans cette fenêtre est un tétanos du cordon jusqu'à preuve contraire.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "recognize"
+      },
+      {
+        "id": "tetanos-l3-10",
+        "prompt": "Quelle complication fait peser la menace immédiate sur la vie du tétanosique ?",
+        "choices": [
+          "Le spasme laryngé avec asphyxie",
+          "L'anémie inflammatoire",
+          "L'insuffisance rénale chronique",
+          "L'hyperglycémie de stress"
+        ],
+        "correct": 0,
+        "explanation": "Le spasme des muscles laryngés ferme les voies aériennes en quelques secondes : sans intubation immédiate, l'asphyxie tue. C'est la première cause de mortalité précoce du tétanos grave.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "intermediate",
+        "competency": "semiology"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-tetanos-l4",
+    "version": "1.0.0",
+    "title": "Tétanos — traitement et gravité",
+    "subtitle": "Immunoglobulines, sédation, réanimation · L4",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "competencies": [
+      "diagnosis",
+      "management",
+      "clinical_reasoning"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-tetanos-l4",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Tétanos",
+        "citation": "Tetanus. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — Position tétanos",
+        "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024."
+      },
+      {
+        "title": "OMS — MNTE",
+        "citation": "Maternal and neonatal tetanus elimination — WHO initiative, juillet 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "tetanos-l4-1",
+        "prompt": "Que signifie une incubation inférieure à sept jours pour le pronostic ?",
+        "choices": [
+          "Elle n'a aucune valeur pronostique",
+          "Elle annonce une forme grave avec mortalité élevée",
+          "Elle garantit une forme bénigne et brève",
+          "Elle indique une porte d'entrée ORL"
+        ],
+        "correct": 1,
+        "explanation": "Plus l'incubation est courte, plus la quantité de toxine fixée est importante : moins de sept jours, c'est un critère classique de gravité qui impose le transfert en réanimation dès l'admission.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tetanos-l4-2",
+        "prompt": "Chez un tétanosique, l'intervalle entre le premier symptôme et les spasmes généralisés se nomme la période d'invasion. Que traduit-elle quand elle est brève ?",
+        "choices": [
+          "Une maladie d'évolution lente et favorable",
+          "Un risque accru de détresse respiratoire et de dysautonomie",
+          "Une simple coïncidence sans portée",
+          "Un tableau céphalique localisé"
+        ],
+        "correct": 1,
+        "explanation": "Une période d'invasion inférieure à quarante-huit heures est un critère de gravité majeur : la maladie monte en puissance très vite, les spasmes deviennent spontanés, et la mortalité grimpe — le patient relève d'une unité capable d'intuber.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tetanos-l4-3",
+        "prompt": "Quel est le rôle précis des immunoglobulines antitétaniques dans le traitement ?",
+        "choices": [
+          "Elles détachent la toxine déjà fixée aux terminaisons nerveuses",
+          "Elles neutralisent uniquement la toxine encore circulant dans l'organisme",
+          "Elles détruisent les spores dans la plaie",
+          "Elles confèrent une immunité durable contre les récidives"
+        ],
+        "correct": 1,
+        "explanation": "Les TIG neutralisent la toxine libre avant qu'elle ne se fixe — la toxine déjà liée aux neurones est inatteignable. D'où l'urgence du geste, et la nécessité d'un second volet vaccinal : les TIG ne sont qu'une protection passive et brève.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-4",
+        "prompt": "Quel antibiotique administre-t-on au patient tétanosique pour éradiquer les Clostridium dans la plaie ?",
+        "choices": [
+          "Le métronidazole par voie systémique",
+          "L'amoxicilline seule à dose orale",
+          "La vancomycine en perfusion continue",
+          "La gentamicine en dose unique"
+        ],
+        "correct": 0,
+        "explanation": "Le métronidazole est l'antibiotique de référence : il détruit les formes végétatives de Clostridium tetani dans la plaie et interrompt la production de toxine, en complément — jamais en substitut — du nettoyage chirurgical.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-5",
+        "prompt": "Comment aménager l'environnement immédiat d'un patient atteint de tétanos ?",
+        "choices": [
+          "Chambre éclairée et animée pour stimuler le patient",
+          "Chambre sombre et silencieuse, soins regroupés, nursing minimal",
+          "Chambre partagée pour surveiller les spasmes entre patients",
+          "Salle commune près du comptoir des infirmiers"
+        ],
+        "correct": 1,
+        "explanation": "Le calme environnemental est un traitement à part entière : lumière tamisée, silence, soins regroupés dans le temps, mobilisation minimale — chaque stimulus superflu est un spasme offert au patient.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-6",
+        "prompt": "Quelle classe médicamenteuse constitue la base du contrôle des spasmes tétaniques ?",
+        "choices": [
+          "Les benzodiazépines, par leur action GABAergique",
+          "Les neuroleptiques fortement dosés",
+          "Les corticoïdes à forte dose",
+          "Les antihistaminiques sédatifs"
+        ],
+        "correct": 0,
+        "explanation": "Les benzodiazépines levèrent l'inhibition et contrôlent les contractures : diazépam ou clonazépam, titrés selon la fréquence des spasmes, restent la pierre angulaire de la sédation du tétanos.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-7",
+        "prompt": "Devant une dysautonomie sévère — poussées hypertensives et troubles du rythme — réfractaire aux benzodiazépines, quelle thérapeutique adjuvante utilise-t-on ?",
+        "choices": [
+          "Le sulfate de magnésium sous surveillance clinique et biologique",
+          "Un anticoagulant curatif à dose pleine",
+          "Un diurétique de l'anse en bolus",
+          "Une corticothérapie d'attaque"
+        ],
+        "correct": 0,
+        "explanation": "Le magnésium, inhibiteur de la libération des catécholamines et du calcium intracellulaire, stabilise les tempêtes adrénergiques du tétanos grave — au prix d'une surveillance rapprochée des réflexes, de la ventilation et de la magnésémie.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-8",
+        "prompt": "Un tétanosique fait un spasme laryngé au décours d'un soin. Que faire sans attendre ?",
+        "choices": [
+          "Attendre la fin spontanée du spasme en surveillant",
+          "Intuber immédiatement les voies aériennes, avec aide à la ventilation",
+          "Injecter un antihistaminique en intramusculaire",
+          "Placer le patient en position assise et réassurer"
+        ],
+        "correct": 1,
+        "explanation": "Le spasme laryngé asphyxie en quelques dizaines de secondes : l'intubation — si besoin par un opérateur entraîné, après sédation — est la seule réponse. Tout patient avec spasmes doit être pris en charge dans une structure où ce geste est possible à tout instant.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l4-9",
+        "prompt": "Pendant la phase aiguë d'un tétanos, quand et comment administrer la vaccination ?",
+        "choices": [
+          "Jamais pendant la maladie : elle serait dangereuse",
+          "Dès la phase aiguë, par anatoxine injectée sur un site différent de celui des immunoglobulines",
+          "Seulement après six mois de convalescence complète",
+          "En même temps que les TIG, dans la même seringue"
+        ],
+        "correct": 1,
+        "explanation": "L'anatoxine s'administre dès la maladie, sur un autre site que les TIG, jamais dans la même seringue : la guérison n'immunise pas, et le patient doit construire sa propre immunité pour l'avenir.",
+        "sources": [
+          {
+            "title": "OMS — Position tétanos",
+            "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "tetanos-l4-10",
+        "prompt": "Que faire de la plaie d'entrée d'un patient tétanosique hospitalisé ?",
+        "choices": [
+          "La laisser cicatriser seule pour ne pas libérer de toxine",
+          "La nettoyer et l'explorer chirurgicalement, retirer corps étrangers et tissus dévitalisés",
+          "L'exciser largement sous anesthésie générale d'emblée",
+          "La recouvrir d'un pansement occlusif sans autre soin"
+        ],
+        "correct": 1,
+        "explanation": "Le nettoyage agressif de la plaie — débridement, ablation des corps étrangers et des tissus nécrotiques — supprime l'habitat anaérobie du Clostridium et coupe la production de toxine à la source, en complément de l'antibiothérapie.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-tetanos-l5",
+    "version": "1.0.0",
+    "title": "Tétanos — prophylaxie et santé publique",
+    "subtitle": "Conduite devant une plaie, VAT, élimination MNTE · L5",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "competencies": [
+      "management",
+      "clinical_reasoning",
+      "canmeds_expert"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-tetanos-l5",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Position tétanos",
+        "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024."
+      },
+      {
+        "title": "OMS — Tétanos",
+        "citation": "Tetanus. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — MNTE",
+        "citation": "Maternal and neonatal tetanus elimination — WHO initiative, juillet 2026."
+      }
+    ],
+    "questions": [
+      {
+        "id": "tetanos-l5-1",
+        "prompt": "Adulte jamais vacciné, plaie profonde souillée de terre, quatre heures après l'accident : quelle prophylaxie ?",
+        "choices": [
+          "Vaccin seul, à renouveler dans un mois",
+          "Immunoglobulines antitétaniques ET anatoxine, sur deux sites différents",
+          "Antibiothérapie seule par amoxicilline cinq jours",
+          "Simple désinfection et pansement rapproché"
+        ],
+        "correct": 1,
+        "explanation": "Plaie souillée plus statut vaccinal absent ou inconnu : la double prophylaxie s'impose — immunoglobulines pour la protection immédiate, anatoxine pour la protection durable, en deux sites d'injection distincts.",
+        "sources": [
+          {
+            "title": "OMS — Position tétanos",
+            "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l5-2",
+        "prompt": "Patient bien vacciné dont le dernier rappel remonte à douze ans, plaie propre et minime : quelle conduite ?",
+        "choices": [
+          "Immunoglobulines systématiques par prudence",
+          "Un rappel d'anatoxine, sans immunoglobulines",
+          "Aucune mesure : le rappel vieux de douze ans suffit",
+          "Une antibioprophylaxie de sept jours"
+        ],
+        "correct": 1,
+        "explanation": "Au-delà de dix ans depuis le dernier rappel, une dose d'anatoxine rattrape la protection — les immunoglobulines ne se justifient que devant une plaie souillée ou un statut incomplet.",
+        "sources": [
+          {
+            "title": "OMS — Position tétanos",
+            "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-l5-3",
+        "prompt": "Pourquoi la vaccination antitétanique d'une femme enceinte protège-t-elle son nouveau-né ?",
+        "choices": [
+          "Les anticorps maternels traversent le placenta et couvrent les premiers mois de vie",
+          "Le vaccin passe dans le lait maternel dès le premier jour",
+          "Le fœtus reçoit une injection in utero au troisième trimestre",
+          "L'accouchement est immunisant par lui-même"
+        ],
+        "correct": 0,
+        "explanation": "Les anticorps antitoxine de la mère passent la barrière placentaire : le nouveau-né naît couvert pendant la période critique du cordon. Vacciner les femmes enceintes — et en âge de procréer — est le cœur de la stratégie d'élimination.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_expert"
+      },
+      {
+        "id": "tetanos-l5-4",
+        "prompt": "À quel âge reçoit l'enfant malgache ses doses de vaccin pentavalent, qui contient l'anatoxine tétanique, selon le programme élargi de vaccination ?",
+        "choices": [
+          "À la naissance, à un mois et à six mois",
+          "À six, dix et quatorze semaines de vie",
+          "À trois mois, six mois et dix-huit mois",
+          "À un an, deux ans et cinq ans"
+        ],
+        "correct": 1,
+        "explanation": "Le calendrier du programme élargi de vaccination de Madagascar prévoit le pentavalent à 6, 10 et 14 semaines — la primovaccination antitétanique de l'enfance, complétée ensuite par les rappels ; à recouper avec le protocole national en vigueur.",
+        "sources": [
+          {
+            "title": "OMS — Position tétanos",
+            "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_expert"
+      },
+      {
+        "id": "tetanos-l5-5",
+        "prompt": "Quel est le critère officiel d'élimination du tétanos maternel et néonatal dans un pays ?",
+        "choices": [
+          "Zéro cas déclaré dans le pays depuis dix ans",
+          "Moins d'un cas de tétanos néonatal pour mille naissances vivantes, par district et par an",
+          "Une couverture vaccinale nationale supérieure à 95 %",
+          "L'absence de spores telluriques sur le territoire"
+        ],
+        "correct": 1,
+        "explanation": "L'élimination se mesure à l'échelle du district : moins d'un cas néonatal pour 1000 naissances vivantes et par an. C'est une élimination, pas une éradication — les spores persistent définitivement dans l'environnement.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_expert"
+      },
+      {
+        "id": "tetanos-l5-6",
+        "prompt": "En juillet 2026, où en est le monde dans l'initiative d'élimination du tétanos maternel et néonatal ?",
+        "choices": [
+          "Cinquante-deux des cinquante-neuf pays à risque ont été validés ; sept restent engagés",
+          "Tous les pays ont été validés depuis 2020",
+          "Une dizaine de pays seulement ont été validés",
+          "L'initiative a été abandonnée faute de financement"
+        ],
+        "correct": 0,
+        "explanation": "En juillet 2026, 52 des 59 pays concernés depuis 1999 ont atteint la validation ; restent l'Afghanistan, l'Angola, le Nigéria, le Pakistan, la Papouasie-Nouvelle-Guinée, la Somalie et le Yémen. Madagascar figure parmi les pays validés.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_expert"
+      },
+      {
+        "id": "tetanos-l5-7",
+        "prompt": "Pourquoi une plaie punctiforme profonde, même minime, est-elle particulièrement à risque de tétanos ?",
+        "choices": [
+          "Elle saigne peu et referme un milieu anaérobie où les spores germent",
+          "Elle expose davantage aux virus des hépatites",
+          "Elle cicatrise trop rapidement pour être nettoyée",
+          "Elle touche toujours des terminaisons nerveuses"
+        ],
+        "correct": 0,
+        "explanation": "La plaie punctiforme referme son orifice : le tissu profond, dévitalisé et pauvre en oxygène, offre à Clostridium tetani les conditions d'anaérobiose nécessaires à la germination des spores et à la production de toxine.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "tetanos-l5-8",
+        "prompt": "Dans un village, une accoucheuse traditionnelle applique de la terre sur les cordons des nouveau-nés. Quelle action de santé publique engager ?",
+        "choices": [
+          "Sanctionner la pratique par une amende communale",
+          "Éducation aux soins de cordon propres, promotion des accouchements assistés et campagne de vaccination des femmes en âge de procréer",
+          "Interdire tout accouchement à domicile sans alternative",
+          "Attendre le premier cas de tétanos avant d'agir"
+        ],
+        "correct": 1,
+        "explanation": "La réponse est communautaire : former aux six pratiques propres de l'accouchement, organiser des campagnes de rattrapage vaccinal des femmes, et maintenir la surveillance des cas néonatals — c'est exactement le triptyque qui a fait reculer le tétanos du cordon dans les districts à risque.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_expert"
+      },
+      {
+        "id": "tetanos-l5-9",
+        "prompt": "Un homme de 30 ans sort de réanimation après un tétanos sévère. Il n'a jamais été vacciné. Quel est le plan vaccinal ?",
+        "choices": [
+          "Aucun : sa guérison vaut immunité acquise",
+          "Une dose de rappel unique avant la sortie",
+          "Le schéma complet de primovaccination puis les rappels du calendrier",
+          "Des immunoglobulines tous les six mois à vie"
+        ],
+        "correct": 2,
+        "explanation": "La maladie n'immunise pas, et les immunoglobulines reçues en réanimation ne construisent aucune mémoire : il faut reprendre la primovaccination complète et suivre le calendrier — le service qui a traité la maladie doit refermer la brèche vaccinale.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "tetanos-l5-10",
+        "prompt": "Un adolescent de 14 ans, jamais vacciné, doit être circoncis dans son village la semaine prochaine. Que recommander avant le geste ?",
+        "choices": [
+          "Une dose unique d'anatoxine le matin même du geste",
+          "Différer la circoncision et engager sans délai un rattrapage vaccinal complet",
+          "Une antibioprophylaxie par amoxicilline pendant le geste",
+          "Rien : la circoncision n'est jamais à risque de tétanos"
+        ],
+        "correct": 1,
+        "explanation": "Tout geste cutané sur terrain non vacciné ouvre une porte d'entrée aux spores : la priorité est le rattrapage vaccinal — trois doses d'anatoxine selon le calendrier de rattrapage — avant l'intervention, avec les conditions d'asepsie du geste.",
+        "sources": [
+          {
+            "title": "OMS — Position tétanos",
+            "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024.",
+            "organization": "OMS",
+            "year": 2024
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      }
+    ]
+  },
+  {
+    "schemaVersion": 2,
+    "id": "infectio-tetanos-int",
+    "version": "1.0.0",
+    "title": "Tétanos — cas cliniques critiques",
+    "subtitle": "Gardes, urgences, terrains, prévention · Interne",
+    "subject": "Infectiologie",
+    "specialty": "Infectiologie",
+    "studyYear": 6,
+    "difficulty": "advanced",
+    "competencies": [
+      "clinical_reasoning",
+      "diagnosis",
+      "management",
+      "canmeds_communicator"
+    ],
+    "icon": "pill",
+    "status": "published",
+    "deck_id": "infectio-tetanos-int",
+    "schema_version": 2,
+    "access_policy": {
+      "tier": "pro",
+      "entitlement": "INFECTIO_PACK_15"
+    },
+    "sources": [
+      {
+        "title": "OMS — Tétanos",
+        "citation": "Tetanus. WHO fact sheet, juillet 2026."
+      },
+      {
+        "title": "OMS — MNTE",
+        "citation": "Maternal and neonatal tetanus elimination — WHO initiative, juillet 2026."
+      },
+      {
+        "title": "OMS — Position tétanos",
+        "citation": "Protéger toutes les personnes contre le tétanos. WHO position paper, 2024."
+      }
+    ],
+    "questions": [
+      {
+        "id": "tetanos-int-1",
+        "prompt": "Né à la maison, cordon coupé au roseau, un nouveau-né de six jours tétait bien et pleure maintenant sans pouvoir têter, corps raide. Quelle est votre conduite en garde ?",
+        "choices": [
+          "Antibiothérapie orale et réhydratation à domicile",
+          "Suspicion de tétanos néonatal : transfert urgent en réanimation pédiatrique, TIG, environnement calme, anatoxine",
+          "Attendre le dixième jour pour juger de l'évolution",
+          "Mise en route d'un traitement antipaludique intraveineux"
+        ],
+        "correct": 1,
+        "explanation": "L'arrêt brutal de la succion entre J3 et J28 après un cordon coupé non stérile, avec raideur, définit le tétanos néonatal : urgence de transport — TIG immédiates, chambre sombre, voies veineuses, antibiothérapie, et vaccination de l'entourage maternel.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "tetanos-int-2",
+        "prompt": "Homme de 45 ans, plaie du pied négligée il y a dix jours, bouche qui ne s'ouvre plus depuis trois jours, sans fièvre, conscience claire. Quel diagnostic retenez-vous ?",
+        "choices": [
+          "Abcès dentaire sous antibiothérapie",
+          "Tétanos généralisé débutant, critère d'hospitalisation immédiate",
+          "Méningite franchement purulente",
+          "Accident vasculaire cérébral hémorragique"
+        ],
+        "correct": 1,
+        "explanation": "Trismus progressif sur plaie souillée ancienne, apyrétique, conscient : le tableau est un tétanos, maladie à déclaration et hospitalisation immédiates — le retard de dix jours de la plaie compte moins que le délai d'invasion qui commence.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tetanos-int-3",
+        "prompt": "En pleine nuit, un tétanosique fait un spasme avec blocage respiratoire et cyanose malgré les benzodiazépines. Quel geste ?",
+        "choices": [
+          "Augmenter seul les benzodiazépines et réévaluer dans dix minutes",
+          "Sédation d'induction et intubation avec ventilation contrôlée",
+          "Position ventrale et oxygène au masque",
+          "Kinésithérapie de drainage respiratoire immédiate"
+        ],
+        "correct": 1,
+        "explanation": "Le spasme laryngé ou généralisé avec détresse est une urgence d'intubation : sédation d'induction, ventilation contrôlée, puis escalade thérapeutique — le patient relève de réanimation, pas d'adaptation de dose.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-int-4",
+        "prompt": "Au huitième jour d'un tétanos grave, le patient fait des poussées d'hypertension et de tachycardie alternant avec des épisodes de bradycardie. Quelle est votre interprétation et votre action ?",
+        "choices": [
+          "Choc septique : antibiothérapie élargie d'urgence",
+          "Dysautonomie tétanique : sédation renforcée, sulfate de magnésium, surveillance de réanimation",
+          "Réaction anxieuse banale : proposer un entretien seul",
+          "Embolie pulmonaire : anticoagulation curative"
+        ],
+        "correct": 1,
+        "explanation": "L'instabilité cardiovasculaire paroxystique du tétanos profond est une dysautonomie, pourvoyeuse de mort subite : renforcer la sédation, discuter le magnésium, surveiller en continu — et prévenir la famille de cette phase critique.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-int-5",
+        "prompt": "L'infirmière de nuit demande s'il faut mettre ce tétanosique en chambre seule avec blouse et masque, comme les autres infections. Que lui répondre ?",
+        "choices": [
+          "Isolement complet obligatoire pendant toute la maladie",
+          "Pas de transmission interhumaine : chambre individuelle pour le calme, sans précautions de contact spécifiques au-delà de l'hygiène standard",
+          "Isolement respiratoire strict pendant dix jours",
+          "Port du masque obligatoire à l'entrée et à la sortie"
+        ],
+        "correct": 1,
+        "explanation": "Le tétanos ne se transmet pas : la chambre individuelle vise le calme, non la contagion. Les précautions standards d'hygiène suffisent — et il faut au contraire limiter les allées-et-venues qui déclenchent les spasmes.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      },
+      {
+        "id": "tetanos-int-6",
+        "prompt": "Un jeune homme fébrile à 39 °C se présente avec raideur de la nuque et vomissements ; vous craignez une méningite. Quel élément clinique oriente vers un tétanos plutôt que vers une méningite ?",
+        "choices": [
+          "Un trismus avec spasmes déclenchés par le bruit et une conscience préservée",
+          "La présence de fièvre élevée",
+          "Des vomissements abondants",
+          "Une douleur cervicale à la flexion"
+        ],
+        "correct": 0,
+        "explanation": "La méningite donne une nuque raide mais souple dans tous les plans, un syndrome méningé avec altération possible de la conscience ; le tétanos verrouille la mâchoire, respecte la conscience et fait des spasmes réflexogènes. En cas de doute, la ponction lombaire écartera la méningite.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "diagnosis"
+      },
+      {
+        "id": "tetanos-int-7",
+        "prompt": "Votre formation de district ne dispose pas d'immunoglobulines antitétaniques ; un tétanos sévère vient d'être admis. Quelle est la meilleure décision ?",
+        "choices": [
+          "Traiter uniquement par antibiotiques et attendre la guérison",
+          "Stabiliser, débuter tout le reste du protocole et organiser le transfert vers une structure disposant des TIG",
+          "Renvoyer le patient à domicile faute de traitement",
+          "Utiliser du sérum antitétanique équin sans test préalable"
+        ],
+        "correct": 1,
+        "explanation": "Sans TIG sur place, le patient doit être transféré vers la structure qui en dispose : en attendant, tout le reste se fait — métronidazole, plaie, sédation, calme, anatoxine, anticipation des voies aériennes. Le transfert ne doit jamais retarder ces premiers soins.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "clinical_reasoning"
+      },
+      {
+        "id": "tetanos-int-8",
+        "prompt": "Trois cas de tétanos néonatal en un mois dans le même fokontany. Quelle réponse de santé publique lancez-vous en tant qu'interne responsable de district ?",
+        "choices": [
+          "Une investigation de chaque cas, une campagne de rattrapage vaccinal des femmes en âge de procréer et l'éducation aux accouchements propres",
+          "Une simple lettre d'information aux chefs de villages",
+          "La fermeture des maternités du district",
+          "Attendre la consolidation des données annuelles"
+        ],
+        "correct": 0,
+        "explanation": "Un agrégat de tétanos néonatal signale une brèche vaccinale et des soins de cordon à risque : investigation des cas, vaccination d'appoint des femmes du fokontany, formation des accoucheuses, communication communautaire — la surveillance est le gardien du statut de pays validé comme Madagascar.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_health_advocate"
+      },
+      {
+        "id": "tetanos-int-9",
+        "prompt": "Femme enceinte de 32 semaines d'aménorrhée, statut vaccinal inconnu, se présente avec une plaie souillée du pied. Quelle prophylaxie prescrire ?",
+        "choices": [
+          "Différer toute injection jusqu'à l'accouchement",
+          "Immunoglobulines antitétaniques et anatoxine en deux sites, puis vaccination de rattrapage",
+          "Antibiothérapie seule pendant sept jours",
+          "Désinfection locale sans injection"
+        ],
+        "correct": 1,
+        "explanation": "L'anatoxine est sûre pendant la grossesse — c'est même le moment-clé de la protection du nouveau-né : double prophylaxie immédiate de la plaie souillée, puis calendrier de rattrapage qui protégera la mère et l'enfant à venir.",
+        "sources": [
+          {
+            "title": "OMS — MNTE",
+            "citation": "Maternal and neonatal tetanus elimination — WHO initiative, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "management"
+      },
+      {
+        "id": "tetanos-int-10",
+        "prompt": "Votre patient tétanosique, conscient, vous regarde avec terreur entre deux spasmes et vous supplie de ne pas le laisser seul. Comment structurer votre communication ?",
+        "choices": [
+          "Éviter sa chambre pour ne pas provoquer de spasmes",
+          "Expliquer calmement la maladie et le plan de soins, regrouper les gestes, prévenir avant tout contact, rassurer sur la présence de l'équipe",
+          "Le séder au maximum pour éviter tout échange",
+          "Laisser la famille assurer seule la communication"
+        ],
+        "correct": 1,
+        "explanation": "Le patient tétanosique souffre et comprend tout : une communication calme et prévisible — annoncer chaque geste, limiter les stimuli, expliquer la durée — diminue l'angoisse et les paroxysmes réflexogènes. La terreur non traitée est, en soi, un facteur de spasmes.",
+        "sources": [
+          {
+            "title": "OMS — Tétanos",
+            "citation": "Tetanus. WHO fact sheet, 2026.",
+            "organization": "OMS",
+            "year": 2026
+          }
+        ],
+        "difficulty": "avance",
+        "competency": "canmeds_communicator"
+      }
+    ]
   }
 ]
