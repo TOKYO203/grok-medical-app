@@ -1,0 +1,965 @@
+{
+  "kind": "pathology",
+  "slug": "vih",
+  "schemaVersion": 1,
+  "title": "Infection à VIH",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "updatedAt": "2026-10-26",
+  "objective": "Devant tout adulte exposé, toute tuberculose, toute IST ou toute grossesse : savoir proposer un dépistage du VIH, confirmer par l'algorithme validé, initier sans délai la trithérapie antirétrovirale et reconnaître les urgences de l'immunodépression profonde.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 6,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 47,
+      "localNumber": 6,
+      "sectionLabel": "Médecine",
+      "title": "Infection à VIH",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une infection virale chronique, autrefois fatale, devenue une maladie contrôlée par les antirétroviraux — à la condition de la dépister.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-UNAIDS-FS-2026",
+          "title": "Statistiques mondiales sur le VIH et le sida",
+          "url": "https://www.unaids.org/en/resources/fact-sheet",
+          "organization": "ONUSIDA",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le virus de l'immunodéficience humaine (VIH) est un rétrovirus qui détruit progressivement les lymphocytes T CD4, cellules pivot de l'immunité cellulaire. Sans traitement, l'infection évolue en plusieurs années vers le syndrome d'immunodéficience acquise (sida), made de complications infectieuses et tumorales. Avec un traitement antirétroviral (ARV) commencé tôt et bien suivi, l'espérance de vie est proche de celle de la population générale et le risque de transmission sexuelle disparaît lorsque la charge virale est indétectable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Selon la fiche de synthèse de l'OMS mise à jour le 27 juillet 2026, environ 41,0 millions de personnes vivaient avec le VIH fin 2025, dont 64 % dans la Région africaine de l'OMS. L'année 2025 a compté environ 1,2 million de nouvelles infections et 570 000 décès liés au VIH ; depuis le début de l'épidémie, le VIH a coûté la vie à environ 44,2 millions de personnes. La cascade mondiale progresse : 88 % des personnes vivant avec le VIH connaissent leur statut, 89 % d'entre elles sont sous traitement et 95 % des personnes traitées ont une charge virale supprimée."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, l'épidémie était longtemps décrite comme concentrée dans les populations clés. L'enquête nationale de séroprévalence de 2025 change la lecture : la prévalence atteint 1,1 % chez les femmes enceintes — seuil qui définit une épidémie généralisée — et reste très élevée chez les professionnelles et professionnels du sexe, les hommes ayant des rapports sexuels avec des hommes et les personnes qui s'injectent des drogues (13 à 23 % selon les groupes). L'ONUSIDA souligne par ailleurs l'augmentation persistante des nouvelles infections à Madagascar depuis 2010 : le dépistage précoce y est un enjeu de santé publique immédiat."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit la logique clinique du terrain : comprendre le virus et sa transmission, reconnaître les stades, dépister et confirmer, traiter tous les patients sans attendre, prendre en charge les urgences de l'immunodépression profonde et organiser la prévention autour de chaque situation d'exposition. Elle est complétée par cinq decks de questions, du niveau L2 à l'internat."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le réflexe de base",
+          "text": "Le VIH ne se devine pas : toute tuberculose, toute IST, toute grossesse, tout amaigrissement inexpliqué et toute cytopénie inexpliquée doivent déclencher une proposition de dépistage. Dépisté tôt, le VIH est une maladie chronique contrôlée ; découvert au stade de complication, il tue."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Repère"
+          ],
+          "rows": [
+            [
+              "Agent",
+              "VIH-1 (rétrovirus, VIH-2 possible en Afrique de l'Ouest)"
+            ],
+            [
+              "Cible",
+              "Lymphocytes T CD4"
+            ],
+            [
+              "Transmission",
+              "Sexuelle, sanguine, mère-enfant"
+            ],
+            [
+              "Examen de dépistage",
+              "Test rapide anticorps, confirmé par l'algorithme national"
+            ],
+            [
+              "Traitement de référence",
+              "Trithérapie à base de dolutégravir (TLD), pour tous"
+            ],
+            [
+              "Objectif du traitement",
+              "Charge virale indétectable, durablement"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "virologie-transmission",
+      "title": "I. Virus et transmission",
+      "summary": "Un rétrovirus à tropisme lymphocytaire T CD4, transmis par le sexe, le sang et la mère à l'enfant.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le VIH est un rétrovirus de la famille des rétroviridae, genre lentivirus. Son matériel génétique est un ARN qui est recopié en ADN par la transcriptase inverse puis s'intègre au génome de la cellule hôte : c'est ce réservoir intracellulaire qui rend l'infection incurable à ce jour. Le virus se lie par sa protéine d'enveloppe gp120 au récepteur CD4 des lymphocytes T helper, puis aux corécepteurs CCR5 ou CXCR4, avant de fusionner et de se répliquer. La destruction progressive des lymphocytes T CD4 érode l'immunité cellulaire et ouvre la porte aux infections opportunistes."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transmission se fait par trois voies. La voie sexuelle est de très loin la première : rapports vaginaux ou anaux non protégés, le risque étant augmenté par les autres IST inflammatoires. La voie sanguine concerne le partage de matériel d'injection chez les personnes qui s'injectent des drogues, les accidents d'exposition au sang et les transfusions non contrôlées. La voie mère-enfant peut survenir pendant la grossesse, l'accouchement et l'allaitement maternel ; sans prise en charge, le risque de transmission atteint 15 à 45 %, alors qu'il tombe sous 5 % avec les antirétroviraux et les mesures périnatales adaptées."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Le VIH ne se transmet PAS par la poignée de main, le partage de repas, les toilettes, la toux ou les piqûres de moustique.",
+            "Les liquides réellement contaminants sont le sang, le sperme, les sécrétions vaginales et le lait maternel.",
+            "La charge virale du partenaire traité et indétectable rend la transmission sexuelle négligeable : c'est le principe « I = I » (indétectable = intransmissible)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Trois voies, une même logique",
+          "text": "Retenir les trois portes du virus : le SEXE (rapports non protégés), le SANG (matériel d'injection, exposition professionnelle, transfusion) et la MÈRE-ENFANT (grossesse, accouchement, allaitement). Toute la prévention consiste à fermer ces trois portes : préservatif, matériel à usage unique et dépistage du don, antirétroviraux de la grossesse au sevrage."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Voie",
+            "Risque sans prévention",
+            "Coupure du risque"
+          ],
+          "rows": [
+            [
+              "Rapport sexuel anal réceptif",
+              "Le plus élevé des rapports",
+              "Préservatif, PrEP, charge virale indétectable"
+            ],
+            [
+              "Rapport vaginal",
+              "0,05 à 0,1 % par rapport environ",
+              "Préservatif, PrEP, dépistage du couple"
+            ],
+            [
+              "Accident d'exposition au sang",
+              "Environ 0,3 % après piqûre",
+              "Prophylaxie post-exposition dans les 72 heures"
+            ],
+            [
+              "Mère-enfant",
+              "15 à 45 % (grossesse à sevrage)",
+              "Antirétroviraux maternels et prophylaxie du nourrisson"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "histoire-naturelle",
+      "title": "II. Histoire naturelle et stades",
+      "summary": "De la primo-infection pseudo-grippale au sida : la course silencieuse des lymphocytes T CD4.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-CDC-HIV",
+          "title": "HIV Nexus — ressources cliniques",
+          "url": "https://www.cdc.gov/hivnexus/hcp/index.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La primo-infection survient deux à quatre semaines après la contamination : fièvre, angine, adénopathies cervicales, éruption cutanée maculeuse, arthralgies — un tableau proche de la mononucléose infectieuse, souvent pris pour une grippe. La charge virale est alors très élevée, ce qui rend la personne très contaminante, tandis que la sérologie peut encore être négative : c'est la fenêtre sérologique. Une polyadénopathie généralisée peut ensuite persister des mois."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suit une longue phase de latence clinique, de plusieurs années, pendant laquelle le virus se réplique activement et le taux de CD4 baisse d'environ 50 à 100 cellules par an. Puis apparaissent les signes d'immunodépression : candidose orale récidivante, zona, diarrhée chronique, amaigrissement, sueurs nocturnes, tuberculose. Enfin, au stade de sida, avec des CD4 inférieurs à 200 par millimètre cube, surviennent les infections opportunistes majeures : pneumocystose, toxoplasmose cérébrale, cryptococcose, cytomégalovirus, mycobactéries atypiques."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stade clinique OMS",
+            "Repère clinique",
+            "CD4 approximatifs"
+          ],
+          "rows": [
+            [
+              "Stade 1 — asymptomatique",
+              "Polyadénopathie possible, pas de signe",
+              "Supérieurs à 500"
+            ],
+            [
+              "Stade 2 — modéré",
+              "Candidose orale, zona, éruptions, perte de poids modérée",
+              "350 à 500"
+            ],
+            [
+              "Stade 3 — avancé",
+              "Diarrhée chronique, amaigrissement marqué, tuberculose pulmonaire, fièvre prolongée",
+              "200 à 350"
+            ],
+            [
+              "Stade 4 — sida",
+              "Pneumocystose, toxoplasmose, cryptococcose, cachexie",
+              "Inférieurs à 200"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas se laisser endormir",
+          "text": "L'absence de symptôme ne rassure jamais : des années de latence silencieuse précèdent les premières complications, et un patient qui se sent bien peut avoir déjà des CD4 inférieurs à 200. Seule la sérologie répond à la question."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Dépistage et diagnostic",
+      "summary": "Un algorithme d'abord simple : proposer le test, le confirmer, évaluer l'immunité et chercher les complications d'emblée.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-KP-2022",
+          "title": "Lignes directrices consolidées VIH, hépatites virales et IST pour les populations clés",
+          "url": "https://www.who.int/publications/i/item/9789240052390",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2022
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le dépistage repose sur les tests rapides à lecture immédiate, détectant les anticorps anti-VIH, réalisables au doigt, au chevet ou en consultation, avec un résultat en vingt minutes environ. Un test réactif n'est jamais rendu seul : il est confirmé selon l'algorithme national (série de tests séquentiels sur prélèvements différent), avant toute annonce. Les tests de laboratoire de quatrième génération, détectant simultanément anticorps et antigène p24, raccourcissent la fenêtre sérologique à environ deux à six semaines ; un test rapide négatif récent doit être répété selon le délai depuis la dernière exposition, et en cas de forte suspicion de primo-infection, l'ARN viral (charge virale) tranche."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant de moins de dix-huit mois, les anticorps maternels transitent par le placenta : la sérologie ne suffit pas et le diagnostic repose sur la détection de l'acide nucléique viral (PCR ADN ou ARN). Chez l'adulte, le bilan au diagnostic comprend toujours la charge virale plasmatique, le comptage des lymphocytes T CD4, la recherche de tuberculose, les sérologies des hépatites B et C et de la syphilis, la numération formule sanguine et la fonction rénale et hépatique. Si les CD4 sont inférieurs à 200, il faut y ajouter l'antigène cryptococcique sanguin (CrAg) avant de débuter les antirétroviraux."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Quand proposer le test ?",
+          "text": "Tuberculose, IST, hépatite B ou C, grossesse, amaigrissement inexpliqué, cytopénies, zona du sujet jeune, candidose récidivante, partenaire séropositif, exposition sexuelle ou sanguine à risque : le test se propose, sans tabou. Un dépistage refusé aujourd'hui se reproposera au prochain contact."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fenêtre sérologique : environ 2 à 6 semaines en test de quatrième génération, jusqu'à 3 mois pour certains tests rapides.",
+            "Test rapide réactif : confirmation obligatoire par l'algorithme national avant l'annonce.",
+            "Diagnostic positif : bilan initial complet (charge virale, CD4, tuberculose, hépatites, syphilis).",
+            "CD4 inférieurs à 200 : antigène cryptococcique avant mise sous traitement, et prophylaxie par cotrimoxazole."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement antirétroviral",
+      "summary": "Traiter tous, sans attendre les CD4 : une trithérapie à base de dolutégravir, à vie, avec un objectif unique — la charge virale indétectable.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'OMS recommande depuis 2016 de traiter toute personne vivant avec le VIH, quels que soient son taux de CD4 et son stade clinique (« traiter tous »). Le schéma de première intention privilégié est une trithérapie à base de dolutégravir, inhibiteur de l'intégrase : la combinaison fixe TLD (ténofovir disoproxil + lamivudine + dolutégravir), en un comprimé par jour, est la plus prescrite au monde. Le dolutégravir est recommandé pour toutes les populations, y compris les femmes en âge de procréer et les femmes enceintes. Le traitement est débuté le jour même du diagnostic, après le bilan initial, y compris en prophylaxie de la transmission mère-enfant."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'objectif est la suppression virale durable : charge virale inférieure à 50 copies par millilitre, idéalement évaluée à trois puis six mois de traitement, puis au moins deux fois par an. La réussite dépend d'abord de l'observance — l'OMS et les guides opérationnels insistent sur une prise régulière à heure fixe, soutenue par l'éducation du patient, car les oubli répétés sélectionnent des résistances qui compromettent les lignes ultérieures. Les effets indésirables du dolutégravir (prise de poids, insomnie, maux de tête) sont habituellement modérés ; la zidovudine, médicament historique encore utilisé dans certains protocoles, impose la surveillance de l'hémogramme pour dépister une anémie ou une neutropénie iatrogène."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Classe",
+            "Représentant",
+            "Point de surveillance"
+          ],
+          "rows": [
+            [
+              "Inhibiteur de l'intégrase",
+              "Dolutégravir (TLD)",
+              "Prise de poids, interactions, observance"
+            ],
+            [
+              "Analogues nucléosidiques",
+              "Ténofovir, lamivudine",
+              "Fonction rénale (ténofovir)"
+            ],
+            [
+              "Analogues nucléosidiques anciens",
+              "Zidovudine",
+              "Hémogramme : anémie, neutropénie"
+            ],
+            [
+              "Inhibiteur non nucléosidique",
+              "Éfavirenz, névirapine",
+              "Éruption, toxicité hépatique, neuropsychiatrique"
+            ],
+            [
+              "Inhibiteur de protéase",
+              "Atazanavir, lopinavir boosté",
+              "Troubles digestifs, lipidiques, interactions"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "TLD pour s'en souvenir",
+          "text": "La trithérapie de référence tient en trois lettres : T comme ténofovir, L comme lamivudine, D comme dolutégravir — un comprimé unique par jour, à heure fixe, à vie, avec un seul objectif que le patient doit connaître : une charge virale indétectable, synonyme de santé normale et de protection du partenaire."
+        }
+      ]
+    },
+    {
+      "id": "complications",
+      "title": "V. Complications et urgences",
+      "summary": "Les infections opportunistes frappent par paliers de CD4 ; trois d'entre elles font la mortalité du sida à Madagascar.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-CDC-HIV",
+          "title": "HIV Nexus — ressources cliniques",
+          "url": "https://www.cdc.gov/hivnexus/hcp/index.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections opportunistes arrivent par paliers d'immunodépression. Sous 200 CD4 surviennent la pneumocystose (dyspnée sèche d'aggravation progressive, fièvre, désaturation à l'effort, image pulmonaire interstitielle) et les candidoses œsophagiennes (odynophagie). Sous 100 CD4 apparaissent la toxoplasmose cérébrale (abcès multiples, céphalées, signes focaux) et la cryptococcose neuroméningée (céphalées subaiguës, syndrome méningé modeste, encre de Chine positive dans le liquide). Sous 50 CD4 menacent la rétinite à cytomégalovirus (baisse d'acuité visuelle, hémorragies rétiniennes en « fromage fondu ») et les infections à mycobactéries atypiques. La tuberculose, elle, peut survenir à tous les stades et reste la première cause de mortalité des personnes vivant avec le VIH."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux situations exigent une coordination soignée entre l'infection opportuniste et les antirétroviraux. D'une part, chez un patient avec CD4 très bas, la tuberculose doit être traitée avant la mise sous ARV (sauf forme grave où les deux se font ensemble), et l'antigène cryptococcique doit être contrôlé : débuter les ARV sur une cryptococcose non traitée tue par hypertension intracrânienne. D'autre part, le syndrome inflammatoire de reconstitution immunitaire (IRIS) : dans les semaines qui suivent l'initiation des ARV, le système immunitaire se réveille et réagit brutalement contre des antigènes infectieux persistants — fièvre, adénopathies augmentant, abcès froids tuberculeux qui grossissent, pneumopathies. Le traitement de l'infection en cause est renforcé, les ARV sont généralement poursuivis, et une corticothérapie est discutée dans les formes graves."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Trois urgences qui tuent en garde",
+          "text": "Une céphalée subaiguë chez un patient à CD4 bas est une cryptococcose jusqu'à preuve du contraire : ponction lombaire sans délai, encre de Chine et antigène cryptococcique. Une dyspnée sèche fébrile est une pneumocystose : cotrimoxazole fortes doses et corticoïdes si l'oxygénation est basse. Une fièvre avec adénopathies qui gonflent au premier mois d'ARV est un IRIS : ne pas arrêter les ARV sans avis, traiter l'infection sous-jacente."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Seuil de CD4",
+            "Complication caractéristique",
+            "Premier geste"
+          ],
+          "rows": [
+            [
+              "Sous 500",
+              "Tuberculose pulmonaire (tous stades)",
+              "Recherche de tuberculose systématique"
+            ],
+            [
+              "Sous 200",
+              "Pneumocystose",
+              "Cotrimoxazole, corticoïdes si hypoxie ; prophylaxie au long cours"
+            ],
+            [
+              "Sous 100",
+              "Toxoplasmose cérébrale, cryptococcose",
+              "Imagerie cérébrale, ponction lombaire avec encre de Chine"
+            ],
+            [
+              "Sous 50",
+              "Rétinite à CMV, mycobactéries atypiques",
+              "Examen ophtalmologique, hémocultures spécifiques"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention : PTME, PrEP, PPE",
+      "summary": "Fermer les trois portes du virus : autour de la grossesse, avant l'exposition et après l'exposition.",
+      "sources": [
+        {
+          "id": "SRC-UNAIDS-FS-2026",
+          "title": "Statistiques mondiales sur le VIH et le sida",
+          "url": "https://www.unaids.org/en/resources/fact-sheet",
+          "organization": "ONUSIDA",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la transmission mère-enfant (PTME) repose sur l'option B+ : toute femme enceinte vivant avec le VIH reçoit une trithérapie antirétrovirale à vie, débutée dès le diagnostic, quel que soit son taux de CD4 ; le nourrisson reçoit une prophylaxie néonatale selon le protocole national et un suivi virologique précoce par PCR. Avec cette stratégie, l'ONUSIDA rapporte que 87 % des femmes enceintes vivant avec le VIH avaient accès aux antirétroviraux en 2025 et que les nouvelles infections chez l'enfant ont chuté de 69 % depuis 2010. L'allaitement maternel reste possible sous couvert d'un traitement maternel efficace et supprimé, décision à confronter aux recommandations locales et à la situation familiale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prophylaxie pré-exposition (PrEP) est proposée aux personnes séronégatives exposées à un risque substantiel : populations clés, partenaires de personnes vivant avec le VIH non supprimées, couples sérodifférents souhaitant concevoir. L'OMS recommande plusieurs modalités, dont la combinaison orale ténofovir + emtricitabine (ou lamivudine) et l'anneau vaginal à dapivirine ; la clé du succès est l'observance, associée à un suivi régulier (sérologie, fonction rénale). Enfin, la prophylaxie post-exposition (PPE) est une urgence : après un accident d'exposition au sang ou un rapport non protégé à risque, la trithérapie doit débuter au plus tôt — idéalement dans les heures suivant, sans dépasser 72 heures — et être poursuivie 28 jours, avec un dépistage du VIH de la source et un suivi sérologique de la personne exposée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Préservatif : prévention combinée VIH-IST, à proposer systématiquement.",
+            "Matériel d'injection à usage unique et sécurité transfusionnelle : voies sanguines.",
+            "PTME option B+ : trithérapie maternelle à vie, prophylaxie du nourrisson, PCR précoce.",
+            "PrEP orale pour les personnes exposées à un risque substantiel, avec suivi.",
+            "PPE : trithérapie au mieux dans les heures suivant l'exposition, 28 jours, au maximum 72 heures."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Exposition à risque : le compte à rebours de la PPE",
+          "text": "Piqûre accidentelle, rupture de préservatif avec partenaire à risque, viol : la prophylaxie post-exposition se prescrit immédiatement, sans attendre le résultat du dépistage de la source quand celui-ci n'est pas immédiatement disponible. Après 72 heures, l'efficacité s'effondre ; à 28 jours, le traitement est complet."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Une maladie chronique contrôlable — à condition de dépister tôt, traiter tous et prévenir partout.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le VIH a changé de visage : de maladie mortelle des années 1990, il est devenu une infection chronique dont les personnes traitées et indétectables vivent normalement — sans transmettre le virus. À Madagascar, l'enquête de 2025 montre une épidémie désormais généralisée, en augmentation depuis 2010 : le retard au diagnostic y est l'ennemi principal, car il laisse évoluer l'immunodépression et entretient la transmission."
+        },
+        {
+          "type": "paragraph",
+          "text": "La chaîne de soins est simple à énoncer : proposer le test à chaque situation à risque, confirmer par l'algorithme national, débuter le jour même une trithérapie à base de dolutégravir, contrôler la charge virale, chercher et traiter les infections opportunistes, et fermer les portes de la transmission autour de chaque patient — grossesse, exposition sexuelle ou sanguine, populations clés."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir en une phrase",
+          "text": "Dépister tôt, traiter tous sans attendre les CD4, viser l'indétectable à vie et prévenir autour de chaque exposition : c'est toute la prise en charge du VIH."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles vérifiées lors de la rédaction.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-HIV-2026",
+          "title": "VIH et sida — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-UNAIDS-FS-2026",
+          "title": "Statistiques mondiales sur le VIH et le sida",
+          "url": "https://www.unaids.org/en/resources/fact-sheet",
+          "organization": "ONUSIDA",
+          "year": 2026
+        },
+        {
+          "id": "SRC-CDC-HIV",
+          "title": "HIV Nexus — ressources cliniques",
+          "url": "https://www.cdc.gov/hivnexus/hcp/index.html",
+          "organization": "Centers for Disease Control and Prevention (CDC)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-KP-2022",
+          "title": "Lignes directrices consolidées VIH, hépatites virales et IST pour les populations clés",
+          "url": "https://www.who.int/publications/i/item/9789240052390",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2022
+        }
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "N°",
+            "Référence"
+          ],
+          "rows": [
+            [
+              "1",
+              "Organisation mondiale de la Santé. VIH et sida — fiche de synthèse. Genève : OMS ; mise à jour du 27 juillet 2026 (données 2025)."
+            ],
+            [
+              "2",
+              "ONUSIDA. Statistiques mondiales sur le VIH et le sida — fiche d'information. Genève : ONUSIDA ; juillet 2026 (données 2025)."
+            ],
+            [
+              "3",
+              "Centers for Disease Control and Prevention. HIV Nexus — ressources cliniques VIH. Atlanta : CDC ; 2026."
+            ],
+            [
+              "4",
+              "Organisation mondiale de la Santé. Lignes directrices consolidées sur la prévention, le diagnostic, le traitement et la prise en charge du VIH, de l'hépatite virale et des IST pour les populations clés. Genève : OMS ; 2022."
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-WHO-FS-HIV-2026",
+      "title": "VIH et sida — fiche de synthèse",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/hiv-aids",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "citation": "Organisation mondiale de la Santé. VIH et sida — fiche de synthèse. Genève : OMS ; mise à jour du 27 juillet 2026 (données 2025).",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Épidémiologie",
+        "Définition",
+        "Traitement",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-UNAIDS-FS-2026",
+      "title": "Statistiques mondiales sur le VIH et le sida",
+      "url": "https://www.unaids.org/en/resources/fact-sheet",
+      "organization": "ONUSIDA",
+      "year": 2026,
+      "citation": "ONUSIDA. Statistiques mondiales sur le VIH et le sida — fiche d'information. Genève : ONUSIDA ; juillet 2026 (données 2025).",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Épidémiologie",
+        "PTME",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "SRC-CDC-HIV",
+      "title": "HIV Nexus — ressources cliniques",
+      "url": "https://www.cdc.gov/hivnexus/hcp/index.html",
+      "organization": "Centers for Disease Control and Prevention (CDC)",
+      "year": 2026,
+      "citation": "Centers for Disease Control and Prevention. HIV Nexus — ressources cliniques VIH. Atlanta : CDC ; 2026.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Stades cliniques",
+        "Infections opportunistes",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-WHO-KP-2022",
+      "title": "Lignes directrices consolidées VIH, hépatites virales et IST pour les populations clés",
+      "url": "https://www.who.int/publications/i/item/9789240052390",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2022,
+      "citation": "Organisation mondiale de la Santé. Lignes directrices consolidées sur la prévention, le diagnostic, le traitement et la prise en charge du VIH, de l'hépatite virale et des IST pour les populations clés. Genève : OMS ; 2022.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Dépistage",
+        "Populations clés",
+        "PrEP"
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-3portes",
+      "label": "Les trois portes du virus",
+      "intro": "Toute la prévention tient dans trois portes à fermer.",
+      "entries": [
+        {
+          "key": "SEX",
+          "term": "Voie sexuelle : rapports non protégés, première voie mondiale — préservatif et PrEP"
+        },
+        {
+          "key": "SANG",
+          "term": "Voie sanguine : matériel d'injection partagé, exposition professionnelle, transfusion non contrôlée"
+        },
+        {
+          "key": "MEFE",
+          "term": "Voie mère-enfant : grossesse, accouchement et allaitement — option B+ et prophylaxie du nourrisson"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-stades-oms",
+      "label": "Les quatre stades cliniques OMS",
+      "intro": "Chaque stade a ses marqueurs cliniques et son seuil approximatif de CD4.",
+      "entries": [
+        {
+          "key": "S1",
+          "term": "Asymptomatique : rien ou une polyadénopathie, CD4 au-dessus de 500"
+        },
+        {
+          "key": "S2",
+          "term": "Modéré : candidose orale, zona, éruptions, amaigrissement débutant"
+        },
+        {
+          "key": "S3",
+          "term": "Avancé : diarrhée chronique, amaigrissement marqué, tuberculose pulmonaire"
+        },
+        {
+          "key": "S4",
+          "term": "Sida : pneumocystose, toxoplasmose, cryptococcose, cachexie — CD4 sous 200"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-tld",
+      "label": "TLD : la trithérapie de référence",
+      "intro": "Trois lettres pour la combinaison à un comprimé par jour de l'OMS.",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Ténofovir disoproxil : analogue nucléotidique, surveiller la fonction rénale"
+        },
+        {
+          "key": "L",
+          "term": "Lamivudine : analogue nucléosidique, colonne vertébrale bien tolérée"
+        },
+        {
+          "key": "D",
+          "term": "Dolutégravir : inhibiteur de l'intégrase, puissant et recommandé pour toutes les populations"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-vih-1",
+      "front": "Quel type de lymphocyte le VIH détruit-il préférentiellement ?",
+      "back": "Les lymphocytes T CD4, cellules pivot de l'immunité cellulaire ; leur chute ouvre la porte aux infections opportunistes."
+    },
+    {
+      "id": "fc-vih-2",
+      "front": "Quelles sont les trois voies de transmission du VIH ?",
+      "back": "Sexuelle, sanguine (matériel d'injection, exposition au sang) et mère-enfant (grossesse, accouchement, allaitement)."
+    },
+    {
+      "id": "fc-vih-3",
+      "front": "Citez trois situations qui doivent faire proposer un dépistage VIH.",
+      "back": "Tuberculose, IST ou grossesse ; amaigrissement ou cytopénies inexpliqués ; exposition sexuelle ou sanguine à risque."
+    },
+    {
+      "id": "fc-vih-4",
+      "front": "Quand surviennent les signes de la primo-infection ?",
+      "back": "Deux à quatre semaines après la contamination : fièvre, angine, éruption, adénopathies — tableau proche de la mononucléose."
+    },
+    {
+      "id": "fc-vih-5",
+      "front": "Quelle est la fenêtre sérologique d'un test de quatrième génération ?",
+      "back": "Environ deux à six semaines ; un test rapide négatif récent est répété selon le délai depuis la dernière exposition."
+    },
+    {
+      "id": "fc-vih-6",
+      "front": "Comment confirme-t-on un test rapide réactif ?",
+      "back": "Par l'algorithme national de tests séquentiels sur un nouveau prélèvement, avant toute annonce du résultat."
+    },
+    {
+      "id": "fc-vih-7",
+      "front": "Quel est le traitement de première intention recommandé par l'OMS ?",
+      "back": "La trithérapie TLD : ténofovir + lamivudine + dolutégravir, un comprimé par jour, pour toutes les populations."
+    },
+    {
+      "id": "fc-vih-8",
+      "front": "À quel taux de CD4 débute-t-on la prophylaxie par cotrimoxazole ?",
+      "back": "En dessous de 200 CD4 par millimètre cube, en prévention de la pneumocystose et de la toxoplasmose."
+    },
+    {
+      "id": "fc-vih-9",
+      "front": "Quel examen demander avant de débuter les ARV quand les CD4 sont bas ?",
+      "back": "L'antigène cryptococcique sanguin (CrAg) sous 200 CD4, avec recherche de tuberculose, pour éviter une cryptococcose non traitée."
+    },
+    {
+      "id": "fc-vih-10",
+      "front": "Dans quel délai débuter une prophylaxie post-exposition ?",
+      "back": "Au plus tôt, au mieux dans les heures suivant l'exposition, sans dépasser 72 heures, pendant 28 jours."
+    },
+    {
+      "id": "fc-vih-11",
+      "front": "Que signifie l'option B+ de la PTME ?",
+      "back": "Toute femme enceinte vivant avec le VIH reçoit une trithérapie à vie, quel que soit son taux de CD4, avec prophylaxie du nourrisson."
+    },
+    {
+      "id": "fc-vih-12",
+      "front": "Que veut dire le principe « I = I » (indétectable = intransmissible) ?",
+      "back": "Une personne traitée avec une charge virale durablement indétectable ne transmet pas le VIH par voie sexuelle."
+    },
+    {
+      "id": "fc-vih-13",
+      "front": "Quels signes font suspecter une pneumocystose ?",
+      "back": "Dyspnée sèche d'aggravation progressive, fièvre, toux et désaturation à l'effort chez un patient à CD4 bas."
+    },
+    {
+      "id": "fc-vih-14",
+      "front": "Qu'est-ce que le syndrome inflammatoire de reconstitution immunitaire ?",
+      "back": "Une réaction inflammatoire brutale dans les semaines suivant l'initiation des ARV, contre des antigènes infectieux persistants : fièvre, adénopathies, abcès."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Infection à VIH",
+      "detail": "Dépister tôt, traiter tous, prévenir partout : une infection chronique contrôlée par les antirétroviraux."
+    },
+    "branches": [
+      {
+        "id": "br-depister",
+        "label": "Dépister",
+        "tone": "reflexe",
+        "detail": "Le dépistage se propose à chaque situation à risque : le VIH ne se devine pas, il se teste.",
+        "children": [
+          {
+            "id": "dep-test",
+            "label": "Algorithme",
+            "leaves": [
+              {
+                "id": "dep-t1",
+                "label": "Test rapide anticorps au doigt"
+              },
+              {
+                "id": "dep-t2",
+                "label": "Confirmation par algorithme national"
+              },
+              {
+                "id": "dep-t3",
+                "label": "Fenêtre : répéter si exposition récente"
+              }
+            ]
+          },
+          {
+            "id": "dep-quand",
+            "label": "Situations déclenchantes",
+            "leaves": [
+              {
+                "id": "dep-q1",
+                "label": "Tuberculose, IST, hépatites"
+              },
+              {
+                "id": "dep-q2",
+                "label": "Grossesse et PTME"
+              },
+              {
+                "id": "dep-q3",
+                "label": "Populations clés et partenaires"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-traiter",
+        "label": "Traiter",
+        "detail": "Trithérapie TLD le jour même du diagnostic, pour tous, quel que soit le taux de CD4.",
+        "children": [
+          {
+            "id": "tra-schema",
+            "label": "TLD",
+            "leaves": [
+              {
+                "id": "tra-s1",
+                "label": "Ténofovir + lamivudine + dolutégravir"
+              },
+              {
+                "id": "tra-s2",
+                "label": "Un comprimé par jour, à heure fixe"
+              },
+              {
+                "id": "tra-s3",
+                "label": "Observance au cœur de la réussite"
+              }
+            ]
+          },
+          {
+            "id": "tra-objectif",
+            "label": "Objectif",
+            "leaves": [
+              {
+                "id": "tra-o1",
+                "label": "Charge virale indétectable à 6 mois"
+              },
+              {
+                "id": "tra-o2",
+                "label": "Suivi CV au moins deux fois par an"
+              },
+              {
+                "id": "tra-o3",
+                "label": "I = I : protège aussi le partenaire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-urgences",
+        "label": "Urgences",
+        "tone": "urgence",
+        "detail": "Trois urgens font la mortalité du sida : cryptococcose, pneumocystose et IRIS post-ARV.",
+        "children": [
+          {
+            "id": "urg-crypto",
+            "label": "Cryptococcose",
+            "leaves": [
+              {
+                "id": "urg-c1",
+                "label": "Céphalée subaiguë, CD4 bas"
+              },
+              {
+                "id": "urg-c2",
+                "label": "Ponction lombaire, encre de Chine, CrAg"
+              }
+            ]
+          },
+          {
+            "id": "urg-pcp",
+            "label": "Pneumocystose",
+            "leaves": [
+              {
+                "id": "urg-p1",
+                "label": "Dyspnée sèche, désaturation"
+              },
+              {
+                "id": "urg-p2",
+                "label": "Cotrimoxazole fortes doses, corticoïdes si hypoxie"
+              }
+            ]
+          },
+          {
+            "id": "urg-iris",
+            "label": "IRIS",
+            "leaves": [
+              {
+                "id": "urg-i1",
+                "label": "Fièvre et adénopathies au premier mois d'ARV"
+              },
+              {
+                "id": "urg-i2",
+                "label": "Traiter l'infection, poursuivre les ARV, corticoïdes si grave"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-prevenir",
+        "label": "Prévenir",
+        "detail": "Fermer les trois portes du virus : sexe, sang, mère-enfant — avant et après l'exposition.",
+        "children": [
+          {
+            "id": "pre-ptme",
+            "label": "PTME option B+",
+            "leaves": [
+              {
+                "id": "pre-b1",
+                "label": "Trithérapie maternelle à vie"
+              },
+              {
+                "id": "pre-b2",
+                "label": "Prophylaxie du nourrisson, PCR précoce"
+              }
+            ]
+          },
+          {
+            "id": "pre-prep",
+            "label": "PrEP et PPE",
+            "leaves": [
+              {
+                "id": "pre-pr1",
+                "label": "PrEP orale TDF/FTC pour risque substantiel"
+              },
+              {
+                "id": "pre-pr2",
+                "label": "PPE sous 72 heures, 28 jours"
+              },
+              {
+                "id": "pre-pr3",
+                "label": "Préservatif : prévention combinée VIH-IST"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "related": {
+    "deckIds": [
+      "infectio",
+      "tropical",
+      "infectio-vih-l5"
+    ]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°6 (Infection à VIH)",
+      "reference": "madagascar-2025, ordinal 47",
+      "receivedAt": "2026-10-26",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase d'un document source n'est reproduite : la structure du plan suit l'item du programme national et chaque section est rédigée à partir des sources officielles citées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche de synthèse OMS « VIH et sida » a été mise à jour le 27 juillet 2026 : les chiffres cités (41,0 millions de personnes vivant avec le VIH fin 2025, 1,2 million de nouvelles infections, 570 000 décès, cascade 88-89-95) proviennent de cette version (page consultée le 2026-10-26).",
+      "Situation malgache : la prévalence de 1,1 % chez les femmes enceintes et de 13 à 23 % chez les populations clés provient du rapportage de l'enquête nationale 2025 par la presse spécialisée (2424.mg, consulté le 2026-10-26) ; elle devra être recoupée avec la publication officielle et le protocole national.",
+      "Les posologies précises (mg, mg/kg) sont volontairement absentes et renvoyées au protocole national et au guide thérapeutique de référence : seules les molécules, les stratégies et les seuils décisionnels sont testés dans les decks.",
+      "Le schéma de première intention (TLD, dolutégravir pour toutes les populations) suit la recommandation OMS ; les alternatives selon contraintes locales (approvisionnement, interactions) relèvent du protocole national."
+    ],
+    "qcChecklist": [
+      "Exactitude de l'algorithme de dépistage et de la fenêtre sérologique",
+      "Conformité de la trithérapie de première intention aux recommandations OMS (dolutégravir pour tous)",
+      "Cohérence des seuils de CD4 pour prophylaxies et infections opportunistes",
+      "Validité des liens et des versions des sources au 2026-10-26"
+    ]
+  },
+  "reviewStatus": "pending-medical-review"
+}
