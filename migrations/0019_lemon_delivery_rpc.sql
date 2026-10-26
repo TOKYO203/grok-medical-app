@@ -24,15 +24,17 @@ DECLARE
   v_idx int;
   v_next_idx int;
   v_next text;
-  v_new_id uuid;
 BEGIN
   -- 1. Claim atomique
+  -- `webhook_events` n'a pas de colonne `id` (clé primaire = provider/event_key,
+  -- cf. 0016) : `RETURNING id` échouait à la première exécution de la RPC.
+  -- `FOUND` (plpgsql) indique si l'INSERT a inséré — false sur conflit :
+  -- même sémantique de claim atomique, sans colonne fantôme.
   INSERT INTO webhook_events (provider, event_key, status)
   VALUES ('lemonsqueezy', p_event_key, 'received')
-  ON CONFLICT (provider, event_key) DO NOTHING
-  RETURNING id INTO v_new_id;
+  ON CONFLICT (provider, event_key) DO NOTHING;
 
-  IF v_new_id IS NULL THEN
+  IF NOT FOUND THEN
     RETURN jsonb_build_object('outcome', 'duplicate');
   END IF;
 
@@ -104,4 +106,18 @@ BEGIN
 END;
 $func$;
 
-GRANT EXECUTE ON FUNCTION public.deliver_lemon_event(text, text, text, text, text, timestamptz, boolean, jsonb) TO service_role;
+-- `service_role` existe sur Supabase mais est ABSENT de PGLite (dev/preview,
+-- qui applique les migrations au bootstrap : src/lib/db.ts) comme du PostgreSQL
+-- jetable de CI (`npm run db:migrate`) : un GRANT direct y fait échouer la
+-- migration — et avec elle le démarrage du serveur de dev (le webServer de
+-- Playwright sort en code 1) et le job « PostgreSQL backup / restore smoke ».
+-- On n'exécute donc le GRANT que si le rôle existe. Sur une base sans ce rôle,
+-- EXECUTE reste accordé à PUBLIC par défaut (PostgreSQL) : l'appel RPC depuis
+-- l'app n'est jamais bloqué.
+DO $grant$
+BEGIN
+  IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'service_role') THEN
+    GRANT EXECUTE ON FUNCTION public.deliver_lemon_event(text, text, text, text, text, timestamptz, boolean, jsonb) TO service_role;
+  END IF;
+END
+$grant$;

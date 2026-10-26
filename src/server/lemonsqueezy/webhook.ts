@@ -26,7 +26,6 @@ import {
 } from "./signature.ts";
 import {
   deliverLemonEvent,
-  type DeliveryDeps,
   type DeliveryOutcome,
   type WebhookSql,
 } from "./delivery.ts";
