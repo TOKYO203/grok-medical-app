@@ -1,0 +1,1044 @@
+{
+  "kind": "pathology",
+  "slug": "tetanos",
+  "schemaVersion": 1,
+  "title": "Tétanos",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "updatedAt": "2026-10-26",
+  "objective": "Devant toute plaie souillée, tout trismus, tout nouveau-né qui refuse brutalement de téter : savoir évoquer le tétanos, évaluer sa gravité, engager sans délai l'urgence thérapeutique — immunoglobulines, antibiotique, sédation — et organiser la prévention vaccinale autour de chaque plaie et de chaque accouchement.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 3,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 44,
+      "localNumber": 3,
+      "sectionLabel": "Médecine",
+      "title": "Tétanos",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "summary": "Une toxine bactérienne parmi les plus puissantes du monde, un tableau clinique sans pareil — et une maladie radicalement préventable par la vaccination.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tétanos est une maladie aiguë provoquée par la toxine de Clostridium tetani, bacille anaérobie dont les spores — extraordinairement résistantes à la chaleur et aux antiseptiques — sont omniprésentes dans l'environnement : terre, cendres, poussières, intestins et excréments des animaux et de l'homme, outils rouillés. La contamination se fait par une effraction cutanéo-muqueuse, même minime : plaie souillée, brûlure, morsure, piqûre profonde, ou, chez le nouveau-né, le cordon ombilical coupé ou pansé dans des conditions non stériles. La maladie ne se transmet jamais d'une personne à l'autre."
+        },
+        {
+          "type": "paragraph",
+          "text": "Selon la fiche de synthèse de l'OMS mise à jour le 15 juillet 2026, l'incubation s'étend de 3 à 21 jours et la plupart des cas surviennent dans les 14 jours. La maladie reste surtout un fléau des nouveau-nés et des mères insuffisamment vaccinés : en 2021, un peu plus de 7700 nouveau-nés sont morts de tétanos néonatal, soit une baisse de 84 % depuis l'an 2000 — progrès porté par la montée en puissance de la vaccination par anatoxine. En 2025, 85 % des nourrissons du monde ont reçu trois doses de vaccin contenant l'anatoxine diphtérique-tétanique-pertussique. Ces chiffres se sont effondrés là où la vaccination des femmes et les accouchements propres progressent, mais la maladie n'a pas disparu : elle surveille partout où une plaie rencontre une spore et une immunité absente."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, le tétanos maternel et néonatal a longtemps concentré l'attention des autorités sanitaires, avec des districts historiquement à haut risque. L'initiative mondiale d'élimination lancée en 1999 par l'OMS, l'UNICEF et l'UNFPA classait Madagascar parmi les 57 pays à risque ; au statut de juillet 2026, Madagascar ne figure plus parmi les sept pays où l'élimination reste à atteindre. Ce succès reste fragile : il impose de maintenir une couverture vaccinale élevée des femmes enceintes et des enfants, des accouchements et des soins de cordon propres, et une surveillance qui ne relâche jamais."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit la logique du terrain : comprendre l'agent et sa toxine, reconnaître les formes cliniques et poser ce diagnostic purement clinique, évaluer la gravité, conduire l'urgence thérapeutique, et verrouiller la prévention — vaccination à six doses, prise en charge prophylactique des plaies, accouchement et cordon propres. Elle est complétée par cinq decks de questions, du niveau L2 à l'internat."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le réflexe de base",
+          "text": "Toute plaie souillée est une urgence vaccinale, et tout trismus est un tétanos jusqu'à preuve du contraire. Le tétanos ne se guérit pas par le traitement — il se prévient par l'anatoxine ; celui qui l'a contracté et survit doit être vacciné, car la maladie ne laisse aucune immunité naturelle."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Repère"
+          ],
+          "rows": [
+            [
+              "Agent",
+              "Clostridium tetani, bacille anaérobie sporulé"
+            ],
+            [
+              "Toxine",
+              "Tétanospasmine, transportée jusqu'au système nerveux central"
+            ],
+            [
+              "Réservoir",
+              "Spores omniprésentes : terre, cendres, excréments, objets souillés"
+            ],
+            [
+              "Incubation",
+              "3 à 21 jours, la plupart des cas en moins de 14 jours"
+            ],
+            [
+              "Diagnostic",
+              "Clinique, sans confirmation de laboratoire"
+            ],
+            [
+              "Urgence thérapeutique",
+              "Immunoglobulines, nettoyage de la plaie, sédation, antibiotique"
+            ],
+            [
+              "Prévention",
+              "Vaccination à anatoxine, six doses pour la vie ; accouchement et cordon propres"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agent-physiopathologie",
+      "title": "I. Agent et physiopathologie",
+      "summary": "Une spore qui germe à l'abri de l'air, une toxine qui remonte jusqu'au système nerveux et débride les spasmes.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-2026",
+          "title": "Protéger toutes les personnes contre le tétanos",
+          "url": "https://www.who.int/docs/default-source/tetanus/9789242515619-fre.pdf",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2024
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Clostridium tetani est un bacille gram-positif strictement anaérobie. Ses spores, présentes partout dans l'environnement, résistent des années à la chaleur et à la plupart des antiseptiques. Introduites dans une plaie — surtout profonde, punctiforme, souillée, nécrotique ou étranglée par une ischémie — elles trouvent les conditions d'anaérobiose qui permettent leur germination. Le bacille multiplie alors sur place et libère la tétanospasmine, l'une des toxines les plus puissantes du monde vivant."
+        },
+        {
+          "type": "paragraph",
+          "text": "La toxine gagne le système nerveux central par transport axonal rétrograde depuis les terminaisons motrices et la circulation sanguine. Elle bloque la libération des neurotransmetteurs inhibiteurs — glycine et acide gamma-aminobutyrique — au niveau des interneurones inhibiteurs de la moelle et du tronc cérébral. Le résultat est une levée de frein : les réflexes moteurs ne sont plus contrôlés, d'où une contracture permanente, entrecoupée de spasmes déclenchés par la moindre stimulation. La toxine ne détruit pas les neurones : elle les désinhibite, ce qui explique une conscience strictement préservée et des douleurs réelles pendant les accès."
+        },
+        {
+          "type": "paragraph",
+          "text": "Une conséquence capitale découle de cette physiopathologie : la quantité de toxine responsable de la maladie est trop faible pour immuniser. Le patient guéri du tétanos reste susceptible d'une réinfection et doit impérativement recevoir un vaccin à anatoxine tétanique, rappelle l'OMS. Autre conséquence : la toxine déjà fixée dans le système nerveux ne peut être neutralisée par les immunoglobulines — celles-ci ne captent que la toxine encore circulaire, d'où leur urgence d'administration."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Spores omniprésentes : terre, cendres, poussière, excréments d'animaux et de l'homme, objets souillés ou rouillés.",
+            "Germination dans les plaies en anaérobiose : plaies profondes, punctiformes, souillées, nécrotiques, brûlures, morsures, cordon ombilical.",
+            "Blocage de la glycine et du GABA : contracture permanente et spasmes réflexes, conscience intacte.",
+            "Toxine trop peu abondante pour immuniser : vacciner systématiquement le malade guéri.",
+            "Aucune transmission interhumaine : pas d'isolement nécessaire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "La logique en trois temps",
+          "text": "Retenir : SPORE qui GERME dans la plaie fermée, TOXINE qui REMONTE jusqu'au système nerveux, FREIN qui LÂCHE dans la moelle — le patient est conscient dans une machine motrice déréglée. Toute la prise en charge découle de ces trois temps : nettoyer la porte d'entrée, neutraliser la toxine encore libre, calmer les spasmes en attendant que la toxine fixée soit dégradée."
+        }
+      ]
+    },
+    {
+      "id": "formes-cliniques",
+      "title": "II. Formes cliniques et diagnostic",
+      "summary": "Trismus, rictus sardonique, opisthotonos : un tableau que rien ne fait confondre — à condition d'y penser.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La forme générale est la plus fréquente. Elle débute par un trismus — l'impossibilité d'ouvrir la bouche, signe le plus constant — souvent accompagné de dysphagie et d'une rigidité de la nuque. S'installent ensuite le rictus sardonique, contraction des muscles de la face qui fige un sourire figé et grimaçant, puis l'opisthotonos, le corps raide en arc de cercle appuyé sur la tête et les talons. Les spasmes douloureux, abdominaux, dorsaux ou généralisés, sont déclenchés par le moindre bruit, la lumière, le contact ou les soins. La conscience reste parfaitement préservée ; fièvre, sueurs et hypersalorrhée complètent le tableau. Chez l'adulte, une constipation et une rétention urinaire par contracture sphinctérienne peuvent révéler ou compliquer la maladie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le tétanos néonatal est la forme qui tue le plus. Définition de l'OMS : un nourrisson qui tétait et pleurait normalement les deux premiers jours de vie, qui perd cette capacité entre le 3e et le 28e jour et devient raide ou présente des spasmes. La porte d'entrée est le cordon ombilical, coupé avec un instrument non stérile ou recouvert de substances contaminées — terre, cendre, décoctions — ou l'accouchement pratiqué sur une surface souillée. Le tétanos maternel, lui, survient pendant la grossesse ou dans les six semaines suivant la fin de la grossesse : l'infection utérine du post-partum en est la porte classique, souvent sur rétention ou infection de délivrance dans des conditions non propres."
+        },
+        {
+          "type": "paragraph",
+          "text": "Il existe des formes trompeuses. Le tétanos localisé reste confiné aux muscles proches de la plaie, avec une contracture douloureuse sans signe général. Le tétanos céphalique, après une plaie de la face ou du cuir chevelu, associe trismus et atteintes des nerfs crâniens — ptosis, paralysie oculomotrice, dysphagie — et peut précéder la forme générale. Enfin, une définition de l'OMS s'applique au tétanos non néonatal : un spasme soutenu des muscles de la face ou des contractions musculaires douloureuses, qu'une plaie soit retrouvée ou non — car la porte d'entrée manque à l'anamnèse dans une part notable des cas. Le diagnostic est dans tous les cas clinique : aucun examen de laboratoire ne le confirme ni ne l'infirme, et la recherche de la plaie ne doit jamais retarder le traitement."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Forme",
+            "Repère clinique",
+            "Porte d'entrée typique"
+          ],
+          "rows": [
+            [
+              "Tétanos général",
+              "Trismus, rictus sardonique, opisthotonos, spasmes réflexes, conscience intacte",
+              "Plaie souillée, piqûre, brûlure, morsure"
+            ],
+            [
+              "Tétanos néonatal",
+              "Tète puis refuse brutalement le sein entre J3 et J28, raideur, spasmes",
+              "Cordon ombilical, accouchement non propre"
+            ],
+            [
+              "Tétanos maternel",
+              "Trismus et spasmes dans les 6 semaines suivant la fin de grossesse",
+              "Utérus du post-partum, délivrance non stérile"
+            ],
+            [
+              "Tétanos céphalique",
+              "Trismus + atteinte des nerfs crâniens après plaie de la face",
+              "Plaie de la face, du cuir chevelu, de l'oreille"
+            ],
+            [
+              "Tétanos localisé",
+              "Contracture douloureuse confinée autour de la plaie",
+              "Plaie d'un membre"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le patient entend tout",
+          "text": "La conscience est toujours préservée : chaque spasme est ressenti dans toute sa violence, et l'angoisse du patient est un élément à part entière du tableau. Parler calmement, prévenir avant chaque soin, limiter le bruit et la lumière dans la chambre — c'est un traitement, pas un confort."
+        }
+      ]
+    },
+    {
+      "id": "gravite",
+      "title": "III. Gravité et pronostic",
+      "summary": "Incubation courte, envahissement rapide, porte haute, forme néonatale : les repères qui disent la gravité avant la première complication.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-2026",
+          "title": "Protéger toutes les personnes contre le tétanos",
+          "url": "https://www.who.int/docs/default-source/tetanus/9789242515619-fre.pdf",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2024
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plus l'incubation est courte, plus le pronostic est sombre : une incubation inférieure à sept jours signe une inoculation massive ou une immunité nulle. Le délai d'invasion — du premier signe aux premiers spasmes généralisés — est le second repère : inférieur à quarante-huit heures, il annonce une forme sévère. La porte d'entrée compte aussi : les formes ombilicales et utérines, dites portes hautes, sont historiquement les plus meurtrières ; les formes néonatales et maternelles gardent la mortalité la plus élevée, en particulier lorsque la prise en charge est tardive ou que la ventilation fait défaut. Les spasmes survenant spontanément, sans stimulus, marquent également la sévérité."
+        },
+        {
+          "type": "paragraph",
+          "text": "La gravité s'évalue aussi en quatre stades d'évolution : forme légée avec contracture modérée sans spasmes ; forme modérée avec spasmes provoqués ; forme sévère avec spasmes spontanés, difficultés respiratoires et dysphagie ; forme très sévère avec, en plus, une dysautonomie — instabilité tensionnelle, tachycardie, sueurs profuses, poussées hypertensives. Cette gradation dicte le niveau de surveillance et la décision d'intubation et de ventilation mécanique, et elle conditionne le pronostic : les formes très sévères, en l'absence de réanimation, sont le plus souvent fatales."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Incubation inférieure à 7 jours : gravité majeure.",
+            "Délai d'invasion inférieur à 48 heures : gravité majeure.",
+            "Portes hautes — cordon, utérus — et formes néonatales ou maternelles : pronostic réservé.",
+            "Spasmes spontanés, dysphagie, troubles respiratoires : hospitalisation en réanimation.",
+            "Dysautonomie : stade le plus sévère, mortalité la plus élevée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "À quel patient donner l'alerte ?",
+          "text": "Un tétanos dont les spasmes surviennent sans stimulus, dont l'ouverture de la bouche devient impossible en moins de deux jours, ou qui touche un nouveau-né ou une accouchée : ce patient part vers la réanimation, pas vers une chambre ordinaire."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Prise en charge : une urgence hospitalière",
+      "summary": "Neutraliser la toxine libre, nettoyer la porte d'entrée, calmer les spasmes, ventiler si nécessaire — et vacciner le malade dès la phase aiguë.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tétanos est une urgence médicale qui exige l'hôpital. L'OMS résume la prise en charge en six volets : soins hospitaliers, traitement immédiat par immunoglobulines antitétaniques humaines, nettoyage agressif de la plaie, médicaments antispasmodiques, antibiotiques et vaccination antitétanique. Les immunoglobulines neutralisent la toxine encore non fixée dans le sang — elles n'atteignent pas la toxine déjà installée dans le système nerveux, d'où leur précocité vitale — et le vaccin, administré sur un autre site, doit être commencé dès la phase aiguë puisque la maladie ne confère aucune immunité."
+        },
+        {
+          "type": "paragraph",
+          "text": "La plaie est nettoyée, désinfectée et détergée : tout corps étranger et tout tissu nécrotique est retiré, pour tarir la production de toxine. L'antibiothérapie contre le bacille — métronidazole par voie veineuse en référence, la pénicilline restant une alternative selon les protocoles — complète ce geste. Le patient est installé dans une chambre calme et sombre, où chaque soin est programmé et annoncé : bruit, lumière et toucher déclenchent les spasmes. Ceux-ci sont contrôlés par les benzodiazépines, en perfusion continue, adaptées pour laisser une sédation qui empêche les accès sans éteindre la respiration ; les formes les plus sévères imposent l'intubation et la ventilation mécanique, avec une trachéotomie discutée selon la durée prévisible. La dysautonomie — poussées hypertensives, tachycardies, sueurs — relève du sulfate de magnésium et d'un ajustement minutieux de la sédation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le soutien ne doit jamais être oublié : l'alimentation par sonde nasogastrique précoce évite la dénutrition et les fausses routes d'un patient dysphagique ; la prévention des complications de décubitus, la surveillance infirmière rapprochée, l'hydratation et l'explication rassurante au patient conscient — tout concourt au pronostic. La guérison est lente : la toxine fixée se dégrade sur des semaines, pendant lesquelles les soins de nursing restent vitaux."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Volet",
+            "Action",
+            "Pourquoi"
+          ],
+          "rows": [
+            [
+              "Immunoglobulines (TIG)",
+              "Dès le diagnostic, par voie intramusculaire",
+              "Neutraliser la toxine encore libre avant qu'elle ne se fixe"
+            ],
+            [
+              "Plaie",
+              "Nettoyage, désinfection, détersion, ablation des corps étrangers",
+              "Arrêter la production de toxine à la source"
+            ],
+            [
+              "Antibiotique",
+              "Métronidazole veineux (alternative selon protocole)",
+              "Détruire Clostridium tetani sur place"
+            ],
+            [
+              "Spasmes",
+              "Benzodiazépines en continu, chambre calme et sombre",
+              "Empêcher les accès déclenchés par les stimuli"
+            ],
+            [
+              "Réanimation",
+              "Intubation, ventilation mécanique si forme sévère ; magnésium si dysautonomie",
+              "Contrôler voies aériennes et tempêtes autonomiques"
+            ],
+            [
+              "Vaccination",
+              "Anatoxine sur un autre site, dès la phase aiguë",
+              "La maladie n'immunise pas : protéger les guérisons"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "L'urgence en une phrase",
+          "text": "Devant un tétanos confirmé : TIG immédiates, plaie nettoyée, métronidazole, chambre sombre et silence, benzodiazépines — et réanimation appelée d'emblée pour toute forme néonatale, maternelle ou à spasmes spontanés. Chaque heure de retard laisse la toxine se fixer un peu plus."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention : vacciner — six doses à vie",
+      "summary": "Le tétanos est la maladie vaccinale par excellence : pas de contagion interhumaine, une immunité qui ne suit pas la guérison — donc une protection qui se construit dose après dose, à chaque contact avec le système de santé.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-2026",
+          "title": "Protéger toutes les personnes contre le tétanos — note de position de l'OMS",
+          "url": "https://www.who.int/docs/default-source/tetanus/9789242515619-fre.pdf",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2024
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'OMS recommande une série de six doses de vaccin contenant l'anatoxine tétanique (TTCV) tout au long de la vie : trois doses primaires dès l'âge de six semaines, à au moins quatre semaines d'intervalle, puis trois rappels — idéalement espacés d'au moins quatre ans — vers 12-23 mois, 4-7 ans et 9-15 ans. En pratique, ces antigènes sont administrés sous forme de vaccins combinés (pentavalent, DT, Td) au sein du programme élargi de vaccination. Ce schéma complet confère une protection durable ; une femme ainsi vaccinée transfère ses anticorps à son nouveau-né par le placenta, cœur de la protection néonatale."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Étape",
+            "Âge",
+            "Objectif"
+          ],
+          "rows": [
+            [
+              "Doses 1-3 (primovaccination)",
+              "Dès 6 semaines, intervalle minimum 4 semaines",
+              "Construire l'immunité de base"
+            ],
+            [
+              "Rappel 1",
+              "12-23 mois",
+              "Consolider"
+            ],
+            [
+              "Rappel 2",
+              "4-7 ans",
+              "Prolonger jusqu'à l'âge scolaire"
+            ],
+            [
+              "Rappel 3",
+              "9-15 ans",
+              "Couvrir l'adolescence et l'âge reproductif"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, le calendrier du programme élargi de vaccination prévoit le vaccin pentavalent (qui contient l'anatoxine tétanique) à 6, 10 et 14 semaines de vie, complété par les rappels de l'enfance. La vaccination de la femme enceinte — ou de toute femme en âge de procréer — est la pierre angulaire de l'élimination du tétanos maternel et néonatal : chaque contact prénatal est une occasion de rattraper ou de compléter le schéma, et la dose administrée protège à la fois la mère pendant l'accouchement et le nourrisson pendant la période du cordon."
+        },
+        {
+          "type": "paragraph",
+          "text": "La conduite à tenir devant une plaie se décide sur deux questions croisées : la nature de la plaie et le statut vaccinal du patient. Une plaie propre et minime chez un patient à jour nécessite au plus un rappel si la dernière dose date de plus de dix ans ; une plaie souillée ou profonde chez un patient non vacciné, incomplètement vacciné ou de statut inconnu impose une dose de rappel immédiate ET des immunoglobulines antitétaniques en un site différent. Ce double geste — sérum et vaccin en même temps, mais jamais au même endroit, jamais dans la même seringue — est un classique d'examen."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Vaccin",
+            "Immunoglobulines (TIG)"
+          ],
+          "rows": [
+            [
+              "Plaie propre, à jour (< 10 ans)",
+              "Non",
+              "Non"
+            ],
+            [
+              "Plaie propre, > 10 ans du dernier rappel",
+              "Oui",
+              "Non"
+            ],
+            [
+              "Plaie souillée, à jour (< 5 ans)",
+              "Non",
+              "Non"
+            ],
+            [
+              "Plaie souillée, 5-10 ans du dernier rappel",
+              "Oui",
+              "Non"
+            ],
+            [
+              "Plaie souillée, > 10 ans ou schéma inconnu",
+              "Oui",
+              "Oui"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Les six propriétés d'un accouchement propre",
+          "text": "Pour prévenir le tétanos ombilical du nouveau-né, l'OMS promeut les accouchements assurés par du personnel formé appliquant des pratiques propres : mains lavées, périnée propre, surface d'accouchement propre, cordon coupé avec un instrument propre et stérile, ligature propre du cordon, et soins du cordon sans application de terre ou de substances traditionnelles. Six réflexes simples qui ont fait reculer la mortalité néonatale dans les districts les plus reculés."
+        }
+      ]
+    },
+    {
+      "id": "elimination-mnte",
+      "title": "Élimination du tétanos maternel et néonatal",
+      "summary": "Une initiative mondiale de plus d'un quart de siècle, un critère strict et mesurable par district — et Madagascar qui a franchi le pas, sans que la vigilance puisse jamais se relâcher.",
+      "sources": [
+        {
+          "id": "SRC-WHO-MNTE-2026",
+          "title": "Progrès vers l'élimination mondiale du tétanos maternel et néonatal (MNTE)",
+          "url": "https://www.who.int/initiatives/maternal-and-neonatal-tetanus-elimination-(mnte)/progress-towards-global-mnt-elimination",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-GAVI-MG-2026",
+          "title": "Madagascar relève le défi de vacciner les enfants « zéro dose »",
+          "url": "https://www.gavi.org/fr/vaccineswork/madagascar-releve-defi-vacciner-enfants-zero-dose",
+          "organization": "Gavi, l'Alliance du Vaccin",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "En 1999, l'initiative d'élimination du tétanos maternel et néonatal (MNTE) est lancée par l'UNICEF, l'OMS et le Fonds des Nations Unies pour la population : 57 pays étaient alors à risque. L'objectif n'est pas l'éradication — les spores sont indestructibles dans l'environnement — mais l'élimination, définie par moins d'un cas de tétanos néonatal pour 1000 naissances vivantes et par district et par an. En juillet 2026, 52 des 59 pays concernés ont été validés ; sept restent engagés : Afghanistan, Angola, Nigéria, Pakistan, Papouasie-Nouvelle-Guinée, Somalie et Yémen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le résultat mondial est spectaculaire : plus de 7700 décès néonatals par tétanos en 2021, contre près de 46 900 en 2000, soit une baisse de 84 % en deux décennies. En 2025, environ 85 % des nourrissons du monde recevaient leurs trois doses de vaccin combiné contenant l'anatoxine tétanique. Cette progression repose sur trois piliers : la vaccination systématique des enfants, la vaccination complémentaire des femmes en âge de procréer dans les zones à risque, et la promotion des accouchements et soins du cordon propres."
+        },
+        {
+          "type": "paragraph",
+          "text": "Madagascar, qui figurait parmi les pays à risque au lancement de l'initiative, a été validé comme ayant atteint l'élimination du tétanos maternel et néonatal. Ce statut acquis ne dispense d'aucune vigilance : l'histoire du pays comporte des districts à haut risque, l'accès géographique reste un défi majeur, et l'Alliance Gavi soutient précisément le rattrapage des enfants « zéro dose » — ceux qui n'ont jamais reçu une seule dose de vaccin, souvent dans les zones les plus enclavées de la Grande Île. Une couverture vaccinale qui fléchit, et l'élimination se rejoue district par district."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Éliminer n'est pas éradiquer",
+          "text": "Le tétanos ne disparaîtra jamais de l'environnement : les spores de Clostridium tetani survivent indéfiniment dans le sol. L'élimination du tétanos maternel et néonatal est un statut fragile, tributaire de la couverture vaccinale de chaque district ; toute baisse de la vaccination des femmes enceintes et des enfants peut le remettre en cause, y compris dans un pays validé comme Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "summary": "Un diagnostic clinique instantané, une urgence thérapeutique sans délai — et surtout une maladie que la vaccination efface.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tétanos concentre en une seule maladie tout ce qui fait la médecine d'urgence tropicale : une porte d'entrée minime et banale, une toxine dévastatrice, un tableau clinique que rien ne mime, et une mortalité lourde dans les formes néonatales et maternelles. Devant tout trismus, tout nouveau-né qui refuse le sein entre le troisième et le vingt-huitième jour, la démarche est la même : reconnaître sans examen complémentaire, neutraliser la toxine encore libre par les immunoglobulines, nettoyer la plaie, sédimenter le patient dans le calme, et couvrir l'antibiothérapie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mais la vraie victoire sur le tétanos se joue avant la maladie : six doses d'anatoxine au cours d'une vie, une femme enceinte vaccinée à chaque grossesse, des accouchements propres, une plaie souillée évaluée systématiquement contre le calendrier vaccinal. Madagascar a atteint l'élimination du tétanos maternel et néonatal ; la conserver est l'affaire de chaque consultation, de chaque vaccination, de chaque accouchement. Le tétanos est une maladie que l'on ne guérit pas de rencontrer : on l'empêche de naître."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "summary": "Sources officielles vérifiées lors de la rédaction.",
+      "sources": [
+        {
+          "id": "SRC-WHO-FS-TETANOS-2026",
+          "title": "Le tétanos — fiche de synthèse",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-MNTE-2026",
+          "title": "Progrès vers l'élimination mondiale du tétanos maternel et néonatal (MNTE)",
+          "url": "https://www.who.int/initiatives/maternal-and-neonatal-tetanus-elimination-(mnte)/progress-towards-global-mnt-elimination",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2026
+        },
+        {
+          "id": "SRC-WHO-POS-2026",
+          "title": "Protéger toutes les personnes contre le tétanos — note de position de l'OMS",
+          "url": "https://www.who.int/docs/default-source/tetanus/9789242515619-fre.pdf",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "year": 2024
+        },
+        {
+          "id": "SRC-GAVI-MG-2026",
+          "title": "Madagascar relève le défi de vacciner les enfants « zéro dose »",
+          "url": "https://www.gavi.org/fr/vaccineswork/madagascar-releve-defi-vacciner-enfants-zero-dose",
+          "organization": "Gavi, l'Alliance du Vaccin",
+          "year": 2026
+        }
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "N°",
+            "Référence"
+          ],
+          "rows": [
+            [
+              "1",
+              "Organisation mondiale de la Santé. Le tétanos — fiche de synthèse. Genève : OMS ; mise à jour du 15 juillet 2026."
+            ],
+            [
+              "2",
+              "Organisation mondiale de la Santé. Progrès vers l'élimination mondiale du tétanos maternel et néonatal (MNTE). Genève : OMS ; juillet 2026 (données de décembre 2025)."
+            ],
+            [
+              "3",
+              "Organisation mondiale de la Santé. Protéger toutes les personnes contre le tétanos — note de position de l'OMS. Genève : OMS ; 2024."
+            ],
+            [
+              "4",
+              "Gavi, l'Alliance du Vaccin. Madagascar relève le défi de vacciner les enfants « zéro dose ». Genève : Gavi ; 2026."
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-WHO-FS-TETANOS-2026",
+      "citation": "Organisation mondiale de la Santé. Le tétanos — fiche de synthèse. Genève : OMS ; mise à jour du 15 juillet 2026.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Agent et physiopathologie",
+        "Formes cliniques",
+        "Diagnostic",
+        "Traitement",
+        "Prévention"
+      ],
+      "title": "Le tétanos — fiche de synthèse",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026
+    },
+    {
+      "id": "SRC-WHO-MNTE-2026",
+      "citation": "Organisation mondiale de la Santé. Progrès vers l'élimination mondiale du tétanos maternel et néonatal (MNTE). Genève : OMS ; juillet 2026 (données de décembre 2025).",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Épidémiologie",
+        "Élimination MNTE",
+        "Prévention"
+      ],
+      "title": "Progrès vers l'élimination mondiale du tétanos maternel et néonatal (MNTE)",
+      "url": "https://www.who.int/initiatives/maternal-and-neonatal-tetanus-elimination-(mnte)/progress-towards-global-mnt-elimination",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026
+    },
+    {
+      "id": "SRC-WHO-POS-2026",
+      "citation": "Organisation mondiale de la Santé. Protéger toutes les personnes contre le tétanos — note de position de l'OMS. Genève : OMS ; 2024.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Vaccination",
+        "Prophylaxie des plaies",
+        "Prévention"
+      ],
+      "title": "Protéger toutes les personnes contre le tétanos — note de position de l'OMS",
+      "url": "https://www.who.int/docs/default-source/tetanus/9789242515619-fre.pdf",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2024
+    },
+    {
+      "id": "SRC-GAVI-MG-2026",
+      "citation": "Gavi, l'Alliance du Vaccin. Madagascar relève le défi de vacciner les enfants « zéro dose ». Genève : Gavi ; 2026.",
+      "verifiedAt": "2026-10-26",
+      "usedFor": [
+        "Situation à Madagascar",
+        "Élimination MNTE"
+      ],
+      "title": "Madagascar relève le défi de vacciner les enfants « zéro dose »",
+      "url": "https://www.gavi.org/fr/vaccineswork/madagascar-releve-defi-vacciner-enfants-zero-dose",
+      "organization": "Gavi, l'Alliance du Vaccin",
+      "year": 2026
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-trios",
+      "label": "TRIOS — le visage du tétanos",
+      "intro": "Quatre signes cardinaux à réciter dans l'ordre d'apparition.",
+      "entries": [
+        {
+          "key": "TRI",
+          "term": "Trismus : la bouche qui ne s'ouvre plus, signe le plus constant et souvent le plus précoce"
+        },
+        {
+          "key": "RISUS",
+          "term": "Risus sardonicus : le sourire figé du sphincter des paupières et des muscles faciaux"
+        },
+        {
+          "key": "OPISTHOTONOS",
+          "term": "Opisthotonos : le corps en arc de cercle, contracté en extension"
+        },
+        {
+          "key": "SPASMES",
+          "term": "Spasmes déclenchés par les stimuli : bruit, lumière, toucher — le moindre souffle déclenche la tempête"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-6propres",
+      "label": "Les six « propres » de l'accouchement sûr",
+      "intro": "Six mots pour protéger le cordon et le nouveau-né.",
+      "entries": [
+        {
+          "key": "MAINS",
+          "term": "Mains propres : lavées à l'eau et au savon par l'accoucheuse formée"
+        },
+        {
+          "key": "PERINEE",
+          "term": "Périnée propre : lavé avant l'accouchement"
+        },
+        {
+          "key": "SURFACE",
+          "term": "Surface d'accouchement propre : drap ou natte propre"
+        },
+        {
+          "key": "INSTRUMENT",
+          "term": "Instrument propre et stérile pour couper le cordon, jamais de lame rouillée ou de roseau"
+        },
+        {
+          "key": "LIGATURE",
+          "term": "Ligature du cordon propre, avec un fil propre"
+        },
+        {
+          "key": "SOINS",
+          "term": "Soins du cordon propres et secs, sans terre ni application traditionnelle"
+        }
+      ]
+    },
+    {
+      "id": "mnemo-5verrous",
+      "label": "Les cinq verrous de la prise en charge",
+      "intro": "Cinq verrous à verrouiller dans l'heure, dans cet ordre.",
+      "entries": [
+        {
+          "key": "TIG",
+          "term": "Immunoglobulines antitétaniques immédiates : neutraliser la toxine encore libre"
+        },
+        {
+          "key": "METRO",
+          "term": "Métronidazole : détruire les Clostridium dans la plaie, stopper la production de toxine"
+        },
+        {
+          "key": "PLAIE",
+          "term": "Plaie : nettoyage et débridement agressifs, retirer tout corps étranger et tout tissu dévitalisé"
+        },
+        {
+          "key": "CALME",
+          "term": "Chambre sombre et silencieuse, benzodiazépines : briser le cercle stimulus-spasme"
+        },
+        {
+          "key": "VACCIN",
+          "term": "Vaccination par anatoxine sur un autre site, dès la phase aiguë : la guérison n'immunise pas"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-tetanos-1",
+      "front": "Quel est l'agent responsable du tétanos ?",
+      "back": "Clostridium tetani, bacille anaérobie Gram-positif sporulé ; ses spores, résistantes à la chaleur et aux antiseptiques, sont omniprésentes dans la terre, les cendres et les excréments."
+    },
+    {
+      "id": "fc-tetanos-2",
+      "front": "Quelle est la durée d'incubation habituelle du tétanos ?",
+      "back": "Trois à vingt et un jours, le plus souvent moins de quatorze : plus l'incubation est courte, plus la maladie est grave."
+    },
+    {
+      "id": "fc-tetanos-3",
+      "front": "Le tétanos est-il contagieux d'une personne à l'autre ?",
+      "back": "Non : il n'existe aucune transmission interhumaine — uniquement la contamination des plaies par les spores telluriques, ce qui rend l'isolement inutile."
+    },
+    {
+      "id": "fc-tetanos-4",
+      "front": "Guérir d'un tétanos protège-t-il d'une récidive ?",
+      "back": "Non : la quantité de toxine responsable de la maladie est trop faible pour immuniser. Tout guéri doit recevoir le schéma vaccinal complet."
+    },
+    {
+      "id": "fc-tetanos-5",
+      "front": "Quel est le signe facial caractéristique du tétanos ?",
+      "back": "Le risus sardonicus : contraction soutenue des muscles de la face donnant un sourire figé et ironique, avec spasme du sphincter des paupières."
+    },
+    {
+      "id": "fc-tetanos-6",
+      "front": "Comment définir le trismus ?",
+      "back": "Contraction douloureuse et involontaire des muscles masticateurs empêchant l'ouverture de la bouche : signe le plus constant, souvent révélateur du tétanos."
+    },
+    {
+      "id": "fc-tetanos-7",
+      "front": "Comment confirme-t-on le diagnostic de tétanos ?",
+      "back": "Il n'y a aucun examen complémentaire utile : le diagnostic est purement clinique, sur les définitions de cas de l'OMS ; tout prélèvement ne sert qu'à écarter un diagnostic différentiel."
+    },
+    {
+      "id": "fc-tetanos-8",
+      "front": "Quel traitement neutralise la toxine tétanique encore libre ?",
+      "back": "Les immunoglobulines antitétaniques (TIG), à administrer immédiatement : la toxine déjà fixée dans les terminaisons nerveuses est, elle, inatteignable."
+    },
+    {
+      "id": "fc-tetanos-9",
+      "front": "Quel est l'antibiotique de référence du tétanos ?",
+      "back": "Le métronidazole, actif sur les formes végétatives de Clostridium tetani dans la plaie ; la pénicilline à haute dose reste une alternative décrite par certains protocoles."
+    },
+    {
+      "id": "fc-tetanos-10",
+      "front": "Pourquoi installer un tétanosique dans une chambre sombre et silencieuse ?",
+      "back": "Parce que tout stimulus — bruit, lumière, contact, soins — peut déclencher un spasme : la sédation et le calme environnemental font partie du traitement."
+    },
+    {
+      "id": "fc-tetanos-11",
+      "front": "Comment se présente le tétanos néonatal typique ?",
+      "back": "Un nouveau-né qui tète et pleure normalement les deux premiers jours, puis perd ces capacités entre le troisième et le vingt-huitième jour, avec raideur et spasmes : c'est le tétanos du cordon."
+    },
+    {
+      "id": "fc-tetanos-12",
+      "front": "Quel est le critère d'élimination du tétanos maternel et néonatal ?",
+      "back": "Moins d'un cas de tétanos néonatal pour 1000 naissances vivantes, par district et par an : c'est une élimination, pas une éradication, car les spores persistent dans l'environnement."
+    },
+    {
+      "id": "fc-tetanos-13",
+      "front": "Quel est le schéma vaccinal antitétanique recommandé par l'OMS à vie ?",
+      "back": "Six doses d'anatoxine : trois doses primaires dès six semaines (intervalle minimum quatre semaines) puis trois rappels vers 12-23 mois, 4-7 ans et 9-15 ans."
+    },
+    {
+      "id": "fc-tetanos-14",
+      "front": "Que faire d'une plaie souillée chez un patient de statut vaccinal inconnu ?",
+      "back": "Administrer simultanément le vaccin et les immunoglobulines antitétaniques, en deux sites d'injection différents — jamais la même seringue, jamais le même site."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Tétanos",
+      "detail": "Reconnaître sans laboratoire, verrouiller la prise en charge, vacciner sans relâche : la seule maladie majeure entièrement évitable par la vaccination."
+    },
+    "branches": [
+      {
+        "id": "br-reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Le diagnostic est clinique et instantané : aucun examen ne doit le retarder.",
+        "children": [
+          {
+            "id": "rec-adulte",
+            "label": "Chez l'adulte",
+            "leaves": [
+              {
+                "id": "rec-t1",
+                "label": "Trismus d'abord, puis risus sardonicus"
+              },
+              {
+                "id": "rec-t2",
+                "label": "Opisthotonos, spasmes déclenchés par les stimuli"
+              },
+              {
+                "id": "rec-t3",
+                "label": "Conscience conservée, fièvre inconstante"
+              }
+            ]
+          },
+          {
+            "id": "rec-neonat",
+            "label": "Chez le nouveau-né",
+            "leaves": [
+              {
+                "id": "rec-n1",
+                "label": "Tète et pleure bien les deux premiers jours"
+              },
+              {
+                "id": "rec-n2",
+                "label": "Perte de succion entre J3 et J28, raideur"
+              },
+              {
+                "id": "rec-n3",
+                "label": "Interroger le cordon : coupe et soins traditionnels"
+              }
+            ]
+          },
+          {
+            "id": "rec-piege",
+            "label": "Les pièges",
+            "leaves": [
+              {
+                "id": "rec-p1",
+                "label": "Plaie absente ou déjà cicatrisée dans une partie des cas"
+              },
+              {
+                "id": "rec-p2",
+                "label": "Portes d'entrée insolites : otite, gangrène, accouchement"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-grader",
+        "label": "Grader",
+        "detail": "Trois repères pour dire si le pronostic est sombre dès la première heure.",
+        "children": [
+          {
+            "id": "gra-signes",
+            "label": "Signes de gravité",
+            "leaves": [
+              {
+                "id": "gra-s1",
+                "label": "Incubation courte, moins de sept jours"
+              },
+              {
+                "id": "gra-s2",
+                "label": "Délai plaie-premiers signes inférieur à 48 heures"
+              },
+              {
+                "id": "gra-s3",
+                "label": "Spasmes spontanés, opisthotonos, dysautonomie"
+              }
+            ]
+          },
+          {
+            "id": "gra-formes",
+            "label": "Formes de mauvais pronostic",
+            "leaves": [
+              {
+                "id": "gra-f1",
+                "label": "Tétanos néonatal du cordon"
+              },
+              {
+                "id": "gra-f2",
+                "label": "Tétanos maternel du post-partum"
+              },
+              {
+                "id": "gra-f3",
+                "label": "Spasmes laryngés : menace immédiate sur les voies aériennes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Cinq verrous à verrouiller sans délai, dans une structure capable d'intuber.",
+        "children": [
+          {
+            "id": "tra-toxine",
+            "label": "Contre la toxine et le bacille",
+            "leaves": [
+              {
+                "id": "tra-t1",
+                "label": "Immunoglobulines antitétaniques immédiates"
+              },
+              {
+                "id": "tra-t2",
+                "label": "Métronidazole : éradiquer les formes végétatives"
+              },
+              {
+                "id": "tra-t3",
+                "label": "Plaie nettoyée, débridée, corps étrangers retirés"
+              }
+            ]
+          },
+          {
+            "id": "tra-spasmes",
+            "label": "Contre les spasmes",
+            "leaves": [
+              {
+                "id": "tra-s1",
+                "label": "Chambre sombre, silence, nursing minimal"
+              },
+              {
+                "id": "tra-s2",
+                "label": "Benzodiazépines titrées ; magnésium si dysautonomie"
+              },
+              {
+                "id": "tra-s3",
+                "label": "Intubation et ventilation si spasmes laryngés ou généralisés"
+              }
+            ]
+          },
+          {
+            "id": "tra-vaccin",
+            "label": "Toujours, à la fin",
+            "leaves": [
+              {
+                "id": "tra-v1",
+                "label": "Anatoxine sur un autre site, dès la phase aiguë"
+              },
+              {
+                "id": "tra-v2",
+                "label": "La guérison n'immunise pas : schéma complet ensuite"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-prevenir",
+        "label": "Prévenir",
+        "detail": "Six doses à vie, des accouchements propres, chaque plaie évaluée : l'élimination se conserve.",
+        "children": [
+          {
+            "id": "pre-vaccin",
+            "label": "Vacciner",
+            "leaves": [
+              {
+                "id": "pre-v1",
+                "label": "Six doses à vie : trois primaires puis trois rappels"
+              },
+              {
+                "id": "pre-v2",
+                "label": "Femme enceinte : VAT à chaque grossesse, anticorps transmis"
+              },
+              {
+                "id": "pre-v3",
+                "label": "Pentavalent 6, 10 et 14 semaines au PEV de Madagascar"
+              }
+            ]
+          },
+          {
+            "id": "pre-plaie",
+            "label": "Devant chaque plaie",
+            "leaves": [
+              {
+                "id": "pre-p1",
+                "label": "Croiser la nature de la plaie et le statut vaccinal"
+              },
+              {
+                "id": "pre-p2",
+                "label": "Plaie souillée + statut inconnu : vaccin ET immunoglobulines"
+              }
+            ]
+          },
+          {
+            "id": "pre-mnte",
+            "label": "Élimination MNTE",
+            "leaves": [
+              {
+                "id": "pre-m1",
+                "label": "Critère : moins d'un cas néonatal pour 1000 naissances par district"
+              },
+              {
+                "id": "pre-m2",
+                "label": "52 pays validés sur 59 en juillet 2026, Madagascar inclus"
+              },
+              {
+                "id": "pre-m3",
+                "label": "Vigilance enfants « zéro dose » et districts enclavés"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "related": {
+    "deckIds": [
+      "infectio",
+      "urgences",
+      "infectio-tetanos-l5"
+    ]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°3 (Tétanos)",
+      "reference": "madagascar-2025, ordinal 44",
+      "receivedAt": "2026-10-26",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase d'un document source n'est reproduite : la structure du plan suit l'item du programme national et chaque section est rédigée à partir des sources officielles citées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche de synthèse OMS « Le tétanos » a été mise à jour le 15 juillet 2026 : les chiffres cités (plus de 7700 décès néonatals en 2021, baisse de 84 % depuis 2000, 85 % de couverture DTC3 en 2025) proviennent de cette version (page consultée le 2026-10-26).",
+      "L'année de validation de Madagascar pour l'élimination du tétanos maternel et néonatal devra être recoupée avec la publication officielle OMS/UNICEF : la page MNTE consultée le 2026-10-26 confirme le statut validé et la liste des sept pays restants, sans dater la validation malgache.",
+      "Le calendrier du programme élargi de vaccination de Madagascar (pentavalent à 6, 10 et 14 semaines) provient de sources secondaires et devra être recoupé avec le protocole national en vigueur.",
+      "Les posologies précises (mg, mg/kg) sont volontairement absentes et renvoyées au protocole national et au guide thérapeutique de référence : seules les molécules, les stratégies et les seuils décisionnels sont testés dans les decks."
+    ],
+    "qcChecklist": [
+      "Exactitude des définitions de cas OMS (formes néonatale et non néonatale)",
+      "Conformité du traitement aux six volets recommandés par l'OMS",
+      "Conformité du schéma vaccinal (six doses à vie) et de la prophylaxie des plaies à la note de position OMS",
+      "Validité des liens et des versions des sources au 2026-10-26"
+    ]
+  },
+  "reviewStatus": "pending-medical-review"
+}
