@@ -685,3 +685,23 @@ Ces règles s'ajoutent aux règles médicales générales et les renforcent pour
 - **medx** produit le contenu et le JSON
 - **devx** crée les composants de rendu (viewer d'image, zoom, annotations)
 - **Un humain (toi ou un interne)** valide les signes radiologiques
+
+---
+
+## 🛡️ RÈGLES ANTI-HALLUCINATION & COHÉRENCE
+
+1. **Aucune donnée médicale inventée** : prévalence, sensibilité, DOI sans source → interdit. Si introuvable : `[À COMPLÉTER AVEC SOURCE]`.
+
+2. **Aucune posologie chiffrée LLM** : mg/g/UI/mg/kg sans citation RCP/HAS → interdit. Utiliser "Voir RCP / [POSOLOGIE À VALIDER PAR MÉDECIN]".
+
+3. **Cohérence Madagascar** :
+   - ❌ Serpents venimeux, leishmaniose viscérale, fièvre jaune endémique
+   - ✅ Paludisme, tuberculose, typhoïde, VIH, tétanos, peste, dengue, HTA, diabète
+
+4. **Sources obligatoires** : 1+ source dans `sources[]`, type `has|oms|college|societe|pubmed|rcp`, URL vérifiable.
+
+5. **reviewedBy + reviewedAt** obligatoires si `status = published`.
+
+6. **Script obligatoire** avant PR : `npm run content:check`. PR bloquée si rouge.
+
+7. **Relecture humaine finale** : aucun contenu publié sans médecin/interne senior.

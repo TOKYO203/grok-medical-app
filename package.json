@@ -42,7 +42,8 @@
     "postbuild:cloud": "node scripts/assert-supabase-build.mjs",
     "devx": "node scripts/devx/devx.mjs",
     "devx:full": "node scripts/devx/devx.mjs --full",
-    "devx:chat": "node scripts/devx/devx.mjs --chat"
+    "devx:chat": "node scripts/devx/devx.mjs --chat",
+    "content:check": "node scripts/content-quality-check.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
