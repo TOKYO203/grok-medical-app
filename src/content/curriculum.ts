@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (64 decks, 667 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=7 · dermato=1 · urgences=6
+ * Répartition cible (69 decks, 717 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=12 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -202,7 +202,14 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
 
     { id: "sepsis", label: "Sepsis et choc septique", icon: "🚨", levels: ["L4", "L5", "INTERNE"], description: "Reconnaissance, antibiothérapie, réanimation.", decks: [], skeleton: true },
     { id: "atb", label: "Antibiothérapie", icon: "💊", levels: ["L3", "L4", "L5"], description: "Classes, spectre, résistances.", decks: [], skeleton: true },
-    { id: "vih", label: "VIH et IST", icon: "🎗️", levels: ["L4", "L5"], description: "Dépistage, traitements, prophylaxie.", decks: [], skeleton: true },
+    {
+      id: "vih",
+      label: "VIH et IST",
+      icon: "🎗️",
+      levels: [...LEVELS_PATHO],
+      description: "Dépistage, traitements, prophylaxie.",
+      decks: ["infectio-vih-l2", "infectio-vih-l3", "infectio-vih-l4", "infectio-vih-l5", "infectio-vih-int"],
+    },
   ],
 };
 
