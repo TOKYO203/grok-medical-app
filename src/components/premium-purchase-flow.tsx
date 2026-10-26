@@ -170,7 +170,13 @@ export function PremiumPurchaseFlow({
   }
 
   async function createOrder() {
-    if (!user || user.isDevFallback || profile.optimusId === "OM-GUEST") return;
+    if (!user || user.isDevFallback) {
+      toast.error("Connectez-vous pour commander.");
+      return;
+    }
+    if (profile.optimusId === "OM-GUEST") {
+      await ensureOptimusIdentity({ displayName: user.displayName ?? "Étudiant" });
+    }
     setCreating(true);
     try {
       // Le serveur normalise (spécialité `all` + module 1 pour un abonnement) :
