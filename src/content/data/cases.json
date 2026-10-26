@@ -2074,5 +2074,331 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "NEPHRO-LITHIASE-001",
+    "title": "Douleur lombaire atroce en pleine nuit",
+    "specialty": "Néphrologie / Urologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Homme de 38 ans, douleur lombaire droite brutale en crampes, irradiant vers l'aine, agitation impossible à calmer.",
+    "patient": {
+      "age": 38,
+      "sex": "M",
+      "context": "Chauffeur de taxi-be à Antananarivo, boit peu d'eau en journée pour éviter les arrêts, repas riches en viande grillée. Père opéré de « cailloux dans le rein ». A déjà eu un épisode similaire il y a 2 ans, non exploré."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Réveil à 3 heures du matin par une douleur lombaire droite brutale, en coup de poignard puis en crampes intenses, descendant vers la fosse iliaque et les organes génitaux. Aucune position ne soulage, le patient se tord de douleur. Nausées, deux vomissements. Pas de fièvre ressentie."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 138/82, FC 96/min, température 37,2 °C. Patient agité, impossible de rester couché. Douleur exquise à la percussion de la fosse lombaire droite. Pas de défense abdominale, pas de globe vésical. Urines visuellement normales, pas d'hématurie macroscopique franche. Pas d'œdème."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Bandelette urinaire : sang +++, pas de leucocyturie, pas de nitrites. NFS normale, CRP 8 mg/L. Créatinine 84 µmol/L. Échographie réalisable en ville : légère dilatation des cavités pyélo-calicielles droites, pas de calcul visualisé sur la voie excrétrice, rein controlatéral normal."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le tableau typique décrit ici est :",
+        "choices": [
+          "Colique néphrétique par lithiase urinaire, probablement urétérale droite",
+          "Pyélonéphrite aiguë",
+          "Appendicite rétro-cæcale",
+          "Infarctus rénal"
+        ],
+        "correct": 0,
+        "explanation": "Douleur lombo-iliaque brutale en crampes, patient agité sans position antalgique, hématurie microscopique et dilatation en amont : c'est la colique néphrétique. La pyélonéphrite ajoute fièvre et leucocyturie ; l'appendicite donne une douleur progressive localisée ; l'infarctus rénal est rarissime et survient sur terrain particulier (fibrillation atriale, athérome)."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'élément qui change radicalement la prise en charge est :",
+        "choices": [
+          "La fièvre ≥ 38 °C ou une leucocyturie : suspicion de pyélonéphrite obstructive, urgence de drainage",
+          "L'intensité de la douleur",
+          "La présence d'une hématurie",
+          "L'âge du patient"
+        ],
+        "correct": 0,
+        "explanation": "Une lithiase fébrile ou infectée est une urgence absolue : l'antibiothérapie ne suffit pas si l'urine ne s'écoule pas, il faut drainer la voie excrétrice (sonde JJ ou néphrostomie) sans délai. L'hématurie est banale dans la colique simple ; l'intensité de la douleur guide l'antalgique, pas la stratégie."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement antalgique de première intention est :",
+        "choices": [
+          "AINS en IV (ou IM) à dose efficace ± paracétamol, avec antispasmodique si besoin",
+          "Morphine d'emblée systématique",
+          "Antalgique per os seul à attendre",
+          "Corticoïdes IV"
+        ],
+        "correct": 0,
+        "explanation": "L'AINS est l'antalgique de référence de la colique néphrétique (efficace sur la douleur et sur la motilité urétérale), administré précocement par voie parentérale ; le paracétamol s'y associe. La morphine est un recours si échec, pas la première ligne ; l'attente per os prolonge inutilement la souffrance."
+      },
+      {
+        "kind": "question",
+        "prompt": "Sur le plan diagnostique et du suivi, la conduite correcte est :",
+        "choices": [
+          "Recherche du calcul (TDM abdomino-pelvien faible dose si doute, ou consolidation des urines), analyses métaboliques à distance, boissons abondantes et suivi urologique",
+          "Aucune exploration : l'épisode passé sans séquelle",
+          "Échographie mensuelle systématique à vie",
+          "Régime sans calcium strict"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic de certitude et la cartographie (taille, siège) reposent sur la TDM faible dose quand nécessaire ; le bilan métabolique (calcium, uricémie,analyse des calculs si expulsés) cherche une cause à distance. Un régime sans calcium est délétère (il augmente le risque de récidive) ; la prévention passe par l'hydratation abondante et la correction des facteurs identifiés."
+      }
+    ],
+    "diagnosis": "Colique néphrétique droite par lithiase urétérale probable (douleur lombo-iliaque brutale, hématurie microscopique, dilatation pyélique modérée), sans signe infectieux ni insuffisance rénale.",
+    "management": "Antalgiques de palier adapté (AINS IV + paracétamol, antispasmodique), hydratation, recherche et suivi du calcul (TDM faible dose si non expulsé, tamis des urines), drainage urgent en cas de fièvre ou d'anurie, évaluation urologique des calculs non expulsés en quelques jours selon la taille. À distance : bilan métabolique, analyse du calcul, boissons abondantes réparties sur la journée (y compris la nuit), conseils diététiques (rester au calcium alimentaire, réduire viande et sel), suivi urologique pour récidive.",
+    "pitfall": "Le piège de la colique apyrétique qui devient fébrile : une fièvre sur obstacle urinaire est une urgence de drainage, pas un simple relais d'antalgiques. Autre piège : banaliser une colique unique chez un sujet à antécédents familiaux sans bilan métabolique — la récidive est la règle sans prévention, et un régime sans calcium l'aggrave au lieu de la prévenir.",
+    "keyTakeaway": "Douleur lombo-iliaque brutale + agitation + hématurie microscopique = colique néphrétique. AINS IV d'abord ; fièvre ou leucocyturie = pyélonéphrite obstructive : drainage sans délai. À distance : hydratation abondante et bilan métabolique, jamais de régime sans calcium.",
+    "related": {
+      "pathologySlugs": [
+        "lithiase-urinaire",
+        "infections-urinaires"
+      ],
+      "deckIds": [
+        "urgences",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "EAU",
+        "citation": "European Association of Urology — Guidelines on Urolithiasis, 2025.",
+        "organization": "EAU",
+        "year": 2025,
+        "url": "https://uroweb.org/guidelines/urolithiasis",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Drinking-water quality and kidney stone prevention, note d'information, 2022.",
+        "organization": "OMS",
+        "year": 2022
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "CHIR-OCCLUSION-001",
+    "title": "Ventre gonflé et vomissements",
+    "specialty": "Chirurgie viscérale",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 71 ans, douleurs abdominales avec vomissements et arrêt des selles et des gaz depuis 2 jours.",
+    "patient": {
+      "age": 71,
+      "sex": "F",
+      "context": "Veuve vivant à Ambohidratrimo, appendicectomie il y a 40 ans, deux césariennes. Traitée par furosémide pour œdèmes des jambes. Hospitalisée l'an dernier pour « un problème intestinal » résolu."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Douleurs abdominales diffuses en crampe depuis 48 heures, paroxystiques, avec vomissements d'abord alimentaires puis verdâtres. Aucune selle ni aucun gaz depuis 2 jours. Ballonnement abdominal croissant, plus de flatulences."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 124/76, FC 92/min, température 37,4 °C. Abdomen distendu, tympanique, douleur diffuse sans contracture ni défense localisée, bruits hydro-aériques métalliques en salves douloureuses. Pas de hernie étranglée visible ni palpable. Rectum vide, globe vésical absent, toucher rectal sans masse."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "NFS : leucocytes 11 G/L, Hb 12,1 g/dL. Ionogramme : K+ 3,1 mmol/L, Na+ 133 mmol/L (déshydratation extracellulaire modérée). Radio d'abdomen sans préparation : niveaux hydro-aériques multiples, absence de gaz dans le rectum. Pas de pneumopéritoine."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic mécanique est :",
+        "choices": [
+          "Occlusion intestinale du grêle sur bride probable (antécédents chirurgicaux, rectum vide, niveaux hydro-aériques)",
+          "Gastro-entérite aiguë banale",
+          "Iléus par hypokaliémie isolé",
+          "Péritonite par perforation"
+        ],
+        "correct": 0,
+        "explanation": "Douleur en crampes + vomissements + arrêt des selles et des gaz + niveaux hydro-aériques et rectum vide = occlusion mécanique du grêle. Les antécédents chirurgicaux (appendicectomie, césariennes) font de la bride la première cause. La gastro-entérite donne des selles liquides abondantes ; l'iléus réflexe donne un abdomen silencieux sans paroxysmes ; la perforation donne un pneumopéritoine et une contracture."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge initiale comprend :",
+        "choices": [
+          "Mise à jeun, sonde nasogastrique en aspiration, réhydratation et correction ionique, chirurgien avisé d'emblée",
+          "Laxatifs et lavements pour « débloquer »",
+          "Attente de 48 heures sans mesure",
+          "Antibiothérapie seule"
+        ],
+        "correct": 0,
+        "explanation": "L'occlusion du grêle impose la mise au repos digestif (aspiration nasogastrique), la réhydratation et la correction du potassium (aggravé par les vomissements et le furosémide), avec avis chirurgical immédiat. Les laxatifs sont dangereux sur obstacle (risque de perforation), l'attente prolongée expose à la strangulation, et l'antibiothérapie seule ne traite pas l'obstacle."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le signe qui impose la chirurgie en urgence est :",
+        "choices": [
+          "Défense, fièvre, tachycardie ou signes de souffrance digestive : suspicion de bride strangulée",
+          "L'âge de la patiente seul",
+          "Le nombre de niveaux hydro-aériques",
+          "La durée des vomissements"
+        ],
+        "correct": 0,
+        "explanation": "Sur une occlusion, l'apparition d'une défense, d'une fièvre, d'une tachycardie ou d'un syndrome inflammatoire signe la strangulation : la chirurgie ne se discute plus. Une occlusion sur bride simple peut être tentée en traitement médical 24-48 heures sous surveillance stricte ; la strangulation, elle, tue le grêle en quelques heures."
+      },
+      {
+        "kind": "question",
+        "prompt": "Chez cette patiente, l'élément iatrogène à corriger d'emblée est :",
+        "choices": [
+          "Le furosémide : il aggrave l'hypokaliémie et la déshydratation de l'occlusion",
+          "Le paracétamol",
+          "Les vitamines",
+          "L'amoxicilline"
+        ],
+        "correct": 0,
+        "explanation": "Les vomissements de l'occlusion épuisent le potassium, et le furosémide (diurétique de l'anse kaliurétique) aggrave l'hypokaliémie à 3,1 mmol/L — or l'hypokaliémie entretient un iléus et des troubles du rythme chez une femme de 71 ans. Il est suspendu le temps de la prise en charge et réévalué après."
+      }
+    ],
+    "diagnosis": "Occlusion intestinale du grêle sur bride probable (antécédents chirurgicaux abdominaux multiples, tableau d'occlusion mécanique sans strangulation au stade actuel), avec déshydratation et hypokaliémie.",
+    "management": "Hospitalisation en chirurgie : mise à jeun, aspiration nasogastrique, réhydratation avec correction potassique et suspension du furosémide, antalgiques, bilan complet, surveillance clinique horaire (défense, fièvre, FC, arrêt de reprise du transit), avis chirurgical immédiat et exploration sans délai au moindre signe de strangulation, chirurgie programmée si l'occlusion ne cède pas en 24-48 heures. Prévention des récidives : information sur les signes d'alerte abdominale.",
+    "pitfall": "Le piège de l'occlusion « tranquille » : une bride peut stranguler sans crier, entre deux examens. La surveillance clinique rapprochée est le seul filet ; ne jamais donner de laxatif sur un obstacle. Autre piège : oublier le furosémide et le potassium — l'hypokaliémie de cette femme entretient l'iléus et expose aux troubles du rythme.",
+    "keyTakeaway": "Douleurs en crampes + vomissements + arrêt des selles et gaz + niveaux hydro-aériques = occlusion du grêle. Aspiration nasogastrique, réhydratation et potassium, chirurgien avisé d'emblée ; défense ou fièvre = strangulation = bloc immédiat. Jamais de laxatif sur obstacle.",
+    "related": {
+      "pathologySlugs": [
+        "occlusion-grele",
+        "appendicite"
+      ],
+      "deckIds": [
+        "urgences",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "WSES",
+        "citation": "World Society of Emergency Surgery — Guidelines on management of small bowel obstruction, 2025 update.",
+        "organization": "WSES",
+        "year": 2025,
+        "url": "https://wses.org.uk/guidelines/",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "HAS",
+        "citation": "Occlusion intestinale aiguë — prise en charge diagnostique et thérapeutique, 2020.",
+        "organization": "Haute Autorité de Santé",
+        "year": 2020
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "ENDO-HYPER-001",
+    "title": "Perd du poids, le cœur s'emballe",
+    "specialty": "Endocrinologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 34 ans, amaigrissement rapide, palpitations, intolérance à la chaleur et tremblement des mains depuis 3 mois.",
+    "patient": {
+      "age": 34,
+      "sex": "F",
+      "context": "Infirmière à Toamasina, sans antécédent thyroïdien familial connu. Accouchement il y a 7 mois, allaitement arrêté il y a 2 mois. Fumeuse occasionnelle. Consomme du « thé minceur » et des algues en gélules depuis 4 mois."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 3 mois : perte de 9 kg malgré un appétit accru, palpitations permanentes, sensation de chaleur permanente avec sueurs, diarrhée occasionnelle, tremblement fin des mains, insomnie et irritabilité. Son entourage trouve son regard « exorbité » et ses paupières gonflées."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "FC 118/min irrégulière par moments, TA 142/68 (différentielle large), température 37,4 °C. Amaigrissement net. Thyroïde augmentée de volume, souple, non doulourière, sans souffle. Exophtalmie bilatérale modérée avec œdème palpébral, lagophtalmie discret. Tremblement fin des doigts, peau chaude et humide, reflexes vifs. Pas de vitiligo, pas de myxœdème."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "TSH < 0,01 mUI/L, T4 libre élevée à 42 pmol/L, T3 élevée. Anticorps anti-récepteur de la TSH (TRAb) fortement positifs. ECG : fibrillation atriale rapide à 115/min, pas de signe d'ischémie. Pas d'ophtalmopathie sévère (pas de diplopie, cornées protégées, acuité visuelle conservée)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic étiologique est :",
+        "choices": [
+          "Maladie de Basedow (hyperthyroïdie auto-immune, TRAb positifs, goitre et orbitopathie)",
+          "Thyroïdite subaiguë",
+          "Hyperthyroïdie par surcharge iodée (gélules d'algues)",
+          "Nodule toxique unique"
+        ],
+        "correct": 0,
+        "explanation": "L'hyperthyroïdie franche avec TRAb positifs, gopte diffus et orbitopathie signe la maladie de Basedow. Le nodule toxique donne un nodule unique avec hyperthyroïdie focale sans orbitopathie ; la thyroïdite subaiguë est douloureuse et transitoire avec TRAb négatifs ; l'iode (dont les algues) peut déclencher une hyperthyroïdie mais n'explique ni les TRAb ni l'orbitopathie — l'arrêt des gélules reste indispensable mais le diagnostic est Basedow."
+      },
+      {
+        "kind": "question",
+        "prompt": "La complication rythmique constatée ici impose :",
+        "choices": [
+          "Anticoagulation à discuter selon le risque thrombo-embolique et contrôle rapide de la fréquence par bêtabloquant, avant traitement étiologique",
+          "Cardioversion électrique immédiate sans préparation",
+          "Digoxine seule à forte dose",
+          "Abstention : la FA s'arrêtera avec le poids"
+        ],
+        "correct": 0,
+        "explanation": "Une fibrillation atriale sur hyperthyroïdie se traite d'abord par bêtabloquant (contre-indication relative : l'asthme) pour contrôler la fréquence, avec anticoagulation discutée selon le score (souvent indiquée vu l'âge et la cardiopathie) ; le rythme se régularise souvent avec le traitement de l'hyperthyroïdie. La cardioversion avant euthyroïdie expose à la récidive ; la digoxine seule est insuffisante et moins adaptée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de fond de première intention ici est :",
+        "choices": [
+          "Antithyroïdiens de synthèse (carbimazole ou thiamazole) pour 12-18 mois, sous surveillance hématologique",
+          "Iode radioactif d'emblée",
+          "Thyroïdectomie totale d'emblée",
+          "Corticoïdes seuls"
+        ],
+        "correct": 0,
+        "explanation": "Chez une femme jeune avec première poussée de Basedow, les antithyroïdiens de synthèse pendant 12-18 mois sont la première ligne, avec surveillance de la numération (agranulocytose rare mais grave : toute angine sous traitement impose un contrôle en urgence). L'iode radioactif est contre-indiqué ici (orbitopathie active, allaitement récent) et la chirurgie se réserve aux goitres volumineux, aux récidives ou au refus."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le signe qui impose une consultation ophtalmologique urgente est :",
+        "choices": [
+          "Diplopie, douleur oculaire, baisse d'acuité visuelle ou atteinte cornéenne : orbitopathie sévère menaçant la vision",
+          "L'exophtalmie modérée sans autres signes",
+          "Une simple sensation de sable dans les yeux",
+          "L'œdème palpébral isolé du matin"
+        ],
+        "correct": 0,
+        "explanation": "L'orbitopathie basedowienne menace la vue quand elle devient compressive : diplopie, neuropathie optique (baisse d'acuité, dyschromatopsie) ou kératite par exposition imposent un avis urgent, une corticothérapie voire une décompression orbitaire. L'exophtalmie modérée sans signe fonctionnel relève d'une surveillance rapprochée, du sevrage tabagique (facteur aggravant majeur) et de mesures locales."
+      }
+    ],
+    "diagnosis": "Maladie de Basedow : hyperthyroïdie franche (TSH effondrée, T4 à 42 pmol/L, TRAb fortement positifs) avec goitre diffus et orbitopathie modérée, compliquée de fibrillation atriale rapide et d'un amaigrissement majeur.",
+    "management": "Arrêt des gélules d'algues et du tabac, bêtabloquant pour le contrôle de la fréquence, anticoagulation évaluée selon le score de risque, antithyroïdiens de synthèse 12-18 mois avec surveillance clinique, hématologique et hormonologique, éducation (angine sous traitement = urgence hématologique). Suivi ophtalmologique de l'orbitopathie (avis urgent si diplopie ou baisse d'acuité), mesures locales (lunettes, lubrifiants, surélévation nocturne). Contrôle de la FA et réévaluation après retour à l'euthyroïdie ; discussion à distance de l'iode radioactif ou de la chirurgie selon l'évolution et le projet de grossesse.",
+    "pitfall": "Le piège de l'hyperthyroïdie déguisée : amaigrissement et palpitations font chercher un cancer ou une anxiété pendant des mois. Chez toute tachycardie irrégulière inexpliquée, une TSH fait partie du bilan minimal. Autre piège : le tabac aggrave l'orbitopathie — ne pas l'adresser, c'est laisser évoluer l'atteinte oculaire.",
+    "keyTakeaway": "Amaigrissement + tachycardie + thermophobie + tremblement = bilan thyroïdien, et TRAb positifs + orbitopathie = Basedow. Antithyroïdiens 12-18 mois, FA contrôlée par bêtabloquant, avis ophtalmo urgent si diplopie ou baisse d'acuité. Arrêter le tabac, toujours.",
+    "related": {
+      "pathologySlugs": [
+        "hyperthyroidie"
+      ],
+      "deckIds": [
+        "semio",
+        "cardio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ATA / ETA",
+        "citation": "2016 American Thyroid Association Guidelines for Hyperthyroidism and Graves' orbitopathy, Thyroid 2016;26:1343-1421.",
+        "organization": "ATA",
+        "year": 2016,
+        "url": "https://www.liebertpub.com/doi/10.1089/thy.2016.0229",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Iodine and thyroid dysfunction, note technique, 2023.",
+        "organization": "OMS",
+        "year": 2023
+      }
+    ],
+    "access": "pro"
   }
 ]
