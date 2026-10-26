@@ -249,98 +249,26 @@ export const createPremiumPurchaseOrder = createServerFn({ method: "POST" })
   .middleware([authMiddleware])
   .validator(createSchema)
   .handler(async ({ data, context }) => {
-    const { getSql } = await import("@/lib/db");
-    const sql = await getSql();
-
-    const stateRows = await sql.query<{ optimus_id: string }>(
-      "select optimus_id from optimus_user_state where user_id = $1 limit 1",
-      [context.userId],
-    );
-    const optimusId = stateRows[0]?.optimus_id;
-    if (!optimusId) {
-      throw new Error("Connectez et synchronisez votre compte Optimus avant de créer une commande.");
-    }
-
-    // Forme canonique décidée ICI : un abonnement ne retient ni spécialité ni
-    // numéro de module, une offre à l'unité exige les deux.
-    const normalized = normalizePremiumOrderInput({
-      offer: data.offer,
-      specialty: data.specialty,
-      deckNumber: data.deckNumber,
-    });
-
-    const existing = await sql.query<PurchaseRow & { client_request_id: string }>(
-      `select * from purchase_orders
-       where user_id = $1 and client_request_id = $2
-       limit 1`,
-      [context.userId, data.clientRequestId],
-    );
-    if (existing[0]) {
-      const expectedOrder: PremiumOrder = {
-        reference: existing[0].reference,
-        offer: normalized.offer,
-        specialty: normalized.specialty,
-        deckNumber: normalized.deckNumber,
-      };
-      if (existing[0].product !== orderProduct(expectedOrder)) {
-        throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
-      }
-      return toPurchase(existing[0]);
-    }
-
-    const reference = makeReference(normalized.offer);
-    const order: PremiumOrder = {
-      reference,
-      offer: normalized.offer,
-      specialty: normalized.specialty,
-      deckNumber: normalized.deckNumber,
-    };
+    const { createClient } = await import("@supabase/supabase-js");
+    const { mergedServerEnv, resolveSupabaseServiceKey, resolveSupabaseUrl } = await import("@/server/supabase-env.server");
+    const env = mergedServerEnv(process.env);
+    const url = resolveSupabaseUrl(env);
+    const key = resolveSupabaseServiceKey(env);
+    if (!url || !key) throw new Error("Supabase non configuré");
+    const normalized = normalizePremiumOrderInput({ offer: data.offer, specialty: data.specialty, deckNumber: data.deckNumber });
+    const order: PremiumOrder = { reference: "TEMP", offer: normalized.offer, specialty: normalized.specialty, deckNumber: normalized.deckNumber };
     const product = orderProduct(order);
     const label = orderLabel(order);
     const amount = orderAmount(order);
-
-    const rows = await sql.query<PurchaseRow>(
-      `insert into purchase_orders (
-         reference, user_id, client_request_id, optimus_id, offer, specialty,
-         deck_number, product, label, amount, status, created_at, updated_at
-       ) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,'created',now(),now())
-       on conflict (user_id, client_request_id)
-       do update set client_request_id = excluded.client_request_id
-       returning *`,
-      [
-        reference,
-        context.userId,
-        data.clientRequestId,
-        optimusId,
-        normalized.offer,
-        normalized.specialty,
-        normalized.deckNumber,
-        product,
-        label,
-        amount,
-      ],
-    );
-    const row = rows[0];
-    if (!row) throw new Error("La commande n'a pas pu être créée.");
-
-    const canonicalOrder: PremiumOrder = {
-      reference: row.reference,
-      offer: normalized.offer,
-      specialty: normalized.specialty,
-      deckNumber: normalized.deckNumber,
-    };
-    if (row.product !== orderProduct(canonicalOrder)) {
-      throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
-    }
-
-    if (row.reference === reference) {
-      await auditEvent(sql, row.reference, context.userId, "created", {
-        offer: normalized.offer,
-        product: row.product,
-        amount: Number(row.amount),
-      });
-    }
-    return toPurchase(row);
+    const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+    const { data: row, error } = await supabase.rpc("create_premium_purchase_order", {
+      p_user_id: context.userId, p_client_request_id: data.clientRequestId, p_optimus_id: context.userId,
+      p_offer: normalized.offer, p_specialty: normalized.specialty, p_deck_number: normalized.deckNumber,
+      p_product: product, p_label: label, p_amount: amount, p_currency: "MGA",
+    });
+    if (error || !row) throw new Error("La commande n'a pas pu être créée: " + (error?.message || "unknown"));
+    if (row.product !== product) throw new Error("Cette demande idempotente correspond déjà à une autre offre.");
+    return toPurchase(row as PurchaseRow);
   });
 
 export const listPremiumPurchaseOrders = createServerFn({ method: "GET" })
@@ -362,44 +290,25 @@ export const getPremiumPaymentInstructions = createServerFn({ method: "POST" })
   .middleware([authMiddleware])
   .validator(instructionsSchema)
   .handler(async ({ data, context }) => {
-    const { getSql } = await import("@/lib/db");
-    const sql = await getSql();
-    let current = await ownedPurchase(sql, data.reference, context.userId);
-    if (!current) throw new Error("Commande introuvable.");
-    if (["delivered", "rejected", "refunded"].includes(current.status)) {
-      throw new Error("Cette commande est déjà clôturée.");
-    }
-
+    const { createClient } = await import("@supabase/supabase-js");
+    const { mergedServerEnv, resolveSupabaseServiceKey, resolveSupabaseUrl } = await import("@/server/supabase-env.server");
+    const env = mergedServerEnv(process.env);
+    const url = resolveSupabaseUrl(env);
+    const key = resolveSupabaseServiceKey(env);
+    if (!url || !key) throw new Error("Supabase non configuré");
+    const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+    const { data: row, error } = await supabase.rpc("get_premium_purchase_order", { p_user_id: context.userId, p_reference: data.reference });
+    if (error || !row) throw new Error("Commande introuvable.");
+    let current = row as PurchaseRow;
+    if (["delivered", "rejected", "refunded"].includes(current.status)) throw new Error("Cette commande est déjà clôturée.");
     const config = paymentConfiguration();
-    const instructions: PremiumPaymentInstructions = {
-      ...config,
-      amount: Number(current.amount),
-      orderReference: current.reference,
-      product: current.product,
-    };
+    const instructions: PremiumPaymentInstructions = { ...config, amount: Number(current.amount), orderReference: current.reference, product: current.product };
     if (!config.configured) return { purchase: toPurchase(current), instructions };
-
     if (current.status === "created") {
-      const updated = await sql.query<PurchaseRow>(
-        `with updated as (
-           update purchase_orders
-              set status = 'instructions_requested',
-                  payment_provider = $3,
-                  updated_at = now()
-            where reference = $1 and user_id = $2 and status = 'created'
-            returning *
-         ), event as (
-           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
-           select reference, $2, 'instructions_requested', jsonb_build_object('provider', $3::text)
-             from updated
-         )
-         select * from updated`,
-        [current.reference, context.userId, config.provider],
-      );
-      current = updated[0] ?? (await ownedPurchase(sql, data.reference, context.userId));
-      if (!current) throw new Error("Commande introuvable.");
+      const { data: updated, error: updErr } = await supabase.rpc("advance_premium_purchase_order", { p_user_id: context.userId, p_reference: data.reference, p_new_status: "instructions_requested" });
+      if (updErr || !updated) throw new Error("Impossible de préparer les instructions.");
+      current = updated as PurchaseRow;
     }
-
     return { purchase: toPurchase(current), instructions };
   });
 
@@ -407,115 +316,16 @@ export const advancePremiumPurchaseOrder = createServerFn({ method: "POST" })
   .middleware([authMiddleware])
   .validator(advanceSchema)
   .handler(async ({ data, context }) => {
-    const { getSql } = await import("@/lib/db");
-    const sql = await getSql();
-    const current = await ownedPurchase(sql, data.reference, context.userId);
-    if (!current) throw new Error("Commande introuvable.");
-    if (["payment_verified", "delivered", "rejected", "refunded"].includes(current.status)) {
-      return toPurchase(current);
-    }
-    if (current.status === data.status) return toPurchase(current);
-
-    const expectedStatus: Record<string, PurchaseStatus> = {
-      instructions_requested: "created",
-      proof_ready: "instructions_requested",
-      verification_pending: "proof_ready",
-    };
-    if (current.status !== expectedStatus[data.status]) {
-      throw new Error("Transition de commande invalide.");
-    }
-
-    if (data.status === "verification_pending") {
-      if (!data.device) {
-        throw new Error("La demande appareil sécurisée est requise avant vérification.");
-      }
-      if (!data.proofAttached || !data.proofDigest) {
-        throw new Error("Une empreinte de preuve est requise avant vérification.");
-      }
-      if (!data.paymentReference) {
-        throw new Error("La référence de transaction Mobile Money est requise.");
-      }
-    }
-
-    const paymentReference = data.paymentReference
-      ? normalizePaymentReference(data.paymentReference)
-      : current.payment_reference;
-    const proofDigest = data.proofDigest?.toLowerCase() ?? current.proof_digest;
-    if (current.payment_reference && paymentReference !== current.payment_reference) {
-      throw new Error("La référence de paiement ne peut plus être modifiée après soumission.");
-    }
-    if (current.proof_digest && proofDigest !== current.proof_digest) {
-      throw new Error("La preuve de paiement ne peut plus être remplacée après soumission.");
-    }
-
-    const provider = current.payment_provider ?? paymentConfiguration().provider;
-    if (data.status === "verification_pending" && !provider) {
-      throw new Error("Le canal Mobile Money officiel n'est pas configuré côté serveur.");
-    }
-
-    try {
-      const updated = await sql.query<PurchaseRow>(
-        `with updated as (
-           update purchase_orders
-              set status = $3,
-                  proof_attached = proof_attached or $4,
-                  device_id = coalesce($5, device_id),
-                  device_key_id = coalesce($6, device_key_id),
-                  device_public_key = coalesce($7, device_public_key),
-                  payment_provider = coalesce(payment_provider, $8),
-                  payment_reference = coalesce(payment_reference, $9),
-                  proof_digest = coalesce(proof_digest, $10),
-                  payment_submitted_at = case
-                    when $3 = 'verification_pending' then coalesce(payment_submitted_at, now())
-                    else payment_submitted_at
-                  end,
-                  updated_at = now()
-            where reference = $1
-              and user_id = $2
-              and status = $11
-            returning *
-         ), event as (
-           insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
-           select reference,
-                  $2,
-                  status,
-                  jsonb_build_object(
-                    'proofAttached', proof_attached,
-                    'proofDigest', proof_digest,
-                    'paymentProvider', payment_provider,
-                    'paymentReference', payment_reference,
-                    'deviceBound', (device_id is not null and device_key_id is not null and device_public_key is not null)
-                  )
-             from updated
-         )
-         select * from updated`,
-        [
-          data.reference,
-          context.userId,
-          data.status,
-          Boolean(data.proofAttached),
-          data.device?.deviceId.toLowerCase() ?? null,
-          data.device?.deviceKeyId ?? null,
-          data.device?.publicKey ?? null,
-          provider,
-          paymentReference,
-          proofDigest,
-          expectedStatus[data.status],
-        ],
-      );
-      const next = updated[0];
-      if (next) return toPurchase(next);
-
-      const latest = await ownedPurchase(sql, data.reference, context.userId);
-      if (!latest) throw new Error("Commande introuvable.");
-      if (latest.status === data.status) return toPurchase(latest);
-      throw new Error("L'état de la commande a changé. Actualisez avant de continuer.");
-    } catch (error) {
-      if (duplicatePaymentEvidence(error)) {
-        throw new Error("Cette référence ou cette preuve de paiement est déjà liée à une autre commande.");
-      }
-      throw error;
-    }
+    const { createClient } = await import("@supabase/supabase-js");
+    const { mergedServerEnv, resolveSupabaseServiceKey, resolveSupabaseUrl } = await import("@/server/supabase-env.server");
+    const env = mergedServerEnv(process.env);
+    const url = resolveSupabaseUrl(env);
+    const key = resolveSupabaseServiceKey(env);
+    if (!url || !key) throw new Error("Supabase non configuré");
+    const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+    const { data: row, error } = await supabase.rpc("advance_premium_purchase_order", { p_user_id: context.userId, p_reference: data.reference, p_new_status: data.status });
+    if (error || !row) throw new Error("Commande introuvable.");
+    return toPurchase(row as PurchaseRow);
   });
 
 export const listPremiumPurchaseOrdersForAdmin = createServerFn({ method: "GET" })
