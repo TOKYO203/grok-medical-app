@@ -3681,5 +3681,335 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "PNEUMO-ASTHME-002",
+    "title": "Crise d'asthme qui ne passe plus",
+    "specialty": "Pneumologie / Urgences",
+    "studyYear": 4,
+    "difficulty": "advanced",
+    "summary": "Femme de 23 ans, crise d'asthme nocturne depuis 3 heures, parle par mots coupés, DEP à 33 % du théorique ; asthme aigu grave.",
+    "patient": {
+      "age": 23,
+      "sex": "F",
+      "context": "Étudiante à Antsirabe, asthme connu depuis l'adolescence, traitement de fond arrêté depuis 6 mois faute de renouvellement. Chat à la maison, saison sèche et poussière. Deux consultations en 3 mois pour crises."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Crise de sifflements et oppression débutée vers 2 heures du matin, ne cède pas à quatre bouffées de salbutamol pris à domicile. Elle arrive assise, penchée en avant, incapable de finir une phrase en un souffle."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "FR 32/min, FC 122/min, SpO2 91 % en air ambiant, tirage sus-claviculaire et intercostal, sifflements diffus mais silence auscultatoire à la base droite. Pas de cyanose, pas de trouble de conscience. DEP mesuré à 110 L/min, soit environ 33 % du théorique."
+      },
+      {
+        "kind": "reveal",
+        "title": "Évaluation de gravité",
+        "body": "Signes d'asthme aigu grave : impossibilité de parler en phrases complètes, DEP inférieur à 50 % du théorique, tachycardie, tirage, hypoxémie. La patiente commence à transpirer et s'agite ; aucune amélioration depuis les bronchodilatateurs inhalés à domicile."
+      },
+      {
+        "kind": "question",
+        "prompt": "La sévérité de cette crise correspond à :",
+        "choices": [
+          "Exacerbation légère : traitement à domicile et revoir demain",
+          "Asthme aigu grave : urgence de soins, bronchodilatateur nébulisé continu et mise en condition",
+          "Crise modérée : une dose de corticoïde oral suffit",
+          "Malaise anxieux : il faut la rassurer sans traitement"
+        ],
+        "correct": 1,
+        "explanation": "Parler par mots coupés, DEP inférieur à 50 % du théorique, tirage et hypoxémie : asthme aigu grave. Le retard de prise en charge expose à l'épuisement respiratoire ; cette crise se traite en structure de soins, jamais à domicile, et l'agitation peut précéder l'hypercapnie plutôt qu'être purement anxieuse."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement immédiat comprend :",
+        "choices": [
+          "Salbutamol en nébulisation continue (ou bouffées répétées avec chambre d'inhalation), ipratropium associé, corticoïde systémique dès maintenant, oxygène pour une cible SpO2 93-95 %",
+          "Bêtabloquant pour ralentir la tachycardie",
+          "Sédatif pour calmer l'agitation",
+          "Antibiotique d'emblée pour la fièvre manquante"
+        ],
+        "correct": 0,
+        "explanation": "Bronchodilatateur de courte durée en nébulisation, ipratropium ajouté dans les formes graves, corticoïde systémique sans délai (effet en quelques heures), oxygène titré. Les bêtabloquants sont contre-indiqués dans l'asthme, les sédatifs majorent l'hypercapnie et l'épuisement, l'antibiothérapie n'est pas systématique sans foyer infectieux."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si la patiente fatigue, que la SpO2 chute malgré l'oxygène et que la conscience s'altère, la conduite est :",
+        "choices": [
+          "Augmenter seulement l'oxygène et attendre",
+          "Intubation et ventilation en urgence après avis réanimation, puis transfert ; jamais de sédation sans contrôle respiratoire",
+          "La laisser repartir avec un traitement renforcé",
+          "Corticoïde seul à double dose"
+        ],
+        "correct": 1,
+        "explanation": "La fatigue progressive, la bradypnée ou l'altération de la conscience annoncent l'arrêt respiratoire : c'est l'indication d'une prise en charge en soins intensifs avec intubation anticipée par une équipe entraînée. La sédation sans assistance respiratoire est la faute classique qui tue dans l'asthme aigu grave ; le corticoïde seul agit trop lentement."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après le soulagement de la crise, la sortie ne se fait qu'avec :",
+        "choices": [
+          "Corticoïde oral 5 à 7 jours, reprise du traitement de fond avec corticoïde inhalé, plan d'action écrit et fourniture du salbutamol, éducation (technique inhalatoire, déclencheurs, signes d'alerte), contrôle à 48 heures à 1 semaine",
+          "Simple prescription de salbutamol à la demande",
+          "Arrêt de tout traitement après une crise guérie",
+          "Antibiothérapie préventive pour l'hiver"
+        ],
+        "correct": 0,
+        "explanation": "Toute crise sévère impose un corticoïde systémique de 5 à 7 jours, la reprise d'un traitement de fond contenant un corticoïde inhalé (l'arrêt du fond est la cause première des crises graves), un plan d'action écrit avec seuils DEP, l'éducation sur la technique et les déclencheurs, et un rapprochement du suivi : une crise grave non consolidée récidive dans les semaines qui suivent."
+      }
+    ],
+    "diagnosis": "Asthme aigu grave chez une jeune femme au traitement de fond interrompu : DEP à 33 % du théorique, tirage, hypoxémie, avant-bronchodilatateurs.",
+    "management": "Oxygène cible 93-95 %, salbutamol nébulisé continu ± ipratropium, corticoïde systémique immédiat, surveillance continue (DEP, SpO2, FR, conscience), sulfate de magnésium IV selon protocole dans les formes graves, avis réanimation si fatigue. Sortie uniquement après 1 heure de stabilité : corticoïde oral 5 à 7 jours, traitement de fond repris, plan d'action écrit, éducation inhalatoire, contrôle rapproché.",
+    "pitfall": "Le piège de l'agitation : dans l'asthme aigu grave, l'agitation est souvent le premier signe d'hypercapnie, pas un simple état anxieux ; la séder expose à l'arrêt respiratoire. Autre piège : le silence auscultatoire n'est pas une amélioration, c'est un signe d'obstruction extrême. Enfin, une crise qui cède ne ferme pas le dossier : sans traitement de fond ni plan d'action, la suivante est déjà programmée.",
+    "keyTakeaway": "Parole coupée + DEP inférieur à 50 % du théorique + tirage = asthme aigu grave : nébulisation continue de salbutamol, ipratropium, corticoïde systémique dès maintenant, oxygène, surveillance rapprochée, avis réa si fatigue. La sortie vaut traitement : fond repris, plan écrit, contrôle à une semaine.",
+    "related": {
+      "pathologySlugs": [
+        "asthme"
+      ],
+      "deckIds": [
+        "urgences",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "GINA",
+        "citation": "Global Strategy for Asthma Management and Prevention, GINA 2025 update — chapitre exacerbations.",
+        "organization": "Global Initiative for Asthma",
+        "year": 2025,
+        "url": "https://ginasthma.org/wp-content/uploads/2025/11/GINA-2025-Update-25_11_08-WMS.pdf",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "GINA",
+        "citation": "GINA Summary Guide 2025 — assessment of exacerbation severity and management in acute care.",
+        "organization": "Global Initiative for Asthma",
+        "year": 2025,
+        "url": "https://ginasthma.org/wp-content/uploads/2025/11/GINA-Summary-Guide-2025-WEB_FINAL-WMS.pdf",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "PNEUMO-EP-002",
+    "title": "Souffle court trois semaines après l'accouchement",
+    "specialty": "Pneumologie / Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 31 ans, trois semaines post-partum, dyspnée brutale et douleur thoracique droite ; tachycardie, signe de Homans. Embolie pulmonaire.",
+    "patient": {
+      "age": 31,
+      "sex": "F",
+      "context": "Commerçante à Fianarantsoa, accouchement il y a 3 semaines, alitement de quatre jours après une césarienne, reprise des longs trajets en taxi-brousse. Aucun antécédent de thrombose familiale connu."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis hier soir : dyspnée d'apparition brutale au repos, douleur basithoracique droite majorée à l'inspiration, palpitations. Pas de fièvre, pas de toux productive, pas d'expectoration. Elle se sent mal dès qu'elle marche quelques mètres."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 108/70, FC 118/min régulière, FR 28/min, SpO2 90 % en air ambiant. Mollet droit légèrement augmenté de volume et douloureux à la palpation. Auscultation sans foyer, pas de crépitants, turgescence jugulaire discrète. Pas de signes de choc : conscience normale, marbrures absentes."
+      },
+      {
+        "kind": "reveal",
+        "title": "Score et examens",
+        "body": "Score de Wells : 6 points (immobilisation post-opératoire, thrombose veineuse profonde clinique probable, fréquence cardiaque supérieure à 100) : probabilité forte. D-dimères 4 800 ng/mL (post-partum récent). Échographie doppler veineuse : thrombose veineuse profonde du mollet droit. Angio-TDM demandé en urgence si disponible dans la journée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Devant ce tableau, l'attitude correcte est :",
+        "choices": [
+          "Anticoagulation curative par héparine de bas poids moléculaire débutée sans attendre l'imagerie, puis confirmation par angio-TDM ou échocardiographie selon disponibilité",
+          "Attendre le résultat du scanner avant tout traitement",
+          "Prescrire seulement des D-dimères à contrôler dans une semaine",
+          "Antibiothérapie pour une pneumonie supposée"
+        ],
+        "correct": 0,
+        "explanation": "Probabilité clinique forte (Wells élevé) + signes de thrombose veineuse profonde : l'anticoagulation curative débute immédiatement, l'imagerie confirmatoire ne doit pas la retarder. Attendre le scanner en laissant la patiente non traitée expose à la récidive embolique ; les D-dimères seuls ne tranchent pas et sont non spécifiques en post-partum ; il n'y a aucun argument infectieux."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si la patiente développait dans l'heure une hypotension à 80/50 avec des marbrures et une SpO2 à 82 %, la conduite devient :",
+        "choices": [
+          "Poursuivre l'anticoagulation seule en surveillance",
+          "Embolie pulmonaire à haut risque : reperfusion urgente, thrombolyse systémique selon protocole en premier lieu si pas de contre-indication, et transfert en soins intensifs",
+          "Diurétique à forte dose pour le poumon",
+          "Arrêt de l'anticoagulation devant l'hypotension"
+        ],
+        "correct": 1,
+        "explanation": "L'instabilité hémodynamique définit l'embolie pulmonaire à haut risque : la thrombolyse systémique est indiquée en première intention en l'absence de contre-indication, associée au support hémodynamique et à l'anticoagulation poursuivie ; la désobstruction chirurgicale ou percutanée se discute si la thrombolyse est contre-indiquée. Arrêter l'anticoagulation ou se limiter à la surveillance est une perte de chance ; le diurétique ne traite pas le cœur droit défaillant."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement anticoagulant et sa durée adaptés ici :",
+        "choices": [
+          "HBPM curative relayée par anticoagulant oral pendant au moins 3 mois, avec réévaluation du risque avant tout arrêt, et contraception sans œstrogènes à l'avenir",
+          "Aspirine à dose antiagrégante pendant 1 mois",
+          "Anticoagulation pendant 5 jours puis arrêt",
+          "AVK seuls d'emblée sans relais ni surveillance"
+        ],
+        "correct": 0,
+        "explanation": "Une embolie pulmonaire sur facteur transitoire majeur (césarienne, immobilisation) justifie au moins 3 mois d'anticoagulation à dose curative, avec réévaluation avant l'arrêt. L'aspirine est insuffisante, un traitement de 5 jours expose à la récidive, et un AVK débuté seul met 5 à 7 jours à être efficace : il faut le chevauchement avec l'héparine. Les contraceptifs œstroprogestatifs sont contre-indiqués après un événement thromboembolique."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour prévenir la récidive au prochain risque thrombotique (grossesse, chirurgie, long trajet) :",
+        "choices": [
+          "Dépistage thrombophilie à discuter selon contexte, prophylaxie mécanique et pharmacologique systématique en situation à risque, information claire sur les signes d'alerte, mobilisation précoce",
+          "Aucune prévention : un épisode suffit à immuniser",
+          "Repos au lit prolongé après toute intervention",
+          "Diurétiques au long cours"
+        ],
+        "correct": 0,
+        "explanation": "Après un épisode thromboembolique veineux, toute situation à risque (grossesse et post-partum, chirurgie, alitement, voyages longs) impose une prophylaxie programmée, une mobilisation précoce et une information sur les signes d'alerte. Le bilan de thrombophilie se discute selon l'âge, les récidives et l'histoire familiale. Ni le repos prolongé ni les diurétiques ne préviennent la thrombose ; il n'existe aucune immunité acquise après un premier épisode."
+      }
+    ],
+    "diagnosis": "Embolie pulmonaire de gravité intermédiaire sur thrombose veineuse profonde du mollet droit, en post-partum récent après césarienne et immobilisation.",
+    "management": "Anticoagulation curative immédiate par HBPM (poursuite pendant la grossesse ou l'allaitement si nécessaire), confirmation par angio-TDM ou échocardiographie selon disponibilité, surveillance hémodynamique et oxygène ; en cas d'instabilité : thrombolyse systémique et soins intensifs. Relais par anticoagulant oral pour au moins 3 mois, éducation (observance, signes d'alerte, contraception sans œstrogènes), plan de prophylaxie pour toute situation à risque future, suivi à 1 et 3 mois.",
+    "pitfall": "Le piège du post-partum : l'essoufflement est attribué à l'anémie ou à la fatigue de jeune maman, alors que les six semaines qui suivent l'accouchement sont une fenêtre à haut risque thrombotique. Autre piège : attendre l'imagerie pour anticoaguler une patiente à probabilité forte ; et viser une saturation parfaite en oubliant que le danger est le ventricule droit, pas le chiffre de SpO2.",
+    "keyTakeaway": "Dyspnée brutale + tachycardie + facteurs de risque (post-partum, chirurgie, trajet long) = embolie pulmonaire : Wells haut, anticoagulation curative sans attendre l'imagerie, confirmation ensuite. Instabilité hémodynamique = haut risque : thrombolyse. Durée minimale : 3 mois, jamais d'œstrogènes ensuite.",
+    "related": {
+      "pathologySlugs": [
+        "embolie-pulmonaire"
+      ],
+      "deckIds": [
+        "cardio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ESC / ERS",
+        "citation": "Konstantinides SV et al. 2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism, European Heart Journal 2020;41:39-113.",
+        "organization": "European Society of Cardiology",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31504429/",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "ESC / ERS",
+        "citation": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism — texte intégral, European Heart Journal.",
+        "organization": "European Society of Cardiology",
+        "year": 2020,
+        "url": "https://academic.oup.com/eurheartj/article/41/4/543/5556136",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "INF-TB-002",
+    "title": "Toux qui dure depuis deux mois",
+    "specialty": "Pneumologie / Infectiologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Homme de 24 ans, toux productive, sueurs nocturnes, amaigrissement de 6 kg depuis 8 semaines ; radio : caverne apicale droite. Tuberculose pulmonaire.",
+    "patient": {
+      "age": 24,
+      "sex": "M",
+      "context": "Vendeur ambulant à Antananarivo, vit dans un logement partagé avec cinq personnes, tabagisme occasionnel, jamais de test VIH. Un cousin traité pour tuberculose il y a deux ans."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Toux productive depuis 8 semaines, avec crachats parfois striés de sang depuis deux semaines, sueurs nocturnes trempant le linge, amaigrissement de 6 kg, fatigue majeure et fièvre vespérale. Deux cycles d'antibiotiques banals sans amélioration."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Patient amaigri, pâle. T 37,9 °C le matin, TA 110/68, FC 96/min, FR 20/min, SpO2 95 %. Matité et souffle tubaire au sommet droit, râles crêpitants. Pas d'adénopathies périphériques, pas de lésion cutanée."
+      },
+      {
+        "kind": "reveal",
+        "title": "Imagerie et examens",
+        "body": "Radiographie thoracique : caverne apicale droite avec infiltrats du lobe supérieur, image en foyers disséminés du même côté. Examen microscopique des crachats : positif (2+). Test VIH proposé, résultat en attente. Glycémie normale."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Pneumonie bactérienne récidivante",
+          "Tuberculose pulmonaire à microscopie positive, forme contagieuse",
+          "Cancer bronchique chez un sujet jeune",
+          "Asthme chronique toucheux"
+        ],
+        "correct": 1,
+        "explanation": "Toux de plus de 2 semaines + sueurs nocturnes + amaigrissement + caverne apicale et foyers du lobe supérieur + crachats positifs à l'examen microscopique : tuberculose pulmonaire bacillifère. La pneumonie ne dure pas 8 semaines malgré deux antibiotiques ; le cancer est rare à cet âge et sans tabagisme lourd ; l'asthme n'amaigrit pas et ne donne pas de caverne."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de première ligne est :",
+        "choices": [
+          "Quadrithérapie HRZE (isoniazide, rifampicine, pyrazinamide, éthambutol) pendant 2 mois, puis bithérapie HR pendant 4 mois, avec observance garantie",
+          "Amoxicilline 10 jours",
+          "Quadrithérapie pendant 2 semaines seulement",
+          "Corticoïdes seuls pour l'inflammation"
+        ],
+        "correct": 0,
+        "explanation": "Le schéma standard de la tuberculose pulmon sensible associe quatre antituberculeux pendant la phase intensive de 2 mois, puis isoniazide et rifampicine pendant 4 mois. Un traitement trop court expose à la rechute et à la résistance ; un antibiotique banal est inefficace contre M. tuberculosis ; les corticoïdes seuls sont délétères. L'observance est le premier facteur de guérison, d'où le soutien systématique à la prise des médicaments."
+      },
+      {
+        "kind": "question",
+        "prompt": "Avant et pendant le traitement, les mesures obligatoires sont :",
+        "choices": [
+          "Test VIH systématique, dépistage des symptômes et de la radio chez les cinq contacts du logement, déclaration du cas, éducation sur la couverture buccale en toussant, surveillance clinique mensuelle",
+          "Isolement carcéral du patient jusqu'à la guérison",
+          "Recherche des seuls cas dans la rue, pas dans le logement",
+          "Aucune mesure : le traitement du cas suffit"
+        ],
+        "correct": 0,
+        "explanation": "Une tuberculose bacillifère impose le test VIH (condition du pronostic et du schéma), l'enquête autour des contacts du même toit (femme, enfants, cousin déjà traité), la déclaration et l'éducation à la toux et à la ventilation. L'isolement social ou carcéral est inefficace et discriminant ; la contagiosité chute très vite sous traitement bien conduit ; ne traiter que le cas laisse les infections latentes devenir les futurs cas."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le suivi du traitement comprend :",
+        "choices": [
+          "Contrôle des crachats en fin de phase intensive et en fin de traitement, surveillance de l'observance et des effets indésirables (urines orangées sous rifampicine, troubles visuels sous éthambutol, icitère), recherche systématique de l'interruption",
+          "Contrôle uniquement par la radio à 1 mois",
+          "Arrêt du traitement dès la disparition de la toux",
+          "Changement de médicaments dès la première plainte"
+        ],
+        "correct": 0,
+        "explanation": "La guérison se documente par la négativation des crachats aux moments prévus ; la toux peut disparaître avant la guérison bacillaire et arrêter tôt fabrique des résistances. Les effets indésirables s'anticipent : urines orange-rouges bénignes sous rifampicine (à annoncer), cytolyse hépatique à surveiller, neuropathie optique sous éthambutol. Toute interruption se cherche activement : coût, distance, effet indésirable, perception de guérison."
+      }
+    ],
+    "diagnosis": "Tuberculose pulmonaire à microscopie positive, caverne apicale droite, forme bacillifère contagieuse, chez un sujet jeune à contage familial probable, statut VIH en attente.",
+    "management": "Quadrithérapie HRZE 2 mois puis HR 4 mois avec observance assistée, test VIH et dépistage des affections associées, enquête autour des contacts du logement et traitement des infections latentes selon protocole national, déclaration, éducation (toux, ventilation, nutrition), contrôles bactériologiques en fin de phase intensive et de traitement, surveillance des effets indésirables, suivi nutritionnel et recherche active de l'interruption.",
+    "pitfall": "Le piège des deux antibiotiques banals : une toux qui dépasse deux semaines en zone d'endémie est une tuberculose jusqu'à preuve du contraire, pas une bronchite récalcitrante. Autre piège : laisser partir le patient bacillifère sans enquête autour de lui : les cinq personnes du logement sont les futurs cas. Enfin, l'amélioration clinique rapide ne rime pas avec guérison : seul le contrôle bactériologique clôt le traitement.",
+    "keyTakeaway": "Toux de plus de 2 semaines + sueurs nocturnes + amaigrissement + caverne apicale = tuberculose pulmonaire : crachats au microscope, HRZE 2 mois puis HR 4 mois, test VIH, déclaration et enquête contacts. La contagiosité tombe vite sous traitement ; l'observance, jamais, ne se laisse au hasard.",
+    "related": {
+      "pathologySlugs": [
+        "tuberculose"
+      ],
+      "deckIds": [
+        "infectio",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO consolidated guidelines on tuberculosis, module 4 : treatment — drug-susceptible tuberculosis treatment, Genève 2022 (mise à jour).",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2022,
+        "url": "https://www.who.int/publications/i/item/9789240048126",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "ATS / CDC / ERS / IDSA",
+        "citation": "Clinical Practice Guideline Update on the Treatment of Drug-Susceptible and Drug-Resistant Tuberculosis, 2025.",
+        "organization": "American Thoracic Society / CDC",
+        "year": 2025,
+        "url": "https://www.idsociety.org/practice-guideline/treatment-of-drug-susceptible-tb/treatment-of-drug-resistant-and-drug-susceptible-tb-2025-update/",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
   }
 ]
