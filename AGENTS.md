@@ -705,3 +705,16 @@ Ces règles s'ajoutent aux règles médicales générales et les renforcent pour
 6. **Script obligatoire** avant PR : `npm run content:check`. PR bloquée si rouge.
 
 7. **Relecture humaine finale** : aucun contenu publié sans médecin/interne senior.
+
+## AUDIT IA DU CONTENU MEDICAL
+
+Protocole : docs/MEDICAL-AUDIT-PROTOCOL.md
+Log : docs/MEDICAL-AUDIT-LOG.md
+
+Regles :
+1. Prioriser via scripts/content-risk-audit.mjs
+2. 1 fiche = 1 audit
+3. Documenter dans MEDICAL-AUDIT-LOG.md
+4. Signaler UNVERIFIABLE
+5. Jamais publier sans relecture humaine
+6. Jamais PASS sans verifier les 5 axes
