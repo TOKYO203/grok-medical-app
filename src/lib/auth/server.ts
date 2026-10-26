@@ -61,8 +61,14 @@ void ensureDbReady();
 const globalAuthRef = globalThis as typeof globalThis & {
   __grokAuthPreviewSecret__?: string;
 };
-function previewAuthSecret(): string {
-  globalAuthRef.__grokAuthPreviewSecret__ ??= randomBytes(32).toString("hex");
+
+// ⚠️ Cloudflare Workers interdit la génération de valeurs aléatoires au
+// chargement du module (global scope). On génère donc le secret lazy, à la
+// première utilisation réelle.
+function getPreviewSecret(): string {
+  if (!globalAuthRef.__grokAuthPreviewSecret__) {
+    globalAuthRef.__grokAuthPreviewSecret__ = randomBytes(32).toString("hex");
+  }
   return globalAuthRef.__grokAuthPreviewSecret__;
 }
 
