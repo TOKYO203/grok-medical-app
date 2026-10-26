@@ -3151,7 +3151,7 @@
     "specialty": "Infectiologie / Réanimation",
     "studyYear": 5,
     "difficulty": "advanced",
-    "summary": "Paysan de 45 ans, plaure puncture du pied il y a 10 jours, difficulté à ouvrir la bouche, raideur, spasmes déclenchés par le bruit.",
+    "summary": "Paysan de 45 ans, plaie puncture du pied il y a 10 jours, difficulté à ouvrir la bouche, raideur, spasmes déclenchés par le bruit.",
     "patient": {
       "age": 45,
       "sex": "M",
@@ -3166,7 +3166,7 @@
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "Trismus franc (ouverture buccale à deux travers de doigt), risus sardonicus, nuque raide sans autre signe méningé, contracture des muscles paravertébraux. Pas de fièvre (37,6 °C). Plaie plantaire droite de 8 mm, propre en apparence, légèrement indurée. Spasmes reproduits au brusquement de la lampe. Glasgow normal entre les spasmes."
+        "body": "Trismus franc (ouverture buccale à deux travers de doigt), risus sardonicus, nuque raide sans autre signe méningé, contracture des muscles paravertébraux. Pas de fièvre (37,6 °C). Plaie plantaire droite de 8 mm, propre en apparence, légèrement indurée. Spasmes reproduits au bruit violent de la lampe. Glasgow normal entre les spasmes."
       },
       {
         "kind": "reveal",
@@ -3177,7 +3177,7 @@
         "kind": "question",
         "prompt": "Le diagnostic le plus cohérent est :",
         "choices": [
-          "Tétanos généralisé sur plaure puncture souillée, sujet non vacciné",
+          "Tétanos généralisé sur plaie puncture souillée, sujet non vacciné",
           "Méningite bactérienne",
           "Abcès dentaire avec trismus réflexe",
           "Rage à phase spasmodique"
@@ -3189,7 +3189,7 @@
         "kind": "question",
         "prompt": "La prise en charge comprend en priorité :",
         "choices": [
-          "Sérothérapie antitétanique, metronidazole (ou pénicilline), nettoyage-débeshes de la plaie, environnement calme et lumière tamisée, sédation et curarisation-ventilation en soins intensifs si spasmes menaçants",
+          "Sérothérapie antitétanique, metronidazole (ou pénicilline), nettoyage et désinfection de la plaie, environnement calme et lumière tamisée, sédation et curarisation-ventilation en soins intensifs si spasmes menaçants",
           "Antalgiques seuls à domicile",
           "Antibiothérapie orale sans sérothérapie",
           "Extraction dentaire en urgence"
@@ -3222,9 +3222,9 @@
         "explanation": "La mort survient par asphyxie lors des spasmes laryngés ou respiratoires, par inhalation, ou par complications de décubitus et dysautonomie : l'issue dépend de la qualité de la prise en charge en soins intensifs, pas de la plaie — une microplaie refermée peut tuer. Il n'existe pas d'antibiogramme utile : la toxine fait les dégâts, non le germe."
       }
     ],
-    "diagnosis": "Tétanos généralisé de gravité modérée à sévère, secondaire à une plaure puncture plantaire souillée (porte d'entrée de 10 jours), chez un patient non vacciné, avec risque de spasmes laryngés.",
+    "diagnosis": "Tétanos généralisé de gravité modérée à sévère, secondaire à une plaie puncture plantaire souillée (porte d'entrée de 10 jours), chez un patient non vacciné, avec risque de spasmes laryngés.",
     "management": "Hospitalisation en soins intensifs ou unité calme et sombre : immunoglobulines antitétaniques, métronidazole, parage de la plaie, benzodiazépines titrées, curarisation-ventilation si spasmes respiratoires, prévention des complications de décubitus, nutrition, surveillance cardio-respiratoire. Après guérison : vaccination complète du patient, vérification de la couverture vaccinale familiale, éducation sur la prise en charge des plaies en milieu rural, signalement dans le cadre de la surveillance.",
-    "pitfall": "Le piège de la plaie anodine : une plaure puncture refermée, souillée de terre, chez un non-vacciné, peut tuer dix jours plus tard. Autre piège : réserver la sérothérapie aux formes graves, alors qu'elle doit être administrée à tous les cas dès le diagnostic. Enfin, dire au patient « vous êtes immunisé maintenant » est faux : il doit être vacciné après guérison.",
+    "pitfall": "Le piège de la plaie anodine : une plaie puncture refermée, souillée de terre, chez un non-vacciné, peut tuer dix jours plus tard. Autre piège : réserver la sérothérapie aux formes graves, alors qu'elle doit être administrée à tous les cas dès le diagnostic. Enfin, dire au patient « vous êtes immunisé maintenant » est faux : il doit être vacciné après guérison.",
     "keyTakeaway": "Trismus + risus sardonicus + spasmes au stimulus après plaie souillée = tétanos : sérothérapie + métronidazole + parage + environnement calme, soins intensifs si spasmes. L'infection n'immunise pas : vacciner le guéri. Toute plaie souillée = statut vaccinal à vérifier.",
     "related": {
       "deckIds": [
@@ -3269,7 +3269,7 @@
       {
         "kind": "reveal",
         "title": "Examen",
-        "body": "T 37,2 °C, état général conservé, calmes plaies puncture de la jambe droite, induration péri-lésionnelle modérée, pas de pus, pas de lymphangite. Aucun signe neurologique. Vaccinations de l'enfant à jour selon le carnet, mais jamais exposé à la rage auparavant."
+        "body": "T 37,2 °C, état général conservé, deux plaies puncture calmes de la jambe droite, induration péri-lésionnelle modérée, pas de pus, pas de lymphangite. Aucun signe neurologique. Vaccinations de l'enfant à jour selon le carnet, mais jamais exposé à la rage auparavant."
       },
       {
         "kind": "reveal",
@@ -3347,6 +3347,337 @@
         "citation": "WHO — Guide for rabies pre and post-exposure prophylaxis in humans, mise à jour 2018.",
         "organization": "OMS",
         "year": 2018
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "TROP-PALU-002",
+    "title": "Enfant fiévreux qui ne se réveille plus",
+    "specialty": "Pédiatrie / Infectiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Garçon de 5 ans, fièvre depuis 3 jours, convulsion puis coma au retour de la côte Est ; TDR paludisme positif.",
+    "patient": {
+      "age": 5,
+      "sex": "M",
+      "context": "Vit à Toamasina dans un quartier périurbain, moustiquaire déchirée. Fièvre traitée à domicile par un antipyrétique et une tisane, sans consultation. Pas de vaccination particulière, pas d'antécédent."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fièvre depuis 3 jours avec vomissements, puis ce matin : convulsion généralisée d'une minute suivie d'un sommeil anormal dont l'enfant ne sort pas. La mère l'amène en urgence. Il n'a pas bu depuis 12 heures."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Coma : ne répond pas à la voix, ouvre les yeux à la douleur (score de Blantyre 1/5), opisthotonos modéré, nuque raide. T 39,5 °C, TA 84/48, FC 150, FR 36, SpO2 94 %. Pâleur conjonctivale franche, rate palpable 2 cm. Pas de purpura. Glycémie capillaire 0,42 g/L."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "TDR paludisme positif à P. falciparum. Hb 6,2 g/dL, plaquettes 34 G/L, glycémie confirmée basse, créatinine 68 µmol/L. Pas de ponction lombaire encore réalisée. Goutte épaisse demandée et en cours."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le coma fébrile chez cet enfant de zone d'endémie correspond d'abord à :",
+        "choices": [
+          "Paludisme grave cérébral (critères OMS : coma, convulsions, hypoglycémie, anémie sévère) à traiter comme tel sans attendre",
+          "Méningite bactérienne, le paludisme étant une coïncidence de surface",
+          "Encéphalite virale isolée",
+          "Convulsion fébrile simple compliquée d'un sommeil postcritique"
+        ],
+        "correct": 0,
+        "explanation": "TDR positif + coma + convulsion + hypoglycémie (0,42 g/L, critère OMS de gravité) + anémie sévère : paludisme grave, le coma palustre est défini par un score de Blantyre ≤ 2 chez l'enfant. La méningite reste une différentielle à écarter, mais ne doit pas retarder le traitement antipaludique parentéral : les deux urgences (artésunate et bilan méningé si le tableau est ambigu) se mènent en parallèle. Une convulsion fébrile simple ne laisse pas un coma prolongé avec hypoglycémie et anémie profonde."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement antipaludique de première intention est :",
+        "choices": [
+          "Artésunate par voie intraveineuse (ou intramusculaire si IV impossible) dès maintenant, suivi d'une combinaison thérapeutique à base d'artémisinine après au moins 24 h et reprise de l'alimentation",
+          "Quinine orale par sonde nasogastrique",
+          "Combinaison orale CTA immédiate",
+          "Chloroquine intramusculaire"
+        ],
+        "correct": 0,
+        "explanation": "Tout paludisme grave, y compris cérébral, reçoit de l'artésunate parentéral en première ligne (préférable à la quinine IV sur la mortalité, essais SEAQUAMAT et AQUAMAT), avec relais par CTA orale après au moins 24 heures d'artésunate et amélioration. La voie orale est exclue dans le coma ; la chloroquine n'a plus aucune place à P. falciparum."
+      },
+      {
+        "kind": "question",
+        "prompt": "Les mesures simultanées indispensables dans l'heure comprennent :",
+        "choices": [
+          "Resucrage immédiat de l'hypoglycémie, oxygène, contrôle de la fièvre, position latérale, surveillance glycémique horaire, et recherche de l'anémie menaçante (transfusion si Hb < 5 g/dL ou défaillance)",
+          "Remplissage massif systématique à haute pression",
+          "Corticoïdes à forte dose pour l'œdème cérébral",
+          "Sédation profonde pour éviter les convulsions"
+        ],
+        "correct": 0,
+        "explanation": "L'hypoglycémie est à la fois un critère de gravité et une cause d'aggravation : resucrage immédiat puis surveillance horaire, car elle récidive sous artésunate. L'anémie sévère (Hb < 5 g/dL ou avec signes de défaillance) impose la transfusion. Le remplissage systématique majore l'œdème cérébral et l'œdème pulmonaire, les corticoïdes et la sédation profonde n'ont pas de place démontrée et masquent l'évolution neurologique."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après guérison, la mesure de prévention la plus importante à ce foyer est :",
+        "choices": [
+          "Moustiquaire imprégnée d'insecticide intacte pour toute la famille, avec recherche rapide de tout épisode fébrile et consultation précoce",
+          "Antibioprophylaxie mensuelle pour les enfants du foyer",
+          "Chimioprophylaxie palustre pour les habitants de Toamasina",
+          "Pulvérisation de smoke domestique et rien d'autre"
+        ],
+        "correct": 0,
+        "explanation": "La prévention du paludisme à Madagascar repose sur la moustiquaire imprégnée d'insecticide à longue durée (campagne nationale de distribution) et le traitement précoce de toute fièvre : c'est le retard de consultation qui transforme un paludisme simple en coma. La chimioprophylaxie n'est pas indiquée pour les résidents en zone d'endémie ; les répulsifs et vêtements couvrants le soir complètent l'arsenal."
+      }
+    ],
+    "diagnosis": "Paludisme grave à P. falciparum chez un enfant de 5 ans : coma (Blantyre 1), convulsion, hypoglycémie à 0,42 g/L et anémie sévère, à Toamasina.",
+    "management": "Artésunate IV immédiat (relais CTA orale après au moins 24 heures et reprise alimentaire), resucrage et surveillance glycémique horaire, contrôle thermique, oxygène, position latérale et surveillance neurologique rapprochée, transfusion selon protocole pour l'anémie sévère, hydratation prudente sans surcharge, ponction lombaire à réévaluer si l'évolution est atypique, déclaration du cas, et éducation de la mère : moustiquaire imprégnée intacte, consultation immédiate pour toute fièvre.",
+    "pitfall": "Le piège du sommeil postcritique : un enfant qui ne se réveille pas après une convulsion fébrile en zone d'endémie est un paludisme grave jusqu'à preuve du contraire — attendre est la seule faute qui ne se rattrape pas. Autre piège : l'hypoglycémie récidivante sous artésunate, qui agite le coma alors même que le parasite disparaît.",
+    "keyTakeaway": "Enfant + fièvre + coma + TDR positif = paludisme grave : artésunate IV d'emblée, resucrer l'hypoglycémie et la surveiller toutes les heures, transfuser l'anémie menaçante, hydratation prudente. Le relais CTA ne se prend qu'après au moins 24 heures et reprise de l'alimentation.",
+    "related": {
+      "pathologySlugs": [
+        "paludisme"
+      ],
+      "deckIds": [
+        "tropical",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO guidelines for malaria, édition consolidée, mise à jour 2025 — traitement du paludisme grave.",
+        "organization": "OMS",
+        "year": 2025,
+        "url": "https://www.who.int/publications/i/item/guidelines-for-malaria",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "Lancet / AQUAMAT",
+        "citation": "Dondorp AM et al. Artesunate versus quinine in the treatment of severe falciparum malaria in African children (AQUAMAT), Lancet 2010;376:1647-57.",
+        "organization": "Lancet",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21047850/",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "PNEUMO-BPCO-002",
+    "title": "Crachats verts et souffle de plus en plus court",
+    "specialty": "Pneumologie / Urgences",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Homme de 66 ans, BPCO tabagique, exacerbation avec crachats purulents et dyspnée de repos, SpO2 88 %.",
+    "patient": {
+      "age": 66,
+      "sex": "M",
+      "context": "Retraité à Antananarivo, ancien briquetier, tabac 45 paquets-années, toujours 5 cigarettes par jour. BPCO connue depuis 4 ans, inhalateurs pris « quand ça coince », pas de vaccination antigrippale ni antipneumococcique. Deux exacerbations l'an dernier, aucune hospitalisation."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 4 jours : toux accrue, crachats passés du blanc clair au vert épais, essoufflement au moindre effort puis au repos depuis hier. N'a pas dormi la nuit dernière, obligé de dormir assis. Pas de douleur thoracique, pas de fièvre élevée mesurée."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 37,9 °C, TA 138/78, FC 104, FR 28, SpO2 88 % en air ambiant. Distension thoracique, temps expiratoire allongé, sibilants diffus, ronchis. Pas d'œdème, pas de turgescence jugulaire. Auscultation cardiaque normale. Expulsion des crachats verdâtres pendant l'examen."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Gaz du sang en air ambiant : pH 7,36, PaO2 56 mmHg, PaCO2 46 mmHg, bicarbonates 27 mmol/L (compensation débutante). Radiographie thoracique : distension, pas de foyer franc, pas de pneumothorax. ECG : rythme sinusal. Le VEMS récent est inconnu, exacerbations antérieures ambulatoires."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Exacerbation aiguë de BPCO (augmentation de la dyspnée, du volume et de la purulence des crachats) probablement d'origine infectieuse",
+          "Pneumonie franche lobaire aiguë",
+          "Insuffisance cardiaque gauche décompensée",
+          "Embolie pulmonaire de haut risque"
+        ],
+        "correct": 0,
+        "explanation": "La triade d'Anthonisen réunit ici les trois critères (dyspnée majorée, volume accru, purulence), ce qui prédit le bénéfice de l'antibiothérapie. Pas de foyer alvéolaire sur la radio (contre la pneumonie), pas de crépitants ni de surcharge (contre l'OAP), pas de signes d'embolie et une SpO2 cohérente avec une exacerbation connue de BPCO — le diagnostic d'exacerbation reste clinique, la radio servant à écarter les diagnostics différentiels."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge immédiate comprend :",
+        "choices": [
+          "Bronchodilatateurs de courte durée d'action (salbutamol ± ipratropium) en nébulisation, corticoïde oral 5 jours, oxygène avec cible de SpO2 88-92 %, et antibiothérapie car purulence franche",
+          "Oxygène au masque à haute concentration pour viser une SpO2 à 100 %",
+          "Corticoïdes IV à forte dose pendant 2 semaines",
+          "Attente de la culture des crachats avant tout antibiotique"
+        ],
+        "correct": 0,
+        "explanation": "Bronchodilatateurs courts, corticoïde systémique 5 jours (GOLD : prednisolone 40 mg/j), oxygène titré avec une cible 88-92 % pour éviter l'hypercapnie d'aggravation, et antibiotique devant la purulence (amoxicilline ou macrolide selon le contexte local, 5 à 7 jours). Viser une saturation normale avec un débit d'oxygène élevé est l'erreur classique qui fait monter la PaCO2 ; la culture des expectorations ne guide pas la décision initiale."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si le patient s'aggravait dans les heures suivantes avec un coma et un pH à 7,25, la mesure salvatrice serait :",
+        "choices": [
+          "Ventilation non invasive (VNI) avec pression positive, en réanimation ou soins intensifs, associée au traitement médical maximal",
+          "Intubation immédiate systématique",
+          "Sédatifs forts pour diminuer la polypnée",
+          "Diurétiques à forte dose"
+        ],
+        "correct": 0,
+        "explanation": "L'acidose respiratoire (pH < 7,35) avec défaillance respiratoire aiguë relève de la VNI en première intention dans l'exacerbation de BPCO : elle réduit la mortalité, le taux d'intubation et la durée d'hospitalisation. L'intubation devient nécessaire si la VNI échoue ou si le patient est trop conscient-inconscient pour la tolérer (coma profond, troubles de déglutition, instabilité). Sédatifs et diurétiques aggraveraient l'hypercapnie et l'hypoxémie."
+      },
+      {
+        "kind": "question",
+        "prompt": "À distance de cette exacerbation, les mesures qui diminuent le risque de la suivante sont :",
+        "choices": [
+          "Arrêt du tabac avec accompagnement, vaccination antigrippale et antipneumococcique, réhabilitation respiratoire, observance du traitement de fond et plan d'action écrit",
+          "Antibiotique à faible dose en continu",
+          "Corticoïdes oraux au long cours",
+          "Simple augmentation des nébulisations à domicile"
+        ],
+        "correct": 0,
+        "explanation": "Le sevrage tabagique est la seule mesure qui modifie l'histoire naturelle de la BPCO ; les vaccins antigrippal et antipneumococcique et la réhabilitation respiratoire réduisent les exacerbations et les hospitalisations ; le traitement de fond régulier (et non « quand ça coince ») et un plan d'action écrit pour reconnaître tôt la prochaine exacerbation complètent la prévention. L'antibiothérapie continue sélectionne des résistances, les corticoïdes oraux au long cours ont une mortalité propre, et les nébulisations à domicile sans plan sont un trompe-l'œil."
+      }
+    ],
+    "diagnosis": "Exacerbation aiguë de BPCO à phénotype bronchitique (3 critères d'Anthonisen), hypoxémique avec hypercapnie compensée, sur terrain tabagique non vacciné et traitement de fond irrégulier.",
+    "management": "Bronchodilatateurs de courte durée en nébulisations rapprochées, corticoïde oral 5 jours, antibiothérapie 5 à 7 jours devant la purulence (amoxicilline ou alternative selon le protocole local), oxygène titré cible SpO2 88-92 %, surveillance clinique et gazométrique, VNI si acidose respiratoire. À distance : arrêt du tabac accompagné, vaccins antigrippal et antipneumococcique, réhabilitation respiratoire, traitement de fond régulier et plan d'action écrit, suivi pneumologique avec évaluation du VEMS.",
+    "pitfall": "Le piège de l'oxygène « à fond » : chez le BPCO hypercapnique, viser une saturation normale au masque à haute concentration fait grimper la PaCO2 jusqu'au coma — la cible est 88-92 %, pas la perfection. Autre piège : traiter l'exacerbation sans toucher au fond (tabac, vaccins, observance), c'est programmer la récidive qui finira en réanimation.",
+    "keyTakeaway": "Dyspnée + crachats purulents + toux chez un BPCO = exacerbation : bronchodilatateurs courts, corticoïde 5 jours, antibiotique si purulence, oxygène cible 88-92 %, VNI si pH < 7,35. À distance : sevrage tabagique, vaccins, réhabilitation et plan d'action écrit.",
+    "related": {
+      "pathologySlugs": [
+        "bpco",
+        "bronchites-pneumo"
+      ],
+      "deckIds": [
+        "semio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "GOLD",
+        "citation": "GOLD 2024 Report — Global Strategy for the Diagnosis, Management and Prevention of COPD, chapitre exacerbations.",
+        "organization": "Global Initiative for Chronic Obstructive Lung Disease",
+        "year": 2024,
+        "url": "https://goldcopd.org/2024-gold-report/",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Chronic obstructive pulmonary disease (COPD), fiche d'information.",
+        "organization": "OMS",
+        "year": 2024,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/chronic-obstructive-pulmonary-disease-(copd)",
+        "verifiedAt": "2026-10-26"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "HEPATO-CIRRHOSE-002",
+    "title": "Vomissement de sang chez un buveur",
+    "specialty": "Hépatologie / Urgences",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 52 ans, cirrhose alcoolique connue, hématémèse massive et malaise ; choc hémorragique.",
+    "patient": {
+      "age": 52,
+      "sex": "M",
+      "context": "Pêcheur à Toliara, cirrhose alcoolique diagnostiquée il y a 2 ans après une première décompensation œdémato-ascitique, sevrage jamais obtenu, suivi interrompu. Aucune endoscopie de surveillance connue, pas de bêtabloquant."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Il y a une heure : premier vomissement de sang rouge abondant, environ un bol, puis malaise, sueurs et sensation de mort imminente. Deux nouveaux vomissements hématiques en route vers l'hôpital. Pas de prise d'anti-inflammatoires ni d'aspirine, pas de traumatisme."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Pâleur intense, marbrures des genoux, TA 76/44 couché, impérable debout, FC 128 filant, FR 26, SpO2 97 %, Glasgow 14 confus. Ictère cutanéo-muqueux modéré, circulation collatérale abdominale, ascite discrète, flapping tremblement des mains tendues. T 37,8 °C."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Hb 7,8 g/dL (en cours de chute, groupe ABO réalisé, 2 culots commandés), plaquettes 88 G/L, TP 48 %, créatinine 132 µmol/L, INR 1,9, lactates élevés. Échographie au lit : foie dysmorphique, ascite modérée, flux porte hépatopète, pas de thrombose. Pas encore d'endoscopie réalisable sur place dans l'heure."
+      },
+      {
+        "kind": "question",
+        "prompt": "La première action correcte est :",
+        "choices": [
+          "Remplissage prudent par cristalloïdes et gestion transfusionnelle par culots globulaires (cible Hb 7-8 g/dL), correction ciblée de la coagulation, et préparation immédiate de l'endoscopie",
+          "Remplissage massif par cristalloïdes jusqu'à normaliser la tension",
+          "Transfusion visant une Hb à 12 g/dL",
+          "Attendre l'endoscopie avant tout traitement"
+        ],
+        "correct": 0,
+        "explanation": "Hémorragie digestive sur cirrhose : remplissage prudent (l'hyperremplissage augmente la pression portale et rallume le saignement), cible transfusionnelle restrictive Hb 7-8 g/dL (transfuser au-dessus élève la pression portale et la récidive), correction ciblée des troubles (fibrinogène, plasma selon bilan), et surtout ne pas retarder l'endoscopie diagnostique et hémostatique. L'attentisme devant un choc hémorragique est la faute majeure."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement vasoconstricteur à débuter sans attendre l'endoscopie est :",
+        "choices": [
+          "Terlipressine IV (ou somatostatine/octréotide selon disponibilité), associée à une antibioprophylaxie par céphalosporine de 3e génération type ceftriaxone",
+          "Anticoagulation curative pour le flux porte ralenti",
+          "AINS pour l'œdème, prednisone pour le flapping",
+          "Aucun traitement avant l'endoscopie"
+        ],
+        "correct": 0,
+        "explanation": "Les vasoconstricteurs splanchniques (terlipressine en première intention, ou analogue de la somatostatine) réduisent la pression portale et le saignement et doivent être débutés dès la suspicion, avant l'endoscopie. L'antibioprophylaxie par ceftriaxone (7 jours max) réduit l'infection, la récidive hémorragique et la mortalité — recommandée chez tout cirrhotique qui saigne, même sans ascite cliniquement évidente. L'anticoagulation serait une catastrophe hémorragique ; les AINS aggravent tout."
+      },
+      {
+        "kind": "question",
+        "prompt": "À l'endoscopie (disponible à 3 heures), on trouve des varices œsophagiennes grade II avec saignement actif. Le geste hémostatique de référence est :",
+        "choices": [
+          "Ligature élastique des varices (banding) pendant l'endoscopie, à répéter selon le protocole d'éradication",
+          "Injection de sclérosant seul comme traitement définitif",
+          "Sonde de Blackmore laissée en place plusieurs jours",
+          "Chirurgie de dérivation portale en urgence"
+        ],
+        "correct": 0,
+        "explanation": "La ligature élastique endoscopique est le traitement hémostatique de référence du saignement variqueux œsophagien (supérieure à la sclérothérapie), complétée par la prophylaxie secondaire (bêtabloquant non cardiosélectif ± ligatures itératives pour éradiquer les varices). La sonde de Blackmore n'est qu'un pont de sauvetage temporaire si l'endoscopie est impossible ; la chirurgie de dérivation n'a plus d'indication en urgence en 2024."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après hémostase, le contrôle du saignement passe aussi par :",
+        "choices": [
+          "Poursuite du vasoconstricteur 2 à 5 jours, antibioprophylaxie complète, prévention secondaire par bêtabloquant non cardiosélectif et programme de ligatures, soutien au sevrage alcoolique et surveillance de l'encéphalopathie",
+          "Arrêt de tout traitement une fois le saignement stoppé",
+          "Antiagrégant plaquettaire pour prévenir la thrombose porte",
+          "Alimentation orale libre dès le lendemain sans surveillance"
+        ],
+        "correct": 0,
+        "explanation": "La récidive précoce est fréquente dans les 5 premiers jours : le vasoconstricteur se poursuit, l'antibioprophylaxie se termine, et la prophylaxie secondaire (bêtabloquant ± ligatures itératives) réduit durablement la récidive. Le sevrage alcoolique, avec ou sans aide pharmacologique et social, est le seul traitement étiologique. Un antiagrégant après rupture variqueuse augmenterait le risque de resaignement ; la reprise alimentaire est prudente sous surveillance de l'encéphalopathie."
+      }
+    ],
+    "diagnosis": "Rupture de varices œsophagiennes sur cirrhose alcoolique (hypertension portale) avec choc hémorragique, à haut risque de récidive précoce, sur terrain de sevrage non obtenu.",
+    "management": "Deux voies veineuses, remplissage prudent, transfusion cible Hb 7-8 g/dL, terlipressine IV dès la suspicion, antibioprophylaxie par ceftriaxone 7 jours, correction ciblée de l'hémostase, endoscopie avec ligature élastique dès stabilisation, poursuite du vasoconstricteur 2 à 5 jours, prévention secondaire par bêtabloquant non cardiosélectif et programme d'éradication des varices, prise en charge du sevrage alcoolique avec accompagnement social, surveillance de l'encéphalopathie et du bilan hépatique, suivi hépatologique régulier.",
+    "pitfall": "Le piège de la sur-transfusion : remplir et transfuser massivement un cirrhotique qui saigne augmente la pression portale et rallume l'hémorragie — la cible est Hb 7-8 g/dL, pas la normale du manuel. Autre piège : oublier la ceftriaxone, qui réduit la mortalité autant que les traitements endoscopiques dans les essais ; et traiter la varice sans traiter l'alcool, c'est recoller un bouchon sur une conduite percée.",
+    "keyTakeaway": "Hématémèse + choc + stigmates d'hypertension portale = rupture variqueuse : remplissage prudent, Hb 7-8 g/dL, terlipressine + ceftriaxone dès la suspicion, endoscopie avec ligature dès stabilisation, prophylaxie secondaire (bêtabloquant + ligatures) et sevrage. La sur-correction tensionnelle et la sur-transfusion sont les deux erreurs qui tuent.",
+    "related": {
+      "pathologySlugs": [
+        "cirrhose-alcoolique"
+      ],
+      "deckIds": [
+        "urgences",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "Baveno VII",
+        "citation": "de Franchis R et al. Baveno VII — Renewing consensus in portal hypertension, Journal of Hepatology 2022;67:353-64 (PMID 35120736).",
+        "organization": "Baveno Cooperation",
+        "year": 2022,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35120736/",
+        "verifiedAt": "2026-10-26"
+      },
+      {
+        "title": "EASL",
+        "citation": "EASL Clinical Practice Guidelines for decompensated cirrhosis, Journal of Hepatology 2018;69:406-60.",
+        "organization": "EASL",
+        "year": 2018,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29653741/",
+        "verifiedAt": "2026-10-26"
       }
     ],
     "access": "pro"
