@@ -5,7 +5,7 @@
 **Documents liés** : [`ROADMAP-V2-STRATEGIC.md`](./ROADMAP-V2-STRATEGIC.md) (semainier),
 [`PRODUCT-VISION.md`](./PRODUCT-VISION.md) (diagnostic mesuré du 2026-10-22)
 
-> Livrable de la **Semaine 1** du séminier V2 : audit de positionnement, 3 personas,
+> Livrable de la **Semaine 1** du semainier V2 : audit de positionnement, 3 personas,
 > message FR/EN. Ce document alimente directement la landing page (Semaine 2, Flux B)
 > et la page institutionnelle (Semaine 7, Flux D).
 
@@ -96,7 +96,7 @@ Phrase de cadrage médical (reprise du trust framework, Semaine 3) :
 | Élément | FR (cible primaire) | EN (international) |
 | --- | --- | --- |
 | **Headline** | Réussissez l'internat avec des fiches sourcées, pas des photocopies. | Clinical reasoning for the next generation of medical learners. |
-| **Subheadline** | Le programme d'internat de Madagascar, item par item : chaque fiche cites sa source, chaque question est expliquée, votre journée de révision est déjà planifiée. | Evidence-based clinical pathways, structured cases, and exam-focused progression — every statement sourced, every question explained. |
+| **Subheadline** | Le programme d'internat de Madagascar, item par item : chaque fiche cite sa source, chaque question est expliquée, votre journée de révision est déjà planifiée. | Evidence-based clinical pathways, structured cases, and exam-focused progression — every statement sourced, every question explained. |
 | **CTA primaire** | Commencer gratuitement (1 fiche + 1 cas) | Start free |
 | **CTA secondaire** | Voir le programme couvert | See the curriculum |
 
