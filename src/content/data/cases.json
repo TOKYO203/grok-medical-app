@@ -1751,5 +1751,328 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "PNEUMO-EP-001",
+    "title": "Essoufflement brutal après un long voyage",
+    "specialty": "Pneumologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 58 ans, dyspnée brutale et douleur thoracique droite 3 jours après un vol long-courrier, tachycardie et désaturation.",
+    "patient": {
+      "age": 58,
+      "sex": "F",
+      "context": "Obèse (IMC 33), varices des membres inférieurs, retour d'un séjour familial de 6 semaines en France par deux vols avec escale, peu mobilisée pendant le voyage. Traitée par amiodarone pour extrasystoles."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Dyspnée d'installation brutale hier matin au réveil, douleur basithoracique droite majorée à l'inspiration profonde, sans fièvre ni toux productive. Une sensation de lipothymie en se levant. Symptômes stables mais persistants depuis 24 heures."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 108/66, FC 112/min régulière, FR 24/min, SpO2 89 % en air ambiant. Mollet droit légèrement augmenté de volume, sensible au palper, signe de Homans discret. Auscultation sans foyer, pas de crépitants, pas d'œdème. Pas de turgescence jugulaire franche."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "ECG : tachycardie sinusale, aspect S1Q3T3, pas de sus-décalage. Radio thoracique sans foyer, pas d'épanchement. D-dimères très élevés. Gaz du sang : pH 7,44, PaO2 62 mmHg, PaCO2 32 mmHg. Échographie cardiaque au lit : ventricule droit dilaté et cinétique diminuée, pas de tamponnade."
+      },
+      {
+        "kind": "question",
+        "prompt": "La situation décrite est :",
+        "choices": [
+          "Embolie pulmonaire à risque intermédiaire : dyspnée + douleur + hypoxémie, cœur droit sollicité, sans choc",
+          "Pneumonie communautaire droite",
+          "Péricardite aiguë",
+          "Crise d'asthme de l'adulte"
+        ],
+        "correct": 0,
+        "explanation": "Facteurs de risque (voyage prolongé, obésité, signes de thrombose veineuse profonde du mollet), début brutal, hypoxémie avec hypocapnie, tachycardie et surcharge du cœur droit : le tableau est typique. La radio sans foyer et l'absence de fièvre écartent la pneumonie ; pas de frottement ni de sus-décalage diffus pour une péricardite ; pas de sibilants pour un asthme."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'examen qui confirme le diagnostic est :",
+        "choices": [
+          "Angioscanner thoracique (ou scintigraphie si le scanner est contre-indiqué)",
+          "Radiographie thoracique seule",
+          "ECG seul",
+          "Échographie des veines des membres inférieurs seule, suffisante à elle-même"
+        ],
+        "correct": 0,
+        "explanation": "L'angioscanner est l'examen de référence pour confirmer l'embolie pulmonaire. L'écho-doppler veineux peut confirmer une thrombose mais une éventration négative n'écarte pas l'EP ; la radio et l'ECG sont utiles pour écarter les diagnostics différentiels, jamais pour confirmer."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge immédiate est :",
+        "choices": [
+          "Anticoagulation curative immédiate (héparine ou AOD selon protocole) sans attendre l'imagerie, car probabilité clinique forte et pas de contre-indication",
+          "Attendre le scanner pour débuter tout traitement",
+          "Fibrinolyse systématique d'emblée",
+          "Arrêt de l'amiodarone et sortie sous aspirine"
+        ],
+        "correct": 0,
+        "explanation": "Avec une probabilité clinique forte et l'absence de contre-indication, l'anticoagulation est débutée avant la confirmation par imagerie. La fibrinolyse est réservée à l'EP à haut risque (choc, hypotension), ce qui n'est pas le cas : ce patient est hémodynamiquement stable. L'aspirine n'a aucun effet sur la thrombose veineuse."
+      },
+      {
+        "kind": "question",
+        "prompt": "À distance, pour la durée du traitement anticoagulant, la conduite la plus adaptée est :",
+        "choices": [
+          "Durée prolongée (souvent 6 mois minimum, voire plus) car facteur de risque transitoire majeur et récidive potentielle, réévaluation annuelle",
+          "Quinze jours suffisent",
+          "Arrêt dès la disparition de la dyspnée",
+          "Anticoagulation à vie d'office dans tous les cas"
+        ],
+        "correct": 0,
+        "explanation": "Après une EP provoquée par un facteur transitoire majeur (voyage long), le traitement dure au moins 3 à 6 mois, souvent 6 mois vu l'atteinte du cœur droit ; la durée est réévaluée ensuite en fonction du risque hémorragique et des récidives éventuelles. Un traitement à vie ne se discute que si l'événement est non provoqué, récidivant ou si persiste une thrombophilie majeure."
+      }
+    ],
+    "diagnosis": "Embolie pulmonaire bilatérale probable à risque intermédiaire (dyspnée brutale post-voyage, thrombose veineuse profonde du mollet droit, hypoxémie, dilatation du ventricule droit), sans instabilité hémodynamique.",
+    "management": "Anticoagulation curative immédiate (héparine ou AOD selon protocole), oxygène si hypoxémie, confirmé par angioscanner, surveillance en hospitalisation initiale avec attention au ventricule droit. Bilan de thrombophilie orienté si récidives ou terrain. Poursuite du traitement anticoagulant par voie orale 6 mois minimum avec réévaluation, éducation aux signes de récidive et de saignement, gestion des facteurs de risque (compression veineuse, perte de poids, prévention des voyages ultérieurs).",
+    "pitfall": "Le piège du D-dimères : ils sont utiles pour ÉCARTER l'embolie quand ils sont négatis chez un patient à probabilité faible ou intermédiaire, mais un taux élevé ne confirme rien (infection, inflammation, chirurgie récente, grossesse). L'autre piège : une EP sous-alerme (lipothymie isolée, douleur vague) chez un sujet à risque — l'absence de douleur franche n'écarte pas le diagnostic.",
+    "keyTakeaway": "Dyspnée brutale + facteur de risque veineux + hypoxémie avec PaCO2 basse = embolie pulmonaire jusqu'à preuve du contraire. Anticoaguler avant l'imagerie si probabilité forte et pas de contre-indication ; fibrinolyse seulement si choc. Durée du traitement : au moins 3-6 mois, réévaluée.",
+    "related": {
+      "pathologySlugs": [
+        "embolie-pulmonaire"
+      ],
+      "deckIds": [
+        "urgences",
+        "cardio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ESC",
+        "citation": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism, European Heart Journal 2019;40;10;1193-1227.1.",
+        "organization": "ESC",
+        "year": 2019,
+        "url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Acute-Pulmonary-Embolism-Guidelines",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Venous thromboembolism, prevention and management, 2023.",
+        "organization": "OMS",
+        "year": 2023
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "ENDO-DT2-001",
+    "title": "Fatigue, soif et perte de poids malgré tout",
+    "specialty": "Endocrinologie / Diabétologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 54 ans, diabétique type 2, fatigue intense, glycémies capillaires à 3 g/L, prise de poids absente.",
+    "patient": {
+      "age": 54,
+      "sex": "F",
+      "context": "Diabète type 2 depuis 8 ans, metformine seule à demi-dose « quand elle y pense », vendeuse au marché, alimentation riche en riz. HTA non traitée. IMC 31."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 2 mois : fatigue majeure, soif permanente avec réveils nocturnes pour boire, urines abondantes, vision floue par moments. Perte de 4 kg malgré un appétite conservé. Deux glycémies capillaires chez une voisine : 2,9 et 3,2 g/L."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 148/88, FC 84/min, poids 78 kg pour 1,60 m. Peau sèche, pas de plaie plantaire, sensibilité des pieds conservée au monofilament. Pas de souffle carotidien. Acuité visuelle réduite à droite, fond d'œil non réalisé depuis 3 ans. Cyphose dorsale modérée."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "HbA1c 9,8 %. Glycémie à jeun 2,75 g/L. Créatinine 88 µmol/L, pas de protéinurie. LDL 1,9 g/L, triglycérides élevés. Pas de cétonurie. ECG sinusal sans ischémie. PAS de stigmates d'acidocétose : pH normal si prélevé, respiration normale."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Diabète type 2 déséquilibré avec complications précoces possibles (rétinopathie probable devant la baisse d'acuité)",
+          "Diabète type 1 classique",
+          "Diabète secondaire à une corticothérapie",
+          "Diabète gestationnel"
+        ],
+        "correct": 0,
+        "explanation": "Diagnostic connu depuis 8 ans, obésité, installée progressive sans acidocétose : diabète type 2 déséquilibré. La baisse d'acuité visuelle évoque une rétinopathie diabétique ou une cataracte précoce, à confirmer par un fond d'œil. Le type 1 survient plus tôt et se révèle souvent en acidocétose."
+      },
+      {
+        "kind": "question",
+        "prompt": "L'objectif glycémique prioritaire à fixer ici est :",
+        "choices": [
+          "HbA1c vers 7 % avec montée progressive du traitement de fond, adaptée à l'âge et au risque d'hypoglycémie",
+          "Normalisation de la glycémie en une semaine à tout prix",
+          "HbA1c sous 6 % d'emblée",
+          "Aucun objectif, le diabète est ancien et stable"
+        ],
+        "correct": 0,
+        "explanation": "Chez cette patiente de 54 ans, l'objectif d'HbA1c se situe autour de 7 %, atteint de façon progressive pour éviter les hypoglycémies ; la baisse rapide et agressive d'une HbA1c très élevée peut aggraver transitoirement une rétinopathie et provoquer des hypoglycémies. Le suivi régulier et l'escalade thérapeutique sont la règle."
+      },
+      {
+        "kind": "question",
+        "prompt": "La stratégie thérapeutique la plus adaptée est :",
+        "choices": [
+          "Optimisation immédiate : metformine à pleine dose, ajout d'un second médicament (ex. iSGLT2 ou GLP-1 selon le profil et les moyens), éducation diététique et activité physique",
+          "Insuline basal-bolus d'emblée pour tous",
+          "Metformine seuleinchangée à demi-dose",
+          "Arrêt de tout traitement pour « purger » l'organisme"
+        ],
+        "correct": 0,
+        "explanation": "L'HbA1c à 9,8 % sous demi-dose de metformine impose une escalade thérapeutique : pleine dose de metformine puis bithérapie précoce (iSGLT2 ou GLP-1 recommandés chez l'obèse avec risque cardiovasculaire). L'insuline n'est pas la première étape du type 2 déséquilibré sans acidocétose, sauf si l'escalade orale échoue."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le bilan de complications à programmer ici comprend :",
+        "choices": [
+          "Fond d'œil, ECG et recherche de protéinurie annuelle, examen des pieds à chaque visite",
+          "Scanner cérébral annuel",
+          "Rien : pas de complication possible à ce stade",
+          "Seulement des glycémies capillaires"
+        ],
+        "correct": 0,
+        "explanation": "Le dépistage annuel des complications est systématique dès le diagnostic de type 2 : fond d'œil (rétinopathie), protéinurie et fonction rénale, examen des pieds (neuropathie, artériopathie), et prise en charge du risque cardiovasculaire (TA, LDL). Le diabète silencieux pendant des années expose aux complications précisément quand les symptômes manquent."
+      }
+    ],
+    "diagnosis": "Diabète de type 2 déséquilibré (HbA1c 9,8 %) sous traitement insuffisant, avec suspicion de rétinopathie diabétique (baisse d'acuité visuelle droite), HTA non traitée et dyslipidémie, sans acidocétose.",
+    "management": "Escalade thérapeutique : metformine à pleine dose + bithérapie précoce (iSGLT2 ou GLP-1 selon profil), éducation nutritionnelle adaptée au contexte local (réduction des portions de riz, répartition des repas), activité physique progressive, prise en charge de l'HTA et du LDL, fond d'œil urgent devant la baisse d'acuité, dépistage annuel complet (protéinurie, pieds, ECG), suivi mensuel jusqu'au contrôle glycémique.",
+    "pitfall": "Le piège de la banalisation : un diabète « ancien et tranquille » sous traitement au coup par coup masque un équilibre catastrophique. L'absence de douleur ne protège ni la rétine ni le rein. Autre piège : se contenter de la glycémie du jour sans HbA1c ni bilan de complications — c'est l'HbA1c qui prédit les complications.",
+    "keyTakeaway": "Diabète type 2 déséquilibré = escalade thérapeutique précoce (metformine pleine dose + second médicament), objectif HbA1c ≈ 7 % progressif, et surtout dépistage annuel systématique : fond d'œil, protéinurie, pieds, risque cardiovasculaire.",
+    "related": {
+      "pathologySlugs": [
+        "diabete-type-2"
+      ],
+      "deckIds": [
+        "cardio",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Classification of diabetes mellitus, guidelines, 2025.",
+        "organization": "OMS",
+        "year": 2025,
+        "url": "https://www.who.int/publications/i/item/classification-of-diabetes-mellitus",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "ADA",
+        "citation": "American Diabetes Association — Standards of Care in Diabetes, 2025.",
+        "organization": "ADA",
+        "year": 2025
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "ENDO-HYPO-001",
+    "title": "Fatigue, prise de poids et frilosité",
+    "specialty": "Endocrinologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 44 ans, fatigue croissante, frilosité, prise de poids et constipation depuis 8 mois.",
+    "patient": {
+      "age": 44,
+      "sex": "F",
+      "context": "Vivante à Antsirabe, sans antécédent thyroïdien connu. Cycle menstruel devenu abondant et rapproché depuis quelques mois. Grand-mère « ayant eu un goitre »."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Fatigue croissante depuis 8 mois, sommeil non réparateur, frilosité marquée (couverture supplémentaire la nuit), prise de 6 kg sans changement alimentaire, constipation opiniâtre. Peau sèche, cheveux qui tombent, voix un peu enrouée selon l'entourage."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 132/84, FC 56/min, température 35,8 °C. Peau sèche et froide, visage un peu bouffi, taches autour des yeux. Goitre homogène de petite taille, non douloureux, sans adénopathie. Réflexes achilléens lents à la détente. Bradypsychie discrète, pas de confusion."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "TSH 42 mUI/L (normale 0,4-4), T4 libre basse à 6 pmol/L. Hb 11,2 g/dL, VGM 88 fL. Créatinine normale. Cholestérol total 2,6 g/L avec LDL élevé. CPK modérément augmentée. Échographie thyroïdienne programmée en ville."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Hypothyroïdie périphérique franche (TSH élevée, T4 basse) sur thyroïdite auto-immune probable",
+          "Hyperthyroïdie fruste",
+          "Goitre simple compensé euthyroïdien",
+          "Syndrome de Cushing"
+        ],
+        "correct": 0,
+        "explanation": "TSH très élevée avec T4 libre basse = hypothyroïdie périphérique franche. Les signes (bradycardie, frilosité, constipation, réflexes lents, prise de poids) sont cohérents. L'hyperthyroïdie donne l'inverse (tachycardie, amaigrissement, thermophobie) ; un goitre compensé garde une TSH normale ; le Cushing ne s'accompagne pas de TSH élevée."
+      },
+      {
+        "kind": "question",
+        "prompt": "Chez cette patiente, l'examen complémentaire le plus utile est :",
+        "choices": [
+          "Dosage des anticorps anti-thyroperoxydase (anti-TPO) et échographie thyroïdienne",
+          "Scanner cérébral avec injection",
+          "Ponction du goitre systématique",
+          "Scintigraphie thyroïdienne en urgence"
+        ],
+        "correct": 0,
+        "explanation": "Les anticorps anti-TPO confirment la thyroïdite auto-immune (maladie de Hashimoto), cause la plus fréquente d'hypothyroïdie ; l'échographie précise la structure du goitre. La scintigraphie n'est pas indiquée dans l'hypothyroïdie franche auto-immune, la ponction est réservée aux nodules suspects, le scanner cérébral n'a aucun intérêt ici."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement de référence est :",
+        "choices": [
+          "Lévothyroxine orale à dose progressive, avec contrôle de la TSH à 6-8 semaines",
+          "Traitement par extraits thyroïdiens « naturels » non dosés",
+          "Corticoïdes au long cours",
+          "Chirurgie thyroïdienne d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "La lévothyroxine est le traitement substitutif de référence, débutée à dose adaptée au poids (et à moitié dose chez le sujet âgé ou coronarien), puis titrée sur la TSH à 6-8 semaines. Les extraits non dosés exposent à des imprécisions, la chirurgie n'a pas d'indication dans une thyroïdite diffuse, et la corticothérapie est inutile."
+      },
+      {
+        "kind": "question",
+        "prompt": "Chez un patient âgé coronarien avec la même maladie, la particularité du traitement est :",
+        "choices": [
+          "Début à très faible dose et augmentation très progressive pour éviter l'angor ou le trouble du rythme",
+          "Dose pleine d'emblée pour corriger vite",
+          "Lévothyroxine IV en perfusion continue",
+          "Abstention thérapeutique définitive"
+        ],
+        "correct": 0,
+        "explanation": "La substitution thyroïtienne chez le coronarien doit être prudente : la hausse du métabolisme peut démasquer une insuffisance coronaire ou déclencher une angine ou une fibrillation atriale. On commence à 12,5-25 µg/jour avec titration lente et surveillance clinique et ECG."
+      }
+    ],
+    "diagnosis": "Hypothyroïdie périphérique franche (TSH 42 mUI/L, T4 libre basse) sur thyroïdite auto-immune probable ( Hashimoto), avec goitre homogène, anémie discrète et dyslipidémie secondaire.",
+    "management": "Substitution par lévothyroxine orale à dose progressive selon le poids, contrôle TSH à 6-8 semaines puis ajustement, dosage des anti-TPO et échographie pour confirmer la thyroïdite, prise en charge de l'anémie et réévaluation de la dyslipidémie après normalisation thyroidienne, éducation : prise à jeun à distance des repas, observance à vie, signes d'excès (palpitations, amaigrissement, insomnie) et de sous-dosage. Suivi semestriel à annuel une fois équilibrée.",
+    "pitfall": "Le piège de la fatigue banalisée : une asthénie prolongée avec prise de poids et constipation est souvent attribuée au « surmenage » ou à l'anémie. Une TSH devant ce tableau est un réflexe simple qui évite des années de substitution manquée. Autre piège : commencer la substitution à pleine dose chez un sujet âgé ou coronarien.",
+    "keyTakeaway": "TSH élevée + T4 basse = hypothyroïdie franche : substituer par lévothyroxine progressive et titrer sur la TSH à 6-8 semaines. Penser aux anticorps anti-TPO pour confirmer Hashimoto. Chez le coronarien : dose de départ très faible.",
+    "related": {
+      "pathologySlugs": [
+        "hypothyroidie"
+      ],
+      "deckIds": [
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Iodine deficiency and thyroid disorders, fact sheet, 2024.",
+        "organization": "OMS",
+        "year": 2024,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/iodine-deficiency",
+        "verifiedAt": "2026-10-24"
+      },
+      {
+        "title": "ATA",
+        "citation": "2014 American Thyroid Association Guidelines for Hypothyroidism, Thyroid 2014;24:1671-1752.",
+        "organization": "ATA",
+        "year": 2014
+      }
+    ],
+    "access": "pro"
   }
 ]
