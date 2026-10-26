@@ -1112,6 +1112,12 @@ html[data-theme="dark"][data-accent="violet"] {
    AA du fond teinté (textes de base + or + focus) sont verrouillés par
    scripts/accent-palette.test.mjs. */
 html[data-accent]:not([data-accent="defaut"]) {
+  /* Phase 4 (suite) — harmonisation thème clair : le hero suivait l'olive
+     Oxford (#3E4A2A → #1F2716) pour TOUTES les palettes ; il suit
+     désormais l'accent de la palette, comme en mode sombre. La palette
+     « defaut » garde son hero olive (signature Oxford). */
+  --hero-from: color-mix(in oklab, var(--app-accent) 52%, #0d0d0d);
+  --hero-to: color-mix(in oklab, var(--app-accent) 18%, #0a0a0a);
   --app-border: var(--app-accent);
   --app-border-strong: color-mix(in oklab, var(--app-accent) 80%, transparent);
   --app-secondary: color-mix(in oklab, var(--app-bg) 86%, var(--app-accent) 14%);
