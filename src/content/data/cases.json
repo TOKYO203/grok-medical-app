@@ -3053,5 +3053,302 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "NEURO-ETAT-MAL-001",
+    "title": "Convulsions qui ne s'arrêtent pas",
+    "specialty": "Neurologie / Urgences",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 34 ans, épilepsie connue mais traitement interrompu, convulsions généralisées continues depuis plus de 20 minutes à l'arrivée.",
+    "patient": {
+      "age": 34,
+      "sex": "M",
+      "context": "Manœuvre à Ambositra, épilepsie généralisée diagnostiquée il y a 6 ans, phenytoïne arrêtée depuis 8 mois faute de moyens. Alcoolisme occasionnel, pas de traumatisme récent rapporté."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Transfert par taxi-brousse : crises tonico-cloniques généralisées se succédant sans reprise de conscience depuis environ 25 minutes selon l'entourage. Morsure de langue, urine perdue. Aucun traitement donné sur place."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Coma postcritique, Glasgow 7, myosis réactif, respiration encombrée, SpO2 88 % en air, T 38,4 °C, TA 158/92, FC 118. Morsure latérale de la langue, pouls fémoraux présents. Pas de raideur de nuque, pas de signe de trauma crânien."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Glycémie capillaire 1,10 g/L. Hémogramme et ionogramme en cours. Pas d'antécédent de diabète. Le patient a vomi pendant le transport."
+      },
+      {
+        "kind": "question",
+        "prompt": "La conduite immédiate correcte est :",
+        "choices": [
+          "Mettre en position latérale de sécurité, oxygéner, aspiration, glycémie capillaire, puis benzodiazépine IV (diazépam ou lorazépam) à dose adaptée sans attendre d'autres examens",
+          "Scanner cérébral avant tout traitement",
+          "Attendre la fin spontanée de la crise sous simple surveillance",
+          "Phénobarbital IM en première intention immédiate"
+        ],
+        "correct": 0,
+        "explanation": "État de mal épileptique convulsif au-delà de 5 minutes : mesures vitales d'abord (libération des voies aériennes, position latérale, oxygène) et benzodiazépine IV dès que l'abord veineux est posé. La glycémie capillaire est le seul examen qui ne doit pas attendre ; l'imagerie se discute après contrôle des crises. Attendre prolonge les lésions neuronales ; le phénobarbital IM n'est un choix de première ligne que lorsque l'abord veineux est impossible (situation de terrain où il peut sauver, mais ici la voie veineuse est réalisable)."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si les crises persistent après une benzodiazépine bien conduite, le traitement de deuxième ligne est :",
+        "choices": [
+          "Nouvelle benzodiazépine seule à doses répétées",
+          "Anticonvulsivant de deuxième ligne IV selon les moyens disponibles : phénobarbital, phénytoïne ou valproate de sodium, en unité de soins intensifs si possible",
+          "Curare et sédation profonde au lit, sans anticonvulsivant",
+          "Thiopental d'emblée en première ligne"
+        ],
+        "correct": 1,
+        "explanation": "Après échec des benzodiazépines, l'état de mal devient réfractaire et impose un anticonvulsivant IV de deuxième ligne (phénobarbital, phénytoïne ou valproate selon disponibilité locale), avec monitoring respiratoire et hémodynamique. Le thiopental est réservé à l'état de mal super-réfractaire en réanimation ; les benzodiazépines répétées seules exposent à la dépression respiratoire ; un curare sans anticonvulsivant masque les convulsions sans traiter le cerveau."
+      },
+      {
+        "kind": "question",
+        "prompt": "Après le contrôle des crises, l'étape indispensable est :",
+        "choices": [
+          "Rechercher la cause : observance interrompue documentée ici, mais aussi infection, alcool, trouble métabolique ; reprise d'un traitement anticonvulsivant adapté, éducation et plan écrit de reprise de traitement",
+          "Conseiller d'arrêter définitivement le traitement car la crise est passée",
+          "Ne rien changer car l'épilepsie est incurable",
+          "Attendre un scanner normal avant toute reprise du traitement"
+        ],
+        "correct": 0,
+        "explanation": "La première cause d'état de mal chez un épileptique connu est l'arrêt du traitement : la reprise d'un anticonvulsivant, l'éducation sur l'observance et les facteurs déclenchants (alcool, manque de sommeil) préviennent la récidive, qui est mortelle dans une proportion non négligeable des cas. L'infection et les troubles métaboliques restent à écarter systématiquement (fièvre à 38,4 °C ici : pneumonie d'inhalation à suspecter)."
+      }
+    ],
+    "diagnosis": "État de mal épileptique convulsif généralisé sur interruption du traitement antiépileptique, avec trouble de conscience persistant, hypoxémie et suspicion d'inhalation.",
+    "management": "Position latérale de sécurité, oxygénothérapie, aspiration, glycémie capillaire immédiate, benzodiazépine IV, anticonvulsivant de deuxième ligne si échec, surveillance en soins intensifs (respiratoire, Glasgow, température), antibiothérapie si pneumonie d'inhalation confirmée, bilan étiologique (ionogramme, infection), reprise d'un traitement anticonvulsivant oral adapté et éducation thérapeutique avec implication de la famille, suivi neurologique rapproché et plan de secours écrit pour les crises futures.",
+    "pitfall": "Le piège du « il va se réveiller tout seul » : une crise qui dure ou qui se répète sans réveil est un état de mal, urgence vitale — chaque minute compte pour le cerveau. Autre piège : traiter la convulsion sans reprendre le traitement de fond, c'est préparer la prochaine fois.",
+    "keyTakeaway": "Convulsions au-delà de 5 minutes = état de mal : benzodiazépine IV après mesures vitales et glycémie capillaire, deuxième ligne IV si échec, puis cause à chercher — l'arrêt du traitement est le coupable numéro un. Reprise du fond + éducation = prévention de la récidive.",
+    "related": {
+      "deckIds": [
+        "urgences",
+        "neuro"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Epilepsy: a public health imperative, rapport 2019 (prise en charge et observance).",
+        "organization": "OMS",
+        "year": 2019
+      },
+      {
+        "title": "ILAE",
+        "citation": "ILAE 2015 Definition and classification of status epilepticus ; recommandations de prise en charge, mise à jour 2023.",
+        "organization": "ILAE",
+        "year": 2023
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "INF-TETANOS-001",
+    "title": "Trismus après une blessure au pied",
+    "specialty": "Infectiologie / Réanimation",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Paysan de 45 ans, plaure puncture du pied il y a 10 jours, difficulté à ouvrir la bouche, raideur, spasmes déclenchés par le bruit.",
+    "patient": {
+      "age": 45,
+      "sex": "M",
+      "context": "Riziculteur dans le Menabe, jamais vacciné contre le tétanos à sa connaissance. Il y a 10 jours, un clou rouillé a traversé sa sandale au travail ; la plaie a été soignée par un pansement traditionnel à base de terre. Depuis 3 jours, gêne pour ouvrir la bouche et raideur de la nuque et du dos."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 3 jours : impossibilité progressive d'ouvrir la bouche (difficulté à manger et à parler), raideur de la nuque et des épaules. Ce matin, à l'hôpital, un bruit violent a déclenché une contraction généralisée douloureuse en quelques secondes."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "Trismus franc (ouverture buccale à deux travers de doigt), risus sardonicus, nuque raide sans autre signe méningé, contracture des muscles paravertébraux. Pas de fièvre (37,6 °C). Plaie plantaire droite de 8 mm, propre en apparence, légèrement indurée. Spasmes reproduits au brusquement de la lampe. Glasgow normal entre les spasmes."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Glycémie normale, NFS sans hyperleucocytose franche, créatinine normale. Ponction lombaire refusée. La plaie a 10 jours et s'est refermée en surface — absence de pus."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Tétanos généralisé sur plaure puncture souillée, sujet non vacciné",
+          "Méningite bactérienne",
+          "Abcès dentaire avec trismus réflexe",
+          "Rage à phase spasmodique"
+        ],
+        "correct": 0,
+        "explanation": "Trismus + risus sardonicus + raideur axiale + spasmes déclenchés par les stimuli, après une plaie contaminée, chez un non-vacciné : tétanos. La méningite donne fièvre et syndrome méningé franc sans trismus ni spasmes déclenchés ; l'abcès dentaire est localisé et fébrile ; la rage donne des spasmes pharyngés à la vue de l'eau avec encéphalite, pas de trismus isolé d'entrée."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge comprend en priorité :",
+        "choices": [
+          "Sérothérapie antitétanique, metronidazole (ou pénicilline), nettoyage-débeshes de la plaie, environnement calme et lumière tamisée, sédation et curarisation-ventilation en soins intensifs si spasmes menaçants",
+          "Antalgiques seuls à domicile",
+          "Antibiothérapie orale sans sérothérapie",
+          "Extraction dentaire en urgence"
+        ],
+        "correct": 0,
+        "explanation": "Le traitement du tétanos associe l'immunothérapie (immunoglobulines antitétaniques pour neutraliser la toxine libre), l'antibiothérapie contre Clostridium tetani (métronidazole préféré à la pénicilline), le parage de la porte d'entrée, et le contrôle des spasmes : environnement sensoriel minimal, benzodiazépines, curarisation et ventilation mécanique dans les formes graves. Les antalgiques seuls sont une perte de chance fatale ; l'extraction dentaire traite une cause qui n'existe pas ici."
+      },
+      {
+        "kind": "question",
+        "prompt": "Concernant l'entourage et la prévention :",
+        "choices": [
+          "Vaccination complète du patient après guérison (l'infection ne confère pas l'immunité) et vérification de la vaccination des proches et de la couverture vaccinale des enfants du village",
+          "Rien : le patient est désormais immunisé pour la vie",
+          "Antibioprophylaxie de tous les voisins",
+          "Isolement strict du patient : le tétanos est contagieux"
+        ],
+        "correct": 0,
+        "explanation": "La toxine tétanique n'est pas immunogène aux doses de la maladie : guérir du tétanos ne protège pas, le patient doit être vacciné après guérison. Le tétanos n'est pas contagieux (pas de transmission interhumaine), l'isolement n'a pas de sens, mais chaque cas rappelle les lacunes de la couverture vaccinale : vérifier et compléter les vaccinations autour du patient, et toute plaie souillée chez un non-vacciné impose toilette, antibioprophylaxie discutée et vaccination avec immunoglobulines selon le statut."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le pronostic dépend avant tout de :",
+        "choices": [
+          "La rapidité du contrôle des spasmes et de la qualité de la surveillance respiratoire en soins intensifs",
+          "L'antibiogramme du germe",
+          "La taille de la plaie initiale",
+          "La normalisation de la NFS"
+        ],
+        "correct": 0,
+        "explanation": "La mort survient par asphyxie lors des spasmes laryngés ou respiratoires, par inhalation, ou par complications de décubitus et dysautonomie : l'issue dépend de la qualité de la prise en charge en soins intensifs, pas de la plaie — une microplaie refermée peut tuer. Il n'existe pas d'antibiogramme utile : la toxine fait les dégâts, non le germe."
+      }
+    ],
+    "diagnosis": "Tétanos généralisé de gravité modérée à sévère, secondaire à une plaure puncture plantaire souillée (porte d'entrée de 10 jours), chez un patient non vacciné, avec risque de spasmes laryngés.",
+    "management": "Hospitalisation en soins intensifs ou unité calme et sombre : immunoglobulines antitétaniques, métronidazole, parage de la plaie, benzodiazépines titrées, curarisation-ventilation si spasmes respiratoires, prévention des complications de décubitus, nutrition, surveillance cardio-respiratoire. Après guérison : vaccination complète du patient, vérification de la couverture vaccinale familiale, éducation sur la prise en charge des plaies en milieu rural, signalement dans le cadre de la surveillance.",
+    "pitfall": "Le piège de la plaie anodine : une plaure puncture refermée, souillée de terre, chez un non-vacciné, peut tuer dix jours plus tard. Autre piège : réserver la sérothérapie aux formes graves, alors qu'elle doit être administrée à tous les cas dès le diagnostic. Enfin, dire au patient « vous êtes immunisé maintenant » est faux : il doit être vacciné après guérison.",
+    "keyTakeaway": "Trismus + risus sardonicus + spasmes au stimulus après plaie souillée = tétanos : sérothérapie + métronidazole + parage + environnement calme, soins intensifs si spasmes. L'infection n'immunise pas : vacciner le guéri. Toute plaie souillée = statut vaccinal à vérifier.",
+    "related": {
+      "deckIds": [
+        "infectio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Tetanus vaccines: WHO position paper, Relevé épidémiologique hebdomadaire 2017;92:53-72.",
+        "organization": "OMS",
+        "year": 2017
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Managing tetanus in resource-limited settings, guide de prise en charge clinique.",
+        "organization": "OMS",
+        "year": 2018
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "TROP-RAGE-001",
+    "title": "Enfant mordu par un chien errant",
+    "specialty": "Infectiologie / Urgences pédiatriques",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Garçon de 8 ans, morsure de jambe par un chien errant hier soir, plaie puncture profonde ; le chien est introuvable.",
+    "patient": {
+      "age": 8,
+      "sex": "M",
+      "context": "Écolier à Toliara, quartier périurbain. Mordu hier vers 18 h par un chien errant connu du quartier alors qu'il jouait dans la rue. La famille a appliqué un pansement traditionnel. Le chien est reparti et n'a pas été retrouvé ce matin."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Morsure de la face externe de la jambe droite il y a 16 heures : deux plaies puncture de 1 cm, profondes, saignantes au moment de la morsure, une griffure superficielle associée. L'enfant a bien dormi, marche normalement, pas de fièvre."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 37,2 °C, état général conservé, calmes plaies puncture de la jambe droite, induration péri-lésionnelle modérée, pas de pus, pas de lymphangite. Aucun signe neurologique. Vaccinations de l'enfant à jour selon le carnet, mais jamais exposé à la rage auparavant."
+      },
+      {
+        "kind": "reveal",
+        "title": "Contexte",
+        "body": "Le chien errant, non vacciné, a déjà mordu un voisin la semaine dernière selon la famille ; son comportement était inhabituel (agressif en plein jour). Il est introuvable ce jour : ni surveillance ni observation possible."
+      },
+      {
+        "kind": "question",
+        "prompt": "Cette exposition correspond à une catégorie III de l'OMS (morsure avec effraction cutanée) : la conduite correcte est :",
+        "choices": [
+          "Lavage abondant de la plaie au savon et à l'eau pendant au moins 15 minutes, antiseptique, immunoglobulines antirabiques infiltrées dans la plaie autant que possible, et vaccination antirabique complète débutée le jour même",
+          "Désinfection simple et pansement, sans vaccination car le chien est introuvable",
+          "Attendre de retrouver le chien et de voir s'il développe des signes avant de décider",
+          "Antibiothérapie seule, la rage n'étant pas transmissible par morsure en Afrique"
+        ],
+        "correct": 0,
+        "explanation": "Morsure avec effraction cutanée = catégorie III : lavage immédiat et prolongé au savon et à l'eau (15 minutes, geste qui réduit fortement le risque), puis immunoglobulines antirabiques et vaccination dès le jour même. Le chien est introuvable et avait un comportement anormal : l'exposition est présumée à risque. Attendre les signes du chien ou de l'enfant est une erreur fatale — la rage déclarée est incurable à 100 %."
+      },
+      {
+        "kind": "question",
+        "prompt": "Concernant les immunoglobulines antirabiques dans cette morsure de jambe :",
+        "choices": [
+          "Elles doivent être infiltrées dans et autour de la plaie (dose maximale anatomiquement possible), le reste du volume étant administré à distance, et ne sont utiles que lors de la première administration",
+          "Elles se donnent uniquement en intramusculaire profond, à distance de la plaie",
+          "Elles sont inutiles car la vaccination suffit",
+          "Elles ne servent qu'après l'apparition des premiers symptômes"
+        ],
+        "correct": 0,
+        "explanation": "L'OMS recommande d'infiltrer les immunoglobulines dans la plaie autant que possible (le reste en IM à distance) : les anticorps neutralisent le virus au point d'entrée avant que la réponse vaccinale ne s'installe, d'où leur utilité limitée à la première fois. Une fois les symptômes apparus, rien ne fonctionne plus : l'essentiel de la bataille se joue dans la plaie, le jour de la morsure."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour le chien errant du quartier, la mesure de santé publique correcte est :",
+        "choices": [
+          "Signalement aux autorités sanitaires locales, recherche du chien, capture pour observation si possible, vaccination des chiens du quartier et information de la communauté (y compris le voisin mordu la semaine précédente)",
+          "Ne rien signaler tant que personne n'est malade",
+          "Tuer tous les chiens errants du quartier sans protocole",
+          "Attendre le décès du chien, seul signe utile"
+        ],
+        "correct": 0,
+        "explanation": "La rage canine est enzootique à Madagascar : tout chien mordeur introuvable ou à comportement anormal est présumé rabique, et le signalement déclenche la recherche, l'observation ou le diagnostic du chien, la prophylaxie des autres personnes mordues (le voisin de la semaine précédente doit être évalué et pris en charge) et la vaccination des chiens. Les campagnes de vaccination canine sont le seul outil durable d'élimination ; l'abattage seul est inefficace."
+      },
+      {
+        "kind": "question",
+        "prompt": "La plaie elle-même nécessite en parallèle :",
+        "choices": [
+          "Antibiothérapie probabiliste active sur la flore de morsure (amoxicilline-acide clavulanique si disponible), antiseptique, prévention du tétanos selon le carnet, et suture évitée si possible sur les morsures",
+          "Suture immédiate systématique pour éviter l'infection",
+          "Aucun autre traitement que la vaccination antirabique",
+          "Cautérisation de la plaie"
+        ],
+        "correct": 0,
+        "explanation": "Les morsures s'infectent fréquemment (pasteurelles, anaérobies) : antibiotique probabiliste et prévention du tétanos s'ajoutent à la prophylaxie rabique. La suture précoce est évitée si possible sur les morsures (elle isole les germes) sauf nécessité fonctionnelle au visage. La prophylaxie rabique et le traitement de la plaie ne se substituent pas l'un à l'autre : ils se complètent."
+      }
+    ],
+    "diagnosis": "Exposition rabique de catégorie III (morsure avec effraction cutanée par chien errant introuvable au comportement anormal) : prophylaxie post-exposition complète indiquée en urgence.",
+    "management": "Lavage de la plaie au savon et à l'eau pendant 15 minutes puis antiseptique, immunoglobulines antirabiques infiltrées dans la plaie le jour même, vaccination antirabique complète selon le protocole OMS (Essen ou Zagreb selon disponibilité) avec observance rigoureuse, antibiothérapie probabiliste de morsure, prophylaxie tétanique selon carnet, éducation de la famille (ne jamais appliquer de pansement traditionnel sur une plaie, ramener l'enfant à chaque rendez-vous vaccinal), signalement du chien mordeur et recherche des autres personnes exposées, information communautaire sur la vaccination canine.",
+    "pitfall": "Le piège du chien introuvable : attendre de retrouver l'animal pour commencer la prophylaxie, c'est jouer la vie de l'enfant contre quelques heures. Autre piège : « aucun signe chez l'enfant » — la rage a une incubation de semaines à mois et une fois déclarée, elle est mortelle à 100 % : la prophylaxie se joue le jour de la morsure, jamais après. Enfin, un pansement traditionnel sur une morsure est une porte ouverte à l'infection et retarde le lavage, qui est pourtant le geste le plus simple et le plus efficace.",
+    "keyTakeaway": "Morsure avec effraction cutanée par chien errant introuvable = catégorie III : lavage 15 minutes au savon et à l'eau, immunoglobulines infiltrées dans la plaie, vaccination complète dès J0, antibiotique et tétanos en parallèle. La rage déclarée est incurable : tout se joue à J0.",
+    "related": {
+      "deckIds": [
+        "tropical",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO — Rabies vaccines: WHO position paper, Relevé épidémiologique hebdomadaire 2018;93:201-220.",
+        "organization": "OMS",
+        "year": 2018
+      },
+      {
+        "title": "OMS",
+        "citation": "WHO — Guide for rabies pre and post-exposure prophylaxis in humans, mise à jour 2018.",
+        "organization": "OMS",
+        "year": 2018
+      }
+    ],
+    "access": "pro"
   }
 ]
