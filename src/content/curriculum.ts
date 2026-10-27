@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (84 decks, 867 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=27 · dermato=1 · urgences=6
+ * Répartition cible (89 decks, 917 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=32 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -234,6 +234,14 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       levels: [...LEVELS_PATHO],
       description: "Reconnaître la goutte de rosée et le bouquet métamérique, traiter dans la fenêtre utile, protéger les contacts.",
       decks: ["infectio-varicelle-zona-l2", "infectio-varicelle-zona-l3", "infectio-varicelle-zona-l4", "infectio-varicelle-zona-l5", "infectio-varicelle-zona-int"],
+    },
+    {
+      id: "grippe",
+      label: "Grippe",
+      icon: "🤧",
+      levels: [...LEVELS_PATHO],
+      description: "Reconnaître le syndrome grippal et ses complications, traiter par antiviraux ciblés, vacciner les groupes à risque."
+      decks: ["infectio-grippe-l2", "infectio-grippe-l3", "infectio-grippe-l4", "infectio-grippe-l5", "infectio-grippe-int"],
     },
   ],
 };
