@@ -36,13 +36,16 @@ import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MethodologieRouteImport } from './routes/methodologie'
 import { Route as PaiementRetourRouteImport } from './routes/paiement-retour'
 import { Route as ParcoursRouteImport } from './routes/parcours'
+import { Route as PolitiqueEditorialeRouteImport } from './routes/politique-editoriale'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SignesRouteImport } from './routes/signes'
+import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
@@ -200,6 +203,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MethodologieRoute = MethodologieRouteImport.update({
+  id: '/methodologie',
+  path: '/methodologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PaiementRetourRoute = PaiementRetourRouteImport.update({
   id: '/paiement-retour',
   path: '/paiement-retour',
@@ -208,6 +216,11 @@ const PaiementRetourRoute = PaiementRetourRouteImport.update({
 const ParcoursRoute = ParcoursRouteImport.update({
   id: '/parcours',
   path: '/parcours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiqueEditorialeRoute = PolitiqueEditorialeRouteImport.update({
+  id: '/politique-editoriale',
+  path: '/politique-editoriale',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProRoute = ProRouteImport.update({
@@ -233,6 +246,11 @@ const RevueRoute = RevueRouteImport.update({
 const SignesRoute = SignesRouteImport.update({
   id: '/signes',
   path: '/signes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SourcesRoute = SourcesRouteImport.update({
+  id: '/sources',
+  path: '/sources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SoutenirRoute = SoutenirRouteImport.update({
@@ -373,13 +391,16 @@ export interface FileRoutesByFullPath {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -430,13 +451,16 @@ export interface FileRoutesByTo {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -489,13 +513,16 @@ export interface FileRoutesById {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -548,13 +575,16 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -605,13 +635,16 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -663,13 +696,16 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -722,13 +758,16 @@ export interface RootRouteChildren {
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
   LoginRoute: typeof LoginRoute
+  MethodologieRoute: typeof MethodologieRoute
   PaiementRetourRoute: typeof PaiementRetourRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
+  PolitiqueEditorialeRoute: typeof PolitiqueEditorialeRoute
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
   ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
   SignesRoute: typeof SignesRoute
+  SourcesRoute: typeof SourcesRoute
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
@@ -939,6 +978,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/methodologie': {
+      id: '/methodologie'
+      path: '/methodologie'
+      fullPath: '/methodologie'
+      preLoaderRoute: typeof MethodologieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/paiement-retour': {
       id: '/paiement-retour'
       path: '/paiement-retour'
@@ -951,6 +997,13 @@ declare module '@tanstack/react-router' {
       path: '/parcours'
       fullPath: '/parcours'
       preLoaderRoute: typeof ParcoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-editoriale': {
+      id: '/politique-editoriale'
+      path: '/politique-editoriale'
+      fullPath: '/politique-editoriale'
+      preLoaderRoute: typeof PolitiqueEditorialeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pro': {
@@ -986,6 +1039,13 @@ declare module '@tanstack/react-router' {
       path: '/signes'
       fullPath: '/signes'
       preLoaderRoute: typeof SignesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sources': {
+      id: '/sources'
+      path: '/sources'
+      fullPath: '/sources'
+      preLoaderRoute: typeof SourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/soutenir': {
@@ -1227,13 +1287,16 @@ const rootRouteChildren: RootRouteChildren = {
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
   LoginRoute: LoginRoute,
+  MethodologieRoute: MethodologieRoute,
   PaiementRetourRoute: PaiementRetourRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
+  PolitiqueEditorialeRoute: PolitiqueEditorialeRoute,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
   ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
   SignesRoute: SignesRoute,
+  SourcesRoute: SourcesRoute,
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
