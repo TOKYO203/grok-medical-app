@@ -9,7 +9,6 @@ import {
   Send,
   Stethoscope,
 } from "lucide-react";
-import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 import { Input, Textarea } from "@/components/ui/input";
 import { Page, PageHeader, Shell } from "@/components/shell";
 
@@ -210,7 +209,6 @@ function InstitutionnelPage() {
           </p>
         </section>
 
-        <MedicalDisclaimer />
       </Page>
     </Shell>
   );
