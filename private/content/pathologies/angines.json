@@ -1,0 +1,369 @@
+{
+  "kind": "pathology",
+  "slug": "angines",
+  "title": "Angines",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-27",
+  "objective": "Diagnostiquer une angine aiguë, distinguer les angines virales des angines à streptocoque bêta-hémolytique du groupe A, utiliser le score de Mac Isaac et le test de diagnostic rapide, connaître les complications suppuratives et non suppuratives — en particulier le rhumatisme articulaire aigu, enjeu majeur à Madagascar — et appliquer le traitement et les mesures d'éviction.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 11,
+    "specialty": "ORL",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 52,
+      "localNumber": 11,
+      "sectionLabel": "Médecine",
+      "title": "Angines",
+      "specialty": "ORL"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "body": "L'angine aiguë est une inflammation amygdalienne ou pharyngo-amygdalienne d'origine infectieuse, dominée en fréquence par les virus : environ 70 % des angines de l'enfant et jusqu'à 90 % de celles de l'adulte sont virales. Le streptocoque bêta-hémolytique du groupe A (Streptococcus pyogenes, SGA) est la première cause bactérienne : il représente 20 à 30 % des angines de l'enfant et 5 à 15 % de celles de l'adulte, avec un pic d'incidence entre 4 et 15 ans. L'enjeu du diagnostic n'est pas tant l'angine elle-même — le plus souvent bénigne et résolutive en quelques jours — que la prévention de ses complications non suppuratives : le rhumatisme articulaire aigu (RAA) et ses séquelles valvulaires, la cardiopathie rhumatismale. L'OMS estime à environ 55 millions le nombre de personnes vivant avec une cardiopathie rhumatismale, responsable d'environ 360 000 décès par an, dont l'immense majorité dans les pays à revenu faible ou intermédiaire — la maladie débute par une angine à SGA non ou mal traitée. À Madagascar, le RAA est documenté comme un véritable problème de santé publique, avec des cardités fréquentes chez l'enfant. Toute la stratégie moderne repose sur un tri raisonné : ne pas donner d'antibiotique aux angines virales, et traiter correctement par amoxicilline les angines à SGA confirmées ou fortement suspectées, afin de prévenir le RAA tout en épargnant l'antibiorésistance.",
+      "callout": {
+        "tone": "urgence",
+        "title": "Urgences à ne pas manquer",
+        "body": "Trismus, voix étouffée ou « de pomme de terre chaude », déviation de la luette, hypersialorrhée, impossibilité de boire : abcès péri-amygdalien (amygdalien) — drainage chirurgical. Fausse membrane grisâtre adhérente du pharynx, contexte de non-vaccination : diphtérie. Œdème pharyngé avec dyspnée ou position du tripode : épiglottite/laryngite, urgence absolue. Fièvre élevée avec éruption scarlatiniforme desquamative : scarlatine. Hépatosplénomégalie avec adénopathies cervicales postérieures chez l'adolescent : mononucléose infectieuse (éviter l'amoxicilline)."
+      },
+      "table": {
+        "title": "Chiffres clés",
+        "columns": ["Notion", "Valeur de référence"],
+        "rows": [
+          ["Angines virales", "≈ 70 % chez l'enfant ; ≈ 90 % chez l'adulte"],
+          ["Streptocoque du groupe A (SGA)", "20–30 % des angines de l'enfant ; 5–15 % chez l'adulte"],
+          ["Âge de prédilection du SGA", "4 à 15 ans"],
+          ["Latence du RAA après l'angine", "2 à 3 semaines"],
+          ["Cardiopathie rhumatismale (monde)", "≈ 55 millions de personnes ; ≈ 360 000 décès/an (OMS)"],
+          ["Charge régionale", "Afrique, Asie du Sud-Est et Pacifique occidental : 84 % des cas prévalents, 80 % des décès (OMS, 2015)"]
+        ]
+      }
+    },
+    {
+      "id": "agent-physiopathologie",
+      "title": "Agents et physiopathologie",
+      "body": "Les agents viraux dominent : virus respiratoires courants (rhinovirus, adénovirus, coronavirus, virus grippaux et paragrippaux, VRS), herpangine à coxsackievirus (vésicules du voile et de la luette), herpès, mononucléose infectieuse à virus d'Epstein-Barr (angine pseudomembraneuse de l'adolescent), VIH en primo-infection. Parmi les bactéries, Streptococcus pyogenes (SGA) est de loin la première cause d'angine bactérienne et la seule dont le traitement antibiotique est formellement indiqué : cocci à Gram positif, transmis par gouttelettes respiratoires et contact direct, sécrétant des facteurs de virulence — protéine M (antigène majeur, antiphagocytaire), toxine érythrogénique responsable de la scarlatine, enzymes (streptolysines, hyaluronidase). La physiopathologie du RAA repose sur le mimétisme moléculaire : les anticorps dirigés contre la protéine M du SGA réagissent de façon croisée avec des antigènes du cœur (myocarde, valves), des articulations et du tissu cérébral, déclenchant une réaction inflammatoire auto-immune 2 à 3 semaines après l'angine. D'autres bactéries sont plus rares ou de contexte : streptocoques des groupes C et G, Arcanobacterium haemolyticum, Neisseria gonorrhoeae (angine du sujet à risque sexuel), Corynebacterium diphtheriae (diphtérie, fausses membranes, enjeu des zones de couverture vaccinale insuffisante), anaérobies (angine de Vincent, surinfection de terrain). L'angine est une inflammation aiguë de l'anneau lymphoïde de Waldeyer ; l'oedème, l'exsudat et la douleur amygdalienne traduisent la réponse inflammatoire locale, et la fièvre la réaction systémique.",
+      "table": {
+        "title": "Agents des angines et repères cliniques",
+        "columns": ["Agent", "Signature clinique", "Traitement spécifique"],
+        "rows": [
+          ["Virus respiratoires (rhino, adéno, grippaux…)", "Angine érythémateuse, rhinite et toux associées", "Aucun — abstention antibiotique"],
+          ["Coxsackievirus (herpangine)", "Vésicules du voile, de la luette et du pharynx", "Aucun — symptomatique"],
+          ["EBV (mononucléose infectieuse)", "Angine pseudomembraneuse, adénopathies diffuses, splénomégalie", "Éviter l'amoxicilline (éruption) ; corticoïdes si obstruction"],
+          ["Streptocoque du groupe A (S. pyogenes)", "Angine pultacée, fièvre, pas de toux, TDR positif", "Amoxicilline 6 jours (protection anti-RAA)"],
+          ["Corynebacterium diphtheriae", "Fausses membranes grisâtres adhérentes, coryza sanglant", "Urgence : antitoxine + isolement + vaccination"],
+          ["Anaérobies (angine de Vincent)", "Ulcération amygdalienne unilatérale, odeur fétide", "Antibiothérapie anti-anaérobie, soins dentaires"]
+        ]
+      }
+    },
+    {
+      "id": "semiologie",
+      "title": "Sémiologie et démarche diagnostique",
+      "body": "L'angine se manifeste par une dysphagie douloureuse (odynophagie), une fièvre variable, des douleurs pharyngées et un aspect inflammatoire des amygdales. On décrit l'angine érythémateuse (amygdales rouges, œdématiées — plutôt virale), l'angine érythémato-pultacée (taches blanchâtres ou exsudat, points purulents dans les cryptes — orientation vers le SGA) et l'angine pseudomembraneuse (membranes : EBV, diphtérie). L'examen recherche des adénopathies cervicales, une éruption, une splénomégalie. Le diagnostic bactérien repose sur le score de Mac Isaac (modification du score de Centor) : fièvre supérieure à 38 °C, absence de toux, adénopathies cervicales antérieures douloureuses, exsudat ou hypertrophie amygdalienne, avec un point par critère, modifié par l'âge (ajout d'un point entre 3 et 14 ans, retrait d'un point au-delà de 44 ans). Chez l'enfant de 3 à 14 ans, le test de diagnostic rapide (TDR) streptococcique est systématique, posé devant tout tableau d'angine : seul un TDR positif justifie l'antibiothérapie. Chez l'adulte, le score oriente : un score inférieur à 2 (soit < 1 avec le modificateur d'âge) permet d'écarter le SGA sans test ; un score atteignant 2 chez l'adulte (≥ 3 selon les recommandations chez l'enfant) conduit au TDR, dont le résultat négatif contre-indique toute antibiothérapie — l'angine est alors considérée virale, sans culture de contrôle sauf contexte particulier (risque de RAA, échec thérapeutique). Le TDR n'est pas indiqué chez l'adulte dont le score est faible, ni comme outil de contrôle sous traitement. En zone à ressources limitées comme Madagascar, où l'accès au TDR est inégal, le score clinique garde toute sa valeur d'orientation, avec l'impératif de savoir reconnaître les tableaux graves.",
+      "table": {
+        "title": "Diagnostics différentiels de l'angine",
+        "columns": ["Diagnostic", "Éléments d'orientation"],
+        "rows": [
+          ["Mononucléose infectieuse (EBV)", "Adolescent, asthénie majeure, adénopathies diffuses et postérieures, splénomégalie, hyperlymphocytose, éruption si amoxicilline"],
+          ["Diphtérie", "Fausse membrane grisâtre adhérente, coryza séro-sanglant, contexte de vaccination incomplète, insuffisance cardiaque et atteinte neurologique"],
+          ["Scarlatine", "Éruption granitique débutant aux plis puis desquamation, langue framboisée, angine SGA avec toxine érythrogénique"],
+          ["Herpangine (coxsackievirus)", "Vésicules puis ulcérations du voile, luette et piliers, enfant fébrile"],
+          ["Angine de Vincent", "Ulcération unilatérale amygdalienne, haleine fétide, sujet en mauvais état buccodentaire"],
+          ["Angine gonococcique", "Jeune adulte, partenaires à risque, prélèvement local"],
+          ["VIH en primo-infection", "Fièvre, pharyngite, éruption, adénopathies, sérologie et charge virale"]
+        ]
+      },
+      "callout": {
+        "tone": "bonne-pratique",
+        "title": "TDR et score : la bonne séquence",
+        "body": "Enfant de 3 à 14 ans : TDR systématique devant toute angine — antibiothérapie seulement s'il est positif. Adulte : score de Mac Isaac d'abord ; score < 2 : pas de TDR, pas d'antibiotique ; score ≥ 2 : TDR, et antibiothérapie seulement si positif. TDR négatif = angine virale, pas de culture de contrôle en routine, pas d'antibiotique — expliquer au patient la durée naturelle de 3 à 5 jours et la protection conférée contre l'antibiorésistance."
+      }
+    },
+    {
+      "id": "complications",
+      "title": "Complications",
+      "body": "Les complications de l'angine sont de deux ordres. Les complications suppuratives, locorégionales, dominées par l'abcès péri-amygdalien (amygdalien) : collection entre la capsule amygdalienne et le muscle constricteur, survenant dans les jours suivants, fébrile, avec douleur unilatérale intense, trismus, voix étouffée « de pomme de terre chaude », hypersialorrhée, et à l'examen amygdale proéminente, luette déviée vers le côté sain — le traitement associe antibiothérapie et drainage chirurgical (pose de drainage ou amygdalectomie différée). S'y ajoutent le phlegmon péri-amygdalien, les adénites cervicales suppurées, plus rarement l'abcès rétropharyngé, la sinusite, l'otite moyenne aiguë et la mastoïdite. Les complications non suppuratives, à distance, sont l'enjeu majeur du traitement : le rhumatisme articulaire aigu, survenant 2 à 3 semaines après une angine à SGA non traitée, touchant surtout l'enfant de 5 à 15 ans, lié au mimétisme moléculaire de la protéine M ; la cardite est sa manifestation la plus grave, allant de l'insuffisance mitrale aiguë (valve mitrale surtout, puis aortique) aux séquelles valvulaires définitives de la cardiopathie rhumatismale — la première cause de cardiopathie acquise de l'enfant et du jeune adulte dans les pays à ressources limitées. Le diagnostic de RAA repose sur les critères de Jones (majeurs : cardite, polyarthrite, chorée de Sydenham, nodosités sous-cutanées, érythème marginé ; mineurs : fièvre, arthralgies, allongement de l'espace PR, VS/CRP élevées), avec la preuve d'une infection streptococcique récente (ASLO, TDR, culture) et l'évolution récidivante sur des critères réduits. Autre complication post-streptococcique : la glomérulonéphrite aiguë (GNA), survenue 1 à 3 semaines après l'angine (ou après une infection cutanée), hypertension et œdèmes, hématurie macroscopique « bouillon sale », évoluant vers la guérison le plus souvent — certains sérotypes de SGA sont néphritigènes, d'autres rhumatigènes, les deux ne coïncidant en général pas. Enfin la scarlatine, liée à la toxine érythrogénique, associe l'angine SGA à une éruption granitique puis desquamative et une langue framboisée. L'entourage d'un cas de RAA doit être dépisté et traité : c'est la prévention secondaire de la récidive, qui aggrave les lésions valvulaires.",
+      "callout": {
+        "tone": "urgence",
+        "title": "Drapeau rouge : la cardite rhumatismale",
+        "body": "Chez un enfant de 5 à 15 ans, toute arthrite migratrice des grosses articulations 2 à 3 semaines après une angine impose l'auscultation cardiaque : un souffle d'insuffisance mitrale, une tachycardie ou un galop, des signes d'insuffisance cardiaque = RAA cardite — urgence : échocardiographie, repos, anti-inflammatoires, antibiothérapie, et surtout prophylaxie secondaire au long cours, car chaque récidive aggrave les valves."
+      },
+      "list": {
+        "title": "Complications à connaître",
+        "items": [
+          "Suppuratives : abcès péri-amygdalien (trismus, luette déviée), phlegmon, adénite suppurée, otite, sinusite, abcès rétropharyngé",
+          "Post-streptococciques non suppuratives : RAA (cardite, arthrite, chorée, nodosités, érythème marginé) et glomérulonéphrite aiguë (hématurie, HTA, œdèmes)",
+          "Toxique : scarlatine (toxine érythrogénique, éruption desquamative, langue framboisée)",
+          "À distance : cardiopathie rhumatismale chronique — ≈ 55 millions de personnes dans le monde, première cause de cardiopathie acquise du jeune sujet dans les pays à ressources limitées"
+        ]
+      }
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "body": "Le traitement de l'angine virale est purement symptomatique : paracétamol ou antalgiques adaptés contre la douleur et la fièvre, hydratation, alimentation fraîche et molle, gargarismes antiseptiques ou anesthésiques locaux — avec une explication claire de la durée spontanée des symptômes (amélioration en 3 à 5 jours) et de l'inutilité des antibiotiques. L'angine à SGA confirmée (TDR positif) se traite par l'amoxicilline par voie orale, première intention, pendant 6 jours — durée raccourcie du fait de l'excellente sensibilité du SGA et de l'observance qu'elle favorise ; l'éviction scolaire ou de collectivité n'est plus nécessaire au-delà de 48 heures après le début de l'antibiothérapie (conformément aux recommandations CMIT reprises par l'Assurance maladie). L'éviction sans antibiothérapie, en revanche, n'a pas de fondement. En cas d'allergie aux bêta-lactamines, les macrolides (azithromycine, clarithromycine) constituent l'alternative, sous réserve de la sensibilité du SGA (résistance possible aux macrolides). Le traitement des complications est spécifique : abcès péri-amygdalien — antibiothérapie et drainage ; RAA — repos, anti-inflammatoires, traitement de l'insuffisance cardiaque et prophylaxie secondaire ; scarlatine — antibiothérapie anti-SGA ; diphtérie — antitoxine en urgence, isolement, antibiothérapie, vaccination de l'entourage ; mononucléose — arrêt de l'amoxicilline (l'éruption qui complique son usage dans la MNI n'est pas une allergie véritable mais un rash caractéristique), éviction du sport en cas de splénomégalie. Conformément à la règle éditoriale du catalogue, les posologies détaillées ne sont pas reproduites ici et relèvent des protocoles en vigueur (enfant : amoxicilline par jour en deux prises pendant 6 jours selon le poids, dans la limite de la dose adulte).",
+      "callout": {
+        "tone": "bonne-pratique",
+        "title": "Fenêtre thérapeutique anti-RAA",
+        "body": "Le traitement antibiotique de l'angine à SGA, débuté dans les 9 jours qui suivent le début des symptômes, prévient le RAA. Toutefois, le meilleur service rendu au patient est de ne PAS prescrire d'antibiotique quand le TDR est négatif : c'est l'usage raisonné du test qui protège à la fois le patient (pas d'effets indésirables inutiles) et la collectivité (antibiorésistance)."
+      }
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "body": "La prévention des complications de l'angine repose d'abord sur le traitement correct des angines à SGA : c'est la prévention primaire du RAA — l'antibiothérapie de l'angine à SGA dans les 9 premiers jours prévient la survenue du RAA. La prévention secondaire, chez le patient ayant fait un RAA, est la clé du pronostic valvulaire : une prophylaxie au long cours par benzathine-pénicilline en intramusculaire mensuel (ou pénicilline orale quotidienne) pendant des années — l'OMS et les sociétés savantes recommandent au moins 10 ans, ou jusqu'à l'âge de 25 ans, voire à vie en cas de valvulopathie — car chaque récidive de RAA aggrave les lésions cardiaques. L'entourage d'un cas index de RAA doit être dépisté (angine récente, douleurs articulaires) et traité. La vaccination contre la diphtérie (anatoxine, incluse dans les vaccins combinés du PEV) prévient l'angine diphtérique : le maintien d'une couverture vaccinale élevée est essentiel, les flambées réapparaissant dès que la couverture s'effondre. L'hygiène simple — lavage des mains, couverture de la toux, éviction fébrile des collectivités, ne pas partager couverts et gobelets — limite la transmission. L'éducation des familles sur la nécessité de consulter pour une angine hyperalgique, fébrile, ou trainante, et sur la prise régulière de l'antibiothérapie prescrite, fait partie intégrante de la prévention.",
+      "table": {
+        "title": "Prévention du RAA : les deux étages",
+        "columns": ["Niveau", "Mesure", "Cible"],
+        "rows": [
+          ["Primaire", "Antibiothérapie de l'angine à SGA (TDR positif) dans les 9 premiers jours", "Toute angine à SGA — prévient la première poussée"],
+          ["Secondaire", "Prophylaxie par benzathine-pénicilline au long cours (≥ 10 ans, jusqu'à 25 ans ou à vie si valvulopathie)", "Sujet ayant fait un RAA — prévient les récidives et l'aggravation valvulaire"],
+          ["Dépistage de l'entourage", "Examen clinique, angines récentes traitées, échocardiographie si souffle", "Familles des cas de RAA"]
+        ]
+      }
+    },
+    {
+      "id": "surveillance-madagascar",
+      "title": "Contexte malgache",
+      "body": "À Madagascar, le RAA est documenté comme un « véritable problème de santé publique » : les séries publiées font état de cardites fréquentes chez l'enfant hospitalisé (plus de 40 % des cas dans les cohortes rapportées), avec une atteinte valvulaire mitrale au premier plan et des formes sévères de cœur pulmonaire chronique rhumatismal chez l'adulte jeune. Le pays se situe dans la ceinture africaine du RAA : l'Afrique, l'Asie du Sud-Est et le Pacifique occidental concentrent 84 % des cas prévalents et 80 % des décès par cardiopathie rhumatismale dans le monde. Les déterminants sont connus : promiscuité et transmission interhumaine intense dans les écoles et les fokontany, angines à SGA non diagnostiquées ou non traitées, accès limité au TDR dans les centres de santé de base, coût et disponibilité irrégulière de la benzathine-pénicilline, retard à l'échocardiographie et à la prise en charge des valvulopathies, et couverture vaccinale contre la diphtérie à consolider. Le médecin de district malgache doit ainsi considérer chaque angine de l'enfant d'âge scolaire comme une occasion de prévenir une cardiopathie pour la vie : appliquer le score et le TDR lorsqu'il est disponible, traiter les angines à SGA par amoxicilline pendant 6 jours, savoir reconnaître une diphtérie devant une fausse membrane (et vérifier la vaccination), ausculter systématiquement le cœur de tout enfant aux antécédents d'angines répétées ou de douleurs articulaires, et inscrire les enfants ayant fait un RAA dans un circuit de prophylaxie secondaire et de suivi échocardiographique.",
+      "callout": {
+        "tone": "reflexe",
+        "title": "Réflexe terrain",
+        "body": "À Madagascar, devant toute angine de l'enfant d'âge scolaire : (1) score clinique et TDR si disponible ; (2) amoxicilline 6 jours si SGA — en expliquant l'observance complète ; (3) contrôle et éducation de la famille sur les signes d'alerte (douleur unilatérale croissante, trismus, articulations douloureuses, essoufflement) ; (4) auscultation cardiaque à chaque consultation de suivi d'un enfant aux angines répétées ; (5) si RAA confirmé : prophylaxie secondaire benzathine-pénicilline et carte de suivi, pour éviter la récidive valvulaire."
+      }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "body": "L'angine est une affection banale dont l'enjeu dépasse la sphère ORL : 70 à 90 % sont virales et ne nécessitent aucun antibiotique, mais l'angine à streptocoque du groupe A, si elle n'est pas traitée, peut ouvrir la voie au rhumatisme articulaire aigu et à la cardiopathie rhumatismale — 55 millions de personnes touchées et 360 000 décès par an dans le monde, dont la grande majorité dans les pays à revenu faible ou intermédiaire. Trois réflexes résument la conduite à tenir : trier par le score de Mac Isaac et le TDR (systématique de 3 à 14 ans) ; traiter les angines à SGA par amoxicilline pendant 6 jours, avec éviction de collectivité de 48 heures ; et garder à l'esprit les urgences de la sphère — abcès péri-amygdalien, diphtérie, mononucléose, scarlatine — et la surveillance cardiaque de l'enfant malgache aux angines répétées. À Madagascar, où le RAA est un problème de santé publique, le bon traitement d'une angine d'enfant aujourd'hui évite une valvulopathie dans dix ans : peu de gestes de médecine quotidienne ont un tel rapport bénéfice/coût."
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "body": "Les sources ci-dessous ont été consultées et vérifiées le 27 octobre 2026. Elles appuient les données épidémiologiques, la stratégie diagnostique (score, TDR), les durées de traitement et d'éviction, le fardeau du rhumatisme articulaire aigu et le contexte malgache présentés dans cette fiche.",
+      "table": {
+        "title": "Sources vérifiées",
+        "columns": ["Source", "Contenu utilisé"],
+        "rows": [
+          ["HAS — Choix et durées d'antibiothérapies : angine aiguë de l'adulte", "Amoxicilline 6 jours en 2 prises ; abstention si score < 2 ou TDR négatif ; TROD par le pharmacien ≥ 10 ans"],
+          ["Collège National des Pédiatres Universitaires — Item 149 Angines", "TDR systématique 3–14 ans ; amoxicilline 6 jours chez l'enfant ; SGA ≈ 40 % des angines de l'enfant > 3 ans ; pas de culture de contrôle si TDR négatif"],
+          ["OMS — Cardiopathie rhumatismale (fiche d'information)", "≈ 55 millions de personnes, ≈ 360 000 décès/an ; lien angine à SGA → RAA → cardiopathie rhumatismale"],
+          ["OMS — A71/25 RAA et cardiopathies rhumatismales", "Afrique, Asie du Sud-Est et Pacifique occidental : 84 % des cas prévalents, 80 % des décès (2015)"],
+          ["MSD Manuals — Rhumatisme articulaire aigu (Édition professionnelle)", "RAA de l'enfant 5–15 ans, mimétisme moléculaire de la protéine M (articulations, cœur, valves), critères de Jones"],
+          ["Santé Tropicale — Le RAA à Madagascar", "RAA « véritable problème de santé publique à Madagascar », cardite chez 10/22 enfants d'une série rapportée"],
+          ["Pédiatrie Suisse — Angine à streptocoque chez l'enfant", "SGA 5–15 % des angines adultes, 20–30 % chez l'enfant"],
+          ["Ameli (Assurance maladie) — Traitement de l'angine", "Amoxicilline 1re intention, guérison 3–5 jours, éviction scolaire 48 h après début de l'antibiothérapie (CMIT)"]
+        ]
+      }
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-fatac",
+      "title": "« FATA-C » — le score de Mac Isaac",
+      "description": "Les quatre critères du score (un point chacun), plus le modificateur d'âge : chez l'enfant de 3 à 14 ans le TDR est systématique ; chez l'adulte, un score < 2 dispense de tout.",
+      "entries": [
+        { "code": "F", "label": "Fièvre > 38 °C" },
+        { "code": "A", "label": "Absence de toux" },
+        { "code": "T", "label": "adénopathies cervicales antérieures Tendres (douloureuses)" },
+        { "code": "A", "label": "Amygdales exsudatives ou hypertrophiques" },
+        { "code": "C", "label": "Child/âge : +1 point de 3 à 14 ans, −1 point au-delà de 44 ans" }
+      ]
+    },
+    {
+      "id": "mnemo-cacne",
+      "title": "« CACNE » — critères majeurs de Jones (RAA)",
+      "description": "Les cinq critères majeurs du rhumatisme articulaire aigu ; deux majeurs (ou un majeur + deux mineurs) avec preuve d'infection streptococcique récente font le diagnostic.",
+      "entries": [
+        { "code": "C", "label": "Cardite — la plus grave (souffle mitral, insuffisance cardiaque)" },
+        { "code": "A", "label": "Arthrite — polyarthrite migratrice des grosses articulations" },
+        { "code": "C", "label": "Chorée de Sydenham — mouvements anormaux, tardive" },
+        { "code": "N", "label": "Nodosités sous-cutanées — fermes, indolores, sur les extenseurs" },
+        { "code": "E", "label": "Érythème marginé — annulaire, fugace, tronc" }
+      ]
+    },
+    {
+      "id": "mnemo-6-48-21",
+      "title": "« 6 – 48 – 21 – 9 » — les quatre nombres de l'angine à SGA",
+      "description": "Trois durées à connaître : celle du traitement, celle de l'éviction, celle du risque.",
+      "entries": [
+        { "code": "6", "label": "6 jours d'amoxicilline par voie orale — le traitement de l'angine à SGA" },
+        { "code": "48", "label": "48 heures d'éviction scolaire/collectivité après le début de l'antibiothérapie — pas au-delà" },
+        { "code": "21", "label": "21 jours (2 à 3 semaines) après l'angine : la fenêtre où guetter le RAA — arthrite, souffle, chorée" },
+        { "code": "9", "label": "9 jours : fenêtre maximale pour débuter l'antibiothérapie anti-SGA et prévenir le RAA" }
+      ]
+    }
+  ],
+  "flashcards": [
+    { "id": "fc-angines-1", "front": "Quelle proportion des angines est virale chez l'enfant et chez l'adulte ?", "back": "Environ 70 % chez l'enfant et jusqu'à 90 % chez l'adulte. Le streptocoque du groupe A représente 20–30 % des angines de l'enfant et 5–15 % de celles de l'adulte." },
+    { "id": "fc-angines-2", "front": "Quelle est la première cause bactérienne d'angine et à quel âge culmine-t-elle ?", "back": "Streptococcus pyogenes, le streptocoque bêta-hémolytique du groupe A (SGA), avec un pic d'incidence entre 4 et 15 ans. C'est la seule angine dont l'antibiothérapie est formellement indiquée." },
+    { "id": "fc-angines-3", "front": "Citez les quatre critères du score de Mac Isaac et son modificateur.", "back": "Fièvre > 38 °C, absence de toux, adénopathies cervicales antérieures douloureuses, exsudat ou hypertrophie amygdalienne ; modificateur d'âge : +1 point de 3 à 14 ans, −1 point après 44 ans." },
+    { "id": "fc-angines-4", "front": "À quel âge le TDR streptococcique est-il systématique devant une angine ?", "back": "De 3 à 14 ans, devant toute angine. Seul un TDR positif justifie l'antibiothérapie ; négatif, il affirme l'origine virale sans culture de contrôle en routine." },
+    { "id": "fc-angines-5", "front": "Quel est le traitement de première intention de l'angine à SGA et sa durée ?", "back": "L'amoxicilline par voie orale pendant 6 jours (deux prises par jour). Alternative en cas d'allergie : macrolides, sous réserve de la sensibilité du SGA." },
+    { "id": "fc-angines-6", "front": "Quelle est la règle d'éviction scolaire au cours d'une angine traitée ?", "back": "Éviction de 48 heures après le début de l'antibiothérapie (recommandation CMIT) ; au-delà, l'enfant peut retourner en collectivité. Sans antibiothérapie, l'éviction n'a pas de fondement." },
+    { "id": "fc-angines-7", "front": "Quel accident survient si l'on donne de l'amoxicilline dans une mononucléose infectieuse ?", "back": "Une éruption maculo-papuleuse généralisée caractéristique — ce n'est pas une vraie allergie aux bêta-lactamines, mais un rash lié à l'interaction EBV-amoxicilline. On évite donc l'amoxicilline dans l'angine de l'adolescent évocatrice de MNI." },
+    { "id": "fc-angines-8", "front": "Quels signes font évoquer un abcès péri-amygdalien ?", "back": "Douleur unilatérale intense et fébrile, trismus, voix étouffée « de pomme de terre chaude », hypersialorrhée, amygdale proéminente et luette déviée vers le côté sain. Traitement : antibiothérapie et drainage." },
+    { "id": "fc-angines-9", "front": "Quel est le délai du rhumatisme articulaire aigu après l'angine, et quel âge touche-t-il ?", "back": "2 à 3 semaines après une angine à SGA non traitée, surtout l'enfant de 5 à 15 ans. Mécanisme : mimétisme moléculaire entre la protéine M du SGA et les antigènes du cœur, des articulations et du cerveau." },
+    { "id": "fc-angines-10", "front": "Quels sont les critères majeurs de Jones ?", "back": "Cardite (la plus grave), polyarthrite, chorée de Sydenham, nodosités sous-cutanées, érythème marginé. Le diagnostic de RAA requiert 2 critères majeurs (ou 1 majeur + 2 mineurs) avec preuve d'infection streptococcique récente." },
+    { "id": "fc-angines-11", "front": "Quel est le fardeau mondial de la cardiopathie rhumatismale selon l'OMS ?", "back": "Environ 55 millions de personnes vivent avec une cardiopathie rhumatismale, causant environ 360 000 décès par an — essentiellement dans les pays à revenu faible ou intermédiaire. L'Afrique, l'Asie du Sud-Est et le Pacifique occidental concentrent 84 % des cas." },
+    { "id": "fc-angines-12", "front": "En quoi consiste la prophylaxie secondaire du RAA ?", "back": "Benzathine-pénicilline intramusculaire mensuelle (ou pénicilline orale quotidienne) pendant au moins 10 ans, jusqu'à 25 ans, voire à vie en cas de valvulopathie — car chaque récidive aggrave les lésions valvulaires." },
+    { "id": "fc-angines-13", "front": "Quand suspecter une diphtérie devant une angine ?", "back": "Fausse membrane grisâtre adhérente du pharynx (arrachement hémorragique), coryza séro-sanglant, contextes de vaccination incomplète et de promiscuité — urgence : antitoxine, isolement, antibiothérapie, vaccination de l'entourage." },
+    { "id": "fc-angines-14", "front": "Pourquoi le RAA est-il un enjeu majeur à Madagascar ?", "back": "Le RAA y est documenté comme un véritable problème de santé publique : cardites fréquentes chez l'enfant hospitalisé, séquelles valvulaires du jeune adulte, accès limité au TDR et à la benzathine-pénicilline — d'où l'importance du traitement correct des angines de l'enfant d'âge scolaire." }
+  ],
+  "mindmap": {
+    "title": "Angines — carte mentale",
+    "branches": [
+      {
+        "label": "Agents et épidémiologie",
+        "tone": "reflexe",
+        "children": [
+          { "label": "Viraux (70–90 %)", "leaves": ["Virus respiratoires courants", "EBV : mononucléose de l'adolescent", "Coxsackievirus : herpangine vésiculeuse", "VIH primo-infection"] },
+          { "label": "Bactériens", "leaves": ["SGA (S. pyogenes) : 20–30 % enfant, 5–15 % adulte", "Pic 4–15 ans", "Groupes C et G, gonocoque, anaérobies", "C. diphtheriae : fausses membranes"] },
+          { "label": "Virulence du SGA", "leaves": ["Protéine M : mimétisme moléculaire", "Toxine érythrogénique : scarlatine", "Transmission par gouttelettes"] }
+        ]
+      },
+      {
+        "label": "Clinique et diagnostic",
+        "tone": "reflexe",
+        "children": [
+          { "label": "Formes", "leaves": ["Érythémateuse (virale)", "Érythémato-pultacée (SGA)", "Pseudomembraneuse (EBV, diphtérie)"] },
+          { "label": "Stratégie", "leaves": ["Score de Mac Isaac (FATA-C)", "TDR systématique 3–14 ans", "Adulte : TDR si score ≥ 2", "TDR négatif = viral, pas d'antibiotique"] },
+          { "label": "Différentiels", "leaves": ["Mononucléose, diphtérie, scarlatine", "Herpangine, angine de Vincent", "Gonococcique, VIH"] }
+        ]
+      },
+      {
+        "label": "Complications",
+        "tone": "urgence",
+        "children": [
+          { "label": "Suppuratives", "leaves": ["Abcès péri-amygdalien : trismus, luette déviée", "Phlegmon, adénite suppurée", "Otite, sinusite"] },
+          { "label": "Post-streptococciques", "leaves": ["RAA à 2–3 semaines : cardite, arthrite, chorée", "Critères de Jones (CACNE)", "GNA : hématurie, HTA, œdèmes"] },
+          { "label": "Drapeaux rouges", "leaves": ["Trismus, impossibilité de boire", "Fausse membrane = diphtérie", "Souffle après angine = RAA cardite"] }
+        ]
+      },
+      {
+        "label": "Traitement, prévention, Madagascar",
+        "tone": "bonne-pratique",
+        "children": [
+          { "label": "Traitement", "leaves": ["Viral : symptomatique, pas d'antibiotique", "SGA : amoxicilline 6 jours", "Éviction 48 h après antibio début", "Abcès : drainage"] },
+          { "label": "Prévention du RAA", "leaves": ["Primaire : traiter l'angine à SGA (< 9 jours)", "Secondaire : benzathine-pénicilline ≥ 10 ans", "Dépistage de l'entourage"] },
+          { "label": "Madagascar", "leaves": ["RAA : problème de santé publique", "84 % des cas mondiaux en Afrique/Asie SE/Pacifique", "Accès TDR limité : score clinique clé", "Auscultation cardiaque des enfants à angines répétées"] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-HAS-ANGINE-ADULTE",
+      "citation": "Haute Autorité de Santé. Choix et durées d'antibiothérapies : angine aiguë de l'adulte (fiche mémo).",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Traitement de l'angine à SGA de l'adulte : amoxicilline 2 g/jour en 2 prises pendant 6 jours ; abstention d'antibiothérapie si score < 2 ou si score ≥ 2 avec TDR négatif ; test rapide orienté réalisé par le pharmacien chez les patients de 10 ans et plus.",
+      "title": "HAS — Angine aiguë de l'adulte",
+      "url": "https://www.has-sante.fr/jcms/p_3529230/fr/choix-et-durees-d-antibiotherapies-angine-aigue-de-l-adulte",
+      "organization": "Haute Autorité de Santé",
+      "year": 2024
+    },
+    {
+      "id": "SRC-CNPU-ITEM149",
+      "citation": "Collège National des Pédiatres Universitaires. Item 149 — Angines (référentiel national).",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Chez l'enfant : TDR systématique de 3 à 14 ans, amoxicilline pendant 6 jours en 2 prises, SGA responsable d'environ 40 % des angines de l'enfant après 3 ans, pas de culture de contrôle après TDR négatif (sauf risque de RAA).",
+      "title": "CNPU — Item 149 Angines",
+      "url": "https://www.pedia-univ.fr/deuxieme-cycle/referentiel/infectiologie/angines",
+      "organization": "Collège National des Pédiatres Universitaires",
+      "year": 2023
+    },
+    {
+      "id": "SRC-OMS-CARDIORHUMATISMALE",
+      "citation": "Organisation mondiale de la Santé. Cardiopathie rhumatismale — fiche d'information.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Fardeau mondial de la cardiopathie rhumatismale : environ 55 millions de personnes touchées, environ 360 000 décès par an, majorité dans les pays à revenu faible ou intermédiaire ; lien de causalité angine à S. pyogenes → RAA → cardiopathie rhumatismale.",
+      "title": "OMS — Cardiopathie rhumatismale",
+      "url": "https://www.who.int/fr/news-room/fact-sheets/detail/rheumatic-heart-disease",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2024
+    },
+    {
+      "id": "SRC-OMS-A71-25",
+      "citation": "Organisation mondiale de la Santé. A71/25 — Rhumatisme articulaire aigu et cardiopathies rhumatismales : rapport du Secrétariat.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Répartition régionale : Afrique, Asie du Sud-Est et Pacifique occidental = 84 % des cas prévalents et 80 % des décès de cardiopathie rhumatismale (données 2015) ; stratégie de prévention primaire et secondaire.",
+      "title": "OMS — A71/25 : RAA et cardiopathies rhumatismales",
+      "url": "https://apps.who.int/gb/ebwha/pdf_files/wha71/a71_25-fr.pdf",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2018
+    },
+    {
+      "id": "SRC-MSD-RAA",
+      "citation": "MSD Manuals, Édition professionnelle. Rhumatisme articulaire aigu (RAA) — Pédiatrie.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Âge de prédilection du RAA (5–15 ans), mécanisme de mimétisme moléculaire de la protéine M avec les antigènes synoviaux, myocardiques et valvulaires, critères diagnostiques de Jones.",
+      "title": "MSD Manuals — Rhumatisme articulaire aigu",
+      "url": "https://www.msdmanuals.com/fr/professional/pediatrie/infections-a-streptocoques/rhumatisme-articulaire-aigu-raa",
+      "organization": "MSD Manuals",
+      "year": 2024
+    },
+    {
+      "id": "SRC-SANTETROPICALE-RAA-MG",
+      "citation": "Santé Tropicale. Le rhumatisme articulaire aigu à Madagascar.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Statut du RAA à Madagascar — « véritable problème de santé publique » ; cardite retrouvée chez 10 des 22 enfants d'une série rapportée ; poids des séquelles valvulaires chez l'enfant malgache.",
+      "title": "Santé Tropicale — Le RAA à Madagascar",
+      "url": "https://www.santetropicale.com/Resume/124503.pdf",
+      "organization": "Santé Tropicale",
+      "year": 2019
+    },
+    {
+      "id": "SRC-PAEDIATRIE-SUISSE",
+      "citation": "Pédiatrie Suisse. Angine à streptocoque chez l'enfant : traiter ou ne pas traiter ?",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Proportion du SGA : 5–15 % des angines de l'adulte, 20–30 % de celles de l'enfant ; arguments de l'antibiothérapie ciblée de l'angine streptococcique.",
+      "title": "Pédiatrie Suisse — Angine à streptocoque chez l'enfant",
+      "url": "https://www.paediatrieschweiz.ch/fr/angine-a-streptocoque-chez-lenfant-traiter-ou-ne-pas-traiter/",
+      "organization": "Pédiatrie Suisse",
+      "year": 2021
+    },
+    {
+      "id": "SRC-AMELI-ANGINE",
+      "citation": "Assurance Maladie (ameli.fr). Angine — traitement et évolution.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Amoxicilline en première intention de l'angine bactérienne, guérison en 3 à 5 jours, éviction scolaire de 48 heures après le début de l'antibiothérapie (recommandation CMIT).",
+      "title": "Ameli — Traitement de l'angine",
+      "url": "https://www.ameli.fr/assure/sante/themes/angine/traitement",
+      "organization": "Assurance Maladie (France)",
+      "year": 2023
+    }
+  ],
+  "related": {
+    "deckIds": ["infectio", "semio", "infectio-angines-l5"]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°11 (Angines)",
+      "reference": "madagascar-2025, ordinal 52",
+      "receivedAt": "2026-10-27",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Contenu rédigé à partir des sources HAS (antibiothérapies de l'angine de l'adulte), CNPU (item 149 pédiatrique), OMS (fiche cardiopathie rhumatismale, rapport A71/25), MSD Manuals (RAA), Santé Tropicale (RAA à Madagascar), Pédiatrie Suisse et Ameli (Assurance maladie). Le programme national n'a servi que de référence de structure (numérotation et intitulé de l'item).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Durée de l'antibiothérapie de l'angine à SGA (amoxicilline par voie orale 6 jours, en 2 prises) et abstention si score < 2 ou TDR négatif : vérifiées sur la fiche HAS « Choix et durées d'antibiothérapies : angine aiguë de l'adulte » et le référentiel CNPU item 149.",
+      "TDR systématique de 3 à 14 ans et absence de culture de contrôle après TDR négatif : vérifiés sur le référentiel CNPU item 149 (Collège National des Pédiatres Universitaires).",
+      "Fardeau mondial de la cardiopathie rhumatismale (≈ 55 millions de personnes, ≈ 360 000 décès/an) et concentration régionale Afrique/Asie du Sud-Est/Pacifique occidental (84 % des cas, 80 % des décès, 2015) : vérifiés sur la fiche d'information OMS et le rapport A71/25.",
+      "Proportions des angines à SGA (20–30 % enfant, 5–15 % adulte), âge de prédilection 4–15 ans, mimétisme moléculaire de la protéine M, critères de Jones : vérifiés sur Pédiatrie Suisse, CNPU et MSD Manuals.",
+      "Statut du RAA à Madagascar (« véritable problème de santé publique », cardite chez 10/22 enfants d'une série rapportée) : vérifié sur la publication Santé Tropicale.",
+      "Éviction de collectivité de 48 heures après le début de l'antibiothérapie et guérison spontanée en 3 à 5 jours : vérifiées sur la page Ameli (Assurance maladie), reprenant les recommandations CMIT."
+    ],
+    "qcChecklist": [
+      "Les chiffres épidémiologiques et les durées citées proviennent de sources institutionnelles (HAS, OMS, CNPU, Assurance maladie) ou d'articles évalués par les pairs, chacun avec URL vérifiée et date de consultation.",
+      "Aucune posologie chiffrée en mg/kg n'est incluse dans le contenu testé, conformément à la règle éditoriale du catalogue ; les durées (6 jours, 48 heures) sont des repères validés par les sources.",
+      "Le contenu malgache (RAA problème de santé publique, accès limité au TDR, prophylaxie secondaire) est sourcé par la publication Santé Tropicale et le rapport OMS A71/25, pas par des impressions de pratique.",
+      "Les critères diagnostiques (score de Mac Isaac, critères de Jones) correspondent aux définitions des référentiels cités ; la stratégie TDR suit les recommandations françaises actuelles (HAS, CNPU)."
+    ]
+  },
+  "reviewStatus": "pending-medical-review"
+}
