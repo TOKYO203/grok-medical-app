@@ -27,9 +27,9 @@ const order: PremiumOrder = {
 };
 
 test("Premium pricing and product codes remain aligned with the selected offer", () => {
-  assert.equal(orderAmount(order), 3_000);
+  assert.equal(orderAmount(order), 15_000);
   assert.equal(orderProduct(order), "NEURO_DECK_03");
-  assert.equal(orderAmount({ ...order, offer: "specialty" }), 27_000);
+  assert.equal(orderAmount({ ...order, offer: "specialty" }), 22_000);
   assert.equal(orderProduct({ ...order, offer: "specialty" }), "NEURO_PACK_15");
   for (const specialty of PREMIUM_SPECIALTIES) {
     for (const deckNumber of [1, 10]) {
@@ -46,7 +46,7 @@ test("purchase tracking is monotonic and keeps canonical order details", () => {
   const pending = advancePurchase(order, "verification_pending", created, true, 200);
   const staleUpdate = advancePurchase(order, "instructions_requested", pending, false, 300);
 
-  assert.equal(created.amount, 3_000);
+  assert.equal(created.amount, 15_000);
   assert.equal(created.label, "Neurologie · Deck 3/10");
   assert.equal(created.product, "NEURO_DECK_03");
   assert.equal(staleUpdate.status, "verification_pending");
@@ -66,7 +66,7 @@ test("changing the product under one reference resets its progress", () => {
 
 test("payment and fulfillment messages carry the exact order and device binding", () => {
   const payment = paymentRequestMessage(order, "OM-12AB34CD");
-  assert.match(payment, /3[\s\u202f]000 Ar/);
+  assert.match(payment, /15[\s\u202f]000 Ar/);
   assert.match(payment, /numéro Mobile Money officiel/);
 
   const fulfillment = fulfillmentRequestMessage(order, {
@@ -94,8 +94,8 @@ const subscription: PremiumOrder = {
   deckNumber: 1,
 };
 
-test("l'abonnement facture 15 000 Ar et émet le produit qui ouvre tout le Premium", () => {
-  assert.equal(orderAmount(subscription), 15_000);
+test("l'abonnement facture 35 000 Ar et émet le produit qui ouvre tout le Premium", () => {
+  assert.equal(orderAmount(subscription), 35_000);
   assert.equal(orderAmount(subscription), PRICES_MGA.subscriptionQuarter);
   assert.equal(orderProduct(subscription), SUBSCRIPTION_PRODUCT);
   // `OPTIMUS_PRO` est le droit reconnu par les gardes d'accès existantes.
@@ -107,13 +107,13 @@ test("l'abonnement facture 15 000 Ar et émet le produit qui ouvre tout le Premi
 });
 
 test("les offres à l'unité restent au tarif et au produit inchangés", () => {
-  assert.equal(orderAmount({ ...order, offer: "deck" }), 3_000);
-  assert.equal(orderAmount({ ...order, offer: "specialty" }), 27_000);
+  assert.equal(orderAmount({ ...order, offer: "deck" }), 15_000);
+  assert.equal(orderAmount({ ...order, offer: "specialty" }), 22_000);
   assert.equal(orderProduct({ ...order, offer: "specialty" }), "NEURO_PACK_15");
-  // Une licence d'achat à l'unité n'expire pas.
-  assert.equal(licenseDurationDays("deck"), null);
-  assert.equal(licenseDurationDays("specialty"), null);
-  assert.equal(licenseExpiryFor("deck", 0), null);
+  // Toutes les licences durent 90 jours (aucun accès à vie).
+  assert.equal(licenseDurationDays("deck"), 90);
+  assert.equal(licenseDurationDays("specialty"), 90);
+  assert.equal(licenseExpiryFor("deck", 0), new Date(90 * 86_400_000).toISOString());
 });
 
 test("la licence d'abonnement expire à 3 mois (90 jours), pas à la seconde près", () => {
@@ -170,7 +170,7 @@ test("la référence d'abonnement est identifiable ET valide le format partagé"
 
 test("le message de demande d'abonnement porte le bon montant et le bon produit", () => {
   const message = paymentRequestMessage(subscription, "OM-12AB34CD");
-  assert.match(message, /15[\s\u202f]000 Ar/);
+  assert.match(message, /35[\s\u202f]000 Ar/);
   assert.match(message, /OPTIMUS_PRO/);
   assert.match(message, /Abonnement Trimestriel/);
   assert.doesNotMatch(message, /3[\s\u202f]000 Ar/);

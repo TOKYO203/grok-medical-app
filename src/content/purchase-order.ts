@@ -150,8 +150,9 @@ export function orderLabel(order: PremiumOrder): string {
  * jours (× 30) pour rester sur une arithmétique entière et ne dépendre d'aucun
  * calendrier (aucun débat « 3 mois = 89/90/92 jours »).
  */
-export function licenseDurationDays(offer: PremiumOffer): number | null {
-  return offer === "subscription" ? SUBSCRIPTION_MONTHS * 30 : null;
+export function licenseDurationDays(_offer: PremiumOffer): number {
+  // Règle métier : aucun accès à vie. Tous les tiers durent 90 jours.
+  return 90;
 }
 
 /**
@@ -161,10 +162,9 @@ export function licenseDurationDays(offer: PremiumOffer): number | null {
  * dans `activation_keys.expires_at`, puis la signe dans le reçu. La même règle
  * sert donc à la base, au reçu et à l'affichage — impossible qu'elles divergent.
  */
-export function licenseExpiryFor(offer: PremiumOffer, now = Date.now()): string | null {
-  const days = licenseDurationDays(offer);
-  if (days === null) return null;
-  return new Date(now + days * 86_400_000).toISOString();
+export function licenseExpiryFor(offer: PremiumOffer, now = Date.now()): string {
+  // Retourne TOUJOURS une date — plus aucune licence à vie possible.
+  return new Date(now + licenseDurationDays(offer) * 86_400_000).toISOString();
 }
 
 /**
