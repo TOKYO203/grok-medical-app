@@ -1,0 +1,627 @@
+{
+  "kind": "pathology",
+  "slug": "varicelle-zona",
+  "schemaVersion": 1,
+  "title": "Varicelle et zona",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "updatedAt": "2026-10-27",
+  "objective": "Devant une éruption vésiculeuse fébrile chez un enfant, ou une douleur unilatérale métamérique avec bouquet de vésicules chez un adulte : savoir reconnaître la varicelle et le zona, distinguer les formes bénignes des formes qui tuent — adulte, femme enceinte, immunodéprimé, nouveau-né —, engager le traitement antiviral dans sa fenêtre utile, et appliquer la prophylaxie de l'entourage.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 8,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 49,
+      "localNumber": 8,
+      "sectionLabel": "Médecine",
+      "title": "Varicelle et zona",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La varicelle est la maladie éruptive la plus contagieuse de la pédiatrie : le virus varicelle-zona (VZV) infecte 61 à 100 % des sujets susceptibles exposés à un cas dans un foyer. Dans les pays tempérés, plus de 90 % des individus sont infectés avant l'adolescence ; dans les pays tropicaux comme Madagascar, l'acquisition est plus tardive, ce qui laisse une proportion plus grande d'adultes susceptibles — et la varicelle de l'adulte est une maladie grave, dominée par la pneumonie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Un seul virus, deux maladies : la varicelle est la primo-infection, le zona sa réactivation des décennies plus tard. Le VZV persiste à vie dans les ganglions sensitifs, et le zona frappe environ une personne sur trois au cours de sa vie, surtout après cinquante ans, avec son cortège de douleurs post-zostériennes. Comprendre cette continuité — primo-infection, latence, réactivation — c'est comprendre pourquoi vacciner un enfant contre la varicelle protège aussi l'adulte qu'il deviendra."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, le vaccin antivaricelleux n'est pas inclus dans le programme élargi de vaccination : la maladie circule librement et s'exprime en épidémies scolaires, comme celle d'Ananalava (région Sofia) en 2008, qui a touché environ cent vingt enfants en quelques semaines. La prise en charge repose donc sur des gestes simples — reconnaître, soulager, isoler — et sur la protection ciblée des sujets à risque, pour lesquels la varicelle reste une urgence."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit la logologie de l'examen : reconnaître l'éruption et son rythme, identifier les sujets qui décompensent, traiter dans les fenêtres utiles, et organiser la prophylaxie de l'entourage autour de chaque cas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Les varicelles qui tuent",
+          "text": "La varicelle de l'enfant en bonne santé est bénigne. Celle de l'adulte, de la femme enceinte en fin de grossesse, du nouveau-né et de l'immunodéprimé est une urgence vitale : pneumonie, sepsis, varicelle hémorragique disséminée. Devant tout cas à risque, l'aciclovir s'anticipe, il ne se réfléchit pas."
+        },
+        {
+          "type": "table",
+          "title": "Varicelle et zona en un coup d'œil",
+          "columns": ["", "Varicelle", "Zona"],
+          "rows": [
+            ["Nature", "Primo-infection à VZV", "Réactivation du VZV latent"],
+            ["Terrain", "Enfant (tropiques : plus tardif)", "Adulte > 50 ans, immunodéprimé"],
+            ["Éruption", "Disséminée, polychrome, prurigineuse", "Unilatérale, métamérique, douloureuse"],
+            ["Contagiosité", "Aérienne, 61–100 % des contacts", "Contact lésionnel uniquement"],
+            ["Urgence", "Adulte, grossesse, immunodépression", "Zona ophtalmique, formes étendues"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agent-physiopathologie",
+      "title": "I. Agent et physiopathologie : un virus, une vie, deux maladies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le virus varicelle-zona (VZV, human herpesvirus 3) est un herpèsvirus humain à ADN double brin, enveloppé, strictement neurotrope pour les ganglions sensitifs. Comme tous les herpèsvirus, il partage deux propriétés fondatrices : la latence — il persiste à vie dans l'organisme après la primo-infection — et la réactivation — il peut se réveiller des années plus tard quand l'immunité cellulaire baisse. L'homme est le seul réservoir."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transmission de la varicelle est aérienne (gouttelettes et aérosols à partir des vésicules et des voies respiratoires) et par contact direct avec le liquide vésiculaire. Un cas contagieux dès un à deux jours avant l'éruption et le reste jusqu'à la croûte de toutes les lésions. Le zona, lui, ne contamine que par contact cutané direct avec les vésicules : il donne la varicelle chez un sujet susceptible, jamais le zona."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après contamination des voies respiratoires, le virus se réplique dans les muqueuses, diffuse par virémies successives, puis gagne — par voie nerveuse centripète — les ganglions sensitifs, où il établit sa latence. La chute de l'immunité cellulaire (âge, VIH, chimiothérapie, corticothérapie, grossesse) permet sa réactivation antérograde dans un métamère : c'est le zona, dont la douleur précède l'éruption parce que le virus endommage le nerf avant d'atteindre la peau."
+        },
+        {
+          "type": "list",
+          "title": "Chronologie à retenir",
+          "items": [
+            "Incubation silencieuse : dix à vingt-et-un jours, en moyenne quatorze.",
+            "Contagiosité : un à deux jours avant l'éruption, jusqu'à croûtes de toutes les lésions.",
+            "Latence ganglionnaire : à vie, dans les ganglions sensitifs (le plus souvent dorsal ou trigéminal).",
+            "Réactivation (zona) : des décennies plus tard ; risque à vie d'environ une personne sur trois.",
+            "Immunité : la primo-infection confère en principe une immunité durable ; les réinfections sont rares et souvent atténuées."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Pourquoi le zona est unilatéral",
+          "text": "La réactivation chemine dans un seul ganglion sensitif et se limite au métamère cutané correspondant : l'éruption s'arrête sur la ligne médiane. Un zona qui dépasse la ligne médiane ou qui devient bilatéral et disséminé signale une immunodépression profonde — c'est un zona de l'immunodéprimé, à traiter comme une urgence."
+        }
+      ]
+    },
+    {
+      "id": "semiologie",
+      "title": "II. Reconnaître : la goutte de rosée et le bouquet métamérique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La varicelle de l'enfant débute par une fièvre modérée, un catarrhe discret et surtout le prurit. L'éruption typique est faite de vésicules superficielles, tendues, translucides, « en goutte de rosée » : elles siégent sur une base erythémateuse, s'ombiliquent rapidement puis se rompent ou se flétrissent, laissant une croûte qui tombe sans cicatrice — sauf surinfection. Chaque poussée successive apporte des lésions d'âge différent : macules, vésicules, croûtes coexistent sur le même visage. Cette polychromie « par vagues » est la signature clinique."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'éruption est d'abord centripète — tronc puis racine des membres avant les extrémités — et volontiers féconde sur le cuir chevelu ; elle épargne les paumes et les plantes plus souvent que ne le fait le zona. Les muqueuses (buccale, génitale, conjonctivale) sont atteintes avec des vésicules fragiles qui laissent des érosions douloureuses. La fièvre dure trois à cinq jours ; l'enfant reste étonnamment supportable entre deux poussées. Chez l'adulte, la fièvre est plus haute, l'éruption plus riche, les signes généraux plus marqués — et la pneumonie rôde."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le zona commence presque toujours par la douleur : brûlure, élancement ou dysesthésies d'un seul côté, dans un territoire cutané précis, fébricule et asthénie parfois. Deux à trois jours plus tard surviennent des macules érythémateuses sur lesquelles se dressent des vésicules groupées en bouquets, confluentes, unilatérales, calquées sur le métamère et s'arrêtant net sur la ligne médiane. Les croûtes se forment en sept à dix jours ; la douleur, elle, peut survivre des mois : c'est la névralgie post-zostérienne, la complication la plus fréquente du zona, qui touche dix à dix-huit pour cent des patients."
+        },
+        {
+          "type": "table",
+          "title": "Diagnostics différentiels de l'éruption vésiculeuse",
+          "columns": ["Diagnostic", "Ce qui le distingue de la varicelle"],
+          "rows": [
+            ["Zona", "Unilatéral, métamérique, douloureux, ne dépasse pas la ligne médiane"],
+            ["Herpès cutanéo-muqueux", "Vésicules groupées en bouquet, récidive au même endroit, contexte"],
+            ["Impétigo bulleux", "Bulles ambrées, croûtes jaunâtres « confites », pas de vésicules ombiliquées"],
+            ["Piqûres d'insectes / gale", "Prurit mais lésions non vésiculaires, topographie, entourage"],
+            ["Molluscum contagiosum", "Papules en dôme avec ombilication centrale, pas de fièvre, chronique"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Zona ophtalmique : regarder le nez et l'œil",
+          "text": "Un zona du territoire ophtalmique (branche V1 du trijumeau) est une urgence ophtalmologique : l'atteinte de l'extrémité nasale (signe de Hutchinson) annonce l'atteinte oculaire. Toute douleur ou éruption du front et du nez impose un examen de l'œil — conjonctive, cornée — dans les vingt-quatre heures, car la kératite zostérienne peut menacer la vision."
+        }
+      ]
+    },
+    {
+      "id": "complications",
+      "title": "III. Complications : ce qui distingue une varicelle banale d'une varicelle qui tue",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant en bonne santé, la complication classique est la surinfection cutanée à staphylocoque ou à streptocoque : impétigo, lymphangite, abcès — favorisée par le grattage. Le contrôle du prurit et de l'hygiène locale est donc un geste thérapeutique à part entière. L'encéphalite et l'ataxie cérébelleuse post-infectieuses sont rares ; la pneumonie de l'enfant est exceptionnelle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la pneumonie varicellique est la grande menace : c'est une pneumonie interstitielle avec toux, dyspnée et hypoxémie, que l'on redoute surtout chez le fumeur et la femme enceinte. Aux États-Unis, avant la vaccination, la varicelle causait de l'ordre de quatre millions de cas par an, avec l'essentiel des hospitalisations et des décès chez les adultes et les immunodéprimés. La varicelle hémorragique — vésicules hémorragiques, purpura, choc — signe l'immunodépression profonde."
+        },
+        {
+          "type": "paragraph",
+          "text": "La grossesse déplace le risque selon le terme : au premier trimestre, le syndrome de varicelle congénitale est rare mais dévastateur (cicatrices cutanées en bande, hypoplasie d'un membre, lésions oculaires et cérébrales) ; autour de l'accouchement — éruption de la mère dans les cinq jours précédant jusqu'à quelques jours suivant la naissance — le nouveau-né n'a pas eu le temps de recevoir des anticorps maternels : c'est la varicelle néonatale grave, disséminée, mortelle sans prévention. L'immunodéprimé, lui, cumule toutes les formes graves : éruption riche et hémorragique, hépatite, pneumonie, choc."
+        },
+        {
+          "type": "list",
+          "title": "Drapeaux rouges de la varicelle",
+          "items": [
+            "Adulte, fumeur, femme enceinte : pneumonie — dyspnée, toux, hypoxémie = aciclovir immédiat.",
+            "Immunodéprimé : varicelle disséminée ou hémorragique = aciclovir intraveineux, urgence absolue.",
+            "Varicelle périnatale (mère éruptive autour de l'accouchement) : nouveau-né à protéger par immunoglobulines.",
+            "Purpura, saignement des vésicules, ictère : varicelle hémorragique ou sepsis — hospitaliser.",
+            "Trouble de conscience, ataxie : encéphalite varicellique — imagerie et aciclovir."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Jamais d'aspirine chez un enfant varicelleux",
+          "text": "L'aspirine est formellement contre-indiquée chez l'enfant atteint de varicelle (ou de toute virose) à cause du syndrome de Reye : encéphalopathie aiguë avec stéatose hépatique. Pour la fièvre et la douleur, on utilise le paracétamol. Cette interdiction simple fait partie de l'essentiel à retenir de la prise en charge."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traiter : soulager l'enfant, protéger l'adulte",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La varicelle de l'enfant immunocompétent est traitée symptomatiquement : paracétamol pour la fièvre, soins locaux antiseptiques pour éviter la surinfection, ongles courts et traitement du prurit. L'aciclovir n'est pas systématique dans cette forme bénigne. Il devient urgent dès que le terrain est à risque — adulte, fumeur, femme enceinte, immunodéprimé, varicelle compliquée — et il doit être débuté idéalement dans les vingt-quatre à quarante-huit heures qui suivent le début de l'éruption : au-delà de soixante-douze heures, l'effet sur les lésions existantes s'amenuise, mais il reste indiqué dans les formes graves."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le zona justifie l'antiviral devant tout patient de plus de cinquante ans, tout zona ophtalmique, tout zona étendu ou sur terrain immunodéprimé, et dans les soixante-douze heures suivant l'éruption — plus tôt, mieux c'est. L'objectif est double : accélérer la cicatrisation cutanée et surtout réduire le risque de névralgie post-zostérienne. Le zona du sujet jeune et non compliqué se discute au cas par cas. Aucune posologie ne figure volontairement dans ce support : la prescription relève de la référence officielle et du contexte clinique, pas de la mémoire d'un questionnaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "La névralgie post-zostérienne, une fois installée, se prend en charge comme une douleur neuropathique : antalgiques de palier simple d'abord, puis antidépresseurs inhibiteurs de la recapture de la sérotonine-noradrénaline, gabapentinoïdes, lidocaïne ou capsicine locales ; la corticothérapie n'a pas d'indication systématique. La douleur qui persiste plus de trois mois après la cicatrisation change de statut : elle devient une maladie chronique, qui justifie un suivi et parfois un avis spécialisé."
+        },
+        {
+          "type": "list",
+          "title": "Le traitement en une vue",
+          "items": [
+            "Enfant immunocompétent, forme simple : soins locaux, paracétamol, prurit — pas d'antiviral systématique.",
+            "Adulte, femme enceinte, immunodéprimé, forme compliquée : aciclovir sans délai (voie adaptée à la gravité).",
+            "Zona : antiviral si > 50 ans, ophtalmique, étendu ou immunodéprimé, dans les 72 heures.",
+            "Jamais d'aspirine chez l'enfant (syndrome de Reye) ; pas de corticoïdes systématiques.",
+            "Douleur résiduelle > 3 mois : prise en charge de douleur neuropathique, pas d'opiacés de première intention."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "La fenêtre de 72 heures",
+          "text": "Pour la varicelle comme pour le zona, l'efficacité de l'aciclovir est un problème de délai. Devant une éruption vésiculeuse fébrile d'un adulte ou une douleur métamérique du sujet âgé, la question à se poser n'est pas « faut-il traiter ? » mais « depuis combien d'heures les vésicules sont-elles là ? ». En garde, l'éruption datant de moins de trois jours doit être traitée avant la confirmation, pas après."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévenir : vaccin, immunoglobulines, isolement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le vaccin antivaricelleux à virus vivant atténué est recommandé par l'OMS depuis sa note de position révisée de novembre 2025 : une première dose protège dans les deux tiers des cas contre toute varicelle — mais la grande majorité des échecs restent des formes très atténuées — et un schéma à deux doses amène la protection au-dessus de quatre-vingt-dix pour cent. Les pays qui vaccinent systématiquement ont vu la maladie s'effondrer : les États-Unis ont réduit leurs cas d'environ quatre-vingt-dix-sept pour cent depuis 1995. Dans les pays tropicaux, l'acquisition de l'infection est plus tardive et une part plus grande d'adultes reste sensible — un argument pour ne pas calquer aveuglément les schémas des pays tempérés."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prophylaxie post-exposition a trois étages. D'abord l'isolement : le malade est contagieux de deux jours avant l'éruption jusqu'à ce que toutes les lésions soient croûteuses — environ six à huit jours après le début. Ensuite les immunoglobulines spécifiques anti-VZV (VZIG) : elles atténuent ou préviennent la maladie chez le nouveau-né, la femme enceinte non immune, l'immunodéprimé exposés — à administrer le plus tôt possible après le contact. Enfin le vaccin lui-même, utilisable en post-exposition chez le sujet immunocompétent dans les jours suivant le contact, peut empêcher ou atténuer la maladie. Le vaccin vivant est contre-indiqué chez la femme enceinte et le grand immunodéprimé."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le zona, lui, se prévient aujourd'hui par vaccination des adultes : la note de position OMS sur le zona, publiée en juillet 2025, en définit les populations cibles selon l'âge et le terrain. Le message reste simple : environ un tiers des personnes feront un zona au cours de leur vie, le risque grimpe nettement après cinquante ans, et la névralgie post-zostérienne en est le fardeau principal. À Madagascar, où le vaccin antivaricelleux n'est pas encore dans le PEV national, la prévention repose surtout sur l'isolement des cas, le repérage des sujets à risque dans l'entourage et l'éviction scolaire — et sur la formation des soignants à reconnaître tôt les formes graves."
+        },
+        {
+          "type": "table",
+          "title": "Les trois niveaux de la prophylaxie post-exposition",
+          "columns": ["Situation", "Mesure", "Délai"],
+          "rows": [
+            ["Contact dans l'entourage", "Isolement du cas jusqu'à croûtes partout", "Contagieux de 48 h avant l'éruption aux croûtes"],
+            ["Immunocompétent non vacciné", "Vaccination post-exposition", "Le plus tôt possible après le contact"],
+            ["Femme enceinte non immune, nouveau-né, immunodéprimé", "Immunoglobulines anti-VZV (VZIG)", "Idéalement dans les jours suivant le contact"]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "bonne-pratique",
+          "title": "Contagieux avant de savoir qu'on est malade",
+          "text": "La varicelle se transmet deux jours avant l'éruption : c'est ce qui rend les épidémies scolaires si difficiles à stopper une fois déclenchées. En pratique : face à un cas dans une classe, on ne vaccine pas seulement le cas index — on identifie les enfants à risque et les adultes non immuns de l'entourage, et on prépare la réponse pour les plus fragiles."
+        }
+      ]
+    },
+    {
+      "id": "surveillance-madagascar",
+      "title": "VI. Varicelle à Madagascar : une maladie fréquente, un vaccin absent du PEV",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, le vaccin contre la varicelle n'est pas inclus dans le Programme élargi de vaccination : la maladie circule donc librement, au rythme des rentrées scolaires et des saisons fraîches. La revue systématique de Hussey et collègues sur le virus varicelle-zona en Afrique souligne d'ailleurs que les données épidémiologiques africaines restent limitées mais que les comorbidités y aggravent le pronostic — malnutrition, VIH, tuberculose, paludisme : autant de terrains qui transforment une virose « bénigne » en urgence."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les épidémies scolaires sont la modalité la plus visible : en 2008, une épidémie de varicelle a touché environ cent vingt enfants dans un établissement d'Ananalava, région Sofia, avec des classes touchées en totalité ; l'éviction scolaire de dix jours y avait été décidée. Le foyer était situé à environ dix-huit kilomètres du centre de santé — un rappel que la distance aux soins structure la gravité de ce que l'on voit à l'hôpital, et que les cas graves arrivent souvent après un délai de transport qui a déjà consommé la fenêtre des soixante-douze heures de l'aciclovir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pour le futur médecin malgache, la varicelle est d'abord une maladie du quotidien : reconnaître l'éruption, distinguer varicelle et zona, dépister les terrains à risque — grossesse, immunodépression, adulte —, protéger le nouveau-né et la femme enceinte exposés. La surveillance nationale ne cible pas spécifiquement le VZV ; la vigilance repose sur le clinicien qui signale les épidémies scolaires à la structure de santé de base et les remonte au district. Dans un pays où une part non négligeable d'adultes peut rester sensible — schéma tropical —, la varicelle de l'adulte est une réalité à ne pas sous-estimer."
+        },
+        {
+          "type": "callout",
+          "tone": "terrain",
+          "title": "Le réflexe Madagascar",
+          "text": "Un enfant varicelleux dans un fokontany éloigné n'est jamais seulement un enfant varicelleux : demandez l'état nutritionnel, la couverture vaccinale du reste de la fratrie, une grossesse éventuelle dans la maisonnée, et la présence d'un adulte qui n'a jamais fait la varicelle. C'est dans l'entourage, plus que chez le cas index, que se joue l'histoire grave de la varicelle."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La varicelle et le zona sont les deux visages du même virus : une primo-infection fébrile et prurigineuse de l'enfant, puis une réactivation douloureuse de l'adulte au fil des âges. La varicelle se reconnaît à sa goutte de rosée et à ses vagues successives ; le zona à sa douleur métamérique unilatérale. L'essentiel du pronostic tient à trois réflexes : identifier les terrains à risque — adulte, grossesse, immunodépression, nouveau-né —, ne jamais donner d'aspirine à l'enfant, et administrer l'aciclovir dans sa fenêtre de soixante-douze heures. À Madagascar, où le vaccin n'est pas encore dans le PEV, la prévention repose sur l'isolement et la protection des contacts fragiles : c'est au médecin de terrain de tenir ce rôle."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Sources",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Références citées",
+          "columns": ["Source", "Référence"],
+          "rows": [
+            ["OMS — Varicelle : note de position de novembre 2025", "Weekly Epidemiological Record 2025;100(47):567-590. Recommandations du SAGE de mars 2025 ; remplace la note de juin 2014."],
+            ["OMS — Normes de surveillance des maladies évitables par la vaccination : varicelle", "Taux d'attaque secondaire 61-100 % ; séroprévalence tropicale plus tardive."],
+            ["CDC — Clinical overview of chickenpox", "~4 millions de cas annuels aux États-Unis avant 1995 ; réduction d'environ 97 % après le programme vaccinal ; surinfection cutanée (enfant), pneumonie (adulte)."],
+            ["CDC — Shingles (zona) : clinical overview et data", "Zona chez ~1/3 des personnes au cours de la vie ; névralgie post-zostérienne chez 10-18 % ; risque croissant après 50 ans."],
+            ["Hussey H. et al. — BMC Infectious Diseases 2017", "Revue systématique du virus varicelle-zona en Afrique : données limitées, comorbidités fréquentes."],
+            ["Épidémie scolaire d'Ananalava (Sofia), Madagascar, 2008", "~120 enfants touchés ; éviction scolaire de 10 jours ; foyer à ~18 km du centre de santé (presse médicale malgache)."]
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-goutte",
+      "label": "La goutte de rosée et ses vagues",
+      "intro": "L'éruption de la varicelle se lit en quatre mots-clés, du haut vers le bas du tronc.",
+      "entries": [
+        { "key": "G", "term": "Goutte de rosée — vésicule translucide sur base érythémateuse, qui s'ombilique" },
+        { "key": "P", "term": "Polychrome — macules, vésicules et croûtes coexistent : l'éruption vient par vagues" },
+        { "key": "C", "term": "Centripète — commence au tronc, respecte souvent paumes et plantes" },
+        { "key": "M", "term": "Muqueuses — atteinte buccale, génitale ou conjonctivale fréquente" }
+      ]
+    },
+    {
+      "id": "mnemo-14-10",
+      "label": "14 - 10 - 2 : la chronologie décisionnelle de la varicelle",
+      "intro": "Trois nombres structurent toute la prise en charge d'un cas ou d'un contact.",
+      "entries": [
+        { "key": "14", "term": "14 jours (extrêmes 10-21) : incubation — datez le contact pour anticiper la période à risque" },
+        { "key": "10", "term": "2 jours avant l'éruption → toutes les lésions en croûtes : la fenêtre de contagiosité qui commande l'isolement et l'éviction" },
+        { "key": "72", "term": "72 heures : la fenêtre de l'aciclovir chez les sujets à risque — la traiter, c'est la dater" }
+      ]
+    },
+    {
+      "id": "mnemo-3u",
+      "label": "Les trois U du zona",
+      "intro": "Trois « U » distinguent le zona de toute autre éruption vésiculeuse.",
+      "entries": [
+        { "key": "U1", "term": "Un seul côté — l'éruption s'arrête net sur la ligne médiane" },
+        { "key": "U2", "term": "Un seul territoire — calqué sur un métamère nerveux, en bouquets de vésicules" },
+        { "key": "U3", "term": "Une douleur — précursive, pendant, et parfois après (névralgie post-zostérienne)" }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-varicelle-1",
+      "front": "Quel est l'agent de la varicelle et du zona ?",
+      "back": "Le virus varicelle-zona (VZV, HHV-3) : un herpèsvirus à ADN. Primo-infection = varicelle ; réactivation endogène dans un ganglion sensitif = zona."
+    },
+    {
+      "id": "fc-varicelle-2",
+      "front": "Quel est le taux d'attaque secondaire de la varicelle ?",
+      "back": "De 61 à 100 % selon les normes de surveillance OMS : c'est l'une des maladies éruptives les plus contagieuses, quoique moins que la rougeole."
+    },
+    {
+      "id": "fc-varicelle-3",
+      "front": "Varicelle en zone tempérée vs zone tropicale : quelle différence épidémiologique ?",
+      "back": "En zone tempérée, plus de 90 % des personnes sont infectées avant l'adolescence ; sous les tropiques, l'acquisition est plus tardive et une plus grande part d'adultes reste sensible."
+    },
+    {
+      "id": "fc-varicelle-4",
+      "front": "Décrivez la lésion élémentaire typique de la varicelle.",
+      "back": "Une vésicule superficielle, translucide, « en goutte de rosée » sur base érythémateuse, qui s'ombilique puis se flétrit en croûte ; lésions d'âges différents coexistent (polychromie)."
+    },
+    {
+      "id": "fc-varicelle-5",
+      "front": "Pendant combien de temps un malade est-il contagieux ?",
+      "back": "De 48 heures avant l'éruption jusqu'à ce que toutes les lésions soient couvertes de croûtes — environ six à huit jours après le début de l'éruption."
+    },
+    {
+      "id": "fc-varicelle-6",
+      "front": "Quelle est la complication classique de la varicelle chez l'enfant ?",
+      "back": "La surinfection cutanée à staphylocoque ou streptocoque (impétigo, lymphangite, abcès), favorisée par le grattage — d'où l'importance du soin local et du contrôle du prurit."
+    },
+    {
+      "id": "fc-varicelle-7",
+      "front": "Quelle est la complication redoutée de la varicelle de l'adulte ?",
+      "back": "La pneumonie varicellique : pneumonie interstitielle avec toux, dyspnée et hypoxémie, surtout chez le fumeur et la femme enceinte — indication de l'aciclovir sans délai."
+    },
+    {
+      "id": "fc-varicelle-8",
+      "front": "Quel antipyrétique est formellement interdit chez l'enfant varicelleux, et pourquoi ?",
+      "back": "L'aspirine : risque de syndrome de Reye (encéphalopathie aiguë avec stéatose hépatique). Pour la fièvre, on utilise le paracétamol."
+    },
+    {
+      "id": "fc-varicelle-9",
+      "front": "Varicelle au début de grossesse vs autour de l'accouchement : quels risques ?",
+      "back": "Au premier trimestre, risque rare de varicelle congénitale (cicatrices cutanées, hypoplasie de membre, atteintes oculaires et cérébrales). Autour de l'accouchement (éruption maternelle dans les ~5 jours avant jusqu'à quelques jours après) : varicelle néonatale grave, disséminée — à prévenir par immunoglobulines."
+    },
+    {
+      "id": "fc-varicelle-10",
+      "front": "Quels sont les trois signes cliniques cardinaux du zona ?",
+      "back": "Douleur précursive unilatérale ; éruption vésiculeuse groupée en bouquets sur un territoire métamérique ; arrêt net à la ligne médiane."
+    },
+    {
+      "id": "fc-varicelle-11",
+      "front": "Que signale le signe de Hutchinson dans le zona ?",
+      "back": "L'atteinte de l'extrémité du nez (branche V1) dans un zona ophtalmique : elle annonce l'atteinte oculaire (kératite) et impose un examen ophtalmologique urgent."
+    },
+    {
+      "id": "fc-varicelle-12",
+      "front": "Qu'est-ce que la névralgie post-zostérienne et quelle est sa fréquence ?",
+      "back": "Une douleur neuropathique persistant plus de trois mois après le zona ; elle touche 10 à 18 % des patients, avec un risque croissant après 50 ans."
+    },
+    {
+      "id": "fc-varicelle-13",
+      "front": "Efficacité du vaccin antivaricelleux : 1 dose vs 2 doses ?",
+      "back": "Environ 65 % contre toute varicelle après une dose (les échecs restant des formes très atténuées), et ~95 % après deux doses ; les formes modérées à sévères sont prévenues à ~99 %."
+    },
+    {
+      "id": "fc-varicelle-14",
+      "front": "Quand administrer des immunoglobulines anti-VZV (VZIG) ?",
+      "back": "Chez les contacts fragiles non immuns : nouveau-né de mère éruptive, femme enceinte sans antécédent de varicelle, immunodéprimé — le plus tôt possible après l'exposition."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "mm-varicelle-zona",
+      "label": "Varicelle et zona",
+      "detail": "Un seul virus, deux maladies : la primo-infection qui s'attrape à l'école, la réactivation qui brûle le dos des anciens."
+    },
+    "branches": [
+      {
+        "id": "br-reconnaitre",
+        "label": "Reconnaître",
+        "detail": "Le diagnostic est clinique : la morphologie de la vésicule et sa topographie font tout.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "br-reconnaitre-varicelle",
+            "label": "Varicelle : goutte de rosée",
+            "leaves": [
+              { "id": "lf-vesicule", "label": "Vésicule translucide, ombiliquée" },
+              { "id": "lf-polychrome", "label": "Polychromie par vagues" },
+              { "id": "lf-centripete", "label": "Centripète, cuir chevelu, muqueuses" }
+            ]
+          },
+          {
+            "id": "br-reconnaitre-zona",
+            "label": "Zona : les trois U",
+            "leaves": [
+              { "id": "lf-unilatéral", "label": "Un seul côté, ligne médiane" },
+              { "id": "lf-metamere", "label": "Un métamère, bouquets de vésicules" },
+              { "id": "lf-douleur", "label": "Une douleur précursive" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-gravite",
+        "label": "Évaluer la gravité",
+        "detail": "Ce n'est pas l'éruption qui inquiète : c'est le terrain qui la porte.",
+        "tone": "urgence",
+        "children": [
+          {
+            "id": "br-gravite-terrain",
+            "label": "Terrains à risque",
+            "leaves": [
+              { "id": "lf-adulte", "label": "Adulte, fumeur : pneumonie" },
+              { "id": "lf-grossesse", "label": "Grossesse : congénital / néonatal" },
+              { "id": "lf-immunodeprime", "label": "Immunodéprimé : dissémination, hémorragie" },
+              { "id": "lf-nouveau-ne", "label": "Nouveau-né de mère éruptive" }
+            ]
+          },
+          {
+            "id": "br-gravite-signes",
+            "label": "Signes d'alerte",
+            "leaves": [
+              { "id": "lf-dyspnee", "label": "Dyspnée, toux, hypoxémie" },
+              { "id": "lf-purpura", "label": "Vésicules hémorragiques, purpura" },
+              { "id": "lf-neuro", "label": "Trouble de conscience, ataxie" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-traiter",
+        "label": "Traiter",
+        "detail": "Soulager l'enfant, protéger l'adulte — et respecter la fenêtre de 72 heures.",
+        "tone": "bonne-pratique",
+        "children": [
+          {
+            "id": "br-traiter-simple",
+            "label": "Forme simple de l'enfant",
+            "leaves": [
+              { "id": "lf-local", "label": "Soins locaux, antiseptique" },
+              { "id": "lf-paracetamol", "label": "Paracétamol — jamais aspirine" },
+              { "id": "lf-prurit", "label": "Prurit, ongles courts" }
+            ]
+          },
+          {
+            "id": "br-traiter-antiviral",
+            "label": "Aciclovir : à qui, quand",
+            "leaves": [
+              { "id": "lf-fenetre", "label": "Idéalement < 24-48 h, toujours < 72 h" },
+              { "id": "lf-zona", "label": "Zona : > 50 ans, V1, étendu, immunodéprimé" },
+              { "id": "lf-phn", "label": "Douleur résiduelle : traitement neuropathique" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "br-prevenir",
+        "label": "Prévenir",
+        "detail": "À Madagascar, pas de vaccin dans le PEV : la prévention est d'abord un art d'isolement et de protection des contacts.",
+        "tone": "terrain",
+        "children": [
+          {
+            "id": "br-prevenir-cas",
+            "label": "Autour du cas",
+            "leaves": [
+              { "id": "lf-isolement", "label": "Isolement jusqu'aux croûtes" },
+              { "id": "lf-eviction", "label": "Éviction scolaire des contacts à risque" },
+              { "id": "lf-signal", "label": "Signaler l'épidémie scolaire au district" }
+            ]
+          },
+          {
+            "id": "br-prevenir-fragiles",
+            "label": "Protéger les fragiles",
+            "leaves": [
+              { "id": "lf-vzig", "label": "VZIG : nouveau-né, grossesse, immunodépression" },
+              { "id": "lf-vaccin-pe", "label": "Vaccin : 1 dose ~65 %, 2 doses ~95 %" },
+              { "id": "lf-terrain", "label": "Chercher les adultes non immuns dans l'entourage" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WHO-POS-VARICELLE-2025",
+      "citation": "Organisation mondiale de la Santé. Varicelle : note de position de l'OMS, novembre 2025. Relevé épidémiologique hebdomadaire 2025;100(47):567-590. Recommandations du SAGE de mars 2025 ; remplace la note de juin 2014.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "Recommandations vaccinales (1 vs 2 doses)",
+        "Contexte tropical et âge d'acquisition",
+        "Prophylaxie des contacts"
+      ],
+      "title": "Varicelle : note de position de l'OMS, novembre 2025",
+      "url": "https://www.who.int/publications/i/item/who-wer10047-567-590",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2025
+    },
+    {
+      "id": "SRC-WHO-SURV-VARICELLE",
+      "citation": "Organisation mondiale de la Santé. Normes de surveillance des maladies évitables par la vaccination : varicelle. Genève : OMS.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "Taux d'attaque secondaire 61-100 %",
+        "Séroprévalence tropicale plus tardive vs tempérée"
+      ],
+      "title": "Normes de surveillance : varicelle",
+      "url": "https://www.who.int/fr/publications/m/item/vaccine-preventable-diseases-surveillance-standards-varicella",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2018
+    },
+    {
+      "id": "SRC-CDC-CHICKENPOX-2026",
+      "citation": "Centers for Disease Control and Prevention. Chickenpox (Varicella) — Clinical Overview. Atlanta : CDC.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "~4 millions de cas annuels aux États-Unis avant 1995",
+        "Réduction d'environ 97 % des cas après le programme vaccinal",
+        "Complications : surinfection cutanée (enfant), pneumonie (adulte)"
+      ],
+      "title": "Chickenpox (Varicella) — Clinical Overview",
+      "url": "https://www.cdc.gov/chickenpox/hcp/clinical-overview/index.html",
+      "organization": "Centers for Disease Control and Prevention (CDC)",
+      "year": 2026
+    },
+    {
+      "id": "SRC-CDC-SHINGLES-2026",
+      "citation": "Centers for Disease Control and Prevention. Shingles (Herpes Zoster) — Clinical Overview et Data & Research. Atlanta : CDC.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "Zona chez environ un tiers des personnes au cours de la vie",
+        "Névralgie post-zostérienne chez 10-18 % des zona",
+        "Risque croissant après 50 ans"
+      ],
+      "title": "Shingles (Herpes Zoster) — Clinical Overview",
+      "url": "https://www.cdc.gov/shingles/hcp/clinical-overview/index.html",
+      "organization": "Centers for Disease Control and Prevention (CDC)",
+      "year": 2026
+    },
+    {
+      "id": "SRC-HUSSEY-AFRICA-2017",
+      "citation": "Hussey H., et al. Chickenpox and herpes zoster in Africa : a systematic review. BMC Infectious Diseases 2017.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "Données épidémiologiques africaines limitées sur le VZV",
+        "Fréquence des comorbidités aggravantes"
+      ],
+      "title": "Chickenpox and herpes zoster in Africa : a systematic review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5686819/",
+      "organization": "BMC Infectious Diseases",
+      "year": 2017
+    },
+    {
+      "id": "SRC-SANTETROP-MG-2008",
+      "citation": "Épidémie de varicelle scolaire d'Ananalava (région Sofia, Madagascar), 2008 : environ 120 enfants touchés, éviction scolaire de dix jours, foyer à ~18 km du centre de santé. Presse médicale malgache.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": [
+        "Exemple malgache d'épidémie scolaire",
+        "Mesures d'éviction scolaire"
+      ],
+      "title": "Épidémie de varicelle à Ananalava (Sofia)",
+      "url": "https://www.santetropicale.com/sites_pays/actus.asp?id=7559&action=lire&rep=madagascar",
+      "organization": "Santé Tropicale",
+      "year": 2008
+    }
+  ],
+  "related": {
+    "deckIds": [
+      "infectio",
+      "dermato",
+      "infectio-varicelle-zona-l5"
+    ]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°8 (Varicelle et zona)",
+      "reference": "madagascar-2025, ordinal 49",
+      "receivedAt": "2026-10-27",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Aucune phrase d'un document source n'est reproduite : la structure du plan suit l'item du programme national et chaque section est rédigée à partir des sources officielles citées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La note de position OMS sur les vaccins antivaricelleux (WER 2025;100(47):567-590, novembre 2025, consultée le 2026-10-27) fournit le cadre vaccinal ; une note de position séparée sur le zona a été publiée en juillet 2025.",
+      "Les chiffres américains (≈4 millions de cas/an avant 1995, réduction d'environ 97 %) proviennent de la page Clinical Overview du CDC consultée le 2026-10-27 ; les données zona (≈1/3 à vie, PHN 10-18 %, risque > 50 ans) des pages shingles du CDC.",
+      "Le taux d'attaque secondaire 61-100 % et la différence tempéré/tropical proviennent des normes de surveillance OMS de la varicelle (consultées le 2026-10-27).",
+      "L'épidémie scolaire d'Ananalava (Sofia, 2008, ~120 enfants) provient de la presse médicale malgache en ligne (consultée le 2026-10-27) : à recouper avec le bulletin épidémiologique national si disponible.",
+      "Les posologies précises (doses d'aciclovir, de VZIG, schémas vaccinaux complets) sont volontairement absentes et renvoyées au protocole national et au guide thérapeutique de référence : seules les molécules, les stratégies et les fenêtres décisionnelles (72 heures, contagiosité de -2 jours aux croûtes) sont testées dans les decks."
+    ],
+    "qcChecklist": [
+      "Exactitude des chiffres OMS 2025 (note de position de novembre 2025) et CDC repris des pages consultées le 2026-10-27",
+      "Conformité de la chronologie clinique (incubation 10-21 jours, contagiosité de 48 h avant l'éruption aux croûtes, fenêtre aciclovir 72 h) aux descriptions de référence",
+      "Conformité des indications de prophylaxie (VZIG chez le nouveau-né, la femme enceinte non immune, l'immunodéprimé) aux recommandations officielles",
+      "Validité des liens et des versions des sources au 2026-10-27"
+    ]
+  },
+  "reviewStatus": "pending-medical-review"
+}
