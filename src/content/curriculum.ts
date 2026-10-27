@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (99 decks, 1017 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=42 · dermato=1 · urgences=6
+ * Répartition cible (104 decks, 1067 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=43 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -258,6 +258,14 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       levels: [...LEVELS_PATHO],
       description: "Trier par le score et le TDR, traiter l'angine à streptocoque A pour prévenir le rhumatisme articulaire aigu.",
       decks: ["infectio-angines-l2", "infectio-angines-l3", "infectio-angines-l4", "infectio-angines-l5", "infectio-angines-int"],
+    },
+    {
+      id: "meningites-clair",
+      label: "Méningites à liquide clair",
+      icon: "🫧",
+      levels: [...LEVELS_PATHO],
+      description: "Trier le LCR clair entre viral bénin, tuberculose subaiguë et cryptocoque du VIH : chronologie, cytobiochimie et urgences curables.",
+      decks: ["infectio-meningites-clair-l2", "infectio-meningites-clair-l3", "infectio-meningites-clair-l4", "infectio-meningites-clair-l5", "infectio-meningites-clair-int"],
     },
   ],
 };
