@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (79 decks, 817 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=22 · dermato=1 · urgences=6
+ * Répartition cible (84 decks, 867 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=27 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -226,6 +226,14 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       levels: [...LEVELS_PATHO],
       description: "Reconnaître l'éruption, traiter les complications, prévenir par la vaccination.",
       decks: ["infectio-rougeole-l2", "infectio-rougeole-l3", "infectio-rougeole-l4", "infectio-rougeole-l5", "infectio-rougeole-int"],
+    },
+    {
+      id: "varicelle-zona",
+      label: "Varicelle et zona",
+      icon: "💧",
+      levels: [...LEVELS_PATHO],
+      description: "Reconnaître la goutte de rosée et le bouquet métamérique, traiter dans la fenêtre utile, protéger les contacts.",
+      decks: ["infectio-varicelle-zona-l2", "infectio-varicelle-zona-l3", "infectio-varicelle-zona-l4", "infectio-varicelle-zona-l5", "infectio-varicelle-zona-int"],
     },
   ],
 };
