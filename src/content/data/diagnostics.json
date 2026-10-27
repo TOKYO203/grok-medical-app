@@ -240,5 +240,368 @@
       }
     ],
     "synthesis": "Patient → voyage / purpura / nuque → syndrome méningé → hypothèses vitales (méningocoque, palu, sepsis) → ATB si gravité puis PL → profil bactérien → traitement et déclaration."
+  },
+  {
+    "id": "DX-DYSPNEE-001",
+    "title": "Dyspnée — démarche",
+    "specialty": "Pneumologie / Cardiologie",
+    "vignette": "Homme de 54 ans, tabagique, dyspnée brutale avec douleur thoracique droite depuis une heure. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément qui pèse le plus sur la gravité immédiate est :",
+        "choices": [
+          "La vitesse d'installation de la dyspnée",
+          "La couleur habituelle des crachats depuis dix ans",
+          "La prise occasionnelle de paracétamol",
+          "Un ronflement ancien"
+        ],
+        "correct": 0,
+        "explanation": "Brutale en minutes : PNO, EP, corps étranger. En heures : OAP, pneumonie. En semaines : BPCO, IC, tuberculose. La vitesse est le premier trieur."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe qui impose une exsufflation immédiate sans attendre l'imagerie est :",
+        "choices": [
+          "Abolition unilatérale du murmure vésiculaire avec instabilité",
+          "Sibilants bilatéraux expiratoires",
+          "Crépitants bibasaux avec turgescence",
+          "Souffle systolique d'anémie"
+        ],
+        "correct": 0,
+        "explanation": "Asymétrie + instabilité = pneumothorax compressif : décompression clinique immédiate. Les sibilants orientent vers l'obstructif, les crépitants vers la congestion, le souffle vers l'anémie."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Dyspnée brutale, douleur latéro-thoracique, abolition du murmure à droite, SpO2 88 % :",
+        "choices": [
+          "Détresse respiratoire aiguë sur pneumothorax probable",
+          "Exacerbation de BPCO fébrile",
+          "Insuffisance cardiaque chronique décompensée",
+          "Dyspnée fonctionnelle"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (détresse respiratoire aiguë, probablement PNO) avant l'étude étiologique complète : la stabilisation prime."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois diagnostics à ne jamais rater devant cette dyspnée aiguë sont :",
+        "choices": [
+          "Pneumothorax compressif, embolie pulmonaire, OAP",
+          "Rhinite, sinusite, laryngite",
+          "Fibrose, sarcoidose, silicose",
+          "Anémie légère, carence en fer, spasmophilie"
+        ],
+        "correct": 0,
+        "explanation": "Les tueurs de la dyspnée aiguë : PNO compressif, EP, OAP — avec l'asthme aigu grave et l'obstruction des voies aériennes. Le reste vient après."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le premier examen à réaliser au lit est :",
+        "choices": [
+          "Radiographie thoracique (ou échographie pleurale) après stabilisation",
+          "IRM cardiaque",
+          "Holter-ECG",
+          "Test d'effort"
+        ],
+        "correct": 0,
+        "explanation": "Après stabilisation (oxygène, exsufflation si compression) : radiographie thoracique au lit ou échographie. L'ECG écarte le SCAn. Le reste attend."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "La radiographie montre un décollement pleural apical droit de 40 %, patient stable après exsufflation :",
+        "choices": [
+          "Pneumothorax moyen à large : drainage thoracique à discuter",
+          "Pneumonie franche lobaire aiguë",
+          "Pleurésie abondante",
+          "Œdème pulmonaire"
+        ],
+        "correct": 0,
+        "explanation": "Le décollement pleural confirme le pneumothorax ; le drainage se discute selon la taille, la tolérance et la récidive."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Pneumothorax spontané droit, exsufflaté, à surveiller et drainer selon l'évolution",
+          "Exacerbation de BPCO",
+          "EP proximale",
+          "Péricardite aiguë"
+        ],
+        "correct": 0,
+        "explanation": "Clinique + imagerie concordantes. Le diagnostic n'est clos qu'après avoir écarté EP et OAP si le tableau complet les suggérait."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite qui change le pronostic dans l'heure est :",
+        "choices": [
+          "Oxygène, surveillance de la SpO2 et de la tolérance, drainage thoracique si récidive du décollement ou mauvaise tolérance, consignes écrites",
+          "Sortie immédiate sans imagerie",
+          "Antibiothérapie probabiliste orale",
+          "Corticoïdes oraux seuls"
+        ],
+        "correct": 0,
+        "explanation": "Stabiliser, confirmer, surveiller, drainer si besoin : le PNO mal suivi est celui qui récidive en compression. Consignes de retour écrites obligatoires."
+      }
+    ],
+    "synthesis": "Patient → vitesse d'installation (brutale) → détresse (abolition unilatérale + SpO2 basse) → hypothèses létales (PNO, EP, OAP) → exsufflation si compression, puis radiographie → drainage selon taille et tolérance. La démarche force la stabilisation avant le diagnostic."
+  },
+  {
+    "id": "DX-HEMOPTYSIE-001",
+    "title": "Hémoptysie — démarche",
+    "specialty": "Pneumologie / Urgences",
+    "vignette": "Homme de 44 ans, ancien tuberculeux, crachats striés de sang depuis trois semaines, épisode abondant ce matin. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément d'orientation le plus important ici est :",
+        "choices": [
+          "L'antécédent de tuberculose traitée il y a huit ans",
+          "La consommation de café",
+          "Une allergie saisonnière",
+          "Un voyage en bus récent"
+        ],
+        "correct": 0,
+        "explanation": "Une hémoptysie sur séquelle tuberculeuse évoque aspergillome, réactivation ou cancer : l'antécédent déplace toute la hiérarchie des causes à Madagascar."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le geste clinique indispensable devant ce saignement actif est :",
+        "choices": [
+          "Décubitus latéral du côté qui saigne + constantes",
+          "Faire tousser énergiquement",
+          "Faire lever le patient immédiatement",
+          "Attendre debout l'arrêt du saignement"
+        ],
+        "correct": 0,
+        "explanation": "Le côté qui saigne en bas protège le poumon sain : c'est la mesure anti-asphyxique la plus simple. Constantes et tolérance suivent immédiatement."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Sang rouge vif, mousseux, toux précédente, expectorations striées depuis trois semaines :",
+        "choices": [
+          "Hémoptysie sur probable caverne tuberculeuse ancienne",
+          "Hématémèse ulcéreuse",
+          "Épistaxis postérieure déglutie",
+          "Hémorragie gingivale"
+        ],
+        "correct": 0,
+        "explanation": "Toux + mousseux + striés = sang pulmonaire. Le terrain fait suspecter une complication de caverne : aspergillome ou réactivation."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois hypothèses prioritaires sur ce terrain sont :",
+        "choices": [
+          "Aspergillome intra-cavitaire, réactivation tuberculeuse, cancer bronchique",
+          "Bronchite aiguë, rhinite, reflux",
+          "Tuberculose, paludisme, dengue",
+          "Mitral, péricardite, myocardite"
+        ],
+        "correct": 0,
+        "explanation": "Caverne ancienne + hémoptysie récidivante : grelot aspergillaire d'abord, réactivation ensuite, cancer toujours (fumeur de plus de 40 ans)."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le bilan de première intention comprend :",
+        "choices": [
+          "Radiographie thoracique, BK crachats × 2, NFS-groupe-coagulation",
+          "TDM cérébrale",
+          "Échographie abdominale seule",
+          "Fibroscopie digestive haute d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Radio (côté, caverne), BK × 2 (tuberculose), NFS-groupe-coagulation (quantifier, préparer la transfusion). La TDM et la fibroscopie viennent selon la stabilité."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "La radiographie montre une caverne apicale droite avec une image en grelot :",
+        "choices": [
+          "Aspergillome intra-cavitaire : TDM de confirmation, chirurgie à discuter si hémoptysies récidivantes",
+          "Pneumonie franche",
+          "Pneumothorax",
+          "Cancer du poumon droit certain"
+        ],
+        "correct": 0,
+        "explanation": "L'image en grelot dans une caverne est la signature de l'aspergillome ; la TDM confirme et le risque de massive hémoptysie impose l'avis chirurgical précoce."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Hémoptysie sur aspergillome intra-cavitaire, caverne séquellaire tuberculeuse",
+          "Tuberculose active certaine",
+          "Cancer bronchique confirmé",
+          "Embolie pulmonaire"
+        ],
+        "correct": 0,
+        "explanation": "Terrain + radiographie : aspergillome le plus probable ; la tuberculose active et le cancer restent à exclure par BK et TDM/fibroscopie."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Stabilisation, bilan complet (TDM, BK), avis chirurgical programmé pour discuter l'exérèse, consignes en cas de récidive abondante",
+          "Sortie avec sirop antitussif seul",
+          "Antibiothérapie probabiliste sans imagerie",
+          "Attente de la prochaine hémoptysie pour décider"
+        ],
+        "correct": 0,
+        "explanation": "Anticiper la hémoptysie massive : le patient repart avec des consignes écrites (côté qui saigne, retour immédiat) et un plan chirurgical discuté."
+      }
+    ],
+    "synthesis": "Patient → qualifier le sang (toux, mousseux) → côté qui saigne en décubitus latéral → syndrome caverne + hémoptysie → hypothèses (aspergillome, réactivation, cancer) → radio + BK → TDM → avis chirurgical. La démarche force l'anti-asphyxie avant l'étiologie."
+  },
+  {
+    "id": "DX-SYNCOPE-001",
+    "title": "Syncope — démarche",
+    "specialty": "Cardiologie / Neurologie",
+    "vignette": "Garçon de 17 ans, perte de connaissance brève pendant un match de football, sans prodrome, récupération immédiate. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément le plus inquiétant de ce récit est :",
+        "choices": [
+          "La survenue à l'effort, sans prodrome",
+          "Une sensation de fatigue la veille",
+          "Le fait qu'il ait mangé avant le match",
+          "Une envie d'uriner pendant le match"
+        ],
+        "correct": 0,
+        "explanation": "La syncope d'effort n'est jamais vasovagale : rythmique ou obstructive jusqu'à preuve du contraire — exploration cardiologique obligatoire."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le geste qui oriente le plus est :",
+        "choices": [
+          "Souffle systolique éjectionnel majoré par l'effort (rétrécissement aortique ou myocardiopathie)",
+          "Pâleur conjonctivale isolée",
+          "Souffle anémique diffus",
+          "Œdème des chevilles bilatéral"
+        ],
+        "correct": 0,
+        "explanation": "La syncope d'effort avec souffle éjectionnel oriente vers un rétrécissement aortique (rhumatismal à cet âge à Madagascar) ou une myocardiopathie hypertrophique."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Perte de connaissance brève à l'effort, reprise immédiate sans confusion, souffle éjectionnel :",
+        "choices": [
+          "Syncope d'origine cardiaque obstructive probable",
+          "Malaise vagal typique",
+          "Crise d'épilepsie temporale",
+          "Hypoglycémie"
+        ],
+        "correct": 0,
+        "explanation": "Effort + absence de prodrome + souffle : le mécanisme est cardiaque. Le malaise vagal survient après l'effort, avec prodrome, chez un sujet sans souffle."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les hypothèses à ne pas rater chez ce patient sont :",
+        "choices": [
+          "Rétrécissement aortique rhumatismal, myocardiopathie hypertrophique, trouble rythmique",
+          "Malaise vagal, hypotension orthostatique, anémie légère",
+          "Migraine basilaire, vertige paroxystique, névralgie",
+          "Épilepsie, hypoglycémie, spasmophilie"
+        ],
+        "correct": 0,
+        "explanation": "Chez un jeune Malgache : rétrécissement aortique rhumatismal (angines à répétition), myocardiopathie hypertrophique, canalopathie avec mort subite familiale à dépister."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le premier examen systématique avant toute autre décision est :",
+        "choices": [
+          "ECG 12 dérivations, puis échographie cardiaque",
+          "EEG d'emblée",
+          "TDM cérébrale sans injection",
+          "Tilt-test en premier"
+        ],
+        "correct": 0,
+        "explanation": "ECG (QT, Brugada, bloc, hypertrophie) puis échographie (valve, myocarde) : c'est l'échographie qui confirmera le rétrécissement aortique."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "L'échographie montre un rétrécissement aortique serré, ECG sans canalopathie :",
+        "choices": [
+          "Syncope d'effort sur rétrécissement aortique serré — indication opératoire à discuter sans délai",
+          "Malaise vagal du sportif",
+          "Crise convulsive hypoxique",
+          "Hypoglycémie d'effort"
+        ],
+        "correct": 0,
+        "explanation": "Le rétrécissement aortique serré syncopal est une urgence chirurgicale : la syncope d'effort annonce la mort subite."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Syncope d'effort sur rétrécissement aortique serré, probablement rhumatismal",
+          "Malaise vagal typique",
+          "Myocardiopathie hypertrophique",
+          "Épilepsie du sujet jeune"
+        ],
+        "correct": 0,
+        "explanation": "Terrain rhumatismal + souffle + échographie : le diagnostic est cardiologique, l'exploration rythmique reste de règle."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite qui change le pronostic est :",
+        "choices": [
+          "Arrêt du sport, évaluation chirurgicale valvulaire rapide, prophylaxie de la cardite rhumatismale",
+          "Reprise du sport avec surveillance",
+          "Bêtabloquant seul et sortie",
+          "EEG et anticonvulsivant"
+        ],
+        "correct": 0,
+        "explanation": "Le rétrécissement aortique syncopal opère vite. Pénicilline retard contre les rechutes rhumatismales, arrêt du sport, éducation de l'entourage."
+      }
+    ],
+    "synthesis": "Patient → circonstances (effort, sans prodrome) → syndrome syncope cardiaque → hypothèses (aortique, myocardiopathie, rythmique) → ECG + échographie → rétrécissement aortique serré → chirurgie et prophylaxie du RAA. La démarche force l'exploration hospitalière de toute syncope d'effort."
   }
 ]
