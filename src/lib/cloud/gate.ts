@@ -24,6 +24,7 @@ export const PUBLIC_PATHS: readonly string[] = [
   "/a-propos",
   "/changelog",
   "/contact",
+  "/institutionnel",
   "/soutenir",
   "/conditions",
   "/confidentialite",

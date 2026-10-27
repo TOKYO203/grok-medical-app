@@ -35,6 +35,7 @@ import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
+import { Route as InstitutionnelRouteImport } from './routes/institutionnel'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PaiementRetourRouteImport } from './routes/paiement-retour'
 import { Route as ParcoursRouteImport } from './routes/parcours'
@@ -50,6 +51,7 @@ import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
 import { Route as ApiAiStreamRouteImport } from './routes/api.ai-stream'
 import { Route as ApiEventsRouteImport } from './routes/api.events'
+import { Route as ApiInstitutionLeadsRouteImport } from './routes/api.institution-leads'
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
@@ -195,6 +197,11 @@ const ImportRoute = ImportRouteImport.update({
   path: '/import',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstitutionnelRoute = InstitutionnelRouteImport.update({
+  id: '/institutionnel',
+  path: '/institutionnel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -268,6 +275,11 @@ const ApiAiStreamRoute = ApiAiStreamRouteImport.update({
 const ApiEventsRoute = ApiEventsRouteImport.update({
   id: '/api/events',
   path: '/api/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiInstitutionLeadsRoute = ApiInstitutionLeadsRouteImport.update({
+  id: '/api/institution-leads',
+  path: '/api/institution-leads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CasCaseIdRoute = CasCaseIdRouteImport.update({
@@ -372,7 +384,7 @@ export interface FileRoutesByFullPath {
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
@@ -387,7 +399,7 @@ export interface FileRoutesByFullPath {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -429,7 +441,7 @@ export interface FileRoutesByTo {
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
@@ -444,7 +456,7 @@ export interface FileRoutesByTo {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -488,7 +500,7 @@ export interface FileRoutesById {
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
@@ -503,7 +515,7 @@ export interface FileRoutesById {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -547,7 +559,7 @@ export interface FileRouteTypes {
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/login'
+    | '/institutionnel'    | '/login'
     | '/paiement-retour'
     | '/parcours'
     | '/pro'
@@ -562,7 +574,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/cas/$caseId'
+    | '/api/institution-leads'    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -604,7 +616,7 @@ export interface FileRouteTypes {
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/login'
+    | '/institutionnel'    | '/login'
     | '/paiement-retour'
     | '/parcours'
     | '/pro'
@@ -619,7 +631,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/cas/$caseId'
+    | '/api/institution-leads'    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -662,7 +674,7 @@ export interface FileRouteTypes {
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/login'
+    | '/institutionnel'    | '/login'
     | '/paiement-retour'
     | '/parcours'
     | '/pro'
@@ -677,7 +689,7 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/cas/$caseId'
+    | '/api/institution-leads'    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -721,6 +733,7 @@ export interface RootRouteChildren {
   EcgRoute: typeof EcgRouteWithChildren
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
+  InstitutionnelRoute: typeof InstitutionnelRoute
   LoginRoute: typeof LoginRoute
   PaiementRetourRoute: typeof PaiementRetourRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
@@ -735,6 +748,7 @@ export interface RootRouteChildren {
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   ApiEventsRoute: typeof ApiEventsRoute
+  ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
@@ -932,6 +946,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/institutionnel': {
+      id: '/institutionnel'
+      path: '/institutionnel'
+      fullPath: '/institutionnel'
+      preLoaderRoute: typeof InstitutionnelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -1035,6 +1056,13 @@ declare module '@tanstack/react-router' {
       path: '/api/events'
       fullPath: '/api/events'
       preLoaderRoute: typeof ApiEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/institution-leads': {
+      id: '/api/institution-leads'
+      path: '/api/institution-leads'
+      fullPath: '/api/institution-leads'
+      preLoaderRoute: typeof ApiInstitutionLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cas/$caseId': {
@@ -1226,6 +1254,7 @@ const rootRouteChildren: RootRouteChildren = {
   EcgRoute: EcgRouteWithChildren,
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
+  InstitutionnelRoute: InstitutionnelRoute,
   LoginRoute: LoginRoute,
   PaiementRetourRoute: PaiementRetourRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
@@ -1240,6 +1269,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,
   ApiEventsRoute: ApiEventsRoute,
+  ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,

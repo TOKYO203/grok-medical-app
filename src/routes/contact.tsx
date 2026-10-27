@@ -113,6 +113,12 @@ function ContactPage() {
             <Mail className="size-4" aria-hidden />
             Demander un devis par email
           </a>
+          <Link
+            to="/institutionnel"
+            className="mt-2 block text-sm font-medium text-primary underline-offset-2 hover:underline"
+          >
+            Page établissements (demande de démonstration) →
+          </Link>
         </div>
 
         <div className="my-6 flex items-center gap-3 text-[11px] uppercase tracking-wider text-subtle">
