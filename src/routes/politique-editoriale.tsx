@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, BookOpenCheck, CheckCircle2, ScrollText } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
-import { MedicalDisclaimer } from "@/components/legal/medical-disclaimer";
 
 export const Route = createFileRoute("/politique-editoriale")({
   component: PolitiqueEditorialePage,
@@ -117,7 +116,6 @@ function PolitiqueEditorialePage() {
           </ul>
         </section>
 
-        <MedicalDisclaimer />
       </Page>
     </Shell>
   );
