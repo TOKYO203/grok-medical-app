@@ -1,0 +1,427 @@
+{
+  "kind": "pathology",
+  "slug": "grippe",
+  "title": "Grippe",
+  "subtitle": "Fiche de nosographie — infectiologie clinique",
+  "language": "fr",
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-27",
+  "objective": "Diagnostiquer une grippe saisonnière et une grippe compliquée, connaître les principes du traitement antiviral et de la vaccination annuelle, et situer la surveillance de la grippe à Madagascar (Centre National de Référence de l'Institut Pasteur de Madagascar, réseau sentinelle).",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 9,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 50,
+      "localNumber": 9,
+      "sectionLabel": "Médecine",
+      "title": "Grippe",
+      "specialty": "Infectiologie"
+    }
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "body": "La grippe (influenza) est une infection respiratoire aiguë hautement contagieuse due au virus influenza, qui circule chaque année dans le monde entier et provoque des épidémies saisonnières. L'OMS estime à environ un milliard le nombre de cas de grippe saisonnière par an, dont 3 à 5 millions de formes sévères, responsables de 290 000 à 650 000 décès respiratoires annuels ; 99 % des décès d'enfants de moins de 5 ans liés aux infections respiratoires basses d'origine grippale surviennent dans les pays en développement. Dans les pays industrialisés, la majorité des décès associés à la grippe concernent les personnes de 65 ans et plus. Si la plupart des sujets guérissent spontanément en une semaine, la grippe reste dangereuse par ses complications — pneumonies, décompensations de comorbidités — et par son potentiel pandémique, illustré par les pandémies de 1918, 1957, 1968 et 2009. À Madagascar, la grippe est endémo-épidémique : la surveillance y est organisée depuis des décennies, appuyée par le Centre National de Référence pour la grippe hébergé par l'Institut Pasteur de Madagascar et reconnu par l'OMS, avec un réseau de sites sentinelles. Le vaccin antigrippal, mis à jour deux fois par an, reste la mesure de prévention la plus efficace ; il ne fait pas partie du Programme élargi de vaccination national malgache, mais l'OMS recommande depuis 2022 que tous les pays envisagent des programmes de vaccination antigrippale ciblant les groupes prioritaires.",
+      "callout": {
+        "tone": "urgence",
+        "title": "Urgences à ne pas manquer",
+        "body": "Détresse respiratoire ou hypoxie, pneumonie grippale ou bactérienne surinfectée, décompensation d'une maladie chronique (asthme, BPCO, insuffisance cardiaque, diabète), encéphalite, myocardite, sepsis : hospitalisation sans délai, antiviral adapté au terrain même au-delà de 48 heures, et recherche d'une surinfection bactérienne."
+      },
+      "table": {
+        "title": "Chiffres clés",
+        "columns": ["Notion", "Valeur de référence"],
+        "rows": [
+          ["Charge mondiale annuelle", "≈ 1 milliard de cas ; 3–5 millions de formes sévères"],
+          ["Mortalité respiratoire annuelle", "290 000 – 650 000 décès (OMS)"],
+          ["Incubation", "1 à 4 jours (souvent ~2 jours)"],
+          ["Durée des symptômes", "≈ 1 semaine ; toux pouvant durer 2 semaines et plus"],
+          ["Pandémies du XXe–XXIe siècle", "1918 (A/H1N1 « espagnole »), 1957 (A/H2N2), 1968 (A/H3N2), 2009 (A/H1N1pdm09)"]
+        ]
+      }
+    },
+    {
+      "id": "agent-physiopathologie",
+      "title": "Agent et physiopathologie",
+      "body": "Il existe quatre types de virus influenza : A, B, C et D. Les virus A et B circulent chez l'humain et provoquent les épidémies saisonnières. Les virus A sont classés en sous-types selon leurs protéines de surface, hémagglutinine (H) et neuraminidase (N) ; les sous-types humains actuellement circulants sont A(H1N1)pdm09 — apparu lors de la pandémie de 2009 où il a remplacé l'ancien A(H1N1) — et A(H3N2). Les virus B, non sous-typés, appartiennent aux lignées B/Yamagata et B/Victoria. Seuls les virus de type A sont connus pour avoir causé des pandémies. Le virus C est détecté moins souvent et donne des infections bénignes ; le virus D touche principalement les bovins et n'est pas connu pour infecter l'humain. La transmission se fait par gouttelettes respiratoires (toux, éternuements), par contact direct ou indirect, et l'élimination virale précède souvent les symptômes — d'où la contagiosité élevée. La modification antigénique progressive des protéines de surface (dérive antigénique, « antigenic drift ») explique les épidémies annuelles et la nécessité de mettre à jour la composition vaccinale ; le réassortiment génétique entre virus animaux et humains (cassure antigénique, « antigenic shift ») explique l'émergence soudaine de sous-types nouveaux responsables de pandémies. Le virus infecte l'épithélium respiratoire, provoquant une trachéobronchite aiguë ; la réponse inflammatoire systémique (interférons, cytokines) rend compte de la fièvre, des myalgies et de l'asthénie intense, distinctes du simple rhume. Le terrain (grossesse, âge extrêmes, comorbidités, immunodépression) conditionne la sévérité.",
+      "table": {
+        "title": "Types de virus influenza",
+        "columns": ["Type", "Réservoir principal", "Rôle en pathologie humaine"],
+        "rows": [
+          ["A", "Humain, oiseaux (réservoir animal), porc", "Épidémies saisonnières ; seuls responsables des pandémies ; sous-types A(H1N1)pdm09 et A(H3N2)"],
+          ["B", "Humain exclusif", "Épidémies saisonnières ; lignées B/Victoria et B/Yamagata"],
+          ["C", "Humain, porc", "Infections peu fréquentes et bénignes"],
+          ["D", "Bovins", "Non connu pour infecter l'humain"]
+        ]
+      }
+    },
+    {
+      "id": "semiologie",
+      "title": "Sémiologie",
+      "body": "Le tableau typique de la grippe associe, après une incubation de 1 à 4 jours, un début brutal — signature sémiologique majeure qui la distingue des autres infections respiratoires : fièvre élevée d'apparition soudaine, toux habituellement sèche, céphalées, myalgies et arthralgies, malaise intense, odynophagie et rhinorrhée. La symptomatologie débute environ deux jours après la contamination et la guérison spontanée survient en une semaine chez le sujet sain ; la toux, elle, peut persister deux semaines ou davantage. L'examen physique est souvent pauvre : rareté des signes d'auscultation au début, contraste avec l'altération de l'état général. Le diagnostic est le plus souvent clinique en période épidémique ; les tests rapides et la RT-PCR sur écouvillon nasopharyngé confirment le virus en cas de doute, de forme sévère, de contexte épidémiologique particulier (retour d'un pays d'endémie animale, contact avec des oiseaux) ou dans le cadre de la surveillance sentinelle. Chez l'enfant, l'expression peut être atypique : otite, laryngite, bronchiolite, ou tableaux digestifs ; chez le sujet âgé, la fièvre peut manquer et la présentation se réduire à une confusion ou une décompensation de maladie chronique. Le syndrome grippal est un critère de définition pour la surveillance : apparition soudaine de fièvre avec toux et/ou maux de gorge, en l'absence d'autre cause.",
+      "table": {
+        "title": "Diagnostic différentiel du syndrome grippal",
+        "columns": ["Diagnostic", "Éléments d'orientation"],
+        "rows": [
+          ["Rhume banal (rhinovirus)", "Début progressif, fièvre absente ou modérée, rhinorrhée dominante, état général conservé"],
+          ["COVID-19", "Climat épidémique, anosmie/agueusie possibles, test PCR/antigénique"],
+          ["Angine streptococcique", "Dysphagie majeure, exsudat amygdalien, absence de toux, TDR positif"],
+          ["Paludisme (contexte tropical)", "Accès fébrile au retour d'une zone d'endémie, goutte épaisse positive"],
+          ["Typhoïde", "Fièvre en plateau, bradycardie relative, diarrhée, hémoculture"],
+          ["Pneumonie communautaire", "Douleur basithoracique, foyer auscultatoire, expectoration purulente"]
+        ]
+      },
+      "callout": {
+        "tone": "bonne-pratique",
+        "title": "Repère de surveillance à Madagascar",
+        "body": "Tout syndrome grippal peut être notifié dans le cadre de la surveillance intégrée des infections respiratoires aiguës : les sites sentinelles prélèvent des écouvillons nasopharyngés acheminés au Centre National de Référence pour la grippe de l'Institut Pasteur de Madagascar, reconnu par l'OMS, qui assure la confirmation virologique, le sous-typage et la remontée des souches vers le système mondial OMS de surveillance et de réponse à la grippe (GISRS)."
+      }
+    },
+    {
+      "id": "complications",
+      "title": "Complications et formes graves",
+      "body": "La plupart des grippes guérissent sans séquelle, mais les complications font toute la gravité de la maladie, en particulier dans les groupes à risque : femmes enceintes (tout trimestre), enfants de moins de 5 ans (surtout moins de 2 ans), personnes de 65 ans et plus, sujets porteurs de comorbidités (maladies respiratoires chroniques, cardiaques, rénales, hépatiques, neurologiques, diabète, hémoglobinopathies, immunodépression, obésité sévère) et professionnels de santé exposés. La pneumonie est la complication majeure, sous deux formes : pneumonie virale primitive, précoce, parfois fulminante avec hypoxémie sévère ; et pneumonie bactérienne de surinfection, plus tardive, volontiers à pneumocoque, à staphylocoque doré ou à Haemophilus influenzae — l'association fièvre biphasique (réapparition de la fièvre après une amélioration initiale) avec expectoration purulente doit y faire penser. La grippe peut également provoquer des exacerbations de maladies chroniques : crise d'asthme, décompensation de BPCO ou d'insuffisance cardiaque, déséquilibre diabétique. Plus rarement : myocardite, péricardite, encéphalite, syndrome de Guillain-Barré, rhabdomyolyse, sepsis et défaillance multiviscérale. Chez l'enfant, on retient l'otite moyenne aiguë, la bronchiolite du nourrisson, la laryngite, et le risque accru de convulsions fébriles. La mortalité survient principalement chez les personnes âgées, les immunodéprimés et les sujets à comorbidités ; 99 % des décès d'enfants de moins de 5 ans attribuables à la grippe surviennent dans les pays en développement.",
+      "callout": {
+        "tone": "urgence",
+        "title": "Drapeaux rouges",
+        "body": "Détresse respiratoire ou saturation abaissée, fièvre persistant au-delà de 5 jours ou réapparaissant après une accalmie (fièvre biphasique), hémoptysie, douleur thoracique, cyanose, signes neurologiques (confusion, convulsions), déshydratation, refus de boire chez l'enfant, aggravation d'une maladie chronique, syndrome grippal chez une femme enceinte ou un immunodéprimé : évaluation médicale immédiate et critères d'hospitalisation."
+      },
+      "list": {
+        "title": "Formes cliniques d'alerte",
+        "items": [
+          "Grippe compliquée d'une pneumonie virale primitive : hypoxémie, infiltrats bilatéraux, évolution potentiellement fulminante",
+          "Pneumonie bactérienne de surinfection : fièvre biphasique, expectoration purulente, foyer auscultatoire",
+          "Myocardite et péricardite : douleur thoracique, troubles du rythme, élévation de la troponine",
+          "Encéphalite : confusion, convulsions, troubles de la conscience dans un contexte grippal",
+          "Décompensation de comorbidité : asthme, BPCO, insuffisance cardiaque, diabète"
+        ]
+      }
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "body": "Le traitement de la grippe non compliquée chez le sujet sain est avant tout symptomatique : repos, hydratation, paracétamol contre la fièvre et les douleurs, mesures d'hygiène (lavage des mains, masque, couverture de la toux) pour protéger l'entourage — la contagiosité justifie l'éviction des collectivités pendant la phase fébrile. Les antiviraux inhibiteurs de la neuraminidase (oseltamivir par voie orale, zanamivir par inhalation) réduisent d'environ un jour la durée des symptômes lorsqu'ils sont débutés précocement — idéalement dans les 48 heures suivant le début des signes — et leur bénéfice clinique est d'autant plus grand que le traitement est précoce. Les antiviraux sont indiqués prioritairement : chez les patients hospitalisés ou présentant une forme sévère ou compliquée (où le traitement doit être administré même au-delà de 48 heures, le bénéfice persistant chez l'hospitalisé), et en traitement précoce ou en prophylaxie chez les sujets à risque élevé de complication. Chez l'hospitalisé pour grippe confirmée ou suspectée, l'antiviral s'accompagne d'une recherche de surinfection bactérienne : une pneumonie de surinfection impose une antibiothérapie ciblée sur pneumocoque, staphylocoque doré et Haemophilus influenzae, associée à l'antiviral. L'oxygénothérapie, la réanimation respiratoire et la prise en charge des défaillances d'organes relèvent du milieu hospitalier. Aucun antibiotique n'est indiqué dans la grippe non compliquée. Conformément à la règle éditoriale de ce catalogue, les posologies détaillées ne sont pas reproduites ici et relèvent des référentiels et protocoles thérapeutiques en vigueur.",
+      "callout": {
+        "tone": "bonne-pratique",
+        "title": "Antiviraux : à retenir",
+        "body": "Inhibiteurs de la neuraminidase (oseltamivir par voie orale, zanamivir par inhalation) : bénéfice maximal si début dans les 48 heures ; à prescrire d'emblée dans les formes sévères, chez l'hospitalisé — même au-delà de 48 heures — et chez les sujets à risque, sans attendre la confirmation virologique lorsque le contexte épidémique est évocateur. Jamais d'antibiotique d'emblée dans une grippe simple ; antibiothérapie ciblée uniquement si surinfection bactérienne documentée ou fortement suspectée."
+      }
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "body": "La vaccination annuelle est la mesure de prévention la plus efficace contre la grippe. La composition vaccinale est décidée deux fois par an par l'OMS (février pour l'hémisphère nord, septembre pour l'hémisphère sud) sur la base de la surveillance virologique mondiale du GISRS, en raison de la dérive antigénique constante des virus circulants. La note de position de l'OMS sur les vaccins antigrippaux (mai 2022) recommande que tous les pays envisagent des programmes de vaccination antigrippale saisonnière, en priorité pour cinq groupes : les femmes enceintes (à tout stade de la grossesse), les enfants de 6 mois à 5 ans, les personnes de 65 ans et plus, les sujets porteurs de comorbidités (maladies chroniques respiratoires, cardiaques, métaboliques, rénales, hépatiques, neurologiques, immunodépression, obésité sévère) et les professionnels de santé ; les pays peuvent y ajouter d'autres groupes selon leur contexte (sujets vivant en collectivité, populations autochtones défavorisées). Les vaccins inactivés injectables dominent ; le vaccin vivant atténué par voie nasale existe pour l'enfant et l'adolescent ; des vaccins à haute dose ou adjuvantés sont développés pour le sujet âgé. La vaccination est annuelle et sa couverture doit viser les groupes à risque, chez lesquels elle prévient les formes sévères et la mortalité. La prévention non vaccinale complète l'édifice : hygiène des mains, étiquette respiratoire (masque en période épidémique, couvrir sa toux), éviction des collectivités pendant la phase contagieuse, et prophylaxie médicamenteuse post-exposition par antiviral chez les sujets à haut risque non vaccinés. Enfin, la prévention pandémique repose sur la surveillance mondiale, les plans de préparation nationaux et la riposte rapide (isolement, antiviraux, vaccin pandémique lorsqu'il est disponible).",
+      "table": {
+        "title": "Groupes prioritaires pour la vaccination antigrippale (OMS, mai 2022)",
+        "columns": ["Groupe", "Justification"],
+        "rows": [
+          ["Femmes enceintes", "Risque accru de forme sévère et d'issues défavorables ; protection transplacentaire du nouveau-né"],
+          ["Enfants de 6 mois à 5 ans", "Charge de maladie élevée, otites et hospitalisations"],
+          ["Personnes de 65 ans et plus", "Mortalité grippale la plus élevée, réponse vaccinale réduite"],
+          ["Sujets à comorbidités", "Risque de décompensation (respiratoire, cardiaque, métabolique, immunodépression)"],
+          ["Professionnels de santé", "Protection individuelle et prévention de la nosocomiale"]
+        ]
+      }
+    },
+    {
+      "id": "surveillance-madagascar",
+      "title": "Surveillance et contexte malgache",
+      "body": "Madagascar dispose d'une des plus anciennes surveillances de la grippe d'Afrique subsaharienne : la surveillance y est établie depuis 1978, et l'Institut Pasteur de Madagascar héberge le Centre National de Référence (CNR) pour la grippe, reconnu par l'OMS — l'un des laboratoires nationaux de référence du pays — qui confirme les cas, sous-type les virus et alimente le système mondial de surveillance et de réponse de l'OMS (GISRS). Le réseau sentinelle a été progressivement consolidé : une étude menée de juillet 2008 à juin 2009 dans neuf sites sentinelles d'Antananarivo a montré que les virus grippaux et le virus respiratoire syncytial étaient les premières étiologies des syndromes grippaux dans la capitale. Depuis janvier 2019, dans le cadre du projet « Surveillance et réponse à la grippe aviaire et pandémique à Madagascar » soutenu par le CDC, onze centres de santé de base (CSB_R) assurent la surveillance sentinelle biologique intégrée (grippe, paludisme et autres maladies à potentiel épidémique). La pandémie de A(H1N1)2009 a atteint Madagascar, où des travaux d'analyse de la surmortalité associée ont été conduits à Antananarivo. La saisonnalité de la grippe à Madagascar est particulière : l'activité grippale y est irrégulière, non strictement liée au climat, et ne s'aligne ni sur celle des pays voisins ni sur celle des pays fortement connectés — un profil dit de « coureur libre africain » décrit par des travaux fondés sur les données d'Antananarivo. Dans les Hautes Terres centrales, on distingue une saison fraîche et sèche (hiver austral, mai–octobre) et une saison chaude et pluvieuse (novembre–avril), et les virus grippaux circulent chaque année, avec des pics de variable intensité. Le vaccin antigrippal n'est pas intégré au Programme élargi de vaccination (PEV) national ; sa recommandation ciblée aux groupes à risque (femmes enceintes, comorbidités, sujets âgés, professionnels de santé) relève des instances nationales et de la note de position OMS de mai 2022. La riposte aux épidémies associe détection précoce par les sites sentinelles, confirmation au CNR grippe, notification à la structure de district et au ministère, mesures d'hygiène et d'isolement, et antiviraux pour les cas à risque ; Madagascar participe par ailleurs au réseau africain ANISE de surveillance et d'épidémiologie de la grippe, et l'IPM conduit des activités de surveillance de la grippe aviaire dans les marchés d'oiseaux vivants d'Antananarivo en collaboration avec le ministère de l'Agriculture.",
+      "callout": {
+        "tone": "reflexe",
+        "title": "Réflexe terrain",
+        "body": "Un syndrome grippal ne se résume pas à une consultation : en période épidémique, pensez à la notification, au prélèvement pour la surveillance sentinelle, au repérage des sujets à risque dans l'entourage (femmes enceintes, nourrissons, sujets âgés et comorbides) et aux mesures d'hygiène expliquées au patient."
+      }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "body": "La grippe est l'archétype de la maladie infectieuse banale qui peut devenir redoutable : une infection virale respiratoire d'incubation courte, au début brutal, guérissant spontanément en une semaine chez le sujet sain, mais dont les pneumonies et les décompensations de comorbidités font la mortalité — surtout chez les plus de 65 ans, les jeunes enfants, les femmes enceintes et les immunodéprimés. Trois réflexes résument la conduite à tenir : reconnaître le syndrome grippal et ses drapeaux rouges ; identifier les sujets à risque justifiant un antiviral précoce — dans les 48 heures au bout du compte, mais toujours chez l'hospitalisé ; et vacciner annuellement les groupes prioritaires. À Madagascar, la force du système réside dans sa surveillance : un Centre National de Référence OMS à l'Institut Pasteur de Madagascar, un réseau de sites sentinelles, une intégration aux réseaux africain et mondial — un dispositif à connaître de tout médecin de district, car la grippe y circule chaque année et la détection précoce d'une souche pandémique ou animale inhabituelle en dépend."
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "body": "Les sources ci-dessous ont été consultées et vérifiées le 27 octobre 2026. Elles appuient les données épidémiologiques, les recommandations vaccinales et antivirales, et le contexte malgache présentés dans cette fiche.",
+      "table": {
+        "title": "Sources vérifiées",
+        "columns": ["Source", "Contenu utilisé"],
+        "rows": [
+          ["OMS — Influenza (seasonal), fiche d'information, 28 février 2025", "Charge mondiale (≈ 1 milliard de cas, 3–5 millions de formes sévères, 290 000–650 000 décès respiratoires), types A/B/C/D, incubation 1–4 jours, signes cliniques, groupes à risque"],
+          ["OMS — Vaccines against influenza: WHO position paper, mai 2022 (WER 9719)", "Recommandations vaccinales 2022 : groupes prioritaires (femmes enceintes, enfants 6 mois–5 ans, ≥ 65 ans, comorbidités, personnels de santé)"],
+          ["CDC — Influenza Antiviral Medications: Summary for Clinicians", "Inhibiteurs de la neuraminidase, bénéfice maximal < 48 h, indication chez l'hospitalisé même au-delà de 48 h"],
+          ["PLOS ONE — Viral Etiology of Influenza-Like Illnesses in Antananarivo (2008–2009)", "Surveillance grippe à Madagascar depuis 1978, 9 sites sentinelles à Antananarivo, étiologies des syndromes grippaux"],
+          ["Epidemiology & Infection (Cambridge) — Excess mortality associated with the 2009 A(H1N1) pandemic in Antananarivo", "Impact de la pandémie A(H1N1)2009 à Madagascar"],
+          ["PubMed — Influenza seasonality in Madagascar: the mysterious African free-runner", "Saisonnalité irrégulière de la grippe à Antananarivo, non strictement climatique"],
+          ["Institut Pasteur de Madagascar — À propos", "Centre National de Référence pour la grippe reconnu par l'OMS, laboratoires de référence nationaux"]
+        ]
+      }
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mnemo-brutal",
+      "title": "« BRUTAL » — reconnaître une grippe",
+      "description": "Le début brutal est la signature de la grippe : chaque lettre rappelle une composante du syndrome.",
+      "entries": [
+        { "code": "B", "label": "Brutal — début soudain, en quelques heures" },
+        { "code": "R", "label": "Remparts rompus — fièvre élevée d'emblée" },
+        { "code": "U", "label": "Un jour ou deux d'incubation (1–4 jours)" },
+        { "code": "T", "label": "Toux sèche, céphalées" },
+        { "code": "A", "label": "Arthralgies et myalgies intenses" },
+        { "code": "L", "label": "Lourde asthénie, malaise profond (une semaine)" }
+      ]
+    },
+    {
+      "id": "mnemo-priority-groups",
+      "title": "« 5 Priorités OMS » — groupes à vacciner et à traiter",
+      "description": "Les cinq groupes prioritaires de la vaccination antigrippale selon la note de position OMS de mai 2022 — les mêmes qui justifient un antiviral précoce.",
+      "entries": [
+        { "code": "1", "label": "Femmes enceintes (tout trimestre)" },
+        { "code": "2", "label": "Enfants de 6 mois à 5 ans" },
+        { "code": "3", "label": "Personnes de 65 ans et plus" },
+        { "code": "4", "label": "Comorbidités (respiratoires, cardiaques, métaboliques, immunodépression)" },
+        { "code": "5", "label": "Professionnels de santé" }
+      ]
+    },
+    {
+      "id": "mnemo-surv-mg",
+      "title": "« SENDIKA » — riposte grippe à Madagascar",
+      "description": "La chaîne de riposte face à un syndrome grippal ou une alerte de grippe à Madagascar (malgache : sendika = chaîne/syndicat — l'idée de la chaîne de surveillance).",
+      "entries": [
+        { "code": "S", "label": "Syndrome grippal reconnu au CSB (fièvre soudaine + toux/maux de gorge)" },
+        { "code": "E", "label": "Écouvillon nasopharyngé prélevé au site sentinelle" },
+        { "code": "N", "label": "Notification au district sans délai" },
+        { "code": "D", "label": "Diagnostic confirmé au CNR grippe — Institut Pasteur de Madagascar (OMS)" },
+        { "code": "I", "label": "Isolement et hygiène expliqués ; antiviral si sujet à risque" },
+        { "code": "K", "label": "Koronao ny ankizy sy bevaoa (protéger femmes enceintes et sujets fragiles de l'entourage)" },
+        { "code": "A", "label": "Alerte remontée au GISRS (réseau mondial OMS)" }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-grippe-1",
+      "front": "Quel est le fardeau mondial annuel de la grippe saisonnière selon l'OMS ?",
+      "back": "≈ 1 milliard de cas par an, dont 3 à 5 millions de formes sévères et 290 000 à 650 000 décès respiratoires annuels."
+    },
+    {
+      "id": "fc-grippe-2",
+      "front": "Quels types de virus influenza circulent chez l'humain et causent les épidémies saisonnières ?",
+      "back": "Les virus influenza A et B. Seul le type A est responsable des pandémies. Le type C donne des infections bénignes ; le type D touche les bovins."
+    },
+    {
+      "id": "fc-grippe-3",
+      "front": "Quels sont les sous-types de virus A actuellement circulants chez l'humain ?",
+      "back": "A(H1N1)pdm09 — apparu avec la pandémie de 2009 — et A(H3N2). Les virus B se répartissent en lignées B/Victoria et B/Yamagata."
+    },
+    {
+      "id": "fc-grippe-4",
+      "front": "Quelle est la durée d'incubation de la grippe et quand apparaissent les symptômes ?",
+      "back": "Les symptômes débutent 1 à 4 jours après l'infection — le plus souvent environ 2 jours — et durent habituellement une semaine, avec une toux pouvant persister 2 semaines ou plus."
+    },
+    {
+      "id": "fc-grippe-5",
+      "front": "Différence entre dérive antigénique (drift) et cassure antigénique (shift) ?",
+      "back": "La dérive (drift) = mutations progressives des protéines de surface → épidémies annuelles et mise à jour vaccinale. La cassure (shift) = réassortiment génétique créant un nouveau sous-type → risque de pandémie."
+    },
+    {
+      "id": "fc-grippe-6",
+      "front": "Quand le bénéfice des inhibiteurs de la neuraminidase est-il maximal ?",
+      "back": "Lorsque le traitement est débuté précocement, idéalement dans les 48 heures suivant le début des symptômes. Chez l'hospitalisé ou le sujet à risque, on traite même au-delà : le bénéfice persiste."
+    },
+    {
+      "id": "fc-grippe-7",
+      "front": "Quel signe doit faire évoquer une pneumonie bactérienne de surinfection au cours d'une grippe ?",
+      "back": "La fièvre biphasique : retour de la fièvre et des signes généraux après une amélioration initiale, avec expectoration purulente — imposant une antibiothérapie ciblée (pneumocoque, staphylocoque doré, Haemophilus influenzae) en plus de l'antiviral."
+    },
+    {
+      "id": "fc-grippe-8",
+      "front": "Citez les cinq groupes prioritaires de la vaccination antigrippale selon l'OMS (2022).",
+      "back": "Femmes enceintes, enfants de 6 mois à 5 ans, personnes de 65 ans et plus, sujets à comorbidités, professionnels de santé. Les pays peuvent y ajouter d'autres groupes selon leur contexte."
+    },
+    {
+      "id": "fc-grippe-9",
+      "front": "Pourquoi la composition du vaccin antigrippal change-t-elle chaque année ?",
+      "back": "À cause de la dérive antigénique : les mutations progressives de l'hémagglutinine et de la neuraminidase permettent au virus d'échapper à l'immunité acquise. L'OMS recommande la composition deux fois par an (février hémisphère nord, septembre hémisphère sud)."
+    },
+    {
+      "id": "fc-grippe-10",
+      "front": "Quelles sont les deux grandes formes de pneumonie grippale ?",
+      "back": "La pneumonie virale primitive — précoce, hypoxémiante, parfois fulminante — et la pneumonie bactérienne de surinfection — plus tardive, à pneumocoque, staphylocoque doré ou Haemophilus influenzae, marquée par la fièvre biphasique."
+    },
+    {
+      "id": "fc-grippe-11",
+      "front": "Quelles complications extrapulmonaires de la grippe connaissez-vous ?",
+      "back": "Myocardite, péricardite, encéphalite, syndrome de Guillain-Barré, rhabdomyolyse, sepsis, et exacerbations de maladies chroniques (asthme, BPCO, insuffisance cardiaque, diabète)."
+    },
+    {
+      "id": "fc-grippe-12",
+      "front": "Quelle structure assure la référence virologique de la grippe à Madagascar ?",
+      "back": "Le Centre National de Référence pour la grippe, hébergé par l'Institut Pasteur de Madagascar et reconnu par l'OMS ; il confirme, sous-type les virus et alimente le réseau mondial GISRS."
+    },
+    {
+      "id": "fc-grippe-13",
+      "front": "Depuis quand la surveillance de la grippe existe-t-elle à Madagascar, et comment s'organise-t-elle aujourd'hui ?",
+      "back": "Elle est établie depuis 1978. Aujourd'hui, des sites sentinelles (dont 11 CSB_R depuis janvier 2019 dans le cadre du projet CDC) prélèvent des écouvillons nasopharyngés acheminés au CNR grippe de l'IPM."
+    },
+    {
+      "id": "fc-grippe-14",
+      "front": "Le vaccin antigrippal fait-il partie du PEV malgache ?",
+      "back": "Non : il n'est pas intégré au Programme élargi de vaccination national. La vaccination ciblée des groupes à risque s'appuie sur les recommandations nationales et la note de position OMS de mai 2022."
+    }
+  ],
+  "mindmap": {
+    "title": "Grippe — carte mentale",
+    "branches": [
+      {
+        "label": "Agent et épidémiologie",
+        "tone": "reflexe",
+        "children": [
+          { "label": "Virologie", "leaves": ["Types A, B, C, D", "Sous-types A(H1N1)pdm09 et A(H3N2)", "Lignées B/Victoria, B/Yamagata", "Seul A pandémique"] },
+          { "label": "Variation antigénique", "leaves": ["Dérive (drift) → épidémies annuelles", "Cassure (shift) → pandémies (1918, 1957, 1968, 2009)"] },
+          { "label": "Charge mondiale", "leaves": ["≈ 1 milliard de cas/an", "3–5 millions de formes sévères", "290 000–650 000 décès respiratoires"] }
+        ]
+      },
+      {
+        "label": "Clinique et diagnostic",
+        "tone": "reflexe",
+        "children": [
+          { "label": "Syndrome grippal", "leaves": ["Début brutal", "Fièvre soudaine, toux sèche", "Céphalées, myalgies, asthénie", "Guérison en ~1 semaine"] },
+          { "label": "Confirmation", "leaves": ["Clinique en période épidémique", "Tests rapides, RT-PCR nasopharyngée"] },
+          { "label": "Formes selon l'âge", "leaves": ["Enfant : otite, laryngite, bronchiolite", "Sujet âgé : confusion, décompensation"] }
+        ]
+      },
+      {
+        "label": "Complications et urgence",
+        "tone": "urgence",
+        "children": [
+          { "label": "Pneumonies", "leaves": ["Virale primitive : hypoxémie, fulminante", "Bactérienne : fièvre biphasique, expectoration purulente"] },
+          { "label": "Viscérales", "leaves": ["Myocardite, péricardite", "Encéphalite, Guillain-Barré", "Sepsis, défaillance multiviscérale"] },
+          { "label": "Drapeaux rouges", "leaves": ["Détresse respiratoire", "Signes neurologiques", "Grippe chez femme enceinte ou immunodéprimé"] }
+        ]
+      },
+      {
+        "label": "Traitement, prévention et Madagascar",
+        "tone": "bonne-pratique",
+        "children": [
+          { "label": "Traitement", "leaves": ["Symptomatique : repos, hydratation, paracétamol", "Antiviraux < 48 h ; hospitalisé : au-delà aussi", "Antibiothérapie si surinfection bactérienne"] },
+          { "label": "Prévention", "leaves": ["Vaccin annuel, composition OMS 2×/an", "5 groupes prioritaires OMS 2022", "Hygiène, masque, éviction fébrile"] },
+          { "label": "Madagascar", "leaves": ["CNR grippe IPM reconnu OMS", "Surveillance depuis 1978, sites sentinelles, 11 CSB_R", "Saisonnalité irrégulière « free-runner »", "Vaccin hors PEV ; pandémie A(H1N1)2009 ; réseau ANISE"] }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-OMS-GRIPPE-2025",
+      "citation": "Organisation mondiale de la Santé. Influenza (seasonal) — fact sheet, 28 février 2025.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Charge mondiale annuelle (≈ 1 milliard de cas, 3–5 millions de formes sévères, 290 000–650 000 décès respiratoires), types A/B/C/D, sous-types et lignées, incubation 1–4 jours, signes cliniques, groupes à risque, principes de prévention.",
+      "title": "OMS — Influenza (seasonal)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025
+    },
+    {
+      "id": "SRC-OMS-VACCINS-GRIPPE-2022",
+      "citation": "Organisation mondiale de la Santé. Vaccines against influenza: WHO position paper — May 2022. Weekly Epidemiological Record, 97(19).",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Note de position OMS sur les vaccins antigrippaux saisonniers (remplace celle de 2012) : recommandation que tous les pays envisagent des programmes de vaccination, cinq groupes prioritaires, vaccins vivants atténués, haute dose et adjuvantés.",
+      "title": "OMS — Vaccines against influenza: WHO position paper (mai 2022)",
+      "url": "https://www.who.int/publications/i/item/who-wer9719",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2022
+    },
+    {
+      "id": "SRC-CDC-ANTIVIRAUX",
+      "citation": "Centers for Disease Control and Prevention. Influenza Antiviral Medications: Summary for Clinicians.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Inhibiteurs de la neuraminidase (oseltamivir, zanamivir), réduction d'environ un jour de la durée des symptômes, bénéfice maximal dans les 48 heures, indication chez les hospitalisés et sujets à risque même au-delà de 48 heures, absence d'indication antibiotique dans la grippe simple.",
+      "title": "CDC — Influenza Antiviral Medications: Summary for Clinicians",
+      "url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "organization": "Centers for Disease Control and Prevention",
+      "year": 2024
+    },
+    {
+      "id": "SRC-PLOS-ILU-TANA",
+      "citation": "Rajatonirina et al. Viral Etiology of Influenza-Like Illnesses in Antananarivo, Madagascar, July 2008 to June 2009. PLOS ONE.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Surveillance de la grippe établie à Madagascar depuis 1978, étude de 9 sites sentinelles à Antananarivo (juillet 2008–juin 2009), grippe et VRS premières étiologies des syndromes grippaux, saisons de la région centrale (hiver austral mai–octobre).",
+      "title": "PLOS ONE — Étiologie virale des syndromes grippaux à Antananarivo (2008–2009)",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0017579",
+      "organization": "PLOS ONE",
+      "year": 2011
+    },
+    {
+      "id": "SRC-FREE-RUNNER",
+      "citation": "Influenza seasonality in Madagascar: the mysterious African free-runner. PLOS Computational Biology / PubMed PMID 25711873.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Saisonnalité irrégulière de l'activité grippale à Antananarivo, non pilotée par le climat et non alignée sur les pays voisins ou connectés.",
+      "title": "Influenza seasonality in Madagascar: the mysterious African free-runner",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25711873",
+      "organization": "PubMed",
+      "year": 2015
+    },
+    {
+      "id": "SRC-CAMBRIDGE-H1N1-TANA",
+      "citation": "Excess mortality associated with the 2009 A(H1N1)v influenza pandemic in Antananarivo, Madagascar. Epidemiology & Infection (Cambridge University Press).",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Impact de la pandémie de grippe A(H1N1)2009 à Madagascar, analyse de la surmortalité associée à Antananarivo.",
+      "title": "Epidemiology & Infection — Surmortalité de la pandémie A(H1N1)2009 à Antananarivo",
+      "url": "https://www.cambridge.org/core/journals/epidemiology-and-infection/article/excess-mortality-associated-with-the-2009-ah1n1v-influenza-pandemic-in-antananarivo-madagascar/2A06B3F86904B4D0BA7444444C2D5DF8",
+      "organization": "Cambridge University Press",
+      "year": 2015
+    },
+    {
+      "id": "SRC-IPM-APROPOS",
+      "citation": "Institut Pasteur de Madagascar. À propos — laboratoires et centres de référence.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Centre National de Référence pour la grippe hébergé par l'IPM et reconnu par l'OMS ; laboratoires nationaux de référence (poliomyélite, rougeole-rubéole) ; participation au réseau ANISE (surveillance africaine de la grippe, communication 2026).",
+      "title": "Institut Pasteur de Madagascar — À propos",
+      "url": "https://www.pasteur.mg/a-propos/",
+      "organization": "Institut Pasteur de Madagascar",
+      "year": 2026
+    },
+    {
+      "id": "SRC-IPM-RISE",
+      "citation": "Institut Pasteur de Madagascar. Les activités BSS, composantes du Projet RISE, œuvrent au développement des CSB_R.",
+      "verifiedAt": "2026-10-27",
+      "usedFor": "Surveillance sentinelle biologique intégrée : depuis janvier 2019, 11 CSB_R sélectionnés ; projet « Surveillance et réponse à la grippe aviaire et pandémique à Madagascar » soutenu par le CDC.",
+      "title": "IPM — Projet RISE et surveillance sentinelle des CSB_R",
+      "url": "https://www.pasteur.mg/les-activites-bss-composantes-du-projet-rise-oeuvrent-au-developpement-des-csb_r/",
+      "organization": "Institut Pasteur de Madagascar",
+      "year": 2026
+    }
+  ],
+  "related": {
+    "deckIds": ["infectio", "semio", "infectio-grippe-l5"]
+  },
+  "editorial": {
+    "sourceDocument": {
+      "title": "Programme national 2025 — item Médecine n°9 (Grippe)",
+      "reference": "madagascar-2025, ordinal 50",
+      "receivedAt": "2026-10-27",
+      "role": "référence de structure uniquement"
+    },
+    "reformulation": "Contenu rédigé à partir des sources OMS (fiche d'information influenza 2025, note de position vaccins antigrippaux mai 2022), CDC (antiviraux) et des travaux publiés sur la grippe à Madagascar (PLOS ONE 2011, PubMed 2015, Epidemiology & Infection, Institut Pasteur de Madagascar). Le programme national n'a servi que de référence de structure (numérotation et intitulé de l'item).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Charge mondiale (≈ 1 milliard de cas, 3–5 millions de formes sévères, 290 000–650 000 décès respiratoires annuels, 99 % des décès d'enfants < 5 ans dans les pays en développement) vérifiée sur la fiche d'information OMS Influenza (seasonal) du 28 février 2025.",
+      "Types A/B/C/D, sous-types A(H1N1)pdm09 et A(H3N2), lignées B/Victoria et B/Yamagata, incubation 1–4 jours, début ~2 jours, guérison ~1 semaine, toux ≥ 2 semaines : vérifiés sur la même fiche OMS.",
+      "Groupes prioritaires de vaccination (femmes enceintes, 6 mois–5 ans, ≥ 65 ans, comorbidités, professionnels de santé) et recommandation pour tous les pays : vérifiés sur la note de position OMS Vaccines against influenza, mai 2022 (WER 9719).",
+      "Fenêtre de 48 heures pour le bénéfice maximal des inhibiteurs de la neuraminidase et indication chez l'hospitalisé au-delà de 48 heures : vérifiées sur le résumé CDC Influenza Antiviral Medications: Summary for Clinicians.",
+      "Surveillance grippe à Madagascar depuis 1978, 9 sites sentinelles à Antananarivo (étude 2008–2009), CNR grippe IPM reconnu OMS, 11 CSB_R depuis janvier 2019 (projet CDC/RISE), saisonnalité irrégulière (« African free-runner », PubMed 25711873), pandémie A(H1N1)2009 avec surmortalité documentée à Antananarivo : vérifiés sur PLOS ONE, PubMed, Cambridge Epidemiology & Infection et les pages institutionnelles de l'IPM.",
+      "Vaccin antigrippal non intégré au PEV malgache : constat cohérent avec les sources institutionnelles consultées (le PEV malgache documenté ne comprend pas le vaccin grippe)."
+    ],
+    "qcChecklist": [
+      "Les chiffres épidémiologiques cités proviennent de sources institutionnelles (OMS, CDC) ou d'articles évalués par les pairs, chacun avec URL vérifiée et date de consultation.",
+      "Aucune posologie chiffrée n'est incluse, conformément à la règle éditoriale du catalogue.",
+      "Le contenu malgache (surveillance, CNR IPM, PEV, saisonnalité) est sourcé par des publications scientifiques et des pages institutionnelles, pas par des impressions de pratique.",
+      "Les recommandations vaccinales correspondent à la note de position OMS la plus récente (mai 2022) ; la fiche précise qu'elle peut évoluer."
+    ]
+  },
+  "reviewStatus": "pending-medical-review"
+}
