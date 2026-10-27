@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import { Target, Flame, CheckCircle2 } from "lucide-react";
+import { track } from "@/lib/analytics/client";
 import { useDailyGoal } from "@/lib/daily-goal";
 
 export function DailyGoalCard() {
   const { goal, answered, target, pct, done, streak } = useDailyGoal();
+
+  // MESURE-1 : la série quotidienne est mesurée à l'affichage (spec
+  // Semaine 6), uniquement quand elle est engagée (streak > 0).
+  useEffect(() => {
+    if (streak > 0) track("day_streak", { days: streak });
+  }, [streak]);
+
   if (!goal) return null;
 
   return (

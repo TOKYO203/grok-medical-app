@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { isSupabaseConfigured, loadSupabase } from "@/lib/supabase";
+import { track } from "@/lib/analytics/client";
 
 /**
  * Écran de connexion Supabase (email + mot de passe).
@@ -76,6 +77,9 @@ export function AuthScreen() {
           password,
         });
         if (signUpError) throw signUpError;
+        // MESURE-1 : le compte est créé (session immédiate ou confirmation par
+        // e-mail) — c'est l'événement d'entrée du tunnel d'activation.
+        track("signup");
         if (!data.session) {
           setNotice("Compte créé. Vérifie ta boîte mail pour confirmer ton adresse, puis connecte-toi.");
           setMode("signin");
