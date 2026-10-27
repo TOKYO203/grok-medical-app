@@ -1,5 +1,5 @@
 import { getRequestHeaders, type H3Event } from "h3";
-import { auth, authConfigured } from "@/lib/auth/server";
+import { getAuth, authConfigured } from "@/lib/auth/server";
 
 export class ApiAuthError extends Error {
   readonly statusCode: number;
@@ -34,7 +34,7 @@ function requestHeaders(event: H3Event): Headers {
  */
 export async function getApiUser(event: H3Event): Promise<ApiUser | null> {
   if (!authConfigured) return null;
-  const session = await auth.api.getSession({ headers: requestHeaders(event) });
+  const session = await getAuth().api.getSession({ headers: requestHeaders(event) });
   if (!session?.user) return null;
   return {
     id: session.user.id,
