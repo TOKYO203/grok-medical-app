@@ -603,5 +603,368 @@
       }
     ],
     "synthesis": "Patient → circonstances (effort, sans prodrome) → syndrome syncope cardiaque → hypothèses (aortique, myocardiopathie, rythmique) → ECG + échographie → rétrécissement aortique serré → chirurgie et prophylaxie du RAA. La démarche force l'exploration hospitalière de toute syncope d'effort."
+  },
+  {
+    "id": "DX-FIEVRE-PERSISTANTE-001",
+    "title": "Fièvre persistante — démarche",
+    "specialty": "Infectiologie / Médecine interne",
+    "vignette": "Femme de 28 ans, fièvre vespérale depuis trois semaines avec sueurs nocturnes et amaigrissement de 5 kg. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément le plus discriminant ici est :",
+        "choices": [
+          "Contage tuberculeux, toux prolongée, contage familial",
+          "Sa consommation de thé",
+          "Une otite d'enfance lointaine",
+          "Un pied d'athlète traité"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre de plus de trois semaines, sueurs, amaigrissement : la tuberculose est la première hypothèse à Madagascar ; le contage et la toux prolongée déplacent toute la hiérarchie."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe qui oriente le plus est :",
+        "choices": [
+          "Adénopathies cervicales fermes + crépitants apicaux",
+          "Un dermographisme",
+          "Un souffle anémique isolé",
+          "Des varices des jambes"
+        ],
+        "correct": 0,
+        "explanation": "Adénopathies froides + signes pulmonaires apicaux dessinent le tableau tuberculeux ; l'anémie est fréquente mais non spécifique."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Fièvre vespérale de trois semaines, sueurs, amaigrissement, toux sèche :",
+        "choices": [
+          "Fièvre prolongée d'allure infectieuse, tuberculose probable",
+          "Fièvre d'origine tumorale d'emblée",
+          "Fièvre médicamenteuse certaine",
+          "Poussée de paludisme simple"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (fièvre prolongée) et on hiérarchise : infectieux d'abord (TB, palu, VIH, fièvre typhoïde), tumoral ensuite."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les quatre diagnostics à couvrir systématiquement sont :",
+        "choices": [
+          "Tuberculose, paludisme, fièvre typhoïde, VIH",
+          "Rhinite, angine, cystite, carie",
+          "Grippe banale, refroidissement, fatigue",
+          "Allergie, spasmophilie, migraine"
+        ],
+        "correct": 0,
+        "explanation": "Les grands pourvoyeurs locaux : TB (pulmonaire et extrapulmonaire), paludisme, salmonellose typhique, VIH et ses opportunistes."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le bilan de première intention comprend :",
+        "choices": [
+          "TDR/goutte épaisse, BK crachats × 2, sérologie VIH, NFS-CRP, hémocultures si suspicion typhoïdique",
+          "TDM cérébrale d'emblée",
+          "Fibroscopie digestive haute",
+          "Holter-ECG"
+        ],
+        "correct": 0,
+        "explanation": "Couvrir les causes traitables : palu (TDR/GE), TB (BK × 2), VIH (sérologie), salmonellose (hémoculture). La radiographie thoracique complète le bilan."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "TDR négatif, BK positif à l'examen direct, radio : infiltrat apical droit excavé :",
+        "choices": [
+          "Tuberculose pulmonaire à microscopie positive — traitement antituberculeux et déclaration",
+          "Fièvre typhoïde certaine",
+          "Lymphome certain",
+          "Paludisme à P. vivax"
+        ],
+        "correct": 0,
+        "explanation": "BK positif + excavé apical : tuberculose confirmée, quadrithérapie selon le protocole national, dépistage des contacts, déclaration obligatoire."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Tuberculose pulmonaire bacillifère",
+          "Fièvre typhoïde",
+          "Toxoplasmose ganglionnaire",
+          "Paludisme subintrant"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic est documenté : l'apyrexie sous traitement et le suivi BK confirmeront. Toujours vérifier sérologie VIH après le résultat."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Quadrithérapie antituberculeuse selon protocole national, éducation à l'observance, dépistage des contacts, sérologie VIH, déclaration",
+          "Antibiothérapie probabiliste à large spectre",
+          "Corticoïdes seuls",
+          "Paracétamol et revoir dans un mois"
+        ],
+        "correct": 0,
+        "explanation": "Traitement standardisé, observance expliquée, fiche de suivi ; l'échec de traitement vient surtout de l'abandon précoce."
+      }
+    ],
+    "synthesis": "Patiente → durée (3 semaines) → syndrome (fièvre prolongée infectieuse) → hypothèses locales (TB, palu, typhoïde, VIH) → TDR/GE, BK × 2, sérologie VIH → BK positif → quadrithérapie, contacts, déclaration. La démarche force la couverture des quatre causes majeures avant tout traitement probabiliste."
+  },
+  {
+    "id": "DX-ADENOPATHIE-001",
+    "title": "Adénopathie — démarche",
+    "specialty": "Infectiologie / Hématologie",
+    "vignette": "Homme de 35 ans, ganglion cervical droit de 3 cm, ferme et indolore, augmentant depuis deux mois, deux cures d'antibiotiques sans effet. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément le plus important est :",
+        "choices": [
+          "La croissance depuis deux mois malgré deux cures d'antibiotiques",
+          "Une douleur dentaire ancienne guérie",
+          "Un ronflement nocturne",
+          "Sa consommation de savon"
+        ],
+        "correct": 0,
+        "explanation": "Une adénopathie qui ne régresse pas après 4-6 semaines et deux cures d'antibiotiques n'est plus banale : tuberculose ganglionnaire ou lymphome jusqu'à preuve du contraire."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe le plus préoccupant serait :",
+        "choices": [
+          "Fixation aux plans profonds, consistance dure, autres aires atteintes",
+          "Une sensibilité à la palpation",
+          "Une rougeur de la peau en regard",
+          "Un ganglion inguinal de 0,5 cm mou"
+        ],
+        "correct": 0,
+        "explanation": "Dureté, fixation et atteinte de plusieurs aires orientent vers l'hémopathie ou la métastase ; la douleur et l'inflammation évoquent plutôt l'infection."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Ganglion cervical dur de 3 cm depuis deux mois, apyrétique, adénopathie axillaire de 2 cm :",
+        "choices": [
+          "Adénopathie persistante suspecte, à documenter histologiquement",
+          "Adénite bactérienne aiguë banale",
+          "Angine banale",
+          "Lipome du cou"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome : adénopathie chronique suspecte, ce qui impose le prélèvement, pas un troisième antibiotique."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois hypothèses prioritaires à Madagascar sont :",
+        "choices": [
+          "Tuberculose ganglionnaire, VIH, lymphome",
+          "Lipome, kyste branchial, goître",
+          "Rubéole, rougeole, varicelle",
+          "Psoriasis, eczéma, urticaire"
+        ],
+        "correct": 0,
+        "explanation": "Après échec d'antibiotiques : TB ganglionnaire (scrofula) en premier, VIH et ses complications, puis lymphome. La métastase se garde selon l'âge."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le bilan de première intention est :",
+        "choices": [
+          "Sérologie VIH, BK/GeneXpert, NFS-CRP, radiographie thoracique, puis ponction à l'aiguille fine",
+          "TDM cérébrale",
+          "Bilan allergique",
+          "Échographie artérielle des troncs"
+        ],
+        "correct": 0,
+        "explanation": "VIH et BK couvrent les deux causes infectieuses majeures ; la ponction à l'aiguille fine est le geste clé, la biopsie suivra si la cytologie est insuffisante."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Ponction : granulomes épithélioïdes avec nécrose caséeuse, GeneXpert positif :",
+        "choices": [
+          "Tuberculose ganglionnaire — antituberculeux selon protocole",
+          "Lymphome de Hodgkin certain",
+          "Métastase ganglionnaire",
+          "Adénite bactérienne"
+        ],
+        "correct": 0,
+        "explanation": "Le granulome épithélioïde et gigantocellulaire avec nécrose caséeuse est la signature tuberculeuse ; la fistule cicatrise lentement sous traitement bien conduit."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Tuberculose ganglionnaire cervicale",
+          "Hodgkin stade II",
+          "VIH primaire",
+          "Métastase d'un cancer ORL"
+        ],
+        "correct": 0,
+        "explanation": "Terrain + cytologie + GeneXpert : tuberculose ganglionnaire. Le VIH, dépisté, conditionne le pronostic et le suivi."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Quadrithérapie antituberculeuse, observance et suivi, dépistage des contacts, déclaration, sérologie VIH",
+          "Une troisième cure d'antibiotiques",
+          "Exérèse chirurgicale isolée sans traitement médical",
+          "Corticoïdes seuls"
+        ],
+        "correct": 0,
+        "explanation": "Le traitement médical standardisé guérit ; la biopsie d'exérèse n'est pas nécessaire au diagnostic lorsque la ponction et le GeneXpert concluent."
+      }
+    ],
+    "synthesis": "Patient → caractériser (dur, 3 cm, 2 mois, antibiotiques sans effet) → syndrome adénopathie suspecte → hypothèses (TB, VIH, lymphome) → sérologie VIH + BK + ponction → granulome caséum → quadrithérapie et déclaration. La démarche interdit les cures d'antibiotiques répétées sans prélèvement."
+  },
+  {
+    "id": "DX-OEDEMES-001",
+    "title": "Œdèmes des membres inférieurs — démarche",
+    "specialty": "Cardiologie / Néphrologie",
+    "vignette": "Femme de 24 ans, œdèmes blancs et mous des deux jambes depuis trois semaines, urines mousseuses, asthénie. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément le plus discriminant est :",
+        "choices": [
+          "Des urines mousseuses depuis plusieurs semaines",
+          "Une marche prolongée la veille",
+          "Des chaussures neuves",
+          "Une insomnie récente"
+        ],
+        "correct": 0,
+        "explanation": "Les urines mousseuses orientent vers une protéinurie massive : syndrome néphrotique, première cause d'œdèmes mous généralisés chez l'adulte jeune."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Œdèmes prenant le godet jusqu'aux genoux, sans douleur ni rougeur, sans turgescence jugulaire, TA 130/80. Le geste indispensable est :",
+        "choices": [
+          "Bandelette urinaire au lit du patient",
+          "Écho-Doppler veineux en urgence",
+          "Test de Homans",
+          "Ponction d'ascite"
+        ],
+        "correct": 0,
+        "explanation": "Bilatéral, mou, blanc, indolore : mécanisme général. La BU recherche la protéinurie — l'examen le plus rentable au lit du patient."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "BU : protéines 4+, sang négatif :",
+        "choices": [
+          "Syndrome néphrotique probable",
+          "Insuffisance cardiaque droite",
+          "Thrombose veineuse bilatérale",
+          "Insuffisance veineuse chronique"
+        ],
+        "correct": 0,
+        "explanation": "Protéinurie massive + hypoalbuminémie à confirmer + œdèmes : syndrome néphrotique. La cause cardiaque est écartée par l'examen."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Chez cette patiente, les causes à couvrir sont :",
+        "choices": [
+          "Néphrose lipoïdique (lésions glomérulaires minimes), glomérulonéphrite post-infectieuse, paludisme, VIH, hépatites",
+          "Cirrhose alcoolique décompensée",
+          "Insuffisance veineuse bilatérale",
+          "Lymphœdème filarien"
+        ],
+        "correct": 0,
+        "explanation": "Chez l'adulte jeune à Madagascar : néphrose lipoïdique (corticosensible), glomérulonéphrite post-streptococcique, néphropathies du paludisme, VIH et hépatites."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Le bilan de confirmation comprend :",
+        "choices": [
+          "Protéinurie des 24 h ou ratio protéinurie/créatinurie, albuminémie, créatininémie, NFS, sérologies (palu si fièvre, VIH, hépatites)",
+          "Échographie cardiaque en premier",
+          "TDM abdominale injectée",
+          "Biopsie rénale d'urgence au lit"
+        ],
+        "correct": 0,
+        "explanation": "Syndrome néphrotique confirmé par protéinurie ≥ 3 g/j + hypoalbuminémie ; la biopsie se discute selon l'âge et la corticorésistance, selon KDIGO."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Protéinurie 4,5 g/j, albumine 22 g/L, créatinine normale, pas de fièvre, TDR palu négatif :",
+        "choices": [
+          "Syndrome néphrotique pur, probable néphrose lipoïdique de l'adulte jeune",
+          "Syndrome néphrotique du diabète certain",
+          "Insuffisance rénale terminale",
+          "Prééclampsie"
+        ],
+        "correct": 0,
+        "explanation": "Chez l'adulte jeune sans comorbidité, la néphrose lipoïdique est la cause la plus fréquente : corticosensible, la réponse au traitement guide le suivi selon KDIGO."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Syndrome néphrotique probablement primitif (néphrose lipoïdique), à traiter et surveiller",
+          "Insuffisance cardiaque congestive",
+          "Cirrhose décompensée",
+          "Malnutrition protéique"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic est syndromique avec orientation ; la corticosensibilité confirme rétrospectivement, la biopsie se réserve aux formes atypiques ou corticorésistantes."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Corticothérapie selon protocole, restriction hydrosodée, repos relatif, surveillance du poids et de la protéinurie, prévention du risque thrombotique et infectieux, avis néphrologique",
+          "Diurétiques seuls à forte dose",
+          "Antibiothérapie probabiliste",
+          "Repos et revoir dans un mois"
+        ],
+        "correct": 0,
+        "explanation": "Le syndrome néphrotique est un état prothrombotique et immunodéprimé : la prise en charge couvre le traitement de fond, la prévention des complications et le suivi néphrologique selon KDIGO."
+      }
+    ],
+    "synthesis": "Patiente → urines mousseuses → œdèmes bilatéraux mous → BU (protéines 4+) → syndrome néphrotique → quantifier (ratio P/C), albumine, créatinine, étiologies locales (palu, VIH, hépatites) → néphrose probable → corticoïdes + prévention thrombose/infection + suivi. La démarche force la BU devant tout œdème bilatéral."
   }
 ]
