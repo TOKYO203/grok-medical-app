@@ -221,6 +221,14 @@ export function AuthScreen() {
             Voir les offres Optimus
           </Link>
         </p>
+        <p className="mt-2 text-center text-xs leading-5 text-subtle">
+          <a
+            href="/decouvrir"
+            className="underline decoration-border-strong underline-offset-4 hover:text-fg"
+          >
+            Découvrir Optimus avant de créer un compte
+          </a>
+        </p>
       </div>
     </main>
   );
