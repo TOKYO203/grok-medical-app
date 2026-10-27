@@ -4011,5 +4011,335 @@
       }
     ],
     "access": "pro"
+  },
+  {
+    "id": "INF-MENINGITE-002",
+    "title": "Fièvre et nuque raide depuis un jour",
+    "specialty": "Infectiologie / Urgences",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 47 ans, fièvre à 39,5 °C, céphalées intenses et raideur de nuque depuis 18 heures ; purpura absent, LAC trouble. Méningite bactérienne purulente.",
+    "patient": {
+      "age": 47,
+      "sex": "M",
+      "context": "Chauffeur de taxi-brousse sur la ligne Toamasina–Antananarivo, vit seul, pas de vaccination antipneumococcique connue, rhinite il y a 4 jours."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 18 heures : fièvre brutale à 39,5 °C, céphalées intenses en casque, vomissements, gêne à la flexion de la nuque et photophobie. Il n'a pris que du paracétamol. Pas de traumatisme, pas d'éruption cutanée remarquée par l'entourage."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 39,4 °C, TA 112/70, FC 108/min, FR 24/min, SpO2 96 %, Glasgow 14 (confusion d'apparition récente). Raideur de nuque franche, signe de Kernig positif. Pas de purpura, pas de déficit focal, pas de papillœdème au fond d'œil."
+      },
+      {
+        "kind": "reveal",
+        "title": "Ponction lombaire",
+        "body": "Liquide céphalorachidien trouble, en jet. Cytologie : 2 400 éléments/mm³, 92 % de polynucléaires neutrophiles. Glycorrachie 1,1 mmol/L pour une glycémie à 5,6 mmol/L (rapport < 0,4). Protéinorachie 2,4 g/L. Gram en cours. TDM cérébrale non réalisable dans l'heure, absence de contre-indication clinique à la PL."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Méningite bactérienne purulente (probablement pneumococcique)",
+          "Méningite virale bénigne",
+          "Méningite tuberculeuse",
+          "Encéphalite herpétique"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + céphalées + raideur de nuque + LAC trouble avec prédominance de polynucléaires, hypoglycorrachie et hyperprotéinorachie : méningite bactérienne purulente. La méningite virale donne un LAC clair, lymphocytaire, avec glycorrachie normale ; la méningite tuberculeuse évolue sur des semaines avec lymphocytose ; l'encéphalite herpétique domine par des troubles de conscience et des signes focaux temporaux."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement à administrer en premier est :",
+        "choices": [
+          "Dexaméthasone IV (0,15 mg/kg) juste avant ou avec la première dose d'antibiotique, puis ceftriaxone IV à forte dose sans délai",
+          "Antibiotique seul, la corticothérapie venant après 1 heure",
+          "Ganciclovir IV d'emblée",
+          "Antituberculeux quadrithérapie et corticoïdes"
+        ],
+        "correct": 0,
+        "explanation": "L'antibiothérapie (ceftriaxone IV, couvrant le pneumocoque à dose méningée) doit être débutée dans l'heure. La dexaméthasone IV administrée juste avant ou avec la première dose réduit les surdités et la mortalité dans les méningites purulentes de l'adulte (essai de de Gans, NEJM 2002) ; donnée trop tard, elle perd son intérêt. Les antiviraux et les antituberculeux ne correspondent pas à ce tableau."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si un purpura pétéchial extensif et une hypotension à 78/46 apparaissaient dans l'heure, la priorité devient :",
+        "choices": [
+          "Choc septique probable à méningocoque : réanimation (remplissage, catécholamines), ceftriaxone IV immédiate, et si disponible antibiothérapie déjà entamée à renforcer selon protocole",
+          "Attendre le Gram avant d'adapter",
+          "Corticoïdes seuls à forte dose",
+          "Transfert différé au matin pour imagerie"
+        ],
+        "correct": 0,
+        "explanation": "Purpura fulminans avec choc : méningococcémie. La mortalité se joue dans les premières heures : remplissage, vasopresseurs, ceftriaxone IV immédiate (bactéricide rapide sur le méningocoque), oxygène et transfert en réanimation. Attendre le Gram, se limiter aux corticoïdes ou différer le transfert coûte des vies ; le résultat bactériologique ne conditionne jamais le début de l'antibiothérapie dans ce contexte."
+      },
+      {
+        "kind": "question",
+        "prompt": "La conduite autour du cas est :",
+        "choices": [
+          "Surveillance rapprochée des contacts rapprochés avec information sur les signes d'alerte, chimioprophylaxie des contacts étroits si le méningocoque est confirmé ou fortement suspecté, vaccination selon germe identifié",
+          "Aucune mesure pour l'entourage",
+          "Isolement carcéral du patient pendant 21 jours",
+          "Antibioprophylaxie de toute la ville"
+        ],
+        "correct": 0,
+        "explanation": "Pour une méningite probablement pneumococcique, aucune prophylaxie de l'entourage n'est requise : le pneumocoque ne se transmet pas comme le méningocoque. Si le tableau orientait vers le méningocoque, la chimioprophylaxie des contacts étroits (même toit, baisier, contacts de bouche) et l'information sur les signes d'alerte deviennent urgentes. L'isolement social est inutile et l'antibioprophylaxie de masse n'existe pas."
+      }
+    ],
+    "diagnosis": "Méningite bactérienne purulente de l'adulte, probablement pneumococcique (LAC à polynucléaires, hypoglycorrachie, hyperprotéinorachie), sans choc initial.",
+    "management": "Dexaméthasone IV 0,15 mg/kg avant ou avec la première dose, ceftriaxone IV à dose méningée (± ampicilline selon le protocole local et l'âge du patient) débutée dans l'heure, surveillance neurologique et hémodynamique horaire, hydratation, recherche des complications (hydrocéphalie, empyème, surdité à contrôler avant la sortie), contrôle de la source (sinus, oreille), vaccination antipneumococcique à distance, éducation de l'entourage sur les signes d'alerte et avis médical immédiat.",
+    "pitfall": "Le piège de la PL : retarder l'antibiothérapie pour obtenir l'imagerie ou la PL chez un patient sans signe d'engagement fait perdre des heures décisives ; en cas de menace d'engagement ou de choc, l'antibiotique et la dexaméthasone passent avant la PL, la culture se faisant sur les hémocultures. Autre piège : oublier l'audiométrie avant la sortie, la surdité de l'oreille moyenne étant la séquelle que la dexaméthasone permet justement d'éviter.",
+    "keyTakeaway": "Fièvre + céphalée en casque + nuque raide + LAC trouble à polynucléaires avec hypoglycorrachie = méningite purulente : dexaméthasone puis ceftriaxone IV dans l'heure, PL sans retarder l'antibiotique, surveillance de l'audition. Purpura + choc = méningocoque : réamination immédiate.",
+    "related": {
+      "pathologySlugs": [
+        "meningites-purulentes"
+      ],
+      "deckIds": [
+        "infectio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "OMS",
+        "citation": "WHO guidelines on meningitis diagnosis, treatment and care, Genève, 2024 — diagnostic et traitement des méningites bactériennes.",
+        "organization": "Organisation mondiale de la Santé",
+        "year": 2024,
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK614846/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "NEJM",
+        "citation": "de Gans J, van de Beek D. Dexamethasone in Adults with Bacterial Meningitis, New England Journal of Medicine 2002;347:1549-56.",
+        "organization": "New England Journal of Medicine",
+        "year": 2002,
+        "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa021334",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "CARDIO-IC-002",
+    "title": "Essoufflement d'effort chez une jeune maman",
+    "specialty": "Cardiologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Femme de 34 ans, dyspnée d'effort progressive, palpitations irrégulières, haleine dyspnéique de repos ; rétrécissement mitral rhumatismal.",
+    "patient": {
+      "age": 34,
+      "sex": "F",
+      "context": "Couturière à Toamasina, angine à répétition dans l'enfance jamais explorée, trois enfants, dyspnée d'effort depuis 6 mois, aggravée depuis un mois, traitements irréguliers."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 6 mois, essoufflement à la marche en côte puis au plan depuis 1 mois, avec palpitations irrégulières et toux nocturne. Elle dort désormais sur trois oreillers. Pas de douleur thoracique, pas de fièvre, pas de grossesse en cours."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 37,1 °C, TA 102/68, FC 132 irrégulière. Auscultation : éclat de B1, claquement d'ouverture mitral, roulement diastolique apexien en décubitus latéral gauche, crépitants des deux bases. Œdèmes malléolaires discrets, turgescence jugulaire à 45°. Aucun signe d'embolie périphérique."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "ECG : fibrillation atriale rapide, sans sus-décalage. Radiographie : cardiomégalie, dilatation de l'oreillette gauche, stase vasculaire et lignes de Kerley B. Échocardiographie : rétrécissement mitral serré (surface mitrale 1,1 cm²), oreillette gauche dilatée à 52 mm, FEVG conservée à 58 %, pas de thrombus visible, pressions pulmonaires élevées."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le mécanisme principal de la dyspnée est :",
+        "choices": [
+          "Insuffisance cardiaque à FEVG préservée sur rétrécissement mitral rhumatismal, avec surcharge auriculaire et congestion pulmonaire",
+          "Insuffisance cardiaque à FEVG réduite dilatée",
+          "Asthme du sujet jeune",
+          "Anémie de la jeune femme"
+        ],
+        "correct": 0,
+        "explanation": "Le rétrécissement mitral bloque le remplissage gauche : la pression s'accumule en amont (oreillette, veines pulmonaires) et provoque une congestion pulmonaire alors que la FEVG reste normale — c'est une insuffisance cardiaque à FEVG préservée d'origine valvulaire. L'éclat de B1 et le roulement diastolique sont les stigmates cliniques du rétrécissement mitral, séquelle de rhumatisme articulaire aigu de l'enfance, cause majeure de valvulopathie à Madagascar. La FA rapide aggrave la congestion en supprimant la contraction auriculaire."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge immédiate de cette poussée congestive comporte :",
+        "choices": [
+          "Diurétique de l'anse IV, contrôle de la fréquence (digoxine ou bêtabloquant selon protocole), anticoagulation curative débutée sans délai, oxygène",
+          "Anticoagulation seule, sans diurétique",
+          "Bêtabloquant IV d'emblée à forte dose",
+          "Remplissage pour la tension basse"
+        ],
+        "correct": 0,
+        "explanation": "La congestion impose le furosémide IV ; la FA rapide sur rétrécissement mitral relève du contrôle de la fréquence ; et surtout, le rétrécissement mitral serré avec FA est une indication d'anticoagulation curative à vie (thrombus auriculaire, risque embolique majeur — recommandations ESC sur la FA en valvulopathie mitrale). Le remplissage aggraverait l'œdème pulmonaire ; un bêtabloquant IV à forte dose sur une FA congestive décompensée expose au choc."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement définitif de la valvulopathie à discuter est :",
+        "choices": [
+          "Commissurotomie mitrale percutanée par ballonnet si anatomie favorable et pas de thrombus ni d'insuffisance mitrale significative, ou chirurgie valvulaire dans le cas contraire",
+          "Rien : le traitement médical suffit à vie",
+          "Angioplastie coronaire",
+          "Transplantation cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "Le rétrécissement mitral serré symptomatique se traite définitivement par commissurotomie percutanée par ballonnet (première intention si anatomie favorable, pas de thrombus auriculaire ni de régurgitation importante) ou par chirurgie (remplacement valvulaire) sinon. Le traitement médical seul soulage transitoirement mais n'empêche ni la dégradation ni les complications emboliques. Ni l'angioplastie ni la transplantation ne concernent cette valvulopathie."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prévention de l'aggravation à long terme comprend :",
+        "choices": [
+          "Pénicilline de benzathine retard en injection périodique (prophylaxie secondaire du rhumatisme articulaire aigu) selon le protocole national, anticoagulation bien conduite, suivi échocardiographique, prophylaxie de l'endocardite lors de gestes à risque",
+          "Arrêt du suivi une fois la chirurgie faite",
+          "AINS à chaque angine",
+          "Corticoïdes au long cours"
+        ],
+        "correct": 0,
+        "explanation": "La prophylaxie secondaire du rhumatisme articulaire aigu (pénicilline retard toutes les 3 à 4 semaines) empêche les rechutes et l'aggravation des lésions valvulaires, un pilier des programmes nationaux dans les pays à forte incidence. L'anticoagulation de la FA sur rétrécissement mitral se poursuit à vie, l'endocardite se prévient lors des gestes à risque, et le suivi échocardiographique guide la décision de commissurotomie. Corticoïdes et AINS au long cours n'ont aucune place ici."
+      }
+    ],
+    "diagnosis": "Poussée d'insuffisance cardiaque congestive à FEVG préservée sur rétrécissement mitral serré d'origine rhumatismale, compliqué de fibrillation atriale rapide et d'hypertension artérielle pulmonaire.",
+    "management": "Traitement de la poussée : furosémide IV, contrôle de la fréquence ventriculaire, oxygène. Anticoagulation curative à vie (FA sur rétrécissement mitral). Évaluation pour commissurotomie mitrale percutanée ou chirurgie après stabilisation, échographie transœsophagienne pour exclure un thrombus auriculaire, suivi de l'hypertension pulmonaire. Prophylaxie secondaire du rhumatisme articulaire aigu par pénicilline retard, prophylaxie de l'endocardite infectieuse, éducation (observance de l'anticoagulation, signes d'alerte, suivi de la fréquence cardiaque), suivi cardiologique régulier.",
+    "pitfall": "Le piège du souffle silencieux : une FA rapide sur rétrécissement mitral peut faire croire à une simple arythmie idiopathique — l'auscultation attentive au décubitus latéral gauche et l'échographie font le diagnostic. Autre piège : la FEVG conservée ne rassure pas ; c'est la pression en amont de la valve qui fait la congestion. Enfin, anticoaguler à vie n'est pas négociable : le rétrécissement mitral avec FA est l'une des plus fortes indications de l'anticoagulation.",
+    "keyTakeaway": "Jeune femme de zone d'endémie rhumatismale + dyspnée + FA rapide + roulement diastolique = rétrécissement mitral rhumatismal : diurétique en poussée, anticoagulation à vie, et commissurotomie percutanée à discuter. La prophylaxie par pénicilline retard est le seul traitement qui empêche la prochaine valve de se détruire.",
+    "related": {
+      "pathologySlugs": [
+        "insuffisance-cardiaque"
+      ],
+      "deckIds": [
+        "cardio",
+        "urgences"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ESC / HFA",
+        "citation": "McDonagh TA et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure, European Heart Journal 2021;42:3697-726.",
+        "organization": "European Society of Cardiology",
+        "year": 2021,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34447992/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "ESC / HFA",
+        "citation": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure — texte intégral, European Heart Journal.",
+        "organization": "European Society of Cardiology",
+        "year": 2021,
+        "url": "https://academic.oup.com/eurheartj/article/42/36/3599/6358045",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "ENDO-HYPO-002",
+    "title": "Fatigue, prise de poids et frilosité",
+    "specialty": "Endocrinologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 42 ans, fatigue marquée, prise de poids de 7 kg, frilosité, constipation et goindre ; TSH à 48 mUI/L. Hypothyroïdie franchie.",
+    "patient": {
+      "age": 42,
+      "sex": "F",
+      "context": "Vendeuse au marché d'Antsirabe, goître familial (mère opérée), trois enfants, pas de traitement actuel, règles devenues rares."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis environ 8 mois : fatigue qui ne passe pas, prise de poids de 7 kg malgré un appétit stable, frilosité nouvelle, constipation, cheveux et ongles cassants. Règles espacées depuis 6 mois. Elle se dit « ralentie » et s'endort l'après-midi."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "TA 118/78, FC 54/min régulière, T 36,2 °C. Peau sèche et pâle, voix légèrement enrouée, goître homogène de consistance ferme, non douloureux, sans adénopathie cervicale. Réflexes achilléens lents au relâchement. Pas d'œdème dur, pas de bradycardie symptomatique, conscience normale."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "TSH 48 mUI/L (N 0,4-4,0), T4 libre 4,1 pmol/L (N 10-23). Anti-thyroperoxydase élevés. Hb 11,4 g/dL, NFS normale, glycémie 0,92 g/L, cholestérol LDL 1,72 g/L, créatinine 68 µmol/L, natrémie 137 mmol/L."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Hypothyroïdie primaire franche sur thyroïdite de Hashimoto",
+          "Hypothyroïdie subclinique isolée",
+          "Hypothyroïdie centrale",
+          "Simple fatigue et dépression"
+        ],
+        "correct": 0,
+        "explanation": "TSH très élevée avec T4 libre basse = hypothyroïdie primaire franche ; le goître ferme et les anticorps anti-TPO élevés signent la thyroïdite auto-immune de Hashimoto, fréquente et d'origine familiale (mère goitreuse). La forme subclinique garde une T4 normale ; l'hypothyroïdie centrale montre une TSH basse ou inadaptée ; la dépression n'explique ni le goître ni le profil hormonal, et le bilan confirme une anémie et une hypercholestérolémie, complications classiques de l'hypothyroïdie."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement et son mode d'instauration sont :",
+        "choices": [
+          "Lévothyroxine per os à dose initiale faible (25-50 µg/jour), augmentation progressive selon la TSH à 6-8 semaines, prise à jeun à distance des repas et d'autres médicaments",
+          "Dose complète de remplacement d'emblée (1,6 µg/kg/jour) chez cette patiente",
+          "Corticoïdes pour la thyroïdite",
+          "Chirurgie du goître d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Chez cette femme de 42 ans sans coronaropathie, on peut viser une escalade rapide vers la dose complète, mais l'instauration prudente (25-50 µg puis titration) est la règle, surtout chez le sujet âgé ou cardiaque : une dose pleine d'emblée peut précipiter angine ou arythmie. La prise à jeun, à distance du fer, du calcium et des aliments, conditionne l'absorption. Les corticoïdes ne traitent pas l'hypothyroïdie ; la chirurgie n'a sa place que sur signe compressif ou suspicion de cancer."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le suivi de l'équilibre du traitement repose sur :",
+        "choices": [
+          "TSH à 6-8 semaines après chaque changement de dose, puis contrôle semestriel à annuel une fois la dose stable, avec éducation sur l'observance quotidienne à vie",
+          "T4 libre seule, la TSH étant inutile",
+          "Un seul contrôle un an après",
+          "Scanner thyroïdien de contrôle"
+        ],
+        "correct": 0,
+        "explanation": "La TSH est le meilleur reflet de l'adéquation du traitement : elle se contrôle 6-8 semaines après chaque palier (demi-vie longue de la lévothyroxine), puis régulièrement à dose stable. Le traitement est à vie ; l'arrêt par « guérison » est l'erreur classique qui ramène la patiente en consultation pour complications. Le dosage de la T4 libre s'ajoute dans les situations délicates, pas en substitution courante."
+      },
+      {
+        "kind": "question",
+        "prompt": "Si la patiente se présentait un jour avec hypothermie, bradycardie à 42, conscience altérée et hyponatrémie, il s'agirait de :",
+        "choices": [
+          "Coma myxœdémateux : urgence vitale — hospitalisation, réchauffement progressif, lévothyroxine IV selon protocole avec support réanimation, traitement du facteur déclenchant",
+          "Une simple grippe",
+          "Une hypothyroïdie subclinique",
+          "Un effet de la constipation"
+        ],
+        "correct": 0,
+        "explanation": "Hypothermie + bradycardie majeure + troubles de conscience + hyponatrémie = coma myxœdémateux, urgence vitale rare mais souvent déclenchée par une infection ou un arrêt du traitement : hospitalisation en soins intensifs, lévothyroxine IV, réchauffement progressif (le réchauffement actif peut déclencher un collapsus), traitement du facteur déclenchant et support hémodynamique. La prévention passe par une éducation sans faille : jamais d'arrêt du traitement."
+      }
+    ],
+    "diagnosis": "Hypothyroïdie primaire franche sur thyroïdite de Hashimoto (TSH 48 mUI/L, T4 libre basse, anti-TPO élevés, goître ferme), avec anémie légère et hypercholestérolémie associées.",
+    "management": "Lévothyroxine per os, dose initiale 25-50 µg/jour puis titration sur la TSH à 6-8 semaines (cible TSH normale basse-moyenne), prise à jeun à distance du fer, du calcium et de la fève de soja, éducation sur le caractère à vie du traitement et l'observance quotidienne, contrôle de l'anémie et du bilan lipidique après équilibre, information sur les signes du coma myxœdémateux, suivi endocrinologique et palpation régulière du goître, contraception adaptée discutée (effet des œstrogènes sur les besoins en lévothyroxine).",
+    "pitfall": "Le piège de la dose pleine d'emblée : chez le sujet âgé, coronarien ou bradycardique, une lévothyroxine à dose complète d'emblée peut déclencher angine ou trouble du rythme — on commence bas et on monte vite mais par paliers. Autre piège : la fatigue qui traîne pendant des mois chez une femme à goître familial se voit attribuer à l'anémie ou au surmenage, alors que la TSH règle la question en une prise de sang.",
+    "keyTakeaway": "Fatigue + frilosité + prise de poids + constipation + bradycardie + réflexes lents = hypothyroïdie : TSH, puis lévothyroxine à dose croissante guidée par la TSH à 6-8 semaines, à vie et à jeun. Anticorps anti-TPO pour documenter Hashimoto ; hypothermie avec coma = urgence réanimation.",
+    "related": {
+      "pathologySlugs": [
+        "hypothyroidie"
+      ],
+      "deckIds": [
+        "pharmaco",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ATA",
+        "citation": "Jonklaas J et al. Guidelines for the Treatment of Hypothyroidism, prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement, Thyroid 2014;24:1670-751.",
+        "organization": "American Thyroid Association",
+        "year": 2014,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4267409/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "ATA / AACE",
+        "citation": "Garber JR et al. Clinical Practice Guidelines for Hypothyroidism in Adults, Endocrine Practice 2012;18:988-1028 (cosponsored by AACE and ATA).",
+        "organization": "American Association of Clinical Endocrinologists / ATA",
+        "year": 2012,
+        "url": "https://www.endocrinepractice.org/article/S1530-891X(20)43030-7/fulltext",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
   }
 ]
