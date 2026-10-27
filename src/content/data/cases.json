@@ -4092,7 +4092,7 @@
     "diagnosis": "Méningite bactérienne purulente de l'adulte, probablement pneumococcique (LAC à polynucléaires, hypoglycorrachie, hyperprotéinorachie), sans choc initial.",
     "management": "Dexaméthasone IV 0,15 mg/kg avant ou avec la première dose, ceftriaxone IV à dose méningée (± ampicilline selon le protocole local et l'âge du patient) débutée dans l'heure, surveillance neurologique et hémodynamique horaire, hydratation, recherche des complications (hydrocéphalie, empyème, surdité à contrôler avant la sortie), contrôle de la source (sinus, oreille), vaccination antipneumococcique à distance, éducation de l'entourage sur les signes d'alerte et avis médical immédiat.",
     "pitfall": "Le piège de la PL : retarder l'antibiothérapie pour obtenir l'imagerie ou la PL chez un patient sans signe d'engagement fait perdre des heures décisives ; en cas de menace d'engagement ou de choc, l'antibiotique et la dexaméthasone passent avant la PL, la culture se faisant sur les hémocultures. Autre piège : oublier l'audiométrie avant la sortie, la surdité de l'oreille moyenne étant la séquelle que la dexaméthasone permet justement d'éviter.",
-    "keyTakeaway": "Fièvre + céphalée en casque + nuque raide + LAC trouble à polynucléaires avec hypoglycorrachie = méningite purulente : dexaméthasone puis ceftriaxone IV dans l'heure, PL sans retarder l'antibiotique, surveillance de l'audition. Purpura + choc = méningocoque : réamination immédiate.",
+    "keyTakeaway": "Fièvre + céphalée en casque + nuque raide + LAC trouble à polynucléaires avec hypoglycorrachie = méningite purulente : dexaméthasone puis ceftriaxone IV dans l'heure, PL sans retarder l'antibiotique, surveillance de l'audition. Purpura + choc = méningocoque : réanimation immédiate.",
     "related": {
       "pathologySlugs": [
         "meningites-purulentes"
@@ -4238,7 +4238,7 @@
     "specialty": "Endocrinologie",
     "studyYear": 4,
     "difficulty": "intermediate",
-    "summary": "Femme de 42 ans, fatigue marquée, prise de poids de 7 kg, frilosité, constipation et goindre ; TSH à 48 mUI/L. Hypothyroïdie franchie.",
+    "summary": "Femme de 42 ans, fatigue marquée, prise de poids de 7 kg, frilosité, constipation et goître ferme ; TSH à 48 mUI/L. Hypothyroïdie franchie.",
     "patient": {
       "age": 42,
       "sex": "F",
@@ -4337,6 +4337,336 @@
         "organization": "American Association of Clinical Endocrinologists / ATA",
         "year": 2012,
         "url": "https://www.endocrinepractice.org/article/S1530-891X(20)43030-7/fulltext",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "ENDO-HYPER-002",
+    "title": "Amaigrissement, palpitations et yeux exorbités",
+    "specialty": "Endocrinologie",
+    "studyYear": 4,
+    "difficulty": "intermediate",
+    "summary": "Femme de 28 ans, amaigrissement de 8 kg, palpitations, intolérance à la chaleur, exopthalmie et goître diffus ; TSH indosable. Hyperthyroïdie de Basedow.",
+    "patient": {
+      "age": 28,
+      "sex": "F",
+      "context": "Enseignante à Antananarivo, deux enfants, pas d'antécédent familial de maladie thyroïdienne connu, tabac 5 cigarettes par jour, symptômes évoluant depuis 4 mois."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 4 mois : amaigrissement de 8 kg malgré un appétit accru, palpitations, tremblements des mains, transpiration excessive, intolérance à la chaleur, diarrhée intermittente et règles devenues rares. Son entourage remarque que ses yeux semblent « sortir ». Elle est irritable et dort mal."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 37,4 °C, TA 138/62, FC 118/min régulière, tremblement fin des extrémités, peau chaude et moite. Goître diffus, homogène, souple, avec souffle et frémissement à l'auscultation. Exopthalmie bilatérale asymétrique, œdème palpébral, pas d'ulcère de cornée. Aucun déficit moteur."
+      },
+      {
+        "kind": "reveal",
+        "title": "Biologie",
+        "body": "TSH indosable (< 0,01 mUI/L), T4 libre 42 pmol/L (N 10-23), T3 libre élevée. Anticorps anti-récepteur de la TSH (TRAb) fortement positifs. NFS normale, bilan hépatique normal, glycémie 0,98 g/L."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Maladie de Basedow (hyperthyroïdie auto-immune diffusément goitreuse avec orbitopathie)",
+          "Nodule toxique (adénome hyperfonctionnel)",
+          "Thyroïdite subaiguë de Quervain",
+          "Anxiété isolée"
+        ],
+        "correct": 0,
+        "explanation": "L'association d'un goitre diffus vasculaire, d'une orbitopathie et de TRAb positifs signe la maladie de Basedow, cause la plus fréquente d'hyperthyroïdie chez la femme jeune. Un nodule toxique donne une hyperthyroïdie sans orbitopathie ni anticorps, avec un goitre uninodulaire ; la thyroïdite subaiguë suit un épisode douloureux cervical et viral, avec hyperthyroïdie transitoire ; l'anxiété n'explique ni le goître ni le profil hormonal."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le traitement médical de première intention ici est :",
+        "choices": [
+          "Antithyroïdien de synthèse (carbimazole ou thiamazole) pendant 12 à 18 mois, avec un bêtabloquant en début de traitement pour les symptômes adrénergiques",
+          "Iode radioactif d'emblée",
+          "Thyroidectomie totale immédiate",
+          "Corticoïdes seuls"
+        ],
+        "correct": 0,
+        "explanation": "L'ETA 2018 recommande en première intention les antithyroïdiens de synthèse 12 à 18 mois chez la femme jeune en âge de procréer : environ la moitié des patients restent en rémission durable après ce cycle. Le bêtabloquant (propranolol) couvre les symptômes en attendant l'euthyroïdie. L'iode radioactif est contre-indiqué ici en présence d'une orbitopathie active (risque d'aggravation ophtalmologique), et la chirurgie se réserve aux goitres volumineux ou compressifs, aux récidives ou au refus du traitement médical."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le signe qui impose l'arrêt immédiat de l'antithyroïdien et un avis urgent est :",
+        "choices": [
+          "Fièvre et angine sous traitement : suspicion d'agranulocytose — arrêter le médicament, faire une numération formule sanguine en urgence",
+          "Prise de poids modérée",
+          "Urines un peu plus foncées",
+          "Retour des règles"
+        ],
+        "correct": 0,
+        "explanation": "L'agranulocytose est la complication la plus grave des antithyroïdiens (0,2 à 0,5 %) : toute fièvre ou douleur pharyngée sous thionamide impose l'arrêt immédiat du traitement et une NFS urgente avant toute reprise. La patiente doit recevoir cette consigne par écrit dès la première ordonnance. Les autres signes listés sont bénins ou attendus."
+      },
+      {
+        "kind": "question",
+        "prompt": "Pour son orbitopathie, la conduite associée est :",
+        "choices": [
+          "Arrêt impératif du tabac, larmes artificielles et protection cornéenne, avis ophtalmologique, et éviter l'iode radioactif tant que l'orbitopathie est active",
+          "Cure d'iode sans précaution",
+          "Chirurgie orbitaire d'emblée",
+          "Radiothérapie orbitaire systématique pour tous"
+        ],
+        "correct": 0,
+        "explanation": "Le tabac est le principal facteur aggravant de l'orbitopathie de Basedow : l'arrêt est un traitement à part entière. La prise en charge associe l'hydratation oculaire, la protection nocturne, l'avis ophtalmologique avec évaluation de l'activité et de la sévérité ; les corticoïdes à forte dose et la radiothérapie orbitaire sont réservés aux formes actives sévères. L'iode radioactif peut aggraver une orbitopathie active et n'est administré qu'avec couverture cortisonée ou après sédation de l'atteinte oculaire."
+      }
+    ],
+    "diagnosis": "Maladie de Basedow : hyperthyroïdie franche (TSH indosable, T4 libre 42 pmol/L) sur goitre diffus vasculaire avec orbitopathie modérée active, TRAb fortement positifs.",
+    "management": "Carbimazole à dose de charge puis d'entretien pendant 12 à 18 mois (bilan hépatique et NFS à l'instauration), propranolol en phase symptomatique, surveillance clinique et hormonologique (T4 libre et TSH toutes les 4 à 6 semaines puis espacée), consigne écrite d'arrêt du médicament devant toute fièvre ou angine avec NFS urgente, arrêt strict du tabac (facteur d'aggravation de l'orbitopathie), soins oculaires symptomatiques et avis ophtalmologique, éducation sur la maladie et l'observance, plan de contraception, discussion des options définitives (chirurgie) en cas de récidive, de goitre volumineux ou de non-observance.",
+    "pitfall": "Le piège du bilan incomplet : une hyperthyroïdie chez une femme jeune n'est pas toujours un Basedow — les TRAb tranchent entre maladie auto-immune, nodule toxique et thyroïdite, et la conduite diffère radicalement. Autre piège : prescrire l'iode radioactif d'emblée devant une orbitopathie active, c'est risquer une aggravation ophtalmologique irréversible. Enfin, l'agranulocytose sous thionamide se présente comme une simple angine fébrile : sans consigne d'arrêt immédiat écrite, elle peut être fatale.",
+    "keyTakeaway": "Femme jeune + goître diffus vasculaire + exopthalmie + TSH indosable + TRAb positifs = Basedow : thionamide 12 à 18 mois + bêtabloquant en couverture, arrêt du tabac pour l'orbitopathie, consigne fièvre-angine = NFS urgente. L'iode radioactif se discute seulement une fois l'atteinte oculaire sédée.",
+    "related": {
+      "pathologySlugs": [
+        "hyperthyroidie"
+      ],
+      "deckIds": [
+        "pharmaco",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ETA",
+        "citation": "Bartalena L et al. 2018 European Thyroid Association Guideline for the Management of Graves' Hyperthyroidism, European Thyroid Journal 2018;7:167-86.",
+        "organization": "European Thyroid Association",
+        "year": 2018,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6140607/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "ATA / AACE",
+        "citation": "Ross DS et al. 2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis (résumé de directives).",
+        "organization": "American Thyroid Association / AACE",
+        "year": 2016,
+        "url": "https://emedicine.medscape.com/article/120619-guidelines",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "HEME-HODGKIN-002",
+    "title": "Ganglions dans le cou qui ne disparaissent pas",
+    "specialty": "Hématologie / Oncologie",
+    "studyYear": 5,
+    "difficulty": "advanced",
+    "summary": "Homme de 21 ans, adénopathies cervicales et sus-claviculaires indolores depuis 3 mois, sueurs et amaigrissement ; biopsie : cellules de Reed-Sternberg. Hodgkin stade précoce.",
+    "patient": {
+      "age": 21,
+      "sex": "M",
+      "context": "Étudiant à Antananarivo, a repoussé deux consultations faute de moyens, cycles d'antibiotiques sans effet, vit chez ses parents, pas de toxicomanie, sportif avant la maladie."
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 3 mois : ganglion dur et indolore au cou gauche, devenu un paquet de plusieurs adénopathies sus-claviculaires. Depuis 6 semaines : sueurs nocturnes trempant les draps, fièvre intermittente, amaigrissement de 7 kg, fatigue intense. Deux antibiotiques n'ont rien changé."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 38,2 °C, TA 112/70, FC 96/min. Chapelet d'adénopathies cervicales gauches et sus-claviculaires, dures, indolores, mobiles mais qui deviennent fixées entre elles, la plus grande à 4 cm. Pas d'adénopathies axillaires ni inguinales. Rate palpable à 2 travers de doigts. Pas d'ictère, pas de signe infectieux ORL ou dentaire."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "Hb 10,6 g/dL, GB 13,8 G/L avec hyperéosinophilie, plaquettes 320 G/L, VS 82, LDH élevées, sérologie VIH négative, CRP 48. Biopsie ganglionnaire (cytoponction insuffisante) : architecture effacée, cellules de Reed-Sternberg CD30 et CD15 positives — lymphome de Hodgkin scléronodulaire. TDM thoraco-abdomino-pelvien : pas de masse médiastinale volumineuse, 2 aires sous-diaphragmatiques discrètes, pas de signe d'organes atteints."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic est un lymphome de Hodgkin :",
+        "choices": [
+          "Stade précoce à profil favorable, à traiter par une chimiothérapie courte (2 à 4 cycles ABVD) suivie de radiothérapie sur les aires atteintes, avec évaluation intermédiaire",
+          "Stade avancé nécessitant d'emblée 6 à 8 cycles intensifs sans radiothérapie",
+          "Une simple infection à traiter par antibiotiques",
+          "Une tuberculose ganglionnaire probable, à traiter sans biopsie"
+        ],
+        "correct": 0,
+        "explanation": "Adénopathies sus-claviculaires + signes B (sueurs, fièvre, amaigrissement supérieur à 10 %) + Reed-Sternberg = Hodgkin. L'absence de masse médiastinale volumineuse, l'atteinte limitée et la biologie orientent vers un stade précoce favorable : les standards européens (ESMO) y réduisent l'intensité — 2 à 4 cycles ABVD puis radiothérapie de la zone atteinte, avec réévaluation par imagerie à mi-parcours, ce qui préserve l'efficacité en diminuant les séquelles à long terme. Les stades avancés (III-IV) reçoivent des protocoles plus intenses ; l'antibiothérapie a fait la preuve de son inefficacité ; aucune tuberculose ne doit être traitée sans preuve bactériologique ou histologique."
+      },
+      {
+        "kind": "question",
+        "prompt": "Avant de débuter la chimiothérapie, la démarche obligatoire chez ce jeune homme est :",
+        "choices": [
+          "Information et conservation de la fertilité (congélation de sperme) : la chimiothérapie est gonadotoxique",
+          "Rien, la fertilité revient toujours",
+          "Vaccination antiméningococcique seule",
+          "Simple avis diététique"
+        ],
+        "correct": 0,
+        "explanation": "Les protocoles type ABVD (doxorubicine, bléomycine, vinblastine, dacarbazine) altèrent la spermatogenèse, de façon parfois définitive : la congélation de sperme avant la première cure est la règle chez l'homme jeune et doit être proposée sans délai pour ne pas retarder le traitement. Chez la femme, la cryopréservation se discute selon l'âge et l'urgence. Le traitement ne se reporte toutefois pas indéfiniment : la coordination entre le centre d'assistance médicale à la procréation et l'oncologue fait partie du standard de soins européen."
+      },
+      {
+        "kind": "question",
+        "prompt": "La surveillance pendant le traitement vise en priorité :",
+        "choices": [
+          "L'évaluation de la réponse à mi-parcours (imagerie) et la toxicité : fonction cardiaque sous anthracycline, fonction pulmonaire sous bléomycine, numération avant chaque cure, recherche de fièvre neutropénique",
+          "La seule VS en fin de traitement",
+          "Aucune surveillance, les cures sont standardisées",
+          "Uniquement le poids"
+        ],
+        "correct": 0,
+        "explanation": "La réponse intermédiaire (TDM ou TEP) guide l'intensification ou la désescalade — c'est le principe des stratégies adaptées à la réponse. La doxorubicine impose la surveillance cardiaque (dose cumulée), la bléomycine expose à la toxicité pulmonaire (aggravée par le tabac et l'oxygène à haute concentration en cas d'anesthésie), et toute fièvre sous chimiothérapie est une urgence avec NFS immédiate. La VS est un marqueur trop grossier pour piloter le traitement."
+      },
+      {
+        "kind": "question",
+        "prompt": "À distance de la rémission, le suivi est motivé par :",
+        "choices": [
+          "Le risque de rechute la première décennie et les séquelles : cancers secondaires radio-induits (seuil de dose abaissé depuis), cardio-toxicité, hypothyroïdie après irradiation cervicale, fertilité — suivi annuel prolongé",
+          "Un seul contrôle à 6 mois puis sortie",
+          "Aucun suivi, la guérison est acquise",
+          "Seulement un suivi dentaire"
+        ],
+        "correct": 0,
+        "explanation": "Le Hodgkin se guérit dans plus de 85 à 90 % des stades précoces, mais la survie à long terme est menacée par les séquelles du traitement : cancers solides secondaires dans les territoires irradiés (d'où la réduction des doses et volumes), insuffisance cardiaque, hypothyroïdie après irradiation cervicale, stérilité. Le suivi européen associe la recherche de rechute (examen clinique et imagerie orientée) et le dépistage des séquelles, à vie pour les cancers secondaires. La prévention des séquelles commence dès le choix du protocole initial."
+      }
+    ],
+    "diagnosis": "Lymphome de Hodgkin classique scléronodulaire, stade précoce avec signes B (adénopathies cervicales et sus-claviculaires gauches, rate palpable, sueurs, amaigrissement, anémie, VS accélérée).",
+    "management": "Confirmation histologique sur biopsie ganglionnaire complète (jamais la seule cytoponction), bilan d'extension TDM/TEP, conservation du sperme avant traitement, chimiothérapie ABVD 2 à 4 cycles avec évaluation intermédiaire de la réponse puis radiothérapie sur les aires atteintes selon le protocole, prévention des nausées et de la neutropénie, éducation sur la fièvre = urgence, sevrage tabagique avant la bléomycine, suivi prolongé annuel : recherche de rechute et dépistage des séquelles (cardiaque, thyroïdienne, cancers secondaires, fertilité).",
+    "pitfall": "Le piège de l'antibiotique d'attente : un ganglion sus-claviculaire dur chez un adulte jeune n'est jamais banal — la zone sus-claviculaire gauche (ganglion de Troisier) oriente vers une néoplasie, et deux antibiotiques sans effet doivent déclencher la biopsie, pas un troisième. Autre piège : la cytoponction seule ne fait pas le diagnostic de Hodgkin, l'architecture du ganglion est indispensable. Enfin, traiter vite en oubliant la congélation de sperme, c'est guérir le lymphome en créant une séquelle définitive évitable.",
+    "keyTakeaway": "Adulte jeune + adénopathies sus-claviculaires dures + signes B + Reed-Sternberg CD30+ = Hodgkin : biopsie ganglionnaire (pas la cytoponction seule), bilan d'extension, congélation de sperme avant ABVD, stades précoces favorables = protocole court adapté à la réponse. La guérison se mesure aussi en séquelles évitées.",
+    "related": {
+      "pathologySlugs": [
+        "hodgkin"
+      ],
+      "deckIds": [
+        "semio",
+        "pharmaco"
+      ]
+    },
+    "sources": [
+      {
+        "title": "ESMO",
+        "citation": "Eichenauer DA et al. Hodgkin lymphoma: ESMO Clinical Practice Guidelines for diagnosis, treatment and follow-up, Annals of Oncology 2018;29(Suppl 4):iv19-29 (PMID 29796651).",
+        "organization": "European Society for Medical Oncology",
+        "year": 2018,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29796651/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "ESMO",
+        "citation": "Hodgkin lymphoma: ESMO Clinical Practice Guidelines — texte intégral, Annals of Oncology.",
+        "organization": "European Society for Medical Oncology",
+        "year": 2018,
+        "url": "https://www.annalsofoncology.org/article/S0923-7534(19)38801-5/fulltext",
+        "verifiedAt": "2026-10-27"
+      }
+    ],
+    "access": "pro"
+  },
+  {
+    "id": "CHIR-OCCLUSION-002",
+    "title": "Vomissements et ventre qui se gonfle",
+    "specialty": "Chirurgie / Urgences",
+    "studyYear": 5,
+    "difficulty": "intermediate",
+    "summary": "Homme de 56 ans, douleurs abdominales paroxystiques, vomissements et arrêt des selles et des gaz ; appendicectomie il y a 20 ans. Occlusion intestinale sur bride.",
+    "patient": {
+      "age": 56,
+      "sex": "M",
+      "context": "Cultivateur près d'Antsirabe, appendicectomie il y a 20 ans, pas d'autre chirurgie, pas de traitement au long cours, consulte au bout de 48 heures de douleurs « à distance du marché ». "
+    },
+    "steps": [
+      {
+        "kind": "reveal",
+        "title": "Motif",
+        "body": "Depuis 48 heures : douleurs abdominales paroxystiques en coup de poing, vomissements d'abord alimentaires puis verdâtres, arrêt complet des selles et des gaz, ballonnement progressif. Il a fait des lavements à domicile sans résultat. Aucune fièvre mesurée à domicile."
+      },
+      {
+        "kind": "reveal",
+        "title": "Examen",
+        "body": "T 37,2 °C, TA 118/72 couché, FC 96/min, FR 20/min. Abdomen distendu, tympanique, douleur diffuse sans défense ni contracture, bruits hydro-aériques métalliques en coups de clairon. Pli cutané marqué, muqueuses sèches. Pas de hernie inguinale ou ombilicale palpable. TR normal, vide."
+      },
+      {
+        "kind": "reveal",
+        "title": "Compléments",
+        "body": "NFS : GB 11,2 G/L, Hb 14,6 g/dL, hématocrite 52 % (hémoconcentration). Ionogramme : Na+ 132, K+ 3,2 mmol/L, urée 9,8 mmol/L, créatinine 116 µmol/L. Radiographie d'abdomen sans préparation (debout/couché) : niveaux hydro-aériques multiples, dilatation des anses grêles, absence de gaz sous-diaphragmatique, cadre colique peu gonflé."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le diagnostic le plus cohérent est :",
+        "choices": [
+          "Occlusion du grêle de mécanisme adhérentiel, sur bride postopératoire",
+          "Péritonite aiguë généralisée",
+          "Colique néphrétique bilatérale",
+          "Gastro-entérite aiguë simple"
+        ],
+        "correct": 0,
+        "explanation": "Douleurs paroxystiques + vomissements + arrêt des selles et des gaz + niveaux hydro-aériques du grêle + antécédent de chirurgie abdominale = occlusion du grêle, dont la première cause chez l'adulte opéré est la bride. L'absence de défense, de fièvre et de contracture, et la conservation de l'état général écartent la péritonite ; la néphrétique ne donne ni arrêt des selles et des gaz ni niveaux hydro-aériques ; une gastro-entérite ne s'accompagne pas d'un abdomen tympanique avec arrêt complet du transit, et les lavements auraient au moins partiellement agi."
+      },
+      {
+        "kind": "question",
+        "prompt": "La prise en charge initiale correcte est :",
+        "choices": [
+          "Hospitalisation, mise au repos digestif : aspiration nasogastrique, réhydratation et correction des troubles ioniques, antalgiques, réévaluation clinique rapprochée — le traitement conservateur est la règle initiale de l'occlusion sur bride sans signe de gravité",
+          "Chirurgie immédiate systématique",
+          "Laxatifs et lavements à fortes doses",
+          "Renvoi à domicile avec antispasmodiques"
+        ],
+        "correct": 0,
+        "explanation": "Les recommandations (Bologna guidelines) posent le traitement conservateur comme stratégie initiale de l'occlusion adhérentielle du grêle sans signes d'ischémie : aspiration nasogastrique, réhydratation parentérale avec correction de l'hypokaliémie et de l'hémoconcentration, antalgiques et surveillance clinique étroite (douleur, défense, fièvre, FC, lactates selon disponibilité). Une proportion importante des patients cède sous ce traitement en 48 à 72 heures. Les laxatifs sont dangereux (majoration de la distension, risque de perforation), et l'abdomen chirurgical doit toujours être exclu avant tout renvoi."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le signe qui impose la chirurgie en urgence est :",
+        "choices": [
+          "Apparition d'une défense ou d'une contracture, fièvre, tachycardie croissante, aggravation des douleurs devenues continues, ou absence d'amélioration à 48-72 heures : suspicion de strangulation",
+          "La persistance de vomissements isolés à 24 heures",
+          "Un ballonnement qui diminue lentement",
+          "La reprise de selles liquides"
+        ],
+        "correct": 0,
+        "explanation": "La strangulation (ischémie de l'anse) menace le pronostic vital : défense, contracture, fièvre, tachycardie, douleur devenue continue, signes biologiques (acidose lactique, leucocytose croissante) imposent l'exploration chirurgicale immédiate. Le test au produit de contraste hydrosoluble (gastrograffine) accélère la décision : absence de passage au colon à 24 heures = échec du traitement conservateur et chirurgie. La reprise, même liquide, des selles signe au contraire la levée de l'occlusion."
+      },
+      {
+        "kind": "question",
+        "prompt": "Le produit de contraste hydrosoluble par sonde nasogastrique a pour intérêt :",
+        "choices": [
+          "À la fois diagnostique (test de perméabilité à 24 heures) et thérapeutique (il accélère la levée de l'occlusion et réduit la durée d'hospitalisation)",
+          "Uniquement de faire une belle radiographie",
+          "Il remplace totalement la chirurgie dans tous les cas",
+          "Il est contre-indiqué en cas de bride"
+        ],
+        "correct": 0,
+        "explanation": "Le produit de contraste hydrosoluble (type gastrograffine), administré par la sonde nasogastrique après aspiration, a un effet osmotique qui réduit l'œdème de la muqueuse et stimule le péristaltisme : il accélère la reprise du transit et le test de passage au colon à 24 heures prédit la réussite du traitement conservateur avec une bonne fiabilité — un standard des Bologna guidelines. Il ne remplace pas la chirurgie en cas de strangulation ou d'échec, mais aide à décider sans retarder inutilement l'opération."
+      }
+    ],
+    "diagnosis": "Occlusion intestinale aiguë du grêle sur bride post-appendicectomie, sans signe initial de strangulation, avec déshydratation extracellulaire et hypokaliémie.",
+    "management": "Hospitalisation en unité de chirurgie : aspiration nasogastrique, réhydratation parentérale et correction ionique (K+), antalgiques, suspicion de strangulation écartée cliniquement ; test au produit de contraste hydrosoluble pour prédire la levée adhésive ; surveillance rapprochée (examen toutes les 4 à 6 heures, douleur, défense, FC, T, diurèse) ; chirurgie sans délai au moindre signe d'ischémie ou si échec à 48-72 heures ; reprise alimentaire progressive après reprise du transit ; information sur le risque de récidive adhérentielle et sur les signes imposant de revenir d'urgence.",
+    "pitfall": "Le piège du lavement à domicile : l'arrêt des selles et des gaz d'origine mécanique ne cède jamais aux lavements, qui font perdre un temps précieux et majorent la distension. Autre piège : la fièvre absente au début n'écarte pas la strangulation qui s'installe — c'est l'évolution clinique sous surveillance rapprochée qui décide, pas le premier examen. Enfin, une occlusion chez un patient jamais opéré fait chercher une autre cause (hernie, tumeur, volvulus) : le scanner injecté se discute quand il est disponible.",
+    "keyTakeaway": "Adulte opéré + douleurs paroxystiques + vomissements + arrêt des selles et des gaz + niveaux hydro-aériques du grêle = occlusion sur bride : aspiration nasogastrique, réhydratation et surveillance rapprochée d'abord, contraste hydrosoluble pour prédire la levée ; défense, fièvre ou échec à 48-72 heures = chirurgie en urgence.",
+    "related": {
+      "pathologySlugs": [
+        "occlusion-grele"
+      ],
+      "deckIds": [
+        "urgences",
+        "semio"
+      ]
+    },
+    "sources": [
+      {
+        "title": "WSES / Bologna",
+        "citation": "Di Saverio S et al. Bologna guidelines for diagnosis and management of adhesive small bowel obstruction (ASBO): 2013 update of the evidence-based guidelines from the World Society of Emergency Surgery ASBO working group, World Journal of Emergency Surgery 2013;8:42 (PMID 24112637).",
+        "organization": "World Society of Emergency Surgery",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24112637/",
+        "verifiedAt": "2026-10-27"
+      },
+      {
+        "title": "WSES / Bologna",
+        "citation": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction — texte intégral (PMC).",
+        "organization": "World Society of Emergency Surgery",
+        "year": 2013,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4124851/",
         "verifiedAt": "2026-10-27"
       }
     ],
