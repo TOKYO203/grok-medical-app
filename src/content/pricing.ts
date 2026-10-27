@@ -24,9 +24,9 @@ export type Currency = (typeof CURRENCIES)[number];
  * montants ne doivent PAS diverger de ce qu'il facture réellement.
  */
 export const PRICES_MGA = {
-  subscriptionQuarter: 15_000,
-  deck: 3_000,
-  specialty: 27_000,
+  subscriptionQuarter: 35_000,
+  deck: 15_000,
+  specialty: 22_000,
 } as const;
 
 /** Durée de l'abonnement, en mois (sert aux libellés « / 3 mois »). */
@@ -100,3 +100,24 @@ export function detectPreferredCurrency(): Currency {
   }
   return "USD";
 }
+
+/**
+ * Prix vitrine en USD — tarif international (avant promo Mada).
+ * Le prix effectif payé par un étudiant malgache est calculé via DISCOUNTS_MG.
+ */
+export const PRICES_USD = {
+  deck: 7,
+  specialty: 12,
+  subscriptionQuarter: 19,
+} as const;
+
+/**
+ * Réduction appliquée aux étudiants malgaches, en pourcentage.
+ * Sert à l'AFFICHAGE (badge promo sur /tarifs). Le prix effectif reste
+ * fixé par PRICES_MGA (source de vérité pour la facturation).
+ */
+export const DISCOUNTS_MG = {
+  deck: 53,
+  specialty: 60,
+  subscriptionQuarter: 60,
+} as const;
