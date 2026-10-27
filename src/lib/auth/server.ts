@@ -49,8 +49,6 @@ import {
   PREVIEW_CLIENT_SECRET,
 } from "./preview";
 
-// Kick (and share) PGLite bootstrap as soon as the auth server module loads.
-void ensureDbReady();
 
 /**
  * Preview secret must outlive module reloads: PGLite (and its session rows) is
@@ -233,7 +231,8 @@ const grokOAuthPlugin = authConfigured
     })
   : null;
 
-export const auth = betterAuth({
+function createAuth() {
+  return betterAuth({
   baseURL,
   // Deployed apps inject BETTER_AUTH_SECRET. Preview: process-stable secret on
   // globalThis so HMR doesn't invalidate PGLite-backed sessions (see above).
@@ -312,7 +311,27 @@ export const auth = betterAuth({
     // last so it runs after every other plugin's hooks.
     tanstackStartCookies(),
   ],
-});
+  });
+}
+
+let _auth: ReturnType<typeof createAuth> | null = null;
+
+/**
+ * Lazy Better Auth singleton.
+ * DOIT être appelé uniquement depuis un handler de requête / server-fn.
+ * Appeler betterAuth() au top-level déclenche sur Cloudflare Workers
+ * "Disallowed operation called within global scope" (I/O + crypto à l'init).
+ */
+export function getAuth() {
+  if (_auth) return _auth;
+  void ensureDbReady();
+  _auth = createAuth();
+  return _auth;
+}
+
+export function __resetAuthForTests(): void {
+  _auth = null;
+}
 
 export function readSessionToken(): string | null {
   return getCookie(SESSION_TOKEN_COOKIE) ?? null;

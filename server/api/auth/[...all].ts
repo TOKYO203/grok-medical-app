@@ -1,5 +1,5 @@
 import { defineEventHandler } from "h3";
-import { auth } from "@/lib/auth/server";
+import { getAuth } from "@/lib/auth/server";
 
 /**
  * Expose Better Auth's complete HTTP surface under `/api/auth/*` in Nitro.
@@ -7,4 +7,4 @@ import { auth } from "@/lib/auth/server";
  * catch-all route a production/preview build returns 404 even though the
  * Better Auth server instance itself is configured correctly.
  */
-export default defineEventHandler(async (event) => auth.handler(event.req));
+export default defineEventHandler(async (event) => getAuth().handler(event.req));
