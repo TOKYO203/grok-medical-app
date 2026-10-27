@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (94 decks, 967 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=37 · dermato=1 · urgences=6
+ * Répartition cible (99 decks, 1017 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=42 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -240,7 +240,7 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       label: "Grippe",
       icon: "🤧",
       levels: [...LEVELS_PATHO],
-      description: "Reconnaître le syndrome grippal et ses complications, traiter par antiviraux ciblés, vacciner les groupes à risque."
+      description: "Reconnaître le syndrome grippal et ses complications, traiter par antiviraux ciblés, vacciner les groupes à risque.",
       decks: ["infectio-grippe-l2", "infectio-grippe-l3", "infectio-grippe-l4", "infectio-grippe-l5", "infectio-grippe-int"],
     },
     {
@@ -248,8 +248,16 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       label: "Oreillons",
       icon: "🥴",
       levels: [...LEVELS_PATHO],
-      description: "Reconnaître la parotite ourdienne, anticiper ses complications de l'enfant à l'adulte et maîtriser la riposte de flambée."
+      description: "Reconnaître la parotite ourdienne, anticiper ses complications de l'enfant à l'adulte et maîtriser la riposte de flambée.",
       decks: ["infectio-oreillons-l2", "infectio-oreillons-l3", "infectio-oreillons-l4", "infectio-oreillons-l5", "infectio-oreillons-int"],
+    },
+    {
+      id: "angines",
+      label: "Angines",
+      icon: "🥵",
+      levels: [...LEVELS_PATHO],
+      description: "Trier par le score et le TDR, traiter l'angine à streptocoque A pour prévenir le rhumatisme articulaire aigu.",
+      decks: ["infectio-angines-l2", "infectio-angines-l3", "infectio-angines-l4", "infectio-angines-l5", "infectio-angines-int"],
     },
   ],
 };
