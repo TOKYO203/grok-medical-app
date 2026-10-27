@@ -13,8 +13,13 @@
  */
 type AriariEnv = Record<string, string | undefined>;
 
-const ARIARI_API_BASE =
-  (process.env.ARIARI_API_URL ?? "https://api.ariari.mg").replace(/\/$/, "");
+/**
+ * URL base de l'API Ariari — LUE À L'EXÉCUTION (pas au top-level).
+ * Cloudflare Workers interdit process.env au chargement du module.
+ */
+function ariariApiBase(): string {
+  return (process.env.ARIARI_API_URL ?? "https://api.ariari.mg").replace(/\/$/, "");
+}
 
 function ariariSecret(env: AriariEnv = process.env as AriariEnv): string | null {
   const secret = env.ARIARI_SECRET?.trim();
@@ -66,7 +71,7 @@ export async function createAriariPayment(
   const secret = ariariSecret(env);
   if (!secret) throw new Error("ARIARI_SECRET absent");
 
-  const response = await fetch(`${ARIARI_API_BASE}/v1/payments`, {
+  const response = await fetch(`${ariariApiBase()}/v1/payments`, {
     method: "POST",
     headers: authHeaders(secret),
     body: JSON.stringify({
@@ -92,7 +97,7 @@ export async function fetchAriariPayment(
   const secret = ariariSecret(env);
   if (!secret) throw new Error("ARIARI_SECRET absent");
 
-  const response = await fetch(`${ARIARI_API_BASE}/v1/payments/${paymentId}`, {
+  const response = await fetch(`${ariariApiBase()}/v1/payments/${paymentId}`, {
     method: "GET",
     headers: authHeaders(secret),
   });
