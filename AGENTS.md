@@ -718,3 +718,17 @@ Regles :
 4. Signaler UNVERIFIABLE
 5. Jamais publier sans relecture humaine
 6. Jamais PASS sans verifier les 5 axes
+
+## GARDE-FOUS LEGAUX
+
+Protocole : docs/LEGAL-GUARDRAILS.md
+
+Nature : app éducative pour étudiants. PAS un dispositif médical.
+PAS de données patients. PAS de diagnostic.
+
+Règles :
+1. Disclaimer médical sous chaque fiche
+2. Images : CC0/CC BY uniquement
+3. Jamais reproduire manuels (Elsevier, MedG, UWorld)
+4. Prix TTC + rétractation 14j (déjà dans CGU-CGV)
+5. 18+ pour l'achat
