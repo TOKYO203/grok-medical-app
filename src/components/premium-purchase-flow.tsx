@@ -10,6 +10,7 @@ import {
   Send,
   ShieldAlert,
   Upload,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,6 +38,7 @@ import { isSupabaseConfigured } from "@/lib/supabase";
 import {
   advancePremiumPurchaseOrder,
   createPremiumPurchaseOrder,
+  createAriariCheckout,
   getPremiumPaymentInstructions,
   getPurchaseLicense,
   type PremiumPaymentInstructions,
@@ -192,6 +194,27 @@ export function PremiumPurchaseFlow({
       toast.success(`Commande ${created.reference} créée`);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Impossible de créer la commande");
+    } finally {
+      setCreating(false);
+    }
+  }
+
+  async function createAriariOrder() {
+    if (!user || user.isDevFallback) {
+      toast.error("Connectez-vous pour commander.");
+      return;
+    }
+    setCreating(true);
+    try {
+      const result = await createAriariCheckout({
+        data: offer === "subscription"
+          ? { clientRequestId, offer }
+          : { clientRequestId, offer, specialty, deckNumber },
+      });
+      toast.success("Redirection vers Ariari…");
+      window.location.href = result.paymentUrl;
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Impossible de créer le paiement Mobile Money");
     } finally {
       setCreating(false);
     }
@@ -482,6 +505,9 @@ export function PremiumPurchaseFlow({
             </p>
             <Button className="mt-4 w-full" disabled={creating} onClick={() => void createOrder()}>
               {creating ? "Création sécurisée…" : `Continuer · ${orderAmount(order).toLocaleString("fr-FR")} Ar`}
+            </Button>
+            <Button className="mt-3 w-full" variant="secondary" disabled={creating} onClick={() => void createAriariOrder()}>
+              <Zap className="size-4" /> Payer par MVola (automatique)
             </Button>
           </div>
         </div>
