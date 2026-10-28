@@ -1,66 +1,72 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getAuth } from "@/lib/auth/server";
-import { isAriariConfigured } from "@/server/ariari/ariari.server";
+import { getSessionUser } from "@/lib/auth/verify.server";
+import { createAriariPayment, isAriariConfigured } from "@/server/ariari/ariari.server";
+import { normalizePremiumOrderInput, orderAmount } from "@/content/purchase-order";
+import { z } from "zod";
+
+const checkoutSchema = z.object({
+  offer: z.enum(["deck", "specialty", "subscription"]),
+  specialty: z.string().optional(),
+  deckNumber: z.number().int().min(1).max(10).optional(),
+});
 
 export const Route = createFileRoute("/api/checkout/ariari")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const trace: string[] = [];
-
-        // Étape 1 : getAuth()
-        let auth;
-        try {
-          trace.push("step1: before getAuth()");
-          auth = getAuth();
-          trace.push("step1: getAuth() OK");
-        } catch (e) {
-          return Response.json({
-            ok: false,
-            failedAt: "getAuth",
-            trace,
-            error: e instanceof Error ? e.message : String(e),
-            stack: e instanceof Error ? e.stack?.split("\n").slice(0, 5) : undefined,
-          }, { status: 500 });
+        const session = await getSessionUser();
+        if (!session) {
+          return Response.json({ ok: false, error: "unauthorized" }, { status: 401 });
         }
 
-        // Étape 2 : auth.api.getSession()
-        let session;
-        try {
-          trace.push("step2: before getSession()");
-          session = await auth.api.getSession({ headers: request.headers });
-          trace.push(`step2: getSession() OK, user=${session?.user ? "yes" : "no"}`);
-        } catch (e) {
-          return Response.json({
-            ok: false,
-            failedAt: "getSession",
-            trace,
-            error: e instanceof Error ? e.message : String(e),
-            stack: e instanceof Error ? e.stack?.split("\n").slice(0, 5) : undefined,
-          }, { status: 500 });
+        if (!isAriariConfigured()) {
+          return Response.json({ ok: false, error: "ariari_unconfigured" }, { status: 503 });
         }
 
-        // Étape 3 : isAriariConfigured()
-        let ariariConfigured = false;
-        try {
-          trace.push("step3: before isAriariConfigured()");
-          ariariConfigured = isAriariConfigured();
-          trace.push(`step3: ariariConfigured=${ariariConfigured}`);
-        } catch (e) {
-          return Response.json({
-            ok: false,
-            failedAt: "isAriariConfigured",
-            trace,
-            error: e instanceof Error ? e.message : String(e),
-          }, { status: 500 });
+        const body = await request.json().catch(() => null);
+        const parsed = checkoutSchema.safeParse(body);
+        if (!parsed.success) {
+          return Response.json({ ok: false, error: "invalid_body" }, { status: 400 });
         }
 
-        return Response.json({
-          ok: true,
-          trace,
-          hasUser: Boolean(session?.user),
-          ariariConfigured,
+        const normalized = normalizePremiumOrderInput(parsed.data);
+        const amount = orderAmount({
+          reference: "TEMP",
+          offer: normalized.offer,
+          specialty: normalized.specialty,
+          deckNumber: normalized.deckNumber,
         });
+
+        const origin = new URL(request.url).origin;
+        try {
+          const payment = await createAriariPayment({
+            amount,
+            name: `Optimus · ${normalized.offer}`,
+            hooks: {
+              redirectSuccess: `${origin}/paiement-retour?status=success&payment_id={PAYMENT_ID}`,
+              redirectFailure: `${origin}/paiement-retour?status=failure&payment_id={PAYMENT_ID}`,
+              silentSuccess: `${origin}/api/webhooks/ariari`,
+              silentProgress: `${origin}/api/webhooks/ariari`,
+              silentFailure: `${origin}/api/webhooks/ariari`,
+            },
+          });
+          return Response.json({
+            ok: true,
+            paymentUrl: payment.url,
+            paymentId: payment.id,
+            amount,
+            userId: session.id,
+          });
+        } catch (error) {
+          return Response.json(
+            {
+              ok: false,
+              error: "ariari_failed",
+              message: error instanceof Error ? error.message : String(error),
+            },
+            { status: 503 },
+          );
+        }
       },
     },
   },
