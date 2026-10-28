@@ -44,7 +44,7 @@ export const Route = createFileRoute("/api/webhooks/ariari")({
         console.info(`[ariari] payment ${paymentId} status=${info.status} amount=${info.amount}`);
 
         // PENDING/INCOMPLETE → ignorer (pas de rejeu côté Ariari)
-        if (info.status !== "PAID") {
+        if (info.status !== "paid") {
           return Response.json({ ok: true, outcome: "ignored", status: info.status });
         }
 
