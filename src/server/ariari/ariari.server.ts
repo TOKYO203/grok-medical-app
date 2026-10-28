@@ -1,48 +1,42 @@
 /**
- * Client Ariari (Mobile Money Madagascar) — server-only.
- *
- * ⚠️ NE JAMAIS importer depuis du code client : le secret fuiterait.
- *
- * Implémentation fetch direct (pas de SDK tiers) :
- *   - Contrôle total sur les payloads
- *   - Compatible Cloudflare Workers (Web fetch natif)
- *   - Facile à ajuster quand la doc API évolue
- *
- * ⚠️ L'endpoint et le format sont basés sur les conventions REST standards.
- *    À vérifier avec la doc officielle Ariari (https://ariari.mg/docs).
+ * Client Ariari — SDK officiel @ariary/pay v2.2.0.
+ * Server-only. Base URL par défaut : https://api.ariari.mg
+ * Auth : factory statique Ariari.config({ secret }).
  */
+import Ariari from "@ariary/pay";
+
 type AriariEnv = Record<string, string | undefined>;
 
-/**
- * URL base de l'API Ariari — LUE À L'EXÉCUTION (pas au top-level).
- * Cloudflare Workers interdit process.env au chargement du module.
- */
-function ariariApiBase(): string {
-  return (process.env.ARIARI_API_URL ?? "https://api.ariari.mg").replace(/\/$/, "");
-}
+let _client: Ariari | null = null;
 
 function ariariSecret(env: AriariEnv = process.env as AriariEnv): string | null {
-  const secret = env.ARIARI_SECRET?.trim();
-  return secret || null;
+  return env.ARIARI_SECRET?.trim() || null;
+}
+
+export function getAriari(): Ariari {
+  if (_client) return _client;
+  const secret = ariariSecret();
+  if (!secret) throw new Error("ARIARI_SECRET absent");
+  _client = Ariari.config({ secret });
+  return _client;
 }
 
 export function isAriariConfigured(): boolean {
   return ariariSecret() !== null;
 }
 
-export type AriariPaymentStatus = "PENDING" | "INCOMPLETE" | "PAID" | "FAILED";
+export function __resetAriariForTests(): void { _client = null; }
+
+export type AriariPaymentStatus = "pending" | "incomplete" | "paid" | "failed";
 
 export type AriariPaymentInfo = {
   id: string;
   amount: number;
-  rest: number;
   status: AriariPaymentStatus;
   url: string;
-  name?: string;
-  createdAt: string;
 };
 
-export type CreateAriariPaymentInput = {
+export async function createAriariPayment(input: {
   amount: number;
   name: string;
   hooks?: {
@@ -52,59 +46,34 @@ export type CreateAriariPaymentInput = {
     silentProgress?: string;
     silentFailure?: string;
   };
-};
-
-export type CreateAriariPaymentResult = { id: string; url: string };
-
-function authHeaders(secret: string): HeadersInit {
+}): Promise<{ id: string; url: string; status: AriariPaymentStatus }> {
+  const ariari = getAriari();
+  const payment = await ariari.create({
+    amount: input.amount,
+    name: input.name,
+    hooks: input.hooks,
+  });
+  const url = payment.url;
+  if (!url) throw new Error("Ariari n'a pas retourné d'URL de paiement");
   return {
-    Authorization: `Bearer ${secret}`,
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    id: payment.id,
+    url,
+    status: "pending",
   };
 }
 
-export async function createAriariPayment(
-  input: CreateAriariPaymentInput,
-  env: AriariEnv = process.env as AriariEnv,
-): Promise<CreateAriariPaymentResult> {
-  const secret = ariariSecret(env);
-  if (!secret) throw new Error("ARIARI_SECRET absent");
-
-  const response = await fetch(`${ariariApiBase()}/v1/payments`, {
-    method: "POST",
-    headers: authHeaders(secret),
-    body: JSON.stringify({
-      amount: input.amount,
-      name: input.name,
-      hooks: input.hooks,
-    }),
-  });
-
-  if (!response.ok) {
-    const text = await response.text().catch(() => "");
-    throw new Error(`Ariari create failed: ${response.status} ${text}`);
-  }
-
-  const data = (await response.json()) as { id: string; url: string };
-  return { id: data.id, url: data.url };
-}
-
-export async function fetchAriariPayment(
-  paymentId: string,
-  env: AriariEnv = process.env as AriariEnv,
-): Promise<AriariPaymentInfo> {
-  const secret = ariariSecret(env);
-  if (!secret) throw new Error("ARIARI_SECRET absent");
-
-  const response = await fetch(`${ariariApiBase()}/v1/payments/${paymentId}`, {
-    method: "GET",
-    headers: authHeaders(secret),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Ariari fetch failed: ${response.status}`);
-  }
-
-  return (await response.json()) as AriariPaymentInfo;
+export async function fetchAriariPayment(paymentId: string): Promise<AriariPaymentInfo> {
+  const ariari = getAriari();
+  const payment = ariari.getPayment(paymentId);
+  const data = await payment.status();
+  const total = data.parts.reduce(
+    (s, p) => s + ((p as { amount?: number }).amount ?? 0),
+    0,
+  );
+  return {
+    id: data.id,
+    amount: total,
+    status: data.status as AriariPaymentStatus,
+    url: data.url,
+  };
 }
