@@ -673,3 +673,57 @@ export const getPurchaseLicense = createServerFn({ method: "POST" })
       return { ...base, status: "signing-unavailable" as const, receipt: null };
     }
   });
+
+// ─── Ariari (Mobile Money) — server fn avec authMiddleware ───
+
+export const createAriariCheckout = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .validator(createSchema)
+  .handler(async ({ data, context }) => {
+    const { createAriariPayment, isAriariConfigured } = await import(
+      "@/server/ariari/ariari.server"
+    );
+
+    if (!isAriariConfigured()) {
+      throw new Error("Paiement Mobile Money non configuré");
+    }
+
+    const normalized = normalizePremiumOrderInput({
+      offer: data.offer,
+      specialty: data.specialty,
+      deckNumber: data.deckNumber,
+    });
+    const order: PremiumOrder = {
+      reference: "TEMP",
+      offer: normalized.offer,
+      specialty: normalized.specialty,
+      deckNumber: normalized.deckNumber,
+    };
+    const amount = orderAmount(order);
+    const label = orderLabel(order);
+
+    const origin =
+      process.env.BETTER_AUTH_URL ??
+      process.env.VITE_APP_URL ??
+      "https://optimusmedical.pages.dev";
+
+    const payment = await createAriariPayment({
+      amount,
+      name: `Optimus · ${label}`,
+      hooks: {
+        redirectSuccess: `${origin}/paiement-retour?status=success&payment_id={PAYMENT_ID}`,
+        redirectFailure: `${origin}/paiement-retour?status=failure&payment_id={PAYMENT_ID}`,
+        silentSuccess: `${origin}/api/webhooks/ariari`,
+        silentProgress: `${origin}/api/webhooks/ariari`,
+        silentFailure: `${origin}/api/webhooks/ariari`,
+      },
+    });
+
+    return {
+      ok: true,
+      paymentUrl: payment.url,
+      paymentId: payment.id,
+      amount,
+      userId: context.userId,
+    };
+  });
