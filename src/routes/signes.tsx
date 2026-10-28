@@ -4,6 +4,7 @@ import { Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
 import { SigneView } from "@/components/signes/signe-view";
 import type { SignesCatalog } from "@/core/signes/types";
+import { track } from "@/lib/analytics/client";
 import {
   awaitContentSessionIfLikely,
   getContentServerSnapshot,
@@ -76,6 +77,15 @@ function SignesPage() {
       cancelled = true;
     };
   }, [contentSession.generation]);
+
+  // Mesure : le raisonnement inversé n'est compté comme contenu lu que si le
+  // catalogue Premium est effectivement ouvert (« locked » et « missing » ne
+  // sont pas des lectures). Dépendance scalaire : un seul envoi par session.
+  const catalogReady = state.status === "ok";
+  useEffect(() => {
+    if (!catalogReady) return;
+    track("first_content_viewed", { surface: "signes" });
+  }, [catalogReady]);
 
   if (state.status === "loading") {
     return (

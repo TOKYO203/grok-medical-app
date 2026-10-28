@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { QuizPlayer, type QuizItem } from "@/components/quiz-player";
@@ -6,6 +7,7 @@ import { pickLessonQuestions, questionXp, type SessionMode } from "@/core/quiz-e
 import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { BUILTIN_DECKS } from "@/content/catalog";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
+import { track } from "@/lib/analytics/client";
 
 type Search = { lesson?: number; preview?: boolean; mode?: SessionMode };
 
@@ -33,6 +35,15 @@ function LearnPage() {
   const tier = useOptimus((s) => s.profile.tier);
   const recordAnswer = useOptimus((s) => s.recordAnswer);
   const completeLesson = useOptimus((s) => s.completeLesson);
+
+  // Mesure : ouvrir un deck (leçon, révision ou aperçu) est un acte
+  // d'activation. Émis avant le retour anticipé pour garder l'ordre des hooks
+  // stable entre « deck introuvable » et « deck ouvert ».
+  const trackedDeckId = deck?.id ?? null;
+  useEffect(() => {
+    if (!trackedDeckId) return;
+    track("first_content_viewed", { surface: "qcm", item: trackedDeckId });
+  }, [trackedDeckId]);
 
   if (!deck) {
     return (

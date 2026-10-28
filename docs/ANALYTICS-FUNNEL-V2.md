@@ -37,7 +37,7 @@
 | --- | --- | --- | --- | --- |
 | 1 | `signup` | compte créé | `method` (email/google) | écran d'inscription |
 | 2 | `onboarding_done` | wizard niveau/objectif terminé | `level`, `goal` | fin d'onboarding |
-| 3 | `first_content_viewed` | 1ʳᵉ fiche ou 1ᵉʳ deck ouvert (une fois par utilisateur) | `content_type` (fiche/deck/signe/calculateur) | route contenu |
+| 3 | `first_content_viewed` | 1ᵉʳ contenu ouvert : fiche, deck QCM, cas clinique ou signes (une fois par utilisateur) | `surface` (fiche/qcm/cas/signes), `item` (slug ou id, facultatif) | /pathologie/$slug, /learn/$deckId, /cas/$caseId, /signes |
 | 4 | `session_completed` | session de QCM terminée | `deck_id`, `score`, `duration_s` | écran de résultats |
 | 5 | `day_streak` | série atteinte (calculée à l'affichage) | `streak_days` | accueil/profil |
 | 6 | `paywall_viewed` | paywall affiché | `trigger` (essai expiré/contenu premium) | gating premium |
