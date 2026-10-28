@@ -1,0 +1,466 @@
+{
+  "id": "DX-HEMORRAGIES-DIGESTIVES-001",
+  "slug": "hemorragies-digestives",
+  "kind": "diagnostic-workup",
+  "title": "Hématémèse et hémorragies digestives",
+  "subtitle": "Remplir avant d’endoscopier : la stabilité hémodynamique prime, et toute hématémèse ou méléna est une urgence endoscopique après stabilisation",
+  "summary": "Démarche devant une hématémèse ou une hémorragie digestive : évaluer la gravité (tachycardie, hypotension, marbrures), réanimer (deux voies veineuses, remplissage, transfusion), distinguer le haut (hématémèse, méléna) du bas (rectorragies), et endoscopier au bon moment. Contexte local : ulcère, varices œsophagiennes sur cirrhose, hémorroïdes, fièvre typhoïde.",
+  "objectives": [
+    "Évaluer la gravité d’une hémorragie digestive (hémodynamique, seuils de transfusion) et réanimer avant l’endoscopie",
+    "Distinguer hématémèse, méléna et rectorragies et en déduire le siège du saignement",
+    "Connaître les causes locales de saignement haut et bas (ulcère, varices, cancer, typhoïde, hémorroïdes)",
+    "Connaître les indications et le timing de l’endoscopie (urgente dans les 12 h si instabilité, précoce dans les 24 h)",
+    "Connaître les traitements : hémostase endoscopique, IPP, vasoactifs et antibiothérapie prophylactique si cirrhose, embolisation, chirurgie"
+  ],
+  "strategy": {
+    "PATTERN": "Hémorragie digestive = perte de sang par la bouche (hématémèse) ou l’anus (méléna, rectorragies). Trois questions : (1) le patient est-il stable ? (2) saignement haut ou bas ? (3) y a-t-il des signes de cirrhose ou de sepsis ? La mort vient de l’hypovolémie, pas de la lésion.",
+    "FIRST_PASS": "Constantes : pouls, tension (instabilité : pouls supérieur à 100, TA systolique inférieure à 100), marbrures, conscience, diurèse. Examen : pâleur conjonctivale, palpation hépatique, circulation collatérale, toucher rectal (méléna, sang frais).",
+    "SECOND_PASS": "Terrain : AINS, aspirine, anticoagulants, cirrhose, alcool, antécédents d’ulcère, âge supérieur à 60 ans. Recherche de cause locale : fièvre (typhoïde), splénomégalie (hypertension portale), hématémèse récidivante.",
+    "RED_FLAGS": "Choc hémorragique (pouls supérieur à 120, TA inférieure à 80, marbrures, conscience altérée), hématémèse de sang rouge actif, patient sous anticoagulants, cirrhose connue (varices), rectorragies abondantes avec instabilité, hématémèse avec ictère ou ascite."
+  },
+  "sections": [
+    {
+      "id": "hgd-reconnaissance",
+      "title": "1. Reconnaître",
+      "lead": "Reconnaître le saignement et son siège.",
+      "items": [
+        {
+          "id": "hg-1",
+          "label": "Hématémèse : vomissement de sang rouge ou de résidu type marc de café = saignement digestif haut (œsophage, estomac, duodénum).",
+          "children": []
+        },
+        {
+          "id": "hg-2",
+          "label": "Méléna : selles noires, goudronneuses, nauséabondes = saignement haut en général, en amont de l’angle colique gauche.",
+          "children": []
+        },
+        {
+          "id": "hg-3",
+          "label": "Rectorragies : sang rouge par l’anus, volontiers bas (hémorroïdes, colite, tumeur) ; un saignement haut abondant peut aussi donner du sang rouge.",
+          "children": []
+        },
+        {
+          "id": "hg-4",
+          "label": "Quantifier : nombre d’épisodes, pouls, tension, lactates ; l’hémoglobine initiale peut être faussement normale (hémodilution).",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "hg-p1",
+          "label": "Une hématémèse de sang rouge traduit un saignement actif abondant : urgence absolue, appeler l’endoscopiste et l’anesthésiste.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "hgd-orientation",
+      "title": "2. Orienter",
+      "lead": "Orienter vers la cause selon le terrain et le contexte local.",
+      "items": [
+        {
+          "id": "hg-5",
+          "label": "Ulcère gastroduodénal : AINS ou aspirine, épigastralgies antérieures, première cause de saignement haut.",
+          "children": []
+        },
+        {
+          "id": "hg-6",
+          "label": "Rupture de varices œsophagiennes : cirrhose, alcool, splénomégalie, circulation collatérale, ascite ; hématémèse abondante.",
+          "children": []
+        },
+        {
+          "id": "hg-7",
+          "label": "Gastrite ou œsophagite : alcool, médicaments, ulcères de stress du patient de réanimation.",
+          "children": []
+        },
+        {
+          "id": "hg-8",
+          "label": "Causes locales : cancer gastrique ou colique (amaigrissement, anémie ferriprive), fièvre typhoïde (fièvre prolongée), angiodysplasies.",
+          "children": []
+        },
+        {
+          "id": "hg-9",
+          "label": "Saignements bas : hémorroïdes, fissure, colite infectieuse ou inflammatoire, tumeur rectale, hypertension portale (bilharziose).",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "hg-p2",
+          "label": "Chez le cirrhotique, tout saignement digestif impose une antibiothérapie prophylactique : l’infection accompagne près de la moitié des hémorragies sur varices.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "hgd-urgence",
+      "title": "3. Urgences",
+      "lead": "Stabiliser avant d’endoscopier, drainer les situations extrêmes.",
+      "items": [
+        {
+          "id": "hg-10",
+          "label": "Choc hémorragique : deux voies veineuses de gros calibre, remplissage prudent, concentrés globulaires (objectif Hb 7-8 g/dL, sauf coronaropathie), correction des anticoagulants, avis anesthésique.",
+          "children": []
+        },
+        {
+          "id": "hg-11",
+          "label": "Saignement sur cirrhose : vasoactif (terlipressine, somatostatine), antibiothérapie prophylactique, endoscopie pour ligature ; sonde de tamponnement en sauvetage.",
+          "children": []
+        },
+        {
+          "id": "hg-12",
+          "label": "Saignement persistant : embolisation radiologique ou chirurgie en seconde ligne ; avis chirurgical précoce si saignement incontrôlé.",
+          "children": []
+        },
+        {
+          "id": "hg-13",
+          "label": "Rectorragies abondantes chez le sujet âgé : coloscopie ou angio-TDM après stabilisation ; toute rectorragie nécessite un examen endoscopique complet.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "hg-p3",
+          "label": "Ne jamais endoscopier un patient instable : la réanimation se fait en parallèle et l’endoscopie suit dès la stabilisation initiale.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "hgd-pec",
+      "title": "4. Prise en charge",
+      "lead": "Endoscopier au bon moment, traiter la cause, prévenir la récidive.",
+      "items": [
+        {
+          "id": "hg-14",
+          "label": "Endoscopie : urgente (moins de 12 h) si suspicion de varices ou instabilité persistante, sinon dans les 24 h ; geste hémostatique (injection, clips, ligature) au cours de l’examen.",
+          "children": []
+        },
+        {
+          "id": "hg-15",
+          "label": "Traitement médical : IPP à forte dose pour l’ulcère, vasoactifs et antibiotiques si cirrhose ; réévaluation du traitement anticoagulant et des AINS.",
+          "children": []
+        },
+        {
+          "id": "hg-16",
+          "label": "Recherche d’Helicobacter pylori et éradication si ulcère ; bilan martial et recherche de sang occulte si anémie.",
+          "children": []
+        },
+        {
+          "id": "hg-17",
+          "label": "Prévention : protection gastrique sous AINS, sevrage alcoolique, suivi endoscopique des cirrhoses et des lésions précancéreuses.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "hg-p4",
+          "label": "Toute hématémèse, même unique et bien tolérée, justifie une endoscopie : le premier saignement peut annoncer le deuxième, létal.",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "hg-mn-1",
+      "name": "HMR",
+      "expansion": "Hématémèse = haut, Méléna = haut, Rectorragies = bas (le plus souvent)",
+      "explanation": "Le sang digéré devient noir (méléna) ; vomir du sang (hématémèse) signe le haut ; le sang rouge anal signe le bas, sauf saignement haut massif à transit accéléré.",
+      "application": "Appliquer HMR pour choisir l’examen : endoscopie haute pour hématémèse et méléna, coloscopie pour rectorragies."
+    },
+    {
+      "id": "hg-mn-2",
+      "name": "Les 4 T de la stabilité",
+      "expansion": "Tachycardie, Tension, Teint (marbrures, pâleur), Transit (diurèse)",
+      "explanation": "Pouls supérieur à 100 et TA systolique inférieure à 100 marquent l’instabilité ; la pâleur et la chute de la diurèse confirment l’hypovolémie avant l’hémogramme.",
+      "application": "Ces quatre signes décident de la vitesse de remplissage et de l’urgence transfusionnelle."
+    },
+    {
+      "id": "hg-mn-3",
+      "name": "CIRRHOSE = antibiotiques",
+      "expansion": "Cirrhose + hémorragie = antibiothérapie + vasoactif + ligature",
+      "explanation": "Toute hémorragie digestive du cirrhotique impose une antibiothérapie prophylactique et un vasoactif avant l’endoscopie : ces deux traitements réduisent la mortalité.",
+      "application": "Les prescrire dès l’admission, sans attendre le résultat de l’endoscopie."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "hg-fc-1",
+      "objective": "Évaluer la gravité d’une hémorragie digestive à l’admission",
+      "front": "Quels seuils cliniques définissent une hémorragie digestive instable ?",
+      "back": "Pouls supérieur à 100-120/min et/ou TA systolique inférieure à 100 mmHg, marbrures, pâleur, oligurie, troubles de conscience",
+      "rationale": "L’instabilité impose la réanimation immédiate (deux voies veineuses, remplissage, transfusion) et conditionne le pronostic ; l’hémoglobine initiale est faussement rassurante avant hémodilution.",
+      "citation": "La prise en charge initiale repose sur l’évaluation hémodynamique avant l’hémogramme (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "urgences",
+        "gastro-enterologie"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-2",
+      "objective": "Distinguer le saignement digestif haut du bas",
+      "front": "Que signifie un méléna et où siège le plus souvent le saignement ?",
+      "back": "Méléna = selles noires goudronneuses ; saignement en amont de l’angle colique gauche, le plus souvent digestif haut",
+      "rationale": "Méléna et hématémèse orientent vers l’endoscopie haute ; les rectorragies rouges orientent vers la coloscopie, sauf instabilité qui peut traduire un saignement haut abondant.",
+      "citation": "Le siège du saignement conditionne le choix de l’examen endoscopique (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-3",
+      "objective": "Connaître le timing de l’endoscopie",
+      "front": "Quand réaliser l’endoscopie haute d’une hématémèse ?",
+      "back": "Après stabilisation : urgente dans les 12 h si instabilité ou suspicion de varices, sinon précoce dans les 24 h",
+      "rationale": "Endoscopier un patient instable sans réanimation expose à l’arrêt ; attendre trop longtemps expose à la récidive : la fenêtre est la stabilisation initiale.",
+      "citation": "L’ESGE recommande une endoscopie urgente dans les 12 h après stabilisation des patients instables (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie",
+        "urgences"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-4",
+      "objective": "Traiter une hémorragie ulcéreuse",
+      "front": "Quel traitement d’une hémorragie ulcéreuse active au cours de l’endoscopie ?",
+      "back": "Hémostase endoscopique combinée (injection d’adrénaline + clip ou thermocoagulation) puis IPP à forte dose",
+      "rationale": "L’IPP à forte dose après hémostase endoscopique prévient la récidive ; l’injection seule est insuffisante, elle doit être combinée à un clip ou à la thermocoagulation.",
+      "citation": "Le traitement endoscopique combiné et l’IPP à forte dose sont le standard du saignement ulcéreux (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie",
+        "pharmacologie"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-5",
+      "objective": "Prendre en charge une hémorragie sur cirrhose",
+      "front": "Quels deux traitements administrer immédiatement devant une hématémèse d’un cirrhotique ?",
+      "back": "Antibiothérapie prophylactique (ex. ceftriaxone) + vasoactif (terlipressine ou somatostatine), en plus de la réanimation",
+      "rationale": "Chez le cirrhotique, l’infection et la récidive font la mortalité ; ces deux traitements réduisent la mortalité et doivent précéder l’endoscopie.",
+      "citation": "L’antibiothérapie prophylactique et les vasoactifs sont recommandés dès la suspicion de rupture de varices (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie",
+        "hepatologie"
+      ],
+      "difficulty": "avance",
+      "estimate": "45-60 s"
+    },
+    {
+      "id": "hg-fc-6",
+      "objective": "Fixer le seuil transfusionnel en cas d’hémorragie digestive",
+      "front": "Quel objectif d’hémoglobine pour la transfusion dans une hémorragie digestive ?",
+      "back": "Transfuser pour une Hb de 7-8 g/dL (stratégie restrictive), sauf coronaropathie ou saignement actif incontrôlé",
+      "rationale": "La sur-transfusion augmente la pression portale et la récidive chez le cirrhotique ; la stratégie restrictive réduit la mortalité.",
+      "citation": "Une stratégie transfusionnelle restrictive (seuil Hb 7 g/dL) est recommandée dans les hémorragies digestives aiguës (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "urgences",
+        "hematologie"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-7",
+      "objective": "Éliminer une fièvre typhoïde devant un saignement digestif fébrile",
+      "front": "Quel diagnostic évoquer devant une hématémèse avec fièvre prolongée à Madagascar ?",
+      "back": "Hémorragie digestive de la fièvre typhoïde (ulcération iléale)",
+      "rationale": "Hémoculture, antibiothérapie, avis chirurgical si perforation : l’hémorragie typhoïdique survient en 2e ou 3e semaine de fièvre non traitée.",
+      "citation": "La fièvre typhoïde peut se compliquer d’hémorragie et de perforation digestives, causes classiques de saignement fébrile en zone d’endémie (WHO, Typhoid fact sheet, 2023).",
+      "tags": [
+        "infectiologie",
+        "gastro-enterologie"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "45-60 s"
+    },
+    {
+      "id": "hg-fc-8",
+      "objective": "Prendre en charge des rectorragies du sujet âgé",
+      "front": "Que faire devant des rectorragies rouges abondantes chez un sujet âgé instable ?",
+      "back": "Stabiliser, puis angio-TDM ou coloscopie selon disponibilité ; toucher rectal et anuscopie d’emblée",
+      "rationale": "Chez le sujet âgé, une rectorragie abondante peut relever d’une angiodysplasie ou d’une diverticulose hémorragique ; l’imagerie guide l’embolisation si besoin.",
+      "citation": "La stratégie des hémorragies basses associe stabilisation puis coloscopie ou imagerie selon la sévérité (ACG, Guideline lower GI bleeding, 2023).",
+      "tags": [
+        "gastro-enterologie",
+        "urgences"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "45-60 s"
+    },
+    {
+      "id": "hg-fc-9",
+      "objective": "Rechercher et éradiquer Helicobacter pylori",
+      "front": "Pourquoi rechercher H. pylori après un ulcère hémorragique ?",
+      "back": "L’éradication empêche la récidive ulcéreuse et hémorragique",
+      "rationale": "Test à l’uréase sur biopsies endoscopiques ou test respiratoire après l’épisode ; trithérapie d’éradication selon les résistances locales.",
+      "citation": "L’éradication de H. pylori après ulcère hémorragique réduit fortement le risque de récidive (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie",
+        "infectiologie"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "hg-fc-10",
+      "objective": "Prévenir les hémorragies ulcéreuses sous AINS",
+      "front": "Quelle prévention prescrire chez un patient sous AINS au long cours ?",
+      "back": "IPP co-prescrit, dose minimale efficace d’AINS, réévaluation régulière du risque",
+      "rationale": "Le risque ulcéreux hémorragique justifie une protection gastrique systématique chez les patients à risque (âge, antécédent d’ulcère, anticoagulants associés).",
+      "citation": "La co-prescription d’IPP est la mesure standard de prévention du saignement ulcéreux sous AINS (ESGE, Guideline NVUGIH, Update 2021).",
+      "tags": [
+        "gastro-enterologie",
+        "pharmacologie"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    }
+  ],
+  "mindmap": {
+    "id": "hemorragies-digestives",
+    "label": "Hématémèse / hémorragies digestives",
+    "children": [
+      {
+        "id": "hg-m-recon",
+        "label": "Reconnaître",
+        "children": [
+          {
+            "id": "hg-m-1",
+            "label": "Hématémèse, méléna, rectorragies",
+            "children": []
+          },
+          {
+            "id": "hg-m-2",
+            "label": "Quantifier : pouls, TA, marbrures",
+            "children": []
+          },
+          {
+            "id": "hg-m-3",
+            "label": "Hb initiale faussement normale",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "hg-m-orient",
+        "label": "Orienter",
+        "children": [
+          {
+            "id": "hg-m-4",
+            "label": "Ulcère (AINS, H. pylori)",
+            "children": []
+          },
+          {
+            "id": "hg-m-5",
+            "label": "Varices / cirrhose",
+            "children": []
+          },
+          {
+            "id": "hg-m-6",
+            "label": "Typhoïde, cancer",
+            "children": []
+          },
+          {
+            "id": "hg-m-7",
+            "label": "Bas : hémorroïdes, colite",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "hg-m-urg",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "hg-m-8",
+            "label": "2 voies veineuses, remplissage, transfusion",
+            "children": []
+          },
+          {
+            "id": "hg-m-9",
+            "label": "Cirrhose : vasoactif + antibiotique",
+            "children": []
+          },
+          {
+            "id": "hg-m-10",
+            "label": "Chirurgie / embolisation si échec",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "hg-m-exam",
+        "label": "Examens",
+        "children": [
+          {
+            "id": "hg-m-11",
+            "label": "Endoscopie haute moins de 24 h (ou 12 h)",
+            "children": []
+          },
+          {
+            "id": "hg-m-12",
+            "label": "Coloscopie / angio-TDM si bas",
+            "children": []
+          },
+          {
+            "id": "hg-m-13",
+            "label": "NFS, coagulation, groupe",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "hg-m-pec",
+        "label": "PEC",
+        "children": [
+          {
+            "id": "hg-m-14",
+            "label": "Hémostase endoscopique + IPP",
+            "children": []
+          },
+          {
+            "id": "hg-m-15",
+            "label": "Éradication H. pylori",
+            "children": []
+          },
+          {
+            "id": "hg-m-16",
+            "label": "Prévention : IPP sous AINS, sevrage",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "ESGE — Nonvariceal upper GI hemorrhage, Update 2021 (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33567467/",
+      "verifiedAt": "2026-10-28"
+    },
+    {
+      "label": "ESGE — NVUGIH Guideline 2021 (PDF)",
+      "url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2021_a_1369_5274.pdf",
+      "verifiedAt": "2026-10-28"
+    },
+    {
+      "label": "ESGE — Lower GI bleeding guideline (PDF)",
+      "url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2021_a_1496_8969.pdf",
+      "verifiedAt": "2026-10-28"
+    },
+    {
+      "label": "ACG — Acute lower gastrointestinal bleeding guideline",
+      "url": "https://journals.lww.com/ajg/fulltext/10.14309/ajg.0000000000002130~management-of-patients-with-acute-lower-gastrointestinal",
+      "verifiedAt": "2026-10-28"
+    }
+  ]
+}

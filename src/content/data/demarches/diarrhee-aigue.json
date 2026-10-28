@@ -1,0 +1,491 @@
+{
+  "id": "DX-DIARRHEE-001",
+  "slug": "diarrhee-aigue",
+  "kind": "diagnostic-workup",
+  "title": "Diarrhée aiguë",
+  "subtitle": "Trier la déshydratation avant l’étiologie : réhydrater d’abord, chercher ensuite, antibiotiques seulement sur signes d’invasion",
+  "summary": "Démarche devant une diarrhée aiguë : évaluer la déshydratation (plans A/B/C de l’OMS), reconnaître les signes d’invasion bactérienne (syndrome dysentérique, fièvre, glaires-sang) et les situations à ne pas rater (choléra, déshydratation sévère, diarrhée post-antibiothérapie, terrain immunodéprimé). Réhydrater, puis orienter l’étiologie entre virale, bactérienne invasive, parasitaire (amibiase, giardiase) et toxique.",
+  "objectives": [
+    "Évaluer la gravité par le degré de déshydratation (plans OMS A, B, C) et le syndrome dysentérique",
+    "Orienter l’étiologie selon le mode de début, la fièvre, le sang/glaires, le contexte épidémique et l’ingestion alimentaire",
+    "Connaître les examens de première intention : coproculture et parasitologie des selles, NFS-CRP, ionogramme si déshydratation sévère",
+    "Connaître les modalités du traitement : SRO, antibiotiques indiqués (shigellose, choléra), antimotilités contre-indiqués",
+    "Éduquer le patient : hygiène, eau potable, signes de reconsultation"
+  ],
+  "strategy": {
+    "PATTERN": "Diarrhée aiguë = émettre au moins 3 selles liquides par jour depuis moins de 14 jours. Trois questions : (1) quel degré de déshydratation ? (2) syndrome dysentérique ou non ? (3) terrain et contexte. La réhydratation domine le pronostic.",
+    "FIRST_PASS": "Examen de déshydratation OMS : pli cutané, yeux, soif, comportement, fontanelle, pouls, tension. Poids avant/après. Température. Recherche de sang et de glaires dans les selles. Examen abdominal.",
+    "SECOND_PASS": "Contexte : entourage, eau, aliments, voyage, épidémie locale, antibiothérapie récente, immunodépression, VIH. Terrain : jeune enfant, sujet âgé, diabétique.",
+    "RED_FLAGS": "Déshydratation sévère (collapsus, pli cutané persistant, yeux creux, conscience altérée), choléra (diarrhée eau de riz, épidémie), dysenterie fébrile, iléus, sepsis, diarrhée post-antibiothérapie (Clostridioides difficile), purpura, syndrome hémolytique urémique."
+  },
+  "sections": [
+    {
+      "id": "diarrhee-reconnaissance",
+      "title": "1. Reconnaître",
+      "lead": "Reconnaître la diarrhée aiguë et évaluer la déshydratation avant tout.",
+      "items": [
+        {
+          "id": "dr-1",
+          "label": "Diarrhée aiguë : au moins 3 selles molles ou liquides par jour depuis moins de 14 jours.",
+          "children": []
+        },
+        {
+          "id": "dr-2",
+          "label": "Déshydratation OMS : plan A (aucune), plan B (modérée : soif, pli cutané léger, yeux un peu creux), plan C (sévère : collapsus, pli persistant, yeux enfoncés, troubles de conscience).",
+          "children": []
+        },
+        {
+          "id": "dr-3",
+          "label": "Syndrome dysentérique : selles glairo-sanglantes, ténesme, fièvre : bactérie invasive (Shigella en premier).",
+          "children": []
+        },
+        {
+          "id": "dr-4",
+          "label": "Selles eau de riz sans fièvre dans un contexte épidémique : choléra jusqu’à preuve du contraire.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "dr-p1",
+          "label": "Ne pas oublier de peser : la perte de poids est l’indicateur le plus fiable de la déshydratation chez l’enfant.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "diarrhee-orientation",
+      "title": "2. Orienter",
+      "lead": "Orienter vers un mécanisme : sécrétoire, invasif, osmotique ou toxique.",
+      "items": [
+        {
+          "id": "dr-5",
+          "label": "Virale (rotavirus, norovirus) : diarrhée aqueuse, vomissements, pas de fièvre haute, courte durée.",
+          "children": []
+        },
+        {
+          "id": "dr-6",
+          "label": "Bactérienne invasive (Shigella, Salmonella, Campylobacter) : fièvre, douleurs, glaires et sang.",
+          "children": []
+        },
+        {
+          "id": "dr-7",
+          "label": "Choléra (Vibrio cholerae) : diarrhée abondante indolore sans fièvre, déshydratation foudroyante, contexte épidémique.",
+          "children": []
+        },
+        {
+          "id": "dr-8",
+          "label": "Parasitaire : amibiase (sang, évolution subaiguë), giardiase (ballonnements) : penser à l’eau souillée.",
+          "children": []
+        },
+        {
+          "id": "dr-9",
+          "label": "Médicamenteuse ou toxique : post-antibiothérapie (C. difficile), métformine, laxatifs ; intoxication alimentaire à début brutal collectif.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "dr-p2",
+          "label": "La fièvre et le sang orientent vers l’invasion ; le volume oriente vers le choléra ; la chronologie oriente vers l’intoxication collective.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "diarrhee-urgence",
+      "title": "3. Urgences",
+      "lead": "Les urgences vitales et leurs pièges.",
+      "items": [
+        {
+          "id": "dr-10",
+          "label": "Déshydratation sévère : réhydrater immédiatement par voie intraveineuse (Ringer lactate) selon le plan C de l’OMS, surveiller poids et diurèse.",
+          "children": []
+        },
+        {
+          "id": "dr-11",
+          "label": "Sepsis ou fièvre typhoïde : diarrhée avec fièvre prolongée et splénomégalie : hémoculture, antibiothérapie.",
+          "children": []
+        },
+        {
+          "id": "dr-12",
+          "label": "Syndrome hémolytique urémique : diarrhée sanglante + pâleur + oligurie : NFS (anémie, schizocytes), créatinine, urgence néphrologique.",
+          "children": []
+        },
+        {
+          "id": "dr-13",
+          "label": "Iléus ou distension abdominale : arrêt des antisecrétoires et des antimotilités, avis chirurgical.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "dr-p3",
+          "label": "Le patient cholérique meurt de déshydratation, pas de l’infection : la vitesse de réhydratation prime sur le diagnostic bactériologique.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "diarrhee-pec",
+      "title": "4. Prise en charge",
+      "lead": "Réhydrater, traiter sélectivement, éduquer.",
+      "items": [
+        {
+          "id": "dr-14",
+          "label": "Réhydrater : SRO selon plans A/B ; voie veineuse (Ringer lactate) au plan C ; réévaluer la perte de poids.",
+          "children": []
+        },
+        {
+          "id": "dr-15",
+          "label": "Antibiothérapie ciblée : shigellose (azithromycine ou quinolone selon résistances), choléra (doxycycline, azithromycine), fièvre typhoïde ; jamais d’antibiotique systématique.",
+          "children": []
+        },
+        {
+          "id": "dr-16",
+          "label": "Zinc 10 à 14 jours chez l’enfant (OMS) ; poursuivre l’alimentation, ne pas faire jeûner ; antiparasitaire si parasitologie positive.",
+          "children": []
+        },
+        {
+          "id": "dr-17",
+          "label": "Interdire les antimotilités (lopéramide) en cas de fièvre ou de sang ; paracétamol pour la fièvre, pas d’anti-inflammatoires.",
+          "children": []
+        },
+        {
+          "id": "dr-18",
+          "label": "Prévention : eau potable, lavage des mains, vaccination (rotavirus, choléra en épidémie), hygiène alimentaire.",
+          "children": []
+        }
+      ],
+      "pitfalls": [
+        {
+          "id": "dr-p4",
+          "label": "Traiter le patient mais aussi l’entourage : une source hydrique commune est à signaler à l’autorité sanitaire.",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "dr-mn-1",
+      "name": "Les 3 D",
+      "expansion": "Déshydratation, Dysenterie, Durée",
+      "explanation": "Trois axes de tri : le degré de déshydratation (plan OMS), le syndrome dysentérique (sang, glaires, fièvre), la durée (plus de 14 jours = diarrhée persistante, autre démarche).",
+      "application": "Appliquer les 3 D devant toute diarrhée : peser, regarder, chronométrer."
+    },
+    {
+      "id": "dr-mn-2",
+      "name": "SECRETOIRE vs INVASIF",
+      "expansion": "Volume sans fièvre versus fièvre avec sang",
+      "explanation": "Une diarrhée abondante, indolore, sans fièvre est sécrétoire (choléra, toxines) ; une diarrhée fébrile glairo-sanglante est invasive (Shigella, Salmonella).",
+      "application": "Le couple fièvre/sang décide de l’antibiothérapie probabiliste plus que la coproculture."
+    },
+    {
+      "id": "dr-mn-3",
+      "name": "ABCD de la réhydratation",
+      "expansion": "Apport, Balance (poids, diurèse), Composition (SRO, Ringer), Décision (voie veineuse si plan C)",
+      "explanation": "La réhydratation se pilote comme une réanimation : apport mesuré, balance surveillée, soluté adapté, décision de voie veineuse si signes de plan C.",
+      "application": "Chez l’enfant, une perte de poids supérieure à 10 % impose la voie veineuse immédiate."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "dr-fc-1",
+      "objective": "Évaluer le degré de déshydratation selon les plans OMS et choisir la voie de réhydratation adaptée",
+      "front": "Quels signes définissent une déshydratation sévère (plan C) chez un enfant ?",
+      "back": "Pli cutané persistant, yeux très enfoncés, soif intense ou incapacité à boire, abattement ou coma, pouls faible ou impalpable",
+      "rationale": "Le plan C impose la réhydratation intraveineuse rapide (Ringer lactate 100 ml/kg) : le danger est immédiat, le diagnostic étiologique attendra.",
+      "citation": "L’OMS classe la déshydratation en trois plans (A, B, C) fondés sur des signes cliniques simples et reproductibles au lit du patient (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "pediatrie",
+        "urgence",
+        "OMS"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-2",
+      "objective": "Reconnaître le choléra devant une diarrhée abondante aqueuse",
+      "front": "Quel profil de selles doit faire évoquer un choléra ?",
+      "back": "Selles abondantes eau de riz, indolores, sans fièvre, déshydratation foudroyante, contexte épidémique",
+      "rationale": "Le choléra est une toxi-infection sécrétoire pure : le patient meurt de déshydratation en quelques heures. Traitement = réhydratation massive + antibiothérapie (doxycycline) + déclaration obligatoire.",
+      "citation": "Le choléra est endémique et épidémique à Madagascar ; le diagnostic est d’abord clinique et la déclaration déclenche la réponse sanitaire (WHO, Cholera fact sheet, 2024).",
+      "tags": [
+        "infectiologie",
+        "urgences"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-3",
+      "objective": "Distinguer diarrhée invasive et diarrhée sécrétoire ou virale",
+      "front": "Quels éléments orientent vers une diarrhée bactérienne invasive ?",
+      "back": "Fièvre élevée, douleurs abdominales, ténesme, selles glairo-sanglantes, syndrome inflammatoire",
+      "rationale": "L’invasion (Shigella, Salmonella, Campylobacter) justifie une antibiothérapie ciblée, alors que la diarrhée aqueuse virale se traite par SRO seuls.",
+      "citation": "La présence de sang dans les selles est le marqueur le plus discriminant d’une étiologie bactérienne invasive et change la prise en charge (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "infectiologie"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-4",
+      "objective": "Connaître les indications et limites de la coproculture",
+      "front": "Quand une coproculture est-elle indiquée ?",
+      "back": "Syndrome dysentérique, suspicion de choléra, diarrhée post-antibiothérapie, diarrhée persistante, contexte épidémique, immunodépression",
+      "rationale": "La coproculture systématique est inutile dans la diarrhée aqueuse banale ; elle guide l’antibiothérapie et le suivi épidémiologique dans les cas ciblés.",
+      "citation": "Les indications de coproculture et de parasitologie des selles sont dictées par la présentation clinique et le contexte, pas par la présence d’une diarrhée elle-même (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "infectiologie",
+        "biologie"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-5",
+      "objective": "Prendre en charge la diarrhée associée aux antibiotiques",
+      "front": "Quelle complication redouter après plusieurs jours d’antibiothérapie à large spectre ?",
+      "back": "Colite à Clostridioides difficile : diarrhée fébrile, douleurs, hyperleucocytose",
+      "rationale": "Arrêter l’antibiotique en cause, métronidazole ou vancomycine orale selon la sévérité, jamais d’antimotilité.",
+      "citation": "La diarrhée post-antibiothérapie doit faire évoquer C. difficile avant tout traitement symptomatique (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "infectiologie",
+        "pharmacologie"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-6",
+      "objective": "Connaître les contre-indications des antimotilités",
+      "front": "Pourquoi la lopéramide est-elle contre-indiquée devant une diarrhée fébrile sanglante ?",
+      "back": "Elle aggrave l’invasion bactérienne (rétention du contenu infecté) et expose au mégacôlon toxique",
+      "rationale": "Antimotilités interdits si fièvre ou sang ; le traitement est la réhydratation et, si besoin, l’antibiothérapie.",
+      "citation": "Les traitements de la motilité sont contre-indiqués dans les diarrhées invasives (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "pharmacologie",
+        "urgences"
+      ],
+      "difficulty": "intermediaire",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-7",
+      "objective": "Repérer une diarrhée de la fièvre typhoïde",
+      "front": "Quel diagnostic évoquer devant une diarrhée avec fièvre en plateau, splénomégalie et leucopénie ?",
+      "back": "Fièvre typhoïde (Salmonella Typhi)",
+      "rationale": "Hémoculture, antibiothérapie selon les résistances locales ; urgence thérapeutique du fait des complications digestives (perforation iléale).",
+      "citation": "La fièvre typhoïde reste fréquente à Madagascar et peut se présenter comme une diarrhée fébrile prolongée (WHO, Typhoid fact sheet, 2023).",
+      "tags": [
+        "infectiologie"
+      ],
+      "difficulty": "avance",
+      "estimate": "45-60 s"
+    },
+    {
+      "id": "dr-fc-8",
+      "objective": "Repérer un syndrome hémolytique urémique",
+      "front": "Quelle complication redouter chez un enfant avec diarrhée sanglante, pâleur et urines rares ?",
+      "back": "Syndrome hémolytique urémique (SHU)",
+      "rationale": "NFS (anémie hémolytique, schizocytes, thrombopénie), créatinine, arrêt des antibiotiques, hospitalisation : urgence néphrologique.",
+      "citation": "Le SHU post-diarrhéique survient après colite à germe producteur de toxine de Shiga et impose une surveillance hématologique et rénale rapprochée (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "nephrologie",
+        "pediatrie"
+      ],
+      "difficulty": "avance",
+      "estimate": "45-60 s"
+    },
+    {
+      "id": "dr-fc-9",
+      "objective": "Traiter la diarrhée de l’enfant selon les recommandations OMS",
+      "front": "Quels deux traitements simples réduisent la mortalité de la diarrhée de l’enfant ?",
+      "back": "SRO + supplémentation en zinc 10 à 14 jours",
+      "rationale": "Ces deux mesures, avec la poursuite de l’alimentation, réduisent la durée, la sévérité et les récidives : base des plans A et B.",
+      "citation": "L’OMS recommande SRO et zinc dans toutes les diarrhées aiguës de l’enfant (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "pediatrie",
+        "OMS"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    },
+    {
+      "id": "dr-fc-10",
+      "objective": "Éduquer le patient et l’entourage après une diarrhée aiguë",
+      "front": "Quelles mesures préventives donner au patient ?",
+      "back": "Eau potable ou traitée, lavage des mains au savon, cuisson des aliments, assainissement, vaccins quand disponibles",
+      "rationale": "La transmission hydrique et féco-orale domine : l’éducation sanitaire et la notification des cas groupés complètent le traitement individuel.",
+      "citation": "La prévention de la diarrhée aiguë repose sur l’eau sûre, l’assainissement et l’hygiène, applicables immédiatement par les familles (WHO, Diarrhoeal disease fact sheet, 2024).",
+      "tags": [
+        "sante-publique",
+        "education"
+      ],
+      "difficulty": "debutant",
+      "estimate": "30-45 s"
+    }
+  ],
+  "mindmap": {
+    "id": "diarrhee-aigue",
+    "label": "Diarrhée aiguë",
+    "children": [
+      {
+        "id": "dr-m-recon",
+        "label": "Reconnaître",
+        "children": [
+          {
+            "id": "dr-m-1",
+            "label": "3 selles liquides/j, moins de 14 jours",
+            "children": []
+          },
+          {
+            "id": "dr-m-2",
+            "label": "Peser : perte de poids",
+            "children": []
+          },
+          {
+            "id": "dr-m-3",
+            "label": "Plans OMS A / B / C",
+            "children": []
+          },
+          {
+            "id": "dr-m-4",
+            "label": "Regarder : sang, glaires, eau de riz",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dr-m-orient",
+        "label": "Orienter",
+        "children": [
+          {
+            "id": "dr-m-5",
+            "label": "Virale : aqueuse, apyrétique",
+            "children": []
+          },
+          {
+            "id": "dr-m-6",
+            "label": "Invasive : fièvre + sang",
+            "children": []
+          },
+          {
+            "id": "dr-m-7",
+            "label": "Choléra : volume + épidémie",
+            "children": []
+          },
+          {
+            "id": "dr-m-8",
+            "label": "Parasitaire : amibiase, giardiase",
+            "children": []
+          },
+          {
+            "id": "dr-m-9",
+            "label": "Médicamenteuse : antibiotiques, C. difficile",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dr-m-urg",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "dr-m-10",
+            "label": "Déshydratation sévère : Ringer IV",
+            "children": []
+          },
+          {
+            "id": "dr-m-11",
+            "label": "Sepsis / fièvre typhoïde",
+            "children": []
+          },
+          {
+            "id": "dr-m-12",
+            "label": "SHU de l’enfant",
+            "children": []
+          },
+          {
+            "id": "dr-m-13",
+            "label": "Mégacôlon, iléus",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dr-m-exam",
+        "label": "Examens",
+        "children": [
+          {
+            "id": "dr-m-14",
+            "label": "Coproculture ciblée",
+            "children": []
+          },
+          {
+            "id": "dr-m-15",
+            "label": "Parasitologie des selles",
+            "children": []
+          },
+          {
+            "id": "dr-m-16",
+            "label": "NFS-CRP, ionogramme",
+            "children": []
+          },
+          {
+            "id": "dr-m-17",
+            "label": "Hémoculture si fièvre prolongée",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dr-m-pec",
+        "label": "PEC",
+        "children": [
+          {
+            "id": "dr-m-18",
+            "label": "SRO + zinc (enfant)",
+            "children": []
+          },
+          {
+            "id": "dr-m-19",
+            "label": "Antibiotiques ciblés",
+            "children": []
+          },
+          {
+            "id": "dr-m-20",
+            "label": "Pas d’antimotilité si sang/fièvre",
+            "children": []
+          },
+          {
+            "id": "dr-m-21",
+            "label": "Éducation, eau, déclaration",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "WHO — Diarrhoeal disease (fact sheet)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease",
+      "verifiedAt": "2026-10-28"
+    },
+    {
+      "label": "WHO — Cholera (fact sheet)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/cholera",
+      "verifiedAt": "2026-10-28"
+    },
+    {
+      "label": "WHO — Diarrhoea (health topic)",
+      "url": "https://www.who.int/health-topics/diarrhoea",
+      "verifiedAt": "2026-10-28"
+    }
+  ]
+}
