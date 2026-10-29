@@ -688,6 +688,24 @@ export const createAriariCheckout = createServerFn({ method: "POST" })
       throw new Error("Paiement Mobile Money non configuré");
     }
 
+    /**
+     * La commande AVANT le paiement : Ariari ne sert qu'à encaisser une
+     * commande déjà tracée. `clientRequestId` rend l'appel idempotent, donc un
+     * retour de l'utilisateur sur ce point d'entrée retrouve la MÊME référence
+     * (aucune commande en double).
+     *
+     * Conséquence assumée : un paiement abandonné laisse une commande en
+     * `created`, visible dans « Mes achats » et close par le back-office.
+     */
+    const purchase = await createPremiumPurchaseOrder({
+      data: {
+        clientRequestId: data.clientRequestId,
+        offer: data.offer,
+        specialty: data.specialty,
+        deckNumber: data.deckNumber,
+      },
+    });
+
     const normalized = normalizePremiumOrderInput({
       offer: data.offer,
       specialty: data.specialty,
@@ -700,7 +718,6 @@ export const createAriariCheckout = createServerFn({ method: "POST" })
       deckNumber: normalized.deckNumber,
     };
     const amount = orderAmount(order);
-    const label = orderLabel(order);
 
     const origin =
       process.env.BETTER_AUTH_URL ??
@@ -709,7 +726,7 @@ export const createAriariCheckout = createServerFn({ method: "POST" })
 
     const payment = await createAriariPayment({
       amount,
-      name: `Optimus · ${label}`,
+      name: `Optimus · ${purchase.reference}`,
       hooks: {
         redirectSuccess: `${origin}/paiement-retour?status=success&payment_id={PAYMENT_ID}`,
         redirectFailure: `${origin}/paiement-retour?status=failure&payment_id={PAYMENT_ID}`,
@@ -725,5 +742,6 @@ export const createAriariCheckout = createServerFn({ method: "POST" })
       paymentId: payment.id,
       amount,
       userId: context.userId,
+      orderReference: purchase.reference,
     };
   });
