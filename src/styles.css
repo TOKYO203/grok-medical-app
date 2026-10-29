@@ -142,53 +142,53 @@
 html[data-theme="dark"] {
   color-scheme: dark;
 
-  --app-bg: #0c1110;
-  --app-bg-elevated: #141a18;
-  --app-surface: #1a221f;
-  --app-surface-2: #222c28;
-  --app-fg: #e7ede8;
-  --app-muted: #93a09a;
-  --app-subtle: #7c8881;
+  /* Palette Oxford adaptée au sombre : olive profond, or, parchemin. */
+  --app-bg: #14180f;
+  --app-bg-elevated: #1c2218;
+  --app-surface: #222a1d;
+  --app-surface-2: #2a3325;
+  --app-fg: #ede0c8;
+  --app-muted: #a8a08a;
+  --app-subtle: #8a8470;
   --app-border: color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-border-strong: color-mix(in oklab, var(--app-fg) 22%, transparent);
-  --app-primary: #4ec98f;
-  --app-primary-fg: #06120d;
+  --app-primary: #a8bc8c;
+  --app-primary-fg: #14180f;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 18%, transparent);
-  --app-accent: #c45c4a;
-  /* Or éclairci pour rester lisible sur fond sombre (≈ 9:1). */
-  --app-gold: #d4b46a;
-  --app-gold-soft: #e8c97a;
-  --app-paper: #e7ede8;
-  --app-paper-fg: #141a18;
-  --app-ring: #3d8f6b;
-  /* #45a274 : succès AA en sombre — 5,44:1 sur --app-card et 6,05:1 sur --app-bg ;
-     l'ancien #3d8f6b ne donnait que 4,36:1 sur la carte sombre. */
-  --app-success: #45a274;
-  --app-warn: #c4a35a;
-  --app-danger: #cc6655;
-  --app-info: #74b0dd;
-  --app-card: #161d1b;
-  --app-secondary: #1e2724;
+  --app-accent: #d4a648;
+  /* Or clair : AA+ sur olive foncé (≈ 11:1). */
+  --app-gold: #e8c97a;
+  --app-gold-soft: #f0d898;
+  --app-paper: #ede0c8;
+  --app-paper-fg: #1f1a14;
+  --app-ring: #a8bc8c;
+  /* Succès en olive-vert (cohérent avec l'identité Oxford). */
+  --app-success: #8fb66e;
+  --app-warn: #d4a648;
+  --app-danger: #d97a6a;
+  --app-info: #8ab8d8;
+  --app-card: #1a2016;
+  --app-secondary: #252e1f;
 
   --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
   --app-shadow-md:
-    0 24px 64px -32px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.08);
+    0 24px 64px -32px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.06);
 
+  /* Fond global : gradient olive/or subtil (identité Oxford en sombre). */
   --app-body-bg:
-    radial-gradient(70rem 34rem at 85% -8%, rgb(78 201 143 / 0.1), transparent 60%),
-    radial-gradient(42rem 28rem at -12% 45%, rgb(61 143 107 / 0.06), transparent 65%),
-    #0c1110;
+    radial-gradient(70rem 34rem at 85% -8%, rgb(232 201 122 / 0.08), transparent 60%),
+    radial-gradient(42rem 28rem at -12% 45%, rgb(168 188 140 / 0.06), transparent 65%),
+    #14180f;
+  --hero-from: #8a9c6c;
+  --hero-to: #5c7044;
+  --hero-glow: rgb(232 201 122 / 0.18);
 
-  --hero-from: #4dae82;
-  --hero-to: #2f7f5d;
-  --hero-glow: rgb(255 255 255 / 0.2);
+  --app-skeleton-a: #252e1f;
+  --app-skeleton-b: #2a3325;
 
-  --app-skeleton-a: #1e2724;
-  --app-skeleton-b: #222c28;
-
-  --cover-1-from: #1a2a22;
-  --cover-1-to: #0e1612;
+  --cover-1-from: #1e2619;
+  --cover-1-to: #101408;
 }
 
 @layer base {
