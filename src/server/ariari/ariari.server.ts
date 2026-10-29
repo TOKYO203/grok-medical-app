@@ -30,6 +30,7 @@ export function __resetAriariForTests(): void { _client = null; }
 export type AriariPaymentStatus = "pending" | "incomplete" | "paid" | "failed";
 
 export type AriariPaymentInfo = {
+  name?: string;
   id: string;
   amount: number;
   status: AriariPaymentStatus;
