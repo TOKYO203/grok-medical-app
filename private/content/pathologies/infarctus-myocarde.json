@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "infarctus-myocarde",
+  "title": "Infarctus du myocarde",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une douleur thoracique aiguë, reconnaître un syndrome coronarien aigu, faire l'ECG et la troponine dans les délais, décider d'une reperfusion en urgence et organiser la prévention secondaire.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 20,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 61,
+      "localNumber": 20,
+      "sectionLabel": "Médecine",
+      "title": "Infarctus du myocarde",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2023 sur les syndromes coronariens aigus, de la recommandation américaine AHA/ACC 2025 et de la fiche descriptive de l'OMS sur les maladies cardiovasculaires. Chaque énoncé est reformulé ; les posologies détaillées ne sont pas données car elles dépendent du poids, de la fonction rénale et du protocole local, seuls les principes et les fenêtres temporelles sont rattachés à la source.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le titre affiché est l'intitulé exact du référentiel national (« Infarctus du myocarde ») ; la fiche couvre l'ensemble des syndromes coronariens aigus car l'item les regroupe, le sus-décalage de ST y est traité comme l'urgence de reperfusion.",
+      "La fenêtre de reperfusion suit les recommandations ESC 2023 : angioplastie primaire dans les 120 minutes après le diagnostic de STEMI, sinon fibrinolyse dans les 30 minutes si l'angioplastie n'est pas accessible dans le délai, transfert secondaire vers un centre d'angioplastie.",
+      "L'ECG illustratif provient de Wikimedia Commons (licence CC BY) : il montre un sus-décalage de ST typique, à visée pédagogique et non diagnostique."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie complète : les doses relèvent du protocole local et du terrain.",
+      "Image sous licence libre avec crédit et lien source affichés dans la fiche."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'infarctus du myocarde est la nécrose du muscle cardiaque consécutive à une ischémie prolongée, le plus souvent par rupture ou érosion d'une plaque d'athérome coronarienne avec formation d'un thrombus occlusif. C'est la première cause de mortalité cardiovasculaire dans le monde, et une urgence diagnostique et thérapeutique absolue : chaque minute de retard à la reperfusion est du myocarde perdu."
+        },
+        {
+          "type": "paragraph",
+          "text": "On distigue le syndrome coronarien aigu (SCA) avec sus-décalage persistant du segment ST (STEMI), qui impose une reperfusion immédiate, et le SCA sans sus-décalage (angor instable et infarctus sans sus-décalage), dont la prise en charge repose sur la stratification du risque et une coronarographie précoce."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Toute douleur thoracique aiguë d'allure coronarienne doit recevoir un ECG dans les dix minutes suivant le premier contact médical : le diagnostic de STEMI déclenche immédiatement la stratégie de reperfusion."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Rappels et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'athérome coronarien se développe pendant des années de façon silencieuse. La rupture de la plaque expose le collagène, active les plaquettes et la coagulation, et aboutit à un thrombus. Si le thrombus occluse totalement l'artère, le myocarde en aval nécrose en quelques heures : c'est le STEMI. Si l'occlusion est incomplète ou transitoire, l'ischémie est relative : c'est le SCA sans sus-décalage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs de risque majeurs : tabac, diabète, hypertension artérielle, dyslipidémie, antécédents familiaux précoces.",
+            "Terrain : homme de plus de 45 ans, femme de plus de 55 ans, mais aucun âge n'exclut le diagnostic.",
+            "Contexte malgache : la transition épidémiologique expose à une double charge, maladies infectieuses et maladies chroniques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Le SCA est un spectre continu, de l'angor instable à l'infarctus avec sus-décalage, dont le dénominateur commun est le thrombus coronarien récent : c'est lui que le traitement vise."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La douleur coronarienne typique est constrictive, rétrosternale, en étau, irradiant vers le bras gauche ou la mâchoire, prolongée (plus de vingt minutes), résistante au repos et à la trinitrine. Des formes atypiques sont fréquentes : douleur épigastrique, dyspnée isolée, lipothymie, surtout chez la femme, le diabétique et le sujet âgé."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/ST_elevation_myocardial_infarction_ECG.jpg?width=900",
+          "alt": "Tracé électrocardiographique à douze dérivations montrant un sus-décalage marqué du segment ST dans les dérivations précordiales, aspect typique d'infarctus du myocarde",
+          "caption": "ECG : sus-décalage concave du segment ST dans le territoire atteint — le signe qui déclenche la reperfusion en urgence.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ST_elevation_myocardial_infarction_ECG.jpg"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signe",
+            "SCA avec sus-décalage (STEMI)",
+            "SCA sans sus-décalage"
+          ],
+          "rows": [
+            [
+              "ECC initial",
+              "Sus-décalage de ST persistant ou bloc de branche gauche nouveau",
+              "Normal, sous-décalage de ST, inversion de T, ou normal"
+            ],
+            [
+              "Troponine",
+              "Élévée (le diagnostic ECG prime, ne pas attendre le résultat)",
+              "Dynamique : élévation ou chute des valeurs"
+            ],
+            [
+              "Reperfusion",
+              "Immédiate : angioplastie primaire ou fibrinolyse",
+              "Coronarographie précoce selon le risque (24-72 h)"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe des dix minutes",
+          "text": "ECG dès la prise en charge, double abord veineux, troponine, glycémie, bilan de coagulation, radiographie thoracique si doute, monitoring continuous et défibrillateur à portée de main."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les complications doivent être cherchées d'emblée : troubles du rythme ventriculaire, choc cardiogénique, œdème aigu du poumon, rupture mécanique. La échocardiographie montre l'altération de la contractilité du territoire atteint et guide le pronostic."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2023-ACS",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+          "year": 2023
+        },
+        {
+          "id": "SRC-AHA-2025-ACS",
+          "organization": "American Heart Association / American College of Cardiology",
+          "title": "2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans l'immense majorité des cas, l'infarctus complique une coronaropathie athéromateuse. Les causes non athéromateuses sont rares mais importantes à connaître car elles changent le traitement : dissection coronarienne spontanée, embolie coronarienne, spasme, coronarite."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dissection aortique : douleur migratrice, asymétrie tensionnelle, pouls absents — interdit l'anticoagulation.",
+            "Embolie pulmonaire : dyspnée dominante, hypoxie, signes de cœur droit.",
+            "Péricardite : douleur augmentée en décubitus, frottement, sus-décalage concave diffus.",
+            "Rupture œsophagienne : contexte de vomissements, emphysème sous-cutané, médiastinite."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne jamais conclure à une douleur bénigne (reflux, paroi) chez un patient à risque sans ECG et troponine : les présentations trompeuses sont la règle, pas l'exception."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement a deux objectifs simultanés : ouvrir l'artère occluse le plus vite possible et empêcher l'extension du thrombus. La reperfusion du STEMI se fait par angioplastie primaire dans les 120 minutes suivant le diagnostic ; si ce délai n'est pas atteignable, la fibrinolyse est réalisée dans les 30 minutes, suivie d'un transfert vers un centre d'angioplastie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Antiagrégation : aspirine dès la prise en charge, associée à un inhibiteur du récepteur P2Y12 selon la stratégie choisie.",
+            "Anticoagulation : héparine non fractionnée ou anticoagulant selon le protocole de reperfusion.",
+            "Antalgie : morphiniques par palier si douleur résistente, avec prudence en cas de signes de bas débit.",
+            "Repos, oxygénothérapie seulement si hypoxémie, monitoring, recherche et traitement des complications."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le temps c'est du muscle",
+          "text": "Le pronostic dépend directement du délai de reperfusion : l'objectif opérationnel est premier contact médical-ballon en moins de 120 minutes, et en cas de fibrinolyse porte-aiguille en moins de 30 minutes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans le SCA sans sus-décalage, la coronarographie est programmée dans les 24 à 72 heures selon la stratification du risque, fondée sur l'évolution clinique, l'ECC répété et la cinétique de la troponine."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2023-ACS",
+          "organization": "European Society of Cardiology (ESC)",
+          "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention secondaire commence dès la phase aiguë et dure toute la vie. Elle repose sur le contrôle des facteurs de risque et un traitement médicamenteux de fond dont l'observance conditionne le pronostic."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Arrêt absolu du tabac, avec accompagnement.",
+            "Statine à dose élevée, contrôle tensionnel et glycémique, activité physique progressive.",
+            "Bêtabloquant et inhibiteur de l'enzyme de conversion selon la fonction ventriculaire gauche.",
+            "Éducation du patient et de l'entourage : reconnaissance des symptômes, conduite à tenir en cas de récidive."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Rehabilitation",
+          "text": "La réadaptation cardiovasculaire réduit la mortalité et la réhospitalisation : elle doit être proposée systématiquement après un infarctus, même quand l'évolution aiguë a été simple."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WHO-CVD",
+          "organization": "Organisation mondiale de la Santé (OMS)",
+          "title": "Cardiovascular diseases — fact sheet",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Toute douleur thoracique aiguë a droit à un ECG en dix minutes.",
+            "Le STEMI se reperfuse en urgence : angioplastie ou fibrinolyse, selon les délais atteignables.",
+            "Le SCA sans sus-décalage se stratifie et se coronarographie précoce.",
+            "La prévention secondaire commence à l'hôpital et ne s'arrête plus."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir dérouler la démarche ECG-troponine-reperfusion avec les fenêtres temporelles est une question d'internat classique : les chiffres à connaître sont dix minutes pour l'ECG, 120 minutes pour l'angioplastie, 30 minutes pour la fibrinolyse."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les trois références structurantes sont les recommandations ESC 2023, la recommandation américaine AHA/ACC 2025 et la fiche descriptive de l'OMS."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Byrne RA, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J 2023.",
+            "Gutierrez JA, et al. 2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes. Circulation 2025.",
+            "OMS. Cardiovascular diseases — fact sheet, 2026."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-sca-rapide",
+      "label": "R.A.P.I.D.E.",
+      "intro": "La conduite à tenir préhospitalière devant une douleur thoracique suspecte.",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Reconnaître la douleur typique et le terrain à risque"
+        },
+        {
+          "key": "A",
+          "term": "Aspirine dès la suspicion, sauf allergie ou hémorragie active"
+        },
+        {
+          "key": "P",
+          "term": "Poser l'ECG dans les dix minutes du premier contact"
+        },
+        {
+          "key": "I",
+          "term": "Interpréter le segment ST et le comparer à un tracé antérieur"
+        },
+        {
+          "key": "D",
+          "term": "Décider la reperfusion si sus-décalage persistant"
+        },
+        {
+          "key": "E",
+          "term": "Évaluer l'hémodynamique et surveiller le rythme"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-sca-1",
+      "front": "Quel est le mécanisme principal de l'infarctus du myocarde ?",
+      "back": "Rupture ou érosion d'une plaque d'athérome avec thrombus occlusif sur une artère coronaire."
+    },
+    {
+      "id": "fc-sca-2",
+      "front": "Dans quel délai l'ECG doit-il être réalisé devant une douleur thoracique suspecte ?",
+      "back": "Dix minutes après le premier contact médical."
+    },
+    {
+      "id": "fc-sca-3",
+      "front": "Que déclenche un sus-décalage de ST persistant à l'ECG ?",
+      "back": "Le diagnostic de STEMI et la stratégie de reperfusion immédiate, sans attendre la troponine."
+    },
+    {
+      "id": "fc-sca-4",
+      "front": "Quel est l'objectif de délai pour l'angioplastie primaire ?",
+      "back": "Moins de 120 minutes entre le diagnostic et l'ouverture de l'artère (premier contact médical-ballon)."
+    },
+    {
+      "id": "fc-sca-5",
+      "front": "Que faire si l'angioplastie n'est pas atteignable dans le délai ?",
+      "back": "Fibrinolyse dans les 30 minutes, puis transfert vers un centre d'angioplastie."
+    },
+    {
+      "id": "fc-sca-6",
+      "front": "Quelle est la présentation atypique fréquente chez le diabétique ?",
+      "back": "Douleur épigastrique, dyspnée isolée ou lipothymie, voire absence de douleur."
+    },
+    {
+      "id": "fc-sca-7",
+      "front": "Quel diagnostic différentiel contre-indique l'anticoagulation ?",
+      "back": "La dissection aortique, à évoquer devant une douleur migratrice et une asymétrie tensionnelle."
+    },
+    {
+      "id": "fc-sca-8",
+      "front": "Quelle place a l'oxygénothérapie dans le SCA ?",
+      "back": "Uniquement en cas d'hypoxémie : l'oxygène systématique n'a pas de bénéfice."
+    },
+    {
+      "id": "fc-sca-9",
+      "front": "Quand coronarographier un SCA sans sus-décalage ?",
+      "back": "Dans les 24 à 72 heures, selon la stratification du risque clinique, ECG et troponine."
+    },
+    {
+      "id": "fc-sca-10",
+      "front": "Quels piliers de la prévention secondaire après infarctus ?",
+      "back": "Arrêt du tabac, statine, contrôle tensionnel et glycémique, bêtabloquant et IEC selon la fonction VG, réadaptation."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-sca-root",
+      "label": "Infarctus du myocarde",
+      "detail": "Nécrose myocardique par ischémie prolongée, le plus souvent sur thrombus coronarien occlusif."
+    },
+    "branches": [
+      {
+        "id": "map-sca-physio",
+        "label": "Physiopathologie",
+        "detail": "Rupture de plaque, thrombus, occlusion, nécrose du myocarde en aval.",
+        "children": [
+          {
+            "id": "map-sca-physio-1",
+            "label": "Plaque instable",
+            "leaves": [
+              {
+                "id": "map-sca-physio-1a",
+                "label": "Rupture ou érosion"
+              },
+              {
+                "id": "map-sca-physio-1b",
+                "label": "Athérome chronique sous-jacent"
+              }
+            ]
+          },
+          {
+            "id": "map-sca-physio-2",
+            "label": "Thrombus",
+            "leaves": [
+              {
+                "id": "map-sca-physio-2a",
+                "label": "Occlusion complète : STEMI"
+              },
+              {
+                "id": "map-sca-physio-2b",
+                "label": "Occlusion partielle : NSTEMI/angor instable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-sca-diag",
+        "label": "Diagnostic",
+        "detail": "Douceur typique, ECG en dix minutes, troponine, échocardiographie.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-sca-diag-1",
+            "label": "ECG",
+            "leaves": [
+              {
+                "id": "map-sca-diag-1a",
+                "label": "Sus-décalage ST : STEMI"
+              },
+              {
+                "id": "map-sca-diag-1b",
+                "label": "Sous-décalage, T négatives ou normal"
+              }
+            ]
+          },
+          {
+            "id": "map-sca-diag-2",
+            "label": "Marqueurs",
+            "leaves": [
+              {
+                "id": "map-sca-diag-2a",
+                "label": "Troponine ultrasensible, cinétique"
+              },
+              {
+                "id": "map-sca-diag-2b",
+                "label": "Bilan d'hémostase, glycémie, créatinine"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-sca-trt",
+        "label": "Traitement",
+        "detail": "Reperfusion urgente du STEMI, antithrombotiques, stratification du SCA sans sus-décalage.",
+        "tone": "urgence",
+        "children": [
+          {
+            "id": "map-sca-trt-1",
+            "label": "Reperfusion",
+            "leaves": [
+              {
+                "id": "map-sca-trt-1a",
+                "label": "Angioplastie < 120 min"
+              },
+              {
+                "id": "map-sca-trt-1b",
+                "label": "Fibrinolyse < 30 min sinon"
+              }
+            ]
+          },
+          {
+            "id": "map-sca-trt-2",
+            "label": "Médicaments",
+            "leaves": [
+              {
+                "id": "map-sca-trt-2a",
+                "label": "Aspirine + P2Y12"
+              },
+              {
+                "id": "map-sca-trt-2b",
+                "label": "Anticoagulation selon stratégie"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-sca-prev",
+        "label": "Prévention",
+        "detail": "Prévention secondaire à vie : facteurs de risque, traitements de fond, réadaptation.",
+        "children": [
+          {
+            "id": "map-sca-prev-1",
+            "label": "Hygiène",
+            "leaves": [
+              {
+                "id": "map-sca-prev-1a",
+                "label": "Arrêt du tabac"
+              },
+              {
+                "id": "map-sca-prev-1b",
+                "label": "Activité physique progressive"
+              }
+            ]
+          },
+          {
+            "id": "map-sca-prev-2",
+            "label": "Fond",
+            "leaves": [
+              {
+                "id": "map-sca-prev-2a",
+                "label": "Statine à dose élevée"
+              },
+              {
+                "id": "map-sca-prev-2b",
+                "label": "Bêtabloquant, IEC selon FEVG"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2023-ACS",
+      "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+      "citation": "Byrne RA, Rossello X, Coughlan JJ, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J. 2023 ; 44 (37) : 3720-3826. doi:10.1093/eurheartj/ehad191.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2023,
+      "version": "2023 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehad191",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Définition",
+        "Stratégie diagnostique",
+        "Fenêtre de reperfusion",
+        "Traitement antithrombotique",
+        "Prévention secondaire"
+      ]
+    },
+    {
+      "id": "SRC-AHA-2025-ACS",
+      "title": "2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+      "citation": "Gutierrez JA, Bhatt DL, Hirsch JC, et al. 2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes. Circulation. 2025 ; 151 (13) : e771-e862. doi:10.1161/CIR.0000000000001308.",
+      "organization": "American Heart Association / American College of Cardiology",
+      "year": 2025,
+      "version": "2025 guideline",
+      "url": "https://doi.org/10.1161/CIR.0000000000001308",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Prise en charge préhospitalière",
+        "Choix de la stratégie de reperfusion",
+        "Antiagrégants",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-WHO-CVD",
+      "title": "Cardiovascular diseases — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Cardiovascular diseases — fact sheet. Genève : OMS ; 2026. Consulté le 30 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Épidémiologie",
+        "Facteurs de risque",
+        "Prévention"
+      ]
+    }
+  ]
+}
