@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "angine-poitrine",
+  "title": "Angine de poitrine",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une douleur thoracique évocatrice d'angine de poitrine, distinguer l'angor stable de l'angor instable, reconnaître le syndrome coronarien aigu sans sus-décalage, stratifier le risque pour fixer le délai de coronarographie, et initier le traitement sans retard.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 56,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 97,
+      "localNumber": 56,
+      "sectionLabel": "Médecine",
+      "title": "Angine de poitrine",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2023 sur les syndromes coronariens aigus, de la recommandation NICE NG95 sur la douleur thoracique d'apparition récente et de la recommandation américaine AHA/ACC 2025, avec reformulation complète. L'angor stable est couvert selon les principes de la maladie coronarienne chronique. Les posologies ne sont pas détaillées : elles dépendent du poids, de la fonction rénale et du protocole local ; seuls les principes et les délais sont rattachés aux sources.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Angine de poitrine » (Médecine n°56) : la fiche couvre l'angor stable, l'angor instable au sens strict et l'infarctus sans sus-décalage (NSTEMI), car les recommandations internationales regroupent les deux derniers sous le SCA sans sus-décalage de ST, avec une stratégie commune fondée sur la stratification du risque.",
+      "Les délais de coronarographie suivent ESC 2023 : moins de 2 heures si risque très haut, moins de 24 heures si haut risque, et stratégie invasive différée (au plus tard 72 heures) si risque faible ou intermédiaire.",
+      "Aucune image : le diagnostic repose sur la clinique, l'ECG répété et la troponine ; les clichés utiles sont identiques à ceux de la fiche Infarctus du myocarde, à laquelle le lecteur est renvoyé pour l'ECG illustré."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie détaillée : principes et délais uniquement.",
+      "Délimitation explicite avec la fiche Infarctus du myocarde pour éviter le doublon."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angine de poitrine (angor) est une douleur thoracique d'origine ischémique : inadéquation transitoire entre les besoins du myocarde et l'apport coronarien, sans nécrose. Elle est dite stable quand elle est reproductible à l'effort, cède au repos ou à la trinitrine, et ne progresse pas ; elle devient instable quand elle change de comportement."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'angor instable survient au repos, ou est d'apparition récente et intense, ou crescendo sur un angor jusque-là stable : il traduit une plaque instable, non totalement occlusive, qui menace d'infarctus. C'est une urgence dont le pronostic dépend de la précocité de la prise en charge."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avec l'infarctus sans sus-décalage (troponine élevée sans sus-décalage de ST), il constitue le syndrome coronarien aigu sans sus-décalage. La distinction angor instable / NSTEMI repose sur la troponine ; la stratégie, elle, repose sur la stratification du risque."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence relative",
+          "text": "L'angor instable n'est pas le SCA avec sus-décalage : il ne déclenche pas une reperfusion immédiate, mais un risque d'infarctus ou de mort subite dans les jours qui suivent, qui impose une hospitalisation et une stratégie invasive programmée selon le risque."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Formes cliniques et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angor stable traduit une sténose coronarienne fixe : l'ischémie apparaît quand la demande myocardique dépasse l'apport possible, et cesse au repos. L'angor instable repose, lui, sur une plaque fragile : rupture ou érosion avec thrombus non occlusif, vasospasme associé possible. L'ischémie y est transitoire, d'où l'absence de nécrose si la troponine reste normale."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Angor de repos prolongé (plus de vingt minutes), récent.",
+            "Angor d'apparition récente, d'effort, sévère (moins d'un mois).",
+            "Angor crescendo : effort toléré de plus en plus faible pour une même douleur.",
+            "Angor post-infarctus ou post-revascularisation : pronostic plus sévère."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Trois situations d'angor instable : repos, de novo sévère, crescendo. Toute douleur coronarienne qui change de comportement est instable jusqu'à preuve du contraire."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La douleur est typiquement constrictive, rétrosternale, à facteur déclenchant clair, résistée par la trinitrine plus lentement qu'un angor stable. L'examen est souvent normal : c'est la cohérence clinicité-terrain qui fait la probabilité, pas l'auscultation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Angor stable",
+            "Angor instable / NSTEMI"
+          ],
+          "rows": [
+            [
+              "Circonstances",
+              "Effort reproductible, cède au repos",
+              "Repos, de novo, crescendo, post-infarctus"
+            ],
+            [
+              "ECG",
+              "Normal ou anomalies fixes",
+              "Sous-décalage de ST, inversion de T, dynamique entre deux tracés"
+            ],
+            [
+              "Troponine",
+              "Normale",
+              "Normale (angor instable) ou élevée (NSTEMI)"
+            ],
+            [
+              "Lieu de prise en charge",
+              "Ambulatoire, bilan programmé",
+              "Hospitalisation, monitorage, coronarographie selon risque"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "ECG répété pendant la douleur et à distance : un sous-décalage dynamique est une signature d'instabilité. Troponine à h0 et h1 ou h3 selon le protocole : sa cinétique sépare l'angor instable du NSTEMI."
+        },
+        {
+          "type": "paragraph",
+          "text": "La stratification du risque combine l'état clinique (récidive de douleur, instabilité hémodynamique, trouble du rythme), l'ECG et la troponine, éventuellement formalisée par un score de type GRACE. Elle seule fixe le délai de la coronarographie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2023-ACS",
+          "organization": "ESC",
+          "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+          "year": 2023
+        },
+        {
+          "id": "SRC-NICE-NG95",
+          "organization": "NICE",
+          "title": "Chest pain of recent onset — NG95",
+          "year": 2016
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant une douleur thoracique atypique, la démarche doit d'abord trancher entre origine coronarienne et imitateurs, sans jamais banaliser une douleur de nouveau type chez un patient à risque. Les diagnostics différentiels sont ceux de toute douleur thoracique aiguë."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dissection aortique, embolie pulmonaire, péricardite : à éliminer avant l'anticoagulation.",
+            "Douleur pariétale, reflux gastro-œsophagien, douleur biliaire : diagnostics d'élimination.",
+            "Anémie, hyperthyroïdie, arythmie rapide : causes d'angor aggravé sur sténose fixe, sans plaque instable."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Une douleur thoracique prolongée avec troponine normale et ECG normal n'exclut pas le SCA : la répéter de l'ECG et de la troponine devant toute récidive, et une forme à haut risque peut ne jamais fournir de preuve que rétrospectivement."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Angor stable : trinitrine à la demande pour les crises, bêtabloquant en traitement de fond, statine, contrôle de la tension et du diabète, arrêt du tabac et activité physique régulière. Toute modification du profil de la douleur fait reconsidérer le diagnostic d'instabilité."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe le repos et l'antalgique, la double antiagrégation (aspirine plus inhibiteur du P2Y12), une anticoagulation pendant la phase aiguë, un bêtabloquant et une statine à dose élevée, avec contrôle de la glycémie et de la tension. La nitréservation couvre la douleur résiduelle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Double antiagrégation initiée dès le diagnostic, sauf risque hémorragique majeur.",
+            "Anticoagulation pendant l'hospitalisation jusqu'à la coronarographie.",
+            "Coronarographie : moins de 2 heures si instabilité menaçante, moins de 24 heures si haut risque, différée au plus tard 72 heures sinon.",
+            "Revascularisation selon anatomie : angioplastie ou pontage selon le bilan lésionnel."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Récidive de douleur sous traitement, instabilité hémodynamique, trouble du rythme ou insuffisance cardiaque : le risque devient très haut et la coronarographie doit être immédiate, comme un STEMI."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après la phase aiguë, la prévention secondaire suit les mêmes piliers que l'infarctus : statine, arrêt du tabac, contrôle tensionnel et glycémique, activité physique, et poursuite de la double antiagrégation pendant la durée recommandée selon le stent posé."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2023-ACS",
+          "organization": "ESC",
+          "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+          "year": 2023
+        },
+        {
+          "id": "SRC-AHA-2025-ACS",
+          "organization": "AHA/ACC",
+          "title": "2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angor instable est le signal d'une maladie coronarienne active : après la stabilisation, le suivi est celui de la maladie coronarienne chronique, avec une attention particulière à l'observance de la double antiagrégation après revascularisation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Observance de la double antiagrégation : arrêt prématuré = risque de thrombose de stent.",
+            "Contrôle des facteurs de risque et statine à dose élevée.",
+            "Éducation : reconnaître une récidive et consulter sans délai."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Après l'épisode aigu et la revascularisation, la fiche de référence devient celle de la maladie coronarienne chronique : l'angor instable est une porte d'entrée dans la maladie, pas un épisode isolé."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Angor stable : effort reproductible, cède au repos ; trinitrine à la demande et contrôle des facteurs de risque.",
+            "Toute douleur coronarienne qui change de comportement est instable.",
+            "Troponine normale : angor instable ; élevée : NSTEMI — la stratégie, elle, dépend du risque.",
+            "Hospitalisation, double antiagrégation, anticoagulation, statine.",
+            "Le délai de coronarographie est dicté par la stratification du risque, pas par la troponine seule."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir citer les trois formes d'instabilité (repos, de novo, crescendo) et les délais de coronarographie ESC 2023 : c'est l'articulation clinique-stratification qui est interrogée."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les trois références structurantes sont les recommandations ESC 2023, la recommandation NICE NG95 et la recommandation américaine AHA/ACC 2025."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Byrne RA, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J 2023.",
+            "NICE. Chest pain of recent onset — NG95, 2016, mise à jour 2022.",
+            "Gutierrez JA, et al. 2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline. Circulation 2025."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-ai-3r",
+      "label": "R.E.P.O.S.",
+      "intro": "Les critères d'instabilité de l'angor et le socle du traitement.",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Repos : douleur survenant au repos, prolongée"
+        },
+        {
+          "key": "E",
+          "term": "Évolution crescendo : effort toléré en baisse"
+        },
+        {
+          "key": "P",
+          "term": "Première fois : angor d'apparition récente et sévère"
+        },
+        {
+          "key": "O",
+          "term": "ECG et troponine répétés : dynamique = instabilité"
+        },
+        {
+          "key": "S",
+          "term": "Stratification : le risque fixe le délai de coronarographie"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-ai-1",
+      "front": "Quelles sont les trois formes d'angor instable ?",
+      "back": "Douleur de repos prolongée, angor d'apparition récente sévère, angor crescendo."
+    },
+    {
+      "id": "fc-ai-2",
+      "front": "Qu'est-ce qui distingue l'angor instable du NSTEMI ?",
+      "back": "La troponine : normale dans l'angor instable, élevée dans le NSTEMI."
+    },
+    {
+      "id": "fc-ai-3",
+      "front": "Quel est le mécanisme de l'angor instable ?",
+      "back": "Plaque instable avec thrombus non occlusif, ischémie transitoire sans nécrose."
+    },
+    {
+      "id": "fc-ai-4",
+      "front": "Quel signe ECG oriente vers l'instabilité ?",
+      "back": "Sous-décalage de ST ou inversion de T, surtout s'il est dynamique entre deux tracés."
+    },
+    {
+      "id": "fc-ai-5",
+      "front": "Quel traitement antiplaquettaire initial ?",
+      "back": "Double antiagrégation : aspirine plus inhibiteur du P2Y12, sauf risque hémorragique majeur."
+    },
+    {
+      "id": "fc-ai-6",
+      "front": "Quel délai de coronarographie chez un patient à haut risque ?",
+      "back": "Moins de 24 heures selon ESC 2023 (moins de 2 heures si instabilité menaçante)."
+    },
+    {
+      "id": "fc-ai-7",
+      "front": "Et chez un patient à risque faible ou intermédiaire ?",
+      "back": "Stratégie invasive différée, coronarographie au plus tard dans les 72 heures."
+    },
+    {
+      "id": "fc-ai-8",
+      "front": "Quels imitateurs éliminer avant d'anticoaguler ?",
+      "back": "Dissection aortique, embolie pulmonaire, péricardite."
+    },
+    {
+      "id": "fc-ai-9",
+      "front": "Que faire si la douleur récidive sous traitement ?",
+      "back": "Risque très haut : coronarographie immédiate, comme un STEMI."
+    },
+    {
+      "id": "fc-ai-10",
+      "front": "Quel suivi après revascularisation ?",
+      "back": "Prévention secondaire stricte et observance de la double antiagrégation pour éviter la thrombose de stent."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-ai-root",
+      "label": "Angine de poitrine",
+      "detail": "Douleur thoracique ischémique sans nécrose : stable si reproductible à l'effort, instable si elle change de comportement."
+    },
+    "branches": [
+      {
+        "id": "map-ai-formes",
+        "label": "Formes",
+        "detail": "Repos, de novo sévère, crescendo, post-infarctus.",
+        "children": [
+          {
+            "id": "map-ai-formes-1",
+            "label": "Instabilité",
+            "leaves": [
+              {
+                "id": "map-ai-formes-1a",
+                "label": "Repos prolongé"
+              },
+              {
+                "id": "map-ai-formes-1b",
+                "label": "Crescendo"
+              }
+            ]
+          },
+          {
+            "id": "map-ai-formes-2",
+            "label": "Frontière",
+            "leaves": [
+              {
+                "id": "map-ai-formes-2a",
+                "label": "Troponine normale : angor instable"
+              },
+              {
+                "id": "map-ai-formes-2b",
+                "label": "Troponine élevée : NSTEMI"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ai-diag",
+        "label": "Diagnostic",
+        "detail": "Clinique + ECG répété + troponine, puis stratification du risque.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-ai-diag-1",
+            "label": "ECG",
+            "leaves": [
+              {
+                "id": "map-ai-diag-1a",
+                "label": "Sous-décalage dynamique"
+              },
+              {
+                "id": "map-ai-diag-1b",
+                "label": "Tracé répété à la douleur"
+              }
+            ]
+          },
+          {
+            "id": "map-ai-diag-2",
+            "label": "Risque",
+            "leaves": [
+              {
+                "id": "map-ai-diag-2a",
+                "label": "Récidive, hémodynamique, rythme"
+              },
+              {
+                "id": "map-ai-diag-2b",
+                "label": "Troponine, score GRACE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ai-trt",
+        "label": "Traitement",
+        "detail": "Antithrombotiques immédiats, statine, coronarographie selon risque.",
+        "children": [
+          {
+            "id": "map-ai-trt-1",
+            "label": "Immédiat",
+            "leaves": [
+              {
+                "id": "map-ai-trt-1a",
+                "label": "Aspirine + P2Y12"
+              },
+              {
+                "id": "map-ai-trt-1b",
+                "label": "Anticoagulation, bêtabloquant"
+              }
+            ]
+          },
+          {
+            "id": "map-ai-trt-2",
+            "label": "Délais",
+            "leaves": [
+              {
+                "id": "map-ai-trt-2a",
+                "label": "< 2 h si menaçant"
+              },
+              {
+                "id": "map-ai-trt-2b",
+                "label": "< 24 h si haut risque, < 72 h sinon"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ai-prev",
+        "label": "Suivi",
+        "detail": "Prévention secondaire de la maladie coronarienne, observance post-stent.",
+        "children": [
+          {
+            "id": "map-ai-prev-1",
+            "label": "Médicaments",
+            "leaves": [
+              {
+                "id": "map-ai-prev-1a",
+                "label": "Statine à dose élevée"
+              },
+              {
+                "id": "map-ai-prev-1b",
+                "label": "Double antiagrégation poursuivie"
+              }
+            ]
+          },
+          {
+            "id": "map-ai-prev-2",
+            "label": "Hygiène",
+            "leaves": [
+              {
+                "id": "map-ai-prev-2a",
+                "label": "Arrêt du tabac"
+              },
+              {
+                "id": "map-ai-prev-2b",
+                "label": "Éducation à la récidive"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2023-ACS",
+      "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+      "citation": "Byrne RA, Rossello X, Coughlan JJ, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J. 2023 ; 44 (37) : 3720-3826. doi:10.1093/eurheartj/ehad191.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2023,
+      "version": "2023 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehad191",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Définition",
+        "Stratification du risque",
+        "Délai de coronarographie",
+        "Traitement antithrombotique",
+        "Recommandations"
+      ]
+    },
+    {
+      "id": "SRC-NICE-NG95",
+      "title": "Chest pain of recent onset: assessment and diagnosis — NICE guideline NG95",
+      "citation": "National Institute for Health and Care Excellence. Chest pain of recent onset: assessment and diagnosis. NICE guideline NG95. Londres : NICE ; 2016, mise à jour 2022. Consulté le 30 octobre 2026.",
+      "organization": "National Institute for Health and Care Excellence (NICE)",
+      "year": 2016,
+      "version": "NG95, mise à jour 2022",
+      "url": "https://www.nice.org.uk/guidance/ng95",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Démarche diagnostique",
+        "Place de la troponine",
+        "Probabilité clinique",
+        "Avis rapide"
+      ]
+    },
+    {
+      "id": "SRC-AHA-2025-ACS",
+      "title": "2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+      "citation": "Gutierrez JA, Bhatt DL, Hirsch JC, et al. 2025 AHA/ACC/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes. Circulation. 2025 ; 151 (13) : e771-e862. doi:10.1161/CIR.0000000000001308.",
+      "organization": "American Heart Association / American College of Cardiology",
+      "year": 2025,
+      "version": "2025 guideline",
+      "url": "https://doi.org/10.1161/CIR.0000000000001308",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Prise en charge",
+        "Stratégie invasive",
+        "Suivi"
+      ]
+    }
+  ]
+}
