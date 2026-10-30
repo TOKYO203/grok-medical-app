@@ -34,11 +34,24 @@ export const Route = createFileRoute("/decouvrir")({ component: DecouvrirPage })
    - public sans session : src/lib/cloud/gate.ts (PUBLIC_PATHS).
    ============================================================================ */
 
+/* Chaque badge portant un `to` pointe vers la page publique qui le démontre
+   (pages trust) — la confiance se démontre, elle ne se promet pas. */
 const TRUST_BADGES = [
-  "567 questions expliquées et sourcées",
-  "Sources affichées section par section (OMS, HAS, sociétés savantes)",
-  "Statut de relecture médicale public et daté",
-  "Outil pédagogique, pas un outil de diagnostic",
+  {
+    label: "567 questions expliquées et sourcées",
+    to: "/methodologie" as const,
+  },
+  {
+    label: "Sources affichées section par section (OMS, HAS, sociétés savantes)",
+    to: "/sources" as const,
+  },
+  {
+    label: "Statut de relecture médicale public et daté",
+    to: "/politique-editoriale" as const,
+  },
+  {
+    label: "Outil pédagogique, pas un outil de diagnostic",
+  },
 ] as const;
 
 const PILLARS = [
@@ -77,8 +90,8 @@ const PERSONAS = [
     title: "Responsable pédagogique",
     quote: "Un socle de révision sourcé et relu, avec un suivi de progression pour toute votre promotion.",
     body: "Licences multi-sièges, contenu vérifiable devant votre hiérarchie, statistiques de progression par promotion.",
-    to: "/contact" as const,
-    cta: "Nous contacter",
+    to: "/institutionnel" as const,
+    cta: "Voir l'offre établissements",
   },
 ] as const;
 
@@ -148,12 +161,21 @@ function DecouvrirPage() {
           <ul className="grid gap-2 sm:grid-cols-2">
             {TRUST_BADGES.map((badge) => (
               <li
-                key={badge}
+                key={badge.label}
                 className="flex items-start gap-2 rounded-[var(--r-md)] bg-secondary p-[var(--sp-3)] text-sm text-fg"
-                data-landing-trust={badge}
+                data-landing-trust={badge.label}
               >
                 <Check className="mt-0.5 size-4 shrink-0 text-[var(--tone-accent)]" aria-hidden="true" />
-                {badge}
+                {"to" in badge && badge.to ? (
+                  <Link
+                    to={badge.to}
+                    className="font-medium text-primary underline-offset-2 hover:underline"
+                  >
+                    {badge.label}
+                  </Link>
+                ) : (
+                  badge.label
+                )}
               </li>
             ))}
           </ul>
@@ -269,7 +291,7 @@ function DecouvrirPage() {
               <p className="mt-1 text-sm leading-relaxed text-muted">
                 Licences multi-sièges pour une promotion, une école ou un service hospitalier.
               </p>
-              <ButtonLink to="/contact" variant="secondary" size="sm" className="mt-3">
+              <ButtonLink to="/institutionnel" variant="secondary" size="sm" className="mt-3">
                 Demander une démonstration
               </ButtonLink>
             </Card>
