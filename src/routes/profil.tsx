@@ -32,6 +32,7 @@ import { ExperienceControls } from "@/components/experience-controls";
 import { AccentSelector, ThemeSelector } from "@/components/theme-toggle";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
+import QRCode from "react-qr-code";
 import { Button as DsButton } from "@/components/ui/ds/Button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -390,6 +391,11 @@ function ProfilPage() {
     }
   }
 
+  const referralUrl =
+    typeof window !== "undefined"
+      ? window.location.origin + "/?ref=" + profile.optimusId
+      : "https://optimusmedical.pages.dev/?ref=" + profile.optimusId;
+
   return (
     <Shell title="Profil">
       <div
@@ -461,6 +467,14 @@ function ProfilPage() {
                 en indiquant son identifiant pour valider la récompense.
               </p>
             </div>
+          </div>
+          <div className="mt-4 flex flex-col items-center gap-3 rounded-[var(--radius-lg)] bg-secondary p-4 sm:flex-row" data-qr="react-qr-code-card">
+            <div className="rounded-[var(--radius-md)] bg-white p-2">
+              <QRCode value={referralUrl} size={120} level="M" fgColor="#3E4A2A" bgColor="#FFFFFF" />
+            </div>
+            <p className="text-center text-xs leading-relaxed text-muted sm:text-left">
+              Scanne avec l&apos;appareil photo de ton téléphone pour ouvrir Optimus avec ton code de parrainage.
+            </p>
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <Button onClick={shareReferral}>Partager mon lien</Button>
