@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "pneumothorax",
+  "title": "Pneumothorax",
+  "subtitle": "Nosographie — sémiologie",
+  "objective": "Devant une douleur thoracique brutale avec dyspnée, reconnaître le pneumothorax, identifier d'emblée le pneumothorax compressif qui menace la vie, et choisir entre surveillance, exsufflation et drainage selon le type et la tolérance.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — sémiologie",
+    "chapterNumber": 21,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 21,
+      "localNumber": 21,
+      "sectionLabel": "Sémiologie",
+      "title": "Pneumothorax",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations de la British Thoracic Society sur les maladies pleurales (2023) et sur le pneumothorax spontané (2020), avec reformulation complète de chaque énoncé. Les gestes techniques (drainage, pleurodèse) sont décrits dans leurs principes et indications, sans détail opératoire, et les particularités locales sont signalées sans être inventées.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "L'intitulé du référentiel national est « Pneumothorax » sans qualification : la fiche couvre le pneumothorax spontané primaire et secondaire, le pneumothorax iatrogène et traumatique en tant que diagnostics à évoquer, et le pneumothorax compressif comme urgence immédiate.",
+      "Le pneumothorax compressif est une urgence vitale qui se traite avant tout examen d'imagerie si le tableau clinique est typique : la fiche le signale explicitement, conformément aux recommandations BTS.",
+      "La radio illustrative provient de Wikimedia Commons (licence CC BY-SA) : cliché pédagogique, sans valeur diagnostique individuelle."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune description opératoire détaillée des gestes : indications et principes uniquement.",
+      "Image sous licence libre avec crédit et lien source affichés dans la fiche."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le pneumothorax est la présence d'air dans la cavité pleurale, qui effondre partiellement ou totalement le poumon du côté atteint. Il se révèle le plus souvent par une douleur thoracique brutale, en coup de poignard, avec dyspnée. Sa gravité va de la gêne banale du jeune fumeur longiligne à l'urgence absolue du pneumothorax compressif, où l'air sous tension comprime le médiastin et arrête le retour veineux."
+        },
+        {
+          "type": "paragraph",
+          "text": "On distingue le pneumothorax spontané primaire, sur poumon sain chez un sujet jeune, du pneumothorax spontané secondaire, sur poumon pathologique (BPCO en particulier), dont le pronostic est plus sévère. Le pneumothorax iatrogène (ponction, voie veineuse centrale, ventilation mécanique) et traumatique relèvent de la même sémiologie."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence vitale",
+          "text": "Devant un tableau de détresse respiratoire avec tachycardie, hypotension, tympanisme, abolition du murmure vésiculaire et distension des veines du cou, le pneumothorax compressif se traite par exsufflation immédiate à l'aiguille, sans attendre la radiographie."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et types",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La plèvre viscérale se rompt, le plus souvent au niveau d'une bulle sous-pleurale : l'air quitte l'alvéole vers la cavité pleurale, la pression négative qui maintient le poumon appliqué à la paroi disparaît et le poumon se rétracte. Si la brèche fonctionne en valve, l'air s'accumule à chaque inspiration sans pouvoir ressortir : la pression intrapleurale monte, le médiastin se déplace du côté opposé, c'est le compressif."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Spontané primaire : sujet jeune, longiligne, fumeur, rupture d'une bulle sous-pleurale.",
+            "Spontané secondaire : poumon malade, surtout BPCO, plus grave du fait de la réserve respiratoire limitée.",
+            "Iatrogène : ponction pleurale, pose de voie veineuse centrale, biopsie, ventilation mécanique.",
+            "Traumatique ou barotraumatisme : à évoquer devant tout traumatisme thoracique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Trois questions structurent la prise en charge : le pneumothorax est-il compressif ? Est-il primaire ou secondaire ? Est-il bien toléré ? Les réponses décident entre exsufflation, drainage et surveillance."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La douleur est brutale, latéro-thoracique, en coup de poignard, majorée par la respiration, associée à une dyspnée d'importance variable. L'examen retrouve une abolition du murmure vésiculaire et une sonorité tympanique du côté atteint ; les crepitants (hippocratisme digital) n'apparaissent que dans les formes secondaires évoluées."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pneumothorax_CXR.jpg?width=900",
+          "alt": "Radiographie thoracique montrant un décollement pleural avec rétraction du poumon et absence de trame pulmonaire périphérique, aspect de pneumothorax",
+          "caption": "Radiographie thoracique : ligne pleurale visible avec hyperclarté avasculaire en périphérie — le décollement pleural du pneumothorax.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pneumothorax_CXR.jpg"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signe",
+            "Pneumothorax simple",
+            "Pneumothorax compressif"
+          ],
+          "rows": [
+            [
+              "Douleur, dyspnée",
+              "Présentes, tolérées",
+              "Détresse respiratoire majeure"
+            ],
+            [
+              "Hémodynamique",
+              "Stable",
+              "Tachycardie, hypotension, veines du cou dilatées"
+            ],
+            [
+              "Médiastin",
+              "En place",
+              "Dévié du côté opposé, crampon du retour veineux"
+            ],
+            [
+              "Conduite",
+              "Imagerie puis traitement selon tolérance",
+              "Exsufflation immédiate, avant l'imagerie"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe sémiologique",
+          "text": "Comparer les deux hémithorax : asymétrie d'ampliation, de sonorité et de murmure vésiculaire. Un hémithorax silencieux et tympanique chez un patient dyspnéique est un pneumothorax jusqu'à preuve du contraire."
+        },
+        {
+          "type": "paragraph",
+          "text": "La radiographie thoracique de face confirme le décollement : ligne pleurale fine avec hyperclarté avasculaire au-delà. Le scanner est plus sensible, utile pour les petits pneumothorax, les formes complexes et la planification d'une chirurgie. La mesure de la distance entre la ligne pleurale et la paroi guide la taille."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BTS-2023-PLEURAL",
+          "organization": "British Thoracic Society (BTS)",
+          "title": "British Thoracic Society Guideline for pleural disease",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez le sujet jeune, la rupture d'une bulle sous-pleurale domine. Chez le sujet âgé ou emphysémateux, toute décompensation respiratoire brutale doit faire chercher un pneumothorax secondaire, souvent mal toléré. La recherche de la cause oriente aussi la prévention des récidives."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Emphysème des BPCO et dystrophies bulleuses : première cause de pneumothorax secondaire.",
+            "Pathologies infiltratives, endométriose thoracique, infections à germes nécrosants : plus rares.",
+            "Gestes à risque : ponction pleurale, voie veineuse centrale, biopsie transpariétale, ventilation en pression positive."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Chez le patient en ventilation mécanique, un pneumothorax peut se compresser en quelques minutes : toute dégradation brutale des pressions et de la saturation sous ventilation doit faire évacuer l'air immédiatement."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement vise à évacuer l'air de la cavité pleurale et à laisser le poumon se réappliquer. Les modalités dépendent du type, de la taille et surtout de la tolérance : la surveillance simple est légitime pour un petit pneumothorax primaire bien toléré, tandis que tout pneumothorax compressif impose une exsufflation immédiate à l'aiguille, relayée par un drainage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Compressif : exsufflation à l'aiguille en urgence, puis drainage thoracique.",
+            "Secondaire ou mal toléré : drainage thoracique d'emblée.",
+            "Primaire de taille significative : drainage, aspiration ou dispositif ambulatoire selon les ressources locales.",
+            "Oxygène à haut débit : accélère la résorption de l'air pleural, utile dans les formes surveillées.",
+            "Récidives ou persistance du bullage : discussion de pleurodèse ou de chirurgie thoracique"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Geste qui sauve",
+          "text": "L'exsufflation à l'aiguille du pneumothorax compressif se fait au lit du patient, au deuxième espace intercostal sur la ligne médio-claviculaire : la décompression transforme instantanément un patient agonisant en patient stable."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'ablation du drain se décide quand le poumon est réappliqué et le bullage arrêté depuis au moins vingt-quatre heures. La prévention de la récidive repose sur l'arrat du tabac, essentiel chez le jeune fumeur, et sur la discussion de pleurodèse après une première récidive."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BTS-2020-SPONT",
+          "organization": "British Thoracic Society (BTS)",
+          "title": "BTS guideline for spontaneous pneumothorax",
+          "year": 2020
+        },
+        {
+          "id": "SRC-BTS-2023-PLEURAL",
+          "organization": "British Thoracic Society (BTS)",
+          "title": "British Thoracic Society Guideline for pleural disease",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La récidive concerne environ un tiers des patients après un premier épisode spontané primaire. La prévention combine arrat du tabac, information sur les délais de reprise du sport et de l'avion, et pleurodèse en cas de récidive ou de persistance du bullage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Arrêt du tabac : la mesure la plus efficace pour réduire le risque de récidive.",
+            "Pas de plongée sous-marine tant que le risque persiste ; prudence pour l'avion et le sport en compression.",
+            "Éducation du patient : reconnaître les signes et consulter sans délai en cas de récidive."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Suivi",
+          "text": "Une radiographie de contrôle confirme la réapplication du poumon avant l'ablation du drain, puis à distance pour vérifier l'absence de récidive."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BTS-2020-SPONT",
+          "organization": "British Thoracic Society (BTS)",
+          "title": "BTS guideline for spontaneous pneumothorax",
+          "year": 2020
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Douleur brutale plus abolition du murmure vésiculaire : penser pneumothorax.",
+            "Le compressif se traite avant l'imagerie : exsufflation immédiate à l'aiguille.",
+            "La tolérance et le caractère primaire ou secondaire dictent le reste de la prise en charge.",
+            "Le tabac est le levier principal de prévention des récidives."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir décrire le tableau du compressif et la conduite d'exsufflation au deuxième espace intercostal médio-claviculaire est un classique : la sémiologie du pneumothorax est régulièrement interrogée à l'examen."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations de la British Thoracic Society sur les maladies pleurales (2023) et sur le pneumothorax spontané (2020)."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Roberts ME, et al. British Thoracic Society Guideline for pleural disease. Thorax 2023.",
+            "Hallifax R, et al. BTS guideline for spontaneous pneumothorax. Thorax 2020."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-pnx-pair",
+      "label": "P.A.I.R.",
+      "intro": "Les quatre temps de la reconnaissance et de la décision devant une douleur thoracique brutale.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pression : douleur en coup de poignard, brutale, latéro-thoracique"
+        },
+        {
+          "key": "A",
+          "term": "Auscultation : abolition du murmure vésiculaire avec tympanisme homolatéral"
+        },
+        {
+          "key": "I",
+          "term": "Insuffisance respiratoire : dyspnée, tachycardie, désaturation à évaluer"
+        },
+        {
+          "key": "R",
+          "term": "Risque vital : signes de compression → exsufflation immédiate à l'aiguille"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-pnx-1",
+      "front": "Qu'est-ce qu'un pneumothorax ?",
+      "back": "La présence d'air dans la cavité pleurale, qui décolle le poumon de la paroi."
+    },
+    {
+      "id": "fc-pnx-2",
+      "front": "Quel est le terrain typique du pneumothorax spontané primaire ?",
+      "back": "Sujet jeune, longiligne, fumeur, sur poumon sain."
+    },
+    {
+      "id": "fc-pnx-3",
+      "front": "Pourquoi le pneumothorax secondaire est-il plus grave ?",
+      "back": "Il survient sur poumon pathologique (surtout BPCO) : la réserve respiratoire limitée rend la tolérance mauvaise."
+    },
+    {
+      "id": "fc-pnx-4",
+      "front": "Quels signes font redouter un pneumothorax compressif ?",
+      "back": "Détresse respiratoire, tachycardie, hypotension, veines du cou dilatées, médiastin dévié."
+    },
+    {
+      "id": "fc-pnx-5",
+      "front": "Quel geste sauve le patient en compression ?",
+      "back": "Exsufflation immédiate à l'aiguille, avant tout examen d'imagerie."
+    },
+    {
+      "id": "fc-pnx-6",
+      "front": "Où ponctionne-t-on en urgence pour exsuffer ?",
+      "back": "Deuxième espace intercostal sur la ligne médio-claviculaire du côté atteint."
+    },
+    {
+      "id": "fc-pnx-7",
+      "front": "Quel signe radiographique affirme le pneumothorax ?",
+      "back": "La ligne pleurale visible avec une hyperclarté avasculaire en périphérie du poumon."
+    },
+    {
+      "id": "fc-pnx-8",
+      "front": "Quand peut-on surveiller simplement un pneumothorax ?",
+      "back": "Pneumothorax spontané primaire, de petite taille, bien toléré, sans signe de compression."
+    },
+    {
+      "id": "fc-pnx-9",
+      "front": "Quel est le rôle de l'oxygène à haut débit ?",
+      "back": "Accélérer la résorption de l'air pleural dans les formes surveillées."
+    },
+    {
+      "id": "fc-pnx-10",
+      "front": "Quelle est la prévention principale des récidives ?",
+      "back": "L'arrêt du tabac ; la pleurodèse se discute après récidive ou bullage persistant."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-pnx-root",
+      "label": "Pneumothorax",
+      "detail": "Air dans la cavité pleurale : du petit décollement du jeune fumeur à l'urgence du compressif."
+    },
+    "branches": [
+      {
+        "id": "map-pnx-types",
+        "label": "Types",
+        "detail": "Primaire sur poumon sain, secondaire sur poumon malade, iatrogène et traumatique.",
+        "children": [
+          {
+            "id": "map-pnx-types-1",
+            "label": "Primaire",
+            "leaves": [
+              {
+                "id": "map-pnx-types-1a",
+                "label": "Jeune longiligne fumeur"
+              },
+              {
+                "id": "map-pnx-types-1b",
+                "label": "Bulle sous-pleurale rompue"
+              }
+            ]
+          },
+          {
+            "id": "map-pnx-types-2",
+            "label": "Secondaire",
+            "leaves": [
+              {
+                "id": "map-pnx-types-2a",
+                "label": "BPCO, emphysème"
+              },
+              {
+                "id": "map-pnx-types-2b",
+                "label": "Tolérance souvent mauvaise"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-pnx-diag",
+        "label": "Diagnostic",
+        "detail": "Douleur brutale, abolition du murmure vésiculaire, tympanisme, radio : ligne pleurale.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-pnx-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-pnx-diag-1a",
+                "label": "Coup de poignard, dyspnée"
+              },
+              {
+                "id": "map-pnx-diag-1b",
+                "label": "Hémithorax silencieux"
+              }
+            ]
+          },
+          {
+            "id": "map-pnx-diag-2",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "map-pnx-diag-2a",
+                "label": "Radio : ligne pleurale, hyperclarté"
+              },
+              {
+                "id": "map-pnx-diag-2b",
+                "label": "Scanner pour formes complexes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-pnx-urg",
+        "label": "Compressif",
+        "detail": "Valve unidirectionnelle : pression qui monte, médiastin dévié, arrêt du retour veineux.",
+        "tone": "urgence",
+        "children": [
+          {
+            "id": "map-pnx-urg-1",
+            "label": "Signes",
+            "leaves": [
+              {
+                "id": "map-pnx-urg-1a",
+                "label": "Hypotension, tachycardie"
+              },
+              {
+                "id": "map-pnx-urg-1b",
+                "label": "Veines du cou dilatées"
+              }
+            ]
+          },
+          {
+            "id": "map-pnx-urg-2",
+            "label": "Geste",
+            "leaves": [
+              {
+                "id": "map-pnx-urg-2a",
+                "label": "Exsufflation à l'aiguille immédiate"
+              },
+              {
+                "id": "map-pnx-urg-2b",
+                "label": "Puis drainage thoracique"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-pnx-trt",
+        "label": "Traitement",
+        "detail": "Évacuer l'air, réappliquer le poumon, prévenir la récidive.",
+        "children": [
+          {
+            "id": "map-pnx-trt-1",
+            "label": "Modalités",
+            "leaves": [
+              {
+                "id": "map-pnx-trt-1a",
+                "label": "Surveillance si petit et toléré"
+              },
+              {
+                "id": "map-pnx-trt-1b",
+                "label": "Drainage si secondaire ou étendu"
+              }
+            ]
+          },
+          {
+            "id": "map-pnx-trt-2",
+            "label": "Récidive",
+            "leaves": [
+              {
+                "id": "map-pnx-trt-2a",
+                "label": "Arrêt du tabac"
+              },
+              {
+                "id": "map-pnx-trt-2b",
+                "label": "Pleurodèse à discuter"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-BTS-2023-PLEURAL",
+      "title": "British Thoracic Society Guideline for pleural disease",
+      "citation": "Roberts ME, Rahman NM, Maskell NA, et al. British Thoracic Society Guideline for pleural disease. Thorax. 2023 ; 78 (Suppl 3) : s1-s42. doi:10.1136/thorax-2023-220171.",
+      "organization": "British Thoracic Society (BTS)",
+      "year": 2023,
+      "version": "2023 guideline",
+      "url": "https://doi.org/10.1136/thorax-2023-220171",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Définition",
+        "Diagnostic",
+        "Stratégie de drainage",
+        "Pneumothorax compressif",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-BTS-2020-SPONT",
+      "title": "BTS guideline for spontaneous pneumothorax",
+      "citation": "Hallifax R, Cooper ZR, Ahmed M, et al. BTS guideline for spontaneous pneumothorax. Thorax. 2020 ; 75 (Suppl 3) : ii1-ii12. doi:10.1136/thoraxjnl-2020-215979.",
+      "organization": "British Thoracic Society (BTS)",
+      "year": 2020,
+      "version": "2020 guideline",
+      "url": "https://doi.org/10.1136/thoraxjnl-2020-215979",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Pneumothorax primaire",
+        "Pneumothorax secondaire",
+        "Traitement ambulatoire",
+        "Prévention de récidive"
+      ]
+    }
+  ]
+}
