@@ -1,439 +1,595 @@
 {
-  "id": "DX-COLIQUE-001",
+  "schemaVersion": 1,
+  "diagnosticId": "DX-COLIQUE-001",
   "slug": "colique-nephretique",
-  "kind": "diagnostic-workup",
   "title": "Colique néphrétique",
-  "subtitle": "Douleur lombaire paroxystique d’installation brutale : soulager, imager, et chercher l’obstruction infectée avant tout",
-  "summary": "Démarche devant une colique néphrétique : confirmer la douleur typique (lombaire, paroxystique, sans position antalgique, irradiant vers les organes génitaux externes), éliminer les urgences (pyélonéphrite obstructive, anurie, anévrisme aortique), imager (échographie, TDM sans injection), et traiter : AINS et antalgiques, drainage en urgence si obstruction infectée, puis bilan métabolique du calcul.",
-  "objectives": [
-    "Reconnaître la douleur typique de la colique néphrétique et la distinguer des douleurs chirurgicales (appendicite, anévrisme, torsion)",
-    "Connaître les urgences vitales : pyélonéphrite obstructive (sepsis + dilatation = drainage urgent), anurie, colique sur rein unique",
-    "Savoir prescrire l’imagerie de première intention selon la disponibilité locale (échographie, TDM sans injection)",
-    "Maîtriser le traitement de la crise : AINS en première ligne, antalgiques, hydratation modérée",
-    "Connaître le bilan étiologique du lithiasique (calcémie, uricémie, analyse du calcul) et la prévention de la récidive"
-  ],
-  "strategy": {
-    "PATTERN": "Colique néphrétique = douleur lombaire aiguë paroxystique par obstruction urétérale. Trois questions : (1) est-ce vraiment une colique ? (2) y a-t-il fièvre ou sepsis ? (3) y a-t-il un obstacle sur rein unique ou une anurie ? La douleur est intense mais le danger est infectieux.",
-    "FIRST_PASS": "Douleur : siège lombaire, paroxystique, agitation du patient (contrairement à la péritonite), irradiation vers les organes génitaux externes, hématurie microscopique fréquente. Température, tension, miction. Examen : point urinaire costo-lombaire, organes génitaux externes chez l’homme (torsion).",
-    "SECOND_PASS": "Recherche de signes de gravité : fièvre supérieure à 38,5 °C avec douleur = pyélonéphrite obstructive jusqu’à preuve du contraire ; tumeur, immunodépression, grossesse, rein unique, anurie.",
-    "RED_FLAGS": "Fièvre + obstacle = urgence de drainage (sonde JJ ou néphrostomie) sous antibiothérapie, sans attendre ; anurie ; grossesse ; suspicion d’anévrisme aortique rompu ou de dissection (sujet âgé vasculaire) ; abdomen chirurgical."
-  },
+  "subtitle": "Orientation diagnostique — urologie et urgences",
+  "objective": "Reconnaître la colique néphrétique par sa douleur lombo-abdominale paroxystique, écarter d'abord les urgences vitales (pyélonéphrite obstructive, anurie sur obstacle, anévrisme), confirmer le calcul par l'imagerie adaptée et soulager sans retard, en connaissant les indications du drainage en urgence.",
+  "updatedAt": "2026-10-30",
   "sections": [
     {
-      "id": "colique-reconnaissance",
-      "title": "1. Reconnaître",
-      "lead": "Reconnaître la douleur typique et éliminer les diagnostics dangereux.",
-      "items": [
+      "id": "introduction",
+      "title": "I. Introduction",
+      "summary": "Une douleur qui roule, un patient qui remue.",
+      "blocks": [
         {
-          "id": "co-1",
-          "label": "Douleur typique : lombaire, brutale, paroxystique, insupportable, sans position antalgique, irradiant du flanc vers les organes génitaux externes.",
-          "children": []
+          "type": "paragraph",
+          "text": "La colique néphrétique est une douleur lombo-abdominale aiguë paroxystique, brutale, en coup de poignard, irradiant vers l'aine, déclenchée par la mise sous tension de la voie excrétrice. Le patient n'a pas de position antalgique — il s'agite, contrairement au péritonéal qui reste immobile."
         },
         {
-          "id": "co-2",
-          "label": "Signes associés : nausées, vomissements, pollakiurie, hématurie (macroscopique ou à la bandelette), agitation du patient.",
-          "children": []
+          "type": "list",
+          "items": [
+            "Séquence classique : douleur lombaire, descente vers la fosse iliaque et les organes génitaux externes, envies impérieuses et mictions fréquentes quand le calcul siège à la jonction vésico-urétérale.",
+            "Signes urinaires : hématurie microscopique (90 % des calculs), parfois macroscopique ; pollakiurie et dysurie basses.",
+            "Terrain : homme jeune, antécédents de lithiase, hydratation insuffisante, chaleur ; récidive fréquente (un patient sur deux à 5-10 ans).",
+            "À Madagascar : chaleur, travail en plein soleil et hydratation limitée augmentent l'incidence ; l'accès à l'imagerie conditionne le parcours."
+          ]
         },
         {
-          "id": "co-3",
-          "label": "Éliminer : appendicite, cholécystite, pancréatite, torsion du testicule, occlusion, anévrisme de l’aorte abdominale, grossesse extra-utérine.",
-          "children": []
-        }
-      ],
-      "pitfalls": [
-        {
-          "id": "co-p1",
-          "label": "La douleur de l’anévrisme aortique rompu ou de la dissection peut ressembler à une colique : palper le pouls fémoral et contrôler la tension, surtout chez le sujet âgé vasculaire.",
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "colique-orientation",
-      "title": "2. Orienter",
-      "lead": "Déterminer le siège de l’obstruction et son retentissement.",
-      "items": [
-        {
-          "id": "co-4",
-          "label": "Siège : pyélocaliciel (douleur lombaire pure), urétéral lombaire (flanc), iliaque (hypogastre, signes urinaires), jonction urétéro-vésicale (pollakiurie, urgenturie, hématurie terminale).",
-          "children": []
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgences absolues",
+          "text": "Fièvre à 38,5 °C ou plus avec douleur obstructive = pyélonéphrite obstructive : drainage urinaire (son JJ ou néphrostomie) sous antibiothérapie, sans attente. Anurie ou oligurie sur obstacle bilatéral (ou rein unique) : dérivation immédiate. Choc avec douleur lombaire : anévrisme aortique rompu jusqu'à preuve du contraire."
         },
         {
-          "id": "co-5",
-          "label": "Retentissement : dilatation pyélocalicielle à l’échographie, fonction rénale (créatinine), oligurie ou anurie si obstacle bilatéral ou sur rein unique.",
-          "children": []
-        },
-        {
-          "id": "co-6",
-          "label": "Étiologie : calcul (90 % des cas), caillot, papille nécrotique, tumorale, dilatation de la grossesse.",
-          "children": []
-        }
-      ],
-      "pitfalls": [
-        {
-          "id": "co-p2",
-          "label": "Une hématurie macroscopique indolore chez un patient de plus de 50 ans n’est pas un calcul jusqu’à preuve du contraire : avis urologique et imagerie.",
-          "children": []
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Faux tableaux",
+          "text": "La colique néphrétique peut être déclenchée par une pathologie non lithiasique : caillot (hématurie d'origine tumorale), papille nécrosée, obstacle tumoral, stase gravidique ; une « colique » fébrile ou récidivante sans calcul visible impose de chercher la cause sous-jacente."
         }
       ]
     },
     {
-      "id": "colique-urgence",
-      "title": "3. Urgences",
-      "lead": "Urgences vitales et gestes salvateurs.",
-      "items": [
+      "id": "demarche",
+      "title": "II. Démarche diagnostique",
+      "summary": "Antalgie d'abord, bandelette toujours, imagerie selon disponibilité.",
+      "blocks": [
         {
-          "id": "co-7",
-          "label": "Pyélonéphrite obstructive : fièvre + frissons + douleur + dilatation = sepsis urinaire sous tension : drainage urgent (sonde JJ ou néphrostomie) sous antibiothérapie intraveineuse.",
-          "children": []
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe n° 1 : soulager vite",
+          "text": "AINS par voie intraveineuse ou intramusculaire (kétoprofène, diclofénac) dès la prise en charge — le meilleur antalgique de la colique néphrétique ; complément par paracétamol, morphine si échec. Vérifier d'emblée : fièvre, diurèse, grossesse, fonction rénale, caractère unique du rein controlatéral."
         },
         {
-          "id": "co-8",
-          "label": "Anurie ou obstacle sur rein unique : dérivation urgente.",
-          "children": []
+          "type": "table",
+          "columns": [
+            "Étape",
+            "Examen",
+            "Apport"
+          ],
+          "rows": [
+            [
+              "Examen clinique",
+              "Température, tension, palpation, organes génitaux chez l'homme",
+              "Chercher fièvre, choc, torsion testiculaire ou hernie étranglée"
+            ],
+            [
+              "Bandelette urinaire",
+              "Hématurie, leucocytes, nitrites",
+              "Oriente calcul et infection ; hématurie stérile : chercher une tumeur"
+            ],
+            [
+              "Échographie + radiographie",
+              "Dilatation pyélocalicielle, calcul radio-opaque",
+              "Première ligne selon disponibilité ; grossesse et enfant en priorité"
+            ],
+            [
+              "TDM abdominale faible dose",
+              "Calcul, niveau de l'obstacle, densité",
+              "Examen de référence selon l'EAU si doute ou pour planifier un geste"
+            ],
+            [
+              "Bilan sanguin",
+              "Créatinine, NFS-CRP, ionogramme",
+              "Fonction rénale, infection, terrain métabolique"
+            ]
+          ]
         },
         {
-          "id": "co-9",
-          "label": "Torsion du testicule : toute douleur scrotale aiguë avec vomissements = examen des organes génitaux externes en urgence.",
-          "children": []
-        },
-        {
-          "id": "co-10",
-          "label": "Colique apyrétique chez transplanté ou immunodéprimé : tableau trompeur, imagerie systématique.",
-          "children": []
-        }
-      ],
-      "pitfalls": [
-        {
-          "id": "co-p3",
-          "label": "Une colique qui se calme avec fièvre persistante doit alerter : l’obstruction peut rester complète et le sepsis s’installer.",
-          "children": []
+          "type": "list",
+          "items": [
+            "Interrogatoire : ancienneté, irradiation, fièvre, frissons, vomissements, antécédents de calculs, diurèse, grossesse, médicaments (anticoagulants), hydratation et métier (chaleur).",
+            "Examen : fièvre (pyélonéphrite obstructive), hypotension (sepsis, anévrisme), douleur à la percussion lombaire, examen des organes génitaux, diagnostic différentiel chirurgical.",
+            "Examens d'urine : bandelette systématique — hématurie présente dans 90 % des coliques lithiasiques ; leucocyturie et nitrites = infection associée qui change la conduite.",
+            "Imagerie : échographie en première intention (surtout femme enceinte et enfant), TDM faible dose si diagnostic douteux ou avant un geste ; bilan métabolique des récidivants à froid.",
+            "Après l'épisode : filtration des urines, analyse du calcul, bilan métabolique si récidive, consignes d'hydratation (2 litres par jour et plus en climat chaud)."
+          ]
         }
       ]
     },
     {
-      "id": "colique-pec",
-      "title": "4. Prise en charge",
-      "lead": "Traiter la crise puis prévenir la récidive.",
-      "items": [
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "summary": "Le plus souvent lithiasique — pas toujours.",
+      "blocks": [
         {
-          "id": "co-11",
-          "label": "Traitement de la crise : AINS en première ligne (kétoprofène par voie veineuse ou intramusculaire si pas de contre-indication), paracétamol, morphine si échec ; hydratation modérée.",
-          "children": []
+          "type": "table",
+          "columns": [
+            "Groupe",
+            "Causes",
+            "Arguments"
+          ],
+          "rows": [
+            [
+              "Lithiase calcique",
+              "Oxalate de calcium, phosphate",
+              "Terrain, radio-opaque, récidive, hypercalciurie"
+            ],
+            [
+              "Lithiase infectée",
+              "Struvite (coralliforme)",
+              "Infection à germes uréasiques, femmes, formes coralliformes"
+            ],
+            [
+              "Lithiase urique",
+              "Calculs radio-transparents",
+              "Goutte, pH acide, TDM nécessaire"
+            ],
+            [
+              "Obstacle tumoral",
+              "Cancer urothélial, pelvien",
+              "Hématurie stérile, âge, altération de l'état général"
+            ],
+            [
+              "Caillot ou papille",
+              "Hématurie tumorale, drépanocytose",
+              "Antécédents, anémie, nécrose papillaire"
+            ],
+            [
+              "Extra-urinaire (fausse colique)",
+              "Anévrisme aortique, torsion, hernie étranglée",
+              "Instabilité, tableau chirurgical, examen scrotal"
+            ]
+          ]
         },
         {
-          "id": "co-12",
-          "label": "Drainage si signes de gravité ; expulsion médicale (alpha-bloquant) possible pour les calculs distaux de moins de 6 mm.",
-          "children": []
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Hématurie sans douleur après 40 ans",
+          "text": "Une hématurie microscopique stérile, isolée, chez l'adulte après 40 ans n'est jamais banale jusqu'au bilan urologique complet : imagerie rénale pour écarter une tumeur du haut appareil."
         },
         {
-          "id": "co-13",
-          "label": "Imagerie : échographie rénale de première intention, TDM abdomino-pelvienne sans injection si complication ou échec du diagnostic.",
-          "children": []
-        },
-        {
-          "id": "co-14",
-          "label": "Bilan lithiasique : calcémie, uricémie, créatininémie, ECBU, analyse du calcul (morphologie, composition).",
-          "children": []
-        },
-        {
-          "id": "co-15",
-          "label": "Prévention : boissons abondantes (diurèse supérieure à 2 L/j), régime adapté à la composition du calcul, suivi urologique des calculs non expulsés.",
-          "children": []
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Colique = antalgie immédiate (AINS) + bandelette urinaire toujours + fièvre = drainage. Le calcul se confirme à l'imagerie ; l'infection sur obstacle est la seule urgence qui ne pardonne pas."
         }
-      ],
-      "pitfalls": [
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement & contexte Madagascar",
+      "summary": "Antalgie, drainage si infection, expulsion et prévention.",
+      "blocks": [
         {
-          "id": "co-p4",
-          "label": "Toute première colique néphrétique justifie un bilan étiologique : la récidive touche environ la moitié des patients sans mesure préventive.",
-          "children": []
+          "type": "list",
+          "items": [
+            "Antalgie : AINS par voie IV ou IM en première intention (contre-indications habituelles : ulcère, grossesse, insuffisance rénale), paracétamol, morphine si résistance.",
+            "Drainage en urgence : fièvre + obstacle = son JJ ou néphrostomie percutanée + antibiothérapie ; obstacle anurique = dérivation immédiate.",
+            "Traitement conservateur du calcul de moins de 6 mm : expulsion spontanée probable, antalgiques, filtration des urines, réévaluation à 2-4 semaines.",
+            "Gestes d'ablation : urétéroscopie laser ou lithotritie extracorporelle selon taille, siège et moyens disponibles ; l'accès à ces techniques détermine l'orientation.",
+            "Prévention des récidives : boire abondamment (urine claire en climat chaud), réduire le sel, apports calciques normaux, bilan métabolique du récidivant."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Pyélonéphrite obstructive",
+          "text": "Fièvre, frissons, douleur obstructive et dilatation : c'est un abcès sous tension du rein — antibiothérapie et drainage sans délai, jamais d'attente d'expulsion, jamais de lithotritie en phase infectée."
         }
       ]
     }
   ],
   "mnemonics": [
     {
-      "id": "co-mn-1",
-      "name": "Les 5A de la colique",
-      "expansion": "Aiguë (brutale), Agitation, Abdomen souple, Autonome (nausées), Antalgique impossible",
-      "explanation": "La douleur typique est aiguë, paroxystique ; le patient s’agite (contrairement au péritonéal immobile), l’abdomen reste souple, les vomissements sont fréquents, aucune position ne soulage.",
-      "application": "Ce profil avec hématurie microscopique = colique jusqu’à preuve du contraire, mais toujours contrôler température et pouls fémoraux."
+      "id": "remue",
+      "label": "« Qui remue, qui roule »",
+      "intro": "Le contraste qui oriente le triage.",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Remue : le patient agité cherche une position — colique néphrétique"
+        },
+        {
+          "key": "I",
+          "term": "Immobile : le péritonéal reste couché et immobile — chirurgie abdominale"
+        },
+        {
+          "key": "R",
+          "term": "Roule : la douleur roule du rein vers l'aine"
+        }
+      ]
     },
     {
-      "id": "co-mn-2",
-      "name": "FODI",
-      "expansion": "Fièvre, Obstacle, Dilatation, Infection",
-      "explanation": "Fièvre + obstacle à l’imagerie + dilatation + infection urinaire = pyélonéphrite obstructive : urgence de drainage.",
-      "application": "Devant toute colique fébrile, l’échographie est urgente et le drainage ne doit pas attendre l’antibiogramme."
+      "id": "fievre-obstacle",
+      "label": "Fièvre sur obstacle = drainage",
+      "intro": "L'équation à ne jamais oublier.",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fièvre à 38,5 °C ou plus, frissons"
+        },
+        {
+          "key": "O",
+          "term": "Obstacle confirmé (dilatation, calcul)"
+        },
+        {
+          "key": "D",
+          "term": "Drainage : son JJ ou néphrostomie + antibiotiques"
+        }
+      ]
     },
     {
-      "id": "co-mn-3",
-      "name": "OGE",
-      "expansion": "Organes Génitaux Externes",
-      "explanation": "L’irradiation descend vers les OGE ; réciproquement, toute douleur scrotale aiguë impose leur examen pour ne pas manquer une torsion.",
-      "application": "Examiner systématiquement les OGE devant toute douleur lombo-iliaque de l’homme jeune."
+      "id": "bu-systematique",
+      "label": "Bandelette urinaire : 3 lectures",
+      "intro": "Trois lignes de la bandelette changent tout.",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sang : colique probable, mais stérile après 40 ans = bilan tumoral"
+        },
+        {
+          "key": "L",
+          "term": "Leucocytes : infection, chercher le terrain"
+        },
+        {
+          "key": "N",
+          "term": "Nitrites : infection significative = drainage si obstacle"
+        }
+      ]
     }
   ],
   "flashcards": [
     {
-      "id": "co-fc-1",
-      "objective": "Reconnaître la douleur typique de la colique néphrétique",
-      "front": "Quelle caractéristique oppose la colique néphrétique à un abdomen chirurgical ?",
-      "back": "Le patient est agité et cherche sa position, alors que le patient péritonéal reste immobile",
-      "rationale": "L’agitation paroxystique et l’absence de position antalgique sont typiques de l’obstruction urétérale ; l’immobilité et la défense orientent vers la chirurgie.",
-      "citation": "Le profil clinique de la colique néphrétique (douleur paroxystique, agitation) est un élément discriminant clé contre les urgences chirurgicales (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-01",
+      "front": "Comment se présente typiquement une colique néphrétique ?",
+      "back": "Douleur lombo-abdominale brutale, paroxystique, en coup de poignard, irradiant vers l'aine et les organes génitaux, patient agité sans position antalgique, avec envies impérieuses basses et hématurie microscopique.",
       "tags": [
-        "urologie",
-        "urgences"
-      ],
-      "difficulty": "debutant",
-      "estimate": "30-45 s"
+        "définition"
+      ]
     },
     {
-      "id": "co-fc-2",
-      "objective": "Reconnaître la pyélonéphrite obstructive comme une urgence",
-      "front": "Que faire devant une colique fébrile avec dilatation pyélocalicielle ?",
-      "back": "Antibiothérapie intraveineuse + drainage urinaire urgent (sonde JJ ou néphrostomie)",
-      "rationale": "Fièvre + obstacle = sepsis urinaire sous tension : le drainage en urgence est le geste qui sauve, avant l’antibiogramme.",
-      "citation": "La pyélonéphrite obstructive impose une dérivation urgente associée à l’antibiothérapie (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-02",
+      "front": "Quel est le premier traitement d'une colique néphrétique simple ?",
+      "back": "Un AINS par voie IV ou IM dès la prise en charge (kétoprofène, diclofénac) : le meilleur antalgique de la colique, complété par paracétamol et morphine si échec, après avoir vérifié l'absence de fièvre et de contre-indication.",
       "tags": [
-        "urologie",
-        "urgences",
-        "sepsis"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "45-60 s"
+        "traitement"
+      ]
     },
     {
-      "id": "co-fc-3",
-      "objective": "Choisir l’imagerie de première intention",
-      "front": "Quelle imagerie demander en première intention devant une colique typique ?",
-      "back": "Échographie rénale et vésicale ; TDM sans injection si doute, complication ou échec diagnostique",
-      "rationale": "L’échographie est disponible et sans irradiation ; la TDM sans injection est l’examen de référence en cas de complication ou de présentation atypique.",
-      "citation": "L’EAU recommande une imagerie rapide, échographie ou TDM selon le contexte, pour toutes les coliques (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-03",
+      "front": "Quel tableau impose un drainage urinaire en urgence ?",
+      "back": "La pyélonéphrite obstructive : fièvre à 38,5 °C ou plus avec frissons sur obstacle (calcul, dilatation). Antibiothérapie et drainage (son JJ ou néphrostomie) sans délai — c'est un abcès sous tension du rein.",
       "tags": [
-        "urologie",
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelle est la valeur de la bandelette urinaire ?",
+      "back": "Systématique : hématurie présente dans 90 % des coliques lithiasiques ; leucocyturie et nitrites orientent vers l'infection ; une hématurie stérile isolée après 40 ans impose un bilan tumoral du haut appareil urinaire.",
+      "tags": [
+        "examen"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel patient remue et quel patient reste immobile ?",
+      "back": "Le patient « qui remue » cherche sa position : colique (néphrétique, biliaire). Le patient immobile, couché, évite tout mouvement : péritonite — le contraste des attitudes guide le triage chirurgical.",
+      "tags": [
+        "méthode"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle imagerie en première intention selon l'EAU ?",
+      "back": "L'échographie (avec radiographie selon disponibilité) en première intention, notamment chez la femme enceinte et l'enfant ; la TDM abdominopelvienne faible dose si le diagnostic reste douteux ou pour planifier un geste — c'est l'examen de référence.",
+      "tags": [
         "imagerie"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
+      ]
     },
     {
-      "id": "co-fc-4",
-      "objective": "Traiter la douleur de la colique",
-      "front": "Quel est le traitement antalgique de première ligne de la colique néphrétique ?",
-      "back": "AINS (kétoprofène par voie parentérale) en l’absence de contre-indication, avec paracétamol, morphine si échec",
-      "rationale": "L’AINS est plus efficace que les antalgiques purs sur la douleur de distension ; il est contre-indiqué si insuffisance rénale, ulcère, grossesse avancée.",
-      "citation": "Les AINS constituent le traitement de première intention de la douleur de la colique néphrétique (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-07",
+      "front": "Quelles causes non lithiasiques donnent une fausse colique ?",
+      "back": "Obstacle tumoral urothélial ou pelvien, caillot sur hématurie, papille nécrosée (drépanocytose), stase gravidique, et hors voies urinaires : anévrisme aortique, torsion testiculaire, hernie étranglée.",
       "tags": [
-        "urologie",
-        "pharmacologie"
-      ],
-      "difficulty": "debutant",
-      "estimate": "30-45 s"
+        "étiologie"
+      ]
     },
     {
-      "id": "co-fc-5",
-      "objective": "Éliminer un anévrisme aortique chez le sujet âgé",
-      "front": "Quel diagnostic redouter devant une douleur lombaire brutale chez un homme de 70 ans hypertendu ?",
-      "back": "Anévrisme de l’aorte abdominale rompu ou en fissuration",
-      "rationale": "Palper l’aorte et le pouls fémoral, contrôler la tension ; la TDM en urgence tranche : urgence chirurgicale absolue.",
-      "citation": "Une colique du sujet âgé vasculaire doit faire évoquer l’anévrisme rompu avant le calcul (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-08",
+      "front": "Quels calculs sont radio-transparents sur un abdomen sans préparation ?",
+      "back": "Les calculs d'acide urique (et partiellement la cystine) : une colique sans calcul visible n'écarte pas la lithiase — l'échographie montre la dilatation, la TDM confirme.",
       "tags": [
-        "urologie",
-        "urgences",
-        "vasculaire"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
+        "imagerie"
+      ]
     },
     {
-      "id": "co-fc-6",
-      "objective": "Repérer une torsion du testicule",
-      "front": "Que faire devant une douleur scrotale aiguë brutale avec vomissements chez un adolescent ?",
-      "back": "Examen des organes génitaux externes immédiat et avis chirurgical urgent : torsion jusqu’à preuve du contraire",
-      "rationale": "La torsion se résout en heures : toute douleur scrotale aiguë est une urgence chirurgicale, même si l’irradiation évoque une colique.",
-      "citation": "L’examen des OGE fait partie de l’évaluation de toute douleur lombo-iliaque aiguë de l’homme jeune (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-09",
+      "front": "Quel suivi après un premier épisode lithiasique ?",
+      "back": "Filtrer les urines, analyser le calcul, hydratation abondante (urine claire en climat chaud), réduire le sel, bilan métabolique (calciurie, uricémie, parathormone si suspicion) chez le récidivant : la récidive touche un patient sur deux.",
       "tags": [
-        "urologie",
-        "urgences"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
+        "suivi"
+      ]
     },
     {
-      "id": "co-fc-7",
-      "objective": "Décider d’une expulsion médicale du calcul",
-      "front": "Quand proposer une expulsion médicale du calcul ?",
-      "back": "Calcul distal de moins de 6 mm, douleur contrôlée, absence de fièvre, fonction rénale conservée",
-      "rationale": "Alpha-bloquant + antalgiques + hydratation modérée, réévaluation à 2-4 semaines ; en dehors de ces critères, avis urologique.",
-      "citation": "L’expulsion médicale est indiquée pour les calculs distaux de petite taille sans complication (EAU, Guidelines on Urolithiasis, 2025).",
+      "id": "fc-10",
+      "front": "Quelles caractéristiques augmentent le risque de lithiase à Madagascar ?",
+      "back": "Chaleur et travail en plein soleil (concentration des urines), hydratation insuffisante, eaux de boisson riches en minéraux, régimes salés et protéinés, antécédents familiaux — la prévention hydrique est la mesure la plus rentable.",
       "tags": [
-        "urologie",
-        "pharmacologie"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
-    },
-    {
-      "id": "co-fc-8",
-      "objective": "Reconnaître une anurie sur obstacle",
-      "front": "Quelle est la gravité d’un obstacle bilatéral ou sur rein unique avec anurie ?",
-      "back": "Insuffisance rénale aiguë obstructive : dérivation urgente",
-      "rationale": "L’anurie ou l’insuffisance rénale rapide impose le drainage sans délai : la fonction rénale se récupère si la levée de l’obstacle est précoce.",
-      "citation": "L’obstacle bilatéral ou sur rein unique relève d’une dérivation en urgence (EAU, Guidelines on Urolithiasis, 2025).",
-      "tags": [
-        "urologie",
-        "nephrologie"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
-    },
-    {
-      "id": "co-fc-9",
-      "objective": "Réaliser le bilan étiologique du lithiasique",
-      "front": "Quel bilan prescrire après une première colique ?",
-      "back": "Calcémie, uricémie, créatininémie, ECBU, analyse du calcul expulsé (morphologie, composition)",
-      "rationale": "Le bilan identifie les causes curables (hypercalciurie, hyperparathyroïdie, hyperuricémie) et guide la prévention diététique et médicamenteuse.",
-      "citation": "Un bilan métabolique est recommandé après tout premier épisode lithiasique pour prévenir la récidive (EAU, Guidelines on Urolithiasis, 2025).",
-      "tags": [
-        "urologie",
-        "biologie"
-      ],
-      "difficulty": "intermediaire",
-      "estimate": "30-45 s"
-    },
-    {
-      "id": "co-fc-10",
-      "objective": "Connaître les mesures préventives de récidive",
-      "front": "Quelles mesures préventives prescrire au lithiasique ?",
-      "back": "Boissons abondantes (diurèse supérieure à 2 L/j), régime adapté à la composition du calcul, correction des anomalies métaboliques",
-      "rationale": "La récidive concerne environ la moitié des patients sans prévention ; la diurèse abondante est la mesure la plus universelle.",
-      "citation": "La prévention de la récidive repose d’abord sur l’hydratation et les mesures diététiques adaptées au type de calcul (EAU, Guidelines on Urolithiasis, 2025).",
-      "tags": [
-        "urologie",
-        "prevention"
-      ],
-      "difficulty": "debutant",
-      "estimate": "30-45 s"
+        "contexte"
+      ]
     }
   ],
   "mindmap": {
-    "id": "colique-nephretique",
-    "label": "Colique néphrétique",
-    "children": [
+    "root": {
+      "id": "cn-root",
+      "label": "Colique néphrétique",
+      "detail": "Douleur lombo-abdominale paroxystique par mise sous tension de la voie excrétrice. La démarche soulage d'abord (AINS), vérifie les urgences (fièvre sur obstacle, anurie, anévrisme), confirme par bandelette urinaire et imagerie, et programme l'ablation du calcul à froid."
+    },
+    "branches": [
       {
-        "id": "co-m-recon",
-        "label": "Reconnaître",
+        "id": "cn-urgences",
+        "label": "Urgences à écarter",
+        "tone": "urgence",
+        "detail": "Ce qui transforme une colique banale en urgence vitale.",
         "children": [
           {
-            "id": "co-m-1",
-            "label": "Douleur paroxystique lombaire",
-            "children": []
+            "id": "cn-ur-pyo",
+            "label": "Pyélonéphrite obstructive",
+            "detail": "Fièvre et frissons sur obstacle : antibiothérapie et drainage (son JJ ou néphrostomie) immédiats.",
+            "leaves": [
+              {
+                "id": "cn-ur-py-fievre",
+                "label": "Fièvre = drainage"
+              },
+              {
+                "id": "cn-ur-py-atb",
+                "label": "Antibiothérapie IV"
+              }
+            ]
           },
           {
-            "id": "co-m-2",
-            "label": "Agitation, irradiation OGE",
-            "children": []
+            "id": "cn-ur-anurie",
+            "label": "Obstacle bilatéral ou rein unique",
+            "detail": "Anurie ou oligurie : dérivation en urgence, la fonction rénale est en jeu.",
+            "leaves": [
+              {
+                "id": "cn-ur-an-jj",
+                "label": "Dérivation"
+              },
+              {
+                "id": "cn-ur-an-crea",
+                "label": "Créatinine"
+              }
+            ]
           },
           {
-            "id": "co-m-3",
-            "label": "Hématurie, signes urinaires",
-            "children": []
-          },
-          {
-            "id": "co-m-4",
-            "label": "Éliminer AAA, chirurgie, torsion",
-            "children": []
+            "id": "cn-ur-anevrisme",
+            "label": "Anévrisme aortique",
+            "detail": "Douleur lombaire brutale du sujet âgé, hypotension : imagerie avant tout geste.",
+            "leaves": [
+              {
+                "id": "cn-ur-an-age",
+                "label": "Sujet âgé, HTA"
+              },
+              {
+                "id": "cn-ur-an-choc",
+                "label": "Choc = imagerie"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "co-m-orient",
-        "label": "Orienter",
+        "id": "cn-clinique",
+        "label": "Tableau clinique",
+        "tone": "reflexe",
+        "detail": "Le patient remue, la douleur roule : la sémiologie oriente avant l'imagerie.",
         "children": [
           {
-            "id": "co-m-5",
-            "label": "Siège : pyélocaliciel à vésical",
-            "children": []
+            "id": "cn-cl-douleur",
+            "label": "Douleur qui roule",
+            "detail": "Du coin lombaire vers la fosse iliaque et les organes génitaux externes, paroxystique, sans position antalgique.",
+            "leaves": [
+              {
+                "id": "cn-cl-do-remue",
+                "label": "Patient agité"
+              },
+              {
+                "id": "cn-cl-do-irradiation",
+                "label": "Vers l'aine"
+              }
+            ]
           },
           {
-            "id": "co-m-6",
-            "label": "Dilatation à l’échographie",
-            "children": []
+            "id": "cn-cl-bu",
+            "label": "Bandelette urinaire",
+            "detail": "Hématurie (90 %), leucocyturie, nitrites : trois lignes qui changent la conduite.",
+            "leaves": [
+              {
+                "id": "cn-cl-bu-sang",
+                "label": "Hématurie"
+              },
+              {
+                "id": "cn-cl-bu-nitrites",
+                "label": "Nitrites = infection"
+              }
+            ]
           },
           {
-            "id": "co-m-7",
-            "label": "Étiologies : calcul 90 %",
-            "children": []
+            "id": "cn-cl-differenciels",
+            "label": "Différentiels",
+            "detail": "Cholécystite, appendicite, torsion, hernie étranglée, drépanocytose : examen abdominal et scrotal systématique.",
+            "leaves": [
+              {
+                "id": "cn-cl-di-scrotum",
+                "label": "Examen scrotal"
+              },
+              {
+                "id": "cn-cl-di-abdo",
+                "label": "Palpation abdominale"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "co-m-urg",
-        "label": "Urgences",
+        "id": "cn-imagerie",
+        "label": "Imagerie & bilan",
+        "tone": "prudence",
+        "detail": "Choisir selon la disponibilité et le terrain, sans jamais négliger la fonction rénale.",
         "children": [
           {
-            "id": "co-m-8",
-            "label": "Fièvre + obstacle = drainage",
-            "children": []
+            "id": "cn-im-echo",
+            "label": "Échographie + radiographie",
+            "detail": "Première ligne : dilatation pyélocalicielle, calcul radio-opaque, grossesse et enfant en priorité.",
+            "leaves": [
+              {
+                "id": "cn-im-ec-dilatation",
+                "label": "Dilatation = obstacle"
+              },
+              {
+                "id": "cn-im-ec-grossesse",
+                "label": "Grossesse : échographie"
+              }
+            ]
           },
           {
-            "id": "co-m-9",
-            "label": "Anurie, rein unique",
-            "children": []
+            "id": "cn-im-tdm",
+            "label": "TDM faible dose",
+            "detail": "Référence pour le calcul, son siège, sa densité et la planification du geste selon l'EAU.",
+            "leaves": [
+              {
+                "id": "cn-im-td-reference",
+                "label": "Examen de référence"
+              },
+              {
+                "id": "cn-im-td-taille",
+                "label": "Taille et siège"
+              }
+            ]
           },
           {
-            "id": "co-m-10",
-            "label": "Torsion testiculaire",
-            "children": []
+            "id": "cn-im-bilan",
+            "label": "Bilan sanguin",
+            "detail": "Créatinine, NFS-CRP, ionogramme ; bilan métabolique (calciurie, uricémie, parathormone) à froid chez le récidivant.",
+            "leaves": [
+              {
+                "id": "cn-im-bl-crea",
+                "label": "Créatinine"
+              },
+              {
+                "id": "cn-im-bl-metabo",
+                "label": "Bilan à froid"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "co-m-exam",
-        "label": "Examens",
+        "id": "cn-etiologies",
+        "label": "Causes",
+        "tone": "retenir",
+        "detail": "Lithiase dans la grande majorité — mais toujours vérifier la cause.",
         "children": [
           {
-            "id": "co-m-11",
-            "label": "Échographie en 1re intention",
-            "children": []
+            "id": "cn-et-calcique",
+            "label": "Lithiase calcique",
+            "detail": "Oxalate de calcium, radio-opaque, terrain et hypercalciurie : la plus fréquente.",
+            "leaves": [
+              {
+                "id": "cn-et-ca-rx",
+                "label": "Radio-opaque"
+              },
+              {
+                "id": "cn-et-ca-recidive",
+                "label": "Récidive fréquente"
+              }
+            ]
           },
           {
-            "id": "co-m-12",
-            "label": "TDM sans injection",
-            "children": []
+            "id": "cn-et-infectee",
+            "label": "Struvite (coralliforme)",
+            "detail": "Lithiase infectée à germes uréasiques : formes coralliformes, drainage et ablation complets.",
+            "leaves": [
+              {
+                "id": "cn-et-in-corail",
+                "label": "Forme coralliforme"
+              },
+              {
+                "id": "cn-et-in-femme",
+                "label": "Terrain infectieux"
+              }
+            ]
           },
           {
-            "id": "co-m-13",
-            "label": "BU, créatinine, NFS-CRP",
-            "children": []
+            "id": "cn-et-tumeur",
+            "label": "Obstacle tumoral",
+            "detail": "Hématurie stérile après 40 ans : bilan du haut appareil urinaire avant de tout mettre sur le compte du calcul.",
+            "leaves": [
+              {
+                "id": "cn-et-tu-age",
+                "label": "Plus de 40 ans"
+              },
+              {
+                "id": "cn-et-tu-bilan",
+                "label": "Bilan urologique"
+              }
+            ]
           }
         ]
       },
       {
-        "id": "co-m-pec",
-        "label": "PEC",
+        "id": "cn-pec",
+        "label": "Prise en charge",
+        "tone": "reflexe",
+        "detail": "Soulager, drainer si infection, laisser expulser, ablater à froid, prévenir.",
         "children": [
           {
-            "id": "co-m-14",
-            "label": "AINS en 1re ligne",
-            "children": []
+            "id": "cn-pe-antalgie",
+            "label": "Antalgie immédiate",
+            "detail": "AINS IV ou IM en première ligne, paracétamol, morphine si échec : la douleur de la colique est une urgence symptomatique.",
+            "leaves": [
+              {
+                "id": "cn-pe-an-ains",
+                "label": "AINS en 1re ligne"
+              },
+              {
+                "id": "cn-pe-an-morphine",
+                "label": "Morphine si échec"
+              }
+            ]
           },
           {
-            "id": "co-m-15",
-            "label": "Expulsion médicale si distal < 6 mm",
-            "children": []
+            "id": "cn-pe-expulsion",
+            "label": "Calcul de moins de 6 mm",
+            "detail": "Expulsion spontanée probable : antalgiques, filtration des urines, réévaluation à 2-4 semaines.",
+            "leaves": [
+              {
+                "id": "cn-pe-ex-filtrer",
+                "label": "Filtrer les urines"
+              },
+              {
+                "id": "cn-pe-ex-revoir",
+                "label": "Réévaluer à 4 semaines"
+              }
+            ]
           },
           {
-            "id": "co-m-16",
-            "label": "Bilan métabolique",
-            "children": []
-          },
-          {
-            "id": "co-m-17",
-            "label": "Prévention : diurèse > 2 L/j",
-            "children": []
+            "id": "cn-pe-prevention",
+            "label": "Prévention",
+            "detail": "Boire jusqu'à une urine claire (climat chaud), sel réduit, bilan métabolique du récidivant, analyse du calcul expulsé.",
+            "leaves": [
+              {
+                "id": "cn-pe-pr-boire",
+                "label": "Hydratation majeure"
+              },
+              {
+                "id": "cn-pe-pr-analyse",
+                "label": "Analyser le calcul"
+              }
+            ]
           }
         ]
       }
@@ -441,14 +597,20 @@
   },
   "sources": [
     {
-      "label": "EAU — Guidelines on Urolithiasis (Uroweb)",
-      "url": "https://uroweb.org/guidelines/urolithiasis",
-      "verifiedAt": "2026-10-28"
+      "title": "EAU — Urolithiasis guidelines",
+      "citation": "European Association of Urology — urolithiasis : imagerie, prise en charge de la colique, indications du drainage, suivi et prévention.",
+      "organization": "EAU",
+      "year": 2025,
+      "url": "https://uroweb.org/guidelines/urolithiasis/chapter/guidelines",
+      "verifiedAt": "2026-10-30"
     },
     {
-      "label": "EAU — Urolithiasis 2025 (full guideline PDF)",
-      "url": "https://d56bochluxqnz.cloudfront.net/documents/full-guideline/EAU-Guidelines-on-Urolithiasis-2025.pdf",
-      "verifiedAt": "2026-10-28"
+      "title": "NCBI — Ureteral stones (StatPearls)",
+      "citation": "StatPearls — ureteral stones : présentation clinique, imagerie et traitement de la colique néphrétique.",
+      "organization": "NCBI",
+      "year": 2024,
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK431091/",
+      "verifiedAt": "2026-10-30"
     }
   ]
 }
