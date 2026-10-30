@@ -37,6 +37,7 @@ import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as PaiementRetourRouteImport } from './routes/paiement-retour'
 import { Route as ParcoursRouteImport } from './routes/parcours'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
@@ -56,11 +57,13 @@ import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
+import { Route as ApiCheckoutAriariRouteImport } from './routes/api.checkout.ariari'
 import { Route as ApiCheckoutLemonsqueezyRouteImport } from './routes/api.checkout.lemonsqueezy'
 import { Route as ApiHealthCheckoutRouteImport } from './routes/api.health.checkout'
 import { Route as ApiLicensesActivateRouteImport } from './routes/api.licenses.activate'
 import { Route as ApiLicensesSessionRouteImport } from './routes/api.licenses.session'
 import { Route as ApiLicensesVerifyRouteImport } from './routes/api.licenses.verify'
+import { Route as ApiWebhooksAriariRouteImport } from './routes/api.webhooks.ariari'
 import { Route as ApiWebhooksLemonsqueezyRouteImport } from './routes/api.webhooks.lemonsqueezy'
 import { Route as ContentTypeFileRouteImport } from './routes/content.$type.$file'
 
@@ -202,7 +205,12 @@ const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
-}as any)
+} as any)
+const PaiementRetourRoute = PaiementRetourRouteImport.update({
+  id: '/paiement-retour',
+  path: '/paiement-retour',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ParcoursRoute = ParcoursRouteImport.update({
   id: '/parcours',
   path: '/parcours',
@@ -298,6 +306,11 @@ const PathologieSlugRoute = PathologieSlugRouteImport.update({
   path: '/pathologie/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiCheckoutAriariRoute = ApiCheckoutAriariRouteImport.update({
+  id: '/api/checkout/ariari',
+  path: '/api/checkout/ariari',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCheckoutLemonsqueezyRoute = ApiCheckoutLemonsqueezyRouteImport.update({
   id: '/api/checkout/lemonsqueezy',
   path: '/api/checkout/lemonsqueezy',
@@ -321,6 +334,11 @@ const ApiLicensesSessionRoute = ApiLicensesSessionRouteImport.update({
 const ApiLicensesVerifyRoute = ApiLicensesVerifyRouteImport.update({
   id: '/api/licenses/verify',
   path: '/api/licenses/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebhooksAriariRoute = ApiWebhooksAriariRouteImport.update({
+  id: '/api/webhooks/ariari',
+  path: '/api/webhooks/ariari',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebhooksLemonsqueezyRoute = ApiWebhooksLemonsqueezyRouteImport.update({
@@ -362,6 +380,7 @@ export interface FileRoutesByFullPath {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -381,11 +400,13 @@ export interface FileRoutesByFullPath {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -417,6 +438,7 @@ export interface FileRoutesByTo {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -436,11 +458,13 @@ export interface FileRoutesByTo {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -474,6 +498,7 @@ export interface FileRoutesById {
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
   '/login': typeof LoginRoute
+  '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
@@ -493,11 +518,13 @@ export interface FileRoutesById {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
   '/api/licenses/activate': typeof ApiLicensesActivateRoute
   '/api/licenses/session': typeof ApiLicensesSessionRoute
   '/api/licenses/verify': typeof ApiLicensesVerifyRoute
+  '/api/webhooks/ariari': typeof ApiWebhooksAriariRoute
   '/api/webhooks/lemonsqueezy': typeof ApiWebhooksLemonsqueezyRoute
   '/content/$type/$file': typeof ContentTypeFileRoute
 }
@@ -531,6 +558,7 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/paiement-retour'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -550,11 +578,13 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -586,6 +616,7 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/paiement-retour'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -605,11 +636,13 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   id:
@@ -642,6 +675,7 @@ export interface FileRouteTypes {
     | '/examen'
     | '/import'
     | '/login'
+    | '/paiement-retour'
     | '/parcours'
     | '/pro'
     | '/profil'
@@ -661,11 +695,13 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
     | '/api/licenses/activate'
     | '/api/licenses/session'
     | '/api/licenses/verify'
+    | '/api/webhooks/ariari'
     | '/api/webhooks/lemonsqueezy'
     | '/content/$type/$file'
   fileRoutesById: FileRoutesById
@@ -699,6 +735,7 @@ export interface RootRouteChildren {
   ExamenRoute: typeof ExamenRoute
   ImportRoute: typeof ImportRoute
   LoginRoute: typeof LoginRoute
+  PaiementRetourRoute: typeof PaiementRetourRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
@@ -713,11 +750,13 @@ export interface RootRouteChildren {
   ApiEventsRoute: typeof ApiEventsRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
+  ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
   ApiLicensesActivateRoute: typeof ApiLicensesActivateRoute
   ApiLicensesSessionRoute: typeof ApiLicensesSessionRoute
   ApiLicensesVerifyRoute: typeof ApiLicensesVerifyRoute
+  ApiWebhooksAriariRoute: typeof ApiWebhooksAriariRoute
   ApiWebhooksLemonsqueezyRoute: typeof ApiWebhooksLemonsqueezyRoute
   ContentTypeFileRoute: typeof ContentTypeFileRoute
 }
@@ -920,6 +959,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/paiement-retour': {
+      id: '/paiement-retour'
+      path: '/paiement-retour'
+      fullPath: '/paiement-retour'
+      preLoaderRoute: typeof PaiementRetourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/parcours': {
       id: '/parcours'
       path: '/parcours'
@@ -1053,6 +1099,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PathologieSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/checkout/ariari': {
+      id: '/api/checkout/ariari'
+      path: '/api/checkout/ariari'
+      fullPath: '/api/checkout/ariari'
+      preLoaderRoute: typeof ApiCheckoutAriariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/checkout/lemonsqueezy': {
       id: '/api/checkout/lemonsqueezy'
       path: '/api/checkout/lemonsqueezy'
@@ -1086,6 +1139,13 @@ declare module '@tanstack/react-router' {
       path: '/api/licenses/verify'
       fullPath: '/api/licenses/verify'
       preLoaderRoute: typeof ApiLicensesVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webhooks/ariari': {
+      id: '/api/webhooks/ariari'
+      path: '/api/webhooks/ariari'
+      fullPath: '/api/webhooks/ariari'
+      preLoaderRoute: typeof ApiWebhooksAriariRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/webhooks/lemonsqueezy': {
@@ -1188,6 +1248,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExamenRoute: ExamenRoute,
   ImportRoute: ImportRoute,
   LoginRoute: LoginRoute,
+  PaiementRetourRoute: PaiementRetourRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
@@ -1202,11 +1263,13 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventsRoute: ApiEventsRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
+  ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
   ApiLicensesActivateRoute: ApiLicensesActivateRoute,
   ApiLicensesSessionRoute: ApiLicensesSessionRoute,
   ApiLicensesVerifyRoute: ApiLicensesVerifyRoute,
+  ApiWebhooksAriariRoute: ApiWebhooksAriariRoute,
   ApiWebhooksLemonsqueezyRoute: ApiWebhooksLemonsqueezyRoute,
   ContentTypeFileRoute: ContentTypeFileRoute,
 }
