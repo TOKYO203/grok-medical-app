@@ -29,6 +29,7 @@ import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ConseilEditorialRouteImport } from './routes/conseil-editorial'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DecouvrirRouteImport } from './routes/decouvrir'
 import { Route as DemarcheRouteImport } from './routes/demarche'
 import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
@@ -166,6 +167,11 @@ const ConseilEditorialRoute = ConseilEditorialRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecouvrirRoute = DecouvrirRouteImport.update({
+  id: '/decouvrir',
+  path: '/decouvrir',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemarcheRoute = DemarcheRouteImport.update({
@@ -384,6 +390,7 @@ export interface FileRoutesByFullPath {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
@@ -444,6 +451,7 @@ export interface FileRoutesByTo {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
@@ -506,6 +514,7 @@ export interface FileRoutesById {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
@@ -568,6 +577,7 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
@@ -628,6 +638,7 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
@@ -689,6 +700,7 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
@@ -751,6 +763,7 @@ export interface RootRouteChildren {
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ConseilEditorialRoute: typeof ConseilEditorialRoute
   ContactRoute: typeof ContactRoute
+  DecouvrirRoute: typeof DecouvrirRoute
   DemarcheRoute: typeof DemarcheRouteWithChildren
   DemoEcgRoute: typeof DemoEcgRoute
   DonneesRoute: typeof DonneesRoute
@@ -927,6 +940,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decouvrir': {
+      id: '/decouvrir'
+      path: '/decouvrir'
+      fullPath: '/decouvrir'
+      preLoaderRoute: typeof DecouvrirRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demarche': {
@@ -1280,6 +1300,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConfidentialiteRoute: ConfidentialiteRoute,
   ConseilEditorialRoute: ConseilEditorialRoute,
   ContactRoute: ContactRoute,
+  DecouvrirRoute: DecouvrirRoute,
   DemarcheRoute: DemarcheRouteWithChildren,
   DemoEcgRoute: DemoEcgRoute,
   DonneesRoute: DonneesRoute,

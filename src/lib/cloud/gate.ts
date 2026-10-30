@@ -21,6 +21,7 @@ import type { CloudAuthStatus } from "@/lib/cloud/session";
 export const PUBLIC_PATHS: readonly string[] = [
   "/login",
   "/tarifs",
+  "/decouvrir",
   "/a-propos",
   "/changelog",
   "/contact",
@@ -28,8 +29,6 @@ export const PUBLIC_PATHS: readonly string[] = [
   "/conditions",
   "/confidentialite",
   "/conseil-editorial",
-  "/validation-clinique",
-];  "/conseil-editorial",
   "/validation-clinique",
   "/methodologie",
   "/politique-editoriale",
