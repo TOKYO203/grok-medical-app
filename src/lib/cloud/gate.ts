@@ -21,6 +21,7 @@ import type { CloudAuthStatus } from "@/lib/cloud/session";
 export const PUBLIC_PATHS: readonly string[] = [
   "/login",
   "/tarifs",
+  "/decouvrir",
   "/a-propos",
   "/changelog",
   "/contact",
@@ -30,6 +31,9 @@ export const PUBLIC_PATHS: readonly string[] = [
   "/confidentialite",
   "/conseil-editorial",
   "/validation-clinique",
+  "/methodologie",
+  "/politique-editoriale",
+  "/sources",
 ];
 
 export type CloudGateMode = "public" | "splash" | "locked" | "app";

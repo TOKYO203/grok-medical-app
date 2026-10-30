@@ -29,6 +29,7 @@ import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ConseilEditorialRouteImport } from './routes/conseil-editorial'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DecouvrirRouteImport } from './routes/decouvrir'
 import { Route as DemarcheRouteImport } from './routes/demarche'
 import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
@@ -37,13 +38,16 @@ import { Route as ExamenRouteImport } from './routes/examen'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as InstitutionnelRouteImport } from './routes/institutionnel'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MethodologieRouteImport } from './routes/methodologie'
 import { Route as PaiementRetourRouteImport } from './routes/paiement-retour'
 import { Route as ParcoursRouteImport } from './routes/parcours'
+import { Route as PolitiqueEditorialeRouteImport } from './routes/politique-editoriale'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SignesRouteImport } from './routes/signes'
+import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
@@ -167,6 +171,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DecouvrirRoute = DecouvrirRouteImport.update({
+  id: '/decouvrir',
+  path: '/decouvrir',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemarcheRoute = DemarcheRouteImport.update({
   id: '/demarche',
   path: '/demarche',
@@ -207,6 +216,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MethodologieRoute = MethodologieRouteImport.update({
+  id: '/methodologie',
+  path: '/methodologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PaiementRetourRoute = PaiementRetourRouteImport.update({
   id: '/paiement-retour',
   path: '/paiement-retour',
@@ -215,6 +229,11 @@ const PaiementRetourRoute = PaiementRetourRouteImport.update({
 const ParcoursRoute = ParcoursRouteImport.update({
   id: '/parcours',
   path: '/parcours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiqueEditorialeRoute = PolitiqueEditorialeRouteImport.update({
+  id: '/politique-editoriale',
+  path: '/politique-editoriale',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProRoute = ProRouteImport.update({
@@ -240,6 +259,11 @@ const RevueRoute = RevueRouteImport.update({
 const SignesRoute = SignesRouteImport.update({
   id: '/signes',
   path: '/signes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SourcesRoute = SourcesRouteImport.update({
+  id: '/sources',
+  path: '/sources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SoutenirRoute = SoutenirRouteImport.update({
@@ -378,20 +402,25 @@ export interface FileRoutesByFullPath {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute
+  '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -399,7 +428,8 @@ export interface FileRoutesByFullPath {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute
+  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -435,20 +465,25 @@ export interface FileRoutesByTo {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute
+  '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -456,7 +491,8 @@ export interface FileRoutesByTo {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute
+  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -494,20 +530,25 @@ export interface FileRoutesById {
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
   '/contact': typeof ContactRoute
+  '/decouvrir': typeof DecouvrirRoute
   '/demarche': typeof DemarcheRouteWithChildren
   '/demo-ecg': typeof DemoEcgRoute
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
   '/import': typeof ImportRoute
-  '/institutionnel': typeof InstitutionnelRoute  '/login': typeof LoginRoute
+  '/institutionnel': typeof InstitutionnelRoute
+  '/login': typeof LoginRoute
+  '/methodologie': typeof MethodologieRoute
   '/paiement-retour': typeof PaiementRetourRoute
   '/parcours': typeof ParcoursRouteWithChildren
+  '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
   '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
+  '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
@@ -515,7 +556,8 @@ export interface FileRoutesById {
   '/api/admin-verify': typeof ApiAdminVerifyRoute
   '/api/ai-stream': typeof ApiAiStreamRoute
   '/api/events': typeof ApiEventsRoute
-  '/api/institution-leads': typeof ApiInstitutionLeadsRoute  '/cas/$caseId': typeof CasCaseIdRoute
+  '/api/institution-leads': typeof ApiInstitutionLeadsRoute
+  '/cas/$caseId': typeof CasCaseIdRoute
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
@@ -553,20 +595,25 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/institutionnel'    | '/login'
+    | '/institutionnel'
+    | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -574,7 +621,8 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/api/institution-leads'    | '/cas/$caseId'
+    | '/api/institution-leads'
+    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -610,20 +658,25 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/institutionnel'    | '/login'
+    | '/institutionnel'
+    | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -631,7 +684,8 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/api/institution-leads'    | '/cas/$caseId'
+    | '/api/institution-leads'
+    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -668,20 +722,25 @@ export interface FileRouteTypes {
     | '/confidentialite'
     | '/conseil-editorial'
     | '/contact'
+    | '/decouvrir'
     | '/demarche'
     | '/demo-ecg'
     | '/donnees'
     | '/ecg'
     | '/examen'
     | '/import'
-    | '/institutionnel'    | '/login'
+    | '/institutionnel'
+    | '/login'
+    | '/methodologie'
     | '/paiement-retour'
     | '/parcours'
+    | '/politique-editoriale'
     | '/pro'
     | '/profil'
     | '/programme'
     | '/revue'
     | '/signes'
+    | '/sources'
     | '/soutenir'
     | '/tarifs'
     | '/validation-clinique'
@@ -689,7 +748,8 @@ export interface FileRouteTypes {
     | '/api/admin-verify'
     | '/api/ai-stream'
     | '/api/events'
-    | '/api/institution-leads'    | '/cas/$caseId'
+    | '/api/institution-leads'
+    | '/cas/$caseId'
     | '/demarche/$id'
     | '/ecg/$id'
     | '/learn/$deckId'
@@ -727,6 +787,7 @@ export interface RootRouteChildren {
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ConseilEditorialRoute: typeof ConseilEditorialRoute
   ContactRoute: typeof ContactRoute
+  DecouvrirRoute: typeof DecouvrirRoute
   DemarcheRoute: typeof DemarcheRouteWithChildren
   DemoEcgRoute: typeof DemoEcgRoute
   DonneesRoute: typeof DonneesRoute
@@ -735,13 +796,16 @@ export interface RootRouteChildren {
   ImportRoute: typeof ImportRoute
   InstitutionnelRoute: typeof InstitutionnelRoute
   LoginRoute: typeof LoginRoute
+  MethodologieRoute: typeof MethodologieRoute
   PaiementRetourRoute: typeof PaiementRetourRoute
   ParcoursRoute: typeof ParcoursRouteWithChildren
+  PolitiqueEditorialeRoute: typeof PolitiqueEditorialeRoute
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
   ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
   SignesRoute: typeof SignesRoute
+  SourcesRoute: typeof SourcesRoute
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
@@ -904,6 +968,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/decouvrir': {
+      id: '/decouvrir'
+      path: '/decouvrir'
+      fullPath: '/decouvrir'
+      preLoaderRoute: typeof DecouvrirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demarche': {
       id: '/demarche'
       path: '/demarche'
@@ -960,6 +1031,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/methodologie': {
+      id: '/methodologie'
+      path: '/methodologie'
+      fullPath: '/methodologie'
+      preLoaderRoute: typeof MethodologieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/paiement-retour': {
       id: '/paiement-retour'
       path: '/paiement-retour'
@@ -972,6 +1050,13 @@ declare module '@tanstack/react-router' {
       path: '/parcours'
       fullPath: '/parcours'
       preLoaderRoute: typeof ParcoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-editoriale': {
+      id: '/politique-editoriale'
+      path: '/politique-editoriale'
+      fullPath: '/politique-editoriale'
+      preLoaderRoute: typeof PolitiqueEditorialeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pro': {
@@ -1007,6 +1092,13 @@ declare module '@tanstack/react-router' {
       path: '/signes'
       fullPath: '/signes'
       preLoaderRoute: typeof SignesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sources': {
+      id: '/sources'
+      path: '/sources'
+      fullPath: '/sources'
+      preLoaderRoute: typeof SourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/soutenir': {
@@ -1248,6 +1340,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConfidentialiteRoute: ConfidentialiteRoute,
   ConseilEditorialRoute: ConseilEditorialRoute,
   ContactRoute: ContactRoute,
+  DecouvrirRoute: DecouvrirRoute,
   DemarcheRoute: DemarcheRouteWithChildren,
   DemoEcgRoute: DemoEcgRoute,
   DonneesRoute: DonneesRoute,
@@ -1256,13 +1349,16 @@ const rootRouteChildren: RootRouteChildren = {
   ImportRoute: ImportRoute,
   InstitutionnelRoute: InstitutionnelRoute,
   LoginRoute: LoginRoute,
+  MethodologieRoute: MethodologieRoute,
   PaiementRetourRoute: PaiementRetourRoute,
   ParcoursRoute: ParcoursRouteWithChildren,
+  PolitiqueEditorialeRoute: PolitiqueEditorialeRoute,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
   ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
   SignesRoute: SignesRoute,
+  SourcesRoute: SourcesRoute,
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
