@@ -966,5 +966,368 @@
       }
     ],
     "synthesis": "Patiente → urines mousseuses → œdèmes bilatéraux mous → BU (protéines 4+) → syndrome néphrotique → quantifier (ratio P/C), albumine, créatinine, étiologies locales (palu, VIH, hépatites) → néphrose probable → corticoïdes + prévention thrombose/infection + suivi. La démarche force la BU devant tout œdème bilatéral."
+  },
+  {
+    "id": "DX-DIARRHEE-001",
+    "title": "Diarrhée aiguë — démarche",
+    "specialty": "Maladies infectieuses / Urgences",
+    "vignette": "Homme de 30 ans, huit selles liquides abondantes depuis 12 heures, vomissements, soif intense, pas de fièvre. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément qui pèse le plus sur la gravité immédiate est :",
+        "choices": [
+          "L'incapacité à boire et le nombre de selles depuis la veille",
+          "La couleur habituelle des selles d'il y a un mois",
+          "Une allergie au pollen",
+          "Un ronflement ancien"
+        ],
+        "correct": 0,
+        "explanation": "Le comptage des selles et des vomissements, la tolérance orale et le contexte (eau, entourage, épidémie) déterminent la gravité : la déshydratation prime sur l'étiologie."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe le plus préoccupant est :",
+        "choices": [
+          "Pli cutané persistant, yeux cernés, pouls rapide, oligurie",
+          "Une discrète rougeur de la gorge",
+          "Un souffle systolique ancien",
+          "Des varices des jambes"
+        ],
+        "correct": 0,
+        "explanation": "Pli cutané, yeux enfoncés, tachycardie et oligurie signent une déshydratation sévère : plan C, perfusion de Ringer lactate immédiate."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Diarrhée aqueuse profuse sans fièvre, sans sang, vomissements, déshydratation sévère :",
+        "choices": [
+          "Diarrhée aiguë aqueuse toxinique avec déshydratation sévère",
+          "Dysenterie bactérienne",
+          "Diarrhée chronique de malabsorption",
+          "Colite ischémique"
+        ],
+        "correct": 0,
+        "explanation": "Aqueuse, profuse, apyrétique : mécanisme toxinique (choléra, E. coli entérotoxigène) — la réhydratation agressive est le traitement, pas l'antibiotique d'emblée."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Dans ce contexte, les hypothèses à couvrir sont :",
+        "choices": [
+          "Choléra, diarrhée toxinique, plus paludisme et typhoïde si fièvre apparaît",
+          "Cancer du colon, rectocolite, maladie de Crohn",
+          "Insuffisance pancréatique, coeliaquie",
+          "Diarrhée fonctionnelle"
+        ],
+        "correct": 0,
+        "explanation": "Eau de riz en contexte épidémique : choléra au premier plan, à déclarer ; les causes fébriles (palu, typhoïde) se couvrent dès l'apparition de fièvre."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Aucun examen ne retarde la réhydratation. Le bilan minimal utile ici est :",
+        "choices": [
+          "Réhydratation d'abord, puis BU, TDR/goutte épaisse si fièvre, coproculture si suspicion de choléra, ionogramme selon gravité",
+          "Coloscopie en urgence",
+          "TDM abdominale immédiate",
+          "Bilan allergique"
+        ],
+        "correct": 0,
+        "explanation": "La perfusion prime ; les examens viennent après la stabilisation : BU, TDR si fièvre, coproculture et déclaration si suspicion de choléra."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Coproculture : Vibrio cholerae positif, contexte épidémique confirmé :",
+        "choices": [
+          "Choléra confirmé — antibiothérapie selon protocole et déclaration aux autorités sanitaires",
+          "Shigellose certaine",
+          "Amibiase invasive",
+          "Giardiase"
+        ],
+        "correct": 0,
+        "explanation": "Choléra confirmé : doxycycline ou macrolide selon protocole, réhydratation continue, déclaration obligatoire, mesures d'hygiène et gestion des excrétas."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Choléra, épisode à déclaration obligatoire",
+          "Diarrhée virale banale",
+          "Salmonellose typhique",
+          "Colite à C. difficile"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic est bactériologique ; la déclaration et les mesures d'hygiène font partie du diagnostic, pas seulement du traitement."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite qui change le pronostic dans les heures qui viennent est :",
+        "choices": [
+          "Réhydratation IV puis orale agressive, antibiothérapie selon protocole, surveillance rapprochée, éducation hygiénique, déclaration",
+          "Antidiarrhéique à forte dose",
+          "Antibiotiques oraux seuls, sans réhydratation",
+          "Repos et revoir dans une semaine"
+        ],
+        "correct": 0,
+        "explanation": "Le choléra tue par déshydratation en heures : la perfusion sauve, l'antibiotique raccourcit le portage, l'hygiène coupe la chaîne de transmission."
+      }
+    ],
+    "synthesis": "Patient → compter selles et vomissements → déshydratation (pli, yeux, urines) → perfusion si plan C → caractériser (eau de riz, apyrétique) → coproculture et déclaration → antibiothérapie selon protocole. La démarche force la réhydratation avant tout et l'antibiotique seulement sur indication."
+  },
+  {
+    "id": "DX-COLIQUE-001",
+    "title": "Colique néphrétique — démarche",
+    "specialty": "Urologie / Urgences",
+    "vignette": "Homme de 38 ans, douleur lombaire droite brutale en coup de poignard irradiant vers l'aine depuis deux heures, agité, sans fièvre. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément qui pèse le plus sur la gravité immédiate est :",
+        "choices": [
+          "La présence de fièvre ou de frissons associés",
+          "La couleur des urines d'il y a six mois",
+          "Une douleur lombaire ancienne positionnelle",
+          "Sa consommation de café"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre sur obstacle = pyélonéphrite obstructive : urgence de drainage. Sans fièvre, la priorité est l'antalgie et la confirmation du calcul."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe qui impose une conduite immédiate est :",
+        "choices": [
+          "Fièvre à 39 °C avec douleur lombaire et frissons",
+          "Une discrète douleur à la palpation de l'épigastre",
+          "Un souffle abdominal chez un fumeur",
+          "Des œdèmes des chevilles"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + douleur obstructive = infection sur obstacle : antibiothérapie IV et drainage (son JJ ou néphrostomie) sans délai ; le souffle abdominal ferait craindre un anévrisme."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Douleur lombaire paroxystique, patient agité, hématurie microscopique, apyrétique :",
+        "choices": [
+          "Colique néphrétique simple probable",
+          "Péritonite appendiculaire",
+          "Cholécystite aiguë",
+          "Occlusion intestinale"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (colique néphrétique, patient qui remue) avant la confirmation : l'antalgie immédiate précède l'imagerie."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les trois diagnostics à ne pas rater devant ce tableau sont :",
+        "choices": [
+          "Pyélonéphrite obstructive, anévrisme aortique, torsion testiculaire",
+          "Cancer du colon, pancréatite, ulcère",
+          "Migraine abdominale, spasmophilie, gastrite",
+          "Hernie hiatale, reflux, colite"
+        ],
+        "correct": 0,
+        "explanation": "Les faux tableaux qui tuent : infection sur obstacle, anévrisme rompu chez le sujet âgé hypertendu, torsion testiculaire chez le jeune — l'examen scrotal et les constantes font le tri."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Après l'antalgie, le bilan de première intention est :",
+        "choices": [
+          "Bandelette urinaire, créatinine, NFS-CRP, échographie rénale (ou TDM faible dose selon disponibilité)",
+          "TDM cérébrale",
+          "Coloscopie",
+          "Holter-ECG"
+        ],
+        "correct": 0,
+        "explanation": "BU (hématurie, nitrites), créatinine et échographie orientent ; la TDM faible dose est la référence selon l'EAU si doute ou planification d'un geste."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "BU : sang 2+, nitrites négatifs, leucocytes rares ; échographie : dilatation pyélocalicielle droite modérée, apyrétique :",
+        "choices": [
+          "Colique néphrétique lithiasique sans infection — antalgie, hydratation, expulsion probable",
+          "Pyélonéphrite obstructive certaine",
+          "Tumeur du haut appareil certaine",
+          "Anévrisme aortique"
+        ],
+        "correct": 0,
+        "explanation": "Obstacle sans fièvre ni leucocyturie : traitement conservateur, filtration des urines, réévaluation à 2-4 semaines ; pas de drainage d'emblée."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Colique néphrétique lithiasique droite, sans complication infectieuse",
+          "Pyélonéphrite obstructive",
+          "Cancer urothélial",
+          "Anévrisme rompu"
+        ],
+        "correct": 0,
+        "explanation": "Clinique + BU + imagerie concordent : calcul non compliqué. Chez un patient de plus de 40 ans avec hématurie stérile, un bilan tumoral se discute à froid."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "AINS IV + antalgiques, filtration des urines, hydratation abondante, réévaluation à 2-4 semaines, consignes écrites de retour (fièvre = urgence)",
+          "Antibiothérapie probabiliste d'emblée",
+          "Chirurgie immédiate",
+          "Lithotripsie en urgence"
+        ],
+        "correct": 0,
+        "explanation": "Antalgie efficace, expulsion probable pour un petit calcul, consignes écrites : la fièvre ou l'absence d'expulsion déclenchent le drainage — jamais d'attente en phase infectée."
+      }
+    ],
+    "synthesis": "Patient → agitation (qui remue) → fièvre ? (non) → antalgie AINS immédiate → BU (sang 2+) + échographie (dilatation) → calcul non compliqué → filtration, hydratation, réévaluation à 4 semaines. Fièvre sur obstacle = drainage : la seule urgence qui ne pardonne pas."
+  },
+  {
+    "id": "DX-HEMORRAGIES-DIGESTIVES-001",
+    "title": "Hématémèse et hémorragies digestives — démarche",
+    "specialty": "Gastro-entérologie / Urgences",
+    "vignette": "Homme de 52 ans, cirrhose connue (hépatite B), vomit du sang rouge depuis une heure, pouls à 110, pâleur. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous à l'interrogatoire ?",
+        "prompt": "L'élément qui pèse le plus sur la gravité immédiate est :",
+        "choices": [
+          "La cirrhose connue avec hématémèse abondante",
+          "La prise occasionnelle de paracétamol",
+          "Un épisode d'angine d'enfance",
+          "Sa consommation de thé"
+        ],
+        "correct": 0,
+        "explanation": "Hématémèse sur cirrhose = rupture de varice jusqu'à preuve du contraire : le triptyque antibiothérapie + vasoactif + endoscopie rapide sauve."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "Le signe qui impose la réanimation immédiate est :",
+        "choices": [
+          "Pouls à 110, tension basse, marbrures, pâleur conjonctivale",
+          "Un ictere discret",
+          "Une discrète hépatomégalie",
+          "Des angiomes cutanés"
+        ],
+        "correct": 0,
+        "explanation": "Instabilité hémodynamique : deux voies veineuses, remplissage, groupe et RAI, transfusion selon seuil — avant tout geste diagnostique."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Quel syndrome identifiez-vous ?",
+        "prompt": "Hématémèse sur cirrhose, instabilité hémodynamique :",
+        "choices": [
+          "Hémorragie digestive haute sur hypertension portale, mal tolérée",
+          "Épistaxis déglutie",
+          "Rectorragie basse abondante",
+          "Gastrite banale"
+        ],
+        "correct": 0,
+        "explanation": "On nomme le syndrome (hémorragie digestive haute sur cirrhose) et on réanime : le terrain oriente d'emblée la prise en charge vers le triptyque de la varice."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Les hypothèses à couvrir ici sont :",
+        "choices": [
+          "Rupture de varices œsophagiennes, ulcère gastroduodénal, gastrite hémorragique",
+          "Cancer du colon, hémorroïdes, fissure",
+          "Angiodysplasie du grêle, diverticule de Meckel",
+          "Colite ischémique"
+        ],
+        "correct": 0,
+        "explanation": "Sur cirrhose : varices en premier, ulcère et gastrite ensuite (AINS, helicobacter) — l'endoscopie départage, après stabilisation."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quels examens, dans quel ordre ?",
+        "prompt": "Après la réanimation, le bilan indispensable est :",
+        "choices": [
+          "Groupe et RAI, NFS et plaquettes, TP-INR, urée, créatinine, bilan hépatique, deux voies veineuses déjà posées, antibiothérapie",
+          "TDM cérébrale",
+          "Coloscopie immédiate",
+          "Radiographie thoracique seule"
+        ],
+        "correct": 0,
+        "explanation": "Réanimation d'abord, bilan d'hémostase et groupage, antibiothérapie prophylactique du cirrhotique ; l'endoscopie suit la stabilisation, dans les 12 heures."
+      },
+      {
+        "id": "interpreter",
+        "title": "6. Interpréter",
+        "lead": "Comment lire le résultat ?",
+        "prompt": "Hémoglobine à 7,8 g/dL, TP à 55 %, endoscopie : varices œsophagiennes de grade III avec saignement actif :",
+        "choices": [
+          "Rupture de varices — ligature endoscopique immédiate, vasoactif, antibiothérapie poursuivie",
+          "Ulcère gastroduodénal certain",
+          "Gastrite hémorragique",
+          "Cancer gastrique"
+        ],
+        "correct": 0,
+        "explanation": "Saignement actif sur varices de grade III : ligature au moment de l'endoscopie, vasoactif (terlipressine ou somatostatine), antibiothérapie — le triptyque complet."
+      },
+      {
+        "id": "diagnostic",
+        "title": "7. Diagnostic",
+        "lead": "Quel diagnostic portez-vous ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Rupture de varices œsophagiennes sur cirrhose virale B, hémostase obtenue",
+          "Ulcère hémorragique",
+          "Épistaxis déglutie",
+          "Rectocolite hémorragique"
+        ],
+        "correct": 0,
+        "explanation": "Le diagnostic est endoscopique et traité dans le même temps ; le suivi porte sur la prévention de la récidive (bêtabloquant, ligatures itératives, vaccination et dépistage des contacts hépatite B)."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge",
+        "lead": "Quelle prise en charge ?",
+        "prompt": "La conduite qui change le pronostic dans les heures qui viennent est :",
+        "choices": [
+          "Antibiothérapie + vasoactif + ligature endoscopique, transfusion restrictive, surveillance, prévention secondaire programmée",
+          "Transfusion massive systématique",
+          "Chirurgie immédiate d'emblée",
+          "Bilan et revoir dans un mois"
+        ],
+        "correct": 0,
+        "explanation": "Le triptyque fait tomber la mortalité de la première rupture ; la sur-transfusion augmente la pression portale : stratégie restrictive, prévention secondaire écrite."
+      }
+    ],
+    "synthesis": "Patient → cirrhose connue + hématémèse → réanimation (2 voies, groupe, remplissage) → antibiothérapie + vasoactif → endoscopie sous 12 h → varices grade III ligaturées → triptyque complet + prévention secondaire. La démarche force la réanimation avant l'endoscopie et le triptyque en cas de varice."
   }
 ]
