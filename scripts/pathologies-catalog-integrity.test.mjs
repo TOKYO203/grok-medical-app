@@ -205,6 +205,28 @@ test("chaque fiche disponible est complète et rattachée au bon item du program
           assert.ok(block.title?.trim(), `${entry.file}/${section.id}: callout sans titre`);
           assert.ok(block.text?.trim().length >= 20, `${entry.file}/${section.id}: callout trop court`);
           tonesSeen.add(block.tone);
+        } else if (block.type === "image") {
+          assert.ok(block.src?.trim(), `${entry.file}/${section.id}: image sans src`);
+          assert.ok(
+            block.alt?.trim().length >= 10,
+            `${entry.file}/${section.id}: texte alternatif trop court (accessibilité)`,
+          );
+          assert.match(
+            block.src,
+            /^(?:\/content\/images\/|https:\/\/)/,
+            `${entry.file}/${section.id}: src d'image doit être interne (/content/images/) ou HTTPS`,
+          );
+          assert.ok(block.credit?.trim(), `${entry.file}/${section.id}: image sans crédit d'auteur`);
+          assert.ok(block.license?.trim(), `${entry.file}/${section.id}: image sans licence`);
+          if (block.sourceUrl) {
+            assert.match(block.sourceUrl, /^https:\/\//, `${entry.file}/${section.id}: sourceUrl non HTTPS`);
+          }
+          if (block.caption !== undefined) {
+            assert.ok(
+              block.caption.trim().length >= 5,
+              `${entry.file}/${section.id}: légende d'image trop courte`,
+            );
+          }
         } else {
           assert.fail(`${entry.file}/${section.id}: type de bloc inconnu « ${block.type} »`);
         }
