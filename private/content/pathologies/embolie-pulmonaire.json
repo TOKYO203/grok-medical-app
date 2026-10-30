@@ -132,14 +132,47 @@
           "text": "La démarche commence par l'estimation de la probabilité clinique, à l'aide d'un score validé comme Wells ou le Genève révisé. Cette étape détermine l'examen suivant : chez un patient à faible probabilité, un D-dimère négatif permet d'exclure l'embolie ; chez un patient à forte probabilité, l'imagerie est réalisée d'emblée."
         },
         {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pulmonary_embolism_CTPA.JPEG?width=900",
+          "alt": "Angio-CT du thorax en coupe axiale montrant un défaut de repletion endoluminal dans une artère pulmonaire, signe d'embolie pulmonaire",
+          "caption": "Angio-CT thoracique : défect endoluminal hypodense au sein d'une branche artérielle pulmonaire — la clé diagnostique de l'embolie pulmonaire.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "sourceUrl": "https://en.wikipedia.org/wiki/File:Pulmonary_embolism_CTPA.JPEG"
+        },
+        {
           "type": "table",
-          "columns": ["Situation", "Examen de première intention", "Commentaire"],
+          "columns": [
+            "Situation",
+            "Examen de première intention",
+            "Commentaire"
+          ],
           "rows": [
-            ["Patient stable, probabilité faible ou intermédiaire", "D-dimères", "Un résultat négatif, avec un seuil adapté à l'âge, permet d'écarter l'embolie"],
-            ["D-dimères positifs ou probabilité forte", "Angioscanner thoracique", "Examen de référence ; alternative : scintigraphie ventilation-perfusion"],
-            ["Insuffisance rénale ou allergie à l'iode", "Scintigraphie ventilation-perfusion", "Souvent préférée chez la femme enceinte"],
-            ["Patient instable", "Échographie cardiaque au lit", "Dysfonction ventriculaire droite peut justifier un traitement immédiat"],
-            ["Suspicion de thrombose veineuse associée", "Échographie Doppler des membres inférieurs", "Peut confirmer le diagnostic sans scanner"]
+            [
+              "Patient stable, probabilité faible ou intermédiaire",
+              "D-dimères",
+              "Un résultat négatif, avec un seuil adapté à l'âge, permet d'écarter l'embolie"
+            ],
+            [
+              "D-dimères positifs ou probabilité forte",
+              "Angioscanner thoracique",
+              "Examen de référence ; alternative : scintigraphie ventilation-perfusion"
+            ],
+            [
+              "Insuffisance rénale ou allergie à l'iode",
+              "Scintigraphie ventilation-perfusion",
+              "Souvent préférée chez la femme enceinte"
+            ],
+            [
+              "Patient instable",
+              "Échographie cardiaque au lit",
+              "Dysfonction ventriculaire droite peut justifier un traitement immédiat"
+            ],
+            [
+              "Suspicion de thrombose veineuse associée",
+              "Échographie Doppler des membres inférieurs",
+              "Peut confirmer le diagnostic sans scanner"
+            ]
           ]
         },
         {
@@ -181,12 +214,32 @@
         },
         {
           "type": "table",
-          "columns": ["Catégorie", "Marqueurs", "Orientation"],
+          "columns": [
+            "Catégorie",
+            "Marqueurs",
+            "Orientation"
+          ],
           "rows": [
-            ["Haut risque", "Choc, hypotension", "Réanimation, thrombolyse ou embolectomie"],
-            ["Intermédiaire-élevé", "Dysfonction ventriculaire droite + troponine élevée", "Surveillance rapprochée, discussion de reperfusion"],
-            ["Intermédiaire-faible", "Un seul marqueur ou aucun", "Hospitalisation, anticoagulation"],
-            ["Faible risque", "Pas de dysfonction, biomarqueurs normaux", "Traitement ambulatoire possible selon le contexte"]
+            [
+              "Haut risque",
+              "Choc, hypotension",
+              "Réanimation, thrombolyse ou embolectomie"
+            ],
+            [
+              "Intermédiaire-élevé",
+              "Dysfonction ventriculaire droite + troponine élevée",
+              "Surveillance rapprochée, discussion de reperfusion"
+            ],
+            [
+              "Intermédiaire-faible",
+              "Un seul marqueur ou aucun",
+              "Hospitalisation, anticoagulation"
+            ],
+            [
+              "Faible risque",
+              "Pas de dysfonction, biomarqueurs normaux",
+              "Traitement ambulatoire possible selon le contexte"
+            ]
           ]
         },
         {
@@ -356,11 +409,26 @@
       "label": "Wells — les items qui comptent",
       "intro": "Un score d'orientation, pas une certitude.",
       "entries": [
-        { "key": "1", "term": "Signes cliniques de thrombose veineuse profonde." },
-        { "key": "2", "term": "Embolie pulmonaire plus probable qu'un autre diagnostic." },
-        { "key": "3", "term": "Fréquence cardiaque supérieure à 100 par minute." },
-        { "key": "4", "term": "Immobilisation ou chirurgie récente, ou cancer actif." },
-        { "key": "5", "term": "Hémoptysie." }
+        {
+          "key": "1",
+          "term": "Signes cliniques de thrombose veineuse profonde."
+        },
+        {
+          "key": "2",
+          "term": "Embolie pulmonaire plus probable qu'un autre diagnostic."
+        },
+        {
+          "key": "3",
+          "term": "Fréquence cardiaque supérieure à 100 par minute."
+        },
+        {
+          "key": "4",
+          "term": "Immobilisation ou chirurgie récente, ou cancer actif."
+        },
+        {
+          "key": "5",
+          "term": "Hémoptysie."
+        }
       ],
       "note": "Le score de Wells comporte aussi l'antécédent de maladie thromboembolique et le critère « alternative moins probable » ; il doit être utilisé dans sa version validée complète."
     },
@@ -369,9 +437,18 @@
       "label": "Les 3 niveaux de risque",
       "intro": "Ce qui décide du lieu et de l'intensité du traitement.",
       "entries": [
-        { "key": "H", "term": "Haut risque : choc ou hypotension, thrombolyse ou embolectomie à discuter." },
-        { "key": "I", "term": "Intermédiaire : dysfonction ventriculaire droite et/ou troponine élevée, surveillance rapprochée." },
-        { "key": "F", "term": "Faible risque : biomarqueurs normaux, traitement ambulatoire possible." }
+        {
+          "key": "H",
+          "term": "Haut risque : choc ou hypotension, thrombolyse ou embolectomie à discuter."
+        },
+        {
+          "key": "I",
+          "term": "Intermédiaire : dysfonction ventriculaire droite et/ou troponine élevée, surveillance rapprochée."
+        },
+        {
+          "key": "F",
+          "term": "Faible risque : biomarqueurs normaux, traitement ambulatoire possible."
+        }
       ],
       "note": "L'échographie cardiaque et la troponine sont les deux outils qui font basculer un patient d'une catégorie à l'autre."
     },
@@ -380,9 +457,18 @@
       "label": "Durée du traitement",
       "intro": "Trois mois minimum, puis réévaluation.",
       "entries": [
-        { "key": "3", "term": "Trois mois pour une embolie provoquée par un facteur transitoire." },
-        { "key": "6", "term": "Six mois ou plus en cas de facteur persistant, de cancer actif ou de récidive." },
-        { "key": "∞", "term": "Traitement prolongé sans limite fixée en cas d'embolie non provoquée avec risque de récidive élevé." }
+        {
+          "key": "3",
+          "term": "Trois mois pour une embolie provoquée par un facteur transitoire."
+        },
+        {
+          "key": "6",
+          "term": "Six mois ou plus en cas de facteur persistant, de cancer actif ou de récidive."
+        },
+        {
+          "key": "∞",
+          "term": "Traitement prolongé sans limite fixée en cas d'embolie non provoquée avec risque de récidive élevé."
+        }
       ],
       "note": "La décision de prolonger se prend avec le patient, après évaluation du risque hémorragique et du risque de récidive."
     }
@@ -392,67 +478,91 @@
       "id": "fc-01",
       "front": "Quels sont les symptômes évocateurs d'une embolie pulmonaire ?",
       "back": "Dyspnée brutale, douleur thoracique, tachycardie, toux, hémoptysie, syncope. Aucun n'est spécifique, et l'absence de facteur de risque n'élimine pas le diagnostic.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quel est l'examen de référence pour confirmer une embolie pulmonaire chez un patient stable ?",
       "back": "L'angioscanner thoracique. La scintigraphie ventilation-perfusion est une alternative, notamment en cas d'insuffisance rénale, d'allergie à l'iode ou de grossesse.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quand les D-dimères permettent-ils d'exclure une embolie pulmonaire ?",
       "back": "Chez un patient à faible ou intermédiaire probabilité clinique, avec un seuil adapté à l'âge. Chez un patient à forte probabilité, un D-dimère négatif n'élimine pas le diagnostic.",
-      "tags": ["diagnostic", "piège"]
+      "tags": [
+        "diagnostic",
+        "piège"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Pourquoi l'embolie pulmonaire tue-t-elle ?",
       "back": "Par défaillance du ventricule droit : l'augmentation brutale des résistances pulmonaires provoque une hypotension, un choc et une insuffisance circulatoire.",
-      "tags": ["physiopathologie"]
+      "tags": [
+        "physiopathologie"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quels éléments définissent une embolie pulmonaire à haut risque ?",
       "back": "Une instabilité hémodynamique : hypotension, choc ou syncope avec signes de bas débit. Ces patients relèvent d'une prise en charge en réanimation et d'une discussion de thrombolyse ou d'embolectomie.",
-      "tags": ["gravité"]
+      "tags": [
+        "gravité"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quel traitement anticoagulant privilégier en cas d'embolie pulmonaire ?",
       "back": "Les anticoagulants oraux directs dans la majorité des cas. Les exceptions incluent le syndrome des antiphospholipides, les valves mécaniques, la grossesse et l'insuffisance rénale sévère.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quelle est la durée minimale d'anticoagulation après une embolie pulmonaire ?",
       "back": "Trois mois. Le traitement est prolongé au-delà en cas d'embolie non provoquée, de récidive, de cancer actif ou de facteur de risque persistant.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Quand proposer une thrombolyse ?",
       "back": "Dans l'embolie pulmonaire à haut risque avec instabilité hémodynamique, en l'absence de contre-indication. Elle n'est pas systématique dans les formes intermédiaires-élevées.",
-      "tags": ["urgence", "traitement"]
+      "tags": [
+        "urgence",
+        "traitement"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Comment explorer une suspicion d'embolie pulmonaire chez la femme enceinte ?",
       "back": "La scintigraphie ventilation-perfusion est souvent privilégiée, mais l'angioscanner peut être utilisé selon la disponibilité et le terme. L'anticoagulation repose sur l'héparine de bas poids moléculaire, les antivitamines K et les anticoagulants oraux directs étant contre-indiqués.",
-      "tags": ["grossesse"]
+      "tags": [
+        "grossesse"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quel examen réaliser chez un patient instable avec suspicion d'embolie pulmonaire ?",
       "back": "Une échographie cardiaque au lit, à la recherche d'une dysfonction ventriculaire droite. Elle peut permettre de débuter un traitement de reperfusion sans attendre le scanner.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quelles mesures préviennent la maladie thromboembolique veineuse à l'hôpital ?",
       "back": "L'évaluation systématique du risque, la prophylaxie par héparine de bas poids moléculaire ou anticoagulant oral direct, la mobilisation précoce, la compression veineuse et l'arrêt des œstroprogestatifs chez les patientes à risque.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     }
   ],
   "mindmap": {
@@ -468,9 +578,48 @@
         "tone": "reflexe",
         "detail": "Probabilité clinique, D-dimères et imagerie. La stratégie dépend de la stabilité et de la probabilité.",
         "children": [
-          { "id": "diag-proba", "label": "Probabilité", "leaves": [{ "id": "diag-proba-1", "label": "Wells" }, { "id": "diag-proba-2", "label": "Genève révisé" }] },
-          { "id": "diag-ddimeres", "label": "D-dimères", "leaves": [{ "id": "diag-ddimeres-1", "label": "Seuil adapté à l'âge" }, { "id": "diag-ddimeres-2", "label": "Faible probabilité" }] },
-          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Angioscanner" }, { "id": "diag-imagerie-2", "label": "Scintigraphie" }] }
+          {
+            "id": "diag-proba",
+            "label": "Probabilité",
+            "leaves": [
+              {
+                "id": "diag-proba-1",
+                "label": "Wells"
+              },
+              {
+                "id": "diag-proba-2",
+                "label": "Genève révisé"
+              }
+            ]
+          },
+          {
+            "id": "diag-ddimeres",
+            "label": "D-dimères",
+            "leaves": [
+              {
+                "id": "diag-ddimeres-1",
+                "label": "Seuil adapté à l'âge"
+              },
+              {
+                "id": "diag-ddimeres-2",
+                "label": "Faible probabilité"
+              }
+            ]
+          },
+          {
+            "id": "diag-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "diag-imagerie-1",
+                "label": "Angioscanner"
+              },
+              {
+                "id": "diag-imagerie-2",
+                "label": "Scintigraphie"
+              }
+            ]
+          }
         ]
       },
       {
@@ -479,9 +628,44 @@
         "tone": "urgence",
         "detail": "Haut risque, intermédiaire ou faible. L'échographie cardiaque et la troponine guident la décision.",
         "children": [
-          { "id": "grav-haut", "label": "Haut risque", "leaves": [{ "id": "grav-haut-1", "label": "Choc" }, { "id": "grav-haut-2", "label": "Hypotension" }] },
-          { "id": "grav-inter", "label": "Intermédiaire", "leaves": [{ "id": "grav-inter-1", "label": "Ventricule droit" }, { "id": "grav-inter-2", "label": "Troponine" }] },
-          { "id": "grav-faible", "label": "Faible", "leaves": [{ "id": "grav-faible-1", "label": "Ambulatoire possible" }] }
+          {
+            "id": "grav-haut",
+            "label": "Haut risque",
+            "leaves": [
+              {
+                "id": "grav-haut-1",
+                "label": "Choc"
+              },
+              {
+                "id": "grav-haut-2",
+                "label": "Hypotension"
+              }
+            ]
+          },
+          {
+            "id": "grav-inter",
+            "label": "Intermédiaire",
+            "leaves": [
+              {
+                "id": "grav-inter-1",
+                "label": "Ventricule droit"
+              },
+              {
+                "id": "grav-inter-2",
+                "label": "Troponine"
+              }
+            ]
+          },
+          {
+            "id": "grav-faible",
+            "label": "Faible",
+            "leaves": [
+              {
+                "id": "grav-faible-1",
+                "label": "Ambulatoire possible"
+              }
+            ]
+          }
         ]
       },
       {
@@ -489,9 +673,44 @@
         "label": "Facteurs de risque",
         "detail": "Transitoires ou persistants : chirurgie, immobilisation, cancer, grossesse, thrombophilie, œstroprogestatifs.",
         "children": [
-          { "id": "fact-transi", "label": "Transitoires", "leaves": [{ "id": "fact-transi-1", "label": "Chirurgie" }, { "id": "fact-transi-2", "label": "Immobilisation" }] },
-          { "id": "fact-persist", "label": "Persistants", "leaves": [{ "id": "fact-persist-1", "label": "Cancer" }, { "id": "fact-persist-2", "label": "Thrombophilie" }] },
-          { "id": "fact-grossesse", "label": "Grossesse", "leaves": [{ "id": "fact-grossesse-1", "label": "Post-partum" }] }
+          {
+            "id": "fact-transi",
+            "label": "Transitoires",
+            "leaves": [
+              {
+                "id": "fact-transi-1",
+                "label": "Chirurgie"
+              },
+              {
+                "id": "fact-transi-2",
+                "label": "Immobilisation"
+              }
+            ]
+          },
+          {
+            "id": "fact-persist",
+            "label": "Persistants",
+            "leaves": [
+              {
+                "id": "fact-persist-1",
+                "label": "Cancer"
+              },
+              {
+                "id": "fact-persist-2",
+                "label": "Thrombophilie"
+              }
+            ]
+          },
+          {
+            "id": "fact-grossesse",
+            "label": "Grossesse",
+            "leaves": [
+              {
+                "id": "fact-grossesse-1",
+                "label": "Post-partum"
+              }
+            ]
+          }
         ]
       },
       {
@@ -500,9 +719,44 @@
         "tone": "retenir",
         "detail": "Anticoagulation précoce, durée adaptée, thrombolyse réservée aux formes instables.",
         "children": [
-          { "id": "ttt-anticoag", "label": "Anticoagulation", "leaves": [{ "id": "ttt-anticoag-1", "label": "AOD en 1re intention" }, { "id": "ttt-anticoag-2", "label": "HBPM si grossesse" }] },
-          { "id": "ttt-reperfusion", "label": "Reperfusion", "leaves": [{ "id": "ttt-reperfusion-1", "label": "Thrombolyse" }, { "id": "ttt-reperfusion-2", "label": "Embolectomie" }] },
-          { "id": "ttt-duree", "label": "Durée", "leaves": [{ "id": "ttt-duree-1", "label": "3 mois minimum" }] }
+          {
+            "id": "ttt-anticoag",
+            "label": "Anticoagulation",
+            "leaves": [
+              {
+                "id": "ttt-anticoag-1",
+                "label": "AOD en 1re intention"
+              },
+              {
+                "id": "ttt-anticoag-2",
+                "label": "HBPM si grossesse"
+              }
+            ]
+          },
+          {
+            "id": "ttt-reperfusion",
+            "label": "Reperfusion",
+            "leaves": [
+              {
+                "id": "ttt-reperfusion-1",
+                "label": "Thrombolyse"
+              },
+              {
+                "id": "ttt-reperfusion-2",
+                "label": "Embolectomie"
+              }
+            ]
+          },
+          {
+            "id": "ttt-duree",
+            "label": "Durée",
+            "leaves": [
+              {
+                "id": "ttt-duree-1",
+                "label": "3 mois minimum"
+              }
+            ]
+          }
         ]
       },
       {
@@ -510,9 +764,36 @@
         "label": "Situations particulières",
         "detail": "Grossesse, cancer, insuffisance rénale, syndrome des antiphospholipides : le choix de l'anticoagulant change.",
         "children": [
-          { "id": "sit-grossesse", "label": "Grossesse", "leaves": [{ "id": "sit-grossesse-1", "label": "HBPM" }] },
-          { "id": "sit-cancer", "label": "Cancer", "leaves": [{ "id": "sit-cancer-1", "label": "AOD ou HBPM" }] },
-          { "id": "sit-rein", "label": "Insuffisance rénale", "leaves": [{ "id": "sit-rein-1", "label": "Adapter la dose" }] }
+          {
+            "id": "sit-grossesse",
+            "label": "Grossesse",
+            "leaves": [
+              {
+                "id": "sit-grossesse-1",
+                "label": "HBPM"
+              }
+            ]
+          },
+          {
+            "id": "sit-cancer",
+            "label": "Cancer",
+            "leaves": [
+              {
+                "id": "sit-cancer-1",
+                "label": "AOD ou HBPM"
+              }
+            ]
+          },
+          {
+            "id": "sit-rein",
+            "label": "Insuffisance rénale",
+            "leaves": [
+              {
+                "id": "sit-rein-1",
+                "label": "Adapter la dose"
+              }
+            ]
+          }
         ]
       },
       {
@@ -520,9 +801,40 @@
         "label": "Prévenir",
         "detail": "Prophylaxie chez les patients hospitalisés à risque, mobilisation précoce et information du patient.",
         "children": [
-          { "id": "prev-prophy", "label": "Prophylaxie", "leaves": [{ "id": "prev-prophy-1", "label": "HBPM" }, { "id": "prev-prophy-2", "label": "Compression" }] },
-          { "id": "prev-mobil", "label": "Mobilisation", "leaves": [{ "id": "prev-mobil-1", "label": "Post-opératoire" }] },
-          { "id": "prev-info", "label": "Information", "leaves": [{ "id": "prev-info-1", "label": "Signes d'alerte" }] }
+          {
+            "id": "prev-prophy",
+            "label": "Prophylaxie",
+            "leaves": [
+              {
+                "id": "prev-prophy-1",
+                "label": "HBPM"
+              },
+              {
+                "id": "prev-prophy-2",
+                "label": "Compression"
+              }
+            ]
+          },
+          {
+            "id": "prev-mobil",
+            "label": "Mobilisation",
+            "leaves": [
+              {
+                "id": "prev-mobil-1",
+                "label": "Post-opératoire"
+              }
+            ]
+          },
+          {
+            "id": "prev-info",
+            "label": "Information",
+            "leaves": [
+              {
+                "id": "prev-info-1",
+                "label": "Signes d'alerte"
+              }
+            ]
+          }
         ]
       },
       {
@@ -530,9 +842,36 @@
         "label": "Contexte malgache",
         "detail": "Accès inégal à l'angioscanner, aux anticoagulants oraux directs et à la thrombolyse. Adapter sans renoncer à la durée minimale.",
         "children": [
-          { "id": "mada-imagerie", "label": "Imagerie", "leaves": [{ "id": "mada-imagerie-1", "label": "Disponibilité" }] },
-          { "id": "mada-anticoag", "label": "Anticoagulants", "leaves": [{ "id": "mada-anticoag-1", "label": "HBPM / AVK" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+          {
+            "id": "mada-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "mada-imagerie-1",
+                "label": "Disponibilité"
+              }
+            ]
+          },
+          {
+            "id": "mada-anticoag",
+            "label": "Anticoagulants",
+            "leaves": [
+              {
+                "id": "mada-anticoag-1",
+                "label": "HBPM / AVK"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "National"
+              }
+            ]
+          }
         ]
       }
     ]

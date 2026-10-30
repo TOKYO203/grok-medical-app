@@ -22,8 +22,13 @@
     }
   },
   "related": {
-    "deckIds": ["neuro", "neuro-avc-l2"],
-    "caseIds": ["NEURO-AVC-001"]
+    "deckIds": [
+      "neuro",
+      "neuro-avc-l2"
+    ],
+    "caseIds": [
+      "NEURO-AVC-001"
+    ]
   },
   "editorial": {
     "sourceDocument": null,
@@ -133,15 +138,52 @@
           "text": "Le diagnostic clinique repose sur un déficit neurologique focal d'apparition brutale : asymétrie faciale, déficit moteur d'un membre, trouble du langage, trouble visuel, vertige ou ataxie. L'échelle NIHSS quantifie la gravité et facilite la communication entre les équipes."
         },
         {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Dens_media_sign_mit_Mediainfarkt_-_CCT_001.jpg?width=900",
+          "alt": "Scanner cérébral sans injection en coupe axiale montrant une artère cérébrale moyenne spontanément hyperdense, signe d'ischémie aiguë",
+          "caption": "Scanner cérébral sans produit de contraste : artère cérébrale moyenne gauche spontanément hyperdense (dense MCA sign), marqueur précoce d'infarctus sylvien.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dens_media_sign_mit_Mediainfarkt_-_CCT_001.jpg"
+        },
+        {
           "type": "table",
-          "columns": ["Examen", "Objectif", "Délai"],
+          "columns": [
+            "Examen",
+            "Objectif",
+            "Délai"
+          ],
           "rows": [
-            ["Glycémie capillaire", "Éliminer une hypoglycémie", "Immédiat"],
-            ["Scanner cérébral sans injection", "Éliminer une hémorragie", "En urgence"],
-            ["Angioscanner ou angio-IRM", "Identifier une occlusion artérielle", "En urgence si thrombectomie envisagée"],
-            ["IRM cérébrale", "Confirmer l'ischémie, évaluer la pénombre", "Selon disponibilité"],
-            ["Électrocardiogramme", "Rechercher une fibrillation atriale", "Précoce"],
-            ["Bilan biologique", "Hémostase, numération, fonction rénale, troponine", "Sans retarder la reperfusion"]
+            [
+              "Glycémie capillaire",
+              "Éliminer une hypoglycémie",
+              "Immédiat"
+            ],
+            [
+              "Scanner cérébral sans injection",
+              "Éliminer une hémorragie",
+              "En urgence"
+            ],
+            [
+              "Angioscanner ou angio-IRM",
+              "Identifier une occlusion artérielle",
+              "En urgence si thrombectomie envisagée"
+            ],
+            [
+              "IRM cérébrale",
+              "Confirmer l'ischémie, évaluer la pénombre",
+              "Selon disponibilité"
+            ],
+            [
+              "Électrocardiogramme",
+              "Rechercher une fibrillation atriale",
+              "Précoce"
+            ],
+            [
+              "Bilan biologique",
+              "Hémostase, numération, fonction rénale, troponine",
+              "Sans retarder la reperfusion"
+            ]
           ]
         },
         {
@@ -373,12 +415,30 @@
       "label": "B.E.-F.A.S.T.",
       "intro": "Les signes à reconnaître en quelques secondes.",
       "entries": [
-        { "key": "B", "term": "Balance : perte d'équilibre ou vertige brutal." },
-        { "key": "E", "term": "Eyes : trouble visuel, diplopie, amputation du champ visuel." },
-        { "key": "F", "term": "Face : asymétrie faciale, bouche déviée." },
-        { "key": "A", "term": "Arms : déficit moteur d'un bras ou d'une jambe." },
-        { "key": "S", "term": "Speech : trouble du langage ou de l'articulation." },
-        { "key": "T", "term": "Time : noter l'heure de début et appeler immédiatement les secours." }
+        {
+          "key": "B",
+          "term": "Balance : perte d'équilibre ou vertige brutal."
+        },
+        {
+          "key": "E",
+          "term": "Eyes : trouble visuel, diplopie, amputation du champ visuel."
+        },
+        {
+          "key": "F",
+          "term": "Face : asymétrie faciale, bouche déviée."
+        },
+        {
+          "key": "A",
+          "term": "Arms : déficit moteur d'un bras ou d'une jambe."
+        },
+        {
+          "key": "S",
+          "term": "Speech : trouble du langage ou de l'articulation."
+        },
+        {
+          "key": "T",
+          "term": "Time : noter l'heure de début et appeler immédiatement les secours."
+        }
       ],
       "note": "L'heure exacte de début est une donnée thérapeutique : elle détermine l'éligibilité à la thrombolyse et à la thrombectomie."
     },
@@ -387,9 +447,18 @@
       "label": "Les fenêtres de reperfusion",
       "intro": "Quatre heures trente, six heures, vingt-quatre heures.",
       "entries": [
-        { "key": "4h30", "term": "Fenêtre de la thrombolyse intraveineuse après le début des symptômes." },
-        { "key": "6h", "term": "Fenêtre standard de la thrombectomie mécanique en cas d'occlusion proximale." },
-        { "key": "24h", "term": "Extension possible de la thrombectomie chez des patients sélectionnés par imagerie." }
+        {
+          "key": "4h30",
+          "term": "Fenêtre de la thrombolyse intraveineuse après le début des symptômes."
+        },
+        {
+          "key": "6h",
+          "term": "Fenêtre standard de la thrombectomie mécanique en cas d'occlusion proximale."
+        },
+        {
+          "key": "24h",
+          "term": "Extension possible de la thrombectomie chez des patients sélectionnés par imagerie."
+        }
       ],
       "note": "Ces fenêtres supposent un début connu et une imagerie compatible. En cas de réveil avec déficit, l'imagerie peut aider à sélectionner les patients."
     },
@@ -398,11 +467,26 @@
       "label": "T.O.A.S.T. — les causes",
       "intro": "Classer pour prévenir.",
       "entries": [
-        { "key": "T", "term": "Thrombotique : athérosclérose des grosses artères." },
-        { "key": "O", "term": "Autre cause déterminée : dissection, vascularite, troubles de la coagulation." },
-        { "key": "A", "term": "Athérome des petites artères : lacunes." },
-        { "key": "S", "term": "Source cardioembolique : fibrillation atriale, valve, thrombus." },
-        { "key": "T", "term": "Tumeur ou cause indéterminée après bilan complet." }
+        {
+          "key": "T",
+          "term": "Thrombotique : athérosclérose des grosses artères."
+        },
+        {
+          "key": "O",
+          "term": "Autre cause déterminée : dissection, vascularite, troubles de la coagulation."
+        },
+        {
+          "key": "A",
+          "term": "Athérome des petites artères : lacunes."
+        },
+        {
+          "key": "S",
+          "term": "Source cardioembolique : fibrillation atriale, valve, thrombus."
+        },
+        {
+          "key": "T",
+          "term": "Tumeur ou cause indéterminée après bilan complet."
+        }
       ],
       "note": "La classification TOAST guide la prévention : antiagrégant pour l'athérome, anticoagulant pour la cardioembolie, traitement spécifique pour les causes rares."
     }
@@ -412,73 +496,100 @@
       "id": "fc-01",
       "front": "Quel est le premier examen à réaliser devant un déficit neurologique brutal ?",
       "back": "La glycémie capillaire, pour éliminer une hypoglycémie, puis le scanner cérébral sans injection, pour éliminer une hémorragie.",
-      "tags": ["diagnostic", "urgence"]
+      "tags": [
+        "diagnostic",
+        "urgence"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quelle est la fenêtre de la thrombolyse intraveineuse ?",
       "back": "Jusqu'à 4 heures 30 après le début des symptômes, après exclusion d'une hémorragie et en l'absence de contre-indication.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quelles sont les contre-indications majeures à la thrombolyse ?",
       "back": "Hémorragie intracrânienne, hémorragie active, chirurgie récente, trouble majeur de l'hémostase, pression artérielle non contrôlée et infarctus étendu selon les critères d'imagerie.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quels sont les objectifs de pression artérielle avant et après thrombolyse ?",
       "back": "Avant : moins de 185/110 mmHg. Après : moins de 180/105 mmHg, avec surveillance rapprochée.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quand proposer une thrombectomie mécanique ?",
       "back": "En cas d'occlusion d'une grosse artère, dans les 6 heures, et jusqu'à 24 heures chez des patients sélectionnés par imagerie.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quand débuter l'aspirine après un accident ischémique ?",
       "back": "Dans les 24 à 48 heures en l'absence de thrombolyse. Après thrombolyse, l'antiagrégant est différé de 24 heures et l'imagerie de contrôle est réalisée selon le protocole.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quelle est la place de la double antiagrégation ?",
       "back": "Elle est discutée pour les accidents ischémiques mineurs ou les accidents transitoires à haut risque, sur une durée limitée, en l'absence de source cardioembolique.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Quelles sont les cinq catégories de la classification TOAST ?",
       "back": "Athérosclérose des grosses artères, cardioembolie, maladie des petits vaisseaux, autre cause déterminée et cause indéterminée.",
-      "tags": ["étiologie"]
+      "tags": [
+        "étiologie"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Pourquoi rechercher une fibrillation atriale après un accident ischémique ?",
       "back": "Parce qu'elle change la prévention secondaire : anticoagulation au lieu d'un simple antiagrégant. Elle peut être intermittente et nécessiter un holter rythmique.",
-      "tags": ["étiologie", "prévention"]
+      "tags": [
+        "étiologie",
+        "prévention"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Comment distinguer un accident ischémique d'une hémorragie intracérébrale ?",
       "back": "Par l'imagerie. Le scanner sans injection élimine l'hémorragie, qui contre-indique la thrombolyse et relève d'un traitement différent.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quels sont les éléments de la prise en charge en unité neurovasculaire ?",
       "back": "Surveillance neurologique et tensionnelle, contrôle glycémique et thermique, dépistage de la dysphagie, prévention des complications, rééducation précoce et recherche étiologique.",
-      "tags": ["suivi"]
+      "tags": [
+        "suivi"
+      ]
     },
     {
       "id": "fc-12",
       "front": "Quelle est la prévention secondaire d'un accident athéromateux ?",
       "back": "Antiagrégant, statine, contrôle de la pression artérielle, arrêt du tabac, activité physique, contrôle du diabète et discussion d'une endartériectomie en cas de sténose carotidienne symptomatique.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     }
   ],
   "mindmap": {
@@ -494,9 +605,40 @@
         "tone": "urgence",
         "detail": "Déficit focal brutal : face, bras, parole, équilibre, vision. Noter l'heure de début et appeler les secours.",
         "children": [
-          { "id": "reco-face", "label": "Face", "leaves": [{ "id": "reco-face-1", "label": "Asymétrie" }] },
-          { "id": "reco-bras", "label": "Bras", "leaves": [{ "id": "reco-bras-1", "label": "Déficit moteur" }] },
-          { "id": "reco-parole", "label": "Parole", "leaves": [{ "id": "reco-parole-1", "label": "Dysarthrie" }, { "id": "reco-parole-2", "label": "Aphasie" }] }
+          {
+            "id": "reco-face",
+            "label": "Face",
+            "leaves": [
+              {
+                "id": "reco-face-1",
+                "label": "Asymétrie"
+              }
+            ]
+          },
+          {
+            "id": "reco-bras",
+            "label": "Bras",
+            "leaves": [
+              {
+                "id": "reco-bras-1",
+                "label": "Déficit moteur"
+              }
+            ]
+          },
+          {
+            "id": "reco-parole",
+            "label": "Parole",
+            "leaves": [
+              {
+                "id": "reco-parole-1",
+                "label": "Dysarthrie"
+              },
+              {
+                "id": "reco-parole-2",
+                "label": "Aphasie"
+              }
+            ]
+          }
         ]
       },
       {
@@ -505,9 +647,36 @@
         "tone": "reflexe",
         "detail": "Scanner sans injection pour éliminer l'hémorragie, angioscanner pour identifier l'occlusion, IRM pour la pénombre.",
         "children": [
-          { "id": "img-tdm", "label": "Scanner", "leaves": [{ "id": "img-tdm-1", "label": "Hémorragie" }] },
-          { "id": "img-angio", "label": "Vaisseaux", "leaves": [{ "id": "img-angio-1", "label": "Occlusion" }] },
-          { "id": "img-irm", "label": "IRM", "leaves": [{ "id": "img-irm-1", "label": "Diffusion" }] }
+          {
+            "id": "img-tdm",
+            "label": "Scanner",
+            "leaves": [
+              {
+                "id": "img-tdm-1",
+                "label": "Hémorragie"
+              }
+            ]
+          },
+          {
+            "id": "img-angio",
+            "label": "Vaisseaux",
+            "leaves": [
+              {
+                "id": "img-angio-1",
+                "label": "Occlusion"
+              }
+            ]
+          },
+          {
+            "id": "img-irm",
+            "label": "IRM",
+            "leaves": [
+              {
+                "id": "img-irm-1",
+                "label": "Diffusion"
+              }
+            ]
+          }
         ]
       },
       {
@@ -516,9 +685,44 @@
         "tone": "retenir",
         "detail": "Thrombolyse jusqu'à 4 h 30, thrombectomie jusqu'à 6 h et au-delà chez des patients sélectionnés.",
         "children": [
-          { "id": "rep-iv", "label": "Thrombolyse IV", "leaves": [{ "id": "rep-iv-1", "label": "4 h 30" }, { "id": "rep-iv-2", "label": "Altéplase" }] },
-          { "id": "rep-meca", "label": "Thrombectomie", "leaves": [{ "id": "rep-meca-1", "label": "6 h" }, { "id": "rep-meca-2", "label": "24 h sélectionnés" }] },
-          { "id": "rep-ta", "label": "Tension", "leaves": [{ "id": "rep-ta-1", "label": "< 185/110" }] }
+          {
+            "id": "rep-iv",
+            "label": "Thrombolyse IV",
+            "leaves": [
+              {
+                "id": "rep-iv-1",
+                "label": "4 h 30"
+              },
+              {
+                "id": "rep-iv-2",
+                "label": "Altéplase"
+              }
+            ]
+          },
+          {
+            "id": "rep-meca",
+            "label": "Thrombectomie",
+            "leaves": [
+              {
+                "id": "rep-meca-1",
+                "label": "6 h"
+              },
+              {
+                "id": "rep-meca-2",
+                "label": "24 h sélectionnés"
+              }
+            ]
+          },
+          {
+            "id": "rep-ta",
+            "label": "Tension",
+            "leaves": [
+              {
+                "id": "rep-ta-1",
+                "label": "< 185/110"
+              }
+            ]
+          }
         ]
       },
       {
@@ -527,9 +731,36 @@
         "tone": "memo",
         "detail": "TOAST : athérome, cardioembolie, petits vaisseaux, causes rares, indéterminé.",
         "children": [
-          { "id": "etio-athero", "label": "Athérome", "leaves": [{ "id": "etio-athero-1", "label": "Carotides" }] },
-          { "id": "etio-cardio", "label": "Cardioembolie", "leaves": [{ "id": "etio-cardio-1", "label": "FA" }] },
-          { "id": "etio-small", "label": "Petits vaisseaux", "leaves": [{ "id": "etio-small-1", "label": "Lacunes" }] }
+          {
+            "id": "etio-athero",
+            "label": "Athérome",
+            "leaves": [
+              {
+                "id": "etio-athero-1",
+                "label": "Carotides"
+              }
+            ]
+          },
+          {
+            "id": "etio-cardio",
+            "label": "Cardioembolie",
+            "leaves": [
+              {
+                "id": "etio-cardio-1",
+                "label": "FA"
+              }
+            ]
+          },
+          {
+            "id": "etio-small",
+            "label": "Petits vaisseaux",
+            "leaves": [
+              {
+                "id": "etio-small-1",
+                "label": "Lacunes"
+              }
+            ]
+          }
         ]
       },
       {
@@ -537,9 +768,40 @@
         "label": "Prévenir",
         "detail": "Antiagrégant ou anticoagulant selon la cause, statine, contrôle tensionnel, sevrage tabagique et rééducation.",
         "children": [
-          { "id": "prev-anti", "label": "Antiagrégant", "leaves": [{ "id": "prev-anti-1", "label": "Athérome" }] },
-          { "id": "prev-antico", "label": "Anticoagulant", "leaves": [{ "id": "prev-antico-1", "label": "FA" }] },
-          { "id": "prev-fdr", "label": "Facteurs de risque", "leaves": [{ "id": "prev-fdr-1", "label": "TA" }, { "id": "prev-fdr-2", "label": "Tabac" }] }
+          {
+            "id": "prev-anti",
+            "label": "Antiagrégant",
+            "leaves": [
+              {
+                "id": "prev-anti-1",
+                "label": "Athérome"
+              }
+            ]
+          },
+          {
+            "id": "prev-antico",
+            "label": "Anticoagulant",
+            "leaves": [
+              {
+                "id": "prev-antico-1",
+                "label": "FA"
+              }
+            ]
+          },
+          {
+            "id": "prev-fdr",
+            "label": "Facteurs de risque",
+            "leaves": [
+              {
+                "id": "prev-fdr-1",
+                "label": "TA"
+              },
+              {
+                "id": "prev-fdr-2",
+                "label": "Tabac"
+              }
+            ]
+          }
         ]
       },
       {
@@ -547,9 +809,36 @@
         "label": "Complications",
         "detail": "Œdème cérébral, transformation hémorragique, dysphagie, épilepsie, complications de décubitus et dépression.",
         "children": [
-          { "id": "comp-oedeme", "label": "Œdème", "leaves": [{ "id": "comp-oedeme-1", "label": "Surveillance" }] },
-          { "id": "comp-dysphagie", "label": "Dysphagie", "leaves": [{ "id": "comp-dysphagie-1", "label": "Dépistage" }] },
-          { "id": "comp-declive", "label": "Décubitus", "leaves": [{ "id": "comp-declive-1", "label": "Prévention" }] }
+          {
+            "id": "comp-oedeme",
+            "label": "Œdème",
+            "leaves": [
+              {
+                "id": "comp-oedeme-1",
+                "label": "Surveillance"
+              }
+            ]
+          },
+          {
+            "id": "comp-dysphagie",
+            "label": "Dysphagie",
+            "leaves": [
+              {
+                "id": "comp-dysphagie-1",
+                "label": "Dépistage"
+              }
+            ]
+          },
+          {
+            "id": "comp-declive",
+            "label": "Décubitus",
+            "leaves": [
+              {
+                "id": "comp-declive-1",
+                "label": "Prévention"
+              }
+            ]
+          }
         ]
       },
       {
@@ -557,9 +846,36 @@
         "label": "Contexte malgache",
         "detail": "Accès limité au scanner, à la thrombolyse, à la thrombectomie et aux unités neurovasculaires. L'organisation du transfert est déterminante.",
         "children": [
-          { "id": "mada-imagerie", "label": "Imagerie", "leaves": [{ "id": "mada-imagerie-1", "label": "Scanner" }] },
-          { "id": "mada-reperfusion", "label": "Reperfusion", "leaves": [{ "id": "mada-reperfusion-1", "label": "Accès" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+          {
+            "id": "mada-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "mada-imagerie-1",
+                "label": "Scanner"
+              }
+            ]
+          },
+          {
+            "id": "mada-reperfusion",
+            "label": "Reperfusion",
+            "leaves": [
+              {
+                "id": "mada-reperfusion-1",
+                "label": "Accès"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "National"
+              }
+            ]
+          }
         ]
       }
     ]

@@ -22,7 +22,10 @@
     }
   },
   "related": {
-    "deckIds": ["infectio", "tropical"],
+    "deckIds": [
+      "infectio",
+      "tropical"
+    ],
     "caseIds": []
   },
   "editorial": {
@@ -134,15 +137,52 @@
           "text": "La suspicion clinique repose sur une toux de plus de deux semaines, une expectoration, une fièvre au long cours, des sueurs nocturnes, une perte de poids et un contexte d'exposition. La radiographie thoracique oriente vers une forme apicale, une caverne, un épanchement ou une miliaire, mais elle n'est jamais suffisante pour affirmer le diagnostic."
         },
         {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chest_X-ray_of_patchy_opacities_of_pulmonary_tuberculosis.jpg?width=900",
+          "alt": "Radiographie thoracique de face montrant des opacités floues disséminées des deux champs pulmonaires, évocatrices de tuberculose pulmonaire",
+          "caption": "Radiographie thoracique : opacités patchy diffuses des deux champs pulmonaires, aspect évocateur de tuberculose pulmonaire commune.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_patchy_opacities_of_pulmonary_tuberculosis.jpg"
+        },
+        {
           "type": "table",
-          "columns": ["Examen", "Rôle", "Remarque"],
+          "columns": [
+            "Examen",
+            "Rôle",
+            "Remarque"
+          ],
           "rows": [
-            ["Xpert MTB/RIF", "Détection du bacille et de la résistance à la rifampicine", "Examen moléculaire de première intention selon l'OMS"],
-            ["Microscopie de l'expectoration", "Recherche de bacilles acido-alcoolo-résistants", "Sensibilité insuffisante, ne remplace pas la biologie moléculaire"],
-            ["Culture", "Confirmation et test de sensibilité", "Référence, mais délai de plusieurs semaines"],
-            ["Test de sensibilité", "Résistance aux antituberculeux", "Indispensable en cas de traitement antérieur ou d'échec"],
-            ["Radiographie thoracique", "Orientation et suivi", "Normale possible dans les formes précoces"],
-            ["Test immunologique (IDR ou IGRA)", "Infection tuberculeuse latente", "Ne distingue pas infection latente et maladie active"]
+            [
+              "Xpert MTB/RIF",
+              "Détection du bacille et de la résistance à la rifampicine",
+              "Examen moléculaire de première intention selon l'OMS"
+            ],
+            [
+              "Microscopie de l'expectoration",
+              "Recherche de bacilles acido-alcoolo-résistants",
+              "Sensibilité insuffisante, ne remplace pas la biologie moléculaire"
+            ],
+            [
+              "Culture",
+              "Confirmation et test de sensibilité",
+              "Référence, mais délai de plusieurs semaines"
+            ],
+            [
+              "Test de sensibilité",
+              "Résistance aux antituberculeux",
+              "Indispensable en cas de traitement antérieur ou d'échec"
+            ],
+            [
+              "Radiographie thoracique",
+              "Orientation et suivi",
+              "Normale possible dans les formes précoces"
+            ],
+            [
+              "Test immunologique (IDR ou IGRA)",
+              "Infection tuberculeuse latente",
+              "Ne distingue pas infection latente et maladie active"
+            ]
           ]
         },
         {
@@ -393,10 +433,22 @@
       "label": "R.H.Z.E. — les quatre antituberculeux",
       "intro": "Phase intensive de deux mois, puis rifampicine et isoniazide.",
       "entries": [
-        { "key": "R", "term": "Rifampicine : puissance et interactions médicamenteuses nombreuses." },
-        { "key": "H", "term": "Isoniazide : neuropathie prévenue par la pyridoxine, hépatotoxicité." },
-        { "key": "Z", "term": "Pyrazinamide : hépatotoxicité et hyperuricémie." },
-        { "key": "E", "term": "Éthambutol : toxicité oculaire, surveillance de la vision." }
+        {
+          "key": "R",
+          "term": "Rifampicine : puissance et interactions médicamenteuses nombreuses."
+        },
+        {
+          "key": "H",
+          "term": "Isoniazide : neuropathie prévenue par la pyridoxine, hépatotoxicité."
+        },
+        {
+          "key": "Z",
+          "term": "Pyrazinamide : hépatotoxicité et hyperuricémie."
+        },
+        {
+          "key": "E",
+          "term": "Éthambutol : toxicité oculaire, surveillance de la vision."
+        }
       ],
       "note": "Le schéma standard est 2 mois de RHZE puis 4 mois de RH. Les associations fixes réduisent le risque d'erreur et de résistance."
     },
@@ -405,9 +457,18 @@
       "label": "Quand suspecter une tuberculose ?",
       "intro": "Trois signes d'appel et un contexte.",
       "entries": [
-        { "key": "T", "term": "Toux de plus de deux semaines, avec ou sans expectoration." },
-        { "key": "F", "term": "Fièvre au long cours, sueurs nocturnes, perte de poids." },
-        { "key": "C", "term": "Contage : entourage tuberculeux, milieu carcéral, soignant, immunodépression." }
+        {
+          "key": "T",
+          "term": "Toux de plus de deux semaines, avec ou sans expectoration."
+        },
+        {
+          "key": "F",
+          "term": "Fièvre au long cours, sueurs nocturnes, perte de poids."
+        },
+        {
+          "key": "C",
+          "term": "Contage : entourage tuberculeux, milieu carcéral, soignant, immunodépression."
+        }
       ],
       "note": "Chez l'enfant et l'immunodéprimé, la présentation peut être atypique : adénopathies, miliaire, méningite, altération de l'état général."
     },
@@ -416,9 +477,18 @@
       "label": "Les 3 piliers de la lutte antituberculeuse",
       "intro": "Diagnostiquer, traiter, prévenir.",
       "entries": [
-        { "key": "D", "term": "Diagnostic précoce et traitement complet des cas contagieux." },
-        { "key": "C", "term": "Dépistage et traitement des contacts, y compris l'infection latente." },
-        { "key": "V", "term": "Vaccination BCG à la naissance selon le calendrier national." }
+        {
+          "key": "D",
+          "term": "Diagnostic précoce et traitement complet des cas contagieux."
+        },
+        {
+          "key": "C",
+          "term": "Dépistage et traitement des contacts, y compris l'infection latente."
+        },
+        {
+          "key": "V",
+          "term": "Vaccination BCG à la naissance selon le calendrier national."
+        }
       ],
       "note": "La déclaration obligatoire et l'enquête autour du cas sont des actes de santé publique, pas une formalité administrative."
     }
@@ -428,67 +498,92 @@
       "id": "fc-01",
       "front": "Quel est le principal mode de transmission de la tuberculose ?",
       "back": "La voie aérienne, par des gouttelettes émises par un patient atteint de tuberculose pulmonaire contagieuse. Les formes extrapulmonaires fermées ne sont pas contagieuses.",
-      "tags": ["transmission"]
+      "tags": [
+        "transmission"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quelle est la différence entre infection tuberculeuse latente et maladie tuberculeuse ?",
       "back": "L'infection latente est asymptomatique et non contagieuse : le bacille est contrôlé par l'immunité. La maladie active correspond à la multiplication du bacille et à des symptômes ; elle est contagieuse dans sa forme pulmonaire.",
-      "tags": ["physiopathologie"]
+      "tags": [
+        "physiopathologie"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quel examen microbiologique est recommandé en première intention selon l'OMS ?",
       "back": "Le test moléculaire Xpert MTB/RIF, qui détecte le bacille et la résistance à la rifampicine. La microscopie et la culture restent complémentaires.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quel est le schéma standard de traitement de la tuberculose sensible ?",
       "back": "Deux mois de rifampicine, isoniazide, pyrazinamide et éthambutol, puis quatre mois de rifampicine et isoniazide, soit six mois au total.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quels sont les principaux effets indésirables des antituberculeux ?",
       "back": "Hépatotoxicité (isoniazide, pyrazinamide, rifampicine), neuropathie périphérique (isoniazide), toxicité oculaire (éthambutol), hyperuricémie (pyrazinamide) et interactions médicamenteuses (rifampicine).",
-      "tags": ["traitement", "surveillance"]
+      "tags": [
+        "traitement",
+        "surveillance"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Pourquoi la rifampicine impose-t-elle une vigilance sur les interactions ?",
       "back": "C'est un inducteur enzymatique puissant : elle diminue l'efficacité de nombreux médicaments, notamment les antirétroviraux, les contraceptifs oraux et les anticoagulants.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quelles formes de tuberculose imposent un traitement sans attendre la confirmation ?",
       "back": "La tuberculose méningée, la miliaire et la tuberculose chez un patient immunodéprimé, lorsque la suspicion est forte. Le retard thérapeutique augmente la mortalité.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Que signifie une tuberculose multirésistante ?",
       "back": "Une résistance au moins à l'isoniazide et à la rifampicine. Le traitement nécessite un schéma spécifique, plus long ou raccourci selon les recommandations, et une prise en charge par un centre de référence.",
-      "tags": ["résistance"]
+      "tags": [
+        "résistance"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Comment prévenir la tuberculose dans l'entourage d'un cas ?",
       "back": "Par le dépistage des contacts, la recherche de symptômes et d'une infection latente, le traitement préventif des personnes à haut risque et les mesures de contrôle de l'infection.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quel est le rôle du BCG ?",
       "back": "Il protège surtout contre les formes graves de la tuberculose de l'enfant, notamment la méningite et la miliaire. Il est recommandé à la naissance dans les pays à forte incidence, selon le calendrier national.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Un patient traité depuis deux mois se sent mieux : peut-il arrêter le traitement ?",
       "back": "Non. L'amélioration clinique ne signifie pas guérison microbiologique. L'arrêt prématuré expose à la rechute et à l'émergence de résistances.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     }
   ],
   "mindmap": {
@@ -504,9 +599,48 @@
         "tone": "reflexe",
         "detail": "Clinique, radiographie et confirmation microbiologique. Xpert MTB/RIF en première intention selon l'OMS.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Toux > 2 semaines" }, { "id": "diag-clinique-2", "label": "Sueurs nocturnes" }] },
-          { "id": "diag-micro", "label": "Microbiologie", "leaves": [{ "id": "diag-micro-1", "label": "Xpert MTB/RIF" }, { "id": "diag-micro-2", "label": "Culture" }] },
-          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Cavernes apicales" }, { "id": "diag-imagerie-2", "label": "Miliaire" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Toux > 2 semaines"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Sueurs nocturnes"
+              }
+            ]
+          },
+          {
+            "id": "diag-micro",
+            "label": "Microbiologie",
+            "leaves": [
+              {
+                "id": "diag-micro-1",
+                "label": "Xpert MTB/RIF"
+              },
+              {
+                "id": "diag-micro-2",
+                "label": "Culture"
+              }
+            ]
+          },
+          {
+            "id": "diag-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "diag-imagerie-1",
+                "label": "Cavernes apicales"
+              },
+              {
+                "id": "diag-imagerie-2",
+                "label": "Miliaire"
+              }
+            ]
+          }
         ]
       },
       {
@@ -514,9 +648,36 @@
         "label": "Formes cliniques",
         "detail": "Pulmonaire, pleurale, ganglionnaire, méningée, osseuse et miliaire. La forme et le terrain déterminent la gravité.",
         "children": [
-          { "id": "formes-pulm", "label": "Pulmonaire", "leaves": [{ "id": "formes-pulm-1", "label": "Contagieuse" }] },
-          { "id": "formes-meningee", "label": "Méningée", "leaves": [{ "id": "formes-meningee-1", "label": "Urgence" }] },
-          { "id": "formes-miliaire", "label": "Miliaire", "leaves": [{ "id": "formes-miliaire-1", "label": "Dissémination" }] }
+          {
+            "id": "formes-pulm",
+            "label": "Pulmonaire",
+            "leaves": [
+              {
+                "id": "formes-pulm-1",
+                "label": "Contagieuse"
+              }
+            ]
+          },
+          {
+            "id": "formes-meningee",
+            "label": "Méningée",
+            "leaves": [
+              {
+                "id": "formes-meningee-1",
+                "label": "Urgence"
+              }
+            ]
+          },
+          {
+            "id": "formes-miliaire",
+            "label": "Miliaire",
+            "leaves": [
+              {
+                "id": "formes-miliaire-1",
+                "label": "Dissémination"
+              }
+            ]
+          }
         ]
       },
       {
@@ -525,9 +686,44 @@
         "tone": "retenir",
         "detail": "2RHZE puis 4RH pour la forme sensible. Observance supervisée, surveillance hépatique et oculaire, interactions de la rifampicine.",
         "children": [
-          { "id": "ttt-standard", "label": "Schéma standard", "leaves": [{ "id": "ttt-standard-1", "label": "2 mois RHZE" }, { "id": "ttt-standard-2", "label": "4 mois RH" }] },
-          { "id": "ttt-surveillance", "label": "Surveillance", "leaves": [{ "id": "ttt-surveillance-1", "label": "Transaminases" }, { "id": "ttt-surveillance-2", "label": "Vision" }] },
-          { "id": "ttt-resistance", "label": "Résistance", "leaves": [{ "id": "ttt-resistance-1", "label": "Test de sensibilité" }] }
+          {
+            "id": "ttt-standard",
+            "label": "Schéma standard",
+            "leaves": [
+              {
+                "id": "ttt-standard-1",
+                "label": "2 mois RHZE"
+              },
+              {
+                "id": "ttt-standard-2",
+                "label": "4 mois RH"
+              }
+            ]
+          },
+          {
+            "id": "ttt-surveillance",
+            "label": "Surveillance",
+            "leaves": [
+              {
+                "id": "ttt-surveillance-1",
+                "label": "Transaminases"
+              },
+              {
+                "id": "ttt-surveillance-2",
+                "label": "Vision"
+              }
+            ]
+          },
+          {
+            "id": "ttt-resistance",
+            "label": "Résistance",
+            "leaves": [
+              {
+                "id": "ttt-resistance-1",
+                "label": "Test de sensibilité"
+              }
+            ]
+          }
         ]
       },
       {
@@ -536,9 +732,36 @@
         "tone": "urgence",
         "detail": "Méningite, miliaire et immunodépression : traiter sans attendre la confirmation lorsque la suspicion est forte.",
         "children": [
-          { "id": "urg-meningite", "label": "Méningite", "leaves": [{ "id": "urg-meningite-1", "label": "Pronostic vital" }] },
-          { "id": "urg-miliaire", "label": "Miliaire", "leaves": [{ "id": "urg-miliaire-1", "label": "Hypoxémie" }] },
-          { "id": "urg-vih", "label": "VIH", "leaves": [{ "id": "urg-vih-1", "label": "Formes atypiques" }] }
+          {
+            "id": "urg-meningite",
+            "label": "Méningite",
+            "leaves": [
+              {
+                "id": "urg-meningite-1",
+                "label": "Pronostic vital"
+              }
+            ]
+          },
+          {
+            "id": "urg-miliaire",
+            "label": "Miliaire",
+            "leaves": [
+              {
+                "id": "urg-miliaire-1",
+                "label": "Hypoxémie"
+              }
+            ]
+          },
+          {
+            "id": "urg-vih",
+            "label": "VIH",
+            "leaves": [
+              {
+                "id": "urg-vih-1",
+                "label": "Formes atypiques"
+              }
+            ]
+          }
         ]
       },
       {
@@ -546,9 +769,36 @@
         "label": "Prévenir",
         "detail": "Dépistage des contacts, traitement de l'infection latente, BCG et contrôle de l'infection dans les lieux de soins.",
         "children": [
-          { "id": "prev-contacts", "label": "Contacts", "leaves": [{ "id": "prev-contacts-1", "label": "Enquête" }] },
-          { "id": "prev-latente", "label": "Infection latente", "leaves": [{ "id": "prev-latente-1", "label": "Traitement préventif" }] },
-          { "id": "prev-bcg", "label": "BCG", "leaves": [{ "id": "prev-bcg-1", "label": "Naissance" }] }
+          {
+            "id": "prev-contacts",
+            "label": "Contacts",
+            "leaves": [
+              {
+                "id": "prev-contacts-1",
+                "label": "Enquête"
+              }
+            ]
+          },
+          {
+            "id": "prev-latente",
+            "label": "Infection latente",
+            "leaves": [
+              {
+                "id": "prev-latente-1",
+                "label": "Traitement préventif"
+              }
+            ]
+          },
+          {
+            "id": "prev-bcg",
+            "label": "BCG",
+            "leaves": [
+              {
+                "id": "prev-bcg-1",
+                "label": "Naissance"
+              }
+            ]
+          }
         ]
       },
       {
@@ -556,9 +806,36 @@
         "label": "Terrain",
         "detail": "VIH, diabète, dénutrition, alcool, tabac, insuffisance rénale et biothérapies augmentent le risque de réactivation.",
         "children": [
-          { "id": "terrain-vih", "label": "VIH", "leaves": [{ "id": "terrain-vih-1", "label": "Dépistage systématique" }] },
-          { "id": "terrain-diabete", "label": "Diabète", "leaves": [{ "id": "terrain-diabete-1", "label": "Contrôle glycémique" }] },
-          { "id": "terrain-nutrition", "label": "Nutrition", "leaves": [{ "id": "terrain-nutrition-1", "label": "Dénutrition" }] }
+          {
+            "id": "terrain-vih",
+            "label": "VIH",
+            "leaves": [
+              {
+                "id": "terrain-vih-1",
+                "label": "Dépistage systématique"
+              }
+            ]
+          },
+          {
+            "id": "terrain-diabete",
+            "label": "Diabète",
+            "leaves": [
+              {
+                "id": "terrain-diabete-1",
+                "label": "Contrôle glycémique"
+              }
+            ]
+          },
+          {
+            "id": "terrain-nutrition",
+            "label": "Nutrition",
+            "leaves": [
+              {
+                "id": "terrain-nutrition-1",
+                "label": "Dénutrition"
+              }
+            ]
+          }
         ]
       },
       {
@@ -566,9 +843,36 @@
         "label": "Contexte malgache",
         "detail": "Le Programme National de Lutte contre la Tuberculose organise le dépistage, le traitement supervisé et le suivi des contacts. Le guide national prime.",
         "children": [
-          { "id": "mada-pnlt", "label": "Programme national", "leaves": [{ "id": "mada-pnlt-1", "label": "Guide PNLT" }] },
-          { "id": "mada-bcg", "label": "BCG", "leaves": [{ "id": "mada-bcg-1", "label": "Calendrier" }] },
-          { "id": "mada-observance", "label": "Observance", "leaves": [{ "id": "mada-observance-1", "label": "Traitement supervisé" }] }
+          {
+            "id": "mada-pnlt",
+            "label": "Programme national",
+            "leaves": [
+              {
+                "id": "mada-pnlt-1",
+                "label": "Guide PNLT"
+              }
+            ]
+          },
+          {
+            "id": "mada-bcg",
+            "label": "BCG",
+            "leaves": [
+              {
+                "id": "mada-bcg-1",
+                "label": "Calendrier"
+              }
+            ]
+          },
+          {
+            "id": "mada-observance",
+            "label": "Observance",
+            "leaves": [
+              {
+                "id": "mada-observance-1",
+                "label": "Traitement supervisé"
+              }
+            ]
+          }
         ]
       }
     ]
