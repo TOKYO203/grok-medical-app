@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "pericardites-aigues",
+  "title": "Péricardites aiguës",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une douleur thoracique positionnelle avec frottement ou sus-décalage diffus, reconnaître la péricardite aiguë, la distinguer de l'infarctus, identifier d'emblée la tamponnade, et traiter par anti-inflammatoires et colchicine en prévenant les récidives.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 24,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 65,
+      "localNumber": 24,
+      "sectionLabel": "Médecine",
+      "title": "Péricardites aiguës",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2025 sur la myocardite et la péricardite et des recommandations ESC 2015 sur les maladies du péricarde, avec reformulation complète. Les posologies ne sont pas détaillées : elles dépendent du poids, de la fonction rénale et du protocole local ; seuls les principes, les durées et les signes d'alarme sont rattachés aux sources.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Péricardites aiguës » (Médecine n°24) : la fiche couvre la péricardite aiguë (sèche et exsudative) et la tamponnade ; la péricardite constrictive, complication chronique, est signalée en transition sans être développée.",
+      "La source primaire est la recommandation ESC 2025 sur la myocardite et la péricardite (doi:10.1093/eurheartj/ehaf192, vérifiée le jour de rédaction sur PubMed), complétée par la recommandation ESC 2015 sur les maladies du péricarde (doi:10.1093/eurheartj/ehv250), mise à jour par la précédente.",
+      "Terrain local : à Madagascar, la péricardite tuberculeuse et le rhumatisme articulaire aigu sont des causes fréquentes à connaître ; elles sont explicitement intégrées à la section étiologique.",
+      "L'ECG de péricardite est servi depuis Wikimedia Commons (fichier Acute pericarditis.jpg, licence CC BY-SA 4.0, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie détaillée : principes et durées uniquement.",
+      "Signes de tamponnade isolés dès la section diagnostic : la tamponnade est l'urgence de l'item."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La péricardite aiguë est une inflammation du péricarde, le plus souvent virale ou idiopathique chez l'adulte jeune : douleur thoracique positionnelle, frottement, sus-décalage diffus à l'ECG. Bénigne dans la grande majorité des cas, elle impose deux vigilances : ne pas la confondre avec un infarctus, et ne pas manquer la tamponnade."
+        },
+        {
+          "type": "paragraph",
+          "text": "La tamponnade est l'urgence absolue de la maladie : le liquide péricardique comprime les cavités, le remplissage s'effondre, le choc s'installe. Le drainage péricardique est alors vital et ne se discute pas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Triade de Beck — hypotension artérielle, turgescence des veines jugulaires, assourdissement des bruits du cœur — plus pouls paradoxal : tamponnade. Échographie immédiate, puis drainage péricardique en urgence, sans attendre d'autres examens."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Formes et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'inflammation péricardique rend les feuillets rugueux : leur frottement crée le signe physique. La douleur est positionnelle — augmentée en décubitus, soulagée penché en avant — et irradiant volontiers au trapèze, ce qui la distingue d'emblée de la douleur coronarienne."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Forme sèche ou fibrineuse : douleur et frottement, sans épanchement significatif.",
+            "Forme exsudative : épanchement plus ou moins abondant, de tolérance variable jusqu'à la tamponnade.",
+            "Myopéricardite : atteinte myocardique associée, troponine élevée, à rechercher systématiquement.",
+            "Évolution : récidives fréquentes sans colchicine ; péricardite constrictive en complication chronique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Douleur soulagée par la position penchée en avant et majorée en décubitus, irradiation trapézienne : pensez péricardite. C'est l'inverse exact de la douleur coronarienne."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de péricardite aiguë repose sur des critères combinés : douleur typique, frottement, sus-décalage diffus concave avec sous-décalage du segment PR, et épanchement à l'échographie. Deux critères suffisent au diagnostic, avec la CRP comme outil de suivi."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Acute_pericarditis.jpg?width=900",
+          "alt": "ECG de péricardite aiguë montrant un sus-décalage discret et diffus du segment ST",
+          "caption": "ECG de péricardite aiguë : sus-décalage concave diffus, harmonieux, sans image en miroir.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acute_pericarditis.jpg"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Péricardite aiguë",
+            "Infarctus du myocarde"
+          ],
+          "rows": [
+            [
+              "Douleur",
+              "Positionnelle, penché en avant soulagée",
+              "Constrictive, non positionnelle"
+            ],
+            [
+              "ECG",
+              "Sus-décalage concave diffus, sous-décalage PR, pas de miroir",
+              "Sus-décalage focal territorial, image en miroir"
+            ],
+            [
+              "Troponine",
+              "Normale ou peu élevée (myopéricardite)",
+              "Élevée avec cinétique typique"
+            ],
+            [
+              "Épanchement",
+              "Fréquent, échographie",
+              "Absent sauf complication"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Échocardiographie devant toute suspicion de péricardite : elle cherche l'épanchement et les signes de tamponnade — compression des cavités droites, variations respiratoires des flux, pouls paradoxal."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan étiologique est guidé par le contexte : CRP et NFS, troponine, fonction rénale, sérologies virales si clinique, recherche de tuberculose dans le contexte malgache, bilan auto-immun si suspicion. La ponction péricardique n'est pas systématique : elle est réservée aux épanchements abondants, réfractaires ou suspects de tuberculose ou de pus."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-PERI",
+          "organization": "ESC",
+          "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2015-PERI",
+          "organization": "ESC",
+          "title": "2015 ESC Guidelines for the diagnosis and management of pericardial diseases",
+          "year": 2015
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans le monde, la péricardite aiguë est virale ou idiopathique dans la grande majorité des cas. À Madagascar, deux causes locales changent la pratique : la tuberculose, grande pourvoyeuse de péricardites exsudatives, et le rhumatisme articulaire aigu chez le sujet jeune."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Virales et idiopathiques : la majorité des cas de l'adulte jeune.",
+            "Tuberculeuse : épanchement souvent abondant, fébricule, contexte ; à évoquer systématiquement en zone d'endémie.",
+            "Purulente : fièvre élevée, danger immédiat, drainage obligatoire.",
+            "Rhumatismale et auto-immunes : RAA, lupus, polyarthrite rhumatoïde.",
+            "Métaboliques et néoplasiques : urémie, hypothyroïdie, métastases, radiothérapie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne pas anticoaguler une péricardite : le péricarde inflammatoire saigne facilement. Devant un diagnostic de péricardite posé chez un patient déjà anticoagulé, rediscuter l'épanchement hémorragique et le risque de tamponnade."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de la péricardite aiguë repose sur un anti-inflammatoire non stéroïdien à dose anti-inflammatoire, associé d'emblée à la colchicine : elle accélère la guérison et surtout prévient les récidives, fléau de cette maladie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "AINS à dose anti-inflammatoire, en cure courte avec décroissance, sous protection gastrique.",
+            "Colchicine dès le premier épisode, poursuivie environ trois mois.",
+            "Repos relatif ; réévaluation clinique et biologique par la CRP.",
+            "Corticoïdes seulement si indication forte — insuffisance rénale, intolérance aux AINS, grossesse, rhumatisme articulaire aigu — car ils favorisent les récidives.",
+            "Tamponade : drainage péricardique urgent, sans délai diagnostique supplémentaire.",
+            "Péricardite purulente ou tuberculeuse : drainage et traitement étiologique, hospitalisation."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Tamponnade : le drainage péricardique est une urgence vitale au lit du malade. Ne jamais le différer pour un scanner, une biologie ou un avis supplémentaire : la décompression sauve la vie immédiatement."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'arrêt du traitement se décide sur la clinique et la CRP normalisée, pas sur la disparition de la douleur seule. Toute récidive précoce doit faire revoir l'observance de la colchicine et rechercher une cause spécifique non traitée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-PERI",
+          "organization": "ESC",
+          "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2015-PERI",
+          "organization": "ESC",
+          "title": "2015 ESC Guidelines for the diagnosis and management of pericardial diseases",
+          "year": 2015
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention vise la récidive : colchicine systématique dès le premier épisode, poursuite jusqu'à normalization de la CRP puis au-delà selon les recommandations, et traitement énergique des causes spécifiques — tuberculose, purulence, maladie de système."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Colchicine environ trois mois dès le premier épisode : la mesure qui prévient le plus de récidives.",
+            "Éducation : reconnaître la récidive — douleur positionnelle connue — et consulter tôt.",
+            "Suivi clinique et CRP jusqu'à normalisation complète.",
+            "Complication chronique à connaître : péricardite constrictive, dyspnée à évoluer lentement, à évoquer sur échographie et imagerie avancée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Une péricardite qui traîne, récidive ou s'accompagne d'un épanchement abondant n'est plus banale : étiologie à rechercher activement, avis spécialisé, imagerie avancée — la péricardite réfractaire est un problème de spécialiste."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Douleur positionnelle, frottement, sus-décalage concave diffus : péricardite aiguë.",
+            "ECG pour la distinguer de l'infarctus ; échographie pour l'épanchement et la tamponnade.",
+            "AINS plus colchicine environ trois mois ; corticoïdes seulement sur indication forte.",
+            "Tamponnade : drainage péricardique urgent, sans délai diagnostique supplémentaire.",
+            "En zone d'endémie : penser tuberculose et rhumatisme articulaire aigu."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir citer les critères diagnostiques (douleur typique, frottement, ECG, épanchement), la triade de Beck, et la place de la colchicine : c'est l'articulation urgence-traitement-fond qui est interrogée."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC 2025 sur la myocardite et la péricardite, et les recommandations ESC 2015 sur les maladies du péricarde qu'elles mettent à jour."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Schulz-Menger J, et al. 2025 ESC Guidelines for the management of myocarditis and pericarditis. Eur Heart J 2025.",
+            "Adler Y, et al. 2015 ESC Guidelines for the diagnosis and management of pericardial diseases. Eur Heart J 2015."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-peri-pericare",
+      "label": "P.E.R.I.C.A.R.E.",
+      "intro": "La chaîne diagnostique et le traitement de la péricardite aiguë.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Positionnelle : douleur soulagée penché en avant"
+        },
+        {
+          "key": "E",
+          "term": "Électrique : sus-décalage concave diffus, sous-décalage du PR"
+        },
+        {
+          "key": "R",
+          "term": "Rub : le frottement péricardique, signe physique clé"
+        },
+        {
+          "key": "I",
+          "term": "Inflammation : CRP élevée, outil de suivi du traitement"
+        },
+        {
+          "key": "C",
+          "term": "Colchicine trois mois : le pilier anti-récidive"
+        },
+        {
+          "key": "A",
+          "term": "Anticoagulants : à éviter sur péricarde inflammatoire"
+        },
+        {
+          "key": "R",
+          "term": "Récidive : la complication la plus fréquente sans colchicine"
+        },
+        {
+          "key": "E",
+          "term": "Épanchement : échographie, tamponnade = drainage urgent"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-peri-1",
+      "front": "Quelle douleur oriente vers une péricardite ?",
+      "back": "Douleur thoracique positionnelle : majorée en décubitus, soulagée penché en avant, irradiation trapézienne possible."
+    },
+    {
+      "id": "fc-peri-2",
+      "front": "Quel aspect ECG typique de la péricardite aiguë ?",
+      "back": "Sus-décalage concave, diffus, harmonieux, avec sous-décalage du segment PR, sans image en miroir."
+    },
+    {
+      "id": "fc-peri-3",
+      "front": "Comment distinguer ECG de péricardite et d'infarctus ?",
+      "back": "Diffus et concave sans miroir dans la péricardite ; focal et territorial avec miroir dans l'infarctus."
+    },
+    {
+      "id": "fc-peri-4",
+      "front": "Quels sont les éléments de la triade de Beck ?",
+      "back": "Hypotension artérielle, turgescence jugulaire, assourdissement des bruits du cœur."
+    },
+    {
+      "id": "fc-peri-5",
+      "front": "Quel signe physique classique de tamponnade s'ajoute ?",
+      "back": "Le pouls paradoxal : chute de la pression artérielle systolique à l'inspiration."
+    },
+    {
+      "id": "fc-peri-6",
+      "front": "Quel traitement de fond de la péricardite aiguë ?",
+      "back": "AINS à dose anti-inflammatoire plus colchicine d'emblée, environ trois mois."
+    },
+    {
+      "id": "fc-peri-7",
+      "front": "Pourquoi la colchicine est-elle systématique ?",
+      "back": "Elle accélère la guérison et surtout prévient les récidives, complication la plus fréquente."
+    },
+    {
+      "id": "fc-peri-8",
+      "front": "Quand utiliser des corticoïdes dans une péricardite ?",
+      "back": "Indication forte seulement : insuffisance rénale, intolérance aux AINS, grossesse, rhumatisme articulaire aigu — ils favorisent les récidives."
+    },
+    {
+      "id": "fc-peri-9",
+      "front": "Quelles causes locales importantes à Madagascar ?",
+      "back": "La tuberculose (péricardite exsudative) et le rhumatisme articulaire aigu chez le sujet jeune."
+    },
+    {
+      "id": "fc-peri-10",
+      "front": "Pourquoi éviter les anticoagulants dans une péricardite ?",
+      "back": "Le péricarde inflammatoire saigne facilement : risque d'épanchement hémorragique et de tamponnade."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-peri-root",
+      "label": "Péricardites aiguës",
+      "detail": "Inflammation du péricarde : douleur positionnelle, frottement, ECG diffus — l'urgence est la tamponnade."
+    },
+    "branches": [
+      {
+        "id": "map-peri-diag",
+        "label": "Diagnostic",
+        "detail": "Critères combinés : douleur typique, frottement, ECG concave diffus, épanchement échographique.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-peri-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-peri-diag-1a",
+                "label": "Douleur positionnelle"
+              },
+              {
+                "id": "map-peri-diag-1b",
+                "label": "Frottement péricardique"
+              }
+            ]
+          },
+          {
+            "id": "map-peri-diag-2",
+            "label": "Paraclinique",
+            "leaves": [
+              {
+                "id": "map-peri-diag-2a",
+                "label": "ECG concave, PR descendant"
+              },
+              {
+                "id": "map-peri-diag-2b",
+                "label": "Écho : épanchement, CRP"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-peri-urgence",
+        "label": "Tamponnade",
+        "detail": "Compression des cavités par le liquide : choc, mort imminente sans drainage.",
+        "children": [
+          {
+            "id": "map-peri-urgence-1",
+            "label": "Signes",
+            "leaves": [
+              {
+                "id": "map-peri-urgence-1a",
+                "label": "Triade de Beck"
+              },
+              {
+                "id": "map-peri-urgence-1b",
+                "label": "Pouls paradoxal"
+              }
+            ]
+          },
+          {
+            "id": "map-peri-urgence-2",
+            "label": "Traitement",
+            "leaves": [
+              {
+                "id": "map-peri-urgence-2a",
+                "label": "Drainage urgent au lit"
+              },
+              {
+                "id": "map-peri-urgence-2b",
+                "label": "Aucun délai diagnostique"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-peri-etiologie",
+        "label": "Étiologies",
+        "detail": "Virales et idiopathiques majoritaires ; tuberculose et RAA en zone d'endémie.",
+        "children": [
+          {
+            "id": "map-peri-etiologie-1",
+            "label": "Fréquentes",
+            "leaves": [
+              {
+                "id": "map-peri-etiologie-1a",
+                "label": "Virales, idiopathiques"
+              },
+              {
+                "id": "map-peri-etiologie-1b",
+                "label": "Myopéricardite : troponine"
+              }
+            ]
+          },
+          {
+            "id": "map-peri-etiologie-2",
+            "label": "À ne pas manquer",
+            "leaves": [
+              {
+                "id": "map-peri-etiologie-2a",
+                "label": "Tuberculose, purulente"
+              },
+              {
+                "id": "map-peri-etiologie-2b",
+                "label": "RAA, lupus, urémie, cancer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-peri-trt",
+        "label": "Traitement et suivi",
+        "detail": "AINS plus colchicine trois mois ; récidives et constrictive comme complications.",
+        "children": [
+          {
+            "id": "map-peri-trt-1",
+            "label": "Fond",
+            "leaves": [
+              {
+                "id": "map-peri-trt-1a",
+                "label": "AINS + colchicine 3 mois"
+              },
+              {
+                "id": "map-peri-trt-1b",
+                "label": "Corticoïdes : indication forte"
+              }
+            ]
+          },
+          {
+            "id": "map-peri-trt-2",
+            "label": "Suivi",
+            "leaves": [
+              {
+                "id": "map-peri-trt-2a",
+                "label": "CRP jusqu'à normalisation"
+              },
+              {
+                "id": "map-peri-trt-2b",
+                "label": "Récidive, constrictive"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2025-PERI",
+      "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
+      "citation": "Schulz-Menger J, Arbustini E, Hermans KC, et al. 2025 ESC Guidelines for the management of myocarditis and pericarditis. Eur Heart J. 2025 ; 46 (40) : 3952-4041. doi:10.1093/eurheartj/ehaf192.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2025,
+      "version": "2025 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehaf192",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Place de la colchicine",
+        "Indications des corticoïdes",
+        "Tamponnade",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-ESC-2015-PERI",
+      "title": "2015 ESC Guidelines for the diagnosis and management of pericardial diseases",
+      "citation": "Adler Y, Charron P, Imazio M, et al. 2015 ESC Guidelines for the diagnosis and management of pericardial diseases. Eur Heart J. 2015 ; 36 (42) : 2921-2964. doi:10.1093/eurheartj/ehv250.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2015,
+      "version": "2015 guidelines, mises à jour en 2025",
+      "url": "https://doi.org/10.1093/eurheartj/ehv250",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Étiologies",
+        "Classification des formes",
+        "Pronostic",
+        "Récidives"
+      ]
+    }
+  ]
+}
