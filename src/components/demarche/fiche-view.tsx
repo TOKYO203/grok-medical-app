@@ -107,6 +107,42 @@ function Block({ block }: { block: FicheBlock }) {
     );
   }
 
+  if (block.type === "image") {
+    return (
+      <figure className="overflow-hidden rounded-[var(--radius-md)] bg-secondary ring-1 ring-border">
+        <img
+          src={block.src}
+          alt={block.alt}
+          loading="lazy"
+          decoding="async"
+          className="block max-h-[26rem] w-full object-contain"
+        />
+        {block.caption || block.credit ? (
+          <figcaption className="space-y-0.5 px-3 py-2 text-[11px] leading-snug text-subtle">
+            {block.caption ? <span className="block text-muted">{block.caption}</span> : null}
+            {block.credit ? (
+              <span className="block">
+                {block.sourceUrl ? (
+                  <a
+                    href={block.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="text-primary underline-offset-4 hover:underline"
+                  >
+                    {block.credit}
+                  </a>
+                ) : (
+                  block.credit
+                )}
+                {block.license ? ` · ${block.license}` : ""}
+              </span>
+            ) : null}
+          </figcaption>
+        ) : null}
+      </figure>
+    );
+  }
+
   const meta = TONE_META[block.tone];
   const Icon = meta.icon;
   return (

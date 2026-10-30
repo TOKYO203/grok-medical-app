@@ -32,7 +32,22 @@ export type FicheBlock =
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
   | { type: "table"; columns: string[]; rows: string[][] }
-  | { type: "callout"; tone: CalloutTone; title: string; text: string };
+  | { type: "callout"; tone: CalloutTone; title: string; text: string }
+  | {
+      type: "image";
+      /** Chemin de l'actif : interne (`/content/images/...`) ou URL HTTPS distante. */
+      src: string;
+      /** Texte alternatif obligatoire (accessibilité WCAG). */
+      alt: string;
+      /** Légende pédagogique optionnelle. */
+      caption?: string;
+      /** Auteur ou source de l'image : attribution exigée par les licences libres. */
+      credit: string;
+      /** Licence courte, ex. « CC BY-SA 4.0 » ou « Domaine public ». */
+      license: string;
+      /** Page d'origine de l'image, vérifiable par l'utilisateur. */
+      sourceUrl?: string;
+    };
 
 /**
  * Référence citée par une section précise (traçabilité éditoriale).
