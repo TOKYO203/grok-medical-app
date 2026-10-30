@@ -1,7 +1,7 @@
 # B2B INSTITUTIONNEL V2 — Page, offre et lead capture (Semaine 7, Flux D)
 
 **Date** : 2026-10-26
-**Statut** : copy et structure prêtes — implémentation (page React + table leads) à faire ; tarifs ⚠️ à valider par le propriétaire
+**Statut** : page et lead capture livrées (PR `feat/institutionnel-b2b`) — notification e-mail différée (aucune infra mail auto-hébergée à ce jour) ; tarifs ⚠️ à valider par le propriétaire
 **Documents liés** : [`ROADMAP-V2-STRATEGIC.md`](./ROADMAP-V2-STRATEGIC.md) (Semaine 7),
 [`POSITIONING-V2.md`](./POSITIONING-V2.md) (Persona 3 — Pr Ravelo),
 [`PRODUCT-VISION.md`](./PRODUCT-VISION.md) (P2-6 offre École)
@@ -49,6 +49,11 @@ notification e-mail au propriétaire. Un lead = une ligne de plus dans le back-o
 pas un e-mail perdu.
 
 **SLA de réponse : 48 h ouvrées.** Un établissement qui relance lui-même signale un process cassé.
+
+> Implémenté : `POST /api/institution-leads` (validation serveur bornée, rate limit) écrit dans
+> `institution_leads` — migration `0021`, RLS activé sans policy (écriture serveur uniquement).
+> La notification e-mail est différée : le projet n'a pas d'infrastructure mail auto-hébergée ;
+> le lead vit dans le back-office (table + dashboard Supabase) en attendant.
 
 ## 5. Copy hero FR/EN
 
