@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "oap",
+  "title": "Œdème aigu du poumon",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une dyspnée aiguë avec orthopnée et crachats mousseux, reconnaître l'œdème aigu du poumon cardiogénique, le distinguer d'une détresse respiratoire lésionnelle, et mettre en œuvre sans délai les mesures de sauvetage : position, oxygène, diurétique et dérivés nitrés.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 23,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 64,
+      "localNumber": 23,
+      "sectionLabel": "Médecine",
+      "title": "Œdème aigu du poumon",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2021 sur l'insuffisance cardiaque (chapitre insuffisance cardiaque aiguë) et de la directive AHA/ACC/HFSA 2022, avec reformulation complète. Les posologies ne sont pas détaillées : elles dépendent du poids, de la tension, de la fonction rénale et du protocole local ; seuls les principes et l'ordre des priorités sont rattachés aux sources.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Œdème aigu du poumon » (Médecine n°23) : la fiche couvre l'OAP cardiogénique au sens classique (œdème hydrostatique par élévation de la pression capillaire pulmonaire) et le distingue explicitement de la détresse respiratoire lésionnelle (SDRA), dont la prise en charge est radicalement différente.",
+      "Les priorités thérapeutiques suivent ESC 2021 : assise, oxygène avec ventilation non invasive précoce si détresse, diurétiques de l'anse pour la surcharge, dérivés nitrés si tension artérielle suffisante.",
+      "La radio d'œdème pulmonaire est servie depuis Wikimedia Commons (fichier Pulmonary oedema.jpg, licence CC BY-SA 3.0, crédit « Via Wikimedia Commons »).",
+      "Deck cardio : cette fiche rejoint le parcours insuffisance cardiaque ; les decks liés restent semio (sémiologie de la dyspnée aiguë) et cardio."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie détaillée : principes et priorités uniquement.",
+      "Distinction explicite OAP cardiogénique / SDRA pour éviter l'erreur classique de traitement."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'œdème aigu du poumon est la conséquence d'une pression excessive dans les capillaires pulmonaires : le liquide traverse la membrane alvéolo-capillaire, envahit l'interstitium puis les alvéoles. C'est une urgence vitale : le patient se noie dans ses propres sécrétions, littéralement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans l'écrasante majorité des cas, la pression en amont est cardiaque : valve mitrale bloquée, oreillette gauche surchargée, ventricule gauche défaillant. Mais l'œdème lésionnel du SDRA imite la clinique avec une pression capillaire normale : les confondre coûte la vie, car le traitement s'inverse."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Dyspnée aiguë avec orthopnée, crépitants diffus et crachats mousseux rosés : ne pas attendre les examens complémentaires pour installer la position assise, l'oxygène et l'abord veineux. Chaque minute compte."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et formes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'OAP cardiogénique est un œdème hydrostatique : la pression capillaire pulmonaire s'élève au-delà de la force qui retient le liquide dans les vaisseaux. L'interstitium se sature d'abord — dyspnée, orthopnée — puis les alvéoles se remplissent — crachats mousseux, hypoxie profonde."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cardiogénique à ventricule gauche défaillant : cause la plus fréquente, aiguë ou chronique décompensée.",
+            "Cardiogénique à obstacle mitral ou aortique : sténose mitrale serrée, myxome de l'oreillette.",
+            "À pression capillaire normale — lésionnel (SDRA) : pneumonie, sepsis, inhalation, pancréatite.",
+            "Mixte : surcharge hydrosodée, insuffisance rénale terminale, crise hypertensive."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Le facteur déclenchant d'un OAP sur cœur chronique est presque toujours retrouvable : trouble du rythme, poussée hypertensive, écart de régime sodé, infection, anémie, ischémie. Le traiter conditionne la non-récidive."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La clinique suffit au diagnostic degravité : dyspnée aiguë, orthopnée, crépitants en marée montante aux deux bases, tachycardie, sueurs, crachats rosés dans les formes complètes. Le patient s'assoit, se penche en avant, agrippe le bord du lit : la position déjà prise est un signe."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pulmonary_oedema.jpg?width=900",
+          "alt": "Radiographie thoracique de face montrant un œdème pulmonaire interstitiel et alvéolaire bilatéral",
+          "caption": "Radiographie thoracique : œdème interstitiel et alvéolaire bilatéral de l'OAP cardiogénique.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pulmonary_oedema.jpg"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "OAP cardiogénique",
+            "SDRA (lésionnel)"
+          ],
+          "rows": [
+            [
+              "Contexte",
+              "Cardiopathie, arythmie, surcharge",
+              "Sepsis, pneumonie, inhalation, traumatisme"
+            ],
+            [
+              "Orthopnée",
+              "Très marquée, position assise obligatoire",
+              "Variable, souvent décubitus possible"
+            ],
+            [
+              "Auscultation",
+              "Crépitants des bases vers le sommet, galop",
+              "Souffles bronchiques, foyer localisé possible"
+            ],
+            [
+              "Radiographie",
+              "Surcharge : lignes de Kerley, flou péri-hilaire",
+              "Opacités diffuses sans cardiomégalie"
+            ],
+            [
+              "Traitement clé",
+              "Diurétique, dérivés nitrés, VNI",
+              "Traiter la cause, ventilation contrôlée"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "ECG dès la pose de la perfusion : trouble du rythme, sus-décalage de ST, apex tapu. Troponine, ionogramme, créatinine, NFS ; échocardiographie dès que la détresse est jugulée, pour identifier la mécanique et l'étiologie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les peptides natriurétiques orientent entre dyspnée cardiaque et pulmonaire quand la clinique hésite ; leur normalité rend l'OAP très improbable. Le bilan étiologique se fait une fois le patient sauvé : c'est lui qui empêche la récidive."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "ESC",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021
+        },
+        {
+          "id": "SRC-AHA-2022-HF",
+          "organization": "AHA/ACC/HFSA",
+          "title": "2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Causes et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Toute dyspnée aiguë fébrile, allergique ou brutale n'est pas un OAP : la prudence impose d'éliminer les imitateurs avant d'administrer un diurétique d'anse à un patient dont le poumon est sec."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pneumonie avec dyspnée fébrile : foyer auscultatoire, hyperleucocytose, pas d'orthopnée majeure.",
+            "Embolie pulmonaire : douleur, syncope, désaturation à poumons clairs — attention, elle peut aussi décompenser un cœur.",
+            "Crise d'asthme : sibilants, expiration freinée, terrain — pas de galop ni de crépitants en marée.",
+            "Anaphylaxie : contexte allergique, urticaire, hypotension à poumons presque clairs."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne jamais diurétiquer sans auscultation soigneuse : devant une dyspnée avec hypotension et poumons quasi clairs, penser embolie pulmonaire ou hémorragie plutôt que surcharge — le diurétique aggraverait le choc."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement de la crise",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est symétrique de la physiopathologie : faire baisser la pression dans le lit pulmonaire. Position assise jambes pendantes, oxygène pour maintenir la saturation, diurétique de l'anse en intraveineux pour la surcharge, dérivés nitrés si la tension le permet."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Assise jambes pendantes : la première mesure, immédiate, gratuite, efficace.",
+            "Oxygénothérapie ; ventilation non invasive (CPAP) dès détresse : elle re-expande les alvéoles et soulage le travail respiratoire.",
+            "Furosémide intraveineux : diurétique de l'anse de référence de la surcharge symptomatique.",
+            "Dérivés nitrés si tension systolique suffisante : ils baissent la précharge et la post-charge ; à éviter si hypotension.",
+            "Traiter le facteur déclenchant : ralentir une arythmie rapide, couvrir un infarctus, épurer une surcharge."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Détresse respiratoire majeure ou saturation effondrée malgré l'oxygène : CPAP immédiate, sans attendre l'avis spécialisé. La morphine, autrefois systématique, n'est plus recommandée en routine : réservée à la douleur réfractaire, hors hypotension."
+        },
+        {
+          "type": "paragraph",
+          "text": "Une fois la crise jugulée, le patient entre dans le bilan et le traitement de fond de son insuffisance cardiaque : quadrithérapie adaptée à l'éjection, correction de la valvulopathie, éducation sodée. La crise n'est que le symptôme visible d'une maladie chronique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2021-HF",
+          "organization": "ESC",
+          "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2021
+        },
+        {
+          "id": "SRC-AHA-2022-HF",
+          "organization": "AHA/ACC/HFSA",
+          "title": "2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la récidive est celle de l'insuffisance cardiaque : traitement de fond titré, régime hydrosodé, poids quotidien, éducation à reconnaître les signes d'alerte — prise de poids rapide, orthopnée nouvelle, œdèmes des chevilles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Éducation : pesée quotidienne, contact rapide si gain de poids sur quelques jours.",
+            "Régime pauvre en sel, limitation des boissons selon consigne médicale.",
+            "Observance du traitement de fond : le premier facteur de réadmission est l'arrêt des médicaments.",
+            "Correction de la cause : valvulopathie opérable, arythmie traitée, ischémie revascularisée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "L'OAP est une porte d'entrée dans la maladie insuffisance cardiaque : après la crise, le suivi, le traitement de fond et l'éducation remplacent l'urgence — la fiche de référence devient l'insuffisance cardiaque chronique."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "OAP cardiogénique : dyspnée aiguë, orthopnée, crépitants en marée, crachats mousseux rosés.",
+            "Assise, oxygène et VNI, diurétique de l'anse, nitrés si tension suffisante.",
+            "Toujours chercher le facteur déclenchant : arythmie, ischémie, surcharge, poussée hypertensive.",
+            "Ne pas confondre avec le SDRA : pression capillaire élevée contre poumons lésés, traitements opposés."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir réciter la séquence de prise en charge dans l'ordre, les signes radiologiques de surcharge, et les pièges : SDRA, embolie pulmonaire, pneumonie. C'est la séquence « sauver puis chercher » qui est interrogée."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC 2021 sur l'insuffisance cardiaque et la directive américaine AHA/ACC/HFSA 2022."
+        },
+        {
+          "type": "list",
+          "items": [
+            "McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J 2021.",
+            "Heidenreich PA, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation 2022."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-oap-assise",
+      "label": "A.S.S.I.S.E.",
+      "intro": "La séquence de sauvetage de l'œdème aigu du poumon.",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Assise jambes pendantes : la première mesure, immédiate"
+        },
+        {
+          "key": "S",
+          "term": "Saturer : oxygénothérapie, CPAP si détresse"
+        },
+        {
+          "key": "S",
+          "term": "Sécher : diurétique de l'anse par voie veineuse"
+        },
+        {
+          "key": "I",
+          "term": "Intraveineux dérivés nitrés si tension suffisante"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance : scope, tension, diurèse, saturation"
+        },
+        {
+          "key": "E",
+          "term": "Étiologie déclenchante : à chercher et à traiter"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-oap-1",
+      "front": "Quel mécanisme explique l'OAP cardiogénique ?",
+      "back": "Élévation hydrostatique de la pression capillaire pulmonaire, par obstacle en aval ou défaillance ventriculaire gauche."
+    },
+    {
+      "id": "fc-oap-2",
+      "front": "Quelle est la première mesure à prendre, avant tout examen ?",
+      "back": "Installer le patient assis, jambes pendantes."
+    },
+    {
+      "id": "fc-oap-3",
+      "front": "Quel support respiratoire en cas de détresse majeure ?",
+      "back": "La ventilation non invasive (CPAP), précoce, sans attendre l'avis spécialisé."
+    },
+    {
+      "id": "fc-oap-4",
+      "front": "Quel diurétique et par quelle voie ?",
+      "back": "Un diurétique de l'anse (furosémide) par voie intraveineuse."
+    },
+    {
+      "id": "fc-oap-5",
+      "front": "À quelle condition donner des dérivés nitrés ?",
+      "back": "Tension artérielle systolique suffisante ; à éviter en cas d'hypotension."
+    },
+    {
+      "id": "fc-oap-6",
+      "front": "Quelle place pour la morphine dans l'OAP ?",
+      "back": "Plus systématique : réservée à la douleur réfractaire, hors hypotension, selon ESC 2021."
+    },
+    {
+      "id": "fc-oap-7",
+      "front": "Comment distinguer OAP cardiogénique et SDRA ?",
+      "back": "Pression capillaire élevée et réponse au diurétique dans l'OAP ; poumons lésés à pression normale, traitement causal dans le SDRA."
+    },
+    {
+      "id": "fc-oap-8",
+      "front": "Citez trois facteurs déclenchants classiques d'un OAP sur cœur chronique.",
+      "back": "Trouble du rythme rapide, poussée hypertensive, écart de régime sodé (aussi infection, anémie, ischémie)."
+    },
+    {
+      "id": "fc-oap-9",
+      "front": "Quels signes radiologiques de surcharge ?",
+      "back": "Lignes de Kerley, flou péri-hilaire en ailes de papillon, cardiomégalie, épanchement pleural."
+    },
+    {
+      "id": "fc-oap-10",
+      "front": "Quel bilan biologique minimal à la prise en charge ?",
+      "back": "Ionogramme, créatinine, NFS, troponine, ECG — puis peptides natriurétiques si doute diagnostique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-oap-root",
+      "label": "Œdème aigu du poumon",
+      "detail": "Surcharge hydrostatique du poumon : dyspnée aiguë, orthopnée, crachats mousseux — urgence vitale."
+    },
+    "branches": [
+      {
+        "id": "map-oap-meca",
+        "label": "Mécanismes",
+        "detail": "Pression capillaire pulmonaire élevée : obstacle mitral ou défaillance ventriculaire gauche.",
+        "children": [
+          {
+            "id": "map-oap-meca-1",
+            "label": "Hydrostatique",
+            "leaves": [
+              {
+                "id": "map-oap-meca-1a",
+                "label": "Cardiogénique, diurétiques"
+              },
+              {
+                "id": "map-oap-meca-1b",
+                "label": "Sténose mitrale, défaillance VG"
+              }
+            ]
+          },
+          {
+            "id": "map-oap-meca-2",
+            "label": "Lésionnel",
+            "leaves": [
+              {
+                "id": "map-oap-meca-2a",
+                "label": "SDRA : pression normale"
+              },
+              {
+                "id": "map-oap-meca-2b",
+                "label": "Traitement causal, ventilation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-oap-diag",
+        "label": "Diagnostic",
+        "detail": "Clinique d'abord, radio de surcharge, ECG et biologie de première ligne.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-oap-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-oap-diag-1a",
+                "label": "Orthopnée, crépitants en marée"
+              },
+              {
+                "id": "map-oap-diag-1b",
+                "label": "Crachats mousseux rosés"
+              }
+            ]
+          },
+          {
+            "id": "map-oap-diag-2",
+            "label": "Paraclinique",
+            "leaves": [
+              {
+                "id": "map-oap-diag-2a",
+                "label": "Radio : Kerley, flou péri-hilaire"
+              },
+              {
+                "id": "map-oap-diag-2b",
+                "label": "ECG, troponine, ionogramme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-oap-trt",
+        "label": "Traitement",
+        "detail": "Baisser la pression du lit pulmonaire : assise, oxygène, diurétique, nitrés.",
+        "children": [
+          {
+            "id": "map-oap-trt-1",
+            "label": "Immédiat",
+            "leaves": [
+              {
+                "id": "map-oap-trt-1a",
+                "label": "Assise, O2, CPAP"
+              },
+              {
+                "id": "map-oap-trt-1b",
+                "label": "Furosémide IV, nitrés si TA ok"
+              }
+            ]
+          },
+          {
+            "id": "map-oap-trt-2",
+            "label": "Cause",
+            "leaves": [
+              {
+                "id": "map-oap-trt-2a",
+                "label": "Arythmie, ischémie, surcharge"
+              },
+              {
+                "id": "map-oap-trt-2b",
+                "label": "Écho après la crise"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-oap-prev",
+        "label": "Suivi",
+        "detail": "Entrée dans la maladie insuffisance cardiaque : fond, éducation, poids quotidien.",
+        "children": [
+          {
+            "id": "map-oap-prev-1",
+            "label": "Fond",
+            "leaves": [
+              {
+                "id": "map-oap-prev-1a",
+                "label": "Quadrithérapie titrée"
+              },
+              {
+                "id": "map-oap-prev-1b",
+                "label": "Correction valvulaire"
+              }
+            ]
+          },
+          {
+            "id": "map-oap-prev-2",
+            "label": "Éducation",
+            "leaves": [
+              {
+                "id": "map-oap-prev-2a",
+                "label": "Poids quotidien, régime sodé"
+              },
+              {
+                "id": "map-oap-prev-2b",
+                "label": "Signes d'alerte"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2021-HF",
+      "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+      "citation": "McDonagh TA, Metra M, Adamo M, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. Eur Heart J. 2021 ; 42 (36) : 3599-3726. doi:10.1093/eurheartj/ehab368.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2021,
+      "version": "2021 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehab368",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Définition",
+        "Séquence thérapeutique",
+        "Place de la VNI et des diurétiques",
+        "Prévention de la récidive"
+      ]
+    },
+    {
+      "id": "SRC-AHA-2022-HF",
+      "title": "2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure",
+      "citation": "Heidenreich PA, Bozkurt B, Aguilar D, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation. 2022 ; 145 (18) : e895-e1032. doi:10.1161/CIR.0000000000001063.",
+      "organization": "American Heart Association / American College of Cardiology / Heart Failure Society of America",
+      "year": 2022,
+      "version": "2022 guideline",
+      "url": "https://doi.org/10.1161/CIR.0000000000001063",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Prise en charge",
+        "Facteurs déclenchants",
+        "Suivi et traitement de fond"
+      ]
+    }
+  ]
+}
