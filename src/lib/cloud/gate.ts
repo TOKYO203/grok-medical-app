@@ -30,6 +30,9 @@ export const PUBLIC_PATHS: readonly string[] = [
   "/confidentialite",
   "/conseil-editorial",
   "/validation-clinique",
+  "/methodologie",
+  "/politique-editoriale",
+  "/sources",
 ];
 
 export type CloudGateMode = "public" | "splash" | "locked" | "app";

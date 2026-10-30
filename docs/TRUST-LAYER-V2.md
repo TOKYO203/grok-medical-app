@@ -99,6 +99,6 @@ Familles affichées (miroir de `src/content/medical-sources.ts`) :
 
 | Étape | Nature | Qui |
 | --- | --- | --- |
-| Implémenter les pages publiques (`/editorial-policy`, `/methodologie`, `/sources`) + composant disclaimer | code (React) | dev (Flux B/C) |
+| Implémenter les pages publiques (`/editorial-policy`, `/methodologie`, `/sources`) + composant disclaimer | code (React) | dev (Flux B/C) || Implémenter les pages publiques (`/politique-editoriale`, `/methodologie`, `/sources`) + composant disclaimer (déjà livré : `src/components/legal/medical-disclaimer.tsx`) | code (React) | dev (Flux B/C) |
 | Nommer les relecteurs et compléter l'editorial board | décision + éditorial | propriétaire |
 | Lier trust badges depuis la landing (Semaine 2) | code | dev |
