@@ -27,6 +27,7 @@ import { specialtyPackProduct } from "@/lib/library/content-index";
 import type { ClinicalCase } from "@/core/types";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
+import { track } from "@/lib/analytics/client";
 import { pathologyEntry } from "@/lib/pathologies/manifest";
 import { cn } from "@/lib/utils";
 
@@ -177,6 +178,15 @@ function CasePlay() {
     const pool = sameSpecialty.length > 0 ? sameSpecialty : CLINICAL_CASES;
     return pool.find((candidate) => !done.includes(candidate.id)) ?? null;
   }, [clinical, done]);
+
+  // Mesure : ouvrir un dossier clinique (aperçu gratuit ou complet) est un
+  // acte d'activation. Émis avant le retour anticipé pour garder l'ordre des
+  // hooks stable entre « cas introuvable » et « cas ouvert ».
+  const trackedCaseId = clinical?.id ?? null;
+  useEffect(() => {
+    if (!trackedCaseId) return;
+    track("first_content_viewed", { surface: "cas", item: trackedCaseId });
+  }, [trackedCaseId]);
 
   if (!clinical) {
     return (
