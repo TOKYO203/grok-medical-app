@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import type { Question } from "@/core/types";
 import { comboBonus } from "@/core/quiz-engine";
+import { track } from "@/lib/analytics/client";
 import { emitExperienceFeedback } from "@/lib/experience-feedback";
 import { useI18n } from "@/i18n";
 import { useExperiencePreferences } from "@/lib/use-experience-preferences";
@@ -140,7 +141,16 @@ export function QuizPlayer({
         <p className="mt-2 text-sm text-muted">{t("quiz.summary", { max: maxCombo })}</p>
         <Button
           className="mt-6"
-          onClick={() => onFinish({ correct: correctCount, total: sessionItems.length, maxCombo })}
+          onClick={() => {
+            // MESURE-1 : une session terminée est l'unité d'engagement. Le
+            // déclencheur est le clic sur « Terminer », jamais le rendu.
+            track("session_completed", {
+              surface: "qcm",
+              count: sessionItems.length,
+              minutes: Math.max(1, Math.round((Date.now() - studyStartedAt.current) / 60_000)),
+            });
+            onFinish({ correct: correctCount, total: sessionItems.length, maxCombo });
+          }}
         >
           {finishLabel ?? t("quiz.finish")}
         </Button>
