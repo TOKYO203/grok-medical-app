@@ -25,8 +25,26 @@ const VIEWPORTS = [
  * à un visiteur anonyme : sans ces deux routes, l'audit ne mesurerait plus que le
  * même écran de connexion, et son « OK » ne dirait rien des pages commerciales.
  * Mesuré avant ajout : `/tarifs` et `/login` sont propres à 320/360/390 px.
+ *
+ * Les cinq surfaces publiques des chantiers landing/trust/B2B (`/decouvrir`,
+ * `/methodologie`, `/politique-editoriale`, `/sources`, `/institutionnel`) sont
+ * dans `PUBLIC_PATHS` : un visiteur anonyme les voit réellement, l'audit les
+ * mesure donc comme des pages, pas comme la porte d'entrée.
  */
-const ROUTES = ["/", "/parcours", "/cas", "/profil", "/pro", "/tarifs", "/login"];
+const ROUTES = [
+  "/",
+  "/parcours",
+  "/cas",
+  "/profil",
+  "/pro",
+  "/tarifs",
+  "/login",
+  "/decouvrir",
+  "/methodologie",
+  "/politique-editoriale",
+  "/sources",
+  "/institutionnel",
+];
 
 async function launchAuditBrowser() {
   const common = {
