@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "epilepsies",
+  "title": "Épilepsies",
+  "subtitle": "Nosographie — neurologie",
+  "objective": "Devant une perte de connaissance avec mouvements anormaux, distinguer la crise épileptique de ses imitateurs, confirmer et classifier l'épilepsie par EEG et imagerie, initier un traitement antiépileptique adapté et reconnaître l'état de mal qui menace la vie.",
+  "language": "fr",
+  "updatedAt": "2026-10-30",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 115,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 156,
+      "localNumber": 115,
+      "sectionLabel": "Médecine",
+      "title": "Épilepsies",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "neuro"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la classification ILAE 2017, de la recommandation NICE NG217 sur les épilepsies et de la fiche descriptive de l'OMS, avec reformulation complète. Les posologies des antiépileptiques ne sont pas détaillées : elles dépendent de la molécule, du poids, de l'âge, de la grossesse et du protocole local ; seuls les principes de choix et de surveillance sont rattachés aux sources.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national utilise le pluriel (« Épilepsies ») : la fiche couvre l'ensemble des épilepsies de l'adulte selon la classification ILAE 2017, la crise isolée et l'état de mal étant traités comme situations distinctes.",
+      "La distinction crise épileptique / épilepsie suit la définition ILAE : au moins deux crises non provoquées à plus de 24 heures d'intervalle, ou une crise avec haut risque de récidive.",
+      "L'EEG illustratif provient de Wikimedia Commons (domaine public) : tracé pédagogique d'anomalies paroxystiques, sans valeur diagnostique individuelle."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie détaillée : principes de choix et de surveillance uniquement.",
+      "Image sous licence libre avec crédit et lien source affichés dans la fiche."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'épilepsie est une maladie neurologique chronique définie par la survenue répétée de crises épileptiques non provoquées, liées à une hyperexcitabilité neuronale transitoire. C'est l'un des troubles neurologiques les plus fréquents au monde, touchant environ cinquante millions de personnes, dont près de quatre-vingts pour cent vivent dans des pays à revenu faible ou intermédiaire, avec un accès aux traitements souvent limité."
+        },
+        {
+          "type": "paragraph",
+          "text": "Une crise unique ne fait pas l'épilepsie : la fièvre, l'hypoglycémie, l'alcool ou un traumatisme peuvent provoquer une crise provoquée. La distinction entre crise épileptique, syncope et autres imitateurs est le premier enjeu diagnostique, car elle conditionne tout le reste."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence vitale",
+          "text": "L'état de mal épileptique — crise prolongée au-delà de cinq minutes ou crises répétées sans reprise de conscience — est une urgence absolue : chaque minute de retard aggrave les lésions neuronales et augmente la mortalité."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Définitions et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La classification ILAE 2017 structure le raisonnement en trois étapes : le type de crise, le type d'épilepsie et le syndrome épileptique. La crise est focale si elle naît dans un réseau limité d'un hémisphère, généralisée d'emblée si elle engage les deux hémisphères d'emblée ; une crise focale peut secondairement se généraliser."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Crise focale : auras, mouvements anormaux d'un segment, conscience préservée ou altérée.",
+            "Crise généralisée : convulsions tonico-cloniques, absences, myoclonies, crises atoniques.",
+            "Épilepsie et syndrome : selon l'âge de début, le type de crises, l'EEG et l'étiologie, pour guider le traitement et le pronostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Deux crises non provoquées à plus de vingt-quatre heures d'intervalle définissent l'épilepsie ; une crise unique ne la définit que si le risque de récidive est élevé (lésion épileptogène, EEG nettement anormal)."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ILAE-2017",
+          "organization": "International League Against Epilepsy (ILAE)",
+          "title": "ILAE classification of the epilepsies",
+          "year": 2017
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic d'épilepsie est d'abord clinique : l'interrogatoire du patient et de l'entourage reconstitue la crise — circonstances, aura, déroulement, durée, morsure de langue, perte d'urines, confusion post-critique, facteurs déclenchants. Aucun examen ne remplace cette anamnèse."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/EEGpatologica.jpg?width=900",
+          "alt": "Tracé électroencéphalographique montrant des anomalies paroxystiques de type pointes et ondes, aspect rencontré dans les épilepsies",
+          "caption": "EEG : tracé avec anomalies paroxystiques — l'examen qui objective l'hyperexcitabilité corticale et aide à classifier l'épilepsie.",
+          "credit": "Via Wikimedia Commons",
+          "license": "Domaine public",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:EEGpatologica.jpg"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signe",
+            "Crise épileptique",
+            "Syncope"
+          ],
+          "rows": [
+            [
+              "Début",
+              "Brutal, sans prodrome ou avec aura brève",
+              "Prodrome lipothymique, vision grise, bruit"
+            ],
+            [
+              "Durée",
+              "Une à trois minutes, confusion post-critique",
+              "Quelques secondes, reprise rapide de conscience"
+            ],
+            [
+              "Morsure de langue, perte d'urines",
+              "Fréquentes",
+              "Rares, plutôt lors d'une syncope convulsivante"
+            ],
+            [
+              "EEG intercritique",
+              "Anomalies épileptiques possibles",
+              "Normal"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe bilan",
+          "text": "Première crise : glycémie, ionogramme, calcium, bilan hépatique et rénal, ECG devant toute perte de connaissance ; EEG au décours puis à distance, et imagerie cérébrale rapide si cause lésionnelle suspectée."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'EEG confirme et classe : anomalies intercritiques (pointes, ondes lentes), activées parfois par la stimulation lumineuse ou la privation de sommeil. Un EEG normal n'exclut pas l'épilepsie. L'imagerie, idéalement IRM cérébrale, cherche une cause : séquelle vasculaire, dysplasie, tumeur, sclerosis hippocampique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-NICE-NG217",
+          "organization": "NICE",
+          "title": "Epilepsies in children, young people and adults — NG217",
+          "year": 2022
+        },
+        {
+          "id": "SRC-ILAE-2017",
+          "organization": "ILAE",
+          "title": "ILAE classification of the epilepsies",
+          "year": 2017
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les étiologies se classent en six cadres : génétique, structurelle, métabolique, immunitaire, infectieuse et inconnue. Dans les contextes à ressources limitées, les causes infectieuses et post-traumatiques tiennent une place majeure : séquelles de neurocysticercose, de méningite ou d'abcès, traumatismes crâniens, et chez l'enfant les encéphalites et les séquelles périnatales."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Génétique : épilepsies généralisées idiopathiques, syndromes génétiques avec comorbidité.",
+            "Structurelle : dysplasies corticales, sclérose hippocampique, séquelles vasculaires, tumeurs.",
+            "Infectieuses : cysticercose, tuberculome, séquelles de méningite ou d'encéphalite.",
+            "Métabolique et immunitaire : plus rares, à évoquer devant un début inhabituel."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Une épilepsie qui commence chez l'adulte doit toujours faire chercher une cause lésionnelle, notamment tumorale ou infectieuse : l'imagerie cérébrale n'est pas optionnelle dans ce cas."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement antiépileptique repose sur une monothérapie à dose progressivement croissante, choisie selon le type de crises. L'objectif est l'absence de crise avec le minimum d'effets indésirables, et le choix de la molécule se fait selon le type de crise et le terrain."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Monothérapie d'abord ; association seulement si deux monothérapies successives ont échoué.",
+            "Observance : premier facteur d'échec ; jamais d'arrêt brutal, qui risque l'état de mal.",
+            "Femme en âge de procréer : information tératogène, acide folique, réévaluation du choix médicamenteux avant grossesse.",
+            "Décision d'arrêt : à discuter après deux à cinq ans sans crise, en fonction du type, de l'EEG et du vécu du patient."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Qualité de vie",
+          "text": "Au-delà des médicaments : permis de conduire, scolarité, emploi, grossesse et stigmatisation sont des sujets à aborder systématiquement — l'OMS fait de la stigmatisation un enjeu de santé publique majeur dans les épilepsies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les formes pharmacorésistantes, définies par l'échec de deux traitements bien conduits, ouvrent la discussion de l'évaluation chirurgicale en centre spécialisé : certaines épilepsies focales guérissent par exérèse de la zone épileptogène."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-NICE-NG217",
+          "organization": "NICE",
+          "title": "Epilepsies in children, young people and adults — NG217",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "id": "urgences",
+      "title": "VI. État de mal épileptique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'état de mal épileptique est une crise qui dure plus de cinq minutes, ou des crises répétées sans reprise de conscience entre elles. C'est la première urgence neurologique : la mort neuronale progresse avec la durée, et la mortalité atteint environ vingt pour cent."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chronométrer : au-delà de cinq minutes, le traitement commence, sans attendre.",
+            "Benzodiazépine par voie intraveineuse ou intramusculaire en première intention.",
+            "Si la crise persiste : antiépileptique de deuxième intention intraveineux, réanimation, intubation si besoin.",
+            "Chercher la cause aiguë : hypoglycémie, hyponatrémie, alcool, infection, non-observance, cause lésionnelle nouvelle."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Cinq minutes",
+          "text": "La règle des cinq minutes est un réflexe d'examen : crise généralisée qui dure ou se répète sans réveil = état de mal = benzodiazépine maintenant, bilan étiologique en parallèle."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Le diagnostic d'épilepsie est clinique, étayé par EEG et imagerie.",
+            "Deux crises non provoquées définissent la maladie ; une crise isolée exige un bilan et une surveillance.",
+            "Monothérapie, observance, jamais d'arrêt brutal : la trilogie du traitement de fond.",
+            "L'état de mal au-delà de cinq minutes est une urgence vitale absolue."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir différencier crise épileptique et syncope, citer la classification ILAE 2017 (crise, épilepsie, syndrome) et dérouler la prise en charge de l'état de mal : c'est un triptyque régulièrement demandé."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les trois références structurantes sont la classification ILAE 2017, la recommandation NICE NG217 et la fiche descriptive de l'OMS sur l'épilepsie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scheffer IE, et al. ILAE classification of the epilepsies. Epilepsia 2017.",
+            "NICE. Epilepsies in children, young people and adults — NG217, 2022.",
+            "OMS. Epilepsy — fact sheet, 2026."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-epi-crise",
+      "label": "C.R.I.S.E.",
+      "intro": "La grille d'analyse d'une perte de connaissance avec mouvements anormaux.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Circonstances et contexte : âge, facteurs déclenchants, terrain"
+        },
+        {
+          "key": "R",
+          "term": "Récit de l'entourage : début, durée, morsure de langue, perte d'urines"
+        },
+        {
+          "key": "I",
+          "term": "Interrogatoire des prodromes : aura épileptique ou lipothymie syncopale"
+        },
+        {
+          "key": "S",
+          "term": "Suites immédiates : confusion post-critique ou réveil rapide"
+        },
+        {
+          "key": "E",
+          "term": "Examens : EEG, imagerie, biologie selon l'orientation"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-epi-1",
+      "front": "Quelle définition de l'épilepsie selon l'ILAE ?",
+      "back": "Au moins deux crises non provoquées à plus de 24 heures d'intervalle, ou une crise avec un risque de récidive élevé."
+    },
+    {
+      "id": "fc-epi-2",
+      "front": "Quelle est la différence entre crise focale et crise généralisée ?",
+      "back": "La focale naît dans un réseau limité d'un hémisphère, la généralisée engage d'emblée les deux hémisphères."
+    },
+    {
+      "id": "fc-epi-3",
+      "front": "Quels signes orientent vers l'épilepsie plutôt que la syncope ?",
+      "back": "Début brutal, durée de une à trois minutes, morsure de langue, perte d'urines, confusion post-critique."
+    },
+    {
+      "id": "fc-epi-4",
+      "front": "Un EEG normal exclut-il l'épilepsie ?",
+      "back": "Non : l'EEG intercritique peut être normal, il confirme et classe mais n'exclut jamais."
+    },
+    {
+      "id": "fc-epi-5",
+      "front": "Quelle est la première cause d'échec du traitement antiépileptique ?",
+      "back": "La mauvaise observance."
+    },
+    {
+      "id": "fc-epi-6",
+      "front": "Quelle règle pour l'arrêt d'un antiépileptique ?",
+      "back": "Jamais brutal : arrêt progressif, à discuter après deux à cinq ans sans crise."
+    },
+    {
+      "id": "fc-epi-7",
+      "front": "Quel supplément chez la femme en âge de procréer sous antiépileptique ?",
+      "back": "L'acide folique, avec information sur le risque tératogène et réévaluation du choix avant grossesse."
+    },
+    {
+      "id": "fc-epi-8",
+      "front": "À partir de quand parle-t-on d'état de mal épileptique ?",
+      "back": "Crise de plus de cinq minutes, ou crises répétées sans reprise de conscience."
+    },
+    {
+      "id": "fc-epi-9",
+      "front": "Quel est le traitement de première intention de l'état de mal ?",
+      "back": "Une benzodiazépine par voie intraveineuse ou intramusculaire, sans attendre."
+    },
+    {
+      "id": "fc-epi-10",
+      "front": "Quand définir une épilepsie pharmacorésistante ?",
+      "back": "Échec de deux traitements bien conduits : ouvrir la discussion d'un avis chirurgical spécialisé."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-epi-root",
+      "label": "Épilepsies",
+      "detail": "Maladie chronique définie par la récurrence de crises non provoquées, à classifier pour traiter."
+    },
+    "branches": [
+      {
+        "id": "map-epi-class",
+        "label": "Classification",
+        "detail": "ILAE 2017 : type de crise, type d'épilepsie, syndrome.",
+        "children": [
+          {
+            "id": "map-epi-class-1",
+            "label": "Crises",
+            "leaves": [
+              {
+                "id": "map-epi-class-1a",
+                "label": "Focales, avec ou sans altération de conscience"
+              },
+              {
+                "id": "map-epi-class-1b",
+                "label": "Généralisées : tonico-cloniques, absences, myoclonies"
+              }
+            ]
+          },
+          {
+            "id": "map-epi-class-2",
+            "label": "Étiologies",
+            "leaves": [
+              {
+                "id": "map-epi-class-2a",
+                "label": "Génétique, structurelle, métabolique"
+              },
+              {
+                "id": "map-epi-class-2b",
+                "label": "Infectieuse, immunitaire, inconnue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-epi-diag",
+        "label": "Diagnostic",
+        "detail": "Clinique d'abord, EEG et imagerie pour confirmer et chercher la cause.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-epi-diag-1",
+            "label": "Interrogatoire",
+            "leaves": [
+              {
+                "id": "map-epi-diag-1a",
+                "label": "Récit de l'entourage, aura, confusion post-critique"
+              },
+              {
+                "id": "map-epi-diag-1b",
+                "label": "Différencier d'une syncope"
+              }
+            ]
+          },
+          {
+            "id": "map-epi-diag-2",
+            "label": "Paraclinique",
+            "leaves": [
+              {
+                "id": "map-epi-diag-2a",
+                "label": "EEG intercritique et critique"
+              },
+              {
+                "id": "map-epi-diag-2b",
+                "label": "IRM cérébrale si début à l'âge adulte"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-epi-trt",
+        "label": "Traitement",
+        "detail": "Monothérapie adaptée au type de crise, observance, projets de vie.",
+        "children": [
+          {
+            "id": "map-epi-trt-1",
+            "label": "Principes",
+            "leaves": [
+              {
+                "id": "map-epi-trt-1a",
+                "label": "Monothérapie, dose progressive"
+              },
+              {
+                "id": "map-epi-trt-1b",
+                "label": "Jamais d'arrêt brutal"
+              }
+            ]
+          },
+          {
+            "id": "map-epi-trt-2",
+            "label": "Cas particuliers",
+            "leaves": [
+              {
+                "id": "map-epi-trt-2a",
+                "label": "Femme en âge de procréer : folate"
+              },
+              {
+                "id": "map-epi-trt-2b",
+                "label": "Pharmacorésistance : avis chirurgical"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-epi-urg",
+        "label": "État de mal",
+        "detail": "Urgence vitale : plus de cinq minutes de crise ou crises en série sans réveil.",
+        "tone": "urgence",
+        "children": [
+          {
+            "id": "map-epi-urg-1",
+            "label": "Prise en charge",
+            "leaves": [
+              {
+                "id": "map-epi-urg-1a",
+                "label": "Benzodiazépine immédiate"
+              },
+              {
+                "id": "map-epi-urg-1b",
+                "label": "Deuxième ligne IV, réanimation"
+              }
+            ]
+          },
+          {
+            "id": "map-epi-urg-2",
+            "label": "Recherche de cause",
+            "leaves": [
+              {
+                "id": "map-epi-urg-2a",
+                "label": "Hypoglycémie, hyponatrémie, alcool"
+              },
+              {
+                "id": "map-epi-urg-2b",
+                "label": "Infection, non-observance, lésion nouvelle"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ILAE-2017",
+      "title": "ILAE classification of the epilepsies: position paper of the ILAE Commission for Classification and Terminology",
+      "citation": "Scheffer IE, Berkovic S, Capovilla G, et al. ILAE classification of the epilepsies: position paper of the ILAE Commission for Classification and Terminology. Epilepsia. 2017 ; 58 (4) : 512-521. doi:10.1111/epi.13709.",
+      "organization": "International League Against Epilepsy (ILAE)",
+      "year": 2017,
+      "version": "classification 2017",
+      "url": "https://doi.org/10.1111/epi.13709",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Définitions",
+        "Classification des crises",
+        "Classification des épilepsies",
+        "Terminologie"
+      ]
+    },
+    {
+      "id": "SRC-NICE-NG217",
+      "title": "Epilepsies in children, young people and adults — NICE guideline NG217",
+      "citation": "National Institute for Health and Care Excellence. Epilepsies in children, young people and adults: diagnosis and management. NICE guideline NG217. Londres : NICE ; 2022. Consulté le 30 octobre 2026.",
+      "organization": "National Institute for Health and Care Excellence (NICE)",
+      "year": 2022,
+      "version": "NG217",
+      "url": "https://www.nice.org.uk/guidance/ng217",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Démarche diagnostique",
+        "Place de l'EEG et de l'imagerie",
+        "Choix du traitement",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-WHO-EPILEPSY",
+      "title": "Epilepsy — fact sheet",
+      "citation": "Organisation mondiale de la Santé. Epilepsy — fact sheet. Genève : OMS ; 2026. Consulté le 30 octobre 2026.",
+      "organization": "Organisation mondiale de la Santé (OMS)",
+      "year": 2026,
+      "version": "mise à jour 2026",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/epilepsy",
+      "verifiedAt": "2026-10-30",
+      "usedFor": [
+        "Épidémiologie",
+        "Stigmatisation",
+        "Accès aux traitements",
+        "Santé publique"
+      ]
+    }
+  ]
+}
