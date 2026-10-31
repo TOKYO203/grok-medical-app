@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link, notFound, useNavigate, useRouter } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, BookOpen, FileText, Lock, ShieldAlert, Stethoscope } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, ChevronRight, FileText, Lock, ScanLine, ShieldAlert, Stethoscope } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { ContentLocked } from "@/components/premium/content-locked";
 import { track } from "@/lib/analytics/client";
@@ -11,6 +11,7 @@ import { MindmapView } from "@/components/demarche/mindmap-view";
 import { ViewTabs, type DemarcheView } from "@/components/demarche/view-tabs";
 import { getBuiltinDeck, getCase } from "@/content/catalog";
 import { premiumSpecialtyIdFor, type PremiumSpecialtyId } from "@/content/purchase-order";
+import { findImagingCaseBySlug } from "@/content/imagerie";
 import { useI18n } from "@/i18n";
 import { specialtyPackProduct } from "@/lib/library/content-index";
 import { loadPathologyContent, loadPathologyPreview } from "@/lib/pathologies/catalog";
@@ -97,6 +98,7 @@ function PathologiePage() {
     const item = getCase(id);
     return item ? [item] : [];
   });
+  const imagingCase = findImagingCaseBySlug(content.slug);
   const reviewing = content.reviewStatus !== "reviewed";
 
   return (
@@ -182,6 +184,30 @@ function PathologiePage() {
               premiumSpecialty={premiumSpecialty}
             />
           )
+        ) : null}
+
+        {imagingCase ? (
+          <section className="mt-8" data-pathologie-imaging>
+            <h2 className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
+              Imagerie liée
+            </h2>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link
+                  to="/imagerie/$caseId"
+                  params={{ caseId: imagingCase.id }}
+                  className="flex items-center gap-3 rounded-[var(--radius-lg)] bg-card px-4 py-3 shadow-[var(--shadow-border)] transition-colors hover:bg-surface"
+                >
+                  <ScanLine className="size-4 shrink-0 text-accent" aria-hidden />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium">{imagingCase.title}</p>
+                    <p className="text-xs text-muted">Cas d'imagerie interactif · méthode {imagingCase.method}</p>
+                  </div>
+                  <ChevronRight className="size-4 shrink-0 text-muted" aria-hidden />
+                </Link>
+              </li>
+            </ul>
+          </section>
         ) : null}
 
         {decks.length > 0 || cases.length > 0 ? (

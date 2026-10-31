@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Check, X } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, X } from "lucide-react";
 import { RadioViewer } from "@/components/imagerie/radio-viewer";
 import { Button } from "@/components/ui/button";
 import type { ImagingCase } from "@/content/imagerie";
@@ -72,6 +72,17 @@ function ImagerieCasePage() {
             <li key={f}>{f}</li>
           ))}
         </ul>
+
+        {c.linkedPathology ? (
+          <Link
+            to="/pathologie/$slug"
+            params={{ slug: c.linkedPathology }}
+            className="mt-6 inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-primary px-4 py-2.5 text-sm font-medium text-primary-fg transition-opacity hover:opacity-90"
+          >
+            <BookOpen className="size-4" aria-hidden />
+            Voir la fiche : {c.finalDiagnosis}
+          </Link>
+        ) : null}
 
         <div className="mt-8 flex flex-wrap gap-2">
           <Button onClick={handleRestart}>Refaire ce cas</Button>
