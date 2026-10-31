@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "migraine",
+  "title": "Migraine",
+  "subtitle": "Nosographie — neurologie",
+  "objective": "Devant des céphalées récurrentes, reconnaître la migraine — sans aura et avec aura — selon les critères ICHD-3, la distinguer des céphalées secondaires et des autres céphalées primaires, et conduire le traitement de la crise et le traitement de fond.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 134,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 175,
+      "localNumber": 134,
+      "sectionLabel": "Médecine",
+      "title": "Migraine",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "neuro"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la classification ICHD-3 et du consensus AHS 2021 sur l'intégration des traitements de la migraine, avec reformulation complète. Les critères diagnostiques sont cités selon ICHD-3 ; les traitements selon les principes du consensus, sans posologies détaillées au-delà des molécules de référence.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Migraine » (Médecine n°134) : la fiche couvre la migraine de l'adulte — sans aura, avec aura, migraine chronique et états migraineux — le diagnostic différentiel des céphalées primaires et les drapeaux rouges des céphalées secondaires, et le traitement de crise et de fond.",
+      "Sources vérifiées le 2026-10-31 : ICHD-3 (Headache Classification Committee of the IHS, Cephalalgia 2018;38(1):1-211, doi:10.1177/0333102417738202, confirmé sur PubMed et journals.sagepub) et AHS 2021 (Ailani J, et al. Headache 2021;61(7):1021-1039, doi:10.1111/head.14153, confirmé sur le site de la revue et PubMed).",
+      "Critères ICHD-3 de la migraine sans aura cités : au moins 5 crises de 4-72 heures, céphalée unilatérale pulsatile d'intensité modérée à sévère, aggravée par l'activité physique routine, avec nausées/vomissements ou photo-phonophobie.",
+      "L'illustration de l'aura visuelle est servie depuis Wikimedia Commons (fichier Migraine aura.jpg, domaine public vérifié sur la page du fichier, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Drapeaux rouges des céphalées secondaires explicitement listés — céphalée de l'hypertension intracrânienne, hémorragie méningée.",
+      "Interdits sécuritaires : pas d'opioïdes ni de triptans répétés en excès — risque de céphalée médicamenteuse ; pas d'AINS répétés chez le patient à risque."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La migraine est la céphalée primaire la plus fréquente après la céphalée de tension : une maladie neurologique à part entière, génétiquement déterminée, qui touche environ une femme sur cinq et un homme sur dix, et qui ruine des journées entières quand elle n'est pas traitée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce n'est pas « un simple mal de tête » : c'est une sensibilisation du système nerveux central où la douleur, la lumière, le bruit et le mouvement deviennent insupportables. Bien traitée, la migraine rend les journées ; mal traitée, elle devient chronique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "La migraine tue rarement — mais certaines céphalées qui l'imitent, oui. Céphalée en coup de tonnerre, fièvre, déficit neurologique, céphalée nouvelle après 50 ans : ce ne sont plus des migraines, ce sont des urgences — hémorragie méningée, thrombose veineuse, hypertension intracrânienne."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Clinique : la crise et ses critères",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La crise migraineuse typique se déroule en phases : prodromes — fatigue, appétit modifié, bâillements — parfois aura, puis céphalée, puis résolution avec asthénie. La céphalée est unilatérale, pulsatile, modérée à sévère, aggravée par l'activité routine, accompagnée de nausées et d'une photo-phonophobie qui poussent le patient à s'isoler dans le noir."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Migraine_aura.jpg?width=900",
+          "alt": "Illustration historique de l'aura visuelle migraineuse : scotome scintillant et fortifications",
+          "caption": "L'aura visuelle : scintillements et fortifications qui précèdent la céphalée.",
+          "credit": "Via Wikimedia Commons",
+          "license": "Domaine public",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Migraine_aura.jpg"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Critères ICHD-3 sans aura : au moins 5 crises de 4 à 72 heures, unilatérale, pulsatile, modérée à sévère, aggravée par l'activité, avec nausées-vomissements ou photo-phonophobie.",
+            "Aura : symptômes neurologiques transitoires, visuels le plus souvent — scintillements, scotomes — sur 5 à 60 minutes, réversibles, précédant ou accompagnant la céphalée.",
+            "Prodromes et résolution : le patient reconnaît souvent sa crise avant la douleur, et l'épuisement qui suit.",
+            "Migraine chronique : 15 jours ou plus de céphalée par mois depuis plus de trois mois, dont au moins 8 jours migraineux — le stade qui impose un traitement de fond sérieux.",
+            "État migraineux : crise invalidante de plus de 72 heures, avec vomissements — urgence thérapeutique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "La migraine est un diagnostic positif, par critères — pas un diagnostic d'élimination. L'interrogatoire fait le diagnostic : les cinq critères ICHD-3 valent plus que n'importe quel examen d'imagerie."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique et drapeaux rouges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique, par l'interrogographie : âge de début, fréquence, durée, caractère, signes d'accompagnement, facteurs déclenchants, retentissement. L'examen neurologique est normal entre les crises ; l'imagerie n'est indiquée que devant les drapeaux rouges."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire systématique : calendrier des crises, prise médicamenteuse — à la recherche d'une céphalée médicamenteuse.",
+            "Examen neurologique normal entre les crises — tout signe intercritique fait reconsidérer le diagnostic.",
+            "Drapeaux rouges : céphalée en coup de tonnerre, fièvre ou raideur de nuque, déficit neurologique focal, papilloedème, céphalée nouvelle après 50 ans, céphalée au réveil qui augmente, antécédents de cancer ou d'immunodépression.",
+            "Imagerie — scanner ou IRM cérébrale — réservée aux drapeaux rouges ou à l'atypie : la migraine typique n'en a pas besoin.",
+            "Agenda des céphalées : l'outil le plus rentable du suivi — fréquence, déclencheurs, réponse aux traitements."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Céphalée de l'adulte en Afrique subsaharienne : ne pas s'enfermer dans le diagnostic de migraine. Paludisme, sinusite, hypertension, anémie sévère, et la pression psychosociale des déclarations de céphalées secondaires — l'interrogatoire et l'examen dirigent."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ICHD3-2018",
+          "organization": "International Headache Society",
+          "title": "The International Classification of Headache Disorders, 3rd edition (ICHD-3)",
+          "year": 2018
+        },
+        {
+          "id": "SRC-AHS-2021",
+          "organization": "American Headache Society",
+          "title": "AHS Consensus Statement: Update on integrating new migraine treatments into clinical practice",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Mécanismes et déclencheurs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La migraine est une maladie du cerveau hypersensible : la crise naît d'une activation du noyau du tractus spinal du trijumeau et d'une sensibilisation centrale, sous l'influence de facteurs génétiques — calcitonin gene-related peptide et voies sérotoninergiques en tête."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Terrain génétique : antécédents familiaux fréquents — migraine héritée plus que partagée.",
+            "Déclencheurs : jeûne, sommeil irrégulier, stress et surtout la décompression post-stress, règles, alcool, certains aliments, écrans et luminosité.",
+            "Chez la femme : crises cataméniales, influence des œstrogènes — contraception et grossesse modifient la maladie.",
+            "Comorbidités : anxiété, dépression, troubles du sommeil — chercher et traiter, elles entretiennent la migraine.",
+            "Médicaments : vasodilatateurs, dérivés nitrés, certains antihypertenseurs — à repérer à l'interrogatoire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "La céphalée par abus médicamenteux guette le migraineux : la prise de antalgiques ou de triptans trop fréquente — plus de 10 à 15 jours par mois — transforme la migraine en céphalée quotidienne. Limiter la fréquence des prises fait partie du traitement."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement de la crise et de fond",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement se joue sur deux tableaux : celui de la crise — à prendre tôt, pas trop souvent — et celui du fond — à prescrire quand la migraine retentit, au-delà de quatre jours d'incapacité par mois selon le consensus AHS."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Crise légère à modérée : antalgiques simples ou AINS, pris tôt dans la crise — l'efficacité se joue dans la première heure.",
+            "Crise modérée à sévère : triptans — à distance desprodromes de l'aura motrice ou du tronc cérébral — ou gépants antagonistes du CGRP selon disponibilité.",
+            "Nausées : antiémétique associé — la crise se traite globalement, pas seulement la douleur.",
+            "Traitement de fond — première intention : bêtabloquant, topiramate, amitriptyline, ou anticorps anti-CGRP selon disponibilité ; évalué sur trois mois avec l'agenda.",
+            "Mesures non pharmacologiques : régularité du sommeil et des repas, activité physique, gestion du stress — le socle de tout traitement.",
+            "État migraineux : réhydratation, corticoïdes, antiémétiques neuroleptiques — avis spécialisé."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Une crise migraineuse inhabituelle — la plus intense jamais ressentie, ou accompagnée de déficit, de fièvre, de confusion — est une urgence diagnostique : hémorragie méningée, AVC, sinusite compliquée. Imagerie d'abord, triptan ensuite."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi se fait sur l'agenda : nombre de jours de migraine par mois, jours d'incapacité, prise médicamenteuse. Le but du traitement de fond est simple : redonner des journées, et empêcher la chronologisation de la maladie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ICHD3-2018",
+          "organization": "International Headache Society",
+          "title": "The International Classification of Headache Disorders, 3rd edition (ICHD-3)",
+          "year": 2018
+        },
+        {
+          "id": "SRC-AHS-2021",
+          "organization": "American Headache Society",
+          "title": "AHS Consensus Statement: Update on integrating new migraine treatments into clinical practice",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la migraine est d'abord hygiénique : un cerveau migraineux aime la régularité — heures de sommeil fixes, repas sans jeûne, activité physique régulière, gestion du stress. Puis médicamenteuse, quand le retentissement le justifie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Régularité : sommeil, repas, écrans — la vie régulière diminue la fréquence des crises.",
+            "Agenda : le patient est acteur — repérer ses déclencheurs, mesurer l'efficacité du fond.",
+            "Traiter tôt et pas trop souvent la crise : règle des 10 jours par mois d'antalgiques, 10 jours de triptans.",
+            "Suivi de la comorbidité : sommeil, anxiété, dépression — traitées, elles allègent la migraine.",
+            "Terrain : chez la femme, planifier contraception et grossesse avec la maladie — certains traitements de fond sont tératogènes."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "La céphalée est un symptôme au carrefour de la neurologie : la fiche hémorragie méningée décrit l'urgence que la migraine n'est pas — et les fiches douleur thoracique et lipothymie couvrent les autres symptômes-frontières."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Migraine : diagnostic positif par critères ICHD-3 — 5 crises, 4 à 72 heures, unilatérale, pulsatile, modérée à sévère, avec nausées ou photo-phonophobie.",
+            "Aura : symptômes visuels transitoires de 5 à 60 minutes — réversibles, typiques.",
+            "Drapeaux rouges : coup de tonnerre, fièvre, déficit, céphalée nouvelle après 50 ans — imagerie.",
+            "Crise : traiter tôt, antalgiques ou AINS, puis triptans — sans excès de jours.",
+            "Fond : bêtabloquant, topiramate, amitriptyline — évalué sur trois mois avec l'agenda."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir énoncer les critères ICHD-3, décrire l'aura, citer les drapeaux rouges et les deux niveaux de traitement — crise et fond : c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont la classification ICHD-3 et le consensus AHS 2021."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Headache Classification Committee of the IHS. ICHD-3. Cephalalgia 2018.",
+            "Ailani J, et al. AHS Consensus Statement. Headache 2021."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-mig",
+      "label": "P.U.L.S.E.",
+      "intro": "Les critères de la crise et les deux traitements.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pulsatile : céphalée unilatérale qui bat, modérée à sévère"
+        },
+        {
+          "key": "U",
+          "term": "Unilatérale : 4 à 72 heures, aggravée par l'activité — ICHD-3"
+        },
+        {
+          "key": "L",
+          "term": "Lumière et bruit insupportables : photo-phonophobie, nausées — le patient se cache"
+        },
+        {
+          "key": "S",
+          "term": "Signes d'alarme : coup de tonnerre, fièvre, déficit — pas une migraine, une urgence"
+        },
+        {
+          "key": "E",
+          "term": "Early : traiter tôt la crise — et le fond si plus de 4 jours d'incapacité par mois"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-mig-1",
+      "front": "Quels sont les critères ICHD-3 de la migraine sans aura ?",
+      "back": "Au moins 5 crises de 4 à 72 h, céphalée unilatérale pulsatile modérée à sévère, aggravée par l'activité, avec nausées/vomissements ou photo-phonophobie."
+    },
+    {
+      "id": "fc-mig-2",
+      "front": "Comment se manifeste l'aura migraineuse typique ?",
+      "back": "Symptômes visuels transitoires — scintillements, scotomes — sur 5 à 60 minutes, réversibles, précédant ou accompagnant la céphalée."
+    },
+    {
+      "id": "fc-mig-3",
+      "front": "Quels sont les drapeaux rouges devant une céphalée ?",
+      "back": "Coup de tonnerre, fièvre ou raideur de nuque, déficit focal, papilloedème, céphalée nouvelle après 50 ans, antécédent de cancer ou d'immunodépression."
+    },
+    {
+      "id": "fc-mig-4",
+      "front": "Quand indiquer une imagerie cérébrale devant des céphalées migraineuses typiques ?",
+      "back": "Jamais de façon systématique : seulement devant drapeaux rouges ou présentation atypique — l'examen neurologique est normal entre les crises."
+    },
+    {
+      "id": "fc-mig-5",
+      "front": "Quel traitement de la crise légère à modérée ?",
+      "back": "Antalgiques simples ou AINS, pris tôt dans la crise — efficacité maximale la première heure."
+    },
+    {
+      "id": "fc-mig-6",
+      "front": "Quel traitement de la crise modérée à sévère ?",
+      "back": "Triptans — ou gépants anti-CGRP selon disponibilité — avec un antiémétique si nausées."
+    },
+    {
+      "id": "fc-mig-7",
+      "front": "Quand instaurer un traitement de fond ?",
+      "back": "Quand la migraine retentit : au-delà d'environ 4 jours d'incapacité par mois, ou migraine chronique — évalué sur trois mois avec l'agenda."
+    },
+    {
+      "id": "fc-mig-8",
+      "front": "Quels traitements de fond de première intention ?",
+      "back": "Bêtabloquant, topiramate, amitriptyline — ou anticorps anti-CGRP selon disponibilité."
+    },
+    {
+      "id": "fc-mig-9",
+      "front": "Qu'est-ce que la céphalée par abus médicamenteux ?",
+      "back": "La céphalée quotidienne induite par les prises trop fréquentes d'antalgiques ou de triptans — plus de 10 à 15 jours par mois."
+    },
+    {
+      "id": "fc-mig-10",
+      "front": "Comment définit-on la migraine chronique ?",
+      "back": "Céphalée 15 jours ou plus par mois depuis plus de trois mois, dont au moins 8 jours avec caractéristiques migraineuses."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-mig-root",
+      "label": "Migraine",
+      "detail": "La céphalée primaire par critères : unilatérale, pulsatile, photo-phonophobie — traiter la crise tôt, le fond quand elle retentit."
+    },
+    "branches": [
+      {
+        "id": "map-mig-crit",
+        "label": "Critères",
+        "detail": "ICHD-3, diagnostic positif.",
+        "children": [
+          {
+            "id": "map-mig-crit-1",
+            "label": "Sans aura",
+            "leaves": [
+              {
+                "id": "map-mig-crit-1a",
+                "label": "5 crises, 4-72 h, unilatérale"
+              },
+              {
+                "id": "map-mig-crit-1b",
+                "label": "Nausées, photo-phonophobie"
+              }
+            ]
+          },
+          {
+            "id": "map-mig-crit-2",
+            "label": "Formes",
+            "leaves": [
+              {
+                "id": "map-mig-crit-2a",
+                "label": "Aura visuelle 5-60 min"
+              },
+              {
+                "id": "map-mig-crit-2b",
+                "label": "Chronique : 15 j/mois"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-mig-diff",
+        "label": "Diagnostic différentiel",
+        "detail": "Drapeaux rouges et autres céphalées.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-mig-diff-1",
+            "label": "Urgences",
+            "leaves": [
+              {
+                "id": "map-mig-diff-1a",
+                "label": "Hémorragie méningée"
+              },
+              {
+                "id": "map-mig-diff-1b",
+                "label": "Hypertension intracrânienne"
+              }
+            ]
+          },
+          {
+            "id": "map-mig-diff-2",
+            "label": "Autres primaires",
+            "leaves": [
+              {
+                "id": "map-mig-diff-2a",
+                "label": "Céphalée de tension"
+              },
+              {
+                "id": "map-mig-diff-2b",
+                "label": "Algie vasculaire de la face"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-mig-trt",
+        "label": "Traitement",
+        "detail": "Crise tôt, fond si retentissement.",
+        "children": [
+          {
+            "id": "map-mig-trt-1",
+            "label": "Crise",
+            "leaves": [
+              {
+                "id": "map-mig-trt-1a",
+                "label": "AINS puis triptans"
+              },
+              {
+                "id": "map-mig-trt-1b",
+                "label": "Antiémétique, repos dans le noir"
+              }
+            ]
+          },
+          {
+            "id": "map-mig-trt-2",
+            "label": "Fond",
+            "leaves": [
+              {
+                "id": "map-mig-trt-2a",
+                "label": "Bêtabloquant, topiramate, amitriptyline"
+              },
+              {
+                "id": "map-mig-trt-2b",
+                "label": "Anti-CGRP si dispo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-mig-suivi",
+        "label": "Prévention et suivi",
+        "detail": "Agenda, régularité, vigilance médicamenteuse.",
+        "children": [
+          {
+            "id": "map-mig-suivi-1",
+            "label": "Hygiène",
+            "leaves": [
+              {
+                "id": "map-mig-suivi-1a",
+                "label": "Sommeil, repas, sport réguliers"
+              },
+              {
+                "id": "map-mig-suivi-1b",
+                "label": "Déclencheurs repérés"
+              }
+            ]
+          },
+          {
+            "id": "map-mig-suivi-2",
+            "label": "Vigilance",
+            "leaves": [
+              {
+                "id": "map-mig-suivi-2a",
+                "label": "Céphalée médicamenteuse"
+              },
+              {
+                "id": "map-mig-suivi-2b",
+                "label": "Comorbidité anxiété-dépression"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ICHD3-2018",
+      "title": "The International Classification of Headache Disorders, 3rd edition (ICHD-3)",
+      "citation": "Headache Classification Committee of the International Headache Society (IHS). The International Classification of Headache Disorders, 3rd edition. Cephalalgia. 2018 ; 38 (1) : 1-211. doi:10.1177/0333102417738202.",
+      "organization": "International Headache Society (IHS)",
+      "year": 2018,
+      "version": "ICHD-3",
+      "url": "https://doi.org/10.1177/0333102417738202",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères diagnostiques de la migraine sans et avec aura",
+        "Définition de la migraine chronique",
+        "Classifications différentielles"
+      ]
+    },
+    {
+      "id": "SRC-AHS-2021",
+      "title": "AHS Consensus Statement: Update on integrating new migraine treatments into clinical practice",
+      "citation": "Ailani J, Burch RC, Robbins MS, et al. The American Headache Society Consensus Statement: Update on integrating new migraine treatments into clinical practice. Headache. 2021 ; 61 (7) : 1021-1039. doi:10.1111/head.14153.",
+      "organization": "American Headache Society (AHS)",
+      "year": 2021,
+      "version": "2021 consensus statement",
+      "url": "https://doi.org/10.1111/head.14153",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Stratégie de traitement de la crise",
+        "Indications du traitement de fond",
+        "Molécules de première intention"
+      ]
+    }
+  ]
+}
