@@ -192,6 +192,53 @@ export function QuizPlayer({
     }, QUESTION_ARM_DELAY_MS);
   }
 
+  /*
+   * Oxford Signature — raccourcis clavier (desktop) :
+   * · 1…n ou A/B/C/D : choisir la réponse correspondante ;
+   * · Entrée / Espace / → : passer à la question suivante une fois la
+   *   réponse révélée.
+   * Les gardes existantes (answerLocked / advanceLocked / picked) rendent
+   * tout double déclenchement inoffensif : le second appel est un no-op.
+   * Les frappes dans un champ de saisie (palette de commandes, signalement)
+   * sont ignorées pour ne jamais voler une saisie utilisateur.
+   */
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      const target = event.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      if (revealed) {
+        if (event.key === "Enter" || event.key === " " || event.key === "ArrowRight") {
+          event.preventDefault();
+          next();
+        }
+        return;
+      }
+      if (!answerReady) return;
+      const key = event.key.toLowerCase();
+      let choiceIdx = -1;
+      const digit = Number.parseInt(key, 10);
+      if (!Number.isNaN(digit) && digit >= 1 && digit <= q.choices.length) {
+        choiceIdx = digit - 1;
+      } else if (/^[a-z]$/.test(key)) {
+        const letterIdx = key.charCodeAt(0) - 97; /* a = 0 */
+        if (letterIdx < q.choices.length) choiceIdx = letterIdx;
+      }
+      if (choiceIdx >= 0) {
+        event.preventDefault();
+        choose(choiceIdx);
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+
   return (
     <div className={cn("mx-auto w-full", focusMode.focus ? "max-w-xl" : "max-w-lg")}>
       <div className="mb-5 flex items-center gap-3">
@@ -263,7 +310,19 @@ export function QuizPlayer({
                   preferences.enhancedMotion && revealed && isPicked && !isCorrect && "optimus-answer-incorrect",
                 )}
               >
-                <span className="mt-0.5 font-mono text-xs text-muted">
+                {/* Oxford Signature — pastille circulaire : la lettre devient un
+                    badge, plus lisible et plus « fini » qu'un simple texte mono. */}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px] font-semibold",
+                    revealed && isCorrect
+                      ? "bg-primary-soft text-primary"
+                      : revealed && isPicked
+                        ? "bg-danger/15 text-danger"
+                        : "bg-secondary text-muted",
+                  )}
+                >
                   {String.fromCharCode(65 + i)}
                 </span>
                 <span className="flex-1">{choice}</span>
