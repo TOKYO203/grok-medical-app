@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "crise-hta-aigue",
+  "title": "Crise aiguë hypertensive : traitement d'urgence",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une pression artérielle très élevée, distinguer l'urgence hypertensive avec atteinte viscérale de l'élévation tensionnelle sans complication, identifier l'organe cible menacé, et appliquer le bon rythme de réduction tensionnelle : contrôlé et rapide par voie veineuse dans un cas, progressif et oral dans l'autre.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 25,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 66,
+      "localNumber": 25,
+      "sectionLabel": "Médecine",
+      "title": "Crise aiguë hypertensive : traitement d'urgence",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2024 sur l'hypertension artérielle et des recommandations ESH 2023, avec reformulation complète. Les posologies ne sont pas détaillées : elles dépendent du poids, de la fonction rénale et du protocole local ; seuls les principes, les cibles tensionnelles et les rythmes de réduction sont rattachés aux sources.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Crise aiguë hypertensive : traitement d'urgence » (Médecine n°25) : la fiche privilégie donc la décision thérapeutique, avec la distinction urgence hypertensive (atteinte viscérale, voie veineuse, réduction contrôlée) contre élévation tensionnelle sans complication (traitement oral, réduction progressive) comme fil conducteur.",
+      "Sources vérifiées le jour de rédaction : ESC 2024 (doi:10.1093/eurheartj/ehae178, PubMed 39210715) et ESH 2023 (doi:10.1097/HJH.0000000000003480).",
+      "Situations à rythme de réduction particulier : dissection aortique (réduction rapide), AVC ischémique (pas de baisse rapide), pré-éclampsie et éclampsie (renvoi vers les items dédiés du référentiel : grossesse et HTA, éclampsie).",
+      "Aucune image : la crise hypertensive est un diagnostic clinique et tensionnel ; le fond d'œil et l'ECG sont décrits textuellement, aucun cliché libre de droits vérifié n'ayant été retenu (choix documenté, conforme à la politique d'images du catalogue)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Aucune posologie détaillée : cibles tensionnelles et rythmes uniquement.",
+      "Mise en garde explicite contre la nifédipine sublinguale, erreur classique encore commise."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une pression artérielle très élevée n'est pas une urgence en soi : c'est l'atteinte des organes cibles qui l'est. La même chiffre tensionnel peut réclamer un traitement veineux en réanimation ou une simple reprise du traitement oral ambulatoire — tout l'item tient dans cette distinction."
+        },
+        {
+          "type": "paragraph",
+          "text": "On sépare donc l'urgence hypertensive — hypertension avec atteinte viscérale immédiate : encéphalopathie, œdème aigu du poumon, syndrome coronarien, dissection aortique, éclampsie — de l'élévation tensionnelle sans complication, souvent appelée urgence relative, qui se traite par voie orale et progressivement."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Encéphalopathie hypertensive, OAP, dissection aortique, éclampsie : hospitalisation, monitorage, antihypertenseur par voie veineuse à titration, avec une réduction contrôlée — environ un quart de la pression en une heure, pas plus, sauf dissection aortique."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Définitions et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le seuil d'alerte classique se situe autour de 180/120 millimètres de mercure, mais c'est le tableau clinique qui classe, pas le chiffre. La crise traduit le plus souvent une hypertension connue mal suivie : rupture d'observance, régime salé abandonné, vasoconstricteurs, ou une hypertension secondaire ignorée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Urgence hypertensive : PA très élevée plus atteinte d'organe — cerveau, cœur, poumon, rein, gros vaisseaux, rétine.",
+            "Élévation tensionnelle sans complication : PA très élevée, examen normal, patient souvent asymptomatique — traitement oral.",
+            "Fausse crise : anxiété de la mesure, brassard inadapté, effet blouse — refaire la mesure dans le calme avant d'agir.",
+            "Terrain : hypertension connue non contrôlée, grossesse, maladie rénale, prise de médicaments ou substances vasoconstrictrices."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Le chiffre tensionnel ne décide de rien : la recherche de l'atteinte viscérale décide de tout. Toujours refaire la mesure correctement avant de traiter une PA élevée découverte en urgence."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique : pression artérielle confirmée aux deux bras, puis examen dirigé à la recherche de l'organe cible atteint. Le bilan minimal complète la clinique sans jamais retarder le traitement d'une vraie urgence."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Élément",
+            "Urgence hypertensive",
+            "PA élevée sans complication"
+          ],
+          "rows": [
+            [
+              "Clinique",
+              "Céphalées, confusion, douleur, dyspnée, convulsions",
+              "Asymptomatique ou céphalées banales"
+            ],
+            [
+              "Examen",
+              "Signes neurologiques, crépitants, souffle aortique, œdèmes",
+              "Examen cardiovasculaire et neurologique normal"
+            ],
+            [
+              "Lieu de soin",
+              "USC ou réanimation, voie veineuse",
+              "Ambulatoire, traitement oral"
+            ],
+            [
+              "Objectif",
+              "Réduction contrôlée en une heure environ",
+              "Normalisation progressive sur 24 à 48 heures"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Chercher l'organe cible : fond d'œil, ECG, troponine, créatinine, bandelette urinaire, radiographie du thorax, et imagerie cérébrale devant tout signe neurologique. Une crise hypertensive de la femme enceinte est une pré-éclampsie jusqu'à preuve du contraire."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan étiologique suit la mise en condition : recherche de cause secondaire si première crise, bilan des complications si cause connue. La pression artérielle se mesure aux deux bras — une asymétrie fait évoquer une dissection aortique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2024-HTA",
+          "organization": "ESC",
+          "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+          "year": 2024
+        },
+        {
+          "id": "SRC-ESH-2023-HTA",
+          "organization": "ESH",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Circonstances et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La crise survient presque toujours sur une hypertension ancienne : l'observance est le premier facteur à interroger. Chez la femme enceinte, la situation change complètement de nature et rejoint les items grossesse et hypertension, et éclampsie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rupture d'observance du traitement antihypertenseur : la cause la plus fréquente.",
+            "Prise de vasoconstricteurs, corticoïdes, anti-inflammatoires, ou réglisse.",
+            "Causes secondaires à rechercher : phéochromocytome, sténose artère rénale, maladie rénale, apnée du sommeil.",
+            "Grossesse : pré-éclampsie et éclampsie, urgence spécifique du référentiel.",
+            "Douleur, anxiété, rétention aiguë d'urine : causes réflexes transitoires, à traiter elles-mêmes."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne pas traiter à la vue du seul chiffre : une PA élevée isolée chez un patient anxieux peut relever de l'effet blouse. Refaire la mesure après repos, aux deux bras, avec un brassard adapté — la fausse urgence expose à une hypotension iatrogène."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement d'urgence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Urgence hypertensive : hospitalisation, monitorage, antihypertenseur veineux à titration — inhibiteur calcique ou bêtabloquant selon les protocoles locaux — avec pour cible une baisse d'environ vingt à vingt-cinq pour cent en une heure, jamais brutale : les organes hypoperfundés supportent mal la chute."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Encéphalopathie hypertensive et OAP : réduction contrôlée, monitorage neurologique et respiratoire.",
+            "Dissection aortique : réduction rapide et profonde, associant bêtabloquant, dans les minutes — l'exception à la règle de prudence.",
+            "AVC ischémique : pas de baisse rapide de la pression ; traiter l'AVC, discuter la baisse seulement si chiffres extrêmes.",
+            "Femme enceinte : protocole spécifique, renvoi aux items grossesse et HTA et éclampsie.",
+            "PA élevée sans complication : reprise ou majoration du traitement oral, hydratation, repos, revue à 24 heures."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne jamais faire",
+          "text": "La nifédipine sublinguale est proscrite : sa baisse tensionnelle incontrôlable a causé des ischémies cérébrales et myocardiques. Toute réduction rapide non titrée, par quelque voie que ce soit, est une erreur de même nature."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après la crise, le vrai travail commence : réévaluer le traitement de fond, éduquer sur l'observance et le régime, rechercher la cause secondaire, et organiser le suivi — une crise résolue sans suivi est une récidive programmée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2024-HTA",
+          "organization": "ESC",
+          "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+          "year": 2024
+        },
+        {
+          "id": "SRC-ESH-2023-HTA",
+          "organization": "ESH",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention des crises est la prise en charge au long cours de l'hypertension : traitement de fond titré, observance soutenue, régime pauvre en sel, activité physique, contrôle du poids et du diabète, et automesure à domicile."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Observance : premier facteur de crise, première cible d'éducation.",
+            "Automesure à domicile : elle objective le contrôle réel et rassure l'effet blouse.",
+            "Suivi régulier avec réévaluation du traitement de fond après toute crise.",
+            "Recherche de cause secondaire devant toute hypertension résistante ou crise récidivante."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "La crise aiguë est le symptôme d'une hypertension chronique : la fiche de référence devient celle de l'hypertension artérielle essentielle de l'adulte, item n°58 du référentiel, pour le fond comme pour le suivi."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Le chiffre ne décide pas : l'atteinte viscérale décide.",
+            "Urgence hypertensive : voie veineuse, titration, baisse d'un quart en une heure environ.",
+            "PA élevée sans complication : traitement oral, normalisation sur 24 à 48 heures.",
+            "Dissection aortique : baisse rapide ; AVC ischémique : pas de baisse rapide.",
+            "Jamais de nifédipine sublinguale, jamais de baisse brutale."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir classer une crise (urgence contre urgence relative), citer les organes cibles et le rythme de réduction par situation — c'est la distinction traitement d'urgence qui structure l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC 2024 sur l'hypertension et les recommandations ESH 2023 sur l'hypertension artérielle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "McEvoy JW, et al. 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. Eur Heart J 2024.",
+            "Mancia G, et al. 2023 ESH Guidelines for the management of arterial hypertension. J Hypertens 2023."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-hta-urgence",
+      "label": "U.R.G.E.N.C.E.",
+      "intro": "La conduite à tenir devant une pression artérielle très élevée.",
+      "entries": [
+        {
+          "key": "U",
+          "term": "Urgence ou pas : chercher l'atteinte viscérale, pas le chiffre"
+        },
+        {
+          "key": "R",
+          "term": "Refaire la pression aux deux bras, brassard adapté, au calme"
+        },
+        {
+          "key": "G",
+          "term": "Greffe d'organes cibles : cerveau, cœur, poumon, rein, rétine, aorte"
+        },
+        {
+          "key": "E",
+          "term": "Éliminer la dissection aortique et la pré-éclampsie"
+        },
+        {
+          "key": "N",
+          "term": "Nicardipine veineuse à titration dans l'urgence hypertensive"
+        },
+        {
+          "key": "C",
+          "term": "Cible : baisse d'un quart en une heure environ, sous monitorage"
+        },
+        {
+          "key": "E",
+          "term": "Éviter la nifédipine sublinguale et toute baisse brutale"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-hta-1",
+      "front": "Qu'est-ce qui définit une urgence hypertensive ?",
+      "back": "Une PA très élevée avec atteinte d'un organe cible — cerveau, cœur, poumon, rein, gros vaisseaux, rétine."
+    },
+    {
+      "id": "fc-hta-2",
+      "front": "Comment traiter une PA très élevée sans complication ?",
+      "back": "Par voie orale, avec reprise ou majoration du traitement de fond et normalisation sur 24 à 48 heures."
+    },
+    {
+      "id": "fc-hta-3",
+      "front": "Quel rythme de baisse tensionnelle dans l'urgence hypertensive ?",
+      "back": "Environ 20 à 25 pour cent en une heure, de façon contrôlée et titrée, sous monitorage."
+    },
+    {
+      "id": "fc-hta-4",
+      "front": "Quelle exception où la baisse doit être rapide et profonde ?",
+      "back": "La dissection aortique : réduction rapide associant un bêtabloquant."
+    },
+    {
+      "id": "fc-hta-5",
+      "front": "Pourquoi ne pas baisser rapidement la PA dans un AVC ischémique ?",
+      "back": "La baisse rapide aggrave l'ischémie de la pénombre cérébrale : on traite l'AVC, pas le chiffre."
+    },
+    {
+      "id": "fc-hta-6",
+      "front": "Quel médicament est proscrit dans la crise hypertensive ?",
+      "back": "La nifédipine sublinguale : baisse incontrôlable, ischémies cérébrales et myocardiques décrites."
+    },
+    {
+      "id": "fc-hta-7",
+      "front": "Quel premier réflexe devant une PA très élevée découverte en urgence ?",
+      "back": "Refaire la mesure correctement : au calme, brassard adapté, aux deux bras, pour éliminer l'effet blouse."
+    },
+    {
+      "id": "fc-hta-8",
+      "front": "Quel signe fait évoquer une dissection aortique devant une crise ?",
+      "back": "Une asymétrie tensionnelle entre les deux bras, avec douleur thoracique transfixiante."
+    },
+    {
+      "id": "fc-hta-9",
+      "front": "Quelle cause de crise hypertensive la plus fréquente ?",
+      "back": "La rupture d'observance du traitement antihypertenseur sur une hypertension connue."
+    },
+    {
+      "id": "fc-hta-10",
+      "front": "Statut particulier d'une crise hypertensive chez la femme enceinte ?",
+      "back": "Pré-éclampsie jusqu'à preuve du contraire : protocole spécifique, items grossesse-HTA et éclampsie du référentiel."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-hta-root",
+      "label": "Crise aiguë hypertensive",
+      "detail": "PA très élevée : l'atteinte viscérale seule fait l'urgence — le traitement en dépend entièrement."
+    },
+    "branches": [
+      {
+        "id": "map-hta-diag",
+        "label": "Classer",
+        "detail": "Urgence hypertensive contre PA élevée sans complication : examen d'organe cible.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-hta-diag-1",
+            "label": "Urgence",
+            "leaves": [
+              {
+                "id": "map-hta-diag-1a",
+                "label": "Encéphalopathie, OAP, coronaropathie"
+              },
+              {
+                "id": "map-hta-diag-1b",
+                "label": "Dissection, éclampsie, rein"
+              }
+            ]
+          },
+          {
+            "id": "map-hta-diag-2",
+            "label": "Sans complication",
+            "leaves": [
+              {
+                "id": "map-hta-diag-2a",
+                "label": "Effet blouse éliminé"
+              },
+              {
+                "id": "map-hta-diag-2b",
+                "label": "Oral, 24 à 48 heures"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hta-trt",
+        "label": "Traiter",
+        "detail": "Veineux titré dans l'urgence, oral progressif sinon — cibles par situation.",
+        "children": [
+          {
+            "id": "map-hta-trt-1",
+            "label": "Urgence",
+            "leaves": [
+              {
+                "id": "map-hta-trt-1a",
+                "label": "IV titrée, monitorage"
+              },
+              {
+                "id": "map-hta-trt-1b",
+                "label": "Un quart en une heure"
+              }
+            ]
+          },
+          {
+            "id": "map-hta-trt-2",
+            "label": "Exceptions",
+            "leaves": [
+              {
+                "id": "map-hta-trt-2a",
+                "label": "Dissection : rapide et profonde"
+              },
+              {
+                "id": "map-hta-trt-2b",
+                "label": "AVC ischémique : pas de baisse"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hta-pieges",
+        "label": "Pièges",
+        "detail": "Les erreurs classiques à ne jamais commettre.",
+        "children": [
+          {
+            "id": "map-hta-pieges-1",
+            "label": "Interdits",
+            "leaves": [
+              {
+                "id": "map-hta-pieges-1a",
+                "label": "Nifédipine sublinguale"
+              },
+              {
+                "id": "map-hta-pieges-1b",
+                "label": "Baisse brutale non titrée"
+              }
+            ]
+          },
+          {
+            "id": "map-hta-pieges-2",
+            "label": "Fausses crises",
+            "leaves": [
+              {
+                "id": "map-hta-pieges-2a",
+                "label": "Effet blouse, brassard inadapté"
+              },
+              {
+                "id": "map-hta-pieges-2b",
+                "label": "Douleur, anxiété, rétention"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hta-suivi",
+        "label": "Après la crise",
+        "detail": "Observance, traitement de fond, recherche de cause secondaire, suivi rapproché.",
+        "children": [
+          {
+            "id": "map-hta-suivi-1",
+            "label": "Fond",
+            "leaves": [
+              {
+                "id": "map-hta-suivi-1a",
+                "label": "Observance, régime sodé"
+              },
+              {
+                "id": "map-hta-suivi-1b",
+                "label": "Cause secondaire si récidive"
+              }
+            ]
+          },
+          {
+            "id": "map-hta-suivi-2",
+            "label": "Suivi",
+            "leaves": [
+              {
+                "id": "map-hta-suivi-2a",
+                "label": "Automesure à domicile"
+              },
+              {
+                "id": "map-hta-suivi-2b",
+                "label": "Renvoi HTA essentielle"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2024-HTA",
+      "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+      "citation": "McEvoy JW, McCarthy CP, Bruno RM, et al. 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. Eur Heart J. 2024 ; 45 (38) : 3912-4018. doi:10.1093/eurheartj/ehae178.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2024,
+      "version": "2024 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehae178",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Définitions",
+        "Recherche d'atteinte viscérale",
+        "Prise en charge de l'urgence hypertensive",
+        "Suivi et prévention"
+      ]
+    },
+    {
+      "id": "SRC-ESH-2023-HTA",
+      "title": "2023 ESH Guidelines for the management of arterial hypertension",
+      "citation": "Mancia G, Kreutz R, Brunström M, et al. 2023 ESH Guidelines for the management of arterial hypertension. J Hypertens. 2023 ; 41 (12) : 1874-2071. doi:10.1097/HJH.0000000000003480.",
+      "organization": "European Society of Hypertension (ESH)",
+      "year": 2023,
+      "version": "2023 guidelines",
+      "url": "https://doi.org/10.1097/HJH.0000000000003480",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Classement des crises",
+        "Causes et circonstances",
+        "Traitement oral",
+        "Observance"
+      ]
+    }
+  ]
+}
