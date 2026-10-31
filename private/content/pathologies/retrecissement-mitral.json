@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "retrecissement-mitral",
+  "title": "Rétrécissement mitral",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une dyspnée d'effort avec éclat de B1 et crescendo tardif, reconnaître le rétrécissement mitral d'origine rhumatismale, quantifier la surface mitrale à l'échocardiographie, dépister la fibrillation auriculaire et les complications, et poser les indications d'ouverture ou de remplacement valvulaire.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 57,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 98,
+      "localNumber": 57,
+      "sectionLabel": "Médecine",
+      "title": "Rétrécissement mitral",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC/EACTS 2025 sur les valvulopathies, qui mettent à jour celles de 2021, avec reformulation complète. Les seuils échographiques cités sont les repères classiques ; la place de la commissurotomie percutanée — centrale à Madagascar où le RAA reste fréquent — est présentée selon les critères recommandés.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Rétrécissement mitral » (Médecine n°57) : la fiche couvre le rétrécissement mitral rhumatismal de l'adulte jeune, dominant à Madagascar, et ses complications — fibrillation auriculaire, embolies systémiques, hypertension pulmonaire, œdème aigu du poumon.",
+      "Sources vérifiées lors du bloc valvulopathies : ESC/EACTS 2025 (Praz F, et al. Eur Heart J 2025;46(44):4635-4736, doi:10.1093/eurheartj/ehaf194) et ESC/EACTS 2021 (Vahanian A, et al. Eur Heart J 2022;43(7):561-632, doi:10.1093/eurheartj/ehab395).",
+      "La commissurotomie percutanée par ballonnet est présentée comme le traitement de référence du rétrécissement mitral rhumatismal sans calcification importante ni insuffisance mitrale significative, conformément aux critères ESC (score anatomique favorable).",
+      "Le schéma sémiologique est servi depuis Wikimedia Commons (fichier CVS Mitral Stenosis Hammer KumarandClarke.png, licence CC BY-SA 4.0 vérifiée sur la page du fichier, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Seuils échographiques classiques cités d'après les recommandations, sans posologies.",
+      "Interdits sécuritaires explicites : pas de vasodilatateurs au long cours sans avis, sport contre-indiqué si serré, anticoagulation systématique en cas de fibrillation auriculaire."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le rétrécissement mitral est le rétrécissement de l'orifice auriculo-ventriculaire gauche : l'oreillette gauche pousse contre une valve qui ne s'ouvre plus. Dans la grande majorité des cas à Madagascar, c'est la cicatrice d'un rhumatisme articulaire aigu de l'enfance — la valve se rétracte, se soude commissure après commissure, pendant dix à vingt ans de silence."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie se révèle à l'âge adulte jeune par une dyspnée d'effort, et sa complication inaugurale peut être dramatique : œdème aigu du poumon, embolie systémique ou fibrillation auriculaire. Le diagnostic est auscultatoire avant d'être échographique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "Une oreillette gauche dilatée en fibrillation est une chambre de stase : le caillot s'y forme et part vers le cerveau. Toute fibrillation auriculaire sur rétrécissement mitral impose une anticoagulation — sans exception, quel que soit le score CHA2DS2-VASc."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et terrain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le rétrécissement de l'orifice freine le remplissage ventriculaire gauche : la pression auriculaire gauche monte, l'oreillette se dilate, puis l'hypertension se répercute en amont — veines pulmonaires, capillaires, artère pulmonaire, et enfin ventricule droit. C'est la seule valvulopathie gauche dont l'insuffisance terminale est droite."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/CVS_Mitral_Stenosis_Hammer_KumarandClarke.png?width=900",
+          "alt": "Schéma sémiologique du rétrécissement mitral : remplissage ventriculaire gauche freiné par un orifice mitral rétréci",
+          "caption": "Physiopathologie du rétrécissement mitral : obstacle à l'oreillette gauche.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CVS_Mitral_Stenosis_Hammer_KumarandClarke.png"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Surface mitrale normale : 4 à 6 cm². Le retentissement apparaît en dessous de 2,5 cm².",
+            "Rétrécissement serré : surface de l'ordre de 1 à 1,5 cm² ou moins, gradient diastolique moyen élevé.",
+            "Conséquence en cascade : dilatation auriculaire gauche, hypertension pulmonaire, insuffisance cardiaque droite.",
+            "Terrain : adulte jeune, séquelle de RAA — la valve est le plus souvent peu ou pas calcifiée, favorable à la commissurotomie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Dyspnée d'effort + éclat de B1 + crescendo tardif : le trio auscultatoire du rétrécissement mitral. Une femme jeune qui s'essouffle à Madagascar a d'abord besoin d'une auscultation, pas d'un corrigé d'examen."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic positif repose sur l'auscultation : éclat du premier bruit, claquement d'ouverture mitral, souffle diastolique — roulement — en crescendo tardif, apexien, déclenché par le claquement, augmenté en décubitus latéral gauche et à l'effort. Le rythme est régulier ou déjà fibrillaire."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Auscultation : éclat de B1, claquement d'ouverture, roulement diastolique apexien en crescendo tardif.",
+            "Signes de gravité : fibrillation auriculaire, dyspnée de repos, signes d'insuffisance droite, hémoptysie.",
+            "ECG : fibrillation auriculaire, hypertrophie auriculaire gauche, axe droit, hypertrophie ventriculaire droite.",
+            "Radiographie de thorax : dilatation de l'oreillette gauche, hypertension pulmonaire, redressement de la pointe.",
+            "Échocardiographie transthoracique : surface de l'orifice, gradient diastolique, pression artérielle pulmonaire, anatomie valvulaire, insuffisance mitrale associée, thrombus auriculaire.",
+            "Échocardiographie transœsophagienne : systématique avant commissurotomie percutanée, à la recherche d'un thrombus de l'auricule gauche."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Quantifier : surface mitrale et gradient diastolique classent serré ou modéré. Devant une embolie systémique du sujet jeune, ausculter — le rétrécissement mitral est la première valvulopathie à éliminer."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic fait, l'évaluation porte sur le retentissement — pression artérielle pulmonaire, fonction ventriculaire droite — et sur l'anatomie : une valve souple, peu calcifiée, sans insuffisance mitrale significative oriente vers la commissurotomie percutanée ; une valve calcifiée et remaniée vers la chirurgie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2021-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le rhumatisme articulaire aigu domine largement à Madagascar : la valve mitrale est cicatricielle, à commissures soudées. Les autres causes sont rares : calcification annulaire dégénérative du sujet âgé, rétrécissement iatrogène post-mitraoplastie, causes congénitales exceptionnelles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Post-RAA : la cause de l'adulte jeune, commissures soudées, valve souvent souple.",
+            "Dégénératif calcique : sujet âgé, calcification annulaire, commissures souvent libres.",
+            "Associer systématiquement : insuffisance mitrale, atteinte aortique — la double valvulopathie rhumatismale est fréquente.",
+            "Diagnostic différentiel du roulement : tumeur de l'oreillette gauche (myxome), thrombus, Austin-Flint de l'insuffisance aortique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Un myxome de l'oreillette gauche imite le rétrécissement mitral : dyspnée, roulement variable avec la position, embolies systémiques. L'échocardiographie tranche — mais il faut y penser."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est mécanique : ouvrir ou remplacer la valve. La commissurotomie percutanée par ballonnet est le traitement de référence du rétrécissement mitral serré rhumatismal à valve souple, sans calcification importante, sans insuffisance mitrale significative et sans thrombus auriculaire — c'est la situation la plus fréquente du sujet jeune malgache, et elle se traite par cathétérisme, sans chirurgie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Traitement médical : ralentir la fréquence cardiaque (fibrillation auriculaire), anticoagulation si fibrillation ou antécédent d'embolie, diurétique prudent sur la congestion.",
+            "Commissurotomie percutanée par ballonnet : valve souple, sans calcification majeure, sans insuffisance mitrale significative, sans thrombus auriculaire — après échographie transœsophagienne systématique.",
+            "Chirurgie : commissurotomie chirurgicale ou remplacement valvulaire mitral si valve très calcifiée ou insuffisance mitrale associée significative.",
+            "Indication opératoire ou interventionnelle : rétrécissement serré symptomatique ; rétrécissement serré asymptomatique avec hypertension pulmonaire ou thrombus auriculaire.",
+            "Prophylaxie secondaire du RAA : benzathine-pénicilline jusqu'à 25-40 ans selon les recommandations — un pilier de santé publique à Madagascar."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Œdème aigu du poumon sur rétrécissement mitral : diurétique, oxygène, freiner la fréquence — et orienter sans délai vers l'ouverture valvulaire. La correction de l'anémie ou de l'infection déclenchante fait partie du traitement de la crise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après commissurotomie, le suivi est cadencé : rechute possible, resténose à dix ans, réapparition de la fibrillation. Après remplacement : anticoagulation de la prothèse, surveillance du niveau de prothèse et prophylaxie de l'endocardite selon les indications habituelles."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2021-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est d'abord celle du RAA : traitement des angines streptococciques, prophylaxie secondaire par benzathine-pénicilline chez les enfants et jeunes adultes rhumatismaux. Le suivi d'un rétrécissement mitral connu associe surveillance auscultatoire et échographique, dépistage de la fibrillation auriculaire et éducation aux signes d'aggravation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prophylaxie du RAA : pilier de santé publique, dépistage et traitement des angines de l'enfant.",
+            "Surveillance : écho périodique, éducation à la dyspnée et aux palpitations.",
+            "Jeune femme enceinte : grossesse mal tolérée sur rétrécissement serré — planification et suivi cardiologique en amont.",
+            "Anticoagulation bien conduite en cas de fibrillation : la prévention de l'embolie cérébrale est la plus efficace des préventions."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "La commissurotomie percutanée transforme le pronostic du sujet jeune rhumatismal : hospitalisation brève, pas de sternotomie, retour à une vie active. La fiche œdème aigu du poumon détaille la prise en charge de la crise congestive."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Éclat de B1, claquement d'ouverture, roulement diastolique en crescendo tardif : rétrécissement mitral.",
+            "Cause dominante à Madagascar : post-RAA, adulte jeune, valve souvent souple.",
+            "Fibrillation auriculaire sur rétrécissement mitral : anticoagulation systématique.",
+            "Valve souple sans calcification ni insuffisance : commissurotomie percutanée par ballonnet, après échographie transœsophagienne.",
+            "Prophylaxie du RAA par benzathine-pénicilline : la prévention qui éteint la maladie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir décrire le trio auscultatoire, citer les complications — fibrillation, embolie, OAP, hypertension pulmonaire — et les critères de commissurotomie percutanée : c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC/EACTS 2025 sur les valvulopathies et celles de 2021 qu'elles mettent à jour."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Praz F, et al. 2025 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J 2025.",
+            "Vahanian A, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J 2022."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-rm-stenose",
+      "label": "M.I.T.R.A.L.E.",
+      "intro": "La chaîne diagnostique et décisionnelle du rétrécissement mitral.",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Mitral : éclat de B1, claquement d'ouverture, roulement en crescendo tardif"
+        },
+        {
+          "key": "I",
+          "term": "Initiale : anticoagulation dès la fibrillation auriculaire, sans score"
+        },
+        {
+          "key": "T",
+          "term": "Thrombus auriculaire : échographie transœsophagienne avant tout ballonnet"
+        },
+        {
+          "key": "R",
+          "term": "Rhumatismal : la cause de l'adulte jeune à Madagascar"
+        },
+        {
+          "key": "A",
+          "term": "Auricule dilaté, hypertension pulmonaire, insuffisance droite en cascade"
+        },
+        {
+          "key": "L",
+          "term": "Libre de calcification : commissurotomie percutanée par ballonnet"
+        },
+        {
+          "key": "E",
+          "term": "Embolie systémique : la complication inaugurale redoutée"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-rm-1",
+      "front": "Quel est le trio auscultatoire du rétrécissement mitral ?",
+      "back": "Éclat du premier bruit, claquement d'ouverture mitral, roulement diastolique apexien en crescendo tardif."
+    },
+    {
+      "id": "fc-rm-2",
+      "front": "Quelle est la cause dominante du rétrécissement mitral à Madagascar ?",
+      "back": "Le rhumatisme articulaire aigu de l'enfance — valve cicatricielle de l'adulte jeune."
+    },
+    {
+      "id": "fc-rm-3",
+      "front": "À partir de quelle surface mitrale apparaît le retentissement ?",
+      "back": "En dessous d'environ 2,5 cm² ; le rétrécissement est serré autour de 1 à 1,5 cm² ou moins."
+    },
+    {
+      "id": "fc-rm-4",
+      "front": "Pourquoi le rétrécissement mitral donne-t-il une insuffisance cardiaque droite ?",
+      "back": "L'obstacle élève la pression auriculaire gauche, puis veineuse et artérielle pulmonaire — le ventricule droit finit par décompenser."
+    },
+    {
+      "id": "fc-rm-5",
+      "front": "Quelle anticoagulation en cas de fibrillation auriculaire sur rétrécissement mitral ?",
+      "back": "Systématique, sans exception, quel que soit le score CHA2DS2-VASc — la stase auriculaire est majeure."
+    },
+    {
+      "id": "fc-rm-6",
+      "front": "Quel examen avant une commissurotomie percutanée ?",
+      "back": "L'échocardiographie transœsophagienne, systématique, à la recherche d'un thrombus de l'auricule gauche."
+    },
+    {
+      "id": "fc-rm-7",
+      "front": "Quels critères favorisent la commissurotomie percutanée par ballonnet ?",
+      "back": "Valve souple, peu ou pas calcifiée, sans insuffisance mitrale significative, sans thrombus auriculaire."
+    },
+    {
+      "id": "fc-rm-8",
+      "front": "Quelle est la complication inaugurale redoutée ?",
+      "back": "L'embolie systémique — souvent cérébrale — révélatrice chez le sujet jeune."
+    },
+    {
+      "id": "fc-rm-9",
+      "front": "Quel diagnostic différentiel imite le rétrécissement mitral ?",
+      "back": "Le myxome de l'oreillette gauche : roulement positionnel, embolies, dyspnée — l'échocardiographie tranche."
+    },
+    {
+      "id": "fc-rm-10",
+      "front": "Quelle prophylaxie secondaire du RAA ?",
+      "back": "Benzathine-pénicilline en injections périodiques, poursuivie jusqu'à 25-40 ans selon les recommandations."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-rm-root",
+      "label": "Rétrécissement mitral",
+      "detail": "Obstacle à l'oreillette gauche : valve rhumatismale de l'adulte jeune, fibrillation emboligène, hypertension pulmonaire — le traitement est le ballonnet quand la valve est souple."
+    },
+    "branches": [
+      {
+        "id": "map-rm-meca",
+        "label": "Mécanismes",
+        "detail": "Post-RAA, orifice rétréci, cascade de pression en amont.",
+        "children": [
+          {
+            "id": "map-rm-meca-1",
+            "label": "Valve",
+            "leaves": [
+              {
+                "id": "map-rm-meca-1a",
+                "label": "Commissures soudées post-RAA"
+              },
+              {
+                "id": "map-rm-meca-1b",
+                "label": "Calcification rare du sujet jeune"
+              }
+            ]
+          },
+          {
+            "id": "map-rm-meca-2",
+            "label": "Conséquences",
+            "leaves": [
+              {
+                "id": "map-rm-meca-2a",
+                "label": "Oreillette dilatée, fibrillation"
+              },
+              {
+                "id": "map-rm-meca-2b",
+                "label": "HTP puis insuffisance droite"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-rm-diag",
+        "label": "Diagnostic",
+        "detail": "Trio auscultatoire, écho quantifiée.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-rm-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-rm-diag-1a",
+                "label": "Éclat B1, claquement, roulement"
+              },
+              {
+                "id": "map-rm-diag-1b",
+                "label": "Dyspnée, hémoptysie"
+              }
+            ]
+          },
+          {
+            "id": "map-rm-diag-2",
+            "label": "Écho",
+            "leaves": [
+              {
+                "id": "map-rm-diag-2a",
+                "label": "Surface, gradient, PAP"
+              },
+              {
+                "id": "map-rm-diag-2b",
+                "label": "ETO avant ballonnet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-rm-trt",
+        "label": "Traitement",
+        "detail": "Ouvrir ou remplacer : ballonnet si valve souple.",
+        "children": [
+          {
+            "id": "map-rm-trt-1",
+            "label": "Percutané",
+            "leaves": [
+              {
+                "id": "map-rm-trt-1a",
+                "label": "Commissurotomie par ballonnet"
+              },
+              {
+                "id": "map-rm-trt-1b",
+                "label": "Référence du sujet jeune"
+              }
+            ]
+          },
+          {
+            "id": "map-rm-trt-2",
+            "label": "Chirurgical et médical",
+            "leaves": [
+              {
+                "id": "map-rm-trt-2a",
+                "label": "RVM si valve calcifiée, IM"
+              },
+              {
+                "id": "map-rm-trt-2b",
+                "label": "Anticoagulation si FA"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-rm-comp",
+        "label": "Complications et prévention",
+        "detail": "Embolie, OAP, fibrillation ; prophylaxie du RAA.",
+        "children": [
+          {
+            "id": "map-rm-comp-1",
+            "label": "Menaces",
+            "leaves": [
+              {
+                "id": "map-rm-comp-1a",
+                "label": "Embolie cérébrale"
+              },
+              {
+                "id": "map-rm-comp-1b",
+                "label": "OAP sur tachyarythmie"
+              }
+            ]
+          },
+          {
+            "id": "map-rm-comp-2",
+            "label": "Prévention",
+            "leaves": [
+              {
+                "id": "map-rm-comp-2a",
+                "label": "Benzathine-pénicilline"
+              },
+              {
+                "id": "map-rm-comp-2b",
+                "label": "Éducation, écho cadencée"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2025-VHD",
+      "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+      "citation": "Praz F, Borger MA, Lancellotti P, et al. 2025 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J. 2025 ; 46 (44) : 4635-4736. doi:10.1093/eurheartj/ehaf194.",
+      "organization": "European Society of Cardiology / European Association for Cardio-Thoracic Surgery (ESC/EACTS)",
+      "year": 2025,
+      "version": "2025 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehaf194",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères de sévérité",
+        "Indications d'intervention",
+        "Sélection commissurotomie contre chirurgie",
+        "Anticoagulation et fibrillation"
+      ]
+    },
+    {
+      "id": "SRC-ESC-2021-VHD",
+      "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+      "citation": "Vahanian A, Beyersdorf F, Praz F, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J. 2022 ; 43 (7) : 561-632. doi:10.1093/eurheartj/ehab395.",
+      "organization": "European Society of Cardiology / European Association for Cardio-Thoracic Surgery (ESC/EACTS)",
+      "year": 2021,
+      "version": "2021 guidelines, mises à jour en 2025",
+      "url": "https://doi.org/10.1093/eurheartj/ehab395",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Score anatomique valvulaire",
+        "ETO avant commissurotomie",
+        "Suivi après procédure",
+        "Prophylaxie de l'endocardite"
+      ]
+    }
+  ]
+}
