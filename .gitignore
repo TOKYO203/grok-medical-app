@@ -14,7 +14,12 @@ out/
 .vercel/
 
 # Environnement (.env* couvre .env, .env.local, .env.*.local et variantes)
-.env*
+.env
+.env.local
+.env.*.local
+.env.development
+.env.preview
+!.env.production
 
 # Logs
 logs/
@@ -98,3 +103,5 @@ admin-local/
 # Logos en cours de design (retirer quand finalisé)
 public/logo/variants/
 public/logo/
+*.qa-orig
+*.orig
