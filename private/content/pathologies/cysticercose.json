@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cysticercose",
+  "title": "Cysticercose",
+  "specialty": "Infectiologie",
+  "objective": "Décrire le cycle de Taenia solium, reconnaître les présentations cliniques de la cysticercose (notamment la neurocysticercose), appliquer les critères diagnostiques et organiser le traitement et la prévention adaptés au contexte d'endémie malgache.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 130,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 171,
+      "localNumber": 130,
+      "sectionLabel": "Médecine",
+      "title": "Cysticercose",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche centrée sur la neurocysticercose, forme grave et principale cause d'épilepsie acquise de l'adulte en zone d'endémie : cycle, physiopathologie, critères diagnostiques de Del Brutto, traitements anticestodes avec leurs précautions (corticoïdes, œil, HTIC) et prévention One Health (porc, eau, assainissement).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Critères diagnostiques : Del Brutto OH, et al. Neurology 2001;57(2):177-183, doi 10.1212/WNL.57.2.177 (confirmé via références croisées éditeur).",
+      "Données épidémiologiques et prévention : fiche OMS Taeniasis/cysticercosis (who.int, consultée le jour de la vérification).",
+      "Pas d'image : aucune illustration de neurocysticercose (imagerie, cycle) libre de droits avec licence vérifiée sur Commons — choix documenté."
+    ],
+    "qcChecklist": [
+      "Cycle parasitaire complet (homme / porc / œufs)",
+      "Critères diagnostiques de Del Brutto résumés",
+      "Traitements anticestodes : albendazole/praziquantel + règles de prudence (œil, HTIC, œdème)",
+      "Prévention One Health (porc, eau, assainissement, porteurs de ténia)",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cysticercose est l'infection de l'homme par la forme larvaire (cysticerque) de Taenia solium. L'homme est l'hôte définitif habituel du ver adulte (téniasis, par consommation de porc mal cuit) ; il devient hôte intermédiaire accidentel en ingérant des œufs du ver, qui éclosent et disséminent vers les muscles, l'œil et surtout le système nerveux central (neurocysticercose, NCC)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Un point clé épidémiologique",
+          "text": "La neurocysticercose est une cause majeure d'épilepsie acquise de l'adulte dans les zones d'endémie (selon l'OMS, une part importante des épilepsies y est attribuable à la NCC). Madagascar est une zone d'endémie : devant une épilepsie débutant chez un adulte, la cysticercose doit être activement recherchée."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'OMS classe la cysticercose due à Taenia solium parmi les maladies tropicales négligées : elle est responsable d'une morbidité neurologique majeure et de pertes économiques liées aux porcs infestés, impropre à la vente."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Cycle et physiopathologie",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Cycle de Taenia solium"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Homme porteur du ver adulte (téniasis) : élimine des œufs dans les selles pendant des années.",
+            "Le porc ingère les œufs (eau/aliments souillés) : les cysticerques se développent dans ses muscles (« porc ladre »).",
+            "L'homme mange du porc mal cuit → téniasis (ver adulte).",
+            "L'homme ingère des œufs (eau, crudités, mains sales, auto-infestation interne ou externe du porteur) → CYSTICERCOSE : larves disséminées par le sang vers les muscles, l'œil et le système nerveux central."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans le système nerveux central, le cysticerque vit en général 1 à 3 ans puis meurt, déclenchant autour de lui une réaction inflammatoire granulomateuse (œdème, fibrose, puis calcification). Les manifestations neurologiques résultent autant de cette inflammation que de l'effet de masse des lésions."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux maladies différentes",
+          "text": "Téniasis = ver adulte intestinal (porteur peu symptomatique). Cysticercose = infection larvaire tissulaire, potentiellement très grave. Le porteur de ténia est la source de contamination humaine : traiter les porteurs fait partie de la prévention."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Épidémiologie et localisations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie est endémique en Amérique latine, en Afrique subsaharienne (dont Madagascar), en Asie du Sud et dans certaines régions de Chine et d'Inde. Facteurs de risque : élevage porcin en divagation, défécation en plein air, manque d'eau potable et d'assainissement, abattage non contrôlé."
+        },
+        {
+          "type": "heading",
+          "text": "Localisations de la cysticercose"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Neurocysticercose parenchymateuse : la plus fréquente — épilepsie, céphalées, déficits focaux.",
+            "Neurocysticercose extraparenchymateuse (sous-arachnoïdienne, intraventriculaire, médullaire) : HTIC, hydrocéphalie, arachnoïdite, radiculo-médullopathie — plus grave.",
+            "Cysticercose oculaire : uvéite, rétinite, décollement de rétine, baisse d'acuité visuelle.",
+            "Cysticercose sous-cutanée et musculaire : nodules fermes indolores ; calcifications musculaires radiologiques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Forme sous-arachnoïdienne",
+          "text": "Les formes sous-arachnoïdiennes (cystes en grappe à la base du crâne) sont des formes graves, souvent chroniques, avec risque d'hydrocéphalie et de vascularite : elles ne se résument pas au simple tableau épileptique et nécessitent une prise en charge spécialisée prolongée."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de neurocysticercose repose sur les critères internationaux de Del Brutto (2001), combinant des critères absolus, majeurs, mineurs et épidémiologiques : le diagnostic est « définitif » avec un critère absolu (par exemple scolex visible en imagerie) ou deux critères majeurs + un mineur + un critère épidémiologique ; sinon « probable »."
+        },
+        {
+          "type": "heading",
+          "text": "Critères de Del Brutto — résumé"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Absolus : scolex intralésionnel en imagerie, cysticerque rétinien visualisé à l'examen ophtalmologique, biopsie d'un nodule sous-cutané.",
+            "Majeurs : imagerie évocatrice (vésicule avec scolex, lésion annulaire, calcifications), sérologie EITB positive, cystes sous-cutanés, réponse au traitement anticestode.",
+            "Mineurs : lésions d'imagerie non spécifiques, symptômes neurologiques évocateurs, élimination de proglottis, anticorps sérologiques faiblement positifs.",
+            "Épidémiologique : origine ou résidence en zone d'endémie, contact avec un porteur de T. solium."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Examens complémentaires : scanner cérébral (calcifications, lésions vésiculaires) et surtout IRM (lésions actives, scolex, formes extraparenchymateuses) ; sérologie : l'EITB (enzyme-linked immunoelectrotransfer blot) sur sérum est le test de référence, plus sensible et spécifique que l'ELISA ; radiographie des parties molles (calcifications musculaires) ; fond d'œil systématique avant tout traitement.",
+          "sources": [
+            {
+              "id": "delbrutto2001",
+              "organization": "Neurology",
+              "title": "Proposed diagnostic criteria for neurocysticercosis",
+              "year": 2001
+            },
+            {
+              "id": "whocysticercosis",
+              "organization": "OMS",
+              "title": "Taeniasis/cysticercosis (fiche d'information)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est individualisé selon la forme, le nombre et la localisation des lésions, et le statut inflammatoire. Anticestodes : albendazole 15 mg/kg/j en 2 prises (préféré, meilleure pénétration cérébrale), ou praziquantel 50 mg/kg/j ; durée habituelle 7 à 15 jours selon la charge lésionnelle."
+        },
+        {
+          "type": "heading",
+          "text": "Situation par situation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NCC parenchymateuse active (vésicules vivantes) : anticestode + corticoïdes (prednisone ou dexaméthasone) pour limiter la réaction inflammatoire à la mort des parasites ; anticomitial si crises.",
+            "Lésions calcifiées isolées : pas d'anticestode (parasites morts) ; anticomitial au besoin, suivi de l'épilepsie.",
+            "Granulome œdématieux unique : corticoïdes ± anticomitial ; anticestode selon le contexte.",
+            "Formes avec hypertension intracrânienne majeure ou lésions multiples œdémateuses : corticoïdes d'abord, anticestode seulement après réduction de l'œdème.",
+            "NCC intraventriculaire/sous-arachnoïdienne : évaluation neurochirurgicale (dérivation ventriculaire si hydrocéphalie), anticestodes au long cours + corticoïdes.",
+            "Cysticercose OCULAIRE : prise en charge ophtalmologique/chirurgicale d'abord ; l'anticestode seul risque d'aggraver l'inflammation rétinienne (prudence absolue).",
+            "Téniasis du porteur : praziquantel 5-10 mg/kg ou niclosamide — traiter aussi les porteurs de l'entourage du cas."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Avant tout anticestode",
+          "text": "Toujours : fond d'œil (éliminer une cysticercose oculaire, où l'anticestode est dangereux) et évaluation de l'œdème/HTIC. La mort des parasites libère des antigènes : sans corticoïdes, risque d'œdème cérébral massif et de crises."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Épilepsie de l'adulte en zone d'endémie",
+          "text": "Crises comitiales débutant chez un adulte à Madagascar → imagerie cérébrale (scanner/IRM) et sérologie cysticercose : c'est un réflexe diagnostique majeur de la fiche."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi est clinique et paraclinique (imagerie de contrôle) : persistance de lésions actives ou de calcifications, réponse au traitement, gestion au long cours de l'épilepsie (anticomitial maintenu selon l'évolution).",
+          "sources": [
+            {
+              "id": "delbrutto2001",
+              "organization": "Neurology",
+              "title": "Proposed diagnostic criteria for neurocysticercosis",
+              "year": 2001
+            },
+            {
+              "id": "whocysticercosis",
+              "organization": "OMS",
+              "title": "Taeniasis/cysticercosis (fiche d'information)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention One Health, combinant santé humaine, animale et environnement : traitement des porteurs de ténia (source d'œufs), hygiène des mains et lavage des crudités, eau potable et assainissement, arrêt de la divagation des porcs et inspection de la viande (porc ladre → condamnation), cuisson suffisante du porc, éducation communautaire. La vaccination des porcs et le traitement anticestode ciblé des porcs sont des stratégies d'élimination évaluées en zone d'endémie."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ne pas oublier",
+          "text": "Le patient porteur du ver adulte est la source de contamination de toute la communauté (auto-infestation possible) : dépister et traiter les porteurs de téniasis autour de chaque cas de cysticercose."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cysticercose humaine, infection larvaire à Taenia solium, est une maladie tropicale négligée fortement présente à Madagascar. Sa forme neurologique, cause majeure d'épilepsie acquise de l'adulte, impose un diagnostic d'imagerie et sérologique structuré (critères de Del Brutto) et un traitement individualisé — anticestodes toujours précédé d'une évaluation ophtalmologique et inflammatoire. La prévention, elle, est une affaire de communauté : assainissement, eau potable, élevage porcin contrôlé et traitement des porteurs."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Del Brutto OH, Rajshekhar V, White AC Jr, et al. Proposed diagnostic criteria for neurocysticercosis. Neurology. 2001;57(2):177-183.",
+            "OMS. Taeniasis/cysticercose — fiche d'information. who.int."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fond d'œil avant anticestode",
+      "text": "Toujours éliminer une localisation oculaire et juger l'œdème/HTIC avant d'administrer albendazole ou praziquantel ; corticoïdes associés si lésions actives."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Cysticercose oculaire",
+      "text": "Pas d'anticestode isolé : inflammation rétinienne gravement aggravée à la mort du parasite — prise en charge ophtalmologique/chirurgicale d'abord."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Épilepsie de l'adulte en zone d'endémie",
+      "text": "Imagerie cérébrale + sérologie (EITB) devant toute épilepsie débutant chez un adulte à Madagascar."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Deux maladies, un parasite",
+      "text": "Téniasis (ver adulte, porteur source d'œufs) ≠ cysticercose (larves tissulaires, formes graves neuro/oculaires)."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Traitement des porteurs",
+      "text": "Chaque cas de cysticercose → dépister et traiter le porteur de ténia dans l'entourage (praziquantel ou niclosamide)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "C.Y.S.T.I.C.O.S.E.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cycle : homme (ver adulte) → porc → œufs → homme (larves)"
+        },
+        {
+          "key": "Y",
+          "term": "Yeux : localisation grave, contre-indication relative à l'anticestode seul"
+        },
+        {
+          "key": "S",
+          "term": "Seizures : l'épilepsie est le signe le plus fréquent de la NCC"
+        },
+        {
+          "key": "T",
+          "term": "Tomodensitométrie/IRM : vésicule avec scolex, calcifications"
+        },
+        {
+          "key": "I",
+          "term": "Immunoblot EITB : sérologie de référence"
+        },
+        {
+          "key": "C",
+          "term": "Corticoïdes systématiques si lésions actives œdémateuses"
+        },
+        {
+          "key": "O",
+          "term": "Œil : fond d'œil systématique avant tout traitement"
+        },
+        {
+          "key": "S",
+          "term": "Se laver les mains, eau potable, latrines"
+        },
+        {
+          "key": "E",
+          "term": "Entourage : traiter les porteurs de ténia"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent de la cysticercose ?",
+      "back": "La larve (cysticerque) de Taenia solium. L'homme est habituellement hôte définitif (ver adulte) ; il devient hôte intermédiaire accidentel en ingérant des œufs."
+    },
+    {
+      "id": "f2",
+      "front": "Comment l'homme contracte-t-il la cysticercose ?",
+      "back": "Par ingestion d'œufs de T. solium (eau, crudités, mains sales, auto-infestation externe ou interne du porteur de ténia)."
+    },
+    {
+      "id": "f3",
+      "front": "Principale manifestation de la neurocysticercose parenchymateuse ?",
+      "back": "L'épilepsie (crises comitiales), cause majeure d'épilepsie acquise de l'adulte en zone d'endémie."
+    },
+    {
+      "id": "f4",
+      "front": "Critère diagnostique absolu de Del Brutto en imagerie ?",
+      "back": "La visualisation du scolex dans une lésion kystique (scanner/IRM)."
+    },
+    {
+      "id": "f5",
+      "front": "Test sérologique de référence ?",
+      "back": "L'EITB (enzyme-linked immunoelectrotransfer blot / Western blot) sur sérum, plus sensible et spécifique que l'ELISA."
+    },
+    {
+      "id": "f6",
+      "front": "Anticestode de première intention dans la NCC ?",
+      "back": "L'albendazole 15 mg/kg/j (2 prises), 7 à 15 jours, préféré au praziquantel pour sa meilleure pénétration cérébrale."
+    },
+    {
+      "id": "f7",
+      "front": "Que faire avant d'administrer un anticestode ?",
+      "back": "Fond d'œil (éliminer une localisation oculaire) et évaluation de l'œdème/HTIC ; associer des corticoïdes si lésions actives."
+    },
+    {
+      "id": "f8",
+      "front": "Faut-il traiter par anticestode des lésions calcifiées isolées ?",
+      "back": "Non : les parasites sont morts. Traitement anticomitial au besoin et suivi de l'épilepsie."
+    },
+    {
+      "id": "f9",
+      "front": "Prise en charge d'une cysticercose oculaire ?",
+      "back": "Ophtalmologique/chirurgicale d'abord ; l'anticestode seul risque d'aggraver brutalement l'inflammation rétinienne."
+    },
+    {
+      "id": "f10",
+      "front": "Traitement du porteur de ténia (téniasis) ?",
+      "back": "Praziquantel 5-10 mg/kg ou niclosamide — traiter aussi les porteurs dans l'entourage du cas."
+    },
+    {
+      "id": "f11",
+      "front": "Trois mesures de prévention communautaire ?",
+      "back": "Eau potable et latrines (stop à la dissémination des œufs), cuisson et inspection du porc, traitement des porteurs de ténia (+ limitation de la divagation des porcs)."
+    },
+    {
+      "id": "f12",
+      "front": "Forme extraparenchymateuse grave à connaître ?",
+      "back": "La NCC sous-arachnoïdienne basilaire : cystes en grappe, arachnoïdite, hydrocéphalie, vascularite — pronostic réservé, prise en charge spécialisée."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cysticercose",
+      "label": "Cysticercose"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Parasitologie",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Taenia solium : ver adulte (téniasis)"
+          },
+          {
+            "id": "b1c2",
+            "label": "Cysticerque : forme larvaire tissulaire"
+          },
+          {
+            "id": "b1c3",
+            "label": "Cycle : homme → porc → œufs → homme"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Maladie tropicale négligée (OMS)"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Épidémiologie",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Zones d'endémie : Afrique, Amérique latine, Asie du Sud"
+          },
+          {
+            "id": "b2c2",
+            "label": "Madagascar : endémie"
+          },
+          {
+            "id": "b2c3",
+            "label": "Risques : porcs divaguants, eau non potable"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Cause majeure d'épilepsie acquise de l'adulte"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "NCC parenchymateuse : épilepsie, céphalées"
+          },
+          {
+            "id": "b3c2",
+            "label": "Extraparenchymateuse : HTIC, hydrocéphalie"
+          },
+          {
+            "id": "b3c3",
+            "label": "Oculaire, sous-cutanée, musculaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Épilepsie de l'adulte = réflexe imagerie + sérologie"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Critères de Del Brutto 2001"
+          },
+          {
+            "id": "b4c2",
+            "label": "Scanner/IRM : vésicule + scolex, calcifications"
+          },
+          {
+            "id": "b4c3",
+            "label": "EITB sérologique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Diagnostic définitif / probable"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Albendazole 15 mg/kg/j ± praziquantel"
+          },
+          {
+            "id": "b5c2",
+            "label": "Corticoïdes si lésions actives"
+          },
+          {
+            "id": "b5c3",
+            "label": "Anticomitial ; chirurgie (HTIC, œil)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Fond d'œil AVANT anticestode"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Eau potable, latrines, hygiène des mains"
+          },
+          {
+            "id": "b6c2",
+            "label": "Cuisson et inspection du porc"
+          },
+          {
+            "id": "b6c3",
+            "label": "Traitement des porteurs de ténia"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Approche One Health"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "delbrutto2001",
+      "title": "Proposed diagnostic criteria for neurocysticercosis",
+      "citation": "Del Brutto OH, Rajshekhar V, White AC Jr, Tsang VC, Nash TE, Takayanagui M, et al. Proposed diagnostic criteria for neurocysticercosis. Neurology. 2001;57(2):177-183.",
+      "organization": "Neurology",
+      "year": 2001,
+      "version": "Critères internationaux",
+      "url": "https://doi.org/10.1212/WNL.57.2.177",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Sérologie",
+        "Classification"
+      ]
+    },
+    {
+      "id": "whocysticercosis",
+      "title": "Taeniasis/cysticercosis — fiche d'information",
+      "citation": "Organisation mondiale de la Santé. Taeniasis/cysticercosis. Fiche d'information OMS, who.int.",
+      "organization": "OMS",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/taeniasis-cysticercosis",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie",
+        "Cycle",
+        "Prévention",
+        "Maladie tropicale négligée"
+      ]
+    }
+  ]
+}
