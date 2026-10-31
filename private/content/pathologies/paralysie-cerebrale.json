@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "paralysie-cerebrale",
+  "title": "Paralysie cérébrale",
+  "specialty": "Neurologie",
+  "objective": "Définir la paralysie cérébrale, identifier ses causes et ses présentations cliniques, établir le diagnostic et organiser la prise en charge pluridisciplinaire centrée sur la fonction et la qualité de vie.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 133,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 174,
+      "localNumber": 133,
+      "sectionLabel": "Médecine",
+      "title": "Paralysie cérébrale",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche rédigée pour l'étudiant : définition consensuelle, cadre étiologique prénatal/périnatal/postnatal adapté au contexte malgache (prématurité, asphyxie, ictère nucléaire, paludisme cérébral), classification topographique et tonale, démarche diagnostique clinique et IRM, principes de rééducation et traitements de la spasticité.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Auteurs et DOI vérifiés sur PubMed/éditeur avant citation (Rosenbaum 2015 NRDP ; Novak 2017 JAMA Pediatr, doi 10.1001/jamapediatrics.2017.1689 confirmé).",
+      "Pas d'image : aucune illustration libre de droits vérifiée en licence sur Commons pour ce thème pédiatrique ; choix documenté pour éviter tout risque de licence."
+    ],
+    "qcChecklist": [
+      "Définition et prévalence sourcées",
+      "Étiologies prénatales/périnatales/postnatales détaillées, contexte Madagascar pris en compte",
+      "Classification topographique et tonale + GMFCS",
+      "Traitement de la spasticité conforme aux primers",
+      "Self-checks exécutés avant push (tonalités, urgence, ids uniques, flashcards, sources)"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La paralysie cérébrale (PC) est le groupe permanent (non progressif) de troubles du mouvement et de la posture, dus à une atteinte ou une anomalie du développement cérébral survenant sur un cerveau en développement (période périnatale pour la plupart des auteurs : de la conception à 2–3 ans). C'est la première cause d'incapacité motrice chronique de l'enfant."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Définition consensuelle",
+          "text": "La PC n'est ni une maladie unique ni un diagnostic étiologique : c'est un syndrome descriptif — troubles moteurs permanents d'origine cérébrale non évolutive, avec limitation d'activité, souvent associés à des troubles sensoriels, cognitifs, de la communication et/ou de l'épilepsie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévalence mondiale : environ 2 à 3 pour 1 000 naissances vivantes, soit environ 17 millions de personnes dans le monde. Elle est plus élevée en Afrique subsaharienne, où la prématurité, l'asphyxie périnatale, l'ictère nucléaire et les infections (paludisme cérébral, méningites) restent des causes majeures — un enjeu de santé publique à Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et classification",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Classification topographique"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hémiplégie spastique (environ 38 %) : un hémicorps, marche souvent acquise, troubles associés fréquents (langage, épilepsie).",
+            "Diplégie spastique : atteinte prédominante des membres inférieurs, typique du grand prématuré (leucomalacie périventriculaire).",
+            "Quadriplégie (tétraplégie) spastique : atteinte des quatre membres et du tronc, pronostic fonctionnel le plus sévère, épilepsie et troubles de la déglutition fréquents."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Classification tonale"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Formes spastiques (environ 85 %) : hypertonie pyramidale, réflexes ostéotendineux vifs, clonus.",
+            "Formes dyskinétiques : dystonie, chorée, athétose — classiques après ictère nucléaire (kernictère).",
+            "Formes ataxiques et formes mixtes."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La sévérité fonctionnelle est gradée par le Gross Motor Function Classification System (GMFCS), niveaux I (marche sans limitation) à V (transport en fauteuil, dépendance totale) — à documenter pour tout enfant : c'est le meilleur prédicteur du besoin d'assistance à la marche."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Retenir la triade",
+          "text": "1) Trouble moteur permanent ; 2) d'origine cérébrale non évolutive ; 3) survenu pendant la période de développement cérébral. Les trois critères doivent être réunis."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "À ne pas confondre",
+          "text": "Toute régression des acquisitions, une spasticité d'aggravation progressive ou une atteinte dissociée évoquent une maladie neurologique progressive (leucodystrophie, maladie métabolique) et non une PC : réévaluer avant de conclure."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Causes prénatales"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prématurité et hypotrophie : cause majeure — leucomalacie périventriculaire chez le grand prématuré.",
+            "Infections congénitales : CMV, toxoplasmose, rubéole, HSV.",
+            "Anomalies de migration corticale : lissencéphalie, schizencéphalie.",
+            "Expositions tératogènes (alcool, drogues), thrombophilies maternelles."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Causes périnatales"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Asphyxie périnatale / encéphalopathie hypoxique-ischémique (encéphalopathie néonatale précoce).",
+            "Ictère nucléaire (hyperbilirubinémie sévère non traitée) : formes dyskinétiques — cause évitable, fréquente dans les contextes de déficit en G6PD et d'incompatibilité fœto-maternelle.",
+            "Méningites néonatales, ventriculite, hémorragie intraventriculaire grave."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ictère nucléaire : urgence thérapeutique",
+          "text": "Tout ictère profond ou apparissant dans les 24 premières heures impose photothérapie immédiate, voire exsanguino-transfusion : chaque heure compte, le kernictère laisse des séquelles dyskinétiques et auditives définitives (atteinte des troncs auditifs centraux)."
+        },
+        {
+          "type": "heading",
+          "text": "Causes postnatales (jusqu'à 2–3 ans)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Paludisme cérébral, méningites bactériennes, encéphalites.",
+            "Traumatismes crâniens, noyade (anoxie cérébrale).",
+            "Accidents vasculaires cérébraux ischémiques ou hémorragiques du nourrisson."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant hémiplégique marchant, penser à rechercher une cause vasculaire (malformation artérioveineuse, sténose de type Moya-Moya) : l'imagerie reste contributive même après la période périnatale."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de PC est clinique et précoce, s'appuyant sur : anamnèse (facteurs de risque périnatals, déviation de la chronologie des acquisitions), examen neuromoteur (hypertonie, asymétrie, persistance des réflexes archaïques, préhension non symétrique, schéma de marche anormal) et IRM cérébrale, anormale dans 80–90 % des cas (leucomalacie, atteinte des noyaux gris centraux, malformations, séquelles ischémiques)."
+        },
+        {
+          "type": "heading",
+          "text": "Signes d'alerte précoce (avant 6 mois)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Absence de sourire social, de contrôle céphalique à l'âge attendu.",
+            "Asymétrie des mouvements, préférence manuelle avant 12 mois.",
+            "Hypertonie ou hypotonie axiale persistante, rétroflexion du tronc.",
+            "General Movements anormaux (évaluation qualitative de Prechtl) : outil validé dès 2–5 mois, très prédictif — à promouvoir dans le suivi des nouveau-nés à risque."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Bilan initial obligatoire"
+        },
+        {
+          "type": "list",
+          "items": [
+            "IRM cérébrale (séquences adaptées) : étiologie et orientation de la rééducation.",
+            "Évaluation de la vue (atteinte visuelle fréquente) et de l'audition (surtout après ictère nucléaire).",
+            "Suivi du développement cognitif et du langage, dépistage de l'épilepsie (environ 30 % des enfants).",
+            "Évaluation nutritionnelle et de la déglutition (dysphagie des quadriplégies).",
+            "Évaluation orthopédique : hanche (luxation), scoliose, rétractions."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe GMFCS",
+          "text": "Devant tout enfant chez qui le diagnostic de PC est posé : graduer la fonction motrice globale (GMFCS I–V) et la réévaluer tous les 1–2 ans ; le niveau GMFCS guide les objectifs de rééducation et les aides techniques."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant né prématuré ou en contexte d'encéphalopathie néonatale, un suivi neuromoteur structuré (examen de type HINE, General Movements) permet un diagnostic fiable avant 6 mois corrigés : plus tôt la rééducation est initiée, meilleure est la plasticité cérébrale.",
+          "sources": [
+            {
+              "id": "rosenbaum2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Cerebral palsy (primer)",
+              "year": 2015
+            },
+            {
+              "id": "novak2017",
+              "organization": "JAMA Pediatrics",
+              "title": "Early, accurate diagnosis and early intervention in cerebral palsy",
+              "year": 2017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de traitement curatif : la prise en charge est pluridisciplinaire, précoce et fonctionnelle, fondée sur l'activité et la participation, pas seulement sur le tonus. Objectifs : permettre la marche lorsque possible, faciliter les actes de la vie quotidienne, prévenir les complications orthopédiques."
+        },
+        {
+          "type": "heading",
+          "text": "Rééducation et soins de support"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Kinésithérapie précoce et régulière (étirements, renforcement, travail de la marche) ; orthèses et aides techniques (déambulateur, fauteuil adapté au niveau GMFCS).",
+            "Ergothérapie, orthophonie, prise en charge de la dysphagie et de la communication (y compris outils augmentatifs).",
+            "Orthopédie : surveillance de la hanche, chirurgie des rétractions ou de la torsion fémorale dans les formes sévères.",
+            "Scoliose et douleur : dépistage systématique, traitement adapté."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Traitement de la spasticité et de la dystonie"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Toxine botulique intramusculaire (traitement focal, surtout hémiplégie et diplégie pendant la croissance).",
+            "Baclofène oral (formes spastiques diffuses) ; baclofène intrathécal si échec et formes sévères.",
+            "Dystonie : essai de trihexyphénidyle ; certaines formes dyskinétiques répondent à un test lévodopa.",
+            "Chirurgie : rhizotomie dorsale sélective dans certaines diplégies spastiques GMFCS II–III ; sélection par équipe spécialisée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Un objectif, une priorité",
+          "text": "La priorité thérapeutique n'est pas de réduire la spasticité à tout prix mais d'améliorer la fonction, la participation et le confort de l'enfant : chaque traitement de la spasticité est évalué sur un objectif fonctionnel mesurable."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'intervention précoce (avant 2 ans, idéalement avant 6 mois corrigés) dans un cadre de suivi structuré est associée à un meilleur développement moteur et cognitif : c'est le message central du primer et des revues actuelles.",
+          "sources": [
+            {
+              "id": "rosenbaum2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Cerebral palsy (primer)",
+              "year": 2015
+            },
+            {
+              "id": "novak2017",
+              "organization": "JAMA Pediatrics",
+              "title": "Early, accurate diagnosis and early intervention in cerebral palsy",
+              "year": 2017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une large part des PC est évitable par le renforcement des soins périnataux : surveillance de la grossesse, prévention de la prématurité, accouchement dans un centre équipé, réanimation néonatale, prévention et traitement précoce de l'hyperbilirubinémie (photothérapie, exsanguino-transfusion), prévention de l'ictère nucléaire chez les nouveau-nés à risque (déficit en G6PD, prématurité). Contrôle du paludisme (moustiquaires imprégnées, traitement précoce), vaccination contre les méningites (pneumocoque, Hib) et contre la rougeole. Sensibilisation des parents aux signes d'alerte dans les 24 premiers mois."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Éviter les causes majeures à Madagascar",
+          "text": "Prématurité + ictère nucléaire + paludisme cérébral + asphyxie périnatale : quatre causes majeures de PC contre lesquelles des interventions simples (photothérapie, moustiquaires, soins obstétricaux compétents) sont efficaces."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La paralysie cérébrale est un syndrome moteur permanent d'origine cérébrale non évolutive, dont le diagnostic est clinique et précoce, aidé de l'IRM et des outils de surveillance neuromotrice. La prise en charge est pluridisciplinaire et centrée sur la fonction (GMFCS), tandis que la prévention repose sur des soins périnataux de qualité — un enjeu directement pertinent pour le système de santé malgache."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Rosenbaum P, Graham HK, Paneth N, et al. Cerebral palsy. Nat Rev Dis Primers. 2015;1:15082.",
+            "Novak I, Morgan C, Adde L, et al. Early, accurate diagnosis and early intervention in cerebral palsy. JAMA Pediatr. 2017;171(9):897-907."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Ictère nucléaire : urgence",
+      "text": "Ictère profond du nouveau-né = photothérapie immédiate, sans délai ; séquelles dyskinétiques et auditives définitives sinon."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Éliminer une maladie progressive",
+      "text": "Aggravation progressive ou régression des acquisitions = reconsidérer le diagnostic (leucodystrophie, maladie métabolique)."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "GMFCS à chaque évaluation",
+      "text": "Grader I–V et documenter : guide les objectifs et les aides techniques."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Triade diagnostique",
+      "text": "Trouble moteur permanent + origine cérébrale + période de développement. Non évolutive par définition."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Causes locales",
+      "text": "Prématurité, asphyxie, kernictère, paludisme cérébral : les quatre causes majeures évitables."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "C.E.R.E.B.R.A.L.E.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Causes prénatales : infections congénitales, malformations"
+        },
+        {
+          "key": "E",
+          "term": "Étiologies périnatales : prématurité, asphyxie, ictère nucléaire"
+        },
+        {
+          "key": "R",
+          "term": "Risques postnataux : méningite, paludisme cérébral, traumatisme"
+        },
+        {
+          "key": "E",
+          "term": "Examen neuromoteur : tonus, asymétries, acquisitions"
+        },
+        {
+          "key": "B",
+          "term": "Bilan IRM cérébrale + vue, audition, épilepsie"
+        },
+        {
+          "key": "R",
+          "term": "Rééducation précoce et pluridisciplinaire"
+        },
+        {
+          "key": "A",
+          "term": "Antispastiques : toxine botulique, baclofène"
+        },
+        {
+          "key": "L",
+          "term": "Lutter contre les complications (hanche, déglutition, douleur)"
+        },
+        {
+          "key": "E",
+          "term": "Évaluation fonctionnelle GMFCS I–V"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition de la paralysie cérébrale ?",
+      "back": "Groupe permanent de troubles du mouvement et de la posture dus à une atteinte non progressive du cerveau en développement, avec limitation d'activité, souvent associée à des troubles sensoriels, cognitifs ou épileptiques."
+    },
+    {
+      "id": "f2",
+      "front": "Prévalence mondiale de la PC ?",
+      "back": "Environ 2 à 3 pour 1 000 naissances vivantes (environ 17 millions de personnes) ; plus élevée en Afrique subsaharienne."
+    },
+    {
+      "id": "f3",
+      "front": "Forme topographique la plus fréquente ?",
+      "back": "L'hémiplégie spastique (environ 38 % des cas)."
+    },
+    {
+      "id": "f4",
+      "front": "Forme typique du grand prématuré ?",
+      "back": "La diplégie spastique, liée à la leucomalacie périventriculaire."
+    },
+    {
+      "id": "f5",
+      "front": "Forme tonale classique après ictère nucléaire ?",
+      "back": "La forme dyskinétique (dystonie, chorée, athétose), avec atteinte des noyaux gris centraux et surdité fréquente."
+    },
+    {
+      "id": "f6",
+      "front": "Quelle proportion d'IRM anormales dans la PC ?",
+      "back": "80 à 90 % des cas (leucomalacie, noyaux gris centraux, malformations, séquelles ischémiques)."
+    },
+    {
+      "id": "f7",
+      "front": "Quel outil validé pour le diagnostic précoce avant 6 mois ?",
+      "back": "L'évaluation qualitative des General Movements (Prechtl), complétée par l'examen neurologique du nourrisson (type HINE) dans les populations à risque."
+    },
+    {
+      "id": "f8",
+      "front": "Grille de sévérité fonctionnelle à documenter ?",
+      "back": "Le GMFCS (I marche sans limitation → V dépendance totale), à réévaluer tous les 1–2 ans."
+    },
+    {
+      "id": "f9",
+      "front": "Premier traitement de la spasticité focale chez l'enfant ?",
+      "back": "La toxine botulique intramusculaire, associée à la kinésithérapie et aux orthèses."
+    },
+    {
+      "id": "f10",
+      "front": "Fréquence de l'épilepsie associée ?",
+      "back": "Environ 30 % des enfants atteints de PC — dépistage et bilan systématiques."
+    },
+    {
+      "id": "f11",
+      "front": "Quatre causes majeures de PC dans le contexte malgache ?",
+      "back": "Prématurité, asphyxie périnatale, ictère nucléaire (kernictère) et paludisme cérébral/méningites."
+    },
+    {
+      "id": "f12",
+      "front": "Priorité de la prise en charge ?",
+      "back": "Améliorer la fonction et la participation (pas seulement le tonus) : objectifs fonctionnels mesurables, prise en charge pluridisciplinaire précoce."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "pc",
+      "label": "Paralysie cérébrale"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Syndrome moteur permanent"
+          },
+          {
+            "id": "b1c2",
+            "label": "Origine cérébrale non évolutive"
+          },
+          {
+            "id": "b1c3",
+            "label": "Cerveau en développement (jusqu'à 2–3 ans)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "1re cause d'incapacité motrice de l'enfant"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Prénatales : infections, malformations"
+          },
+          {
+            "id": "b2c2",
+            "label": "Périnatales : prématurité, asphyxie, kernictère"
+          },
+          {
+            "id": "b2c3",
+            "label": "Postnatales : paludisme cérébral, méningite, traumatisme"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Prématurité = cause majeure"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Topographique : hémiplégie, diplégie, quadriplégie"
+          },
+          {
+            "id": "b3c2",
+            "label": "Tonale : spastique (85 %), dyskinétique, ataxique"
+          },
+          {
+            "id": "b3c3",
+            "label": "GMFCS I–V"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Épilepsie ~30 %, dysphagie, troubles visuels/auditifs"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique : tonus, asymétrie, acquisitions"
+          },
+          {
+            "id": "b4c2",
+            "label": "IRM anormale 80–90 %"
+          },
+          {
+            "id": "b4c3",
+            "label": "General Movements (Prechtl) avant 6 mois"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Éliminer une maladie progressive"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Kinésithérapie, orthèses, aides techniques"
+          },
+          {
+            "id": "b5c2",
+            "label": "Toxine botulique, baclofène"
+          },
+          {
+            "id": "b5c3",
+            "label": "Chirurgie orthopédique / rhizotomie sélective"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Objectif = fonction et participation"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Soins périnataux, photothérapie de l'ictère"
+          },
+          {
+            "id": "b6c2",
+            "label": "Lutte antipaludique, vaccination"
+          },
+          {
+            "id": "b6c3",
+            "label": "Suivi neuromoteur des nouveau-nés à risque"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Kernictère = séquelle évitable"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "rosenbaum2015",
+      "title": "Cerebral palsy",
+      "citation": "Rosenbaum P, Graham HK, Paneth N, Dan B, Lin JP, Damiano DL, Becher JG, Gaebler-Spira D, Colver A, Reddihough DS, Crompton KE, Lieber RL. Cerebral palsy. Nat Rev Dis Primers. 2015;1:15082.",
+      "organization": "Nature Reviews Disease Primers",
+      "year": 2015,
+      "version": "Primer (erratum 2016)",
+      "url": "https://doi.org/10.1038/nrdp.2015.82",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Définition",
+        "Épidémiologie",
+        "Étiologies",
+        "Traitement",
+        "Pronostic fonctionnel"
+      ]
+    },
+    {
+      "id": "novak2017",
+      "title": "Early, accurate diagnosis and early intervention in cerebral palsy",
+      "citation": "Novak I, Morgan C, Adde L, Badawi N, Blackman J, Boyd R, et al. Early, accurate diagnosis and early intervention in cerebral palsy. JAMA Pediatr. 2017;171(9):897-907.",
+      "organization": "JAMA Pediatrics",
+      "year": 2017,
+      "version": "Review",
+      "url": "https://doi.org/10.1001/jamapediatrics.2017.1689",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Diagnostic précoce",
+        "General Movements",
+        "Intervention précoce"
+      ]
+    }
+  ]
+}
