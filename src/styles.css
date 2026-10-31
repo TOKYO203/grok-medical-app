@@ -29,12 +29,14 @@
   --font-display: "Fraunces", "Times New Roman", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
+  /* Session « Oxford Signature » : rayons élargis (cartes plus taillées,
+     sensation d'objet premium) ; l'échelle reste stricte. */
   --radius-xs: 4px;
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius: 12px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius: 14px;
 
   --motion-stagger: 40ms;
   --motion-micro: 80ms;
@@ -42,6 +44,9 @@
   --motion-fast: 250ms;
   --motion-medium: 350ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Ressort doux : léger dépassement pour les confirmations positives
+     (bonne réponse, combo) — jamais utilisé sur les transitions de layout. */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
 
   /* Couleurs sémantiques — résolues depuis la palette de thème (--app-*) */
   --color-bg: var(--app-bg);
@@ -116,13 +121,25 @@
   --app-card: #FFFFFF;
   --app-secondary: #F0E4CB;
 
-  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 38%, transparent);
-  --app-shadow-soft: 0 18px 40px -28px rgb(122 90 20 / 0.20);
-  --app-shadow-md: 0 26px 60px -34px rgb(139 104 32 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
+  /* Session « Oxford Signature » : filet or plus discret (26 %), reflet
+     lumineux en haut (matière) et ombres en deux plans — clé proche, ambiante
+     large — pour une profondeur feutrée sans surcharge visuelle. */
+  --app-shadow-border:
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 26%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.55);
+  --app-shadow-soft:
+    0 1px 2px rgb(122 90 20 / 0.07),
+    0 22px 44px -30px rgb(122 90 20 / 0.22);
+  --app-shadow-md:
+    0 1px 2px rgb(139 104 32 / 0.10),
+    0 30px 64px -36px rgb(139 104 32 / 0.26),
+    inset 0 1px 0 rgb(255 255 255 / 0.6);
 
+  /* Fond feutré : halos plus doux qu'auparavant (0.09 / 0.045) — le
+     parchemin respire, l'interface paraît posée dessus. */
   --app-body-bg:
-    radial-gradient(64rem 32rem at 88% -12%, rgb(92 107 63 / 0.12), transparent 60%),
-    radial-gradient(44rem 28rem at -12% 42%, rgb(184 137 43 / 0.06), transparent 65%),
+    radial-gradient(64rem 32rem at 88% -12%, rgb(92 107 63 / 0.09), transparent 60%),
+    radial-gradient(44rem 28rem at -12% 42%, rgb(184 137 43 / 0.045), transparent 65%),
     #F4ECDF;
 
   --hero-from: #3E4A2A;
@@ -170,7 +187,9 @@ html[data-theme="dark"] {
   --app-card: #1a2016;
   --app-secondary: #252e1f;
 
-  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 12%, transparent);
+  --app-shadow-border:
+    inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 12%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.05);
   --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
   --app-shadow-md:
     0 24px 64px -32px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.06);
@@ -337,8 +356,8 @@ html[data-theme="dark"] {
     gap: 0.5rem;
     padding-block: 0.55rem 0.7rem;
     border-bottom: 1px solid var(--app-border);
-    background: color-mix(in oklab, var(--app-bg) 86%, transparent);
-    backdrop-filter: blur(18px);
+    background: color-mix(in oklab, var(--app-bg) 82%, transparent);
+    backdrop-filter: blur(20px) saturate(150%);
   }
 
   /* Pastille d'en-tête — monochrome sur la palette d'accent (14 % de fond,
@@ -1124,7 +1143,9 @@ html[data-accent]:not([data-accent="defaut"]) {
   --app-surface-2: color-mix(in oklab, var(--app-bg) 88%, var(--app-accent) 12%);
   --app-skeleton-a: color-mix(in oklab, var(--app-bg) 74%, var(--app-accent) 26%);
   --app-skeleton-b: color-mix(in oklab, var(--app-bg) 88%, var(--app-accent) 12%);
-  --app-shadow-soft: 0 18px 40px -28px color-mix(in oklab, var(--app-accent) 24%, transparent);
+  --app-shadow-soft:
+    0 1px 2px color-mix(in oklab, var(--app-accent) 10%, transparent),
+    0 22px 44px -30px color-mix(in oklab, var(--app-accent) 24%, transparent);
   --app-accent-soft: color-mix(in oklab, var(--app-accent) 14%, transparent);
   --app-accent-faint: color-mix(in oklab, var(--app-accent) 7%, transparent);
   --app-body-bg:
@@ -1144,7 +1165,9 @@ html[data-theme="dark"][data-accent]:not([data-accent="defaut"]) {
   --cover-1-to: color-mix(in oklab, var(--app-accent) 4%, #0a0a0a);
   --app-border: color-mix(in oklab, var(--app-accent) 36%, transparent);
   --app-border-strong: color-mix(in oklab, var(--app-accent) 58%, transparent);
-  --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 30%, transparent);
+  --app-shadow-border:
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 28%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.05);
   --app-bg-elevated: color-mix(in oklab, var(--app-bg) 88%, #FFFFFF 12%);
   --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
   --app-body-bg:
@@ -1173,4 +1196,39 @@ html[data-theme="dark"] {
   --accent-swatch-marine: #60A5FA;
   --accent-swatch-vert: #34D399;
   --accent-swatch-violet: #A78BFA;
+}
+
+/* ============================================================================
+   VERNEIS PREMIUM — Session « Oxford Signature »
+   ----------------------------------------------------------------------------
+   Micro-interactions de matière : la pression d'un bouton ou d'une carte
+   répond par une très courte contraction (l'interface semble « cédée »
+   sous le doigt), et les confirmations positives se posent avec un léger
+   dépassement de ressort. Aucune transition de layout n'utilise le ressort :
+   uniquement des états ponctuels. Tout est coupé par la règle globale
+   prefers-reduced-motion déjà présente plus haut, et par le réglage
+   « animation réduite » de l'app (data-optimus-motion="reduced").
+   ============================================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  button:not(:disabled):active,
+  [role="button"]:not(:disabled):active {
+    transform: scale(0.98);
+  }
+
+  .optimus-interactive-card:active {
+    transform: translateY(0) scale(0.99);
+  }
+}
+
+html[data-optimus-motion="reduced"] button:active,
+html[data-optimus-motion="reduced"] [role="button"]:active,
+html[data-optimus-motion="reduced"] .optimus-interactive-card:active {
+  transform: none;
+}
+
+/* Ressort doux sur les confirmations positives uniquement. */
+.optimus-answer-correct,
+.optimus-combo-pulse,
+.optimus-session-complete {
+  animation-timing-function: var(--ease-spring);
 }
