@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "lupus",
+  "title": "Lupus érythémateux aigu disséminé",
+  "specialty": "Rhumatologie",
+  "objective": "Diagnostiquer et prendre en charge un lupus érythémateux systémique (anciennement « aigu disséminé ») : reconnaître les signes cliniques évocateurs (photosensibilité, éruption malaire, arthralgies, atteintes hématologique et rénale, sérites) ; affirmer le diagnostic par les anticorps antinucléaires et les anticorps anti-ADN natif, anti-Sm ; évaluer l'atteinte d'organe (protéinurie, hématurie, NFS, complément) ; distinguer les poussées des infections ; traiter par hydroxychloroquine (base du traitement, à vie) plus corticoïdes et immunosuppresseurs selon la sévérité (atteinte rénale, neuropsychiatrique, cytopénies) ; prévenir les complications (photoprotection, infections, contraception, thromboses, ostéoporose).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 16,
+    "specialty": "Rhumatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 57,
+      "localNumber": 16,
+      "sectionLabel": "Médecine",
+      "title": "Lupus érythémateux aigu disséminé",
+      "specialty": "Rhumatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Lupus érythémateux systémique (LES ; « aigu disséminé » dans la nomenclature classique). Maladie AUTO-IMMUNE systémique, chronique, de la femme jeune (9 femmes pour 1 homme), caractérisée par la production d'AUTO-ANTICORPS (anticorps antinucléaires, anti-ADN natif, anti-Sm) et de complexes immuns qui lèsent les tissus (vascularite immune). La présentation est protéiforme : SIGNES GÉNÉRAUX (fièvre, asthénie, amaigrissement) ; CUTANÉO-MUQUEUX (photosensibilité, éruption en ailes de papillon du visage épargnant les sillons nasogéniens, lupus discoïde, ulcérations buccales, alopécie, phénomène de Raynaud, vascularite digitale) ; RHUMATOLOGIQUES (arthralgies et arthrites non destructrices, mains et poignets) ; HÉMATOLOGIQUES (anémie, leuconeutropénie, thrombopénie) ; RÉNAUX (néphropathie lupique : protéinurie, hématurie, syndrome néphrotique — pronostic vital) ; CARDIO-PULMONAIRES (péricardite, pleurésie, myocardite rare, hypertension pulmonaire) ; NEUROPSYCHIATRIQUES (convulsions, psychose, troubles cognitifs, névrite optique). DIAGNOSTIC : AAN positifs (screening sensible, quasi constamment ; un AAN négatif rend le LES très improbable) ; anti-ADN natif (spécifique, corrélé à l'activité et à la néphrite) et anti-Sm (très spécifiques) ; consommation du complément (CH50, C3, C4 abaissés en poussée) ; critères de classification EULAR/ACR 2019 (pré-requis AAN supérieur ou égal à 1/80, puis domaines pondérés). DIFFÉRENTIELS : infections (une poussée fébrile peut être une infection — hémogramme, hémocultures, ECBU), autres connectivites, hémopathies, médicaments (lupus induit). TRAITEMENT : HYDROXYCHLOROQUINE pour tous, à vie (réduit les poussées, la thrombose, la mortalité ; surveillance ophtalmologique) ; corticoïdes à dose adaptée à la sévérité en poussée ; IMMUNOSUPPRESSEURS si atteinte d'organe (mycophénolate, azathioprine, ciclosporine, cyclophosphamide dans les néphrites prolifératives, rituximab dans certains cas) ; belimumab en add-on ; mesures : PHOTOPROTECTION, arrêt du tabac, vaccination, contraception adaptée (pas d'estroprogestatifs à fortes doses ; grossesse planifiée en rémission), prévention de l'ostéoporose sous corticoïdes et des infections sous immunosuppresseurs, dépistage du syndrome des antiphospholipides.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Kiriakidou N, Ching CL. Systemic Lupus Erythematosus. Ann Intern Med. 2020;172(11 suppl):ITC81-ITC96 — DOI 10.7326/AITC202006020 (PMID 32479157), page officielle acpjournals.org confirmée par recherche avant citation.",
+      "Source 2 : Aringer M, Costenbader K, Daikh D, et al. 2019 European League Against Rheumatism/American College of Rheumatology Classification Criteria for Systemic Lupus Erythematosus. Ann Rheum Dis. 2019;78(9):1151-1159 — DOI 10.1136/annrheumdis-2018-214819 (page ard.bmj.com confirmée par recherche avant citation).",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Femme jeune + signes multisystémiques + AAN : penser au lupus",
+      "AAN : test de screening sensible ; anti-ADN natif et anti-Sm : spécifiques",
+      "Toujours chercher une atteinte rénale : protéinurie, hématurie, créatinine",
+      "Fièvre chez un lupique : poussée OU infection — à démêler avant d'augmenter les corticoïdes",
+      "Hydroxychloroquine pour tous, à vie + photoprotection",
+      "Néphrite lupique : investigation (biopsie si possible), immunosuppresseurs, suivi néphrologique",
+      "Dépister les antiphospholipides ; contraception et grossesse adaptées",
+      "Contexte Madagascar : dépistage simple protéinurie/bandelette urinaire à chaque visite",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le lupus érythémateux systémique est le connectivite (maladie auto-immune systémique) le plus fréquent et le plus complet : il touche la femme jeune, associe des manifestations cutanéo-muqueuses, articulaires, hématologiques, rénales, cardiaques et neurologiques, et se définit biologiquement par des auto-anticorps. Son pronostic, autrefois réservé, s'est transformé par l'hydroxychloroquine systématique, la prise en charge des néphrites lupiques et la maîtrise des infections et de la iatrogénie.",
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le grand principe : une maladie multi-organes, à auto-anticorps, à poussées",
+          "text": "Toute femme jeune présentant une combinaison inexpliquée de fièvre, éruption photosensible, arthralgies, cytopénies, protéinurie, sérite ou troubles neuropsychiatriques doit faire doser les anticorps antinucléaires : le LES est un diagnostic de femme jeune, multisystémique, lent ou fulminant, mais presque toujours AAN positif."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappel et définitions",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "ÉPIDÉMIOLOGIE : maladie de la FEMME JEUNE (sex-ratio environ 9 femmes pour 1 homme, âge 15-45 ans ; en dehors de cet âge la proportion masculine augmente) ; prévalence variable selon les ethnies ; révélation souvent en âge de procréer — rôle des estrogènes.",
+            "PHYSIOPATHOLOGIE : perte de la TOLÉRANCE IMMUNE aux antigènes nucléaires → auto-anticorps (AAN, anti-ADN natif, anti-Sm, antiphospholipides) → COMPLEXES IMMUNS circulants et in situ → activation du complément, inflammation et VASCULARITE des petits vaisseaux (rein, peau, séreuses, système nerveux) ; apoptose anormale, clairance déficiente ; facteurs génétiques (complément, HLA), hormonaux (estrogènes) et environnementaux (SOLEIL/UV, infections virales, tabac, certains médicaments : hydralazine, isoniazide, minocycline — lupus induit).",
+            "AUTO-ANTICORPS À CONNAÎTRE : AAN (sensibles, screening) ; anti-ADN natif et anti-Sm (SPÉCIFIQUES) ; anti-Ro/SSA et anti-La/SSB (lupus cutané subaigu, lupus néonatal, bloc atrio-ventriculaire fœtal) ; antiphospholipides (thromboses, fausses couches — syndrome des antiphospholipides associé dans 20-30 %).",
+            "NOMENCLATURE : « lupus érythémateux aigu disséminé » = lupus érythémateux systémique ; le lupus cutané (discoïde, subaigu) peut rester purement cutané ; les formes médicamenteuses (hydralazine, isoniazide) épargnent le rein et régressent à l'arrêt."
+          ],
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Manifestations cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "GÉNÉRAUX : fièvre (attention : chez un lupique, la fièvre est une infection jusqu'à preuve du contraire), asthénie profonde, amaigrissement, adénopathies.",
+            "CUTANÉO-MUQUEUX (les plus fréquents avec l'atteinte rhumatologique) : PHOTOSENSIBILITÉ ; éruption MALAIRE en « ailes de papillon » du visage (épargnant les sillons nasogéniens) ; lupus DISCOÏDE (plaques atrophiques cicatricielles du visage et du cuir chevelu, alopécie cicatricielle) ; lupus subaigu (plaques annulaires photo-distribuées, anti-Ro) ; ulcérations buccales ou nasales INDOLORES ; vascularite (livedo, purpura, nécroses pulpaires) ; Raynaud.",
+            "RHUMATOLOGIQUES : arthralgies et ARTHRITES des petites articulations (mains, poignets), symétriques, NON ÉROSIVES et non déformantes (mains de Jaccoud par luxation réductible possibles) ; myalgies, myosite rare.",
+            "RÉNAUX : NÉPHRITE LUPIQUE (environ la moitié des patients, pronostic vital) — protéinurie, hématurie microscopique, hypertension, insuffisance rénale, syndrome néphrotique ; classes histologiques (classification ISN/RPS : prolifératives III-IV = graves, membraneuse V, mésangiale II).",
+            "CARDIO-PULMONAIRES : PÉRICARDITE (la plus fréquente des sérites), pleurésie, myocardite et endocardite de Libman-Sacks (antiphospholipides), hypertension pulmonaire, pneumopathie interstitielle rare.",
+            "NEUROPSYCHIATRIQUES : convulsions, psychose lupique, troubles cognitifs, céphalées, névrite optique, myélite, AVC (souvent liés aux antiphospholipides).",
+            "HÉMATOLOGIQUES : anémie de l'inflammation, anémie hémolytique auto-immune (test de Coombs positif), LEUCONEUTROPÉNIE, thrombopénie ; splénomégalie modérée, adénopathies.",
+            "OBSTÉTRICAUX : fausses couches à répétition, morts fœtales, RCIU (antiphospholipides) ; le lupus maternel contrôlé permet des grossesses sous surveillance spécialisée ; éruption néonatale (anti-Ro) et bloc atrio-ventriculaire congénital.",
+            "DIFFÉRENTIELS : autres connectivites (syndrome de Sjögren, sclérodermie, myopathies inflammatoires, polyarthrite rhumatoïde débutante), infections chroniques (VIH, tuberculose, hépatites), hémopathies, thyroïdite, lupus médicamenteux (hydralazine, isoniazide : AAN positif, anti-histones, épargne le rein, arrêt du médicament)."
+          ],
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgences du lupus : ne pas les manquer",
+          "text": "1) Fièvre d'un lupique : INFECTION d'abord (hémogramme, hémocultures, ECBU, radiographie) avant d'incriminer la poussée et d'augmenter les corticoïdes. 2) PROTÉINURIE nouvelle ou croissante : néphrite lupique — évaluer sans délai (créatinine, protéinurie des 24 heures ou ratio protéinurie/créatinurie, sédiment urinaire ; biopsie rénale si possible) : une néphrite proliférative non traitée conduit à l'insuffisance rénale terminale. 3) Thrombose ou AVC inexpliqué : chercher un SYNDROME DES ANTIPHOSPHOLIPIDES (anticoagulants lupiques, anticorps anticardiolipines, anti-bêta2-GPI). 4) Défaillance multiviscérale fébrile : poussée sévère OU infection OR septicémie — un avis urgent s'impose.",
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            },
+            {
+              "id": "aringer2019",
+              "organization": "EULAR / ACR",
+              "title": "2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus",
+              "year": 2019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est immunologique. Les AAN par immunofluorescence sur cellules Hep-2 sont le test de SCREENING : sensibilité supérieure à 95 % ; un AAN négatif rend le lupus très improbable (mais non impossible dans un lupus cutané pur ou sous immunosuppresseurs prolongés). Les anti-ADN NATIF (spécificité élevée, corrélés à l'activité de la maladie et à la néphrite) et les anti-Sm (très spécifiques) affirment l'orientation. La CONSOMMATION DU COMPLÉMENT (CH50, C3, C4 abaissés) accompagne les poussées (surtout néphritiques). Les critères EULAR/ACR 2019 (pré-requis : AAN supérieur ou égal à 1/80 ; somme des domaines cliniques et immunologiques supérieure ou égale à 10) servent à CLASSIFIER (essais, études) mais aident au diagnostic ; chaque signe ne compte que si aucune meilleure explication n'existe.",
+          "sources": [
+            {
+              "id": "aringer2019",
+              "organization": "EULAR / ACR",
+              "title": "2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus",
+              "year": 2019
+            },
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "BILAN INITIAL : AAN, anti-ADN natif, anti-Sm, anti-Ro/La, C3-C4/CH50, antiphospholipides (anticoagulant lupique, anticardiolipine, anti-bêta2-GPI) ; NFS-plaquettes (cytopénies), réticulocytes et Coombs si anémie ; URINE : protéinurie (bandelette, protéinurie/créatinurie ou 24 h), sédiment (hématies, leucocytes, cylindres) ; créatinine ; CRP (souvent normale en poussée lupique — une CRP élevée doit faire chercher une infection ou une sérite) ; signes vitaux, tension, examen ophtalmologique de base (avant hydroxychloroquine).",
+            "ÉVALUATION DES ATTEINTES D'ORGANE selon la présentation : ECG et échocardiographie (péricardite, épanchement), radiographie thoracique, échographie rénale, protéinurie quantifiée ; PBR si protéinurie significative ou hématurie avec protéinurie, insuffisance rénale (classification ISN/RPS, pronostic, décision thérapeutique) ; imagerie cérébrale, PL si atteinte neurologique ; avis neuro/ophtalmo selon les cas.",
+            "ACTIVITÉ : scores SLEDAI (activité) et dégâts irréversibles SLICC ; suivre AAN/anti-ADN, C3-C4, urée-créatinine, protéinurie et NFS.",
+            "MADAGASCAR / contexte à ressources limitées : le minimum vital est à la portée de tout hôpital : BANDELETTE URINAIRE (protéinurie, hématurie) + NFS-plaquettes + créatinine + AAN si le laboratoire dispose d'immunofluorescence ; devant une femme jeune avec éruption malaire photosensible + arthralgies + protéinurie : lupus très probable — adresser en néphrologie si disponible, discuter hydroxychloroquine d'emblée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Poussée ou infection ?",
+          "text": "La fièvre et le syndrome inflammatoire d'un patient lupique ont deux grands suspects : la POUSSÉE et l'INFECTION (favorisée par les corticoïdes et immunosuppresseurs). Éléments d'orientation : CRP ÉLEVÉE (infection, sérite ou arthrite plutôt que poussée viscérale pure), frissons, foyer (urinaire, pulmonaire, cutané), neutrophile élevé ; hémocultures, ECBU et radiographie avant toute escalade immunosuppressive. Augmenter les corticoïdes sur une fièvre septique non reconnue peut être fatal."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "TRAITEMENT DE FOND UNIVERSEL : HYDROXYCHLOROQUINE (5 mg/kg/jour, à VIE chez pratiquement tous les patients) — réduit la fréquence des poussées, la sévérité, les thromboses, la mortalité maternelle et fœtale ; surveillance ophtalmologique (rétinopathie : examen initial puis annuel après 5 ans) ; arrêt du TABAC ; PHOTOPROTECTION (vêtements, écrans solaires) ; vaccination (grippe, pneumocoque ; vaccins vivants à éviter sous immunosuppresseurs).",
+            "POUSSÉE MODÉRÉE (arthrite, éruption, sérite) : corticoïdes à dose faible à moyenne (prednisone 0,2-0,5 mg/kg/jour) avec décroissance progressive, plus hydroxychloroquine ; antipaludiques de synthèse optimisés ; AINS avec prudence (fonction rénale, HTA) et à court cours.",
+            "POUSSÉE SÉVÈRE / ATTEINTE D'ORGANE : corticoïdes à forte dose (prednisone 1 mg/kg/jour ou bolus de méthylprednisolone selon les protocoles) ; IMMUNOSUPPRESSEUR d'épargne cortisonique : MYCOPHÉNOLATE en néphrite lupique (induction puis entretien), AZATHIOPRINE (utile en grossesse), CYCLOPHOSPHAMIDE (néphrites prolifératives graves, formes réfractaires — gonadotoxique : cryopréservation du sperme/ovocytes chez le sujet jeune), ciclosporine ou tacrolimus selon les protocoles ; BELIMUMAB en association dans les formes actives malgré le traitement standard ; RITUXIMAB dans les cytopénies réfractaires.",
+            "NÉPHRITE LUPIQUE : l'atteinte rénale conditionne le pronostic : évaluation néphrologique, PBR si possible, protocole induction (corticoïdes + mycophénolate ou cyclophosphamide) puis entretien (mycophénolate ou azathioprine, doses basses) ; contrôler la tension (IEC/ARA2 — néphroprotection et réduction de la protéinurie) ; cible : protéinurie inférieure à 0,5-0,7 g/jour à un an ; suivi rapproché de la créatinine et de la protéinurie.",
+            "SYNDROME DES ANTIPHOSPHOLIPIDES : anticoagulation à dose efficace (AVK) après une thrombose ; prévention en période péri-opératoire et obstétricale ; éviter les estroprogestatifs.",
+            "PRÉVENTION DE LA IATROGÉNIE : prophylaxie de PNEUMOCYSTIS si corticoïdes fortes doses prolongées (selon les protocoles) ; BISPHOSPHONATES + calcium/vitamine D si corticothérapie prolongée ; protection gastrique ; dépistage diabète cortico-induit, HTA, cataracte, ostéonécrose (tête fémorale) ; surveiller les interactions (azathioprine + allopurinol : danger).",
+            "GROSSESSE : planifier en RÉMISSION depuis au moins 6 mois ; hydroxychloroquine maintenue ; azathioprine autorisée (et ciclosporine) ; contre-indiqués : mycophénolate, cyclophosphamide, méthotrexate ; dépister antiphospholipides et anti-Ro (écho-fœtale sur rythme cardiaque si anti-Ro) ; contraception : progestatifs ou DIU plutôt que fortes doses d'estrogènes.",
+            "ÉDUCATION DU PATIENT : reconnaître les signes de poussée (fièvre, éruption, arthralgies, urine mousseuse), observance de l'hydroxychloroquine, éviter l'exposition solaire, ne jamais arrêter seul les traitements, prévenir avant tout geste ou vaccin, consigne du carnet de suivi."
+          ],
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            },
+            {
+              "id": "aringer2019",
+              "organization": "EULAR / ACR",
+              "title": "2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus",
+              "year": 2019
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une suspicion de lupus : la démarche",
+          "text": "1) Jeune femme + au moins deux systèmes atteints (peau + articulations + sang + rein + sérite + système nerveux) → AAN. 2) AAN positif → anti-ADN natif, anti-Sm, C3-C4, NFS, bandelette urinaire, créatinine, antiphospholipides. 3) Protéinurie ou hématurie → bilan néphrologique complet, PBR discutée. 4) Traitement : hydroxychloroquine TOUJOURS ; corticoïdes selon la sévérité ; immunosuppresseur si atteinte d'organe. 5) Fièvre → chercher l'infection AVANT d'intensifier l'immunosuppression. 6) Photoprotection, vaccins, contraception adaptée, grossesse planifiée en rémission.",
+          "sources": [
+            {
+              "id": "aringer2019",
+              "organization": "EULAR / ACR",
+              "title": "2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus",
+              "year": 2019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "PRÉVENTION DES POUSSÉES : hydroxychloroquine continue ; PHOTOPROTECTION (UV = déclencheur majeur) ; éviter les infections virales intercurrentes, la fatigue extrême, l'arrêt brutal du traitement ; attention aux médicaments déclencheurs (sulfamides, hydralazine, isoniazide, minocycline) ; TABAC : arrêt (aggrave l'atteinte cutanée et vasculaire).",
+            "PRÉVENTION DES COMPLICATIONS : ostéoporose cortisonique (calcium, vitamine D, bisphosphonates si facteurs de risque) ; infections (vaccin grippe/pneumocoque ; éviter les vaccins vivants sous immunosuppresseurs ; prophylaxie du pneumocystis selon protocoles) ; athérosclérose (le risque cardiovasculaire est majoré : contrôle tension, lipides, poids, tabac) ; néoplasies sous immunosuppresseurs prolongés (cyclophosphamide : vessie, hémopathies) ; santé mentale (fatigue chronique, dépression — à dépister).",
+            "SUIVI STANDARD : toutes les 3 à 6 mois en rémission : interrogatoire (poussée ?), examen, tension ; NFS-plaquettes, créatinine, protéinurie (bandelette à chaque visite), anti-ADN et C3-C4 selon l'activité ; examen ophtalmologique annuel sous hydroxychloroquine (selon le protocole local) ; lipidogramme, glycémie.",
+            "FERTILITÉ ET GROSSESSE : information précoce ; cryopréservation des gamètes avant cyclophosphamide ; contraception adaptée (progestatifs, DIU) ; grossesse en rémission, suivi conjoint obstétricien + interniste/néphrologue ; au Madagascar : intégrer le conseil aux patientes jeunes lors du diagnostic."
+          ],
+          "sources": [
+            {
+              "id": "kiriakidou2020",
+              "organization": "American College of Physicians / Annals of Internal Medicine",
+              "title": "Systemic Lupus Erythematosus (In the Clinic)",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "FEMME JEUNE + éruption malaire photosensible + arthralgies + cytopénies + protéinurie = LES jusqu'à preuve du contraire. Biologie : AAN (screening), anti-ADN natif/anti-Sm (spécifiques), C3-C4 abaissés en poussée. Pronostic : la NÉPHRITE LUPIQUE et les INFECTIONS. Traitement : HYDROXYCHLOROQUINE À VIE + corticoïdes (dose selon sévérité) + immunosuppresseurs (mycophénolate en première ligne de néphrite) ; jamais d'estrogènes forts si antiphospholipides ; grossesse planifiée en rémission. Fièvre du lupique = infection d'abord. Photoprotection, vaccins, observance."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le lupus érythémateux systémique est le prototype de la maladie auto-immune : multisystémique, à poussées et rémissions, rythmé par les auto-anticorps. Trois messages pour la pratique : 1) y penser devant toute femme jeune avec atteinte d'au moins deux systèmes — l'AAN en est le pivot ; 2) toujours évaluer le REIN (bandelette urinaire à chaque visite) : la néphrite lupique fait le pronostic rénal et vital ; 3) l'hydroxychloroquine pour tous, la photoprotection, la gestion rigoureuse des corticoïdes et le démêlage poussée/infection transforment un pronostic autrefois sombre en une maladie chronique contrôlée. Bien dépisté et suivi, le lupus s'apprivoise ; ignoré, il ronge silencieusement les reins."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Kiriakidou N, Ching CL. Systemic Lupus Erythematosus. Ann Intern Med. 2020;172(11 suppl):ITC81-ITC96 (DOI 10.7326/AITC202006020).",
+            "Aringer M, Costenbader K, Daikh D, et al. 2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus. Ann Rheum Dis. 2019;78(9):1151-1159 (DOI 10.1136/annrheumdis-2018-214819).",
+            "Organisation mondiale de la Santé. Aide-mémoire Lupus (https://www.who.int/news-room/fact-sheets/detail/lupus) — vérifier l'URL avant usage."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fièvre du lupique : poussée ou infection ?",
+      "text": "Sous corticoïdes et immunosuppresseurs, la barrière anti-infectieuse est abaissée : toute fièvre impose la recherche d'un foyer (hémocultures, ECBU, radiographie thoracique, examens cutanés) AVANT l'escalade immunosuppressive. Une CRP très élevée oriente vers l'infection ou la sérite (en poussée viscérale lupique pure, la CRP est souvent normale ou peu augmentée). L'erreur fatale classique : traiter une septicémie comme une poussée."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Hydroxychloroquine : le poison du dépistage manqué",
+      "text": "L'hydroxychloroquine est le seul médicament qui réduit à la fois les poussées, les thromboses, le diabète cortico-induit, les complications obstétricales ET la mortalité — aucun lupique ne devrait en être privé. La rétinopathie est rare et DÉPENDANTE DE LA DOSE (5 mg/kg/jour, dépistage ophtalmologique de base puis annuel au-delà de 5 ans) : la bonne réponse n'est pas de priver le patient du traitement, mais de surveiller."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Bandelette urinaire à CHAQUE visite",
+      "text": "La néphrite lupique est silencieuse : protéinurie et hématurie microscopique se découvrent avant tout symptôme. Chaque consultation d'un lupique (même en rémission, même en poussée cutanée pure) : bandelette urinaire ; si protéines ou sang : protéinurie quantifiée (ratio protéinurie/créatinurie ou 24 h), créatinine, sédiment, et avis néphrologique avec discussion de biopsie rénale. Le retard diagnostique d'une néphrite proliférative = insuffisance rénale terminale."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "AAN / anti-ADN natif / anti-Sm : qui fait quoi ?",
+      "text": "AAN : sensible (supérieur à 95 %), screening — un AAN négatif rend le LES très improbable, mais l'AAN se voit aussi dans d'autres connectivites, les hépatites, les infections et chez 5-15 % des sujets sains (faux positifs). Anti-ADN NATIF : spécifique (environ 70 %), corrélé à l'activité et à la néphrite. ANTI-Sm : très spécifique, peu sensible. Antiphospholipides : thromboses et pertes fœtales — à doser au diagnostic et avant grossesse."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mnémo : « L.U.P.U.S. »",
+      "text": "L : Lumière (photosensibilité, photoprotection) ; U : Urine (bandelette à chaque visite : néphrite !) ; P : Poussées (corticoïdes selon la sévérité, jamais sans avoir éliminé une infection) ; U : Under drugs (hydroxychloroquine à vie, immunosuppresseurs si organe) ; S : Syndrome des antiphospholipides (thromboses, grossesse, contraception adaptée)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "A.B.A.C. du diagnostic lupique",
+      "entries": [
+        {
+          "key": "A",
+          "term": "AAN positifs (screening, pré-requis EULAR/ACR 2019 : AAN supérieur ou égal à 1/80)"
+        },
+        {
+          "key": "B",
+          "term": "Bilan multi-organes : peau, articulations, sang, rein, séreuses, système nerveux"
+        },
+        {
+          "key": "A",
+          "term": "Anti-ADN natif et anti-Sm : spécifiques ; C3-C4 abaissés en poussée"
+        },
+        {
+          "key": "C",
+          "term": "Critères EULAR/ACR 2019 : somme supérieure ou égale à 10 (classification)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définissez le lupus érythémateux systémique.",
+      "back": "Maladie auto-immune systémique chronique, de la femme jeune (9 femmes pour 1 homme, 15-45 ans), caractérisée par des auto-anticorps antinucléaires et des complexes immuns à l'origine d'une vascularite des petits vaisseaux touchant peau, articulations, sang, reins, séreuses et système nerveux ; évolution par poussées et rémissions."
+    },
+    {
+      "id": "f2",
+      "front": "Épidémiologie du LES ?",
+      "back": "Femme jeune (sex-ratio 9/1, âge 15-45 ans, rôle des estrogènes) ; prévalence variable selon les ethnies (plus élevée dans certaines populations) ; révélation souvent entre 20 et 30 ans ; en dehors de l'âge fertile, la proportion masculine augmente."
+    },
+    {
+      "id": "f3",
+      "front": "Deux signes cutanés très évocateurs du lupus ?",
+      "back": "1) PHOTOSENSIBILITÉ (éruption après exposition solaire) ; 2) éruption MALAIRE en « ailes de papillon » : érythème du dos du nez et des pommettes, ÉPARGNANT les sillons naso-géniens (contrairement à la dermatite séborrhéique). S'y ajoutent ulcérations buccales indolores, lupus discoïde cicatriciel, alopécie, livedo."
+    },
+    {
+      "id": "f4",
+      "front": "Atteinte articulaire typique du LES ?",
+      "back": "Arthralgies et arthrites symétriques des petites articulations (mains, poignets), parfois très douloureuses mais NON ÉROSIVES et non destructrices ; déformation réductible des mains de Jaccoud possible (luxations par capsulite, sans érosion radiologique) — élément clé de distinction d'avec la polyarthrite rhumatoïde."
+    },
+    {
+      "id": "f5",
+      "front": "Pourquoi l'atteinte rénale fait-elle le pronostic du lupus ?",
+      "back": "La NÉPHRITE LUPIQUE touche environ la moitié des patients : protéinurie, hématurie, hypertension, insuffisance rénale, syndrome néphrotique ; les formes prolifératives (classes III-IV ISN/RPS), non traitées, évoluent vers l'insuffisance rénale terminale et la mort ; le diagnostic (protéinurie quantifiée, PBR) et le traitement précoce (corticoïdes + mycophénolate/cyclophosphamide) changent l'histoire naturelle."
+    },
+    {
+      "id": "f6",
+      "front": "Que valent les AAN dans le lupus ?",
+      "back": "Test de SCREENING très sensible (supérieur à 95 %) : un AAN négatif rend le lupus très improbable. Mais peu spécifiques : positifs dans d'autres connectivites, hépatites auto-immunes, infections, hémopathies et chez 5-15 % de sujets sains (titre faible). Le pré-requis des critères EULAR/ACR 2019 est un AAN supérieur ou égal à 1/80."
+    },
+    {
+      "id": "f7",
+      "front": "Anticorps spécifiques du lupus et leur intérêt ?",
+      "back": "ANTI-ADN NATIF : spécificité élevée (présent dans environ 60-70 %), titre corrélé à l'activité de la maladie et à la néphrite ; ANTI-Sm : très spécifiques mais peu sensibles (environ 30 %) ; leur présence, avec un tableau compatible, affirme fortement le lupus. Anti-Ro/SSA : lupus cutané subaigu, lupus néonatal, bloc atrio-ventriculaire fœtal."
+    },
+    {
+      "id": "f8",
+      "front": "Que signifie un complément (C3, C4) abaissé chez un lupique ?",
+      "back": "CONSOMMATION du complément par les complexes immuns : signe d'ACTIVITÉ de la maladie (surtout néphrite lupique et hémolyse) ; à suivre en parallèle des anti-ADN natif ; normalisation sous traitement = maîtrise de la poussée. Un complément bas isolé doit aussi faire évoquer un déficit héréditaire du complément (facteur de risque de lupus)."
+    },
+    {
+      "id": "f9",
+      "front": "Piliers du traitement du lupus ?",
+      "back": "1) HYDROXYCHLOROQUINE à vie (réduit poussées, thromboses, mortalité) ; 2) CORTICOÏDES à la dose minimale efficace selon la sévérité (bolus dans les formes graves) ; 3) IMMUNOSUPPRESSEURS si atteinte d'organe (mycophénolate, azathioprine, cyclophosphamide, ciclosporine, rituximab, belimumab) ; 4) mesures : photoprotection, arrêt du tabac, vaccins, contraception/grossesse planifiée, prévention de l'ostéoporose et des infections iatrogènes."
+    },
+    {
+      "id": "f10",
+      "front": "Quel immunosuppresseur en première intention dans la néphrite lupique, et ses précautions ?",
+      "back": "MYCOPHÉNOLATE (induction puis entretien) : efficace et mieux toléré que le cyclophosphamide ; CYCLOPHOSPHAMIDE réservé aux formes prolifératives graves ou réfractaires (gonadotoxique : cryopréservation des gamètes chez le sujet jeune ; cystite hémorragique : hydratation). Grossesse : mycophénolate CONTRE-INDIQUÉ ; azathioprine et ciclosporine autorisées."
+    },
+    {
+      "id": "f11",
+      "front": "Place de l'hydroxychloroquine : pourquoi pour tous, et quelle surveillance ?",
+      "back": "Le seul traitement associé à une réduction de la MORTALITÉ : moins de poussées, moins de thromboses, moins de diabète, meilleures issues de grossesse, épargne cortisonique. Dose : 5 mg/kg/jour. Surveillance OPHTALMOLOGIQUE (rétinopathie rare, dose-dépendante) : examen initial puis annuel après 5 ans de traitement. Ne jamais l'arrêter sans motif valable."
+    },
+    {
+      "id": "f12",
+      "front": "Lupus et grossesse : les règles ?",
+      "back": "Grossesse PLANIFIÉE en rémission depuis au moins 6 mois ; hydroxychloroquine MAINTENUE ; azathioprine/ciclosporine autorisées ; mycophénolate et cyclophosphamide interdits (arrêt du mycophénolate 3 mois avant conception) ; dépister antiphospholipides (thrombose, RCIU, pertes fœtales : aspirine ± héparine selon protocoles) et anti-Ro (écho du rythme cardiaque fœtal : bloc atrio-ventriculaire, lupus néonatal) ; risque de poussée en post-partum."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que le syndrome des antiphospholipides associé au lupus ?",
+      "back": "Présent dans 20-30 % des lupus : anticorps anticardiolipines, anticoagulant lupique ou anti-bêta2-GPI ; se manifeste par THROMBOSES artérielles ou veineuses (phlébites, AVC, thrombopénie), pertes fœtales à répétition ; traitement : anticoagulation à dose efficace (AVK) après une thrombose, prévention obstétricale ; éviter les estroprogestatifs."
+    },
+    {
+      "id": "f14",
+      "front": "Différencier poussée lupique et infection chez un patient fébrile.",
+      "back": "Infection : foyer retrouvé (urinaire ++, pulmonaire, cutané), frissons, CRP ÉLEVÉE, neutrophilie, hémocultures positives ; poussée lupique : signes viscéraux (arthrite, éruption, néphrite, cytopénie, complément abaissé), CRP souvent normale ou peu élevée (sauf sérite) ; EN CAS DE DOUTE : prélever (hémocultures, ECBU) et couvrir l'infection — ne jamais augmenter l'immunosuppression à l'aveugle."
+    },
+    {
+      "id": "f15",
+      "front": "Principales manifestations hématologiques du lupus ?",
+      "back": "Anémie de l'inflammation (la plus fréquente) ; anémie hémolytique auto-immune (Coombs positif, LDH élevées, haptoglobine basse) ; LEUCONEUTROPÉNIE (fréquente, parfois profonde — facteur de risque infectieux) ; THROMBOPÉNIE (habituellement modérée ; purpura, saignements, splénomégalie si sévère) ; adénopathies et splénomégalie modérées."
+    },
+    {
+      "id": "f16",
+      "front": "Citez trois médicaments qui peuvent induire un lupus.",
+      "back": "HYDRALAZINE (antihypertenseur), ISONIAZIDE (antituberculeux — pertinent au Madagascar où la tuberculose est fréquente), MINOCYCLINE ; aussi : procainamide, certains antithyroïdiens, interféron alpha. Caractères du lupus induit : AAN positifs avec ANTI-HISTONES, atteinte viscérale rare (pas de néphrite ni de lésion cérébrale), guérison à l'ARRÊT du médicament."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "lupus",
+      "label": "Lupus érythémateux systémique"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Femme jeune, éruption malaire, photosensibilité"
+          },
+          {
+            "id": "b1c2",
+            "label": "Arthrites non érosives (mains de Jaccoud)"
+          },
+          {
+            "id": "b1c3",
+            "label": "Cytopénies, sérites, atteinte neuro"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Fièvre = poussée OU infection"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Biologie",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "AAN : screening (pré-requis supérieur ou égal à 1/80)"
+          },
+          {
+            "id": "b2c2",
+            "label": "Anti-ADN natif, anti-Sm : spécifiques"
+          },
+          {
+            "id": "b2c3",
+            "label": "C3-C4 abaissés en poussée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Antiphospholipides : thromboses, pertes fœtales"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Organes cibles",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Néphrite lupique (pronostic) : protéinurie, PBR"
+          },
+          {
+            "id": "b3c2",
+            "label": "Neuropsychiatrique : convulsions, psychose"
+          },
+          {
+            "id": "b3c3",
+            "label": "Péricardite, pleurésie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Bandelette urinaire à chaque visite"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Hydroxychloroquine à vie"
+          },
+          {
+            "id": "b4c2",
+            "label": "Corticoïdes selon sévérité"
+          },
+          {
+            "id": "b4c3",
+            "label": "Immunosuppresseurs : mycophénolate (néphrite), cyclophosphamide (grave)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Belimumab, rituximab : formes réfractaires"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Photoprotection, arrêt du tabac"
+          },
+          {
+            "id": "b5c2",
+            "label": "Vaccins (pas de vivants sous immunosuppresseurs)"
+          },
+          {
+            "id": "b5c3",
+            "label": "Grossesse planifiée en rémission"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Iatrogénie : ostéoporose, infections, diabète"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "kiriakidou2020",
+      "title": "Systemic Lupus Erythematosus (In the Clinic)",
+      "citation": "Kiriakidou N, Ching CL. Systemic Lupus Erythematosus. Ann Intern Med. 2020;172(11 suppl):ITC81-ITC96. DOI 10.7326/AITC202006020. PMID 32479157.",
+      "organization": "American College of Physicians",
+      "year": 2020,
+      "version": "In the Clinic",
+      "url": "https://doi.org/10.7326/AITC202006020",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Définition, épidémiologie, physiopathologie",
+        "Manifestations cliniques multi-organes",
+        "Diagnostic immunologique et bilan",
+        "Traitement (hydroxychloroquine, corticoïdes, immunosuppresseurs) et suivi"
+      ]
+    },
+    {
+      "id": "aringer2019",
+      "title": "2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus",
+      "citation": "Aringer M, Costenbader K, Daikh D, et al. 2019 EULAR/ACR Classification Criteria for Systemic Lupus Erythematosus. Ann Rheum Dis. 2019;78(9):1151-1159. DOI 10.1136/annrheumdis-2018-214819.",
+      "organization": "EULAR / ACR",
+      "year": 2019,
+      "version": "Classification criteria",
+      "url": "https://doi.org/10.1136/annrheumdis-2018-214819",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères de classification 2019 (pré-requis AAN supérieur ou égal à 1/80, domaines pondérés, seuil 10)",
+        "Démarche diagnostique"
+      ]
+    }
+  ]
+}
