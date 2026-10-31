@@ -5,7 +5,7 @@ import cxr001 from "@/content/data/imagerie/cxr-001.json";
 
 const CASES: ImagingCase[] = [cxr001 as ImagingCase];
 
-export const Route = createFileRoute("/imagerie")({
+export const Route = createFileRoute("/imagerie/")({
   component: ImagerieListPage,
 });
 
