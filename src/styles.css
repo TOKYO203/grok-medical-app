@@ -86,9 +86,11 @@
   --app-surface-2: #EAE4F6;
   --app-fg: #221A3D;
   --app-muted: #585072;
-  /* #66607B : contraste 5.31:1 sur --app-bg (parchemin) et 6.92:1 sur --app-card (blanc)
-     — WCAG AA garanti pour le petit texte ; l'ancien #8A7555 ne donnait que 3.38:1. */
-  --app-subtle: #66607B;
+  /* #5A5270 : contraste 6.54:1 sur --app-bg et 7.30:1 sur --app-card (blanc) — et
+     ≥ 4,82:1 sur les fonds teints de CHAQUE palette d'accent (immersion). #66607B
+     n'offrait que ~3,9-4,1:1 sur les fonds chauds (rose, marron, vert, violet,
+     marine) : AA cassé hors du parchemin de base. */
+  --app-subtle: #5A5270;
   --app-border: #A67C1E;
   --app-border-strong: color-mix(in oklab, #A67C1E 80%, transparent);
   --app-primary: #5B21B6;

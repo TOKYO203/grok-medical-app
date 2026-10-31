@@ -24,7 +24,7 @@ const BASE = {
    AA (≥ 4,5:1) sur le fond teinté correspondant, pas seulement sur le
    parchemin de base. */
 const BASE_TEXT = {
-  light: { fg: "#221A3D", muted: "#585072", subtle: "#66607B" },
+  light: { fg: "#221A3D", muted: "#585072", subtle: "#5A5270" },
   dark: { fg: "#EDE8FA", muted: "#A79ECB", subtle: "#8F86B5" },
 };
 
