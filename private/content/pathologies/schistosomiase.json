@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "schistosomiase",
+  "title": "Schistosomiase",
+  "specialty": "Infectiologie",
+  "objective": "Décrire le cycle des schistosomes, reconnaître les tableaux cliniques intestinal et urinaire, poser le diagnostic parasitologique et échographique, et organiser le traitement (praziquantel) et la prévention adaptés à Madagascar.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 129,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 170,
+      "localNumber": 129,
+      "sectionLabel": "Médecine",
+      "title": "Schistosomiase",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche centrée sur les deux espèces présentes à Madagascar (S. haematobium urinaire, S. mansoni intestinal) : cycle avec mollusques d'eau douce, physiopathologie granulomateuse autour des œufs (fibrose périportale, lésions vésicales), clinique (hématurie terminale, hypertension portale), diagnostic (Kato-Katz, œufs urinaires, échographie) et praziquantel en prise unique, avec la prévention de masse OMS.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source clinique : Colley DG, Bustinduy AL, Secor WE, King CH. Human schistosomiasis. Lancet. 2014;383(9936):2253-2264, doi 10.1016/S0140-6736(13)61949-2 (confirmé sur PubMed, PMID 24698483, et page éditeur Lancet).",
+      "Données OMS (charge de morbidité, prévention de masse) : fiche OMS schistosomiasis (who.int).",
+      "Pas d'image : aucune illustration (cycle, œufs, imagerie) libre de droits avec licence vérifiée sur Commons — choix documenté."
+    ],
+    "qcChecklist": [
+      "Cycle parasitaire complet avec hôtes intermédiaires (Bulinus, Biomphalaria)",
+      "Espèces présentes à Madagascar explicitées (haematobium, mansoni)",
+      "Complications chroniques : fibrose périportale/hypertension portale, lésions vésicales et génitales",
+      "Diagnostic parasitologique et échographique",
+      "Praziquantel 40 mg/kg dose unique + prévention de masse",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La schistosomiase (ou bilharziose) est une parasitose due à des vers plats (trématodes) du genre Schistosoma. C'est la deuxième parasitose la plus répandue au monde après le paludisme : au moins 230 millions de personnes infectées et une part bien plus large de la population exposée. L'homme se contamine au contact d'eau douce contenant des cercaires larvaires, dans les régions tropicales et subtropicales."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Deux espèces à Madagascar",
+          "text": "Schistosoma haematobium (bilharziose urinaire — hématurie terminale) et Schistosoma mansoni (bilharziose intestinale — diarrhée sanglante, fibrose hépatique). Toutes deux sont endémiques à Madagascar, avec des foyers régionaux distincts."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'enjeu principal n'est pas le ver adulte (qui vit des années, bien toléré) mais la réaction granulomateuse autour des œufs piégés dans les tissus : elle mène à la fibrose hépatique périportale avec hypertension portale (S. mansoni) et aux lésions vésicales et urétérales avec risque de cancer de la vessie (S. haematobium)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Cycle et physiopathologie",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Cycle"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Œufs émis dans l'eau douce (urines ou selles) → éclosion en miracidium.",
+            "Le miracidium infeste un mollusque d'eau douce : Bulinus (S. haematobium) ou Biomphalaria (S. mansoni).",
+            "Multiplication dans le mollusque → libération de milliers de cercaires.",
+            "La cercaire pénètre la peau de l'homme en contact avec l'eau (bain, lavage, riziculture, pêche).",
+            "Migration : poumon → foie, maturation en vers adultes ; les couples s'installent dans les veines mésentériques (S. mansoni) ou le plexus vésical/prostatique (S. haematobium).",
+            "Les œufs traversent la paroi intestinale ou vésicale pour être émis ; ceux qui échouent s'accumulent dans les tissus → granulomes."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "La lésion, ce sont les œufs",
+          "text": "Le ver adulte ne cause presque aucun symptôme. Toute la morbidité vient des œufs piégés dans les tissus : granulome à éosinophiles et cellules géantes → fibrose (foie, vessie, uretères, organes génitaux)."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Épidémiologie et tableaux cliniques",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'endémie dépend de la conjonction : eaux douces contaminées + mollusques hôtes + comportements d'exposition (bains, lavage, riziculture) + défécation et miction dans l'eau. En Afrique subsaharienne et à Madagascar, l'infection s'acquiert souvent dans l'enfance et la charge parasitaire cumulée explique les complications de l'adolescent et de l'adulte jeune."
+        },
+        {
+          "type": "heading",
+          "text": "Phase d'invasion"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dermatite des nageurs (prurit papuleux aux points de pénétration, dans les heures suivant le bain). Après 2 à 8 semaines, possible syndrome de Katayama : fièvre, frissons, toux, myalgies, hépato-splénomégalie, hyperéosinophilie majeure (réaction immune aux premiers œufs, surtout décrit avec S. japonicum, possible avec S. mansoni)."
+        },
+        {
+          "type": "heading",
+          "text": "Phase d'état — bilharziose urinaire (S. haematobium)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hématurie terminale (fin de miction) : signe cardinal, souvent chez l'enfant d'âge scolaire.",
+            "Pollakiurie, brûlures mictionnelles, douleur hypogastrique.",
+            "Complications : fibrose de la paroi vésicale, hydronéphrose par sténose urétérale, insuffisance rénale, cancer épidermoïde de la vessie au long cours.",
+            "Chez la femme : schistosomiase génitale féminine — lésions du col, saignements, douleurs, risque d'infertilité ; lithiase vésicale possible."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Phase d'état — bilharziose intestinale (S. mansoni)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diarrhée, selles glairo-sanglantes, douleurs abdominales, altération de l'état général.",
+            "Complication majeure : fibrose hépatique périportale (pré-sinusoïdale) → hypertension portale avec splénomégalie et circulation collatérale — les hépatocytes restant longtemps préservés (fonction hépatique conservée, à la différence de la cirrhose).",
+            "Rupture de varices œsophagiennes : hémorragie digestive grave de l'adulte jeune en zone d'endémie.",
+            "Plus rarement : atteinte médullaire (compression), pulmonaire (hypertension pulmonaire), lésions ectopiques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie digestive chez un adulte jeune",
+          "text": "Splénomégalie + hémorragie digestive haute chez un adulte jeune en zone d'endémie = chercher une hypertension portale bilharzienne avant d'incriminer un ulcère : fibrose périportale de S. mansoni, foie restant fonctionnel."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur la mise en évidence des œufs, orientée par le tableau : selles pour S. mansoni (technique de Kato-Katz, quantitative), urines pour S. haematobium (filtration sur papier, recueil en fin de matinée, hématurie à la bandelette). Les œufs de S. haematobium ont un éperon terminal, ceux de S. mansoni un éperon latéral."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sérologie (ELISA) : utile chez le voyageur (ne distingue pas infection ancienne/active), peu utile en zone d'endémie.",
+            "Test CCA (antigène cathodique circulant) sur urine : outil de terrain en population.",
+            "Échographie : pierre angulaire de l'évaluation de la morbidité — paroi vésicale épaissie, dilatation des cavités rénales pour S. haematobium ; index de fibrose hépatique (REI), splénomégalie pour S. mansoni.",
+            "Hyperéosinophilie sanguine : argument d'orientation non spécifique.",
+            "Cystoscopie/coloscopie si doute, biopsie rectale (œufs)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Hématurie de l'enfant en zone d'endémie",
+          "text": "Hématurie terminale chez un enfant d'âge scolaire à Madagascar → penser schistosomiase urinaire en première intention (bandelette + œufs dans les urines + échographie vésicale).",
+          "sources": [
+            {
+              "id": "colley2014",
+              "organization": "The Lancet",
+              "title": "Human schistosomiasis (seminar)",
+              "year": 2014
+            },
+            {
+              "id": "whoschisto",
+              "organization": "OMS",
+              "title": "Schistosomiasis (fiche d'information)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le praziquantel (40 mg/kg en une prise unique, éventuellement fractionnée en 2 demi-doses) est le traitement de référence : actif sur les vers adultes de toutes les espèces, bien toléré (céphalées, vertiges, douleurs abdominales transitoires), utilisable en campagne de masse et chez la femme enceinte après le premier trimestre. Il n'agit pas sur les œufs déjà déposés ni sur les jeunes larves en migration."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Formes intestinales et urinaires chroniques : praziquantel 40 mg/kg, à répéter selon la persistance d'œufs (contrôle 4 à 6 semaines après).",
+            "Syndrome de Katayama : corticoïdes d'abord pour maîtriser la réaction immune, puis praziquantel (le traitement isolé peut aggraver le tableau en tuant des larves immatures).",
+            "Complications : traitement de l'hypertension portale (bêta-bloquant, ligature élastique des varices, transfusion), drainage/chirurgie urologique selon les lésions, prise en charge oncologique du cancer de la vessie.",
+            "Oxamniquine : alternative pour S. mansoni (moins disponible).",
+            "Cure systématique des co-infectés et du foyer familial/communautaire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Katayama : pas de praziquantel seul",
+          "text": "Devant une fièvre avec hyperéosinophilie au retour d'une zone d'endémie, ne pas donner le praziquantel isolément : la réaction inflammatoire peut s'aggraver. Corticoïdes d'abord, antiparasitaire ensuite.",
+          "sources": [
+            {
+              "id": "colley2014",
+              "organization": "The Lancet",
+              "title": "Human schistosomiasis (seminar)",
+              "year": 2014
+            },
+            {
+              "id": "whoschisto",
+              "organization": "OMS",
+              "title": "Schistosomiasis (fiche d'information)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stratégie OMS : chimiothérapie préventive de masse à intervalles réguliers (praziquantel dans les écoles et communautés des foyers à forte prévalence) — Madagascar applique ces campagnes ciblées. Mesures complémentaires : accès à l'eau potable et à l'assainissement (latrines, miction hors de l'eau), gestion des points d'eau, contrôle des mollusques, port de bottes dans les rizières, éducation sanitaire, dépistage et traitement des porteurs. Il n'existe pas de vaccin disponible."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Résumé prévention",
+          "text": "Traiter en masse (praziquantel), ne pas uriner/déféquer dans l'eau, eau potable, bottes aux rizières : les quatre piliers de la lutte contre la bilharziose à Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La schistosomiase, deuxième parasitose mondiale, est endémique à Madagascar sous deux formes : urinaire (S. haematobium, hématurie terminale de l'enfant, risque de cancer de la vessie) et intestinale (S. mansoni, hypertension portale de l'adulte jeune). Le diagnostic parasitologique est simple (œufs dans selles ou urines) et le praziquantel en prise unique guérit l'infection — mais la prévention de la morbidité passe par la répétition des cures et l'assainissement de l'environnement."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Colley DG, Bustinduy AL, Secor WE, King CH. Human schistosomiasis. Lancet. 2014;383(9936):2253-2264.",
+            "OMS. Schistosomiase — fiche d'information. who.int."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hémorragie de l'adulte jeune",
+      "text": "Splénomégalie + hémorragie digestive chez un adulte jeune en zone d'endémie : hypertension portale bilharzienne (foie fonctionnel) jusqu'à preuve du contraire."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Katayama : corticoïdes d'abord",
+      "text": "Fièvre + hyperéosinophilie post-exposition : corticoïdes avant praziquantel, jamais l'antiparasitaire isolé."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Hématurie terminale de l'enfant",
+      "text": "Zone d'endémie → bandelette, œufs dans les urines, échographie vésicale : bilharziose urinaire en première intention."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Œufs = lésion, ver = banal",
+      "text": "Toute la morbidité (fibrose périportale, vessie, uretères, organes génitaux) vient des œufs piégés, pas du ver adulte."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Praziquantel 40 mg/kg une prise",
+      "text": "Dose unique, toutes espèces, utilisable en masse et chez la femme enceinte (après le 1er trimestre) ; contrôle parasitologique 4 à 6 semaines après."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "S.C.H.I.S.T.O.",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Schistosoma haematobium (urinaire, éperon terminal) et S. mansoni (intestinal, éperon latéral)"
+        },
+        {
+          "key": "C",
+          "term": "Cercaires : pénétration cutanée dans l'eau douce (mollusques Bulinus, Biomphalaria)"
+        },
+        {
+          "key": "H",
+          "term": "Hématurie terminale : signe cardinal de la bilharziose urinaire"
+        },
+        {
+          "key": "I",
+          "term": "Inflammation granulomateuse autour des œufs → fibrose (foie périportal, vessie)"
+        },
+        {
+          "key": "S",
+          "term": "Selles (Kato-Katz) et urines (filtration) : recherche des œufs"
+        },
+        {
+          "key": "T",
+          "term": "Traitement : praziquantel 40 mg/kg en prise unique"
+        },
+        {
+          "key": "O",
+          "term": "Œufs piégés = morbidité ; ver adulte = bien toléré des années"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agents de la schistosomiase et espèces présentes à Madagascar ?",
+      "back": "Trématodes du genre Schistosoma : S. haematobium (urinaire) et S. mansoni (intestinal) sont endémiques à Madagascar ; S. japonicum est asiatique."
+    },
+    {
+      "id": "f2",
+      "front": "Hôtes intermédiaires respectifs de S. haematobium et S. mansoni ?",
+      "back": "Mollusques d'eau douce : Bulinus pour S. haematobium, Biomphalaria pour S. mansoni."
+    },
+    {
+      "id": "f3",
+      "front": "Mode de contamination de l'homme ?",
+      "back": "Pénétration transcutanée de cercaires lors d'un contact avec de l'eau douce contaminée (bain, lavage, riziculture, pêche)."
+    },
+    {
+      "id": "f4",
+      "front": "Signe cardinal de la bilharziose urinaire ?",
+      "back": "L'hématurie terminale (fin de miction), typique chez l'enfant d'âge scolaire en zone d'endémie."
+    },
+    {
+      "id": "f5",
+      "front": "Complication hépatique de S. mansoni ?",
+      "back": "Fibrose périportale pré-sinusoïdale → hypertension portale avec splénomégalie et varices œsophagiennes, foie restant longtemps fonctionnel."
+    },
+    {
+      "id": "f6",
+      "front": "Complication vésicale au long cours de S. haematobium ?",
+      "back": "Fibrose vésicale, sténoses urétérales (hydronéphrose) et cancer épidermoïde de la vessie."
+    },
+    {
+      "id": "f7",
+      "front": "Comment différencier les œufs à l'examen parasitologique ?",
+      "back": "Éperon terminal pour S. haematobium (dans les urines), éperon latéral pour S. mansoni (dans les selles, technique de Kato-Katz)."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce que le syndrome de Katayama ?",
+      "back": "Réaction immune aiguë aux premiers œufs (2 à 8 semaines après exposition) : fièvre, frissons, toux, splénomégalie, hyperéosinophilie majeure."
+    },
+    {
+      "id": "f9",
+      "front": "Traitement de référence de la schistosomiase ?",
+      "back": "Praziquantel 40 mg/kg en une prise unique, actif sur toutes les espèces ; oxamniquine comme alternative pour S. mansoni."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi ne pas donner le praziquantel seul dans le Katayama ?",
+      "back": "La mort des larves immatures peut aggraver la réaction inflammatoire : corticoïdes d'abord, puis praziquantel."
+    },
+    {
+      "id": "f11",
+      "front": "Rôle de l'échographie dans le suivi ?",
+      "back": "Évaluation de la morbidité : paroi vésicale et cavités rénales (S. haematobium) ; index de fibrose hépatique et splénomégalie (S. mansoni)."
+    },
+    {
+      "id": "f12",
+      "front": "Quatre piliers de la prévention ?",
+      "back": "Chimiothérapie préventive de masse (praziquantel), miction/défécation hors de l'eau, accès à l'eau potable et aux latrines, protection cutanée (bottes) dans les rizières."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "schisto",
+      "label": "Schistosomiase"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Parasitologie",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "S. haematobium : urinaire, éperon terminal, Bulinus"
+          },
+          {
+            "id": "b1c2",
+            "label": "S. mansoni : intestinal, éperon latéral, Biomphalaria"
+          },
+          {
+            "id": "b1c3",
+            "label": "Cycle : œufs → mollusque → cercaires → peau → veines"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "2e parasitose mondiale (~230 M de personnes)"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Physiopathologie",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Granulomes autour des œufs"
+          },
+          {
+            "id": "b2c2",
+            "label": "Fibrose périportale → hypertension portale"
+          },
+          {
+            "id": "b2c3",
+            "label": "Fibrose vésicale et urétérale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Ver adulte = bien toléré"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Invasion : dermatite des nageurs"
+          },
+          {
+            "id": "b3c2",
+            "label": "Katayama : fièvre + hyperéosinophilie"
+          },
+          {
+            "id": "b3c3",
+            "label": "État : hématurie terminale / diarrhée sanglante, hypertension portale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Schistosomiase génitale féminine"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Kato-Katz (selles)"
+          },
+          {
+            "id": "b4c2",
+            "label": "Filtration des urines + bandelette"
+          },
+          {
+            "id": "b4c3",
+            "label": "Échographie (REI, vessie), sérologie, test CCA"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Éperon terminal vs latéral"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Praziquantel 40 mg/kg dose unique"
+          },
+          {
+            "id": "b5c2",
+            "label": "Katayama : corticoïdes d'abord"
+          },
+          {
+            "id": "b5c3",
+            "label": "Complications : varices, chirurgie urologique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Contrôle des œufs à 4-6 semaines"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Chimiothérapie de masse (écoles)"
+          },
+          {
+            "id": "b6c2",
+            "label": "Eau potable, latrines"
+          },
+          {
+            "id": "b6c3",
+            "label": "Protection cutanée, contrôle des mollusques"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Pas de vaccin disponible"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "colley2014",
+      "title": "Human schistosomiasis",
+      "citation": "Colley DG, Bustinduy AL, Secor WE, King CH. Human schistosomiasis. Lancet. 2014;383(9936):2253-2264.",
+      "organization": "The Lancet",
+      "year": 2014,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(13)61949-2",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Cycle",
+        "Physiopathologie",
+        "Clinique",
+        "Diagnostic",
+        "Traitement"
+      ]
+    },
+    {
+      "id": "whoschisto",
+      "title": "Schistosomiasis — fiche d'information",
+      "citation": "Organisation mondiale de la Santé. Schistosomiasis (bilharziose). Fiche d'information OMS, who.int.",
+      "organization": "OMS",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/schistosomiasis",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie",
+        "Stratégie de prévention de masse",
+        "Priorités OMS"
+      ]
+    }
+  ]
+}
