@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "dermatophytes",
+  "title": "Infections à dermatophytes de la peau glabre et des plis",
+  "specialty": "Dermatologie",
+  "objective": "Reconnaître et traiter les dermatophytoses de la peau glabre et des plis (herpès circiné, eczéma marginé de Hebra, intertrigos des orteils), prescrire les antifongiques topiques ou oraux adaptés, et connaître les pièges diagnostiques (impétigo, eczéma, corticoïdes, teigne de l'enfant).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 126,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 167,
+      "localNumber": 126,
+      "sectionLabel": "Médecine",
+      "title": "Infections à dermatophytes de la peau glabre et des plis",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Infections à dermatophytes de la peau glabre et des plis : trois genres (Trichophyton, Microsporum, Epidermophyton) kératinophiles contaminant la couche cornée ; formes cliniques : herpès circiné de la peau glabre (placard annulaire à bord actif pustulo-vésiculeux avec décalottage centrifuge et épargne du centre), eczéma marginé de Hebra des plis inguinaux (bord arciforme en relief, extension scrotale possible jamais balanienne), intertrigo interdigitoplantaire « pied d'athlète » (porte d'entrée des érysipèles), teignes de l'enfant (tondante microsporique, trichophytique, inflammatoire = kerion), onyxis et périomyxis ; diagnostic clinique + prélèvement mycologique (KOH : filaments articulés, culture Sabouraud, examen des cheveux en lumière de Wood pour Microsporum) ; traitement : azolés ou allylamines topiques (terbinafine) 2-4 semaines, terbinafine orale ou itraconazole si atteinte étendue, onyxis ou teigne ; règles d'hygiène (serviettes, linge, séchage des plis, désinfection des sols en collectivité) ; pièges : corticoïdes (tinea incognito), impétigo, eczéma nummulaire, psoriasis inversé, erythrasma à Corynebacterium (lumière de Wood corail rouge).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Ely JW, Rosenfeld S, Seabury Stone M. Diagnosis and Management of Tinea Infections. Am Fam Physician. 2014;90(10):702-711 — PMID 25403034, page officielle AAFP (https://www.aafp.org/afp/2014/1115/p702) consultée avant citation.",
+      "Source 2 : Leung AKC, Lam JM, Leong KF, Hon KL. Tinea corporis: an updated review. Drugs in Context. 2020;9:2020-5-6 — DOI 10.7573/dic.2020-5-6, confirmé sur la page officielle du journal avant citation.",
+      "Pas d'image : photographies cliniques disponibles mais aucune illustration avec licence vérifiée n'a été retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Trois genres : Trichophyton, Microsporum, Epidermophyton — dermatophytes kératinophiles",
+      "Herpès circiné : bord actif en relief, décalottage centrifuge, épargne du centre",
+      "Eczéma marginé de Hebra : plis inguinaux, bord arciforme, atteint le scrotum jamais le gland",
+      "Pied d'athlète : porte d'entrée des érysipèles — traiter systématiquement",
+      "Diagnostic : clinique + prélèvement KOH/culture si doute, Wood pour Microsporum",
+      "Traitement : topiques 2-4 semaines ; oraux (terbinafine, itraconazole) si étendu, onyxis, teigne",
+      "Pièges : tinea incognito sous corticoïdes, impétigo, psoriasis inversé, erythrasma",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les dermatophytes sont des champignons filamenteux kératinophiles qui se nourrissent de la kératine de la couche cornée, des poils et des ongles. Ils provoquent, selon le siège, des lésions annulaires caractéristiques de la peau glabre (herpès circiné), des intertrigos des grands plis (eczéma marginé de Hebra) et des petits plis (pied d'athlète). Très fréquents en milieu chaud et humide comme à Madagascar, ils constituent la première cause d'intertrigo et la porte d'entrée la plus fréquente des érysipèles de jambe."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La signature du dermatophyte",
+          "text": "LÉSION ANNULAIRE à BORD ACTIF : le bord est en relief, squamo-vésiculo-pustuleux, avec décalottage croûteux et évolution centrifuge — le centre se nettoie (« épargne du centre »). C'est l'inverse de l'eczéma (bord flou, centre actif). Toute lésion annulaire à bord net et prurigineuse est un dermatophyte jusqu'à preuve du contraire (prélèvement si doute)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Agents et épidémiologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Trois genres : Trichophyton (T. rubrum, T. mentagrophytes, T. tonsurans, T. violaceum — fréquent en Afrique), Microsporum (M. canis zoophile, M. audouinii anthropophile), Epidermophyton floccosum.",
+            "Espèces anthropophiles (contamination humaine directe : sols de collectivité, douches, partage de linge), zoophiles (animaux domestiques : chats, chiens — lésions plus inflammatoires), géophiles (sol).",
+            "Facteurs favorisants : chaleur et humidité (tropical ++), macération, hyperhidrose, diabète, obésité, corticothérapie locale ou générale, immunodépression, sports de contact et collectivités.",
+            "Lésions : la kératine est dégradée par des enzymes (kératinases) ; l'inflammation dépend de l'espèce (zoophile = inflammatoire) et du terrain ; réaction immune retardée possible à distance (rétention id reaction)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Peau glabre"
+        },
+        {
+          "type": "list",
+          "items": [
+            "HERPÈS CIRCINÉ (tinea corporis) : placard érythémato-squameux annulaire ou polycyclique, à bord en relief pustulo-vésiculeux, décalotté, prurigineux, s'étendant centrifugement avec clarification du centre ; siège : tronc, membres, visage, cou.",
+            "Formes particulières : lésions multiples par auto-inoculation ; granulome de Majocchi (folliculaire, dermique) après rasage ; tinea incognito : lésion modifiée et étalée par les corticoïdes (bord flou, atrophie, poussées)."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Plis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "ECZÉMA MARGINÉ DE HEBRA (tinea cruris) : intertrigo inguinal et crural unilatéral ou asymétrique, à bord arciforme en relief, bien limité, décalotté, prurigineux, s'étendant du plis inguinal vers la face interne des cuisses ; atteint le scrotum mais JAMAIS le gland ni le vagin ; marches d'escalier possibles.",
+            "INTERTRIGO INTERDIGITOPLANTAIRE « pied d'athlète » (tinea pedis) : macération blanchâtre fissurée des espaces interorteils (4e espace ++), dyshidrose plantaire, squames des voûtes ; hyperhidrose, chaussures fermées en climat chaud ; PORTE D'ENTRÉE des érysipèles et cellulites de jambe — à traiter systématiquement.",
+            "Autres plis : interfessier, sous-mammaire ; l'atteinte simultanée main + pied (« deux pieds, une main ») est très évocatrice d'un dermatophyte (source : pieds, auto-inoculation de la main dominante)."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Phanères et enfant (pour savoir les reconnaître)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "TEIGNES TONDANTES DE L'ENFANT : plaques d'alopecie squameuse ; microsporique (M. canis : fluorescence verte en lumière de Wood) ; trichophytique (T. tonsurans, T. violaceum : non fluorescente) ; forme inflammatoire = KERION de Celse (placard inflammatoire, purulent, très douloureux, risque de cicatrice alopécique).",
+            "ONYXIS ET PÉRIOMYXIS : onychomycose distale et latérale (onycholyse, épaississement, dyschromie), envahissement progressif de la tablette ; source de recontamination permanente si non traitée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Kerion de Celse",
+          "text": "Teigne inflammatoire de l'enfant : placard tuméfié, suintant, couvert de pustules folliculaires, ADÉNOPATHIES satellites, fièvre possible. Ne pas inciser, ne pas drainer : antifongique ORAL prolongé (griséofulvine ou terbinafine selon l'âge et l'espèce), éventuellement corticoïdes oraux courts pour limiter la fibrose, antibiothérapie seulement si surinfection bactérienne documentée. Risque de sequelles alopéciques cicatricielles si retard — le retard diagnostique fait l'alopécie définitive.",
+          "sources": [
+            {
+              "id": "ely2014",
+              "organization": "American Family Physician",
+              "title": "Diagnosis and Management of Tinea Infections",
+              "year": 2014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE sur les formes typiques : lésion annulaire à bord actif, eczéma marginé à bord décalotté, intertrigo interdigital. Le prélèvement mycologique est indiqué devant : doute diagnostique, échec d'un premier traitement, atteinte étendue, teigne ou onyxis, suspicion de tinea incognito. Il comporte : examen direct entre lame et lamelle après éclaircissement au KOH 20-30 % (filaments articulés septés ramifiés, aspect en « chaînettes » le long des squames ; structure « en gaine » autour du cheveu pour les teignes endothrix), culture sur milieu de Sabouraud avec identification d'espèce, et lumière de Wood pour les teignes microsporiques (fluorescence verte). La culture reste l'examen de référence quand le diagnostic est en doute.",
+          "sources": [
+            {
+              "id": "leung2020",
+              "organization": "Drugs in Context",
+              "title": "Tinea corporis: an updated review",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Différentiels de l'herpès circiné : eczéma nummulaire (bord flou, centre actif), psoriasis (squames épaisses, non annulaire en général), impétigo (croûtes, pas d'épargne du centre), pityriasis rosé de Gibert (collerette fine, évolution en sapin), réaction médicamenteuse.",
+            "Différentiels des intertrigos : candidose (fond suintant, collerette, pustules satellites), érythrasma à Corynebacterium minutissimum (lisse, non inflammatoire, fluorescence corail rouge en Wood, misérables ailleurs : plis, diabète), psoriasis inversé, dermite de macération."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Tinea incognito",
+          "text": "Une lésion annulaire traitée par dermocorticoïdes (souvent auto-prescrits) s'atténue puis s'étale : bord flou, atrophie, télangiectasies, poussées itératives. Le corticoïde ne guérit pas le champignon, il le masque et l'étend. Devant toute lésion annulaire rebelle « corticosensible puis récidivante » : arrêt du corticoïde, prélèvement mycologique après quelques jours de wash-out, antifongique.",
+          "sources": [
+            {
+              "id": "leung2020",
+              "organization": "Drugs in Context",
+              "title": "Tinea corporis: an updated review",
+              "year": 2020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "PEAU GLABRE ET PLIS (formes limitées) : antifongique TOPIQUE 2 à 4 semaines, poursuivre 1-2 semaines après disparition des lésions : azolés (éconazole, miconazole, clotrimazole — aussi actifs sur Candida) ou ALLYLAMINES (terbinafine topique 1-2 semaines : plus rapide et très active sur les dermatophytes) ; application sur la lésion ET 2 cm au-delà du bord visible.",
+            "ECZÉMA MARGINÉ : terbinafine topique 1-2 semaines ou azolé 2-4 semaines ; sécher les plis, sous-vêtements de coton larges, laver et repasser le linge ; traiter simultanément le pied d'athlète (source de recontamination).",
+            "PIED D'ATHLÈTE : terbinafine topique (1-2 semaines) ; séchage soigneux des espaces interdigitaux, poudres asséchantes, sandales, désinfection des chaussures ; traiter même asymptomatique chez le patient à érysipèles récidivants.",
+            "FORMES ÉTENDUES, MULTIPLES, RÉSISTANTES OU IMMUNODÉPRIMÉES : antifongique ORAL — terbinafine 250 mg/j (dermatophytes ++, 2-4 semaines peau glabre) ; itraconazole ou fluconazole en alternative (interactions et surveillance hépatique) ; la griséofulvine reste utilisée pour les teignes de l'enfant.",
+            "TEIGNES : traitement ORAL obligatoire (les topiques ne pénètrent pas le follicule) : griséofulvine 6-8 semaines (microsporie) ou terbinafine selon l'espèce ; kerion : traitement oral + corticoïdes courts + avis ; dépister et traiter les animaux domestiques (M. canis), la fratrie, et désinfecter le matériel de coiffure.",
+            "ONYCHOMYCOSES : terbinafine orale 6 semaines (mains) à 12 semaines (pieds) ou itraconazole en pulses ; traitement long, réévaluation à 3 mois, explication de la pousse saine de l'ongle (1-2 mm/mois).",
+            "Mesures associées : linge et serviettes individuels lavés à chaud, ne pas partager bonnets, peignes, chaussures ; désinfection des sols et du mobilier des collectivités lors des teignes scolaires."
+          ],
+          "sources": [
+            {
+              "id": "ely2014",
+              "organization": "American Family Physician",
+              "title": "Diagnosis and Management of Tinea Infections",
+              "year": 2014
+            },
+            {
+              "id": "leung2020",
+              "organization": "Drugs in Context",
+              "title": "Tinea corporis: an updated review",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexes thérapeutiques",
+          "text": "1) Topique = lésion + 2 cm au-delà, et poursuivre 1-2 semaines après guérison apparente (récidive n°1 : arrêt trop précoce). 2) Toujours examiner ET traiter les pieds devant un eczéma marginé (source). 3) Teigne = oral obligatoire. 4) Intertrigo du pli non cicatrisé sous topique bien conduit : prélèvement + penser à Candida, érythrasma ou psoriasis inversé. 5) Jamais de corticoïdes seuls sur une lésion annulaire.",
+          "sources": [
+            {
+              "id": "ely2014",
+              "organization": "American Family Physician",
+              "title": "Diagnosis and Management of Tinea Infections",
+              "year": 2014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hygiène des pieds : séchage complet des espaces interdigitaux après la douche, chaussures aérées, changement de chaussettes quotidiennes, sandales dans les douches collectives et autour des piscines.",
+            "Linge et objets personnels : serviettes individuelles, bonnets et peignes non partagés (teignes scolaires), laver à 60 °C et repasser le linge de contact.",
+            "Traiter les animaux domestiques (teignes zoophiles : M. canis du chat) et vétérinaire si lésions cutanées de l'animal.",
+            "Séchage et contention des plis chez l'obèse ; éviter les vêtements occlusifs synthétiques en climat chaud.",
+            "Dépistage et traitement simultané des fratries et camarades en cas de teigne ; désinfection du sol et des sièges des salles de classe ; information des écoles.",
+            "Chez les patients à érysipèles récidivants : recherche systématique et traitement du pied d'athlète et des onychomycoses (porte d'entrée)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux pieds, une main",
+          "text": "L'atteinte des deux pieds et d'une seule main (la main dominante qui gratte ou qui transmet) est quasi pathognomonique d'une dermatophytose : c'est le patient qui contamine sa main depuis ses pieds. Examiner toujours pieds, mains et ongles devant une lésion annulaire du tronc ou du plis."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les dermatophytoses de la peau glabre et des plis sont des infections bénignes mais très fréquentes, dont la clé est la reconnaissance du bord actif annulaire et la confirmation mycologique simple (KOH, culture, Wood). Le traitement repose sur les topiques (azolés, terbinafine) bien conduits — lésion + 2 cm, poursuite 1-2 semaines après guérison — et sur les antifongiques oraux pour les formes étendues, les teignes et les onychomycoses. Leur importance dépasse la lésion : le pied d'athlète est la première porte d'entrée des érysipèles de jambe, et tout intertrigo rebelle sous corticoïdes doit faire évoquer un tinea incognito."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Ely JW, Rosenfeld S, Seabury Stone M. Diagnosis and Management of Tinea Infections. Am Fam Physician. 2014;90(10):702-711 (https://www.aafp.org/afp/2014/1115/p702 — PMID 25403034).",
+            "Leung AKC, Lam JM, Leong KF, Hon KL. Tinea corporis: an updated review. Drugs in Context. 2020;9:2020-5-6 (DOI 10.7573/dic.2020-5-6)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Kerion de Celse",
+      "text": "Teigne inflammatoire de l'enfant : placard pustuleux douloureux + adénopathies. Pas d'incision : antifongique oral prolongé + corticoïdes courts si besoin. Le retard de traitement cause une alopécie cicatricielle définitive."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Jamais de corticoïdes seuls",
+      "text": "Sur une lésion annulaire, les dermocorticoïdes seuls créent le tinea incognito : atténuation apparente puis extension, atrophie, récidives. Arrêter le corticoïde, prélever, traiter par antifongique."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Intertrigo du plis : toujours examiner les pieds",
+      "text": "L'eczéma marginé s'auto-contamine depuis les pieds : examiner systématiquement les espaces interdigitaux et les ongles, et traiter pieds ET plis ensemble, sinon récidive garantie."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Bord actif, centre épargné",
+      "text": "Le dermatophyte avance en cercle avec un bord en relief, squamo-pustuleux, décalotté, et nettoie le centre derrière lui. L'eczéma, lui, a un bord flou et un centre actif. La biopsie n'est presque jamais nécessaire : le KOH suffit."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Érythrasma au Wood",
+      "text": "Devant un intertrigo lisse, brunâtre, peu inflammatoire du plis inguinal : lumière de Wood. Fluorescence corail rouge = érythrasma à Corynebacterium minutissimum (érythromycine orale, pas d'antifongique). Le dermatophyte, lui, ne fait pas cette fluorescence."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "R.I.N.G.",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Relief : le bord est en relief, actif, décalotté (cerne avançant)"
+        },
+        {
+          "key": "I",
+          "term": "Inoculation centrifuge : le centre s'épargne pendant que le bord avance"
+        },
+        {
+          "key": "N",
+          "term": "Nettoyage du KOH : filaments articulés septés à l'examen direct"
+        },
+        {
+          "key": "G",
+          "term": "Gants de toilette individuels + 2 cm au-delà du bord sous topique, 1-2 semaines de plus après guérison"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Les trois genres de dermatophytes ?",
+      "back": "Trichophyton, Microsporum, Epidermophyton — champignons kératinophiles de la couche cornée, des poils et des ongles."
+    },
+    {
+      "id": "f2",
+      "front": "Aspect de l'herpès circiné ?",
+      "back": "Placard annulaire prurigineux : bord en relief squamo-vésiculo-pustuleux, décalotté, avance centrifugement ; le centre se nettoie (épargne du centre)."
+    },
+    {
+      "id": "f3",
+      "front": "Aspect de l'eczéma marginé de Hebra ?",
+      "back": "Intertrigo inguocrural à bord arciforme en relief, bien limité, décalotté ; atteint la face interne des cuisses et le scrotum, JAMAIS le gland ni le vagin."
+    },
+    {
+      "id": "f4",
+      "front": "Différence clinique dermatophyte vs Candida dans un pli ?",
+      "back": "Dermatophyte : bord en relief décalotté, centre épargné, pas de suintement central. Candida : fond suintant rouge vif, collerette desquamative, pustules en satellites."
+    },
+    {
+      "id": "f5",
+      "front": "Pourquoi traiter systématiquement le pied d'athlète ?",
+      "back": "C'est la première porte d'entrée des érysipèles et dermohypodermites de jambe ; chez un patient à érysipèles récidivants, traiter l'intertrigo interdigital est aussi important que l'antibioprophylaxie."
+    },
+    {
+      "id": "f6",
+      "front": "Examen de laboratoire de première intention devant une lésion annulaire douteuse ?",
+      "back": "Examen direct entre lame et lamelle après éclaircissement au KOH : filaments articulés septés ramifiés le long des squames ; culture Sabouraud si négatif ou doute persiste."
+    },
+    {
+      "id": "f7",
+      "front": "Que montre la lumière de Wood dans la teigne microsporique ?",
+      "back": "Fluorescence vert clair des cheveux atteints par Microsporum (M. canis, M. audouinii) ; les teignes trichophytiques (T. tonsurans, T. violaceum) ne fluorescent pas."
+    },
+    {
+      "id": "f8",
+      "front": "Topiques de première intention des dermatophytoses cutanées limitées ?",
+      "back": "Terbinafine topique (1-2 semaines) ou azolés type éconazole/miconazole/clotrimazole (2-4 semaines) ; application sur la lésion + 2 cm au-delà, poursuivre 1-2 semaines après guérison."
+    },
+    {
+      "id": "f9",
+      "front": "Indications de l'antifongique oral dans les dermatophytoses ?",
+      "back": "Formes étendues ou multiples, immunodépression, teignes (obligatoire), onychomycoses, échec des topiques ; terbinafine 250 mg/j, alternative itraconazole/fluconazole, griséofulvine pour les teignes de l'enfant."
+    },
+    {
+      "id": "f10",
+      "front": "Qu'est-ce que le tinea incognito ?",
+      "back": "Dermatophytose modifiée par les dermocorticoïdes : bord flou, atrophie, télangiectasies, extension paradoxale ; diagnostic retardé car le prurit diminue ; à évoquer devant toute lésion annulaire « corticosensible » récidivante."
+    },
+    {
+      "id": "f11",
+      "front": "Kerion de Celse : clinique et conduite ?",
+      "back": "Teigne inflammatoire : placard tuméfié pustuleux très douloureux, adénopathies satellites. Pas d'incision : antifongique oral prolongé + corticoïdes oraux courts si inflammation majeure ; risque d'alopécie cicatricielle si retard."
+    },
+    {
+      "id": "f12",
+      "front": "Signe « deux pieds, une main » ?",
+      "back": "Atteinte des deux pieds et de la main dominante seule : auto-inoculation depuis les pieds, quasi pathognomonique d'une dermatophytose ; chercher et traiter les pieds dans le même temps."
+    },
+    {
+      "id": "f13",
+      "front": "Intertrigo lisse brunâtre du plis inguinal, Wood : fluorescence corail rouge ?",
+      "back": "Érythrasma à Corynebacterium minutissimum : lisse, non inflammatoire, pas un dermatophyte — érythromycine orale (ou clarithromycine), pas d'antifongique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "dermato",
+      "label": "Dermatophytoses : peau glabre et plis"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agents",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Trichophyton, Microsporum, Epidermophyton"
+          },
+          {
+            "id": "b1c2",
+            "label": "Anthropophiles / zoophiles / géophiles"
+          },
+          {
+            "id": "b1c3",
+            "label": "Kératinases, chaleur + humidité"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "M. canis : chat, enfant"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Peau glabre",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Herpès circiné : bord actif"
+          },
+          {
+            "id": "b2c2",
+            "label": "Tinea incognito (corticoïdes)"
+          },
+          {
+            "id": "b2c3",
+            "label": "Granulome de Majocchi"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Épargne du centre"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Plis",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Hebra : inguocrural, scrotum oui, gland non"
+          },
+          {
+            "id": "b3c2",
+            "label": "Pied d'athlète : porte d'entrée érysipèle"
+          },
+          {
+            "id": "b3c3",
+            "label": "Deux pieds, une main"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Sécher les espaces interdigitaux"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique : bord décalotté"
+          },
+          {
+            "id": "b4c2",
+            "label": "KOH : filaments articulés"
+          },
+          {
+            "id": "b4c3",
+            "label": "Culture Sabouraud"
+          },
+          {
+            "id": "b4c4",
+            "label": "Wood : Microsporum vert"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Différentiels : eczéma, impétigo, erythrasma"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Terbinafine topique 1-2 sem"
+          },
+          {
+            "id": "b5c2",
+            "label": "Azolés 2-4 sem"
+          },
+          {
+            "id": "b5c3",
+            "label": "Oral : terbinafine, itraconazole"
+          },
+          {
+            "id": "b5c4",
+            "label": "Teigne : oral obligatoire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Topique : lésion + 2 cm, poursuivre 1-2 sem"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Linge individuel, douches : sandales"
+          },
+          {
+            "id": "b6c2",
+            "label": "Traiter animaux (M. canis)"
+          },
+          {
+            "id": "b6c3",
+            "label": "Teignes scolaires : fratrie + classe"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Érysipèles récidivants : traiter les pieds"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ely2014",
+      "title": "Diagnosis and Management of Tinea Infections",
+      "citation": "Ely JW, Rosenfeld S, Seabury Stone M. Diagnosis and Management of Tinea Infections. Am Fam Physician. 2014;90(10):702-711. PMID 25403034.",
+      "organization": "American Family Physician",
+      "year": 2014,
+      "version": "Review",
+      "url": "https://www.aafp.org/afp/2014/1115/p702",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Diagnostic clinique et mycologique",
+        "Traitement topique et oral",
+        "Teignes et kerion",
+        "Durées de traitement"
+      ]
+    },
+    {
+      "id": "leung2020",
+      "title": "Tinea corporis: an updated review",
+      "citation": "Leung AKC, Lam JM, Leong KF, Hon KL. Tinea corporis: an updated review. Drugs in Context. 2020;9:2020-5-6. DOI 10.7573/dic.2020-5-6.",
+      "organization": "Drugs in Context",
+      "year": 2020,
+      "version": "Review",
+      "url": "https://doi.org/10.7573/dic.2020-5-6",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Tinea corporis : physiopathologie, diagnostic",
+        "Culture comme examen de référence",
+        "Traitement standard",
+        "Formes résistantes"
+      ]
+    }
+  ]
+}
