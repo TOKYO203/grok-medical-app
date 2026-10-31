@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "varicelle-zona",
+  "title": "Varicelle et zona",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge la varicelle et le zona : connaître le virus varicelle-zona (VZV, herpèsvirus humain alpha), la primo-infection varicelleuse (éruption vésiculeuse d'âges différents, contagiosité extrême), la latence dans les ganglions sensitifs et la réactivation en zona (éruption métamérique douloureuse), les formes graves (immunodéprimés, adulte, femme enceinte, nouveau-né, atteintes viscérales), les complications (surinfections, pneumonie, névralgie post-zostérienne), les traitements antiviraux et la prévention (hygiène, vaccination selon les recommandations).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 8,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 49,
+      "localNumber": 8,
+      "sectionLabel": "Médecine",
+      "title": "Varicelle et zona",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Varicelle et zona. VZV = HERPÈSVIRUS HUMAIN ALPHA (HHV-3) : la PRIMO-INFECTION = VARICELLE (enfant, éruption vésiculeuse prurigineuse, éléments d'âges différents « coup de mitraillette », fièvre modérée, contagiosité très élevée par gouttelettes et lésions) ; après guérison, LATENCE dans les ganglions des racines dorsales ; la RÉACTIVATION (âge, immunodépression, stress) = ZONA : éruption vésiculeuse UNILATÉRALE MÉTAMÉRIQUE, douloureuse (douleur neuropathique), guérison en 2-4 semaines, névralgie post-zostérienne chez le sujet âgé. VARICELLE : bénigne chez l'enfant sain ; grave chez l'adulte (pneumonie), la femme enceinte (risque fœtal selon le terme), le nouveau-né, l'immunodéprimé (atteintes viscérales disséminées). Complications : surinfection bactérienne des lésions (impétigo, cellulite — streptocoque/ staphylocoque), pneumonie, encéphalite, cérébellite, hépatite, thrombopénie ; zona ophtalmique (urgence : œil, bilan ophtalmologique), zona otitique (Ramsay Hunt), atteintes motrices. Diagnostic : CLINIQUE (varicelle : éruption caractéristique ; zona : métamérique) ; PCR/scraping si doute ou forme grave. Traitement : varicelle de l'enfant sain = soins locaux, antihistaminiques, antipyrétiques (PAS d'AINS ni d'aspirine chez l'enfant : risque de syndrome de Reye), éviter le grattage ; FORMES GRAVITES et sujets à risque (adulte, immunodéprimé, femme enceinte, nouveau-né) = ACICLOVIR (ou valaciclovir) IV ou oral selon gravité + immunoglobulines spécifiques VZV chez l'immunodéprimé/nouveau-né si exposition sans immunité ; zona = antiviral dans les 72 heures + antalgiques (dont gabapentinoïdes pour la douleur neuropathique), corticoïdes discutés ; névralgie post-zostérienne : traitement neuropathique. Prévention : isolement jusqu'à croûtes, hygiène des mains, éviter contact femmes enceintes/nouveau-nés/immunodéprimés ; vaccination anti-varicelleuse et anti-zostérienne selon les recommandations (OMS 2014 : vaccination universelle des enfants dans les pays où la varicelle est un problème de santé publique ; vaccin zostérien chez le sujet âgé selon disponibilité).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Gershon AA, Breuer J, Cohen JI, et al. Varicella zoster virus infection. Nat Rev Dis Primers. 2015;1:15016 — DOI 10.1038/nrdp.2015.16, page officielle nature.com consultée avant citation.",
+      "Source 2 : OMS, Varicella and herpes zoster vaccines: WHO position paper, juin 2014, WER 89:265-288 — page officielle https://www.who.int/publications/i/item/who-wer-8925-265-288 consultée avant citation.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "VZV (HHV-3) : primo-infection = varicelle, latence ganglionnaire, réactivation = zona",
+      "Varicelle : éruption vésiculeuse d'âges différents, prurigineuse, très contagieuse",
+      "Zona : éruption métamérique unilatérale, douleur neuropathique, NPZ chez le sujet âgé",
+      "Formes graves : adulte, immunodéprimé, femme enceinte, nouveau-né",
+      "Zona ophtalmique = urgence ophtalmologique",
+      "Aciclovir dans les formes à risque ; pas d'aspirine/AINS chez l'enfant (Reye)",
+      "Prévention : isolement jusqu'à croûtes, vaccination selon recommandations",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le virus varicelle-zona (VZV, herpèsvirus humain de type 3) provoque deux maladies : la VARICELLE, primo-infection quasi universelle de l'enfance, et le ZONA, réactivation du virus latent dans les ganglions sensitifs des décennies plus tard. Bénigne chez l'enfant sain, la varicelle peut être sévère chez l'adulte, la femme enceinte, le nouveau-né et l'immunodéprimé. Le zona, lui, frappe surtout le sujet âgé et immunodéprimé, avec pour complication majeure la névralgie post-zostérienne.",
+          "sources": [
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Un virus, deux maladies",
+          "text": "Varicelle = primo-infection. Zona = réactivation du MÊME virus resté latent dans les ganglions sensitifs depuis la varicelle. Un patient qui fait un zona est porteur du VZV depuis son enfance : le zona ne se « attrape » pas — il se « réveille »."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Virus, transmission et latence",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "AGENT : VZV (human alphaherpesvirus 3), herpèsvirus à ADN ; un seul sérotype ; réservoir strictement humain.",
+            "TRANSMISSION DE LA VARICELLE : aérienne par gouttelettes et contact direct avec le liquide des vésicules ; contagiosité TRÈS élevée (taux d'attaque élevé chez les non-immuns) ; contagieux de 1-2 jours avant l'éruption jusqu'à ce que TOUTES les lésions soient en croûtes.",
+            "TRANSMISSION DU ZONA : le liquide des vésicules de zona peut causer une VARICELLE chez un contact non immuni (le zona lui-même ne se transmet pas : pas d'éruption métamérique chez le contact, mais une varicelle).",
+            "LATENCE : après la varicelle, le VZV remonte par voie nerveuse et persiste latent dans les ganglions des racines dorsales et des nerfs crâniens ; la réactivation survient avec l'âge, l'immunodépression, les stress.",
+            "IMMUNITÉ : la varicelle confère une immunité durable (réinfections rares, formes atténuées possibles) ; la baisse de l'immunité cellulaire spécifique favorise le zona.",
+            "ÉPIDÉMIOLOGIE : varicelle = maladie infantile ubiquitaire dans les régions tempérées (surtout moins de 10 ans) ; zona = incidence qui augmente avec l'âge (surtout après 50 ans)."
+          ],
+          "sources": [
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VARICELLE — INCUBATION : 10-21 jours (en moyenne 14-16) ; éruption sans prodrome marqué chez l'enfant (fièvre modérée, parfois céphalées, asthénie).",
+            "VARICELLE — ÉRUPTION : macules → papules → VÉSICULES en « goutte de rosée » prurigineuses → croûtes ; ELEMENTS D'ÂGES DIFFÉRENTS coexistants (polymorphisme, « coup de mitraillette ») ; début au cuir chevelu/tronc puis diffusion ; muqueuses atteintes ; GUÉRISON en 7-10 jours sans cicatrice sauf surinfection ou grattage.",
+            "VARICELLE — COMPLICATIONS : SURINFECTION BACTÉRIENNE des lésions (la plus fréquente : impétigo, cellulite, fasciite à streptocoque), pneumonie varicelleuse (adulte, femme enceinte, immunodéprimé : toux, dyspnée, images nodulaires), atteintes neurologiques (cérebelleite aiguë, encéphalite, méningite, vascularite cérébrale), hépatite, thrombopénie, purpura fulminans (rare).",
+            "VARICELLE — FORMES À RISQUE : adulte (pneumonie), FEMME ENCEINTE (avant 20 semaines : risque faible de syndrome de varicelle congénitale ; autour de l'accouchement : varicelle néonatale grave), NOUVEAU-NÉ (varicelle néonatale si mère atteinte dans les 5 jours avant-après l'accouchement), IMMUNODÉPRIMÉ (varicelle disséminée viscérale : pneumonie, hépatite, encéphalite — URGENCE).",
+            "ZONA — ÉRUPTION : douleurs et dysesthésies pré-éruptives (quelques jours), puis VÉSICULES GROUPÉES EN NAPPES, UNILATÉRALES, MÉTAMÉRIQUES (territoire d'un ou plusieurs dermatomes), thoraciques le plus souvent ; fièvre et asthénie possibles ; croûtes en 7-10 jours, guérison en 2-4 semaines.",
+            "ZONA — LOCALISATIONS PARTICULIÈRES : OPHTALMIQUE (branche ophtalmique du trijumeau : atteinte oculaire possible — kératite, uvéite ; URGENCE OPHTALMOLOGIQUE), OTITIQUE (Ramsay Hunt : VII, lésions du conduit et du pavillon, troubles auditifs), CERVICAL ET LOMBAIRE (atteintes motrices possibles), GÉNITAL.",
+            "ZONA — COMPLICATIONS : NÉVRALGIE POST-ZOSTÉRIENNE (douleur neuropathique persistant plus de 3 mois, surtout sujet âgé), surinfection bactérienne, troubles moteurs, zona disséminé (immunodéprimé = chercher VIH/hémopathie), méningo-encéphalite, vasculopathie cérébrale.",
+            "Tout zona du sujet jeune ou atypique = chercher une cause d'immunodépression (VIH, hémopathies, corticothérapie, chimiothérapie)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgences VZV",
+          "text": "1) Varicelle de l'adulte/immunodéprimé/femme enceinte/nouveau-né : évaluer la gravité, aciclovir selon gravité, hospitalisation si atteinte viscérale. 2) Varicelle disséminée avec dyspnée (pneumonie) : aciclovir IV sans délai. 3) ZONA OPHTALMIQUE : examen ophtalmologique urgent avec fluorescéine (kératite). 4) Varicelle néonatale : aciclovir IV + immunoglobulines.",
+          "sources": [
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic des deux maladies est CLINIQUE. Varicelle : éruption vésiculeuse prurigineuse, polymorphe (éléments d'âges différents), début cuir chevelu/tronc, avec fièvre modérée, en période d'épidémie ou contexte familial. Zona : douleur neuropathique + vésicules groupées unilatérales métamériques. L'interrogatoire cherche le contage (varicelle) et le terrain (immunodépression, âge).",
+          "sources": [
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examens complémentaires (réservés aux formes graves, atypiques, ou à visée épidémiologique) : PCR VZV sur liquide vésiculaire (ou scraping), sérologie (surtout utile chez la femme enceinte exposée : statut immunitaire), radiographie thoracique si suspicion de pneumonie.",
+            "FEMME ENCEINTE exposée à la varicelle : vérifier rapidement l'immunité (sérologie) ; si non immune et dans les délais recommandés : immunoglobulines spécifiques anti-VZV (et aciclovir selon les protocoles) — le nouveau-né de mère atteinte autour de l'accouchement reçoit une prophylaxie spécifique.",
+            "Diagnostics différentiels de la varicelle : varicelle atténuée du vacciné, entérovirus (syndrome mains-pieds-bouche), gale vésiculeuse, dermatite herpétiforme, toxidermie vésiculeuse, impétigo bulleux.",
+            "Diagnostics différentiels du zona : HERPÈS SIMPLEXE (récidivale, non métamérique, même territoire), érysipèle, cellulite, dermatite de contact, nécrobiose lipoidique atypique, maladie de Mondor atypique.",
+            "IMMUNODÉPRIMÉ : l'éruption peut être atypique, hémorragique ou disséminée ; une forme grave impose la recherche de la cause sous-jacente (VIH, hémopathie).",
+            "Devant un zona ophtalmique : examen ophtalmologique systématique à la lampe à fente avec test à la fluorescéine (kératite dendritique ou ponctuée, uvéite antérieure)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Qui contagion qui ?",
+          "text": "Un malade de varicelle contamine (varicelle). Un malade de zona contamine aussi — par le liquide des vésicules — mais il provoque une VARICELLE chez le contact non immuni, jamais un zona. D'où : isoler le zona des sujets à risque (femmes enceintes non immunes, nouveau-nés, immunodéprimés) et couvrir les lésions. À l'inverse, un sujet immuni (antécédent de varicelle) ne risque rien au contact d'un zona."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VARICELLE DE L'ENFANT SAIN : soins locaux (antisepsie douce des lésions, ongles courts, douches), ANTIHISTAMINIQUES contre le prurit, PARACÉTAMOL contre la fièvre ; éviter le grattage (surinfection, cicatrices) ; ÉVITER l'aspirine et les AINS chez l'enfant (risque de SYNDROME DE REYE avec l'aspirine, complications hémorragiques avec les AINS selon le contexte) ; pas d'antiviral systématique.",
+            "VARICELLE DE L'ADULTE, FORMES GRAVES ET SUJETS À RISQUE : ACICLOVIR (ou valaciclovir) — par voie IV dans les formes graves (pneumonie, atteinte viscérale, immunodéprimé, nouveau-né, femme enceinte atteinte) et orale dans les formes modérées de l'adulte — le plus tôt possible (idéalement dans les 24 heures après l'éruption) ; dosis selon protocoles.",
+            "PROPHYLAXIE POST-EXPOSITION : IMMUNOGLOBULINES SPECIFIQUES anti-VZV chez les contacts non immuns à haut risque (immunodéprimés, femmes enceintes non immunes selon le terme, nouveau-nés dont la mère a fait une varicelle autour de l'accouchement, prématurés) — à administrer le plus vite possible selon les protocoles ; aciclovir prophylactique possible selon contexte.",
+            "ZONA : ANTIVIRAL (aciclovir, valaciclovir ou famciclovir) IDEMMENT DANS LES 72 HEURES après l'éruption (voire au-delà si nouvelles lésions, sujet âgé ou immunodéprimé) ; ANALGÉSIE par paliers, avec un traitement NEUROPATHIQUE (gabapentine, prégabaline, amitriptyline selon contexte) ; corticoïdes systémiques discutés (adjuvants antalgiques, prudence chez le diabétique) ; soins locaux.",
+            "NÉVRALGIE POST-ZOSTÉRIENNE : poursuivre le traitement neuropathique plusieurs mois ; aggravation éventuelle avec les opioides faibles, réévaluation régulière ; prévention : traitement antiviral précoce du zona.",
+            "ZONA OPHTALMIQUE : antiviral systématique + avis ophtalmologique urgent (kératite : topiques adaptés, avis spécialisé) ; zona de l'immunodéprimé : antiviral IV si disséminé.",
+            "SURINFECTIONS BACTÉRIENNES : antibiothérapie ciblée (streptocoque, staphylocoque) si impétigo, cellulite ou fasciite.",
+            "VACCINATION ANTI-ZOSTÉRIENNE ET ANTI-VARICELLEUSE : selon les recommandations nationales et la position OMS 2014 (vaccination universelle des enfants là où la varicelle est un problème de santé publique et le vaccin abordable ; vaccination des sujets susceptibles à risque ; vaccin contre le zona chez le sujet âgé immunocompétent selon disponibilité)."
+          ],
+          "sources": [
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            },
+            {
+              "id": "who2014varicelle",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Varicella and herpes zoster vaccines: WHO position paper",
+              "year": 2014
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une varicelle, évaluer d'abord le TERRAIN",
+          "text": "Enfant sain : soins symptomatiques. Adulte sain : aciclovir oral. Immunodéprimé, femme enceinte, nouveau-né, pneumonie, forme hémorragique : aciclovir IV + hospitalisation. Contact à risque sans antécédent de varicelle : sérologie ± immunoglobulines. La gravité de la varicelle se juge sur le TERRAIN, pas sur le nombre de vésicules.",
+          "sources": [
+            {
+              "id": "who2014varicelle",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Varicella and herpes zoster vaccines: WHO position paper",
+              "year": 2014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "ISOLEMENT : varicelle jusqu'à croûtes de toutes les lésions (et éviction selon protocoles) ; zona : couvrir les lésions, éviter les contacts avec femmes enceintes non immunes, nouveau-nés et immunodéprimés tant qu'il y a des vésicules.",
+            "HYGIÈNE : lavage des mains, désinfection du linge et des surfaces contaminées par le liquide vésiculaire.",
+            "PROPHYLAXIE POST-EXPOSITION chez les sujets à risque non immuns : immunoglobulines spécifiques anti-VZV (idéalement dans les délais courts selon les protocoles) ; vaccination post-exposition possible chez l'enfant sain selon les recommandations.",
+            "VACCINATION ANTI-VARICELLE : vaccin vivant atténué ; selon la position OMS 2014, les pays où la varicelle représente un problème de santé publique et où le vaccin est abordable devraient envisager la vaccination universelle des enfants (avec ou sans rattrapage) ; vaccination ciblée des adolescents et adultes susceptibles sans contre-indication (femmes en âge de procréer non immunes, personnel de santé, contacts d'immunodéprimés).",
+            "VACCINATION ANTI-ZOSTÉRIENNE : vaccins disponibles pour le sujet âgé immunocompétent (réduction du zona et de la névralgie post-zostérienne) selon les recommandations et la disponibilité nationales.",
+            "IMMUNODÉPRIMÉS : pas de vaccin vivant ; protection par vaccination des contacts familiaux et prophylaxie post-exposition.",
+            "Surveillance et information des communautés sur les périodes de contagiosité ; éviter les corticoïdes locaux ou généraux non indiqués sur les lésions.",
+            "Madagascar : varicelle fréquente dans les collectivités (écoles, camps) ; mesures d'hygiène et d'isolement à connaître ; toute flambée chez des adultes ou sujets à risque doit alerter."
+          ],
+          "sources": [
+            {
+              "id": "who2014varicelle",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Varicella and herpes zoster vaccines: WHO position paper",
+              "year": 2014
+            },
+            {
+              "id": "gershon2015",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Varicella zoster virus infection",
+              "year": 2015
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Différenciation clinique express",
+          "text": "VARICELLE : éléments d'âges différents, disséminés, prurigineux, fièvre modérée. ZONA : vésicules groupées, monomorphes, unilatérales, métamériques, douleur neuropathique. La douleur précède l'éruption du zona (quelques jours) — ne pas la prendre pour une simple névralgie ou une douleur dentaire. Herpès simplex : récurrences au même endroit, non métamérique, groupé mais plus petit."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La varicelle et le zona sont les deux visages du même herpèsvirus : primo-infection éruptive très contagieuse de l'enfant, puis latence ganglionnaire, puis réactivation métamérique douloureuse de l'adulte et du sujet âgé. La prise en charge repose sur l'évaluation du TERRAIN (enfant sain : simple ; adulte, femme enceinte, nouveau-né, immunodéprimé : aciclovir, parfois IV, immunoglobulines en prophylaxie), sur le traitement antiviral précoce du zona (moins de 72 heures) et sur la prévention de la névralgie post-zostérienne. L'isolement jusqu'à croûtes protège les plus vulnérables ; la vaccination — quand elle est disponible et recommandée — ferme le cycle."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Gershon AA, Breuer J, Cohen JI, et al. Varicella zoster virus infection. Nat Rev Dis Primers. 2015;1:15016 (DOI 10.1038/nrdp.2015.16).",
+            "OMS. Varicella and herpes zoster vaccines: WHO position paper, juin 2014. WER 2014;89(25):265-288 (https://www.who.int/publications/i/item/who-wer-8925-265-288)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Zona ophtalmique = œil en danger",
+      "text": "Vésicules sur le front, la pointe du nez ou le bord libre de la paupière (branche ophtalmique du V1) : URGENCE OPHTALMOLOGIQUE — risque de kératite, uvéite, hypertonie et cicatrices visuelles. Antiviral systématique + examen à la lampe à fente avec fluorescéine, sans attendre."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Pas d'aspirine chez l'enfant varicelleux",
+      "text": "L'aspirine chez l'enfant atteint de varicelle expose au SYNDROME DE REYE (encéphalopathie et stéatose hépatique). Antipyrétique de référence : paracétamol. Prudence aussi avec les AINS selon le contexte (risque hémorragique, surinfection). Et jamais de corticoïdes sur une varicelle non indiquée."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "La gravité se juge sur le terrain",
+      "text": "Varicelle : enfant sain = soins simples ; adulte, femme enceinte, nouveau-né, immunodéprimé, signes viscéraux = aciclovir (IV si grave) + hospitalisation. Zona : sujet âgé ou immunodéprimé = antiviral dans les 72 h + antalgiques neuropathiques. Un zona du sujet jeune = sérologie VIH."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Varicelle : 3 critères, zona : 3 critères",
+      "text": "VARICELLE : vésicules prurigineuses + éléments d'âges différents + diffusion cuir chevelu/tronc puis généralisée ; contagieux jusqu'à croûtes. ZONA : douleur + vésicules groupées + unilatéral métamérique ; le liquide de zona donne une varicelle au contact non immuni."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Contage et prophylaxie VZV",
+      "text": "Contact à risque (immunodéprimé, femme enceinte non immune, nouveau-né) sans antécédent de varicelle : sérologie rapide ; si non immune, IMMUNOGLOBULINES anti-VZV le plus tôt possible selon les protocoles (± aciclovir prophylactique). Le vaccin vivant est contre-indiqué chez l'immunodéprimé."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "V.A.R.I.C.E.L.L.E.",
+      "entries": [
+        {
+          "key": "V",
+          "term": "Vésicules « goutte de rosée », prurigineuses"
+        },
+        {
+          "key": "A",
+          "term": "Âges différents des éléments : le polymorphisme de l'éruption"
+        },
+        {
+          "key": "R",
+          "term": "Risque : adulte, femme enceinte, nouveau-né, immunodéprimé"
+        },
+        {
+          "key": "I",
+          "term": "Incubation 10-21 jours ; contagieux jusqu'à croûtes"
+        },
+        {
+          "key": "C",
+          "term": "Complications : surinfection, pneumonie, cérébellite"
+        },
+        {
+          "key": "E",
+          "term": "Exclusion des AINS/aspirine (Reye) : paracétamol seul"
+        },
+        {
+          "key": "L",
+          "term": "Latence : le VZV dort dans les ganglions sensitifs"
+        },
+        {
+          "key": "L",
+          "term": "Libération : zona = réactivation métamérique"
+        },
+        {
+          "key": "E",
+          "term": "Enfant sain : bénin — terrain = clé de la gravité"
+        }
+      ]
+    },
+    {
+      "label": "Z.O.N.A.",
+      "entries": [
+        {
+          "key": "Z",
+          "term": "Zona ophtalmique : urgence ophtalmologique (fluorescéine)"
+        },
+        {
+          "key": "O",
+          "term": "Unilatéral et Only un dermatome (métamérique) : le critère majeur"
+        },
+        {
+          "key": "N",
+          "term": "Névralgie post-zostérienne : la complication du sujet âgé — antiviral < 72 h"
+        },
+        {
+          "key": "A",
+          "term": "Antiviral + antalgiques neuropathiques (gabapentinoïdes)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel virus cause la varicelle et le zona ?",
+      "back": "Le virus varicelle-zona (VZV, human alphaherpesvirus 3, herpèsvirus à ADN) : la varicelle est la primo-infection, le zona la réactivation du virus latent dans les ganglions sensitifs."
+    },
+    {
+      "id": "f2",
+      "front": "Modes de transmission de la varicelle ?",
+      "back": "Aérienne (gouttelettes) et contact direct avec le liquide vésiculaire ; contagieux de 1-2 jours avant l'éruption jusqu'à ce que toutes les lésions soient en croûtes ; taux d'attaque très élevé chez les non-immuns."
+    },
+    {
+      "id": "f3",
+      "front": "Un zona peut-il donner un zona à l'entourage ?",
+      "back": "NON : le liquide des vésicules de zona contamine un contact non immuni par une VARICELLE (primo-infection), pas par un zona. Couvrir les lésions et éviter les sujets à risque tant qu'il y a des vésicules."
+    },
+    {
+      "id": "f4",
+      "front": "Durée d'incubation de la varicelle ?",
+      "back": "10 à 21 jours (en moyenne 14-16)."
+    },
+    {
+      "id": "f5",
+      "front": "Description de l'éruption varicelleuse ?",
+      "back": "Macules → papules → vésicules en « goutte de rosée » prurigineuses → croûtes ; éléments d'ÂGES DIFFÉRENTS coexistants (polymorphe, « coup de mitraillette ») ; début cuir chevelu/tronc puis diffusion ; muqueuses atteintes ; guérison en 7-10 jours."
+    },
+    {
+      "id": "f6",
+      "front": "Complication la plus fréquente de la varicelle ?",
+      "back": "La surinfection bactérienne des lésions (impétigo, cellulite, fasciite à streptocoque/staphylocoque) — favorisée par le grattage. Autres : pneumonie (adulte, femme enceinte, immunodéprimé), cérébellite, encéphalite, thrombopénie."
+    },
+    {
+      "id": "f7",
+      "front": "Quels terrains rendent la varicelle grave ?",
+      "back": "Adulte (pneumonie), femme enceinte (varicelle congénitale avant 20 SA ; varicelle néonatale si éruption autour de l'accouchement), nouveau-né, immunodéprimé (formes viscérales disséminées : urgence à l'aciclovir IV)."
+    },
+    {
+      "id": "f8",
+      "front": "Pourquoi éviter l'aspirine chez l'enfant varicelleux ?",
+      "back": "Risque de SYNDROME DE REYE (encéphalopathie + stéatose hépatique aiguë) ; paracétamol seul pour la fièvre, prudence avec les AINS."
+    },
+    {
+      "id": "f9",
+      "front": "Sémiologie du zona ?",
+      "back": "Douleurs/dysesthésies pré-éruptives (quelques jours), puis vésicules groupées en nappes, UNILATÉRALES, MÉTAMÉRIQUES (territoire d'un dermatome, thoracique le plus souvent) ; croûtes en 7-10 jours ; guérison en 2-4 semaines."
+    },
+    {
+      "id": "f10",
+      "front": "Que faire devant un zona ophtalmique ?",
+      "back": "URGENCE : antiviral systématique + examen ophtalmologique urgent à la lampe à fente avec test à la fluorescéine (kératite, uvéite) ; signes d'alerte : vésicules du front, de la pointe du nez (signe de Hutchinson), du bord libre de la paupière."
+    },
+    {
+      "id": "f11",
+      "front": "Quand débuter un antiviral dans le zona et chez qui ?",
+      "back": "Le plus tôt possible, idéalement dans les 72 HEURES après l'éruption — indiqué surtout chez le sujet âgé, immunodéprimé, zona ophtalmique, douleur intense ; au-delà de 72 h si nouvelles vésicules ou sujet à risque."
+    },
+    {
+      "id": "f12",
+      "front": "Névralgie post-zostérienne : définition et prise en charge ?",
+      "back": "Douleur neuropathique persistant plus de 3 mois après le zona (fréquente et prolongée chez le sujet âgé) : traitement neuropathique (gabapentine, prégabaline, amitriptyline), réévaluation régulière ; prévention = antiviral précoce."
+    },
+    {
+      "id": "f13",
+      "front": "Conduite à tenir chez une femme enceinte exposée à la varicelle ?",
+      "back": "Vérifier rapidement l'immunité (sérologie) ; si non immune et exposition confirmée : immunoglobulines spécifiques anti-VZV le plus tôt possible selon les protocoles (± aciclovir) ; varicelle autour de l'accouchement : risque de varicelle néonatale grave — aciclovir et prophylaxie du nouveau-né."
+    },
+    {
+      "id": "f14",
+      "front": "Traitement de la varicelle de l'enfant sain ?",
+      "back": "Soins locaux (antisepsie douce), antihistaminiques contre le prurit, paracétamol, ongles courts, éviter le grattage ; PAS d'antiviral systématique, PAS d'aspirine ni d'AINS, PAS de corticoïdes."
+    },
+    {
+      "id": "f15",
+      "front": "Que faire devant un zona chez un sujet jeune ?",
+      "back": "Chercher une cause d'immunodépression : sérologie VIH, hémogramme, recherche d'hémopathie ou de corticothérapie/chimiothérapie — un zona du sujet jeune doit faire évoquer une immunodépression sous-jacente."
+    },
+    {
+      "id": "f16",
+      "front": "Recommandations vaccinales contre la varicelle et le zona (OMS 2014) ?",
+      "back": "OMS : vaccination universelle des enfants dans les pays où la varicelle est un problème de santé publique et le vaccin abordable ; vaccination des adultes susceptibles à risque (femmes en âge de procréer non immunes, personnel de santé) ; vaccin anti-zostérien chez le sujet âgé immunocompétent selon disponibilité ; vaccin vivant CONTRE-INDIQUÉ chez l'immunodéprimé et la femme enceinte."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "varicelle-zona",
+      "label": "Varicelle et zona"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Virus",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "VZV (HHV-3), herpèsvirus"
+          },
+          {
+            "id": "b1c2",
+            "label": "Aérien + liquide vésiculaire"
+          },
+          {
+            "id": "b1c3",
+            "label": "Latence ganglions sensitifs"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Contagieux jusqu'à croûtes"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Varicelle",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Incubation 10-21 j"
+          },
+          {
+            "id": "b2c2",
+            "label": "Éruption polymorphe, prurigineuse"
+          },
+          {
+            "id": "b2c3",
+            "label": "Surinfection : 1re complication"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Grave : adulte, grossesse, immunodéprimé"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Zona",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Douleur pré-éruptive"
+          },
+          {
+            "id": "b3c2",
+            "label": "Vésicules métamériques unilatérales"
+          },
+          {
+            "id": "b3c3",
+            "label": "Ophtalmique : urgence"
+          },
+          {
+            "id": "b3c4",
+            "label": "NPZ du sujet âgé"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Zona jeune = chercher VIH"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique : les deux maladies"
+          },
+          {
+            "id": "b4c2",
+            "label": "PCR VZV si doute/forme grave"
+          },
+          {
+            "id": "b4c3",
+            "label": "Différentiels : herpès, impétigo"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Sérologie : femme enceinte exposée"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Enfant sain : soins simples"
+          },
+          {
+            "id": "b5c2",
+            "label": "Aciclovir : formes à risque (IV si grave)"
+          },
+          {
+            "id": "b5c3",
+            "label": "Zona : antiviral < 72 h + neuropathiques"
+          },
+          {
+            "id": "b5c4",
+            "label": "Immunoglobulines : prophylaxie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Jamais d'aspirine chez l'enfant"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Isolement jusqu'à croûtes"
+          },
+          {
+            "id": "b6c2",
+            "label": "Hygiène des mains, lésions couvertes"
+          },
+          {
+            "id": "b6c3",
+            "label": "Vaccins varicelle/zona (OMS 2014)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Vaccin vivant : contre-indiqué si immunodépression"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "gershon2015",
+      "title": "Varicella zoster virus infection",
+      "citation": "Gershon AA, Breuer J, Cohen JI, Gershon MD, et al. Varicella zoster virus infection. Nat Rev Dis Primers. 2015;1:15016. DOI 10.1038/nrdp.2015.16.",
+      "organization": "Nature Reviews Disease Primers",
+      "year": 2015,
+      "version": "Primer",
+      "url": "https://doi.org/10.1038/nrdp.2015.16",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Virologie, transmission et latence",
+        "Clinique de la varicelle et du zona",
+        "Complications et formes graves",
+        "Antiviraux et prophylaxie"
+      ]
+    },
+    {
+      "id": "who2014varicelle",
+      "title": "Varicella and herpes zoster vaccines: WHO position paper",
+      "citation": "Organisation mondiale de la Santé. Varicella and herpes zoster vaccines: WHO position paper, June 2014. Weekly Epidemiological Record. 2014;89(25):265-288 (https://www.who.int/publications/i/item/who-wer-8925-265-288).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2014,
+      "version": "Position paper",
+      "url": "https://www.who.int/publications/i/item/who-wer-8925-265-288",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Recommandations vaccinales anti-varicelle et anti-zostériennes",
+        "Vaccination universelle vs ciblée selon contexte de santé publique",
+        "Contre-indications du vaccin vivant"
+      ]
+    }
+  ]
+}
