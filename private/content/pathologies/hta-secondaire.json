@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hta-secondaire",
+  "title": "Hypertension artérielle secondaire de l'adulte",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une hypertension de l'adulte, reconnaître les signes d'alerte d'une cause secondaire — âge jeune, HTA sévère ou résistante, déclenchement brutal, signes cliniques évocateurs — et conduire le dépistage étiologique ciblé : rénovasculaire, hyperaldostéronisme, phéochromocytome, causes rénales parenchymateuses, iatrogènes et toxiques.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 45,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 86,
+      "localNumber": 45,
+      "sectionLabel": "Médecine",
+      "title": "Hypertension artérielle secondaire de l'adulte",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2024 sur l'hypertension et des recommandations ESH 2023, avec reformulation complète. La démarche est présentée comme un dépistage ciblé — pas un blanchet d'examens : chaque cause a ses signes d'appel et son test de première intention.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Hypertension artérielle secondaire de l'adulte » (Médecine n°45) : la fiche couvre les grandes causes curables de l'adulte — rénovasculaire, hyperaldostéronisme primaire, phéochromocytome, pathologies rénales, iatrogènes — et renvoie la prise en charge de l'HTA essentielle vers la fiche dédiée, celle des urgences hypertensives vers la fiche crise aiguë hypertensive.",
+      "Sources vérifiées lors du bloc HTA : ESC 2024 (McEvoy JW, et al. Eur Heart J 2024;45(38):3912-4018, doi:10.1093/eurheartj/ehae178) et ESH 2023 (Mancia G, et al. J Hypertens 2023;41(12):1874-2071, doi:10.1097/HJH.0000000000003480).",
+      "Le dépistage de l'hyperaldostéronisme primaire suit les critères Endocrine Society repris par ESH : HTA résistante, hypokaliémie, HTA paroxystique, incidentalome surrénalien — présenté en principes, sans seuils hormonaux détaillés.",
+      "Le schéma du système rénine-angiotensine-aldostérone est servi depuis Wikimedia Commons (fichier Renin-angiotensin-aldosterone system.png, licence CC BY-SA 3.0 vérifiée sur la page du fichier, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Signes d'alerte d'une HTA secondaire explicitement listés — âge, sévérité, résistance, déclenchement.",
+      "Terrain malgache intégré : maladie rénovasculaire du sujet jeune, néphropathies chroniques, contraception œstroprogestative, corticoïdes traditionnels et médicaments de rue."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypertension artérielle secondaire est une hypertension dont on peut identifier la cause — et parfois la guérir. Elle représente une minorité des hypertensions, mais sa recherche se justifie chaque fois que le tableau sort du cadre banal de l'HTA essentielle de l'adulte d'âge mûr."
+        },
+        {
+          "type": "paragraph",
+          "text": "La question n'est pas de dépister tous les hypertendus, mais de dépister les bons : l'HTA du sujet jeune, l'HTA sévère d'emblée, l'HTA résistante à trois médicaments, l'HTA d'installation brutale, l'HTA paroxystique ou accompagnée de signes cliniques évocateurs."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "Une HTA du sujet jeune avec hypokaliémie spontanée, des accès paroxystiques de palpitations-sueurs-céphalées, ou une détérioration rapide de la fonction rénale sous inhibition du système rénine : ce sont des causes secondaires jusqu'à preuve du contraire — et certaines sont curables définitivement."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Quand chercher une cause : signes d'alerte",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le système rénine-angiotensine-aldostérone est le chef d'orchestre de la majorité des HTA secondaires endocriniennes et rénovasculaires : la stase rénale, l'aldostérone ou l'adrénaline le dérèglent, et la pression s'envole. Comprendre cet axe, c'est comprendre le dépistage."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Renin-angiotensin-aldosterone_system.png?width=900",
+          "alt": "Schéma du système rénine-angiotensine-aldostérone : axe rénal contrôlant la pression artérielle",
+          "caption": "Système rénine-angiotensine-aldostérone : l'axe central des HTA secondaires rénovasculaires et endocriniennes.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Renin-angiotensin-aldosterone_system.png"
+        },
+        {
+          "type": "list",
+          "items": [
+            "HTA du sujet jeune — avant 30-40 ans — ou HTA découverte après 60 ans d'installation brutale.",
+            "HTA sévère d'emblée, ou compliquée précocement.",
+            "HTA résistante : non contrôlée malgré trois molécules dont un diurétique, à dose optimale.",
+            "HTA paroxystique, hypokaliémie spontanée,œdèmes, soif-polyurie, signes de Cushing.",
+            "Détérioration de la fonction rénale sous bloqueur du système rénine, asymétrie de taille ou de perfusion rénale, souffle abdominal para-ombilical."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Cinq situations déclenchent le dépistage : sujet jeune, sévérité, résistance, paroxysme, signes d'organe évocateurs. Hors de ces situations, le dépistage systématique n'est pas recommandé."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche étiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La démarche est ciblée : chaque cause a son test de première intention. Le bilan de base commun — créatinine et clairance, bandelette urinaire, kaliémie, glycémie — est acquis ; le dépistage spécifique suit les signes d'appel."
+        },
+        {
+          "type": "list",
+          "items": [
+            "HTA rénovasculaire : souffle abdominal, asymétrie rénale à l'échographie, détérioration sous bloqueur du système rénine — écho-Doppler des artères rénales en première intention, angio-IRM ou angio-TDM en confirmation.",
+            "Hyperaldostéronisme primaire : la cause endocrinienne la plus fréquente — dépistage par rapport aldostérone/rénine, confirmation par tests dynamiques, imagerie surrénalienne et cathétérisme si chirurgie discutée.",
+            "Phéochromocytome : triade paroxystique céphalées-palpitations-sueurs, HTA fluctuante — métanéphrines plasmatiques ou urinaires de 24 heures, puis imagerie (TDM/IRM surrénalienne).",
+            "Causes rénales parenchymateuses : protéinurie, hématurie, insuffisance rénale, reins de petite taille — glomérulonéphrites, néphropathie diabétique, polykystose.",
+            "Causes endocriniennes autres : syndrome de Cushing (signes cliniques, cortisol freiné), hyperthyroïdie, hyperparathyroïdie.",
+            "Causes iatrogènes et toxiques : corticoïdes, contraception œstroprogestative, AINS, ciclosporine, réglisse, cocaïne, amphétamines, sympathomimétiques de rue."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "HTA + hypokaliémie sans diurétique : dosage du rapport aldostérone/rénine. HTA + paroxysmes : métanéphrines. HTA + souffle abdominal : écho-Doppler des artères rénales. Trois associations, trois dépistages, trois causes curables."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan d'atteinte des organes cibles — fundoscopie, ECG, échocardiographie, créatinine, albuminurie — complète l'évaluation quel que soit l'âge, car le risque cardiovasculaire guide l'intensité du traitement en attendant la cause."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2024-HTA",
+          "organization": "ESC",
+          "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+          "year": 2024
+        },
+        {
+          "id": "SRC-ESH-2023-HTA",
+          "organization": "ESH",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Causes : panorama ordonné",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Par fréquence décroissante chez l'hypertendu dépisté : causes rénales parenchymateuses, hyperaldostéronisme primaire, HTA rénovasculaire, phéochromocytome, syndrome de Cushing — et, dans les contextes de soins limités, les causes iatrogènes et toxiques, souvent négligées."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rénales parenchymateuses : la plus fréquente des causes secondaires — néphropathie chronique protéinurique, polykystose.",
+            "Rénovasculaire : dysplasie fibromusculaire de la femme jeune, athérome ostial du sujet âgé.",
+            "Hyperaldostéronisme primaire : adénome de Conn ou hyperplasie bilatérale — la cause endocrinienne la plus fréquente.",
+            "Phéochromocytome : triade paroxystique, HTA fluctuante, incidentalome surrénalien — règle des 10 %.",
+            "Iatrogène et toxique : corticoïdes, œstroprogestatifs, AINS, réglisse, cocaïne — à rechercher par l'interrogatoire, systématiquement.",
+            "Terrain malgache : néphropathies chroniques méconnues, médicaments de rue, phytothérapie — l'interrogatoire fait le diagnostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne pas conclure trop vite à l'HTA essentielle : chaque rein de petite taille, chaque hypokaliémie, chaque paroxysme est une question posée. Inversement, ne pas transformer chaque hypertendu en dossier d'endocrinologie : le dépistage est ciblé, pas systématique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement suit deux axes : traiter la cause quand elle est curable, et contrôler la pression en attendant — avec les règles propres à chaque situation. Certaines causes guérissent l'HTA ; d'autres en changent seulement le pronostic."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hyperaldostéronisme : antagoniste de l'aldostérone (spironolactone) en pont et traitement définitif — chirurgie de l'adénome unilatéral, traitement médical au long cours de l'hyperplasie bilatérale.",
+            "Phéochromocytome : blocage alpha puis bêta avant chirurgie — jamais de bêtabloquant seul : crise hypertensive par blocage alpha insuffisant.",
+            "HTA rénovasculaire : angioplastie avec stent de la dysplasie fibromusculaire ; décision au cas par cas pour l'athérome ostial, après optimisation médicale.",
+            "Causes rénales : néphroprotection — bloqueur du système rénine avec prudence selon la fonction, contrôle de la protéinurie, éviter les néphrotoxiques.",
+            "Causes iatrogènes : retirer ou substituer le médicament en cause, avec l'alternative disponible.",
+            "Toutes causes : règles hygiéno-diététiques et traitement du risque cardiovasculaire global associé."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "HTA maligne avec rétinopathie, insuffisance rénale ou encéphalopathie : urgence hypertensive — la fiche crise aiguë hypertensive en détaille la prise en charge. Le dépistage étiologique se poursuit parallèlement, sans retarder le contrôle tensionnel."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après traitement curatif — adrénalectomie, angioplastie, sevrage du médicament — la guérison se vérifie : revoir la pression à distance, sous et hors traitement, avant de conclure. Certaines HTA secondaires laissent une HTA résiduelle qui reste à traiter."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2024-HTA",
+          "organization": "ESC",
+          "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+          "year": 2024
+        },
+        {
+          "id": "SRC-ESH-2023-HTA",
+          "organization": "ESH",
+          "title": "2023 ESH Guidelines for the management of arterial hypertension",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est celle du dépistage précoce : bien mesurer la pression dès l'âge adulte, savoir reconnaître les signes d'alerte, et éviter les causes iatrogènes évitables — contraception œstroprogestative chez la hypertendue, corticoïdes au long cours, AINS chroniques."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mesure correcte de la pression dès l'âge adulte — dépistage opportuniste à chaque consultation.",
+            "Signes d'alerte connus du patient jeune : paroxysmes, hypokaliémie, résistance, souffle.",
+            "Iatrogénie évitable : choix contraceptif chez l'hypertendue, réévaluation des corticoïdes au long cours.",
+            "Suivi après traitement curatif : contrôle tensionnel à distance, dépistage de l'HTA résiduelle.",
+            "Terrain malgache : éducation aux médicaments de rue et à la phytothérapie comme causes possibles."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Une HTA secondaire guérie reste une HTA suivie : la pression se recontrôle à distance, le risque cardiovasculaire se réévalue, et l'HTA essentielle associée — fréquente — se traite selon sa fiche dédiée."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Chercher une cause : sujet jeune, HTA sévère ou résistante, installation brutale, paroxysmes, signes évocateurs.",
+            "Trois réflexes : hypokaliémie → aldostérone/rénine ; paroxysmes → métanéphrines ; souffle abdominal → écho-Doppler rénal.",
+            "Causes curables : adénome de Conn, phéochromocytome, dysplasie fibromusculaire, médicament en cause.",
+            "Bêtabloquant jamais seul devant un phéochromocytome : blocage alpha d'abord.",
+            "Le dépistage est ciblé, pas systématique — et l'interrogatoire médicamenteux est l'examen le plus rentable."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir citer les cinq causes principales, leurs signes d'appel et leur test de première intention, et les règles de sécurité du traitement — c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC 2024 sur l'hypertension et les recommandations ESH 2023, qui encadrent le dépistage des causes secondaires."
+        },
+        {
+          "type": "list",
+          "items": [
+            "McEvoy JW, et al. 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. Eur Heart J 2024.",
+            "Mancia G, et al. 2023 ESH Guidelines for the management of arterial hypertension. J Hypertens 2023."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-hta-sec",
+      "label": "S.E.C.O.N.D.A.I.R.E.",
+      "intro": "Les situations et les causes de l'HTA secondaire.",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sujet jeune : HTA avant 30-40 ans, dépister une cause"
+        },
+        {
+          "key": "É",
+          "term": "Évocation paroxystique : céphalées, palpitations, sueurs — métanéphrines"
+        },
+        {
+          "key": "C",
+          "term": "Corticoïdes et contraception : iatrogénie à rechercher à l'interrogatoire"
+        },
+        {
+          "key": "O",
+          "term": "Œsophagienne non — Ostium rénal : souffle abdominal, écho-Doppler des artères rénales"
+        },
+        {
+          "key": "N",
+          "term": "Néphropathie parenchymateuse : la cause la plus fréquente, protéinurie à chercher"
+        },
+        {
+          "key": "D",
+          "term": "Dysplasie fibromusculaire : femme jeune, angioplastie curative"
+        },
+        {
+          "key": "A",
+          "term": "Aldostérone : hypokaliémie spontanée, rapport aldostérone/rénine"
+        },
+        {
+          "key": "I",
+          "term": "Installation brutale : HTA d'emblée sévère, dépister"
+        },
+        {
+          "key": "R",
+          "term": "Résistance : trois molécules dont un diurétique, réévaluer la cause"
+        },
+        {
+          "key": "E",
+          "term": "Endocrinienne : Cushing, thyroïde, parathyroïde — signes d'appel cliniques"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-htas-1",
+      "front": "Quelles situations déclenchent le dépistage d'une HTA secondaire ?",
+      "back": "Sujet jeune, HTA sévère d'emblée, HTA résistante, installation brutale, paroxysmes ou signes cliniques évocateurs."
+    },
+    {
+      "id": "fc-htas-2",
+      "front": "Quelle est la cause endocrinienne la plus fréquente d'HTA secondaire ?",
+      "back": "L'hyperaldostéronisme primaire — adénome de Conn ou hyperplasie bilatérale."
+    },
+    {
+      "id": "fc-htas-3",
+      "front": "HTA + hypokaliémie spontanée : quel dépistage ?",
+      "back": "Rapport aldostérone/rénine — hyperaldostéronisme primaire."
+    },
+    {
+      "id": "fc-htas-4",
+      "front": "Triade paroxystique du phéochromocytome ?",
+      "back": "Céphalées, palpitations, sueurs — dépistage par métanéphrines plasmatiques ou urinaires."
+    },
+    {
+      "id": "fc-htas-5",
+      "front": "Pourquoi ne jamais donner de bêtabloquant seul dans un phéochromocytome ?",
+      "back": "Le blocage bêta sans blocage alpha aggrave la vasoconstriction : crise hypertensive. Toujours alpha d'abord."
+    },
+    {
+      "id": "fc-htas-6",
+      "front": "Quels signes évocateurs d'HTA rénovasculaire ?",
+      "back": "Souffle abdominal para-ombilical, asymétrie de taille rénale, détérioration de la fonction rénale sous bloqueur du système rénine."
+    },
+    {
+      "id": "fc-htas-7",
+      "front": "Deux causes d'HTA rénovasculaire selon l'âge ?",
+      "back": "Dysplasie fibromusculaire de la femme jeune, athérome ostial du sujet âgé."
+    },
+    {
+      "id": "fc-htas-8",
+      "front": "Quelles causes iatrogènes d'HTA ?",
+      "back": "Corticoïdes, contraception œstroprogestative, AINS, ciclosporine, réglisse, cocaïne, sympathomimétiques."
+    },
+    {
+      "id": "fc-htas-9",
+      "front": "Quelle est la cause la plus fréquente d'HTA secondaire ?",
+      "back": "Les causes rénales parenchymateuses — néphropathies chroniques, polykystose."
+    },
+    {
+      "id": "fc-htas-10",
+      "front": "Définition d'une HTA résistante ?",
+      "back": "Pression non contrôlée malgré trois antihypertenseurs dont un diurétique, à doses optimales et bien observées."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-htas-root",
+      "label": "HTA secondaire de l'adulte",
+      "detail": "Une minorité des hypertensions, mais des causes curables : dépistage ciblé sur les signes d'alerte, traitement étiologique quand il existe."
+    },
+    "branches": [
+      {
+        "id": "map-htas-alerte",
+        "label": "Signes d'alerte",
+        "detail": "Jeune, sévère, résistante, brutale, paroxystique.",
+        "children": [
+          {
+            "id": "map-htas-alerte-1",
+            "label": "Déclencheurs",
+            "leaves": [
+              {
+                "id": "map-htas-alerte-1a",
+                "label": "Avant 30-40 ans, HTA maligne"
+              },
+              {
+                "id": "map-htas-alerte-1b",
+                "label": "Résistance à 3 molécules"
+              }
+            ]
+          },
+          {
+            "id": "map-htas-alerte-2",
+            "label": "Signes d'appel",
+            "leaves": [
+              {
+                "id": "map-htas-alerte-2a",
+                "label": "Hypokaliémie, paroxysmes"
+              },
+              {
+                "id": "map-htas-alerte-2b",
+                "label": "Souffle abdominal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-htas-causes",
+        "label": "Causes",
+        "detail": "Rénales, endocriniennes, iatrogènes.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-htas-causes-1",
+            "label": "Rénales",
+            "leaves": [
+              {
+                "id": "map-htas-causes-1a",
+                "label": "Parenchymateuses : la plus fréquente"
+              },
+              {
+                "id": "map-htas-causes-1b",
+                "label": "Rénovasculaire : fibrodysplasie, athérome"
+              }
+            ]
+          },
+          {
+            "id": "map-htas-causes-2",
+            "label": "Endocriniennes et toxiques",
+            "leaves": [
+              {
+                "id": "map-htas-causes-2a",
+                "label": "Conn, phéochromocytome, Cushing"
+              },
+              {
+                "id": "map-htas-causes-2b",
+                "label": "Corticoïdes, contraception, AINS"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-htas-diag",
+        "label": "Dépistage",
+        "detail": "Test de première intention par cause.",
+        "children": [
+          {
+            "id": "map-htas-diag-1",
+            "label": "Hormones",
+            "leaves": [
+              {
+                "id": "map-htas-diag-1a",
+                "label": "Aldostérone/rénine si K+ bas"
+              },
+              {
+                "id": "map-htas-diag-1b",
+                "label": "Métanéphrines si paroxysmes"
+              }
+            ]
+          },
+          {
+            "id": "map-htas-diag-2",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "map-htas-diag-2a",
+                "label": "Écho-Doppler des artères rénales"
+              },
+              {
+                "id": "map-htas-diag-2b",
+                "label": "TDM/IRM surrénalienne"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-htas-trt",
+        "label": "Traitement",
+        "detail": "Guérir la cause, contrôler la pression.",
+        "children": [
+          {
+            "id": "map-htas-trt-1",
+            "label": "Curatif",
+            "leaves": [
+              {
+                "id": "map-htas-trt-1a",
+                "label": "Adrénalectomie, angioplastie"
+              },
+              {
+                "id": "map-htas-trt-1b",
+                "label": "Sevrage du médicament en cause"
+              }
+            ]
+          },
+          {
+            "id": "map-htas-trt-2",
+            "label": "Sécurité",
+            "leaves": [
+              {
+                "id": "map-htas-trt-2a",
+                "label": "Alpha avant bêta (phéochromocytome)"
+              },
+              {
+                "id": "map-htas-trt-2b",
+                "label": "Spironolactone (hyperaldostéronisme)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2024-HTA",
+      "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+      "citation": "McEvoy JW, McCarthy CP, Bruno RM, et al. 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. Eur Heart J. 2024 ; 45 (38) : 3912-4018. doi:10.1093/eurheartj/ehae178.",
+      "organization": "European Society of Cardiology (ESC)",
+      "year": 2024,
+      "version": "2024 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehae178",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Définition de l'HTA résistante",
+        "Dépistage ciblé des causes secondaires",
+        "Bilan des organes cibles"
+      ]
+    },
+    {
+      "id": "SRC-ESH-2023-HTA",
+      "title": "2023 ESH Guidelines for the management of arterial hypertension",
+      "citation": "Mancia G, Kreutz R, Brunström M, et al. 2023 ESH Guidelines for the management of arterial hypertension. J Hypertens. 2023 ; 41 (12) : 1874-2071. doi:10.1097/HJH.0000000000003480.",
+      "organization": "European Society of Hypertension (ESH)",
+      "year": 2023,
+      "version": "2023 guidelines",
+      "url": "https://doi.org/10.1097/HJH.0000000000003480",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Signes d'alerte d'HTA secondaire",
+        "Dépistage de l'hyperaldostéronisme primaire",
+        "Stratégie de traitement étiologique"
+      ]
+    }
+  ]
+}
