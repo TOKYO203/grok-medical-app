@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "candidose",
+  "title": "Infections cutanéo-muqueuses à Candida albicans",
+  "specialty": "Dermatologie",
+  "objective": "Diagnostiquer et traiter les candidoses cutanéo-muqueuses (muguet, perlèche, candidose vulvovaginale, balanite, intertrigos, onychomycose et paronychie à Candida), reconnaître les facteurs favorisants locaux et généraux, et connaître les critères de suspicion d'une candidose invasive.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 125,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 166,
+      "localNumber": 125,
+      "sectionLabel": "Médecine",
+      "title": "Infections cutanéo-muqueuses à Candida albicans",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Infections cutanéo-muqueuses à Candida albicans : levure saprophyte du microbiote devenant pathogène sous l'effet de facteurs favorisants (humidité, macération, antibiotiques, corticoïdes, diabète, immunodépression, grossesse) ; formes cliniques : muguet buccal ( enduit blanchâtre), perlèche, glossite, candidose œsophagienne (alerte VIH), candidose vulvovaginale (leucorrhées, prurit, œdème), balanite, intertrigo des grands plis (fond rouge suintant, collerette desquamative, pustules en satellites), onyxis et paronychie, granulome candidosique de l'enfant ; diagnostic clinique + prélèvement (examen direct, culture) si doute ou récidive ; traitement : azolés topiques (éconazole, miconazole) ou fluconazole oral selon l'étendue, correction systématique des facteurs favorisants, traitement du partenaire si candidose génitale récidivante ; contextes d'alerte : candidose buccale de l'adulte = dépister VIH et diabète ; fièvre chez un patient neutropénique = candidose invasive possible.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Recommandations de référence : Pappas PG, Kauffman CA, Andes DR, et al. Clinical Practice Guideline for the Management of Candidiasis: 2016 Update by the IDSA. Clin Infect Dis. 2016;62(4):e1-50 — DOI 10.1093/cid/civ933, confirmé sur la page IDSA, PubMed (PMID 26679628) et la page OUP avant citation.",
+      "Candidose vulvovaginale : Sobel JD. Vulvovaginal candidosis. Lancet. 2007;369(9577):1961-71 — DOI 10.1016/S0140-6736(07)60917-9, confirmé sur PubMed (PMID 17560449) et ScienceDirect avant citation.",
+      "Pas d'image : photographies cliniques existent mais aucune illustration avec licence vérifiée n'a été retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Candida albicans : levure saprophyte, pathogénie liée aux facteurs favorisants (pas une contamination)",
+      "Formes cliniques énumérées : muguet, perlèche, vulvovaginale, balanite, intertrigo, onyxis/paronychie",
+      "Intertrigo candidosique : fond rouge suintant, collerette desquamative, pustules en satellites",
+      "Facteurs favorisants recherchés systématiquement : diabète, VIH, antibiotiques, corticoïdes, macération, grossesse",
+      "Candidose buccale de l'adulte = dépister VIH/diabète ; dysphagie = œsophagite",
+      "Traitement gradué : topiques azolés en première intention, fluconazole oral si étendu/récidivant",
+      "Candidose invasive : terrain (neutropénie, cathéter, soins intensifs), fièvre, hémocultures",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Candida albicans est une levure faisant partie du microbiote normal des muqueuses (bouche, tube digestif, vagin). Elle devient pathogène lorsque l'équilibre microbien ou l'immunité locale se rompt : les candidoses cutanéo-muqueuses sont donc des maladies « à opportuniste », dont le traitement impose autant la correction des facteurs favorisants que l'antifongique."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Une candidose = toujours chercher le facteur favorisant",
+          "text": "Candidoses superficielles récidivantes ou étendues de l'adulte : dépister DIABÈTE (glycémie), VIH, prise récente d'ANTIBIOTIQUES ou de CORTICOÏDES (y compris inhalés pour le muguet), MACÉRATION (plis, prothèses dentaires), GROSSESSE, obésité, immunodépression. Traiter sans corriger ces facteurs conduit à la rechute systématique."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappel mycologique et physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Candida albicans : levure ovoïde bourgeonnante, saprophyte des muqueuses ; filamentation (pseudofilaments et true hyphae = tubes germinatifs) lors du passage à la pathogénicité.",
+            "Autres espèces : C. glabrata, C. tropicalis, C. parapsilosis, C. krusei (résistances aux azolés — C. krusei intrinsèquement résistant au fluconazole), C. auris (émergent, multirésistant, nosocomial).",
+            "Facteurs de virulence : adhésion aux épithéliums, enzymes protéases/ phospholipases, filamentation, biofilms (prothèses, cathéters).",
+            "Facteurs favorisants LOCAUX : humidité et macération (plis, couches, prothèses dentaires, ongles des manipulateurs d'eau), antibiothérapie (destruction de la flore bactérienne antagoniste), corticothérapie locale ou inhalée.",
+            "Facteurs favorisants GÉNÉRAUX : diabète, grossesse (hyperœstrogénie), obésité, immunodépression (VIH, chimiothérapie, corticothérapie générale), dénutrition, hypothyroïdie, âges extrêmes."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Muqueuses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "MUGUET buccal : enduit blanchâtre, crème, adhérent, laissant une muqueuse érythémateuse au décollement ; joues, langue, palais ; lésions érythémateuses atrophiques isolées possibles (dentiers, langue). Chez le nouveau-né (contamination à l'accouchement) et l'immunodéprimé.",
+            "PERLÈCHE (angulaire) : fissures radiaires, fond érythémato-squameux humide des commissures ; favorisée par les prothèses, la macrosomie, la drooling salivaire.",
+            "CANDIDOSE ŒSOPHAGIENNE : odynophagie, dysphagie derrière le muguet ou isolée chez le patient VIH — endoscopie si doute ; urgence diagnostique si dénutrition.",
+            "CANDIDOSE VULVOVAGINALE : prurit vulvaire intense, brûlures mictionnelles, leucorrhées blanches épaisses « lait caillé », œdème et fissures vulvaires, vaginite érythémateuse ; 3 quarts des femmes en auront une au cours de la vie ; récidives fréquentes ; annonce d'un diabète ou d'une grossesse parfois.",
+            "BALANITE ET BALANOPOSTHITE : érythème du gland et du prépuce, pustules, macération ; dépister diabète et traiter le partenaire."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Peau et phanères"
+        },
+        {
+          "type": "list",
+          "items": [
+            "INTERTRIGO CANDIDOSIQUE des grands plis (interfessier, inguinal, sous-mammaire, abdominal) : érythème suintant, rouge vif, luisant, à bord net irrégulier débordant du pli, souligné d'une COLLERETTE DESQUAMATIVE, avec PUSTULES EN SATELLITES à distance du pli ; macération, diabète, obésité.",
+            "CANDIDOSE DES PETITS PLIS : espaces interdigitaux des mains (terrain « mains de ménagère »), érosion interdigitale blanchâtre suintante.",
+            "ONYXIS ET PARONYCHIE candidosiques : onycholyse distale verdâtre, périonyxis inflammatoire et douloureux (« périonyxis battant »), mains de manipulateurs d'eau ou de terre.",
+            "GRANULOME CANDIDOSIQUE : placard granulomateux avec pustules folliculaires du visage et du cuir chevelu du nourrisson inadapté (immunodépression à explorer si étendu).",
+            "FORMES PROFONDES/INVASIVES : candidose hématogène disséminée du neutropénique, candidoses profondes (foie, rein, œil) — hors fiche, mais à connaître comme horizon des formes superficielles sur terrain immunodéprimé."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Candidose invasive",
+          "text": "Fièvre résistante aux antibiotiques chez un patient neutropénique, porteur de cathéter central ou en soins intensifs = suspicion de candidémie : hémocultures sur milieu sporulant, examen ophtalmologique fundique, échocardiographie, empirique échinocandine ou fluconazole selon flux local. La candidose cutanéo-muqueuse récidivante inexpliquée de l'adulte impose en amont un dépistage VIH et une glycémie.",
+          "sources": [
+            {
+              "id": "pappas2016",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Clinical Practice Guideline for the Management of Candidiasis: 2016 Update",
+              "year": 2016
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic des candidoses cutanéo-muqueuses est d'abord CLINIQUE dans les formes typiques : muguet, perlèche, intertrigo à collerette et pustules satellites, vulvovaginite à leucorrhées lactescentes. Le prélèvement mycologique — examen direct entre lame et lamelle (KOH) montrant levures bourgeonnantes et pseudofilaments, culture sur milieu de Sabouraud avec test d'identification (tube germinatif pour C. albicans, CHROMagar) — est indiqué devant : formes atypiques ou étendues, récidives sous traitement, onyxis (distinguer Candida de dermatophytes), suspicion de candidose invasive (hémocultures). Le diagnostic des candidoses invasives repose sur les hémocultures, les examens histologiques des sites profonds et les marqueurs sériques (bêta-D-glucane).",
+          "sources": [
+            {
+              "id": "pappas2016",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Clinical Practice Guideline for the Management of Candidiasis: 2016 Update",
+              "year": 2016
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Intertrigo candidosique vs dermatophytique : Candida = plis, fond suintant, collerette, pustules satellites ; dermatophyte = bord circulaire en relief avec décalottage croûteux centrifuge, atteinte des bords et épargne du centre.",
+            "Vaginite à Candida vs vaginose bactérienne vs trichomonase : leucorrhées lactescentes épaisses avec prurit (Candida) ; homogènes malodorantes (Gardnerella) ; abondantes mousseuses vertes (Trichomonas).",
+            "Tout muguet de l'adulte : dépister VIH, diabète, corticothérapie inhalée (rinçage de bouche après), prothèse dentaire, sidation par antibiothérapie large."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Perlèche : cause candidosique mais pas seulement",
+          "text": "La perlèche candidosique est favorisée par le port de prothèse, la macération et le candida ; mais la perlèche peut révéler une carence martiale, un diabète ou une atteinte par le herpès. Traiter Candida mais vérifier la ferritine et la glycémie ; ne jamais mettre de corticoïdes purs sur une perlèche sans antifongique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Mesures communes : sécher les plis, améliorer l'hygiène locale, changer les couches fréquemment chez le nourrisson, décontaminer les prothèses dentaires (brossage, bain antiseptique), rinçage de bouche après corticoïdes inhalés, arrêt si possible des antibiotiques, équilibration du diabète.",
+            "MUGUET : miconazole gel buccal ou nystatine en suspension, 7-14 jours ; fluconazole oral si réfractaire, étendu ou immunodéprimé ; toujours traiter le terrain (VIH, dentier, diabète).",
+            "PERLÈCHE : antifongique topique azolé (crème) souvent associé à une pommade à visée cicatrisante ; corriger la ferritine si basse.",
+            "CANDIDOSE VULVOVAGINALE AIGUË : azolé topique (ovule + crème vulvaire : éconazole, clotrimazole, miconazole) 3-7 jours, ou fluconazole 150 mg per os en dose unique ; efficacité comparable ; effets digestifs et interaction des azolés oraux à connaître. CANDIDOSE RÉCIDIVANTE (≥4 épisodes/an) : schéma d'entretien par fluconazole hebdomadaire 6 mois après un schéma d'induction, dépistage du diabète, traitement du partenaire si balanite.",
+            "BALANITE : toilette locale + azolé topique ; fluconazole si étendu ; dépister le diabète.",
+            "INTERTRIGO : azolé topique en crème + séchage + poudre asséchante (mais pas de poudre seule) ; désinfection des plis ; traiter le surpoids (perfusion de conseils diététiques) ; éviter les corticoïdes purs (aggravation, dès lors une dermite cortico-dépendance).",
+            "ONYXIS/PARONYCHIE : sécheresse des mains (gants pour travaux humides), azolé topique ; évérolimus du périonyxis par chirurgie ou drain ; fluconazole oral plusieurs semaines pour l'onyxis confirmé (le traitement des onychomycoses est long).",
+            "CANDIDOSE INVASIVE : échinocandine (caspofungine, micafungine, anidulafungine) en première ligne documentée ; fluconazole si souche sensible et patient stable ; retrait du cathéter ; suivi par hémocultures, fond d'œil, échocardiographie."
+          ],
+          "sources": [
+            {
+              "id": "pappas2016",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Clinical Practice Guideline for the Management of Candidiasis: 2016 Update",
+              "year": 2016
+            },
+            {
+              "id": "sobel2007",
+              "organization": "The Lancet",
+              "title": "Vulvovaginal candidosis",
+              "year": 2007
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe devant toute candidose récidivante",
+          "text": "1) Revoir la compliance et la durée du traitement (trop courts = rechute). 2) Glycémie à jeun. 3) Sérologie VIH si contexte. 4) Repenser aux facteurs locaux : prothèse dentaire, macération, antibiothérapies répétées, corticoïdes inhalés sans rinçage. 5) Prélèvement mycologique avec antifongigramme si échec : penser aux espèces non-albicans résistantes aux azolés (C. glabrata, C. krusei).",
+          "sources": [
+            {
+              "id": "pappas2016",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Clinical Practice Guideline for the Management of Candidiasis: 2016 Update",
+              "year": 2016
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hygiène et séchage des plis, changement rapide des couches, linges individuels en collectivités (muguet du nourrisson).",
+            "Rinçage de bouche et espaceur après chaque prise de corticoïdes inhalés.",
+            "Désinfection quotidienne des prothèses dentaires ; examiner la bouche de tout patient denté porteur de prothèse.",
+            "Éviter les antibiothérapies larges non justifiées ; probiotiques non recommandés systématiquement mais hygiène bucco-dentaire efficace.",
+            "Gants imperméables pour les travaux en milieu humide (prévention des paronychies et intertrigos des mains).",
+            "Contrôle glycémique rigoureux chez le diabétique ; dépistage et traitement du VIH.",
+            "Port de sous-vêtements de coton, éviter les douches vaginales et l'auto-prescription répétée d'azolés (sélection de résistances)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Tube germinatif",
+          "text": "C. albicans forme un tube germinatif en sérum en 2-3 heures : test d'orientation rapide en laboratoire de base. Les autres espèces (glabrata, krusei) ne le forment pas — et ce sont précisément celles qui résistent au fluconazole : un échec du fluconazole doit faire penser à une espèce non-albicans et demander une culture avec antifongigramme."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les candidoses cutanéo-muqueuses sont les mycoses les plus fréquentes : faciles à reconnaître (muguet, perlèche, intertrigo à collerette et pustules satellites, leucorrhées lactescentes), elles se traitent par azolés topiques en première intention, fluconazole oral si étendues ou récidivantes. Leur valeur séméologique est grande : une candidose récidivante ou extensive de l'adulte impose de dépister un diabète, une infection à VIH ou une iatrogénie (antibiotiques, corticoïdes). Corriger le facteur favorisant fait partie du traitement antifongique lui-même."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Pappas PG, Kauffman CA, Andes DR, Clancy CJ, Marr KA, Ostrosky-Zeichner L, et al. Clinical Practice Guideline for the Management of Candidiasis: 2016 Update by the IDSA. Clin Infect Dis. 2016;62(4):e1-50 (DOI 10.1093/cid/civ933).",
+            "Sobel JD. Vulvovaginal candidosis. Lancet. 2007;369(9577):1961-71 (DOI 10.1016/S0140-6736(07)60917-9)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Candidose invasive",
+      "text": "Fièvre résistante chez un neutropénique ou un patient de réanimation porteur de cathéter : hémocultures, échinocandine, retrait du cathéter. Toute candidose muqueuse étendue de l'adulte = dépister VIH et diabète."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Pas de corticoïdes purs",
+      "text": "Un intertrigo ou une perlèche ne se traite jamais par dermocorticoïdes seuls : aggravation candidosique et dermite cortico-dépendante. Si inflammation majeure, association fixe antifongique + corticoïde faible, courte durée."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Récidive = chercher le terrain",
+      "text": "Glycémie, VIH, antibiothérapies répétées, corticoïdes inhalés sans rinçage, prothèse dentaire, macération, partenaire infecté : la rechute a presque toujours une cause retrouvable."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Triade de l'intertrigo candidosique",
+      "text": "Fond suintant rouge vif + COLLERETTE DESQUAMATIVE en périphérie + PUSTULES EN SATELLITES à distance du pli : les trois signes distinguent Candida du dermatophyte."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Échec du fluconazole",
+      "text": "Penser aux espèces non-albicans : C. glabrata (sensibilité diminuée) et C. krusei (résistance intrinsèque). Culture avec antifongigramme, switch vers échinocandine ou voriconazole selon le laboratoire."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "C.A.N.D.I.D.O.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Collerette desquamative + pustules satellites : l'intertrigo candidosique"
+        },
+        {
+          "key": "A",
+          "term": "Azolés topiques en première intention (éconazole, miconazole)"
+        },
+        {
+          "key": "N",
+          "term": "Neutropénie + fièvre : candidose invasive, hémocultures + échinocandine"
+        },
+        {
+          "key": "D",
+          "term": "Diabète et VIH : à dépister devant toute forme récidivante de l'adulte"
+        },
+        {
+          "key": "I",
+          "term": "Intertrigo : sécher les plis, traiter la macération"
+        },
+        {
+          "key": "D",
+          "term": "Dentier : désinfection quotidienne, muguet du porteur de prothèse"
+        },
+        {
+          "key": "O",
+          "term": "Ovules azolés ou fluconazole 150 mg : la vaginite aiguë ; entretien hebdomadaire si récidives"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent des candidoses cutanéo-muqueuses les plus fréquentes ?",
+      "back": "Candida albicans (levure saprophyte des muqueuses) ; espèces non-albicans résistantes aux azolés : C. glabrata, C. krusei ; émergent : C. auris."
+    },
+    {
+      "id": "f2",
+      "front": "Aspect du muguet buccal ?",
+      "back": "Enduit blanchâtre crèmeux, adhérent, laissant une muqueuse rouge érosive au décollement ; joues, langue, palais ; nouveau-né et immunodéprimé."
+    },
+    {
+      "id": "f3",
+      "front": "Facteurs favorisants du muguet de l'adulte ?",
+      "back": "VIH, diabète, corticoïdes inhalés sans rinçage, prothèse dentaire mal entretenue, antibiothérapie large, corticothérapie générale."
+    },
+    {
+      "id": "f4",
+      "front": "Trois signes de l'intertrigo candidosique ?",
+      "back": "Fond suintant rouge vif, collerette desquamative en périphérie, pustules en satellites à distance du pli ; macération, obésité, diabète."
+    },
+    {
+      "id": "f5",
+      "front": "Intertrigo candidosique vs dermatophytique ?",
+      "back": "Candida : plis ++, suintement, collerette, pustules satellites ; dermatophyte : bord circulaire en relief décalotté croûteux, épargne du centre, extension centrifuge."
+    },
+    {
+      "id": "f6",
+      "front": "Clinique de la candidose vulvovaginale aiguë ?",
+      "back": "Prurit vulvaire intense, brûlures, leucorrhées blanches épaisses « lait caillé », vulve œdématiée érythémateuse, fissures."
+    },
+    {
+      "id": "f7",
+      "front": "Traitement de la vaginite à Candida aiguë ?",
+      "back": "Azolé topique (ovule + crème) 3-7 jours ou fluconazole 150 mg per os en dose unique ; efficacité comparable ; récidivante : induction + entretien fluconazole hebdomadaire 6 mois."
+    },
+    {
+      "id": "f8",
+      "front": "Définition de la candidose vulvovaginale récidivante ?",
+      "back": "≥ 4 épisodes documentés par an ; impose dépistage du diabète, revue des facteurs, schéma d'entretien antifongique, traitement du partenaire si balanite."
+    },
+    {
+      "id": "f9",
+      "front": "Perlèche candidosique : traitements et pièges ?",
+      "back": "Crème azolée + soins locaux ; vérifier ferritine (carence martiale) et glycémie ; jamais de corticoïdes purs sans antifongique."
+    },
+    {
+      "id": "f10",
+      "front": "Comment confirmer une candidose au laboratoire ?",
+      "back": "Examen direct (levures bourgeonnantes + pseudofilaments sur prélèvement écalchié, KOH) et culture sur milieu de Sabouraud ; tube germinatif en sérum = C. albicans."
+    },
+    {
+      "id": "f11",
+      "front": "Circonstances de suspicion d'une candidose invasive ?",
+      "back": "Fièvre résistante aux antibiotiques chez un neutropénique, patient de réanimation ou porteur de cathéter central ; hémocultures, bêta-D-glucane, fond d'œil, échocardiographie."
+    },
+    {
+      "id": "f12",
+      "front": "Première ligne antifongique de la candidose invasive documentée ?",
+      "back": "Échinocandine (caspofungine, micafungine, anidulafungine) ; retrait du cathéter central ; fluconazole si souche sensible et patient stable."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi traiter le terrain avec l'antifongique ?",
+      "back": "Candida est saprophyte : sans correction des facteurs favorisants (diabète, macération, antibiothérapie, dentier, VIH, corticoïdes), la rechute est quasi systématique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "candidose",
+      "label": "Candidoses cutanéo-muqueuses"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agent",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Candida albicans : levure saprophyte"
+          },
+          {
+            "id": "b1c2",
+            "label": "Filamentation = pathogénicité"
+          },
+          {
+            "id": "b1c3",
+            "label": "Non-albicans : glabrata, krusei"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Tube germinatif en sérum"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Muqueuses",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Muguet : enduit blanchâtre"
+          },
+          {
+            "id": "b2c2",
+            "label": "Perlèche commissurale"
+          },
+          {
+            "id": "b2c3",
+            "label": "Vaginite : leucorrhées lactescentes"
+          },
+          {
+            "id": "b2c4",
+            "label": "Balanite, œsophagite (VIH)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Dentier : désinfection"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Peau",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Intertrigo : collerette + satellites"
+          },
+          {
+            "id": "b3c2",
+            "label": "Erosion interdigitale"
+          },
+          {
+            "id": "b3c3",
+            "label": "Onyxis + paronychie"
+          },
+          {
+            "id": "b3c4",
+            "label": "Granulome du nourrisson"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Sécher les plis, gants humides"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique le plus souvent"
+          },
+          {
+            "id": "b4c2",
+            "label": "Prélèvement : KOH + Sabouraud"
+          },
+          {
+            "id": "b4c3",
+            "label": "Hémocultures si invasive"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Glycémie, VIH devant rechute"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Azolés topiques"
+          },
+          {
+            "id": "b5c2",
+            "label": "Fluconazole oral si étendu"
+          },
+          {
+            "id": "b5c3",
+            "label": "Échinocandine si invasive"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Corriger le terrain = guérir"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Diabète, obésité, grossesse"
+          },
+          {
+            "id": "b6c2",
+            "label": "VIH, neutropénie, corticoïdes"
+          },
+          {
+            "id": "b6c3",
+            "label": "Antibiothérapie, macération"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Récidive = cause retrouvable"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "pappas2016",
+      "title": "IDSA Clinical Practice Guideline for the Management of Candidiasis: 2016 Update",
+      "citation": "Pappas PG, Kauffman CA, Andes DR, Clancy CJ, Marr KA, Ostrosky-Zeichner L, Reboli AC, Rex JH, Morgan J. Clinical Practice Guideline for the Management of Candidiasis: 2016 Update by the Infectious Diseases Society of America. Clin Infect Dis. 2016;62(4):e1-50. DOI 10.1093/cid/civ933.",
+      "organization": "IDSA (Clinical Infectious Diseases)",
+      "year": 2016,
+      "version": "Guidelines",
+      "url": "https://doi.org/10.1093/cid/civ933",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Diagnostic",
+        "Traitement",
+        "Candidose invasive",
+        "Espèces non-albicans"
+      ]
+    },
+    {
+      "id": "sobel2007",
+      "title": "Vulvovaginal candidosis",
+      "citation": "Sobel JD. Vulvovaginal candidosis. Lancet. 2007;369(9577):1961-71. DOI 10.1016/S0140-6736(07)60917-9.",
+      "organization": "The Lancet",
+      "year": 2007,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(07)60917-9",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie de la candidose vulvovaginale",
+        "Schémas thérapeutiques",
+        "Formes récidivantes"
+      ]
+    }
+  ]
+}
