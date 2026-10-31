@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { Check, ChevronDown, Monitor, Moon, Sun } from "lucide-react";
-import { useTheme, type AccentPalette, type ThemeMode } from "@/lib/theme";
+import { useTheme, type AccentPalette, type ResolvedTheme, type ThemeMode } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const MODES: { id: ThemeMode; label: string; icon: typeof Sun }[] = [
@@ -22,6 +22,18 @@ const ACCENTS: { id: AccentPalette; label: string; swatch: string }[] = [
 
 /** Ancrage du panneau déroulant : position `fixed` calculée à l'ouverture. */
 type MenuAnchor = { left: number; up: boolean; y: number };
+
+/**
+ * Libellé d'un mode de thème, résolu pour « Système » : le mode système suit
+ * l'OS/navigateur, il affiche donc en direct ce qu'il résout actuellement
+ * (« Système · Sombre » / « Système · Clair »). Sans cet affichage, choisir
+ * Système sur un OS en sombre paraissait « ne rien faire » par rapport au
+ * mode Sombre — la résolution n'était visible nulle part.
+ */
+function modeLabel(id: ThemeMode, resolved: ResolvedTheme): string {
+  if (id === "system") return resolved === "dark" ? "Système · Sombre" : "Système · Clair";
+  return id === "dark" ? "Sombre" : "Clair";
+}
 
 /** Largeur du panneau (w-60) — doit rester en phase avec la classe du panneau. */
 const MENU_WIDTH = 240;
@@ -124,7 +136,7 @@ function ThemeMenuPanel({
   panelRef: RefObject<HTMLDivElement | null>;
   onClose: () => void;
 }) {
-  const { mode, setTheme, accent, setAccent } = useTheme();
+  const { mode, setTheme, accent, setAccent, resolved } = useTheme();
   const style = anchor.up
     ? { left: anchor.left, bottom: anchor.y }
     : { left: anchor.left, top: anchor.y };
@@ -141,7 +153,7 @@ function ThemeMenuPanel({
         Thème
       </p>
       <div role="radiogroup" aria-label="Thème" className="flex flex-col gap-0.5">
-        {MODES.map(({ id, label, icon: Icon }) => (
+        {MODES.map(({ id, icon: Icon }) => (
           <button
             key={id}
             type="button"
@@ -157,7 +169,7 @@ function ThemeMenuPanel({
             )}
           >
             <Icon className="size-4" aria-hidden />
-            <span className="flex-1">{label}</span>
+            <span className="flex-1">{modeLabel(id, resolved)}</span>
             {mode === id ? <Check className="size-3.5" aria-hidden /> : null}
           </button>
         ))}
@@ -202,7 +214,7 @@ function ThemeMenuPanel({
 
 /** Sélecteur segmenté complet (Clair / Sombre / Système) — pages de réglages. */
 export function ThemeSelector({ className }: { className?: string }) {
-  const { mode, setTheme } = useTheme();
+  const { mode, setTheme, resolved } = useTheme();
 
   return (
     <div
@@ -213,7 +225,7 @@ export function ThemeSelector({ className }: { className?: string }) {
         className,
       )}
     >
-      {MODES.map(({ id, label, icon: Icon }) => {
+      {MODES.map(({ id, icon: Icon }) => {
         const active = mode === id;
         return (
           <button
@@ -228,7 +240,7 @@ export function ThemeSelector({ className }: { className?: string }) {
             )}
           >
             <Icon className="size-3.5" aria-hidden />
-            {label}
+            {modeLabel(id, resolved)}
           </button>
         );
       })}
