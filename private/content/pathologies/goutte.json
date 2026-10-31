@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "goutte",
+  "title": "Goutte",
+  "specialty": "Rhumatologie",
+  "objective": "Prendre en charge une crise de goutte et la maladie goutteuse chronique : reconnaître la monoarthrite aiguë du gros orteil (podagre), les tophus et les atteintes chroniques ; traiter la crise (colchicine, AINS, corticoïdes) ; instaurer un traitement hypo-uricémiant au bon moment (allopurinol à dose initiale faible, titration jusqu'à la cible d'uricémie inférieure à 360 micromol/L soit 60 mg/L, inférieure à 300 pour la goutte tophacée) avec prophylaxie des flares ; identifier les causes (insuffisance rénale, diurétiques, alcool, régime, syndrome métabolique) et dépister les comorbidités (métabolique, cardiovasculaire, rénale).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 15,
+    "specialty": "Rhumatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 56,
+      "localNumber": 15,
+      "sectionLabel": "Médecine",
+      "title": "Goutte",
+      "specialty": "Rhumatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Goutte. La goutte est l'arthrite microcristalline due au dépôt de cristaux d'URATE MONOSODIQUE dans les articulations et les tissus, conséquence d'une HYPERURICÉMIE chronique (au-delà de 360 micromol/L soit 60 mg/L, point de saturation de l'urate). Elle touche classiquement l'homme d'âge mûr et la femme post-ménopausée. CRISE DE GOUTTE : monoarthrite AIGUË, brutale (souvent la nuit), du GROS ORTEIL à sa base (podagre : première métatarsophalangienne) — douleur intense, articulation rouge, chaude, gonflée, le contact du drap réveille ; facteurs déclenchants : repas riche, alcool, jeûne, effort, traumatisme, début d'un diurétique ou d'un hypo-uricémiant ; la crise guérit spontanément en quelques jours même sans traitement. TOPHUS : dépôts blanchâtres (oreille, coudes, doigts, orteils) de la goutte chronique ; ARTHROPATHIE GOUTTEUSE CHRONIQUE : accès répétés, polyarticulaires, déformations, lésions radiologiques (géodes, érosions « à l'emporte-pièce ») ; atteintes rénales (lithiase urique, néphropathie uratique). DIAGNOSTIC : la clinique typique suffit à traiter la crise ; l'identification des CRISTAUX d'urate (ponction : aiguilles intracellulaires en microscopie optique) est l'examen de référence ; l'uricémie peut être NORMALE pendant la crise ; éliminer une arthrite septique devant une monoarthrite fébrile atypique. TRAITEMENT DE LA CRISE : AINS à forte dose OU COLCHICINE (dose initiale puis entretien, effets digestifs) OU CORTICOÏDES (voies orale, intra-articulaire — surtout si contre-indication aux AINS : insuffisance rénale, ulcère, anticoagulants, sujet âgé) ; refroidissement, repos ; jamais d'hypo-uricémiant en début de crise. TRAITEMENT DE FOND : viser une uricémie inférieure à 360 micromol/L (60 mg/L), inférieure à 300 (50 mg/L) si tophus ; ALLOPURINOL en première intention (dose initiale FAIBLE 100 mg/jour, moindre si insuffisance rénale, titration progressive) ; alternatives : fébuxostat ; probénécid (uricosurique) si uricurie basse ; PROPHYLAXIE des flares pendant 3 à 6 mois (colchicine à faible dose) ; éducation : régime (limitation de la viande rouge, des abats, des fruits de mer, des boissons sucrées au fructose), arrêt de l'ALCOOL (bière en particulier), hydratation abondante, perte de poids, revoir les diurétiques ; dépistage et traitement des COMORBIDITÉS (syndrome métabolique, HTA, diabète, insuffisance rénale, risque cardiovasculaire).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Dalbeth N, Gosling AL, Gaffo A, Abhishek A. Gout. Lancet. 2021;397(10287):1843-1855 — DOI 10.1016/S0140-6736(21)00569-9 (PMID 33798500), page officielle thelancet.com confirmée par recherche avant citation.",
+      "Source 2 : FitzGerald JD, Dalbeth N, Mikuls T, et al. 2020 American College of Rheumatology Guideline for the Management of Gout. Arthritis Care Res (Hoboken). 2020;72(6):744-760 — DOI 10.1002/acr.24180, page officielle ACR/Wiley confirmée par recherche avant citation (allopurinol de première intention à faible dose initiale, prophylaxie des flares, cibles d'uricémie).",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Crise : monoarthrite aiguë du gros orteil, facteurs déclenchants",
+      "Uricémie souvent normale pendant la crise — la doser à distance",
+      "Cristaux d'urate : examen de référence ; éliminer une arthrite septique",
+      "Crise : AINS ou colchicine ou corticoïdes selon le terrain ; pas d'hypo-uricémiant en pleine crise",
+      "Fond : allopurinol à faible dose initiale, titration jusqu'à uricémie inférieure à 360 micromol/L (300 si tophus)",
+      "Prophylaxie des flares 3-6 mois au début du traitement hypo-uricémiant",
+      "Éducation : alcool, régime, hydratation, poids, diurétiques",
+      "Comorbidités : syndrome métabolique, rénal, cardiovasculaire",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La goutte est l'arthrite inflammatoire la plus fréquente chez l'adulte : une arthrite microcristalline due au dépôt de cristaux d'urate monosodique, conséquence d'une hyperuricémie chronique. Longtemps caricaturée en « maladie des rois », elle est en réalité fortement liée au mode de vie moderne (alcool, régime, obésité, syndrome métabolique) et aux traitements (diurétiques). C'est une maladie CURABLE : le traitement hypo-uricémiant maintenu dissout les cristaux et supprime les crises.",
+          "sources": [
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La goutte est une maladie curable",
+          "text": "Les crises ne sont que le sommet de l'iceberg : sous la surface, l'hyperuricémie chronique dépose des cristaux (tophus). Traiter la crise seule condamne le patient aux récidives et à la goutte tophacée destructrice. L'objectif moderne est le traitement de FOND hypo-uricémiant, titré jusqu'à la cible, avec prophylaxie des crises au début — et maintenu à vie si observant."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappel et définitions",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "URICÉMIE : l'acide urique est le produit final du catabolisme des purines ; le seuil de saturation est 360 micromol/L (60 mg/L), au-delà duquel les cristaux d'urate monosodique peuvent se déposer ; l'hyperuricémie est nécessaire mais non suffisante : elle devient goutte chez environ un quart des hyperuricémiques seulement.",
+            "PHYSIOPATHOLOGIE : hyperproduction (moins de 10-15 % : enzymes, hémopathies, chimiothérapies) ou surtout HYPOEXCRÉTION RÉNALE (85-90 % : insuffisance rénale, diurétiques, acidose, alcool, syndrome métabolique, génétique) ; les cristaux phagocytés par les neutrophiles et macrophages déclenchent la crise (inflammasome NLRP3, IL-1 bêta).",
+            "TERRAIN : homme de 40-60 ans (pic), femme POST-MÉNOPAUSÉE (protectivité des estrogènes) ; facteurs : obésité, syndrome métabolique, HTA, insuffisance rénale chronique, diurétiques thiazidiques et furosémide, alcool (bière ++), viandes rouges, abats, fruits de mer, boissons sucrées au fructose, jeûne, effort.",
+            "CRISE DE GOUTTE typique : début BRUTAL, souvent nocturne, monoarthrite de la PREMIÈRE MÉTARSOPHALANGIENNE (podagre) ou du genou, poignet, cheville ; douleur intense, articulation rouge, chaude, gonflée, impotence ; fièvre possible ; GUÉRISON SPONTANÉE en 3 à 10 jours (avec desquamation) puis intervalle libre.",
+            "GOUTTE CHRONIQUE TOPHACÉE : accès de plus en plus fréquents et polyarticulaires ; TOPHUS (dépôts blanchâtres indolores : oreille, coudes, dos des doigts, pieds, bourse olécrânienne) ; destructions radiologiques en « emporte-pièce » ; goutte polyarticulaire trompeuse chez le sujet âgé (doigts, diagnostic différentiel de la PR).",
+            "ATTEINTES EXTRA-ARTICULAIRES : lithiase urique (coliques néphrétiques), néphropathie uratique, risque cardiovasculaire accru (l'hyperuricémie est un marqueur du risque métabolique)."
+          ],
+          "sources": [
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "CRISE TYPIQUE (podagre) : gros orteil, nuit, douleur maximale en moins de 24 heures, articulation rouge et chaude, le contact du drap réveille ; terrain typique ; notion de repas festif ou d'alcool la veille.",
+            "AUTRES LOCALISATIONS : genou (second plus fréquent), cheville, tarse, poignet, doigts, coude (bursite olécrânienne), tendon d'Achille.",
+            "GOUTTE DU SUJET ÂGÉ : polyarthrite des mains avec tophus des doigts, souvent révélée par des diurétiques, trompeuse (différentiels : PR, arthrose nodulaire).",
+            "GOUTTE SECONDAIRE : hémopathies et syndromes lymphoprolifératifs, chimiothérapie (lyse tumorale), insuffisance rénale chronique, diurétiques, tuberculose chronique, saturnisme ; hyperuricémie de l'enfant : chercher une cause (déficits enzymatiques rares, syndrome de Lesch-Nyhan).",
+            "COMPLICATIONS : crises récidivantes et invalidantes, tophus destructifs et fistulisés, atteinte rénale (lithiase, néphropathie), handicap fonctionnel.",
+            "DIAGNOSTICS DIFFÉRENTIELS de la crise : arthrite septique (URGENCE, à éliminer devant toute monoarthrite fébrile atypique), chondrocalcinose (pyrophosphate de calcium, sujet âgé, genou/poignet), arthrite réactionnelle, spondyloarthrite, cellulite, érysipèle."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Monoarthrite fébrile : goutte ou infection ?",
+          "text": "Une arthrite septique détruit l'articulation en quelques jours et le sepsis tue. Devant une monoarthrite aiguë fébrile atypique (pas de podagre typique, immunodépression, diabète, évolution depuis plusieurs jours, frissons) : PONCTION ARTICULAIRE avant tout traitement — cytologie, Gram et culture (éliminer le germe), recherche de cristaux d'urate en microscopie optique. Une goutte authentique peut coexister avec une infection ; le Gram et la culture tranchent.",
+          "sources": [
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            },
+            {
+              "id": "fitzgerald2020",
+              "organization": "American College of Rheumatology",
+              "title": "2020 ACR Guideline for the Management of Gout",
+              "year": 2020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de crise de goutte est CLINIQUE dans les formes typiques (homme, podagre, brutalité, facteurs déclenchants) : il suffit pour traiter. L'examen de référence est l'identification des CRISTAUX d'urate monosodique dans le liquide synovial ou un tophus (microscopie optique : cristaux en aiguille, intra et extracellulaires, biréfringence négative) ; la ponction articulaire est indispensable devant toute forme atypique ou fébrile pour éliminer une infection. L'URICÉMIE peut être NORMALE pendant la crise (l'urate se dépose) : elle est à doser à distance, à plusieurs reprises, pour confirmer l'hyperuricémie et guider le traitement de fond.",
+          "sources": [
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "BILAN après une première crise : uricémie à distance (au moins 2 dosages), uricurie des 24 heures si disponible, créatinine (fonction rénale), NFS, glycémie, bilan lipidique, transaminases, tension artérielle et poids (comorbidités) ; radiographies des articulations atteintes (normales au début ; géodes et érosions « en emporte-pièce » dans la goutte chronique) ; échographie (double contour, tophus).",
+            "INDICATIONS DU TRAITEMENT DE FOND : crises récidivantes (plus de 2 par an), tophus, atteinte radiologique, lithiase urique, insuffisance rénale avec hyperuricémie — selon les recommandations ACR 2020, discuter au cas par cas dès la première crise.",
+            "PIÈGES : uricémie normale pendant la crise (ne pas réfuter le diagnostic) ; goutte du sujet âgé polyarticulaire (confondue avec PR) ; chondrocalcinose (cristaux de pyrophosphate : sujet âgé, radiographie du genou) ; hyperuricémie asymptomatique (le plus souvent sans traitement).",
+            "Madagascar : la microscopie des cristaux peut manquer — la clinique typique suffit pour traiter la crise ; l'uricémie, disponible dans les grandes villes, est à doser à distance ; ne jamais oublier l'arthrite septique devant une monoarthrite fébrile."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Uricémie normale ne réfute pas une crise de goutte",
+          "text": "Pendant la crise, l'urate circulant baisse (dépôt cristallin, hémodilution) : jusqu'à un tiers des crises ont une uricémie normale. Le dosage utile est celui fait à DISTANCE (2 semaines ou plus après la crise, à jeun, répété). Inversement, une hyperuricémie asymptomatique isolée ne justifie pas d'hypo-uricémiant dans la plupart des cas."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "CRISE DE GOUTTE (traitement précoce, dès les premiers symptômes) : une seule des options suivantes selon le terrain — 1) AINS à dose anti-inflammatoire maximale (avec gastroprotection si risque) ; 2) COLCHICINE à faible dose initiale (1 mg puis 0,5 mg quelques heures après, puis 0,5 mg 2 à 3 fois par jour ; surveiller les effets digestifs — diarrhée — et adapter à la fonction rénale) ; 3) CORTICOÏDES (prednisone orale environ 30-40 mg/jour quelques jours, ou injection intra-articulaire) — option de choix si insuffisance rénale, ulcère, anticoagulants, sujet âgé, diabète ; GLACE et repos ; pas d'AINS si insuffisance rénale.",
+            "JAMAIS commencer un hypo-uricémiant EN PLEINE CRISE : son introduction déclenche paradoxalement des flares ; si le patient est déjà sous allopurinol, LE CONTINUER malgré la crise.",
+            "TRAITEMENT DE FOND HYPO-URICÉMIANT : cible inférieure à 360 micromol/L (60 mg/L), inférieure à 300 micromol/L (50 mg/L) si tophus ; ALLOPURINOL en première intention : commencer à FAIBLE DOSE (100 mg/jour, moindre si insuffisance rénale) et AUGMENTER PROGRESSIVEMENT toutes les 2 à 4 semaines jusqu'à la cible ; alternatives : FÉBUXOSTAT (prudence cardiovasculaire selon les protocoles) ; uricosuriques (probénécid) si uricurie basse et fonction rénale correcte ; le traitement est LONG (à vie), la dissolution des tophus prend des mois.",
+            "PROPHYLAXIE DES CRISES au début du traitement hypo-uricémiant : COLCHICINE à faible dose (0,5 mg 1 à 2 fois par jour selon la fonction rénale) pendant au moins 3 à 6 mois (le risque de flare est maximal les 6 premiers mois) ; alternative : AINS à faible dose.",
+            "MESURES HYGIÉNO-DIÉTÉTIQUES (indispensables) : arrêt ou forte réduction de l'ALCOOL (bière en priorité), des boissons sucrées au fructose ; limitation des viandes rouges, abats, fruits de mer, anchois et sardines ; légumes et produits laitiers autorisés ; HYDRATATION abondante (plus de 2 L/jour) ; perte de poids progressive (pas de jeûne, qui déclenche des crises) ; activité physique régulière.",
+            "RÉÉVALUER LES TRAITEMENTS ASSOCIÉS : diurétiques thiazidiques (remplacer si possible — le losartan a un effet uricosurique favorable chez l'hypertendu), aspirine à faible dose (à maintenir si indication cardiovasculaire), ciclosporine, lévodopa.",
+            "COMORBIDITÉS à dépister et traiter : syndrome métabolique, diabète, HTA (privilégier le losartan), dyslipidémie, obésité, insuffisance rénale chronique, tabac — elles font la mortalité, pas la goutte elle-même.",
+            "GOUTTE TOPHACÉE SÉVÈRE : hypo-uricémiant intensif jusqu'à cible basse ; chirurgie des tophus compliqués (fistule, compression nerveuse, tophus géants) selon les cas.",
+            "ÉDUCATION : la crise part même sans traitement, le danger est la récidive et le tophus ; l'observance de l'allopurinol est la clé ; consulter dès les premiers signes de flare (le traitement de crise est d'autant plus efficace qu'il est précoce)."
+          ],
+          "sources": [
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            },
+            {
+              "id": "fitzgerald2020",
+              "organization": "American College of Rheumatology",
+              "title": "2020 ACR Guideline for the Management of Gout",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une articulation rouge et chaude",
+          "text": "1) Typique (gros orteil, nuit, terrain) → traiter la crise : AINS ou colchicine ou corticoïdes selon le terrain, sans attendre. 2) Atypique ou fébrile → PONCTION (cristaux + culture) avant tout. 3) À distance de la crise : uricémie, créatinine, comorbidités ; si indication, allopurinol à faible dose + colchicine prophylactique 3 à 6 mois, titration jusqu'à uricémie inférieure à 360 micromol/L (inférieure à 300 si tophus). 4) Toujours : alcool, régime, hydratation, poids, revoir les diurétiques.",
+          "sources": [
+            {
+              "id": "fitzgerald2020",
+              "organization": "American College of Rheumatology",
+              "title": "2020 ACR Guideline for the Management of Gout",
+              "year": 2020
+            },
+            {
+              "id": "dalbeth2021",
+              "organization": "The Lancet",
+              "title": "Gout",
+              "year": 2021
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "PRÉVENTION DES CRISES (prophylaxie) : colchicine à faible dose pendant l'initiation et la titration du traitement hypo-uricémiant (3 à 6 mois minimum, tant que la cible n'est pas atteinte et stable) ; traitement de crise précoce à la demande.",
+            "MODE DE VIE : limitation de l'alcool (surtout bière et spiritueux), des viandes et fruits de mer riches en purines, des sodas sucrés ; hydratation abondante ; poids idéal progressif ; activité physique ; le régime seul abaisse peu l'uricémie mais multiplie l'efficacité du traitement et améliore le profil cardiovasculaire.",
+            "MÉDICAMENTS : éviter les diurétiques thiazidiques si des alternatives antihypertensives existent ; privilégier le LOSARTAN chez l'hypertendu goutteux ; attention à l'aspirine à faible dose (à garder en cardiologie) ; chez le patient en chimiothérapie ou à risque de lyse tumorale : prophylaxie (hydratation, allopurinol ou rasburicase selon les protocoles).",
+            "SUIVI : uricémie tous les 3 à 6 mois pendant la titration puis annuelle ; fonction rénale ; observance (la moitié des patients arrêtent : expliquer que les cristaux continuent de se déposer entre les crises).",
+            "ÉDUCATION THÉRAPEUTIQUE : reconnaître ses prodromes (picotements articulaires), avoir son traitement de crise à disposition, connaître les déclencheurs (alcool, excès, jeûne, déshydratation, effort intense)."
+          ],
+          "sources": [
+            {
+              "id": "fitzgerald2020",
+              "organization": "American College of Rheumatology",
+              "title": "2020 ACR Guideline for the Management of Gout",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "CRISE : monoarthrite BRUTALE du gros orteil chez un homme de 40-60 ans → AINS ou colchicine ou corticoïdes (selon le terrain), JAMAIS d'hypo-uricémiant en pleine crise, uricémie souvent NORMALE pendant la crise. FOND (si crises répétées, tophus, lésions, lithiase) : ALLOPURINOL à faible dose initiale, titration jusqu'à uricémie inférieure à 360 micromol/L (inférieure à 300 si tophus) + prophylaxie colchicine 3-6 mois, traitement À VIE. Éducation : alcool (bière), régime, hydratation, poids, diurétiques. Ne pas confondre avec une arthrite septique (ponction si atypique)."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La goutte est un modèle de maladie de civilisation et de maladie curable : crises spectaculaires, cause identifiable (hyperuricémie), traitement étiologique disponible et peu coûteux (allopurinol, titré jusqu'à la cible), prophylaxie des flares documentée, mesures d'hygiène efficaces. Le piège est double : se contenter de traiter les crises (le patient finit tophacé et insuffisant rénal), ou s'arrêter à l'uricémie de crise (normale, elle fait faussement écarter le diagnostic). Bien conduite — crise traitée vite, fond initié au bon moment avec prophylaxie, cible atteinte et maintenue à vie — la goutte se dissout, des tableaux de l'internat comme de la vie du patient."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Dalbeth N, Gosling AL, Gaffo A, Abhishek A. Gout. Lancet. 2021;397(10287):1843-1855 (DOI 10.1016/S0140-6736(21)00569-9).",
+            "FitzGerald JD, Dalbeth N, Mikuls T, et al. 2020 American College of Rheumatology Guideline for the Management of Gout. Arthritis Care Res (Hoboken). 2020;72(6):744-760 (DOI 10.1002/acr.24180).",
+            "Organisation mondiale de la Santé. Aide-mémoire : affections musculo-squelettiques (https://www.who.int/news-room/fact-sheets/detail/musculoskeletal-conditions)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Arthrite septique : l'ennemie de la crise de goutte",
+      "text": "Toute monoarthrite aiguë FÉBRILE atypique (pas de podagre classique, diabète, immunodépression, évolution traînante, frissons) impose une PONCTION avec culture : une arthrite septique non traitée détruit l'articulation et tue. Une goutte peut se surinfecter : la microscopie (cristaux d'urate) ne dispense JAMAIS du Gram et de la culture en cas de doute."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Colchicine et fonction rénale",
+      "text": "La colchicine est éliminée par le rein et métabolisée par le cytochrome CYP3A4 : réduire la dose si insuffisance rénale (fréquente chez le goutteux !), prudence avec les macrolides, la ciclosporine et les statines (myopathie, neurotoxicité) ; le surdosage (diarrhée puis aplasie médullaire) est grave et sans antidote. Dose prophylactique habituelle : 0,5 mg 1 à 2 fois par jour."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Allopurinol : faible dose initiale, titration, à vie",
+      "text": "Commencer à 100 mg/jour (moindre si insuffisance rénale) et augmenter par paliers toutes les 2 à 4 semaines jusqu'à uricémie inférieure à 360 micromol/L (inférieure à 300 si tophus) : les doses élevées d'emblée multiplient les flares et le syndrome d'hypersensibilité (éruption + fièvre + atteinte d'organes, grave ; dépistage de l'allèle HLA-B*58:01 selon les populations à risque). Le traitement est maintenu À VIE une fois la cible atteinte."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Le paradoxe de l'hypo-uricémiant",
+      "text": "La chute brutale de l'uricémie MOBILISE les cristaux et déclenche des crises — c'est pourquoi : 1) on ne commence JAMAIS un hypo-uricémiant en pleine crise ; 2) on débute à faible dose avec augmentation progressive ; 3) on prescrit une PROPHYLAXIE (colchicine à faible dose) pendant 3 à 6 mois ; 4) si le patient est déjà traité, on ne STOPPE pas l'allopurinol pendant une crise."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Podagre = gros orteil",
+      "text": "Mnémo clinique : la crise arrive « à pied » (gros orteil), la nuit, après un festin arrosé ; l'articulation est si douloureuse que le drap qui la touche réveille le patient. Terrain : homme de 40-60 ans, embonpoint, hypertendu, sous diurétique, buveur de bière. Ce tableau suffit à traiter ; tout le reste se vérifie à distance."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "G.O.U.T.T.E.",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Gros orteil : la podagre, crise nocturne brutale"
+        },
+        {
+          "key": "O",
+          "term": "Objectif du fond : uricémie inférieure à 360 micromol/L (inférieure à 300 si tophus)"
+        },
+        {
+          "key": "U",
+          "term": "Uricémie normale possible pendant la crise — à doser à distance"
+        },
+        {
+          "key": "T",
+          "term": "Tophus : goutte chronique, érosions en emporte-pièce"
+        },
+        {
+          "key": "T",
+          "term": "Traitement de crise : AINS ou colchicine ou corticoïdes, pas d'hypo-uricémiant"
+        },
+        {
+          "key": "E",
+          "term": "Éducation : alcool, régime, hydratation, poids, diurétiques ; allopurinol à vie"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définissez la goutte.",
+      "back": "Arthrite microcristalline due au dépôt de cristaux d'URATE MONOSODIQUE (conséquence d'une hyperuricémie chronique supérieure à 360 micromol/L soit 60 mg/L) dans les articulations et les tissus ; crise inflammatoire aiguë lors de la phagocytose des cristaux (inflammasome NLRP3, IL-1 bêta)."
+    },
+    {
+      "id": "f2",
+      "front": "Mécanismes de l'hyperuricémie ?",
+      "back": "HYPOEXCRÉTION RÉNALE (85-90 % : insuffisance rénale, diurétiques, alcool, acidose, syndrome métabolique) ; HYPERPRODUCTION (10-15 % : hémopathies, lyse tumorale, déficits enzymatiques rares, régime très riche en purines)."
+    },
+    {
+      "id": "f3",
+      "front": "Description d'une crise de goutte typique.",
+      "back": "Homme de 40-60 ans (ou femme post-ménopausée) ; début BRUTAL nocturne ; monoarthrite de la première métatarsophalangienne (PODAGRE) ; douleur intense, articulation rouge, chaude, gonflée ; le contact du drap réveille ; déclenchée par repas festif, alcool, jeûne, effort ; guérison spontanée en 3 à 10 jours avec desquamation."
+    },
+    {
+      "id": "f4",
+      "front": "Pourquoi l'uricémie peut-elle être normale pendant une crise de goutte ?",
+      "back": "Pendant la crise, l'urate se dépose (chute de l'uricémie), l'inflammation augmente l'élimination urinaire et l'hémodilution la dilue : jusqu'à un tiers des crises avec uricémie normale. Le dosage utile est fait à DISTANCE (plus de 2 semaines après la crise, répété)."
+    },
+    {
+      "id": "f5",
+      "front": "Examen de référence du diagnostic de goutte ?",
+      "back": "Identification des CRISTAUX d'urate monosodique dans le liquide synovial ou un tophus : microscopie optique, cristaux en aiguille, intra et extracellulaires, biréfringence négative en lumière polarisée. La ponction élimine aussi une arthrite septique (Gram, culture)."
+    },
+    {
+      "id": "f6",
+      "front": "Options de traitement d'une crise de goutte ?",
+      "back": "1) AINS à pleine dose anti-inflammatoire (avec gastroprévention si risque) ; 2) COLCHICINE à faible dose (1 mg initial puis 0,5 mg, effets digestifs dose-limitants) ; 3) CORTICOÏDES (oraux ou intra-articulaires) — privilégiés si insuffisance rénale, ulcère, anticoagulants, sujet âgé ou diabétique. Glace, repos ; traiter le plus tôt possible."
+    },
+    {
+      "id": "f7",
+      "front": "Faut-il introduire un hypo-uricémiant pendant une crise de goutte ?",
+      "back": "NON : la chute brutale de l'uricémie mobilise les cristaux et aggrave ou déclenche des flares. On traite la crise d'abord et on instaure l'hypo-uricémiant à distance — MAIS si le patient est déjà sous allopurinol, on le CONTINUE pendant la crise (ne jamais l'arrêter)."
+    },
+    {
+      "id": "f8",
+      "front": "Indications du traitement hypo-uricémiant de fond dans la goutte ?",
+      "back": "Crises récidivantes (plus de 2 par an), tophus, atteintes radiologiques, lithiase urique, atteinte rénale ; selon l'ACR 2020, discuter au cas par cas dès la première crise selon le profil (uricémie très élevée, insuffisance rénale, comorbidités)."
+    },
+    {
+      "id": "f9",
+      "front": "Molécule de première intention du traitement de fond et règles de prescription ?",
+      "back": "ALLOPURINOL : dose initiale FAIBLE (100 mg/jour, moindre si insuffisance rénale), AUGMENTATION PROGRESSIVE par paliers de 2 à 4 semaines jusqu'à la CIBLE (uricémie inférieure à 360 micromol/L, inférieure à 300 si tophus), traitement À VIE ; alternatives : fébuxostat, uricosuriques (probénécid) si uricurie basse."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle prophylaxie associer à l'initiation du traitement hypo-uricémiant, et pourquoi ?",
+      "back": "COLCHICINE à faible dose (0,5 mg 1 à 2 fois par jour selon la fonction rénale) pendant 3 à 6 mois : le risque de flare est maximal pendant les 6 premiers mois (mobilisation des cristaux) ; alternative : AINS à faible dose ; la prophylaxie se poursuit tant que la cible d'uricémie n'est pas atteinte et stabilisée."
+    },
+    {
+      "id": "f11",
+      "front": "Consignes hygiéno-diététiques de la goutte ?",
+      "back": "ARRÊT de l'alcool (bière en priorité) et des boissons sucrées au fructose ; limitation des viandes rouges, abats, fruits de mer, sardines et anchois ; produits laitiers et légumes autorisés ; HYDRATATION (plus de 2 L/jour) ; perte de poids PROGRESSIVE (le jeûne déclenche des crises) ; activité physique régulière."
+    },
+    {
+      "id": "f12",
+      "front": "Citez des médicaments qui favorisent la goutte.",
+      "back": "DIURÉTIQUES (thiazidiques, furosémide — diminuent l'excrétion d'urate), aspirine à faible dose, ciclosporine, lévodopa, pyrazinamide, éthambutol ; à l'inverse le LOSARTAN est uricosurique (antihypertenseur de choix chez le goutteux)."
+    },
+    {
+      "id": "f13",
+      "front": "Aspects radiologiques de la goutte chronique ?",
+      "back": "Au début : normal ; ensuite : géodes et érosions marginales « à l'emporte-pièce » (clou arrondi à bordure scléreuse), pincement tardif, tophus (masse dense), absence d'ostéoporose péri-lésionnelle (contrairement à la PR) ; échographie : signe du double contour, tophus."
+    },
+    {
+      "id": "f14",
+      "front": "Complications rénales de la goutte ?",
+      "back": "Lithiase urique (radiotransparente : échographie ; l'abdomen sans préparation est négatif), coliques néphrétiques ; néphropathie uratique (dépôts interstitiels, fibrose, aggravation de l'insuffisance rénale) ; la fonction rénale est à surveiller à chaque visite (et conditionne les doses de colchicine et d'allopurinol)."
+    },
+    {
+      "id": "f15",
+      "front": "Comment différencier une crise de goutte d'une arthrite septique ?",
+      "back": "Arthrite septique : pas de terrain typique, fièvre élevée et frissons, douleur permanente, porte d'entrée ou immunodépression ; la ponction tranche : liquide trouble, neutrophiles, Gram et culture POSITIFS (la goutte : cristaux d'urate, culture stérile) ; en cas de doute : traiter comme une infection jusqu'aux résultats. Goutte et infection peuvent coexister."
+    },
+    {
+      "id": "f16",
+      "front": "Syndrome d'hypersensibilité à l'allopurinol : de quoi s'agit-il ?",
+      "back": "Réaction grave (fièvre, éruption, atteinte hépatique, insuffisance rénale, éosinophilie), rare mais potentiellement mortelle ; risque accru : insuffisance rénale, doses initiales élevées, allèle HLA-B*58:01 (fréquent dans certaines populations) ; PRÉVENTION : commencer à faible dose (100 mg/jour, moindre si insuffisance rénale), titrer lentement, éducation aux signes cutanés (arrêt immédiat et avis)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "goutte",
+      "label": "Goutte"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Crise",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Podagre : gros orteil, nocturne, brutale"
+          },
+          {
+            "id": "b1c2",
+            "label": "AINS / colchicine / corticoïdes"
+          },
+          {
+            "id": "b1c3",
+            "label": "Pas d'hypo-uricémiant en pleine crise"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Ponction si atypique ou fébrile (septique !)"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Clinique typique suffit"
+          },
+          {
+            "id": "b2c2",
+            "label": "Cristaux : aiguilles, biréfringence négative"
+          },
+          {
+            "id": "b2c3",
+            "label": "Uricémie à distance (normale possible en crise)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Radiographie : érosions en emporte-pièce"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Fond",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Allopurinol faible dose, titration"
+          },
+          {
+            "id": "b3c2",
+            "label": "Cible : inférieure à 360 (inférieure à 300 si tophus)"
+          },
+          {
+            "id": "b3c3",
+            "label": "Prophylaxie colchicine 3-6 mois"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "À vie ; fébuxostat / probénécid en alternative"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Homme 40-60, femme post-ménopause"
+          },
+          {
+            "id": "b4c2",
+            "label": "Diurétiques, insuffisance rénale"
+          },
+          {
+            "id": "b4c3",
+            "label": "Alcool, fructose, syndrome métabolique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Comorbidités : HTA (losartan), diabète, cardiovasculaire"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Tophus, arthropathie chronique"
+          },
+          {
+            "id": "b5c2",
+            "label": "Lithiase urique, néphropathie"
+          },
+          {
+            "id": "b5c3",
+            "label": "Goutte du sujet âgé (différentiel PR)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Prévention : observance, suivi de l'uricémie"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "dalbeth2021",
+      "title": "Gout",
+      "citation": "Dalbeth N, Gosling AL, Gaffo A, Abhishek A. Gout. Lancet. 2021;397(10287):1843-1855. DOI 10.1016/S0140-6736(21)00569-9. PMID 33798500.",
+      "organization": "The Lancet",
+      "year": 2021,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(21)00569-9",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Définition et physiopathologie",
+        "Clinique de la crise et de la goutte tophacée",
+        "Diagnostic (cristaux, uricémie)",
+        "Traitement de crise et de fond"
+      ]
+    },
+    {
+      "id": "fitzgerald2020",
+      "title": "2020 American College of Rheumatology Guideline for the Management of Gout",
+      "citation": "FitzGerald JD, Dalbeth N, Mikuls T, et al. 2020 American College of Rheumatology Guideline for the Management of Gout. Arthritis Care Res (Hoboken). 2020;72(6):744-760. DOI 10.1002/acr.24180.",
+      "organization": "American College of Rheumatology",
+      "year": 2020,
+      "version": "Guideline",
+      "url": "https://doi.org/10.1002/acr.24180",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Traitement de la crise (AINS, colchicine, corticoïdes)",
+        "Indications du traitement hypo-uricémiant",
+        "Allopurinol de première intention à faible dose initiale, titration et cibles",
+        "Prophylaxie des flares"
+      ]
+    }
+  ]
+}
