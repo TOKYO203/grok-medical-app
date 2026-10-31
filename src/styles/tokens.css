@@ -19,7 +19,7 @@
    ÉCHELLES
    · Typographie : 9 niveaux, `display-xl` (le plus grand) → `micro`.
    · Espacement  : `--sp-1` = 4 px … `--sp-16` = 64 px (pas strict de 4 px).
-   · Rayons      : `--r-sm` = 6 px … `--r-xl` = 20 px (+ `--r-pill`).
+   · Rayons      : `--r-sm` = 6 px … `--r-xl` = 24 px (+ `--r-pill`).
    · Ombres      : `--sh-subtle`, `--sh-medium`, `--sh-overlay`.
    · Tones       : danger, warn, info, success, accent (+ neutral pour Badge),
                    chacune déclinée en base / hover / soft / border / fg /
@@ -88,26 +88,38 @@
   --sp-16: 64px;
 
   /* -------------------------------------------------------------------------
-     3. Rayons — --r-sm 6 px … --r-xl 20 px (+ pilule pour les badges)
+     3. Rayons — --r-sm 6 px … --r-xl 24 px (+ pilule pour les badges)
+     Session « Oxford Signature » : rayons élargis pour un rendu plus taillé,
+     davantage « objet premium » ; l'échelle reste stricte et cohérente.
      ------------------------------------------------------------------------- */
   --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --r-xl: 20px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
   --r-pill: 999px;
 
   /* -------------------------------------------------------------------------
      4. Ombres — 3 élévations (le thème sombre les redéfinit plus bas).
+     Session « Oxford Signature » : chaque élévation combine désormais un
+     filet discret, un REFLET lumineux en haut (matière), une ombre clé
+     proche et une ombre ambiante large — la profondeur « coût de studio ».
      Les filets suivent la palette d'accent (`--app-accent`, voir
      styles.css) : rose, marron ou bleu marine colorent les cartes autant
      que l'or Oxford par défaut.
      ------------------------------------------------------------------------- */
   --sh-subtle:
-    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 24%, transparent), 0 1px 2px rgb(31 26 20 / 0.05);
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 18%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    0 1px 2px rgb(31 26 20 / 0.05);
   --sh-medium:
-    0 10px 24px -16px rgb(31 26 20 / 0.28), 0 2px 6px -4px rgb(31 26 20 / 0.14),
-    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 26%, transparent);
-  --sh-overlay: 0 24px 64px -24px rgb(31 26 20 / 0.32), 0 8px 20px -12px rgb(31 26 20 / 0.18);
+    0 12px 28px -18px rgb(31 26 20 / 0.26),
+    0 2px 6px -4px rgb(31 26 20 / 0.12),
+    inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 20%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.45);
+  --sh-overlay:
+    0 1px 2px rgb(31 26 20 / 0.08),
+    0 28px 72px -28px rgb(31 26 20 / 0.32),
+    0 10px 24px -12px rgb(31 26 20 / 0.18);
 
   /* -------------------------------------------------------------------------
      5. Tones sémantiques — 5 tones + neutral, mappées sur la palette Oxford
@@ -175,13 +187,22 @@
 }
 
 html[data-theme="dark"] {
-  /* Ombres : le noir profond remplace la teinte chaude du parchemin. */
+  /* Ombres : le noir profond remplace la teinte chaude du parchemin. Le
+     reflet du haut devient quasi imperceptible — la « matière » sombre
+     capte moins de lumière. */
   --sh-subtle:
-    inset 0 0 0 1px color-mix(in oklab, #e7ede8 10%, transparent), 0 1px 2px rgb(0 0 0 / 0.5);
+    inset 0 0 0 1px color-mix(in oklab, #e7ede8 10%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.04),
+    0 1px 2px rgb(0 0 0 / 0.5);
   --sh-medium:
-    0 12px 28px -18px rgb(0 0 0 / 0.7), 0 2px 8px -4px rgb(0 0 0 / 0.5),
-    inset 0 0 0 1px color-mix(in oklab, #e7ede8 12%, transparent);
-  --sh-overlay: 0 28px 72px -28px rgb(0 0 0 / 0.8), 0 10px 24px -14px rgb(0 0 0 / 0.6);
+    0 12px 28px -18px rgb(0 0 0 / 0.7),
+    0 2px 8px -4px rgb(0 0 0 / 0.5),
+    inset 0 0 0 1px color-mix(in oklab, #e7ede8 10%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --sh-overlay:
+    0 1px 2px rgb(0 0 0 / 0.4),
+    0 28px 72px -28px rgb(0 0 0 / 0.8),
+    0 10px 24px -14px rgb(0 0 0 / 0.6);
 
   /* Sur fond sombre les tones s'éclaircissent : texte sombre sur fond plein,
      survol qui éclaircit encore (et non qui assombrit). */
