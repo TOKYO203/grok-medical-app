@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "rougeole",
+  "title": "Rougeole",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge la rougeole : connaître le virus (paramyxovirus, Morbillivirus), la contagiosité extrême (transmission aérienne, R0 très élevé), les stades cliniques (catarrhe oculo-respiratoire puis éruption), les signes de Koplik, les complications (pneumonie, laryngite, kératite, encéphalite, rougeole grave chez l'enfant dénutri et immunodéprimé), la vitaminothérapie A et la prévention par la vaccination (VAAAR / vaccin antirougeoleux).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 5,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 46,
+      "localNumber": 5,
+      "sectionLabel": "Médecine",
+      "title": "Rougeole",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Rougeole. PARAMYXOVIRUS (genre Morbillivirus), transmission aérienne par gouttelettes et aerosols, extrêmement contagieuse, période de contagiosité qui précède l'éruption, durée de vie du virus courte. Évolution en DEUX STADES : stade d'invasion/catarrhe (fièvre élevée, conjonctivite, rhinite, toux, signe de Koplik en face interne des joues), puis stade éruptif (éruption maculo-papuleuse NON PRURIGINEUSE derrière les oreilles et à la racine des cheveux, descendante, polychrome). Complications : pulmonaires (pneumonie virale ou bactérienne surinfectée, cause principale de décès chez le jeune enfant), ORL (laryngite obstructive), oculaires (kératite, cécité), digestives (diarrhée), neurologiques (encéphalite aiguë, panencéphalite subaiguë sclérosante tardive), rougeole grave hémorragique. Terrain : enfant non vacciné, dénutri, carence en vitamine A ; immunodéprimés = formes graves sans éruption possible. Diagnostic : CLINIQUE (fièvre + toux + conjonctivite + éruption descendante + Koplik) ; sérologie ou PCR si doute. Traitement : SYMPTOMATIQUE + VITAMINE A (réduit la mortalité) + antibiothérapie si surinfection bactérienne + réhydratation-nutrition ; pas d'antiviral. Prévention : VACCINATION (VAAAR / ROR / vaccin antirougeoleux, schéma selon programme national, y compris 2e dose), isolement, prophylaxie précoce par vaccin ou immunoglobulines autour d'un cas, déclaration.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Moss WJ, Griffin DE. Measles. Lancet. 2012;379(9811):153-164 — DOI 10.1016/S0140-6736(10)62352-5 (PMID 21855993), vérifié sur PubMed et Johns Hopkins avant citation.",
+      "Source 2 : OMS, aide-mémoire « Rougeole » — page officielle https://www.who.int/news-room/fact-sheets/detail/measles consultée avant citation : la rougeole reste une cause majeure de décès d'enfant évitable par le vaccin ; la vitamine A en réduit la mortalité.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Morbillivirus : paramyxovirus, transmission aérienne, contagiosité maximale avant l'éruption",
+      "Deux stades : catarrhe oculo-respiratoire avec Koplik, puis éruption maculo-papuleuse descendante",
+      "Complications majeures : pneumonie (première cause de décès), kératite-cécité, encéphalite, laryngite",
+      "Terrain à risque : enfant dénutri, carence en vitamine A, immunodéprimé, non vacciné",
+      "Vitamine A : réduit la mortalité — à donner à tout cas de rougeole",
+      "Vaccination : 2 doses selon programme national ; prophylaxie autour d'un cas",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole est une maladie virale éruptive aiguë, extrêmement contagieuse, due au Morbillivirus. Malgré un vaccin efficace et sûr, elle reste selon l'OMS l'une des causes majeures de décès évitables chez le jeune enfant — essentiellement par pneumonie — en particulier chez les enfants non vaccinés, dénutris et carencés en vitamine A. Son diagnostic est clinique et sa prise en charge repose sur la vitamine A, la nutrition et le traitement des surinfections.",
+          "sources": [
+            {
+              "id": "who2025rougeole",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Rougeole",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La plus contagieuse des maladies éruptives",
+          "text": "Un cas de rougeole contamine la quasi-totalité des contacts non immuns : la transmission est aérienne (gouttelettes et aérosols), possible dès la fin de l'incubation (contagiosité qui commence avant l'éruption, environ 4 jours avant et jusqu'à 4 jours après). Devant un cas : isolement + identification des contacts et de leur statut vaccinal dans les 72 heures = vaccination de rattrapage ou immunoglobulines selon l'âge et le terrain."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Virus et épidémiologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "AGENT : Morbillivirus, paramyxovirus à ARN ; un seul sérotype, infection qui confère une immunité définitive ; réservoir strictement humain.",
+            "TRANSMISSION : aérienne directe (gouttelettes respiratoires et aérosols) ; contagiosité très élevée, l'une des plus fortes des maladies infectieuses ; le virus ne survit pas longtemps hors de l'hôte.",
+            "INCUBATION : 10 à 12 jours ; période de contagiosité d'environ 4 jours avant à 4 jours après le début de l'éruption.",
+            "IMMUNITÉ : le virus induit une AMÉNORRHEE IMMUNITAIRE transitoire (perte des anticorps acquis contre d'autres germes) : surinfections bactériennes fréquentes dans les semaines et mois qui suivent.",
+            "TERRAIN : enfant non vacciné ; la mortalité est concentrée chez l'enfant de moins de 5 ans DÉNUTRI, carencé en vitamine A, et chez l'immunodéprimé (formes graves, parfois sans éruption typique).",
+            "Épidémiologie : épidémies dans les zones de faible couverture vaccinale ; la rougeole réapparaît dès que la couverture vaccinale baisse."
+          ],
+          "sources": [
+            {
+              "id": "moss2012",
+              "organization": "The Lancet",
+              "title": "Measles",
+              "year": 2012
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "STADE D'INVASION (catarrhe oculo-respiratoire, environ 4 jours) : fièvre élevée (39-40 °C), toux sèche, rhinite, CONJONCTIVITE (photophobie, larmoiement) ; SIGNES DE KOPLIK : petites taches blanchâtres en « grain de sucre » sur la muqueuse jugale en regard des molaires, pathognomoniques, TRANSITOIRES — les chercher à la lumière du jour avant l'éruption.",
+            "STADE ÉRUPTIF : l'éruption maculo-papuleuse débute derrière les oreilles et à la RACINE DES CHEVEUX, puis descend visage → tronc → membres en 3-4 jours ; NON PRURIGINEUSE au début ; les éléments évoluent de rouge sombre à brunâtre (polychrome), avec parfois une desquamation fine ; la fièvre reste élevée au début de l'éruption puis défervescence en 3-4 jours.",
+            "FORMES : rougeole simple (guérison en une dizaine de jours) ; rougeole grave (enfants dénutris : éruption hémorragique, stomatite ulcéreuse, diarrhée profuse, déshydratation, hypoprotéinémie, cachexie) ; formes atténuées (anticorps passifs maternels, enfant partiellement vacciné) ; formes graves atypiques chez l'immunodéprimé.",
+            "COMPLICATIONS PRÉCOCES : PNEUMONIE (virale ou bactérienne surinfectée : première cause de décès), LARYNGITE sous-glottique obstructive (urgence), DIARRHÉE et déshydratation, STOMATITE, KÉRATITE et ulcérations cornéennes (risque de cécité, aggravées par la carence en vitamine A), OTITE moyenne aiguë, ENCÉPHALITE aiguë post-infectieuse (environ 1 cas pour 1000).",
+            "COMPLICATION TARDIVE : PANENCÉPHALITE SUBAIGUË SCLÉROSANTE (PESS) : dégénérescence neurologique fatale survenant des années après la rougeole (survenue plusieurs années après l'infection), rare mais toujours mortelle.",
+            "Chez l'adulte et la femme enceinte : formes souvent plus graves ; risque d'avortement et d'accouchement prématuré ; pas de malformation décrite.",
+            "SIGNES DE GRAVITÉ : enfant dénutri, âge de moins de 1 an, hypoxie ou détresse respiratoire, déshydratation, éruption hémorragique, convulsions, troubles de conscience, immunodépression."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Détresses à reconnaître",
+          "text": "Trois urgences de la rougeole : 1) DÉTRESSE RESPIRATOIRE (pneumonie virale ou surinfection : oxygénothérapie, antibiothérapie si suspicion bactérienne) ; 2) LARYNGITE OBSTRUCTIVE (tirage, cornage : corticoïdes, adrénaline, milieu humide, ORL/réanimation) ; 3) ENCÉPHALITE ou convulsions. Toute rougeole d'un enfant dénutri ou hypoxique est une hospitalisation.",
+          "sources": [
+            {
+              "id": "moss2012",
+              "organization": "The Lancet",
+              "title": "Measles",
+              "year": 2012
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE : fièvre élevée + catarrhe oculo-respiratoire (toux, rhinite, conjonctivite) + éruption maculo-papuleuse descendante débutant à la racine des cheveux et derrière les oreilles, chez un enfant non vacciné, souvent lors d'une épidémie. Les signes de Koplik, s'ils sont recherchés au bon moment, confirment le diagnostic avant même l'éruption.",
+          "sources": [
+            {
+              "id": "moss2012",
+              "organization": "The Lancet",
+              "title": "Measles",
+              "year": 2012
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examens complémentaires (utiles en cas de doute ou pour la surveillance épidémiologique) : sérologie (IgM anti-rougeole dans le sang ou la salive), PCR sur prélèvement naso-pharyngé ; à interpréter selon la date de vaccination.",
+            "Diagnostics différentiels : rubéole (adénopathies, catarrhe absent, éruption discrète, fièvre basse), scarlatine (éruption granitée punctiforme, angine, érythème du visage), exanthème subit (roséole infantile : fièvre isolée 3 jours puis éruption au moment de la défervescence), adénovirus et entérovirus, réaction médicamenteuse, dengue dans les zones d'endémie.",
+            "Che l'immunodéprimé : éruption atypique ou absente — évoquer la rougeole devant toute pneumopathie fébrile d'évolution inhabituelle dans ce contexte.",
+            "Évaluation systématique de tout cas : état nutritionnel, signes de déshydratation, examen cornéen à la lumière (kératite), auscultation, recherche de surinfections bactériennes."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Diagnostic ≠ fin de l'histoire",
+          "text": "Une rougeole diagnostiquée déclenche des ACTIONS de santé publique : 1) déclaration immédiate aux autorités sanitaires ; 2) isolement (aérien) du cas ; 3) identification des contacts et mise à jour de leur vaccination dans les 72 heures (vaccin si contact sain ; immunoglobulines si contact à haut risque : nourrisson, femme enceinte non immune, immunodéprimé) ; 4) vérification de la couverture vaccinale de la zone."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Il n'existe AUCUN traitement antiviral spécifique : la prise en charge est symptomatique + prévention/traitement des complications.",
+            "VITAMINE A : 2 doses à 24 h d'intervalle selon l'âge (protocole OMS/UNICEF), à tout enfant atteint de rougeole — elle réduit la mortalité, la gravité des complications oculaires et digestives ; à renouveler chez l'enfant carencé.",
+            "SYMPTOMATIQUE : antipyrétiques (paracétamol), hydratation, nutrition adaptée (alimentation fréquente, allaitement maintenu), soins oculaires (lavages, attention à la kératite), hygiène buccale.",
+            "SURINFECTIONS BACTÉRIENNES : antibiothérapie ciblée si pneumonie, otite, ou autre surinfection prouvée ou fortement suspectée (amoxicilline fréquemment utilisée selon les protocoles locaux) ; pas d'antibiotique systématique à visée préventive hors protocole.",
+            "DÉTRESSES : oxygénothérapie si hypoxie ; laryngite obstructive : corticoïdes + adrénaline nébulisée, surveillance rapprochée ; convulsions/encéphalite : hospitalisation, traitement anticonvulsivant.",
+            "ROUGEOLE GRAVE (dénutrition, déshydratation, cachexie) : hospitalisation, réhydratation, renutrition (y compris par sonde), correction des carences, prise en charge des surinfections ; pronostic lié à l'état nutritionnel.",
+            "IMMUNODÉPRIMÉS : hospitalisation, immunoglobulines à discuter, prise en charge en milieu spécialisé ; suspicion de PESS : avis neurologique, imagerie cérébrale, avis de réanimation."
+          ],
+          "sources": [
+            {
+              "id": "moss2012",
+              "organization": "The Lancet",
+              "title": "Measles",
+              "year": 2012
+            },
+            {
+              "id": "who2025rougeole",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Rougeole",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant tout cas de rougeole",
+          "text": "1) Vitamine A dès l'admission (2 doses à 24 h d'intervalle selon l'âge). 2) Évaluer : respiration (pneumonie), hydratation, état nutritionnel, yeux (kératite), bouche (stomatite). 3) Vérifier le calendrier vaccinal du patient et des fratries. 4) Déclarer et vacciner l'entourage dans les 72 heures. La vaccination post-exposition dans les 72 heures protège ou atténue — au-delà, immunoglobulines chez les contacts à risque.",
+          "sources": [
+            {
+              "id": "who2025rougeole",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Rougeole",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VACCINATION ANTIROUGEOLEUSE : vaccin vivant atténué, très efficace ; schéma selon le programme national de Madagascar — PREMIÈRE DOSE à l'âge recommandé (9 mois dans de nombreux pays d'Afrique) et DEUXIÈME DOSE pour assurer l'immunité de groupe ; contre-indications : grossesse et immunodépression sévère.",
+            "COUVERTURE VACCINALE ÉLEVÉE : la rougeole redevient épidémique dès que la couverture baisse ; campagnes complémentaires et rattrapage des enfants non vaccinés.",
+            "PROPHYLAXIE POST-EXPOSITION : vaccin dans les 72 heures chez les contacts sains non immuns ; IMMUNOGLOBULINES au-delà ou chez les contacts à haut risque (nourrissons trop jeunes pour être vaccinés, femmes enceintes non immunes, immunodéprimés) dans les 6 jours.",
+            "ISOLEMENT du malade (aérien) pendant la période de contagiosité ; éviction scolaire selon les protocoles.",
+            "LUTTE CONTRE LA DÉNUTRITION et la carence en vitamine A : elles font la mortalité de la rougeole ; supplémentation systématique dans les zones d'endémie.",
+            "Surveillance épidémiologique et déclaration obligatoire des cas ; investigation de chaque cas et des épidémies."
+          ],
+          "sources": [
+            {
+              "id": "who2025rougeole",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Rougeole",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Koplik = diagnostic, racine des cheveux = rougeole",
+          "text": "À retenir pour l'examen et la garde : le catarrhe oculo-respiratoire d'abord (toux + rhinite + conjonctivite + fièvre = le « coryza » de la rougeole), Koplik sur la muqueuse jugale AVANT l'éruption, puis éruption qui COMMENCE à la racine des cheveux et derrière les oreilles et qui DESCEND. Si l'éruption commence par les membres ou le tronc, ou si elle prurigineuse, chercher un autre diagnostic."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rougeole est la plus contagieuse des maladies éruptives de l'enfant : catarrhe oculo-respiratoire, Koplik puis éruption descendante non prurigineuse. Sa gravité tient aux complications — pneumonie, kératite, laryngite, encéphalite — surtout chez l'enfant dénutri et carencé en vitamine A. Le traitement est symptomatique, mais la VITAMINE A sauve des vies, et chaque cas doit déclencher vaccination de l'entourage et déclaration. L'arme décisive reste le vaccin : deux doses, une couverture élevée, et la rougeole disparaît — c'est une maladie éradiquable."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Moss WJ, Griffin DE. Measles. Lancet. 2012;379(9811):153-164 (DOI 10.1016/S0140-6736(10)62352-5).",
+            "Organisation mondiale de la Santé. Aide-mémoire : Rougeole (https://www.who.int/news-room/fact-sheets/detail/measles)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Pneumonie = première cause de décès",
+      "text": "Toute toux ou polypnée chez un enfant rougeoleux doit faire rechercher une pneumonie (virale ou surinfection bactérienne) : oxygénothérapie si hypoxie, antibiothérapie si surinfection, vitamine A systématique. La détresse respiratoire et la laryngite obstructive font la mortalité immédiate."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Contagieux avant l'éruption",
+      "text": "La contagiosité commence environ 4 jours AVANT l'éruption : un enfant fébrile « coryzéique » avec conjonctivite est déjà contaminant. Isolement aérien dès la suspicion, et pas seulement une fois l'éruption visible."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Vitamine A à tout cas",
+      "text": "Deux doses de vitamine A à 24 h d'intervalle selon l'âge, chez tout enfant atteint de rougeole : réduction démontrée de la mortalité et des complications oculaires. C'est le seul traitement modifiant le pronostic — à ne jamais oublier."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Séquence clinique classique",
+      "text": "Incubation 10-12 jours → fièvre + toux + rhinite + conjonctivite (stade catarrhal, 3-4 jours, chercher Koplik) → éruption derrière les oreilles et à la racine des cheveux, descendante, non prurigineuse → défervescence. Puis : surveiller 1-2 semaines les surinfections (aménorrhée immunitaire)."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Ce n'est pas une petite maladie",
+      "text": "1 encéphalite pour environ 1000 cas, une panencéphalite subaiguë sclérosante mortelle des années plus tard, une cécité cornéenne chez l'enfant carencé : la rougeole tue et invalide. Aucun traitement antiviral — le vaccin (2 doses) est la seule protection durable."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "R.O.U.G.E.O.L.E.",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Racine des cheveux : l'éruption commence derrière les oreilles et au cuir chevelu"
+        },
+        {
+          "key": "O",
+          "term": "Oculaire : conjonctivite, photophobie — et kératite à redouter"
+        },
+        {
+          "key": "U",
+          "term": "Un seul sérotype : immunité définitive après la maladie… et un excellent vaccin"
+        },
+        {
+          "key": "G",
+          "term": "Gouttelettes : transmission aérienne, contagiosité maximale AVANT l'éruption"
+        },
+        {
+          "key": "E",
+          "term": "Éruption descendante, non prurigineuse, polychrome"
+        },
+        {
+          "key": "O",
+          "term": "Oxygène + vitamine A : les deux gestes qui sauvent (pneumonie, mortalité)"
+        },
+        {
+          "key": "L",
+          "term": "Laryngite : urgence obstructive chez le petit enfant"
+        },
+        {
+          "key": "E",
+          "term": "Encéphalite et PESS : complications neurologiques, la PESS survient des années après"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent et transmission de la rougeole ?",
+      "back": "Morbillivirus (paramyxovirus à ARN, un seul sérotype) ; transmission aérienne par gouttelettes et aérosols ; réservoir strictement humain ; l'une des contagiosités les plus élevées des maladies infectieuses."
+    },
+    {
+      "id": "f2",
+      "front": "Durée d'incubation et période de contagiosité de la rougeole ?",
+      "back": "Incubation 10-12 jours ; contagieux d'environ 4 jours AVANT à 4 jours APRÈS le début de l'éruption — d'où l'isolement dès le stade catarrhal."
+    },
+    {
+      "id": "f3",
+      "front": "Que sont les signes de Koplik et où les chercher ?",
+      "back": "Petites taches blanchâtres en « grain de sucre » sur la muqueuse jugale en regard des molaires, présentes au stade catarrhal juste avant l'éruption ; pathognomoniques mais transitaires — les chercher à la lumière du jour."
+    },
+    {
+      "id": "f4",
+      "front": "Caractéristiques de l'éruption rougeoleuse ?",
+      "back": "Maculo-papuleuse, NON prurigineuse, débutant derrière les oreilles et à la racine des cheveux puis descendante (visage → tronc → membres) sur 3-4 jours, devenant polychrome (rouge sombre puis brunâtre), parfois desquamation fine."
+    },
+    {
+      "id": "f5",
+      "front": "Complication la plus meurtrière de la rougeole ?",
+      "back": "La PNEUMONIE (virale et/ou bactérienne surinfectée) : première cause de décès, surtout chez l'enfant de moins de 5 ans dénutri et carencé en vitamine A. S'y ajoutent laryngite, diarrhée, otite, kératite, encéphalite."
+    },
+    {
+      "id": "f6",
+      "front": "Complication neurologique précoce et tardive de la rougeole ?",
+      "back": "Précoce : encéphalite aiguë post-infectieuse (environ 1/1000, mortalité et séquelles élevées). Tardive : panencéphalite subaiguë sclérosante (PESS), dégénérescence neurologique fatale survenant des années après la rougeole."
+    },
+    {
+      "id": "f7",
+      "front": "Quel est l'effet de la rougeole sur l'immunité ?",
+      "back": "Le virus efface transitoirement la mémoire immunitaire acquise contre d'autres germes : surinfections bactériennes fréquentes dans les semaines/mois qui suivent — d'où l'intérêt des rappels vaccinaux après guérison."
+    },
+    {
+      "id": "f8",
+      "front": "Traitement spécifique de la rougeole ?",
+      "back": "Aucun antiviral : traitement symptomatique (antipyrétiques, hydratation, nutrition) + VITAMINE A (2 doses à 24 h d'intervalle selon l'âge) qui réduit la mortalité + antibiothérapie des surinfections bactériennes."
+    },
+    {
+      "id": "f9",
+      "front": "Pourquoi la vitamine A dans la rougeole ?",
+      "back": "Elle réduit la mortalité et la gravité des complications (kératite, diarrhée) chez l'enfant carencé : 2 doses à 24 h d'intervalle selon l'âge, à tout cas de rougeole — le seul traitement modifiant le pronostic."
+    },
+    {
+      "id": "f10",
+      "front": "Trois urgences à dépister chez un enfant rougeoleux ?",
+      "back": "1) Détresse respiratoire (pneumonie) ; 2) Laryngite sous-glottique obstructive (tirage, cornage) ; 3) Encéphalite/convulsions. Toute rougeole d'un enfant dénutri ou hypoxique = hospitalisation."
+    },
+    {
+      "id": "f11",
+      "front": "Diagnostic de la rougeole : clinique ou biologique ?",
+      "back": "Clinique : fièvre + catarrhe oculo-respiratoire + Koplik + éruption descendante. Sérologie IgM ou PCR utiles en cas de doute, chez l'immunodéprimé ou pour la surveillance épidémiologique."
+    },
+    {
+      "id": "f12",
+      "front": "Principaux diagnostics différentiels de l'éruption rougeoleuse ?",
+      "back": "Rubéole (catarrhe discret, adénopathies, fièvre basse), scarlatine (angine, éruption granitée), exanthème subit (fièvre 3 jours puis éruption à la défervescence, nourrisson), autres infections virales, toxidermies."
+    },
+    {
+      "id": "f13",
+      "front": "Conduite à tenir autour d'un cas de rougeole ?",
+      "back": "Déclarer le cas, isoler (aérien), identifier les contacts ; vacciner les contacts sains non immuns dans les 72 heures ; immunoglobulines au-delà de 72 heures ou d'emblée chez le nourrisson, la femme enceinte non immune et l'immunodéprimé (dans les 6 jours)."
+    },
+    {
+      "id": "f14",
+      "front": "Vaccin antirougeoleux : type, efficacité, schéma ?",
+      "back": "Vivant atténué, très efficace ; 2 doses (première dose souvent à 9 mois selon le programme national, deuxième dose selon calendrier) ; contre-indiqué pendant la grossesse et l'immunodépression sévère."
+    },
+    {
+      "id": "f15",
+      "front": "Pourquoi des épidémies de rougeole persistent-elles ?",
+      "back": "Le virus circule dès que la couverture vaccinale baisse (taux d'attaque très élevé chez les non-immuns) : chaque flambée signe une insuffisance de couverture — d'où le rattrapage vaccinal, la 2e dose et les campagnes complémentaires."
+    },
+    {
+      "id": "f16",
+      "front": "Rougeole chez l'immunodéprimé : particularités ?",
+      "back": "Formes graves, parfois SANS éruption typique (pneumopathie fébrile inhabituelle) ; hospitalisation, immunoglobulines à discuter ; pas de vaccin vivant chez ces patients : protéger par l'immunité de groupe et les immunoglobulines post-exposition."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "rougeole",
+      "label": "Rougeole"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Virus",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Morbillivirus, un sérotype"
+          },
+          {
+            "id": "b1c2",
+            "label": "Aérien, très contagieux"
+          },
+          {
+            "id": "b1c3",
+            "label": "Aménorrhée immunitaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Réservoir humain exclusif"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Catarrhe : toux, rhinite, conjonctivite"
+          },
+          {
+            "id": "b2c2",
+            "label": "Koplik sur muqueuse jugale"
+          },
+          {
+            "id": "b2c3",
+            "label": "Éruption descendante, non prurigineuse"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Contagieux 4 jours avant l'éruption"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Pneumonie (1re cause de décès)"
+          },
+          {
+            "id": "b3c2",
+            "label": "Laryngite, diarrhée, otite"
+          },
+          {
+            "id": "b3c3",
+            "label": "Kératite → cécité"
+          },
+          {
+            "id": "b3c4",
+            "label": "Encéphalite, PESS"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Grave si dénutrition, carence en vitamine A"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Vitamine A (2 doses)"
+          },
+          {
+            "id": "b4c2",
+            "label": "Symptomatique, hydratation, nutrition"
+          },
+          {
+            "id": "b4c3",
+            "label": "Antibiotiques si surinfection"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Pas d'antiviral"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Vaccin vivant, 2 doses"
+          },
+          {
+            "id": "b5c2",
+            "label": "Post-exposition : vaccin < 72 h"
+          },
+          {
+            "id": "b5c3",
+            "label": "Immunoglobulines : contacts à risque"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Déclaration + isolement aérien"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Clinique : triade catarrhe + Koplik + éruption"
+          },
+          {
+            "id": "b6c2",
+            "label": "IgM / PCR si doute"
+          },
+          {
+            "id": "b6c3",
+            "label": "Différentiels : rubéole, scarlatine"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Immunodéprimé : formes atypiques"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "moss2012",
+      "title": "Measles",
+      "citation": "Moss WJ, Griffin DE. Measles. Lancet. 2012;379(9811):153-164. DOI 10.1016/S0140-6736(10)62352-5. PMID 21855993.",
+      "organization": "The Lancet",
+      "year": 2012,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(10)62352-5",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Virologie et transmission",
+        "Physiopathologie (aménorrhée immunitaire)",
+        "Clinique et complications",
+        "Vitamine A et traitement",
+        "Vaccination et prophylaxie"
+      ]
+    },
+    {
+      "id": "who2025rougeole",
+      "title": "Aide-mémoire : Rougeole",
+      "citation": "Organisation mondiale de la Santé. Measles. Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/measles).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/measles",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Mortalité évitable par le vaccin",
+        "Vitamine A",
+        "Stratégies vaccinales OMS",
+        "Prophylaxie et surveillance"
+      ]
+    }
+  ]
+}
