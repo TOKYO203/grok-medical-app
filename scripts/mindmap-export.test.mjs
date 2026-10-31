@@ -48,11 +48,11 @@ const map = JSON.parse(
 const PALETTE = {
   background: "#FFFFFF",
   card: "#FFFFFF",
-  fg: "#1F1A14",
-  muted: "#5E4D35",
+  fg: "#221A3D",
+  muted: "#585072",
   border: "#A67C1E",
-  rootFrom: "#3E4A2A",
-  rootTo: "#3E4A2A",
+  rootFrom: "#5B21B6",
+  rootTo: "#5B21B6",
   rootFg: "#FFFFFF",
   criticity: { critique: "#8B2E1F", grave: "#A67C1E", examens: "#1B4B77", benin: "#4F6B2D" },
 };

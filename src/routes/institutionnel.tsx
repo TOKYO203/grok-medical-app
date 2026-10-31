@@ -108,7 +108,7 @@ function InstitutionnelPage() {
           </p>
           <a
             href="#demonstration"
-            className="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#EDE0C8]"
+            className="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#F4F1FA]"
           >
             Demander une démonstration
           </a>
@@ -381,7 +381,7 @@ function LeadForm() {
           <button
             type="submit"
             disabled={!requiredFilled || status === "sending"}
-            className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] bg-[#A67C1E] px-4 py-3 text-sm font-medium text-[#EDE0C8] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] bg-[#A67C1E] px-4 py-3 text-sm font-medium text-[#F4F1FA] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {status === "sending" ? (
               <Loader2 className="size-4 animate-spin" aria-hidden />

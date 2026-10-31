@@ -410,11 +410,11 @@ export function MindmapView({ content }: { content: FicheContent }) {
     return {
       background: v("--app-surface", "#ffffff"),
       card: v("--app-card", "#ffffff"),
-      fg: v("--app-fg", "#1F1A14"),
-      muted: v("--app-muted", "#5E4D35"),
+      fg: v("--app-fg", "#221A3D"),
+      muted: v("--app-muted", "#585072"),
       border: v("--app-border", "#A67C1E"),
-      rootFrom: v("--app-primary", "#3E4A2A"),
-      rootTo: v("--app-primary", "#3E4A2A"),
+      rootFrom: v("--app-primary", "#5B21B6"),
+      rootTo: v("--app-primary", "#5B21B6"),
       rootFg: v("--app-primary-fg", "#ffffff"),
       criticity: {
         critique: v("--app-danger", "#8B2E1F"),

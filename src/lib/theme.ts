@@ -77,7 +77,7 @@ function syncThemeColorMeta(resolved: ResolvedTheme) {
   } catch {
     /* style indisponible — repli sur les fonds de base ci-dessous */
   }
-  meta.setAttribute("content", tinted || (resolved === "dark" ? "#0c1110" : "#EDE0C8"));
+  meta.setAttribute("content", tinted || (resolved === "dark" ? "#130F23" : "#F4F1FA"));
 }
 
 /** Applique le thème au document (attribut `data-theme` + couleur de barre navigateur). */

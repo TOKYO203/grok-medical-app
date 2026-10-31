@@ -80,18 +80,18 @@
 :root {
   color-scheme: light;
 
-  --app-bg: #EDE0C8;
+  --app-bg: #F4F1FA;
   --app-bg-elevated: #FFFFFF;
   --app-surface: #FFFFFF;
-  --app-surface-2: #F0E4CB;
-  --app-fg: #1F1A14;
-  --app-muted: #5E4D35;
-  /* #6A5738 : contraste 5.31:1 sur --app-bg (parchemin) et 6.92:1 sur --app-card (blanc)
+  --app-surface-2: #EAE4F6;
+  --app-fg: #221A3D;
+  --app-muted: #585072;
+  /* #66607B : contraste 5.31:1 sur --app-bg (parchemin) et 6.92:1 sur --app-card (blanc)
      — WCAG AA garanti pour le petit texte ; l'ancien #8A7555 ne donnait que 3.38:1. */
-  --app-subtle: #6A5738;
+  --app-subtle: #66607B;
   --app-border: #A67C1E;
   --app-border-strong: color-mix(in oklab, #A67C1E 80%, transparent);
-  --app-primary: #3E4A2A;
+  --app-primary: #5B21B6;
   --app-primary-fg: #FFFFFF;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 12%, transparent);
   --app-accent: #A67C1E;
@@ -102,7 +102,7 @@
   --app-gold: #7E5B12;
   --app-gold-soft: #E8C97A;
   --app-paper: #FFFFFF;
-  --app-paper-fg: #1F1A14;
+  --app-paper-fg: #221A3D;
   /* #7E5B12 : indicateur de focus ≥ 3:1 (WCAG 1.4.11, non-texte) — l'ancien
      #A67C1E ne donnait que 2,91:1 sur le parchemin. */
   --app-ring: #7E5B12;
@@ -114,23 +114,23 @@
   /* #1B4B77 : bleu « examens » (criticité de la mindmap) — contraste ≥ 4.5:1 sur blanc. */
   --app-info: #1B4B77;
   --app-card: #FFFFFF;
-  --app-secondary: #F0E4CB;
+  --app-secondary: #EAE4F6;
 
   --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-accent) 38%, transparent);
-  --app-shadow-soft: 0 18px 40px -28px rgb(122 90 20 / 0.20);
-  --app-shadow-md: 0 26px 60px -34px rgb(139 104 32 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
+  --app-shadow-soft: 0 18px 40px -28px rgb(52 33 110 / 0.20);
+  --app-shadow-md: 0 26px 60px -34px rgb(60 40 130 / 0.24), inset 0 1px 0 rgb(255 255 255 / 0.6);
 
   --app-body-bg:
-    radial-gradient(64rem 32rem at 88% -12%, rgb(92 107 63 / 0.12), transparent 60%),
+    radial-gradient(64rem 32rem at 88% -12%, rgb(91 33 182 / 0.12), transparent 60%),
     radial-gradient(44rem 28rem at -12% 42%, rgb(184 137 43 / 0.06), transparent 65%),
-    #F4ECDF;
+    #F8F6FD;
 
-  --hero-from: #3E4A2A;
-  --hero-to: #1F2716;
+  --hero-from: #5B21B6;
+  --hero-to: #2E1065;
   --hero-glow: rgb(255 255 255 / 0.22);
 
-  --app-skeleton-a: #e9f0ec;
-  --app-skeleton-b: #f3f6f4;
+  --app-skeleton-a: #EAE4F6;
+  --app-skeleton-b: #F1EDFA;
 
   /* Seule « Clinique » (`.cover-clinique`) garde un dégradé CSS : les trois
      autres visuels de profil sont des images (public/profile-covers/*). */
@@ -143,32 +143,32 @@ html[data-theme="dark"] {
   color-scheme: dark;
 
   /* Palette Oxford adaptée au sombre : olive profond, or, parchemin. */
-  --app-bg: #14180f;
+  --app-bg: #130F23;
   --app-bg-elevated: #1c2218;
-  --app-surface: #222a1d;
-  --app-surface-2: #2a3325;
-  --app-fg: #ede0c8;
-  --app-muted: #a8a08a;
-  --app-subtle: #8a8470;
+  --app-surface: #201A3A;
+  --app-surface-2: #261F47;
+  --app-fg: #EDE8FA;
+  --app-muted: #A79ECB;
+  --app-subtle: #8F86B5;
   --app-border: color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-border-strong: color-mix(in oklab, var(--app-fg) 22%, transparent);
-  --app-primary: #a8bc8c;
-  --app-primary-fg: #14180f;
+  --app-primary: #A78BFA;
+  --app-primary-fg: #130F23;
   --app-primary-soft: color-mix(in oklab, var(--app-primary) 18%, transparent);
   --app-accent: #d4a648;
   /* Or clair : AA+ sur olive foncé (≈ 11:1). */
   --app-gold: #e8c97a;
   --app-gold-soft: #f0d898;
-  --app-paper: #ede0c8;
+  --app-paper: #EDE8FA;
   --app-paper-fg: #1f1a14;
-  --app-ring: #a8bc8c;
+  --app-ring: #8B5CF6;
   /* Succès en olive-vert (cohérent avec l'identité Oxford). */
-  --app-success: #8fb66e;
+  --app-success: #7BC88F;
   --app-warn: #d4a648;
-  --app-danger: #d97a6a;
-  --app-info: #8ab8d8;
-  --app-card: #1a2016;
-  --app-secondary: #252e1f;
+  --app-danger: #F08A8A;
+  --app-info: #8AB8F0;
+  --app-card: #1B1533;
+  --app-secondary: #221B41;
 
   --app-shadow-border: inset 0 0 0 1px color-mix(in oklab, var(--app-fg) 12%, transparent);
   --app-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 0.55);
@@ -179,13 +179,13 @@ html[data-theme="dark"] {
   --app-body-bg:
     radial-gradient(70rem 34rem at 85% -8%, rgb(232 201 122 / 0.08), transparent 60%),
     radial-gradient(42rem 28rem at -12% 45%, rgb(168 188 140 / 0.06), transparent 65%),
-    #14180f;
-  --hero-from: #8a9c6c;
-  --hero-to: #5c7044;
+    #130F23;
+  --hero-from: #7C5CD6;
+  --hero-to: #3B2A78;
   --hero-glow: rgb(232 201 122 / 0.18);
 
-  --app-skeleton-a: #252e1f;
-  --app-skeleton-b: #2a3325;
+  --app-skeleton-a: #221B41;
+  --app-skeleton-b: #261F47;
 
   --cover-1-from: #1e2619;
   --cover-1-to: #101408;
@@ -1138,7 +1138,7 @@ html[data-theme="dark"][data-accent="royal"] {
    scripts/accent-palette.test.mjs. */
 html[data-accent]:not([data-accent="defaut"]) {
   /* Phase 4 (suite) — harmonisation thème clair : le hero suivait l'olive
-     Oxford (#3E4A2A → #1F2716) pour TOUTES les palettes ; il suit
+     Oxford (#5B21B6 → #2E1065) pour TOUTES les palettes ; il suit
      désormais l'accent de la palette, comme en mode sombre. La palette
      « defaut » garde son hero olive (signature Oxford). */
   --hero-from: color-mix(in oklab, var(--app-accent) 52%, #0d0d0d);
@@ -1193,7 +1193,7 @@ html[data-theme="dark"][data-accent]:not([data-accent="defaut"]) {
 }
 
 html[data-theme="dark"] {
-  --accent-swatch-defaut: #C45C4A;
+  --accent-swatch-defaut: #D4A648;
   --accent-swatch-rose: #F43F5E;
   --accent-swatch-marron: #C08552;
   --accent-swatch-marine: #60A5FA;

@@ -47,7 +47,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
-      { name: "theme-color", content: "#EDE0C8" },
+      { name: "theme-color", content: "#F4F1FA" },
       { name: "application-name", content: "Optimus" },
       { name: "apple-mobile-web-app-title", content: "Optimus" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
