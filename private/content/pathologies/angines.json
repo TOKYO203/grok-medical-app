@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "angines",
+  "title": "Angines",
+  "specialty": "ORL",
+  "objective": "Diagnostiquer et traiter une angine : distinguer l'angine virale (majoritaire) de l'angine streptococcique (streptocoque du groupe A), utiliser les scores cliniques (Centor/McIsaac) et le test rapide de diagnostic, connaître les complications suppuratives (abcès, phlegmon, épiglottite), l'antibiothérapie ciblée (pénicilline/amoxicilline), les complications post-streptococciques (rhumatisme articulaire aigu, glomérulonéphrite aiguë) et l'urgence que représentent l'angine de Ludwig et l'épiglottite.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 11,
+    "specialty": "ORL",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 52,
+      "localNumber": 11,
+      "sectionLabel": "Médecine",
+      "title": "Angines",
+      "specialty": "ORL"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Angines. Inflammation aiguë de l'oropharynx et des amygdales, très fréquente : VIRALES dans la grande majorité des cas (rhinovirus, adénovirus, EBV mononucléose, herpès) ; BACTÉRIENNES dominées par le STREPTOCOQUE BÊTA-HÉMOLYTIQUE DU GROUPE A (SGA). Le problème clinique : reconnaître l'angine à SGA (à traiter par antibiotique pour éviter le RHUMATISME ARTICULAIRE AIGU — endémique à Madagascar — et la glomérulonéphrite) sans donner d'antibiotique aux angines virales. Démarche : SCORE de CENTOR/McISAAC (fièvre > 38 °C, absence de toux, adénopathies cervicales antérieures douloureuses, exsudat ou hypertrophie amygdalienne ; ajusté à l'âge) → TEST RAPIDE de diagnostic (TDR streptococcique) si disponible ; antibiothérapie seulement si SGA confirmé ou fortement probable. Clinique : fièvre, dysphagie, odynophagie, halitose, amygdales rouges œdématiées ± exsudat blancâtre, adénopathies ; formes : érythémateuse, exsudative (pultacée), pseudo-membraneuse (mononucléose, diphtérie : fausses membranes adhérentes + croup), ulcéro-nécrotique (Vincent, immunodépression), herpétique (vésicules). Complications SUPPURATIVES : abcès péri-amygdalien (trismus, uvule déviée, bombement unilatéral), abcès rétropharyngien, ANGINE DE LUDWIG (cellulite des espaces sous-mandibulaires : trismus, œdème du plancher buccal, langue surélevée — URGENCE VITALE, obstruction des voies aériennes), ÉPIGLOTTITE (douleur laryngée, voix étouffée, hypersialorrhée, position assise — URGENCE), complications à distance : RAA (cardite ++, arthrite, chorée), glomérulonéphrite aiguë, scarlatine. Traitement : angine virale = traitement symptomatique ; angine à SGA = AMOXICILLINE ou PÉNICILLINE V (10 jours, ou benzathine-pénicilline IM en dose unique selon les protocoles — utile pour l'observance et le RAA), alternatives si allergie (macrolides si non résistants, céphalosporines de 1re génération selon contexte) ; ABCÈS : antibiothérapie IV ± drainage ; Ludwig/épiglottite : hospitalisation URGENTE, protection des voies aériennes. Prévention : hygiène, traitement complet du SGA, prophylaxie secondaire du RAA (benzathine-pénicilline mensuelle), pas de vaccination anti-SGA.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Shulman ST, Bisno AL, Clegg HW, et al. Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update by the Infectious Diseases Society of America. Clin Infect Dis. 2012;55(10):e86-e102 — DOI 10.1093/cid/cis847 ; vérifié par recherche sur les pages officielles Oxford Academic (cid/article/55/10/e86), PMC (PMC7108032) et IDSA avant citation.",
+      "Source 2 : OMS, aide-mémoire « Rheumatic heart disease » — page officielle https://www.who.int/news-room/fact-sheets/detail/rheumatic-heart-disease confirmée par recherche avant citation ; le RAA post-streptococcique justifie l'antibiothérapie de l'angine à SGA.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Angines : majoritairement virales ; SGA = cible de l'antibiothérapie",
+      "Score Centor/McIsaac + test rapide : stratégie diagnostique",
+      "Pénicilline/amoxicilline 10 jours (ou benzathine-pénicilline IM) pour le SGA",
+      "Complications suppuratives : abcès péri-amygdalien, angine de Ludwig, épiglottite",
+      "Complications post-streptococciques : RAA (cardite), glomérulonéphrite, scarlatine",
+      "Mononucléose : pas d'amoxicilline (éruption)",
+      "Contexte Madagascar : RAA endémique — traitement complet obligatoire",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angine est une inflammation aiguë de l'oropharynx et des amygdales, d'origine virale dans la grande majorité des cas. La question clinique centrale est simple : s'agit-il d'une angine à streptocoque du groupe A (SGA), seule à justifier une antibiothérapie — pour prévenir le rhumatisme articulaire aigu (RAA) et la glomérulonéphrite — ou d'une angine virale, pour laquelle les antibiotiques sont inutiles et nocifs ? À Madagascar, où le RAA reste endémique, cette distinction a un enjeu de santé publique majeur.",
+          "sources": [
+            {
+              "id": "who2025rhumatice",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire OMS : cardiopathie rhumatismale",
+              "year": 2025
+            },
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le SGA est le seul à exiger l'antibiotique",
+          "text": "Sur les angines, seules celles à STREPTOCOQUE DU GROUPE A relèvent d'une antibiothérapie, dans un but principalement PRÉVENTIF (éviter le rhumatisme articulaire aigu, la cardite rhumatismale et la glomérulonéphrite) et secondairement pour raccourcir les symptômes et prévenir les complications suppuratives et la transmission. Toutes les autres angines — la grande majorité — relèvent d'un traitement symptomatique."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VIRALES (majorité des angines) : rhinovirus, coronavirus, adénovirus (angine pseudo-membraneuse + conjonctivite), virus grippaux et para-grippaux, HERPÈS (vésicules puis ulcérations), ENTÉROVIRUS (herpangine), EPSTEIN-BARR (MONONUCLÉOSE infectieuse du sujet jeune : angine pseudo-membraneuse, adénopathies cervicales importantes, splénomégalie, asthénie prolongée), CMV, VIH (primo-infection).",
+            "BACTÉRIENNES : STREPTOCOQUE BÊTA-HÉMOLYTIQUE DU GROUPE A (Streptococcus pyogenes) — la cible ; groupes C et G (adulte) ; anaérobies (angine de Vincent, ulcéro-nécrotique, terrain débilité), Corynebacterium diphtheriae (diphtérie : fausses membranes grisâtres ADHÉRENTES, croup, cardite, paralysies — maladie ré-émergente si couverture vaccinale en baisse), Neisseria gonorrhoeae, Fusobacterium necrophorum (syndrome de Lemierre : thrombose de la veine jugulaire interne + foyers septiques pulmonaires chez le sujet jeune).",
+            "FACTEURS DE GRAVITÉ/CONTEXTES : immunodépression (angines ulcéro-nécrotiques, à CMV), diabète, dénutrition, terrain ORL, tabac.",
+            "ÉPIDÉMIOLOGIE : pics hivernaux et de début de printemps ; SGA surtout chez l'enfant de 5-15 ans ; l'angine du petit enfant de moins de 3 ans est presque toujours virale (SGA rare).",
+            "À Madagascar : le RAA post-streptococcique reste fréquent chez l'enfant et l'adolescent — la pénicillinothérapie complète de l'angine à SGA et la prophylaxie secondaire par benzathine-pénicilline sont des priorités nationales de santé publique."
+          ],
+          "sources": [
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique, formes et complications",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "SIGNES COMMUNS : odynophagie (douleur à la déglutition), dysphagie, fièvre, halitose, voix couverte, refus alimentaire ; examen : amygdalite (rougeur, œdème, ± exsudat), adénopathies cervicales antérieures douloureuses.",
+            "FORME ÉRYTHÉMATO-PULTACÉE (SGA typique) : fièvre élevée, amygdales rouges bombées couvertes d'un exsudat blanchâtre FLOTTANT (facile à décoller), points hémorragiques du voile, adénopathies cervicales antérieures ; ABSENCE de toux.",
+            "SCARLATINE : angine à SGA + éruption finement punctiforme (« en papier de verre »), érythème du visage avec périlorale sain, langue framboisée, desquamation secondaire ; signe du pli inguinal.",
+            "ANGINE PSEUDO-MEMBRANEUSE : enduit blanchâtre — mononucléose (adénopathies multiples, splénomégalie) ou DIPHTÉRIE (membranes ADHÉRENTES qui saignent au décollement, croup, odeur sucrée, absence de fièvre majeure).",
+            "ANGINE ULCÉRO-NÉCROTIQUE (Vincent) : ulcération unilatérale nécrotique, odeur fétide, terrain débilité.",
+            "FORME HERPÉTIQUE : vésicules puis érosions de l'oropharynx, gingivite, fièvre.",
+            "COMPLICATIONS SUPPURATIVES LOCALES : ABCÈS PÉRI-AMYGDALIEN (unilatéral : bombement du pilier, UVULE déviée du côté opposé, TRISMUS, voix étouffée, otalgie réflexe), abcès rétropharyngien (nourrisson : torticolis, dysphagie), ADÉNOPHLEGMON, otite et sinusite de propagation, ANGINE DE LUDWIG (cellulite bilatérale des espaces sous-mandibulaires : ŒDÈME DU PLANCHER BUCCAL, langue surélevée, TRISMUS, fièvre — URGENCE VITALE par obstruction des voies aériennes), SYNDROME DE LEMIERRE (septicémie à Fusobacterium avec thrombose jugulaire et emboles pulmonaires), ÉPIGLOTTITE (dysphagie majeure, voix étouffée, hypersialorrhée, position assise — URGENCE, ne pas examiner le pharynx brutalement ni coucher le patient).",
+            "COMPLICATIONS POST-STREPTOCOCCIQUES (le fond du problème) : RHUMATISME ARTICULAIRE AIGU (2-3 semaines après l'angine : arthrite migratrice des grosses articulations, CARDITE — souffle mitral/aortique, chorée de Sydenham, nodules, érythème marginé — critères de Jones), GLOMÉRULONÉPHRITE AIGUË (hématurie, œdèmes, HTA 1-3 semaines après), scarlatine (immédiate)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Quatre urgences autour d'une angine",
+          "text": "1) ANGINE DE LUDWIG : œdème du plancher buccal + trismus + langue surélevée → hospitalisation IMMÉDIATE, protection des voies aériennes, antibiothérapie IV. 2) ÉPIGLOTTITE : hypersialorrhée + voix étouffée + position assise → ne pas coucher, ne pas examiner brutalement, ORL/réanimation, intubation anticipée. 3) ABCÈS PÉRI-AMYGDALIEN : trismus + uvule déviée → drainage + antibiothérapie IV. 4) DIPHTÉRIE : membranes adhérentes + croup → isolement, sérum antitoxique en urgence (le pronostic dépend de la précocité), antibiotique, vaccination de l'entourage.",
+          "sources": [
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La démarche associe CLINIQUE et OUTILS. Le score de CENTOR/McISAAC estime la probabilité de SGA : fièvre > 38 °C, ABSENCE DE TOUX, adénopathies cervicales antérieures douloureuses, exsudat amygdalien ou hypertrophie (1 point chacun ; ajusté par l'âge : moins de 3 ans, SGA rare ; 3-14 ans probabilité accrue). Score faible (0-1) : pas d'antibiotique, pas de test. Score intermédiaire/élevé : TEST RAPIDE streptococcique (TDR) si disponible — positif = traiter, négatif = ne pas traiter ; la CULTURE de gorge reste la référence quand le TDR n'existe pas (selon les protocoles locaux : dans les zones à fort risque de RAA comme Madagascar, le seuil de traitement peut être plus bas selon les recommandations nationales).",
+          "sources": [
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "SUSPICION DE MONONUCLÉOSE : hémogramme (hyperlymphocytose avec lymphocytes activés), sérologie EBV (test hétérophile puis anticorps anti-EBV), transaminases ; PALPATION PRUDENTE de la rate (splénomégalie : éviter les sports de contact — risque de rupture).",
+            "Ne PAS prescrire d'AMOXICILLINE si mononucléose suspectée : éruption maculo-papuleuse quasi constante (réaction non allergique) — piège classique : une angine traitée par amoxicilline qui « allergise » brutalement le patient = penser à EBV.",
+            "DIPHTÉRIE : contexte épidémique/vaccination incomplète, membranes adhérentes, prélèvement de gorge (culture sur milieu adapté) ; recherche de cardite (ECG) et de paralysies.",
+            "EXAMENS SELON COMPLICATIONS : hémogramme-CRP (abcès, Ludwig, Lemierre : hyperleucocytose majeure), hémocultures si sepsis, imagerie cervicale si collection profonde, radiographie thoracique si suspicion d'emboles septiques.",
+            "DIAGNOSTICS DIFFÉRENTIELS : pharyngite virale (catarrhe, toux), mononucléose, diphtérie, herpangine, stomatite, candidose orale (enduit détachable, sujet immunodéprimé), leucémie (hypertrophie amygdalienne nécrotique + pancytopénie), tumeur amygdalienne (ulcération unilatérale indolore chronique du fumeur).",
+            "Chez l'enfant de moins de 3 ans : SGA rare — angine presque toujours virale, chercher une autre cause (herpangine, stomatite, corps étranger)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le piège de l'amoxicilline",
+          "text": "Une angine du sujet jeune, avec adénopathies importantes, asthénie et splénomégalie = MONONUCLÉOSE jusqu'à preuve du contraire. L'amoxicilline y provoque une éruption généralisée quasi systématique (fausse « allergie à la pénicilline ») sans bénéfice. Vérifier l'hémogramme et la sérologie EBV avant d'antibiotiquer une angine atypique du sujet jeune ; et consigner correctement l'histoire pour éviter une étiquette d'allergie erronée à vie."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "ANGINE VIRALE (TDR négatif ou score faible) : traitement SYMPTOMATIQUE — paracétamol, gargarismes antiseptiques doux, pastilles, hydratation, alimentation fraîche et molle, repos ; pas d'antibiotique ; réévaluer à 48-72 h si évolution défavorable.",
+            "ANGINE À SGA CONFIRMÉE/PROBABLE : AMOXICILLINE (ou PÉNICILLINE V) pendant 10 JOURS — la référence ; alternative en stratégie d'observance difficile ou protocoles RAA : BENZATHINE-PÉNICILLINE IM en injection unique (efficacité comparable, observance garantie — utilisée dans les programmes de lutte contre le RAA) ; allergie à la pénicilline : macrolides si la souche n'est pas résistante, clindamycine ou céphalosporines de 1re génération selon les protocoles ; les tétracyclines et les sulfamides ne sont PAS indiqués (ils n'éradique pas le SGA et ne préviennent pas le RAA).",
+            "BUT DU TRAITEMENT : éradication du SGA pour PRÉVENIR LE RAA (et la glomérulonéphrite), raccourcir les symptômes, prévenir les complications suppuratives et la transmission ; d'où l'importance de la durée COMPLÈTE (10 jours oraux).",
+            "COMPLICATIONS SUPPURATIVES : ABCÈS PÉRI-AMYGDALIEN — antibiothérapie IV (pénicilline ± métronidazole pour les anaérobies) et DRAINAGE (ponction ou incision) ; ANGINE DE LUDWIG — hospitalisation en urgence, antibiothérapie IV couvrant les anaérobies, protection des voies aériennes (intubation difficile anticipée), drainage chirurgical des collections ; ÉPIGLOTTITE — hospitalisation en réanimation/ORL, intubation anticipée en environnement calme, antibiothérapie IV ; SYNDROME DE LEMIERRE — antibiothérapie IV prolongée couvrant Fusobacterium (métronidazole + bêta-lactamine, anticoagulation discutée selon protocoles).",
+            "MONONUCLÉOSE : traitement symptomatique (paracétamol, repos — plusieurs semaines, éviter le sport en cas de splénomégalie), corticoïdes seulement si obstruction respiratoire ou complication sévère ; PAS d'antibiotique (et surtout pas d'amoxicilline : éruption).",
+            "DIPHTÉRIE : isolement, ANTITOXINE diphthérique en urgence (le pronostic dépend de la précocité), antibiothérapie (macrolide ou pénicilline), surveillance cardiaque (ECG), mise à jour vaccinale de l'entourage.",
+            "RAA CONFIRMÉ après une angine : traitement de l'accès (repos, aspirine/AINS selon protocoles, corticoïdes si cardite sévère), puis PROPHYLAXIE SECONDAIRE par benzathine-pénicilline IM mensuelle (durée selon cardite) — obligation de suivi à long terme.",
+            "SUIVI de l'angine traitée : amélioration en 48-72 h ; au-delà, réévaluer le diagnostic (mononucléose ? abcès ? résistance ? observance ?)."
+          ],
+          "sources": [
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            },
+            {
+              "id": "who2025rhumatice",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire OMS : cardiopathie rhumatismale",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant toute angine : la checklist",
+          "text": "1) Gravité immédiate ? (détresse respiratoire, trismus, œdème du plancher buccal, hypersialorrhée) → urgence. 2) Score Centor/McIsaac + TDR si disponible. 3) SGA : pénicilline/amoxicilline 10 jours COMPLETS (ou benzathine-pénicilline IM). 4) Sujet jeune atypique (adénopathies + splénomégalie + asthénie) : hémogramme, EBV, PAS d'amoxicilline. 5) Contexte RAA à Madagascar : traiter complètement, éduquer sur l'observance, noter dans le carnet de santé.",
+          "sources": [
+            {
+              "id": "who2025rhumatice",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire OMS : cardiopathie rhumatismale",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "HYGIÈNE : lavage des mains, couvrir toux et éternuements, vaisselle et objets contaminés (tasses, couverts), aération ; pas de partage d'ustensiles.",
+            "TRAITEMENT COMPLET de l'angine à SGA = prévention primaire du RAA et de la glomérulonéphrite ; éducation à l'observance (10 jours complets même si l'état s'améliore à 48 h).",
+            "PROPHYLAXIE SECONDAIRE DU RAA : benzathine-pénicilline IM mensuelle chez tout patient ayant fait un RAA (durée selon l'atteinte cardiaque) — pilier de la prévention de la cardite rhumatismale et du rétrécissement mitral de l'adulte jeune ; éducation et rappels (fiches de suivi).",
+            "ÉVITER les facteurs favorisants : tabac, promiscuité scolaire (aération des classes), dénutrition.",
+            "DIPHTÉRIE : vaccination (combinée selon l'âge, rappels) ; devant un cas : isolement respiratoire, recherche et vaccination des contacts, antibioprophylaxie des contacts selon protocoles.",
+            "FLAMBÉES SCOLAIRES de SGA : mesures d'hygiène, information, traitement des cas ; pas de prophylaxie antibiotique de masse systématique (sauf protocole particulier : cas de RAA dans l'entourage).",
+            "Madagascar : intégrer la lutte contre le RAA (dépistage des souffles chez l'écolier, traitement complet des angines, registre des RAA sous prophylaxie) — chaque angine à SGA correctement traitée est une cardite rhumatismale évitée."
+          ],
+          "sources": [
+            {
+              "id": "who2025rhumatice",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire OMS : cardiopathie rhumatismale",
+              "year": 2025
+            },
+            {
+              "id": "shulman2012",
+              "organization": "Clinical Infectious Diseases (IDSA)",
+              "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+              "year": 2012
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "Angine = virale dans la majorité ; SGA = le seul à traiter (score de Centor + TDR). Traitement de référence : PÉNICILLINE 10 jours ou benzathine-pénicilline IM unique. Pourquoi : prévenir le RAA (cardite → rétrécissement mitral de l'adulte jeune) et la glomérulonéphrite. Urgences : Ludwig (plancher buccal), épiglottite (hypersialorrhée, voix étouffée), abcès péri-amygdalien (uvule déviée, trismus), diphtérie (membranes adhérentes). Pièges : mononucléose + amoxicilline = éruption ; angine ulcérée unilatérale chronique du fumeur = cancer."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angine est un motif de consultation banal dont l'enjeu n'est pas le symptôme mais la prévention : identifier le streptocoque du groupe A (score clinique, test rapide), le traiter complètement par la pénicilline, et savoir reconnaître en urgence les complications qui obstruent les voies aériennes (Ludwig, épiglottite, abcès). Dans un pays où le rhumatisme articulaire aigu reste endémique, chaque angine à SGA traitée complètement est une cardite évitée — et chaque angine virale non antibiotique est une résistance bactérienne en moins. Mononucléose, diphtérie et Lemierre complètent la carte des pièges à connaître."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Shulman ST, Bisno AL, Clegg HW, et al. Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update. Clin Infect Dis. 2012;55(10):e86-e102 (DOI 10.1093/cid/cis847).",
+            "Organisation mondiale de la Santé. Aide-mémoire : cardiopathie rhumatismale (https://www.who.int/news-room/fact-sheets/detail/rheumatic-heart-disease)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Angine de Ludwig et épiglottite : obstruction imminente",
+      "text": "Œdème du plancher buccal avec trismus et langue surélevée (Ludwig) ou hypersialorrhée avec voix étouffée et position assise (épiglottite) : URGENCE VITALE — hospitalisation immédiate, antibiothérapie IV, protection des voies aériennes en environnement calme (intubation anticipée, ne pas coucher le patient, examiner avec douceur). L'angine banale ne tue pas ; ces deux-là si."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Amoxicilline + mononucléose = éruption",
+      "text": "Le sujet jeune avec angine pseudo-membraneuse, adénopathies diffuses, splénomégalie et asthénie : mononucléose infectieuse probable — l'amoxicilline y déclenche une éruption quasi systématique qui sera à tort étiquetée allergie à la pénicilline. Hémogramme et sérologie EBV d'abord ; éviter le sport en cas de splénomégalie (rupture)."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "10 jours complets, ou une injection",
+      "text": "L'angine à SGA se traite par pénicilline orale pendant 10 JOURS complets — l'observance fait échouer cette stratégie ; c'est pourquoi la BENZATHINE-PÉNICILLINE IM en dose unique est l'outil des programmes anti-RAA (et de la prophylaxie secondaire mensuelle après un RAA). Ne jamais prescrire de tétracyclines ou de sulfamides : ils n'éradique pas le SGA et ne préviennent pas le RAA."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Centor/McIsaac : 4 critères",
+      "text": "Fièvre > 38 °C + ABSENCE de toux + adénopathies cervicales antérieures + exsudat/hypertrophie amygdalienne. 0-1 : pas d'antibiotique. 2-3 : test rapide si disponible. 4 : probabilité forte de SGA — traiter (selon les protocoles locaux, en zone RAA le seuil peut être plus bas). La toux et le catarrhe orientent vers le viral."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Le RAA, 2-3 semaines après",
+      "text": "Après une angine à SGA non ou mal traitée : arthrite migratrice des grosses articulations + souffle cardiaque (cardite = gravité) ± chorée ± nodules ± érythème marginé (critères de Jones) = rhumatisme articulaire aigu. La cardite de l'enfant devient le rétrécissement mitral de l'adulte jeune. D'où : traitement complet de l'angine, puis prophylaxie secondaire par benzathine-pénicilline mensuelle selon le protocole."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "C.E.N.T.O.R.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cough absent : pas de toux (critère majeur du SGA)"
+        },
+        {
+          "key": "E",
+          "term": "Exsudat amygdalien : enduit blanchâtre flottant"
+        },
+        {
+          "key": "N",
+          "term": "Nodes : adénopathies cervicales antérieures douloureuses"
+        },
+        {
+          "key": "T",
+          "term": "Température : fièvre > 38 °C"
+        },
+        {
+          "key": "O",
+          "term": "ORL : examen du pharynx et du cou (abcès ? trismus ? plancher buccal ?)"
+        },
+        {
+          "key": "R",
+          "term": "RAA : la raison profonde de tout traitement antibiotique"
+        }
+      ]
+    },
+    {
+      "label": "A.N.G.I.N.E.",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Amoxicilline : attention au piège de la mononucléose (éruption)"
+        },
+        {
+          "key": "N",
+          "term": "Nécrotique/ulcérée : Vincent, cancer du fumeur, leucémie"
+        },
+        {
+          "key": "G",
+          "term": "Grave urgence : Ludwig et épiglottite (obstruction)"
+        },
+        {
+          "key": "I",
+          "term": "Injection : benzathine-pénicilline IM — angine SGA et prophylaxie du RAA"
+        },
+        {
+          "key": "N",
+          "term": "Néphrite : glomérulonéphrite post-streptococcique (hématurie, HTA, œdèmes)"
+        },
+        {
+          "key": "E",
+          "term": "Endiguement : 10 jours complets de pénicilline, pas de sulfamides ni de tétracyclines"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est l'étiologie la plus fréquente des angines ?",
+      "back": "Les angines sont majoritairement VIRALES (rhinovirus, adénovirus, EBV, herpès, entérovirus) ; les angines bactériennes sont dominées par le streptocoque bêta-hémolytique du groupe A (SGA, Streptococcus pyogenes)."
+    },
+    {
+      "id": "f2",
+      "front": "Pourquoi traiter par antibiotique une angine à SGA ?",
+      "back": "But PRINCIPAL : prévenir les complications post-streptococciques — rhumatisme articulaire aigu (cardite) et glomérulonéphrite aiguë ; buts secondaires : raccourcir les symptômes, prévenir les complications suppuratives et la transmission."
+    },
+    {
+      "id": "f3",
+      "front": "Citez les 4 critères du score de Centor/McIsaac.",
+      "back": "Fièvre > 38 °C ; ABSENCE de toux ; adénopathies cervicales antérieures douloureuses ; exsudat amygdalien ou hypertrophie amygdalienne. (Score ajusté par l'âge ; SGA rare avant 3 ans.)"
+    },
+    {
+      "id": "f4",
+      "front": "Quel est le traitement de référence de l'angine à SGA et sa durée ?",
+      "back": "PÉNICILLINE V ou AMOXICILLINE par voie orale pendant 10 JOURS complets ; alternative : BENZATHINE-PÉNICILLINE IM en injection unique (observance garantie, outil des programmes anti-RAA) ; allergie : macrolides (si non résistants) ou céphalosporines de 1re génération selon protocoles."
+    },
+    {
+      "id": "f5",
+      "front": "Quels antibiotiques ne sont JAMAIS indiqués dans l'angine à SGA ?",
+      "back": "Les TÉTRACYCLINES et les SULFAMIDES : ils n'éradique pas le SGA et ne préviennent pas le rhumatisme articulaire aigu."
+    },
+    {
+      "id": "f6",
+      "front": "Signes d'un abcès péri-amygdalien ?",
+      "back": "Douleur UNILATÉRALE intense, TRISMUS, bombement du pilier antérieur, UVULE déviée du côté opposé, voix étouffée (« pomme chaude »), otalgie réflexe, fièvre ; traitement : antibiothérapie IV (pénicilline ± métronidazole) + drainage (ponction/incision)."
+    },
+    {
+      "id": "f7",
+      "front": "Angine de Ludwig : définition, signes, conduite ?",
+      "back": "Cellulite bilatérale des espaces sous-mandibulaires : ŒDÈME du plancher buccal, langue surélevée, TRISMUS, voix étouffée, fièvre — URGENCE VITALE (obstruction des voies aériennes) : hospitalisation immédiate, antibiothérapie IV couvrant les anaérobies, protection des voies aériennes (intubation difficile anticipée), drainage chirurgical."
+    },
+    {
+      "id": "f8",
+      "front": "Comment reconnaître une épiglottite et que faire ?",
+      "back": "Douleur pharyngée/laryngée majeure, DYSPHAGIE avec hypersialorrhée, voix étouffée, position assise en avant (tripode), détresse respiratoire — URGENCE : ne pas coucher, ne pas examiner brutalement, transfert ORL/réanimation, intubation anticipée en environnement calme, antibiothérapie IV."
+    },
+    {
+      "id": "f9",
+      "front": "Différence entre exsudat streptococcique et membrane diphtérique ?",
+      "back": "SGA : enduit blanchâtre FLOTTANT, facile à décoller, ne saigne pas, avec fièvre élevée. DIPHTÉRIE : membranes grisâtres ADHÉRENTES qui saignent au décollement, odeur sucrée, croup, atteinte cardiaque et paralysies, fièvre modérée ; traitement : antitoxine URGENTE + macrolide/pénicilline + isolement + vaccination de l'entourage."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi ne pas donner d'amoxicilline en cas de mononucléose infectieuse ?",
+      "back": "Elle déclenche une éruption maculo-papuleuse généralisée quasi systématique (réaction immunitaire non allergique) — d'où le réflexe : angine du sujet jeune + adénopathies diffuses + splénomégalie + asthénie = hémogramme et sérologie EBV AVANT toute amoxicilline."
+    },
+    {
+      "id": "f11",
+      "front": "Qu'est-ce que le syndrome de Lemierre ?",
+      "back": "Septicémie à Fusobacterium necrophorum après une angine du sujet jeune : thrombose septique de la veine jugulaire interne + emboles septiques pulmonaires (pneumopathies multiples) ; traitement : antibiothérapie IV prolongée couvrant les anaérobies (bêta-lactamine + métronidazole), anticoagulation discutée selon protocoles."
+    },
+    {
+      "id": "f12",
+      "front": "Complications post-streptococciques de l'angine et leurs délais ?",
+      "back": "Scarlatine (immédiate : éruption punctiforme, langue framboisée), RHUMATISME ARTICULAIRE AIGU (2-3 semaines : arthrite migratrice, CARDITE avec souffle, chorée, nodules — critères de Jones), GLOMÉRULONÉPHRITE AIGUË (1-3 semaines : hématurie, œdèmes, HTA, insuffisance rénale)."
+    },
+    {
+      "id": "f13",
+      "front": "Prophylaxie secondaire du rhumatisme articulaire aigu ?",
+      "back": "BENZATHINE-PÉNICILLINE IM MENSUELLE chez tout patient ayant fait un RAA, pendant des années (durée selon l'atteinte cardiaque) : elle prévient les récidives, les reprises de cardite et l'aggravation vers le rétrécissement mitral ; registre et éducation à l'observance."
+    },
+    {
+      "id": "f14",
+      "front": "Angine du petit enfant de moins de 3 ans : quelle étiologie ?",
+      "back": "Presque toujours VIRALE (le SGA est rare avant 3 ans) : herpangine, stomatite herpétique, entérovirus — chercher d'autres diagnostics (corps étranger, mucosite) ; pas d'antibiothérapie systématique."
+    },
+    {
+      "id": "f15",
+      "front": "Quand suspecter une tumeur amygdalienne devant une « angine » ?",
+      "back": "Ulcération UNILATÉRALE chronique, indolore, saignant facilement, chez un fumeur/alcoolique de plus de 40 ans, avec adénopathie cervicale dure : biopsie — ne jamais ré-antibioter indéfiniment une « angine » unilatérale traînante."
+    },
+    {
+      "id": "f16",
+      "front": "Signes de la scarlatine ?",
+      "back": "Angine à SGA + fièvre + éruption finement punctiforme (« papier de verre ») débutant aux plis, érythème du visage avec périlorale sain, LANGUE framboisée, signe du pli (hyperémie linéaire), desquamation en doigts de gant secondaire ; traitement : pénicilline 10 jours."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "angines",
+      "label": "Angines"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Virales : majorité des cas"
+          },
+          {
+            "id": "b1c2",
+            "label": "SGA : la cible antibiotique"
+          },
+          {
+            "id": "b1c3",
+            "label": "EBV, diphtérie, Fusobacterium"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "SGA rare avant 3 ans"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Score Centor/McIsaac"
+          },
+          {
+            "id": "b2c2",
+            "label": "Test rapide streptococcique"
+          },
+          {
+            "id": "b2c3",
+            "label": "Hémogramme + EBV si atypique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Culture : référence si pas de TDR"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Angine de Ludwig (plancher buccal)"
+          },
+          {
+            "id": "b3c2",
+            "label": "Épiglottite (hypersialorrhée)"
+          },
+          {
+            "id": "b3c3",
+            "label": "Abcès péri-amygdalien (trismus)"
+          },
+          {
+            "id": "b3c4",
+            "label": "Diphtérie (membranes adhérentes)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Obstruction des voies aériennes = mort"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Virale : symptomatique"
+          },
+          {
+            "id": "b4c2",
+            "label": "SGA : pénicilline 10 j / benzathine IM"
+          },
+          {
+            "id": "b4c3",
+            "label": "Abcès : IV + drainage"
+          },
+          {
+            "id": "b4c4",
+            "label": "Mononucléose : PAS d'amoxicilline"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Tétracyclines/sulfamides : jamais"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Complications post-SGA",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "RAA : arthrite + CARDITE"
+          },
+          {
+            "id": "b5c2",
+            "label": "Glomérulonéphrite aiguë"
+          },
+          {
+            "id": "b5c3",
+            "label": "Scarlatine"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Prophylaxie secondaire : benzathine mensuelle"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Pièges",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "EBV + amoxicilline = éruption"
+          },
+          {
+            "id": "b6c2",
+            "label": "Angine unilatérale chronique du fumeur = cancer"
+          },
+          {
+            "id": "b6c3",
+            "label": "Lemierre : jugulaire + emboles"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Splénomégalie : pas de sport"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "shulman2012",
+      "title": "Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update",
+      "citation": "Shulman ST, Bisno AL, Clegg HW, Gerber MA, Kaplan EL, Lee GM, Martin JM, Van Beneden C. Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update by the Infectious Diseases Society of America. Clin Infect Dis. 2012;55(10):e86-e102. DOI 10.1093/cid/cis847.",
+      "organization": "Clinical Infectious Diseases (IDSA)",
+      "year": 2012,
+      "version": "Guideline",
+      "url": "https://doi.org/10.1093/cid/cis847",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Diagnostic du SGA (score clinique, test rapide, culture)",
+        "Traitement antibiotique de référence",
+        "Complications suppuratives et indications",
+        "Place des différentes classes antibiotiques"
+      ]
+    },
+    {
+      "id": "who2025rhumatice",
+      "title": "Aide-mémoire OMS : cardiopathie rhumatismale",
+      "citation": "Organisation mondiale de la Santé. Rheumatic heart disease. Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/rheumatic-heart-disease).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/rheumatic-heart-disease",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "RAA et cardite rhumatismale post-streptococciques",
+        "Enjeu de santé publique (Madagascar)",
+        "Prophylaxie primaire (traitement de l'angine) et secondaire (benzathine-pénicilline)",
+        "Stratégies de lutte contre le RAA"
+      ]
+    }
+  ]
+}
