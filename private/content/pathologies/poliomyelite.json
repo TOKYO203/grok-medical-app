@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "poliomyelite",
+  "title": "Poliomyélite antérieure aiguë",
+  "specialty": "Infectiologie",
+  "objective": "Décrire le poliovirus et sa transmission, reconnaître la paralysie flasque aiguë paralytique, appliquer la démarche de surveillance (PFA), et organiser le traitement symptomatique et la prévention vaccinale.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 131,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 172,
+      "localNumber": 131,
+      "sectionLabel": "Médecine",
+      "title": "Poliomyélite antérieure aiguë",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche sur l'atteinte des cornes antérieures de la moelle par le poliovirus : phases cliniques (abortive, méningée, paralytique), critères de paralysie flasque aiguë, surveillance OMS (toute PFA de l'enfant = notification immédiate), prise en charge symptomatique et rééducative, vaccination (VPO/IPV) et enjeu des poliovirus dérivés du vaccin en contexte de faible couverture comme à Madagascar.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Épidémiologie, surveillance PFA, vaccination : fiche OMS Poliomyelitis (who.int).",
+      "Efficacité vaccinale contre les cVDPV2 : étude cas-témoins Nigeria 2017-2022, Lancet Infect Dis 2023 (DOI 10.1016/S1473-3099(23)00688-6, confirmée par recherche avant citation).",
+      "Pas d'image : aucune illustration (cycle, imagerie) libre de droits avec licence vérifiée sur Commons — choix documenté."
+    ],
+    "qcChecklist": [
+      "Phases cliniques complètes avec proportions (< 1 % de formes paralytiques)",
+      "Sémiologie PFA : flasque, asymétrique, ROT abolis, sans trouble sensitif",
+      "Surveillance OMS : PFA < 15 ans = notification + selles ×2",
+      "Prise en charge : pas d'antiviral, symptomatique, urgence respiratoire",
+      "Vaccination VPO/IPV + risque cVDPV en faible couverture",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La poliomyélite antérieure aiguë (PAA) est une maladie infectieuse aiguë due au poliovirus (entérovirus de la famille des Picornaviridae, 3 sérotypes : 1, 2 et 3), qui touche électivement les neurones moteurs des cornes antérieures de la moelle épinière. La transmission est fécale-orale (et pharyngée), directe ou via l'eau et les aliments souillés ; l'incubation est habituellement de 7 à 14 jours."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Une infection banale... sauf < 1 %",
+          "text": "Plus de 90 % des infections sont inapparentes, et la majorité des cas symptomatiques sont une simple fièvre avec pharyngite. Moins de 1 % des infections évoluent vers la paralysie — mais cette minorité laisse des séquelles définitives, et c'est elle qui fonde la surveillance mondiale."
+        },
+        {
+          "type": "paragraph",
+          "text": "Grâce à la vaccination universelle, les poliovirus sauvages ne circulent plus que dans un très petit nombre de pays. Mais le virus reste une menace partout où la couverture vaccinale est insuffisante : Madagascar a connu des flambées de poliovirus dérivés du vaccin (cVDPV), qui frappent les communautés sous-vaccinées et imposent des campagnes de riposte."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Réplication initiale dans l'oropharynx et l'intestin, puis dans les amygdales, les plaques de Peyer et les ganglions mésentériques.",
+            "Virémie mineure puis virémie majeure : le virus franchit la barrière hémato-encéphalique et atteint le système nerveux.",
+            "Atteinte élective des motoneurones des cornes antérieures de la moelle (surtout lombaires), des noyaux bulbaires et parfois du cortex moteur.",
+            "Destruction neuronale → dénervation : paralysie flasque, amyotrophie secondaire ; les lésions stabilisées laissent des séquelles définitives."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Cible et conséquence",
+          "text": "Poliovirus → cornes ANTÉRIEURES de la moelle = atteinte MOTRICE PURE : paralysie flasque avec abolition des réflexes, sans trouble sensitif et sans trouble sphinctérien (en général)."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Forme abortive (4-8 % des infections symptomatiques)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Syndrome fébrile non spécifique : fièvre, malaise, anorexie, pharyngite, nausées, résolution spontanée en quelques jours."
+        },
+        {
+          "type": "heading",
+          "text": "Forme méningée non paralytique"
+        },
+        {
+          "type": "paragraph",
+          "text": "Fièvre, céphalées, raideur de nuque, vomissements — liquide céphalorachidien lymphocytaire. Régression habituelle en une semaine."
+        },
+        {
+          "type": "heading",
+          "text": "Forme paralytique (< 1 %)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phase prodromique fébrile avec myalgies et hyperesthésie, puis la fièvre tombe et la paralysie s'installe en 24 à 72 heures.",
+            "Paralysie FLASQUE, ASYMÉTRIQUE, prédominant aux segments proximaux et aux membres inférieurs ; abolition des réflexes ostéotendineux ; pas de trouble sensitif.",
+            "Forme bulbaire : atteinte des noyaux des nerfs crâniens (troubles de la déglutition, de la phonation) et des centres respiratoires — détresse respiratoire aiguë, urgence vitale.",
+            "Forme bulbospinale : association des deux, la plus grave.",
+            "Évolution : stabilisation après la phase aiguë, puis récupération partielle sur des mois ; séquelles fréquentes : amyotrophie, raccourcissement du membre, déformations ostéo-articulaires (pied bot, scoliose)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence vitale : l'atteinte respiratoire",
+          "text": "Toute poliomyélite avec atteinte bulbaire ou paralysie des muscles respiratoires impose une surveillance rapprochée de la respiration (fréquence, amplitude, toux) et une assistance ventilatoire sans délai (oxygène, ventilation mécanique, trachéotomie si besoin)."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et surveillance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique devant une paralysie flasque aiguë fébrile asymétrique. La confirmation est virologique : isolement du poliovirus ou PCR sur SELLES (deux échantillons recueillis à au moins 24-48 heures d'intervalle, dans les 14 jours suivant le début de la paralysie) — le virus est rarement retrouvé dans le LCR. Le LCR montre une pléiocytose lymphocytaire modérée. La sérologie a peu d'intérêt."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Toute PFA de l'enfant est un cas de polio... jusqu'à preuve du contraire",
+          "text": "Définition OMS de surveillance : toute paralysie flasque aiguë chez un enfant de moins de 15 ans (ou tout âge si polio suspectée) doit être NOTIFIÉE immédiatement, investiguée (examen, 2 prises de selles) et suivie à 60 jours. Ne jamais attendre la confirmation pour notifier."
+        },
+        {
+          "type": "heading",
+          "text": "Diagnostics différentiels"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Syndrome de Guillain-Barré : paralysie ascendante SYMÉTRIQUE, atteinte sensitive fréquente, albuminocytologie dissociée.",
+            "Neuroborréliose, méningites virales, abcès épidural (atteinte sensitive et sphinctérienne).",
+            "Paralysies post-infectieuses ou toxiques, myopathies aiguës."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, la surveillance PFA alimente le réseau mondial d'éradication : chaque cas notifié déclenche une enquête épidémiologique et, si un poliovirus est isolé, une campagne de vaccination de riposte dans la zone touchée.",
+          "sources": [
+            {
+              "id": "whopolio",
+              "organization": "OMS",
+              "title": "Poliomyelitis (fiche d'information)",
+              "year": 2025
+            },
+            {
+              "id": "waruhiu2023",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Effectiveness of poliovirus vaccines against circulating vaccine-derived type 2 poliomyelitis (Nigeria)",
+              "year": 2023
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe AUCUN traitement antiviral spécifique de la poliomyélite : la prise en charge est symptomatique et rééducative."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phase aiguë : repos au lit strict pendant la fièvre (l'activité musculaire pendant la virémie augmente le risque et l'étendue de la paralysie), analgésiques, hydratation, nursing.",
+            "Surveillance respiratoire rapprochée ; assistance ventilatoire si atteinte bulbaire/diaphragmatique.",
+            "Kinésithérapie précoce et douce dès la régression de la douleur : mobilisations passives pour prévenir rétractions et déformations, puis rééducation active.",
+            "Phase de séquelles : rééducation prolongée, appareillages (attelles, chaussures orthopédiques), chirurgie orthopédique fonctionnelle (transferts tendineux, corrections des déformations).",
+            "Syndrome post-polio : fatigue, douleurs et faiblesses musculaires nouvelles des décennies plus tard — reconnaissance et prise en charge adaptée chez l'adulte ancien polio."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe de la phase aiguë",
+          "text": "Fièvre + myalgies chez un enfant en zone de faible couverture vaccinale : repos strict au lit et abstention d'injections intramusculaires inutiles (facteur aggravant rapporté de paralysie locale).",
+          "sources": [
+            {
+              "id": "whopolio",
+              "organization": "OMS",
+              "title": "Poliomyelitis (fiche d'information)",
+              "year": 2025
+            },
+            {
+              "id": "waruhiu2023",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Effectiveness of poliovirus vaccines against circulating vaccine-derived type 2 poliomyelitis (Nigeria)",
+              "year": 2023
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La vaccination est la seule arme : vaccin polio oral (VPO, Sabin, vivant atténué) et vaccin polio inactivé injectable (IPV, Salk). L'OMS recommande aujourd'hui des calendriers associant IPV et VPO ; le VPO bivalent (types 1 et 3) a remplacé le trivalent depuis le retrait mondial du composant type 2 (2016), avec le vaccin oral nouveau type 2 (nOPV2) pour riposter aux flambées de cVDPV2 — le Nigeria a démontré l'efficacité de ces vaccins de riposte contre les poliomyélites à cVDPV2."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Couverture vaccinale élevée et homogène : en dessous du seuil, les souches vaccinales peuvent circuler, reprendre leur neurovirulence et causer des flambées de poliovirus dérivés du vaccin (cVDPV) — c'est le risque actuel dans les zones sous-vaccinées, dont certaines régions de Madagascar.",
+            "Campagnes de vaccination de masse de riposte dès qu'un poliovirus est isolé.",
+            "Surveillance PFA systématique (notification immédiate + selles) et surveillance environnementale (eaux usées).",
+            "Hygiène fécale-orale : eau potable, assainissement, lavage des mains (complément indispensable, jamais substitut de la vaccination)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Le paradoxe du VPO",
+          "text": "Le VPO protège l'individu ET vaccine l'entourage (excrétion du virus atténué) — mais dans les populations sous-vaccinées, ce virus vaccinal peut redevenir pathogène en circulant (cVDPV). D'où : couverture très élevée obligatoire, et utilisation de vaccins génétiquement plus stables (nOPV2) pour la riposte."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La poliomyélite antérieure aiguë est une atteinte virale des cornes antérieures de la moelle qui ne paralyse qu'une minorité des infectés, mais avec des conséquences définitives. Devant toute paralysie flasque aiguë de l'enfant à Madagascar, la démarche est double : diagnostiquer (selles ×2, LCR) et NOTIFIER immédiatement (surveillance PFA de l'éradication). Le traitement est symptomatique et rééducatif ; la prévention repose entièrement sur la vaccination et la riposte aux flambées de poliovirus dérivés du vaccin, qui frappent précisément les communautés sous-vaccinées."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "OMS. Poliomyélite — fiche d'information. who.int.",
+            "Waruhiu A, et al. Effectiveness of poliovirus vaccines against circulating vaccine-derived type 2 poliomyelitis in Nigeria between 2017 and 2022: a case-control study. Lancet Infect Dis. 2023."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Détresse respiratoire = urgence",
+      "text": "Atteinte bulbaire ou des muscles respiratoires → surveillance respiratoire rapprochée et assistance ventilative immédiate."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "PFA : notifier avant de confirmer",
+      "text": "Toute paralysie flasque aiguë < 15 ans = notification immédiate + 2 selles à 24-48 h d'intervalle + suivi à 60 jours."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Fièvre + myalgies + faible couverture vaccinale",
+      "text": "Repos strict au lit pendant la phase fébrile ; éviter les injections intramusculaires inutiles."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Atteinte motrice pure",
+      "text": "Paralysie flasque asymétrique + ROT abolis + pas de trouble sensitif/sphinctérien = cornes antérieures."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "cVDPV : le risque de la faible couverture",
+      "text": "Virus vaccinal qui circule dans une population sous-vaccinée redevient neurovirulent — Madagascar concerné ; la riposte = campagnes de masse avec vaccins plus stables (nOPV2)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "P.O.L.I.O.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Paralysie flasque aiguë asymétrique, proximale, membres inférieurs"
+        },
+        {
+          "key": "O",
+          "term": "Ostéotendineux : réflexes abolis — sans atteinte sensitive ni sphinctérienne"
+        },
+        {
+          "key": "L",
+          "term": "LCR lymphocytaire ; Laboratoire : isolement du virus sur 2 prises de selles"
+        },
+        {
+          "key": "I",
+          "term": "Incubation 7-14 jours ; Inférieur à 1 % des infections = paralysie"
+        },
+        {
+          "key": "O",
+          "term": "Orage respiratoire : forme bulbaire = urgence de ventilation"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent et sérotypes de la poliomyélite ?",
+      "back": "Le poliovirus, entérovirus (Picornaviridae), sérotypes 1, 2 et 3 ; transmission fécale-orale ; incubation 7-14 jours."
+    },
+    {
+      "id": "f2",
+      "front": "Cible neurologique du poliovirus ?",
+      "back": "Les motoneurones des cornes antérieures de la moelle épinière (surtout lombaires) et les noyaux bulbaires : atteinte motrice pure."
+    },
+    {
+      "id": "f3",
+      "front": "Proportion des infections aboutissant à une paralysie ?",
+      "back": "Moins de 1 % ; plus de 90 % des infections sont inapparentes."
+    },
+    {
+      "id": "f4",
+      "front": "Caractéristiques de la paralysie poliomyélitique ?",
+      "back": "Flasque, asymétrique, proximale et des membres inférieurs, d'installation rapide (24-72 h), ROT abolis, sans trouble sensitif ni sphinctérien."
+    },
+    {
+      "id": "f5",
+      "front": "Qu'est-ce qui menace la vie dans la forme paralytique ?",
+      "back": "L'atteinte bulbaire (déglutition, phonation, centres respiratoires) et la paralysie des muscles respiratoires : détresse respiratoire aiguë."
+    },
+    {
+      "id": "f6",
+      "front": "Prélèvements pour confirmer une poliomyélite ?",
+      "back": "Deux prises de SELLES à au moins 24-48 h d'intervalle dans les 14 jours après le début (isolement/PCR) ; le LCR est lymphocytaire mais rarement positif."
+    },
+    {
+      "id": "f7",
+      "front": "Définition OMS de la surveillance PFA ?",
+      "back": "Toute paralysie flasque aiguë chez un enfant de moins de 15 ans : notification immédiate, investigation, selles ×2, réévaluation à 60 jours."
+    },
+    {
+      "id": "f8",
+      "front": "Principal diagnostic différentiel et ses différences ?",
+      "back": "Le syndrome de Guillain-Barré : paralysie ascendante symétrique, atteinte sensitive fréquente, albumino-cytologie dissociée."
+    },
+    {
+      "id": "f9",
+      "front": "Existe-t-il un traitement antiviral de la polio ?",
+      "back": "Non. Traitement symptomatique : repos au lit pendant la fièvre, analgésie, surveillance respiratoire, kinésithérapie puis rééducation."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi le repos au lit pendant la phase fébrile ?",
+      "back": "L'activité musculaire pendant la virémie augmente le risque et l'étendue de la paralysie ; de même, éviter les injections intramusculaires inutiles."
+    },
+    {
+      "id": "f11",
+      "front": "Deux vaccins contre la polio ?",
+      "back": "VPO (Sabin, oral, vivant atténué — immunise aussi l'entourage) et IPV (Salk, injectable, inactivé) ; calendriers OMS actuels les associent."
+    },
+    {
+      "id": "f12",
+      "front": "Qu'est-ce qu'un poliovirus dérivé du vaccin (cVDPV) ?",
+      "back": "Un virus vaccinal oral qui, circulant dans une population sous-vaccinée, accumule des mutations et redevient neurovirulent, provoquant des flambées de poliomyélite — riposte par campagnes de masse avec vaccins plus stables (nOPV2)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "polio",
+      "label": "Poliomyélite antérieure aiguë"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agent et cycle",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Poliovirus : 3 sérotypes"
+          },
+          {
+            "id": "b1c2",
+            "label": "Transmission fécale-orale"
+          },
+          {
+            "id": "b1c3",
+            "label": "Incubation 7-14 jours"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Plus de 90 % d'infections inapparentes"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Physiopathologie",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Réplication intestinale → virémie"
+          },
+          {
+            "id": "b2c2",
+            "label": "Cornes antérieures de la moelle"
+          },
+          {
+            "id": "b2c3",
+            "label": "Destruction des motoneurones"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Atteinte motrice pure"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Abortive : fièvre banale"
+          },
+          {
+            "id": "b3c2",
+            "label": "Méningée : LCR lymphocytaire"
+          },
+          {
+            "id": "b3c3",
+            "label": "Paralytique < 1 % : flasque asymétrique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Forme bulbaire = urgence respiratoire"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "PFA < 15 ans : notification immédiate"
+          },
+          {
+            "id": "b4c2",
+            "label": "Selles ×2 : isolement/PCR"
+          },
+          {
+            "id": "b4c3",
+            "label": "Différentiel : Guillain-Barré"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Suivi à 60 jours"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Pas d'antiviral"
+          },
+          {
+            "id": "b5c2",
+            "label": "Repos au lit + surveillance respiratoire"
+          },
+          {
+            "id": "b5c3",
+            "label": "Kinésithérapie, appareillage, chirurgie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Séquelles : déformations, syndrome post-polio"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "VPO + IPV, couverture très élevée"
+          },
+          {
+            "id": "b6c2",
+            "label": "cVDPV : riposte nOPV2"
+          },
+          {
+            "id": "b6c3",
+            "label": "Surveillance PFA et environnementale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Madagascar : flambées cVDPV en zones sous-vaccinées"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "whopolio",
+      "title": "Poliomyelitis — fiche d'information",
+      "citation": "Organisation mondiale de la Santé. Poliomyélite (polio). Fiche d'information OMS, who.int.",
+      "organization": "OMS",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/poliomyelitis",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie",
+        "Phases cliniques",
+        "Surveillance PFA",
+        "Vaccination",
+        "Éradication"
+      ]
+    },
+    {
+      "id": "waruhiu2023",
+      "title": "Effectiveness of poliovirus vaccines against circulating vaccine-derived type 2 poliomyelitis in Nigeria between 2017 and 2022: a case-control study",
+      "citation": "Waruhiu A, et al. Effectiveness of poliovirus vaccines against circulating vaccine-derived type 2 poliomyelitis in Nigeria between 2017 and 2022: a case-control study. Lancet Infect Dis. 2023.",
+      "organization": "The Lancet Infectious Diseases",
+      "year": 2023,
+      "version": "Case-control study",
+      "url": "https://doi.org/10.1016/S1473-3099(23)00688-6",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Efficacité vaccinale",
+        "cVDPV2",
+        "Stratégies de riposte"
+      ]
+    }
+  ]
+}
