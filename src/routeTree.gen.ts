@@ -50,6 +50,7 @@ import { Route as SignesRouteImport } from './routes/signes'
 import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as SoutenirRouteImport } from './routes/soutenir'
 import { Route as TarifsRouteImport } from './routes/tarifs'
+import { Route as ValeursReferenceRouteImport } from './routes/valeurs-reference'
 import { Route as ValidationCliniqueRouteImport } from './routes/validation-clinique'
 import { Route as DevKitchenSinkRouteImport } from './routes/_dev.kitchen-sink'
 import { Route as ApiAdminVerifyRouteImport } from './routes/api.admin-verify'
@@ -278,6 +279,11 @@ const TarifsRoute = TarifsRouteImport.update({
   path: '/tarifs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ValeursReferenceRoute = ValeursReferenceRouteImport.update({
+  id: '/valeurs-reference',
+  path: '/valeurs-reference',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ValidationCliniqueRoute = ValidationCliniqueRouteImport.update({
   id: '/validation-clinique',
   path: '/validation-clinique',
@@ -435,6 +441,7 @@ export interface FileRoutesByFullPath {
   '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -500,6 +507,7 @@ export interface FileRoutesByTo {
   '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -567,6 +575,7 @@ export interface FileRoutesById {
   '/sources': typeof SourcesRoute
   '/soutenir': typeof SoutenirRoute
   '/tarifs': typeof TarifsRoute
+  '/valeurs-reference': typeof ValeursReferenceRoute
   '/validation-clinique': typeof ValidationCliniqueRoute
   '/_dev/kitchen-sink': typeof DevKitchenSinkRoute
   '/api/admin-verify': typeof ApiAdminVerifyRoute
@@ -634,6 +643,7 @@ export interface FileRouteTypes {
     | '/sources'
     | '/soutenir'
     | '/tarifs'
+    | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
     | '/api/admin-verify'
@@ -699,6 +709,7 @@ export interface FileRouteTypes {
     | '/sources'
     | '/soutenir'
     | '/tarifs'
+    | '/valeurs-reference'
     | '/validation-clinique'
     | '/kitchen-sink'
     | '/api/admin-verify'
@@ -765,6 +776,7 @@ export interface FileRouteTypes {
     | '/sources'
     | '/soutenir'
     | '/tarifs'
+    | '/valeurs-reference'
     | '/validation-clinique'
     | '/_dev/kitchen-sink'
     | '/api/admin-verify'
@@ -832,6 +844,7 @@ export interface RootRouteChildren {
   SourcesRoute: typeof SourcesRoute
   SoutenirRoute: typeof SoutenirRoute
   TarifsRoute: typeof TarifsRoute
+  ValeursReferenceRoute: typeof ValeursReferenceRoute
   ValidationCliniqueRoute: typeof ValidationCliniqueRoute
   ApiAdminVerifyRoute: typeof ApiAdminVerifyRoute
   ApiAiStreamRoute: typeof ApiAiStreamRoute
@@ -1141,6 +1154,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TarifsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/valeurs-reference': {
+      id: '/valeurs-reference'
+      path: '/valeurs-reference'
+      fullPath: '/valeurs-reference'
+      preLoaderRoute: typeof ValeursReferenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/validation-clinique': {
       id: '/validation-clinique'
       path: '/validation-clinique'
@@ -1401,6 +1421,7 @@ const rootRouteChildren: RootRouteChildren = {
   SourcesRoute: SourcesRoute,
   SoutenirRoute: SoutenirRoute,
   TarifsRoute: TarifsRoute,
+  ValeursReferenceRoute: ValeursReferenceRoute,
   ValidationCliniqueRoute: ValidationCliniqueRoute,
   ApiAdminVerifyRoute: ApiAdminVerifyRoute,
   ApiAiStreamRoute: ApiAiStreamRoute,

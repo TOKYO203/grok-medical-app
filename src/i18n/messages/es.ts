@@ -25,6 +25,7 @@ export const es: MessageCatalog = {
   "nav.signes": "Signos y Síndromes",
   "nav.mockExam": "Examen de prueba",
   "nav.calculators": "Calculadoras",
+  "nav.valeursReference": "Valores de referencia",
   "nav.leaderboard": "Clasificación",
   "nav.importDeck": "Importar un deck",
   "quiz.empty": "No hay preguntas en esta sesión.",
