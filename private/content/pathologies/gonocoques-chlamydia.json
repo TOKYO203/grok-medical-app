@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "gonocoques-chlamydia",
+  "title": "Infections uro-génitales à gonocoques et chlamydia",
+  "specialty": "Infectiologie",
+  "objective": "Diagnostiquer et traiter les infections uro-génitales à Neisseria gonorrhoeae et Chlamydia trachomatis chez l'homme et la femme : reconnaître l'urétrite et la cervicite, connaître les complications (salpingite, maladie inflammatoire du pelvis, infertilité, grossesse extra-utérine, ophtalmie néonatale), prescrire les traitements recommandés malgré la résistance du gonocoque, et organiser le dépistage et le traitement des partenaires.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 128,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 169,
+      "localNumber": 128,
+      "sectionLabel": "Médecine",
+      "title": "Infections uro-génitales à gonocoques et chlamydia",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Infections uro-génitales à gonocoques et chlamydia. Gonocoque (Neisseria gonorrhoeae, diplocoque à Gram négatif en « grain de café ») : urétrite aiguë purulente de l'homme (incubation 2-7 jours), cervicite muco-purulente de la femme souvent pauci-symptomatique, anorectite, pharyngite, ophtalmie purulente (néonatale = urgence oculaire), dissémination (arthrite, dermatite) ; RÉSISTANCE : le gonocoque développe des résistances à toutes les classes d'antibiotiques — l'OMS le classe parmi les menaces mondiales ; traitement recommandé : CEFTRIAXONE 500 mg IM en dose unique (monothérapie selon CDC 2021, adaptée aux antibiogrammes locaux), cefixime oral en alternative. Chlamydia trachomatis (sérovars D-K uro-génitaux, L1-L3 = lymphogranulomatose vénérienne) : IST bactérienne la plus fréquente au monde, ASYMPTOMATIQUE dans la majorité des cas, urétrite non gonococcique de l'homme, cervicite, SALPINGITE et maladie inflammatoire du pelvis de la femme (cause majeure d'INFERTILITÉ TUBAIRE et de grossesse extra-utérine), conjonctivite et pneumopathie du nouveau-né ; traitement : DOXYCYCLINE 100 mg ×2/j ×7 jours (azithromycine 1 g dose unique si grossesse) ; dépistage systématique des moins de 25 ans et des partenaires, notification et traitement simultané des partenaires, dépistage VIH-syphilis associé. Complication commune aiguë : salpingite / épididymite ; urgences : ophtalmie gonococcique néonatale (perte visuelle rapide), douleur pelvienne fébrile de la femme.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Workowski KA, Bachmann LH, Chan PA, et al. Sexually Transmitted Infections Treatment Guidelines, 2021. MMWR Recomm Rep. 2021;70(4):1-187 — DOI 10.15585/mmwr.rr7004a1, PMID 34292926, page officielle CDC (https://www.cdc.gov/mmwr/volumes/70/rr/rr7004a1.htm) consultée avant citation. Posologies retenues : ceftriaxone 500 mg IM dose unique (gonorrhée non compliquée, monothérapie recommandée, 1 g selon poids et protocoles), doxycycline 100 mg ×2/j 7 jours (chlamydia hors grossesse), azithromycine 1 g dose unique (grossesse).",
+      "Source 2 : OMS, aide-mémoire « Infections sexuellement transmissibles (IST) » — page officielle https://www.who.int/news-room/fact-sheets/detail/sexually-transmitted-infections-(stis) consultée avant citation : la gonorrhée et la chlamydia figurent parmi les 4 IST bactériennes curables ; résistance antimicrobienne du gonocoque soulignée par l'OMS ; estimations mondiales (chlamydia ~ 129 millions de nouvelles infections/an, gonorrhée ~ 82 millions).",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Gonocoque : diplocoque Gram négatif en grain de café, urétrite purulente, incubation 2-7 jours",
+      "Chlamydia : souvent asymptomatique, première IST bactérienne mondiale, sérovars D-K et L1-L3",
+      "Traitement gonorrhée : ceftriaxone 500 mg IM dose unique ; résistance croissante (OMS)",
+      "Traitement chlamydia : doxycycline 7 jours (azithromycine 1 g si grossesse)",
+      "Complications : MIP/salpingite, infertilité tubaire, GEU, ophtalmie néonatale, LGV",
+      "Toujours : dépistage des partenaires, traitement simultané, dépistage VIH et syphilis",
+      "Urgences : ophtalmie gonococcique néonatale, salpingite fébrile",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections uro-génitales à gonocoques (Neisseria gonorrhoeae) et à chlamydia (Chlamydia trachomatis) sont, avec la syphilis et la trichomonase, les quatre infections sexuellement transmissibles bactériennes curables selon l'OMS. La chlamydia est la plus fréquente : environ 129 millions de nouvelles infections par an dans le monde, la gonorrhée environ 82 millions. Leur gravité tient moins à la lésion initiale, souvent bénigne ou silencieuse, qu'à leurs COMPLICATIONS : maladie inflammatoire du pelvis, infertilité tubaire, grossesse extra-utérine, infection néonatale — et, pour le gonocoque, à la MENACE DE RÉSISTANCE aux antibiotiques.",
+          "sources": [
+            {
+              "id": "who2025sti",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : infections sexuellement transmissibles (IST)",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Une IST se dépiste, se traite et se signale — à deux",
+          "text": "Devant toute infection uro-génitale à gonocoques ou chlamydia : 1) traiter le patient SANS attendre les résultats (approche syndromique) ; 2) NOTIFIER et traiter les partenaires (sinon ping-pong de réinfection) ; 3) dépister les autres IST : VIH, syphilis, hépatite B ; 4) revoir le patient à 7 jours (évolution clinique) ; 5) conseil de prévention : préservatifs. Chez la femme asymptomatique, la chlamydia détruit silencieusement les trompes."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Bactériologie et épidémiologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "NEISSERIA GONORRHOEAE : diplocoque à Gram négatif, en « grain de café », intracellulaire (dans les polynucléaires) ; fragile hors de l'hôte humain ; test à l'oxydase positif ; pas de vaccin ; résistances successives aux pénicillines, tétracyclines, fluoroquinolones et maintenant diminution de sensibilité aux céphalosporines — l'OMS classe le gonocoque parmi les bactéries posant la plus grande menace pour la santé mondiale.",
+            "CHLAMYDIA TRACHOMATIS : bactérie intracellulaire obligatoire ; cycle : corps élémentaire infectieux → corps réticulé intracellulaire ; sérovars D à K (voies uro-génitales), L1-L3 (lymphogranulomatose vénérienne : ulcération + adénopathie inguinale + signe du sillon), A-C (trachome cécitant).",
+            "Transmission : sexuelle (génitale, anale, orale) ; verticale à l'accouchement (ophtalmie, pneumopathie du nouveau-né).",
+            "Populations : jeunes sexuellement actifs (moins de 25 ans ++), partenaires multiples, patients déjà atteints d'une autre IST ; charge mondiale la plus élevée dans les régions à ressources limitées, incluant l'Afrique subsaharienne.",
+            "Prévalence silencieuse : plus de la moitié des infections à chlamydia chez l'homme et la grande majorité chez la femme sont ASYMPTOMATIQUES — le dépistage est le seul moyen de les détecter."
+          ],
+          "sources": [
+            {
+              "id": "who2025sti",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : infections sexuellement transmissibles (IST)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Chez l'homme"
+        },
+        {
+          "type": "list",
+          "items": [
+            "URÉTRITE AIGUË GONOCOCCIQUE : incubation courte (2-7 jours) ; écoulement PURULENT abondant, jaune-vert, spontané, avec brûlures mictionnelles intenses ; examen : méat inflammé, exprimation de pus franc.",
+            "URÉTRITE NON GONOCOCCIQUE (chlamydia ++) : incubation plus longue (1-3 semaines) ; écoulement mucopurulent discret, clair ou translucide, brûlures modérées, souvent négligé.",
+            "ÉPIDIDYMITE aiguë (fièvre, douleur scrotale, épididyme augmenté et douloureux) : complication masculine classique — gonocoque ou chlamydia chez le sujet jeune.",
+            "PROSTATITE aiguë en cas de propagation.",
+            "Localisations : ANORECTITE (pus, glaires, ténesme) ; PHARYNGITE (angle souvent négligé, réservoir de résistance) ; conjonctivite de l'adulte (auto-inoculation).",
+            "GONOCOCCIE DISSÉMINÉE : arthrite septique (genou ++), ténosynovite, lésions pustulo-hémorragiques distales — penser au gonocoque devant une oligo-arthrite aiguë du jeune adulte."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Chez la femme"
+        },
+        {
+          "type": "list",
+          "items": [
+            "CERVICITE : leucorrhées muco-purulentes, saignements intermenstruels ou post-coïtaux, col congestionné et fragile au contact ; souvent PAUCI-SYMPTOMATIQUE (chlamydia ++, asymptomatique dans la majorité des cas).",
+            "URÉTRITE FÉMININE et BARTHOLINITE (abcès de la glande de Bartholin) : possibles.",
+            "SALPINGITE / MALADIE INFLAMMATOIRE DU PELVIS (MIP) : douleur pelvienne basse, fièvre, leucorrhées, dyspareunie profonde, douleur à la mobilisation utérine et au toucher des annexes ; FORME SILENCIEUSE fréquente (« MIP atypique » des chlamydiae) ; risques : INFERTILITÉ TUBAIRE, GROSSESSE EXTRA-UTÉRINE, douleurs pelviennes chroniques ; péritonite et abcès tubo-ovarien dans les formes sévères.",
+            "GROSSESSE : chorioamniotite, accouchement prématuré ; contamination néonatale à l'accouchement : OPHTALMIE du nouveau-né (gonocoque : conjonctivite purulente bilatérale des 2-5 premiers jours, URGENCE) et pneumopathie ou conjonctivite à chlamydia.",
+            "LGV (sérovars L1-L3) : ulcération initiale discrète, puis ADÉNOPATHIE INGUINALE unilatérale volumineuse et fistulisée, signe du sillon ; formes anorectales sévères ; forme épidémique décrite chez les hommes ayant des rapports avec des hommes."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ophtalmie gonococcique du nouveau-né",
+          "text": "Conjonctivite purulente abondante des premiers jours de vie (2-5 jours) : URGENCE OPHTALMOLOGIQUE ET INFECTIOLOGIQUE — la cornée peut se perforer en 24-48 h (cécité). Traitement immédiat : CEFTRIAXONE IM (dose selon le poids, précaution en cas d'ictère néonatal) + lavages oculaires répétés au sérum physiologique, avis ophtalmologique le jour même ; déclaration obligatoire et traitement de la mère (et du partenaire). La prévention repose sur le dépistage et le traitement de la grossesse, au-delà du seul soin oculaire systématique du nouveau-né.",
+          "sources": [
+            {
+              "id": "workowski2021",
+              "organization": "CDC (MMWR)",
+              "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+              "year": 2021
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans les contextes à ressources limitées, l'approche recommandée est SYNDROMIQUE : devant un écoulement urétral ou une cervicite, traiter d'emblée le gonocoque ET la chlamydia ensemble (les deux coexistent souvent), sans attendre les résultats. Le diagnostic étiologique repose sur : PCR (test d'amplification des acides nucléiques, NAAT) sur première miction ou prélèvement génital, anal ou pharyngé — test de référence pour la chlamydia et le gonocoque ; examen microscopique direct du pus urétral chez l'homme (diplocoques Gram négatifs intracellulaires : spécifique chez l'homme, ininterprétable chez la femme) ; culture sur milieu adapté (milieu au chocolat, atmosphère enrichie) — utile pour l'ANTIBIOGRAMME du gonocoque, élément clé de la surveillance de la résistance ; sérologie inutile pour le diagnostic génital courant de la chlamydia (réserve : LGV). Chez la femme, dépistage systématique de la chlamydia par NAAT recommandé chez les moins de 25 ans sexuellement actives et lors des consultations prénatales ; dépistage du VIH et de la syphilis systématiquement associé.",
+          "sources": [
+            {
+              "id": "workowski2021",
+              "organization": "CDC (MMWR)",
+              "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+              "year": 2021
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chez l'homme : écoulement urétral → si coloration de Gram positive (diplocoques intracellulaires) : gonorrhée confirmée, traiter immédiatement ; toujours associer le traitement antichlamydiae.",
+            "Chez la femme : leucorrhées + col congestif + signes de MIP : traiter le couple gonocoque + chlamydia ; la symptomatologie peut se limiter à des saignements intermenstruels.",
+            "Formes à ne pas manquer : douleur pelvienne fébrile de la femme (salpingite), arthrite aiguë du jeune adulte (gonococcie disséminée), adénopathie inguinale fistulisée (LGV), conjonctivite purulente du nouveau-né.",
+            "Diagnostic différentiel de l'urétrite : trichomonase, mycoplasmes (M. genitalium — émergent, résistance aux macrolides), herpès, manipulation urétrale récente."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Co-infections et pièges",
+          "text": "Une IST n'arrive jamais seule : dépister systématiquement VIH, syphilis, hépatite B, trichomonase. Le traitement de l'urétrite ne couvre pas tous les agents : Mycoplasma genitalium, insensible à la ceftriaxone et de plus en plus résistant à l'azithromycine, explique nombre d'urétrites persistantes — dans ce cas, ne pas répéter les mêmes antibiotiques, reprendre l'examen, et vérifier d'abord la réinfection par un partenaire non traité."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "GONORRHÉE NON COMPLIQUÉE (urétrite, cervicite, pharyngite, anorectite) : CEFTRIAXONE 500 mg IM en dose unique (augmentée à 1 g selon le poids ou les protocoles locaux) — le traitement recommandé face à la baisse de sensibilité des souches ; alternative orale si l'injection est impossible : céfixime 400 mg per os (moins efficace sur le pharynx) ; en cas d'allergie sévère aux bêtalactamines : azithromycine 2 g dose unique selon antibiogramme (résistances ++). L'association systématique ceftriaxone + azithromycine n'est plus la règle du CDC 2021, mais le traitement antichlamydiae reste indiqué tant que la co-infection n'est pas exclue (prévalence élevée en zone tropicale : approche syndromique).",
+            "CHLAMYDIA (urétrite non gonococcique, cervicite, formes pelviennes) : DOXYCYCLINE 100 mg per os ×2/j pendant 7 jours en dehors de la grossesse ; pendant la GROSSESSE : AZITHROMYCINE 1 g dose unique (ou amoxicilline selon protocole), avec test de contrôle de guérison à environ 4 semaines ; nouveau-né : macrolide pour la pneumopathie, traitement local + oral pour la conjonctivite à chlamydia (le soin oculaire de routine ne couvre pas la chlamydia).",
+            "MIP / SALPINGITE : traitement COUVRANT le gonocoque, la chlamydia ET les anaérobies : ceftriaxone IM + doxycycline + métronidazole, ambulatoire si forme légère à modérée ; HOSPITALISATION si : fièvre élevée, vomissements, suspicion d'abcès tubo-ovarien, grossesse, échec du traitement ambulatoire, douleur non expliquée (éliminer une grossesse extra-utérine ou une appendicite).",
+            "ÉPIDIDYMITE : ceftriaxone IM dose unique + doxycycline 10 jours (couvrir gonocoque + chlamydia) ; chez l'homme de plus de 35 ans ou en cas de rapports anaux : couvrir également les entérobactéries.",
+            "OPHTALMIE GONOCOCCIQUE (adulte et nouveau-né) : ceftriaxone IM + lavages au sérum physiologique + avis ophtalmologique urgent ; nouveau-né : hospitalisation.",
+            "PARTENAIRES : notification et traitement simultané de tous les partenaires sexuels des 60 derniers jours ; prescription du traitement au partenaire sans consultation selon les possibilités locales ; ABSTINENCE sexuelle pendant 7 jours après le début du traitement (et jusqu'à la disparition des symptômes) ; contrôle bactériologique si persistance des symptômes à 7 jours (test de contrôle systématique réservé à la grossesse et aux traitements alternatifs).",
+            "RÉSISTANCE DU GONOCOQUE : antibiogramme chaque fois que la culture est disponible ; ne jamais traiter une gonorrhée par fluoroquinolone en zone tropicale (résistances majeures) ; signaler les échecs thérapeutiques aux autorités sanitaires pour la surveillance de la résistance (cadre OMS)."
+          ],
+          "sources": [
+            {
+              "id": "workowski2021",
+              "organization": "CDC (MMWR)",
+              "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+              "year": 2021
+            },
+            {
+              "id": "who2025sti",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : infections sexuellement transmissibles (IST)",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexes devant un écoulement uro-génital",
+          "text": "1) Traiter d'emblée gonocoque + chlamydia (syndromique) sans attendre le NAAT. 2) Prescrire AUSSI le traitement du/de la partenaire. 3) Dépister VIH, syphilis, hépatite B. 4) Chez la femme : examiner les annexes (salpingite ?) et faire un test de grossesse (grossesse extra-utérine ?). 5) Revoir à 7 jours : persistance = réinfection (partenaire non traité) ou M. genitalium. 6) Chez le nouveau-né avec conjonctivite purulente : ceftriaxone IMMÉDIATE + ophtalmologiste.",
+          "sources": [
+            {
+              "id": "workowski2021",
+              "organization": "CDC (MMWR)",
+              "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+              "year": 2021
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Préservatif à chaque rapport : réduction majeure du risque de transmission.",
+            "DÉPISTAGE SYSTÉMATIQUE : femmes de moins de 25 ans sexuellement actives, patientes en début de grossesse, patients atteints d'une autre IST, partenaires multiples ; dépistage combiné VIH-syphilis-hépatite B à chaque occasion.",
+            "Traitement simultané des partenaires et information sur l'abstinence pendant le traitement.",
+            "Dépistage et traitement des IST dans la lutte contre le VIH : ulcérations et inflammations génitales facilitent la transmission du VIH (dans les deux sens).",
+            "Prévention néonatale : dépistage de la gonorrhée et de la chlamydia au cours de la grossesse (surtout 3e trimestre selon les protocoles), traitement de la mère avant l'accouchement ; soin oculaire du nouveau-né selon protocole local.",
+            "Éducation sexuelle, réduction du nombre de partenaires, information sur les IST asymptomatiques (« on peut transmettre sans symptôme »).",
+            "Surveillance de la résistance du gonocoque : antibiogrammes, signalement des échecs, référentiels nationaux adaptés aux données locales (Madagascar : suivre les recommandations du programme national de lutte contre les IST)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ping-pong de la réinfection",
+          "text": "L'échec le plus fréquent du traitement d'IST n'est pas la résistance bactérienne : c'est la RÉINFECTION PAR LE MÊME PARTENAIRE NON TRAITÉ. La guérison du patient passe par le traitement du couple, la notification des partenaires des 60 derniers jours, et l'abstinence pendant 7 jours. Un patient revu avec la même IST = la même source non traitée, jusqu'à preuve du contraire."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gonocoque et chlamydia sont les deux IST bactériennes curables les plus fréquentes au monde. Leur danger est double : le silence (femmes asymptomatiques dont les trompes se détruisent, nouveau-nés contaminés à l'accouchement) et la résistance (gonocoque de moins en moins sensible aux antibiotiques, classé menace mondiale par l'OMS). La réponse est opérationnelle plus que cognitive : approche syndromique (traiter les deux germes d'emblée), ceftriaxone pour la gonorrhée et doxycycline pour la chlamydia, traitement systématique des partenaires, dépistage associé du VIH et de la syphilis, et prévention par le préservatif et le dépistage régulier des jeunes et des femmes enceintes."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Workowski KA, Bachmann LH, Chan PA, et al. Sexually Transmitted Infections Treatment Guidelines, 2021. MMWR Recomm Rep. 2021;70(4):1-187 (DOI 10.15585/mmwr.rr7004a1 ; PMID 34292926).",
+            "Organisation mondiale de la Santé. Aide-mémoire : Infections sexuellement transmissibles (IST) (https://www.who.int/news-room/fact-sheets/detail/sexually-transmitted-infections-(stis))."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Ophtalmie gonococcique néonatale",
+      "text": "Conjonctivite purulente des 2-5 premiers jours de vie : perforation cornéenne possible en 24-48 h. Ceftriaxone IM immédiate + lavages + ophtalmologiste en urgence ; dépistage et traitement de la mère. La prévention : dépistage IST de la grossesse."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Chlamydia silencieuse de la femme",
+      "text": "La majorité des cervicites à chlamydia sont asymptomatiques : c'est après des années de salpingites silencieuses qu'arrivent l'infertilité tubaire et les grossesses extra-utérines. Devant toute algie pelvienne ou saignement intermenstruel : dépister chlamydia et gonocoque, même sans écoulement."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Traiter le couple d'emblée",
+      "text": "Écoulement uro-génital = traitement immédiat gonocoque + chlamydia (syndromique), prescription pour le partenaire, dépistage VIH-syphilis, revoir à 7 jours. Ne jamais attendre le NAAT pour traiter une urétrite purulente ou une cervicite."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Deux germes, deux rythmes",
+      "text": "Gonocoque : incubation courte (2-7 j), pus franc, résistance — ceftriaxone IM. Chlamydia : incubation longue (1-3 semaines), tableau discret, trompes silencieuses — doxycycline 7 jours. Devant un écoulement, on traite TOUJOURS les deux ensemble."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Le pharynx, angle mort de la gonorrhée",
+      "text": "La pharyngite gonococcique est souvent asymptomatique, mal traitée par les antibiotiques oraux (céfixime insuffisant) et sert de réservoir aux souches résistantes. Ceftriaxone IM = la seule option fiable ; le pharynx explique nombre de « rechutes »."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "C.H.L.A.M.Y.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cervicite discrète ou asymptomatique (femme)"
+        },
+        {
+          "key": "H",
+          "term": "Hors symptôme : dépister les moins de 25 ans et les femmes enceintes"
+        },
+        {
+          "key": "L",
+          "term": "LGV = L1-L3 : ulcération + adénopathie inguinale + signe du sillon"
+        },
+        {
+          "key": "A",
+          "term": "Azithromycine 1 g dose unique si grossesse (doxycycline contre-indiquée)"
+        },
+        {
+          "key": "M",
+          "term": "MIP : cause majeure d'infertilité tubaire et de grossesse extra-utérine"
+        },
+        {
+          "key": "Y",
+          "term": "7 jours de doxycycline 100 mg ×2/j (adultes hors grossesse)"
+        }
+      ]
+    },
+    {
+      "label": "G.O.N.O.",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Grain de café : diplocoque Gram négatif intracellulaire"
+        },
+        {
+          "key": "O",
+          "term": "Ophtalmie néonatale : urgence — ceftriaxone immédiate"
+        },
+        {
+          "key": "N",
+          "term": "N'utiliser que la ceftriaxone (résistances mondiales, OMS)"
+        },
+        {
+          "key": "O",
+          "term": "Oligo-arthrite du jeune adulte : gonococcie disséminée à évoquer"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Bactériologie du gonocoque ?",
+      "back": "Neisseria gonorrhoeae : diplocoque à Gram négatif en « grain de café », intracellulaire (dans les polynucléaires), fragile, strictement humain ; test à l'oxydase positif ; culture sur milieu au chocolat."
+    },
+    {
+      "id": "f2",
+      "front": "Particularité bactériologique de Chlamydia trachomatis ?",
+      "back": "Bactérie intracellulaire obligatoire, cycle corps élémentaire (infectieux) → corps réticulé (réplication) ; sérovars D-K (IST), L1-L3 (LGV), A-C (trachome) ; le NAAT est le test de référence."
+    },
+    {
+      "id": "f3",
+      "front": "Incubations comparées gonocoque vs chlamydia ?",
+      "back": "Gonocoque : 2-7 jours (court), pus franc. Chlamydia : 1-3 semaines, tableau plus discret. Devant un écoulement urétral, les deux sont traités d'emblée (syndromique)."
+    },
+    {
+      "id": "f4",
+      "front": "Clinique de l'urétrite gonococcique de l'homme ?",
+      "back": "Écoulement purulent abondant jaune-vert spontané, brûlures mictionnelles intenses, méat inflammé ; complications : épididymite, prostatite, gonococcie disséminée (arthrite du genou ++)."
+    },
+    {
+      "id": "f5",
+      "front": "Pourquoi la chlamydia est-elle plus dangereuse que son image « bénigne » ?",
+      "back": "Majorité des infections féminines asymptomatiques → salpingites silencieuses → infertilité tubaire, grossesse extra-utérine, douleurs pelviennes chroniques ; contamination néonatale (conjonctivite, pneumopathie)."
+    },
+    {
+      "id": "f6",
+      "front": "Diagnostic étiologique de première intention des IST à gonocoque/chlamydia ?",
+      "back": "NAAT (PCR) sur première miction ou prélèvement génital, anal ou pharyngé ; chez l'homme, l'examen direct du pus (diplocoques Gram négatifs intracellulaires) confirme la gonorrhée ; culture avec antibiogramme pour la surveillance de la résistance du gonocoque."
+    },
+    {
+      "id": "f7",
+      "front": "Traitement recommandé de la gonorrhée non compliquée (CDC 2021) ?",
+      "back": "CEFTRIAXONE 500 mg IM dose unique (monothérapie recommandée, 1 g selon poids et protocoles) ; alternative orale : céfixime 400 mg (moins efficace sur le pharynx) ; jamais de fluoroquinolone (résistances majeures)."
+    },
+    {
+      "id": "f8",
+      "front": "Traitement de la chlamydia hors grossesse et pendant la grossesse ?",
+      "back": "Hors grossesse : DOXYCYCLINE 100 mg ×2/j pendant 7 jours. Grossesse : AZITHROMYCINE 1 g dose unique (ou amoxicilline selon protocole) + test de contrôle à environ 4 semaines."
+    },
+    {
+      "id": "f9",
+      "front": "Prise en charge d'une salpingite / MIP ?",
+      "back": "Ceftriaxone IM + doxycycline + métronidazole (couvrir gonocoque, chlamydia, anaérobies) ; hospitalisation si fièvre élevée, vomissements, suspicion d'abcès tubo-ovarien, grossesse ou échec ambulatoire ; éliminer grossesse extra-utérine et appendicite."
+    },
+    {
+      "id": "f10",
+      "front": "Ophtalmie gonococcique du nouveau-né : délai, risque, traitement ?",
+      "back": "Conjonctivite purulente des 2-5 premiers jours ; risque de perforation cornéenne et de cécité en 24-48 h ; traitement : ceftriaxone IM immédiate + lavages au sérum physiologique + ophtalmologiste en urgence + traitement de la mère et du partenaire."
+    },
+    {
+      "id": "f11",
+      "front": "Qu'est-ce que la lymphogranulomatose vénérienne (LGV) ?",
+      "back": "IST à Chlamydia trachomatis sérovars L1-L3 : petite ulcération initiale passée inaperçue, puis ADÉNOPATHIE INGUINALE volumineuse, unilatérale, fistulisée, avec signe du sillon ; formes anorectales sévères ; traitement prolongé par doxycycline 21 jours."
+    },
+    {
+      "id": "f12",
+      "front": "Pourquoi le pharynx est-il un angle mort de la gonorrhée ?",
+      "back": "Pharyngite souvent asymptomatique, mal couverte par les traitements oraux (céfixime), réservoir d'échange de gènes de résistance ; seule la ceftriaxone IM traite de façon fiable le pharynx."
+    },
+    {
+      "id": "f13",
+      "front": "Mesures associées obligatoires au traitement d'une IST ?",
+      "back": "Notification et traitement simultané des partenaires des 60 derniers jours (ping-pong sinon), abstinence 7 jours, dépistage VIH-syphilis-hépatite B-trichomonase, revoir à 7 jours, conseils préservatifs."
+    },
+    {
+      "id": "f14",
+      "front": "Cause la plus fréquente d'échec apparent d'un traitement d'IST ?",
+      "back": "La RÉINFECTION par le même partenaire non traité — avant d'invoquer une résistance : vérifier le traitement du partenaire, l'observance, et penser à Mycoplasma genitalium (urétrite persistante, résistant aux macrolides)."
+    },
+    {
+      "id": "f15",
+      "front": "Lien entre IST et VIH ?",
+      "back": "Les IST inflammatoires et ulcératives (gonocoque, chlamydia, syphilis, herpès) augmentent la charge virale génitale et la susceptibilité au VIH : dépister et traiter les IST fait partie de la prévention du VIH ; dépistage VIH systématique devant toute IST."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "gc",
+      "label": "Infections à gonocoques et chlamydia"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agents",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "N. gonorrhoeae : diplocoque « grain de café »"
+          },
+          {
+            "id": "b1c2",
+            "label": "C. trachomatis : intracellulaire, D-K / L1-L3"
+          },
+          {
+            "id": "b1c3",
+            "label": "Co-infections fréquentes : traiter les deux"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Résistance du gonocoque : menace OMS"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Homme",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Urétrite : pus franc (gonocoque) / discret (chlamydia)"
+          },
+          {
+            "id": "b2c2",
+            "label": "Épididymite"
+          },
+          {
+            "id": "b2c3",
+            "label": "Anorectite, pharyngite"
+          },
+          {
+            "id": "b2c4",
+            "label": "Gonococcie disséminée : arthrite du genou"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Urétrite persistante : M. genitalium ?"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Femme",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Cervicite souvent silencieuse"
+          },
+          {
+            "id": "b3c2",
+            "label": "Salpingite / MIP"
+          },
+          {
+            "id": "b3c3",
+            "label": "Infertilité tubaire, GEU"
+          },
+          {
+            "id": "b3c4",
+            "label": "Grossesse : contamination néonatale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Test de grossesse devant toute algie pelvienne"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Syndromique : traiter sans attendre"
+          },
+          {
+            "id": "b4c2",
+            "label": "NAAT (PCR) : test de référence"
+          },
+          {
+            "id": "b4c3",
+            "label": "Gram du pus : diagnostic rapide chez l'homme"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Dépistage < 25 ans + prénatal"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Ceftriaxone 500 mg IM dose unique"
+          },
+          {
+            "id": "b5c2",
+            "label": "Doxycycline 7 j (azithromycine 1 g si grossesse)"
+          },
+          {
+            "id": "b5c3",
+            "label": "MIP : ceftriaxone + doxycycline + métronidazole"
+          },
+          {
+            "id": "b5c4",
+            "label": "LGV : doxycycline 21 jours"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Partenaires traités simultanément"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Urgences & prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Ophtalmie néonatale : ceftriaxone immédiate"
+          },
+          {
+            "id": "b6c2",
+            "label": "Salpingite fébrile : hospitalisation si sévère"
+          },
+          {
+            "id": "b6c3",
+            "label": "Préservatif, dépistage VIH-syphilis"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Traiter les IST = prévenir le VIH"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "workowski2021",
+      "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+      "citation": "Workowski KA, Bachmann LH, Chan PA, Johnston CM, Muzny CA, Park I, Reno H, Zenilman JM, Bolan GA. Sexually Transmitted Infections Treatment Guidelines, 2021. MMWR Recomm Rep. 2021;70(4):1-187. DOI 10.15585/mmwr.rr7004a1. PMID 34292926.",
+      "organization": "CDC (MMWR)",
+      "year": 2021,
+      "version": "Guidelines",
+      "url": "https://www.cdc.gov/mmwr/volumes/70/rr/rr7004a1.htm",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Traitements recommandés (ceftriaxone, doxycycline, azithromycine)",
+        "Approche syndromique",
+        "MIP, épididymite, ophtalmie néonatale",
+        "Partenaires et test de contrôle"
+      ]
+    },
+    {
+      "id": "who2025sti",
+      "title": "Aide-mémoire : infections sexuellement transmissibles (IST)",
+      "citation": "Organisation mondiale de la Santé. Sexually transmitted infections (STIs). Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/sexually-transmitted-infections-(stis)).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/sexually-transmitted-infections-(stis)",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie mondiale (chlamydia ~129 M, gonorrhée ~82 M de nouvelles infections/an)",
+        "Résistance antimicrobienne du gonocoque",
+        "IST et VIH",
+        "Prévention et dépistage"
+      ]
+    }
+  ]
+}
