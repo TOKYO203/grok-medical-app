@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "thromboses-veineuses",
+  "title": "Thromboses veineuses profondes des membres inférieurs",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant un gros mollet douloureux unilatéral, reconnaître la thrombose veineuse profonde, la confirmer par écho-Doppler veineux, instaurer l'anticoagulation sans délai, dépister l'embolie pulmonaire et organiser la durée du traitement.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 55,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 96,
+      "localNumber": 55,
+      "sectionLabel": "Médecine",
+      "title": "Thromboses veineuses profondes des membres inférieurs",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC 2019 sur l'embolie pulmonaire — qui couvrent la maladie thromboembolique veineuse dans son ensemble — et de la 2ᵉ mise à jour CHEST 2021 du traitement antithrombotique, avec reformulation complète.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Thromboses veineuses profondes des membres inférieurs » (Médecine n°55) : la fiche couvre la TVP des membres inférieurs, son diagnostic, son traitement et sa complication principale, l'embolie pulmonaire, renvoyée vers la fiche dédiée pour sa prise en charge détaillée.",
+      "Sources vérifiées lors de ce run : ESC 2019 PE (Konstantinides SV, et al. Eur Heart J 2020;41(4):543-603, doi:10.1093/eurheartj/ehz405 — page éditeur ouverte et PDF académique consultés) et CHEST 2021 2nd update (Stevens SM, et al. Chest 2021;160(6):e519-e576, doi:10.1016/j.chest.2021.07.055 — confirmé via le journal CHEST et Ovid).",
+      "Le signe de Homans est cité comme signe classique de valeur clinique faible isolément, conformément à la littérature ; la probabilité clinique (score de Wells) et l'écho-Doppler font le diagnostic.",
+      "L'image échographique est servie depuis Wikimedia Commons (fichier Ultrasonography of deep vein thrombosis of the femoral vein.jpg, licence CC0 — domaine public, crédit « Via Wikimedia Commons », licence vérifiée sur la page du fichier)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Interdits sécuritaires explicites : pas de massage du membre thrombosé, pas d'anticoagulation sans diagnostic confirmé hors contexte de forte probabilité et d'impossibilité d'imagerie.",
+      "Terrain malgache intégré : voyages prolongés, post-partum, postopératoire, accès limité à l'imagerie."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La thrombose veineuse profonde du membre inférieur est la formation d'un caillot dans un veine profonde — sural le plus souvent, fémorale ou iliaque parfois. Le gros mollet douloureux unilatéral en est le visage classique, mais la maladie est capricieuse : asymptomatique dans plus d'un cas sur deux, elle se révèle parfois par sa complication, l'embolie pulmonaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est une maladie de la stase, de l'hypercoagulabilité et de l'atteinte pariétale — chirurgie, immobilisation, cancer, grossesse, contraception œstroprogestative, longs trajets. Le diagnostic confirme vite, le traitement anticoagule vite, et la durée se décide selon le facteur déclenchant."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "Toute TVP proximale — poplitée et au-delà — peut migrer vers les artères pulmonaires. Douleur thoracique, dyspnée, syncope chez un patient à gros mollet : c'est une embolie pulmonaire jusqu'à preuve du contraire, et une urgence."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et terrain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La triade de Virchow résume le mécanisme : stase veineuse, lésion pariétale, hypercoagulabilité. Le thrombus naît le plus souvent dans les poches valvulaires des sinus veineux du mollet, puis s'étend en amont et en aval, arrimé à la paroi — c'est sa queue flottante qui menace l'artère pulmonaire."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Ultrasonography_of_deep_vein_thrombosis_of_the_femoral_vein.jpg?width=900",
+          "alt": "Échographie d'une thrombose veineuse profonde de la veine fémorale : veine incompressible avec thrombus visible",
+          "caption": "Écho-Doppler veineux : thrombose de la veine fémorale — l'examen clé du diagnostic.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC0 (domaine public)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_deep_vein_thrombosis_of_the_femoral_vein.jpg"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs transitoires : chirurgie, immobilisation, plâtre, long voyage, grossesse et post-partum.",
+            "Facteurs persistants : cancer actif, syndrome des antiphospholipides, thrombophilie héréditaire, insuffisance cardiaque.",
+            "Terrain local : voyages routiers prolongés à Madagascar, suites de couches, postopératoire — l'accès limité à l'écho-Doppler rend la probabilité clinique décisive.",
+            "Distinction pronostique : TVP proximale (poplitée et en amont) emboligène ; TVP distale (sous-poplitée) à risque d'extension à surveiller."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Proximale ou distale, provoquée ou non provoquée, transitoire ou persistante : ces trois distinctions dictent l'intensité du traitement et sa durée."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Aucun signe clinique ne suffit seul : douleur du mollet, œdème unilatéral, chaleur, circula veineuse élargie — le signe de Homans est classique mais faible isolément. La démarche moderne est probabiliste : estimer la probabilité clinique, puis confirmer par imagerie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Probabilité clinique : score de Wells TVP — cancer, immobilisation, chirurgie récente, localisation, œdème, douleur, antécédent — ou jugement gestaltique structuré.",
+            "D-dimères : utiles pour excluer quand la probabilité est faible ou intermédiaire ; peu spécifiques — un taux élevé ne fait pas le diagnostic.",
+            "Écho-Doppler veineux : l'examen de référence — veine incompressible au passage de la sonde, visualisation directe du thrombus, régime veineux spontané.",
+            "TVP distale isolée : surveiller l'extension par écho répétée si risque hémorragique élevé, anticoaguler d'emblée si signes d'alarme."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Gros mollet unilatéral : d'abord la probabilité clinique. Probabilité forte : écho-Doppler sans délai. Probabilité faible avec D-dimères négatifs : TVP exclue, pas d'imagerie. Jamais d'anticoagulation curative prolongée sur des signes seuls."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic fait, trois questions closing the file : l'extension (thrombose iliaque ? phlegmasia ?), la cause (cancer à chercher selon le terrain et l'âge ? thrombophilie selon le contexte ?) et la menace pulmonaire — le moindre symptôme thoracique impose sa recherche."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "ESC/ERS",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019
+        },
+        {
+          "id": "SRC-CHEST-2021-VTE",
+          "organization": "American College of Chest Physicians",
+          "title": "Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chercher le facteur déclenchant fait partie du diagnostic : une TVP non provoquée chez un sujet âgé impose la recherche d'un cancer selon les recommandations ; une TVP récidivante ou atypique fait chercher un syndrome des antiphospholipides ; une TVP du membre supérieur fait chercher un cathéter ou un syndrome de compression."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Provoquée transitoire : chirurgie, plâtre, voyage, post-partum — traitement limité.",
+            "Provoquée persistante : cancer actif, insuffisance cardiaque, maladie inflammatoire — traitement prolongé tant que le facteur persiste.",
+            "Non provoquée : traitement de 3 mois puis réévaluation du rapport bénéfice-risque.",
+            "Récidivante ou atypique : syndrome des antiphospholipides à chercher avant de conclure à une thrombophilie héréditaire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence — diagnostics différentiels",
+          "text": "Un gros mollet n'est pas toujours une phlébite : cellulite, érysipèle, lymphangite, rupture du tendon d'Achille, kyste poplité rompu, myosite, séquelle post-thrombotique. L'écho-Doppler tranche — et évite l'anticoagulation inutile."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est anticoagulant, instauré dès la confirmation diagnostique — immédiat si la probabilité clinique est forte en attendant l'imagerie. Les anticoagulants oraux directs sont devenus la référence de la TVP non liée au cancer, sans héparinothérapie initiale pour la plupart d'entre eux ; les héparines restent la voie du cancer actif, de la grossesse et de l'insuffisance rénale sévère."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phase aiguë : anticoagulation efficace dès le diagnostic — AOD ou héparine selon le contexte.",
+            "Durée minimale : 3 mois pour un premier épisode — sans exception.",
+            "Au-delà de 3 mois : réévaluation du risque de récidive et de saignement ; traitement prolongé si le facteur persiste ou si l'épisode était non provoqué à haut risque.",
+            "TVP distale isolée sans signe d'alarme : surveillance échographique rapprochée acceptable, anticoagulation si extension ou symptômes marqués.",
+            "Bas de contention : soulagement symptomatique et prévention du syndrome post-thrombotique.",
+            "Thrombose iliaque étendue ou phlegmasia : discussion d'une désobstruction en milieu spécialisé."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Interdits",
+          "text": "Pas de massage du membre thrombosé — risque de migration. Pas d'anticoagulant curatif sans diagnostic confirmé, hors forte probabilité clinique avec imagerie inaccessible. Pas d'interruption prématurée : les 3 premiers mois sont le socle du traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'éducation du patient est un traitement à part entière : signes d'embolie pulmonaire à connaître, observance de l'anticoagulant, gestion des saignements, durée annoncée dès le départ. Une TVP bien traitée guérit ; une TVP mal suivie récidive ou embolise."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2019-PE",
+          "organization": "ESC/ERS",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+          "year": 2019
+        },
+        {
+          "id": "SRC-CHEST-2021-VTE",
+          "organization": "American College of Chest Physicians",
+          "title": "Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention cible les situations à risque : thromboprophylaxie pharmacologique après chirurgie à risque, mobilisation précoce, contention, hydratation et pauses ambulatoires sur les longs trajets. Le suivi d'un épisode traité recherche le syndrome post-thrombotique et évalue la récidive à distance."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thromboprophylaxie périopératoire selon le risque : héparine à dose préventive, contention, lever précoce.",
+            "Contraception œstroprogestative : à réévaluer après un épisode de TVP.",
+            "Suivi à 3 mois : tolérance, rémission clinique et échographique, décision de poursuite.",
+            "Syndrome post-thrombotique : douleur, œdème, troubles trophiques à long terme — contention et surveillance."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Le patient anticoagulé est un patient éduqué : il connaît les signes qui imposent de revenir — saignement, récidive, douleur thoracique, dyspnée. La fiche embolie pulmonaire détaille la prise en charge de la complication."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Gros mollet unilatéral : probabilité clinique, D-dimères si faible probabilité, écho-Doppler pour confirmer.",
+            "TVP proximale : anticoagulation immédiate et menace pulmonaire à surveiller.",
+            "AOD en première intention hors cancer, grossesse et insuffisance rénale sévère.",
+            "Trois mois minimum, puis réévaluation : provoquée transitoire s'arrête, persistante ou non provoquée se discute.",
+            "Pas de massage du membre ; éducation aux signes d'embolie pulmonaire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir dérouler la démarche probabiliste, citer les facteurs de la triade de Virchow et du score de Wells, et justifier la durée d'anticoagulation selon le facteur déclenchant : c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC 2019 sur l'embolie pulmonaire — qui encadrent la maladie thromboembolique veineuse — et la mise à jour CHEST 2021 du traitement antithrombotique."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Konstantinides SV, et al. 2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism. Eur Heart J 2020.",
+            "Stevens SM, et al. Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline. Chest 2021."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-tvp-phlebite",
+      "label": "P.H.L.É.B.I.T.E.",
+      "intro": "La chaîne diagnostique et décisionnelle de la thrombose veineuse profonde.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Phlébite : douleur, œdème et chaleur unilatéraux du mollet"
+        },
+        {
+          "key": "H",
+          "term": "Homans classique mais faible : la probabilité clinique fait le tri"
+        },
+        {
+          "key": "L",
+          "term": "Localisation décisive : proximale emboligène, distale à surveiller"
+        },
+        {
+          "key": "É",
+          "term": "Écho-Doppler veineux : veine incompressible, examen de référence"
+        },
+        {
+          "key": "B",
+          "term": "Bilan de la cause : cancer, antiphospholipides, facteurs transitoires"
+        },
+        {
+          "key": "I",
+          "term": "Interdire le massage du membre : risque de migration"
+        },
+        {
+          "key": "T",
+          "term": "Trois mois d'anticoagulation minimum, puis réévaluation"
+        },
+        {
+          "key": "E",
+          "term": "Embolie pulmonaire : la complication qui menace toute TVP proximale"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-tvp-1",
+      "front": "Quelle est la triade de Virchow ?",
+      "back": "Stase veineuse, lésion de la paroi vasculaire, hypercoagulabilité — les trois mécanismes de la thrombose."
+    },
+    {
+      "id": "fc-tvp-2",
+      "front": "Quels signes cliniques évoquent une TVP du membre inférieur ?",
+      "back": "Douleur, œdème unilatéral, chaleur, cyanose discrète, circula veineuse élargie — aucun signe ne suffit isolément."
+    },
+    {
+      "id": "fc-tvp-3",
+      "front": "Quelle est la valeur du signe de Homans ?",
+      "back": "Classique mais faible isolément : il ne fait pas le diagnostic, la probabilité clinique et l'écho-Doppler le font."
+    },
+    {
+      "id": "fc-tvp-4",
+      "front": "Quel examen confirme le diagnostic de TVP ?",
+      "back": "L'écho-Doppler veineux : veine incompressible au passage de la sonde, thrombus visible."
+    },
+    {
+      "id": "fc-tvp-5",
+      "front": "Quelle est la place des D-dimères ?",
+      "back": "Exclusion utile si probabilité clinique faible ou intermédiaire ; un taux élevé n'est pas spécifique et ne fait pas le diagnostic."
+    },
+    {
+      "id": "fc-tvp-6",
+      "front": "Pourquoi distinguer TVP proximale et distale ?",
+      "back": "Proximale (poplitée et en amont) : risque embolique, anticoagulation d'emblée. Distale : surveillance acceptable si absence de signes d'alarme."
+    },
+    {
+      "id": "fc-tvp-7",
+      "front": "Quel traitement de première intention d'une TVP hors cancer et grossesse ?",
+      "back": "Anticoagulation par anticoagulant oral direct, sans héparine initiale pour la plupart, dès le diagnostic confirmé."
+    },
+    {
+      "id": "fc-tvp-8",
+      "front": "Quelle durée minimale d'anticoagulation ?",
+      "back": "Trois mois pour un premier épisode, sans exception — puis réévaluation selon le facteur déclenchant et le risque de récidive."
+    },
+    {
+      "id": "fc-tvp-9",
+      "front": "Pourquoi interdire le massage d'un membre thrombosé ?",
+      "back": "Le massage favorise la migration du thrombus vers la circulation pulmonaire — embolie pulmonaire."
+    },
+    {
+      "id": "fc-tvp-10",
+      "front": "Quel suivi à long terme d'une TVP traitée ?",
+      "back": "Syndrome post-thrombotique à dépister, contention, observance, et éducation aux signes d'embolie pulmonaire et de récidive."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-tvp-root",
+      "label": "Thrombose veineuse profonde",
+      "detail": "Stase, paroi, hypercoagulabilité : le caillot naît dans le mollet, menace le poumon, se traite par anticoagulation et se surveille trois mois minimum."
+    },
+    "branches": [
+      {
+        "id": "map-tvp-meca",
+        "label": "Mécanismes et terrain",
+        "detail": "Triade de Virchow, facteurs transitoires et persistants.",
+        "children": [
+          {
+            "id": "map-tvp-meca-1",
+            "label": "Virchow",
+            "leaves": [
+              {
+                "id": "map-tvp-meca-1a",
+                "label": "Stase veineuse"
+              },
+              {
+                "id": "map-tvp-meca-1b",
+                "label": "Hypercoagulabilité"
+              }
+            ]
+          },
+          {
+            "id": "map-tvp-meca-2",
+            "label": "Terrain",
+            "leaves": [
+              {
+                "id": "map-tvp-meca-2a",
+                "label": "Chirurgie, plâtre, voyage"
+              },
+              {
+                "id": "map-tvp-meca-2b",
+                "label": "Cancer, grossesse, SAPL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-tvp-diag",
+        "label": "Diagnostic",
+        "detail": "Démarche probabiliste, écho-Doppler de confirmation.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-tvp-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-tvp-diag-1a",
+                "label": "Gros mollet unilatéral"
+              },
+              {
+                "id": "map-tvp-diag-1b",
+                "label": "Score de Wells"
+              }
+            ]
+          },
+          {
+            "id": "map-tvp-diag-2",
+            "label": "Paraclinique",
+            "leaves": [
+              {
+                "id": "map-tvp-diag-2a",
+                "label": "D-dimères : exclusion"
+              },
+              {
+                "id": "map-tvp-diag-2b",
+                "label": "Écho-Doppler : confirmation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-tvp-trt",
+        "label": "Traitement",
+        "detail": "Anticoagulation précoce, trois mois minimum, durée selon le facteur.",
+        "children": [
+          {
+            "id": "map-tvp-trt-1",
+            "label": "Anticoagulation",
+            "leaves": [
+              {
+                "id": "map-tvp-trt-1a",
+                "label": "AOD hors cancer, grossesse"
+              },
+              {
+                "id": "map-tvp-trt-1b",
+                "label": "Héparines sinon"
+              }
+            ]
+          },
+          {
+            "id": "map-tvp-trt-2",
+            "label": "Durée",
+            "leaves": [
+              {
+                "id": "map-tvp-trt-2a",
+                "label": "3 mois minimum"
+              },
+              {
+                "id": "map-tvp-trt-2b",
+                "label": "Prolongé si facteur persistant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-tvp-pieges",
+        "label": "Dangers et suivi",
+        "detail": "Menace pulmonaire, interdits, séquelles post-thrombotiques.",
+        "children": [
+          {
+            "id": "map-tvp-pieges-1",
+            "label": "Menaces",
+            "leaves": [
+              {
+                "id": "map-tvp-pieges-1a",
+                "label": "Embolie pulmonaire"
+              },
+              {
+                "id": "map-tvp-pieges-1b",
+                "label": "Phlegmasia : urgence"
+              }
+            ]
+          },
+          {
+            "id": "map-tvp-pieges-2",
+            "label": "Suivi",
+            "leaves": [
+              {
+                "id": "map-tvp-pieges-2a",
+                "label": "Pas de massage du membre"
+              },
+              {
+                "id": "map-tvp-pieges-2b",
+                "label": "Syndrome post-thrombotique"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2019-PE",
+      "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+      "citation": "Konstantinides SV, Meyer G, Becattini C, et al. 2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism (developed in collaboration with the European Respiratory Society). Eur Heart J. 2020 ; 41 (4) : 543-603. doi:10.1093/eurheartj/ehz405.",
+      "organization": "European Society of Cardiology / European Respiratory Society (ESC/ERS)",
+      "year": 2019,
+      "version": "2019 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehz405",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Démarche probabiliste et D-dimères",
+        "Classification TVP proximale/distale",
+        "Prise en charge de la maladie thromboembolique veineuse",
+        "Recherche de la cause"
+      ]
+    },
+    {
+      "id": "SRC-CHEST-2021-VTE",
+      "title": "Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline and Expert Panel Report",
+      "citation": "Stevens SM, Woller SC, Kreuziger LB, et al. Antithrombotic Therapy for VTE Disease: Second Update of the CHEST Guideline and Expert Panel Report. Chest. 2021 ; 160 (6) : e519-e576. doi:10.1016/j.chest.2021.07.055.",
+      "organization": "American College of Chest Physicians (CHEST)",
+      "year": 2021,
+      "version": "2nd update, 9th edition",
+      "url": "https://doi.org/10.1016/j.chest.2021.07.055",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Choix de l'anticoagulant",
+        "Durée du traitement",
+        "TVP distale : surveillance contre anticoagulation",
+        "Réévaluation du rapport bénéfice-risque"
+      ]
+    }
+  ]
+}
