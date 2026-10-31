@@ -1,0 +1,657 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "meningites-clair",
+  "title": "Méningites infectieuses à liquide clair",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge les méningites infectieuses à liquide clair : connaître les principales étiologies (virales — entérovirus, herpès ; tuberculeuse ; cryptococcique chez le patient VIH ; listériose à LCR clair), la démarche diagnostique devant un syndrome méningé (PL, cytochimie, recherche étiologique), les particularités cliniques de chaque forme (tuberculeuse : chronique, déficits des nerfs crâniens ; virale : bénigne ; cryptococcique : sujet VIH), leurs traitements (symptomatique pour les virales ; quadrithérapie antituberculeuse + corticoïdes pour la tuberculeuse ; amphotéricine B pour la cryptococcique) et l'urgence de ne pas confondre avec une méningite purulente décapitée.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 12,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 53,
+      "localNumber": 12,
+      "sectionLabel": "Médecine",
+      "title": "Méningites infectieuses à liquide clair",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Méningites infectieuses à liquide clair. Par définition, le LCR est CLAIR (limpide) : les causes dominantes sont les MÉNINGITES VIRALES (entérovirus surtout — été/automne, HSV-2, VZV, oreillons, primo-infection VIH ; clinique bénigne : fièvre, céphalées, raideur de nuque ; PL : lymphocytes, glucose normal, protéines modérément élevées ; traitement symptomatique, évolution favorable), la MÉNINGITE TUBERCULEUSE (à Madagascar, à toujours évoquer devant un syndrome méningé subaigu ou chronique : fièvre prolongée, céphalées progressives, confusion, déficits des nerfs crâniens, signes focaux ; LCR : lymphocytes, glucose abaissé, protéines élevées ; recherche : Ziehl, PCR/geneXpert sur LCR, culture, foyer pulmonaire ; traitement d'urgence : QUADRITHÉRAPIE (isoniazide, rifampicine, pyrazinamide, éthambutol) + CORTICOÏDES, durée prolongée ; pronostic lié à la précocité ; complications : hydrocéphalie, tuberculomes, arachnoïdite) et la MÉNINGITE CRYPTOCOCCIQUE (patient VIH très immunodéprimé : céphalées progressives, souvent sans raideur majeure ; LCR : pression d'ouverture élevée, cryptocoques à l'encre de Chine ou antigène cryptococcique ; traitement : AMPHOTÉRICINE B puis fluconazole, ponctions lombaires évacuatrices pour l'hypertension intracrânienne). Autres : listériose (adulte immunodéprimé, ampicilline), leptospirose, maladie de Lyme, abcès cérébral de voisinage, méningite néoplasique, et le PIÈGE majeur : la méningite purulente DÉCAPITÉE par une antibiothérapie préalable (LCR clair, souvent lymphocytaire, MAIS glucose bas et protéines élevées — traiter comme une purulente). Démarche : le SYNDROME MÉNINGÉ (fièvre + céphalées + raideur ± vomissements, photophobie) impose de chercher les SIGNES DE GRAVITÉ (purpura, trouble de conscience, signes focaux, coma) puis de faire une PL (sauf contre-indication : signes de localisation, coma, HTIC menaçante — imagerie d'abord). LCR : cytochimie (cellules, glucorachie à comparer à la glycémie, protéines), colorations (Gram, Ziehl, encre de Chine), PCR (herpès, entérovirus, tuberculose), antigènes, culture. Traitement étiologique selon la cause + mesures communes : hydratation, antalgiques, surveillance neurologique, gestion de l'hypertension intracrânienne. À Madagascar : écarter systématiquement le paludisme cérébral et faire une sérologie VIH.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Logan SA, MacMahon E. Viral meningitis. BMJ. 2008;336(7634):36-40 — page officielle bmj.com/content/336/7634/36 consultée avant citation.",
+      "Source 2 : Wilkinson RJ, Rohlwink U, Misra UK, van Crevel R, Mai NTH, et al. Tuberculous meningitis. Nat Rev Neurol. 2017;13(10):581-598 — DOI 10.1038/nrneurol.2017.120 (PMID 28884751), page officielle nature.com/articles/nrneurol.2017.120 consultée avant citation.",
+      "Source 3 : OMS, aide-mémoire « Meningitis » — page officielle https://www.who.int/news-room/fact-sheets/detail/meningitis confirmée par recherche avant citation ; l'OMS a publié en 2025 ses premières lignes directrices mondiales sur les méningites.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "LCR clair : viral (dominante), tuberculeuse, cryptococcique, listériose, purulente décapitée (piège)",
+      "PL : cytochimie (cellules, glucose, protéines) + colorations + PCR",
+      "Méningite virale : bénigne, entérovirus, traitement symptomatique",
+      "Méningite tuberculeuse : subaiguë/chronique, LCR lymphocytaire à glucose bas, quadrithérapie + corticoïdes",
+      "Méningite cryptococcique : VIH, encre de Chine/antigène, amphotéricine B + ponctions évacuatrices",
+      "Signes de gravité avant PL : purpura, coma, signes focaux → imagerie/antibiotiques d'abord",
+      "Contexte Madagascar : tuberculose et VIH à évoquer d'emblée ; paludisme à écarter",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les méningites infectieuses à liquide clair regroupent les inflammations méningées d'origine infectieuse dont le liquide céphalorachidien (LCR) reste limpide — par opposition aux méningites purulentes à LCR trouble. Le diagnostic étiologique repose sur la ponction lombaire et son analyse : les causes dominantes sont virales (bénignes dans la grande majorité), mais deux causes graves se cachent derrière un LCR clair — la méningite tuberculeuse, fréquente à Madagascar, et la méningite cryptococcique du patient VIH — sans oublier le piège de la purulente décapitée par des antibiotiques pris avant la PL.",
+          "sources": [
+            {
+              "id": "who2025meningite",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Méningite",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "LCR clair ne veut pas dire méningite bénigne",
+          "text": "Derrière un LCR clair se cachent des méningites qui tuent : TUBERCULEUSE (quadrithérapie en urgence), CRYPTOCOCCIQUE (amphotéricine B), PURULENTE DÉCAPITÉE (antibiothérapie immédiate comme une purulente). La cytochimie — et pas la limpidité seule — oriente : lymphocytes + glucose normal = viral ; lymphocytes + glucose BAS + protéines élevées = tuberculose ou cryptoccose ; neutrophiles + glucose bas = purulente (y compris décapitée)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappel et définitions",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "SYNDROME MÉNINGÉ : céphalées intenses, raideur de nuque (Brudzinski, Kernig), fièvre, vomissements, photophobie, parfois confusion ; chez le NOURRISSON : fontanelle bombée, refus alimentaire, hypotonie, geignements ; chez le SUJET ÂGÉ ou immunodéprimé : tableau trompeur (confusion isolée, fièvre seule).",
+            "SIGNES DE GRAVITÉ à chercher AVANT la PL : trouble de conscience ou coma, signes de localisation (déficit moteur, mydriase, crise convulsive), purpura fulminans (traiter sans attendre la PL), signes d'hypertension intracrânienne — dans ces cas : hémocultures + antibiothérapie immédiate + imagerie cérébrale avant PL.",
+            "PONCTION LOMBAIRE : cytochimie (cellules avec formule, glucose LCR à comparer à la glycémie, protéines), bactériologie (Gram, culture), Ziehl-Neelsen (tuberculose), encre de Chine (cryptocoque), PCR (entérovirus, herpès, tuberculose), antigènes selon contexte ; mesure de la pression d'ouverture quand possible (cryptoccose ++).",
+            "PROFILS CYTOCHIMIQUES : lymphocytes + glucose NORMAL + protéines modérées = VIRAL ; lymphocytes + glucose ABAISSÉ + protéines ÉLEVÉES = TUBERCULEUSE ou CRYPTOCOCCIQUE ; neutrophiles + glucose bas = PURULENTE (LCR souvent trouble, mais parfois encore clair en début d'évolution ou après antibiothérapie : « décapitée »).",
+            "CAUSES PRINCIPALES À LCR CLAIR : VIRALES (entérovirus, HSV-2, VZV, oreillons, VIH), TUBERCULEUSE, CRYPTOCOCCIQUE (VIH), LISTÉRIOSE (adulte âgé/immunodéprimé, souvent lymphocytaire), leptospirose, maladie de Lyme, brucellose, méningite néoplasique (contexte carcinologique, cellules anormales), sarcoïdose, abcès cérébral/empyème de voisinage (attention : neutrophiles avec glucose bas).",
+            "ÉPIDÉMIOLOGIE À MADAGASCAR : la tuberculose est hyper-endémique et le VIH présent : devant un syndrome méningé subaigu ou chronique, la méningite tuberculeuse et cryptococcique doivent être évoquées D'EMBLÉE ; les entérovirus dominent les méningites virales estivales."
+          ],
+          "sources": [
+            {
+              "id": "logan2008",
+              "organization": "BMJ",
+              "title": "Viral meningitis",
+              "year": 2008
+            },
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "MÉNINGITE VIRALE : sujet jeune, été/automne, ENTÉROVIRUS +++ (coxsackies, échovirus) ; début aigu, fièvre, céphalées, raideur, symptômes digestifs, myalgies, parfois éruption (pied-main-bouche) ; LCR : lymphocytes (dizaines à centaines), glucose normal, protéines modérément élevées ; ÉVOLUTION bénigne en quelques jours ; HSV-2 : méningite récidivante (Mollaret), VZV : méningite avec zona, oreillons, primo-infection VIH (syndrome pseudo-grippal + méningite lymphocytaire).",
+            "MÉNINGITE TUBERCULEUSE : début SUBAIGU ou CHRONIQUE (semaines) : fièvre vespérale, sueurs nocturnes, amaigrissement, céphalées progressives, confusion, troubles du comportement, DÉFICITS DES NERFS CRÂNIENS (parésie oculomotrice, surdité), signes focaux, hydrocéphalie ; LCR : lymphocytes, glucose abaissé (souvent moins de la moitié de la glycémie), protéines élevées ; formes : basilaire (nerfs crâniens), tuberculomes, arachnoïdite, hyponatrémie ; contact tuberculeux ou antécédent fréquent ; non traitée : coma et décès.",
+            "MÉNINGITE CRYPTOCOCCIQUE : patient VIH avec lymphocytes CD4 bas (le plus souvent moins de 100/mm³) ; céphalées PROGRESSIVES sur des semaines, fièvre modérée, parfois sans raideur nette, troubles visuels, trouble de conscience ; LCR : pression d'ouverture ÉLEVÉE, lymphocytes, cryptocoques à l'ENCRE DE CHINE ou antigène cryptococcique (CrAg) positif dans le sang et le LCR ; sérologie VIH devant tout cas.",
+            "LISTÉRIOSE : adulte âgé, immunodéprimé, alcoolique, femme enceinte ; méningite parfois à LCR clair avec formule mixte ; rhombencéphalite possible (atteinte des nerfs crâniens) ; traitement : AMPICILLINE (+ gentamicine selon protocoles).",
+            "PIÈGE — PURULENTE DÉCAPITÉE : antibiothérapie orale préalable (automédication) avant la PL : LCR clair, souvent lymphocytaire mais avec GLUCOSE BAS et protéines élevées ; la présence de NEUTROPHILES doit alerter ; à traiter comme une méningite purulente (antibiothérapie probabiliste urgente), pas comme une méningite virale.",
+            "MÉNINGITE NÉOPLASIQUE : contexte carcinologique (cancer, hémopathie), déficits des nerfs crâniens, LCR à protéines très élevées, cytologie anormale.",
+            "ABCÈS CÉRÉBRAL / EMPYÈME : syndrome méningé + signes focaux + fièvre ; LCR à neutrophiles, glucose bas (souvent clair) ; pas de PL si suspicion d'abcès (risque d'engagement) : imagerie d'abord ; origine ORL/dentaire/hématogène à rechercher."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgences à LCR clair",
+          "text": "1) Syndrome méningé + trouble de conscience, signes focaux ou crise convulsive : imagerie cérébrale AVANT la PL (abcès, tuberculome, hydrocéphalie), hémocultures et traitement probabiliste sans attendre. 2) Suspicion de tuberculose : quadrithérapie + corticoïdes dès la suspicion forte (ne pas attendre la confirmation — le pronostic dépend de la précocité). 3) Cryptoccose + hypertension intracrânienne : ponctions évacuatrices quotidiennes + amphotéricine B. 4) Purulente décapitée : antibiothérapie probabiliste urgente comme pour une purulente.",
+          "sources": [
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            },
+            {
+              "id": "who2025meningite",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Méningite",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La PL est l'examen clé. Interprétation de la cytochimie : lymphocytes avec glucose normal orientent vers le viral (PCR entérovirus/HSV selon contexte, sérologies si besoin — le diagnostic clinique suffit souvent chez le sujet immunocompétent à tableau bénin) ; lymphocytes avec glucose abaissé et protéines élevées imposent la recherche de TUBERCULOSE (Ziehl sur LCR, PCR/geneXpert MTB, culture, ADA selon disponibilité, radiographie thoracique à la recherche d'un foyer), de CRYPTOCOQUE (encre de Chine, antigène cryptococcique — sérologie VIH systématique) et de listériose/brucellose/leptospirose selon le contexte ; neutrophiles avec glucose bas = purulente vraie ou décapitée.",
+          "sources": [
+            {
+              "id": "logan2008",
+              "organization": "BMJ",
+              "title": "Viral meningitis",
+              "year": 2008
+            },
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "IMAGERIE cérébrale (TDM/scanner) : devant tout signe de gravité ou de localisation, immunodépression, âges extrêmes, coma, crise convulsive — avant la PL ; recherche : abcès, tuberculome, hydrocéphalie, empyème.",
+            "SYNDROME INFLAMMATOIRE : hémogramme, CRP, glycémie (à comparer au glucose du LCR), hémocultures ; recherche de tuberculose pulmonaire associée (radiographie thoracique, expectoration si toux) ; sérologie VIH devant toute méningite à LCR clair subaiguë.",
+            "FORMES DE L'ENFANT : méningite virale de l'été (entérovirus, pied-main-bouche), oreillons ; la tuberculose méningée du nourrisson (hydrocéphalie, fontanelle bombée, hypotonie) est une urgence — peser, chercher un contage familial.",
+            "DIAGNOSTICS DIFFÉRENTIELS du syndrome méningé sans méningite : migraine, céphalée de tension, hémorragie méningée (LCR hémorragique), hypertension intracrânienne, PALUDISME CÉRÉBRAL (à Madagascar : test rapide chez tout syndrome fébrile avec céphalées ou confusion !), typhoïde.",
+            "CONTRÔLES : surveillance neurologique répétée (conscience, pupilles, déficits), répéter la PL si évolution défavorable (contrôle de stérilité, glucorachie dans la tuberculose selon protocoles).",
+            "NE JAMAIS oublier : le paludisme grave devant toute fièvre + céphalées + confusion à Madagascar — goutte épaisse/test rapide systématiques, en parallèle de la PL."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le piège de la méningite décapitée",
+          "text": "Une antibiothérapie prise avant la PL (automédication, prescription d'une « angine » ou d'une « otite ») vide partiellement le LCR de ses germes : le LCR devient clair, la formule se lymphocyte, mais le GLUCOSE reste bas et les protéines élevées. Toute méningite « à liquide clair » avec glucose abaissé ou neutrophiles résiduels = traiter en urgence comme une PURULENTE jusqu'à preuve du contraire."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "MESURES COMMUNES : hospitalisation selon la gravité, hydratation, antalgiques (paracétamol), antiémétiques, repos au calme, surveillance neurologique ; traitement de l'hypertension intracrânienne selon la cause.",
+            "MÉNINGITES VIRALES : traitement SYMPTOMATIQUE (aucun antiviral utile dans les méningites à entérovirus) ; exception : aciclovir IV en cas d'atteinte herpétique du système nerveux central (encéphalite — tableau différent) ou chez l'immunodéprimé selon les protocoles ; évolution favorable en 3 à 10 jours.",
+            "MÉNINGITE TUBERCULEUSE : QUADRITHÉRAPIE ANTITUBERCULEUSE (isoniazide, rifampicine, pyrazinamide, éthambutol — l'isoniazide et la pyrazinamide diffusent le mieux dans le LCR) + CORTICOÏDES (prednisone ou dexaméthasone selon protocoles — réduisent la mortalité et les séquelles) ; durée prolongée selon les protocoles nationaux (souvent 9 à 12 mois) ; prévention de l'hyponatrémie, prise en charge de l'hydrocéphalie (dérivation) ; traitement de la tuberculose pulmonaire associée et dépistage des contacts ; antirétroviraux si co-infection VIH (moment du début selon protocoles).",
+            "MÉNINGITE CRYPTOCOCCIQUE : AMPHOTÉRICINE B IV en induction, relayée par le FLUCONAZOLE (dose élevée puis entretien prolongé selon protocoles OMS) ; gestion de l'HYPERTENSION INTRACRÂNIENNE : ponctions lombaires évacuatrices répétées (quotidiennes si pression élevée) — clé du pronostic ; début des antirétroviraux du VIH selon les protocoles (attention au syndrome inflammatoire de restauration immunitaire) ; fluconazole en prophylaxie secondaire tant que l'immunodépression est sévère.",
+            "LISTÉRIOSE : ampicilline IV (+ gentamicine selon protocoles), durée prolongée ; formes du sujet âgé et de la femme enceinte.",
+            "PURULENTE DÉCAPITÉE : antibiothérapie probabiliste ciblée (céphalosporine de troisième génération ± selon contexte), comme pour une méningite purulente documentée ; réévaluation et PL de contrôle selon l'évolution.",
+            "ABCÈS CÉRÉBRAL / EMPYÈME : pas de PL (imagerie d'abord) ; antibiothérapie prolongée couvrant les anaérobies et les streptocoques, avis chirurgical (drainage).",
+            "MÉNINGITE NÉOPLASIQUE : avis oncologique — chimiothérapie intrathécale ou systémique selon le cancer ; traitement symptomatique de l'hypertension intracrânienne.",
+            "SUIVI : réévaluation clinique à 48 heures (amélioration attendue dans le viral, surveillance de la conscience dans la tuberculose), PL de contrôle selon la cause et les protocoles ; rééducation des séquelles (surdité, déficits) ; prévention de l'hyponatrémie et de la maladie thromboembolique chez le patient alité."
+          ],
+          "sources": [
+            {
+              "id": "logan2008",
+              "organization": "BMJ",
+              "title": "Viral meningitis",
+              "year": 2008
+            },
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            },
+            {
+              "id": "who2025meningite",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Méningite",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant un syndrome méningé à Madagascar",
+          "text": "1) Signes de gravité ? (purpura = antibiothérapie immédiate sans PL ; coma ou signes focaux = imagerie avant PL). 2) PL + cytochimie + Ziehl + encre de Chine + PCR si disponibles + test rapide du paludisme + sérologie VIH. 3) LCR clair avec glucose NORMAL : viral → symptomatique, surveiller. 4) LCR clair avec glucose BAS : tuberculose (quadrithérapie + corticoïdes sans attendre la confirmation) ou cryptocoque (amphotéricine B + ponctions évacuatrices). 5) Neutrophiles ou forme décapitée : antibiothérapie de méningite purulente.",
+          "sources": [
+            {
+              "id": "who2025meningite",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Méningite",
+              "year": 2025
+            },
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "PRÉVENTION DES MÉNINGITES VIRALES : hygiène des mains (entérovirus à transmission fécale-orale), mesures en collectivité pendant les épidémies, vaccination contre les maladies qui s'accompagnent de méningites virales (oreillons, rougeole, varicelle, grippe selon les programmes).",
+            "LUTTE CONTRE LA TUBERCULOSE : dépistage et traitement des cas, BCG (protège surtout contre les formes méningées de l'enfant), prophylaxie des contacts ; la précocité du diagnostic de la méningite tuberculeuse (évoquer devant tout syndrome méningé subaigu) est la meilleure « prévention » de ses séquelles.",
+            "VIH : dépistage universel, traitement antirétroviral précoce (prévention de la cryptococcose), prophylaxie par fluconazole selon les protocoles chez les patients avec CD4 très bas et antigène cryptococcique positif.",
+            "DÉPISTAGE DE L'INFECTION À CRYPTOCOQUE : chez tout patient VIH avec CD4 très bas avant le début des antirétroviraux (test CrAg) selon les recommandations — traiter une antigénémie positive prévient la méningite.",
+            "VACCINATION CONTRE LES MÉNINGITES BACTÉRIENNES (pneumocoque, méningocoque, Haemophilus influenzae b) selon le programme national — prévient les purulentes (et donc les formes décapitées) ; stratégie OMS de lutte contre les méningites.",
+            "ÉDUCATION : ne pas s'automédiquer par des antibiotiques devant une fièvre avec céphalées (risque de décapitation qui retarde le diagnostic) ; consulter vite.",
+            "Madagascar : sensibiliser les praticiens à la triade « syndrome méningé subaigu = tuberculose jusqu'à preuve du contraire ; VIH = cryptocoque ; toujours écarter le paludisme »."
+          ],
+          "sources": [
+            {
+              "id": "who2025meningite",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Méningite",
+              "year": 2025
+            },
+            {
+              "id": "wilkinson2017",
+              "organization": "Nature Reviews Neurology",
+              "title": "Tuberculous meningitis",
+              "year": 2017
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "LCR CLAIR : lymphocytes + glucose NORMAL = VIRAL (bénin, symptomatique) ; lymphocytes + glucose BAS + protéines élevées = TUBERCULEUSE (quadrithérapie + corticoïdes) ou CRYPTOCOCCIQUE (VIH, amphotéricine B + ponctions évacuatrices) ; neutrophiles ou glucose bas quel que soit l'aspect = purulente (y compris décapitée). Signes de gravité (coma, signes focaux) : imagerie AVANT la PL. Méningite tuberculeuse = urgence thérapeutique : traiter sur présomption."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les méningites infectieuses à liquide clair ne sont pas un diagnostic, mais un filtre : la cytochimie du LCR — cellules, glucose, protéines — sépare les méningites virales bénignes des urgences que sont la tuberculose méningée et la cryptococcose du patient VIH, sans oublier la purulente décapitée. À Madagascar, un syndrome méningé subaigu mérite la recherche active de la tuberculose et du VIH, et toute fièvre avec céphalées impose d'écarter le paludisme. La ponction lombaire, analysée avec méthode, reste l'examen qui décide de tout : du lit simple et du paracétamol, ou de la quadrithérapie et de l'amphotéricine B."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Logan SA, MacMahon E. Viral meningitis. BMJ. 2008;336(7634):36-40.",
+            "Wilkinson RJ, Rohlwink U, Misra UK, et al. Tuberculous meningitis. Nat Rev Neurol. 2017;13(10):581-598 (DOI 10.1038/nrneurol.2017.120).",
+            "Organisation mondiale de la Santé. Aide-mémoire : Méningite (https://www.who.int/news-room/fact-sheets/detail/meningitis)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Tuberculose méningée : traiter sur présomption",
+      "text": "Syndrome méningé subaigu + LCR lymphocytaire à glucose bas + contexte (amaigrissement, sueurs, contact tuberculeux) = méningite tuberculeuse jusqu'à preuve du contraire : QUADRITHÉRAPIE + CORTICOÏDES dès la suspicion, sans attendre la PCR ou la culture (la confirmation peut manquer — le retard, lui, tue ou laisse des séquelles). Le pronostic dépend de la précocité du traitement."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "PL : quand ne pas la faire",
+      "text": "Signes de localisation, coma, crise convulsive, immunodépression, purpura fulminans : NE PAS ponctionner d'emblée — hémocultures + antibiothérapie immédiate (purpura), imagerie cérébrale avant PL (risque d'engagement). La PL reste l'examen clé, mais jamais au prix d'une hernie cérébrale."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Cryptoccose : pression et ponctions",
+      "text": "Méningite cryptococcique : l'hypertension intracrânienne fait la mortalité — mesurer la pression d'ouverture, PONCTIONS ÉVACUATRICES répétées tant que la pression est élevée, amphotéricine B IV puis fluconazole. Et sérologie VIH devant toute méningite lymphocytaire à glucose bas."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Les 3 profils de LCR clair",
+      "text": "1) LYMPHOCYTES + GLUCOSE NORMAL : viral → paracétamol, surveillance. 2) LYMPHOCYTES + GLUCOSE BAS : tuberculose ou cryptocoque → urgence étiologique et thérapeutique. 3) NEUTROPHILES ou GLUCOSE BAS inexpliqué (antibiothérapie préalable ?) : purulente, décapitée → antibiothérapie probabiliste immédiate."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Paludisme grave : toujours écarter",
+      "text": "À Madagascar, toute fièvre + céphalées + trouble de conscience mérite un test de diagnostic rapide du paludisme EN PARALLÈLE de la PL : les deux maladies peuvent coexister, le paludisme grave tue en quelques heures, et son traitement (artémisinine IV selon les protocoles) n'attend pas la cytochimie du LCR."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "L.I.Q.U.I.D.E.",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Limpide n'est pas bénin : tuberculose et cryptocoque se cachent derrière un LCR clair"
+        },
+        {
+          "key": "I",
+          "term": "Interpréter la cytochimie : cellules + glucose + protéines"
+        },
+        {
+          "key": "Q",
+          "term": "Quand la PL est contre-indiquée : coma, signes focaux, purpura → imagerie ou antibiotiques d'abord"
+        },
+        {
+          "key": "U",
+          "term": "Urgences : tuberculose (quadrithérapie), cryptocoque (amphotéricine + ponctions), décapitée (antibiothérapie)"
+        },
+        {
+          "key": "I",
+          "term": "Infections virales : entérovirus l'été, évolution bénigne, traitement symptomatique"
+        },
+        {
+          "key": "D",
+          "term": "Décapitée : l'antibiothérapie préalable clarifie le LCR mais le glucose reste bas"
+        },
+        {
+          "key": "E",
+          "term": "Écarter toujours : paludisme (test rapide) et VIH (sérologie) à Madagascar"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Citez les trois grandes causes de méningite à LCR clair.",
+      "back": "1) Méningites VIRALES (entérovirus surtout — les plus fréquentes, bénignes) ; 2) méningite TUBERCULEUSE (subaiguë, grave) ; 3) méningite CRYPTOCOCCIQUE (patient VIH immunodéprimé). Autres : listériose, purulente décapitée (piège)."
+    },
+    {
+      "id": "f2",
+      "front": "Profil cytochimique du LCR dans une méningite virale ?",
+      "back": "Lymphocytes (dizaines à centaines), GLUCOSE NORMAL, protéines modérément élevées ; LCR clair ; la PCR (entérovirus) et le contexte saisonnier (été/automne) orientent."
+    },
+    {
+      "id": "f3",
+      "front": "Profil cytochimique du LCR dans la méningite tuberculeuse ?",
+      "back": "LCR clair, LYMPHOCYTES, GLUCOSE ABAISSÉ (souvent moins de la moitié de la glycémie), PROTÉINES ÉLEVÉES ; recherche : Ziehl, PCR/geneXpert MTB sur LCR, culture, foyer pulmonaire associé."
+    },
+    {
+      "id": "f4",
+      "front": "Signes cliniques évocateurs d'une méningite tuberculeuse ?",
+      "back": "Début SUBAIGU ou chronique : fièvre vespérale, sueurs nocturnes, amaigrissement, céphalées progressives, confusion, DÉFICITS DES NERFS CRÂNIENS, signes focaux, hydrocéphalie ; contact tuberculeux fréquent."
+    },
+    {
+      "id": "f5",
+      "front": "Traitement de la méningite tuberculeuse ?",
+      "back": "QUADRITHÉRAPIE antituberculeuse (isoniazide, rifampicine, pyrazinamide, éthambutol — isoniazide et pyrazinamide diffusent le mieux dans le LCR) + CORTICOÏDES (réduisent la mortalité et les séquelles) ; durée prolongée (souvent 9 à 12 mois) ; traiter sur présomption, sans attendre la confirmation."
+    },
+    {
+      "id": "f6",
+      "front": "Chez quel patient et comment diagnostiquer une méningite cryptococcique ?",
+      "back": "Patient VIH avec CD4 bas (souvent moins de 100/mm³) : céphalées progressives, fièvre, parfois peu de raideur ; LCR : pression d'ouverture ÉLEVÉE, cryptocoques à l'ENCRE DE CHINE ou antigène cryptococcique (CrAg) positif (sang et LCR) ; sérologie VIH systématique."
+    },
+    {
+      "id": "f7",
+      "front": "Traitement de la méningite cryptococcique ?",
+      "back": "AMPHOTÉRICINE B IV en induction puis FLUCONAZOLE (dose élevée puis entretien) ; gestion de l'hypertension intracrânienne : PONCTIONS LOMBAIRES ÉVACUATRICES répétées (quotidiennes si pression élevée) ; début des antirétroviraux selon les protocoles (risque de syndrome inflammatoire de restauration immunitaire) ; fluconazole prophylactique secondaire tant que l'immunodépression est sévère."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce qu'une méningite purulente décapitée et comment la reconnaître ?",
+      "back": "Purulente partiellement traitée par une antibiothérapie préalable : LCR CLAIR, formule souvent lymphocytaire MAIS glucose bas et protéines élevées (± neutrophiles résiduels) ; à traiter en urgence comme une purulente (antibiothérapie probabiliste) — ne jamais la confondre avec une méningite virale."
+    },
+    {
+      "id": "f9",
+      "front": "Quand faut-il une imagerie cérébrale AVANT la ponction lombaire ?",
+      "back": "Devant : trouble de conscience ou coma, signes de localisation (déficit, mydriase), crise convulsive, immunodépression, purpura fulminans (alors : hémocultures + antibiothérapie immédiate sans PL), suspicion d'abcès ou d'hypertension intracrânienne — risque d'engagement."
+    },
+    {
+      "id": "f10",
+      "front": "Principaux agents des méningites virales ?",
+      "back": "ENTÉROVIRUS (coxsackies, échovirus — les plus fréquents, été/automne), HSV-2 (méningite récidivante de Mollaret), VZV, virus ourlien, VIH (primo-infection) ; évolution bénigne, traitement symptomatique."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement pour une méningite virale à entérovirus ?",
+      "back": "Traitement SYMPTOMATIQUE seul : antalgiques, hydratation, antiémétiques, repos ; aucun antiviral utile ; évolution favorable en quelques jours ; hospitalisation seulement selon la gravité ou le terrain."
+    },
+    {
+      "id": "f12",
+      "front": "Listériose neuroméningée : terrain et traitement ?",
+      "back": "Adulte âgé, immunodéprimé, alcoolique, femme enceinte ; méningite à LCR parfois clair, formule mixte ; possibilité de rhombencéphalite (nerfs crâniens) ; traitement : AMPICILLINE IV (+ gentamicine selon protocoles), durée prolongée."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi mesurer la pression d'ouverture à la PL ?",
+      "back": "Une pression élevée oriente vers une hypertension intracrânienne (cryptoccose ++) et guide les PONCTIONS ÉVACUATRICES répétées — geste qui, avec l'amphotéricine B, fait le pronostic de la méningite cryptococcique."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles causes non infectieuses donnent un syndrome méningé à LCR clair ?",
+      "back": "Méningite néoplasique (infiltration carcinomateuse, cellules anormales, protéines très élevées), sarcoïdose, méningite chimique, maladie de Behçet ; le contexte et la cytologie du LCR orientent."
+    },
+    {
+      "id": "f15",
+      "front": "Devant un syndrome méningé fébrile à Madagascar, quels diagnostics écarter en parallèle de la PL ?",
+      "back": "Le PALUDISME GRAVE (test rapide ou goutte épaisse systématiques), la typhoïde ; et devant un LCR clair subaigu : tuberculose (Ziehl, geneXpert, radiographie thoracique) et cryptocoque (encre de Chine, CrAg) + sérologie VIH."
+    },
+    {
+      "id": "f16",
+      "front": "Complications de la méningite tuberculeuse ?",
+      "back": "Hydrocéphalie (dérivation possible), tuberculomes, arachnoïdite, déficits des nerfs crâniens (surdité, ophtalmoplégie), hyponatrémie, crises convulsives, séquelles cognitives ; d'où corticoïdes + traitement précoce, suivi neurologique rapproché."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "meningites-clair",
+      "label": "Méningites à liquide clair"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Démarche",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Signes de gravité avant PL"
+          },
+          {
+            "id": "b1c2",
+            "label": "PL : cellules, glucose, protéines"
+          },
+          {
+            "id": "b1c3",
+            "label": "Imagerie si signes focaux ou coma"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Paludisme et VIH à écarter (Madagascar)"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Viral",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Entérovirus l'été"
+          },
+          {
+            "id": "b2c2",
+            "label": "Lymphocytes + glucose normal"
+          },
+          {
+            "id": "b2c3",
+            "label": "Bénin : traitement symptomatique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "HSV-2 : Mollaret récidivant"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Tuberculose",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Subaigu : nerfs crâniens, confusion"
+          },
+          {
+            "id": "b3c2",
+            "label": "Glucose bas, protéines élevées"
+          },
+          {
+            "id": "b3c3",
+            "label": "Quadrithérapie + corticoïdes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Hydrocéphalie, tuberculomes"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Cryptocoque",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "VIH, CD4 bas"
+          },
+          {
+            "id": "b4c2",
+            "label": "Encre de Chine / CrAg"
+          },
+          {
+            "id": "b4c3",
+            "label": "Amphotéricine B + fluconazole"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Ponctions évacuatrices : pronostic"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Autres",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Listériose : ampicilline"
+          },
+          {
+            "id": "b5c2",
+            "label": "Décapitée : glucose bas → purulente"
+          },
+          {
+            "id": "b5c3",
+            "label": "Néoplasique, Lyme, leptospirose"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Abcès : pas de PL, imagerie d'abord"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Suivi",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Réévaluation à 48 heures"
+          },
+          {
+            "id": "b6c2",
+            "label": "PL de contrôle selon la cause"
+          },
+          {
+            "id": "b6c3",
+            "label": "Séquelles : surdité, déficits"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Antirétroviraux si VIH (attention à l'IRIS)"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "logan2008",
+      "title": "Viral meningitis",
+      "citation": "Logan SA, MacMahon E. Viral meningitis. BMJ. 2008;336(7634):36-40 (https://www.bmj.com/content/336/7634/36).",
+      "organization": "BMJ",
+      "year": 2008,
+      "version": "Review",
+      "url": "https://www.bmj.com/content/336/7634/36",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Étiologies virales et épidémiologie",
+        "Profil cytochimique du LCR viral",
+        "Diagnostic différentiel",
+        "Traitement symptomatique des méningites virales"
+      ]
+    },
+    {
+      "id": "wilkinson2017",
+      "title": "Tuberculous meningitis",
+      "citation": "Wilkinson RJ, Rohlwink U, Misra UK, van Crevel R, Mai NTH, et al. Tuberculous meningitis. Nat Rev Neurol. 2017;13(10):581-598. DOI 10.1038/nrneurol.2017.120. PMID 28884751.",
+      "organization": "Nature Reviews Neurology",
+      "year": 2017,
+      "version": "Review",
+      "url": "https://doi.org/10.1038/nrneurol.2017.120",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Clinique de la méningite tuberculeuse",
+        "Diagnostic (LCR, imagerie)",
+        "Quadrithérapie + corticoïdes",
+        "Complications (hydrocéphalie, tuberculomes)"
+      ]
+    },
+    {
+      "id": "who2025meningite",
+      "title": "Aide-mémoire : Méningite",
+      "citation": "Organisation mondiale de la Santé. Meningitis. Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/meningitis).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/meningitis",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Charge mondiale des méningites",
+        "Lignes directrices OMS 2025 et stratégie de lutte",
+        "Prévention vaccinale et hygiène",
+        "Priorités de santé publique"
+      ]
+    }
+  ]
+}
