@@ -143,6 +143,7 @@ export const fr: MessageCatalog = {
   // mobile et palette de commandes, branchés sur le socle i18n de la Phase 3.
   "nav.parcours": "Parcours",
   "nav.ecgCases": "Cas ECG",
+  "nav.imagerie": "Imagerie",
   "nav.group.learn": "Apprendre",
   "nav.group.train": "S'entraîner",
   "nav.group.tools": "Outils",

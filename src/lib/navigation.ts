@@ -16,6 +16,7 @@ import {
   Layers3,
   Library,
   RotateCcw,
+  ScanLine,
   Stethoscope,
   Trophy,
   Upload,
@@ -70,6 +71,7 @@ export const EXPLORE_GROUPS = [
       // doit plus être le dernier item du tiroir.
       { to: "/signes", labelKey: "nav.signes", icon: Brain },
       { to: "/ecg", labelKey: "nav.ecgCases", icon: Activity },
+      { to: "/imagerie", labelKey: "nav.imagerie", icon: ScanLine },
       { to: "/demo-ecg", labelKey: "nav.animatedEcg", icon: HeartPulse },
       { to: "/auscultation", labelKey: "nav.auscultation", icon: AudioWaveform },
       { to: "/examen", labelKey: "nav.mockExam", icon: ClipboardCheck },
