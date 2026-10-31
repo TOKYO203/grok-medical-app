@@ -993,144 +993,7 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
    spécificité contre le bloc clair de la même palette (0,2,1 > 0,1,1).
    La palette « defaut » n'a pas de bloc dédié : l'or Oxford des blocs de
    base ci-dessus EST le défaut, donc aucun risque de dérive.
-   ============================================================================ */
-
-html[data-accent="rose"] {
-  --app-accent: #E11D48;
-  --app-gold: #9F1239;
-  --app-gold-soft: #FDA4AF;
-  --app-ring: #9F1239;
-  --app-bg: #F5C9BB;
-  --app-primary: #9F1239;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="rose"] {
-  --app-accent: #F43F5E;
-  --app-gold: #FDA4AF;
-  --app-gold-soft: #FDA4AF;
-  --app-ring: #FB7185;
-  --app-bg: #271A19;
-  --app-primary: #FDA4AF;
-  --app-card: #301D1E;
-  --app-surface: #382425;
-  --app-primary-fg: #1f0d10;
-}
-
-html[data-accent="marron"] {
-  --app-accent: #8B5A2B;
-  --app-gold: #5D3A1A;
-  --app-gold-soft: #D9B48F;
-  --app-ring: #5D3A1A;
-  --app-bg: #E1D0B9;
-  --app-primary: #5D3A1A;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="marron"] {
-  --app-accent: #C08552;
-  --app-gold: #E3B98A;
-  --app-gold-soft: #E3B98A;
-  --app-ring: #D9A05B;
-  --app-bg: #1E1D18;
-  --app-primary: #E3B98A;
-  --app-card: #27231C;
-  --app-surface: #2e2920;
-  --app-primary-fg: #1c130a;
-}
-
-html[data-accent="marine"] {
-  --app-accent: #1D4ED8;
-  --app-gold: #1E3A8A;
-  --app-gold-soft: #93B4F0;
-  --app-ring: #1E3A8A;
-  --app-bg: #CCD6EC;
-  --app-primary: #1E3A8A;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="marine"] {
-  --app-accent: #60A5FA;
-  --app-gold: #93C5FD;
-  --app-gold-soft: #93C5FD;
-  --app-ring: #3B82F6;
-  --app-bg: #131E23;
-  --app-primary: #93C5FD;
-  --app-card: #1B2930;
-  --app-surface: #213039;
-  --app-primary-fg: #0b1016;
-}
-
-html[data-accent="vert"] {
-  --app-accent: #059669;
-  --app-gold: #065F46;
-  --app-gold-soft: #6EE7B7;
-  --app-ring: #065F46;
-  --app-bg: #C5D7C0;
-  --app-primary: #065F46;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="vert"] {
-  --app-accent: #34D399;
-  --app-gold: #6EE7B7;
-  --app-gold-soft: #6EE7B7;
-  --app-ring: #10B981;
-  --app-bg: #121F1A;
-  --app-primary: #6EE7B7;
-  --app-card: #192822;
-  --app-surface: #20302A;
-  --app-primary-fg: #0a1512;
-}
-
-html[data-accent="violet"] {
-  --app-accent: #7C3AED;
-  --app-gold: #4C1D95;
-  --app-gold-soft: #C4B5FD;
-  --app-ring: #4C1D95;
-  --app-bg: #DACEDE;
-  --app-primary: #4C1D95;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="violet"] {
-  --app-accent: #A78BFA;
-  --app-gold: #C4B5FD;
-  --app-gold-soft: #C4B5FD;
-  --app-ring: #8B5CF6;
-  --app-bg: #1A1D25;
-  --app-primary: #C4B5FD;
-  --app-card: #232636;
-  --app-surface: #2A2E40;
-  --app-primary-fg: #120F1C;
-}
-
-html[data-accent="royal"] {
-  /* « Royal » — pourpre profond et or améthyste : la signature des cours de
-     chevalerie, lisible sur parchemin comme sur nuit d'améthyste. Mêmes
-     garanties AA que les autres palettes (verrouillé par accent-palette.test). */
-  --app-accent: #6D28D9;
-  --app-gold: #4C1D95;
-  --app-gold-soft: #C4B5FD;
-  --app-ring: #5B21B6;
-  --app-bg: #E6DDF2;
-  --app-primary: #4C1D95;
-  --app-primary-fg: #FFFFFF;
-}
-
-html[data-theme="dark"][data-accent="royal"] {
-  --app-accent: #A78BFA;
-  --app-gold: #C4B5FD;
-  --app-gold-soft: #DDD3FC;
-  --app-ring: #8B5CF6;
-  --app-bg: #141024;
-  --app-primary: #C4B5FD;
-  --app-card: #1D1834;
-  --app-surface: #251F42;
-  --app-primary-fg: #17112E;
-}
-
-/* ── Immersion ambiante ──────────────────────────────────────────────────────
+   ============================================================================ *//* ── Immersion ambiante ──────────────────────────────────────────────────────
    Les palettes ne colorent pas que les filets : le bloc partagé ci-dessous
    teinte les SURFACES — fond de page, surfaces secondaires, filets, squelettes
    et halo du dégradé de fond — à partir de --app-accent et du --app-bg teinté
@@ -1138,6 +1001,76 @@ html[data-theme="dark"][data-accent="royal"] {
    Oxford des blocs de base reste le décor strict, sans dérive. Les contrastes
    AA du fond teinté (textes de base + or + focus) sont verrouillés par
    scripts/accent-palette.test.mjs. */
+
+html[data-accent="navy"] {
+  /* Navy + Or — bleu marine profond + or (Oxbridge). */
+  --app-accent: #1E3A8A;
+  --app-gold: #B8860B;
+  --app-gold-soft: #E0B14D;
+  --app-ring: #1E3A8A;
+  --app-bg: #F0EDE5;
+  --app-primary: #0F172A;
+  --app-primary-fg: #FFFFFF;
+}
+
+html[data-theme="dark"][data-accent="navy"] {
+  --app-accent: #93A5E8;
+  --app-gold: #E0B14D;
+  --app-gold-soft: #F0C870;
+  --app-ring: #93A5E8;
+  --app-bg: #0C1220;
+  --app-primary: #93A5E8;
+  --app-card: #141B2E;
+  --app-surface: #1A2438;
+  --app-primary-fg: #0C1220;
+}
+
+html[data-accent="cuivre"] {
+  /* Marine + Cuivre — bleu nuit + cuivre rosé (moderne luxe). */
+  --app-accent: #0F172A;
+  --app-gold: #B87333;
+  --app-gold-soft: #E09B5F;
+  --app-ring: #0F172A;
+  --app-bg: #E8ECF0;
+  --app-primary: #0A1020;
+  --app-primary-fg: #FFFFFF;
+}
+
+html[data-theme="dark"][data-accent="cuivre"] {
+  --app-accent: #B87333;
+  --app-gold: #E09B5F;
+  --app-gold-soft: #F0B888;
+  --app-ring: #B87333;
+  --app-bg: #0A0F1A;
+  --app-primary: #B87333;
+  --app-card: #111827;
+  --app-surface: #1A2332;
+  --app-primary-fg: #0A0F1A;
+}
+
+html[data-accent="emeraude"] {
+  /* Émeraude + Or — vert émeraude profond + or (bijou). */
+  --app-accent: #065F46;
+  --app-gold: #A16207;
+  --app-gold-soft: #D4A348;
+  --app-ring: #065F46;
+  --app-bg: #ECF1EC;
+  --app-primary: #064E3B;
+  --app-primary-fg: #FFFFFF;
+}
+
+html[data-theme="dark"][data-accent="emeraude"] {
+  --app-accent: #34D399;
+  --app-gold: #FCD34D;
+  --app-gold-soft: #FDE68A;
+  --app-ring: #34D399;
+  --app-bg: #0A1410;
+  --app-primary: #34D399;
+  --app-card: #14211A;
+  --app-surface: #1A2A20;
+  --app-primary-fg: #0A1410;
+}
+
 html[data-accent]:not([data-accent="defaut"]) {
   /* Phase 4 (suite) — harmonisation thème clair : le hero suivait l'olive
      Oxford (#5B21B6 → #2E1065) pour TOUTES les palettes ; il suit

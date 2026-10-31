@@ -9,7 +9,7 @@ export type ResolvedTheme = "light" | "dark";
  * (immersion — voir les blocs de palette de styles.css) dans les trois modes
  * clair / sombre / système. « defaut » garde l'or Oxford d'origine.
  */
-export type AccentPalette = "defaut" | "rose" | "marron" | "marine" | "vert" | "violet" | "royal";
+export type AccentPalette = "defaut" | "navy" | "cuivre" | "emeraude";
 
 export const THEME_STORAGE_KEY = "optimus-theme-v1";
 export const ACCENT_STORAGE_KEY = "optimus-accent-v1";
@@ -20,7 +20,7 @@ const DEFAULT_ACCENT: AccentPalette = "defaut";
 
 /** Catalogue des palettes proposées par le profil (source du sélecteur). */
 export const ACCENT_PALETTES: AccentPalette[] = [
-  "defaut", "rose", "marron", "marine", "vert", "violet", "royal",
+  "defaut", "navy", "cuivre", "emeraude",
 ];
 
 function isAccentPalette(value: string | null): value is AccentPalette {
