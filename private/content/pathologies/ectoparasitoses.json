@@ -1,0 +1,628 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ectoparasitoses",
+  "title": "Ectoparasitoses cutanées : gale et pédiculose",
+  "specialty": "Dermatologie",
+  "objective": "Diagnostiquer et traiter la gale commune et profuse et les pédiculoses du cuir chevelu, du corps et du pubis : connaître les critères diagnostiques de l'IACS, les traitements scabicides et pédiculicides, le traitement simultané de l'entourage, et les complications de surinfection (impétigo, glomérulonéphrite aiguë post-streptococcique) particulièrement fréquentes dans le contexte tropical.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 127,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 168,
+      "localNumber": 127,
+      "sectionLabel": "Médecine",
+      "title": "Ectoparasitoses cutanées : gale et pédiculose",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Ectoparasitoses cutanées : gale et pédiculose. Gale : Sarcoptes scabiei var. hominis, acarien fouisseur, transmission par contact cutané direct prolongé (couche, lit, collectivité) ; incubation 3-6 semaines ; PRURIT NOCTURNE épargnant la face, SILLONS scabieux, lésions typiques des espaces interdigitaux, poignets, aréoles, organes génitaux ; gale profuse (norvégienne) : croûtes épaisses très contagieuses de l'immunodéprimé ; critères IACS 2020 (3 niveaux de certitude : confirmée/clinique/soupçonnée) ; complications : surinfection à streptocoque/impétigo, glomérulonéphrite aiguë post-streptococcique. Traitement : perméthrine crème 5 % (8-14 h puis rinçage) ou ivermectine orale 200 µg/kg (à répéter à J7-J14) ; traiter TOUS les contacts proches le même jour, linge et literie lavés à 60 °C ou isolés 3-7 jours. Pédiculoses : Pediculus humanus capitis (lentes blanches adhérentes, prurit occipital, surinfection, adénopathies cervicales ; traitement topique pédiculicide + peigne fin, 2 passages à 8-10 jours d'intervalle) ; Pediculus corporis (vivant dans les vêtements, le traitement est la décontamination du linge) ; Pthirus pubis (transmission sexuelle, traitement des partenaires).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Romani L, Steer AC, Whitfeld MJ, Kaldor JM. Prevalence of scabies and impetigo worldwide: a systematic review. Lancet Infect Dis. 2015;15(8):960-7 — DOI 10.1016/S1473-3099(15)00132-2, confirmé sur la page officielle The Lancet Infectious Diseases et ScienceDirect avant citation.",
+      "Source 2 : Engelman D et al. The 2020 International Alliance for the Control of Scabies (IACS) Consensus Criteria for the Diagnosis of Scabies. Br J Dermatol. 2020;183(5):808-20 — PMID 32034956, page officielle Oxford Academic (https://academic.oup.com/bjd/article/183/5/808/6600227) consultée avant citation ; les critères classent le diagnostic en 3 niveaux (confirmée, clinique, soupçonnée) et 8 sous-catégories.",
+      "Pas d'image : photographies cliniques existent mais aucune illustration avec licence vérifiée n'a été retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Gale : Sarcoptes scabiei, prurit nocturne, sillons, topographie typique, face épargnée",
+      "Gale profuse/norvégienne : croûtes, hypercontagiosité, terrain immunodéprimé",
+      "Critères IACS 2020 : 3 niveaux de certitude (confirmée, clinique, soupçonnée)",
+      "Complications : impétigo de surinfection, glomérulonéphrite aiguë post-streptococcique",
+      "Traitement : perméthrine 5 % ou ivermectine orale ; traitement simultané de l'entourage",
+      "Pédiculose capitis : lentes, 2 passages du pédiculicide à 8-10 jours d'intervalle",
+      "Pédiculose corporis : parasite dans le linge, le traitement est la décontamination",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les ectoparasitoses cutanées regroupent deux grandes causes mondiales de prurit : la gale (scabiose), due à un acarien fouisseur, et les pédiculoses, dues à des poux inféodés à l'homme. La gale figure parmi les maladies de la peau les plus fréquentes au monde : la revue systématique de Romani et al. estime qu'environ 204 millions de personnes sont atteintes à un moment donné dans le monde, avec des prévalences très élevées chez l'enfant dans les régions tropicales et les communautés à ressources limitées — incluant l'Afrique subsaharienne et l'océan Indien — où la gale s'associe constamment à l'impétigo de surinfection.",
+          "sources": [
+            {
+              "id": "romani2015",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Prevalence of scabies and impetigo worldwide: a systematic review",
+              "year": 2015
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Deux maladies de la promiscuité",
+          "text": "Gale et pédiculoses sont des maladies TRANSMISSIBLES PAR CONTACT PROLONGÉ ET PROMISCUITÉ : lit partagé, collectivités (internats, écoles, prisons), précarité, migration. Leur maître-mot thérapeutique n'est pas la prescription individuelle mais le TRAITEMENT SIMULTANÉ DE L'ENTOURAGE : traiter un seul membre d'un foyer condamne tous les membres à se réinfester mutuellement."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Parasites en cause",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "GALE : Sarcoptes scabiei var. hominis — acarien microscopique (0,3-0,4 mm) ; la femelle creuse des sillons dans la couche cornée pour y pondre (2-3 œufs par jour) ; survie hors de l'hôte limitée à 24-48 h (jusqu'à 3 jours dans un linge humide).",
+            "PÉDICULOSE DU CUIR CHEVELU : Pediculus humanus capitis — pou de tête de 2-4 mm ; les LENTES (œufs) sont soudées à la base du cheveu par un ciment ; incubation 7-10 jours ; transmission directe tête à tête, parfois par bonnets, peignes, taies d'oreiller.",
+            "PÉDICULOSE DU CORPS : Pediculus humanus corporis — vit et pond dans les COUTURES DES VÊTEMENTS (pas sur la peau), ne se nourrit sur l'homme que pour le repas de sang ; maladie de la précarité et du linge unique ; vecteur potentiel du typhus épidémique (Rickettsia prowazekii) et des borrélioses à poux de corps.",
+            "PHTHIRIASIS : Pthirus pubis — morpion du pubis, trapu et large, fixé aux poils pubiens ; transmission essentiellement sexuelle ; atteinte possible des poils thoraciques, axillaires et des cils (chez l'enfant, évoquer la maltraitance sans en faire un diagnostic automatique).",
+            "Épidémiologie de la gale : prévalence mondiale élevée, pics chez l'enfant en zone tropicale ; association constante gale → grattage → impétigo → risque de glomérulonéphrite aiguë post-streptococcique."
+          ],
+          "sources": [
+            {
+              "id": "romani2015",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Prevalence of scabies and impetigo worldwide: a systematic review",
+              "year": 2015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Gale commune"
+        },
+        {
+          "type": "list",
+          "items": [
+            "PRURIT NOCTURNE INTENSE, à recrudescence thermique, contemporain de la poussée ; la face est ÉPARGNÉE (sauf nourrisson), de même que le cuir chevelu de l'adulte.",
+            "LÉSIONS ÉLÉMENTAIRES : SILLONS scabieux (lignes grises ou brunes de 5-10 mm, siège de prédilection : face latérale des doigts et espaces interdigitaux, poignets, bord externe des mains) ; vésicules « perlées » des aréoles et de la verge ; papules urticantes des fesses, plis axillaires antérieurs, ceinture, aisselles.",
+            "CHEZ LE NOURRISSON : atteinte PALMO-PLANTAIRE (vésicules, pustules), visage possible, mauvaise prise pondérale, irritabilité nocturne ; toute dermatose prurigineuse du nourrisson qui gratte la nuit doit faire évoquer la gale.",
+            "CHEZ L'ADULTE EN ZONE TROPICALE : lésions eczématisées, impétiginisées, lichénifiées par le grattage chronique ; les sillons sont souvent masqués par la surinfection — c'est la TOPOGRAPHIE et le prurit familial qui font le diagnostic.",
+            "GALE PROFUSE (gale norvégienne / croûteuse) : placards hyperkératosiques et croûtes épaisses des faces d'extension, oreilles, régions péri-unguéales ; des milliers de sarcoptes par cm² (contagiosité extrême par simple contact ou linge) ; terrains : immunodépression (VIH, corticothérapie, hémopathies, trisomie 21), âges extrêmes, troubles neurologiques avec hypoesthésie."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Pédiculoses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "CAPITIS : prurit du cuir chevelu et de la nuque ; lentes blanches (à ne pas confondre avec des squames : elles NE SE DÉTACHENT PAS du cheveu) ; petites macules papuleuses hématophages derrière les oreilles et la nuque ; ADÉNOPATHIES cervicales et occipitales si surinfection.",
+            "CORPORIS : prurit GÉNÉRALISÉ épargnant paumes et plantes ; lésions ponctiformes, macules bleu ardoisé aux points de piqûre ; LE PARASITE N'EST PAS SUR LA PEAU mais dans les coutures du linge — l'examen du vêtement fait le diagnostic.",
+            "PHTHIRIASIS : prurit pubien ; lentes sur les poils pubiens ; souvent coexistante avec une autre infection sexuellement transmissible — dépistage systématique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Complications de la gale dans le contexte tropical",
+          "text": "La gale de l'enfant se complique d'IMPÉTIGO extensif et, via le grattage, d'infection à Streptococcus pyogenes : le risque majeur est la GLOMÉRULONÉPHRITE AIGUË POST-STREPTOCOCCIQUE (œdèmes, hématurie, HTA, protéinurie quelques semaines après). Devant une gale extensive chez l'enfant à Madagascar : traiter la gale ET la surinfection (antibiothérapie anti-streptococcique), vérifier la tension artérielle et les urines (bandelette). La gale croûteuse est une urgence de contagiosité : ISOLEMENT du patient, traitement immédiat, protection du personnel.",
+          "sources": [
+            {
+              "id": "romani2015",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Prevalence of scabies and impetigo worldwide: a systematic review",
+              "year": 2015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de gale est CLINIQUE dans l'immense majorité des cas en zone à haute prévalence : prurit nocturne + topographie typique + cas similaires dans l'entourage. Les critères consensuels IACS 2020 (International Alliance for the Control of Scabies) hiérarchisent le diagnostic en trois niveaux de certitude — GALE CONFIRMÉE (au moins un critère A : sarcopte, œuf ou crotte vus en microscope sur prélèvement de sillons), GALE CLINIQUE (au moins un critère B : sillons typiques, lésions spécifiques de la topographie, prurit familial, réponse au traitement), GALE SUSPECTÉE (critères C : prurit, lésions non spécifiques) — avec huit sous-catégories adaptables aux contextes de recherche et de santé publique.",
+          "sources": [
+            {
+              "id": "iacs2020",
+              "organization": "British Journal of Dermatology (IACS)",
+              "title": "The 2020 IACS Consensus Criteria for the Diagnosis of Scabies",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen parasitaire : prélèvement d'un sillon (grattage ou décollement) entre lame et lamelle, lecture au microscope : sarcopte, œufs, crottes. Peu sensible mais spécifique : il confirme (critère A).",
+            "Dermoscopie : « delta jet sign » (triangle sombre = tête du sarcopte, prolongé par le sillon) ; utile au lit du patient.",
+            "Diagnostics différentiels de la gale : eczéma, dermatite de contact, prurigo, réaction médicamenteuse, urticaire papuleuse, piqûres d'insectes en literie, lichenification isolée.",
+            "Pédiculose capitis : diagnostic direct au peigne fin sur linge blanc ou à la loupe (poux mobiles + lentes) ; une lente située à plus de 1 cm du cuir chevelu est le plus souvent vide (coque).",
+            "Pédiculose corporis : chercher le pou dans les COUTURES des vêtements ; la peau, elle, n'est pas parasitée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le diagnostic de gale est souvent retardé",
+          "text": "Trois pièges fréquents : 1) la gale du propre (personne se lavant beaucoup : lésions rares, sillons difficiles à trouver) ; 2) la gale traitée par corticoïdes ou antihistaminiques seuls, qui masque le prurit et dissémine les lésions ; 3) la gale du nourrisson ou de la personne âgée, atypique, confondue avec un eczéma. Devant tout prurit familial ou nocturne persistant : examiner les espaces interdigitaux, les poignets, les aréoles, les organes génitaux — et traiter l'entourage."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Traitement de la gale"
+        },
+        {
+          "type": "list",
+          "items": [
+            "SCABICIDE TOPIQUE : PERMÉTHRINE crème 5 % — application sur toute la peau du menton aux orteils (incluant paumes, plantes, ombilic, plis, organes génitaux ; chez le nourrisson aussi le visage et le cuir chevelu), temps de contact 8-14 heures (le soir, rinçage le matin), à RENOUVELER à J7. Alternative à faible coût largement utilisée dans les pays à ressources limitées : benzoate de benzyle (concentrations et schémas selon protocoles locaux, souvent 10-25 % en applications sur plusieurs jours).",
+            "SCABICIDE ORAL : IVERMECTINE 200 µg/kg en prise unique, à RÉPÉTER à J7-J14 — particulièrement utile : gale profuse, épidémies en collectivité, mauvaise compliance topique ; à éviter chez l'enfant de moins de 15 kg (par prudence) et pendant la grossesse.",
+            "RÈGLES D'OR : traiter LE MÊME JOUR le patient ET tous les contacts proches (membres du foyer, partenaires, personnes partageant le lit) même asymptomatiques (la période d'incubation rend le prurit absent au début) ; associer un antihistaminique oral pour le prurit résiduel (le prurit persiste 1-2 semaines par hypersensibilité aux débris de sarcoptes : ce n'est pas un échec) ; traiter la surinfection bactérienne par antibiothérapie systémique.",
+            "ENVIRONNEMENT : linge de corps, draps, serviettes et vêtements portés dans les 3 derniers jours lavés à AU MOINS 60 °C, ou isolés dans un sac plastique fermé 3-7 jours (le sarcopte meurt de jeûne), ou passés au sèche-linge chaud.",
+            "GALE PROFUSE : association ivermectine orale (rapprochée selon protocole) + perméthrine ou benzoate de benzyle topique répétés + kératolytiques (vaseline salicylée) pour déliter les croûtes ; ISOLEMENT (chambre individuelle, gants et blouse pour le personnel) jusqu'à guérison ; recherche et correction du terrain immunodépressif (VIH en premier).",
+            "ÉPIDÉMIES EN COLLECTIVITÉ (internat, prison, établissement pour personnes âgées, école) : protocole de traitement de masse simultané de tous les résidents et personnels (ivermectine ou perméthrine) ; le traitement individuel isolé est voué à l'échec."
+          ],
+          "sources": [
+            {
+              "id": "romani2015",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Prevalence of scabies and impetigo worldwide: a systematic review",
+              "year": 2015
+            },
+            {
+              "id": "iacs2020",
+              "organization": "British Journal of Dermatology (IACS)",
+              "title": "The 2020 IACS Consensus Criteria for the Diagnosis of Scabies",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Traitement des pédiculoses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "CAPITIS : PÉDICULICIDE topique (perméthrine 1 %, pyréthrines synergisées, malathion 0,5 % ou diméticone selon disponibilité) selon la notice du produit, RENOUVELLEMENT à 8-10 JOURS obligatoire (tuer les poux issus des lentes survivantes) ; passage au PEIGNE FIN (peigne à poux) cheveux mèche par mèche, mouillés et enduits d'après-shampoing, répété tous les 2-3 jours pendant 2 semaines, seul ou en complément ; ne pas multiplier les produits chimiques en cas d'échec (résistances) : changer de famille chimique ou utiliser le diméticone (action physique par asphyxie).",
+            "CORPORIS : LE TRAITEMENT EST LE LINGE — lavage à 60 °C ou linge isolé 10-14 jours ; pédiculicide cutané en général inutile ; décontamination simultanée de tous les vêtements et de la literie du foyer ; devant une fièvre dans ce contexte, penser au typhus épidémique.",
+            "PHTHIRIASIS : pédiculicide topique sur les poils atteints, renouvelé à 8-10 jours ; traitement des PARTENAIRES SEXUELS et dépistage des autres IST ; lentes des cils traitées par occlusion de vaseline.",
+            "ÉCHECS ET RÉCIDIVES : causes principales = absence de 2e passage à 8-10 jours, absence de traitement de l'entourage, réinfestation scolaire ou familiale ; résistances aux pyréthrines documentées dans plusieurs pays (relais par diméticone ou malathion)."
+          ],
+          "sources": [
+            {
+              "id": "iacs2020",
+              "organization": "British Journal of Dermatology (IACS)",
+              "title": "The 2020 IACS Consensus Criteria for the Diagnosis of Scabies",
+              "year": 2020
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexes devant une gale confirmée",
+          "text": "1) Traiter le patient ET les contacts le même jour. 2) Renouveler le scabicide (J7 pour la perméthrine, J7-J14 pour l'ivermectine). 3) Prévenir le prurit post-scabieux (1-2 semaines, antihistaminique, ne pas re-traiter immédiatement sans nouvelle lésion). 4) Linge à 60 °C ou isolé. 5) Chercher et traiter la surinfection streptococcique (enfant : bandelette urinaire, tension artérielle). 6) Devant une gale croûteuse : sérologie VIH, isolation, double traitement, alerte sanitaire en collectivité.",
+          "sources": [
+            {
+              "id": "iacs2020",
+              "organization": "British Journal of Dermatology (IACS)",
+              "title": "The 2020 IACS Consensus Criteria for the Diagnosis of Scabies",
+              "year": 2020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Dépistage et traitement de masse simultané dans les collectivités (écoles, internats) lors des épidémies de gale ; information des familles ; lavage du linge de tous les enfants traités.",
+            "Éducation : ne pas partager bonnets, écharpes, peignes, brosses, serviettes ; accrocher les manteaux séparément à l'école.",
+            "Précarité et pédiculose corporis : accès à la douche et au linge propre, désinfection du linge ; surveillance du typhus en situation épidémique.",
+            "Hygiène du personnel soignant face à un cas de gale croûteuse : gants, blouse, literie à usage unique, traitement prophylactique du personnel exposé selon protocole.",
+            "Dans les contextes de forte endémie (Afrique subsaharienne, océan Indien) : la lutte contre la gale fait partie de la prévention des maladies post-streptococciques (impétigo, glomérulonéphrite aiguë, rhumatisme articulaire aigu).",
+            "Traitement prophylactique des partenaires sexuels en cas de phtiriasis ; dépistage IST systématique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "L'entourage fait ou défait le traitement",
+          "text": "Une gale ou une pédiculose « récidivante » est presque toujours une RÉINFESTATION : un membre du foyer non traité, un linge non décontaminé, un partenaire oublié. Avant de conclure à une résistance au scabicide ou au pédiculicide, vérifier : le schéma complet (2 passages), la date (même jour pour tous), le linge (60 °C ou isolé), et la liste des contacts traités. La règle est simple : on ne traite jamais un cas de gale seul."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La gale et les pédiculoses sont les ectoparasitoses les plus fréquentes au monde, endémiques dans les contextes tropicaux et de promiscuité comme à Madagascar. Le diagnostic de gale est clinique, aidé par les critères IACS 2020 et la topographie caractéristique. Le traitement repose sur la perméthrine ou l'ivermectine, mais sa réussite dépend de trois conditions non négociables : traiter l'entourage le même jour, répéter le traitement, décontaminer le linge. Chez l'enfant, la gale est la porte d'un impétigo extensif et du risque de glomérulonéphrite aiguë post-streptococcique : traiter la gale, c'est aussi prévenir le rhumatisme articulaire aigu et la maladie rénale post-infectieuse."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Romani L, Steer AC, Whitfeld MJ, Kaldor JM. Prevalence of scabies and impetigo worldwide: a systematic review. Lancet Infect Dis. 2015;15(8):960-7 (DOI 10.1016/S1473-3099(15)00132-2).",
+            "Engelman D, et al. The 2020 International Alliance for the Control of Scabies (IACS) Consensus Criteria for the Diagnosis of Scabies. Br J Dermatol. 2020;183(5):808-20 (PMID 32034956)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Gale croûteuse = hypercontagiosité",
+      "text": "Placards croûteux profus de l'immunodéprimé : des milliers de sarcoptes par cm², contagion par simple contact ou linge. Isolement, double traitement (ivermectine + topique), protection du personnel, dépistage VIH."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Pas de corticoïdes seuls sur une gale",
+      "text": "Les dermocorticoïdes masquent le prurit et disséminent les lésions (gale cortico-modifiée) ; les antihistaminiques ne traitent pas le sarcopte. Seuls les scabicides guérissent ; le prurit résiduel 1-2 semaines est normal."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Traiter l'entourage le même jour",
+      "text": "Tous les membres du foyer et partenaires, même sans symptôme (incubation de 3-6 semaines) ; linge des 3 derniers jours à 60 °C ou isolé 3-7 jours ; renouveler le scabicide. Un cas traité seul = foyer réinfesté."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Topographie de la gale",
+      "text": "Prurit NOCTURNE, face épargnée (sauf nourrisson) : espaces interdigitaux, poignets, aréoles, verge, fesses, plis axillaires antérieurs. Sillons sur les côtés des doigts. La topographie fait le diagnostic quand les lésions sont surinfectées."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Lente adhérente = pédiculose",
+      "text": "La lente est CIMENTÉE au cheveu : elle ne s'enlève pas au simple shampoing, contrairement à une squame. Pédiculicide à J0 ET à J8-J10 (les lentes survivent au 1er passage), peigne fin méthodique ; une lente à plus de 1 cm du cuir chevelu est le plus souvent une coque vide."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "G.A.L.E.",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Grattage nocturne : prurit à recrudescence thermique"
+        },
+        {
+          "key": "A",
+          "term": "Aucune atteinte du visage (sauf nourrisson), topographie des plis et des mains"
+        },
+        {
+          "key": "L",
+          "term": "Lésions en sillons sur les côtés des doigts et les poignets"
+        },
+        {
+          "key": "E",
+          "term": "Entourage traité le même jour + 2e passage du scabicide + linge à 60 °C"
+        }
+      ]
+    },
+    {
+      "label": "P.O.U.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Prurit du cuir chevelu et de la nuque, lentes adhérentes"
+        },
+        {
+          "key": "O",
+          "term": "Octave : 2e passage du pédiculicide à 8-10 jours"
+        },
+        {
+          "key": "U",
+          "term": "Urgence de traiter l'entourage scolaire et familial, linge et bonnets non partagés"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent de la gale humaine et mode de transmission ?",
+      "back": "Sarcoptes scabiei var. hominis, acarien fouisseur ; transmission par contact cutané direct prolongé (lit, couche, collectivité), plus rarement par le linge."
+    },
+    {
+      "id": "f2",
+      "front": "Prurit de la gale : horaire et signification ?",
+      "back": "Prurit NOCTURNE, à recrudescence thermique, par hypersensibilité aux débris de sarcoptes ; il persiste 1-2 semaines après un traitement efficace (prurit post-scabieux, pas un échec)."
+    },
+    {
+      "id": "f3",
+      "front": "Sièges électifs des lésions de gale chez l'adulte ?",
+      "back": "Espaces interdigitaux et côtés des doigts, poignets, aréoles, verge, fesses, plis axillaires antérieurs ; FACE ÉPARGNÉE (sauf nourrisson)."
+    },
+    {
+      "id": "f4",
+      "front": "Qu'est-ce qu'un sillon scabieux ?",
+      "back": "Ligne grise ou brune de 5-10 mm creusée par la femelle dans la couche cornée, siège de ponte ; signe le plus spécifique (doigts, poignets) ; visible en dermoscopie (delta jet sign)."
+    },
+    {
+      "id": "f5",
+      "front": "Critères IACS 2020 : les trois niveaux de certitude ?",
+      "back": "Gale CONFIRMÉE (sarcopte, œuf ou crotte vus en microscope — critère A), gale CLINIQUE (critères B : sillons, topographie, prurit familial, réponse au traitement), gale SUSPECTÉE (prurit et lésions non spécifiques) ; huit sous-catégories."
+    },
+    {
+      "id": "f6",
+      "front": "Gale profuse (norvégienne) : terrain et particularités ?",
+      "back": "Immunodépression (VIH, corticoïdes, hémopathies), âges extrêmes : croûtes épaisses hyperkératosiques très riches en sarcoptes, contagiosité extrême ; isolation + ivermectine orale + topique + kératolytiques."
+    },
+    {
+      "id": "f7",
+      "front": "Complication rénale de la gale de l'enfant ?",
+      "back": "Surinfection à Streptococcus pyogenes → impétigo → GLOMÉRULONÉPHRITE AIGUË POST-STREPTOCOCCIQUE : œdèmes, hématurie, HTA, protéinurie ; dépister par bandelette urinaire et tension artérielle."
+    },
+    {
+      "id": "f8",
+      "front": "Traitement scabicide topique de première intention ?",
+      "back": "Perméthrine crème 5 % sur toute la peau du menton aux orteils, 8-14 h de contact, RENOUVELÉE à J7 ; alternative à faible coût : benzoate de benzyle selon protocole local."
+    },
+    {
+      "id": "f9",
+      "front": "Indications de l'ivermectine orale dans la gale ?",
+      "back": "200 µg/kg en prise unique à répéter à J7-J14 : gale profuse, épidémies de collectivité, mauvaise compliance topique ; éviter chez l'enfant < 15 kg et pendant la grossesse."
+    },
+    {
+      "id": "f10",
+      "front": "Les trois règles d'or du traitement de la gale ?",
+      "back": "1) Traiter le patient ET tous les contacts proches LE MÊME JOUR (même asymptomatiques, incubation de 3-6 semaines). 2) Répéter le scabicide. 3) Linge et literie à 60 °C ou isolés 3-7 jours."
+    },
+    {
+      "id": "f11",
+      "front": "Diagnostic de la pédiculose capitis ?",
+      "back": "Prurit du cuir chevelu et de la nuque, lentes blanches ADHÉRENTES (cimentées) au cheveu, adénopathies cervicales si surinfection ; confirmation au peigne fin sur linge blanc ; lente à plus de 1 cm du cuir chevelu = souvent vide."
+    },
+    {
+      "id": "f12",
+      "front": "Traitement de la pédiculose capitis ?",
+      "back": "Pédiculicide topique (perméthrine 1 %, malathion 0,5 % ou diméticone) RENOUVELÉ à 8-10 jours + peigne fin méthodique tous les 2-3 jours pendant 2 semaines ; en cas d'échec : changer de famille chimique ou utiliser le diméticone."
+    },
+    {
+      "id": "f13",
+      "front": "Où vit Pediculus humanus corporis et comment le traite-t-on ?",
+      "back": "Dans les COUTURES des vêtements, pas sur la peau : le traitement est la DÉCONTAMINATION DU LINGE (60 °C ou isolation 10-14 jours) ; pédiculicide cutané en général inutile ; vecteur du typhus épidémique."
+    },
+    {
+      "id": "f14",
+      "front": "Phtiriasis pubis : transmission et conduite ?",
+      "back": "Pthirus pubis, transmission sexuelle : pédiculicide sur les poils pubiens renouvelé à 8-10 jours, traitement des partenaires, DÉPISTAGE des autres IST ; lentes des cils : vaseline occlusive."
+    },
+    {
+      "id": "f15",
+      "front": "Pourquoi une gale « récidive-t-elle » le plus souvent ?",
+      "back": "Ce n'est presque jamais une résistance : c'est une RÉINFESTATION — un contact non traité, un linge non décontaminé, un 2e passage oublié. Toujours vérifier ces trois points avant de changer de scabicide."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ecto",
+      "label": "Ectoparasitoses : gale et pédiculose"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Gale — parasite",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Sarcoptes scabiei var. hominis"
+          },
+          {
+            "id": "b1c2",
+            "label": "Sillons, ponte dans la couche cornée"
+          },
+          {
+            "id": "b1c3",
+            "label": "Contact prolongé ; 24-48 h hors de l'hôte"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Incubation 3-6 semaines"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Gale — clinique",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Prurit nocturne, face épargnée"
+          },
+          {
+            "id": "b2c2",
+            "label": "Doigts, poignets, aréoles, verge"
+          },
+          {
+            "id": "b2c3",
+            "label": "Gale profuse : croûtes, immunodépression"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Nourrisson : paumes, plantes, visage"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Gale — traitement",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Perméthrine 5 % ×2 (J0, J7)"
+          },
+          {
+            "id": "b3c2",
+            "label": "Ivermectine 200 µg/kg ×2"
+          },
+          {
+            "id": "b3c3",
+            "label": "Entourage le même jour"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Linge 60 °C ou isolé 3-7 jours"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Impétigo de surinfection"
+          },
+          {
+            "id": "b4c2",
+            "label": "Glomérulonéphrite post-streptococcique"
+          },
+          {
+            "id": "b4c3",
+            "label": "Gale cortico-modifiée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Enfant : bandelette urinaire, tension"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Pédiculoses",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Capitis : lentes, 2 passages à 8-10 j"
+          },
+          {
+            "id": "b5c2",
+            "label": "Corporis : pou dans le linge"
+          },
+          {
+            "id": "b5c3",
+            "label": "Pubis : partenaire, dépistage IST"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Peigne fin + bonnets non partagés"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "IACS 2020 : confirmée/clinique/soupçonnée"
+          },
+          {
+            "id": "b6c2",
+            "label": "Microscope : sarcopte, œuf, crotte"
+          },
+          {
+            "id": "b6c3",
+            "label": "Dermoscopie : delta jet sign"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Prurit familial = gale jusqu'à preuve du contraire"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "romani2015",
+      "title": "Prevalence of scabies and impetigo worldwide: a systematic review",
+      "citation": "Romani L, Steer AC, Whitfeld MJ, Kaldor JM. Prevalence of scabies and impetigo worldwide: a systematic review. Lancet Infect Dis. 2015;15(8):960-7. DOI 10.1016/S1473-3099(15)00132-2.",
+      "organization": "The Lancet Infectious Diseases",
+      "year": 2015,
+      "version": "Systematic review",
+      "url": "https://doi.org/10.1016/S1473-3099(15)00132-2",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie mondiale de la gale et de l'impétigo",
+        "Contexte tropical et à ressources limitées",
+        "Complications streptococciques",
+        "Stratégies de traitement en collectivité"
+      ]
+    },
+    {
+      "id": "iacs2020",
+      "title": "The 2020 IACS Consensus Criteria for the Diagnosis of Scabies",
+      "citation": "Engelman D, et al. The 2020 International Alliance for the Control of Scabies (IACS) Consensus Criteria for the Diagnosis of Scabies. Br J Dermatol. 2020;183(5):808-20. PMID 32034956.",
+      "organization": "British Journal of Dermatology (IACS)",
+      "year": 2020,
+      "version": "Consensus criteria",
+      "url": "https://academic.oup.com/bjd/article/183/5/808/6600227",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères diagnostiques (3 niveaux, 8 sous-catégories)",
+        "Dermoscopie (delta jet sign)",
+        "Prise en charge et traitement de l'entourage",
+        "Gale croûteuse"
+      ]
+    }
+  ]
+}
