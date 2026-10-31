@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Brain, Stethoscope } from "lucide-react";
+import { Calculator, ChevronRight, ClipboardCheck, Flame, Lock, Sparkles, Upload, Zap, Activity, Brain, Stethoscope, ScanLine } from "lucide-react";
 import { Onboarding } from "@/components/onboarding";
 import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
@@ -364,6 +364,12 @@ function Dashboard() {
             detail={t("dash.interpretation")}
           />
           <QuickAction
+            to="/imagerie"
+            icon={<ScanLine className="size-5" />}
+            label={t("nav.imagerie")}
+            detail={t("dash.interpretation")}
+          />
+          <QuickAction
             to="/auscultation"
             icon={<Stethoscope className="size-5" />}
             label={t("nav.auscultation")}
@@ -533,7 +539,7 @@ function QuickAction({
   signesState,
   soonLabel,
 }: {
-  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement" | "/signes";
+  to: "/revue" | "/ecg" | "/auscultation" | "/cas" | "/examen" | "/calculateurs" | "/classement" | "/signes" | "/imagerie";
   icon: ReactNode;
   label: string;
   detail: string;
