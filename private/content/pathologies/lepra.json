@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "lepra",
+  "title": "Lèpre",
+  "specialty": "Dermatologie",
+  "objective": "Expliquer la transmission de Mycobacterium leprae, reconnaître les formes paucibacillaires et multibacillaires, appliquer le classement OMS et la polychimiothérapie, et prévenir les disabilities par le dépistage des contacts.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 122,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 163,
+      "localNumber": 122,
+      "sectionLabel": "Médecine",
+      "title": "Lèpre",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche sur la lèpre (maladie de Hansen) : Mycobacterium leprae à tropisme cutanéo-nerveux, spectre clinique tuberculoïde-lépromateux, lésions anesthésiques hypopigmentées + atteinte des nerfs périphériques, classement OMS PB/MB par nombre de lésions, polychimiothérapie (rifampicine + clofazimine ± dapsone), réactions lépreuses (type 1 et 2, érythème noueux lépreux) comme urgences, prévention par dépistage des contacts et chimioprophylaxie, élimination et stigmatisation.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Épidémiologie, classement OMS, PCT, réactions : fiche OMS Leprosy (who.int).",
+      "Revue générale : Higuita NIA, et al. Leprosy. Lancet. 2025 — DOI 10.1016/S0140-6736(25)01963-4, confirmé (ScienceDirect + PDF de l'article) avant citation.",
+      "Pas d'image : lésion cutanée ou atteinte nerveuse photographiée mais aucune illustration libre de droits avec licence vérifiée sur Commons retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "M. leprae : non cultivable in vitro, incubation ~5 ans, transmission gouttelettes",
+      "Spectre Ridley-Jopling simplifié + classement opérationnel OMS PB/MB",
+      "Signe cardinal : lésion hypoesthésique + nerf périphérique épaissi",
+      "PCT : PB 6 mois (rifampicine+dapsone), MB 12 mois (rifampicine+clofazimine+dapsone)",
+      "Réactions type 1 (réverses) et type 2 (ENL) : urgence, corticoïdes/thalidomide",
+      "Prévention : BCG partiel, dépistage contacts, chimioprophylaxie SDR-PEP",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lèpre (maladie de Hansen) est une maladie infectieuse chronique due à Mycobacterium leprae, bacille acido-alcoolo-résistant non cultivable in vitro, à tropisme cutané et nerveux (cellules de Schwann). La transmission se fait principalement par gouttelettes nasales, lors de contacts étroits et prolongés avec un cas multibacillaire non traité ; l'incubation est très longue, en moyenne environ 5 ans."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Lèpre = peau + nerfs",
+          "text": "Les trois signes cardinaux de la lèpre : MACULE hypopigmentée ET hypoesthésique, NERF périphérique épaissi et sensible à la palpation, et frottis cutané positif. Peau anesthésique + nerf gros = pensez lèpre."
+        },
+        {
+          "type": "paragraph",
+          "text": "La lèpre reste endémique à Madagascar, qui figure parmi les pays déclarant le plus de nouveaux cas chaque année. La maladie est curable par la polychimiothérapie (PCT), gratuite, mais les retards diagnostiques persistent et expliquent les disabilities évitables."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "M. leprae infecte les cellules de Schwann des nerfs périphériques et les macrophages cutanés ; c'est un parasite intracellulaire obligatoire, non cultivable sur milieux artificiels.",
+            "La réponse immunitaire cellulaire (Th1) détermine le pôle du spectre : forte réponse (tuberculoïde, peu de bacilles) vs tolérance immune (lépromateux, bacilles innombrables).",
+            "L'atteinte nerveuse tronculaire (ulnaire, médian, péronier commun, tibial postérieur, grand auriculaire) provoque anesthésie, paralysie et rétractions → main griffe, pied tombant, ulcérations plantaires.",
+            "L'immunité variable explique la multibacillarité : les formes MB non traitées excrètent massivement le bacille dans les sécrétions nasales."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Spectre et immunité",
+          "text": "Tuberculoïde = immunité FORTE, lésions PEU nombreuses, peu de bacilles (PB), hypoesthésie franche. Lépromateux = immunité ABSENTE, lésions innombrables, bacilles en masse (MB), atteinte symétrique, hypoesthésie discrète et tardive."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Lésions élémentaires"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Macules hypopigmentées (plus claires que la peau saine) à limites nettes (tuberculoïde) ou floues (lépromateux).",
+            "Lésion TUBERCULOÏDE : macule unique ou peu nombreuse, bien délimitée, anesthésique, avec abolition de la sudation et de la pilosité.",
+            "Lésion LÉPROMATEUSE : macules, plaques ou nodules symétriques, infiltrats diffus du visage (faciès léonin), nez en selle ; hypoesthésie discrète et tardive.",
+            "Atteinte neurologique : nerfs superficiels épaissis, sensibles à la palpation ; amyotrophies, griffes, maux perforants plantaires ; kératite, iritis, orchite."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Classement opérationnel OMS"
+        },
+        {
+          "type": "paragraph",
+          "text": "Paucibacillaire (PB) : jusqu'à 5 lésions cutanées, frottis négatif. Multibacillaire (MB) : plus de 5 lésions, ou frottis positif (indice bactériologique ≥ 1+). Ce classement guide directement la durée de la PCT."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Réactions lépreuses = urgences",
+          "text": "Type 1 (réaction reverse : inflammation des lésions et des nerfs, névralgies, risque de paralysie rapide) et type 2 (érythème noueux lépreux : fièvre, nodules, atteinte systémique). Toutes deux menacent le nerf en quelques jours : corticothérapie immédiate (prednisone) et poursuite de la PCT — ne jamais l'arrêter."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE dans les programmes : macule hypopigmentée hypoesthésique + nerf périphérique épaissi. Trois signes cardinaux : (1) lésion cutanée hypoesthésique, (2) épaississement d'un tronc nerveux avec trouble moteur ou sensitif, (3) frottis cutané positif (MB). La PCR et la biopsie (histologie adaptée au pôle du spectre) aident dans les cas douteux. L'évaluation de l'atteinte nerveuse (sensibilité au monofilament, testing musculaire) fait partie du diagnostic de gravité.",
+          "sources": [
+            {
+              "id": "wholeprosy",
+              "organization": "OMS",
+              "title": "Leprosy (fiche d'information)",
+              "year": 2025
+            },
+            {
+              "id": "higuita2025",
+              "organization": "The Lancet",
+              "title": "Leprosy — a Seminar (Higuita et al.)",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Tester la sensibilité, pas seulement regarder",
+          "text": "Une lèpre précoce peut ressembler à une simple macule hypopigmentée (teigne, vitiligo, pityriasis). Toujours tester au coton, à la piqûre ou au monofilament ET palper les nerfs (ulnaire au coude, grand auriculaire au cou, péronier au col de la fibula) : l'anesthésie d'une macule est la clé."
+        },
+        {
+          "type": "heading",
+          "text": "Diagnostics différentiels"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Macules hypopigmentées : pityriasis versicolor, pityriasis alba, vitiligo, teignes.",
+            "Neuropathies : diabétique, carentielle, neurofibromatose.",
+            "Lupus vulgaire cutané, sarcoïdose, leishmaniose cutanée."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La polychimiothérapie (PCT) de l'OMS, gratuite pour tous les patients, tue le bacille et guérit le patient : le traitement rend rapidement le patient non contagieux."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Forme PB (adulte) : rifampicine 600 mg une fois par mois (supervisée) + dapsone 100 mg/jour — DURÉE 6 mois.",
+            "Forme MB (adulte) : rifampicine 600 mg/mois + clofazimine 300 mg/mois (supervisées) + clofazimine 50 mg/jour + dapsone 100 mg/jour — DURÉE 12 mois.",
+            "Réaction type 1 : prednisone 40-60 mg/jour en décroissance sur plusieurs semaines selon la gravité nerveuse ; type 2 : corticoïdes, thalidomide (hors grossesse strictement, contraception obligatoire) ou clofazimine selon disponibilité.",
+            "Prise en charge des disabilities : auto-soins (lutte contre les ulcérations), kinésithérapie, chaussures orthopédiques, chirurgie de réhabilitation (transferts tendineux).",
+            "Rechercher les co-infections (VIH, tuberculose) et tenir compte des interactions de la rifampicine."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe thérapeutique",
+          "text": "1) Compter les lésions (≤ 5 → PB 6 mois ; > 5 → MB 12 mois) ; 2) donner la PCT dès le premier contact, gratuitement ; 3) évaluer les nerfs à chaque visite ; 4) en cas de réaction avec névrite : prednisone sans délai et PCT poursuivie.",
+          "sources": [
+            {
+              "id": "wholeprosy",
+              "organization": "OMS",
+              "title": "Leprosy (fiche d'information)",
+              "year": 2025
+            },
+            {
+              "id": "higuita2025",
+              "organization": "The Lancet",
+              "title": "Leprosy — a Seminar (Higuita et al.)",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et santé publique",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Dépistage précoce des nouveaux cas et de leurs contacts (examen cutané et neurologique, maison par maison).",
+            "Chimioprophylaxie des contacts : dose unique de rifampicine (SDR-PEP) selon les programmes nationaux, le BCG apportant une protection partielle.",
+            "Éducation : la lèpre se soigne, le traitement rend non contagieux — lutte contre la stigmatisation.",
+            "Surveillance des disabilities (degrés OMS 0/1/2 de la main et de l'œil), réhabilitation, soutien socio-économique.",
+            "Prise en charge intégrée dans les services de santé généraux pour réduire les délais de diagnostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Objectif : zéro transmission",
+          "text": "L'élimination de la lèpre en tant que problème de santé publique (< 1 cas / 10 000 habitants) est atteinte presque partout ; le défi actuel est la DÉTECTION PRÉCOCE : réduire les retards diagnostiques qui créent les disabilities, à Madagascar comme dans les autres pays endémiques."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lèpre est une maladie curable dont le diagnostic repose sur deux gestes simples : tester la sensibilité d'une macule hypopigmentée et palper les nerfs. Le classement OMS (PB ≤ 5 lésions, MB > 5) dicte une PCT de 6 ou 12 mois, gratuite, qui guérit et rend non contagieux. Les urgences sont les réactions lépreuses, qui menacent le nerf en quelques jours. Enfin, le dépistage des contacts et la lutte contre la stigmatisation conditionnent l'élimination, un enjeu encore réel à Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "OMS. Lèpre — fiche d'information. who.int.",
+            "Higuita NIA, et al. Leprosy. Lancet. 2025 (DOI 10.1016/S0140-6736(25)01963-4)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Réaction lépreuse avec névrite",
+      "text": "Inflammation des lésions et douleur nerveuse = réaction type 1 (ou érythème noueux type 2) : prednisone sans délai, PCT poursuivie — chaque jour compte pour le nerf."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Macule hypopigmentée : tester avant de classer",
+      "text": "Toujours tester l'esthésie (coton, monofilament) et palper les nerfs périphériques : l'hypoesthésie d'une macule est le signe cardinal de la lèpre."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Compter les lésions = choisir le traitement",
+      "text": "≤ 5 lésions → PB, PCT 6 mois ; > 5 lésions → MB, PCT 12 mois. PCT gratuite, démarrée dès le premier contact."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Les nerfs à palper systématiquement",
+      "text": "Ulnaire au coude et péronier commun au col de la fibula (aussi grand auriculaire et tibial postérieur) : épaississement sensible = lèpre jusqu'à preuve du contraire."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Contagiosité vite nulle",
+      "text": "Dès les premières doses de PCT, le patient n'est pratiquement plus contagieux : isolement inutile, traitement ambulatoire, poursuite de la vie sociale — un message clé contre la stigmatisation."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "L.E.P.R.E.",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Lésion cutanée hypopigmentée hypoesthésique (macule)"
+        },
+        {
+          "key": "E",
+          "term": "Épaississement des troncs nerveux périphériques (ulnaire, péronier)"
+        },
+        {
+          "key": "P",
+          "term": "PCT : PB 6 mois, MB 12 mois (rifampicine-dapsone-clofazimine)"
+        },
+        {
+          "key": "R",
+          "term": "Réactions lépreuses types 1 et 2 : corticoïdes en urgence"
+        },
+        {
+          "key": "E",
+          "term": "Dépistage des contacts et éducation contre la stigmatisation"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent de la lèpre et ses particularités ?",
+      "back": "Mycobacterium leprae, bacille acido-alcoolo-résistant intracellulaire obligatoire, non cultivable in vitro, à tropisme cutanéo-nerveux (cellules de Schwann) ; incubation moyenne ~5 ans."
+    },
+    {
+      "id": "f2",
+      "front": "Mode de transmission de la lèpre ?",
+      "back": "Gouttelettes nasales lors de contacts étroits et prolongés avec un cas multibacillaire non traité."
+    },
+    {
+      "id": "f3",
+      "front": "Deux signes cardinaux du diagnostic clinique ?",
+      "back": "Macule hypopigmentée hypoesthésique + épaississement d'un tronc nerveux périphérique (± trouble moteur/sensitif)."
+    },
+    {
+      "id": "f4",
+      "front": "Classement opérationnel OMS ?",
+      "back": "PB (paucibacillaire) : ≤ 5 lésions cutanées, frottis négatif. MB (multibacillaire) : > 5 lésions ou frottis positif."
+    },
+    {
+      "id": "f5",
+      "front": "PCT d'une forme PB (adulte) ?",
+      "back": "Rifampicine 600 mg 1×/mois (supervisée) + dapsone 100 mg/j, pendant 6 mois."
+    },
+    {
+      "id": "f6",
+      "front": "PCT d'une forme MB (adulte) ?",
+      "back": "Rifampicine 600 mg + clofazimine 300 mg 1×/mois (supervisées) + clofazimine 50 mg/j + dapsone 100 mg/j, pendant 12 mois."
+    },
+    {
+      "id": "f7",
+      "front": "Réaction lépreuse de type 1 ?",
+      "back": "Réaction reverse (hypersensibilité retardée) : inflammation des lésions et des nerfs, névralgies, risque de paralysie rapide — prednisone en urgence."
+    },
+    {
+      "id": "f8",
+      "front": "Réaction lépreuse de type 2 ?",
+      "back": "Érythème noueux lépreux : fièvre, nodules douloureux, atteinte systémique (complication des formes MB) — corticoïdes, thalidomide (hors grossesse, contraception obligatoire)."
+    },
+    {
+      "id": "f9",
+      "front": "Doit-on arrêter la PCT pendant une réaction lépreuse ?",
+      "back": "Non : la PCT est poursuivie ; la réaction se traite par corticoïdes (± thalidomide) en plus."
+    },
+    {
+      "id": "f10",
+      "front": "Quand le patient devient-il non contagieux ?",
+      "back": "Dès les premières doses de PCT : pratiquement plus d'excrétion bacillaire ; pas d'isolement, traitement ambulatoire."
+    },
+    {
+      "id": "f11",
+      "front": "Complications des neuropathies lépreuses non traitées ?",
+      "back": "Main en griffe, pied tombant, maux perforants plantaires, ulcérations, amyotrophies, rétractions, cécité (kératite, iritis)."
+    },
+    {
+      "id": "f12",
+      "front": "Mesures de prévention autour d'un cas ?",
+      "back": "Dépistage des contacts, chimioprophylaxie par rifampicine en dose unique (SDR-PEP), protection partielle par le BCG, éducation et lutte contre la stigmatisation."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "lepre",
+      "label": "Lèpre"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agent et transmission",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "M. leprae, non cultivable"
+          },
+          {
+            "id": "b1c2",
+            "label": "Gouttelettes nasales"
+          },
+          {
+            "id": "b1c3",
+            "label": "Incubation ~5 ans"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Contacts étroits et prolongés"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Physiopathologie",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Cellules de Schwann"
+          },
+          {
+            "id": "b2c2",
+            "label": "Spectre immunitaire Th1"
+          },
+          {
+            "id": "b2c3",
+            "label": "Nerfs tronculaires épaissis"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Peau + nerfs = cibles"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Tuberculoïde : macule unique anesthésique"
+          },
+          {
+            "id": "b3c2",
+            "label": "Lépromateux : symétrique, faciès léonin"
+          },
+          {
+            "id": "b3c3",
+            "label": "Classement OMS : PB ≤ 5 / MB > 5"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Nerfs : ulnaire, péronier, auriculaire"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Macule hypoesthésique"
+          },
+          {
+            "id": "b4c2",
+            "label": "Palper les nerfs"
+          },
+          {
+            "id": "b4c3",
+            "label": "Frottis cutané / PCR / biopsie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Différentiel : teignes, vitiligo, pityriasis"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "PCT PB : 6 mois"
+          },
+          {
+            "id": "b5c2",
+            "label": "PCT MB : 12 mois"
+          },
+          {
+            "id": "b5c3",
+            "label": "Réactions : prednisone / thalidomide"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Réhabilitation et auto-soins"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Dépistage des contacts"
+          },
+          {
+            "id": "b6c2",
+            "label": "SDR-PEP + BCG partiel"
+          },
+          {
+            "id": "b6c3",
+            "label": "Détection précoce, anti-stigmatisation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Madagascar : pays très touché"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wholeprosy",
+      "title": "Leprosy — fiche d'information",
+      "citation": "Organisation mondiale de la Santé. Lèpre (maladie de Hansen). Fiche d'information OMS, who.int.",
+      "organization": "OMS",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/leprosy",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie",
+        "Classement OMS",
+        "PCT",
+        "Réactions",
+        "Prévention"
+      ]
+    },
+    {
+      "id": "higuita2025",
+      "title": "Leprosy",
+      "citation": "Higuita NIA, et al. Leprosy. Lancet. 2025 (seminar). DOI 10.1016/S0140-6736(25)01963-4.",
+      "organization": "The Lancet",
+      "year": 2025,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(25)01963-4",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Physiopathologie",
+        "Clinique",
+        "Diagnostic",
+        "Réactions lépreuses",
+        "Disabilities"
+      ]
+    }
+  ]
+}
