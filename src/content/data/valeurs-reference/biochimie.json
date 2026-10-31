@@ -1,0 +1,36 @@
+{
+  "values": [
+    {
+      "id": "glycemie",
+      "name": "Glycémie à jeun",
+      "abbreviation": "Gly",
+      "category": "biochimie",
+      "ranges": [{ "label": "Adulte", "unit": "mmol/L", "min": 3.9, "max": 5.5, "note": "À jeun ≥ 8h" }],
+      "interpretationLow": "Hypoglycémie. Si < 3,0 mmol/L avec symptômes : resucrer en urgence.",
+      "interpretationHigh": "Hyperglycémie. Si ≥ 7,0 à jeun à 2 reprises : diabète.",
+      "sources": [{ "label": "HAS — Diabète de type 2" }, { "label": "OMS" }]
+    },
+    {
+      "id": "creatinine",
+      "name": "Créatinine",
+      "abbreviation": "Créa",
+      "category": "biochimie",
+      "ranges": [
+        { "label": "Homme adulte", "unit": "µmol/L", "min": 62, "max": 106 },
+        { "label": "Femme adulte", "unit": "µmol/L", "min": 44, "max": 80 }
+      ],
+      "interpretationLow": "Peu significatif (masse musculaire faible, grossesse).",
+      "interpretationHigh": "Insuffisance rénale. Calculer le DFG (CKD-EPI).",
+      "sources": [{ "label": "SFBC — Biochimie" }]
+    },
+    {
+      "id": "crp",
+      "name": "Protéine C-réactive",
+      "abbreviation": "CRP",
+      "category": "biochimie",
+      "ranges": [{ "label": "Adulte", "unit": "mg/L", "min": null, "max": 5 }],
+      "interpretationHigh": "Syndrome inflammatoire. Interpréter selon le contexte.",
+      "sources": [{ "label": "SFBC — Biochimie" }]
+    }
+  ]
+}

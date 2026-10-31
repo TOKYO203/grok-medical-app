@@ -1,0 +1,34 @@
+{
+  "values": [
+    {
+      "id": "sodium",
+      "name": "Sodium",
+      "abbreviation": "Na+",
+      "category": "ionogramme",
+      "ranges": [{ "label": "Adulte", "unit": "mmol/L", "min": 135, "max": 145 }],
+      "interpretationLow": "Hyponatrémie. Évaluer la volémie et la cause.",
+      "interpretationHigh": "Hypernatrémie. Évaluer la volémie et le bilan entrée/sortie.",
+      "sources": [{ "label": "SFBC — Ionogramme" }]
+    },
+    {
+      "id": "potassium",
+      "name": "Potassium",
+      "abbreviation": "K+",
+      "category": "ionogramme",
+      "ranges": [{ "label": "Adulte", "unit": "mmol/L", "min": 3.5, "max": 5.0 }],
+      "interpretationLow": "Hypokaliémie. ECG : risque de trouble du rythme.",
+      "interpretationHigh": "Hyperkaliémie. Urgence si > 6,5 mmol/L. ECG obligatoire.",
+      "sources": [{ "label": "SFBC — Ionogramme" }]
+    },
+    {
+      "id": "bicarbonates",
+      "name": "Bicarbonates",
+      "abbreviation": "HCO3-",
+      "category": "ionogramme",
+      "ranges": [{ "label": "Adulte", "unit": "mmol/L", "min": 22, "max": 26 }],
+      "interpretationLow": "Acidose métabolique. Calculer le trou anionique.",
+      "interpretationHigh": "Alcalose métabolique. Rechercher vomissements, diurétiques.",
+      "sources": [{ "label": "SFBC — Ionogramme" }]
+    }
+  ]
+}

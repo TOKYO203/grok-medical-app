@@ -16,6 +16,7 @@ import {
   Layers3,
   Library,
   RotateCcw,
+  FlaskConical,
   ScanLine,
   Stethoscope,
   Trophy,
@@ -81,6 +82,7 @@ export const EXPLORE_GROUPS = [
     labelKey: "nav.group.tools",
     items: [
       { to: "/calculateurs", labelKey: "nav.calculators", icon: Calculator },
+      { to: "/valeurs-reference", labelKey: "nav.valeursReference", icon: FlaskConical },
       { to: "/import", labelKey: "nav.importDeck", icon: Upload },
     ],
   },

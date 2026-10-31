@@ -1,0 +1,41 @@
+{
+  "values": [
+    {
+      "id": "hemoglobine",
+      "name": "Hémoglobine",
+      "abbreviation": "Hb",
+      "category": "hematologie",
+      "subcategory": "Numération formule sanguine",
+      "ranges": [
+        { "label": "Homme adulte", "unit": "g/dL", "min": 13, "max": 17 },
+        { "label": "Femme adulte", "unit": "g/dL", "min": 12, "max": 16 },
+        { "label": "Enfant 1-12 ans", "unit": "g/dL", "min": 11, "max": 15 }
+      ],
+      "interpretationLow": "Anémie. Rechercher saignement, carence martiale, hémolyse, insuffisance rénale chronique.",
+      "interpretationHigh": "Polyglobulie. Rechercher hypoxie chronique, tabagisme, polyglobulie de Vaquez.",
+      "sources": [{ "label": "SFBC — Hématologie" }, { "label": "HAS — Anémie" }]
+    },
+    {
+      "id": "leucocytes",
+      "name": "Leucocytes",
+      "abbreviation": "GB",
+      "category": "hematologie",
+      "subcategory": "Numération formule sanguine",
+      "ranges": [{ "label": "Adulte", "unit": "G/L", "min": 4, "max": 10 }],
+      "interpretationLow": "Leucopénie. Rechercher infection virale, médicaments, aplasie.",
+      "interpretationHigh": "Hyperleucocytose. Rechercher infection bactérienne, inflammation, hémopathie.",
+      "sources": [{ "label": "SFBC — Hématologie" }]
+    },
+    {
+      "id": "plaquettes",
+      "name": "Plaquettes",
+      "abbreviation": "PLT",
+      "category": "hematologie",
+      "subcategory": "Numération formule sanguine",
+      "ranges": [{ "label": "Adulte", "unit": "G/L", "min": 150, "max": 400 }],
+      "interpretationLow": "Thrombopénie. Risque hémorragique si < 50 G/L.",
+      "interpretationHigh": "Thrombocytose. Rechercher inflammation, carence martiale, syndrome myéloprolifératif.",
+      "sources": [{ "label": "SFBC — Hématologie" }]
+    }
+  ]
+}
