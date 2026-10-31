@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "oreillons",
+  "title": "Oreillons",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge les oreillons : connaître le virus ourlien (paramyxovirus, genre Rubulavirus), la transmission aérienne, la parotidite épidémique typique et ses manifestations (pancréatite, orchite, méningite, encéphalite, surdité), les diagnostics différentiels des tuméfactions parotidiennes, la prise en charge symptomatique et les complications, la prévention par la vaccination (ROR, 2 doses) et la conduite à tenir autour d'un cas.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 10,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 51,
+      "localNumber": 10,
+      "sectionLabel": "Médecine",
+      "title": "Oreillons",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Oreillons. VIRUS OURLIEN (paramyxovirus, genre Rubulavirus), transmission aérienne, contagiosité forte, incubation 2-3 semaines. Clinique : PAROTIDITE ÉPIDÉMIQUE = tuméfaction parotidienne douloureuse, bilatérale dans la majorité des cas, précédée de fièvre et de céphalées, sans éruption ; signe du sillon (dépression sous l'angle de la mâchoire effacée, orifice de Stensen enflammé). Manifestations EXTRA-SALIVAIRES : PANCRÉATITE (douleur épigastrique, vomissements, lipase), ORCHITE-OOPHORITE (post-pubertaire : douleur testiculaire, œdème, risque d'infertilité si bilatérale), MÉNINGITE LYMPHOCYTAIRE (pléocytose à liquide clair, souvent bénigne), ENCÉPHALITE (rare, grave), SURDITÉ (le plus souvent unilatérale, parfois définitive — complication la plus redoutée), arthralgies, myocardite. Diagnostic : CLINIQUE en contexte épidémique ; les formes isolées (orchite, méningite sans parotidite) sont plus difficiles ; confirmation possible (sérologie, PCR sur salive/LCR). Traitement : SYMPTOMATIQUE (antalgiques, repos, hydratation, alimentation molle — éviter les aliments acides qui stimulent la parotide), pas d'antiviral ni d'antibiotique ; orchite : repos, sus-pubienne, antalgiques, corticoïdes discutés ; méningite bénigne : surveillance ; surdité : avis ORL urgent. Prévention : VACCINATION (ROR/RR, 2 doses, efficacité bonne mais moindre que rougeole-rubéole — d'où des épidémies possibles chez les vaccinés) ; isolement du malade, hygiène, déclaration autour d'un cas ; pas de traitement préventif post-exposition par immunoglobulines.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Hviid A, Rubin S, Mühlemann K. Mumps. Lancet. 2008;371(9616):932-944 — DOI 10.1016/S0140-6736(08)60419-5 (PMID 18342688), page officielle The Lancet/ScienceDirect/PubMed consultée avant citation.",
+      "Source 2 : OMS, Mumps virus vaccines: WHO position paper, mars 2024 — page officielle https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/mumps consultée avant citation (remplace le position paper de 2007).",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Virus ourlien : paramyxovirus (Rubulavirus), aérien, incubation 2-3 semaines",
+      "Parotidite épidémique : tuméfaction douloureuse bilatérale, pas d'éruption",
+      "Complications : pancréatite, orchite, méningite lymphocytaire, encéphalite, surdité",
+      "Surdité unilatérale : complication la plus redoutée de l'enfant",
+      "Diagnostic différentiel des tuméfactions parotidiennes (bactérien, lithiase, autres)",
+      "Traitement symptomatique : pas d'antiviral ni d'antibiotique",
+      "Vaccination 2 doses (ROR) ; épidémies possibles chez vaccinés",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les oreillons (parotite épidémique) sont une maladie virale aiguë, contagieuse, due au virus ourlien, classiquement de l'enfant et de l'adolescent, caractérisée par une tuméfaction parotidienne douloureuse. Souvent bénins, ils se compliquent parfois de méningite, d'orchite, de pancréatite et surtout de surdité — complication la plus redoutée chez l'enfant. Un vaccin efficace existe, intégré au vaccin combiné rougeole-rubéole-oreillons (ROR) dans la plupart des programmes nationaux.",
+          "sources": [
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La complication à ne jamais oublier",
+          "text": "La SURDITÉ de perception, le plus souvent unilatérale et parfois DÉFINITIVE, est la complication la plus redoutée des oreillons chez l'enfant. Devant une parotidite, demander systématiquement : « entend-t-il bien des deux oreilles ? » — un enfant qui se rapproche de la source sonore, qui augmente le volume, ou qui semble négliger un côté doit être vu en ORL sans délai."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Virus et épidémiologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "AGENT : virus ourlien (mumps virus), paramyxovirus à ARN du genre Rubulavirus ; un seul sérotype ; réservoir strictement humain.",
+            "TRANSMISSION : aérienne par gouttelettes respiratoires, contact direct avec la salive ; contagiosité forte dans les collectivités (écoles, casernes).",
+            "INCUBATION : 16-18 jours en moyenne (12-25 jours) ; contagieux d'environ 2 jours avant à 5 jours après le début de la parotidite.",
+            "IMMUNITÉ : infection qui confère une immunité durable ; réinfections rares ; les vaccinés peuvent être atteints (efficacité vaccinale moindre que pour la rougeole, notamment après une seule dose).",
+            "ÉPIDÉMIOLOGIE : maladie du non-vacciné (enfant, adolescent) mais flambées décrites chez de jeunes adultes vaccinés (collectivités) ; la couverture à 2 doses réduit fortement le risque.",
+            "À Madagascar : à intégrer au calendrier vaccinal selon le programme national (vaccin combiné selon disponibilité) ; toute flambée de parotidites en collectivité doit faire évoquer les oreillons et vérifier la couverture vaccinale."
+          ],
+          "sources": [
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique et complications",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "FORME TYPIQUE : prodrome (fièvre modérée 38-39 °C, céphalées, myalgies, anorexie, malaise) puis PAROTIDITE : tuméfaction douloureuse d'une parotide puis de l'autre dans 70 % des cas (bilatérale), obligeant à manger difficilement, effaçant le sillon rétro-maxillaire ; orifice du canal de Stenson enflammé (pas de pus) ; douleur exacerbée par les aliments ACIDES (jus de citron, vinaigre) qui stimulent la sécrétion salivaire.",
+            "AUTRES GLANDES SALIVAIRES : sous-maxillaires et sublinguales possibles ; pas d'éruption cutanée.",
+            "PANCRÉATITE : douleur épigastrique, vomissements, élévation de la lipase ; le plus souvent bénigne, résolutive.",
+            "ORCHITE-OOPHORITE (post-pubertaire) : orchite dans 20-30 % des hommes post-pubertaires, douloureuse (testicule augmenté, œdème), parfois bilatérale — risque d'ATROPHIE testiculaire et d'infertilité si bilatérale ; oophorite plus difficile à diagnostiquer (douleur pelvienne) et sans retentissement notable sur la fertilité.",
+            "MÉNINGITE : lymphocytaire, à liquide clair, cliniquement bénigne dans la grande majorité (céphalées, raideur, photophobie) ; sans traitement spécifique ; coexistence possible d'une parotidite absente (méningite ourlienne isolée).",
+            "ENCÉPHALITE : rare, mais complication grave (troubles de conscience, convulsions, signes focaux) — hospitalisation, réanimation possible.",
+            "SURDITÉ : le plus souvent unilatérale, de perception, parfois définitive — complication ORL la plus importante ; dépistage systématique de l'audition.",
+            "AUTRES : myocardite, arthralgies, néphrite, mastite, thyroïdite ; complications rares chez la femme enceinte (risque d'avortement au 1er trimestre, pas de malformation décrite)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Quand hospitaliser une parotidite ?",
+          "text": "Signes neurologiques (troubles de conscience, convulsions, signes focaux), vomissements intratables (pancréatite), orchite bilatérale ou très douloureuse, déshydratation (l'enfant ne boit plus), fièvre très élevée ou tableau sepsis (chercher une surinfection bactérienne ou une autre cause), suspicion de surdité : hospitalisation pour évaluation, hydratation et avis spécialisés (neuro, ORL, urologie selon le cas).",
+          "sources": [
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE dans un contexte typique : tuméfaction parotidienne douloureuse bilatérale, fébrile, en épidémie ou chez un sujet non vacciné. Le diagnostic différentiel des tuméfactions parotidiennes est LE point clé : les oreillons sont viraux (pas de pus, bilatéraux souvent, contexte épidémique), alors qu'un abcès bactérien est unilatéral, très fébrile, avec inflammation locale marquée ; une lithiase salivaire est unilatérale et récidivante aux repas ; une tumeur ou une leucémie parotidienne est indolore et progressive ; un syndrome de Mikulicz ou un sarcoïdose restent rares.",
+          "sources": [
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "FORMES ISOLÉES plus difficiles : orchite, pancréatite ou méningite sans parotidite — penser au virus ourlien devant toute méningite lymphocytaire du jeune sujet, tout orchite aigu du post-pubère, toute pancréatite aiguë de l'enfant.",
+            "CONFIRMATION (utile hors contexte, pour la surveillance épidémiologique ou les formes isolées) : PCR sur salive, gorge, urine ou LCR ; sérologie (IgM ourliennes) selon les protocoles ; la confirmation oriente la surveillance des collectivités.",
+            "EXAMENS UTILES selon la présentation : lipase/amylase (pancréatite — attention l'amylase augmente aussi avec la parotidite), PL en cas de méningite (liquide clair lymphocytaire, glucose normal ou abaissé, culture bactérienne négative), échographie testiculaire (orchite), audiogramme (suspicion de surdité), hémogramme et CRP (normaux ou peu modifiés, l'élévation majeure doit faire chercher une surinfection ou un autre diagnostic).",
+            "DIAGNOSTICS DIFFÉRENTIELS de la parotidite : parotidite bactérienne (suppurée, unilatérale, pus au canal de Stenson), adénite pré-auriculaire ou sous-mandibulaire (adénopathées), lithiase du canal salivaire, tumeur parotidienne, infection à CMV ou VIH (parotidite chronique), syndrome de Sjögren (adulte, bilatérale chronique), réactions médicamenteuses, causes nutritionnelles (famine).",
+            "Devant toute parotidite CHRONIQUE ou récidivante, ou unilatérale chez l'adulte : ne pas porter le diagnostic d'oreillons — envisager une échographie et un avis ORL (lithiase, tumeur, Sjögren)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "La parotidite unilatérale n'est pas forcément ourlienne",
+          "text": "Unilatérale, très fébrile, douloureuse, avec inflammation locale marquée et parfois du pus exprimé au canal de Stenson : c'est une parotidite BACTÉRIENNE suppurée (staphylocoque, streptocoque) — antibiothérapie et drainage, pas d'isolement. Unilatérale chronique, indolore, ferme chez l'adulte : tumeur jusqu'à preuve du contraire — avis ORL. Les oreillons : bilatéraux souvent, épidémiques, avec prodrome viral."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Il n'existe AUCUN traitement antiviral spécifique du virus ourlien : la prise en charge est SYMPTOMATIQUE.",
+            "BASES : repos, HYDRATATION (l'enfant mange et boit difficilement — surveiller la boisson, proposer une alimentation molle et fade), PARACÉTAMOL contre fièvre et douleur ; ÉVITER les aliments acides (citron, vinaigre, jus) qui exacerbent la douleur parotidienne.",
+            "PAROTIDITE : soins de bouche, hygiène ; pas d'antibiotique (le virus ne se traite pas par antibiotique, et la surinfection bactérienne est rare — elle se traduit par une nouvelle fièvre élevée avec inflammation locale : réévaluer alors).",
+            "ORCHITE : repos, surélévation du testicule (suspension), antalgiques (paracétamol, ± opioïdes faibles selon douleur), glaçons locaux ; corticoïdes discutés selon les protocoles pour réduire l'inflammation dans les formes sévères ; prévenir le patient du risque d'atrophie (surtout si bilatérale) et rassurer sur la fertilité (rarement atteinte si unilatérale).",
+            "PANCRÉATITE : arrêt oral si vomissements, réhydratation, antalgiques, reprise alimentaire progressive ; formes sévères rares (hospitalisation, surveillance).",
+            "MÉNINGITE ourlienne bénigne : hydratation, antalgiques (y compris nausées/vomissements), surveillance clinique ; l'encéphalite ourlienne : hospitalisation, soins de support, réanimation selon les besoins.",
+            "SURDITÉ : avis ORL urgent, audiométrie ; corticothérapie discutée selon les protocoles ; rééducation orthophonique et appareillage auditif si déficit persistant.",
+            "ISOLEMENT du malade jusqu'à 5 jours après le début de la parotidite (éviction scolaire/collectivité selon protocoles) ; hygiène des mains et de la vaisselle.",
+            "Devant un cas : vérifier les statuts vaccinaux des contacts (vaccination de rattrapage), informer la collectivité, rechercher d'autres cas."
+          ],
+          "sources": [
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            },
+            {
+              "id": "who2024oreillons",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Mumps virus vaccines: WHO position paper, mars 2024",
+              "year": 2024
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une parotidite fébrile de l'enfant",
+          "text": "1) Confirmer le contexte (épidémie, vaccination à jour ?). 2) Chercher les complications : audition (questionner), vomissements (pancréatite), céphalées/raideur (méningite), testicules (orchite du post-pubère). 3) Éliminer une parotidite bactérienne (unilatérale, très inflammatoire ?) ou une lithiase. 4) Traitement symptomatique + hydratation + éviter les aliments acides. 5) Isolement 5 jours + information de la collectivité.",
+          "sources": [
+            {
+              "id": "who2024oreillons",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Mumps virus vaccines: WHO position paper, mars 2024",
+              "year": 2024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VACCINATION : vaccin ourlien vivant atténué, en combinaison (ROR ou RR + ourlien selon le programme) ; schéma à 2 DOSES pour une protection optimale (une seule dose laisse une protection incomplète, à l'origine d'épidémies chez les vaccinés) ; intégration recommandée par l'OMS aux programmes ayant une couverture élevée contre la rougeole et la rubéole (position paper mars 2024).",
+            "CONTRE-INDICATIONS du vaccin vivant : grossesse, immunodépression sévère (protecter par l'immunité de groupe), réaction anaphylique antérieure à un composant.",
+            "ISOLEMENT du malade jusqu'à 5 jours après le début de la parotidite ; éviction scolaire et des collectivités selon les protocoles ; mesures d'hygiène (lavage des mains, vaisselle, mouchoirs).",
+            "PAS DE PROPHYLAXIE par immunoglobulines après exposition ; la vaccination post-exposition ne protège pas de l'épisode en cours (mais rattrape le statut vaccinal pour l'avenir).",
+            "SURVEILLANCE et déclaration autour d'un cas en collectivité : recherche des autres cas, vérification de la couverture vaccinale, vaccination de rattrapage des contacts non à jour.",
+            "Chez l'adulte non vacciné et non immunisé (hommes en particulier, pour éviter l'orchite) : proposer la vaccination selon les recommandations nationales.",
+            "Madagascar : adopter les stratégies OMS — intégrer la lutte contre les oreillons aux objectifs rougeole-rubéole quand la couverture le permet ; toute flambée en établissement scolaire doit déclencher une vérification des carnets de vaccination."
+          ],
+          "sources": [
+            {
+              "id": "who2024oreillons",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Mumps virus vaccines: WHO position paper, mars 2024",
+              "year": 2024
+            },
+            {
+              "id": "hviid2008",
+              "organization": "The Lancet",
+              "title": "Mumps",
+              "year": 2008
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "Virus ourlien = paramyxovirus (Rubulavirus). Incubation 16-18 jours. Parotidite bilatérale douloureuse, sans éruption, aggravée par les aliments acides. Complications : pancréatite (lipase), orchite du post-pubère (atrophie si bilatérale), méningite lymphocytaire bénigne, encéphalite rare, SURDITÉ unilatérale définitive. Traitement : symptomatique (pas d'antiviral, pas d'antibiotique). Vaccin : 2 doses, ROR. Diagnostic différentiel clé : parotidite bactérienne (unilatérale, suppurée), lithiase, tumeur."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les oreillons restent une maladie virale de l'enfance souvent bénigne mais dont les complications — surdité définitive, orchite du post-pubère, méningite, pancréatite — justifient une vaccination complète à deux doses et une vigilance clinique systématique. Le diagnostic est clinique dans un contexte épidémique ; la prise en charge est symptomatique et l'essentiel du travail du médecin est de rechercher les complications, d'écarter les diagnostics différentiels des tuméfactions parotidiennes (bactérien, lithiase, tumeur) et de contrôler la transmission en collectivité. L'isolement de cinq jours et la mise à jour vaccinale de l'entourage ferment la prise en charge."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hviid A, Rubin S, Mühlemann K. Mumps. Lancet. 2008;371(9616):932-944 (DOI 10.1016/S0140-6736(08)60419-5).",
+            "OMS. Mumps virus vaccines: WHO position paper, mars 2024 (https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/mumps)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Surdité : la question à ne pas manquer",
+      "text": "Complication la plus redoutée des oreillons : surdité de perception, le plus souvent unilatérale, parfois DÉFINITIVE. Questionner systématiquement l'audition chez tout enfant ourlien ; tout doute (enfant qui se rapproche, monte le volume, néglige un côté) = avis ORL et audiométrie sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Pas une parotidite bactérienne",
+      "text": "Oreillons : bilatéraux souvent, prodrome viral, pas de pus. Parotidite bactérienne suppurée : unilatérale, très fébrile, inflammation locale marquée, pus au canal de Stenson → antibiothérapie (antistaphylococcique) ± drainage, pas d'isolement. Chez l'adulte, toute tuméfaction parotidienne unilatérale ferme et indolore : tumeur jusqu'à preuve du contraire — avis ORL."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Orchite : prévenir l'infertilité",
+      "text": "Homme post-pubère atteint d'oreillons : examiner les testicules. Orchite = douleur, tuméfaction, œdème scrotal (bilatérale dans 15-30 % des orchites ourliennes) : repos, suspension testiculaire, antalgiques, glaçons ; risque d'atrophie et d'infertilité surtout si bilatérale — information du patient, avis urologique si bilatérale."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Aliments acides = douleur",
+      "text": "Le citron, le vinaigre et les jus acides stimulent la sécrétion salivaire et exacerbent la douleur parotidienne — c'est un signe clinique (le patient refuse ces aliments) et une consigne thérapeutique (alimentation molle, fade, riche en boissons). Le « test du citron » qui faisait grimacer le patient est une image d'Épinal clinique : la douleur parotidienne exacerbée par l'acide est bien réelle."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Méningite ourlienne : liquide clair, pas d'antibiotique",
+      "text": "Céphalées + raideur de nuque chez un ourlien : méningite lymphocytaire à liquide clair, bénigne dans la grande majorité — PL si doute (exclure une méningite bactérienne), hydratation, antalgiques, surveillance clinique. Pas d'antibiothérapie pour une méningite virale ourlienne confirmée ; encéphalite (troubles de conscience, convulsions) : hospitalisation."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "O.R.E.I.L.L.O.N.S.",
+      "entries": [
+        {
+          "key": "O",
+          "term": "Ourlien : paramyxovirus, genre Rubulavirus, aérien"
+        },
+        {
+          "key": "R",
+          "term": "Récupération spontanée : traitement symptomatique, pas d'antiviral"
+        },
+        {
+          "key": "E",
+          "term": "Épidémie en collectivité : écoles, casernes — vérifier les vaccinations"
+        },
+        {
+          "key": "I",
+          "term": "Incubation 16-18 jours ; contagieux 2 jours avant à 5 jours après la parotidite"
+        },
+        {
+          "key": "L",
+          "term": "Liquide clair : la méningite ourlienne est lymphocytaire et bénigne"
+        },
+        {
+          "key": "L",
+          "term": "Lipase : la pancréatite ourlienne (douleur épigastrique, vomissements)"
+        },
+        {
+          "key": "O",
+          "term": "Orchite : homme post-pubère — atrophie si bilatérale, suspendre le testicule"
+        },
+        {
+          "key": "N",
+          "term": "Ne pas oublier la SURDITÉ : questionner l'audition à chaque cas"
+        },
+        {
+          "key": "S",
+          "term": "Sillon rétro-maxillaire effacé, canal de Stenson enflammé sans pus"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel virus cause les oreillons et comment se transmet-il ?",
+      "back": "Le virus ourlien (mumps virus), paramyxovirus à ARN du genre Rubulavirus ; transmission aérienne par gouttelettes et contact avec la salive ; réservoir strictement humain ; un seul sérotype."
+    },
+    {
+      "id": "f2",
+      "front": "Durée d'incubation et période de contagiosité des oreillons ?",
+      "back": "Incubation 16-18 jours (12-25) ; contagieux d'environ 2 jours avant à 5 jours après le début de la parotidite — d'où l'isolement de 5 jours et l'éviction scolaire."
+    },
+    {
+      "id": "f3",
+      "front": "Description de la parotidite ourlienne typique ?",
+      "back": "Tuméfaction parotidienne douloureuse, bilatérale dans 70 % des cas, fébrile (38-39 °C), effaçant le sillon rétro-maxillaire ; orifice du canal de Stenson enflammé sans pus ; douleur exacerbée par les aliments acides ; pas d'éruption."
+    },
+    {
+      "id": "f4",
+      "front": "Pourquoi éviter les aliments acides chez un patient ourlien ?",
+      "back": "Les aliments acides (citron, vinaigre) stimulent la sécrétion salivaire et exacerbent la douleur parotidienne ; consigne : alimentation molle et fade, bonne hydratation."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle est la complication la plus redoutée des oreillons chez l'enfant ?",
+      "back": "La SURDITÉ de perception, le plus souvent unilatérale, parfois définitive : questionner systématiquement l'audition et demander un avis ORL au moindre doute."
+    },
+    {
+      "id": "f6",
+      "front": "Orchite ourlienne : qui, fréquence, risques, prise en charge ?",
+      "back": "Homme post-pubère, 20-30 % des cas : douleur et tuméfaction testiculaire, parfois bilatérale (risque d'atrophie et d'infertilité si bilatérale) ; traitement : repos, suspension testiculaire, antalgiques, glaçons ; corticoïdes discutés dans les formes sévères."
+    },
+    {
+      "id": "f7",
+      "front": "Caractéristiques de la méningite ourlienne ?",
+      "back": "Lymphocytaire, à liquide clair, cliniquement bénigne dans la grande majorité (céphalées, raideur, photophobie) ; peut survenir sans parotidite ; PL si doute pour exclure une méningite bactérienne ; pas d'antibiotique une fois confirmée."
+    },
+    {
+      "id": "f8",
+      "front": "Pancréatite ourlienne : comment la reconnaître ?",
+      "back": "Douleur épigastrique, vomissements, élévation de la lipase chez un ourlien ; le plus souvent bénigne et résolutive : hydratation, antalgiques, reprise alimentaire progressive."
+    },
+    {
+      "id": "f9",
+      "front": "Diagnostic des oreillons : clinique ou biologique ?",
+      "back": "Clinique dans un contexte typique (parotidite fébrile bilatérale, épidémie, non-vacciné) ; PCR (salive, gorge, LCR) et sérologie IgM utiles pour les formes isolées (orchite, méningite sans parotidite) et la surveillance épidémiologique."
+    },
+    {
+      "id": "f10",
+      "front": "Trois diagnostics différentiels majeurs d'une tuméfaction parotidienne ?",
+      "back": "1) Parotidite bactérienne suppurée : unilatérale, très fébrile, inflammation marquée, pus au canal de Stenson → antibiothérapie. 2) Lithiase salivaire : unilatérale, récidivante aux repas. 3) Tumeur parotidienne : unilatérale, ferme, indolore, progressive chez l'adulte → avis ORL."
+    },
+    {
+      "id": "f11",
+      "front": "Devant une parotidite chronique ou récidivante de l'adulte, que faire ?",
+      "back": "Ne pas conclure aux oreillons : échographie et avis ORL — causes possibles : lithiase, tumeur, syndrome de Sjögren, infection à VIH (parotidite chronique), causes nutritionnelles."
+    },
+    {
+      "id": "f12",
+      "front": "Existe-t-il un traitement antiviral ou antibiotique des oreillons ?",
+      "back": "NON : traitement purement symptomatique (paracétamol, repos, hydratation, alimentation molle et fade, soins de bouche) ; pas d'antibiotique sauf surinfection bactérienne prouvée ; pas d'antiviral."
+    },
+    {
+      "id": "f13",
+      "front": "Vaccin contre les oreillons : type et schéma ?",
+      "back": "Vaccin vivant atténué, combiné (ROR) ; 2 DOSES nécessaires pour une protection optimale (une dose laisse une protection incomplète, d'où des épidémies possibles chez les vaccinés) ; contre-indiqué pendant la grossesse et l'immunodépression sévère."
+    },
+    {
+      "id": "f14",
+      "front": "Recommandation OMS (position paper mars 2024) pour la vaccination anti-ourlienne ?",
+      "back": "Intégrer le vaccin ourlien aux programmes ayant une couverture élevée contre la rougeole et la rubéole (vaccin combiné, 2 doses) ; la stratégie est liée aux objectifs rougeole-rubéole ; couverture insuffisante = risque d'épidémies chez les vaccinés."
+    },
+    {
+      "id": "f15",
+      "front": "Y a-t-il une prophylaxie post-exposition contre les oreillons ?",
+      "back": "PAS d'immunoglobulines efficaces ; la vaccination post-exposition ne protège pas de l'épisode en cours mais rattrape le statut vaccinal ; mesures : isolement du cas (5 jours), hygiène, vérification et rattrapage vaccinal des contacts, surveillance de la collectivité."
+    },
+    {
+      "id": "f16",
+      "front": "Oreillons et grossesse : quels risques ?",
+      "back": "Risque accru d'avortement au premier trimestre ; pas de malformation congénitale décrite ; la femme enceinte non immune exposée : pas de vaccin vivant (contre-indiqué), surveillance clinique ; le vaccin est contre-indiqué pendant la grossesse (immunisation avant toute grossesse)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "oreillons",
+      "label": "Oreillons"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Virus",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Rubulavirus (paramyxovirus)"
+          },
+          {
+            "id": "b1c2",
+            "label": "Aérien, incubation 16-18 j"
+          },
+          {
+            "id": "b1c3",
+            "label": "Contagieux 2 j avant / 5 j après"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Réservoir humain exclusif"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Parotidite bilatérale douloureuse"
+          },
+          {
+            "id": "b2c2",
+            "label": "Canal de Stenson enflammé, sans pus"
+          },
+          {
+            "id": "b2c3",
+            "label": "Douleur exacerbée par les aliments acides"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Pas d'éruption"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "SURDITÉ unilatérale (redoutée)"
+          },
+          {
+            "id": "b3c2",
+            "label": "Orchite du post-pubère"
+          },
+          {
+            "id": "b3c3",
+            "label": "Méningite lymphocytaire bénigne"
+          },
+          {
+            "id": "b3c4",
+            "label": "Pancréatite (lipase)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Encéphalite rare, grave"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique en contexte épidémique"
+          },
+          {
+            "id": "b4c2",
+            "label": "PCR / sérologie si forme isolée"
+          },
+          {
+            "id": "b4c3",
+            "label": "Différentiels : bactérien, lithiase, tumeur"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Formes isolées : orchite, méningite"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Symptomatique (pas d'antiviral/AB)"
+          },
+          {
+            "id": "b5c2",
+            "label": "Hydratation, aliments fades"
+          },
+          {
+            "id": "b5c3",
+            "label": "Orchite : suspension, antalgiques"
+          },
+          {
+            "id": "b5c4",
+            "label": "Surdité : ORL urgent"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Isolement 5 jours"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Vaccin vivant combiné, 2 doses"
+          },
+          {
+            "id": "b6c2",
+            "label": "OMS 2024 : lier aux objectifs R/R"
+          },
+          {
+            "id": "b6c3",
+            "label": "Rattrapage des contacts"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Pas d'immunoglobulines post-exposition"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "hviid2008",
+      "title": "Mumps",
+      "citation": "Hviid A, Rubin S, Mühlemann K. Mumps. Lancet. 2008;371(9616):932-944. DOI 10.1016/S0140-6736(08)60419-5. PMID 18342688.",
+      "organization": "The Lancet",
+      "year": 2008,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(08)60419-5",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Virologie et transmission",
+        "Clinique et complications (orchite, méningite, surdité, pancréatite)",
+        "Diagnostics différentiels des parotidites",
+        "Vaccination"
+      ]
+    },
+    {
+      "id": "who2024oreillons",
+      "title": "Mumps virus vaccines: WHO position paper, mars 2024",
+      "citation": "Organisation mondiale de la Santé. Mumps virus vaccines: WHO position paper, March 2024 (https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/mumps).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2024,
+      "version": "Position paper",
+      "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/mumps",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Recommandations vaccinales (2 doses, vaccin combiné)",
+        "Stratégies d'intégration aux programmes rougeole-rubéole",
+        "Contre-indications du vaccin vivant",
+        "Conduite en collectivité"
+      ]
+    }
+  ]
+}
