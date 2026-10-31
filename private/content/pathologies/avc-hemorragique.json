@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "avc-hemorragique",
+  "title": "Accidents vasculaires hémorragiques",
+  "subtitle": "Nosographie — neurologie",
+  "objective": "Devant l'installation brutale d'un déficit neurologique focal, souvent avec céphalées, vomissements, troubles de conscience et hypertension artérielle, reconnaître l'hémorragie intracérébrale, la confirmer par un scanner cérébral immédiat — hyperdensité parenchymateuse —, mettre en œuvre la prise en charge aiguë : baisse intensive de la pression artérielle, antagonisation rapide des anticoagulants, chirurgie dans les indications sélectionnées, et conduire la prévention des récidives — le contrôle tensionnel avant tout.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 113,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 154,
+      "localNumber": 113,
+      "sectionLabel": "Médecine",
+      "title": "Accidents vasculaires hémorragiques",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "neuro"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la recommandation AHA/ASA 2022 sur l'hémorragie intracérébrale spontanée et de l'essai INTERACT3 sur le care bundle à phase aiguë, avec reformulation complète et adaptation au contexte d'exercice.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Accidents vasculaires hémorragiques » (Médecine n°113) : la fiche couvre l'hémorragie intracérébrale spontanée ; l'hémorragie méningée non traumatique fait l'objet d'un item séparé (n°114).",
+      "Sources vérifiées le 2026-10-31 : Greenberg SM, et al., « 2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage », Stroke 2022 ; 53 (7) : e282-e359, doi 10.1161/STR.0000000000000407 (confirmé sur ahajournals.org) ; Anderson CS, et al., pour les investigateurs INTERACT3, « The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3) », Lancet 2023 ; 402 : 27-35, doi 10.1016/S0140-6736(23)00806-1 (confirmé sur thelancet.com et PubMed Central, PMC10401723).",
+      "Image vérifiée le 2026-10-31 sur la page Commons du fichier « Intracerebral hemorrhage.jpg » : licence Creative Commons Attribution 2.0 Generic, crédit « Via Wikimedia Commons ».",
+      "Les messages clés — environ 10 % des AVC sont des hémorragies intracérébrales, mortalité la plus élevée des AVC, baisse tensionnelle intensive à la phase aiguë et care bundle INTERACT3 — sont ceux de la recommandation AHA/ASA 2022 et de l'essai INTERACT3."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Le triptyque diagnostic — scanner immédiat, hyperdensité, recherche de cause — et la distinction avec l'AVC ischémique sont explicites.",
+      "Sécurité : pas de réduction tensionnelle brutale en dessous des cibles ; antagonisation immédiate des anticoagulants ; pas de corticoïdes dans l'œdème péri-hématomal."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémorragie intracérébrale est la forme la plus mortelle des accidents vasculaires cérébraux : environ 10 % des AVC, mais une part démesurée des décès et du handicap sévère — près de la moitié des décès survient dans les deux premiers jours."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le paradigme a changé : l'hémorragie intracérébrale n'est plus une catastrophe subie mais une urgence traitable — l'essai INTERACT3 a montré qu'un protocole coordonné de soins, centré sur la baisse tensionnelle précoce, améliore le devenir fonctionnel des patients."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Déficit neurologique brutal avec céphalées, vomissements, HTA ou troubles de conscience : scanner cérébral immédiat. Une hyperdensité parenchymateuse fait le diagnostic d'hémorragie intracérébrale — la prise en charge commence dès l'imagerie : baisse tensionnelle, antagonisation des anticoagulants, avis chirurgical si signes de gravité."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Épidémiologie et terrain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémorragie intracérébrale spontanée résulte de la rupture d'une petite artère cérébrale, le plus souvent sur un terrain d'hypertension artérielle chronique — noyaux gris centraux, protubérance, cervelet — ou d'angiopathie amyloïde — localisation lobaire du sujet âgé."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Environ 10 % des AVC ; mortalité à 30 jours la plus élevée de toutes les formes d'AVC, autour de 30 à 40 % ; moins de la moitié des survivants retrouvent une autonomie à un an.",
+            "Sièges profonds : noyaux gris centraux, thalamus, protubérance, cervelet — hypertension chronique ; siège lobaire : angiopathie amyloïde du sujet âgé, plus à risque de récidive.",
+            "Facteurs de risque : hypertension artérielle — le premier —, anticoagulants et antiagrégants, alcool, âge ; dans les contextes où l'hypertension n'est pas contrôlée, l'hémorragie intracérébrale du sujet jeune est une urgence fréquente des services de réanimation.",
+            "Autres causes : malformations artérioveineuses, anévrismes, tumeurs, thrombose veineuse cérébrale, vasculites — à chercher chez le sujet jeune ou sans terrain."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "HTA chronique = hémorragie profonde ; sujet âgé = hémorragie lobaire, penser angiopathie amyloïde ; sujet jeune sans HTA = chercher une cause : malformation, anévrisme, vascularite. Le siège guide l'étiologie."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tableau est celui d'un déficit neurologique d'installation brutale, volontiers majoré dans les minutes ou heures qui suivent — céphalées, vomissements, baisse de conscience, convulsions sont plus fréquents que dans l'ischémie. Le scanner cérébral sans injection, disponible partout, fait le diagnostic en montrant l'hyperdensité parenchymateuse."
+        },
+        {
+          "type": "image",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Intracerebral_hemorrhage.jpg?width=900",
+          "alt": "Scanner cérébral sans injection montrant une hyperdensité spontanée intraparenchymateuse traduisant une hémorragie intracérébrale aiguë",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY 2.0"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Clinique : déficit focal brutal — hémiparésie du côté opposé, aphasie, trouble visuel — avec céphalées, vomissements, conscience fluctuante, HTA ; aggravation progressive possible en quelques heures.",
+            "Scanner cérébral immédiat : hyperdensité spontanée, siège, volume, engagement possible, hydrocéphalie ; l'hypodensité péri-lésionnelle traduit l'œdème.",
+            "Angio-scanner ou angio-IRM : indiqué si suspicion de cause — sujet jeune, absence d'hypertension, siège atypique, âge non conforme à l'angiopathie amyloïde — pour chercher malformation, anévrisme ou tumeur.",
+            "Gravité : volume de l'hémorragie, conscience — Glasgow —, extension intraventriculaire, hydrocéphalie, âge, anticoagulants ; Glasgow dégradé et signes d'engagement = urgence neurochirurgicale.",
+            "Diagnostics différentiels : AVC ischémique — le scanner tranche —, hémorragie sous-arachnoïdienne — céphalées en coup de tonnerre, sang dans les espaces sous-arachnoïdiens —, crises convulsives avec déficit post-critique, hypoglycémie.",
+            "Biologie : hémostase — recherche d'anticoagulants —, glycémie, ionogramme, fonction rénale ; alcoolémie et recherche de toxiques si contexte."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Tout AVC est un scanner, pas un traitement d'appoint : la différence ischémique/hémorragique change tout — thrombolyse d'un côté, antagonisation et chirurgie de l'autre. Ne jamais commencer un traitement avant l'imagerie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-STROKE-2022-GREENBERG",
+          "organization": "Stroke (AHA/ASA)",
+          "title": "2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage",
+          "year": 2022
+        },
+        {
+          "id": "SRC-LANCET-2023-INTERACT3",
+          "organization": "The Lancet",
+          "title": "The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3)",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rupture artérielle entraîne une collection active dans le parenchyme : les dégâts viennent de la masse — effet volumétrique, hypertension intracrânienne, engagement — de la toxicité du sang sur le tissu adjacent et de l'interruption des voies de drain veineux. L'expansion précoce de l'hématome, favorisée par l'hypertension, aggrave le pronostic dans les premières heures."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mécanisme hypertensif : lipohyalinose des perforantes profondes — rupture brutale, siège ganglio-thalamique, protubérantiel ou cérébelleux.",
+            "Angiopathie amyloïde : dépôts de substance amyloïde dans les vaisseaux corticaux — hémorragies lobaires du sujet âgé, récidivantes.",
+            "Aggravation précoce : expansion de l'hématome dans les premières heures, extension intraventriculaire, œdème péri-lésionnel — la fenêtre d'action des traitements aigus.",
+            "Anticoagulants : majorent le volume et l'expansion — l'antagonisation immédiate est un déterminant du pronostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Ne pas tout attribuer à l'hypertension : chez le sujet jeune ou sans terrain, une malformation ou un anévrisme sont fréquents — l'angio-IRM doit être discutée avant de conclure à une hémorragie « primitive »."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Prise en charge aiguë",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge est une course : baisse tensionnelle rapide, antagonisation des anticoagulants, correction des anomalies physiologiques — glycémie, température, oxygénation — et décision chirurgicale dans les indications sélectionnées. L'essai INTERACT3 a validé cette approche en bundle coordonné, avec la pression artérielle comme maillon central."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pression artérielle : baisse intensive à la phase aiguë — cible de pression systolique aux alentours de 140 mmHg, avec monitoring continu ; l'essai INTERACT3 a montré le bénéfice d'un protocole coordonné incluant cette cible tensionnelle.",
+            "Anticoagulants : antagonisation immédiate — vitamine K et concentré de complexes prothrombiniques pour les AVK, antidotes spécifiques pour les anticoagulants oraux directs ; antiagrégants suspendus sans transfusion plaquettaire systématique.",
+            "Mesures générales : contrôle glycémique et de la température, oxygénation, prévention des thromboses veineuses — compression puis héparinothérapie prophylactique après stabilisation —, dépistage de la dysphagie avant toute alimentation orale, prévention des escarres.",
+            "Hypertension intracrânienne et engagement : osmothérapie d'attente, drainage ventriculaire externe si hydrocéphalie ; la corticothérapie n'a pas de place dans l'œdème péri-hématomal.",
+            "Chirurgie : évacuation en urgence d'une hémorragie cérébelleuse volumineuse — plus de 3 cm, ou compression du tronc, ou hydrocéphalie — ; en supratentorial, la chirurgie se discute cas par cas — détérioration progressive, hématome lobaire accessible —, les techniques mini-invasives se développant ; la craniectomie décompressive des hématomes profonds sévères relève d'équipes spécialisées.",
+            "Réhabilitation précoce : dès la stabilisation — kinésithérapie, orthophonie, réadaptation ; le pronostic fonctionnel dépend de la précocité et de l'intensité de la prise en charge.",
+            "Étiologie : traiter la cause si retrouvée — malformation, anévrisme — pour prévenir la récidive."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne jamais oublier",
+          "text": "Le premier traitement de l'hémorragie intracérébrale hypertensive est la tension : une baisse intensive et rapide de la pression artérielle est le geste démontré bénéfique pour tous — et le meilleur traitement de la récidive est le contrôle tensionnel à vie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pronostic : malgré la lourdeur initiale, une part importante des survivants récupère une autonomie utile — le fatalisme historique n'est plus fondé ; la qualité de la phase aiguë, du suivi tensionnel et de la réadaptation change des trajectoires."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-STROKE-2022-GREENBERG",
+          "organization": "Stroke (AHA/ASA)",
+          "title": "2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage",
+          "year": 2022
+        },
+        {
+          "id": "SRC-LANCET-2023-INTERACT3",
+          "organization": "The Lancet",
+          "title": "The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3)",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention des récidives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Après une hémorragie intracérébrale, la récidive n'est pas rare : le contrôle tensionnel strict est la mesure la plus efficace — l'objectif de pression artérielle est bas, la consultation dédiée et l'observance au cœur de la démarche ; la reprise des antithrombotiques doit être individuelle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pression artérielle : cible basse, traitement et suivi dédiés — le risque de récidive baisse fortement avec le contrôle tensionnel.",
+            "Anticoagulants et antiagrégants : reprise seulement sur indication forte — valve mécanique, embolie —, après délai et bilan dédié ; jamais de reprise systématique.",
+            "Angiopathie amyloïde : éviter les anticoagulants, contrôle tensionnel, signes d'alerte — hémorragies lobaires itératives.",
+            "Causes : traitement curatif des malformations ; sevrage alcoolique ; activité physique modérée et hygiène de vie.",
+            "Éducation du patient et de l'entourage : reconnaître les signes de récidive, observer le traitement antihypertenseur à vie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Cette fiche fait pendant à la fiche des accidents vasculaires ischémiques : la présentation clinique est commune, l'imagerie tranche — et la prise en charge diverge radicalement."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hémorragie intracérébrale : 10 % des AVC, mortalité la plus élevée — urgence absolue.",
+            "Diagnostic : scanner cérébral immédiat — hyperdensité ; angio-IRM si suspicion de cause.",
+            "Phase aiguë : baisse tensionnelle intensive vers 140 mmHg, antagonisation immédiate des anticoagulants, correction glycémique et thermique, chirurgie des hématomes cérébelleux volumineux.",
+            "Pas de corticoïdes ; dépistage dysphagie ; prévention thromboembolique après stabilisation.",
+            "Prévention des récidives : contrôle tensionnel strict à vie, reprise des antithrombotiques seulement sur indication forte."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir énumérer les causes — HTA, amyloïde, malformations, anticoagulants — les sièges profonds selon le terrain, le rôle du scanner et la prise en charge : tension, antagonisation, chirurgie cérébelleuse. C'est la colonne vertébrale de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont la recommandation AHA/ASA 2022 sur l'hémorragie intracérébrale et l'essai INTERACT3 sur le care bundle à la phase aiguë."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Greenberg SM, et al. 2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage. Stroke 2022.",
+            "Anderson CS, et al., pour les investigateurs INTERACT3. The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3). Lancet 2023."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-ich",
+      "label": "H.E.M.A.T.O.M.E.",
+      "intro": "L'hémorragie intracérébrale, du diagnostic à la prévention.",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hémorragie : 10 % des AVC, mortalité la plus élevée — urgence absolue, imagerie d'abord"
+        },
+        {
+          "key": "E",
+          "term": "Examen : déficit brutal + céphalées, vomissements, HTA, conscience altérée — tableau plus « bruyant » que l'ischémie"
+        },
+        {
+          "key": "M",
+          "term": "Scanner immédiat : hyperdensité parenchymateuse — jamais de traitement avant l'imagerie"
+        },
+        {
+          "key": "A",
+          "term": "Anticoagulants antagonisés : vitamine K + CCP, antidotes des AOD — immédiatement"
+        },
+        {
+          "key": "T",
+          "term": "Tension vers 140 : baisse intensive de la pression systolique, monitoring continu — INTERACT3"
+        },
+        {
+          "key": "O",
+          "term": "Opérer les cérébelleuses : > 3 cm, compression du tronc, hydrocéphalie — évacuation en urgence ; supratentorial au cas par cas"
+        },
+        {
+          "key": "M",
+          "term": "Mesures générales : glycémie, température, dysphagie, prévention thromboembolique — pas de corticoïdes"
+        },
+        {
+          "key": "E",
+          "term": "Étiologie et prévention : angio-IRM si atypique ; contrôle tensionnel à vie — le traitement de la récidive"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-ich-1",
+      "front": "Quelle est la part des hémorragies intracérébrales parmi les AVC ?",
+      "back": "Environ 10 % — mais la mortalité la plus élevée de toutes les formes d'AVC, autour de 30 à 40 % à 30 jours."
+    },
+    {
+      "id": "fc-ich-2",
+      "front": "Quels signes orientent vers une hémorragie plutôt qu'une ischémie à l'examen initial ?",
+      "back": "Céphalées, vomissements, troubles de conscience précoces, hypertension artérielle majeure, aggravation progressive sur les heures — sans certitude : le scanner tranche."
+    },
+    {
+      "id": "fc-ich-3",
+      "front": "Quel examen fait le diagnostic d'hémorragie intracérébrale ?",
+      "back": "Le scanner cérébral sans injection, immédiat : hyperdensité parenchymateuse spontanée, avec son siège, son volume et d'éventuels signes d'engagement ou d'hydrocéphalie."
+    },
+    {
+      "id": "fc-ich-4",
+      "front": "Quand demander une angio-IRM ou un angio-scanner devant une hémorragie intracérébrale ?",
+      "back": "Si suspicion de cause sous-jacente : sujet jeune, absence d'hypertension, siège ou âge atypiques — malformation, anévrisme, tumeur, vascularite."
+    },
+    {
+      "id": "fc-ich-5",
+      "front": "Quelle est la cible tensionnelle à la phase aiguë ?",
+      "back": "Une baisse intensive de la pression systolique, cible aux alentours de 140 mmHg, avec monitoring continu — l'essai INTERACT3 a validé le protocole coordonné incluant cette cible."
+    },
+    {
+      "id": "fc-ich-6",
+      "front": "Comment antagoniser un anticoagulant devant une hémorragie intracérébrale ?",
+      "back": "Immédiatement : vitamine K et concentré de complexes prothrombiniques pour les AVK, antidotes spécifiques pour les anticoagulants oraux directs."
+    },
+    {
+      "id": "fc-ich-7",
+      "front": "Quelle est l'indication chirurgicale urgente la plus classique ?",
+      "back": "L'hémorragie cérébelleuse volumineuse — plus de 3 cm, compression du tronc ou hydrocéphalie — évacuée en urgence ; en supratentorial, la chirurgie se discute au cas par cas."
+    },
+    {
+      "id": "fc-ich-8",
+      "front": "Quelle place pour la corticothérapie dans l'œdème péri-hématomal ?",
+      "back": "Aucune — les corticoïdes ne sont pas recommandés ; l'osmothérapie est un traitement d'attente de l'hypertension intracrânienne menaçante."
+    },
+    {
+      "id": "fc-ich-9",
+      "front": "Quelle est la mesure la plus efficace de prévention de la récidive ?",
+      "back": "Le contrôle tensionnel strict et à vie — l'hypertension artérielle est le premier facteur de risque et de récidive."
+    },
+    {
+      "id": "fc-ich-10",
+      "front": "Quand reprendre un anticoagulant après une hémorragie intracérébrale ?",
+      "back": "Seulement sur indication forte — valve mécanique, embolie — après délai approprié et bilan dédié ; jamais de reprise systématique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-ich-root",
+      "label": "Accidents vasculaires hémorragiques",
+      "detail": "La forme la plus mortelle des AVC : une collection active dans le parenchyme, une fenêtre d'action courte — tension, antagonisation, chirurgie — et un traitement de fond, le contrôle tensionnel à vie."
+    },
+    "branches": [
+      {
+        "id": "map-ich-terrain",
+        "label": "Épidémiologie et causes",
+        "detail": "Le siège guide l'étiologie.",
+        "children": [
+          {
+            "id": "map-ich-terrain-1",
+            "label": "Profond = HTA",
+            "leaves": [
+              {
+                "id": "map-ich-terrain-1a",
+                "label": "Noyaux gris, thalamus, protubérance, cervelet"
+              },
+              {
+                "id": "map-ich-terrain-1b",
+                "label": "Lipohyalinose des perforantes"
+              }
+            ]
+          },
+          {
+            "id": "map-ich-terrain-2",
+            "label": "Lobaire et autres",
+            "leaves": [
+              {
+                "id": "map-ich-terrain-2a",
+                "label": "Amyloïde du sujet âgé"
+              },
+              {
+                "id": "map-ich-terrain-2b",
+                "label": "Malformation, anévrisme, anticoagulants"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ich-diag",
+        "label": "Diagnostic",
+        "detail": "Scanner immédiat, jamais de traitement à l'aveugle.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-ich-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-ich-diag-1a",
+                "label": "Déficit brutal + céphalées, vomissements"
+              },
+              {
+                "id": "map-ich-diag-1b",
+                "label": "Conscience altérée, HTA majeure"
+              }
+            ]
+          },
+          {
+            "id": "map-ich-diag-2",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "map-ich-diag-2a",
+                "label": "Scanner : hyperdensité, volume"
+              },
+              {
+                "id": "map-ich-diag-2b",
+                "label": "Angio-IRM si suspicion de cause"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ich-trt",
+        "label": "Phase aiguë",
+        "detail": "La course contre l'expansion.",
+        "children": [
+          {
+            "id": "map-ich-trt-1",
+            "label": "Le bundle",
+            "leaves": [
+              {
+                "id": "map-ich-trt-1a",
+                "label": "Tension vers 140, monitoring"
+              },
+              {
+                "id": "map-ich-trt-1b",
+                "label": "Glycémie, température, oxygène"
+              }
+            ]
+          },
+          {
+            "id": "map-ich-trt-2",
+            "label": "Chirurgie et HIC",
+            "leaves": [
+              {
+                "id": "map-ich-trt-2a",
+                "label": "Cérébelleuse > 3 cm : évacuation"
+              },
+              {
+                "id": "map-ich-trt-2b",
+                "label": "Drainage si hydrocéphalie, pas de corticoïdes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ich-prev",
+        "label": "Récidive",
+        "detail": "La tension, avant tout.",
+        "children": [
+          {
+            "id": "map-ich-prev-1",
+            "label": "Contrôler",
+            "leaves": [
+              {
+                "id": "map-ich-prev-1a",
+                "label": "Pression artérielle basse, à vie"
+              },
+              {
+                "id": "map-ich-prev-1b",
+                "label": "Sevrage alcoolique"
+              }
+            ]
+          },
+          {
+            "id": "map-ich-prev-2",
+            "label": "Antithrombotiques",
+            "leaves": [
+              {
+                "id": "map-ich-prev-2a",
+                "label": "Reprise seulement sur indication forte"
+              },
+              {
+                "id": "map-ich-prev-2b",
+                "label": "Amyloïde : éviter les anticoagulants"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-STROKE-2022-GREENBERG",
+      "title": "2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage: A Guideline From the American Heart Association/American Stroke Association",
+      "citation": "Greenberg SM, et al. 2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage. Stroke. 2022 ; 53 (7) : e282-e359. doi:10.1161/STR.0000000000000407.",
+      "organization": "Stroke (AHA/ASA)",
+      "year": 2022,
+      "version": "2022 guideline",
+      "url": "https://doi.org/10.1161/STR.0000000000000407",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie et causes",
+        "Diagnostic et imagerie",
+        "Prise en charge aiguë : tension, antagonisation, chirurgie",
+        "Prévention des récidives"
+      ]
+    },
+    {
+      "id": "SRC-LANCET-2023-INTERACT3",
+      "title": "The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3): an international, stepped wedge cluster randomised controlled trial",
+      "citation": "Anderson CS, et al., pour les investigateurs INTERACT3. The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3). Lancet. 2023 ; 402 : 27-35. doi:10.1016/S0140-6736(23)00806-1.",
+      "organization": "The Lancet",
+      "year": 2023,
+      "version": "2023 essai randomisé",
+      "url": "https://doi.org/10.1016/S0140-6736(23)00806-1",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Care bundle à la phase aiguë",
+        "Cible tensionnelle précoce",
+        "Bénéfice sur le devenir fonctionnel"
+      ]
+    }
+  ]
+}
