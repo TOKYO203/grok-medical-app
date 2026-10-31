@@ -66,3 +66,22 @@ export const IMAGING_METHODS: Record<string, string[]> = {
     "H — Hila (hiles)",
   ],
 };
+
+
+/**
+ * Retourne le cas d'imagerie dont `linkedPathology` correspond au slug
+ * fourni (ou null si aucun cas n'est lie).
+ */
+export function findImagingCaseBySlug(slug: string): ImagingCase | null {
+  const modules = import.meta.glob<{ default: ImagingCase }>(
+    "./data/imagerie/*.json",
+    { eager: true },
+  );
+  for (const [path, mod] of Object.entries(modules)) {
+    if (path.includes("_index")) continue;
+    if (mod.default?.linkedPathology === slug) {
+      return mod.default;
+    }
+  }
+  return null;
+}
