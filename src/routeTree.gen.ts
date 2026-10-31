@@ -35,7 +35,6 @@ import { Route as DemoEcgRouteImport } from './routes/demo-ecg'
 import { Route as DonneesRouteImport } from './routes/donnees'
 import { Route as EcgRouteImport } from './routes/ecg'
 import { Route as ExamenRouteImport } from './routes/examen'
-import { Route as ImagerieRouteImport } from './routes/imagerie'
 import { Route as ImportRouteImport } from './routes/import'
 import { Route as InstitutionnelRouteImport } from './routes/institutionnel'
 import { Route as LoginRouteImport } from './routes/login'
@@ -60,6 +59,7 @@ import { Route as ApiInstitutionLeadsRouteImport } from './routes/api.institutio
 import { Route as CasCaseIdRouteImport } from './routes/cas.$caseId'
 import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
+import { Route as ImagerieIndexRouteImport } from './routes/imagerie.index'
 import { Route as ImagerieCaseIdRouteImport } from './routes/imagerie.$caseId'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
@@ -203,11 +203,6 @@ const ExamenRoute = ExamenRouteImport.update({
   path: '/examen',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ImagerieRoute = ImagerieRouteImport.update({
-  id: '/imagerie',
-  path: '/imagerie',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ImportRoute = ImportRouteImport.update({
   id: '/import',
   path: '/import',
@@ -328,10 +323,15 @@ const EcgIdRoute = EcgIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => EcgRoute,
 } as any)
+const ImagerieIndexRoute = ImagerieIndexRouteImport.update({
+  id: '/imagerie/',
+  path: '/imagerie/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImagerieCaseIdRoute = ImagerieCaseIdRouteImport.update({
-  id: '/$caseId',
-  path: '/$caseId',
-  getParentRoute: () => ImagerieRoute,
+  id: '/imagerie/$caseId',
+  path: '/imagerie/$caseId',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LearnDeckIdRoute = LearnDeckIdRouteImport.update({
   id: '/learn/$deckId',
@@ -420,7 +420,6 @@ export interface FileRoutesByFullPath {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
-  '/imagerie': typeof ImagerieRouteWithChildren
   '/import': typeof ImportRoute
   '/institutionnel': typeof InstitutionnelRoute
   '/login': typeof LoginRoute
@@ -449,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/imagerie/': typeof ImagerieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -485,7 +485,6 @@ export interface FileRoutesByTo {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
-  '/imagerie': typeof ImagerieRouteWithChildren
   '/import': typeof ImportRoute
   '/institutionnel': typeof InstitutionnelRoute
   '/login': typeof LoginRoute
@@ -514,6 +513,7 @@ export interface FileRoutesByTo {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/imagerie': typeof ImagerieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -552,7 +552,6 @@ export interface FileRoutesById {
   '/donnees': typeof DonneesRoute
   '/ecg': typeof EcgRouteWithChildren
   '/examen': typeof ExamenRoute
-  '/imagerie': typeof ImagerieRouteWithChildren
   '/import': typeof ImportRoute
   '/institutionnel': typeof InstitutionnelRoute
   '/login': typeof LoginRoute
@@ -581,6 +580,7 @@ export interface FileRoutesById {
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
+  '/imagerie/': typeof ImagerieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -619,7 +619,6 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
-    | '/imagerie'
     | '/import'
     | '/institutionnel'
     | '/login'
@@ -648,6 +647,7 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/imagerie/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -684,7 +684,6 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
-    | '/imagerie'
     | '/import'
     | '/institutionnel'
     | '/login'
@@ -713,6 +712,7 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/imagerie'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -750,7 +750,6 @@ export interface FileRouteTypes {
     | '/donnees'
     | '/ecg'
     | '/examen'
-    | '/imagerie'
     | '/import'
     | '/institutionnel'
     | '/login'
@@ -779,6 +778,7 @@ export interface FileRouteTypes {
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
+    | '/imagerie/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -817,7 +817,6 @@ export interface RootRouteChildren {
   DonneesRoute: typeof DonneesRoute
   EcgRoute: typeof EcgRouteWithChildren
   ExamenRoute: typeof ExamenRoute
-  ImagerieRoute: typeof ImagerieRouteWithChildren
   ImportRoute: typeof ImportRoute
   InstitutionnelRoute: typeof InstitutionnelRoute
   LoginRoute: typeof LoginRoute
@@ -838,8 +837,10 @@ export interface RootRouteChildren {
   ApiAiStreamRoute: typeof ApiAiStreamRoute
   ApiEventsRoute: typeof ApiEventsRoute
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
+  ImagerieCaseIdRoute: typeof ImagerieCaseIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
+  ImagerieIndexRoute: typeof ImagerieIndexRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
@@ -1035,13 +1036,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExamenRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/imagerie': {
-      id: '/imagerie'
-      path: '/imagerie'
-      fullPath: '/imagerie'
-      preLoaderRoute: typeof ImagerieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/import': {
       id: '/import'
       path: '/import'
@@ -1210,12 +1204,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EcgIdRouteImport
       parentRoute: typeof EcgRoute
     }
+    '/imagerie/': {
+      id: '/imagerie/'
+      path: '/imagerie'
+      fullPath: '/imagerie/'
+      preLoaderRoute: typeof ImagerieIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/imagerie/$caseId': {
       id: '/imagerie/$caseId'
-      path: '/$caseId'
+      path: '/imagerie/$caseId'
       fullPath: '/imagerie/$caseId'
       preLoaderRoute: typeof ImagerieCaseIdRouteImport
-      parentRoute: typeof ImagerieRoute
+      parentRoute: typeof rootRouteImport
     }
     '/learn/$deckId': {
       id: '/learn/$deckId'
@@ -1346,18 +1347,6 @@ const EcgRouteChildren: EcgRouteChildren = {
 
 const EcgRouteWithChildren = EcgRoute._addFileChildren(EcgRouteChildren)
 
-interface ImagerieRouteChildren {
-  ImagerieCaseIdRoute: typeof ImagerieCaseIdRoute
-}
-
-const ImagerieRouteChildren: ImagerieRouteChildren = {
-  ImagerieCaseIdRoute: ImagerieCaseIdRoute,
-}
-
-const ImagerieRouteWithChildren = ImagerieRoute._addFileChildren(
-  ImagerieRouteChildren,
-)
-
 interface ParcoursRouteChildren {
   ParcoursDeckIdRoute: typeof ParcoursDeckIdRoute
 }
@@ -1397,7 +1386,6 @@ const rootRouteChildren: RootRouteChildren = {
   DonneesRoute: DonneesRoute,
   EcgRoute: EcgRouteWithChildren,
   ExamenRoute: ExamenRoute,
-  ImagerieRoute: ImagerieRouteWithChildren,
   ImportRoute: ImportRoute,
   InstitutionnelRoute: InstitutionnelRoute,
   LoginRoute: LoginRoute,
@@ -1418,8 +1406,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAiStreamRoute: ApiAiStreamRoute,
   ApiEventsRoute: ApiEventsRoute,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
+  ImagerieCaseIdRoute: ImagerieCaseIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
+  ImagerieIndexRoute: ImagerieIndexRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
