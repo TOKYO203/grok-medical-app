@@ -1232,3 +1232,17 @@ html[data-optimus-motion="reduced"] .optimus-interactive-card:active {
 .optimus-session-complete {
   animation-timing-function: var(--ease-spring);
 }
+/* ============================================================================
+   VERNEIS PREMIUM — Navigation
+   ----------------------------------------------------------------------------
+   Ressort sur l'activation de la navigation (desktop et mobile) : l'icône
+   rebondit légèrement et le halo se pose avec le même dépassement doux. Les
+   keyframes existantes (optimus-nav-glow / optimus-nav-icon) sont conservées
+   telles quelles — seul l'interpolateur change, de --ease-out vers
+   --ease-spring. Les règles globales prefers-reduced-motion et
+   data-optimus-motion="reduced" coupent toujours l'animation (durée 0,01 ms).
+   ============================================================================ */
+.optimus-nav-active::before,
+.optimus-nav-active > svg {
+  animation-timing-function: var(--ease-spring);
+}
