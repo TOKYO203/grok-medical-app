@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "insuff-respiratoire-chronique",
+  "title": "Insuffisance respiratoire chronique",
+  "subtitle": "Nosographie — pneumologie",
+  "objective": "Devant une dyspnée chronique, reconnaître l'insuffisance respiratoire chronique — hypoxémique, hypercapnique ou mixte — l'évaluer par la gazométrie et l'exploration fonctionnelle, dépister ses complications, et conduire le traitement au long cours : traitement de la cause, oxygénothérapie de longue durée, ventilation non invasive et réhabilitation.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 62,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 103,
+      "localNumber": 62,
+      "sectionLabel": "Médecine",
+      "title": "Insuffisance respiratoire chronique",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "tropical"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir du guideline BTS 2015 sur l'oxygène à domicile et des recommandations ERS 2019 sur la ventilation non invasive à domicile, avec reformulation complète. La fiche se concentre sur la définition gazométrique, la démarche étiologique et les décisions de traitement au long cours, sans posologies au-delà des principes.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Insuffisance respiratoire chronique » (Médecine n°62) : la fiche couvre la définition gazométrique, les causes obstructives et restrictives, les complications — hypertension pulmonaire, cœur pulmonaire chronique, polyglobulie — et le traitement au long cours, en renvoyant la décompensation aiguë vers la fiche dédiée (insuffisance respiratoire aiguë).",
+      "Sources vérifiées le 2026-10-31 : BTS home oxygen (Hardinge M, et al. Thorax 2015;70(Suppl 1):i1-i43, doi:10.1136/thoraxjnl-2015-206865, confirmé sur PubMed) et ERS long-term home NIV (Ergan B, et al. Eur Respir J 2019;54(3):1901003, doi:10.1183/13993003.01003-2019, confirmé sur PubMed et la page éditeur ERS).",
+      "Les seuils d'oxygénothérapie de longue durée cités (PaO2 ≤ 55 mmHg, ou 56-59 mmHg avec hypertension pulmonaire ou polyglobulie, ≥ 15 heures/jour) sont les critères classiques repris par le guideline BTS.",
+      "L'image du concentrateur d'oxygène à domicile est servie depuis Wikimedia Commons (fichier Home oxygen concentrator.jpg, licence CC BY-SA 2.0 UK vérifiée sur la page du fichier, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Seuils gazométriques classiques cités d'après les recommandations, sans protocoles détaillés.",
+      "Terrain malgache intégré : séquelles de tuberculose, BPCO post-fumées de bois, accès limité à l'oxygène — l'oxygénothérapie est présentée avec ses contraintes réelles d'approvisionnement."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'insuffisance respiratoire chronique est la défaillance durable de l'appareil respiratoire : les échanges gazeux ne suffisent plus à maintenir une hématose normale, au repos ou à l'effort, de façon installée et souvent définitive."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce n'est pas un diagnostic, c'est un état — la conséquence commune de maladies très différentes : obstructives comme la BPCO, restrictives comme les séquelles de tuberculose ou les cyphoscolioses, centrales ou neuromusculaires. La gazométrie la définit, la cause l'explique, le traitement la soulage."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "L'insuffisance respiratoire chronique décompensée — surinfection, bronchospasme, embolie — est une urgence vitale : l'hypercapnie et l'acidose s'installent vite sur un système déjà en limite. La fiche insuffisance respiratoire aiguë en détaille la prise en charge."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Définition et mécanismes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La définition est gazométrique, artérielle, à l'état stable : PaO2 < 60 mmHg, avec ou sans hypercapnie. Le type hypoxémique — PaO2 bas, PaCO2 normale ou basse — traduit un trouble de l'échange ; le type hypercapnique — PaCO2 élevée — traduit une défaillance ventilatoire."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insuffisance respiratoire chronique hypoxémique : PaO2 < 60 mmHg, PaCO2 ≤ 45 mmHg — fibroses, emphysème, shunts.",
+            "Insuffisance respiratoire chronique hypercapnique : PaCO2 > 45 mmHg — BPCO sévère, obésité-hypoventilation, neuromusculaire, cyphoscoliose.",
+            "Forme mixte : hypoxémie et hypercapnie associées, la plus fréquente au stade avancé de la BPCO.",
+            "Compensation chronique : polyglobulie réactionnelle à l'hypoxémie, rétention hydrosodée, hypertension pulmonaire — puis cœur pulmonaire chronique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "PaO2 < 60 mmHg à l'état stable : insuffisance respiratoire chronique. Le mécanisme — échange ou ventilation — oriente la cause et le traitement : oxygène pour l'un, ventilation pour l'autre."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur la gazométrie artérielle à l'état stable, répétée à distance de toute décompensation. L'exploration fonctionnelle, l'imagerie et l'étude du sommeil complètent l'évaluation de la cause et du retentissement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gaz du sang artériels à l'état stable : PaO2, PaCO2, pH, bicarbonates — la compensation rénale élève les bicarbonates dans l'hypercapnie chronique.",
+            "Exploration fonctionnelle : spirométrie avec mesure du rapport Tiffeneau et des volumes — obstructif ou restrictif ; test de marche de six minutes pour le retentissement.",
+            "Radiographie de thorax et selon le contexte scanner : étiologie, emphysème, fibrose, séquelles tuberculeuses.",
+            "Échocardiographie : pression artérielle pulmonaire, ventricule droit — cœur pulmonaire chronique.",
+            "Nfs : polyglobulie. Étude du sommeil si suspicion de syndrome d'apnées ou d'hypoventilation.",
+            "Échocardiographie et ECG pour le retentissement droit ; bilan nutritionnel — la dénutrition aggrave le pronostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Toute dyspnée chronique mérite une gazométrie — pas seulement une spirométrie. C'est la PaO2 et la PaCO2 qui définissent l'insuffisance respiratoire et déclenchent les décisions d'oxygénothérapie et de ventilation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BTS-2015-O2",
+          "organization": "BTS",
+          "title": "BTS guidelines for home oxygen use in adults",
+          "year": 2015
+        },
+        {
+          "id": "SRC-ERS-2019-VNI",
+          "organization": "ERS",
+          "title": "ERS guidelines on long-term home non-invasive ventilation for management of COPD",
+          "year": 2019
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les causes s'ordonnent en trois familles : obstructives — la BPCO en tête —, restrictives parenchymateuses ou pariétales, et les défaillances du commande ventilatoire — obésité, neuromusculaire, central."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Obstructives : BPCO, asthme sévère fixé, bronchectasies diffuses — l'hypercapnie apparaît au stade avancé.",
+            "Restrictives parenchymateuses : fibroses pulmonaires, pneumoconioses, séquelles étendues de tuberculose — fréquentes à Madagascar.",
+            "Restrictives pariétales : cyphoscoliose sévère, obésité morbide avec syndrome d'hypoventilation.",
+            "Neuromusculaires et centrales : sclérose latérale amyotrophique, myopathies, syndrome d'apnées obstructives du sommeil évolué.",
+            "Terrain malgache : séquelles tuberculeuses bilatérales, fumées de bois chez la femme, tuberculose multirésistante — l'étiologie restrictive post-tuberculeuse y est surreprésentée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Une hypercapnie chronique ne se corrige pas brutalement : l'oxygène doit être titré avec prudence chez l'hypercapnique, pour ne pas aggraver l'hypoventilation. Le but est une saturation cible, pas une PaO2 normale."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement au long cours",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement suit quatre axes : traiter la cause quand c'est possible, corriger l'hypoxémie, soulager le travail ventilatoire, et prévenir les décompensations. L'oxygénothérapie de longue durée et la ventilation non invasive en sont les deux piliers."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Home_oxygen_concentrator.jpg?width=900",
+          "alt": "Concentrateur d'oxygène à domicile : appareil délivrant l'oxygénothérapie de longue durée au patient insuffisant respiratoire chronique",
+          "caption": "Le concentrateur d'oxygène : l'oxygénothérapie de longue durée à domicile.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 2.0 UK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Home_oxygen_concentrator.jpg"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygénothérapie de longue durée : PaO2 ≤ 55 mmHg à l'état stable, ou 56-59 mmHg avec hypertension pulmonaire, cœur pulmonaire ou polyglobulie — délivrée au moins 15 heures par jour, de façon continue.",
+            "Ventilation non invasive à domicile : indication dans l'insuffisance respiratoire hypercapnique chronique sévère, notamment BPCO avec hypercapnie persistante après décompensation, obésité-hypoventilation, neuromusculaire.",
+            "Traitement de la cause : sevrage tabagique, prise en charge spécifique de la fibrose, de la tuberculose, du syndrome d'apnées.",
+            "Réhabilitation respiratoire : réentraînement à l'effort, kinésithérapie, désencombrement bronchique.",
+            "Prévention des décompensations : vaccination antigrippale et antipneumococcique, traitement précoce des surinfections, éducation du patient et de l'entourage.",
+            "Terrain malgache : concentrer l'oxygène plutôt que les bouteilles — approvisionnement en électricité et maintenance à planifier avec le patient."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Somnolence, céphalées matinales, flapping : l'hypercapnie s'aggrave — gaz du sang immédiat et avis ventilatoire. Une décompensation sur insuffisance respiratoire chronique se traite en milieu hospitalier, avec l'oxygène titré et la ventilation non invasive prête."
+        },
+        {
+          "type": "paragraph",
+          "text": "La transplantation pulmonaire est l'horizon de certains patients jeunes avec fibrose ou emphysème sévère — hors de portée dans la plupart des contextes locaux, mais à connaître pour ne pas fermer l'avenir du patient."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BTS-2015-O2",
+          "organization": "BTS",
+          "title": "BTS guidelines for home oxygen use in adults",
+          "year": 2015
+        },
+        {
+          "id": "SRC-ERS-2019-VNI",
+          "organization": "ERS",
+          "title": "ERS guidelines on long-term home non-invasive ventilation for management of COPD",
+          "year": 2019
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est celle de la cause — tabac, tuberculose traitée jusqu'au bout, exposition aux fumées — et celle des décompensations : chaque épisode aggrave la fonction restante. Le suivi est cadencé, éduqué, planifié."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prévention primaire : sevrage tabagique, ventilation des foyers de combustion domestique, traitement complet des tuberculoses.",
+            "Prévention secondaire : vaccination antigrippale et antipneumococcique annuelle, éducation à la reconnaissance précoce des surinfections.",
+            "Suivi gazométrique et fonctionnel régulier : ajustement des débits d'oxygène, des réglages de ventilation.",
+            "Éducation : technique de l'oxygénothérapie, observance des 15 heures, signes qui imposent de revenir.",
+            "Accompagnement nutritionnel et psychologique — la dénutrition et l'anxiété aggravent l'évolution."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "L'insuffisance respiratoire chronique vit par ses décompensations : les fiches BPCO et insuffisance respiratoire aiguë prennent le relais pour la cause la plus fréquente et la crise."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Définition gazométrique : PaO2 < 60 mmHg à l'état stable, hypoxémique, hypercapnique ou mixte.",
+            "Le mécanisme oriente : échange — restrictif — contre ventilation — obstructif, central, neuromusculaire.",
+            "Oxygénothérapie de longue durée : PaO2 ≤ 55 mmHg, au moins 15 heures par jour, titrée.",
+            "Ventilation non invasive : l'hypercapnie chronique sévère, à domicile.",
+            "Prévenir les décompensations : c'est là que se joue le pronostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir définir gazométriquement, classer par mécanisme, citer les critères d'oxygénothérapie de longue durée et les indications de ventilation non invasive : c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont le guideline BTS 2015 sur l'oxygène à domicile et les recommandations ERS 2019 sur la ventilation non invasive à domicile."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hardinge M, et al. BTS guidelines for home oxygen use in adults. Thorax 2015.",
+            "Ergan B, et al. ERS guidelines on long-term home non-invasive ventilation for management of COPD. Eur Respir J 2019."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-irc",
+      "label": "C.H.R.O.N.I.Q.U.E.",
+      "intro": "La définition, les causes et les décisions de l'insuffisance respiratoire chronique.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Chronique : gaz du sang à l'état stable, PaO2 < 60 mmHg, à distance de toute crise"
+        },
+        {
+          "key": "H",
+          "term": "Hypercapnie : PaCO2 > 45 mmHg — défaillance ventilatoire, VNI à domicile"
+        },
+        {
+          "key": "R",
+          "term": "Retentissement : hypertension pulmonaire, cœur pulmonaire, polyglobulie"
+        },
+        {
+          "key": "O",
+          "term": "Oxygène longue durée : PaO2 ≤ 55 mmHg, 15 heures par jour minimum, titré"
+        },
+        {
+          "key": "N",
+          "term": "Neuromusculaire et obésité : causes d'hypoventilation à connaître"
+        },
+        {
+          "key": "I",
+          "term": "Iatrogénie évitée : pas d'oxygène haut débit chez l'hypercapnique chronique"
+        },
+        {
+          "key": "Q",
+          "term": "Qualité de vie : réhabilitation respiratoire, nutrition, éducation"
+        },
+        {
+          "key": "U",
+          "term": "Urgence : décompensation aiguë — hospitalisation, VNI prête"
+        },
+        {
+          "key": "E",
+          "term": "Étiologies locales : séquelles de tuberculose, fumées de bois — Madagascar"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-irc-1",
+      "front": "Quelle est la définition gazométrique de l'insuffisance respiratoire chronique ?",
+      "back": "PaO2 < 60 mmHg à l'état stable, à distance de toute décompensation — avec ou sans hypercapnie."
+    },
+    {
+      "id": "fc-irc-2",
+      "front": "Quelle différence entre IRC hypoxémique et hypercapnique ?",
+      "back": "Hypoxémique : PaO2 bas, PaCO2 normale — trouble des échanges. Hypercapnique : PaCO2 > 45 mmHg — défaillance ventilatoire."
+    },
+    {
+      "id": "fc-irc-3",
+      "front": "Quels critères d'oxygénothérapie de longue durée ?",
+      "back": "PaO2 ≤ 55 mmHg à l'état stable, ou 56-59 mmHg avec hypertension pulmonaire, cœur pulmonaire ou polyglobulie ; délivrée ≥ 15 heures par jour."
+    },
+    {
+      "id": "fc-irc-4",
+      "front": "Pourquoi titrer l'oxygène chez l'hypercapnique chronique ?",
+      "back": "Un excès d'oxygène aggrave l'hypoventilation et l'hypercapnie : viser une saturation cible, pas une PaO2 normale."
+    },
+    {
+      "id": "fc-irc-5",
+      "front": "Quelles complications de l'hypoxémie chronique ?",
+      "back": "Polyglobulie, hypertension pulmonaire, cœur pulmonaire chronique, rétention hydrosodée."
+    },
+    {
+      "id": "fc-irc-6",
+      "front": "Quelle est la cause obstructive la plus fréquente d'IRC ?",
+      "back": "La BPCO au stade avancé — souvent forme mixte, hypoxémie et hypercapnie."
+    },
+    {
+      "id": "fc-irc-7",
+      "front": "Quelles causes restrictives pariétales ?",
+      "back": "Cyphoscoliose sévère, obésité morbide avec syndrome d'hypoventilation."
+    },
+    {
+      "id": "fc-irc-8",
+      "front": "Quelle cause restrictive est surreprésentée à Madagascar ?",
+      "back": "Les séquelles pulmonaires étendues de tuberculose, souvent bilatérales."
+    },
+    {
+      "id": "fc-irc-9",
+      "front": "Quelle est l'indication de ventilation non invasive à domicile ?",
+      "back": "L'insuffisance respiratoire hypercapnique chronique sévère : BPCO avec hypercapnie persistante, obésité-hypoventilation, maladies neuromusculaires."
+    },
+    {
+      "id": "fc-irc-10",
+      "front": "Comment prévenir les décompensations d'une IRC ?",
+      "back": "Vaccination antigrippale et antipneumococcique, traitement précoce des surinfections, éducation du patient, observance de l'oxygénothérapie."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-irc-root",
+      "label": "Insuffisance respiratoire chronique",
+      "detail": "Un état, pas un diagnostic : hypoxémie et parfois hypercapnie installées, causes obstructives, restrictives ou ventilatoires — oxygène et ventilation au long cours."
+    },
+    "branches": [
+      {
+        "id": "map-irc-def",
+        "label": "Définition",
+        "detail": "Gazométrique, à l'état stable.",
+        "children": [
+          {
+            "id": "map-irc-def-1",
+            "label": "Seuils",
+            "leaves": [
+              {
+                "id": "map-irc-def-1a",
+                "label": "PaO2 < 60 mmHg"
+              },
+              {
+                "id": "map-irc-def-1b",
+                "label": "PaCO2 > 45 mmHg : hypercapnie"
+              }
+            ]
+          },
+          {
+            "id": "map-irc-def-2",
+            "label": "Compensation",
+            "leaves": [
+              {
+                "id": "map-irc-def-2a",
+                "label": "Bicarbonates élevés"
+              },
+              {
+                "id": "map-irc-def-2b",
+                "label": "Polyglobulie"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-irc-causes",
+        "label": "Causes",
+        "detail": "Obstructives, restrictives, ventilatoires.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-irc-causes-1",
+            "label": "Obstructives",
+            "leaves": [
+              {
+                "id": "map-irc-causes-1a",
+                "label": "BPCO sévère"
+              },
+              {
+                "id": "map-irc-causes-1b",
+                "label": "Bronchectasies, asthme fixé"
+              }
+            ]
+          },
+          {
+            "id": "map-irc-causes-2",
+            "label": "Restrictives et ventilatoires",
+            "leaves": [
+              {
+                "id": "map-irc-causes-2a",
+                "label": "Séquelles de tuberculose, fibrose"
+              },
+              {
+                "id": "map-irc-causes-2b",
+                "label": "Cyphoscoliose, obésité, neuromusculaire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-irc-trt",
+        "label": "Traitement",
+        "detail": "Oxygène, ventilation, cause, réhabilitation.",
+        "children": [
+          {
+            "id": "map-irc-trt-1",
+            "label": "Oxygène",
+            "leaves": [
+              {
+                "id": "map-irc-trt-1a",
+                "label": "PaO2 ≤ 55 mmHg, ≥ 15 h/j"
+              },
+              {
+                "id": "map-irc-trt-1b",
+                "label": "Titré chez l'hypercapnique"
+              }
+            ]
+          },
+          {
+            "id": "map-irc-trt-2",
+            "label": "Ventilation et fond",
+            "leaves": [
+              {
+                "id": "map-irc-trt-2a",
+                "label": "VNI domicile si hypercapnie"
+              },
+              {
+                "id": "map-irc-trt-2b",
+                "label": "Réhabilitation, vaccinations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-irc-comp",
+        "label": "Complications et suivi",
+        "detail": "Cœur pulmonaire, décompensations.",
+        "children": [
+          {
+            "id": "map-irc-comp-1",
+            "label": "Retentissement",
+            "leaves": [
+              {
+                "id": "map-irc-comp-1a",
+                "label": "HTP, cœur pulmonaire"
+              },
+              {
+                "id": "map-irc-comp-1b",
+                "label": "Dénutrition, polyglobulie"
+              }
+            ]
+          },
+          {
+            "id": "map-irc-comp-2",
+            "label": "Décompensations",
+            "leaves": [
+              {
+                "id": "map-irc-comp-2a",
+                "label": "Surinfection, bronchospasme"
+              },
+              {
+                "id": "map-irc-comp-2b",
+                "label": "Hospitalisation, VNI prête"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-BTS-2015-O2",
+      "title": "BTS guidelines for home oxygen use in adults",
+      "citation": "Hardinge M, Annandale J, Bourne S, et al. British Thoracic Society guidelines for home oxygen use in adults. Thorax. 2015 ; 70 (Suppl 1) : i1-i43. doi:10.1136/thoraxjnl-2015-206865.",
+      "organization": "British Thoracic Society (BTS)",
+      "year": 2015,
+      "version": "2015 guidelines",
+      "url": "https://doi.org/10.1136/thoraxjnl-2015-206865",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères d'oxygénothérapie de longue durée",
+        "Durée minimale de 15 heures par jour",
+        "Modalités de délivrance à domicile"
+      ]
+    },
+    {
+      "id": "SRC-ERS-2019-VNI",
+      "title": "ERS guidelines on long-term home non-invasive ventilation for management of COPD",
+      "citation": "Ergan B, Komnenov D, Hart N, et al. European Respiratory Society guidelines on long-term home non-invasive ventilation for management of COPD. Eur Respir J. 2019 ; 54 (3) : 1901003. doi:10.1183/13993003.01003-2019.",
+      "organization": "European Respiratory Society (ERS)",
+      "year": 2019,
+      "version": "2019 guidelines",
+      "url": "https://doi.org/10.1183/13993003.01003-2019",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Indications de ventilation non invasive à domicile",
+        "Prise en charge de l'hypercapnie chronique",
+        "Suivi des patients ventilés"
+      ]
+    }
+  ]
+}
