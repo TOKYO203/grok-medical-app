@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "infections-cutanees",
+  "title": "Infections cutanées bactériennes",
+  "specialty": "Dermatologie",
+  "objective": "Classer les infections cutanées bactériennes superficielles et profondes (impétigo, folliculite, furoncle, érysipèle, cellulite, abcès), reconnaître les signes de gravité des dermohypodermites nécrosantes, et prescrire le traitement topique ou systémique adapté, en contexte tropical.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 124,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 165,
+      "localNumber": 124,
+      "sectionLabel": "Médecine",
+      "title": "Infections cutanées bactériennes",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Infections cutanées bactériennes : spectre du superficiel (impétigo à streptocoque A/staphylocoque doré — non bulleux et bulleux ; folliculite, furoncle, ecthyma) au profond (érysipèle, dermohypodermite aiguë non nécrosante à streptocoque, cellulite, abcès à staphylocoque, dermohypodermite nécrosante et fasciite nécrosante comme urgences), portes d'entrée (intertrigos, gale, plaies, pédiculose, morsures), terrain (diabète, immunodépression, lymphœdème), traitement gradué : désinfection et antibiotiques topiques pour l'impétigo limité, pénicilline/amoxicilline pour l'érysipèle, incision-drainage des abcès, et urgence chirurgicale + pénicilline G + clindamycine pour les formes nécrosantes, contexte Madagascar (impétigo endémique de l'enfant, associé à la gale).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Recommandations de référence SSTI : Stevens DL, Bisno AL, Chambers HF, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update by the IDSA. Clin Infect Dis. 2014;59(2):e10-52 — DOI 10.1093/cid/ciu296, tel qu'affiché sur la page officielle OUP du guideline (academic.oup.com/cid/article/59/2/e10), confirmé avant citation.",
+      "Traitement de l'impétigo : Koning S, et al. Interventions for impetigo. Cochrane Database Syst Rev. 2012;(1):CD003261 — DOI 10.1002/14651858.CD003261.pub3, confirmé via Cochrane Library avant citation.",
+      "Pas d'image : photographies cliniques existent sur Commons mais aucune illustration avec licence vérifiée n'a été retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Spectre : superficiel (impétigo, folliculite, furoncle, ecthyma) vs profond (érysipèle, cellulite, abcès, dermohypodermite nécrosante)",
+      "Impétigo non bulleux (streptocoque A ++) et bulleux (staphylocoque doré, toxine exfoliative)",
+      "Érysipèle : placard inflammatoire en relief, bien limité, fièvre, adénopathie, streptocoque — pénicilline",
+      "Cellulite vs érysipèle vs dermohypodermite nécrosante : critères de gravité (douleur disproportionnée, crépitation, toxémie)",
+      "Portes d'entrée : intertrigo, gale, plaie, morsure, ulcère, lymphœdème — toujours chercher et traiter",
+      "Traitement : topique (mupirocine) si impétigo limité ; systémique si étendu, érysipèle, cellulite ; incision-drainage des abcès",
+      "Urgence : fasciite nécrosante = chirurgie immédiate + antibiothérapie",
+      "Contexte Madagascar : impétigo endémique de l'enfant, association avec la gale, terrain diabétique",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections cutanées bactériennes vont de la simple folliculite à la fasciite nécrosante engageant le pronostic vital. Elles représentent un motif de consultation très fréquent en contexte tropical, favorisées par la chaleur, l'humidité, la promiscuité et les portes d'entrée cutanées (grattage de la gale, intertrigos mycosiques, morsures, plaies souillées). Deux germes dominent : le streptocoque bêta-hémolytique du groupe A et le staphylococcus aureus."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Classer en trois étages",
+          "text": "1) INFECTION SUPERFICIELLE (épiderme) : impétigo, ecthyma — topiques possibles. 2) INFECTION DU DERME : érysipèle, cellulite — antibiothérapie systémique. 3) INFECTION SOUS-CUTANÉE PROFONDE : abcès (drainage obligatoire), dermohypodermite nécrosante et fasciite (urgence chirurgicale). L'étage détermine le traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant malgache comme dans tout contexte tropical, l'impétigo est endémique et souvent associé à la gale : les lésions de grattage sont la porte d'entrée des streptocoques et staphylocoques — traiter la gale fait partie du traitement de l'impétigo."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie et portes d'entrée",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Le streptocoque du groupe A (Streptococcus pyogenes) : impétigo non bulleux, érysipèle, dermohypodermites ; complications immunologiques à distance (glomérulonéphrite aiguë post-infectieuse, rhumatisme articulaire aigu).",
+            "Le staphylococcus aureus : impétigo bulleux (toxine exfoliative), folliculites, furoncles, abcès, syndromes toxiques ; résistance croissante à la méticilline à l'hôpital.",
+            "Portes d'entrée à rechercher TOUJOURS : intertrigo des orteils (pied d'athlète), gale et pédiculose, eczéma gratté, ulcères, morsures, points d'injection, lymphœdème post-thrombotique ou filarien.",
+            "Terrains favorisants : diabète, obésité, insuffisance veineuse et œdèmes, immunodépression (VIH), dénutrition, alcoolisme, hygiène précaire en collectivités."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Principales entités cliniques",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Infections superficielles"
+        },
+        {
+          "type": "list",
+          "items": [
+            "IMPÉTIGO non bulleux : macules puis vésicules-pustules à croûtes jaunâtres « mélifiques », visage et membres de l'enfant ; contagieux.",
+            "IMPÉTIGO bulleux : bulles flasques à contenu clair puis trouble, érosion circulaire à bord décollé en collerette, staphylocoque doré.",
+            "ECTHYMA : forme ulcéro-croûteuse profonde du tibia, atteint le derme, cicatrisation lente.",
+            "FOLLICULITE : pustules centrées par un poil ; FURONCLE : nécrose du follicule (clapier central) ; ANTHRAX : furoncles confluents du dos et de la nuque."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Infections profondes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "ÉRYSIPÈLE : placard rouge, chaud, œdématié, en relief, bien limité avec bord net, fièvre élevée, frissons, adénopathie satellite ; jambe ++, visage ; streptocoque du groupe A ; récidives par atteinte lymphatique.",
+            "CELLULITE (dermohypodermite aiguë non spécifiée) : inflammation plus profonde, bords moins nets, atteinte des tissus sous-cutanés ; germe variable selon la porte d'entrée.",
+            "ABCÈS cutané : masse chaude, douloureuse, fluctuente, collection purulente — le traitement est le DRAINAGE, l'antibiothérapie seule ne suffit pas.",
+            "DERMOHYPODERMITE NÉCROSANTE / FASCIITE NÉCROSANTE : douleur intense disproportionnée aux signes cutanés, induration ligneuse, ecchymoses, bulles hémorragiques, crépitation, toxémie, hypotension — urgence absolue."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Dermohypodermite nécrosante",
+          "text": "Douleur « en coup de poignard » disproportionnée + altération de l'état général + purpura ecchymotique ou bulles hémorragiques = chirurgie immédiate : exérèse de tous les tissus nécrotiques sans attendre l'imagerie, pénicilline G à forte dose + clindamycine (± vancomycine si suspicion de staphylocoque résistant), réanimation hydro-électrolytique. Chaque heure de retard augmente la mortalité."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic des infections superficielles et de l'érysipèle est CLINIQUE. Aides utiles : prélèvement bactériologique des croûtes/pus avant antibiothérapie (impétigo extensif, abcès, échec thérapeutique), hémocultures si fièvre élevée (érysipèle, cellulite), NFS-CRP, glycémie (diabète à dépister). Devant toute dermohypodermite fébrile, évaluer les signes de gravité : douleur disproportionnée, induration ligneuse, bulles, purpura, crépitation gazeuse, défaillance hémodynamique, biologie (le score LRINEC aide mais ne retarde jamais la chirurgie).",
+          "sources": [
+            {
+              "id": "stevens2014",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update",
+              "year": 2014
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne jamais se tromper d'étage",
+          "text": "Une cellulite du diabétique ou une dermohypodermite sur pied d'athlète doit faire chercher une porte d'entrée (intertrigo interorteils systématique) et une ostéite sous-jacente si la sonde métallique touche l'os au fond de l'ulcère. Une simple folliculite peut devenir une cellulite sévère chez le diabétique — examiner les pieds à chaque fois."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diagnostics différentiels de l'érysipèle : cellulite staphylococcique, érysipéloïde de Baker-Rosenbach (porcs, poissons), dermatite de contact, gale profuse, leptospirose (ictère, myalgies), réaction médicamenteuse.",
+            "Germes selon contexte : pasteurella après morsure de chat/chien, vibrio et aeromonas après eau de mer ou eau douce, mycobacterium ulcerans (ulcère de Buruli) sur ulcère chronique tropical — à connaître en zone endémique."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Mesures locales universelles : lavage au savon et à l'eau, désinfection (antiseptique), ablation des croûtes de l'impétigo (compresses imbibées), pansements ; ongles courts, linge et serviettes individuels.",
+            "IMPÉTIGO limité (peu de lésions) : antibiotique TOPIQUE seul (mupirocine 2 % 3 fois/jour 5-7 jours) ; formes étendues, ecthyma ou contexte épidémique : antibiothérapie ORALE active sur streptocoque A et staphylocoque (pénicilline anti-staphylococcique ou macrolide si allergie ; cotrimoxazole possible en zone de forte prévalence de S. aureus résistant).",
+            "FOLLICULITES simples : antiseptiques locaux ; FURONCLES : application chaude locale, incision-drainage du furoncle mûr, jamais de manipulation du furoncle de la face (risque de thrombose du sinus caverneux).",
+            "ÉRYSIPÈLE : pénicilline (pénicilline G ou V, ou amoxicilline) 7-10 jours par voie orale ; formes sévères : hospitalisation et voie intraveineuse ; traitement de la porte d'entrée et de l'œdème (contention, surélévation du membre) ; prophylaxie au long cours des récidives discutée (pénicilline retard).",
+            "CELLULITE : antibiothérapie couvrant streptocoque et staphylocoque (amoxicilline-acide clavulanique), réévaluation à 48-72 h ; ABCÈS : incision-drainage systématique, antibiothérapie si cellulite environnante, immunodépression ou localisation au visage.",
+            "DERMOHYPODERMITE NÉCROSANTE : urgence chirurgicale (exérèse large) + pénicilline G + clindamycine ± vancomycine, réanimation ; ré-exploration régulière au bloc.",
+            "Terrain : équilibrer le diabète, traiter la gale, l'intertrigo et le lymphœdème, dépister le VIH si infections récidivantes."
+          ],
+          "sources": [
+            {
+              "id": "stevens2014",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update",
+              "year": 2014
+            },
+            {
+              "id": "koning2012",
+              "organization": "Cochrane Library",
+              "title": "Interventions for impetigo",
+              "year": 2012
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe thérapeutique",
+          "text": "1) Définir l'étage : superficiel → topique ; derme → systémique ; abcès → drainage ; nécrose → bloc opératoire. 2) Prélever avant d'antibiotiquer. 3) Chercher ET traiter la porte d'entrée (intertrigo, gale, ulcère, morsure). 4) Réévaluer à 48-72 h : absence d'amélioration = reconsidérer le germe, faire un prélèvement, penser à l'abcès profond ou à la nécrose.",
+          "sources": [
+            {
+              "id": "stevens2014",
+              "organization": "IDSA (Clinical Infectious Diseases)",
+              "title": "Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update",
+              "year": 2014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hygiène corporelle et cutanée : lavage régulier, séchage des plis, savon antiseptique lors des poussées d'impétigo en collectivité.",
+            "Traitement des portes d'entrée chroniques : intertrigos mycosiques, gale, pédiculose, eczéma — la récidive d'érysipèle est presque toujours liée à une porte d'entrée non traitée.",
+            "Éviter la manipulation des furoncles (surtout de la face) et le rasage traumatisant.",
+            "Prise en charge du lymphœdème (contention élastique, drainage) pour prévenir les récidives d'érysipèle.",
+            "Éducation des collectivités (écoles, fratries) : linge et serviettes individuels, ongles courts, ne pas gratter ; dépistage et traitement simultané de la gale.",
+            "Diabète : contrôle glycémique, soins des pieds, examen régulier des orteils."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Couple gale-impétigo",
+          "text": "En zone tropicale, la gale de l'enfant est la première pourvoyeuse d'impétigo : grattage → excoriation → streptocoques/staphylocoques. Devant un impétigo de l'enfant, examiner toute la famille, traiter la gale (ivermectine ou perméthrine) ET l'impétigo ensemble, sinon la rechute est la règle."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections cutanées bactériennes se classent en étages — superficiel (impétigo, topiques), dermique (érysipèle, cellulite, systémiques) et profond (abcès à drainer, dermohypodermite nécrosante à opérer). La démarche constante est : identifier l'étage, chercher la porte d'entrée, prélever avant d'antibiotiquer, et traiter le terrain (diabète, gale, intertrigo, lymphœdème). La douleur disproportionnée d'une dermohypodermite est une urgence chirurgicale absolue : le pronostic vital se joue au bloc opératoire, pas à l'antibiogramme."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Stevens DL, Bisno AL, Chambers HF, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update by the IDSA. Clin Infect Dis. 2014;59(2):e10-52 (DOI 10.1093/cid/ciu296).",
+            "Koning S, van der Sande R, Verhagen AP, et al. Interventions for impetigo. Cochrane Database Syst Rev. 2012;(1):CD003261 (DOI 10.1002/14651858.CD003261.pub3)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fasciite nécrosante",
+      "text": "Douleur disproportionnée + toxémie + ecchymoses ou crépitation : chirurgie immédiate (exérèse), pénicilline G + clindamycine, réanimation. Le retard au bloc tue ; aucun examen d'imagerie ne doit le retarder."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Porte d'entrée toujours cherchée",
+      "text": "Intertrigo interorteils, gale, ulcère, morsure, lymphœdème : l'antibiothérapie sans traitement de la porte d'entrée conduit à la rechute systématique — examiner les pieds et le tronc sous les vêtements."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Abcès = drainage",
+      "text": "Aucune antibiothérapie ne remplace l'incision-drainage d'un abcès cutané : masse fluctuente = bistouri (après anesthésie locale), prélèvement du pus, pansement, réévaluation."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Deux germes, deux tableaux",
+      "text": "Streptocoque A : érysipèle (placard en relief bien limité, fièvre, pénicilline). Staphylocoque doré : abcès et furoncles (drainage) et impétigo bulleux. Les deux coexistent dans l'impétigo et la cellulite."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Jamais presser un furoncle de la face",
+      "text": "La manipulation du furoncle de la face risque la dissémination veineuse vers le sinus caverneux (thrombose cavernine) : traitement médical, application chaude, incision prudente si nécessaire, jamais de pression."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "P.E.A.U.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Porte d'entrée : intertrigo, gale, plaie, morsure — toujours chercher"
+        },
+        {
+          "key": "E",
+          "term": "Étage : superficiel (topique), derme (systémique), profond (bloc)"
+        },
+        {
+          "key": "A",
+          "term": "Abcès : drainage chirurgical obligatoire"
+        },
+        {
+          "key": "U",
+          "term": "Urgence : douleur disproportionnée + toxémie = dermohypodermite nécrosante"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Deux principaux germes des infections cutanées bactériennes ?",
+      "back": "Streptococcus pyogenes (groupe A) et Staphylococcus aureus ; pasteurella après morsure, vibrio/aeromonas après eaux en contexte évocateur."
+    },
+    {
+      "id": "f2",
+      "front": "Impétigo non bulleux : agent et aspect ?",
+      "back": "Streptocoque A (++), parfois staphylocoque : vésicules-pustules à croûtes jaunâtres mélifiques, visage et membres de l'enfant, contagieux."
+    },
+    {
+      "id": "f3",
+      "front": "Impétigo bulleux : agent et mécanisme ?",
+      "back": "Staphylococcus aureus sécréteur de toxine exfoliative : bulles flasques, érosions circulaires à bord décollé en collerette."
+    },
+    {
+      "id": "f4",
+      "front": "Traitement de l'impétigo limité ?",
+      "back": "Antibiotique topique seul : mupirocine 2 % 3 fois/jour pendant 5-7 jours, avec ablation des croûtes et désinfection ; lésions étendues → antibiothérapie orale."
+    },
+    {
+      "id": "f5",
+      "front": "Complication immunologique post-streptococcique de l'impétigo ?",
+      "back": "Glomérulonéphrite aiguë post-infectieuse (après impétigo à streptocoque A) ; le rhumatisme articulaire aigu suit plutôt les angines."
+    },
+    {
+      "id": "f6",
+      "front": "Signes cliniques de l'érysipèle ?",
+      "back": "Placard inflammatoire en relief, rouge, chaud, douloureux, À BORD NET, + fièvre élevée d'installation brutale, frissons, adénopathie satellite ; jambe et visage ++."
+    },
+    {
+      "id": "f7",
+      "front": "Traitement de première intention de l'érysipèle ?",
+      "back": "Pénicilline (amoxicilline orale 7-10 jours ; intraveineuse si forme sévère) + repos, surélévation du membre, traitement de la porte d'entrée (intertrigo surtout)."
+    },
+    {
+      "id": "f8",
+      "front": "Pourquoi les érysipèles récidivent-ils ?",
+      "back": "Porte d'entrée non traitée (intertrigo interorteils, ulcère, lymphœdème) et atteinte lymphatique séquellaire : traiter la porte d'entrée et l'œdème prévient les récidives."
+    },
+    {
+      "id": "f9",
+      "front": "Érysipèle vs cellulite : différence ?",
+      "back": "Érysipèle : derme superficiel, placard en relief bien limité, streptocoque ; cellulite : derme profond et hypoderme, bords flous, germes variés selon la porte d'entrée."
+    },
+    {
+      "id": "f10",
+      "front": "Signes de gravité d'une dermohypodermite nécrosante ?",
+      "back": "Douleur intense disproportionnée aux lésions, induration ligneuse, ecchymoses/purpura, bulles hémorragiques, crépitation gazeuse, toxémie, hypotension, hyponatrémie, hyperleucocytose."
+    },
+    {
+      "id": "f11",
+      "front": "Traitement d'un abcès cutané fluctuent ?",
+      "back": "Incision-drainage chirurgical (jamais antibiothérapie seule), prélèvement bactériologique du pus, pansement ; antibiothérapie seulement si cellulite environnante, immunodépression ou localisation faciale."
+    },
+    {
+      "id": "f12",
+      "front": "Risque de la manipulation d'un furoncle de la face ?",
+      "back": "Thrombose du sinus caverneux par dissémination veineuse : jamais presser un furoncle de la face ; traitement médical et incision prudente si nécessaire."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "infcut",
+      "label": "Infections cutanées bactériennes"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Germes",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Streptocoque A : impétigo, érysipèle"
+          },
+          {
+            "id": "b1c2",
+            "label": "Staphylocoque doré : bulles, abcès"
+          },
+          {
+            "id": "b1c3",
+            "label": "Contexte : pasteurella, vibrio, Buruli"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Complications : GNA, RAA"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Superficiel",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Impétigo non bulleux / bulleux"
+          },
+          {
+            "id": "b2c2",
+            "label": "Ecthyma"
+          },
+          {
+            "id": "b2c3",
+            "label": "Folliculite, furoncle, anthrax"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Topique si limité (mupirocine)"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Derme",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Érysipèle : bord net, fièvre"
+          },
+          {
+            "id": "b3c2",
+            "label": "Cellulite : bords flous"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Pénicilline / amoxicilline-clav"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Profond",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Abcès : drainage"
+          },
+          {
+            "id": "b4c2",
+            "label": "Fasciite nécrosante : bloc urgent"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Pénicilline G + clindamycine"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Portes d'entrée",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Intertrigo, gale"
+          },
+          {
+            "id": "b5c2",
+            "label": "Plaies, morsures"
+          },
+          {
+            "id": "b5c3",
+            "label": "Ulcères, lymphœdème"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Diabète : examiner les pieds"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Hygiène, linge individuel"
+          },
+          {
+            "id": "b6c2",
+            "label": "Traiter gale + intertrigo"
+          },
+          {
+            "id": "b6c3",
+            "label": "Contention du lymphœdème"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Couple gale-impétigo en zone tropicale"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "stevens2014",
+      "title": "IDSA Practice Guidelines: Skin and Soft Tissue Infections 2014",
+      "citation": "Stevens DL, Bisno AL, Chambers HF, Dellinger EP, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 update by the Infectious Diseases Society of America. Clin Infect Dis. 2014;59(2):e10-52. DOI 10.1093/cid/ciu296.",
+      "organization": "IDSA (Clinical Infectious Diseases)",
+      "year": 2014,
+      "version": "Guidelines",
+      "url": "https://doi.org/10.1093/cid/ciu296",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Classification",
+        "Signes de gravité",
+        "Antibiothérapie",
+        "Abcès et formes nécrosantes"
+      ]
+    },
+    {
+      "id": "koning2012",
+      "title": "Interventions for impetigo",
+      "citation": "Koning S, van der Sande R, Verhagen AP, van Suijlekom-Smit LWA, Morris AD, Butler CC, Berger M, van der Wouden JC. Interventions for impetigo. Cochrane Database Syst Rev. 2012;(1):CD003261. DOI 10.1002/14651858.CD003261.pub3.",
+      "organization": "Cochrane Library",
+      "year": 2012,
+      "version": "Systematic review",
+      "url": "https://doi.org/10.1002/14651858.CD003261.pub3",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Impétigo : topiques vs systémiques",
+        "Durées de traitement",
+        "Efficacité comparative"
+      ]
+    }
+  ]
+}
