@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "grippe",
+  "title": "Grippe",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge la grippe : connaître les virus influenza (types A, B, C), la transmission aérienne et la saisonnalité, le tableau clinique typique (fièvre élevée, courbatures, toux, céphalées) et ses complications (pneumonie virale, surinfection bactérienne, exacerbations de maladies chroniques), les populations à risque, les tests diagnostiques rapides, les antiviraux (inhibiteurs de la neuraminidase : oseltamivir, zanamivir), l'antibiothérapie des surinfections et surtout la prévention par la vaccination annuelle et l'hygiène.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 9,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 50,
+      "localNumber": 9,
+      "sectionLabel": "Médecine",
+      "title": "Grippe",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Grippe. VIRUS INFLUENZA (types A et B responsables des épidémies saisonnières, C bénin) : ARN, enveloppé, antigènes H (hémagglutinine) et N (neuraminidase) ; DRIFT antigénique (mutations = épidémies annuelles) et SHIFT (réassortiment = pandémies, virus A zoonotique). Transmission AÉRIENNE (gouttelettes, aérosols), incubation 1-4 jours, contagiosité dès la veille des symptômes. Clinique : tableau TORSCALL AIGU — fièvre élevée d'apparition BRUTALE, céphalées, myalgies/arthralgies (courbatures), asthénie intense, toux sèche, rhinite discrète, pharyngite ; guérison en 5-7 jours mais asthénie persistante. Complications : PNEUMONIE (virale ou surinfection bactérienne à pneumocoque, staphylocoque, Haemophilus : cause majeure de décès), exacerbations de BPCO/asthme/insuffisance cardiaque, myocardite, encéphalite, otite ; FORMES GRAVES : sujet âgé, femme enceinte, nourrissons, maladies chroniques (respiratoires, cardiaques, rénales, diabète, obésité, immunodépression). Diagnostic : clinique en période d'épidémie ; tests RAPIDES (tests antigéniques, PCR) utiles pour la décision thérapeutique et la surveillance. Traitement : repos, hydratation, paracétamol ; ANTIVIRAUX (inhibiteurs de la neuraminidase : OSELTAMIVIR oral, ZANAMIVIR inhalé) surtout dans les 48 H chez les formes graves et sujets à risque ; ANTIBIOTHÉRAPIE seulement en cas de surinfection bactérienne ; formes graves = hospitalisation, oxygène, réanimation. Prévention : VACCINATION ANNUELLE (composition révisée chaque année, ciblée sur les sujets à risque selon les recommandations, femmes enceintes, personnels de santé), hygiène des mains, masque, mesures d'éviction pendant les épidémies.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Paules C, Subbarao K. Influenza. Lancet. 2017;390(10095):697-708 — DOI 10.1016/S0140-6736(17)30129-0 (PMID 28302313), page officielle The Lancet/ScienceDirect/PubMed consultée avant citation.",
+      "Source 2 : OMS, aide-mémoire « Influenza (seasonal) » — page officielle https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal) consultée avant citation.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Influenza A/B/C ; drift antigénique = épidémies, shift = pandémies",
+      "Transmission aérienne, incubation 1-4 jours, contagieux avant les symptômes",
+      "Tableau typique : fièvre brutale + courbatures + toux sèche + asthénie",
+      "Complications : pneumonie virale et surinfection bactérienne, exacerbations de maladies chroniques",
+      "Formes graves : sujet âgé, femme enceinte, nourrisson, maladies chroniques, obésité, immunodépression",
+      "Antiviraux (oseltamivir) dans les 48 h chez les sujets à risque ; pas d'antibiotique sans surinfection",
+      "Prévention : vaccination annuelle + hygiène",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La grippe est une infection respiratoire aiguë virale, très contagieuse, responsable d'épidémies annuelles qui touchent des millions de personnes et de complications pulmonaires sévères chez les sujets fragiles. Selon l'OMS, elle entraîne chaque année des épidémies saisonnières et jusqu'à plusieurs centaines de milliers de décès dans le monde, essentiellement par pneumonie et par exacerbation de maladies chroniques. Le vaccin annuel et l'hygiène restent les pierres angulaires de la prévention.",
+          "sources": [
+            {
+              "id": "who2025grippe",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Grippe saisonnière",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Grippe ≠ rhume ni gastro-entérite",
+          "text": "La grippe est une infection RESPIRATOIRE : fièvre élevée d'apparition BRUTALE, courbatures, céphalées, toux sèche, asthénie intense. Le rhume est plus lent, peu fébrile, avec rhinite dominante. Et « grippe intestinale » n'existe pas : les vomissements-diarrhées sont d'autres virus, pas influenza. Cette distinction oriente la vaccination, l'isolement et les antiviraux."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Virus, transmission et variation antigénique",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "AGENT : virus influenza (orthomyxovirus à ARN enveloppés) : TYPE A (sous-types selon H et N — H1N1, H3N2 ; réservoir animal aviaire/porcin), TYPE B (lignées Yamagata et Victoria, exclusivement humain), TYPE C (formes bénignes sporadiques).",
+            "ANTIGÈNES MAJEURS : hémagglutinine (H) et neuraminidase (N) — cibles des anticorps et des antiviraux (inhibiteurs de la neuraminidase).",
+            "DRIFT antigénique : petites mutations accumulées de H et N = épidémies ANNUELLES (d'où la révision annuelle de la composition du vaccin).",
+            "SHIFT antigénique : réassortiment entre souches animales et humaines = nouveau sous-type auquel la population n'est pas immune = PANDÉMIES (grippe espagnole 1918, H1N1 2009).",
+            "TRANSMISSION : aérienne par gouttelettes et aérosols, contact direct et surfaces ; INCUBATION 1-4 jours (en moyenne 2) ; contagieux dès la veille des symptômes jusqu'à 5-7 jours (plus longtemps chez l'immunodéprimé et l'enfant).",
+            "SAISONNALITÉ : épidémies hivernales dans les zones tempérées ; à Madagascar, circulation possible toute l'année avec des pics en saison fraîche — la vigilance doit rester constante."
+          ],
+          "sources": [
+            {
+              "id": "paules2017",
+              "organization": "The Lancet",
+              "title": "Influenza",
+              "year": 2017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique et complications",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "TABLEAU TYPIQUE : fièvre élevée (39-40 °C) d'apparition BRUTALE, frissons, céphalées, MYALGIES et arthralgies (courbatures intenses), asthénie profonde, anorexie, toux sèche, rhinite discrète, pharyngite, conjonctivite possible ; examen thoracique souvent normal au début.",
+            "ÉVOLUTION : défervescence en 3-5 jours, guérison en 5-7 jours ; toux et asthénie qui peuvent persister 1-2 semaines ; guérison spontanée chez le sujet sain.",
+            "COMPLICATIONS RESPIRATOIRES : PNEUMONIE VIRALE (progression rapide, hypoxie, surtout sujet à risque — urgence), SURINFECTION BACTÉRIENNE (pneumocoque, staphylocoque doré, Haemophilus influenzae : rechute fébrile après amélioration, expectoration purulente), exacerbation d'asthme, de BPCO, de l'insuffisance cardiaque, croupe chez l'enfant, otite moyenne aiguë, sinusite.",
+            "COMPLICATIONS EXTRARESPIRATOIRES : myocardite et péricardite, encéphalite et syndromes neurologiques (rares), rhabdomyolyse, syndrome de détresse respiratoire aiguë, décompensation de diabète ou d'insuffisance rénale.",
+            "FORMES GRAVES / SUJETS À RISQUE : âge (nourrissons, sujet âgé), GROSSESSE (tout trimestre), maladies chroniques (respiratoires, cardiaques, rénales, hépatiques, neurologiques, diabète, hémoglobinopathies), OBÉSITÉ (indice de masse corporelle élevé, en particulier 40 et plus), IMMUNODÉPRESSION, personnes institutionnalisées ; mortalité concentrée sur ces terrains.",
+            "SIGNES D'ALARME : dyspnée, polypnée, hypoxie, douleur thoracique, hémoptysie, confusion, déshydratation, rechute fébrile après amélioration initiale (surinfection), signes de défaillance d'organe."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Grippe compliquée = urgence",
+          "text": "Dyspnée, hypoxie, douleur thoracique ou confusion chez un grippé = URGENCE : pneumonie virale ou surinfection bactérienne probable. Hospitaliser les sujets à risque (sujet âgé, femme enceinte, maladies chroniques, immunodéprimé), oxygéner, rechercher la surinfection (biologie, radiographie), antiviral (oseltamivir) sans attendre le résultat des tests si le tableau est typique et précoce, antibiothérapie ciblée si surinfection.",
+          "sources": [
+            {
+              "id": "paules2017",
+              "organization": "The Lancet",
+              "title": "Influenza",
+              "year": 2017
+            },
+            {
+              "id": "who2025grippe",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Grippe saisonnière",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE en période d'épidémie : fièvre élevée brutale + signes respiratoires + courbatures dans un contexte saisonnier. Les tests rapides (test antigénique nasal/pharyngé, immunofluorescence) et surtout la PCR (nasopharynx) confirment le virus ; ils sont particulièrement utiles hors épidémie, chez le sujet à risque pour décider d'un antiviral, en cas d'épidémie nosocomiale ou de grippe grave.",
+          "sources": [
+            {
+              "id": "paules2017",
+              "organization": "The Lancet",
+              "title": "Influenza",
+              "year": 2017
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen complémentaire de base si gravité ou complication : radiographie thoracique (pneumonie, surinfection), gaz du sang si dyspnée, biologie (hémogramme, CRP — la CRP peut être modérément élevée y compris dans la grippe virale, une élévation majeure fait chercher une surinfection).",
+            "DIAGNOSTICS DIFFÉRENTIELS : autres virus respiratoires (VRS — surtout nourrisson, para-influenza, méta-pneumovirus, SARS-CoV-2, adénovirus), rhume, angines (streptococcique : test rapide), pneumonie communautaire d'emblée bactérienne, paludisme devant toute fièvre à Madagascar (test de diagnostic rapide du paludisme systématique devant un syndrome fébrile), leptospirose, typhoïde selon le contexte.",
+            "Devant tout syndrome fébrile en zone d'endémie : ÉCARTER LE PALUDISME d'abord (test rapide), puis les autres diagnostics locaux avant de retenir la grippe.",
+            "Recherche de complications : auscultation, saturation en oxygène, examen ORL, examen cardiovasculaire, recherche de confusion chez le sujet âgé (peut être le seul signe)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Surcharger ou sous-estimer la fièvre grippale ?",
+          "text": "Deux pièges symétriques : 1) Traiter comme une simple grippe une pneumonie débutante ou un paludisme — d'où le test rapide paludisme et l'auscultation systématiques devant toute fièvre à Madagascar ; 2) Prescrire une antibiothérapie « au cas où » : elle n'a aucune place dans la grippe non compliquée. La décision se fait sur les signes de gravité, le terrain et l'évolution."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "GRIPPE NON COMPLIQUÉE (sujet sain) : traitement SYMPTOMATIQUE — repos, hydratation, PARACÉTAMOL contre fièvre et courbatures ; éviter l'aspirine chez l'enfant (syndrome de Reye) ; pas d'antibiotique, pas d'antiviral systématique ; éviction (école, travail) jusqu'à guérison pour limiter la transmission.",
+            "ANTIVIRAUX — inhibiteurs de la neuraminidase : OSELTAMIVIR (voie orale) et ZANAMIVIR (voie inhalée) ; le plus efficaces dans les 48 HEURES après le début des symptômes ; INDICATIONS principales : formes graves ou à risque de complication, sujets à risque (sujet âgé, femme enceinte, maladies chroniques, immunodéprimé), patients hospitalisés — ils réduisent la durée des symptômes, les complications et la mortalité de la grippe grave.",
+            "Dans la grippe GRAVE ou tardive (> 48 h), l'oseltamivir reste recommandé : le bénéfice existe même au-delà de 48 heures chez le patient hospitalisé.",
+            "SURINFECTION BACTÉRIENNE prouvée ou fortement suspectée : antibiothérapie ciblée (amoxicilline ± selon les germes locaux ; couvrir le pneumocoque et, selon le tableau, le staphylocoque doré en cas de pneumonie grave après grippe).",
+            "FORMES GRAVES : hospitalisation, oxygénothérapie, hydratation, surveillance ; pneumonie virale étendue = réanimation possible (ventilation) ; prévention des complications de décubitus chez le sujet âgé.",
+            "MESURES ASSOCIÉES : isolement/gouttelettes du patient en hospitalisation, masque, hygiène des mains ; ne pas surinfecter les voies aériennes par des gestes inutiles.",
+            "FEMMES ENCEINTES : antiviral recommandé dès la suspicion (le risque de complication est élevé dans tous les trimestres) ; vaccination annuelle pendant la grossesse selon les recommandations."
+          ],
+          "sources": [
+            {
+              "id": "paules2017",
+              "organization": "The Lancet",
+              "title": "Influenza",
+              "year": 2017
+            },
+            {
+              "id": "who2025grippe",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Grippe saisonnière",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Antiviral : qui, quand ?",
+          "text": "Grippé sain sans complication : pas d'antiviral (traitement symptomatique, paracétamol). Sujet à risque, femme enceinte, grippe grave ou hospitalisée : OSELTAMIVIR le plus tôt possible, idéalement < 48 h — mais sans attendre le résultat du test ni le délai si le tableau est grave. Rechute fébrile après amélioration = chercher la surinfection bactérienne (pneumocoque, staphylocoque) : antibiothérapie ciblée.",
+          "sources": [
+            {
+              "id": "who2025grippe",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Grippe saisonnière",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VACCINATION ANNUELLE : le vaccin est RÉVISÉ CHAQUE ANNÉE pour suivre le drift antigénique (composition recommandée par l'OMS) ; prioritaires selon les recommandations : femmes enceintes (tout trimestre), enfants de 6 mois à 5 ans, sujets âgés (65 ans et plus), maladies chroniques, immunodéprimés, personnel de santé ; efficacité variable selon la concordance des souches, mais réduit toujours les complications et les décès.",
+            "HYGIÈNE : lavage fréquent des mains, étiquette respiratoire (couvrir toux et éternuements, jeter les mouchoirs), masque du malade en collectivité, aération des pièces.",
+            "ÉVICTION pendant la période contagieuse (malades, mais aussi respect des sujets à risque) ; éviter la cohue en période d'épidémie.",
+            "MESURES EN ÉTABLISSEMENT DE SANTÉ : isolement des gouttelettes des cas suspects, vaccination du personnel, hygiène des mains — la grippe nosocomiale frappe les patients fragiles.",
+            "PROPHYLAXIE MÉDICAMENTEUSE : oseltamivir préventif possible, selon protocoles, pour les sujets à risque non vaccinés après contact étroit (épidémie en établissement, foyer immunodéprimé) — la vaccination reste prioritaire.",
+            "SURVEILLANCE : l'OMS coordonne la surveillance mondiale des souches circulant (Global Influenza Surveillance and Response System) pour ajuster le vaccin — les prélèvements envoyés au réseau servent la communauté.",
+            "Madagascar : la circulation du virus influenza est surveillée (sentinelles) ; devant une flambée de syndrome grippal, vacciner les sujets à risque et renforcer l'hygiène communautaire ; toujours écarter le paludisme chez les cas fébriles."
+          ],
+          "sources": [
+            {
+              "id": "who2025grippe",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Grippe saisonnière",
+              "year": 2025
+            },
+            {
+              "id": "paules2017",
+              "organization": "The Lancet",
+              "title": "Influenza",
+              "year": 2017
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "Trois couples à mémoriser : 1) DRIFT = épidémie annuelle (vaccin révisé chaque année) ; SHIFT = pandémie (réassortiment animal-humain, virus A). 2) Oseltamivir < 48 h chez le sujet à risque ; jamais d'antibiotique sans surinfection — mais rechute fébrile = surinfection bactérienne (pneumocoque, staphylocoque). 3) Grippe saine = guérison spontanée en 5-7 jours ; grippe du fragile (grossesse, âge, maladies chroniques) = risque de pneumonie et de décès : vaccination annuelle."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La grippe est un virus qui change chaque année (drift) et qui peut réassortir (shift) : c'est pourquoi le vaccin se met à jour annuellement et pourquoi une pandémie reste possible. Devant une fièvre brutale avec courbatures en saison d'épidémie, le diagnostic est clinique — mais à Madagascar, le paludisme s'écarte toujours en premier. Le sujet sain guérit seul ; le sujet fragile meurt de pneumonie : l'antiviral dans les 48 heures et la vaccination annuelle ciblée sur les risques font toute la différence."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Paules C, Subbarao K. Influenza. Lancet. 2017;390(10095):697-708 (DOI 10.1016/S0140-6736(17)30129-0).",
+            "Organisation mondiale de la Santé. Aide-mémoire : Influenza (saisonnal) (https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal))."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Signes d'alarme d'une grippe compliquée",
+      "text": "Dyspnée, polypnée, hypoxie, douleur thoracique, hémoptysie, confusion, déshydratation, ou rechute fébrile après amélioration : hospitalisation. Pneumonie virale (rapide, hypoxique) et surinfection bactérienne (rechute + expectoration purulente) font la mortalité — surtout chez le sujet âgé, la femme enceinte et les malades chroniques."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Fièvre à Madagascar : paludisme d'abord",
+      "text": "Devant tout syndrome fébrile dans une zone d'endémie, le test de diagnostic rapide du paludisme est systématique AVANT de conclure à la grippe : les deux coexistent, le paludisme tue plus vite, et le traitement n'est pas le même. Auscultation + test rapide + recherche de signes de gravité à chaque cas fébrile."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Oseltamivir : la fenêtre de 48 heures",
+      "text": "Grippe chez un sujet à risque (grossesse, âge extrême, maladie chronique, immunodépression) ou forme grave : oseltamivir le plus tôt possible, idéalement dans les 48 h — sans attendre la PCR si le tableau est typique. Le sujet sain non compliqué : pas d'antiviral, pas d'antibiotique — seulement paracétamol, repos et hydratation."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Drift et shift",
+      "text": "DRIFT : mutations ponctuelles de l'hémagglutinine et de la neuraminidase → le vaccin doit être actualisé CHAQUE ANNÉE. SHIFT : réassortiment entre souches animales et humaines (virus A) → nouveau sous-type, population sans immunité, PANDÉMIE. Antigènes clés : H (hémagglutinine) et N (neuraminidase) — cible des anticorps (vaccin) et des antiviraux."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Grippe : contagieux avant de le savoir",
+      "text": "Contagieux dès la VEILLE des symptômes et jusqu'à 5-7 jours : le patient transmet avant de savoir qu'il est malade — d'où l'importance de l'hygiène des mains et du vaccin (qui réduit aussi la transmission), plutôt que l'isolement seul. Chez l'immunodéprimé, la excrétion virale se prolonge : isolement plus long."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "G.R.I.P.P.E.",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Grand début : fièvre brutale, 39-40 °C, frissons"
+        },
+        {
+          "key": "R",
+          "term": "Réservoir humain (et aviaire/porcin pour A) ; transmission aérienne par gouttelettes"
+        },
+        {
+          "key": "I",
+          "term": "Incubation 1-4 jours ; contagieux dès la veille des symptômes"
+        },
+        {
+          "key": "P",
+          "term": "Pneumonie : la complication qui tue (virale ou surinfection bactérienne)"
+        },
+        {
+          "key": "P",
+          "term": "Patients à risque : grossesse, âge extrême, maladies chroniques, obésité, immunodépression"
+        },
+        {
+          "key": "E",
+          "term": "Efficace si tôt : oseltamivir < 48 h ; et chaque année : VACCIN révisé"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quels virus influenza causent les épidémies saisonnières ?",
+      "back": "Les types A (sous-types H1N1, H3N2, réservoir animal possible) et B (lignées Victoria, Yamagata, exclusivement humain) ; le type C ne cause que des formes bénignes sporadiques."
+    },
+    {
+      "id": "f2",
+      "front": "Différence entre drift et shift antigéniques ?",
+      "back": "DRIFT : mutations ponctuelles de H et N → épidémies annuelles, vaccin révisé chaque année. SHIFT : réassortiment entre souches animales et humaines (virus A) → nouveau sous-type, pas d'immunité de population → pandémie."
+    },
+    {
+      "id": "f3",
+      "front": "Incubation et période de contagiosité de la grippe ?",
+      "back": "Incubation 1-4 jours (moyenne 2) ; contagieux dès la VEILLE des symptômes jusqu'à 5-7 jours (plus longtemps chez l'enfant et l'immunodéprimé)."
+    },
+    {
+      "id": "f4",
+      "front": "Tableau clinique typique de la grippe ?",
+      "back": "Fièvre élevée BRUTALE (39-40 °C), frissons, céphalées, courbatures (myalgies/arthralgies), asthénie intense, toux sèche, rhinite discrète, pharyngite ; guérison en 5-7 jours, asthénie persistante possible."
+    },
+    {
+      "id": "f5",
+      "front": "Complications respiratoires de la grippe ?",
+      "back": "Pneumonie virale (rapide, hypoxique, grave), surinfection bactérienne (pneumocoque, staphylocoque doré, Haemophilus : rechute fébrile après amélioration), exacerbation d'asthme/BPCO/insuffisance cardiaque, otite, sinusite, croupe de l'enfant."
+    },
+    {
+      "id": "f6",
+      "front": "Quels sont les sujets à risque de grippe grave ?",
+      "back": "Nourrissons et sujet âgé, FEMMES ENCEINTES (tout trimestre), maladies chroniques (respiratoires, cardiaques, rénales, diabète), obésité, immunodépression, personnes institutionnalisées — cibles prioritaires de la vaccination."
+    },
+    {
+      "id": "f7",
+      "front": "Comment différencier grippe et rhume ?",
+      "back": "Grippe : début BRUTAL, fièvre élevée, courbatures, asthénie intense, toux. Rhume : début progressif, fièvre faible ou absente, rhinite dominante, gêne modérée. La grippe « intestinale » n'existe pas (vomissements/diarrhée = autre virus)."
+    },
+    {
+      "id": "f8",
+      "front": "Devant une fièvre grippale à Madagascar, quel diagnostic faut-il écarter systématiquement ?",
+      "back": "Le PALUDISME : test de diagnostic rapide systématique devant tout syndrome fébrile, avant de conclure à la grippe — les deux peuvent coexister et le paludisme tue plus vite."
+    },
+    {
+      "id": "f9",
+      "front": "Quel antiviral dans la grippe et dans quel délai ?",
+      "back": "Inhibiteurs de la neuraminidase : OSELTAMIVIR (oral) ou ZANAMIVIR (inhalé), le plus efficaces dans les 48 H après le début des symptômes ; indiqués chez les sujets à risque et formes graves/hospitalisées — le bénéfice persiste au-delà de 48 h chez l'hospitalisé."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle est la place des antibiotiques dans la grippe ?",
+      "back": "AUCUNE en cas de grippe non compliquée ; indiqués seulement en cas de surinfection bactérienne prouvée ou fortement suspectée (rechute fébrile, expectoration purulente, pneumonie) : cibler pneumocoque et staphylocoque doré selon le tableau."
+    },
+    {
+      "id": "f11",
+      "front": "Traitement d'une grippe non compliquée chez un sujet sain ?",
+      "back": "Repos, hydratation, paracétamol (jamais d'aspirine chez l'enfant : syndrome de Reye), éviction sociale ; pas d'antibiotique ni d'antiviral systématique ; surveiller l'apparition de signes de gravité."
+    },
+    {
+      "id": "f12",
+      "front": "Pourquoi le vaccin contre la grippe doit-il être refait chaque année ?",
+      "back": "À cause du DRIFT antigénique : les virus circulant mutent chaque année (hémagglutinine, neuraminidase), l'OMS révisant annuellement la composition du vaccin ; l'immunité decayed et l'antigène change = rappel annuel."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles populations cibler en priorité pour la vaccination antigrippale ?",
+      "back": "Femmes enceintes (tout trimestre), enfants 6 mois-5 ans, sujets âgés (65 et plus), maladies chroniques, immunodéprimés, personnel de santé — selon les recommandations OMS/nationales ; le vaccin réduit complications, hospitalisations et décès."
+    },
+    {
+      "id": "f14",
+      "front": "Signes d'alarme imposant l'hospitalisation d'un grippé ?",
+      "back": "Dyspnée, polypnée, hypoxie, douleur thoracique, hémoptysie, confusion, déshydratation, convulsions, ou rechute fébrile après amélioration initiale — pensez pneumonie virale ou surinfection bactérienne."
+    },
+    {
+      "id": "f15",
+      "front": "Mesures d'hygiène contre la transmission de la grippe ?",
+      "back": "Lavage des mains, étiquette respiratoire (toux/éternuements couverts), masque du malade, aération, éviction en période contagieuse ; en établissement de santé : isolement des gouttelettes, vaccination du personnel."
+    },
+    {
+      "id": "f16",
+      "front": "Complications extrathoraciques de la grippe ?",
+      "back": "Myocardite, péricardite, encéphalite et syndromes neurologiques (rares), rhabdomyolyse, décompensation de diabète ou d'insuffisance rénale, décompensation cardiaque — d'où l'intérêt de la vaccination des malades chroniques."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "grippe",
+      "label": "Grippe"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Virus",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Influenza A (H/N, zoonose), B, C"
+          },
+          {
+            "id": "b1c2",
+            "label": "Drift = épidémie annuelle"
+          },
+          {
+            "id": "b1c3",
+            "label": "Shift = pandémie (réassortiment)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Vaccin révisé chaque année"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Transmission",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Aérienne : gouttelettes, aérosols"
+          },
+          {
+            "id": "b2c2",
+            "label": "Incubation 1-4 jours"
+          },
+          {
+            "id": "b2c3",
+            "label": "Contagieux dès la veille"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Saisonnalité : pics en saison fraîche"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Fièvre brutale 39-40 °C"
+          },
+          {
+            "id": "b3c2",
+            "label": "Courbatures, céphalées, asthénie"
+          },
+          {
+            "id": "b3c3",
+            "label": "Toux sèche, guérison 5-7 j"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "≠ rhume : brutal, fébrile, algique"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Pneumonie virale (hypoxie)"
+          },
+          {
+            "id": "b4c2",
+            "label": "Surinfection : pneumocoque, staph"
+          },
+          {
+            "id": "b4c3",
+            "label": "Exacerbation BPCO/asthme/IC"
+          },
+          {
+            "id": "b4c4",
+            "label": "Myocardite, otite, croupe"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Fragiles : grossesse, âge, chronicité"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Symptomatique : paracétamol, repos"
+          },
+          {
+            "id": "b5c2",
+            "label": "Oseltamivir < 48 h si risque/grave"
+          },
+          {
+            "id": "b5c3",
+            "label": "Antibiotique si surinfection"
+          },
+          {
+            "id": "b5c4",
+            "label": "Formes graves : hospitalisation, O2"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "À Madagascar : écarter le paludisme"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Vaccination annuelle (cibles à risque)"
+          },
+          {
+            "id": "b6c2",
+            "label": "Hygiène des mains, étiquette respiratoire"
+          },
+          {
+            "id": "b6c3",
+            "label": "Isolement des goutteettes en établissement"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Surveillance OMS des souches"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "paules2017",
+      "title": "Influenza",
+      "citation": "Paules C, Subbarao K. Influenza. Lancet. 2017;390(10095):697-708. DOI 10.1016/S0140-6736(17)30129-0. PMID 28302313.",
+      "organization": "The Lancet",
+      "year": 2017,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(17)30129-0",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Virologie, drift et shift antigéniques",
+        "Transmission et incubation",
+        "Clinique et complications",
+        "Antiviraux (inhibiteurs de la neuraminidase)",
+        "Vaccination"
+      ]
+    },
+    {
+      "id": "who2025grippe",
+      "title": "Aide-mémoire : Grippe saisonnière",
+      "citation": "Organisation mondiale de la Santé. Influenza (seasonal). Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie et mortalité saisonnière",
+        "Populations à risque",
+        "Recommandations vaccinales",
+        "Surveillance mondiale des souches"
+      ]
+    }
+  ]
+}
