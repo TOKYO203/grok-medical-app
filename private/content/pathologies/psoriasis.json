@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "psoriasis",
+  "title": "Psoriasis",
+  "specialty": "Dermatologie",
+  "objective": "Décrire la physiopathologie immunologique du psoriasis, reconnaître ses formes cliniques (en plaques, goutteuse, pustuleuse, érythrodermique, unguéale, arthropathique), graduer la sévérité et prescrire la stratégie thérapeutique allant des topiques à la photothérapie, aux traitements systémiques conventionnels et aux biothérapies.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 123,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 164,
+      "localNumber": 123,
+      "sectionLabel": "Médecine",
+      "title": "Psoriasis",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Psoriasis : dermatose inflammatoire chronique à renouvellement épidermique accéléré (hyperprolifération kératinocytaire + infiltrat Th17/IL-23), plaques érythémato-squameuses bien délimitées des zones de friction (coudes, genoux, cuir chevelu), signes Auspitz et Koebner, comorbidités (rhumatisme psoriasique, syndrome métabolique, cardiovasculaire, dépression), formes graves (psoriasis pustuleux généralisé, érythrodermie) comme urgences dermatologiques, stratégie thérapeutique graduée : dermocorticoïdes + analogues de la vitamine D, photothérapie UV, méthotrexate/rétinoïdes/ciclosporine, puis biothérapies anti-TNF, anti-IL-17, anti-IL-23 — applicables selon les ressources (Madagascar).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Revue générale : Griffiths CEM, Armstrong AW, Gudjonsson JE, Barker JNWN. Psoriasis. Lancet. 2021;397(10281):1301-1315 — DOI 10.1016/S0140-6736(20)32549-6, confirmé (ScienceDirect + PDF du seminar) avant citation.",
+      "Recommandations thérapeutiques (biothérapies) : Menter A, et al. Joint AAD-NPF guidelines of care for the management and treatment of psoriasis with biologics. J Am Acad Dermatol. 2019;80(4):1029-1072 — DOI 10.1016/j.jaad.2018.11.057, confirmé avant citation.",
+      "Pas d'image : photographies de plaques psoriasiques existant sur Commons mais aucune retenue pour garder la cohérence éditoriale des fiches sans illustration non vérifiée — choix documenté."
+    ],
+    "qcChecklist": [
+      "Physiopathologie : axe IL-23/Th17/IL-17, hyperprolifération kératinocytaire, renouvellement épidermique en 3-4 jours",
+      "Lésion élémentaire : plaque érythémato-squameuse bien limitée, squames blanches micacées",
+      "Signes : Auspitz (saignement en rosée après grattage), Koebner (réaction isomorphe), signe de la bougie",
+      "Formes : en plaques, goutteuse, pustuleuse, érythrodermique, unguéale, du cuir chevelu, palmoplantaire",
+      "Comorbidités : rhumatisme psoriasique, syndrome métabolique, risque cardiovasculaire, dépression",
+      "Urgences : psoriasis pustuleux généralisé et érythrodermie (fièvre, défaillance, hypocalcémie)",
+      "Stratégie graduée : topiques → photothérapie → systémiques conventionnels → biothérapies",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le psoriasis est une dermatose inflammatoire chronique fréquente (environ 2-3 % de la population mondiale), non contagieuse, caractérisée par un renouvellement épidermique accéléré : ce qui prend normalement environ 28 jours se fait en 3-4 jours, donnant des plaques érythémato-squameuses bien délimitées. La maladie évolue par poussées, entrecoupées de rémissions, et dure toute la vie."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La lésion de base",
+          "text": "PLAQUE érythémato-squameuse : rouge, bien limitée, recouverte de squames blanches épaisses « micacées » (comme des gouttes de cire), siégeant sur les zones de friction — coudes, genoux, région lombaire, cuir chevelu. Grattage : signe de la bougie (squames en « copeaux de chandelle »), puis signe d'Auspitz (saignement en rosée). Non contagieux."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, la forte irradiation solaire est un facteur souvent favorable (la photothérapie naturelle améliore beaucoup de patients), mais l'accès aux biothérapies reste limité : la stratégie repose surtout sur les topiques, le soleil et les traitements conventionnels peu coûteux."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Maladie à médiation immune T : activation des cellules dendritiques présentant des antigènes aux lymphocytes T ; les voies Th17/Th22 et les cytokines IL-23, IL-17, IL-22, TNF-alpha sont au centre du processus.",
+            "L'IL-17 et l'IL-22 stimulent l'hyperprolifération des kératinocytes et l'angiogenèse, d'où le renouvellement épidermique accéléré et le rouge inflammatoire des plaques.",
+            "Terrain génétique : psoriasis familial fréquent, association à l'antigène HLA-Cw6 (formes débutant tôt, psoriasis goutteux post-streptococcique).",
+            "Facteurs déclenchant des poussées : stress, infections ORL (streptocoque), traumatismes cutanés (phénomène de Koebner), médicaments (bêta-bloquants, lithium, chloroquine, arrêt brutal de la corticothérapie), alcool, tabac."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Psoriasis en plaques (vulgaire) : la forme la plus fréquente (environ 90 %) — plaques des coudes, genoux, lombaire, cuir chevelu, ombilic, plis intergluto-cruraux (psoriasis inversé, peu squameux).",
+            "Psoriasis goutteux : éruption aiguë de petites gouttes disséminées du tronc, de l'enfant et du jeune adulte, souvent après une angine streptococcique — traiter le foyer.",
+            "Psoriasis pustuleux : localisé (paumes/plantes) ou généralisé (von Zumbusch) — urgence.",
+            "Érythrodermie psoriasique : rougeur généralisée + desquamation, risque de défaillance thermique et protéique.",
+            "Atteintes unguéales : ponctuations (aspect en « dé à coudre »), onycholyse, hyperkératose sous-unguéale.",
+            "Rhumatisme psoriasique : arthrite périphérique (souvent asymétrique, interphalangiennes distales), dactylite, enthésites, spondylarthrite — chercher systématiquement à l'interrogatoire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Psoriasis pustuleux généralisé et érythrodermie",
+          "text": "Fièvre + pustules disséminées ou rougeur généralisée avec desquamation massive = urgences dermatologiques : risque de sepsis, déshydratation, hypoalbuminémie, hypocalcémie, défaillance thermique. Hospitalisation, arrêt des traitements déclenchants (notamment corticoïdes oraux), traitement systémique rapide (méthotrexate ou ciclosporine selon disponibilité), soins de support."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE devant des plaques érythémato-squameuses typiques des zones de friction, avec le signe de la bougie et le signe d'Auspitz au grattage, et le phénomène de Koebner sur les cicatrices. La biopsie cutanée (hyperkératose parakératosique, acanthose, micro-abcès de Munro, allongement des crêtes épidermiques) n'est utile que dans les formes atypiques. Il n'existe pas de test biologique spécifique du psoriasis.",
+          "sources": [
+            {
+              "id": "griffiths2021",
+              "organization": "The Lancet",
+              "title": "Psoriasis — Seminar (Griffiths et al.)",
+              "year": 2021
+            },
+            {
+              "id": "menter2019",
+              "organization": "AAD-NPF",
+              "title": "Joint AAD-NPF guidelines: management of psoriasis with biologics",
+              "year": 2019
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Trois pièges classiques à ne pas confondre",
+          "text": "Ne pas confondre avec : un eczéma (prurit intense, bord flou, vésicules), une dermatite séborrhéique (cuir chevelu et sillons naso-géniens, squames grasses jaunâtres), un lichen plan (papules polygonales violacées prurigineuses), un pityriasis rosé de Gibert (plaque héraldique, squame en collerette), une syphilis secondaire (éruption palmoplantaire, adénopathies, sérologie positive). En cas de doute : biopsie et sérologie."
+        },
+        {
+          "type": "heading",
+          "text": "Évaluer la sévérité et le retentissement"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Surface atteinte (règle de la main du patient = environ 1 % de la surface cutanée) : léger < 3-5 %, modéré 5-10 %, sévère > 10 %.",
+            "Retentissement fonctionnel et psychologique (prurit, douleur, sommeil, travail, dépression) — toujours demandé, indépendamment de la surface.",
+            "Examen des ongles et des articulations (recherche d'un rhumatisme psoriasique) à chaque évaluation.",
+            "Comorbidités : obésité, diabète, dyslipidémie, hypertension, maladie cardiovasculaire (le psoriasis sévère est un facteur de risque indépendant), syndrome métabolique."
+          ],
+          "sources": [
+            {
+              "id": "griffiths2021",
+              "organization": "The Lancet",
+              "title": "Psoriasis — Seminar (Griffiths et al.)",
+              "year": 2021
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est graduel, adapté à la sévérité, au retentissement et aux ressources. Il ne guérit pas définitivement la maladie mais contrôle les poussées et améliore massivement la qualité de vie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "TOPIQUE (formes légères à modérées, limitées) : dermocorticoïdes de niveau fort à très fort en cure courte + calcipotriol (analogue de la vitamine D) en association, kératolytiques (urée, acide salicylique) sur les formes très squameuses, tacrolimus topique sur le visage et les plis. Ne pas dépasser les quantités maximales et éviter l'arrêt brutal des dermocorticoïdes (risque de rebond pustuleux).",
+            "PHOTOTHÉRAPIE (formes modérées à sévères) : UVB à bande étroite 2-3 fois/semaine, ou PUVAthérapie ; l'héliothérapie encadrée est une alternative raisonnable sous fort ensoleillement.",
+            "SYSTÉMIQUES CONVENTIONNELS (formes sévères ou résistantes) : méthotrexate hebdomadaire (acide folinique 24-48 h après, surveillance NFS/transaminases, contre-indications alcool/hépatopathie/grossesse), acitrétine (formes pustuleuses et palmoplantaires, tératogène prolongé), ciclosporine (action rapide, surveiller tension et créatinine).",
+            "BIOTHÉRAPIES (psoriasis modéré à sévère, selon disponibilité et coût) : anti-TNF-alpha (adalimumab, étanercept, infliximab), anti-IL-17 (sécukinumab, ixékizumab), anti-IL-23 (ustékinumab, guselkumab, risankizumab) — dépistage tuberculose et hépatites avant mise en route, surveillance infectieuse.",
+            "Mesures associées : hydratation cutanée quotidienne, émollients, lutte contre les facteurs aggravants (alcool, tabac, surpoids, stress), traitement des foyers streptococciques dans les formes goutteuses, prise en charge des comorbidités.",
+            "Rhumatisme psoriasique : avis rhumatologique, anti-inflammatoires non stéroïdiens, méthotrexate, puis biothérapie selon la sévérité."
+          ],
+          "sources": [
+            {
+              "id": "griffiths2021",
+              "organization": "The Lancet",
+              "title": "Psoriasis — Seminar (Griffiths et al.)",
+              "year": 2021
+            },
+            {
+              "id": "menter2019",
+              "organization": "AAD-NPF",
+              "title": "Joint AAD-NPF guidelines: management of psoriasis with biologics",
+              "year": 2019
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe thérapeutique",
+          "text": "1) Confirmer le diagnostic clinique + examiner ongles et articulations + évaluer surface et retentissement ; 2) formes légères → topiques (dermocorticoïde + calcipotriol) et émollients ; 3) formes modérées à sévères → photothérapie ou méthotrexate selon contexte et ressources ; 4) échec ou contre-indication → biothérapie si disponible ; 5) JAMAIS de corticoïdes oraux au long cours (risque de conversion pustuleuse grave au sevrage)."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Éviter les traumatismes cutanés (phénomène de Koebner), les grattages agressifs et les frictions répétées.",
+            "Éviter les médicaments déclenchants quand c'est possible : bêta-bloquants, lithium, chloroquine (attention au paludisme endémique — discuter des alternatives), arrêt jamais brutal d'une corticothérapie.",
+            "Traiter rapidement les infections ORL streptococciques (facteur déclenchant des formes goutteuses).",
+            "Hygiène de vie : arrêt du tabac, réduction de l'alcool, contrôle du poids — améliorent l'efficacité des traitements et réduisent le risque métabolique.",
+            "Dépistage et suivi des comorbidités : tension, glycémie, lipides, bilan hépatique sous méthotrexate, évaluation psychologique.",
+            "Éducation du patient : maladie chronique non contagieuse, contrôlable — l'observance et l'hydratation quotidienne font la différence entre poussées et rémission."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Soleil = allié, corticoïdes oraux = piège",
+          "text": "Dans un pays très ensoleillé comme Madagascar, l'exposition solaire progressive et raisonnable améliore la majorité des psoriasis — mais le coup de soleil déclenche une poussée (Koebner). À l'inverse, la corticothérapie orale est le piège classique : amélioration rapide, puis psoriasis pustuleux grave au sevrage."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le psoriasis est une maladie inflammatoire chronique de l'axe IL-23/Th17, au diagnostic purement clinique (plaques érythémato-squameuses des zones de friction, Auspitz, Koebner). Il n'est pas qu'une maladie de peau : rhumatisme psoriasique, syndrome métabolique, risque cardiovasculaire et retentissement psychologique en font une maladie systémique. Le traitement est gradué — topiques, photothérapie, méthotrexate, biothérapies — et les formes pustuleuses généralisées et érythrodermiques sont des urgences. La corticothérapie orale est proscrite au long cours."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Griffiths CEM, Armstrong AW, Gudjonsson JE, Barker JNWN. Psoriasis. Lancet. 2021;397(10281):1301-1315 (DOI 10.1016/S0140-6736(20)32549-6).",
+            "Menter A, Strober BE, Kaplan DH, et al. Joint AAD-NPF guidelines of care for the management and treatment of psoriasis with biologics. J Am Acad Dermatol. 2019;80(4):1029-1072 (DOI 10.1016/j.jaad.2018.11.057)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Pustuleux généralisé / érythrodermie",
+      "text": "Fièvre + pustules diffuses ou érythrodermie : hospitalisation, arrêt des corticoïdes déclencheurs, méthotrexate ou ciclosporine rapide, réhydratation et surveillance biologique (albumine, calcium)."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Pas de corticoïdes oraux au long cours",
+      "text": "La prednisone orale améliore transitoirement puis induit des poussées de rebond, parfois pustuleuses graves, au moment du sevrage : c'est l'erreur classique à ne pas commettre."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Examiner toujours ongles et articulations",
+      "text": "Ponctuations unguéales, onycholyse, dactylite, douleur des enthèses : le rhumatisme psoriasique touche environ un patient sur quatre et peut précéder ou aggraver le handicap — le dépister change la stratégie."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Auspitz et Koebner",
+      "text": "Auspitz : après grattage des squames, saignement en rosée goutte à goutte. Koebner : apparition de lésions psoriasiques sur une cicatrice ou un traumatisme cutané linéaire."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Maladie systémique",
+      "text": "Le psoriasis sévère augmente le risque cardiovasculaire et s'associe au syndrome métabolique : peser, mesurer la tension, doser glycémie et lipides chez tout patient atteint — pas seulement soigner la peau."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "P.S.O.R.I.A.S.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Plaques érythémato-squameuses des zones de friction (coudes, genoux, cuir chevelu)"
+        },
+        {
+          "key": "S",
+          "term": "Squames blanches micacées, signe de la bougie puis d'Auspitz"
+        },
+        {
+          "key": "O",
+          "term": "Ongles : dé à coudre, onycholyse ; articulations : rhumatisme psoriasique"
+        },
+        {
+          "key": "R",
+          "term": "Réactions de Koebner sur les traumatismes ; poussées par stress, infections, médicaments"
+        },
+        {
+          "key": "I",
+          "term": "Inflammation IL-23/Th17/IL-17 : la cible des biothérapies"
+        },
+        {
+          "key": "A",
+          "term": "Associations : syndrome métabolique, risque cardiovasculaire, dépression"
+        },
+        {
+          "key": "S",
+          "term": "Stratégie graduée : topiques → photothérapie → méthotrexate → biothérapies ; jamais de corticoïdes oraux prolongés"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition du psoriasis ?",
+      "back": "Dermatose inflammatoire chronique non contagieuse, à renouvellement épidermique accéléré (3-4 jours au lieu de 28), faite de plaques érythémato-squameuses bien limitées, évoluant par poussées."
+    },
+    {
+      "id": "f2",
+      "front": "Physiopathologie : quel axe cytokinique central ?",
+      "back": "Activation des cellules dendritiques → IL-23 → lymphocytes Th17 → IL-17 et IL-22 → hyperprolifération des kératinocytes et angiogenèse ; le TNF-alpha participe aussi."
+    },
+    {
+      "id": "f3",
+      "front": "Signe d'Auspitz ?",
+      "back": "Après grattage des squames, saignement punctiforme « en rosée » ; précédé du signe de la bougie (détachement des squames en copeaux de chandelle)."
+    },
+    {
+      "id": "f4",
+      "front": "Phénomène de Koebner ?",
+      "back": "Réaction isomorphe : apparition de lésions psoriasiques sur les zones de traumatisme cutané (cicatrice, grattage, coup de soleil)."
+    },
+    {
+      "id": "f5",
+      "front": "Localisations typiques du psoriasis en plaques ?",
+      "back": "Coudes, genoux, région lombaire, cuir chevelu, ombilic, plis intergluto-cruraux (forme inversée, peu squameuse)."
+    },
+    {
+      "id": "f6",
+      "front": "Psoriasis goutteux : contexte et conduite ?",
+      "back": "Éruption aiguë de petites gouttes chez l'enfant/jeune adulte, souvent après une angine streptococcique (HLA-Cw6) : traiter le foyer ORL, photothérapie ou topiques."
+    },
+    {
+      "id": "f7",
+      "front": "Pourquoi éviter la corticothérapie orale dans le psoriasis ?",
+      "back": "Amélioration transitoire suivie de rebond au sevrage, parfois psoriasis pustuleux généralisé grave ; seuls les dermocorticoïdes topiques (cure courte) sont autorisés."
+    },
+    {
+      "id": "f8",
+      "front": "Deux urgences dermatologiques du psoriasis ?",
+      "back": "Le psoriasis pustuleux généralisé (von Zumbusch) et l'érythrodermie psoriasique : fièvre, sepsis, déshydratation, hypoalbuminémie, hypocalcémie — hospitalisation et systémiques rapides."
+    },
+    {
+      "id": "f9",
+      "front": "Traitement topique de première intention d'une plaque limitée ?",
+      "back": "Dermocorticoïde fort + calcipotriol (analogue vitamine D) en application quotidienne, avec kératolytique (urée/acide salicylique) si squames épaisses ; émollients au long cours."
+    },
+    {
+      "id": "f10",
+      "front": "Traitements systémiques conventionnels du psoriasis sévère ?",
+      "back": "Méthotrexate hebdomadaire (± acide folinique), acitrétine (formes pustuleuses, tératogène), ciclosporine (rapide, néphrotoxique et hypertensive) — sous surveillance clinique et biologique."
+    },
+    {
+      "id": "f11",
+      "front": "Avant de débuter une biothérapie anti-TNF, quels dépistages ?",
+      "back": "Tuberculose (IDR/IGRA, radiographie), hépatites B et C, VIH ; vérifier les vaccinations et contre-indications infectieuses ; grossesse à écarter selon la molécule."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles comorbidités rechercher chez un patient psoriasique ?",
+      "back": "Rhumatisme psoriasique, obésité, diabète, dyslipidémie, hypertension (syndrome métabolique), risque cardiovasculaire accru, dépression et retentissement psychologique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "psoria",
+      "label": "Psoriasis"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Physiopathologie",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "IL-23 / Th17 / IL-17"
+          },
+          {
+            "id": "b1c2",
+            "label": "Kératinocytes : 3-4 jours"
+          },
+          {
+            "id": "b1c3",
+            "label": "HLA-Cw6, terrain familial"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Déclencheurs : stress, strepto, Koebner, médicaments"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Plaques coudes/genoux/cuir chevelu"
+          },
+          {
+            "id": "b2c2",
+            "label": "Auspitz, bougie, Koebner"
+          },
+          {
+            "id": "b2c3",
+            "label": "Goutteux, pustuleux, érythrodermie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Ongles : dé à coudre, onycholyse"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Clinique avant tout"
+          },
+          {
+            "id": "b3c2",
+            "label": "Biopsie si atypique"
+          },
+          {
+            "id": "b3c3",
+            "label": "Surface (règle de la main) + retentissement"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Différentiel : eczéma, séborrhéique, lichen, syphilis II"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Pustuleux généralisé"
+          },
+          {
+            "id": "b4c2",
+            "label": "Érythrodermie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Sepsis, hypocalcémie, défaillance"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Topiques : dermocorticoïdes + vitamine D"
+          },
+          {
+            "id": "b5c2",
+            "label": "UVB / soleil encadré"
+          },
+          {
+            "id": "b5c3",
+            "label": "Méthotrexate, acitrétine, ciclosporine"
+          },
+          {
+            "id": "b5c4",
+            "label": "Biothérapies anti-TNF/IL-17/IL-23"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Jamais de corticoïdes oraux"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Comorbidités et suivi",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Rhumatisme psoriasique"
+          },
+          {
+            "id": "b6c2",
+            "label": "Syndrome métabolique, CV"
+          },
+          {
+            "id": "b6c3",
+            "label": "Dépression, qualité de vie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Madagascar : soleil allié, biothérapies rares"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "griffiths2021",
+      "title": "Psoriasis",
+      "citation": "Griffiths CEM, Armstrong AW, Gudjonsson JE, Barker JNWN. Psoriasis. Lancet. 2021;397(10281):1301-1315. DOI 10.1016/S0140-6736(20)32549-6.",
+      "organization": "The Lancet",
+      "year": 2021,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S0140-6736(20)32549-6",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie",
+        "Physiopathologie",
+        "Clinique",
+        "Comorbidités",
+        "Stratégie thérapeutique"
+      ]
+    },
+    {
+      "id": "menter2019",
+      "title": "Joint AAD-NPF guidelines: psoriasis with biologics",
+      "citation": "Menter A, Strober BE, Kaplan DH, et al. Joint AAD-NPF guidelines of care for the management and treatment of psoriasis with biologics. J Am Acad Dermatol. 2019;80(4):1029-1072. DOI 10.1016/j.jaad.2018.11.057.",
+      "organization": "AAD-NPF",
+      "year": 2019,
+      "version": "Guidelines",
+      "url": "https://doi.org/10.1016/j.jaad.2018.11.057",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Biothérapies",
+        "Sévérité",
+        "Stratégie graduée",
+        "Surveillance"
+      ]
+    }
+  ]
+}
