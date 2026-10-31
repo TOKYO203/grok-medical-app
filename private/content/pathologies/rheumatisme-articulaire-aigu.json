@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "rheumatisme-articulaire-aigu",
+  "title": "Rhumatisme articulaire aigu",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant une polyarthrite fébrile de l'enfant ou du jeune adulte — ou une chorea, une cardite inexpliquée — évoquer le rhumatisme articulaire aigu, appliquer les critères de Jones, reconnaître la cardite qui menace le cœur à vie, et conduire le traitement de la crise et la prophylaxie secondaire par benzathine-pénicilline.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 132,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 173,
+      "localNumber": 132,
+      "sectionLabel": "Médecine",
+      "title": "Rhumatisme articulaire aigu",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio",
+      "tropical"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la déclaration scientifique AHA 2009 sur la prévention du RAA et le traitement de l'angine streptococcique, et des directives WHF 2023 sur le diagnostic échographique du cardiopathie rhumatismale, avec reformulation complète. Les critères de Jones et la prophylaxie secondaire sont présentés selon les standards internationaux, avec le terrain malgache en filigrane : le RAA y demeure une cause majeure de valvulopathie de l'adulte jeune.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Rhumatisme articulaire aigu » (Médecine n°132) : la fiche couvre la crise rhumatismale de l'enfant et de l'adulte jeune, ses critères diagnostiques, sa cardite, et fait le pont vers les fiches valvulopathies rhumatismales déjà livrées (rétrécissement mitral, insuffisance mitrale).",
+      "Sources vérifiées le 2026-10-31 : AHA 2009 (Gerber MA, et al. Circulation 2009;119(11):1541-1551, doi:10.1161/CIRCULATIONAHA.109.191959, confirmé sur ahajournals et PubMed) et WHF 2023 (World Heart Federation guidelines for the echocardiographic diagnosis of rheumatic heart disease, Nat Rev Cardiol 2023, doi:10.1038/s41569-023-00940-9, confirmé sur nature.com).",
+      "Les critères de Jones cités — critères majeurs : cardite, polyarthrite, chorée, érythème marginé, nodules sous-cutanés ; critères mineurs : fièvre, arthralgies, allongement du PR, VS/CRP élevées — sont les critères classiques révisés.",
+      "L'image histologique est servie depuis Wikimedia Commons (fichier Rheumatic heart disease - very high mag.jpg, licence CC BY-SA 3.0 vérifiée sur la page du fichier, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Critères de Jones énoncés complètement, avec la règle d'interprétation (2 critères majeurs ou 1 majeur + 2 mineurs, avec preuve d'infection streptococcique).",
+      "Prophylaxie secondaire explicite : benzathine-pénicilline, durée selon atteinte cardiaque — un enjeu de santé publique majeur à Madagascar."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le rhumatisme articulaire aigu est la complication post-streptococcique de l'angine à streptocoque du groupe A, non traitée : deux à trois semaines après l'angine, le système immunitaire, trompé par la mimétique moléculaire entre la paroi bactérienne et le cœur, s'attaque aux valves, aux articulations, au cerveau."
+        },
+        {
+          "type": "paragraph",
+          "text": "La crise guérit toujours ; le cœur, lui, peut garder la cicatrice. Des décennies plus tard, cette cicatrice s'appelle rétrécissement mitral ou insuffisance mitrale — les valvulopathies de l'adulte jeune malgache. Traiter l'angine et prévenir la rechute : tout l'enjeu du RAA tient là."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le vrai danger",
+          "text": "La cardite rhumatismale touche l'enfant et grave : une souffle nouvelle chez un enfant fébrile dont les grosses articulations enflent tour à tour, c'est un cœur en jeu pour la vie. Diagnostic rapide, repos, pénicilline — et prophylaxie secondaire non négociable."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et lésions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'infection pharyngée par le streptocoque bêta-hémolytique du groupe A déclenche, chez un hôte prédisposé, une réaction croisée : les anticorps dirigés contre la protéine M bactérienne reconnaissent le myocarde et les valves. L'inflammation granulomateuse du tissu conjonctif cardiaque — le granulome d'Aschoff — en est la signature histologique."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rheumatic_heart_disease_-_very_high_mag.jpg?width=900",
+          "alt": "Histologie cardiaque du rhumatisme articulaire aigu : granulome d'Aschoff avec cellules d'Anitschkow",
+          "caption": "Granulome d'Aschoff : la signature histologique du cœur rhumatismal.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rheumatic_heart_disease_-_very_high_mag.jpg"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mimétisme moléculaire : protéine M streptococcique contre myocarde et valves — le fondement auto-immun du RAA.",
+            "Pancardite : péricardite, myocardite à granulomes d'Aschoff, valvulite — la valve mitrale en première ligne.",
+            "Les articulations : arthrite aiguë très inflammatoire mais fugace et migratrice, qui guérit sans séquelle.",
+            "Le cerveau : chorée de Sydenham, tardive, parfois isolée — mouvements anormaux, labilité émotionnelle.",
+            "La peau : érythème marginé, nodules sous-cutanés — rares mais très spécifiques."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Les articulations guérissent toujours, le cœur garde des séquelles dans près d'un cas sur deux à la première crise — et davantage à chaque rechute. Le pronostic du RAA, c'est le pronostic de la cardite."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Critères de Jones et démarche",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur les critères de Jones révisés : deux critères majeurs, ou un majeur et deux mineurs, avec en plus la preuve d'une infection streptococcique récente — sérologie, prélèvement ou simple notion d'angine récente traitée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Critères majeurs : cardite — clinique ou échographique —, polyarthrite migratrice des grosses articulations, chorée de Sydenham, érythème marginé, nodules sous-cutanés.",
+            "Critères mineurs : fièvre, arthralgies, allongement du PR à l'ECG, syndrome inflammatoire — VS ou CRP élevées.",
+            "Preuve d'infection streptococcique : ASLO élevés ou en hausse, prélèvement pharyngé positif, angine récente documentée.",
+            "Cardite : souffle nouveau de valvulopathie — mitrale surtout —, tachycardie, galop, péricardite, insuffisance cardiaque ; l'échocardiographie dépiste les valvulites silencieuses.",
+            "Formes tronquées de l'adulte : monoarthrite, cardite isolée — être moins exigeant sur les critères chez un patient d'une zone d'endémie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe Madagascar",
+          "text": "Chez un enfant ou un adulte jeune d'une zone d'endémie, une polyarthrite fébrile fugace et migratrice avec souffle nouveau : RAA jusqu'à preuve du contraire. L'échocardiographie fait partie du bilan de toute crise — les directives WHF 2023 en ont fait un standard des régions endémiques."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AHA-2009-RAA",
+          "organization": "AHA",
+          "title": "Prevention of rheumatic fever and diagnosis and treatment of acute streptococcal pharyngitis",
+          "year": 2009
+        },
+        {
+          "id": "SRC-WHF-2023-RHD",
+          "organization": "World Heart Federation",
+          "title": "2023 WHF guidelines for the echocardiographic diagnosis of rheumatic heart disease",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Terrain, épidémiologie et formes cliniques",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le RAA frappe entre 5 et 15 ans, deux à trois semaines après une angine streptococcique non ou mal traitée. Il demeure endémique dans les pays à ressources limitées — dont Madagascar — où la pauvreté, le promiscuité et l'accès limité aux soins entretiennent la chaîne angine-crise-cardiopathie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Formes articulaires pures : la plus fréquente — polyarthrite aiguë des grosses articulations, migratrice, très douloureuse, fugace.",
+            "Formes cardiques : le pronostic — valvulite mitrale et/ou aortique, myocardite, péricardite, insuffisance cardiaque de l'enfant.",
+            "Chorée de Sydenham : tardive — plusieurs semaines ou mois —, parfois isolée, mouvements choréiques et labilité émotionnelle.",
+            "Formes cutanées pures : érythème marginé et nodules sous-cutanés, rares, plus fréquents chez l'enfant à cardite sévère.",
+            "Terrain : promiscuité scolaire et familiale, angines non traitées, absence de programme de prophylaxie — la maladie de la pauvreté."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Une angine streptococcique ne mène au RAA que dans une minorité de cas — mais on ne sait pas à l'avance lesquels. À Madagascar, l'angine de l'enfant mérite un raisonnement clinique sérieux : score clinique, prélèvement si disponible, pénicilline si streptococcique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement de la crise et prophylaxie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de la crise fait trois choses : éradiquer le streptocoque, calmer l'inflammation, et reposer le cœur. Le traitement qui compte vraiment est celui d'après : la prophylaxie secondaire par benzathine-pénicilline, qui empêche les rechutes — et donc l'aggravation du cœur."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Éradication : benzathine-pénicilline intramusculaire — même si le prélèvement est négatif, l'entourage du malade est à traiter.",
+            "Anti-inflammatoires : aspirine ou AINS à dose anti-inflammatoire dans les formes articulaires ; corticoïdes réservés à la cardite sévère avec insuffisance cardiaque.",
+            "Repos au lit pendant la phase inflammatoire — sa durée se cale sur la sédimentation et l'évolution clinique.",
+            "Insuffisance cardiaque : diurétiques, et les règles habituelles de l'insuffisance cardiaque de l'enfant.",
+            "Chorée : le plus souvent régressive ; repos, réassurance, parfois traitement symptomatique si invalidante.",
+            "Prophylaxie secondaire : benzathine-pénicilline intramusculaire toutes les 3 à 4 semaines — durée selon l'atteinte : sans cardite 5 ans ou jusqu'à 21 ans ; avec cardite légère 10 ans ; avec cardite sévère ou valvulopathie, jusqu'à 40 ans voire à vie selon les recommandations."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Une cardite rhumatismale avec insuffisance cardiaque chez l'enfant est une urgence hospitalière : corticoïdes, diurétiques, monitoring. Et la première injection de benzathine-pénicilline se fait avant la sortie — la prophylaxie commence le jour du diagnostic."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après la crise, l'échocardiographie annuelle suit les séquelles valvulaires : la filière rhumatismale — rétrécissement mitral, insuffisance mitrale, double atteinte — rejoint les fiches dédiées pour le bilan et les indications opératoires."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AHA-2009-RAA",
+          "organization": "AHA",
+          "title": "Prevention of rheumatic fever and diagnosis and treatment of acute streptococcal pharyngitis",
+          "year": 2009
+        },
+        {
+          "id": "SRC-WHF-2023-RHD",
+          "organization": "World Heart Federation",
+          "title": "2023 WHF guidelines for the echocardiographic diagnosis of rheumatic heart disease",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et santé publique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention du RAA est un problème de santé publique autant que de médecine : traiter les angines streptococciques de l'enfant — prévention primaire —, et ne jamais laisser une crise rhumatismale rechuter — prophylaxie secondaire. Entre les deux, le dépistage échographique des cardiopathies rhumatismales silencieuses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prévention primaire : diagnostic et traitement des angines streptococciques — pénicilline, avec l'observance complète.",
+            "Prophylaxie secondaire : benzathine-pénicilline intramusculaire périodique, registres de patients, éducation des familles — le pilier des programmes RHD.",
+            "Dépistage échographique : recherche des valvulites silencieuses en zone d'endémie — selon les directives WHF 2023, par des échographistes formés.",
+            "Améliorer le cadre : promiscuité scolaire, accès aux soins primaires, disponibilité continue de la benzathine-pénicilline.",
+            "Jeune femme rhumatismale : valvulopathie et grossesse se planifient — renvoi vers les fiches valvulopathies et grossesse."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Le RAA de l'enfant devient la valvulopathie de l'adulte jeune : rétrécissement mitral, insuffisance mitrale, double atteinte — les fiches dédiées prennent le relais pour le suivi au long cours et les indications d'intervention."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "RAA : complication post-streptococcique de l'angine, mimétisme moléculaire, granulome d'Aschoff.",
+            "Critères de Jones : 2 majeurs ou 1 majeur + 2 mineurs, avec preuve d'infection streptococcique.",
+            "Les articulations guérissent toujours ; le cœur garde la cicatrice — la cardite fait le pronostic.",
+            "Traitement de la crise : pénicilline, anti-inflammatoires, repos ; corticoïdes si cardite sévère.",
+            "Prophylaxie secondaire : benzathine-pénicilline périodique, années durant — la seule chose qui empêche la valvulopathie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir énoncer les critères de Jones, décrire la cardite rhumatismale et ses souffles, et citer le schéma de la prophylaxie secondaire : c'est la charpente interrogée de l'item — et le lien avec toutes les fiches valvulopathies."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont la déclaration scientifique AHA 2009 et les directives WHF 2023 sur le diagnostic échographique du cardiopathie rhumatismale."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gerber MA, et al. Prevention of rheumatic fever and diagnosis and treatment of acute streptococcal pharyngitis. Circulation 2009.",
+            "World Heart Federation. 2023 WHF guidelines for the echocardiographic diagnosis of rheumatic heart disease. Nat Rev Cardiol 2023."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-raa",
+      "label": "J.O.N.E.S.",
+      "intro": "Les critères de Jones et la conduite à tenir.",
+      "entries": [
+        {
+          "key": "J",
+          "term": "Jones : 2 critères majeurs ou 1 majeur + 2 mineurs — avec preuve de streptocoque"
+        },
+        {
+          "key": "O",
+          "term": "Oreilles non — Œsophage non — Ordre : cardite d'abord, articulations ensuite, chorée enfin"
+        },
+        {
+          "key": "N",
+          "term": "Nodules sous-cutanés, érythème marginé : rares mais spécifiques — critères majeurs cutanés"
+        },
+        {
+          "key": "E",
+          "term": "Éradication : benzathine-pénicilline dès le diagnostic, entourage traité"
+        },
+        {
+          "key": "S",
+          "term": "Secondary prophylaxis : benzathine-pénicilline périodique, années durant — le vrai traitement"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-raa-1",
+      "front": "Quel germe est responsable du RAA ?",
+      "back": "Le streptocoque bêta-hémolytique du groupe A — angine pharyngée non ou mal traitée."
+    },
+    {
+      "id": "fc-raa-2",
+      "front": "Citez les critères majeurs de Jones.",
+      "back": "Cardite, polyarthrite migratrice, chorée de Sydenham, érythème marginé, nodules sous-cutanés."
+    },
+    {
+      "id": "fc-raa-3",
+      "front": "Citez les critères mineurs de Jones.",
+      "back": "Fièvre, arthralgies, allongement du PR à l'ECG, syndrome inflammatoire (VS ou CRP élevées)."
+    },
+    {
+      "id": "fc-raa-4",
+      "front": "Quelle est la signature histologique du RAA ?",
+      "back": "Le granulome d'Aschoff, avec cellules d'Anitschkow, dans le tissu conjonctif cardiaque."
+    },
+    {
+      "id": "fc-raa-5",
+      "front": "Quelle valve est la plus atteinte par la cardite rhumatismale ?",
+      "back": "La valve mitrale — d'où le rétrécissement mitral et l'insuffisance mitrale de l'adulte jeune."
+    },
+    {
+      "id": "fc-raa-6",
+      "front": "Quel est le délai entre l'angine et la crise rhumatismale ?",
+      "back": "Deux à trois semaines."
+    },
+    {
+      "id": "fc-raa-7",
+      "front": "Quel traitement éradicateur dès le diagnostic de RAA ?",
+      "back": "La benzathine-pénicilline intramusculaire — même si le prélèvement est négatif, l'entourage est traité."
+    },
+    {
+      "id": "fc-raa-8",
+      "front": "Quand prescrire des corticoïdes dans le RAA ?",
+      "back": "Dans la cardite sévère avec insuffisance cardiaque ; aspirine ou AINS suffisent dans les formes articulaires."
+    },
+    {
+      "id": "fc-raa-9",
+      "front": "Quel est le pilier de la prophylaxie secondaire du RAA ?",
+      "back": "La benzathine-pénicilline intramusculaire toutes les 3 à 4 semaines, pendant des années — durée selon l'atteinte cardiaque."
+    },
+    {
+      "id": "fc-raa-10",
+      "front": "Pourquoi les directives WHF 2023 recommandent-elles l'échocardiographie en zone d'endémie ?",
+      "back": "Pour dépister les valvulites rhumatismales silencieuses — indétectables à l'auscultation — et engager la prophylaxie avant les séquelles."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-raa-root",
+      "label": "Rhumatisme articulaire aigu",
+      "detail": "La complication post-streptococcique de l'angine : articulations qui guérissent, cœur qui garde — le granulome d'Aschoff, les critères de Jones, et la benzathine-pénicilline comme vraie medicine."
+    },
+    "branches": [
+      {
+        "id": "map-raa-meca",
+        "label": "Mécanismes",
+        "detail": "Mimétisme moléculaire, deux à trois semaines après l'angine.",
+        "children": [
+          {
+            "id": "map-raa-meca-1",
+            "label": "Histologie",
+            "leaves": [
+              {
+                "id": "map-raa-meca-1a",
+                "label": "Granulome d'Aschoff, cellules d'Anitschkow"
+              },
+              {
+                "id": "map-raa-meca-1b",
+                "label": "Pancardite : myocarde, péricarde, valves"
+              }
+            ]
+          },
+          {
+            "id": "map-raa-meca-2",
+            "label": "Terrain",
+            "leaves": [
+              {
+                "id": "map-raa-meca-2a",
+                "label": "5-15 ans, promiscuité, pauvreté"
+              },
+              {
+                "id": "map-raa-meca-2b",
+                "label": "Madagascar : endémie persistante"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-raa-diag",
+        "label": "Diagnostic",
+        "detail": "Critères de Jones + preuve streptococcique.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-raa-diag-1",
+            "label": "Majeurs",
+            "leaves": [
+              {
+                "id": "map-raa-diag-1a",
+                "label": "Cardite, polyarthrite, chorée"
+              },
+              {
+                "id": "map-raa-diag-1b",
+                "label": "Érythème marginé, nodules"
+              }
+            ]
+          },
+          {
+            "id": "map-raa-diag-2",
+            "label": "Mineurs et preuve",
+            "leaves": [
+              {
+                "id": "map-raa-diag-2a",
+                "label": "Fièvre, arthralgies, PR long, VS/CRP"
+              },
+              {
+                "id": "map-raa-diag-2b",
+                "label": "ASLO, prélèvement, angine récente"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-raa-trt",
+        "label": "Traitement",
+        "detail": "Crise et prophylaxie.",
+        "children": [
+          {
+            "id": "map-raa-trt-1",
+            "label": "Crise",
+            "leaves": [
+              {
+                "id": "map-raa-trt-1a",
+                "label": "Pénicilline, AINS/aspirine, repos"
+              },
+              {
+                "id": "map-raa-trt-1b",
+                "label": "Corticoïdes si cardite sévère"
+              }
+            ]
+          },
+          {
+            "id": "map-raa-trt-2",
+            "label": "Après la crise",
+            "leaves": [
+              {
+                "id": "map-raa-trt-2a",
+                "label": "Benzathine-pénicilline périodique"
+              },
+              {
+                "id": "map-raa-trt-2b",
+                "label": "Échocardiographie annuelle"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-raa-prev",
+        "label": "Prévention et avenir",
+        "detail": "Santé publique et filière valvulopathies.",
+        "children": [
+          {
+            "id": "map-raa-prev-1",
+            "label": "Collectif",
+            "leaves": [
+              {
+                "id": "map-raa-prev-1a",
+                "label": "Traiter les angines de l'enfant"
+              },
+              {
+                "id": "map-raa-prev-1b",
+                "label": "Registres RHD, dépistage écho"
+              }
+            ]
+          },
+          {
+            "id": "map-raa-prev-2",
+            "label": "Individuel",
+            "leaves": [
+              {
+                "id": "map-raa-prev-2a",
+                "label": "Filière valvulopathies rhumatismales"
+              },
+              {
+                "id": "map-raa-prev-2b",
+                "label": "Femme jeune : grossesse planifiée"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-AHA-2009-RAA",
+      "title": "Prevention of rheumatic fever and diagnosis and treatment of acute streptococcal pharyngitis",
+      "citation": "Gerber MA, Baltimore RS, Eaton CB, et al. Prevention of rheumatic fever and diagnosis and treatment of acute streptococcal pharyngitis: a scientific statement from the American Heart Association. Circulation. 2009 ; 119 (11) : 1541-1551. doi:10.1161/CIRCULATIONAHA.109.191959.",
+      "organization": "American Heart Association (AHA)",
+      "year": 2009,
+      "version": "2009 scientific statement",
+      "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.191959",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères de Jones révisés",
+        "Traitement de la crise",
+        "Prophylaxie secondaire et ses durées"
+      ]
+    },
+    {
+      "id": "SRC-WHF-2023-RHD",
+      "title": "2023 WHF guidelines for the echocardiographic diagnosis of rheumatic heart disease",
+      "citation": "World Heart Federation. 2023 World Heart Federation guidelines for the echocardiographic diagnosis of rheumatic heart disease. Nat Rev Cardiol. 2023. doi:10.1038/s41569-023-00940-9.",
+      "organization": "World Heart Federation (WHF)",
+      "year": 2023,
+      "version": "2023 guidelines",
+      "url": "https://doi.org/10.1038/s41569-023-00940-9",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Dépistage échographique des valvulites silencieuses",
+        "Standards de diagnostic en zone d'endémie",
+        "Programmes de contrôle du RHD"
+      ]
+    }
+  ]
+}
