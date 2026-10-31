@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "retrecissement-aortique",
+  "title": "Rétrécissement aortique",
+  "subtitle": "Nosographie — cardiologie",
+  "objective": "Devant un souffle systolique éjectionnel râpeux irradiant aux carotides, reconnaître le rétrécissement aortique, quantifier l'obstruction à l'échocardiographie, reconnaître la triade symptomatique qui impose la chirurgie, et choisir entre remplacement chirurgical et implantation percutanée selon le terrain.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 54,
+    "specialty": "Cardiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 95,
+      "localNumber": 54,
+      "sectionLabel": "Médecine",
+      "title": "Rétrécissement aortique",
+      "specialty": "Cardiologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "cardio"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir des recommandations ESC/EACTS 2025 sur les valvulopathies, qui mettent à jour celles de 2021, avec reformulation complète. Les seuils échographiques cités sont les repères classiques des recommandations ; les critères de choix entre valve chirurgicale et percutanée sont présentés en principes, sans score détaillé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Rétrécissement aortique » (Médecine n°54) : la fiche couvre le rétrécissement aortique serré de l'adulte, dégénératif, bicuspidien et rhumatismal, en soulignant l'interdit vasodilatateur de la forme serrée.",
+      "Sources vérifiées lors du bloc valvulopathies : ESC/EACTS 2025 (Praz F, et al. Eur Heart J 2025;46(44):4635-4736, doi:10.1093/eurheartj/ehaf194) et ESC/EACTS 2021 (Vahanian A, et al. Eur Heart J 2022;43(7):561-632, doi:10.1093/eurheartj/ehab395).",
+      "Le choix SAVR contre TAVI suit les recommandations 2021 actualisées : espérance de vie, risque opératoire, anatomie, faisabilité transfémorale, espacement valvulaire et âge — présentés en principes, la décision relevant du Heart Team.",
+      "Le schéma physiopathologique est servi depuis Wikimedia Commons (fichier CVS Aortic Stenosis Hammer KumarandClarke.png, licence CC BY-SA 4.0, crédit « Via Wikimedia Commons »)."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Seuils échographiques classiques cités d'après les recommandations, sans posologies.",
+      "Interdits sécuritaires explicites : vasodilatateurs et épreuve d'effort dans la forme serrée symptomatique."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le rétrécissement aortique est le rétrécissement de l'orifice aortique : le ventricule gauche pousse contre un goulot qui ne cède pas. Il se développe des années durant sur une valve calcifiée, et le patient reste asymptomatique presque jusqu'au bout — puis la triade s'installe, et chaque symptôme est un signal d'alarme."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dyspnée, angine, syncope d'effort : l'ordre d'apparition dicte le pronostic, la syncope étant la plus menaçante. Sans remplacement valvulaire, le rétrécissement serré symptomatique est de pronostic sombre en quelques années."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Interdit formel",
+          "text": "Rétrécissement aortique serré : pas de vasodilatateurs — inhibiteurs calciques, dérivés nitrés, IECP — et pas d'épreuve d'effort si symptomatique. Sur une obstruction fixe, la chute de post-charge effondre le débit : syncope, infarctus, mort subite."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Physiopathologie et formes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'obstruction fixe impose au ventricule une pression de génération élevée : il s'hypertrophie, se concentrique, se stiff — remplissage difficile, ischémie sous-endocardique par compression. La calcification, cause principale chez l'adulte âgé, progresse lentement et silencieusement."
+        },
+        {
+          "type": "image",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/CVS_Aortic_Stenosis_Hammer_KumarandClarke.png?width=900",
+          "alt": "Schéma anatomique du rétrécissement aortique : orifice valvulaire calcifié et rétréci entre le ventricule gauche et l'aorte",
+          "caption": "Physiopathologie du rétrécissement aortique : orifice calcifié et obstruction fixe à l'éjection.",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CVS_Aortic_Stenosis_Hammer_KumarandClarke.png"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dégénératif calcifié : la forme de l'adulte âgé, la plus fréquente.",
+            "Bicuspidie : la forme du sujet plus jeune, calcification accélérée.",
+            "Rhumatismal : la forme du sujet jeune à Madagascar, souvent mitro-aortique.",
+            "Hypertrophie concentrique : remplissage diastolique difficile, ischémie relative, fibrillation auriculaire mal tolérée."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "La triade d'apparition — dyspnée, angine, syncope — et son rythme font le pronostic. Le patient asymptomatique se surveille ; le patient symptomatique se remplace la valve, sans attendre la dysfonction."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le souffle est systolique éjectionnel, râpeux, maximal au foyer aortique, irradiant aux carotides, et les éléments qui l'accompagnent disent la sévérité : deuxième bruit diminué à absent, éclat du quatrième bruit, pouls parvus et tardus, frémissement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Souffle éjectionnel râpeux, foyer aortique, irradiation carotidienne.",
+            "Deuxième bruit diminué, pouls parvus et tardus : arguments de sévérité.",
+            "ECG : hypertrophie ventriculaire gauche, parfois bloc de branche gauche.",
+            "Échocardiographie : gradient maximal et moyen, surface d'orifice, fonction ventriculaire, anatomie valvulaire et racine.",
+            "Scanner et coronarographie dans le bilan pré-remplacement, selon l'âge et le projet."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Quantifier : gradient moyen élevé ou vitesse maximale rapide, surface d'orifice réduite — les seuils recommandés classent serré, modéré ou léger. Toute discordance gradient-surface fait discuter l'échocardiographie d'effort ou l'IRM, en centre valvulaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de sévérité fait, la question devient le moment de l'intervention : le rétrécissement serré asymptomatique se surveille étroitement, mais la surveillance ne dispense jamais d'expliquer au patient les trois symptômes qui, s'ils surviennent, doivent le faire consulter en urgence."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2021-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Étiologies et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Trois grands cadres : la valve tricuspide calcifiée du sujet âgé, la bicuspidie du sujet mûr, et la valve rhumatismale du sujet jeune — cette dernière souvent associée à une atteinte mitrale, dans un tableau de double valvulopathie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calcifique dégénératif : sujet âgé, progression lente, terrain cardiovasculaire.",
+            "Bicuspidie : sujet plus jeune, calcification accélérée, coarctation à chercher.",
+            "Rhumatismal : sujet jeune, valve dysmorphique, atteinte mitrale associée fréquente.",
+            "Rare : radiothérapie, hypercholestérolémie familiale, oxydose, maladie de Fabry."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Un souffle éjectionnel n'est pas toujours aortique : le souffle pulmonaire, le souffle scléro-dégénératif du sujet âgé, la cardiomyopathie hypertrophique obstructive — l'échocardiographie tranche, pas l'auscultation seule."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement curatif est le remplacement valvulaire — chirurgical ou percutané. Le choix appartient au Heart Team : âge, espérance de vie, risque opératoire, anatomie de l'accès transfémoral, état des coronaires, fragilité. À l'issue de cette discussion, chaque patient a sa voie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Serré symptomatique : remplacement valvulaire, sans délai — quelle que soit la fraction d'éjection.",
+            "Serré asymptomatique : surveillance étroite en centre valvulaire, chirurgie si dysfonction ventriculaire ou test d'effort positif.",
+            "SAVR — remplacement chirurgical : la référence du sujet jeune et à bas risque.",
+            "TAVI — implantation percutanée : la référence du sujet âgé, fragile ou à haut risque, par voie transfémorale si anatomie favorable.",
+            "Traitement médical d'accompagnement : contrôle de la tension avec prudence, statine, rythme, jamais de vasodilatateur en phase serrée symptomatique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre",
+          "text": "Tout symptôme d'un rétrécissement serré — dyspnée, angine, syncope — impose le remplacement valvulaire : le pronostic sans remplacement est sombre, et chaque délai expose à la mort subite."
+        },
+        {
+          "type": "paragraph",
+          "text": "Après remplacement, le suivi est celui de la valve posée : anticoagulation et surveillance du niveau de prothèse si mécanique, suivi de la durabilité si bioprothèse, TAVI suivi comme une bioprothèse, et prophylaxie de l'endocardite selon les indications habituelles."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESC-2025-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2025
+        },
+        {
+          "id": "SRC-ESC-2021-VHD",
+          "organization": "ESC/EACTS",
+          "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de traitement médical qui ralentit la calcification valvulaire : la prévention est celle des facteurs de risque cardiovasculaire, le dépistage échographique des sujets à risque — souffle, bicuspidie, antécédents familiaux — et le suivi cadencé des rétrécissements connus."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dépistage par souffle : toute éjectionelle râpeuse de l'adulte mérite une échocardiographie.",
+            "Bicuspidie connue : surveillance échographique cadencée dès le diagnostic.",
+            "Rétrécissement léger ou modéré : écho périodique, éducation aux trois symptômes.",
+            "Prévention rhumatismale en santé publique pour les formes du sujet jeune à Madagascar."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Le patient asymptomatique surveillé est le futur opéré prévenu : lui expliquer la triade et la conduite à tenir si elle survient fait partie du traitement — le délai de consultation est le seul levier que le patient contrôle."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Souffle éjectionnel râpeux irradiant aux carotides, B2 diminué : rétrécissement aortique.",
+            "Triade dyspnée-angine-syncope : l'apparition d'un symptôme impose le remplacement valvulaire.",
+            "Échographie quantifiée : gradient et surface classent la sévérité et cadencent la surveillance.",
+            "SAVR chez le jeune et le bas risque, TAVI chez l'âgé et le fragile — décision du Heart Team.",
+            "Serré symptomatique : pas de vasodilatateurs, pas d'épreuve d'effort."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir décrire le souffle et ses arguments de sévérité, citer la triade et les seuils échographiques, et les interdits de la forme serrée : c'est la charpente interrogée de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont les recommandations ESC/EACTS 2025 sur les valvulopathies et celles de 2021 qu'elles mettent à jour."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Praz F, et al. 2025 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J 2025.",
+            "Vahanian A, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J 2022."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-ra-stenose",
+      "label": "S.T.É.N.O.S.E.",
+      "intro": "La chaîne diagnostique et décisionnelle du rétrécissement aortique.",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Syncope d'effort : le symptôme le plus menaçant de la triade"
+        },
+        {
+          "key": "T",
+          "term": "Triade dyspnée, angine, syncope : l'apparition impose la valve"
+        },
+        {
+          "key": "É",
+          "term": "Éjectionnel râpeux irradiant aux carotides, B2 diminué"
+        },
+        {
+          "key": "N",
+          "term": "Nombreux interdits : vasodilatateurs proscrits si serré"
+        },
+        {
+          "key": "O",
+          "term": "Obstruction fixe : gradient et surface à l'échographie"
+        },
+        {
+          "key": "S",
+          "term": "SAVR chez le jeune bas risque, TAVI chez l'âgé fragile"
+        },
+        {
+          "key": "E",
+          "term": "Épreuve d'effort interdite si serré symptomatique"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-ra-1",
+      "front": "Quel est le souffle typique du rétrécissement aortique ?",
+      "back": "Souffle systolique éjectionnel râpeux, maximal au foyer aortique, irradiant aux carotides."
+    },
+    {
+      "id": "fc-ra-2",
+      "front": "Quels signes auscultatoires et pulsés témoignent de la sévérité ?",
+      "back": "Deuxième bruit diminué à absent, frémissement, pouls parvus et tardus."
+    },
+    {
+      "id": "fc-ra-3",
+      "front": "Quelle est la triade symptomatique du rétrécissement aortique serré ?",
+      "back": "Dyspnée d'effort, angine de poitrine, syncope d'effort — la syncope étant le plus mauvais signe."
+    },
+    {
+      "id": "fc-ra-4",
+      "front": "Quels paramètres échographiques quantifient l'obstruction ?",
+      "back": "Gradient maximal et moyen, vitesse maximale, surface d'orifice valvulaire aortique, fonction ventriculaire."
+    },
+    {
+      "id": "fc-ra-5",
+      "front": "Pourquoi interdire les vasodilatateurs dans la forme serrée ?",
+      "back": "L'obstruction est fixe : la chute de post-charge effondre le débit — syncope, ischémie, mort subite."
+    },
+    {
+      "id": "fc-ra-6",
+      "front": "Quelle place pour l'épreuve d'effort dans un rétrécissement serré symptomatique ?",
+      "back": "Aucune : elle est interdite — risque de mort subite. Elle n'a de place que dans certaines formes asymptomatiques, en centre spécialisé."
+    },
+    {
+      "id": "fc-ra-7",
+      "front": "Quand imposer le remplacement valvulaire ?",
+      "back": "Dès qu'un rétrécissement serré devient symptomatique, sans délai, quelle que soit la fraction d'éjection."
+    },
+    {
+      "id": "fc-ra-8",
+      "front": "SAVR ou TAVI : quels principes de choix ?",
+      "back": "SAVR chez le sujet jeune à bas risque, TAVI chez le sujet âgé, fragile ou à haut risque, à accès transfémoral favorable — décision en Heart Team."
+    },
+    {
+      "id": "fc-ra-9",
+      "front": "Quelle forme particulière du sujet jeune malgache ?",
+      "back": "La forme rhumatismale, souvent associée à une atteinte mitrale — double valvulopathie."
+    },
+    {
+      "id": "fc-ra-10",
+      "front": "Quel suivi d'un rétrécissement serré asymptomatique ?",
+      "back": "Surveillance échographique étroite en centre valvulaire, chirurgie si dysfonction ventriculaire ou anomalies au test d'effort, éducation aux trois symptômes."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-ra-root",
+      "label": "Rétrécissement aortique",
+      "detail": "Obstruction fixe de l'éjection : hypertrophie concentrique, triade d'alarme — le traitement est la valve, le piège est le vasodilatateur."
+    },
+    "branches": [
+      {
+        "id": "map-ra-meca",
+        "label": "Mécanismes",
+        "detail": "Calcifique dégénératif, bicuspidie, rhumatisme — l'orifice se réduit lentement.",
+        "children": [
+          {
+            "id": "map-ra-meca-1",
+            "label": "Valves",
+            "leaves": [
+              {
+                "id": "map-ra-meca-1a",
+                "label": "Calcifié du sujet âgé"
+              },
+              {
+                "id": "map-ra-meca-1b",
+                "label": "Bicuspidie, RAA"
+              }
+            ]
+          },
+          {
+            "id": "map-ra-meca-2",
+            "label": "Conséquences",
+            "leaves": [
+              {
+                "id": "map-ra-meca-2a",
+                "label": "HVG concentrique, stiff"
+              },
+              {
+                "id": "map-ra-meca-2b",
+                "label": "Ischémie sous-endocardique"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ra-diag",
+        "label": "Diagnostic",
+        "detail": "Souffle râpeux carotidien, B2 diminué, écho quantifiée.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-ra-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-ra-diag-1a",
+                "label": "Éjectionnel, frémissement"
+              },
+              {
+                "id": "map-ra-diag-1b",
+                "label": "Pouls parvus et tardus"
+              }
+            ]
+          },
+          {
+            "id": "map-ra-diag-2",
+            "label": "Écho",
+            "leaves": [
+              {
+                "id": "map-ra-diag-2a",
+                "label": "Gradient, vitesse, surface"
+              },
+              {
+                "id": "map-ra-diag-2b",
+                "label": "FE, anatomie, racine"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ra-trt",
+        "label": "Traitement",
+        "detail": "Remplacement valvulaire : chirurgical ou percutané, décision en Heart Team.",
+        "children": [
+          {
+            "id": "map-ra-trt-1",
+            "label": "Indication",
+            "leaves": [
+              {
+                "id": "map-ra-trt-1a",
+                "label": "Serré symptomatique : sans délai"
+              },
+              {
+                "id": "map-ra-trt-1b",
+                "label": "Asymptomatique : surveillance étroite"
+              }
+            ]
+          },
+          {
+            "id": "map-ra-trt-2",
+            "label": "Choix",
+            "leaves": [
+              {
+                "id": "map-ra-trt-2a",
+                "label": "SAVR : jeune, bas risque"
+              },
+              {
+                "id": "map-ra-trt-2b",
+                "label": "TAVI : âgé, fragile, haut risque"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-ra-pieges",
+        "label": "Interdits et suivi",
+        "detail": "Vasodilatateurs et épreuve d'effort proscrits dans la forme serrée symptomatique.",
+        "children": [
+          {
+            "id": "map-ra-pieges-1",
+            "label": "Interdits",
+            "leaves": [
+              {
+                "id": "map-ra-pieges-1a",
+                "label": "Vasodilatateurs : syncope"
+              },
+              {
+                "id": "map-ra-pieges-1b",
+                "label": "Épreuve d'effort : mort subite"
+              }
+            ]
+          },
+          {
+            "id": "map-ra-pieges-2",
+            "label": "Suivi",
+            "leaves": [
+              {
+                "id": "map-ra-pieges-2a",
+                "label": "Écho cadencée, éducation triade"
+              },
+              {
+                "id": "map-ra-pieges-2b",
+                "label": "Endocardite : prophylaxie"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESC-2025-VHD",
+      "title": "2025 ESC/EACTS Guidelines for the management of valvular heart disease",
+      "citation": "Praz F, Borger MA, Lancellotti P, et al. 2025 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J. 2025 ; 46 (44) : 4635-4736. doi:10.1093/eurheartj/ehaf194.",
+      "organization": "European Society of Cardiology / European Association for Cardio-Thoracic Surgery (ESC/EACTS)",
+      "year": 2025,
+      "version": "2025 guidelines",
+      "url": "https://doi.org/10.1093/eurheartj/ehaf194",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères de sévérité",
+        "Indications de remplacement valvulaire",
+        "Choix SAVR contre TAVI",
+        "Surveillance du serré asymptomatique"
+      ]
+    },
+    {
+      "id": "SRC-ESC-2021-VHD",
+      "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
+      "citation": "Vahanian A, Beyersdorf F, Praz F, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. Eur Heart J. 2022 ; 43 (7) : 561-632. doi:10.1093/eurheartj/ehab395.",
+      "organization": "European Society of Cardiology / European Association for Cardio-Thoracic Surgery (ESC/EACTS)",
+      "year": 2021,
+      "version": "2021 guidelines, mises à jour en 2025",
+      "url": "https://doi.org/10.1093/eurheartj/ehab395",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Seuils échographiques classiques",
+        "Épreuve d'effort dans les formes asymptomatiques",
+        "Bilan pré-intervention",
+        "Suivi des prothèses"
+      ]
+    }
+  ]
+}
