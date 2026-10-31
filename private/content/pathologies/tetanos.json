@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "tetanos",
+  "title": "Tétanos",
+  "specialty": "Infectiologie",
+  "objective": "Reconnaître et prendre en charge le tétanos : connaître le germe et sa porte d'entrée (plaies souillées, cordon ombilical), la physiopathologie (neurotoxine tétranospasmine), la triade trismus-opisthotonos-risus sardonicus, la gravité des formes (tétanos néonatal, formes générales), les soins (réanimation, sédation, neutralisation de la toxine, antibiothérapie, soins de plaie) et surtout la prévention par la vaccination.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 3,
+    "specialty": "Infectiologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 44,
+      "localNumber": 3,
+      "sectionLabel": "Médecine",
+      "title": "Tétanos",
+      "specialty": "Infectiologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Tétanos. Clostridium tetani, bacille anaérobie à Gram positif sporulant, tellurique ; infection de PLAIES SOUILLÉES (anfractueuses, nécrotiques, corps étrangers, morsures, cordon ombilical coupé avec instrument non stérile = tétanos néonatal, post-partum, post-abortum) ; incubation 3-21 jours ; toxine tétranospasmine remontant les axones vers le SNC, inhibant les neurotransmetteurs inhibiteurs (GABA, glycine) = contractures. Clinique : TRIADE trismus (« risus sardonicus »), contractures musculaires paroxystiques déclenchées par le bruit et la lumière, opisthotonos ; signes de gravité : délai court porte d'entrée-premiers signes (moins de 7 jours), incubation courte, atteinte respiratoire, dysphagie, paroxysmes fréquents ; formes : localisée, générale, céphalique, néonatale (mortalité très élevée, cordon sale). Diagnostic : CLINIQUE, aucune confirmation biologique utile. Traitement : HÔPITAL en milieu calme et sombre ; neutralisation de la toxine CIRCULANTE (immunoglobulines anti-tétaniques humaines ou sérum hétérologue avec test préalable), METRONIDAZOLE (ou pénicilline G) contre la forme végétative, EXÉRÈSE et soins de la plaie, sédation (benzodiazépines) + curares si besoin, intubation/ventilation, prévention des complications de décubitus, hydratation et nutrition entérale. Prévention : VACCINATION par anatoxine (schéma selon âge, rappels tous les 10 ans), sérothérapie + anatoxine selon statut vaccinal devant toute plaie ; accouchements propres et vaccination des femmes en âge de procréer (élimination du tétanos maternel et néonatal).",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Sudarshan R, Sayo AR, Renner DR, de Saram S, Godbole G, Warrell C, Duong THH, Thwaites CL, Mehta AR, Coughlan C. Tetanus: recognition and management. Lancet Infect Dis. 2025 (en ligne) — DOI 10.1016/S1473-3099(25)00292-0, page officielle ScienceDirect/Lancet Infectious Diseases consultée avant citation.",
+      "Source 2 : OMS, aide-mémoire « Tétanos » — page officielle https://www.who.int/news-room/fact-sheets/detail/tetanus consultée avant citation : le tétanos maternel et néonatal reste une cause de décès évitable ; l'OMS recommande la vaccination des femmes enceintes et les accouchements dans des conditions propres.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue (les photographies d'opisthotonos existent) — choix documenté."
+    ],
+    "qcChecklist": [
+      "Clostridium tetani : anaérobie, sporulé, tellurique, toxine tétranospasmine",
+      "Portes d'entrée : plaies souillées, cordon ombilical (tétanos néonatal), post-partum",
+      "Physiopathologie : blocage de la libération de GABA et de glycine = contractures",
+      "Triade clinique : trismus, opisthotonos, paroxysmes déclenchés par les stimuli",
+      "Diagnostic clinique, sans examen biologique de confirmation",
+      "Traitement : métronidazole + immunoglobulines anti-tétaniques + soins de plaie + réanimation",
+      "Signes de gravité : incubation courte, délai porte d'entrée-signes court, dysphagie, paroxysmes fréquents",
+      "Prévention : vaccination (anatoxine) + prophylaxie des plaies selon statut vaccinal",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tétanos est une toxi-infection aiguë, souvent mortelle, due à la toxine de Clostridium tetani germinant dans une plaie souillée. Entièrement ÉVITABLE par la vaccination, il reste une urgence vitale dans les pays à faible couverture vaccinale — l'OMS rappelle que le tétanos maternel et néonatal demeure une cause de décès évitable, notamment lors d'accouchements dans des conditions non propres. Toute plaie souillée doit faire évaluer le statut vaccinal.",
+          "sources": [
+            {
+              "id": "who2025tetanos",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Tétanos",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le tétanos ne se soigne pas, il se prévient",
+          "text": "La guérison d'un tétanos ne confère AUCUNE immunité : à la sortie, le patient reçoit le schéma vaccinal complet à l'anatoxine. Devant toute plaie, la question n'est pas « faut-il un antibiotique ? » mais « le patient est-il À JOUR de sa vaccination ? » — c'est de cette réponse que dépendent la sérothérapie et la vaccination de la plaie."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Agent et physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "CLOSTRIDIUM TETANI : bacille anaérobie strict à Gram positif, sporulé (spores très résistantes dans le sol et la poussière, survie sur plusieurs années), ubiquitaire tellurique ; germination dans les plaies anfractueuses, nécrotiques, souillées, mal oxygénées.",
+            "TOXINE TÉTRANOSPASMINE : neurotoxine extrêmement puissante qui remonte les axones périphériques et franchit la barrière hémato-encéphalique ; elle bloque la libération des neurotransmetteurs inhibiteurs (GABA, glycine) au niveau de la moelle et du tronc cérébral — levée de toutes les inhibitions = contracture musculaire permanente et paroxysmes réflexes.",
+            "Portes d'entrée : plaies chroniques ou souillées, morsures, ulcères, brûlures, piercings, injections ou scarifications rituelles non stériles ; chez la femme : avortements et accouchements septiques ; chez le nouveau-né : SECTION DU CORDON OMBILICAL avec instrument souillé et/ou pansement non propre (tétanos néonatal, mortalité très élevée).",
+            "Contagiosité : NULLE — pas de transmission interhumaine ; la maladie est purement toxique.",
+            "Incubation : 3 à 21 jours (en moyenne 7-10) ; plus elle est courte, plus la maladie est grave. Le délai entre la porte d'entrée et le premier signe (moins de 7 jours) est un signe de gravité."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Clinique",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "STADE INITIAL : trismus d'abord discret (gêne à l'ouverture de la bouche), puis sidération de la musculature du visage : RISUS SARDONICUS (rire sardonique), raideur de la nuque, dysphagie par spasme pharyngé.",
+            "CONTRACTURES PERMANENTES : muscles du dos et paravertébraux → OPISTHOTONOS (hyperextension, corps en arc) ; abdomen en planche ; membres en flexion ; réflexes ostéotendineux vifs.",
+            "PAROXYSMES : accès de contractures généralisées, douloureux, avec APNÉE prolongée, déclenchés par le MOINDRE stimulus (bruit, lumière, contact, soins) ; cyanose ; risque de rupture musculaire et de fracture.",
+            "FORMES PARTICULIÈRES : tétanos localisé (contracture d'un seul territoire, meilleur pronostic) ; tétanos CÉPHALIQUE (porte d'entrée faciale, paralysies de nerfs crâniens, gravité accrue) ; TÉTANOS NÉONATAL (tétée et succion impossibles, raideur, opisthotonos, crises d'apnée dans les premiers jours de vie, mortalité très élevée) ; tétanos maternel.",
+            "SIGNES DE GRAVITÉ : incubation courte, délai porte d'entrée-premiers signes inférieur à 7 jours, porte d'entrée céphalique ou ombilicale, paroxysmes fréquents, dysphagie, atteinte respiratoire, âges extrêmes, absence de vaccination.",
+            "COMPLICATIONS : asphyxie et apnée prolongée (spasme laryngé ou des muscles respiratoires), pneumopathie d'inhalation, déshydratation, cachexie, complications de décubitus (escarres, thromboses), rhabdomyolyse, fractures, mort subite."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence vitale",
+          "text": "Tout tétanos confirmé est une URGENCE VITALE : milieu calme et sombre (stimulation minimale), voie veineuse, monitorage, oxygène, matériel d'intubation et de ventilation au lit, sédation des paroxysmes. Le décès survient par ASPHYXIE (paroxysme respiratoire) ou par complications de réanimation. Le pronostic dépend de la précocité de la prise en charge et de la qualité du nursing.",
+          "sources": [
+            {
+              "id": "sudarshan2025",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Tetanus: recognition and management",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE et INSTANTANÉ : trismus + contractures paroxystiques déclenchées par les stimuli + plaie suspecte ou notion d'accouchement ou de section de cordon non propre, chez un patient mal ou non vacciné. Il n'existe AUCUN examen biologique de confirmation : l'anamnèse vaccinale fait partie de l'examen. La recherche de la porte d'entrée est systématique (examen de toute la peau, muqueuses, cordon du nouveau-né, questionner sur morsures, injections, avortements, accouchements à domicile).",
+          "sources": [
+            {
+              "id": "sudarshan2025",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Tetanus: recognition and management",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diagnostics différentiels : trismus d'origine dentaire ou ORL (abcès, ostéite — mais sans paroxysmes généralisés), tétanie (hypocalcémie, signe de Chvostek, pas de trismus vrai), méningite (raideur de nuque mais pas de contractures au repos et syndrome infectieux), intoxication par neuroleptiques (dyskinésies), rage (paralysies plutôt que contractures), hystérie de conversion.",
+            "Examens utiles pour la PRISE EN CHARGE (pas pour le diagnostic) : hémogramme, ionogramme (hypocalcémie à écarter), créatinine (rhabdomyolyse), gaz du sang, radiographie thoracique (inhalation), ECG.",
+            "Chez le nouveau-né : tout nouveau-né qui SUCE MAL et devient RAIDE dans les jours suivant un accouchement à domicile = tétanos néonatal jusqu'à preuve du contraire ; interroger sur la section du cordon."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pas de contagion, mais un entourage à vacciner",
+          "text": "Le tétanos n'est pas transmissible — aucune mesure d'isolement. Mais l'épisode est l'occasion de : 1) vacciner le patient lui-même (pas d'immunité après guérison), 2) vérifier la vaccination de la FRATRIE et de l'entourage, 3) en cas de tétanos néonatal, auditer les pratiques d'accouchement du village et former les accoucheuses traditionnelles aux conditions propres, 4) déclarer le cas au système de surveillance."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "MILIEU : chambre CALME et SOMBRE, regroupement des soins, monitorage continu, matériel de réanimation au lit ; éviter tout bruit et toute lumière violente.",
+            "NEUTRALISATION DE LA TOXINE CIRCULANTE : IMMUNOGLOBULINES ANTI-TÉTANIQUES HUMAINES (TIG) en dose unique (500 à 3 000 UI selon protocole, par voie IM) ; si indisponibles : sérum hétérologue anti-tétanique après test de sensibilité (risque anaphylactique et maladie sérique) ; la toxine FIXÉE aux neurones est inaccessible — seule la toxine circulante est neutralisée.",
+            "ANTIBIOTHÉRAPIE contre la forme végétative (le germe continue à produire de la toxine dans la plaie) : MÉTRONIDAZOLE (traitement de référence actuel) ou pénicilline G ; durée selon évolution.",
+            "PORTES D'ENTRÉE : excision, nettoyage, drainage et désinfection de la plaie ; ablation des corps étrangers et des tissus nécrotiques ; cordon : soins locaux propres.",
+            "CONTRÔLE DES CONTRACTURES : sédation par BENZODIAZÉPINES (diazépam, midazolam) à doses élevées, adaptées aux paroxysmes ; si échec : CURARISATION et ventilation mécanique en milieu de réanimation ; antalgiques pour la douleur des paroxysmes.",
+            "VOIES AÉRIENNES ET NUTRITION : prévention de l'inhalation (position, aspiration), intubation précoce si dysphagie ou paroxysmes respiratoires ; sonde nasogastrique pour l'alimentation entérale (l'hypermétabolisme est majeur) ; hydratation.",
+            "NURSING ET PRÉVENTION DES COMPLICATIONS : changement de position, prévention des escarres et des thromboses, kinésithérapie respiratoire, prévention des infections nosocomiales.",
+            "À LA SORTIE (guérison) : démarrer ou compléter la VACCINATION par l'anatoxine tétanique — la guérison n'immunise pas.",
+            "TÉTANOS NÉONATAL : hospitalisation, soins du cordon, immunoglobulines + métronidazole, soins de soutien (chaleur, oxygène, nutrition), intensification de la vaccination autour du cas ; pronostic lié à la précocité et aux moyens de réanimation disponibles."
+          ],
+          "sources": [
+            {
+              "id": "sudarshan2025",
+              "organization": "The Lancet Infectious Diseases",
+              "title": "Tetanus: recognition and management",
+              "year": 2025
+            },
+            {
+              "id": "who2025tetanos",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Tétanos",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexes devant une plaie",
+          "text": "Statut vaccinal À JOUR (moins de 5 ans depuis le dernier rappel) : nettoyer, désinfecter, surveiller. Rappel entre 5 et 10 ans : vacciner d'un rappel d'anatoxine. Rappel à plus de 10 ans ou statut INCONNU ou non vacciné : vacciner + IMMUNOGLOBULINES anti-tétaniques (plaie à risque : souillée, anfractueuse, nécrotique, prise en charge tardive) + antibiotique si plaie à risque. Jamais de plaie « bénigne » sans question vaccinale.",
+          "sources": [
+            {
+              "id": "who2025tetanos",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Tétanos",
+              "year": 2025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "VACCINATION PAR L'ANATOXINE TÉTANIQUE : schéma de base à 3 doses (intégré aux vaccins combinés de l'enfant selon le programme national) + RAPPELS à l'adolescence puis TOUS LES 10 ANS (ou à 5 ans en cas de plaie à risque selon les protocoles) ; efficacité quasi totale.",
+            "PROPHYLAXIE DES PLAIES : selon le statut vaccinal (voir réflexes) ; l'immunoglobuline ne remplace jamais la vaccination, elle la complète pendant les semaines de montée de l'immunité.",
+            "TÉTANOS MATERNEL ET NÉONATAL : vaccination des FEMMES ENCEINTES (anatoxine à chaque grossesse selon les recommandations), ACCOUCHEMENTS DANS DES CONDITIONS PROPRES (instrument stérile pour le cordon, mains propres, surface propre), hygiène du cordon ; formation des accoucheuses traditionnelles.",
+            "Soins des plaies dans la communauté : lavage, désinfection, ablation des corps étrangers ; éducation à ne jamais laisser une plaie souillée sans soins.",
+            "Surveillance épidémiologique et déclaration des cas ; campagnes de rattrapage vaccinal dans les zones à faible couverture.",
+            "Madagascar : maintenir une couverture vaccinale élevée et intégrer la vaccination antitétanique des femmes en âge de procréer dans les contacts avec le système de santé."
+          ],
+          "sources": [
+            {
+              "id": "who2025tetanos",
+              "organization": "Organisation mondiale de la Santé",
+              "title": "Aide-mémoire : Tétanos",
+              "year": 2025
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Incubation courte = gravité",
+          "text": "Trois délais à retenir : incubation totale (contamination → premiers signes) inférieure à 7 jours = gravité ; délai de généralisation (premier signe → contractures généralisées) inférieur à 48 h = gravité ; porte d'entrée introuvable = prudence maximale. À l'inverse, une porte d'entrée retrouvée et excisée, avec des paroxysmes espacés et une ventilation disponible, offre les meilleures chances de survie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tétanos est une toxi-infection anaérobie des plaies, non contagieuse, mortelle par asphyxie, et dont le diagnostic est purement clinique : trismus, risus sardonicus et paroxysmes déclenchés par les stimuli. Sa prise en charge est une réanimation (sédation, neutralisation de la toxine circulante, métronidazole, exérèse de la plaie) dont le résultat dépend de la précocité. Mais l'essentiel se joue AVANT : la vaccination par l'anatoxine, la prophylaxie des plaies selon le statut vaccinal et les accouchements dans des conditions propres éliminent le tétanos — la guérison, elle, n'immunise jamais : le vaccin suit toujours le guéri."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Sudarshan R, Sayo AR, Renner DR, et al. Tetanus: recognition and management. Lancet Infect Dis. 2025 (DOI 10.1016/S1473-3099(25)00292-0).",
+            "Organisation mondiale de la Santé. Aide-mémoire : Tétanos (https://www.who.int/news-room/fact-sheets/detail/tetanus)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Tétanos = urgence vitale",
+      "text": "Milieu calme et sombre, monitorage, matériel d'intubation au lit, sédation des paroxysmes. Le décès survient par asphyxie lors d'un paroxysme respiratoire ou par complications de réanimation. La mortalité du tétanos néonatal reste très élevée."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "La guérison n'immunise pas",
+      "text": "Les anticorps protecteurs ne sont pas produits en quantité suffisante lors de la maladie : tout survivant doit recevoir le schéma vaccinal complet à l'anatoxine dès la sortie. De même, vérifier la vaccination de la fratrie et de l'entourage."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Toute plaie = question vaccinale",
+      "text": "À jour (moins de 5 ans) : soins locaux seuls. Rappel 5-10 ans : anatoxine. Plus de 10 ans, statut inconnu ou non vacciné avec plaie à risque : anatoxine + immunoglobulines anti-tétaniques. L'antibiotique ne remplace jamais la vaccination."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Triade du tétanos",
+      "text": "TRISMUS (ouverture de bouche impossible, risus sardonicus) + OPISTHOTONOS (corps en arc, abdomen en planche) + PAROXYSMES déclenchés par bruit, lumière, contact. Pas de fièvre au début, pas de trouble de la conscience entre les paroxysmes : c'est une contracture, pas un coma."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Nouveau-né qui suce mal",
+      "text": "Quelques jours après un accouchement à domicile : nouveau-né raide, tétée impossible, crises d'apnée = TÉTANOS NÉONATAL jusqu'à preuve du contraire. Interroger sur la section du cordon (instrument non stérile). Vacciner la mère lors des grossesses suivantes."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "T.É.T.A.N.O.S.",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Trismus : le premier signe, bouche qui ne s'ouvre plus"
+        },
+        {
+          "key": "É",
+          "term": "Exposition : plaie souillée, cordon sale — chercher la porte d'entrée"
+        },
+        {
+          "key": "T",
+          "term": "Toxine tétranospasmine : bloque GABA et glycine"
+        },
+        {
+          "key": "A",
+          "term": "Anatoxine : la prévention, avant et après la maladie (la guérison n'immunise pas)"
+        },
+        {
+          "key": "N",
+          "term": "Neuromusculaire : sédation (benzodiazépines), curares, ventilation si grave"
+        },
+        {
+          "key": "O",
+          "term": "Opisthotonos : corps en arc, abdomen en planche"
+        },
+        {
+          "key": "S",
+          "term": "Sombre et silencieux : la chambre calme épargne des paroxysmes"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Agent du tétanos et ses caractéristiques ?",
+      "back": "Clostridium tetani : bacille anaérobie strict à Gram positif, sporulé, tellurique (spores résistant plusieurs années dans le sol) ; germination dans les plaies souillées, anfractueuses, nécrotiques."
+    },
+    {
+      "id": "f2",
+      "front": "Mode d'action de la toxine tétranospasmine ?",
+      "back": "Elle remonte les axones périphériques jusqu'au SNC et bloque la libération des neurotransmetteurs inhibiteurs (GABA, glycine) : levée de l'inhibition = contractures permanentes et paroxysmes réflexes."
+    },
+    {
+      "id": "f3",
+      "front": "Principales portes d'entrée du tétanos ?",
+      "back": "Plaies souillées, anfractueuses, nécrotiques ; morsures, brûlures, ulcères, injections non stériles ; tétanos maternel (avortement, accouchement septique) ; tétanos néonatal (section du cordon avec instrument souillé)."
+    },
+    {
+      "id": "f4",
+      "front": "Triade clinique du tétanos ?",
+      "back": "Trismus avec risus sardonicus, opisthotonos (hyperextension, abdomen en planche), paroxysmes de contractures généralisées déclenchés par bruit, lumière, contact — sans trouble de la conscience entre les accès."
+    },
+    {
+      "id": "f5",
+      "front": "Délais et gravité du tétanos ?",
+      "back": "Incubation 3-21 jours : plus courte = plus grave ; délai porte d'entrée-premiers signes inférieur à 7 jours = gravité ; généralisation en moins de 48 h = gravité."
+    },
+    {
+      "id": "f6",
+      "front": "Tétanos néonatal : tableau et cause ?",
+      "back": "Nouveau-né (jours après un accouchement à domicile) : succion et tétée impossibles, raideur, opisthotonos, crises d'apnée ; cause : section du cordon ombilical avec instrument non stérile et/ou cordon sale ; mortalité très élevée."
+    },
+    {
+      "id": "f7",
+      "front": "Le diagnostic de tétanos repose-t-il sur un examen de laboratoire ?",
+      "back": "NON : diagnostic 100 % clinique (trismus + paroxysmes + notion de plaie et statut vaccinal). Aucun examen biologique ne confirme ; les examens servent seulement à la prise en charge (gaz du sang, ionogramme, radiographie)."
+    },
+    {
+      "id": "f8",
+      "front": "Quel antibiotique et quel sérum dans le traitement du tétanos ?",
+      "back": "MÉTRONIDAZOLE (référence actuelle) ou pénicilline G contre la forme végétative ; immunoglobulines anti-tétaniques humaines (ou sérum hétérologue après test) pour neutraliser la toxine CIRCULANTE — la toxine fixée aux neurones est inaccessible."
+    },
+    {
+      "id": "f9",
+      "front": "Pourquoi traiter les paroxysmes et comment ?",
+      "back": "Chaque paroxysme peut être une apnée fatale : chambre calme et sombre, benzodiazépines à fortes doses ; si insuffisant : curarisation + ventilation mécanique en réanimation."
+    },
+    {
+      "id": "f10",
+      "front": "Faut-il traiter la porte d'entrée ?",
+      "back": "OUI : excision, nettoyage, ablation des corps étrangers et du tissu nécrotique, drainage — le germe continue à produire de la toxine dans la plaie tant qu'elle n'est pas propre."
+    },
+    {
+      "id": "f11",
+      "front": "La guérison du tétanos protège-t-elle d'une récidive ?",
+      "back": "NON : la maladie ne fait pas produire d'anticorps protecteurs en quantité suffisante. Tout guéri doit recevoir le schéma vaccinal complet à l'anatoxine, dès la sortie."
+    },
+    {
+      "id": "f12",
+      "front": "Conduite devant une plaie chez un patient à jour de vaccination (moins de 5 ans) ?",
+      "back": "Nettoyage, désinfection, ablation des corps étrangers, surveillance — pas de rappel nécessaire."
+    },
+    {
+      "id": "f13",
+      "front": "Conduite devant une plaie à risque chez un patient non vacciné ou de statut inconnu ?",
+      "back": "Anatoxine tétanique (rappel ou début de schéma) + IMMUNOGLOBULINES anti-tétaniques humaines + soins de la plaie ; antibiotique (métronidazole) si plaie très souillée ou tardive ; recontrôle de la plaie."
+    },
+    {
+      "id": "f14",
+      "front": "Comment prévenir le tétanos maternel et néonatal ?",
+      "back": "Vaccination des femmes enceintes (et en âge de procréer) par l'anatoxine, accouchements dans des conditions propres (instrument stérile pour le cordon), hygiène du cordon, formation des accoucheuses traditionnelles."
+    },
+    {
+      "id": "f15",
+      "front": "Le tétanos est-il contagieux ?",
+      "back": "NON — pas de transmission interhumaine, aucune isolation. Mais le cas déclenche une action communautaire : vaccination du patient, de la fratrie, de l'entourage, déclaration et audit des pratiques d'accouchement si tétanos néonatal."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "tetanos",
+      "label": "Tétanos"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Agent",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "C. tetani : anaérobie sporulé"
+          },
+          {
+            "id": "b1c2",
+            "label": "Toxine : bloque GABA/glycine"
+          },
+          {
+            "id": "b1c3",
+            "label": "Plaies souillées, cordon ombilical"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Pas de contagion interhumaine"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Trismus, risus sardonicus"
+          },
+          {
+            "id": "b2c2",
+            "label": "Opisthotonos, abdomen en planche"
+          },
+          {
+            "id": "b2c3",
+            "label": "Paroxysmes au bruit/lumière"
+          },
+          {
+            "id": "b2c4",
+            "label": "Formes : céphalique, néonatale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Conscience conservée entre les accès"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Gravité",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Incubation courte"
+          },
+          {
+            "id": "b3c2",
+            "label": "Généralisation < 48 h"
+          },
+          {
+            "id": "b3c3",
+            "label": "Paroxysmes fréquents, dysphagie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Mort par asphyxie"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Chambre calme et sombre"
+          },
+          {
+            "id": "b4c2",
+            "label": "Immunoglobulines + métronidazole"
+          },
+          {
+            "id": "b4c3",
+            "label": "Exérèse de la plaie"
+          },
+          {
+            "id": "b4c4",
+            "label": "Sédation, curares, ventilation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Nutrition entérale, nursing"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Anatoxine : 3 doses + rappels/10 ans"
+          },
+          {
+            "id": "b5c2",
+            "label": "Prophylaxie des plaies selon statut"
+          },
+          {
+            "id": "b5c3",
+            "label": "Vaccination des femmes enceintes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Accouchements propres, cordon stérile"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Formes",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Générale : pronostic selon délais"
+          },
+          {
+            "id": "b6c2",
+            "label": "Néonatale : succion impossible, apnées"
+          },
+          {
+            "id": "b6c3",
+            "label": "Céphalique : paralysies crâniennes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Guérison n'immunise pas : vacciner à la sortie"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "sudarshan2025",
+      "title": "Tetanus: recognition and management",
+      "citation": "Sudarshan R, Sayo AR, Renner DR, de Saram S, Godbole G, Warrell C, Duong THH, Thwaites CL, Mehta AR, Coughlan C. Tetanus: recognition and management. Lancet Infect Dis. 2025. DOI 10.1016/S1473-3099(25)00292-0.",
+      "organization": "The Lancet Infectious Diseases",
+      "year": 2025,
+      "version": "Seminar",
+      "url": "https://doi.org/10.1016/S1473-3099(25)00292-0",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Physiopathologie (toxine, GABA/glycine)",
+        "Signes de gravité et délais",
+        "Traitement (métronidazole, immunoglobulines, sédation, réanimation)",
+        "Formes cliniques"
+      ]
+    },
+    {
+      "id": "who2025tetanos",
+      "title": "Aide-mémoire : Tétanos",
+      "citation": "Organisation mondiale de la Santé. Tetanus. Aide-mémoire OMS (https://www.who.int/news-room/fact-sheets/detail/tetanus).",
+      "organization": "Organisation mondiale de la Santé",
+      "year": 2025,
+      "version": "Fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/tetanus",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Tétanos maternel et néonatal",
+        "Vaccination des femmes enceintes",
+        "Accouchements dans des conditions propres",
+        "Stratégie d'élimination"
+      ]
+    }
+  ]
+}
