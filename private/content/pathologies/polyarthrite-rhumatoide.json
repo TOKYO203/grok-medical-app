@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "polyarthrite-rhumatoide",
+  "title": "Polyarthrite rhumatoïde",
+  "specialty": "Rhumatologie",
+  "objective": "Diagnostiquer précocement une polyarthrite rhumatoïde (PR) : reconnaître la polyarthrite inflammatoire bilatérale et symétrique des petites articulations, connaître la démarche diagnostique (critères ACR/EULAR 2010, facteurs rhumatoïdes et anti-CCP, échographie/radiographie), évaluer l'activité (DAS28) et la sévérité, et instaurer le traitement : méthotrexate en première intention le plus tôt possible (« fenêtre d'opportunité »), biothérapies (anti-TNF, anti-IL-6, anti-CD20, inhibiteurs de JAK) en cas d'échec, corticoïdes à faible dose en pont transitoire, rééducation et surveillance (toxicité, comorbidités).",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 14,
+    "specialty": "Rhumatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 55,
+      "localNumber": 14,
+      "sectionLabel": "Médecine",
+      "title": "Polyarthrite rhumatoïde",
+      "specialty": "Rhumatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Polyarthrite rhumatoïde. La PR est la plus fréquente des polyarthrites inflammatoires chroniques : une SYNOVITE persistante des petites articulations (mains, poignets, pieds), BILATÉRALE et SYMÉTRIQUE, à l'origine d'une destruction cartilagineuse et osseuse (érosions) et de déformations (mains en Z, déviation cubitale, boutonnière, col de cygne). Le DIAGNOSTIC est clinique avant tout : douleur nocturne, dérouillage matinal supérieur à 30 minutes, gonflement articulaire mou et douloureux des métacarpophalangiennes, poignets, métatarsophalangiennes ; il est aidé par les critères ACR/EULAR 2010 (atteinte articulaire, durée, sérologie FR et anti-CCP, syndrome inflammatoire ; score supérieur ou égal à 6/10 chez un patient avec synovite non expliquée autrement), par la BIOLOGIE (facteurs rhumatoïdes, anticorps anti-CCP très spécifiques, VS/CRP), par l'ÉCHOGRAPHIE (synovite en Doppler, ténosynovite, érosions précoces) et la RADIOGRAPHIE (pincements, érosions, géodes — mains et pieds). La PRISE EN CHARGE est une URGENCE RELATIVE : plus le traitement de fond est précoce (« fenêtre d'opportunité » des 3-6 premiers mois), meilleur est le pronostic. Traitement de fond de première intention : MÉTHOTREXATE (avec acide folique), associé à une CORTICOÏDE à faible dose en pont le temps de son effet (3 mois), et aux AINS pour la symptomatologie ; en cas d'échec (DAS28 restant élevé) : biothérapies — anti-TNF alpha (étanercept, adalimumab), anti-IL-6 (tocilizumab), anti-CD20 (rituximab), inhibiteurs de JAK (tofacitinib, baricitinib). MESURES ASSOCIÉES : éducation, kinésithérapie, orthèses, ergothérapie, ostéoporose, vaccination, dépistage des comorbidités ; SURVEILLANCE de la toxicité (hépatique, hématologique — NFS, transaminases sous méthotrexate ; infections sous biothérapie) et du pronostic (DAS28, scores radiographiques). PR ÉVOLUÉE : handicap fonctionnel, atteinte extra-articulaire (nodules, syndrome sec, pulmonaire, vasculite), déformations.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Source 1 : Smolen JS, Aletaha D, Barton A, et al. Rheumatoid arthritis. Nat Rev Dis Primers. 2018;4:18001 — DOI 10.1038/nrdp.2018.1 (PMID 29417936), page officielle nature.com/articles/nrdp20181 confirmée par recherche avant citation.",
+      "Source 2 : Aletaha D, Neogi T, Silman AJ, et al. 2010 rheumatoid arthritis classification criteria: an American College of Rheumatology/European League Against Rheumatism collaborative initiative. Ann Rheum Dis. 2010;69(9):1580 — page officielle ard.bmj.com/content/69/9/1580 confirmée par recherche avant citation.",
+      "Pas d'image : pas d'illustration clinique avec licence vérifiée retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Polyarthrite inflammatoire bilatérale symétrique des petites articulations, dérouillage matinal > 30 min",
+      "Critères ACR/EULAR 2010 (score supérieur ou égal à 6/10, synovite non expliquée autrement)",
+      "Anti-CCP très spécifiques ; FR moins spécifiques",
+      "Fenêtre d'opportunité : méthotrexate le plus tôt possible + corticoïde en pont",
+      "Biothérapies si échec (DAS28) : anti-TNF, anti-IL-6, anti-CD20, anti-JAK",
+      "Surveillance : NFS/transaminases sous méthotrexate, infections sous biothérapie",
+      "Déformations évitées par le traitement précoce",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La polyarthrite rhumatoïde est la plus fréquente des polyarthrites inflammatoires chroniques de l'adulte : une synovite persistante, bilatérale et symétrique, touchant préférentiellement les petites articulations (poignets, métacarpophalangiennes, interphalangiennes proximales, métatarsophalangiennes), qui conduit sans traitement à des érosions osseuses, des destructions articulaires et un handicap fonctionnel majeur. Son enjeu moderne est le diagnostic et le traitement PRÉCOCES : la « fenêtre d'opportunité » des premiers mois conditionne le pronostic.",
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "L'urgence de la PR n'est pas l'urgence vitale, c'est l'urgence du traitement de fond",
+          "text": "Chaque semaine de synovite non traitée rapproche des érosions irréversibles. Devant une polyarthrite inflammatoire des mains évoluant depuis plus de 6 semaines : bilan (VS/CRP, FR, anti-CCP), imagerie (échographie des mains et pieds), avis rhumatologique, méthotrexate dans la fenêtre d'opportunité — pas des corticoïdes seuls en cache-misère."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappel et définitions",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "POLYARTHRITE INFLAMMATOIRE : douleur présente AU REPOS et la nuit, réveil nocturne, DÉROUILLAGE MATINAL supérieur à 30 minutes, amélioration par le mouvement, gonflement mou et chaud — par opposition à la douleur mécanique (usure, à l'effort, sans réveil).",
+            "ÉPIDÉMIOLOGIE : 0,5 à 1 % de la population, femme 2 à 3 fois sur 4, pic entre 40 et 60 ans ; association HLA-DRB1 (épitope partagé) ; tabac et parodontite à Porphyromonas gingivalis = facteurs de risque (et de sévérité, notamment chez les porteurs de l'épitope partagé).",
+            "PHYSIOPATHOLOGIE : perte de tolérance immunitaire ; auto-anticorps (facteur rhumatoïde, anti-CCP) présents des années avant la clinique ; synovite avec hyperplasie du pannus, infiltration lymphocytaire, cytokines pro-inflammatoires (TNF alpha, IL-6) détruisant cartilage et os (érosions marginales via les ostéoclastes).",
+            "FACTEURS RHUMATOÏDES (FR) : auto-anticorps anti-IgG, présents chez environ 70 % des patients, mais peu spécifiques (infections chroniques, syndrome de Sjögren, sujets âgés sains) ; ANTI-CCP (anti-peptides citrullinés) : sensibilité voisine du FR mais SPÉCIFICITÉ très élevée (environ 95 %) et valeur pronostique d'agressivité.",
+            "DAS28 (Disease Activity Score sur 28 articulations) : mesure de l'activité — rémission inférieure à 2,6 ; activité modérée jusqu'à 5,1 ; forte activité au-delà ; guide la stratégie « treat to target » avec réévaluation régulière.",
+            "PR AGRESSIVE à repérer d'emblée : anti-CCP positifs à fort taux, FR élevé, forte activité initiale, érosions précoces, tabac."
+          ],
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "DÉBUT TYPIQUE : installation progressive en semaines d'une polyarthrite bilatérale symétrique des poignets, métacarpophalangiennes, interphalangiennes proximales et pieds ; dérouillage matinal marqué ; asthénie.",
+            "DÉBUTS ATYPIQUES : monoarthrite persistante (poignet, épaule, genou) avant généralisation ; formes aiguës ; « palindromic rheumatism » (poussées régressives migratrices) ; formes du sujet âgé (épaules) ; PR séronégative (FR et anti-CCP négatifs, pronostic souvent meilleur).",
+            "SIGNES D'EXAMEN : gonflement mou et douloureux des articulations, limitation douloureuse, flessum ; NODULES RHUMATOÏDES (surface d'appui des coudes — signe de sévérité) ; syndrome sec ; ténosynovites (poignet, gaine des fléchisseurs : syndrome du canal carpien).",
+            "DÉFORMATIONS DE LA PR ÉVOLUÉE : déviation cubitale des doigts, doigts en « col de cygne » et en « boutonnière », pouce en Z, main carrée, subluxation du poignet ; pieds : avant-pied rond douloureux, orteils en marteau.",
+            "MANIFESTATIONS EXTRA-ARTICULAIRES (PR sévère, séropositive) : nodules, atteinte pulmonaire (pneumopathie interstitielle, pleurésie), péricardite, vasculite rhumatoïde, syndrome de Felty (PR + splénomégalie + neutropénie), amylose, kyste poplité (rupture possible) ; ostéoporose.",
+            "DIAGNOSTICS DIFFÉRENTIELS : lupus (arthrite non érosive), arthrose (douleur mécanique, MCP respectées), arthrites virales (parvovirus B19, hépatites), spondyloarthrite (atteinte axiale asymétrique), connectivites, polyarthrite du sujet âgé, hémopathies."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de sévérité / urgences",
+          "text": "1) NEUTROPÉNIE + SPLENOMÉGALIE (syndrome de Felty) : hémogramme urgent, risque infectieux. 2) ATTEINTE OCULAIRE DOULOUREUSE (sclérite, épisclérite) ou VASCULITE (purpura, ulcères digitaux) : PR agressive, avis spécialisé urgent. 3) RACHIS CERVICAL : la PR atteint le rachis cervical haut (C1-C2) — avant intubation ou manipulation d'un patient PR évoluée, penser à l'instabilité atloïdo-axoïdienne (imagerie si signes neurologiques ou chirurgie prévue).",
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est CLINIQUE : polyarthrite inflammatoire bilatérale et symétrique des petites articulations évoluant depuis plus de 6 semaines. Les critères ACR/EULAR 2010 s'appliquent à un patient avec synovite non expliquée par une autre maladie : score supérieur ou égal à 6/10 sur 4 domaines — atteinte articulaire (nombre de petites et grandes articulations : 0 à 5 points), sérologie (FR et/ou anti-CCP : 0 à 3), durée des symptômes (moins de 6 semaines : 0 ; plus de 6 semaines : 1), marqueurs inflammatoires (VS/CRP : 0 ou 1). La sérologie et l'imagerie complètent sans jamais remplacer la clinique : anti-CCP et FR, VS/CRP ; échographie des mains et pieds (synovite en mode Doppler, ténosynovite, érosions précoces) ; radiographies des mains et pieds de référence (pincements, érosions marginales, géodes).",
+          "sources": [
+            {
+              "id": "acr2010",
+              "organization": "Annals of the Rheumatic Diseases",
+              "title": "2010 ACR/EULAR rheumatoid arthritis classification criteria",
+              "year": 2010
+            },
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "BILAN INITIAL : VS, CRP, NFS (anémie inflammatoire), FR, anti-CCP, transaminases, créatinine, bilan avant méthotrexate (sérologies hépatite B et C, radiographie thoracique selon protocoles), radiographies mains/pieds/poignets, évaluation fonctionnelle (score HAQ) et DAS28 de référence.",
+            "ÉVALUATION DE L'ACTIVITÉ : nombre d'articulations gonflées et douloureuses (sur 28), VS ou CRP, échelle visuelle du patient → DAS28 ; réévaluation toutes les 4 à 12 semaines jusqu'au contrôle (« treat to target » : rémission ou faible activité).",
+            "PIÈGES DIAGNOSTIQUES : FR faussement positif (infections, âge) ; PR séronégative (10 à 20 %) — la clinique prime ; arthrose du réveil matinal court ; syndrome du canal carpien bilatéral révélateur ; ne pas méconnaître une arthrite secondaire (hépatite C avec FR positif !, hémodialysés, sarcoïdose).",
+            "RAPPEL DES CRITÈRES (synovite non expliquée + score supérieur ou égal à 6/10) : 1 grande articulation = 0 point, 2 à 10 grandes = 1, 1 à 3 petites (avec ou sans grandes) = 2, 4 à 10 petites = 3, plus de 10 articulations dont au moins 1 petite = 5 ; FR/anti-CCP faiblement positifs = 2, fortement positifs = 3 ; durée supérieure à 6 semaines = 1 ; VS/CRP élevées = 1.",
+            "Madagascar : le diagnostic biologique (anti-CCP, échographie articulaire) peut manquer — la clinique (polyarthrite inflammatoire symétrique des mains avec dérouillage matinal, syndrome inflammatoire) suffit pour débuter un traitement de fond ; dépister aussi une tuberculose avant biothérapie (haute endémie)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "FR positif n'est pas un diagnostic de PR",
+          "text": "Le facteur rhumatoïde est positif dans de nombreuses situations (hépatites virales, Sjögren, infections subaiguës, endocardite, sujets âgés) et absent de 20 à 30 % des vraies PR. C'est l'ensemble clinique + anti-CCP + imagerie + évolution qui fait le diagnostic ; un FR isolé sans synovite ne justifie aucun traitement de fond."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "OBJECTIF (« treat to target ») : RÉMISSION (DAS28 inférieur à 2,6) ou à défaut faible activité ; réévaluation régulière et escalade thérapeutique tant que la cible n'est pas atteinte.",
+            "TRAITEMENT DE FOND DE PREMIÈRE INTENTION : MÉTHOTREXATE (une fois par semaine, per os ou sous-cutané, avec ACIDE FOLIQUE, effet en 6 à 12 semaines) — le plus tôt possible dans la fenêtre d'opportunité ; alternatives si contre-indication : sulfasalazine, léflunomide, hydroxychloroquine (formes modérées).",
+            "CORTICOÏDES : faibles doses (moins de 10 à 15 mg/jour de prednisone) en PONT transitoire (moins de 6 mois) le temps de l'efficacité du traitement de fond ; injection intra-articulaire d'un corticoïde retard sur une ou deux articulations bloquées ; jamais de corticothérapie prolongée isolée (effet cache-misère, ostéoporose, diabète, infections) ; prévention de l'ostéoporose sous corticoïdes (calcium, vitamine D, bisphosphonates selon le risque).",
+            "AINS : traitement SYMPTOMATIQUE des poussées, à la dose minimale efficace et de courte durée (gastroprotection si facteurs de risque, attention rénale et cardiovasculaire) ; le paracétamol peut aider ; jamais d'AINS seuls comme traitement de la PR.",
+            "BIOTHÉRAPIES ET DMARDs SYNTHÉTIQUES CIBLÉS (échec du méthotrexate bien conduit à 3-6 mois, ou facteurs de mauvais pronostic) : anti-TNF alpha (étanercept, adalimumab, infliximab), anti-IL-6 (tocilizumab), anti-CD20 (rituximab, notamment PR séropositive), inhibiteurs de JAK (tofacitinib, baricitinib, upadacitinib) ; association au méthotrexate ( limitation de l'immunogénicité) ; AVANT BIOLOGIQUE : dépister une TUBERCULOSE LATENTE (intradermoréaction/IGRA, radiographie thoracique) et les hépatites — crucial en zone d'endémie.",
+            "SURVEILLANCE sous méthotrexate : NFS-plaquettes, transaminases, créatinine toutes les 2 à 4 semaines le premier trimestre puis tous les 3 mois ; arrêt de l'alcool ; contraception efficace (tératogène) ; sous biothérapie : risque infectieux (tuberculose, pneumocoque), vaccination (grippe, pneumocoque ; PAS de vaccins vivants).",
+            "MESURES NON PHARMACOLOGIQUES : kinésithérapie (maintien de la mobilité musculaire et articulaire), ergothérapie, orthèses de repos et de fonction, éducation thérapeutique, adaptation du poste de travail, activité physique adaptée, sevrage TABAGIQUE (aggrave la PR), prise en charge psychologique et sociale.",
+            "CHIRURGIE (PR évoluée) : synovectomie, arthroplasties (poignet, hanche, genou, MCP), arthrodèses des déformations douloureuses, libération du canal carpien.",
+            "APRÈS LE DIAGNOSTIC : information du patient (maladie chronique, observance décisive), dépistage des comorbidités (cardiovasculaire — le risque est augmenté, ostéoporose, dépression), coordination avec le médecin traitant."
+          ],
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            },
+            {
+              "id": "acr2010",
+              "organization": "Annals of the Rheumatic Diseases",
+              "title": "2010 ACR/EULAR rheumatoid arthritis classification criteria",
+              "year": 2010
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une polyarthrite inflammatoire des mains de l'adulte",
+          "text": "1) Confirmer le caractère inflammatoire (réveil nocturne, dérouillage matinal supérieur à 30 minutes, gonflement mou). 2) Bilan : VS/CRP, NFS, FR, anti-CCP ; radiographies mains/pieds (± échographie). 3) Écarter les diagnostics différentiels (hépatites, lupus, arthrose). 4) Avis rhumatologique et DÉBUT D'UN TRAITEMENT DE FOND dans la fenêtre d'opportunité — méthotrexate + acide folique, corticoïde en pont, AINS si besoin. 5) Réévaluer le DAS28 et ajuster jusqu'à la rémission.",
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "PRIMO-PRÉVENTION : sevrage tabagique (le tabac est le principal facteur de risque modifiable, il aggrave la sévérité et diminue l'efficacité des traitements) ; bonne santé bucco-dentaire (parodontite).",
+            "PRÉVENTION DES DÉFORMATIONS : traitement de fond précoce (le meilleur « dépistage » des destructions) ; kinésithérapie et orthèses dès le début ; protection articulaire dans les gestes quotidiens (ergothérapie).",
+            "PRÉVENTION DES COMORBIDITÉS : risque cardiovasculaire augmenté (arrêt du tabac, contrôle de l'activité de la maladie, bilan lipidique et tensionnel), ostéoporose (calcium, vitamine D, densitométrie, bisphosphonates, surtout sous corticoïdes), dépistage des infections sous immunosuppresseurs (vaccinations grippe/pneumocoque, pas de vaccins vivants sous biothérapie).",
+            "PRÉVENTION DE LA TOXICITÉ DU MÉTHOTREXATE : acide folique systématique, arrêt de l'alcool, surveillance hématologique et hépatique, adaptation de la dose en cas d'insuffisance rénale.",
+            "PRÉVENTION DES COMPLICATIONS DES BIOLOGIQUES : dépistage de tuberculose latente et d'hépatites avant l'initiation (essentiel à Madagascar), information sur les signes infectieux d'alerte.",
+            "PRÉVENTION DU HANDICAP SOCIAL : maintien à l'emploi (aménagement du poste), reconnaissance de la maladie chronique, associations de patients."
+          ],
+          "sources": [
+            {
+              "id": "smolen2018",
+              "organization": "Nature Reviews Disease Primers",
+              "title": "Rheumatoid arthritis",
+              "year": 2018
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Ce qu'il faut retenir pour l'examen",
+          "text": "PR = polyarthrite inflammatoire BILATÉRALE SYMÉTRIQUE des petites articulations + dérouillage matinal supérieur à 30 minutes. Diagnostic : clinique + critères ACR/EULAR 2010 (score supérieur ou égal à 6/10) + anti-CCP (très spécifiques) + radiographie/échographie (érosions). Traitement : MÉTHOTREXATE précoce (fenêtre d'opportunité) + corticoïde en pont + AINS symptomatiques ; biothérapies si échec ; objectif = rémission (DAS28 inférieur à 2,6). Surveillance NFS/transaminases ; tuberculose à dépister avant biothérapie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La polyarthrite rhumatoïde n'est plus la maladie des déformations inexorables : c'est une maladie qu'on contrôle quand on la traite tôt. La clinique — polyarthrite inflammatoire bilatérale et symétrique des mains avec dérouillage matinal — doit faire prescrire le bilan (FR, anti-CCP, imagerie) et surtout initier le traitement de fond dans la fenêtre d'opportunité, le méthotrexate restant la pierre angulaire, avant d'escalader vers les biothérapies guidées par le DAS28. Là où le plateau technique manque, comme souvent, la clinique et le méthotrexate suffisent à changer le pronostic fonctionnel du patient."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Smolen JS, Aletaha D, Barton A, et al. Rheumatoid arthritis. Nat Rev Dis Primers. 2018;4:18001 (DOI 10.1038/nrdp.2018.1).",
+            "Aletaha D, Neogi T, Silman AJ, et al. 2010 rheumatoid arthritis classification criteria. Ann Rheum Dis. 2010;69(9):1580.",
+            "Organisation mondiale de la Santé. Aide-mémoire : affections musculo-squelettiques (https://www.who.int/news-room/fact-sheets/detail/musculoskeletal-conditions)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fenêtre d'opportunité : les 6 premiers mois",
+      "text": "La destruction articulaire survient tôt et est irréversible : la majorité des érosions radiographiques apparaissent dans les 2 premières années. Toute polyarthrite inflammatoire évoluant depuis plus de 6 semaines doit recevoir un traitement de fond RAPIDEMENT — idéalement dans les 3 à 6 mois — même si le diagnostic de PR n'est pas encore certain (« PR probable » : traiter, réévaluer)."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Méthotrexate : les règles de sécurité",
+      "text": "Une prise HEBDOMADAIRE (jamais quotidienne — erreur d'administration potentiellement mortelle) + acide folique ; surveillance NFS/transaminases/créatinine ; alcool interrompu ; contraception obligatoire (tératogène, arrêt 3 mois avant une conception selon les protocoles) ; prudence si insuffisance rénale ou hépatique, pneumopathie sous traitement (toux, dyspnée : arrêt et avis)."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Avant une biothérapie : dépister la tuberculose",
+      "text": "Anti-TNF et autres immunosuppresseurs réactivent des tuberculoses latentes — à Madagascar, pays d'endémie, l'intradermoréaction à la tuberculine (ou IGRA si disponible) et la radiographie thoracique sont indispensables avant l'initiation, avec traitement d'une tuberculose latente selon les protocoles. Vérifier aussi les hépatites B et C et les vaccins."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Inflammatoire ou mécanique ?",
+      "text": "INFLAMMATOIRE : douleur nocturne qui réveille, dérouillage matinal supérieur à 30 minutes, amélioration à la mise en mouvement, gonflement mou chaud, syndrome inflammatoire biologique. MÉCANIQUE (arthrose) : douleur à l'effort, soulagement au repos, réveil bref, crépitations osseuses, VS normale, MCP respectées."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Critères ACR/EULAR 2010 en 4 lignes",
+      "text": "S'appliquent à une SYNOVITE non expliquée autrement ; score supérieur ou égal à 6/10 : 1) articulations (petites : 2-3 points selon le nombre, 4-10 petites = 3 points, plus de 10 dont 1 petite = 5 points) ; 2) sérologie FR/anti-CCP (faible = 2, forte = 3) ; 3) durée supérieure à 6 semaines (1 point) ; 4) VS/CRP élevées (1 point)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "P.R.E.C.O.C.E.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Polyarthrite bilatérale symétrique des petites articulations : la clinique d'abord"
+        },
+        {
+          "key": "R",
+          "term": "Réveil nocturne + dérouillage matinal supérieur à 30 minutes = inflammatoire"
+        },
+        {
+          "key": "E",
+          "term": "Érosions : radiographie des mains et pieds, échographie (Doppler) pour les lésions précoces"
+        },
+        {
+          "key": "C",
+          "term": "Anti-CCP très spécifiques ; FR souvent positif mais non spécifique"
+        },
+        {
+          "key": "O",
+          "term": "Objectif : rémission, DAS28 inférieur à 2,6 (treat to target)"
+        },
+        {
+          "key": "C",
+          "term": "Corticoïdes : seulement en pont transitoire, à faible dose"
+        },
+        {
+          "key": "E",
+          "term": "Escalade : méthotrexate puis biothérapies (tuberculose à dépister avant)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définissez la polyarthrite rhumatoïde.",
+      "back": "Polyarthrite inflammatoire chronique auto-immune, la plus fréquente des polyarthrites chroniques : synovite persistante bilatérale symétrique des petites articulations (poignets, MCP, IPP, MTP), entraînant érosions osseuses et déformations sans traitement ; femme 2 à 3 fois sur 4, pic 40-60 ans."
+    },
+    {
+      "id": "f2",
+      "front": "Signes cliniques d'une arthrite inflammatoire (par opposition à mécanique) ?",
+      "back": "Douleur au repos et la nuit avec réveil nocturne, DÉROUILLAGE MATINAL supérieur à 30 minutes, amélioration par le mouvement, gonflement articulaire mou et chaud, parfois fièvre et asthénie ; biologie : VS et CRP élevées."
+    },
+    {
+      "id": "f3",
+      "front": "Quelles articulations sont touchées préférentiellement dans la PR ? Lesquelles sont respectées ?",
+      "back": "Atteintes : poignets, métacarpophalangiennes, interphalangiennes proximales, métatarsophalangiennes (petites articulations, symétriques). RESPECTÉES : interphalangiennes distales (contre-indiquent le diagnostic de PR), rachis dorsal et lombaire (sauf cervical haut)."
+    },
+    {
+      "id": "f4",
+      "front": "Intérêt et limites du facteur rhumatoïde dans la PR ?",
+      "back": "Présent chez environ 70 % des PR mais PEU SPÉCIFIQUE (hépatites, Sjögren, endocardite, infections, sujets âgés) ; négatif dans 20 à 30 % des PR (séronégatives) ; un FR isolé sans synovite ne fait pas le diagnostic."
+    },
+    {
+      "id": "f5",
+      "front": "Pourquoi les anti-CCP sont-ils meilleurs que le FR pour le diagnostic de PR ?",
+      "back": "SPÉCIFICITÉ très élevée (environ 95 %) ; présents des années avant la clinique ; associés à des formes plus AGRESSIVES et érosives ; aident au diagnostic précoce et au pronostic."
+    },
+    {
+      "id": "f6",
+      "front": "Critères ACR/EULAR 2010 : à qui s'appliquent-ils et quel score retient le diagnostic ?",
+      "back": "Patient avec SYNOVITE non expliquée par une autre maladie ; score supérieur ou égal à 6/10 sur 4 domaines : atteinte articulaire (0-5), sérologie FR/anti-CCP (0-3), durée supérieure à 6 semaines (0-1), VS/CRP (0-1)."
+    },
+    {
+      "id": "f7",
+      "front": "Qu'est-ce que la fenêtre d'opportunité de la PR ?",
+      "back": "Les 3 à 6 premiers mois (au maximum la première année) : la précocité du traitement de fond conditionne le pronostic ; la majorité des érosions apparaissent dans les 2 premières années ; le méthotrexate débuté à cette phase prévient la destruction articulaire irréversible."
+    },
+    {
+      "id": "f8",
+      "front": "Traitement de fond de première intention de la PR ?",
+      "back": "MÉTHOTREXATE (une fois par semaine + acide folique, effet en 6 à 12 semaines), associé à une corticothérapie à faible dose en pont transitoire et à des AINS symptomatiques ; alternatives : sulfasalazine, léflunomide, hydroxychloroquine selon le profil et les contre-indications."
+    },
+    {
+      "id": "f9",
+      "front": "Règles de surveillance du méthotrexate ?",
+      "back": "NFS-plaquettes, transaminases, créatinine : toutes les 2 à 4 semaines le premier trimestre puis tous les 3 mois ; acide folique hebdomadaire ; sevrage alcoolique ; contraception (tératogène) ; prudence si insuffisance rénale ; toux ou dyspnée sous traitement : arrêt et avis (pneumopathie)."
+    },
+    {
+      "id": "f10",
+      "front": "Quand et comment escalader vers une biothérapie ?",
+      "back": "Échec du méthotrexate bien conduit (3 à 6 mois à dose optimale) avec DAS28 restant élevé, ou facteurs de mauvais pronostic d'emblée ; options : anti-TNF alpha (étanercept, adalimumab), anti-IL-6 (tocilizumab), anti-CD20 (rituximab), inhibiteurs de JAK ; le plus souvent en association au méthotrexate ; dépister tuberculose latente et hépatites avant."
+    },
+    {
+      "id": "f11",
+      "front": "Déformations classiques de la PR évoluée ?",
+      "back": "Déviation cubitale des doigts, doigts en « col de cygne » et en « boutonnière », pouce en Z, main carrée, subluxation du poignet ; pieds : avant-pied rond, orteils en marteau ; instabilité atloïdo-axoïdienne du rachis cervical haut (attention avant intubation)."
+    },
+    {
+      "id": "f12",
+      "front": "Citez des manifestations extra-articulaires de la PR.",
+      "back": "NODULES RHUMATOÏDES (coudes), syndrome sec, atteinte pulmonaire (pneumopathie interstitielle, pleurésie), péricardite, vasculite, sclérite, anémie inflammatoire, ostéoporose, amylose, syndrome de Felty (splénomégalie + neutropénie) — signent une PR sévère séropositive."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que le DAS28 et quel est l'objectif thérapeutique ?",
+      "back": "Score d'activité sur 28 articulations (douloureuses, gonflées, VS/CRP, évaluation globale du patient) ; rémission inférieure à 2,6, faible activité jusqu'à 3,2, activité modérée jusqu'à 5,1, forte activité au-delà ; l'objectif « treat to target » est la rémission, avec réévaluation toutes les 4 à 12 semaines et ajustement."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi le tabac est-il important dans la PR ?",
+      "back": "Facteur de risque de survenue (surtout chez les porteurs de l'épitope partagé HLA-DRB1) et de SÉVÉRITÉ (formes érosives, extra-articulaires) ; diminue l'efficacité des traitements, notamment du méthotrexate et des anti-TNF ; le sevrage est un geste thérapeutique à part entière."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles précautions avant de débuter une biothérapie, notamment à Madagascar ?",
+      "back": "Dépister une TUBERCULOSE LATENTE (intradermoréaction/IGRA, radiographie thoracique) et la traiter selon les protocoles ; sérologies hépatites B et C ; vérifier les vaccins (grippe, pneumocoque ; aucun vaccin vivant sous immunosuppresseur) ; traiter les foyers infectieux dentaires ; éducation aux signes d'alerte infectieux."
+    },
+    {
+      "id": "f16",
+      "front": "Principaux diagnostics différentiels d'une polyarthrite débutante ?",
+      "back": "Arthrose (douleur mécanique, MCP respectées), lupus (arthrite non érosive, autre symptomatologie), arthrites virales (parvovirus B19, hépatites B/C — FR positif possible), spondyloarthrite (asymétrique, axiale, enthèses), polyarthrite du sujet âgé, hémopathies, sarcoïdose, goutte chronique tophacée des mains."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "pr",
+      "label": "Polyarthrite rhumatoïde"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Polyarthrite symétrique des petites articulations"
+          },
+          {
+            "id": "b1c2",
+            "label": "Dérouillage matinal > 30 min"
+          },
+          {
+            "id": "b1c3",
+            "label": "ACR/EULAR 2010 : score supérieur ou égal à 6/10"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Anti-CCP spécifiques ; FR peu spécifique"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Évaluation",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "DAS28, activité"
+          },
+          {
+            "id": "b2c2",
+            "label": "Radiographie : pincements, érosions"
+          },
+          {
+            "id": "b2c3",
+            "label": "Échographie : Doppler synovite"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "Pronostic : anti-CCP élevés, tabac, érosions précoces"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Traitement de fond",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Méthotrexate + acide folique (fenêtre d'opportunité)"
+          },
+          {
+            "id": "b3c2",
+            "label": "Corticoïdes en pont, AINS symptomatiques"
+          },
+          {
+            "id": "b3c3",
+            "label": "Biothérapies si échec : anti-TNF, anti-IL-6, anti-CD20, anti-JAK"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Tuberculose à dépister avant biothérapie"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Surveillance",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "NFS, transaminases, créatinine"
+          },
+          {
+            "id": "b4c2",
+            "label": "DAS28 régulier : treat to target"
+          },
+          {
+            "id": "b4c3",
+            "label": "Infections, vaccins (pas de vivants)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "Comorbidités : cardiovasculaire, ostéoporose"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Déformations : col de cygne, boutonnière, pouce en Z"
+          },
+          {
+            "id": "b5c2",
+            "label": "Extra-articulaires : nodules, poumon, vasculite, Felty"
+          },
+          {
+            "id": "b5c3",
+            "label": "Rachis cervical haut (intubation)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Handicap : kinésithérapie, orthèses, chirurgie"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "smolen2018",
+      "title": "Rheumatoid arthritis",
+      "citation": "Smolen JS, Aletaha D, Barton A, et al. Rheumatoid arthritis. Nat Rev Dis Primers. 2018;4:18001. DOI 10.1038/nrdp.2018.1. PMID 29417936.",
+      "organization": "Nature Reviews Disease Primers",
+      "year": 2018,
+      "version": "Primer",
+      "url": "https://doi.org/10.1038/nrdp.2018.1",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Épidémiologie et physiopathologie",
+        "Clinique et manifestations extra-articulaires",
+        "Stratégie thérapeutique et fenêtre d'opportunité",
+        "Surveillance et comorbidités"
+      ]
+    },
+    {
+      "id": "acr2010",
+      "title": "2010 ACR/EULAR rheumatoid arthritis classification criteria",
+      "citation": "Aletaha D, Neogi T, Silman AJ, et al. 2010 rheumatoid arthritis classification criteria: an American College of Rheumatology/European League Against Rheumatism collaborative initiative. Ann Rheum Dis. 2010;69(9):1580.",
+      "organization": "Annals of the Rheumatic Diseases",
+      "year": 2010,
+      "version": "Classification criteria",
+      "url": "https://ard.bmj.com/content/69/9/1580",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Critères diagnostiques ACR/EULAR 2010",
+        "Système de score et domaines",
+        "Application au diagnostic précoce"
+      ]
+    }
+  ]
+}
