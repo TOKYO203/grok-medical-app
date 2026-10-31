@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "polynevrites",
+  "title": "Polynévrites",
+  "specialty": "Neurologie",
+  "objective": "Définir la polynévrite (atteinte diffuse et bilatérale des nerfs périphériques), reconnaître le syndrome polyneuropathique sensitif, moteur et/ou autonome, conduire l'enquête étiologique et appliquer les traitements symptomatiques et causaux.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 111,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 152,
+      "localNumber": 111,
+      "sectionLabel": "Médecine",
+      "title": "Polynévrites",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reformulation": "Fiche Polynévrites : syndrome neurogène périphérique distal, symétrique, à prédominance sensitive (fourmillements, hypoesthésie en chaussettes/gants, abolition des réflexes achilléens), élargi aux grandes causes — diabète, alcool et carences (B1, B12), lèpre, VIH, médicamenteuses, dysimmunitaires (Guillain-Barré aigu, PIDC chronique) — avec démarche diagnostique simplifiée adaptée aux ressources, ENMG, bilan minimal (glycémie, NFS, B12, VIH, lèpre) et traitements : cause + douleurs neuropathiques + soins des pieds.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Revue générale du tableau et de la prise en charge DSPN : Callaghan BC, Price RS, Feldman EL. Distal Symmetric Polyneuropathy: A Review. JAMA. 2015;314(20):2172-81 — DOI 10.1001/jama.2015.13611 (PMID 26599185), confirmé via PubMed avant citation.",
+      "Bilan étiologique et tests utiles : England JD, et al. Practice Parameter (AAN/AANEM/AAPMR). Neurology. 2009;72(2):185-192 — DOI 10.1212/01.wnl.0000336370.51010.a1 (PMID 19056666), confirmé avant citation.",
+      "Contexte Madagascar : la lèpre et le diabète sont des causes locales majeures de neuropathie périphérique — point d'ancrage clinique développé dans la fiche (renvoi vers la fiche Lèpre).",
+      "Pas d'image : aucune illustration neuro-anatomique libre de droits avec licence vérifiée sur Commons retenue — choix documenté."
+    ],
+    "qcChecklist": [
+      "Définition : atteinte diffuse, bilatérale, symétrique, distale, des nerfs périphériques",
+      "Sémiologie : sensitif (chaussettes/gants), moteur (déficit distal, steppage), abolitions réflexes, signes autonomes",
+      "ENMG : polyneuropathie axonale vs démyélinisante",
+      "Causes : diabète, alcool/carences, lèpre, VIH, iatrogène, GBS (aigu) vs PIDC (chronique)",
+      "Bilan minimal adapté aux ressources : glycémie, NFS, B12, VIH, examen cutané/nerfs (lèpre)",
+      "Douleurs neuropathiques : gabapentinoïdes, inhibiteurs de la recapture de la sérotonine-noradrénaline ; pas d'opioïdes de première intention",
+      "Prévention des ulcères plantaires : éducation, examen des pieds, chaussures",
+      "Self-checks exécutés avant push"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une polynévrite (ou polyneuropathie) est une atteinte diffuse, bilatérale et généralement symétrique des nerfs périphériques, touchant par ordre décroissant les fibres sensitives, motrices et autonomiques. L'atteinte débute typiquement aux extrémités (distale) et remonte de façon ascendante et symétrique : c'est le tableau « en chaussettes et en gants ». Le nerf le plus long est atteint le premier, d'où le début aux pieds."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Syndrome polyneuropathique",
+          "text": "Quatre pièces du puzzle : (1) hypoesthésie distale symétrique en chaussettes/gants, (2) abolition des réflexes achilléens (premier réflexe à disparaître), (3) déficit moteur distal avec steppage si atteinte motrice, (4) signes dysautonomiques (sécheresse, troubles trophiques, hypotension orthostatique). Symétrique + distal + réflexes abolis = polynévrite."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, les causes dominantes sont métaboliques et carentielles (diabète, alcool, carence en vitamine B1 et B12), infectieuses (lèpre au premier rang des neuropathies locales, VIH) et iatrogènes (isoniazide sans pyridoxine, etc.). Le Guillain-Barré est l'urgence de ce chapitre."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Atteinte AXONALE (la plus fréquente) : souffrance du corps cellulaire ou de l'axone (« dying back ») — le déficit est distal, ascendant, sensitif d'abord ; les potentiels d'action sont diminués d'amplitude, la vitesse de conduction est peu modifiée.",
+            "Atteinte DÉMYÉLINISANTE : destruction de la gaine de Schwann — blocs de conduction, déficits diffus parfois proximaux, vitesses de conduction nettement ralenties à l'ENMG (ex. Guillain-Barré, PIDC).",
+            "Fibres petites (douleur, température) et grandes (proprioception, motricité) peuvent être touchées différemment selon la cause (atteinte des « petites fibres » du diabète débutant).",
+            "Le nerf périphérique n'exprime qu'un répertoire symptomatique restreint : la clinique seule ne dit pas la cause, seul le contexte et l'ENMG orientent."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Par fréquence et contexte local"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Métaboliques : diabète (première cause mondiale), insuffisance rénale chronique, hypothyroïdie.",
+            "Carentielles et toxiques : alcool (polynévrite alcoolique + encéphalopathie de Gayet-Wernicke si carence en B1), carence en vitamine B12 (anémie de Biermer), dénutrition, médicaments et toxiques (isoniazide sans pyridoxine, vincristine, sels d'or, plomb, arsenic).",
+            "Infectieuses : lèpre (neuropathie à prédominance des troncs nerveux palpables, cf. fiche Lèpre), VIH, maladie de Lyme, hépatites, diphtérie.",
+            "Dysimmunitaires : Guillain-Barré (aigu, post-infectieux, démyélinisant, urgence respiratoire), polynévrite inflammatoire démyélinisante chronique (PIDC), neuropathies avec gammapathie monoclonale.",
+            "Héréditaires : maladie de Charcot-Marie-Tooth (atrophie péronière progressive, pieds creux, histoire familiale).",
+            "Carences liées aux états de dénutrition et aux régimes carencés, situations fréquentes en contexte tropical."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Guillain-Barré : l'urgence du chapitre",
+          "text": "Quadriparésie ascendante + abolition des réflexes + troubles dysautonomiques, sur 1-4 semaines, souvent après un épisode infectieux (Campylobacter, virus). Risques : insuffisance respiratoire (surveillance de la capacité vitale), troubles du rythme et de la déglutition. Immunoglobulines IV ou échanges plasmatiques dès que le patient marche difficilement ; pas de corticoïdes."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic de syndrome polyneuropathique est clinique : interrogatoire (mode d'installation, toxiques, médicaments, diabète, alcool, famille), examen des quatre membres à la recherche du déficit distal symétrique, testing de la sensibilité (coton, piqûre, monofilament), des réflexes et des trophicités (peau sèche, ulcères, pieds creux). L'ENMG confirme l'atteinte périphérique, la distingue d'une atteinte centrale ou d'une radiculopathie, et surtout précise le mécanisme : axonal ou démyélinisant.",
+          "sources": [
+            {
+              "id": "callaghan2015",
+              "organization": "JAMA",
+              "title": "Distal Symmetric Polyneuropathy: A Review",
+              "year": 2015
+            },
+            {
+              "id": "england2009",
+              "organization": "American Academy of Neurology",
+              "title": "Evaluation of distal symmetric polyneuropathy: role of laboratory and genetic testing",
+              "year": 2009
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne jamais conclure « polynévrite » sans chercher la cause",
+          "text": "Trois examens à demander systématiquement en pratique locale : glycémie à jeun (diabète), NFS + bilan martial (carences), et examen cutané avec palpation des nerfs (lèpre). Ajouter B12, TSH, VIH, fonction rénale selon le contexte."
+        },
+        {
+          "type": "heading",
+          "text": "Bilan étiologique minimal"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glycémie à jeun ± HbA1c ; créatinine ; NFS ; TSH ; vitamine B12.",
+            "Sérologie VIH, VHB/VHC si contexte ; examen dermatologique et palpation des nerfs si suspicion de lèpre.",
+            "ENMG : amplitudes abaissées (axonal) vs vitesses ralenties et blocs (démyélinisant).",
+            "Ponction lombaire : dissociation albumino-cytologique dans le Guillain-Barré.",
+            "Dosages toxiques et médicamenteux (plomb, arsenic, isoniazide) selon l'enquête."
+          ],
+          "sources": [
+            {
+              "id": "england2009",
+              "organization": "American Academy of Neurology",
+              "title": "Evaluation of distal symmetric polyneuropathy: role of laboratory and genetic testing",
+              "year": 2009
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "TRAITER LA CAUSE : équilibre glycémique (diabète), sevrage alcoolique, vitaminothérapie B1/B12, pyridoxine sous isoniazide, PCT de la lèpre, immunoglobulines IV ou plasmaphérèses dans le Guillain-Barré, corticoïdes ± immunoglobulines dans la PIDC.",
+            "Douleurs neuropathiques : gabapentine ou prégabaline, ou inhibiteurs de la recapture de la sérotonine et de la noradrénaline (duloxétine, indiquée dans la neuropathie diabétique douloureuse) ; tricycliques à faible dose ; les opioïdes ne sont pas de première intention.",
+            "Rééducation : kinésithérapie contre le steppage et les rétractions, orthèses, prévention des chutes.",
+            "Soins des pieds (dans les formes sensitives) : éducation à l'auto-examen quotidien, chaussures adaptées, lutte contre les ulcérations — première cause d'amputation évitable chez le diabétique.",
+            "Mesures associées : traitement des troubles dysautonomiques (bas de contenu, hydratation), prise en charge sociale de l'alcoolisme."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe thérapeutique",
+          "text": "1) Confirmer le syndrome (clinique ± ENMG) ; 2) lancer le bilan minimal (glycémie, NFS, B12, VIH, lèpre) ; 3) traiter la cause en même temps que la douleur ; 4) en cas d'installation AIGUË avec déficit moteur ascendant : Guillain-Barré jusqu'à preuve du contraire — surveillance respiratoire et immunoglobulines IV.",
+          "sources": [
+            {
+              "id": "callaghan2015",
+              "organization": "JAMA",
+              "title": "Distal Symmetric Polyneuropathy: A Review",
+              "year": 2015
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Diabète : équilibre glycémique, dépistage annuel par monofilament, éducation podologique.",
+            "Alcool et carences : sevrage, supplémentation en B1 chez le buveur, alimentation équilibrée.",
+            "Iatrogène : pyridoxine systématique avec l'isoniazide ; surveillance neurologique sous chimiothérapies neurotoxiques.",
+            "Lèpre : dépistage des contacts et PCT précoce (cf. fiche Lèpre) — prévention des disabilities.",
+            "Vaccinations et hygiène alimentaire pour réduire les infections déclenchantes du Guillain-Barré."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux causes majeures à Madagascar",
+          "text": "DIABÈTE et LÈPRE sont les deux terrains locaux majeurs : une polynévrite distale symétrique chez un adulte doit faire contrôler la glycémie ET palper les nerfs (ulnaire, péronier) avec examen de la peau. Les deux causes coexistent parfois chez le même patient."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La polynévrite est un syndrome — pas un diagnostic. La séquence gagnante est : reconnaître le tableau distal symétrique avec réflexes abolis, préciser le mécanisme (axonal ou démyélinisant) et l'installation (aiguë ou chronique), puis chercher la cause avec un bilan minimal adapté aux ressources (glycémie, NFS, B12, VIH, lèpre). Le traitement combine la cause, la douleur neuropathique et la protection des pieds ; l'installation aiguë ascendante impose d'éliminer un Guillain-Barré, urgence respiratoire potentielle."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Callaghan BC, Price RS, Feldman EL. Distal Symmetric Polyneuropathy: A Review. JAMA. 2015;314(20):2172-81 (DOI 10.1001/jama.2015.13611).",
+            "England JD, et al. Practice Parameter: Evaluation of distal symmetric polyneuropathy (AAN/AANEM/AAPMR). Neurology. 2009;72(2):185-192 (DOI 10.1212/01.wnl.0000336370.51010.a1)."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Guillain-Barré",
+      "text": "Déficit moteur ascendant sur quelques semaines + réflexes abolis : Guillain-Barré jusqu'à preuve du contraire. Surveillance de la capacité vitale, immunoglobulines IV ou échanges plasmatiques, pas de corticoïdes."
+    },
+    {
+      "id": "c2",
+      "tone": "prudence",
+      "title": "Toujours un bilan minimal",
+      "text": "Glycémie, NFS, vitamine B12, VIH, et palpation des nerfs à la recherche d'une lèpre : aucune polynévrite ne doit rester « idiopathique » avant ces examens de base."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Séquence diagnostique",
+      "text": "Syndrome clinique (chaussettes/gants + réflexes abolis) → ENMG (axonal ou démyélinisant) → bilan étiologique ciblé → traitement causal + douleur + pieds."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Réflexes achilléens d'abord",
+      "text": "Les réflexes achilléens sont les premiers à disparaître dans toute polynévrite distale : leur abolition bilatérale chez un patient avec fourmillements est un signe d'appel majeur."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Chaussettes avant gants",
+      "text": "Le nerf le plus long est atteint le premier : les symptômes débutent aux PIEDS avant les mains, montent de façon symétrique, et l'atteinte sensitive précède souvent l'atteinte motrice."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "P.O.L.Y.",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pieds d'abord : atteinte distale, ascendante, symétrique"
+        },
+        {
+          "key": "O",
+          "term": "Ôtant les réflexes : abolition des achilléens"
+        },
+        {
+          "key": "L",
+          "term": "Large cause : diabète, alcool/B1/B12, lèpre, VIH, iatrogène, GBS"
+        },
+        {
+          "key": "Y",
+          "term": "ENMG : axonal vs démyélinisant — et Guillain-Barré si installation aiguë"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition d'une polynévrite ?",
+      "back": "Atteinte diffuse, bilatérale, symétrique et généralement distale des nerfs périphériques, touchant surtout les fibres sensitives, puis motrices et autonomiques."
+    },
+    {
+      "id": "f2",
+      "front": "Topographie sensitive typique ?",
+      "back": "« En chaussettes et en gants » : hypoesthésie distale symétrique débutant aux pieds, car le nerf le plus long est atteint le premier."
+    },
+    {
+      "id": "f3",
+      "front": "Premier réflexe à disparaître dans une polynévrite ?",
+      "back": "Les réflexes achilléens, abolis précocement et bilatéralement."
+    },
+    {
+      "id": "f4",
+      "front": "ENMG : comment distinguer atteinte axonale et démyélinisante ?",
+      "back": "Axonale : amplitudes des potentiels diminuées, vitesses peu modifiées (diabète, alcool, carences). Démyélinisante : vitesses nettement ralenties, blocs de conduction, dispersion (GBS, PIDC, CMT)."
+    },
+    {
+      "id": "f5",
+      "front": "Quatre causes majeures de polynévrite en contexte tropical/malgache ?",
+      "back": "Diabète, alcool et carences (B1, B12), lèpre, VIH — auxquelles s'ajoutent les causes iatrogènes (isoniazide sans pyridoxine)."
+    },
+    {
+      "id": "f6",
+      "front": "Signes d'une polyneuropathie diabétique douloureuse ?",
+      "back": "Fourmillements et brûlures distales nocturnes, hypoesthésie au monofilament, réflexes abolis, troubles trophiques, ulcères plantaires indolores."
+    },
+    {
+      "id": "f7",
+      "front": "Particularité de la neuropathie lépreuse ?",
+      "back": "Atteinte des troncs nerveux palpables et épaissis (ulnaire, péronier, grand auriculaire), macules anesthésiques, atteinte asymétrique possible — palper les nerfs !"
+    },
+    {
+      "id": "f8",
+      "front": "Circonstances et risque majeur du Guillain-Barré ?",
+      "back": "Quadriparésie ascendante sur 1-4 semaines souvent post-infectieuse ; risques : insuffisance respiratoire (capacité vitale), troubles dysautonomiques cardiaques — immunoglobulines IV ou plasmaphérèse, pas de corticoïdes."
+    },
+    {
+      "id": "f9",
+      "front": "Anomalie du LCR dans le Guillain-Barré ?",
+      "back": "Dissociation albumino-cytologique : protéines élevées sans hypercytose."
+    },
+    {
+      "id": "f10",
+      "front": "Première ligne pharmacologique pour une douleur neuropathique ?",
+      "back": "Gabapentine ou prégabaline, ou duloxétine (indiquée dans la neuropathie diabétique douloureuse), ou tricycliques à faible dose — pas d'opioïdes de première intention."
+    },
+    {
+      "id": "f11",
+      "front": "Prévention des ulcères plantaires chez le patient neuropathe ?",
+      "back": "Éducation à l'auto-examen quotidien des pieds, chaussures adaptées, soins des hyperkératoses, dépistage au monofilament — l'ulcère du pied neuropathe est indolore et évolue à bas bruit."
+    },
+    {
+      "id": "f12",
+      "front": "Pourquoi supplémenter en pyridoxine sous isoniazide ?",
+      "back": "L'isoniazide induit une carence en vitamine B6 responsable d'une polyneuropathie axonale dose-dépendante : la pyridoxine prévient cette neuropathie iatrogène."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "polynev",
+      "label": "Polynévrites"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Syndrome",
+        "children": [
+          {
+            "id": "b1c1",
+            "label": "Chaussettes/gants, distal symétrique"
+          },
+          {
+            "id": "b1c2",
+            "label": "Achilléens abolis"
+          },
+          {
+            "id": "b1c3",
+            "label": "Steppage si atteinte motrice"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b1l1",
+            "label": "Dysautonomie : sécheresse, orthostatisme"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Mécanismes",
+        "children": [
+          {
+            "id": "b2c1",
+            "label": "Axonal (dying back)"
+          },
+          {
+            "id": "b2c2",
+            "label": "Démyélinisant (blocs)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b2l1",
+            "label": "ENMG : amplitude vs vitesse"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "b3c1",
+            "label": "Diabète, IRC, hypothyroïdie"
+          },
+          {
+            "id": "b3c2",
+            "label": "Alcool, B1, B12, toxiques"
+          },
+          {
+            "id": "b3c3",
+            "label": "Lèpre, VIH"
+          },
+          {
+            "id": "b3c4",
+            "label": "GBS / PIDC, CMT héréditaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b3l1",
+            "label": "Iatrogène : isoniazide → pyridoxine"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b4c1",
+            "label": "Clinique + monofilament"
+          },
+          {
+            "id": "b4c2",
+            "label": "ENMG"
+          },
+          {
+            "id": "b4c3",
+            "label": "Glycémie, NFS, B12, VIH, lèpre"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b4l1",
+            "label": "LCR : dissociation albumino-cytologique (GBS)"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b5c1",
+            "label": "Causal : glycémie, vitamines, PCT"
+          },
+          {
+            "id": "b5c2",
+            "label": "Douleur : gabapentinoïdes, duloxétine"
+          },
+          {
+            "id": "b5c3",
+            "label": "GBS : IgIV / plasmaphérèse"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b5l1",
+            "label": "Rééducation, orthèses, pieds"
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "b6c1",
+            "label": "Éducation podologique"
+          },
+          {
+            "id": "b6c2",
+            "label": "Sevrage + B1"
+          },
+          {
+            "id": "b6c3",
+            "label": "Dépistage lèpre/diabète"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "b6l1",
+            "label": "Madagascar : diabète + lèpre à l'esprit"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "callaghan2015",
+      "title": "Distal Symmetric Polyneuropathy: A Review",
+      "citation": "Callaghan BC, Price RS, Feldman EL. Distal Symmetric Polyneuropathy: A Review. JAMA. 2015;314(20):2172-81. DOI 10.1001/jama.2015.13611.",
+      "organization": "JAMA",
+      "year": 2015,
+      "version": "Review",
+      "url": "https://doi.org/10.1001/jama.2015.13611",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Sémiologie",
+        "ENMG",
+        "Douleurs neuropathiques",
+        "Démarche diagnostique"
+      ]
+    },
+    {
+      "id": "england2009",
+      "title": "Practice Parameter: Evaluation of distal symmetric polyneuropathy",
+      "citation": "England JD, Gronseth GS, Franklin G, et al. Practice Parameter: Evaluation of distal symmetric polyneuropathy: role of laboratory and genetic testing. Neurology. 2009;72(2):185-192. DOI 10.1212/01.wnl.0000336370.51010.a1.",
+      "organization": "American Academy of Neurology",
+      "year": 2009,
+      "version": "Practice parameter",
+      "url": "https://doi.org/10.1212/01.wnl.0000336370.51010.a1",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Bilan étiologique",
+        "Examens utiles",
+        "Neuropathies héréditaires"
+      ]
+    }
+  ]
+}
