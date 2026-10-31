@@ -134,7 +134,7 @@ function ConseilEditorialPage() {
           <h2 className="text-sm font-medium">Signaler ou rejoindre la relecture</h2>
           <a
             href="mailto:fondationoptimus@gmail.com?subject=Contenu%20medical%20Optimus"
-            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#EDE0C8]"
+            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#F4F1FA]"
           >
             <Mail className="size-4" aria-hidden />
             Écrire à la Fondation

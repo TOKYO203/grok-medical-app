@@ -9,7 +9,7 @@ export type ResolvedTheme = "light" | "dark";
  * (immersion — voir les blocs de palette de styles.css) dans les trois modes
  * clair / sombre / système. « defaut » garde l'or Oxford d'origine.
  */
-export type AccentPalette = "defaut" | "rose" | "marron" | "marine" | "vert" | "violet";
+export type AccentPalette = "defaut" | "rose" | "marron" | "marine" | "vert" | "violet" | "royal";
 
 export const THEME_STORAGE_KEY = "optimus-theme-v1";
 export const ACCENT_STORAGE_KEY = "optimus-accent-v1";
@@ -20,7 +20,7 @@ const DEFAULT_ACCENT: AccentPalette = "defaut";
 
 /** Catalogue des palettes proposées par le profil (source du sélecteur). */
 export const ACCENT_PALETTES: AccentPalette[] = [
-  "defaut", "rose", "marron", "marine", "vert", "violet",
+  "defaut", "rose", "marron", "marine", "vert", "violet", "royal",
 ];
 
 function isAccentPalette(value: string | null): value is AccentPalette {
@@ -77,7 +77,7 @@ function syncThemeColorMeta(resolved: ResolvedTheme) {
   } catch {
     /* style indisponible — repli sur les fonds de base ci-dessous */
   }
-  meta.setAttribute("content", tinted || (resolved === "dark" ? "#0c1110" : "#EDE0C8"));
+  meta.setAttribute("content", tinted || (resolved === "dark" ? "#130F23" : "#F4F1FA"));
 }
 
 /** Applique le thème au document (attribut `data-theme` + couleur de barre navigateur). */

@@ -31,7 +31,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
         {t("nav.skipContent")}
       </a>
       <div className="mx-auto flex min-h-dvh max-w-7xl">
-        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col overflow-y-auto border-r border-border bg-bg/60 px-4 py-6 backdrop-blur-xl md:flex">
+        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col overflow-y-auto border-r border-border bg-bg/60 px-4 py-6 backdrop-blur-xl backdrop-saturate-150 md:flex">
           <Link to="/" className="mb-5 px-1">
             <Wordmark />
           </Link>
@@ -117,7 +117,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
         <div className="flex min-w-0 flex-1 flex-col pb-24 md:pb-0">
           <header
             data-mobile-header="true"
-            className="sticky top-0 z-20 flex h-14 min-w-0 items-center justify-between gap-2 border-b border-border bg-bg/80 px-4 backdrop-blur-xl md:hidden"
+            className="sticky top-0 z-20 flex h-14 min-w-0 items-center justify-between gap-2 border-b border-border bg-bg/75 px-4 backdrop-blur-xl backdrop-saturate-150 md:hidden"
           >
             <h1 className="min-w-0 flex-1 truncate font-display text-lg font-medium tracking-tight">
               {title ?? "Optimus"}
@@ -134,7 +134,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       <nav
         aria-label={t("nav.ariaPrimary")}
         data-mobile-navigation="true"
-        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/85 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl md:hidden"
+        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
       >
         {NAV.map((item) => {
           const active = isActive(pathname, item.to);

@@ -17,6 +17,7 @@ const ACCENTS: { id: AccentPalette; label: string; swatch: string }[] = [
   { id: "marine", label: "Bleu marine", swatch: "var(--accent-swatch-marine)" },
   { id: "vert", label: "Vert émeraude", swatch: "var(--accent-swatch-vert)" },
   { id: "violet", label: "Violet", swatch: "var(--accent-swatch-violet)" },
+  { id: "royal", label: "Royal", swatch: "var(--accent-swatch-royal)" },
 ];
 
 /** Ancrage du panneau déroulant : position `fixed` calculée à l'ouverture. */
@@ -237,7 +238,7 @@ export function ThemeSelector({ className }: { className?: string }) {
 
 /**
  * Sélecteur de palette d'accent (Défaut · Rose · Marron · Bleu marine ·
- * Vert émeraude · Violet).
+ * Vert émeraude · Violet · Royal).
  * Réglage orthogonal au thème : la palette colore la signature dorée dans
  * les modes clair, sombre ET système. Les pastilles consomment
  * `--accent-swatch-*` (définies dans styles.css) — aucun hex dans le composant.

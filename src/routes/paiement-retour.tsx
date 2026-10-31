@@ -24,7 +24,7 @@ function PaiementRetour() {
       </p>
       <Link
         to="/tarifs"
-        className="inline-block px-6 py-3 rounded-lg bg-[#3E4A2A] text-white hover:bg-[#2d3620]"
+        className="inline-block px-6 py-3 rounded-lg bg-[#5B21B6] text-white hover:bg-[#43189A]"
       >
         Retour à mes offres
       </Link>

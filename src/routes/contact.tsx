@@ -108,7 +108,7 @@ function ContactPage() {
           </p>
           <a
             href={`mailto:${EMAIL}?subject=${encodeURIComponent("[Optimus] " + SCHOOL_SUBJECT)}&body=${encodeURIComponent(SCHOOL_BODY)}`}
-            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#EDE0C8]"
+            className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[#A67C1E] px-4 py-2.5 text-sm font-medium text-[#A67C1E] transition-colors hover:bg-[#A67C1E] hover:text-[#F4F1FA]"
           >
             <Mail className="size-4" aria-hidden />
             Demander un devis par email

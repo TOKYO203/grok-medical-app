@@ -638,6 +638,8 @@ function DailyProgress({
           strokeWidth="6"
           className="opacity-20"
         />
+        {/* Oxford Signature — l'anneau GLISSE vers sa nouvelle valeur quand la
+            progression du jour change (700 ms, easing doux) au lieu de sauter. */}
         <circle
           cx="36"
           cy="36"
@@ -648,7 +650,7 @@ function DailyProgress({
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
-          className="optimus-progress-fill"
+          className="optimus-progress-fill transition-[stroke-dashoffset] duration-700 ease-out"
         />
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center leading-none">

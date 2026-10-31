@@ -15,8 +15,8 @@ const profilSource = readFileSync(join(root, "src", "routes", "profil.tsx"), "ut
    DEUX thèmes : c'est le contrat de la palette (elle colore clair, sombre ET
    système). */
 const BASE = {
-  light: { bg: "#EDE0C8", card: "#FFFFFF" },
-  dark: { bg: "#0c1110", card: "#161d1b" },
+  light: { bg: "#F4F1FA", card: "#FFFFFF" },
+  dark: { bg: "#130F23", card: "#1B1533" },
 };
 
 /* Jetons de TEXTE des blocs de base (verrouillés par a11y-contrast.test.mjs) :
@@ -24,8 +24,8 @@ const BASE = {
    AA (≥ 4,5:1) sur le fond teinté correspondant, pas seulement sur le
    parchemin de base. */
 const BASE_TEXT = {
-  light: { fg: "#1F1A14", muted: "#5E4D35", subtle: "#6A5738" },
-  dark: { fg: "#E7EDE8", muted: "#93A09A", subtle: "#7C8881" },
+  light: { fg: "#221A3D", muted: "#585072", subtle: "#66607B" },
+  dark: { fg: "#EDE8FA", muted: "#A79ECB", subtle: "#8F86B5" },
 };
 
 function luminance(hex) {
@@ -229,7 +229,7 @@ test("accent palettes immerse primary buttons and active navigation", () => {
 
 test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
   // Phase 4 — harmonisation dark mode : sans ces surcharges, les cartes et
-  // surfaces restaient verdâtres (thème sombre de base #161d1b / #1a221f) et
+  // surfaces restaient verdâtres (thème sombre de base #1B1533 / #1a221f) et
   // le hero + la couverture « Clinique » restaient verts Oxford pour TOUTES
   // les palettes — le rendu « moche » du sombre avec rose/marine/violet.
   for (const id of palettes) {
@@ -241,15 +241,15 @@ test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
     const primaryFg = block.match(/--app-primary-fg:\s*(#[0-9A-Fa-f]{6})\s*;/)?.[1];
     assert.ok(card, id + " : --app-card sombre manquant (cartes verdâtres du thème de base)");
     assert.ok(surface, id + " : --app-surface sombre manquant");
-    assert.ok(card !== "#161d1b", id + " : --app-card sombre retombe sur la valeur verdâtre de base");
+    assert.ok(card !== "#1B1533", id + " : --app-card sombre retombe sur la valeur verdâtre de base");
     assert.ok(surface !== "#1a221f", id + " : --app-surface sombre retombe sur la valeur verdâtre de base");
     assert.ok(card !== bg, id + " : carte sombre identique au fond (plus de séparation visuelle)");
     assert.ok(card !== surface, id + " : carte et surface sombres confondues");
     assert.ok(primaryFg && primaryFg !== "#06120d", id + " : --app-primary-fg sombre doit être teinté par palette");
     // La carte re-teintée reste une surface sombre lisible : fg de base ≥ 7:1 (AAA grand texte)
     assert.ok(
-      contrast("#E7EDE8", card) >= 4.5,
-      id + " : fg de base ne donne que " + contrast("#E7EDE8", card).toFixed(2) + ":1 sur la carte re-teintée " + card,
+      contrast("#EDE8FA", card) >= 4.5,
+      id + " : fg de base ne donne que " + contrast("#EDE8FA", card).toFixed(2) + ":1 sur la carte re-teintée " + card,
     );
   }
   const shared = blockFor(
@@ -270,7 +270,7 @@ test("dark accent palettes re-tint cards, surfaces, heroes and covers", () => {
 
 test("light accent palettes: hero follows the palette accent", () => {
   // Phase 4 (suite) — sans cette surcharge, le hero restait olive Oxford
-  // (#3E4A2A → #1F2716) pour TOUTES les palettes en thème clair.
+  // (#5B21B6 → #1F2716) pour TOUTES les palettes en thème clair.
   const shared = blockFor(
     stylesSource,
     'html[data-accent]:not([data-accent="defaut"])',
@@ -285,7 +285,7 @@ test("light accent palettes: hero follows the palette accent", () => {
   );
   const base = blockFor(stylesSource, ":root");
   assert.ok(
-    base.includes("--hero-from: #3E4A2A"),
-    "la palette defaut doit conserver son hero olive Oxford (#3E4A2A)",
+    base.includes("--hero-from: #5B21B6"),
+    "la palette defaut doit conserver son hero violet royal (#5B21B6)",
   );
 });

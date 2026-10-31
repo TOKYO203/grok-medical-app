@@ -470,7 +470,7 @@ function ProfilPage() {
           </div>
           <div className="mt-4 flex flex-col items-center gap-3 rounded-[var(--radius-lg)] bg-secondary p-4 sm:flex-row" data-qr="react-qr-code-card">
             <div className="rounded-[var(--radius-md)] bg-white p-2">
-              <QRCode value={referralUrl} size={120} level="M" fgColor="#3E4A2A" bgColor="#FFFFFF" />
+              <QRCode value={referralUrl} size={120} level="M" fgColor="#5B21B6" bgColor="#FFFFFF" />
             </div>
             <p className="text-center text-xs leading-relaxed text-muted sm:text-left">
               Scanne avec l&apos;appareil photo de ton téléphone pour ouvrir Optimus avec ton code de parrainage.
