@@ -140,6 +140,7 @@ export const en: MessageCatalog = {
   // command palette, wired onto the Phase 3 i18n foundation.
   "nav.parcours": "Pathways",
   "nav.ecgCases": "ECG cases",
+  "nav.imagerie": "Imaging",
   "nav.group.learn": "Learn",
   "nav.group.train": "Practice",
   "nav.group.tools": "Tools",
