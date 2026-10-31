@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hemorragie-meningee",
+  "title": "Hémorragie méningée non traumatique",
+  "subtitle": "Nosographie — neurologie",
+  "objective": "Devant une céphalée brutale en coup de tonnerre, avec ou sans troubles de conscience, raideur de nuque ou vomissements, reconnaître l'hémorragie méningée non traumatique — le plus souvent par rupture d'anévrisme intracrânien — la confirmer par un scanner cérébral immédiat, ponction lombaire si le scanner est normal, occlure l'anévrisme précocement — embolisation ou clipping — et prévenir les complications : récidive, vasospasme et ischémie cérébrale retardée, hydrocéphalie, hyponatrémie.",
+  "language": "fr",
+  "updatedAt": "2026-10-31",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 114,
+    "specialty": "Neurologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 155,
+      "localNumber": 114,
+      "sectionLabel": "Médecine",
+      "title": "Hémorragie méningée non traumatique",
+      "specialty": "Neurologie"
+    }
+  },
+  "related": {
+    "deckIds": [
+      "semio",
+      "neuro"
+    ],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée à partir de la recommandation AHA/ASA 2023 sur l'hémorragie sous-arachnoïdienne anévrismale et de la conférence de consensus de la Neurocritical Care Society sur la prise en charge en réanimation, avec reformulation complète et adaptation au contexte d'exercice.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le référentiel national intitule l'item « Hémorragie méningée non traumatique » (Médecine n°114) : la fiche couvre l'hémorragie sous-arachnoïdienne spontanée, dont la grande majorité est liée à la rupture d'un anévrisme intracrânien.",
+      "Sources vérifiées le 2026-10-31 : Hoh BL, Ko NU, Amin-Hanjani S, et al., « 2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage », Stroke 2023 ; 54 (7), doi 10.1161/STR.0000000000000436 (confirmé sur ahajournals.org et PubMed, PMID 37212182) ; Diringer MN, Bleck TP, Hemphill JC, et al., « Critical care management of patients following aneurysmal subarachnoid hemorrhage », Neurocrit Care 2011 ; 15 (2) : 211-240, doi 10.1007/s12028-011-9605-9 (confirmé sur les pages institutionnelles Johns Hopkins et Duke).",
+      "Image vérifiée le 2026-10-31 sur la page Commons du fichier « CT of subarachnoid hemorrhage.png » : licence Creative Commons Attribution 4.0 International, crédit « Via Wikimedia Commons ».",
+      "Les messages clés — céphalée en coup de tonnerre, scanner immédiat, ponction lombaire si scanner normal, occlusion précoce de l'anévrisme, nimodipine pendant 21 jours, surveillance du vasospasme — sont ceux de la recommandation AHA/ASA 2023."
+    ],
+    "qcChecklist": [
+      "Chaque affirmation clinique est rattachée à une source citée en pied de fiche.",
+      "Le diagnostic en deux temps — scanner, puis ponction lombaire si scanner normal — est explicite.",
+      "Sécurité : jamais de ponction lombaire avant imagerie devant une céphalée brutale avec signes de focalisation ou troubles de conscience ; jamais de reprise d'activités sans occlusion de l'anévrisme."
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémorragie méningée non traumatique est une urgence neurologique absolue : le sang se répand dans les espaces sous-arachnoïdiens, le plus souvent par rupture d'un anévrisme intracrânien — environ 85 % des cas — et menace le cerveau trois fois : la rupture initiale, la récidive précoce, et l'ischémie cérébrale retardée des jours qui suivent."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic s'est transformé : la prise en charge dans des centres expérimentés, l'occlusion précoce de l'anévrisme et la nimodipine ont amélioré la survie — mais tout commence par reconnaître la céphalée en coup de tonnerre, dont le diagnostic est encore trop souvent manqué aux urgences."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence absolue",
+          "text": "Céphalée brutale, maximale d'emblée — « la pire de ma vie » — avec vomissements, raideur de nuque ou perte de conscience : hémorragie méningée jusqu'à preuve du contraire. Scanner cérébral immédiat ; si normal et suspicion persistante : ponction lombaire. Ne jamais banaliser une céphalée en coup de tonnerre."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "II. Épidémiologie et causes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémorragie sous-arachnoïdienne spontanée touche souvent des adultes d'âge moyen ; sa mortalité reste lourde — environ un tiers des patients décèdent, une part avant l'hôpital — et les survivants gardent fréquemment des séquelles cognitives."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Anévrismes intracrâniens : environ 85 % des hémorragies méningées non traumatiques — bifurcations du cercle de Willis, artère communicante antérieure, carotide interne, cérébrale moyenne.",
+            "Autres causes : malformations artérioveineuses, dissections artérielles, thrombose veineuse cérébrale, vasculites, angiopathie amyloïde, hémorragie péri-mésencéphalique bénigne.",
+            "Facteurs de risque : hypertension artérielle, tabac — surtout associé à l'alcool —, âge, antécédents familiaux d'anévrisme, polykystose rénale, dysplasies vasculaires.",
+            "Récidive : le risque de re-bleeding est maximal dans les premières 24 à 48 heures — c'est la raison d'être de l'occlusion précoce de l'anévrisme.",
+            "Gravité initiale : gradation clinique — Hunt et Hess ou WFNS — et à l'imagerie — score de Fisher modifié — qui guident le pronostic et la surveillance."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Hémorragie méningée = anévrisme jusqu'à preuve du contraire. Le danger est triple : la rupture, la récidive — surtout dans les 48 premières heures — et le vasospasme des jours 4 à 14."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "III. Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic se fait en deux temps : le scanner cérébral sans injection, dont la sensibilité est excellente dans les premières heures, puis — si le scanner est normal et que la suspicion clinique persiste — la ponction lombaire, qui recherche le sang et la xanthochromie. L'angio-TDM localise ensuite l'anévrisme."
+        },
+        {
+          "type": "image",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CT_of_subarachnoid_hemorrhage.png?width=900",
+          "alt": "Scanner cérébral sans injection : hyperdensité des espaces sous-arachnoïdiens diffus, en faveur d'une hémorragie méningée aiguë",
+          "credit": "Via Wikimedia Commons",
+          "license": "CC BY 4.0"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Clinique : céphalée brutale maximale d'emblée, nausées et vomissements, raideur de nuque, photophobie ; perte de conscience transitoire possible, parfois crise convulsive ; hémorragie sous-hyaloïdienne à l'examen du fond d'œil.",
+            "Scanner cérébral immédiat : hyperdensité des espaces sous-arachnoïdiens — circonvolutionnaires, cisternes, sillon interhémisphérique — avec quantification, hydrocéphalie précoce, signes d'engagement.",
+            "Ponction lombaire : uniquement si scanner normal — liquide xanthochromique, trois tubes pour distinguer la ponction traumatique ; jamais de ponction lombaire avant imagerie devant des signes de focalisation ou des troubles de conscience.",
+            "Angio-TDM ou artériographie cérébrale : localise l'anévrisme, son collet, le vasospasme éventuel ; à réaliser en urgence pour programmer l'occlusion.",
+            "Autres examens : électrocardiogramme — anomalies fréquentes de la repolarisation —, troponine, ionogramme — hyponatrémie —, fonction rénale ; monitorage neurologique en réanimation.",
+            "Diagnostics différentiels : céphalée primaire fulgurante — thunderclap bénin, diagnostic d'élimination —, méningite, migraine, hémorragie intracérébrale, thrombose veineuse cérébrale, dissection carotidienne.",
+            "Écart de diagnostic à connaître : une céphalée brutale banalisée puis envoyée à domicile est l'erreur classique — le coût d'un scanner systématique est sans commune mesure avec le risque d'un anévrisme non occlus."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe",
+          "text": "Toute céphalée brutale en coup de tonnerre mérite un scanner, normale ou pas la suspicion. Si le scanner est normal et la suspicion forte — céphalée persistante, raideur, antécédents — la ponction lombaire à distance de quelques heures objective la xanthochromie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-STROKE-2023-HOH",
+          "organization": "Stroke (AHA/ASA)",
+          "title": "2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage",
+          "year": 2023
+        },
+        {
+          "id": "SRC-NCS-2011-DIRINGER",
+          "organization": "Neurocritical Care",
+          "title": "Critical care management of patients following aneurysmal subarachnoid hemorrhage",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "IV. Physiopathologie et complications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rupture anévrismale laisse échapper le sang sous pression dans les espaces sous-arachnoïdiens : l'irritation méningée fait la raideur, l'hypertension intracrânienne fait la perte de conscience, et le sang extravasé déclenche une cascade — vasospasme, ischémie cérébrale retardée, hydrocéphalie, hyponatrémie — qui occupe les deux semaines qui suivent."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Récidive hémorragique : risque maximal dans les premières 24 à 48 heures — l'occlusion précoce de l'anévrisme est la seule prévention efficace.",
+            "Vasospasme et ischémie cérébrale retardée : pic entre les jours 4 et 14 — détérioration clinique focale ou globale, dépistée par doppler transcrânien et angiographie ; la nimodipine en réduit les conséquences.",
+            "Hydrocéphalie : aiguë précoce — drainage ventriculaire externe — ou tardive chronique — dérivation ventriculo-péritonéale.",
+            "Hyponatrémie : souvent par perte de sel cérébrale — à distinguer du SIADH ; correction prudente, volume plutôt que restriction.",
+            "Autres : crises convulsives, troubles cardiaques — cardiopathie de stress, troubles du rythme —, embolie pulmonaire, pneumonie d'inhalation, escarres."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Prudence",
+          "text": "Une détérioration secondaire n'est pas toujours un vasospasme : récidive hémorragique, hydrocéphalie, hyponatrémie, crise convulsive ou sepsis doivent être éliminés avant de conclure — le scanner et la biologie font partie de toute aggravation."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "V. Prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge repose sur trois piliers : occlure l'anévrisme précocement — pour empêcher la récidive —, nimodipine pendant 21 jours — pour limiter l'ischémie cérébrale retardée — et une surveillance en réanimation neurologique qui anticipe chaque complication."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Occlusion de l'anévrisme : précoce — dans les 24 à 72 heures dès que possible —, par embolisation endovasculaire — première ligne le plus souvent — ou clipage chirurgical selon la morphologie, l'âge et l'expérience de l'équipe ; après occlusion, le risque de récidive s'effondre.",
+            "Nimodipine : 60 mg toutes les 4 heures pendant 21 jours, par voie orale — le traitement démontré de l'ischémie cérébrale retardée, à poursuivre même en cas de vasospasme traité.",
+            "Vasospasme : maintien de l'euvolémie — pas d'hypervolémie systématique —, doppler transcrânien quotidien, angioplastie ou vasodilatateurs intra-artériels dans les formes résistantes.",
+            "Hydrocéphalie : drainage ventriculaire externe en urgence si cliniquement significatif ; dérivation définitive si l'hydrocéphalie persiste.",
+            "Mesures générales en réanimation : contrôle tensionnel — éviter hypotension et poussées hypertensives —, analgésie, anti-épileptiques si crises, prophylaxie thromboembolique, prévention des escarres et de la pneumonie, nutrition précoce, contrôle glycémique.",
+            "Réhabilitation : précoce — séquelles cognitives et de l'humeur fréquentes, souvent invisibles à l'examen moteur : mémoire, attention, dépression post-hémorragie méningée ; suivi neuropsychologique utile.",
+            "Contrôle tardif : imagerie vasculaire de contrôle selon les modalités de l'occlusion, recherche d'anévrismes familiaux dans certains contextes — polykystose rénale, antécédents familiaux."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne jamais oublier",
+          "text": "La récidive est le cauchemar de l'anévrisme non occlus : céphalée, chute de conscience, récidive hémorragique — c'est l'occlusion qui la prévient, pas le repos ni les antihypertenseurs seuls. Nimodipine 21 jours, euvolémie, doppler quotidien : le triptyque des deux semaines de surveillance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pronostic : environ un tiers de mortalité, dont une part avant l'hôpital ; parmi les survivants, une majorité reprend une vie autonome, mais les séquelles cognitives et la fatigue sont fréquentes — le pronostic dépend du grade initial, de la précocité de l'occlusion et de la qualité de la surveillance."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-STROKE-2023-HOH",
+          "organization": "Stroke (AHA/ASA)",
+          "title": "2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage",
+          "year": 2023
+        },
+        {
+          "id": "SRC-NCS-2011-DIRINGER",
+          "organization": "Neurocritical Care",
+          "title": "Critical care management of patients following aneurysmal subarachnoid hemorrhage",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "VI. Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévenir, c'est d'abord traiter les facteurs de risque d'anévrisme — tension, tabac — et dépister les sujets à haut risque familial ou syndromique ; après une hémorragie méningée, la prévention est celle de la récidive et des séquelles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs de risque : contrôle tensionnel strict, arrêt du tabac — le premier geste —, limitation de l'alcool.",
+            "Dépistage ciblé : antécédents familiaux d'anévrisme, polykystose rénale autosomique dominante, certains syndromes du tissu conjonctif — angio-IRM cérébrale non invasive.",
+            "Anévrismes non rompus découverts : décision de traiter — ou de surveiller — selon taille, localisation, croissance, âge et comorbidités.",
+            "Après l'épisode : suivi vasculaire selon le traitement, suivi cognitif et de l'humeur, réinsertion professionnelle progressive.",
+            "Éducation du patient et de l'entourage : reconnaître une récidive — céphalée brutale —, comprendre les séquelles invisibles, observance de la nimodipine complète."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Transition",
+          "text": "Cette fiche fait pendant aux fiches accidents vasculaires ischémiques et hémorragiques : la céphalée brutale et le scanner distinguent les trois — et la prise en charge de l'hémorragie méningée est d'abord neurovasculaire : occlure l'anévrisme."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "VII. Conclusion",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hémorragie méningée non traumatique : urgence absolue — anévrisme dans 85 % des cas.",
+            "Diagnostic : céphalée en coup de tonnerre, scanner immédiat, ponction lombaire si scanner normal, angio-TDM pour l'anévrisme.",
+            "Traitement : occlusion précoce — embolisation ou clip —, nimodipine 60 mg/4 h pendant 21 jours, euvolémie, surveillance du vasospasme J4-J14.",
+            "Complications à anticiper : récidive précoce, ischémie cérébrale retardée, hydrocéphalie, hyponatrémie, crises convulsives.",
+            "Prévention : tension, tabac, dépistage ciblé des anévrismes ; après l'épisode, suivi vasculaire et cognitif."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Pour l'examen",
+          "text": "Savoir décrire la céphalée en coup de tonnerre, la démarche scanner-ponction lombaire, le triptyque occlusion-nimodipine-surveillance, et les complications chronologiques — récidive 48 h, vasospasme J4-J14 : c'est le squelette interrogé de l'item."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "VIII. Références",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les sources complètes, avec citations et dates de vérification, figurent en pied de fiche. Les deux références structurantes sont la recommandation AHA/ASA 2023 sur l'hémorragie sous-arachnoïdienne anévrismale et la conférence de consensus de la Neurocritical Care Society."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hoh BL, Ko NU, Amin-Hanjani S, et al. 2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage. Stroke 2023.",
+            "Diringer MN, Bleck TP, Hemphill JC, et al. Critical care management of patients following aneurysmal subarachnoid hemorrhage. Neurocrit Care 2011."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-hm",
+      "label": "M.E.N.I.N.G.E.S.",
+      "intro": "L'hémorragie méningée non traumatique, de la céphalée au suivi.",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Mal de tête en coup de tonnerre : brutale, maximale d'emblée, vomissements, raideur de nuque"
+        },
+        {
+          "key": "E",
+          "term": "Examen du fond d'œil : hémorragie sous-hyaloïdienne ; conscience et grade clinique — Hunt et Hess, WFNS"
+        },
+        {
+          "key": "N",
+          "term": "Ne jamais banaliser : scanner immédiat — hyperdensité sous-arachnoïdienne ; jamais de ponction lombaire avant imagerie"
+        },
+        {
+          "key": "I",
+          "term": "Imagerie vasculaire : angio-TDM ou artériographie — localiser l'anévrisme en urgence"
+        },
+        {
+          "key": "N",
+          "term": "Nimodipine 60 mg toutes les 4 heures, 21 jours — le traitement démontré de l'ischémie cérébrale retardée"
+        },
+        {
+          "key": "G",
+          "term": "Guérir l'anévrisme tôt : embolisation ou clip dans les 24-72 heures — la seule prévention de la récidive"
+        },
+        {
+          "key": "E",
+          "term": "Euvolémie et doppler : surveillance du vasospasme J4-J14, hydrocéphalie — drainage, hyponatrémie"
+        },
+        {
+          "key": "S",
+          "term": "Séquelles invisibles : cognition, humeur, fatigue — suivi neuropsychologique ; contrôle vasculaire tardif"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-hm-1",
+      "front": "Quelle est la cause principale des hémorragies méningées non traumatiques ?",
+      "back": "La rupture d'un anévrisme intracrânien — environ 85 % des cas ; autres causes : malformations, dissections, thrombose veineuse, vasculites."
+    },
+    {
+      "id": "fc-hm-2",
+      "front": "Décrire la céphalée typique de l'hémorragie méningée.",
+      "back": "Brutale, maximale d'emblée — « la pire de ma vie » — souvent avec vomissements, raideur de nuque, parfois perte de conscience transitoire ou crise convulsive."
+    },
+    {
+      "id": "fc-hm-3",
+      "front": "Quelle est la démarche diagnostique devant une céphalée en coup de tonnerre ?",
+      "back": "Scanner cérébral immédiat sans injection ; si normal et suspicion persistante, ponction lombaire à distance — xanthochromie — ; puis angio-TDM pour chercher l'anévrisme."
+    },
+    {
+      "id": "fc-hm-4",
+      "front": "Pourquoi ne pas faire de ponction lombaire avant l'imagerie ?",
+      "back": "Risque d'engagement en cas de masse ou d'hydrocéphalie, et le scanner suffit au diagnostic dans les premières heures : l'imagerie d'abord, toujours."
+    },
+    {
+      "id": "fc-hm-5",
+      "front": "Quel est le traitement médical démontré de l'ischémie cérébrale retardée ?",
+      "back": "La nimodipine, 60 mg par voie orale toutes les 4 heures pendant 21 jours."
+    },
+    {
+      "id": "fc-hm-6",
+      "front": "Pourquoi occlure l'anévrisme précocement ?",
+      "back": "Le risque de récidive hémorragique est maximal dans les premières 24 à 48 heures : l'occlusion — embolisation ou clipage — est la seule prévention efficace."
+    },
+    {
+      "id": "fc-hm-7",
+      "front": "Quand survient le vasospasme symptomatique et comment le surveiller ?",
+      "back": "Pic entre les jours 4 et 14 ; dépistage par doppler transcrânien quotidien et examen neurologique répété ; traitement par maintien de l'euvolémie, angioplastie ou vasodilatateurs intra-artériels si résistant."
+    },
+    {
+      "id": "fc-hm-8",
+      "front": "Quelles complications métaboliques et hydrocéphaliques anticiper ?",
+      "back": "Hydrocéphalie aiguë — drainage ventriculaire externe — ou chronique — dérivation —, et hyponatrémie souvent par perte de sel cérébrale, à corriger avec du volume plutôt qu'en restreignant."
+    },
+    {
+      "id": "fc-hm-9",
+      "front": "Quels signes du fond d'œil évoquent une hémorragie méningée ?",
+      "back": "L'hémorragie sous-hyaloïdienne — saignement prérétinien — associée à l'hypertension intracrânienne brutale."
+    },
+    {
+      "id": "fc-hm-10",
+      "front": "Quelles séquelles fréquentes après une hémorragie méningée guérie ?",
+      "back": "Troubles cognitifs — mémoire, attention —, fatigue, dépression et anxiété : souvent invisibles à l'examen moteur, justifiant un suivi neuropsychologique."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "map-hm-root",
+      "label": "Hémorragie méningée non traumatique",
+      "detail": "Le sang dans les espaces sous-arachnoïdiens : une urgence à trois étages — la rupture, la récidive, le vasospasme — dont le pronostic dépend d'un triptyque : occlure l'anévrisme, nimodipine 21 jours, surveiller deux semaines."
+    },
+    "branches": [
+      {
+        "id": "map-hm-causes",
+        "label": "Causes et terrain",
+        "detail": "L'anévrisme domine.",
+        "children": [
+          {
+            "id": "map-hm-causes-1",
+            "label": "Anévrismes",
+            "leaves": [
+              {
+                "id": "map-hm-causes-1a",
+                "label": "85 % des cas, cercle de Willis"
+              },
+              {
+                "id": "map-hm-causes-1b",
+                "label": "HTA, tabac, terrain familial"
+              }
+            ]
+          },
+          {
+            "id": "map-hm-causes-2",
+            "label": "Autres",
+            "leaves": [
+              {
+                "id": "map-hm-causes-2a",
+                "label": "MAV, dissection, vasculite"
+              },
+              {
+                "id": "map-hm-causes-2b",
+                "label": "Thrombose veineuse cérébrale"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hm-diag",
+        "label": "Diagnostic",
+        "detail": "Scanner d'abord, PL ensuite.",
+        "tone": "reflexe",
+        "children": [
+          {
+            "id": "map-hm-diag-1",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "map-hm-diag-1a",
+                "label": "Coup de tonnerre + raideur, vomissements"
+              },
+              {
+                "id": "map-hm-diag-1b",
+                "label": "Fond d'œil : sous-hyaloïdienne"
+              }
+            ]
+          },
+          {
+            "id": "map-hm-diag-2",
+            "label": "Paraclinique",
+            "leaves": [
+              {
+                "id": "map-hm-diag-2a",
+                "label": "Scanner : hyperdensité sous-arachnoïdienne"
+              },
+              {
+                "id": "map-hm-diag-2b",
+                "label": "Si normal : PL — xanthochromie"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hm-trt",
+        "label": "Traitement",
+        "detail": "Occlure, nimodipine, surveiller.",
+        "children": [
+          {
+            "id": "map-hm-trt-1",
+            "label": "Occlusion",
+            "leaves": [
+              {
+                "id": "map-hm-trt-1a",
+                "label": "Embolisation ou clip, 24-72 h"
+              },
+              {
+                "id": "map-hm-trt-1b",
+                "label": "Réduit le risque de récidive"
+              }
+            ]
+          },
+          {
+            "id": "map-hm-trt-2",
+            "label": "Prévention de l'ischémie",
+            "leaves": [
+              {
+                "id": "map-hm-trt-2a",
+                "label": "Nimodipine 60 mg/4 h, 21 jours"
+              },
+              {
+                "id": "map-hm-trt-2b",
+                "label": "Euvolémie, doppler quotidien"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "map-hm-comp",
+        "label": "Complications et suites",
+        "detail": "Deux semaines de pièges.",
+        "children": [
+          {
+            "id": "map-hm-comp-1",
+            "label": "Précoces",
+            "leaves": [
+              {
+                "id": "map-hm-comp-1a",
+                "label": "Récidive 24-48 h"
+              },
+              {
+                "id": "map-hm-comp-1b",
+                "label": "Hydrocéphalie : drainage"
+              }
+            ]
+          },
+          {
+            "id": "map-hm-comp-2",
+            "label": "Tardives",
+            "leaves": [
+              {
+                "id": "map-hm-comp-2a",
+                "label": "Vasospasme J4-J14"
+              },
+              {
+                "id": "map-hm-comp-2b",
+                "label": "Séquelles cognitives, hyponatrémie"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-STROKE-2023-HOH",
+      "title": "2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage: A Guideline From the American Heart Association/American Stroke Association",
+      "citation": "Hoh BL, Ko NU, Amin-Hanjani S, et al. 2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage. Stroke. 2023 ; 54 (7). doi:10.1161/STR.0000000000000436.",
+      "organization": "Stroke (AHA/ASA)",
+      "year": 2023,
+      "version": "2023 guideline",
+      "url": "https://doi.org/10.1161/STR.0000000000000436",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Causes et épidémiologie",
+        "Démarche diagnostique scanner-PL",
+        "Occlusion précoce de l'anévrisme",
+        "Nimodipine et surveillance du vasospasme",
+        "Prévention et dépistage"
+      ]
+    },
+    {
+      "id": "SRC-NCS-2011-DIRINGER",
+      "title": "Critical care management of patients following aneurysmal subarachnoid hemorrhage: recommendations from the Neurocritical Care Society's Multidisciplinary Consensus Conference",
+      "citation": "Diringer MN, Bleck TP, Hemphill JC, et al. Critical care management of patients following aneurysmal subarachnoid hemorrhage. Neurocrit Care. 2011 ; 15 (2) : 211-240. doi:10.1007/s12028-011-9605-9.",
+      "organization": "Neurocritical Care",
+      "year": 2011,
+      "version": "2011 consensus conference",
+      "url": "https://doi.org/10.1007/s12028-011-9605-9",
+      "verifiedAt": "2026-10-31",
+      "usedFor": [
+        "Prise en charge en réanimation",
+        "Hydrocéphalie et hyponatrémie",
+        "Mesures générales de surveillance"
+      ]
+    }
+  ]
+}
