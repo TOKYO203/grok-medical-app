@@ -62,6 +62,8 @@ import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as ImagerieIndexRouteImport } from './routes/imagerie.index'
 import { Route as ImagerieCaseIdRouteImport } from './routes/imagerie.$caseId'
+import { Route as HistologieIndexRouteImport } from './routes/histologie.index'
+import { Route as HistologieSlideIdRouteImport } from './routes/histologie.$slideId'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
@@ -339,6 +341,16 @@ const ImagerieCaseIdRoute = ImagerieCaseIdRouteImport.update({
   path: '/imagerie/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HistologieIndexRoute = HistologieIndexRouteImport.update({
+  id: '/histologie/',
+  path: '/histologie/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistologieSlideIdRoute = HistologieSlideIdRouteImport.update({
+  id: '/histologie/$slideId',
+  path: '/histologie/$slideId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearnDeckIdRoute = LearnDeckIdRouteImport.update({
   id: '/learn/$deckId',
   path: '/learn/$deckId',
@@ -452,10 +464,12 @@ export interface FileRoutesByFullPath {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/histologie/$slideId': typeof HistologieSlideIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/histologie/': typeof HistologieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -518,10 +532,12 @@ export interface FileRoutesByTo {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/histologie/$slideId': typeof HistologieSlideIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie': typeof ImagerieIndexRoute
+  '/histologie': typeof HistologieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -586,10 +602,12 @@ export interface FileRoutesById {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/histologie/$slideId': typeof HistologieSlideIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/histologie/': typeof HistologieIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -654,10 +672,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/histologie/$slideId'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie/'
+    | '/histologie/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -720,10 +740,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/histologie/$slideId'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie'
+    | '/histologie'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -787,10 +809,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/histologie/$slideId'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie/'
+    | '/histologie/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -851,9 +875,11 @@ export interface RootRouteChildren {
   ApiEventsRoute: typeof ApiEventsRoute
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   ImagerieCaseIdRoute: typeof ImagerieCaseIdRoute
+  HistologieSlideIdRoute: typeof HistologieSlideIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ImagerieIndexRoute: typeof ImagerieIndexRoute
+  HistologieIndexRoute: typeof HistologieIndexRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
@@ -1238,6 +1264,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImagerieCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/histologie/': {
+      id: '/histologie/'
+      path: '/histologie'
+      fullPath: '/histologie/'
+      preLoaderRoute: typeof HistologieIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/histologie/$slideId': {
+      id: '/histologie/$slideId'
+      path: '/histologie/$slideId'
+      fullPath: '/histologie/$slideId'
+      preLoaderRoute: typeof HistologieSlideIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learn/$deckId': {
       id: '/learn/$deckId'
       path: '/learn/$deckId'
@@ -1428,9 +1468,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventsRoute: ApiEventsRoute,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   ImagerieCaseIdRoute: ImagerieCaseIdRoute,
+  HistologieSlideIdRoute: HistologieSlideIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ImagerieIndexRoute: ImagerieIndexRoute,
+  HistologieIndexRoute: HistologieIndexRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,
