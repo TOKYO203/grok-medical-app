@@ -1,0 +1,628 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "otites-aigues",
+  "title": "Otites aiguës",
+  "specialty": "ORL",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Diagnostiquer une otite moyenne aiguë de l'enfant (purulente et séromuqueuse), connaître les critères d'antibiothérapie selon l'âge, prescrire le traitement adapté et reconnaître les complications — mastoïdite en tête — dans le contexte de soins malgache.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 67,
+    "specialty": "ORL",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 108,
+      "localNumber": 67,
+      "sectionLabel": "Médecine",
+      "title": "Otites aiguës",
+      "specialty": "ORL"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche rédigée en français à partir de sources de référence francophones : otite moyenne aiguë purulente de l'enfant (otalgie, fièvre, tympan rouge et bombé), critères d'antibiothérapie selon l'âge selon la Haute Autorité de Santé, otite séromuqueuse et otites à répétition, complications locorégionales (mastoïdite) et endocrâniennes. Contexte malgache intégré (otites fréquentes après rhinopharyngites de la saison fraîche, incidence élevée de mastoïdites négligées, place des gouttes auriculaires et de la paracentèse).",
+    "verificationNotes": "Contenu vérifié le 1er novembre 2026 : diagnostic et complications selon le Manuel MSD (édition professionnelle, chapitres Otite moyenne aiguë et Mastoïdite) ; critères d'antibiothérapie et molécules selon la Haute Autorité de Santé (fiche otite moyenne aiguë purulente de l'enfant) et la société d'infectiologie (SPILF). Posologies à ajuster selon le poids et les protocoles locaux.",
+    "qcChecklist": [
+      "Conformité programme Madagascar 2025 (item 67, section Médecine)",
+      "Sources documentaires vérérifiées et citées",
+      "Critères d'antibiothérapie selon l'âge clairement exposés",
+      "Complications détaillées avec signes d'alerte",
+      "Adaptation au contexte de soins malgache"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'otite moyenne aiguë est l'infection de l'oreille moyenne, presque toujours secondaire à une rhinopharyngite virale dont elle est la première complication bactérienne chez le nourrisson et le petit enfant. Elle se manifeste sous deux visages : l'otite moyenne aiguë purulente (OMAP), avec pus derrière un tympan bombé, et l'otite séromuqueuse, épanchement non purulent et souvent silencieux."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est un motif extrêmement fréquent de consultation et la première cause de prescription d'antibiotique chez le petit enfant. L'enjeu du médecin est triple : savoir la reconnaître à l'otoscopie, ne traiter par antibiotique que les formes qui le justifient — les critères dépendent de l'âge — et ne pas manquer une mastoïdite ou une extension endocrânienne, complications qui restent fréquentes à Madagascar quand les otites sont négligées ou traitées par des cures trop courtes."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et épidémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'otite moyenne aiguë touche surtout le nourrisson et l'enfant de moins de 3 ans : près de trois quarts des enfants font au moins une otite avant leur deuxième anniversaire. La physiologie l'explique : chez le nourrisson, la trompe d'Eustache est courte, horizontale et béante, ce qui facilite le reflux des sécrétions rhinopharyngées vers l'oreille moyenne lors des rhumes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les pics suivent ceux des rhinopharyngites : saison fraîche et humide, vie en collectivité, tabagisme environnemental. Les germes responsables de la surinfection bactérienne sont, par ordre de fréquence, Streptococcus pneumoniae, Haemophilus influenzae (non typable) et Moraxella catarrhalis ; le vaccin antipneumococcique conjugué a fait baisser la part du pneumocoque dans les pays où il est largement administré."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'otite séromuqueuse — liquide non purulent derrière un tympan rétracté ou bombé, chez un enfant souvent asymptomatique — mérite une attention particulière : si elle persiste, elle est source de surdité de transmission et de retard de langage chez le petit enfant."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le mécanisme est toujours le même : la rhinopharyngite virale enflammant la muqueuse de la trompe d'Eustache ; l'obstruction de la trompe crée une dépression dans l'oreille moyenne, puis un épanchement ; le liquide stagnant se surinfecte avec les germes du rhinopharynx. L'otite est donc une complication de la virose, pas une infection primitive."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs anatomiques du nourrisson : trompe d'Eustache courte, horizontale, perméable au reflux",
+            "Facteurs d'environnement : collectivité, tabagisme passif, saison fraîche, allaitement court",
+            "Germes : Streptococcus pneumoniae, Haemophilus influenzae non typable, Moraxella catarrhalis ; surinfections à staphylocoque ou entérobactéries possibles après plusieurs cures",
+            "Terrain : carence nutritionnelle, immuno-dépression, fente palatine, trisomie 21 — penser aux otites récidivantes « trop fréquentes »",
+            "Otite externe diffusive (écoulement de l'oreille avec conduit auditif externe inflammé) : à distinguer de l'otorrhée par perforation tympanique de l'OMAP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez le nourrisson, l'otite se révèle souvent par de la fièvre, une irritabilité inhabituelle, des pleurs nocturnes, un refus alimentaire (la succion déclenche la douleur), ou des gestes caractéristiques (l'enfant se tire l'oreille, frotte sa tête). Chez l'enfant plus grand, l'otalgie est franche et spontanément exprimée. La fièvre est variable, parfois élevée ; une otorrhée (écoulement puruleux de l'oreille) signale la perforation tympanique spontanée, qui soulage la douleur.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est otoscopique et exige un examen correct : nettoyer le conduit, utiliser un spéculum adapté, et si nécessaire une otoscopie pneumatique (la mobilité du tympan s'apprécie à la poire). L'OMAP associe un tympan rouge ou terne, bombé, perdant sa translucidité et ses reliefs normaux (reflet lumineux effacé), avec un bombement parfois jaunâtre si le pus s'accumule. Une rougeur isolée du tympan sans bombement, chez un enfant qui crie ou qui a de la fièvre, ne suffit pas au diagnostic : c'est le piège classique de l'otoscopie du nourrisson agité.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'otite séromuqueuse : tympan terne, rétracté ou légèrement bombé, bleuté ou grisâtre, avec niveau liquide ou bulles d'air ; l'enfant est souvent asymptomatique ou présente une audition diminuée (« il fait répéter », il monte le son de la télévision). L'otoscopie au cours de toute rhinopharyngite est l'occasion de la dépister. Un examen important à connaître : une otite moyenne aiguë « à répétition » ou une otite séromuqueuse persistante impose de vérifier l'audition et le développement du langage."
+        },
+        {
+          "type": "paragraph",
+          "text": "Aucun examen complémentaire n'est nécessaire pour le diagnostic d'otite simple. Les formes graves ou compliquées motivent des examens selon le contexte : scanner (ou radiographie) de l'os temporal devant une suspicion de mastoïdite ; hémoculture et ponction lombaire si suspicion de méningite. La paracentèse (myringotomie) — incision du tympan qui évacue le pus — a un intérêt diagnostique (prélèvement bactériologique) et thérapeutique (soulagement immédiat) ; elle est réservée aux formes hyperalgiques, au nourrisson de moins de 3 mois, ou à l'échec d'une première ligne."
+        },
+        {
+          "type": "paragraph",
+          "text": "Signes de complication à connaître : douleur rétro-auriculaire avec œdème et rougeur de la région mastoïdienne, oreille décollée et projetée en avant, fièvre élevée persistante, altération de l'état général (mastoïdite) ; paralysie faciale, vertiges, nystagmus, surdité brutalement aggravée (labyrinthite, atteinte du nerf facial) ; vomissements, raideur de nuque, troubles de conscience (méningite, abcès cérébral). Toute otite fébrile qui traîne au-delà de 48–72 heures de traitement bien conduit doit faire reconsidérer le diagnostic et rechercher une complication.",
+          "sources": [
+            "s3",
+            "s4"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nourrisson : fièvre, irritabilité, pleurs nocturnes, refus alimentaire, geste de se tirer l'oreille",
+            "OMAP à l'otoscopie : tympan rouge/terne, bombé, reflet effacé — pas seulement rouge",
+            "Otorrhée purulente = perforation tympanique spontanée (diagnostic plus facile, pronostic favorable)",
+            "Otite séromuqueuse : tympan terne/rétrécuté, surdité de transmission, enfant souvent silencieux",
+            "Complications : douleur rétro-auriculaire + oreille décollée = mastoïdite ; vertiges ou paralysie faciale = urgence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Antibiothérapie : les critères de la Haute Autorité de Santé distinguent trois situations. (1) Nourrisson de moins de 6 mois : toute OMAP justifie une antibiothérapie immédiate. (2) Enfant de 6 mois à 2 ans : antibiothérapie si l'otite est bilatérale, s'il existe une otorrhée, ou si l'enfant est en mauvais état général. (3) Enfant de plus de 2 ans : antibiothérapie réservée aux formes hyperalgiques, fébriles, avec otorrhée, ou à l'absence d'amélioration après 48–72 heures de traitement symptomatique. Cette stratégie limite l'antibiorésistance sans augmenter les complications dans les formes non traitées d'emblée.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement de première intention est l'amoxicilline à 80–90 mg/kg/jour en 2 ou 3 prises pendant 8 à 10 jours (certains protocoles raccourcissent à 5 jours chez l'enfant de plus de 2 ans) ; en cas d'allergie, cefuroxime ou pristinamycine selon l'âge. La paracentèse, l'évacuation du pus et l'adjonction de gouttes auriculaires associant antibiotique et corticoïde après vidange du conduit complètent la prise en charge des formes hyperalgiques ; les gouttes auriculaires seules ne suffisent jamais à traiter une OMAP non perforée — elles ne diffusent pas dans l'oreille moyenne tant que le tympan est intact."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement symptomatique est constant : paracétamol à 10–15 mg/kg par prise (4 prises par jour maximum) pour la douleur et la fièvre, lavage du nez au sérum salé à renouveler, et explication aux parents. Chez le nourrisson, l'amélioration doit être nette en 48–72 heures ; sinon, réévaluer : mauvaise compliance, germe résistant, complication. En cas d'échec documenté : amoxicilline-acide clavulanique (ou paracentèse avec prélèvement) selon les moyens disponibles.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Otite séromuqueuse : pas d'antibiotique systématique ; surveillance clinique simple et vérification de l'audition, la plupart guérissant spontanément en quelques semaines ; si l'épanchement persiste au-delà de 3 mois, ou s'il existe un retard de langage, avis ORL pour envisager des drains transtympaniques. Les otites à répétition (plus de 3 épisodes en 6 mois ou 4 en un an) justifient un bilan ORL, la vérification de la vaccination antipneumococcique et anti-Haemophilus, et la discussion d'une adénoïdectomie selon le contexte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Complications : la mastoïdite impose l'hospitalisation, une antibiothérapie intraveineuse à forte dose couvrant le pneumocoque et les germes de la sphère ORL, et le plus souvent une intervention chirurgicale (mastoïdectomie, ou simple paracentèse-drain aux formes débutantes) selon l'évolution et les moyens. La paralysie faciale, la labyrinthite et l'extension endocrânienne relèvent de l'hôpital avec imagerie et avis ORL urgent ; la méningite impose la ponction lombaire et l'antibiothérapie IV en urgence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "< 6 mois : antibiotique immédiat (amoxicilline 80–90 mg/kg/j, 8–10 jours)",
+            "6 mois–2 ans : antibiotique si otite bilatérale, otorrhée ou mauvais état général",
+            "> 2 ans : antibiotique si forme hyperalgique/fébrile, otorrhée, ou échec de 48–72 h de traitement symptomatique",
+            "Toujours : paracétamol, lavage de nez, réévaluation à 48–72 h",
+            "Échec : amoxicilline-acide clavulanique ou paracentèse avec prélèvement",
+            "Séromuqueuse : pas d'antibiotique, surveillance, avis ORL si > 3 mois ou retard de langage",
+            "Mastoïdite : hospitalisation, antibiothérapie IV, chirurgie"
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : allaitement maternel protecteur, éviction du tabagisme environnemental, hygiène des mains et limitation de la promiscuité pendant la saison des rhumes, vaccination complète du programme élargi — antigène pneumococcique conjugué et Haemophilus influenzae de type b, grippe saisonnière chez l'enfant à risque. À Madagascar, vérifier le carnet de vaccination de tout enfant présentant des otites à répétition."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention secondaire : traiter correctement chaque épisode (dose suffisante, durée complète), ne pas banaliser une otite du nourrisson de moins de 6 mois, et éduquer les parents sur les signes de reconsultation : fièvre ou douleur qui persiste au-delà de 48–72 heures, écoulement de l'oreille, douleur derrière l'oreille, oreille qui « se décolle », somnolence ou vomissements. La mastoïdite de l'enfant est presque toujours une otite traitée trop tard ou trop peu."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suivi : vérifier la disparition des signes à la fin du traitement ; contrôler l'audition et le langage après otites à répétition ou otite séromuqueuse persistante ; adresser à l'ORL les récidivants pour bilan (drains, adénoïdectomie) et les enfants dont l'épanchement traîne."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'otite moyenne aiguë est banale dans sa fréquence, mais son traitement demande de la rigueur : un diagnostic otoscopique précis (tympan bombé, pas seulement rouge), une antibiothérapie guidée par l'âge selon les critères de la Haute Autorité de Santé — systématique avant 6 mois, plus selective ensuite — et une surveillance de 48–72 heures. À Madagascar, la mastoïdite et ses voisines endocrâniennes restent des urgences réelles de l'enfant mal soigné : tout médecin doit reconnaître une douleur rétro-auriculaire avec oreille décollée comme une urgence chirurgicale. Enfin, ne pas oublier l'otite silencieuse : un épanchement qui traîne chez un petit enfant, c'est un langage qui se construit mal — l'audition se surveille comme la fièvre."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Manuel MSD, édition professionnelle — Otite moyenne aiguë",
+            "Manuel MSD, édition professionnelle — Mastoïdite",
+            "Haute Autorité de Santé — Choix et durées d'antibiothérapies : otite moyenne aiguë purulente de l'enfant",
+            "Société de pathologie infectieuse de langue française — Antibiothérapie des infections respiratoires hautes"
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Mastoïdite",
+      "text": "Douleur et rougeur rétro-auriculaires, œdème qui décolle l'oreille et la projette en avant, fièvre élevée, enfant abattu : mastoïdite — urgence hospitalière. Antibiothérapie intraveineuse à forte dose et avis ORL chirurgicale sans délai : ne jamais se contenter d'un traitement oral, l'os est déjà atteint."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Extension endocrânienne",
+      "text": "Vomissements, raideur de nuque, somnolence, convulsions ou troubles de conscience chez un enfant otitique : méningite ou abcès cérébral jusqu'à preuve du contraire. Ponction lombaire si possible, antibiothérapie intraveineuse en urgence, imagerie cérébrale — transfert immédiat."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe : otoscopie correcte",
+      "text": "Un tympan rouge isolé ne fait pas le diagnostic : il faut un tympan bombé, terne, avec reflet effacé et perte des reliefs. Chez le nourrisson agité et fébrile, la rougeur est banale — nettoyer le conduit, utiliser un spéculum adapté, prendre le temps, et si nécessaire réexaminer l'enfant calmé. Sur-traiter une fausse otite nourrit l'antibiorésistance."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Otite moyenne aiguë purulente = complication bactérienne d'une rhinopharyngite. Antibiotique : toujours avant 6 mois ; de 6 mois à 2 ans si bilatérale, otorrhée ou mauvais état général ; après 2 ans si forme sévère ou échec de 48–72 h. Amoxicilline 80–90 mg/kg/jour, réévaluation systématique à 48–72 heures."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo : l'otite qui traîne",
+      "text": "Trois pièges de l'otite de l'enfant : (1) l'otorrhée après perforation — la douleur a disparu mais le pus est là, poursuivre l'antibiothérapie ; (2) l'otite séromuqueuse — pas de fièvre, pas de douleur, mais un langage qui s'appauvrit : surveiller l'audition ; (3) la paracentèse thérapeutique — former l'incision, évacuer le pus : soulagement immédiat et prélèvement bactériologique dans les formes réticentes."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Diagnostic otoscopique de l'OMAP",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Rouge ou terne"
+        },
+        {
+          "key": "O",
+          "term": "Opaque, translucidité perdue"
+        },
+        {
+          "key": "B",
+          "term": "Bombé — le signe clé, avec perte des reliefs"
+        },
+        {
+          "key": "M",
+          "term": "Mobilité diminuée à l'otoscopie pneumatique"
+        }
+      ]
+    },
+    {
+      "label": "Antibiothérapie selon l'âge",
+      "entries": [
+        {
+          "key": "<6m",
+          "term": "Moins de 6 mois : toujours antibiotique"
+        },
+        {
+          "key": "6–24m",
+          "term": "6 mois à 2 ans : antibiotique si bilatérale, otorrhée, mauvais état général"
+        },
+        {
+          "key": ">2a",
+          "term": "Plus de 2 ans : antibiotique si sévère, otorrhée, ou échec de 48–72 h"
+        },
+        {
+          "key": "A",
+          "term": "Amoxicilline 80–90 mg/kg/jour, 8–10 jours"
+        }
+      ]
+    },
+    {
+      "label": "Complications de l'otite moyenne aiguë",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Mastoïdite — la plus fréquente, urgence chirurgicale"
+        },
+        {
+          "key": "F",
+          "term": "Faciale : paralysie du nerf facial"
+        },
+        {
+          "key": "L",
+          "term": "Labyrinthite : vertiges, nystagmus, surdité"
+        },
+        {
+          "key": "E",
+          "term": "Endocrânienne : méningite, abcès cérébral"
+        }
+      ]
+    },
+    {
+      "label": "Signes de reconsultation à expliquer aux parents",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fièvre ou douleur persistante au-delà de 48–72 heures"
+        },
+        {
+          "key": "O",
+          "term": "Oreille décollée, douleur rétro-auriculaire"
+        },
+        {
+          "key": "S",
+          "term": "Somnolence, vomissements, raideur de nuque"
+        },
+        {
+          "key": "E",
+          "term": "Écoulement de l'oreille qui se prolonge"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition de l'otite moyenne aiguë purulente ?",
+      "back": "Infection bactérienne de l'oreille moyenne, presque toujours secondaire à une rhinopharyngite virale, avec épanchement purulent derrière un tympan bombé."
+    },
+    {
+      "id": "f2",
+      "front": "Pourquoi le nourrisson fait-il tant d'otites ?",
+      "back": "Sa trompe d'Eustache est courte, horizontale et perméable au reflux des sécrétions rhinopharyngées vers l'oreille moyenne lors des rhumes."
+    },
+    {
+      "id": "f3",
+      "front": "Principaux germes de l'otite moyenne aiguë ?",
+      "back": "Streptococcus pneumoniae, Haemophilus influenzae non typable, Moraxella catarrhalis."
+    },
+    {
+      "id": "f4",
+      "front": "Présentation clinique chez le nourrisson ?",
+      "back": "Fièvre, irritabilité, pleurs nocturnes, refus alimentaire (la succion déclenche la douleur), gestes de se tirer l'oreille."
+    },
+    {
+      "id": "f5",
+      "front": "Critères otoscopiques de l'otite moyenne aiguë purulente ?",
+      "back": "Tympan rouge ou terne, opaque, bombé avec perte des reliefs et reflet lumineux effacé ; mobilité diminuée à l'otoscopie pneumatique."
+    },
+    {
+      "id": "f6",
+      "front": "Signification d'une otorrhée purulente ?",
+      "back": "Perforation tympanique spontanée : la douleur s'apaise, le diagnostic est plus facile, le pronostic favorable — mais l'antibiothérapie doit être poursuivie."
+    },
+    {
+      "id": "f7",
+      "front": "Otite séromuqueuse : aspect et conséquence ?",
+      "back": "Tympan terne, rétracté ou grisâtre avec niveau liquide ou bulles ; enfant souvent asymptomatique avec surdité de transmission ; risque de retard de langage si l'épanchement persiste."
+    },
+    {
+      "id": "f8",
+      "front": "Quand prescrire un antibiotique devant une OMAP de moins de 6 mois ?",
+      "back": "Toujours : toute otite moyenne aiguë purulente du nourrisson de moins de 6 mois justifie une antibiothérapie immédiate."
+    },
+    {
+      "id": "f9",
+      "front": "Critères d'antibiothérapie entre 6 mois et 2 ans ?",
+      "back": "Antibiothérapie si l'otite est bilatérale, s'il existe une otorrhée, ou si l'enfant est en mauvais état général."
+    },
+    {
+      "id": "f10",
+      "front": "Première ligne antibiotique de l'OMAP et posologie ?",
+      "back": "Amoxicilline 80–90 mg/kg/jour en 2–3 prises pendant 8–10 jours (durée courte possible chez l'enfant de plus de 2 ans) ; cefuroxime ou pristinamycine si allergie."
+    },
+    {
+      "id": "f11",
+      "front": "Conduite à tenir en cas d'échec à 48–72 heures ?",
+      "back": "Vérifier la compliance, reconsidérer le diagnostic, rechercher une complication ; amoxicilline-acide clavulanique ou paracentèse avec prélèvement bactériologique selon les moyens."
+    },
+    {
+      "id": "f12",
+      "front": "Intérêts de la paracentèse (myringotomie) ?",
+      "back": "Soulagement immédiat de la douleur par évacuation du pus, prélèvement bactériologique à visée diagnostique ; indiquée dans les formes hyperalgiques, chez le nourrisson de moins de 3 mois ou à l'échec d'une première ligne."
+    },
+    {
+      "id": "f13",
+      "front": "Signes de mastoïdite ?",
+      "back": "Douleur et rougeur rétro-auriculaires, œdème qui décolle l'oreille en l'avançant, fièvre élevée, altération de l'état général — hospitalisation, antibiothérapie IV, chirurgie (mastoïdectomie)."
+    },
+    {
+      "id": "f14",
+      "front": "Complications neurologiques de l'otite ?",
+      "back": "Paralysie faciale, labyrinthite (vertiges, nystagmus, surdité), méningite, abcès cérébral — urgence hospitalière avec imagerie et antibiothérapie intraveineuse."
+    },
+    {
+      "id": "f15",
+      "front": "Otites à répétition : quand et quel bilan ?",
+      "back": "Plus de 3 épisodes en 6 mois ou 4 en un an : bilan ORL, vérification de l'audition et du langage, contrôle de la vaccination (pneumocoque, Haemophilus), discussion de l'adénoïdectomie ou de drains transtympaniques."
+    },
+    {
+      "id": "f16",
+      "front": "Place des gouttes auriculaires dans l'OMAP ?",
+      "back": "Utile en complément après perforation ou paracentèse ; inefficace seule sur une otite non perforée : les gouttes ne diffusent pas dans l'oreille moyenne tant que le tympan est intact."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Otites aiguës"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Otite moyenne aiguë purulente",
+        "children": [
+          {
+            "id": "b1a",
+            "label": "Fièvre, otalgie, irritabilité du nourrisson"
+          },
+          {
+            "id": "b1b",
+            "label": "Tympan rouge, opaque, bombé, reflet effacé"
+          },
+          {
+            "id": "b1c",
+            "label": "Otorrhée = perforation spontanée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l1",
+            "label": "Pneumocoque, Haemophilus influenzae, Moraxella"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Otite séromuqueuse",
+        "children": [
+          {
+            "id": "b2a",
+            "label": "Tympan terne, rétracté, niveau liquide"
+          },
+          {
+            "id": "b2b",
+            "label": "Asymptomatique, surdité de transmission"
+          },
+          {
+            "id": "b2c",
+            "label": "Risque de retard de langage"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l2",
+            "label": "Avis ORL si > 3 mois : drains transtympaniques"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Antibiothérapie selon l'âge",
+        "children": [
+          {
+            "id": "b3a",
+            "label": "< 6 mois : toujours"
+          },
+          {
+            "id": "b3b",
+            "label": "6 mois–2 ans : bilatérale, otorrhée, mauvais état général"
+          },
+          {
+            "id": "b3c",
+            "label": "> 2 ans : sévère ou échec de 48–72 h"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l3",
+            "label": "Amoxicilline 80–90 mg/kg/j, 8–10 jours"
+          },
+          {
+            "id": "l4",
+            "label": "Réévaluation systématique à 48–72 h"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b4a",
+            "label": "Mastoïdite : oreille décollée, urgence chirurgicale"
+          },
+          {
+            "id": "b4b",
+            "label": "Paralysie faciale, labyrinthite"
+          },
+          {
+            "id": "b4c",
+            "label": "Méningite, abcès cérébral"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l5",
+            "label": "Hospitalisation, antibiothérapie IV, imagerie"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Prévention et suivi",
+        "children": [
+          {
+            "id": "b5a",
+            "label": "Vaccination pneumocoque + Haemophilus, allaitement"
+          },
+          {
+            "id": "b5b",
+            "label": "Traitement complet de chaque épisode"
+          },
+          {
+            "id": "b5c",
+            "label": "Surveillance de l'audition et du langage"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l6",
+            "label": "Éducation des parents : signes de reconsultation"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Otitis Media (Acute)",
+      "citation": "Manuel MSD, édition professionnelle — chapitre Pathologies de l'oreille moyenne et du tympan",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/troubles-orl/pathologies-de-l-oreille-moyenne-et-du-tympan/otite-moyenne-aigu%C3%AB",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "diagnostic",
+        "traitement",
+        "complications"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Choix et durées d'antibiothérapies : otite moyenne aiguë purulente de l'enfant",
+      "citation": "Haute Autorité de Santé — recommandation, critères d'antibiothérapie selon l'âge",
+      "organization": "Haute Autorité de Santé",
+      "year": 2021,
+      "version": "Recommandation de bonne pratique",
+      "url": "https://www.has-sante.fr/jcms/c_2722749/fr/choix-et-durees-d-antibiotherapies-otite-moyenne-aigue-purulente-de-l-enfant",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "critères d'antibiothérapie",
+        "posologies",
+        "durées"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Mastoiditis",
+      "citation": "Manuel MSD, édition professionnelle — chapitre Pathologies de l'oreille moyenne et du tympan",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/troubles-orl/pathologies-de-l-oreille-moyenne-et-du-tympan/masto%C3%AFdite",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "mastoïdite",
+        "complications"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Antibiothérapie des infections respiratoires hautes chez l'adulte et l'enfant",
+      "citation": "Société de pathologie infectieuse de langue française — recommandations de bonne pratique",
+      "organization": "SPILF / infectiologie.com",
+      "year": 2011,
+      "version": "Recommandations",
+      "url": "https://www.infectiologie.com/UserFiles/File/medias/Recos/2011-infections-respir-hautes-recommandations.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "antibiothérapie",
+        "durées",
+        "échec de première ligne"
+      ]
+    }
+  ]
+}
