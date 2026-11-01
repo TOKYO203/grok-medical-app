@@ -1,3 +1,4 @@
+// Galerie de lames histologiques — structure miroir du moteur imagerie (/imagerie).
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, Microscope } from "lucide-react";
 import { listSlides } from "@/content/histologie";
