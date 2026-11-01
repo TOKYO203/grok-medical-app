@@ -1,29 +1,47 @@
 {
   "id": "tuberculose-ganglionnaire",
-  "title": "Tuberculose ganglionnaire — coloration de Ziehl-Neelsen",
+  "title": "Tuberculose ganglionnaire — H&E (granulome caséo-folliculaire)",
   "tissue": "Ganglion lymphatique",
   "pathology": "Tuberculose",
-  "staining": "Ziehl-Neelsen",
-  "magnification": "×100 (immersion)",
-  "imageUrl": "/histologie/placeholder-tuberculose-ganglionnaire.svg",
-  "imageAlt": "Coloration de Ziehl-Neelsen sur un ganglion : follicule caséifié avec bacilles AAR rouges sur fond bleu",
-  "source": "Placeholder (à remplacer par une lame Wikimedia Commons CC BY / CC0)",
-  "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Tuberculosis_histopathology",
-  "license": "CC0",
-  "description": "Ganglion d'un patient de 28 ans, fièvre vespérale et sueurs nocturnes depuis 6 semaines. Au faible grossissement : follicule tuberculeux avec nécrose caséeuse centrale. En immersion, sur fond bleu de méthylène, la coloration de Ziehl-Neelsen fait ressortir en rouge les bacilles acido-alcoolo-résistants (BAAR) — à chercher au pourtour de la nécrose, jamais au cœur du caséum où les bacilles sont rares.",
+  "staining": "H&E",
+  "magnification": "×20",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Epithelioid_cells_in_caseating_tuberculous_granuloma.jpg?width=1400",
+  "imageAlt": "Granulome tuberculeux avec nécrose caséeuse centrale, couronne de cellules épithélioïdes et cellules géantes de Langhans",
+  "source": "ArkhipovSergey / Wikimedia Commons (CC BY-SA 4.0)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epithelioid_cells_in_caseating_tuberculous_granuloma.jpg",
+  "license": "CC-BY-SA",
+  "description": "Ganglion d'un patient de 28 ans, fièvre vespérale et sueurs nocturnes depuis 6 semaines. Au faible grossissement : follicule tuberculeux arrondi avec nécrose caséeuse centrale, éosinophile et amorphe, entourée d'une couronne de cellules épithélioïdes et de cellules géantes de Langhans à noyaux périphériques en « fer à cheval ». La confirmation se fait par coloration de Ziehl-Neelsen sur coupe (BAAR rouges, à chercher en périphérie du caséum) ou PCR.",
   "keyFeatures": [
     "Follicule épithélioïde et gigantocellulaire (cellules de Langhans)",
     "Nécrose caséeuse centrale, éosinophile et amorphe",
-    "BAAR rouges fins et rectilignes sur fond bleu (Ziehl-Neelsen)",
-    "Rechercher les BAAR en périphérie du caséum, où l'oxygénation persiste",
+    "Couronne lymphocytaire périphérique",
+    "Confirmation : BAAR rouges sur fond bleu en Ziehl-Neelsen, en périphérie du caséum",
     "Aucune fibrose évolutive : lésion récente"
   ],
   "annotations": [
-    { "label": "Nécrose caséeuse", "x": 30, "y": 28, "w": 40, "h": 30 },
-    { "label": "Couronne épithélioïde", "x": 24, "y": 18, "w": 52, "h": 14 },
-    { "label": "BAAR (immersion)", "x": 62, "y": 60, "w": 26, "h": 20 }
+    {
+      "label": "Nécrose caséeuse centrale",
+      "x": 34,
+      "y": 30,
+      "w": 32,
+      "h": 26
+    },
+    {
+      "label": "Couronne épithélioïde",
+      "x": 22,
+      "y": 52,
+      "w": 56,
+      "h": 20
+    },
+    {
+      "label": "Cellules géantes de Langhans",
+      "x": 58,
+      "y": 20,
+      "w": 30,
+      "h": 18
+    }
   ],
-  "diagnosis": "Lymphadénite tuberculeuse caséo-folliculaire — confirmation si BAAR présents ou PCR positive",
+  "diagnosis": "Lymphadénite tuberculeuse caséo-folliculaire — confirmation si BAAR présents (Ziehl-Neelsen) ou PCR positive",
   "differential": [
     "Sarcoidose (granulomes sans nécrose caséeuse, NIHL faible)",
     "Lymphadénite à mycobactéries atypiques",
