@@ -117,23 +117,40 @@ Optimus est une PWA educative, **pas un dispositif medical**. La politique de se
 
 ## 5. ROW LEVEL SECURITY (Supabase)
 
-### Tables protegees
+### Etat au 2026-11-02 (post-audit)
 
-| Table | RLS | Politique |
-|---|---|---|
-| `institution_leads` | Activee | SELECT limite, INSERT public |
-| `licences` | A verifier | |
-| `purchase_orders` | A verifier | |
-| `profiles` | A verifier | |
+Toutes les tables `public.*` ont **RLS activee**. Policies nettoyees le 2026-11-02 :
+- 20 policies -> **16** (suppression des doublons `{public}` legacy)
+- Policy `insert own paiements` (moins stricte) supprimee
 
-### A faire
+### Policies par table
 
-- Auditer toutes les tables Supabase : RLS activee + policies restrictives
-- Test manuel : un user A ne doit pas lire les donnees de user B
-- Migration dediee pour chaque table manquante
+| Table | Policies |
+|---|---|
+| `admin_actions` | 3 (admin + read) |
+| `error_reports` | 2 (admin ALL + insert_own) |
+| `licences` | 4 (admin x3 + select_own) |
+| `paiements` | 4 (admin x2 + insert_own strict + select_own) |
+| `profiles` | 4 (admin + insert/select/update_own) |
+| `progressions` | 4 (crud ALL + insert/select/update_own) |
+| `purchase_orders` | (a verifier) |
+| `webhook_events` | (a verifier) |
+
+### Regles appliquees
+
+- **Toute policy utilisateur** : `USING (user_id = auth.uid())` ou `(id = auth.uid())`
+- **Toute policy admin** : `USING (optimus_is_admin(auth.uid()))`
+- **INSERT utilisateur** : `WITH CHECK (user_id = auth.uid() AND status = 'pending')` (pour paiements)
+- **Progressions** : policy `ALL` conservee pour DELETE (sync offline necessite)
+
+### Test manuel recommande (a faire apres chaque migration)
+
+1. Creer 2 users A et B
+2. A se connecte, insere une licence
+3. B se connecte, essaie `SELECT * FROM licences` -> doit voir 0 ligne
+4. B essaie `UPDATE licences SET user_id = auth.uid() WHERE id = <licence de A>` -> doit echouer
 
 ---
-
 ## 6. CVE & DEPENDANCES
 
 ### Etat actuel (2026-11-01)
