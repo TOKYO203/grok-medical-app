@@ -36,6 +36,7 @@ import { useMonitorPlayhead } from "@/lib/auscultation/useMonitorPlayhead";
 import { MonitorControls } from "@/components/auscultation/MonitorControls";
 import { PhonoSVG } from "@/components/auscultation/PhonoSVG";
 import { TorsoView, type FoyerId } from "@/components/auscultation/TorsoView";
+import { ExamenMode } from "@/components/auscultation/ExamenMode";
 
 export const Route = createFileRoute("/auscultation")({ component: AuscultationPage });
 
@@ -317,6 +318,9 @@ function AuscultationPage() {
             </button>
           ))}
         </div>
+
+        {/* Mode examen — quiz auditif à l'aveugle */}
+        <ExamenMode />
 
         <div className="grid gap-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
           {/* Liste des fiches */}
