@@ -1,0 +1,77 @@
+{
+  "id": "alteration-etat-general",
+  "symptom": "Altération de l'état général",
+  "context": "Adulte, perte de poids > 5 % en 6 mois, asthénie ou anorexie persistante",
+  "definition": "L'AEG isolée impose d'écarter 3 cadres : cancer (digestif, pulmonaire, lymphome), infection chronique (tuberculose, VIH, paludisme) et maladie inflammatoire. La démarche est progressive : 1ʳᵉ ligne simple, imagerie ensuite.",
+  "redFlags": [
+    { "sign": "Dysphagie rapide aux solides", "action": "Suspicion de cancer œsophagien : FOGD + TDM sans attendre" },
+    { "sign": "Rectorragies occultes ou méléna", "action": "Coloscopie urgente + NFS" },
+    { "sign": "Adénopathie cervicale dure fixée", "action": "Biopsie (cytoponction) : lymphome ou métastase ganglionnaire" }
+  ],
+  "firstLine": [
+    {
+      "name": "NFS",
+      "urgency": "rapide",
+      "rationale": "Anémie (cancer digestif, maladie inflammatoire), syndrome inflammatoire, blastes.",
+      "findingToLook": "Hb, VGM, hyperleucocytose, blastes",
+      "result": { "positive": "Anémie microcytaire → saignement digestif ; blastes → hématologue.", "negative": "Ne clôt pas le bilan." }
+    },
+    {
+      "name": "CRP / VS",
+      "urgency": "rapide",
+      "rationale": "Mesurer l'inflammation : infection chronique, néoplasie ou inflammation.",
+      "findingToLook": "CRP élevée, VS accélérée",
+      "result": { "positive": "Syndrome inflammatoire : orienter vers infection chronique ou néoplasie.", "negative": "Étiologie peu inflammatoire : métabolique, endocrinienne (thyroïde, diabète)." }
+    },
+    {
+      "name": "Ionogramme, glycémie, TSH, fonction rénale et hépatique",
+      "urgency": "rapide",
+      "rationale": "Écarter cause métabolique/endocrinienne et retentissement viscéral.",
+      "findingToLook": "TSH basse/haute, glycémie, créatinine, PAL/GGT, albumine",
+      "result": { "positive": "Hyperthyroïdie, diabète, cholestase : orienter la suite.", "negative": "Poursuivre vers l'imagerie." }
+    },
+    {
+      "name": "Radiographie de thorax",
+      "urgency": "rapide",
+      "rationale": "Cancer pulmonaire, tuberculose, adénopathies.",
+      "findingToLook": "Nodule, opacité, cavitation, adénopathies",
+      "result": { "positive": "TDM thoracique + avis selon lésion.", "negative": "Ne clôt pas le bilan." }
+    },
+    {
+      "name": "Sérologie VIH + goutte épaisse",
+      "urgency": "rapide",
+      "rationale": "Infections chroniques de contexte (selon zone d'endémie).",
+      "findingToLook": "Sérologie positive, parasitémie",
+      "result": { "positive": "Prise en charge étiologique.", "negative": "Écarter et poursuivre." }
+    }
+  ],
+  "secondLine": [
+    {
+      "name": "Échographie abdominale",
+      "urgency": "programmable",
+      "rationale": "Lésion hépatique, splénomégalie, adénopathies profondes, épanchement.",
+      "findingToLook": "Nodule hépatique, hépato/splénomégalie, adénopathies",
+      "result": { "positive": "TDM/IRM + avis spécialisé selon la lésion.", "negative": "Poursuivre." }
+    },
+    {
+      "name": "TDM thoraco-abdomino-pelvien",
+      "urgency": "programmable",
+      "rationale": "Bilan d'extension / recherche de néoplasie si 1ʳᵉ ligne négative.",
+      "findingToLook": "Masse, adénopathies, lésions secondaires",
+      "result": { "positive": "Discussion en RCP, biopsie si accessible.", "negative": "Réévaluer : cause inflammatoire ou psychogène." }
+    },
+    {
+      "name": "FOGD ± coloscopie",
+      "urgency": "programmable",
+      "rationale": "Cancer digestif si signes d'appel ou anémie microcytaire.",
+      "findingToLook": "Lésion tumorale, ulcère, sténose",
+      "result": { "positive": "Biopsies + bilan d'extension.", "negative": "Écarte le cadre digestif haut/bas (sous réserve des limites)." }
+    }
+  ],
+  "notRecommended": [
+    "TDM panoramique d'emblée avant bilan biologique simple",
+    "Marqueurs tumoraux à la chaîne en dépistage : faible valeur isolément",
+    "Corticoïdes ou anabolisants à l'aveugle en phase diagnostique"
+  ],
+  "linkedPathologies": ["tuberculose", "paludisme"]
+}
