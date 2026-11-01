@@ -39,7 +39,7 @@ function EcgAnnotations({ step, annotations }: { step: number; annotations?: Arr
 }
 
 
-function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string; trace?: { deformation?: import("@/lib/ecg/deformation").EcgDeformation } }) {
+function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string; trace?: { deformation?: import("@/lib/ecg/deformation").EcgDeformation; prIntervalMs?: number } }) {
   const d: {
     rhythm?: string;
     stElevation?: Record<string, number>;
@@ -54,6 +54,12 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
     pBlockedEvery?: number;
     rrVariability?: number;
     rrSeed?: number;
+    mainsNoiseMv?: number;
+    jWaveMv?: number;
+    prIntervalMs?: number;
+    stCoved?: boolean;
+    stScooped?: boolean;
+    torsadeTwist?: boolean;
   } = { rhythm: data.rhythm };
   const t = (data.title ?? "").toLowerCase();
   if (data.rhythm === "fibrillation-auriculaire") d.pAbsent = true;
@@ -81,6 +87,9 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
   if (t.includes("digitalique")) {
     d.stDepression = { II: 0.10, V4: 0.15, V5: 0.15, V6: 0.15 };
   }
+  // PR de la fiche (v3) : le tracé décale l'onde P en conséquence —
+  // l'étudiant peut MESURER le PR long (hyperkaliémie, digitalique).
+  if (data.trace?.prIntervalMs !== undefined) d.prIntervalMs = data.trace.prIntervalMs;
   // Merge des déformations multi-cycles déclarées dans la fiche.
   if (data.trace?.deformation) {
     const t = data.trace.deformation;
@@ -96,6 +105,12 @@ function buildDeformation(data: { rhythm: string; ischemia?: string; title?: str
     if (t.fv !== undefined) d.fv = t.fv;
     if (t.peakedT !== undefined) d.peakedT = t.peakedT;
     if (t.tInverted) d.tInverted = t.tInverted;
+    if (t.mainsNoiseMv !== undefined) d.mainsNoiseMv = t.mainsNoiseMv;
+    if (t.jWaveMv !== undefined) d.jWaveMv = t.jWaveMv;
+    if (t.prIntervalMs !== undefined) d.prIntervalMs = t.prIntervalMs;
+    if (t.stCoved !== undefined) d.stCoved = t.stCoved;
+    if (t.stScooped !== undefined) d.stScooped = t.stScooped;
+    if (t.torsadeTwist !== undefined) d.torsadeTwist = t.torsadeTwist;
   }
 
   return d;
