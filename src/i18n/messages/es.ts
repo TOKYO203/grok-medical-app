@@ -142,6 +142,7 @@ export const es: MessageCatalog = {
   "nav.parcours": "Itinerarios",
   "nav.ecgCases": "Casos ECG",
   "nav.imagerie": "Imágenes",
+  "nav.histologie": "Histología",
   "nav.group.learn": "Aprender",
   "nav.group.train": "Practicar",
   "nav.group.tools": "Herramientas",
