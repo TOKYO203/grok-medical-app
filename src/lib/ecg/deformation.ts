@@ -35,6 +35,25 @@ export type EcgDeformation = {
   rrVariability?: number;
   // Seed du PRNG pour reproductibilité SSR (défaut : 42)
   rrSeed?: number;
+
+  // ── Fidélité clinique (v3) — le tracé doit soutenir la question ──────
+  // QA #349 : six fiches décrivaient un signe (parasitage 50 Hz, onde J de
+  // Osborn, PR long, dôme de Brugada, cupule digitalique, accordéon des
+  // torsades) que le moteur ne savait PAS dessiner — la réponse au quiz
+  // n'était pas vérifiable sur le tracé affiché. Chaque flag ci-dessous
+  // rend ce signe visible ; toutes les valeurs restent en mV/seconde.
+  /** Artefact secteur 50 Hz : amplitude crête en mV (≈0.2 brouille le tracé). */
+  mainsNoiseMv?: number;
+  /** Onde J d'Osborn (hypothermie) : amplitude en mV, bosse entre S et ST. */
+  jWaveMv?: number;
+  /** PR réel en ms — décale l'onde P pour rendre un PR long/court VISIBLE. */
+  prIntervalMs?: number;
+  /** ST en dôme décroissant (Brugada type 1) au lieu du plateau plat. */
+  stCoved?: boolean;
+  /** ST en cupule sagging (digitalique) au lieu du plateau plat. */
+  stScooped?: boolean;
+  /** Torsades : modulation lente de l'amplitude des QRS (« accordéon »). */
+  torsadeTwist?: boolean;
 };
 
 export type WaveParams = {
