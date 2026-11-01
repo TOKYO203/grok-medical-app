@@ -1,12 +1,12 @@
 {
   "id": "cxr-001",
   "modality": "radio",
-  "title": "Radiographie thoracique de face — homme 45 ans",
-  "clinical": "Dyspnée aiguë, fièvre 39°C, toux productive depuis 3 jours.",
-  "imageUrl": "/imagerie/placeholder-cxr.svg",
-  "imageAlt": "Radiographie thoracique de face montrant une opacité de la base droite",
-  "source": "Placeholder (à remplacer par une vraie image CC0/CC BY)",
-  "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Radiographs_of_pneumonia",
+  "title": "Radiographie thoracique de face — homme 67 ans",
+  "clinical": "Fièvre 38,5 °C, toux productive et douleur basi-thoracique droite depuis 4 jours.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/X-ray_of_lobar_pneumonia.jpg?width=1400",
+  "imageAlt": "Radiographie thoracique de face : opacité du lobe moyen droit effaçant le bord droit du cœur",
+  "source": "Mikael Häggström, M.D. / Wikimedia Commons (CC0)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:X-ray_of_lobar_pneumonia.jpg",
   "license": "CC0",
   "method": "ABCDE",
   "steps": [
@@ -14,79 +14,139 @@
       "step": "A",
       "letter": "Airway",
       "question": "La trachée est-elle centrée ?",
-      "options": ["Centrée", "Déviée à droite", "Déviée à gauche"],
+      "options": [
+        "Centrée",
+        "Déviée à droite",
+        "Déviée à gauche"
+      ],
       "correctIndex": 0,
-      "explanation": "Trachée médiane, en position normale. Aucune déviation médiastinale.",
-      "highlight": { "x": 48, "y": 5, "w": 4, "h": 20, "label": "Trachée" }
+      "explanation": "Trachée médiane : pas de déviation médiastinale.",
+      "highlight": {
+        "x": 48,
+        "y": 5,
+        "w": 4,
+        "h": 20,
+        "label": "Trachée"
+      }
     },
     {
       "step": "B",
       "letter": "Bones",
-      "question": "Les côtes présentent-elles une anomalie visible ?",
-      "options": ["Aucune anomalie", "Fracture de côte", "Lésion lyrique"],
+      "question": "Les structures osseuses (côtes, clavicules) présentent-elles une anomalie ?",
+      "options": [
+        "Aucune anomalie",
+        "Fracture costale",
+        "Lytic rib lesion"
+      ],
       "correctIndex": 0,
-      "explanation": "Grill costal symétrique, pas de fracture, pas de lésion lyrique visible.",
-      "highlight": { "x": 15, "y": 25, "w": 70, "h": 50 }
+      "explanation": "Grill costal et clavicules sans anomalie visible.",
+      "highlight": {
+        "x": 15,
+        "y": 20,
+        "w": 70,
+        "h": 55
+      }
     },
     {
       "step": "C",
       "letter": "Cardiac",
-      "question": "Quel est l'index cardio-thoracique (ICT) ?",
-      "options": ["< 0,5 (normal)", "0,5 - 0,55 (limite)", "> 0,55 (cardiomégalie)"],
-      "correctIndex": 2,
-      "explanation": "Cardiomégalie modérée : ICT ≈ 0,58. À corréler avec la clinique.",
-      "highlight": { "x": 30, "y": 42, "w": 40, "h": 30, "label": "Cœur élargi" }
+      "question": "Observe le bord droit du cœur. Que remarques-tu ?",
+      "options": [
+        "Bord droit net et bien visible",
+        "Bord droit effacé par une opacité",
+        "Silhouette cardiaque effacée des deux côtés"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le bord droit du cœur est effacé : c'est le signe de silhouette de Hampton. L'opacité est au contact du cœur → atteinte du lobe moyen droit (même contact anatomique).",
+      "highlight": {
+        "x": 52,
+        "y": 45,
+        "w": 20,
+        "h": 22,
+        "label": "Bord droit du cœur effacé"
+      }
     },
     {
       "step": "D",
       "letter": "Diaphragm",
-      "question": "Les coupoles diaphragmatiques sont-elles bien visibles ?",
-      "options": ["Oui, symétriques", "Coupole droite effacée", "Coupole gauche effacée"],
-      "correctIndex": 1,
-      "explanation": "Effacement de la coupole diaphragmatique droite : signe de silhouette évoquant une atteinte du lobe inférieur droit.",
-      "highlight": { "x": 30, "y": 72, "w": 25, "h": 8, "label": "Coupole droite effacée" }
+      "question": "Les coupoles diaphragmatiques sont-elles visibles ?",
+      "options": [
+        "Oui, toutes les deux",
+        "Coupole droite effacée",
+        "Coupole gauche effacée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Les deux coupoles sont bien dessinées : l'atteinte ne touche pas le lobe inférieur.",
+      "highlight": {
+        "x": 25,
+        "y": 72,
+        "w": 50,
+        "h": 8,
+        "label": "Coupoles visibles"
+      }
     },
     {
       "step": "E",
       "letter": "Effusion / Fields",
-      "question": "Que vois-tu dans le champ pulmonaire inférieur droit ?",
-      "options": ["Poumon clair", "Opacité lobaire", "Pneumothorax"],
+      "question": "Que vois-tu dans le champ pulmonaire droit moyen ?",
+      "options": [
+        "Poumon clair",
+        "Opacité systématisée rétro-cardiaque",
+        "Pneumothorax"
+      ],
       "correctIndex": 1,
-      "explanation": "Opacité dense systématisée de la base droite, sans bronchogramme aérique visible. Évoque une pneumonie lobaire inférieure droite.",
-      "highlight": { "x": 32, "y": 55, "w": 22, "h": 30, "label": "Opacité lobaire" }
+      "explanation": "Opacité dense systématisée du lobe moyen droit, en contact du bord droit du cœur. Le reste des champs est clair.",
+      "highlight": {
+        "x": 50,
+        "y": 48,
+        "w": 25,
+        "h": 25,
+        "label": "Opacité lobe moyen droit"
+      }
     },
     {
       "step": "F",
       "letter": "Foreign / Implants",
       "question": "Présence de matériel (cathéter, pacemaker, sonde) ?",
-      "options": ["Aucun", "Cathéter central", "Pacemaker"],
+      "options": [
+        "Aucun",
+        "Cathéter central",
+        "Pacemaker"
+      ],
       "correctIndex": 0,
-      "explanation": "Aucun dispositif visible sur cette radiographie."
+      "explanation": "Aucun dispositif visible."
     },
     {
       "step": "G",
       "letter": "Gastric bubble",
       "question": "La bulle gastrique est-elle visible ?",
-      "options": ["Oui, sous le diaphragme gauche", "Absente", "Refoulée"],
+      "options": [
+        "Oui, sous la coupole gauche",
+        "Absente",
+        "Refoulée"
+      ],
       "correctIndex": 0,
-      "explanation": "Bulle gastrique normale, sous la coupole gauche."
+      "explanation": "Bulle gastrique normale sous la coupole gauche."
     },
     {
       "step": "H",
       "letter": "Hila",
-      "question": "Les hiles sont-ils symétriques ?",
-      "options": ["Oui", "Hile droit élargi", "Hile gauche élargi"],
-      "correctIndex": 1,
-      "explanation": "Hile droit discrètement élargi, à corréler avec l'opacité adjacente.",
-      "highlight": { "x": 55, "y": 38, "w": 8, "h": 10, "label": "Hile droit" }
+      "question": "Les hiles sont-ils normaux ?",
+      "options": [
+        "Oui, symétriques",
+        "Hile droit élargi",
+        "Hile gauche surélevé"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hiles sans anomalie: pas d'adénopathie ni de rétraction visible."
     }
   ],
-  "finalDiagnosis": "Pneumonie lobaire inférieure droite",
+  "finalDiagnosis": "Pneumonie du lobe moyen droit",
   "keyFindings": [
-    "Opacité lobaire inférieure droite",
-    "Effacement de la coupole diaphragmatique droite (signe de silhouette)",
-    "Cardiomégalie modérée associée",
-    "Hile droit discrètement élargi"
+    "Opacité systématisée du lobe moyen droit",
+    "Signe de silhouette : effacement du bord droit du cœur",
+    "Coupoles diaphragmatiques respectées",
+    "Pas de déviation trachéale"
   ],
   "linkedPathology": "bronchites-pneumo"
 }
