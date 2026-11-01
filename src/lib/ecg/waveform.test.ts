@@ -55,7 +55,8 @@ test("morphologie de référence : phases et ondes par défaut", async () => {
 test("blocs AV : Wenckebach, Mobitz II et PR constant", async () => {
   const src = await waveformSource();
   expectLiteral(src, "const PR_EXAG = [0.18, 0.32, 0.50, -1];");
-  expectLiteral(src, "new Array(N).fill(0.16)");
+  expectLiteral(src, "new Array(N).fill(");
+  expectLiteral(src, "def?.prIntervalMs !== undefined");
   expectLiteral(src, "const every = def?.pBlockedEvery ?? 2;");
   expectLiteral(src, "(i + 1) % every === 0 ? -1 : 0.16");
 });
@@ -72,4 +73,21 @@ test("surcouche clinique : dents de scie et P bloquée", async () => {
   expectLiteral(src, "Math.sin(t * 2 * Math.PI * 5)");
   expectLiteral(src, "v = pScale * parts.p[k];");
   expectLiteral(src, "if (pr < 0) continue;");
+});
+
+test("fidélité clinique v3 : PR de la fiche, onde J, formes ST, 50 Hz, torsades", async () => {
+  const src = await waveformSource();
+  // PR long/court rendu (hyperkaliémie 220 ms, digitalique 240 ms)
+  expectLiteral(src, "const prShift = targetPrSec !== null ? targetPrSec - basePrSec : 0;");
+  // Onde J d'Osborn (hypothermie) : bosse gaussienne au point J
+  expectLiteral(src, "gauss(ph, { mu: PHASE.s + 0.03, a: jWave, sigma: 0.035 })");
+  expectLiteral(src, 'v += gauss(t, { mu: tR + sOff + 0.03, a: jWave, sigma: 0.035 });');
+  // Formes ST : dôme décroissant (Brugada) et cupule (digitalique)
+  expectLiteral(src, "if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);");
+  expectLiteral(src, "else if (def?.stScooped) v += st * Math.sin(Math.PI * f);");
+  // Artefact secteur 50 Hz (parasitage SNCF) sur les deux chemins de rendu
+  expectLiteral(src, "v += noise * Math.sin(ph * 2 * Math.PI * 50);");
+  expectLiteral(src, "if (noise !== 0) v += noise * Math.sin(t * 2 * Math.PI * 50);");
+  // Torsades : accordéon — l'amplitude des QRS tourne entre battements
+  expectLiteral(src, "const beatAmp = twist ? 0.35 + 0.65 * Math.abs(Math.sin((Math.PI * (i + 0.5)) / 5)) : 1;");
 });
