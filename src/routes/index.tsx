@@ -7,6 +7,7 @@ import { DeckIcon } from "@/components/deck-icon";
 import PwaInstallCard from "@/components/pwa-install-card";
 import { LevelBar } from "@/components/level-bar";
 import { ContentCard } from "@/components/content/content-card";
+import { VisualLabRail } from "@/components/home/visual-lab-rail";
 import { UserAvatar } from "@/components/user-avatar";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { ResumeWhereCard } from "@/components/resume-where-card";
@@ -396,6 +397,12 @@ function Dashboard() {
             soonLabel={t("dash.soon")}
           />
         </div>
+      </section>
+
+      {/* Labo visuel — sections premium en images réelles */}
+      <section className="mt-8">
+        <SectionTitle kicker="Apprendre par l'image" title="Labo visuel" />
+        <VisualLabRail />
       </section>
 
       <section className="mt-8">
