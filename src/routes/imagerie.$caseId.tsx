@@ -5,9 +5,17 @@ import { RadioViewer } from "@/components/imagerie/radio-viewer";
 import { Button } from "@/components/ui/button";
 import type { ImagingCase } from "@/content/imagerie";
 import cxr001 from "@/content/data/imagerie/cxr-001.json";
+import cxr002 from "@/content/data/imagerie/cxr-002.json";
+import cxr003 from "@/content/data/imagerie/cxr-003.json";
+import cxr004 from "@/content/data/imagerie/cxr-004.json";
+import cxr005 from "@/content/data/imagerie/cxr-005.json";
 
 const CASES: Record<string, ImagingCase> = {
   [cxr001.id]: cxr001 as ImagingCase,
+  [cxr002.id]: cxr002 as ImagingCase,
+  [cxr003.id]: cxr003 as ImagingCase,
+  [cxr004.id]: cxr004 as ImagingCase,
+  [cxr005.id]: cxr005 as ImagingCase,
 };
 
 export const Route = createFileRoute("/imagerie/$caseId")({
