@@ -1,0 +1,156 @@
+{
+  "id": "cxr-005",
+  "modality": "radio",
+  "title": "Radiographie thoracique de face normale — femme 21 ans",
+  "clinical": "Douleur thoracique gauche après un choc lors d'un match de football. Examen clinique normal, pas de dyspnée, saturation 100 % en air ambiant.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg?width=1400",
+  "imageAlt": "Radiographie thoracique de face normale chez une femme de 21 ans",
+  "source": "Mikael Häggström / Wikimedia Commons (CC0)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+  "license": "CC0",
+  "method": "ABCDE",
+  "steps": [
+    {
+      "step": "A",
+      "letter": "Airway",
+      "question": "La trachée est-elle centrée ?",
+      "options": [
+        "Centrée",
+        "Déviée à droite",
+        "Déviée à gauche"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trachée médiane : normal.",
+      "highlight": {
+        "x": 48,
+        "y": 5,
+        "w": 4,
+        "h": 20,
+        "label": "Trachée"
+      }
+    },
+    {
+      "step": "B",
+      "letter": "Bones",
+      "question": "Les structures osseuses sont-elles normales ?",
+      "options": [
+        "Oui — grill costal, clavicules et rachis sans anomalie",
+        "Fracture costale gauche",
+        "Lyse osseuse"
+      ],
+      "correctIndex": 0,
+      "explanation": "Absence de fracture : important ici car la douleur est post-traumatique. Chez l'adulte sain, une radiographie normale n'élimine toutefois pas formellement une fracture costale non déplacée.",
+      "highlight": {
+        "x": 15,
+        "y": 20,
+        "w": 70,
+        "h": 55
+      }
+    },
+    {
+      "step": "C",
+      "letter": "Cardiac",
+      "question": "Quel est l'index cardio-thoracique ?",
+      "options": [
+        "< 0,5 : normal",
+        "0,5-0,55",
+        "< 0,5 : normal avec épanchement"
+      ],
+      "correctIndex": 0,
+      "explanation": "ICT normal (< 0,5) : la silhouette cardiaque ne dépasse pas la moitié du thorax.",
+      "highlight": {
+        "x": 35,
+        "y": 40,
+        "w": 30,
+        "h": 30,
+        "label": "Silhouette cardiaque normale"
+      }
+    },
+    {
+      "step": "D",
+      "letter": "Diaphragm",
+      "question": "Les coupoles diaphragmatiques sont-elles normales ?",
+      "options": [
+        "Oui, visibles et symétriques (droite légèrement plus haute)",
+        "Coupole droite effacée",
+        "Pneumopéritoine"
+      ],
+      "correctIndex": 0,
+      "explanation": "Coupoles nettes ; la coupole droite est normalement un peu plus haute que la gauche (foie).",
+      "highlight": {
+        "x": 25,
+        "y": 70,
+        "w": 50,
+        "h": 10,
+        "label": "Coupoles symétriques"
+      }
+    },
+    {
+      "step": "E",
+      "letter": "Effusion / Fields",
+      "question": "Les champs pulmonaires sont-ils normaux ?",
+      "options": [
+        "Oui, clairs et symétriques, sans pneumothorax",
+        "Opacité basale gauche",
+        "Pneumothorax apical gauche"
+      ],
+      "correctIndex": 0,
+      "explanation": "Champs clairs des deux côtés, sans pneumothorax post-traumatique (diagnostic à éliminer ici) ni condensation.",
+      "highlight": {
+        "x": 15,
+        "y": 15,
+        "w": 70,
+        "h": 55
+      }
+    },
+    {
+      "step": "F",
+      "letter": "Foreign / Implants",
+      "question": "Présence de matériel ou de corps étranger ?",
+      "options": [
+        "Aucun",
+        "Clip métallique",
+        "Cathéter"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aucun corps étranger ni matériel."
+    },
+    {
+      "step": "G",
+      "letter": "Gastric bubble",
+      "question": "La bulle gastrique est-elle visible ?",
+      "options": [
+        "Oui, sous la coupole gauche",
+        "Absente",
+        "Refoulée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bulle gastrique normale, sans pneumopéritoine.",
+      "highlight": {
+        "x": 30,
+        "y": 80,
+        "w": 15,
+        "h": 10,
+        "label": "Bulle gastrique"
+      }
+    },
+    {
+      "step": "H",
+      "letter": "Hila",
+      "question": "Les hiles sont-ils normaux ?",
+      "options": [
+        "Oui, sans adénopathie",
+        "Hile droit élargi",
+        "Hiles calcifiés"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hiles fins, symétriques, sans adénopathie."
+    }
+  ],
+  "finalDiagnosis": "Radiographie thoracique normale — pas de pneumothorax post-traumatique",
+  "keyFindings": [
+    "Toutes les étapes ABCDE sont normales",
+    "Cas d'apprentissage : connaître le normal avant l'anormal",
+    "Contexte post-traumatique : pneumothorax éliminé sur le cliché"
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "cxr-004",
+  "modality": "radio",
+  "title": "Radiographie thoracique de face — homme 42 ans",
+  "clinical": "Toux chronique depuis 2 mois, sueurs nocturnes, amaigrissement 8 kg, petites hémoptysies. Sérologie VIH positive.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Tuberculosis-x-ray-1.jpg?width=1400",
+  "imageAlt": "Radiographie thoracique : infiltrats pulmonaires bilatéraux avec cavernes des lobes supérieurs",
+  "source": "CDC / Wikimedia Commons (domaine public)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tuberculosis-x-ray-1.jpg",
+  "license": "public-domain",
+  "method": "ABCDE",
+  "steps": [
+    {
+      "step": "A",
+      "letter": "Airway",
+      "question": "La trachée est-elle centrée ?",
+      "options": [
+        "Centrée",
+        "Déviée à droite",
+        "Déviée à gauche"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trachée médiane : atteinte pulmonaire diffuse sans retentissement médiastinal aigu.",
+      "highlight": {
+        "x": 48,
+        "y": 5,
+        "w": 4,
+        "h": 20,
+        "label": "Trachée"
+      }
+    },
+    {
+      "step": "B",
+      "letter": "Bones",
+      "question": "Les structures osseuses sont-elles normales ?",
+      "options": [
+        "Oui",
+        "Fractures costales",
+        "Lyse vertébrale"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pas d'anomalie osseuse visible (penser néanmoins à chercher une atteinte vertébrale associée dans la tuberculose).",
+      "highlight": {
+        "x": 15,
+        "y": 20,
+        "w": 70,
+        "h": 55
+      }
+    },
+    {
+      "step": "C",
+      "letter": "Cardiac",
+      "question": "La silhouette cardiaque est-elle normale ?",
+      "options": [
+        "Oui (ICT < 0,5)",
+        "Cardiomégalie",
+        "Silhouette effacée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Silhouette cardiaque normale.",
+      "highlight": {
+        "x": 35,
+        "y": 42,
+        "w": 30,
+        "h": 28
+      }
+    },
+    {
+      "step": "D",
+      "letter": "Diaphragm",
+      "question": "Les coupoles sont-elles visibles ?",
+      "options": [
+        "Oui, toutes les deux",
+        "Coupole droite effacée",
+        "Les deux effacées"
+      ],
+      "correctIndex": 0,
+      "explanation": "Les coupoles sont visibles : l'atteinte prédomine aux lobes supérieurs.",
+      "highlight": {
+        "x": 25,
+        "y": 72,
+        "w": 50,
+        "h": 8
+      }
+    },
+    {
+      "step": "E",
+      "letter": "Effusion / Fields",
+      "question": "Que vois-tu dans les lobes supérieurs ?",
+      "options": [
+        "Champs clairs",
+        "Infiltrats bilatéraux avec images caverneuses",
+        "Épanchement bilatéral"
+      ],
+      "correctIndex": 1,
+      "explanation": "Infiltrats des lobes supérieurs bilatéraux, avec cavernes (clartés à paroi épaisse) : la localisation apicale et caverneuse est très évocatrice de tuberculose pulmonaire. Cliché d'une tuberculose pulmonaire avancée.",
+      "highlight": {
+        "x": 15,
+        "y": 12,
+        "w": 70,
+        "h": 35,
+        "label": "Infiltrats apicaux bilatéraux + cavernes"
+      }
+    },
+    {
+      "step": "F",
+      "letter": "Foreign / Implants",
+      "question": "Présence de matériel ?",
+      "options": [
+        "Aucun",
+        "Cathéter central",
+        "Sonde trachéale"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aucun dispositif visible."
+    },
+    {
+      "step": "G",
+      "letter": "Gastric bubble",
+      "question": "La bulle gastrique est-elle visible ?",
+      "options": [
+        "Oui, sous la coupole gauche",
+        "Absente",
+        "Refoulée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bulle gastrique normale."
+    },
+    {
+      "step": "H",
+      "letter": "Hila",
+      "question": "Les hiles sont-ils normaux ?",
+      "options": [
+        "Oui",
+        "Hiles élargis et rétractés vers le haut",
+        "Hile gauche abaissé"
+      ],
+      "correctIndex": 1,
+      "explanation": "Les hiles sont attirés vers le haut, en rapport avec les lésions fibreuses apicales chroniques.",
+      "highlight": {
+        "x": 30,
+        "y": 30,
+        "w": 40,
+        "h": 12,
+        "label": "Hiles rétractés"
+      }
+    }
+  ],
+  "finalDiagnosis": "Tuberculose pulmonaire bilatérale caverneuse (formes avancées)",
+  "keyFindings": [
+    "Infiltrats apicaux bilatéraux",
+    "Cavernes à paroi épaisse",
+    "Hiles rétractés vers le haut",
+    "Terrain : VIH + amaigrissement + sueurs nocturnes"
+  ],
+  "linkedPathology": "tuberculose"
+}

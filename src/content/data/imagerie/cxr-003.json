@@ -1,0 +1,152 @@
+{
+  "id": "cxr-003",
+  "modality": "radio",
+  "title": "Radiographie thoracique de face — femme 71 ans",
+  "clinical": "Dyspnée progressive depuis 3 semaines, orthopnée, œdèmes des chevilles. Antécédents : hypertension, insuffisance cardiaque connue.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleural_effusion.jpg?width=1400",
+  "imageAlt": "Radiographie thoracique : épanchement pleural droit avec ligne liquide en ménisque",
+  "source": "InvictaHOG / Wikimedia Commons (domaine public)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pleural_effusion.jpg",
+  "license": "public-domain",
+  "method": "ABCDE",
+  "steps": [
+    {
+      "step": "A",
+      "letter": "Airway",
+      "question": "La trachée est-elle centrée ?",
+      "options": [
+        "Centrée",
+        "Déviée à droite",
+        "Déviée à gauche"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trachée médiane : épanchement de moyenne abondance, sans décalage médiastinal.",
+      "highlight": {
+        "x": 48,
+        "y": 5,
+        "w": 4,
+        "h": 20,
+        "label": "Trachée"
+      }
+    },
+    {
+      "step": "B",
+      "letter": "Bones",
+      "question": "Les structures osseuses sont-elles normales ?",
+      "options": [
+        "Oui",
+        "Fractures costales anciennes",
+        "Lytic rib lesion"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pas d'anomalie osseuse : l'opacité est liquidienne, pas traumatique.",
+      "highlight": {
+        "x": 15,
+        "y": 20,
+        "w": 70,
+        "h": 55
+      }
+    },
+    {
+      "step": "C",
+      "letter": "Cardiac",
+      "question": "Quelle est la largeur de la silhouette cardiaque ?",
+      "options": [
+        "Normale (ICT < 0,5)",
+        "Limite (ICT 0,5-0,55)",
+        "Cardiomégalie (ICT > 0,55)"
+      ],
+      "correctIndex": 1,
+      "explanation": "ICT limite, compatible avec une cardiopathie chronique : à confronter au dossier (insuffisance cardiaque connue).",
+      "highlight": {
+        "x": 35,
+        "y": 42,
+        "w": 30,
+        "h": 28,
+        "label": "Silhouette cardiaque limite"
+      }
+    },
+    {
+      "step": "D",
+      "letter": "Diaphragm",
+      "question": "La coupole diaphragmatique droite est-elle visible ?",
+      "options": [
+        "Oui, nette",
+        "Partiellement masquée par une opacité à bord supérieur concave",
+        "Absente"
+      ],
+      "correctIndex": 1,
+      "explanation": "La coupole droite est noyée dans l'opacité : le bord supérieur de l'opacité est concave vers le haut (ligne liquide en ménisque de Damoiseau) — typique d'un épanchement pleural libre.",
+      "highlight": {
+        "x": 25,
+        "y": 68,
+        "w": 30,
+        "h": 12,
+        "label": "Ménisque liquidien droit"
+      }
+    },
+    {
+      "step": "E",
+      "letter": "Effusion / Fields",
+      "question": "Que vois-tu dans la base droite ?",
+      "options": [
+        "Poumon clair",
+        "Opacité dense homogène déclive à bord supérieur concave",
+        "Opacité réticulée bilatérale en ailes de papillon"
+      ],
+      "correctIndex": 1,
+      "explanation": "Opacité dense, homogène, déclive, à limite supérieure concave : épanchement pleural droit. Le côté gauche est clair.",
+      "highlight": {
+        "x": 25,
+        "y": 55,
+        "w": 28,
+        "h": 32,
+        "label": "Épanchement pleural droit"
+      }
+    },
+    {
+      "step": "F",
+      "letter": "Foreign / Implants",
+      "question": "Présence de matériel ou d'implant ?",
+      "options": [
+        "Aucun",
+        "Pacemaker",
+        "Prothèse valvulaire"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aucun dispositif visible."
+    },
+    {
+      "step": "G",
+      "letter": "Gastric bubble",
+      "question": "La bulle gastrique est-elle visible ?",
+      "options": [
+        "Oui, sous la coupole gauche",
+        "Absente",
+        "Refoulée"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bulle gastrique normale sous la coupole gauche."
+    },
+    {
+      "step": "H",
+      "letter": "Hila",
+      "question": "Les hiles sont-ils normaux ?",
+      "options": [
+        "Oui",
+        "Hile droit élargi avec calcifications",
+        "Hile gauche surélevé"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hiles sans anomalie majeure : l'opacité est extrapulmonaire (pleurale)."
+    }
+  ],
+  "finalDiagnosis": "Épanchement pleural droit sur insuffisance cardiaque décompensée",
+  "keyFindings": [
+    "Opacité déclive droite à bord supérieur concave (ménisque)",
+    "Coupole droite partiellement masquée",
+    "Trachée médiane (épanchement modéré)",
+    "ICT limite — cardiopathie chronique"
+  ],
+  "linkedPathology": "insuffisance-cardiaque"
+}
