@@ -1,0 +1,64 @@
+{
+  "id": "cephalees-aigues",
+  "symptom": "Céphalées aiguës",
+  "context": "Adulte, céphalée d'installation brutale (« en coup de tonnerre ») ou inhabituelle",
+  "definition": "Une céphalée BRUTALE est une urgence : les 3 causes vitales à écarter sont l'hémorragie méningée, la méningite et l'encéphalopathie hypertensive. La règle : TDM ± PL en urgence, jamais d'antalgique seul avant étiologie.",
+  "redFlags": [
+    { "sign": "Céphalée en coup de tonnerre, la plus intense de la vie", "action": "Hémorragie méningée probable : TDM cérébral SANS puis AVEC injection, ± PL si TDM normal" },
+    { "sign": "Fièvre + raideur de nuque + vomissements", "action": "Méningite : TDM (si signes de focalisation) puis PL en urgence, antibiothérapie immédiate" },
+    { "sign": "Déficit neurologique, trouble de conscience, convulsion", "action": "Urgence absolue : TDM en urgence, avis réanimation" },
+    { "sign": "Céphalée + TA très élevée, ou chez femme enceinte/post-partum", "action": "Encéphalopathie hypertensive / prééclampsie : contrôle TA urgent, avis spécialisé" }
+  ],
+  "firstLine": [
+    {
+      "name": "TDM cérébral sans injection",
+      "urgency": "immediate",
+      "rationale": "Écarter hémorragie méningée, hémorragie intraparenchymateuse, masse.",
+      "findingToLook": "Hyperdensité spontanée (sang), hydrocéphalie, lésion expansive",
+      "result": { "positive": "Prise en charge neurochirurgicale/neurologique urgente.", "negative": "N'élimine pas une HM à moins de 48 h : PL si suspicion forte." }
+    },
+    {
+      "name": "Ponction lombaire",
+      "urgency": "immediate",
+      "rationale": "Confirmer HM (TDM normale) ou méningite (liquide trouble).",
+      "findingToLook": "Liquide hémorragique/xanthochromique ; pléiocytose, hypoglycorachie",
+      "result": { "positive": "HM (xanthochromie) → angio-TDM/ARM ; méningite → antibiothérapie adaptée.", "negative": "Réévaluer : migraine, HTA, sinusite." }
+    },
+    {
+      "name": "NFS, CRP, ionogramme",
+      "urgency": "rapide",
+      "rationale": "Argument infectieux ou métabolique associé.",
+      "findingToLook": "Hyperleucocytose, hyponatrémie (SIADH post-HM)",
+      "result": { "positive": "Oriente méningite bactérienne ou complication de HM.", "negative": "Poursuivre la démarche." }
+    },
+    {
+      "name": "TA aux 2 bras + bandelette urinaire",
+      "urgency": "rapide",
+      "rationale": "Écarter encéphalopathie hypertensive et prééclampsie.",
+      "findingToLook": "PAS > 180, protéinurie chez femme enceinte",
+      "result": { "positive": "Contrôle TA urgent, avis spécialisé.", "negative": "Ne clôt pas la démarche." }
+    }
+  ],
+  "secondLine": [
+    {
+      "name": "Angio-TDM / ARM cérébrale",
+      "urgency": "immediate",
+      "rationale": "Chercher un anévrisme si HM confirmée.",
+      "findingToLook": "Anévrisme sacciforme, malformation",
+      "result": { "positive": "Neurochirurgie / neuroradiologie interventionnelle.", "negative": "Répéter à distance selon protocole." }
+    },
+    {
+      "name": "IRM cérébrale",
+      "urgency": "rapide",
+      "rationale": "TDM normal mais céphalées persistantes ou atypiques : thrombose veineuse, tumeur, sinusite.",
+      "findingToLook": "Thrombose des sinus veineux, prise de contraste anormale",
+      "result": { "positive": "Traitement étiologique (anticoagulation en cas de thrombose veineuse).", "negative": "Réévaluer : céphalée primaire." }
+    }
+  ],
+  "notRecommended": [
+    "Antalgiques seuls avant étiologie si céphalée brutale avec signes d'alerte",
+    "PL avant TDM s'il existe des signes de focalisation ou un trouble de conscience (risque d'engagement)",
+    "IRM en 1ʳᵉ ligne en urgence absolue (retarde la prise en charge)"
+  ],
+  "linkedPathologies": ["hemorragie-meningee", "meningites-purulentes", "meningites-clair", "migraine"]
+}
