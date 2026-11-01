@@ -13,13 +13,19 @@ import { resolveSupabaseBearer } from "./supabase-identity.server";
  * client-supplied user id — only the result of this verification.
  */
 
-/** True when a real database is configured server-side. */
-const databaseConfigured = Boolean(process.env.DATABASE_URL?.trim());
+/**
+ * True when a real database is configured server-side.
+ * Lazy : jamais lu au top-level (Cloudflare Workers interdit process.env
+ * hors handler de requete).
+ */
+function isDatabaseConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL?.trim());
+}
 
 /** Re-export so callers can branch on it without importing `server.ts`. */
 export { authConfigured };
 
-if (databaseConfigured && !authConfigured) {
+if (isDatabaseConfigured() && !authConfigured) {
   console.error(
     "[auth] DATABASE_URL is set but auth is disabled (VITE_AUTH_ENABLED=false) " +
       "— requireUserId() will reject every request (fail closed) rather than " +
@@ -112,7 +118,7 @@ export async function requireUserId(bearerToken?: string): Promise<string> {
   if (supabase.kind === "unreachable") throw new IdentityUnavailableError();
 
   if (!authConfigured && !gateIdentityEnabled()) {
-    if (databaseConfigured) {
+    if (isDatabaseConfigured()) {
       throw new Error(
         "Auth is disabled (VITE_AUTH_ENABLED=false) but DATABASE_URL is set — " +
           "refusing to fall back to the shared dev user against a real database.",
