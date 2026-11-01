@@ -123,13 +123,22 @@ export function cycleValues(
   lead: string,
   opts: { bpm: number; def?: EcgDeformation; samplesPerSec?: number; pShiftSec?: number; blocked?: boolean },
 ): number[] {
-  const pShiftSec = opts.pShiftSec ?? 0;
   const blocked = opts.blocked ?? false;
   const bpm = Math.max(20, Math.min(240, opts.bpm));
   const cycleSec = 60 / bpm;
   const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
   const n = Math.max(2, Math.round(cycleSec * sps));
   const def = opts.def;
+  // PR piloté par la fiche (v3) : décale l'onde P pour qu'un PR long
+  // (hyperkaliémie, digitalique) ou court soit VISIBLE sur le tracé —
+  // le panneau d'analyse et le tracé disaient des choses différentes.
+  const basePrSec = PHASE.r - PHASE.p; // 0.12 s — PR rendu par défaut
+  const targetPrSec =
+    def?.prIntervalMs !== undefined
+      ? Math.max(0.04, Math.min(0.6, def.prIntervalMs / 1000))
+      : null;
+  const prShift = targetPrSec !== null ? targetPrSec - basePrSec : 0;
+  const pShiftSec = (opts.pShiftSec ?? 0) + prShift;
 
   if (lead === "PLETH") {
     const out: number[] = [];
@@ -166,6 +175,8 @@ export function cycleValues(
   const tScale = (def?.peakedT ? 2 : 1) * (def?.tInverted?.includes(lead) ? -1.4 : 1);
   const pScale = def?.pAbsent ? 0 : 1;
   const saw = def?.sawTooth ? 1 : 0;
+  const jWave = def?.jWaveMv ?? 0;
+  const noise = def?.mainsNoiseMv ?? 0;
 
   const out: number[] = [];
   for (let k = 0; k <= n; k++) {
@@ -176,8 +187,23 @@ export function cycleValues(
       v = pScale * parts.p[k];
     } else {
       v = pScale * parts.p[k] + parts.qrs[k] + tScale * parts.t[k];
-      if (st !== 0 && ph > PHASE.stFrom && ph < PHASE.stTo) v += st;
+      if (jWave !== 0) {
+        // Onde J d'Osborn (hypothermie) : bosse positive au point J.
+        v += gauss(ph, { mu: PHASE.s + 0.03, a: jWave, sigma: 0.035 });
+      }
+      if (st !== 0 && ph > PHASE.stFrom && ph < PHASE.stTo) {
+        // Forme du segment ST (v3) : plateau plat (défaut), dôme
+        // décroissant (Brugada type 1) ou cupule sagging (digitalique).
+        const f = (ph - PHASE.stFrom) / (PHASE.stTo - PHASE.stFrom);
+        if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);
+        else if (def?.stScooped) v += st * Math.sin(Math.PI * f);
+        else v += st;
+      }
       if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
+    }
+    if (noise !== 0) {
+      // Artefact secteur 50 Hz (parasitage SNCF) : tracé brouillé.
+      v += noise * Math.sin(ph * 2 * Math.PI * 50);
     }
     out.push(v);
   }
@@ -285,7 +311,11 @@ export function multiCyclePathMm(
         (i + 1) % every === 0 ? -1 : 0.16,
       );
     }
-    return new Array(N).fill(0.16);
+    return new Array(N).fill(
+      def?.prIntervalMs !== undefined
+        ? Math.max(0.04, Math.min(0.6, def.prIntervalMs / 1000))
+        : 0.16,
+    );
   };
 
   const prList = buildPRList();
@@ -320,6 +350,9 @@ export function multiCyclePathMm(
   const tScale = (def?.peakedT ? 2 : 1) * (def?.tInverted?.includes(lead) ? -1.4 : 1);
   const st = stOffsetMv(lead, def);
   const saw = def?.sawTooth ? 1 : 0;
+  const jWave = def?.jWaveMv ?? 0;
+  const noise = def?.mainsNoiseMv ?? 0;
+  const twist = def?.torsadeTwist ?? false;
 
   let d = "";
   for (let k = 0; k <= totalSamples; k++) {
@@ -336,16 +369,29 @@ export function multiCyclePathMm(
       const pr = prList[i];
       if (pr < 0) continue;
       const tR = pTimes[i] + pr;
-      v += gauss(t, { mu: tR + qOff, a: w.Q.a, sigma: w.Q.sigma }, 1, widthScale);
-      v += gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma }, 1, widthScale);
-      v += gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma }, 1, widthScale);
+      // Torsades (v3) : l'amplitude des QRS « tourne » d'un battement à
+      // l'autre (période ~10 cycles) — l'aspect en accordéon décrit par la
+      // fiche devient visible, au lieu de QRS larges monomorphes.
+      const beatAmp = twist ? 0.35 + 0.65 * Math.abs(Math.sin((Math.PI * (i + 0.5)) / 5)) : 1;
+      v += beatAmp * gauss(t, { mu: tR + qOff, a: w.Q.a, sigma: w.Q.sigma }, 1, widthScale);
+      v += beatAmp * gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma }, 1, widthScale);
+      v += beatAmp * gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma }, 1, widthScale);
+      if (jWave !== 0) v += gauss(t, { mu: tR + sOff + 0.03, a: jWave, sigma: 0.035 });
       v += tScale * gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma });
-      // Sus/sous-décalage ST sur la fenêtre qui suit R (parité cycleValues).
-      if (st !== 0 && t > tR && t < tR + (PHASE.stTo - PHASE.stFrom)) v += st;
+      // Sus/sous-décalage ST sur la fenêtre qui suit R (parité cycleValues),
+      // avec les formes v3 (dôme / cupule) en plus du plateau plat.
+      if (st !== 0 && t > tR && t < tR + (PHASE.stTo - PHASE.stFrom)) {
+        const f = (t - tR) / (PHASE.stTo - PHASE.stFrom);
+        if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);
+        else if (def?.stScooped) v += st * Math.sin(Math.PI * f);
+        else v += st;
+      }
     }
 
     // Dents de scie (flutter) : oscillation continue ~5 Hz (≈ 300/min).
     if (saw) v += 0.15 * Math.sin(t * 2 * Math.PI * 5);
+    // Artefact secteur 50 Hz (parasitage SNCF) : tracé brouillé.
+    if (noise !== 0) v += noise * Math.sin(t * 2 * Math.PI * 50);
 
     const x = (t / totalDur) * finalWidthMm;
     const y = -v * opts.gainMmPerMv;
