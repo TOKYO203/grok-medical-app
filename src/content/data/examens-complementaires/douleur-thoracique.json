@@ -1,0 +1,94 @@
+{
+  "id": "douleur-thoracique",
+  "symptom": "Douleur thoracique",
+  "context": "Adulte, hors traumatisme et hors douleur pariétale évidente",
+  "definition": "Toute douleur thoracique aiguë non traumatique est un SCA jusqu'à preuve du contraire : la démarche vise à écarter les 3 urgences vitales (syndrome coronaire aigu, embolie pulmonaire, dissection aortique) en moins de 10 minutes.",
+  "redFlags": [
+    { "sign": "Douleur en coup de poing, transfixiante, migratrice", "action": "Suspicion de dissection aortique : TDM aortique immédiate, contrôle TA aux 2 bras" },
+    { "sign": "Dyspnée + tachycardie + désaturation sans foyer auscultatoire", "action": "Suspicion d'embolie pulmonaire : D-dimères si probabilité faible, angio-TDM sinon" },
+    { "sign": "Sueur + vomissements + douleur prolongée au repos", "action": "SCA probable : ECG immédiat + troponine, monitoriser, voie veineuse" },
+    { "sign": "Syncope ou malaise lombé avec la douleur", "action": "Redoublement de gravité : avis médical immédiat, monitorage" }
+  ],
+  "firstLine": [
+    {
+      "name": "ECG 18 dérivations",
+      "urgency": "immediate",
+      "rationale": "Écarter le SCA et les troubles du rythme en moins de 10 minutes.",
+      "findingToLook": "Sus-décalage ST, sous-décalage, ondes Q, bloc de branche nouveau, FA, BAV",
+      "result": {
+        "positive": "Syndrome coronarien : orientation cardiologie urgente selon le type (STEMI/SCA-NSTEMI).",
+        "negative": "N'élimine pas un SCA à troponine normale : refaire l'ECG à 30 min et doser la troponine."
+      }
+    },
+    {
+      "name": "Troponine ultrasensible (H0, H1, H3)",
+      "urgency": "immediate",
+      "rationale": "Confirmer ou éliminer une nécrose myocardique.",
+      "findingToLook": "Élévation au-delà du seuil URL, cinétique ascendante",
+      "result": {
+        "positive": "SCA confirmé : prise en charge cardiologique (stratégie invasive selon score GRACE).",
+        "negative": "Si cinétique plate et probabilité faible : SCA éliminé — chercher une autre cause."
+      }
+    },
+    {
+      "name": "Radiographie de thorax",
+      "urgency": "rapide",
+      "rationale": "Écarter pneumothorax, pneumopathie et élargissement du médiastin.",
+      "findingToLook": "Pneumothorax, foyer alvéolaire, élargissement médiastinal, épanchement",
+      "result": {
+        "positive": "Oriente vers pneumothorax, pneumopathie ou dissection (médiastin large → TDM).",
+        "negative": "Ne préjuge pas de l'EP ni du SCA."
+      }
+    },
+    {
+      "name": "D-dimères",
+      "urgency": "rapide",
+      "rationale": "Écarter une embolie pulmonaire si probabilité clinique faible (score de Genève/Wells).",
+      "findingToLook": "Valeur normale (seuil selon la technique)",
+      "result": {
+        "positive": "N'élimine rien : angio-TDM si probabilité intermédiaire ou forte.",
+        "negative": "EP improbable si score faible : ne pas prescrire d'imagerie."
+      }
+    },
+    {
+      "name": "NFS, ionogramme, glycémie, CRP",
+      "urgency": "rapide",
+      "rationale": "Détecter anémie aiguë, trouble métabolique ou syndrome infectieux.",
+      "findingToLook": "Hb basse, hyperglycémie, hypokaliémie, hyperleucocytose",
+      "result": {
+        "positive": "Oriente la cause (anémie, cétose, pneumopathie).",
+        "negative": "Aucune orientation : poursuivre la démarche."
+      }
+    }
+  ],
+  "secondLine": [
+    {
+      "name": "Angio-TDM thoracique",
+      "urgency": "immediate",
+      "rationale": "Confirmer une embolie pulmonaire ou une dissection si probabilité forte.",
+      "findingToLook": "Défect endoluminal artériel, flap intimal, faux chenal",
+      "result": { "positive": "Traitement spécifique urgent (anticoagulation, chirurgie vasculaire).", "negative": "Rechercher une autre cause (SCA, péricardite)." }
+    },
+    {
+      "name": "Échocardiographie",
+      "urgency": "rapide",
+      "rationale": "Signes indirects d'EP (dilatation VD, HTAP), dysfonction VG, épanchement péricardique.",
+      "findingToLook": "Dysfonction VG, dilatation des cavités droites, épanchement",
+      "result": { "positive": "Orientation étiologique (SCA, EP, péricardite).", "negative": "Ne remplace pas l'angio-TDM pour l'EP." }
+    },
+    {
+      "name": "Écho-Doppler veineux des membres inférieurs",
+      "urgency": "programmable",
+      "rationale": "Chercher une thrombose veineuse profonde si EP confirmée ou probable.",
+      "findingToLook": "Compressibilité veineuse, flux",
+      "result": { "positive": "TVP : anticoagulation selon durée et risque hémorragique.", "negative": "N'écarte pas l'EP distale." }
+    }
+  ],
+  "notRecommended": [
+    "ECG d'effort en phase aiguë",
+    "Scintigraphie myocardique en aiguë",
+    "D-dimères si probabilité clinique forte : inutile, passer directement à l'imagerie",
+    "Coronarographie sans validation cardiologique"
+  ],
+  "linkedPathologies": ["embolie-pulmonaire"]
+}
