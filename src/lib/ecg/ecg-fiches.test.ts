@@ -48,6 +48,12 @@ const KNOWN_DEFORMATION_KEYS = [
   "pBlockedEvery",
   "rrVariability",
   "rrSeed",
+  // ── Fidélité clinique v3 (le tracé soutient la question) ───────
+  "mainsNoiseMv", // parasitage 50 Hz (cas SNCF)
+  "jWaveMv", // onde J d'Osborn (hypothermie)
+  "stCoved", // dôme décroissant (Brugada type 1)
+  "stScooped", // cupule sagging (digitalique)
+  "torsadeTwist", // accordéon des torsades
 ];
 
 test("les 23 fiches de l'index sont cohérentes et pédagogiquement complètes", async () => {
