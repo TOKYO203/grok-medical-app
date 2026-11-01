@@ -62,6 +62,8 @@ import { Route as DemarcheIdRouteImport } from './routes/demarche.$id'
 import { Route as EcgIdRouteImport } from './routes/ecg.$id'
 import { Route as ImagerieIndexRouteImport } from './routes/imagerie.index'
 import { Route as ImagerieCaseIdRouteImport } from './routes/imagerie.$caseId'
+import { Route as ExamensComplementairesIndexRouteImport } from './routes/examens-complementaires.index'
+import { Route as ExamensComplementairesIdRouteImport } from './routes/examens-complementaires.$id'
 import { Route as LearnDeckIdRouteImport } from './routes/learn.$deckId'
 import { Route as ParcoursDeckIdRouteImport } from './routes/parcours.$deckId'
 import { Route as PathologieSlugRouteImport } from './routes/pathologie.$slug'
@@ -339,6 +341,16 @@ const ImagerieCaseIdRoute = ImagerieCaseIdRouteImport.update({
   path: '/imagerie/$caseId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExamensComplementairesIndexRoute = ExamensComplementairesIndexRouteImport.update({
+  id: '/examens-complementaires/',
+  path: '/examens-complementaires/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamensComplementairesIdRoute = ExamensComplementairesIdRouteImport.update({
+  id: '/examens-complementaires/$id',
+  path: '/examens-complementaires/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearnDeckIdRoute = LearnDeckIdRouteImport.update({
   id: '/learn/$deckId',
   path: '/learn/$deckId',
@@ -452,10 +464,12 @@ export interface FileRoutesByFullPath {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/examens-complementaires/$id': typeof ExamensComplementairesIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/examens-complementaires/': typeof ExamensComplementairesIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -518,10 +532,12 @@ export interface FileRoutesByTo {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/examens-complementaires/$id': typeof ExamensComplementairesIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie': typeof ImagerieIndexRoute
+  '/examens-complementaires': typeof ExamensComplementairesIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -586,10 +602,12 @@ export interface FileRoutesById {
   '/demarche/$id': typeof DemarcheIdRoute
   '/ecg/$id': typeof EcgIdRoute
   '/imagerie/$caseId': typeof ImagerieCaseIdRoute
+  '/examens-complementaires/$id': typeof ExamensComplementairesIdRoute
   '/learn/$deckId': typeof LearnDeckIdRoute
   '/parcours/$deckId': typeof ParcoursDeckIdRoute
   '/pathologie/$slug': typeof PathologieSlugRoute
   '/imagerie/': typeof ImagerieIndexRoute
+  '/examens-complementaires/': typeof ExamensComplementairesIndexRoute
   '/api/checkout/ariari': typeof ApiCheckoutAriariRoute
   '/api/checkout/lemonsqueezy': typeof ApiCheckoutLemonsqueezyRoute
   '/api/health/checkout': typeof ApiHealthCheckoutRoute
@@ -654,10 +672,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/examens-complementaires/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie/'
+    | '/examens-complementaires/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -720,10 +740,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/examens-complementaires/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie'
+    | '/examens-complementaires'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -787,10 +809,12 @@ export interface FileRouteTypes {
     | '/demarche/$id'
     | '/ecg/$id'
     | '/imagerie/$caseId'
+    | '/examens-complementaires/$id'
     | '/learn/$deckId'
     | '/parcours/$deckId'
     | '/pathologie/$slug'
     | '/imagerie/'
+    | '/examens-complementaires/'
     | '/api/checkout/ariari'
     | '/api/checkout/lemonsqueezy'
     | '/api/health/checkout'
@@ -851,9 +875,11 @@ export interface RootRouteChildren {
   ApiEventsRoute: typeof ApiEventsRoute
   ApiInstitutionLeadsRoute: typeof ApiInstitutionLeadsRoute
   ImagerieCaseIdRoute: typeof ImagerieCaseIdRoute
+  ExamensComplementairesIdRoute: typeof ExamensComplementairesIdRoute
   LearnDeckIdRoute: typeof LearnDeckIdRoute
   PathologieSlugRoute: typeof PathologieSlugRoute
   ImagerieIndexRoute: typeof ImagerieIndexRoute
+  ExamensComplementairesIndexRoute: typeof ExamensComplementairesIndexRoute
   ApiCheckoutAriariRoute: typeof ApiCheckoutAriariRoute
   ApiCheckoutLemonsqueezyRoute: typeof ApiCheckoutLemonsqueezyRoute
   ApiHealthCheckoutRoute: typeof ApiHealthCheckoutRoute
@@ -1238,6 +1264,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImagerieCaseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/examens-complementaires/': {
+      id: '/examens-complementaires/'
+      path: '/examens-complementaires'
+      fullPath: '/examens-complementaires/'
+      preLoaderRoute: typeof ExamensComplementairesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examens-complementaires/$id': {
+      id: '/examens-complementaires/$id'
+      path: '/examens-complementaires/$id'
+      fullPath: '/examens-complementaires/$id'
+      preLoaderRoute: typeof ExamensComplementairesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learn/$deckId': {
       id: '/learn/$deckId'
       path: '/learn/$deckId'
@@ -1428,9 +1468,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventsRoute: ApiEventsRoute,
   ApiInstitutionLeadsRoute: ApiInstitutionLeadsRoute,
   ImagerieCaseIdRoute: ImagerieCaseIdRoute,
+  ExamensComplementairesIdRoute: ExamensComplementairesIdRoute,
   LearnDeckIdRoute: LearnDeckIdRoute,
   PathologieSlugRoute: PathologieSlugRoute,
   ImagerieIndexRoute: ImagerieIndexRoute,
+  ExamensComplementairesIndexRoute: ExamensComplementairesIndexRoute,
   ApiCheckoutAriariRoute: ApiCheckoutAriariRoute,
   ApiCheckoutLemonsqueezyRoute: ApiCheckoutLemonsqueezyRoute,
   ApiHealthCheckoutRoute: ApiHealthCheckoutRoute,

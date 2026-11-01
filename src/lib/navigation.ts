@@ -11,6 +11,7 @@ import {
   Calculator,
   ClipboardCheck,
   Compass,
+  ClipboardPlus,
   HeartPulse,
   Home,
   Layers3,
@@ -82,6 +83,7 @@ export const EXPLORE_GROUPS = [
     labelKey: "nav.group.tools",
     items: [
       { to: "/calculateurs", labelKey: "nav.calculators", icon: Calculator },
+      { to: "/examens-complementaires", labelKey: "nav.examensComplementaires", icon: ClipboardPlus },
       { to: "/valeurs-reference", labelKey: "nav.valeursReference", icon: FlaskConical },
       { to: "/import", labelKey: "nav.importDeck", icon: Upload },
     ],

@@ -1,0 +1,77 @@
+{
+  "id": "fievre-prolongee",
+  "symptom": "Fièvre prolongée",
+  "context": "Adulte, fièvre > 38,3 °C persistant depuis plus de 5 jours",
+  "definition": "La fièvre prolongée oppose trois grands cadres : infection profonde (tuberculose, typhoïde, abcès), maladie inflammatoire, et néoplasie (lymphome). La démarche élimine d'abord les causes curables et les urgences septiques.",
+  "redFlags": [
+    { "sign": "Hypotension, frissons, purpura", "action": "Sepsis : hémocultures + antibiothérapie dans l'heure" },
+    { "sign": "Raideur de nuque, céphalées, photophobie", "action": "Suspicion méningite : PL en urgence si scanner normal" },
+    { "sign": "Pâleur + hémorragies (gingivorragies, pétéchies)", "action": "Blasticose possible : NFS urgente, avis hématologique" }
+  ],
+  "firstLine": [
+    {
+      "name": "NFS + frottis",
+      "urgency": "immediate",
+      "rationale": "Détecter hyperleucocytose (infection bactérienne), blastes (hémopathie), éosinophilie (parasitose).",
+      "findingToLook": "Blastes, lignée dominante, hémoglobine, plaquettes",
+      "result": { "positive": "Blasticose : avis hématologique urgent.", "negative": "Poursuivre : NFS normale n'élimine pas une infection profonde." }
+    },
+    {
+      "name": "CRP + procalcitonine",
+      "urgency": "immediate",
+      "rationale": "Distinguer infection bactérienne profonde d'une cause inflammatoire.",
+      "findingToLook": "CRP élevée, procalcitonine > 0,5 µg/L",
+      "result": { "positive": "Oriente vers une infection bactérienne (abcès, endocardite).", "negative": "Fait pencher vers viral, tuberculose, néoplasie ou inflammation." }
+    },
+    {
+      "name": "Hémocultures (x2) + ECBU",
+      "urgency": "immediate",
+      "rationale": "Chercher une bactériémie ou un foyer urinaire.",
+      "findingToLook": "Poussée bactérienne, leucocyturie",
+      "result": { "positive": "Antibiothérapie ciblée selon germe.", "negative": "Poursuivre le bilan étiologique." }
+    },
+    {
+      "name": "Radiographie de thorax",
+      "urgency": "rapide",
+      "rationale": "Foyer pulmonaire ou adénopathies médiastinales.",
+      "findingToLook": "Foyer, cavitation, adénopathies hilaires",
+      "result": { "positive": "Pneumopathie, tuberculose ou lymphome : orienter selon contexte.", "negative": "Ne clôt pas le bilan." }
+    },
+    {
+      "name": "Sérologies (Widal-Felix, VIH) + goutte épaisse si zone d'endémie",
+      "urgency": "rapide",
+      "rationale": "Écarter typhoïde, VIH et paludisme selon le contexte épidémiologique.",
+      "findingToLook": "Sérologies positives, goutte épaisse/TDR paludisme",
+      "result": { "positive": "Traitement étiologique.", "negative": "Écarter ces hypothèses et poursuivre." }
+    }
+  ],
+  "secondLine": [
+    {
+      "name": "Échographie abdominale",
+      "urgency": "rapide",
+      "rationale": "Abcès profond, hépatomégalie, splénomégalie, adénopathies.",
+      "findingToLook": "Collection, hépato/splénomégalie",
+      "result": { "positive": "Drainage ou avis chirurgical selon la lésion.", "negative": "Passer à la 2ᵉ ligne." }
+    },
+    {
+      "name": "TDM thoraco-abdomino-pelvien",
+      "urgency": "programmable",
+      "rationale": "Bilan d'organes si fièvre inexpliquée après 1ʳᵉ ligne.",
+      "findingToLook": "Adénopathies profondes, abcès, lésion tumorale",
+      "result": { "positive": "Oriente lymphome, abcès ou néoplasie solide.", "negative": "Discuter fièvre inflammatoire (maladie de Still...)." }
+    },
+    {
+      "name": "Échocardiographie",
+      "urgency": "programmable",
+      "rationale": "Recherche d'endocardite si souffle, prothèse valvulaire ou hémocultures positives.",
+      "findingToLook": "Végétations valvulaires",
+      "result": { "positive": "Endocardite : antibiothérapie prolongée, avis cardiochurgical si besoin.", "negative": "Écarte l'endocardite gauche (sous réserve des limites de l'examen)." }
+    }
+  ],
+  "notRecommended": [
+    "Antibiothérapie probabiliste prolongée sans documentation microbiologique ni foyer",
+    "Corticothérapie d'épreuve en phase diagnostique (masque un lymphome ou une tuberculose)",
+    "Bilan auto-immun exhaustif d'emblée : à réserver aux fièvres inexpliquées documentées"
+  ],
+  "linkedPathologies": ["tuberculose", "fievres-typhoides", "paludisme", "grippe"]
+}
