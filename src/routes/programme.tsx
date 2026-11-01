@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, BookOpen, Search, X } from "lucide-react";
+import { ArrowUpRight, BookOpen, ChevronDown, ChevronRight, Search, X } from "lucide-react";
 import { Page, PageHeader, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
 import {
@@ -53,7 +53,7 @@ function ProgrammePage() {
   const programmes = listProgrammes();
 
   const [programmeId, setProgrammeId] = useState<string | null>(null);
-  const [sectionId, setSectionId] = useState<string | null>(null);
+  const [openSectionId, setOpenSectionId] = useState<string | null>(null);
   const [specialty, setSpecialty] = useState<string | null>(null);
   const [query, setQuery] = useState("");
 
@@ -102,24 +102,48 @@ function ProgrammePage() {
   );
 
   /** Spécialités proposées au filtre : celles du périmètre courant (section + recherche). */
-  const specialtyOptions = useMemo(() => {
-    const counts = new Map<string, number>();
+  /** Nombre distinct de specialites (compteur du bandeau stats). */
+  const distinctSpecialtyCount = useMemo(() => {
+    const set = new Set<string>();
     for (const section of sections) {
-      if (sectionId && section.id !== sectionId) continue;
+      for (const item of section.items) {
+        if (!matchesQuery(item)) continue;
+        set.add(item.specialty);
+      }
+    }
+    return set.size;
+  }, [sections, matchesQuery]);
+
+  /** Specialites par section (pour les chips dans chaque accordeon). */
+  const specialtyOptionsBySection = useMemo(() => {
+    const map = new Map<string, { specialty: string; count: number }[]>();
+    for (const section of sections) {
+      const counts = new Map<string, number>();
       for (const item of section.items) {
         if (!matchesQuery(item)) continue;
         counts.set(item.specialty, (counts.get(item.specialty) ?? 0) + 1);
       }
+      map.set(
+        section.id,
+        [...counts.entries()]
+          .map(([label, count]) => ({ specialty: label, count }))
+          .sort((a, b) => b.count - a.count || a.specialty.localeCompare(b.specialty, "fr")),
+      );
     }
-    return [...counts.entries()]
-      .map(([label, count]) => ({ specialty: label, count }))
-      .sort((a, b) => b.count - a.count || a.specialty.localeCompare(b.specialty, "fr"));
-  }, [sections, sectionId, matchesQuery]);
+    return map;
+  }, [sections, matchesQuery]);
 
   /** Sections visibles avec leurs items filtrés (les sections vides disparaissent). */
   const visibleSections = useMemo(() => {
-    return sections
-      .filter((section) => !sectionId || section.id === sectionId)
+    // Mode recherche : toutes les sections avec des resultats sont ouvertes.
+    // Mode normal : seule la section ouverte est visible.
+    const scope = normalized
+      ? sections
+      : openSectionId
+        ? sections.filter((s) => s.id === openSectionId)
+        : [];
+
+    return scope
       .map((section) => ({
         section,
         items: section.items.filter(
@@ -127,7 +151,7 @@ function ProgrammePage() {
         ),
       }))
       .filter((entry) => entry.items.length > 0);
-  }, [sections, sectionId, specialty, matchesQuery]);
+  }, [sections, openSectionId, specialty, matchesQuery, normalized]);
 
   const visibleCount = visibleSections.reduce((sum, entry) => sum + entry.items.length, 0);
 
@@ -138,12 +162,22 @@ function ProgrammePage() {
   }, [sections, libraryBySlug]);
 
   const total = programme ? programmeItemCount(programme) : 0;
-  const filtered = Boolean(sectionId || specialty || normalized);
+  const filtered = Boolean(openSectionId || specialty || normalized);
 
   function reset() {
-    setSectionId(null);
+    setOpenSectionId(null);
     setSpecialty(null);
     setQuery("");
+  }
+
+  function toggleSection(id: string) {
+    if (openSectionId === id) {
+      setOpenSectionId(null);
+      setSpecialty(null);
+    } else {
+      setOpenSectionId(id);
+      setSpecialty(null);
+    }
   }
 
   return (
@@ -164,7 +198,7 @@ function ProgrammePage() {
           <>
             {/* Bandeau de statistiques — séparé par des hairlines (esprit Stripe). */}
             <div className="mt-6 flex items-stretch divide-x divide-border overflow-hidden rounded-[var(--radius-lg)] bg-bg-elevated shadow-[var(--shadow-border)]">
-              <Stat label="Items" value={total} />              <Stat label="Spécialités" value={specialtyOptions.length} />
+              <Stat label="Items" value={total} />              <Stat label="Spécialités" value={distinctSpecialtyCount} />
               <Stat label="Couverts" value={coverage.covered} accent />
             </div>
 
@@ -191,31 +225,66 @@ function ProgrammePage() {
               </div>
             ) : null}
 
-            {/* Sections du référentiel */}
-            <div className="mt-5 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0">
-              <Chip
-                active={sectionId === null}
-                onClick={() => {
-                  setSectionId(null);
-                  setSpecialty(null);
-                }}
-              >
-                Toutes les sections
-                <span className="font-mono tabular-nums opacity-70">{total}</span>
-              </Chip>
-              {sections.map((section) => (
-                <Chip
-                  key={section.id}
-                  active={sectionId === section.id}
-                  onClick={() => {
-                    setSectionId(section.id);
-                    setSpecialty(null);
-                  }}
-                >
-                  {section.label}
-                  <span className="font-mono tabular-nums opacity-70">{section.items.length}</span>
-                </Chip>
-              ))}
+            {/* Accordeon des sections du referentiel */}
+            <div className="mt-5 space-y-2">
+              {sections.map((section) => {
+                const isOpen = openSectionId === section.id;
+                const opts = specialtyOptionsBySection.get(section.id) ?? [];
+                return (
+                  <div
+                    key={section.id}
+                    className={cn(
+                      "overflow-hidden rounded-[var(--radius-lg)] bg-card shadow-[var(--shadow-border)] transition-colors",
+                      isOpen && "ring-2 ring-primary/40",
+                    )}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggleSection(section.id)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-3 p-4 text-left transition-colors hover:bg-secondary"
+                    >
+                      <div className="flex min-w-0 items-center gap-3">
+                        {isOpen ? (
+                          <ChevronDown className="size-4 shrink-0 text-primary" aria-hidden />
+                        ) : (
+                          <ChevronRight className="size-4 shrink-0 text-muted" aria-hidden />
+                        )}
+                        <span className="truncate font-medium">{section.label}</span>
+                      </div>
+                      <span className="shrink-0 rounded-full bg-secondary px-2 py-0.5 font-mono text-xs tabular-nums text-muted">
+                        {section.items.length}
+                      </span>
+                    </button>
+
+                    {isOpen ? (
+                      <div className="border-t border-border bg-bg-elevated p-4">
+                        {section.description ? (
+                          <p className="mb-3 text-xs text-subtle">{section.description}</p>
+                        ) : null}
+                        {opts.length > 0 ? (
+                          <div className="flex flex-wrap gap-2">
+                            <Chip active={specialty === null} onClick={() => setSpecialty(null)}>
+                              Toutes specialites
+                            </Chip>
+                            {opts.map((option) => (
+                              <Chip
+                                key={option.specialty}
+                                active={specialty === option.specialty}
+                                onClick={() => setSpecialty(option.specialty)}
+                              >
+                                <span aria-hidden>{specialtyEmoji(option.specialty)}</span>
+                                {option.specialty}
+                                <span className="font-mono tabular-nums opacity-70">{option.count}</span>
+                              </Chip>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Recherche */}
@@ -234,28 +303,13 @@ function ProgrammePage() {
               />
             </label>
 
-            {specialtyOptions.length > 0 ? (
-              <div className="mt-3 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0">
-                <Chip active={specialty === null} onClick={() => setSpecialty(null)}>
-                  Toutes spécialités
-                </Chip>
-                {specialtyOptions.map((option) => (
-                  <Chip
-                    key={option.specialty}
-                    active={specialty === option.specialty}
-                    onClick={() => setSpecialty(option.specialty)}
-                  >
-                    <span aria-hidden>{specialtyEmoji(option.specialty)}</span>
-                    {option.specialty}
-                    <span className="font-mono tabular-nums opacity-70">{option.count}</span>
-                  </Chip>
-                ))}
-              </div>
-            ) : null}
-
             <div className="mt-6 flex items-baseline justify-between gap-3">
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
-                {filtered ? `${visibleCount} item${visibleCount > 1 ? "s" : ""} sur ${total}` : "Référentiel complet"}
+                {normalized
+                  ? `${visibleCount} item${visibleCount > 1 ? "s" : ""} sur ${total}`
+                  : openSectionId
+                    ? `${visibleCount} item${visibleCount > 1 ? "s" : ""} dans cette section`
+                    : `${sections.length} sections · ${total} items`}
               </p>
               {filtered ? (
                 <button
@@ -271,14 +325,20 @@ function ProgrammePage() {
 
             {visibleSections.length === 0 ? (
               <div className="optimus-card mt-4 p-8 text-center">
-                <p className="text-sm text-muted">Aucun item ne correspond à ces critères.</p>
-                <button
-                  type="button"
-                  onClick={reset}
-                  className="mt-3 text-sm font-medium text-primary hover:underline"
-                >
-                  Réinitialiser la recherche
-                </button>
+                <p className="text-sm text-muted">
+                  {openSectionId || normalized
+                    ? "Aucun item ne correspond a ces criteres."
+                    : "Selectionne une section ci-dessus pour explorer les items."}
+                </p>
+                {openSectionId || normalized ? (
+                  <button
+                    type="button"
+                    onClick={reset}
+                    className="mt-3 text-sm font-medium text-primary hover:underline"
+                  >
+                    Reinitialiser la recherche
+                  </button>
+                ) : null}
               </div>
             ) : (
               <div className="mt-4 flex flex-col gap-8">
