@@ -1,0 +1,159 @@
+{
+  "id": "cxr-002",
+  "modality": "radio",
+  "title": "Radiographie thoracique de face — homme 34 ans",
+  "clinical": "Douleur thoracique gauche brutale, dyspnée majeure. Contexte : tabagisme. TA 95/60, tachycardie 125/min, tympanisme gauche, abolition des murmures vésiculaires gauches.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Pneumothorax_CXR.jpg?width=1400",
+  "imageAlt": "Radiographie thoracique : pneumothorax gauche complet avec déviation trachéale et refoulement du cœur",
+  "source": "Photographed by User:Clinical Cases / Wikimedia Commons (CC BY-SA 2.5)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pneumothorax_CXR.jpg",
+  "license": "CC-BY-SA",
+  "method": "ABCDE",
+  "steps": [
+    {
+      "step": "A",
+      "letter": "Airway",
+      "question": "La trachée est-elle centrée ?",
+      "options": [
+        "Centrée",
+        "Déviée vers la droite",
+        "Déviée vers la gauche"
+      ],
+      "correctIndex": 1,
+      "explanation": "La trachée est déviée vers le côté opposé au pneumothorax : argument majeur de suspicion de pneumothorax compressif (urgence absolue, exsufflation avant imagerie si état de choc).",
+      "highlight": {
+        "x": 55,
+        "y": 5,
+        "w": 5,
+        "h": 18,
+        "label": "Trachée déviée à droite"
+      }
+    },
+    {
+      "step": "B",
+      "letter": "Bones",
+      "question": "Les côtes présentent-elles une anomalie ?",
+      "options": [
+        "Aucune anomalie",
+        "Fracture costale visible",
+        "Lyse costale"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pas de fracture visible : le pneumothorax est spontané (tabagisme), pas traumatique.",
+      "highlight": {
+        "x": 15,
+        "y": 20,
+        "w": 70,
+        "h": 55
+      }
+    },
+    {
+      "step": "C",
+      "letter": "Cardiac",
+      "question": "Où se situe la silhouette cardiaque ?",
+      "options": [
+        "Position normale, centrée",
+        "Refoulée vers la droite",
+        "Refoulée vers la gauche"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le cœur est refoulé vers la droite par l'hyperpression pleurale gauche : signe de compression médiastinale.",
+      "highlight": {
+        "x": 58,
+        "y": 45,
+        "w": 28,
+        "h": 30,
+        "label": "Cœur refoulé à droite"
+      }
+    },
+    {
+      "step": "D",
+      "letter": "Diaphragm",
+      "question": "Que remarques-tu côté gauche ?",
+      "options": [
+        "Coupole gauche normale",
+        "Coupole gauche surélevée et aplatie",
+        "Diaphragme non visible"
+      ],
+      "correctIndex": 1,
+      "explanation": "Coupole gauche aplatie, refoulée vers le bas par la pression pleurale.",
+      "highlight": {
+        "x": 18,
+        "y": 72,
+        "w": 25,
+        "h": 8,
+        "label": "Coupole gauche aplatie"
+      }
+    },
+    {
+      "step": "E",
+      "letter": "Effusion / Fields",
+      "question": "Compare les deux champs pulmonaires.",
+      "options": [
+        "Symétriques et clairs",
+        "Champ gauche hyperclair, sans lignes pulmonaires, avec bord pulmonaire visible",
+        "Opacité gauche diffuse"
+      ],
+      "correctIndex": 1,
+      "explanation": "Champ gauche hyperclair et avasculaire : poumon gauche rétracté vers le hile, bord pulmonaire (ligne vicérale) visible au bord de l'opacité cardiaque. Pneumothorax complet.",
+      "highlight": {
+        "x": 12,
+        "y": 15,
+        "w": 30,
+        "h": 55,
+        "label": "Hyperclarité sans lignes + bord pulmonaire"
+      }
+    },
+    {
+      "step": "F",
+      "letter": "Foreign / Implants",
+      "question": "Présence de matériel (sonde, cathéter, drains) ?",
+      "options": [
+        "Aucun",
+        "Sonde trachéale",
+        "Drain thoracique"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aucun dispositif : radiographie faite avant drainage."
+    },
+    {
+      "step": "G",
+      "letter": "Gastric bubble",
+      "question": "La bulle gastrique est-elle en place ?",
+      "options": [
+        "Oui, sous la coupole gauche",
+        "Absente",
+        "Refoulée sous le foie"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bulle gastrique en position normale sous la coupole gauche."
+    },
+    {
+      "step": "H",
+      "letter": "Hila",
+      "question": "Les hiles sont-ils en place ?",
+      "options": [
+        "Oui",
+        "Hile gauche refoulé vers le bas et le dehors",
+        "Hile droit abaissé"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le hile gauche est refoulé : le poumon gauche est collabé vers son hile.",
+      "highlight": {
+        "x": 32,
+        "y": 35,
+        "w": 10,
+        "h": 12,
+        "label": "Hile gauche (poumon rétracté)"
+      }
+    }
+  ],
+  "finalDiagnosis": "Pneumothorax gauche compressif (sous tension)",
+  "keyFindings": [
+    "Champ gauche hyperclair sans lignes pulmonaires, bord vicéral visible",
+    "Trachée déviée à droite et cœur refoulé",
+    "Coupole gauche aplatie",
+    "Pneumothorax spontané (tabagisme), aucun traumatisme"
+  ],
+  "linkedPathology": "pneumothorax"
+}
