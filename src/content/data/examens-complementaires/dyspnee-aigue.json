@@ -1,0 +1,78 @@
+{
+  "id": "dyspnee-aigue",
+  "symptom": "Dyspnée aiguë",
+  "context": "Adulte, dyspnée d'apparition récente (< 48 h) ou décompensation",
+  "definition": "La dyspnée aiguë oppose les causes à risque vital immédiat (OAP, EP, pneumothorax, asthme aigu grave) aux causes infectieuses (pneumopathie) et métaboliques. La démarche vise à distinguer dyspnée cardiaque et respiratoire en 30 minutes.",
+  "redFlags": [
+    { "sign": "Saturation < 90 % en air ambiant", "action": "Oxygération titrée, avis urgent, monitorage continu" },
+    { "sign": "Bradypnée ou épuisement respiratoire, pauses", "action": "Imminence d'arrêt : prévenir le réanimateur, VNI/ventilation" },
+    { "sign": "Stridor ou œdème de la face", "action": "Anaphylaxie probable : adrénaline IM, appel d'urgence" },
+    { "sign": "Douleur thoracique associée + tachycardie", "action": "Penser EP : D-dimères/TDM selon probabilité" }
+  ],
+  "firstLine": [
+    {
+      "name": "Oxymétrie de pouls (SpO₂)",
+      "urgency": "immediate",
+      "rationale": "Mesurer la sévérité avant toute étiologie.",
+      "findingToLook": "SpO₂ < 92 % en air ambiant",
+      "result": { "positive": "Hypoxémie : oxygération titrée + bilan étiologique urgent.", "negative": "Ne préjuge pas de la cause : poursuivre." }
+    },
+    {
+      "name": "Radiographie de thorax",
+      "urgency": "immediate",
+      "rationale": "Trancher OAP / pneumopathie / pneumothorax.",
+      "findingToLook": "Lignes de Kerley, surcharge hilaire, foyer alvéolaire, hyperclarté périphérique",
+      "result": { "positive": "Oriente la cause : diurétiques (OAP), antibiotiques (pneumopathie), drainage (pneumothorax).", "negative": "Dyspnée à rx normale : EP, anémie, métabolique." }
+    },
+    {
+      "name": "ECG",
+      "urgency": "immediate",
+      "rationale": "Détecter arythmie (FA) et signes de surcharge droite.",
+      "findingToLook": "FA rapide, tachycardie sinusale, S1Q3T3, BBD récent",
+      "result": { "positive": "Cause rythmique (FA) ou signes d'EP.", "negative": "Aucune conclusion : poursuivre le bilan." }
+    },
+    {
+      "name": "NFS, BNP/NT-proBNP, ionogramme, CRP",
+      "urgency": "rapide",
+      "rationale": "Anémie, insuffisance cardiaque, infection, cause métabolique.",
+      "findingToLook": "Hb, NT-proBNP (seuil selon âge), leucocytes, kaliémie, réserve alcaline",
+      "result": { "positive": "Oriente vers OAP (BNP élevé), pneumopathie (CRP), acidose (cétose).", "negative": "Oriente vers EP ou origine mixte." }
+    },
+    {
+      "name": "Gaz du sang artériel",
+      "urgency": "rapide",
+      "rationale": "Grader l'hypoxémie et l'hypercapnie.",
+      "findingToLook": "PaO₂, PaCO₂, gradient alvéolo-artériel, acidose",
+      "result": { "positive": "Hypoxémie ± hypercapnie : aide à la décision d'oxygène/NIV.", "negative": "GDS normaux : réévaluer, EP possible." }
+    }
+  ],
+  "secondLine": [
+    {
+      "name": "Angio-TDM thoracique",
+      "urgency": "immediate",
+      "rationale": "Confirmer l'embolie pulmonaire.",
+      "findingToLook": "Défect endoluminal",
+      "result": { "positive": "Anticoagulation urgente.", "negative": "Chercher une autre cause." }
+    },
+    {
+      "name": "Échocardiographie",
+      "urgency": "rapide",
+      "rationale": "Fonction VG, valves, hypertension pulmonaire.",
+      "findingToLook": "FEVG, insuffisance mitrale, pressions pulmonaires",
+      "result": { "positive": "Cause cardiaque (OAP, valvulopathie).", "negative": "Renforce l'hypothèse respiratoire." }
+    },
+    {
+      "name": "EFR",
+      "urgency": "programmable",
+      "rationale": "Bilan différé de l'asthme et du BPCO une fois la phase aiguë résolue.",
+      "findingToLook": "Réversibilité du VEMS, trouble ventilatoire obstructif",
+      "result": { "positive": "Asthme/BPCO : traitement de fond.", "negative": "Réévaluer l'étiologie." }
+    }
+  ],
+  "notRecommended": [
+    "EFR en phase aiguë (résultats faussés)",
+    "Échocardiographie d'effort en aiguë",
+    "D-dimères si probabilité forte d'EP : imagerie directement"
+  ],
+  "linkedPathologies": ["oap", "embolie-pulmonaire", "asthme-aigu-grave", "pneumothorax"]
+}
