@@ -188,6 +188,8 @@ export function cycleValues(
   const jWave = def?.jWaveMv ?? 0;
   const noise = def?.mainsNoiseMv ?? 0;
   const prDep = def?.prDepressionMv ?? 0;
+  const frag = def?.qrsFragmented ?? false;
+  const spike = def?.pacemakerSpike ?? false;
 
   const out: number[] = [];
   for (let k = 0; k <= n; k++) {
@@ -213,6 +215,18 @@ export function cycleValues(
       }
       // v4 : sous-décalage du segment PR (péricardite).
       if (prDep !== 0 && ph > PHASE.p + 0.07 && ph < PHASE.q) v += prDep;
+      if (frag) {
+        // QRS fragmentés (séquelle de nécrose) : crans serrés sur le
+        // complexe, fenêtrés par une gaussienne centrée sur R.
+        v += 0.09 * Math.sin(ph * 2 * Math.PI * 110) * gauss(ph, { mu: PHASE.r, a: 1, sigma: 0.03 });
+        // Onde Q pathologique, plus profonde et un peu plus large.
+        v += gauss(ph, { mu: PHASE.q, a: -0.20, sigma: 0.012 });
+      }
+      if (spike) {
+        // Pacemaker : spike de stimulation fin juste avant le QRS
+        // (σ sous l'échantillonnage → raide ligne verticale, comme un vrai spike).
+        v += gauss(ph, { mu: PHASE.q - 0.03, a: 2.0, sigma: 0.004 });
+      }
       if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
     }
     if (noise !== 0) {
@@ -370,6 +384,8 @@ export function multiCyclePathMm(
   const noise = def?.mainsNoiseMv ?? 0;
   const twist = def?.torsadeTwist ?? false;
   const prDep = def?.prDepressionMv ?? 0;
+  const frag = def?.qrsFragmented ?? false;
+  const spike = def?.pacemakerSpike ?? false;
 
   let d = "";
   for (let k = 0; k <= totalSamples; k++) {
@@ -396,6 +412,12 @@ export function multiCyclePathMm(
       v += beatAmp * gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma }, 1, widthScale);
       v += beatAmp * gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma }, 1, widthScale);
       if (jWave !== 0) v += gauss(t, { mu: tR + sOff + 0.03, a: jWave, sigma: 0.035 });
+      if (frag) {
+        // Parité cycleValues : crans + Q pathologique sur chaque battement.
+        v += 0.09 * Math.sin(t * 2 * Math.PI * 110) * gauss(t, { mu: tR, a: 1, sigma: 0.03 });
+        v += gauss(t, { mu: tR + qOff, a: -0.20, sigma: 0.012 });
+      }
+      if (spike) v += gauss(t, { mu: tR - 0.03, a: 2.0, sigma: 0.004 });
       v += tScale * gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma * (0.5 + 0.5 * qtScale) });
       // Sus/sous-décalage ST sur la fenêtre qui suit R (parité cycleValues),
       // avec les formes v3 (dôme / cupule) en plus du plateau plat.
