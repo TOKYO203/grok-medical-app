@@ -64,6 +64,8 @@ export function buildDeformation(data: {
     if (t.stConcave !== undefined) d.stConcave = t.stConcave;
     if (t.prDepressionMv !== undefined) d.prDepressionMv = t.prDepressionMv;
     if (t.pFlip) d.pFlip = t.pFlip;
+    if (t.qrsFragmented !== undefined) d.qrsFragmented = t.qrsFragmented;
+    if (t.pacemakerSpike !== undefined) d.pacemakerSpike = t.pacemakerSpike;
   }
   return d;
 }
