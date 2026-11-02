@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "insuff-medullaire",
+  "title": "Insuffisance médullaire et anémie aplasique",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'insuffisance médullaire (cytopénies par défaut de production) et l'anémie aplasique, connaître les étiologies (idiopathiques, médicamenteuses, toxiques, infectieuses, constitutionnelles), maîtriser la démarche diagnostique (myélogramme, biopsie ostéo-médullaire) et les traitements (mesures symptomatiques, immunosuppresseurs, allogreffe), et prévenir les complications infectieuses et hémorragiques.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 82,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 123,
+      "localNumber": 82,
+      "sectionLabel": "Médecine",
+      "title": "Insuffisance médullaire et anémie aplasique",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche centrée sur la pancytopénie par insuffisance médullaire : logique diagnostique devant une cytopénie ou une pancytopénie (éliminer les causes périphériques), confirmation par myélogramme et biopsie ostéo-médullaire, étiologies, et stratégie thérapeutique graduée. Les anémies par carence et les anémies hémolytiques font l'objet de fiches dédiées, de même que les leucémies aiguës (diagnostic différentiel du myélogramme).",
+    "verificationNotes": "Contenu conforme aux synthèses HematoCell (sérum antilymphocytaire plus ciclosporine, indications de l'allogreffe), HPN France (greffe et rejet), Larousse (causes toxiques et infectieuses) et Jalmalv (origine idiopathique de 70 à 80 % des cas, mécanisme auto-immun). Contexte malgache : le chloramphénicol, historiquement pourvoyeur d'aplasies, reste utilisé ; le paludisme, les infections virales et la tuberculose peuvent donner des cytopénies ; la biopsie ostéo-médullaire et l'allogreffe ne sont disponibles que dans quelques centres de référence, ce qui rend les mesures symptomatiques et la transfusion indispensables à maîtriser.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec anemies-hypochromes, leucemie-aigue et transfusion sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'insuffisance médullaire désigne l'incapacité de la moelle osseuse à produire suffisamment de cellules sanguines : il en résulte une cytopénie (atteinte d'une seule lignée) ou, plus souvent, une pancytopénie (anémie, neutropénie et thrombopénie associées). L'anémie aplasique en est la forme la plus typique : une moelle pauvre, hypoplasique, sans cellule anormale — à la différence des hémopathies malignes où la moelle est envahie."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est un diagnostic différentiel majeur de toute pancytopénie. La démarche est double : prouver l'insuffisance médullaire (moelle pauvre) et en chercher la cause (médicamenteuse, toxique, virale, immunologique, constitutionnelle). La prise en charge combine mesures symptomatiques (transfusions, antibiothérapie), traitement étiologique et traitements spécifiques de la moelle : immunosuppresseurs ou greffe de cellules souches."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définitions et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie aplasique se définit par une pancytopénie persistante avec moelle hypoplasique : classiquement, au moins deux des trois critères suivants — hémoglobine inférieure à 10 grammes par décilitre, polynucléaires neutrophiles inférieurs à 500 par millimètre cube, plaquettes inférieures à 20 000 par millimètre cube — sur une moelle hypocellulaire. On parle d'aplasie sévère quand les neutrophiles sont inférieurs à 200 par millimètre cube."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le mécanisme est le plus souvent immunologique : une atteinte des cellules souches hématopoïétiques par des lymphocytes autoréactifs, expliquant l'efficacité des traitements immunosuppresseurs et l'origine idiopathique de 70 à 80 % des cas. Dans les formes secondaires, un agent toxique, médicamenteux, viral ou une maladie constitutionnelle détruit ou bloque les progéniteurs médullaires. La distinction avec l'hypoplasie des hémopathies (leucémie aiguë hypoplasique, syndrome myélodysplasique) est l'enjeu du myélogramme.",
+          "sources": [
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Causes médicamenteuses et toxiques : chloramphénicol (historique et encore pertinent là où il reste utilisé), sels d'or, anti-inflammatoires, antithyroïdiens de synthèse, sulfamides, chimiothérapies, benzène et solvants industriels, pesticides, radiations ionisantes. Causes infectieuses : hépatites virales (surtout non A non B non C), infection par le virus de l'immunodéficience humaine, parvovirus B19 (érythroblastopénie), tuberculose, brucellose, léishmanioses viscérales — fréquentes sous nos latitudes.",
+          "sources": [
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Causes immunologiques et constitutionnelles : anémie aplasique idiopathique (la majorité, mécanisme auto-immun), association à des maladies auto-immunes ; syndromes constitutionnels (anémie de Fanconi, dyskératose congénitale, syndrome de Shwachman-Diamond) à évoquer chez l'enfant ou l'adulte jeune, avec malformations associées et recherche de cassures chromosomiques. Enfin, toute aplasie doit faire éliminer une évolution vers un syndrome myélodysplasique ou une hémoglobinurie nocturne paroxystique, dont le test de dépistage doit être demandé au diagnostic et au suivi."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Médicamenteuses et toxiques : chloramphénicol, benzène, chimiothérapie, radiations, pesticides.",
+            "Infectieuses : hépatites virales, virus de l'immunodéficience humaine, tuberculose, léishmaniose.",
+            "Immunologiques : idiopathique (70-80 % des cas), maladies auto-immunes.",
+            "Constitutionnelles : anémie de Fanconi, dyskératose congénitale — chez l'enfant et l'adulte jeune.",
+            "Grossesse : rares aplasies régressant après l'accouchement."
+          ],
+          "sources": [
+            "s3",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Clinique : les symptômes traduisent chaque cytopénie — asthénie, pâleur, dyspnée et tachycardie (anémie) ; fièvre, angine, infections ORL ou pulmonaires, ulcérations buccales (neutropénie) ; purpura pétéchial, ecchymoses, épistaxis, saignements gingivaux (thrombopénie). L'absence de splénomégalie et d'adénopathies est un argument important : leur présence oriente vers une hémopathie, un syndrome myéloprolifératif ou une autre cause de pancytopénie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan biologique : hémogramme confirmant la pancytopénie (ou cytopénie isolée), réticulocytes effondrés (argument majeur vers une origine centrale), absence de schizocytes. Myélogramme : moelle pauvre, hypocellulaire, sans blastes ni cellules anormales — il élimine une leucémie aiguë (blastes), un syndrome myélodysplasique, un envahissement (métastases, tuberculose médullaire, leishmaniose). Biopsie ostéo-médullaire : examen clé, confirmant l'hypoplasie sur prélèvement in toto. Bilan étiologique : sérologies virales, radiographie du thorax, recherche de l'hémoglobinurie nocturne par cytométrie en flux, étude chromosomique si suspicion de syndrome constitutionnel.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Neutropénie fébrile",
+          "text": "Chez un patient aplasique, toute fièvre supérieure à 38 degrés est une urgence : hémocultures et antibiothérapie intraveineuse probabiliste à large spectre dans l'heure, sans attendre les résultats."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mesures symptomatiques — le socle du traitement, particulièrement en contexte à ressources limitées : transfusions de concentrés érythrocytaires en cas d'anémie mal tolérée (avec précautions immunitaires chez le candidat à une greffe), transfusions de plaquettes si thrombopénie sévère ou hémorragique, prévention et traitement des infections (hygiène, antibiothérapie probabiliste de toute fièvre, antifongiques si persistance), arrêt immédiat de tout médicament suspect, nutrition et soins de bouche. L'érythropoïétine et les facteurs de croissance granulocytaire peuvent être utiles en appui.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitements spécifiques : l'allogreffe de cellules souches hématopoïétiques est le seul traitement curatif, indiquée en première intention chez l'adulte jeune (moins de 40-50 ans) atteint d'aplasie sévère avec donneur apparenté compatible — avec un risque de rejet d'environ 10 % et une maladie du greffon contre l'hôte à prévenir. En l'absence de donneur ou chez les patients plus âgés, le traitement immunosuppresseur associe le sérum antilymphocytaire ou antithymocytaire et la ciclosporine, avec des réponses partielles ou complètes dans environ deux tiers des cas ; les androgènes gardent un intérêt dans les formes modérées et les syndromes constitutionnels. Une surveillance prolongée s'impose (rechutes, clonalité, évolution myélodysplasique).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie menaçante",
+          "text": "Thrombopénie inférieure à 10 000 par millimètre cube ou hémorragie active : transfusion de plaquettes immédiate, éviter les intramusculaires et les antiagrégants, acide tranexamique selon le site.",
+          "sources": [
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : bon usage des médicaments hématotoxiques (chloramphénicol réservé aux indications où aucune alternative n'existe, surveillance de l'hémogramme sous traitement), protection contre les toxiques industriels et agricoles (benzène, pesticides), radioprotection. Prévention des complications : vaccination antigrippale et antipneumococcique (hors vaccins vivants en cas d'immunosuppression), hygiène des mains, éviter la consommation d'aliments à risque infectieux en aplasie profonde, éducation du patient sur la fièvre et le purpura comme signaux d'alarme."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dépistage des formes constitutionnelles : bilan familial et conseil génétique devant une aplasie de l'enfant ou de l'adulte jeune (anémie de Fanconi). Suivi prolongé : hémogramme régulier, examen clinique, recherche de signes d'évolution clonale. Enfin, la prise en charge doit anticiper la disponibilité des ressources : organisation des transfusions, accès aux immunosuppresseurs et à une éventuelle greffe par orientation vers les centres de référence.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe devant une pancytopénie",
+          "text": "Réticulocytes bas + absence de splénomégalie = penser insuffisance médullaire. Arrêter tout médicament suspect, myélogramme et biopsie ostéo-médullaire pour éliminer une leucémie, un envahissement ou une myélodysplasie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'insuffisance médullaire se reconnaît à l'association de cytopénies, de réticulocytes effondrés et d'une moelle pauvre, sans cellule anormale. La majorité des anémies aplasiques sont idiopathiques, d'origine auto-immune ; il faut systématiquement éliminer une cause médicamenteuse ou toxique, et une cause constitutionnelle chez le sujet jeune."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic, autrefois sombre, s'est transformé par l'allogreffe chez l'adulte jeune et l'immunosuppression (sérum antilymphocytaire plus ciclosporine) dans les autres cas — mais à Madagascar, la survie dépend d'abord des mesures symptomatiques bien conduites : transfusions, prise en charge de la fièvre, arrêt des toxiques, et orientation raisonnée vers les centres disposant des traitements spécifiques. Fiches liées : Anémies hypochromes, Anémies hémolytiques, Leucémie aiguë, Transfusion et accidents transfusionnels.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Pancytopénie + réticiculocytes bas + moelle pauvre sans blastes = anémie aplasique. Chercher la cause : médicaments (chloramphénicol), toxiques, virus, syndrome constitutionnel. Fièvre = urgence antibiotique. Traitement curatif : allogreffe (adulte jeune avec donneur) ; sinon sérum antilymphocytaire plus ciclosporine."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche anemies-hypochromes — anémie microcytaire par carence martiale.",
+            "Fiche anemies-hemolytiques (n°84, à venir) — anémie par destruction périphérique.",
+            "Fiche leucemie-aigue — principal diagnostic différentiel du myélogramme.",
+            "Fiche transfusion et accidents-transfusionnels — pratique transfusionnelle.",
+            "Fiche agranulocytoses (n°83, à venir) — atteinte isolée de la lignée granuleuse."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Neutropénie fébrile",
+      "text": "Fièvre supérieure à 38 degrés chez un aplasique : hémocultures puis antibiothérapie intraveineuse probabiliste à large spectre dans l'heure."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hémorragie menaçante",
+      "text": "Plaquettes inférieures à 10 000 ou saignement actif : transfusion plaquettaire immédiate, éviter les intramusculaires et les antiagrégants."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe devant une pancytopénie",
+      "text": "Réticulocytes bas sans splénomégalie : penser insuffisance médullaire. Arrêt des médicaments suspects, myélogramme et biopsie ostéo-médullaire."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Moelle pauvre sans blastes = anémie aplasique ; 70-80 % idiopathiques. Allogreffe si adulte jeune avec donneur, sinon sérum antilymphocytaire plus ciclosporine."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo causes à demander",
+      "text": "Médicaments (chloramphénicol), toxiques (benzène, pesticides), virus (hépatites, immunodéficience), grossesse, constitutionnel (Fanconi) — cinq chapitres à cocher."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Triade de l'anémie aplasique",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pancytopénie (3 lignées atteintes)"
+        },
+        {
+          "key": "R",
+          "term": "Réticulocytes effondrés (origine centrale)"
+        },
+        {
+          "key": "M",
+          "term": "Moelle pauvre sans cellule anormale"
+        }
+      ]
+    },
+    {
+      "label": "Signes selon la lignée atteinte",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Rouge : asthénie, pâleur, dyspnée"
+        },
+        {
+          "key": "B",
+          "term": "Blanc : fièvre, angine, ulcérations"
+        },
+        {
+          "key": "P",
+          "term": "Plaquettes : purpura, épistaxis, ecchymoses"
+        }
+      ]
+    },
+    {
+      "label": "Causes d'aplasie médullaire",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Médicaments et toxiques (chloramphénicol, benzène)"
+        },
+        {
+          "key": "I",
+          "term": "Infections (hépatites, tuberculose, leishmaniose)"
+        },
+        {
+          "key": "A",
+          "term": "Auto-immune (idiopathique, la majorité)"
+        },
+        {
+          "key": "C",
+          "term": "Constitutionnel (Fanconi) et grossesse"
+        }
+      ]
+    },
+    {
+      "label": "Diagnostics différentiels de pancytopénie",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Leucémie aiguë (blastes au myélogramme)"
+        },
+        {
+          "key": "M",
+          "term": "Myélodysplasie et envahissement médullaire"
+        },
+        {
+          "key": "S",
+          "term": "Splénomégalie : oriente vers une autre cause"
+        },
+        {
+          "key": "P",
+          "term": "Périphérique : hémolyse, hypersplénisme"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que l'insuffisance médullaire ?",
+      "back": "L'incapacité de la moelle osseuse à produire suffisamment de cellules sanguines, responsable de cytopénies ou d'une pancytopénie, par opposition aux causes périphériques (hémolyse, carence, destruction)."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les critères de l'anémie aplasique ?",
+      "back": "Pancytopénie avec au moins deux des critères : hémoglobine inférieure à 10 g/dL, neutrophiles inférieurs à 500/mm3, plaquettes inférieures à 20 000/mm3, sur une moelle hypoplasique."
+    },
+    {
+      "id": "f3",
+      "front": "Pourquoi les réticulocytes sont-ils effondrés ?",
+      "back": "Parce que la production médullaire est défaillante : les réticulocytes (jeunes globules rouges) reflètent l'activité érythropoïétique de la moelle — un taux bas signe l'origine centrale."
+    },
+    {
+      "id": "f4",
+      "front": "Quel argument clinique important oriente vers une aplasie ?",
+      "back": "L'absence de splénomégalie et d'adénopathies ; leur présence oriente vers une hémopathie maligne ou un syndrome myéloprolifératif."
+    },
+    {
+      "id": "f5",
+      "front": "Quels sont les principaux médicaments responsables d'aplasie ?",
+      "back": "Le chloramphénicol (cause historique et encore actuelle), les sels d'or, les antithyroïdiens, les sulfamides, les anti-inflammatoires et les chimiothérapies."
+    },
+    {
+      "id": "f6",
+      "front": "Quels agents toxiques non médicamenteux provoquent des aplasies ?",
+      "back": "Le benzène et les solvants industriels, les pesticides, et les radiations ionisantes."
+    },
+    {
+      "id": "f7",
+      "front": "Quelles infections peuvent causer une insuffisance médullaire ?",
+      "back": "Les hépatites virales, l'infection par le virus de l'immunodéficience humaine, la tuberculose, la brucellose, la leishmaniose viscérale ; le parvovirus B19 donne plutôt une érythroblastopénie."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle proportion des anémies aplasiques est idiopathique ?",
+      "back": "Environ 70 à 80 % — probablement d'origine auto-immune (atteinte des cellules souches par des lymphocytes autoréactifs)."
+    },
+    {
+      "id": "f9",
+      "front": "Quel syndrome constitutionnel rechercher chez un enfant aplasique ?",
+      "back": "L'anémie de Fanconi (malformations, cassures chromosomiques), ainsi que la dyskératose congénitale et le syndrome de Shwachman-Diamond."
+    },
+    {
+      "id": "f10",
+      "front": "Quels examens confirment le diagnostic ?",
+      "back": "Le myélogramme (moelle pauvre sans blastes) et surtout la biopsie ostéo-médullaire (hypoplasie confirmée sur prélèvement in toto)."
+    },
+    {
+      "id": "f11",
+      "front": "Quel diagnostic différentiel majeur éliminer au myélogramme ?",
+      "back": "La leucémie aiguë (présence de blastes) et le syndrome myélodysplasique, de même qu'un envahissement médullaire (métastases, tuberculose, leishmaniose)."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle maladie associée rechercher au diagnostic et au suivi ?",
+      "back": "L'hémoglobinurie nocturne paroxystique, par test de dépistage en cytométrie en flux — association fréquente et pronostic modifié."
+    },
+    {
+      "id": "f13",
+      "front": "Quel est le seul traitement curatif de l'anémie aplasique ?",
+      "back": "L'allogreffe de cellules souches hématopoïétiques, indiquée en première intention chez l'adulte jeune atteint d'aplasie sévère avec donneur compatible."
+    },
+    {
+      "id": "f14",
+      "front": "Quel traitement en l'absence de donneur compatible ?",
+      "back": "L'immunosuppression : sérum antilymphocytaire ou antithymocytaire associé à la ciclosporine, efficace dans environ deux tiers des cas."
+    },
+    {
+      "id": "f15",
+      "front": "Comment prendre en charge la fièvre d'un patient aplasique ?",
+      "back": "Urgence : hémocultures puis antibiothérapie intraveineuse probabiliste à large spectre dans l'heure, antifongiques si persistance, sans attendre les résultats."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles précautions transfusionnelles chez un candidat à la greffe ?",
+      "back": "Limiter les transfusions et sélectionner les produits (déleucocytés, non apparentés familiaux) pour éviter l'immunisation qui compromettrait la prise de la greffe."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "im-root",
+      "label": "Insuffisance médullaire et anémie aplasique"
+    },
+    "branches": [
+      {
+        "id": "im-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "im-b1-1",
+            "label": "Pancytopénie centrale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "im-l1",
+            "label": "Cytopénies ou pancytopénie"
+          },
+          {
+            "id": "im-l2",
+            "label": "Réticulocytes effondrés"
+          },
+          {
+            "id": "im-l3",
+            "label": "Moelle pauvre sans blastes"
+          }
+        ]
+      },
+      {
+        "id": "im-b2",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "im-b2-1",
+            "label": "Cinq chapitres"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "im-l4",
+            "label": "Idiopathique auto-immune (70-80 %)"
+          },
+          {
+            "id": "im-l5",
+            "label": "Médicaments (chloramphénicol), toxiques, radiations"
+          },
+          {
+            "id": "im-l6",
+            "label": "Infections (hépatites, tuberculose, leishmaniose)"
+          },
+          {
+            "id": "im-l7",
+            "label": "Constitutionnel (Fanconi), grossesse"
+          }
+        ]
+      },
+      {
+        "id": "im-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "im-b3-1",
+            "label": "Prouver et chercher"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "im-l8",
+            "label": "Myélogramme : éliminer leucémie, envahissement"
+          },
+          {
+            "id": "im-l9",
+            "label": "Biopsie ostéo-médullaire : hypoplasie"
+          },
+          {
+            "id": "im-l10",
+            "label": "Bilan étiologique et hémoglobinurie nocturne"
+          }
+        ]
+      },
+      {
+        "id": "im-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "im-b4-1",
+            "label": "Symptomatique et spécifique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "im-l11",
+            "label": "Transfusions, fièvre = antibiotiques"
+          },
+          {
+            "id": "im-l12",
+            "label": "Allogreffe : adulte jeune avec donneur"
+          },
+          {
+            "id": "im-l13",
+            "label": "Sérum antilymphocytaire plus ciclosporine"
+          },
+          {
+            "id": "im-l14",
+            "label": "Arrêt des médicaments suspects"
+          }
+        ]
+      },
+      {
+        "id": "im-b5",
+        "label": "Complications et suivi",
+        "children": [
+          {
+            "id": "im-b5-1",
+            "label": "Surveillance prolongée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "im-l15",
+            "label": "Infections, hémorragies"
+          },
+          {
+            "id": "im-l16",
+            "label": "Rejet de greffe, maladie du greffon"
+          },
+          {
+            "id": "im-l17",
+            "label": "Rechutes, évolution myélodysplasique"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Aplasies médullaires — Hématologie générale",
+      "citation": "HematoCell — Aplasies médullaires : mécanismes et traitement immunosuppresseur",
+      "organization": "HematoCell",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.hematocell.fr/autres-situations-pathologiques-hematologie-generale/aplasies-medullaires",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "traitement immunosuppresseur (sérum antilymphocytaire et ciclosporine)",
+        "indications de l'allogreffe"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "L'aplasie médullaire",
+      "citation": "HPN France — L'aplasie médullaire : allogreffe et complications",
+      "organization": "HPN France",
+      "year": 2022,
+      "version": "Article associatif de référence",
+      "url": "https://hpnfrance.com/laplasie-medullaire/",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "allogreffe de moelle",
+        "rejet de greffe",
+        "suivi"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Aplasie médullaire — Encyclopédie médicale",
+      "citation": "Larousse — Aplasie médullaire : causes toxiques et infectieuses",
+      "organization": "Éditions Larousse",
+      "year": 2024,
+      "version": "Encyclopédie médicale",
+      "url": "https://www.larousse.fr/encyclopedie/medical/aplasie_m%C3%A9dullaire/11308",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "causes (radiations, médicaments, infections)",
+        "définition"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Anémie aplasique : ce que disent les experts",
+      "citation": "Jalmalv — Anémie aplasique : causes idiopathiques et prise en charge",
+      "organization": "Jalmalv (association)",
+      "year": 2024,
+      "version": "Article médical",
+      "url": "https://www.jalmalv.fr/maladies-symptomes/hormones-metabolisme/anemie-aplasique.html",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "anémie aplasique idiopathique (70-80 % des cas)",
+        "physiopathologie auto-immune"
+      ]
+    }
+  ]
+}
