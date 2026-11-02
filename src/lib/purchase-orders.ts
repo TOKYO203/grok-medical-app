@@ -17,6 +17,25 @@ import {
 } from "@/content/purchase-order";
 import type { LicenseReceipt } from "@/core/types";
 import { authMiddleware } from "@/lib/auth/middleware";
+import type {
+  AdminPurchaseOrder,
+  PremiumPaymentInstructions,
+  SqlClient,
+} from "@/features/purchase/shared";
+import {
+  auditEvent,
+  discardableKeyHash,
+  duplicatePaymentEvidence,
+  makeReference,
+  normalizePaymentReference,
+  ownedPurchase,
+  paymentConfiguration,
+  purchaseAdmins,
+  purchaseByReference,
+  requirePurchaseAdmin,
+  toIsoOrNull,
+  toPurchase,
+} from "@/features/purchase/shared";
 
 const specialtySchema = z.enum([
   "neurologie",
@@ -93,157 +112,8 @@ type PurchaseRow = {
   proof_digest: string | null;
 };
 
-type SqlClient = {
-  query: <T = Record<string, unknown>>(text: string, params?: unknown[]) => Promise<T[]>;
-};
-
-export type PremiumPaymentInstructions = {
-  configured: boolean;
-  provider: string | null;
-  destination: string | null;
-  accountName: string | null;
-  note: string | null;
-  amount: number;
-  orderReference: string;
-  product: string;
-};
-
-export type AdminPurchaseOrder = {
-  purchase: PremiumPurchase;
-  userId: string;
-  optimusId: string;
-  paymentProvider: string | null;
-  paymentReference: string | null;
-  proofDigest: string | null;
-  deviceId: string | null;
-};
-
-function toPurchase(row: PurchaseRow): PremiumPurchase {
-  return {
-    reference: row.reference,
-    offer: row.offer,
-    specialty: row.specialty,
-    deckNumber: Number(row.deck_number),
-    product: row.product,
-    label: row.label,
-    amount: Number(row.amount),
-    status: row.status,
-    proofAttached: Boolean(row.proof_attached),
-    createdAt: new Date(row.created_at).getTime(),
-    updatedAt: new Date(row.updated_at).getTime(),
-  };
-}
-
-/** `timestamptz` (chaîne ou Date selon le pilote) → ISO 8601, `null` si absent. */
-function toIsoOrNull(value: string | Date | null): string | null {
-  if (value === null) return null;
-  const parsed = value instanceof Date ? value : new Date(value);
-  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
-}
-
-/**
- * Référence de commande unique — `CMD-…` (à l'unité) / `CMD-SUB-…` (abonnement).
- *
- * L'aléa de 32 bits + la clé primaire `purchase_orders.reference` garantissent
- * l'unicité ; le segment `SUB` rend l'abonnement identifiable dans une
- * conversation Mobile Money, sans jamais servir de contrôle (le serveur relit
- * `offer` en base).
- */
-function makeReference(offer: PremiumOffer): string {
-  const suffix = randomBytes(4).toString("hex").toUpperCase();
-  return `${purchaseReferencePrefix(offer)}-${Date.now().toString(36).toUpperCase()}-${suffix}`;
-}
-
-/**
- * Empreinte d'une clé d'activation jamais communiquée.
- *
- * La livraison crée une ligne `activation_keys` pour trois raisons : elle donne
- * à la licence un identifiant réel (`licenseId` du reçu), elle la fait compter
- * dans le back-office, et surtout elle la fait RÉVOQUER automatiquement par le
- * remboursement (qui cible `purchase_reference`). Le reçu signé reste le seul
- * moyen d'accès remis à l'acheteur : on jette donc le texte de clé et on ne
- * stocke que son empreinte — aucune clé en clair ne circule.
- */
-function discardableKeyHash(): string {
-  return createHash("sha256").update(randomBytes(32).toString("hex"), "utf8").digest("hex");
-}
-
-function purchaseAdmins(): Set<string> {
-  return new Set(
-    (process.env.PURCHASE_ADMIN_USER_IDS ?? "")
-      .split(",")
-      .map((value) => value.trim())
-      .filter(Boolean),
-  );
-}
-
-function requirePurchaseAdmin(userId: string): void {
-  if (!purchaseAdmins().has(userId)) throw new Error("Forbidden");
-}
-
-function paymentConfiguration(): Omit<
-  PremiumPaymentInstructions,
-  "amount" | "orderReference" | "product"
-> {
-  const provider = process.env.MOBILE_MONEY_PROVIDER?.trim() || null;
-  const destination = process.env.MOBILE_MONEY_NUMBER?.trim() || null;
-  const accountName = process.env.MOBILE_MONEY_ACCOUNT_NAME?.trim() || null;
-  const note = process.env.MOBILE_MONEY_INSTRUCTIONS?.trim() || null;
-  return {
-    configured: Boolean(provider && destination),
-    provider,
-    destination,
-    accountName,
-    note,
-  };
-}
-
-function normalizePaymentReference(value: string): string {
-  const normalized = value.trim().toUpperCase().replace(/\s+/g, "");
-  if (!/^[A-Z0-9._-]{6,120}$/.test(normalized)) {
-    throw new Error("La référence de transaction Mobile Money est invalide.");
-  }
-  return normalized;
-}
-
-function duplicatePaymentEvidence(error: unknown): boolean {
-  const text = error instanceof Error ? error.message : String(error);
-  return /purchase_orders_payment_reference_unique_idx|purchase_orders_proof_digest_unique_idx|duplicate key/i.test(
-    text,
-  );
-}
-
-async function ownedPurchase(sql: SqlClient, reference: string, userId: string) {
-  const rows = await sql.query<PurchaseRow>(
-    `select * from purchase_orders
-     where reference = $1 and user_id = $2
-     limit 1`,
-    [reference, userId],
-  );
-  return rows[0];
-}
-
-async function purchaseByReference(sql: SqlClient, reference: string) {
-  const rows = await sql.query<PurchaseRow>(
-    "select * from purchase_orders where reference = $1 limit 1",
-    [reference],
-  );
-  return rows[0];
-}
-
-async function auditEvent(
-  sql: SqlClient,
-  reference: string,
-  actorUserId: string,
-  eventType: PurchaseStatus,
-  metadata: Record<string, unknown> = {},
-): Promise<void> {
-  await sql.query(
-    `insert into purchase_order_events (reference, actor_user_id, event_type, metadata)
-     values ($1, $2, $3, $4::jsonb)`,
-    [reference, actorUserId, eventType, JSON.stringify(metadata)],
-  );
-}
+// Re-export des types pour les consommateurs existants (facade)
+export type { PremiumPaymentInstructions, AdminPurchaseOrder };
 
 async function createPurchaseOrderInternal(
   userId: string,
