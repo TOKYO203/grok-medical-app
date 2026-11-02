@@ -54,6 +54,9 @@ const KNOWN_DEFORMATION_KEYS = [
   "stCoved", // dôme décroissant (Brugada type 1)
   "stScooped", // cupule sagging (digitalique)
   "torsadeTwist", // accordéon des torsades
+  "pFlip", // P inversée par dérivation (malposition, sinus coronaire)
+  "stConcave", // sus-décalage concave (péricardite)
+  "prDepressionMv", // PR sous-décalé (péricardite)
 ];
 
 test("les 23 fiches de l'index sont cohérentes et pédagogiquement complètes", async () => {

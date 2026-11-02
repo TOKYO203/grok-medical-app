@@ -94,7 +94,7 @@ function gauss(t: number, g: Gauss, ampScale = 1, widthScale = 1): number {
 type CycleParts = { p: number[]; qrs: number[]; t: number[] };
 
 /** Morphologie d'un cycle pour une dérivation « source » (DI, DII, V1…V6). */
-function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean, pShiftSec = 0): CycleParts {
+function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean, pShiftSec = 0, qtScale = 1): CycleParts {
   const w = baseWave(lead);
   const widthScale = wideQrs ? 2.4 : 1;
   const p: number[] = [];
@@ -109,7 +109,9 @@ function sourceParts(lead: string, cycleSec: number, n: number, wideQrs: boolean
         gauss(ph, { mu: PHASE.r, a: w.R.a, sigma: w.R.sigma }, 1, widthScale) +
         gauss(ph, { mu: PHASE.s, a: w.S.a, sigma: w.S.sigma }, 1, widthScale),
     );
-    t.push(gauss(ph, { mu: PHASE.t, a: w.T.a, sigma: w.T.sigma }));
+    // v4 : QT adaptatif à la FC (≈ Bazett) — le T recule/raccourcit quand
+    // le cycle se resserre ; à 200 bpm il ne chevauche plus le beat suivant.
+    t.push(gauss(ph, { mu: PHASE.r + (PHASE.t - PHASE.r) * qtScale, a: w.T.a, sigma: w.T.sigma * (0.5 + 0.5 * qtScale) }));
   }
   return { p, qrs, t };
 }
@@ -129,6 +131,11 @@ export function cycleValues(
   const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
   const n = Math.max(2, Math.round(cycleSec * sps));
   const def = opts.def;
+  // QT adaptatif (v4) : la repolarisation suit le cycle — QT ≈ 0,34 s à
+  // 75 bpm (référence) puis √RR (Bazett inverse). À 200 bpm (TV, torsades)
+  // le T ne chevauche plus le battement suivant ; à 45 bpm l'hypothermie
+  // gagne son QT long clinique.
+  const qtScale = Math.max(0.55, Math.min(1.35, Math.sqrt(cycleSec / 0.8)));
   // PR piloté par la fiche (v3) : décale l'onde P pour qu'un PR long
   // (hyperkaliémie, digitalique) ou court soit VISIBLE sur le tracé —
   // le panneau d'analyse et le tracé disaient des choses différentes.
@@ -152,8 +159,8 @@ export function cycleValues(
   const wide = def?.wideQrs ?? false;
   let parts: CycleParts;
   if (isDerivedLimbLead(lead)) {
-    const a = sourceParts("I", cycleSec, n, wide, pShiftSec);
-    const b = sourceParts("II", cycleSec, n, wide, pShiftSec);
+    const a = sourceParts("I", cycleSec, n, wide, pShiftSec, qtScale);
+    const b = sourceParts("II", cycleSec, n, wide, pShiftSec, qtScale);
     const p: number[] = [];
     const qrs: number[] = [];
     const t: number[] = [];
@@ -167,9 +174,12 @@ export function cycleValues(
     }
     parts = { p, qrs, t };
   } else {
-    parts = sourceParts(lead, cycleSec, n, wide, pShiftSec);
+    parts = sourceParts(lead, cycleSec, n, wide, pShiftSec, qtScale);
   }
 
+  // v4 : inversion de polarité de la P dans les dérivations listées (P
+  // positive en aVR — sinus coronaire / inversion RA/LA), APRÈS Einthoven.
+  if (def?.pFlip?.includes(lead)) parts = { ...parts, p: parts.p.map((v) => -v) };
   // Surcouche clinique, appliquée par dérivation après dérivation d'Einthoven.
   const st = stOffsetMv(lead, def);
   const tScale = (def?.peakedT ? 2 : 1) * (def?.tInverted?.includes(lead) ? -1.4 : 1);
@@ -177,6 +187,7 @@ export function cycleValues(
   const saw = def?.sawTooth ? 1 : 0;
   const jWave = def?.jWaveMv ?? 0;
   const noise = def?.mainsNoiseMv ?? 0;
+  const prDep = def?.prDepressionMv ?? 0;
 
   const out: number[] = [];
   for (let k = 0; k <= n; k++) {
@@ -196,9 +207,12 @@ export function cycleValues(
         // décroissant (Brugada type 1) ou cupule sagging (digitalique).
         const f = (ph - PHASE.stFrom) / (PHASE.stTo - PHASE.stFrom);
         if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);
-        else if (def?.stScooped) v += st * Math.sin(Math.PI * f);
+        // v4 : concave (péricardite) — même bosse que la cupule, en sus-décalage.
+        else if (def?.stScooped || def?.stConcave) v += st * Math.sin(Math.PI * f);
         else v += st;
       }
+      // v4 : sous-décalage du segment PR (péricardite).
+      if (prDep !== 0 && ph > PHASE.p + 0.07 && ph < PHASE.q) v += prDep;
       if (saw) v += 0.15 * Math.sin(ph * 2 * Math.PI * 5);
     }
     if (noise !== 0) {
@@ -284,6 +298,8 @@ export function multiCyclePathMm(
   const baseBpm = Math.max(20, Math.min(240, opts.bpm));
   // PP = intervalle P-P constant (le nœud sinusal ne change pas de rythme).
   const PP = 60 / baseBpm;
+  // QT adaptatif (v4) — parité avec cycleValues.
+  const qtScale = Math.max(0.55, Math.min(1.35, Math.sqrt(PP / 0.8)));
   const sps = opts.samplesPerSec ?? CYCLE_SAMPLES_PER_SEC;
   // Garde anti-NaN : cycles = 0 → totalDur = 0 (division 0/0). Au moins 1 cycle (issue #39).
   const N = Math.max(1, opts.cycles);
@@ -340,7 +356,7 @@ export function multiCyclePathMm(
   const w = baseWave(lead);
   const qOff = PHASE.q - PHASE.r;  // ~ -0.02 s
   const sOff = PHASE.s - PHASE.r;  // ~ +0.02 s
-  const tOff = PHASE.t - PHASE.r;  // ~ +0.19 s
+  const tOff = (PHASE.t - PHASE.r) * qtScale; // v4 : QT suit le RR
 
   // Surcouche clinique multi-cycles (parité avec cycleValues) : la FA
   // (pAbsent + rrVariability), les torsades (wideQrs + RR variable) et le
@@ -353,6 +369,7 @@ export function multiCyclePathMm(
   const jWave = def?.jWaveMv ?? 0;
   const noise = def?.mainsNoiseMv ?? 0;
   const twist = def?.torsadeTwist ?? false;
+  const prDep = def?.prDepressionMv ?? 0;
 
   let d = "";
   for (let k = 0; k <= totalSamples; k++) {
@@ -361,7 +378,9 @@ export function multiCyclePathMm(
 
     // Onde P à chaque temps pTimes[i] (supprimée si pAbsent — FA).
     for (let i = 0; i < N; i++) {
-      v += pScale * gauss(t, { mu: pTimes[i], a: w.P.a, sigma: w.P.sigma });
+      // v4 : P positive en aVR (sinus coronaire, malposition RA/LA).
+      const pAmp = def?.pFlip?.includes(lead) ? -w.P.a : w.P.a;
+      v += pScale * gauss(t, { mu: pTimes[i], a: pAmp, sigma: w.P.sigma });
     }
 
     // QRS + T pour chaque P non bloquée
@@ -377,17 +396,25 @@ export function multiCyclePathMm(
       v += beatAmp * gauss(t, { mu: tR, a: w.R.a, sigma: w.R.sigma }, 1, widthScale);
       v += beatAmp * gauss(t, { mu: tR + sOff, a: w.S.a, sigma: w.S.sigma }, 1, widthScale);
       if (jWave !== 0) v += gauss(t, { mu: tR + sOff + 0.03, a: jWave, sigma: 0.035 });
-      v += tScale * gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma });
+      v += tScale * gauss(t, { mu: tR + tOff, a: w.T.a, sigma: w.T.sigma * (0.5 + 0.5 * qtScale) });
       // Sus/sous-décalage ST sur la fenêtre qui suit R (parité cycleValues),
       // avec les formes v3 (dôme / cupule) en plus du plateau plat.
       if (st !== 0 && t > tR && t < tR + (PHASE.stTo - PHASE.stFrom)) {
         const f = (t - tR) / (PHASE.stTo - PHASE.stFrom);
         if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);
-        else if (def?.stScooped) v += st * Math.sin(Math.PI * f);
+        else if (def?.stScooped || def?.stConcave) v += st * Math.sin(Math.PI * f);
         else v += st;
       }
     }
 
+    // v4 : sous-décalage du segment PR (péricardite), avant chaque QRS.
+    if (prDep !== 0) {
+      for (let i = 0; i < N; i++) {
+        if (prList[i] < 0) continue;
+        const tQ = pTimes[i] + prList[i];
+        if (t > tQ - 0.06 && t < tQ - 0.02) v += prDep;
+      }
+    }
     // Dents de scie (flutter) : oscillation continue ~5 Hz (≈ 300/min).
     if (saw) v += 0.15 * Math.sin(t * 2 * Math.PI * 5);
     // Artefact secteur 50 Hz (parasitage SNCF) : tracé brouillé.
