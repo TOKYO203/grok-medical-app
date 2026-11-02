@@ -7,8 +7,8 @@ import type { PurchaseStatus } from "@/content/purchase-order";
 import {
   listPremiumPurchaseOrdersForAdmin,
   reviewPremiumPurchaseOrder,
-  type AdminPurchaseOrder,
-} from "@/lib/purchase-orders";
+} from "@/features/purchase/admin";
+import type { AdminPurchaseOrder } from "@/features/purchase/shared";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin-achats")({ component: AdminPurchasesPage });

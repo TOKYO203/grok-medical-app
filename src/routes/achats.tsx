@@ -5,7 +5,7 @@ import { Page, Shell } from "@/components/shell";
 import type { PremiumPurchase, PurchaseStatus } from "@/content/purchase-order";
 import { useAppUser } from "@/hooks/useAppUser";
 import { replacePurchaseCache } from "@/lib/purchase-cache";
-import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
+import { listPremiumPurchaseOrders } from "@/features/purchase/client";
 import { cn } from "@/lib/utils";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";

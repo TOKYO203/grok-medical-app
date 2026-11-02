@@ -35,14 +35,13 @@ import type { Profile } from "@/core/types";
 import { useAppUser } from "@/hooks/useAppUser";
 import { authEnabled } from "@/lib/auth/client";
 import { isSupabaseConfigured } from "@/lib/supabase";
+import { advancePremiumPurchaseOrder, getPremiumPaymentInstructions } from "@/features/purchase/client";
 import {
-  advancePremiumPurchaseOrder,
   createPremiumPurchaseOrder,
   createAriariCheckout,
-  getPremiumPaymentInstructions,
-  getPurchaseLicense,
-  type PremiumPaymentInstructions,
-} from "@/lib/purchase-orders";
+} from "@/features/purchase/create";
+import { getPurchaseLicense } from "@/lib/purchase-orders";
+import type { PremiumPaymentInstructions } from "@/features/purchase/shared";
 import { formatSubscriptionEnd } from "@/lib/cloud/subscription";
 import { useOptimus } from "@/state/store";
 import { cn } from "@/lib/utils";

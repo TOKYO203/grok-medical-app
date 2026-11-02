@@ -23,7 +23,7 @@ import { authEnabled } from "@/lib/auth/client";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { useAppUser } from "@/hooks/useAppUser";
 import { cacheServerPurchase, replacePurchaseCache } from "@/lib/purchase-cache";
-import { listPremiumPurchaseOrders } from "@/lib/purchase-orders";
+import { listPremiumPurchaseOrders } from "@/features/purchase/client";
 import { isTrialActive, trialRemainingDays } from "@/lib/premium-trial";
 import { useOptimus } from "@/state/store";
 import { toast } from "sonner";
