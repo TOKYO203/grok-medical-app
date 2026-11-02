@@ -61,6 +61,9 @@ export function buildDeformation(data: {
     if (t.stCoved !== undefined) d.stCoved = t.stCoved;
     if (t.stScooped !== undefined) d.stScooped = t.stScooped;
     if (t.torsadeTwist !== undefined) d.torsadeTwist = t.torsadeTwist;
+    if (t.stConcave !== undefined) d.stConcave = t.stConcave;
+    if (t.prDepressionMv !== undefined) d.prDepressionMv = t.prDepressionMv;
+    if (t.pFlip) d.pFlip = t.pFlip;
   }
   return d;
 }
