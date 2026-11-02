@@ -2,8 +2,8 @@ import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Lock, LockOpen, Check, Play } from "lucide-react";
 import {
+  LEVEL_LABEL,
   LEVEL_ORDER,
-  LEVEL_SHORT,
   type Level,
   type CurriculumSpecialty,
   type CurriculumBranch,
@@ -241,7 +241,7 @@ function LevelPill({
   const levelIdx = LEVEL_ORDER.indexOf(level);
   const isAbove = levelIdx > userIdx;
 
-  const label = LEVEL_SHORT[level] ?? level;
+  const label = LEVEL_LABEL[level] ?? level;
 
   return (
     <Link

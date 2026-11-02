@@ -25,14 +25,14 @@ export const LEVEL_LABEL: Record<Level, string> = {
 };
 
 export const LEVEL_SHORT: Record<Level, string> = {
-  L1: "L1",
-  L2: "L2",
-  L3: "L3",
-  L4: "L4",
-  L5: "L5",
-  INTERNE: "INT",
-  RESIDENT: "RES",
-  SENIOR: "SEN",
+  L1: "1re",
+  L2: "2e",
+  L3: "3e",
+  L4: "4e",
+  L5: "5e",
+  INTERNE: "Int.",
+  RESIDENT: "Rés.",
+  SENIOR: "Sén.",
 };
 
 export const LEVEL_ORDER: Level[] = [
