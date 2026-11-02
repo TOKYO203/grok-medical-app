@@ -1,0 +1,776 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hernies",
+  "title": "Hernies inguinales, crurale et ombilicale",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Reconnaître les hernies de l'aine et de l'ombilic, distinguer inguinale et crurale, savoir surveiller une hernie réductible, gérer à froid les hernies symptomatiques, et identifier sans délai les signes de strangulation — l'urgence qui impose d'opérer sur l'heure.",
+  "language": "fr",
+  "updatedAt": "2026-11-02",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 43,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 218,
+      "localNumber": 43,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Hernies inguinales, crurale et ombilicale",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations internationales HerniaSurge (2018) et de leur mise à jour (2023). Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche suit la position HerniaSurge : la réparation herniaire avec prothèse est la référence chez l'adulte pour la hernie inguinale ; la réparation non prothétique (type Shouldice) est une alternative valide dans des mains entraînées ou lorsque la prothèse est contre-indiquée.",
+      "La hernie crurale est présentée comme à haut risque de strangulation, en particulier chez la femme âgée : elle justifie une réparation sans attendre, même si elle est peu symptomatique.",
+      "La hernie ombilicale est traitée avec ses spécificités : fréquente chez le cirrhotique (risque de rupture et de récidive élevé, correction de l'ascite d'abord) et chez l'obèse.",
+      "La surveillance d'une hernie inguinale peu symptomatique chez l'homme âgé est présentée comme une option discutée dans les recommandations (painful watchful waiting), avec ses limites : la strangulation reste possible et le patient doit en être informé.",
+      "La technique opératoire (Lichtenstein, cœlioscopie TAPP/TEP) est présentée comme un choix dépendant de l'expertise et du terrain, sans privilégier une école.",
+      "Aucune posologie anesthésique ni antibiotique n'est donnée ; la décision d'anesthésie locorégionale ou générale suit les protocoles locaux."
+    ],
+    "qcChecklist": [
+      "Distinction inguinale / crurale",
+      "Réductible, irréductible, étranglée, strangulée",
+      "Hernie crurale de la femme âgée : réparer sans attendre",
+      "Hernie ombilicale du cirrhotique : ascite d'abord",
+      "Réparation prothétique de référence chez l'adulte",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une hernie est la sortie d'un viscère — le plus souvent de l'épiploon ou de l'intestin grêle — à travers un orifice ou une zone de faiblesse de la paroi abdominale. Les hernies de l'aine, inguinale et crurale, sont les plus fréquentes ; la hernie ombilicale les suit. Chez l'homme, l'aine domine ; chez la femme, la hernie crurale prend une importance particulière : rare mais plus à risque de complication."
+        },
+        {
+          "type": "paragraph",
+          "text": "La distinction clinique entre inguinale et crurale est le premier apprentissage : l'inguinale sort au-dessus et en dedans du pubis, dans le trajet du canal inguinal ; la crurale sort sous l'arcade crurale, en dedans des vaisseaux fémoraux, dans la loge de Scarpa. La crurale est plus petite, plus dure, peu réductible — et c'est elle qui étrangle le plus volontiers."
+        },
+        {
+          "type": "paragraph",
+          "text": "La vie d'une hernie suit quatre stades : réductible (on la rentre), irréductible ou incarcérée (elle ne rentre plus, sans souffrance digestive), étranglée (l'orifice comprime le contenu : occlusion), strangulée (la vascularisation du contenu est compromise : la péritonite menace). Chaque stade appelle une réponse différente — et le dernier impose le bloc en urgence."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2018",
+          "organization": "HerniaSurge Group",
+          "title": "International guidelines for groin hernia management",
+          "year": 2018,
+          "url": "https://doi.org/10.1007/s10029-017-1668-x"
+        }
+      ]
+    },
+    {
+      "id": "anatomie",
+      "title": "I. Anatomie et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La hernie inguinale est directe ou indirecte : l'indirecte suit le canal inguinal depuis l'orifice profond, chemine avec le cordon chez l'homme, et descend parfois jusqu'à la bourse ; la directe pousse en avant à travers la paroi postérieure du canal, la zone de faiblesse de Hesselbach. La distinction compte au bloc : l'indirecte expose à une lésion des éléments du cordon, la directe à une réparation de la paroi postérieure."
+        },
+        {
+          "type": "paragraph",
+          "text": "La hernie crurale passe sous l'arcade crurale, en dedans de la veine fémorale, par l'anneau crural : orifice étroit, rigide, non extensible — c'est cette rigidité qui explique son risque de strangulation. La hernie ombilicale passe par l'ombilic, région de faiblesse congénitale que la grossesse, l'obésité et l'ascite réactivent."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Hernie",
+            "Trajet",
+            "Risque principal"
+          ],
+          "rows": [
+            [
+              "Inguinale indirecte",
+              "Canal inguinal, orifice profond → bourse possible",
+              "Étranglement chez le sujet jeune"
+            ],
+            [
+              "Inguinale directe",
+              "Poussée à travers la paroi postérieure",
+              "Évolution lente, volumineuse"
+            ],
+            [
+              "Crurale",
+              "Anneau crural, en dedans des vaisseaux fémoraux",
+              "Strangulation — femme âgée"
+            ],
+            [
+              "Ombilicale",
+              "Umbilicus",
+              "Incarcération, cirrhotique ascitique"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le test qui distingue inguinale et crurale",
+          "text": "Le doigt sur l'orifice : la hernie inguinale arrive contre le bout du doigt dirigé vers le pubis ; la crurale surgit en dessous et en dehors de la pulpe. L'imagerie n'est utile qu'en cas de doute réel ou d'obésité."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2018",
+          "organization": "HerniaSurge Group",
+          "title": "International guidelines for groin hernia management",
+          "year": 2018,
+          "url": "https://doi.org/10.1007/s10029-017-1668-x"
+        }
+      ]
+    },
+    {
+      "id": "clinique",
+      "title": "II. Clinique et stades",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La hernie réductible se présente comme une tuméfaction apparaissant ou grossissant à l'effort — toux, debout, port de charge — et disparaissant en décubitus ou à la pression douce. La hernie irréductible ne rentre plus : la tuméfaction est fixée, parfois indolore, mais l'évolution menace. L'étranglement ajoute les signes d'occlusion : douleur brutale et violente, vomissements, arrêt des matières et des gaz. La strangulation ajoute la souffrance du contenu : défense, fièvre, signes de choc — c'est l'urgence absolue."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire : ancienneté, réductibilité passée, facteurs d'hyperpression (toux chronique, constipation, prostatisme, port de charges, grossesse).",
+            "Examen debout puis couché : tuméfaction, impulsion à la toux, réductibilité, induration douloureuse.",
+            "Examen des deux côtés : les hernies bilatérales sont fréquentes et leur réparation se discute dans le même temps.",
+            "Chez l'enfant : hernie inguinale congénitale, presque toujours indirecte — la réparation est indiquée dès le diagnostic en raison du risque d'incarcération.",
+            "Chez la femme : palper l'orifice crural — une petite tuméfaction dure sous l'arcade est une crurale jusqu'à preuve du contraire.",
+            "Imagerie (échographie) : doute diagnostique, obésité, douleur sans tuméfaction nette."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Strangulation : le bloc, pas le.taxi",
+          "text": "Douleur brutale sur hernie irréductible, avec vomissements, arrêt du transit ou défense : c'est une strangulation. La réduction forcée est dangereuse — elle peut rentrer du tissu nécrosé. Le patient relève de la chirurgie en urgence, avec réanimation et antibiothérapie si le grêle est souffrant."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Hernie crurale de la femme âgée",
+          "text": "Petite, dure, peu symptomatique : la crurale étrangle sans prévenir. Chez la femme âgée, sa seule présence justifie la réparation sans attendre."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2018",
+          "organization": "HerniaSurge Group",
+          "title": "International guidelines for groin hernia management",
+          "year": 2018,
+          "url": "https://doi.org/10.1007/s10029-017-1668-x"
+        },
+        {
+          "id": "SRC-HERNIASURGE-2023",
+          "organization": "HerniaSurge Collaboration",
+          "title": "Update of the international HerniaSurge guidelines for groin hernia management",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/bjsopen/zrad080"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "III. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la réparation herniaire de référence pour l'aine est la technique prothétique sans tension — type Lichtenstein par voie antérieure, ou cœlioscopie (TAPP ou TEP) selon l'expertise et le terrain. La prothèse diminue la récidive par rapport aux réparations simples sous tension. La réparation non prothétique (Shouldice) reste une alternative dans des mains entraînées ou quand une prothèse est contre-indiquée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Toute hernie symptomatique justifie la réparation. Une hernie inguinale peu symptomatique chez l'homme peut être surveillée — option discutée dans les recommandations — à condition que le patient soit informé du risque d'étranglement et du fait que la chirurgie différée sur hernie compliquée a plus de morbide. La hernie crurale, la hernie obstructive ou douloureuse, et les hernies de l'enfant ne se surveillent pas : elles se réparent."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Conduite",
+            "Remarques"
+          ],
+          "rows": [
+            [
+              "Hernie inguinale symptomatique de l'adulte",
+              "Réparation prothétique (Lichtenstein ou cœlioscopie)",
+              "Ambulatoire si l'état et le contexte le permettent"
+            ],
+            [
+              "Hernie inguinale peu symptomatique, homme informé",
+              "Surveillance discutée",
+              "Le patient connaît les signes d'alerte"
+            ],
+            [
+              "Hernie crurale",
+              "Réparation sans attendre",
+              "Haut risque de strangulation"
+            ],
+            [
+              "Hernie ombilicale de l'adulte",
+              "Réparation si symptomatique ou à risque",
+              "Obésité : perte de poids et réparation à discuter"
+            ],
+            [
+              "Hernie ombilicale du cirrhotique",
+              "Contrôle de l'ascite, puis réparation spécialisée",
+              "Risque hémorragique et de récidive élevés"
+            ],
+            [
+              "Hernie de l'enfant",
+              "Réparation dès le diagnostic",
+              "Risque d'incarcération, quasi-indirecte"
+            ],
+            [
+              "Hernie étranglée/strangulée",
+              "Chirurgie en urgence",
+              "Réanimation, contrôle du contenu, prothèse discutée selon la contamination"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les facteurs d'hyperpression doivent être traités avant ou avec la réparation — toux, constipation, prostatisme — sous peine de récidive. Après strangulation avec grêle nécrosé et contamination, la prothèse est discutée : la réparation par voie anatomique peut être préférée dans ce contexte septique."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Étranglement : jamais de réduction forcée",
+          "text": "La réduction forcée d'une hernie étranglée peut rentrer du contenu digestif souffrant, voire nécrotique : c'est une fausse sécurité. Le traitement est le bloc, avec exploration du contenu."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Traiter la cause de l'hyperpression",
+          "text": "Une hernie réparée chez un patient qui tousse, se constipe ou se rétentionne, est une hernie promise à la récidive. Le traitement de fond fait partie de la réparation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2018",
+          "organization": "HerniaSurge Group",
+          "title": "International guidelines for groin hernia management",
+          "year": 2018,
+          "url": "https://doi.org/10.1007/s10029-017-1668-x"
+        },
+        {
+          "id": "SRC-HERNIASURGE-2023",
+          "organization": "HerniaSurge Collaboration",
+          "title": "Update of the international HerniaSurge guidelines for groin hernia management",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/bjsopen/zrad080"
+        }
+      ]
+    },
+    {
+      "id": "suites",
+      "title": "IV. Suites et complications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les suites d'une réparation simple sont courtes, souvent ambulatoires. Les complications à connaître : hématome, sérome, douleur chronique (sévère chez une minorité de patients — le prévenir par une information loyale), récidive, lésion des éléments du cordon ou du nerf ilio-inguinal. La reprise des activités est précoce et graduelle, sans interdit formel durable."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance postopératoire vérifie la cicatrice, l'absence d'abcès et la reprise d'activité. Une douleur qui persiste au-delà de quelques mois impose une réévaluation : douleur chronique, récidive méconnue, ou origine différente."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Cirrhotique et hernie ombilicale",
+          "text": "Chez le cirrhohique ascitique, la hernie ombilicale menace : rupture, ulcération cutanée, infection. Le contrôle de l'ascite précède et accompagne la réparation, qui doit être menée en milieu spécialisé."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2023",
+          "organization": "HerniaSurge Collaboration",
+          "title": "Update of the international HerniaSurge guidelines for groin hernia management",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/bjsopen/zrad080"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les hernies de l'aine et de l'ombilic se reconnaissent à la tuméfaction d'effort réductible ; la crurale, petite et dure sous l'arcade de la femme âgée, est la plus dangereuse. Les stades — réductible, irréductible, étranglée, strangulée — dictent la conduite, de la chirurgie programmée au bloc en urgence."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la réparation prothétique sans tension est la référence ; la surveillance d'une hernie peu symptomatique est une option informée, jamais un déni. La strangulation, elle, ne se discute pas : elle s'opère."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2018",
+          "organization": "HerniaSurge Group",
+          "title": "International guidelines for groin hernia management",
+          "year": 2018,
+          "url": "https://doi.org/10.1007/s10029-017-1668-x"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "HerniaSurge Group. International guidelines for groin hernia management. Hernia 2018 ; 22 : 1-165. doi:10.1007/s10029-017-1668-x.",
+            "Stabilini C, van Veenendaal N, Aasvang E, et al. Update of the international HerniaSurge guidelines for groin hernia management. BJS Open 2023 ; 7 : zrad080. doi:10.1093/bjsopen/zrad080."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-HERNIASURGE-2023",
+          "organization": "HerniaSurge Collaboration",
+          "title": "Update of the international HerniaSurge guidelines for groin hernia management",
+          "year": 2023,
+          "url": "https://doi.org/10.1093/bjsopen/zrad080"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-stades",
+      "label": "RIÉS",
+      "intro": "Les quatre stades et leur réponse",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Réductible : tuméfaction d'effort qui rentre — réparation programmée."
+        },
+        {
+          "key": "I",
+          "term": "Irréductible (incarcérée) : ne rentre plus sans souffrance digestive — réparer sans attendre."
+        },
+        {
+          "key": "É",
+          "term": "Étranglée : douleur brutale + occlusion — urgence chirurgicale."
+        },
+        {
+          "key": "S",
+          "term": "Strangulée : vascularisation compromise, défense, sepsis — bloc immédiat, jamais de réduction forcée."
+        }
+      ],
+      "note": "Le passage d'un stade à l'autre peut se faire en quelques heures : c'est la raison pour laquelle une hernie connue de longue date peut devenir une urgence d'un soir."
+    },
+    {
+      "id": "mn-crurale",
+      "label": "CRURALE",
+      "intro": "Pourquoi la crurale est la hernie dangereuse",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Creux : sous l'arcade crurale, en dedans des vaisseaux fémoraux."
+        },
+        {
+          "key": "R",
+          "term": "Rigide : orifice crural étroit et non extensible."
+        },
+        {
+          "key": "U",
+          "term": "Urgence de la réparation : elle se fait sans attendre, même peu symptomatique."
+        },
+        {
+          "key": "R",
+          "term": "Rare chez l'homme, fréquente en risque chez la femme âgée."
+        },
+        {
+          "key": "A",
+          "term": "Attentif au bloc : les vaisseaux fémoraux sont à côté."
+        },
+        {
+          "key": "L",
+          "term": "L'imagerie seulement au doute : la clinique tranche le plus souvent."
+        },
+        {
+          "key": "E",
+          "term": "Étranglement : son risque est le plus élevé de toutes les hernies."
+        }
+      ],
+      "note": "Une petite tuméfaction dure sous l'arcade chez une femme âgée vaut une indication opératoire, pas une simple observation."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle est la différence de trajet entre hernie inguinale et crurale ?",
+      "back": "L'inguinale traverse le canal inguinal au-dessus du pubis ; la crurale passe sous l'arcade crurale, en dedans des vaisseaux fémoraux.",
+      "tags": [
+        "anatomie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Pourquoi la hernie crurale est-elle plus dangereuse ?",
+      "back": "Son orifice, l'anneau crural, est étroit et rigide : il comprime le contenu et strangule plus volontiers, en particulier chez la femme âgée.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Citer les quatre stades évolutifs d'une hernie.",
+      "back": "Réductible, irréductible (incarcérée), étranglée (occlusion), strangulée (souffrance vasculaire du contenu).",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quels signes définissent la strangulation d'une hernie ?",
+      "back": "Douleur brutale sur hernie irréductible avec occlusion, défense, fièvre ou choc : le contenu digestive est souffrant, le bloc est immédiat.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Peut-on réduire une hernie étranglée de force ?",
+      "back": "Non : la réduction forcée peut rentrer du tissu nécrotique et masquer la souffrance digestive — c'est une fausse sécurité.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle est la réparation de référence de la hernie inguinale de l'adulte ?",
+      "back": "La réparation prothétique sans tension — Lichtenstein par voie antérieure ou cœlioscopie (TAPP/TEP) selon l'expertise.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "La surveillance d'une hernie inguinale peu symptomatique est-elle acceptable ?",
+      "back": "Oui, chez l'homme informé : c'est une option discutée dans les recommandations — à condition que le patient connaisse les signes d'alerte de l'étranglement.",
+      "tags": [
+        "indication"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelle hernie ne doit jamais être surveillée ?",
+      "back": "La hernie crurale (haut risque de strangulation), la hernie de l'enfant, et toute hernie obstructive ou douloureuse.",
+      "tags": [
+        "indication"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelle est la particularité de la hernie ombilicale du cirrhotique ?",
+      "back": "L'ascite menace de rupture et de récidive : le contrôle de l'ascite précède la réparation, en milieu spécialisé.",
+      "tags": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Pourquoi traiter les facteurs d'hyperpression avec la hernie ?",
+      "back": "Toux, constipation et prostatisme augmentent la pression sur la réparation et font récidiver : leur traitement fait partie de la cure.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle est la principale complication chronique de la cure d'hernie ?",
+      "back": "La douleur chronique, sévère chez une minorité de patients : une information loyale en fait partie de la préparation.",
+      "tags": [
+        "suites"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Comment explorer une hernie ombilicale chez l'obèse ?",
+      "back": "L'échographie au doute ou en cas de douleur sans tuméfaction nette — l'examen seul est souvent insuffisant.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Faut-il mettre une prothèse en cas de strangulation avec contamination ?",
+      "back": "Elle se discute au cas par cas : en contexte septique, une réparation anatomique peut être préférée à la prothèse.",
+      "tags": [
+        "traitement"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Hernies inguinales, crurale et ombilicale",
+      "detail": "Sortie d'un viscère par une zone de faiblesse. Les stades — réductible à strangulée — dictent la conduite, de la chirurgie programmée à l'urgence absolue."
+    },
+    "branches": [
+      {
+        "id": "anatomie",
+        "label": "Anatomie",
+        "tone": "retenir",
+        "detail": "Inguinale directe/indirecte, crurale, ombilicale.",
+        "children": [
+          {
+            "id": "ana-inguinale",
+            "label": "Inguinale",
+            "detail": "Canal inguinal : indirecte (orifice profond) ou directe (paroi postérieure).",
+            "leaves": [
+              {
+                "id": "ana-inguinale-1",
+                "label": "Cordon",
+                "detail": "Éléments à respecter au bloc."
+              }
+            ]
+          },
+          {
+            "id": "ana-crurale",
+            "label": "Crurale",
+            "detail": "Anneau crural, en dedans des vaisseaux fémoraux — étroit et rigide.",
+            "leaves": [
+              {
+                "id": "ana-crurale-1",
+                "label": "Test du doigt",
+                "detail": "Inguinale au-dessus, crurale en dessous."
+              }
+            ]
+          },
+          {
+            "id": "ana-ombilicale",
+            "label": "Ombilicale",
+            "detail": "Faiblesse congénitale réactivée par grossesse, obésité, ascite.",
+            "leaves": [
+              {
+                "id": "ana-ombilicale-1",
+                "label": "Cirrhotique",
+                "detail": "Ascite d'abord, réparation spécialisée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stades",
+        "label": "Stades",
+        "tone": "reflexe",
+        "detail": "Le fil conducteur de la décision.",
+        "children": [
+          {
+            "id": "sta-reductible",
+            "label": "Réductible",
+            "detail": "Tuméfaction d'effort qui rentre — réparation programmée ou surveillance informée.",
+            "leaves": [
+              {
+                "id": "sta-reductible-1",
+                "label": "Crurale",
+                "detail": "Réparer sans attendre."
+              }
+            ]
+          },
+          {
+            "id": "sta-irreductible",
+            "label": "Irréductible",
+            "detail": "Fixée sans souffrance digestive — réparer sans attendre.",
+            "leaves": [
+              {
+                "id": "sta-irreductible-1",
+                "label": "Évolution",
+                "detail": "Menace d'étranglement."
+              }
+            ]
+          },
+          {
+            "id": "sta-etranglee",
+            "label": "Étranglée / strangulée",
+            "detail": "Occlusion, défense, sepsis — bloc en urgence.",
+            "leaves": [
+              {
+                "id": "sta-etranglee-1",
+                "label": "Jamais",
+                "detail": "De réduction forcée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Prothèse de référence, options selon le terrain.",
+        "children": [
+          {
+            "id": "tra-prothese",
+            "label": "Réparation prothétique",
+            "detail": "Lichtenstein ou cœlioscopie TAPP/TEP — sans tension.",
+            "leaves": [
+              {
+                "id": "tra-prothese-1",
+                "label": "Shouldice",
+                "detail": "Alternative entraînée ou contre-indication à la prothèse."
+              }
+            ]
+          },
+          {
+            "id": "tra-hyperpression",
+            "label": "Hyperpression",
+            "detail": "Toux, constipation, prostatisme : traiter avec la hernie.",
+            "leaves": [
+              {
+                "id": "tra-hyperpression-1",
+                "label": "Récidive",
+                "detail": "Sans traitement de fond, la cure récidive."
+              }
+            ]
+          },
+          {
+            "id": "tra-urgence",
+            "label": "Strangulation",
+            "detail": "Réanimation, exploration du contenu, réparation discutée selon contamination.",
+            "leaves": [
+              {
+                "id": "tra-urgence-1",
+                "label": "Grêle",
+                "detail": "Viabilité à évaluer au bloc."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "terrains",
+        "label": "Terrains",
+        "tone": "prudence",
+        "detail": "Les situations qui changent la décision.",
+        "children": [
+          {
+            "id": "ter-enfant",
+            "label": "Enfant",
+            "detail": "Congénitale, quasi-indirecte — réparer dès le diagnostic.",
+            "leaves": [
+              {
+                "id": "ter-enfant-1",
+                "label": "Incarcération",
+                "detail": "Risque qui justifie l'indication."
+              }
+            ]
+          },
+          {
+            "id": "ter-femme",
+            "label": "Femme âgée",
+            "detail": "Palper l'orifice crural : petite tuméfaction dure = réparer.",
+            "leaves": [
+              {
+                "id": "ter-femme-1",
+                "label": "Strangulation",
+                "detail": "Risque le plus élevé."
+              }
+            ]
+          },
+          {
+            "id": "ter-cirrhose",
+            "label": "Cirrhotique",
+            "detail": "Ascite : contrôle d'abord, réparation spécialisée ensuite.",
+            "leaves": [
+              {
+                "id": "ter-cirrhose-1",
+                "label": "Rupture",
+                "detail": "Complication redoutée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Suites courtes, information loyale.",
+        "children": [
+          {
+            "id": "sui-complications",
+            "label": "Complications",
+            "detail": "Hématome, sérome, douleur chronique, récidive.",
+            "leaves": [
+              {
+                "id": "sui-complications-1",
+                "label": "Douleur persistante",
+                "detail": "Réévaluation si elle dure."
+              }
+            ]
+          },
+          {
+            "id": "sui-reprise",
+            "label": "Reprise d'activité",
+            "detail": "Précoce et graduelle, sans interdit durable.",
+            "leaves": [
+              {
+                "id": "sui-reprise-1",
+                "label": "Information",
+                "detail": "Signes d'alerte expliqués avant la sortie."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-HERNIASURGE-2018",
+      "title": "International guidelines for groin hernia management",
+      "citation": "HerniaSurge Group. International guidelines for groin hernia management. Hernia 2018 ; 22 : 1-165. doi:10.1007/s10029-017-1668-x.",
+      "organization": "HerniaSurge Group",
+      "year": 2018,
+      "url": "https://doi.org/10.1007/s10029-017-1668-x",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Classification",
+        "Techniques de réparation",
+        "Surveillance informée",
+        "Hernie crurale"
+      ]
+    },
+    {
+      "id": "SRC-HERNIASURGE-2023",
+      "title": "Update of the international HerniaSurge guidelines for groin hernia management",
+      "citation": "Stabilini C, van Veenendaal N, Aasvang E, et al. Update of the international HerniaSurge guidelines for groin hernia management. BJS Open 2023 ; 7 : zrad080. doi:10.1093/bjsopen/zrad080.",
+      "organization": "HerniaSurge Collaboration",
+      "year": 2023,
+      "url": "https://doi.org/10.1093/bjsopen/zrad080",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Mise à jour des recommandations",
+        "Douleur chronique",
+        "Choix de technique"
+      ]
+    }
+  ]
+}
