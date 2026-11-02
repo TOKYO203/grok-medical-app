@@ -7,6 +7,7 @@ import { getEcg } from "@/lib/ecg/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
 import { EcgDiagnosisPanel } from "@/components/ecg/EcgDiagnosisPanel";
 import { analyzeEcg } from "@/lib/ecg/analyzeEcg";
+import { buildDeformation } from "@/lib/ecg/build-deformation";
 import { cn } from "@/lib/utils";
 
 function EcgAnnotations({ step, annotations }: { step: number; annotations?: Array<{ id: string; revealAtStep: number; type: string; label: string; tone: string; coords: Record<string, number> }> }) {
@@ -39,83 +40,6 @@ function EcgAnnotations({ step, annotations }: { step: number; annotations?: Arr
 }
 
 
-function buildDeformation(data: { rhythm: string; ischemia?: string; title?: string; trace?: { deformation?: import("@/lib/ecg/deformation").EcgDeformation; prIntervalMs?: number } }) {
-  const d: {
-    rhythm?: string;
-    stElevation?: Record<string, number>;
-    stDepression?: Record<string, number>;
-    wideQrs?: boolean;
-    tInverted?: string[];
-    peakedT?: boolean;
-    pAbsent?: boolean;
-    sawTooth?: boolean;
-    fv?: boolean;
-    prProgression?: "constant" | "wenckebach" | "mobitz2";
-    pBlockedEvery?: number;
-    rrVariability?: number;
-    rrSeed?: number;
-    mainsNoiseMv?: number;
-    jWaveMv?: number;
-    prIntervalMs?: number;
-    stCoved?: boolean;
-    stScooped?: boolean;
-    torsadeTwist?: boolean;
-  } = { rhythm: data.rhythm };
-  const t = (data.title ?? "").toLowerCase();
-  if (data.rhythm === "fibrillation-auriculaire") d.pAbsent = true;
-  if (data.rhythm === "flutter-auriculaire") d.sawTooth = true;
-  if (data.rhythm === "tachycardie-ventriculaire") d.wideQrs = true;
-  if (data.rhythm === "torsade-de-pointes") d.wideQrs = true;
-  if (data.rhythm === "fibrillation-ventriculaire") d.fv = true;
-  if (t.includes("bav") && (t.includes("mobitz ii") || t.includes("bav iii"))) d.wideQrs = true;
-  if (t.includes("hyperkali")) d.peakedT = true;
-  // ⚠️ Clés de dérivation alignées sur le moniteur (« I », « II », « III ») —
-  // et non « DI »/« DII »/« DIII » : sinon le sus/sous-décalage ST des
-  // territoires inférieur/latéral n'était JAMAIS appliqué (aucune clé ne
-  // correspondait côté `stOffsetMv`).
-  if (data.ischemia === "lesion-sous-epicardique") {
-    if (t.includes("antérieur")) {
-      d.stElevation = { V2: 0.25, V3: 0.30, V4: 0.30, V5: 0.20 };
-      d.tInverted = ["V2", "V3", "V4"];
-    } else if (t.includes("latéral")) {
-      d.stElevation = { I: 0.20, aVL: 0.25, V5: 0.20, V6: 0.20 };
-    } else if (t.includes("inférieur")) {
-      d.stElevation = { II: 0.20, III: 0.25, aVF: 0.25 };
-      d.stDepression = { aVL: 0.15 };
-    }
-  }
-  if (t.includes("digitalique")) {
-    d.stDepression = { II: 0.10, V4: 0.15, V5: 0.15, V6: 0.15 };
-  }
-  // PR de la fiche (v3) : le tracé décale l'onde P en conséquence —
-  // l'étudiant peut MESURER le PR long (hyperkaliémie, digitalique).
-  if (data.trace?.prIntervalMs !== undefined) d.prIntervalMs = data.trace.prIntervalMs;
-  // Merge des déformations multi-cycles déclarées dans la fiche.
-  if (data.trace?.deformation) {
-    const t = data.trace.deformation;
-    if (t.prProgression) d.prProgression = t.prProgression;
-    if (t.pBlockedEvery !== undefined) d.pBlockedEvery = t.pBlockedEvery;
-    if (t.rrVariability !== undefined) d.rrVariability = t.rrVariability;
-    if (t.rrSeed !== undefined) d.rrSeed = t.rrSeed;
-    if (t.stElevation && !d.stElevation) d.stElevation = t.stElevation;
-    if (t.stDepression && !d.stDepression) d.stDepression = t.stDepression;
-    if (t.wideQrs !== undefined) d.wideQrs = t.wideQrs;
-    if (t.pAbsent !== undefined) d.pAbsent = t.pAbsent;
-    if (t.sawTooth !== undefined) d.sawTooth = t.sawTooth;
-    if (t.fv !== undefined) d.fv = t.fv;
-    if (t.peakedT !== undefined) d.peakedT = t.peakedT;
-    if (t.tInverted) d.tInverted = t.tInverted;
-    if (t.mainsNoiseMv !== undefined) d.mainsNoiseMv = t.mainsNoiseMv;
-    if (t.jWaveMv !== undefined) d.jWaveMv = t.jWaveMv;
-    if (t.prIntervalMs !== undefined) d.prIntervalMs = t.prIntervalMs;
-    if (t.stCoved !== undefined) d.stCoved = t.stCoved;
-    if (t.stScooped !== undefined) d.stScooped = t.stScooped;
-    if (t.torsadeTwist !== undefined) d.torsadeTwist = t.torsadeTwist;
-  }
-
-  return d;
-}
-
 export const Route = createFileRoute("/ecg/$id")({ component: EcgCasePage });
 
 function EcgCasePage() {
@@ -125,6 +49,10 @@ function EcgCasePage() {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
+  // QA #354 : le titre, le badge de rythme et le panneau d’analyse
+  // révèlent le diagnostic AVANT la 1ᵣʳ question — masqués jusqu’à la
+  // première réponse validée.
+  const [diagRevealed, setDiagRevealed] = useState(false);
 
   // Hook AVANT tout return conditionnel (react-hooks/rules-of-hooks).
   const diagnosis = useMemo(() => {
@@ -152,6 +80,7 @@ function EcgCasePage() {
   function choose(i: number) {
     if (revealed) return;
     setPicked(i);
+    setDiagRevealed(true);
     if (i === current.correct) setCorrect((n) => n + 1);
   }
   function next() {
@@ -168,12 +97,12 @@ function EcgCasePage() {
         </button>
         <div className="mb-3 flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="font-display text-xl font-medium tracking-tight">{data.title}</h1>
+            <h1 className="font-display text-xl font-medium tracking-tight">{diagRevealed ? data.title : "Cas ECG — identifiez la pathologie"}</h1>
             <div className="mt-1 flex flex-wrap items-center gap-1.5">
               <span className="rounded-full bg-[#A67C1E]/20 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-[#E8C97A] ring-1 ring-[#A67C1E]/40">
-                {data.rhythm}
+                {diagRevealed ? data.rhythm : "diagnostic masqué"}
               </span>
-              {data.ischemia && data.ischemia !== "normal" ? (
+              {diagRevealed && data.ischemia && data.ischemia !== "normal" ? (
                 <span className="rounded-full bg-danger/15 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-danger ring-1 ring-danger/40">
                   {data.ischemia}
                 </span>
@@ -182,7 +111,7 @@ function EcgCasePage() {
                 {data.difficulty === "intro" ? "Découverte" : data.difficulty === "advanced" ? "Avancé" : "Consolidation"}
               </span>
             </div>
-            <p className="mt-0.5 text-xs text-muted">{data.rhythm} · étape {step + 1}/{data.steps.length}</p>
+            <p className="mt-0.5 text-xs text-muted">{diagRevealed ? data.rhythm + " · " : ""}étape {step + 1}/{data.steps.length}</p>
           </div>
           <span className="font-mono text-xs tabular-nums text-subtle">{correct}/{data.steps.length}</span>
         </div>
@@ -218,7 +147,7 @@ function EcgCasePage() {
         </div>
 
         <div className="mt-4">
-          {diagnosis ? <EcgDiagnosisPanel diagnosis={diagnosis} /> : null}
+          {diagRevealed && diagnosis ? <EcgDiagnosisPanel diagnosis={diagnosis} /> : null}
         </div>
 
         <div className="mt-5 rounded-[var(--radius-lg)] bg-card p-5 shadow-[var(--shadow-border)]">

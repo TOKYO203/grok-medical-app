@@ -3,6 +3,7 @@ import { Activity, ChevronRight } from "lucide-react";
 import { Page, Shell, PageHeader } from "@/components/shell";
 import { listEcg } from "@/lib/ecg/catalog";
 import { EcgMonitor } from "@/components/ecg/EcgMonitor";
+import { ExamenModeEcg } from "@/components/ecg/ExamenModeEcg";
 
 export const Route = createFileRoute("/ecg")({
   component: EcgLibraryPage,
@@ -31,6 +32,9 @@ function EcgLibraryPage() {
         <p className="mt-4 font-mono text-xs tabular-nums text-subtle">
           {cases.length} cas disponible{cases.length > 1 ? "s" : ""}
         </p>
+        <div className="mt-4">
+          <ExamenModeEcg />
+        </div>
         <div className="mt-4 space-y-2">
           {cases.map((c) => (
             <Link key={c.id} to="/ecg/$id" params={{ id: c.id }}
