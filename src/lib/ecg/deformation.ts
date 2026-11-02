@@ -67,6 +67,15 @@ export type EcgDeformation = {
    *  aVR (rythme du sinus coronaire, inversion RA/LA de la malposition),
    *  P négative en DII/DIII/aVF dans le même temps. */
   pFlip?: string[];
+
+  // ── Fidélité clinique (v5) — les 4 derniers pièges QA ─────────────
+  // QA v5 : les fiches vitesse 50 mm/s / étalonnage / QRS fragmentés /
+  // pacemaker décrivaient un signe invisible sur le tracé rendu.
+  /** QRS fragmentés (séquelle de nécrose) : crans serrés sur le
+   *  complexe + onde Q pathologique plus profonde et plus large. */
+  qrsFragmented?: boolean;
+  /** Pacemaker : spike de stimulation fin et raide juste avant chaque QRS. */
+  pacemakerSpike?: boolean;
 };
 
 export type WaveParams = {

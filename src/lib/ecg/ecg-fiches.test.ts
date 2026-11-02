@@ -57,6 +57,9 @@ const KNOWN_DEFORMATION_KEYS = [
   "pFlip", // P inversée par dérivation (malposition, sinus coronaire)
   "stConcave", // sus-décalage concave (péricardite)
   "prDepressionMv", // PR sous-décalé (péricardite)
+  // ── Fidélité clinique v5 (pièges de vitesse/étalonnage/QRS/PM) ──
+  "qrsFragmented", // crans sur le QRS (séquelle de nécrose)
+  "pacemakerSpike", // spike de stimulation (pacemaker)
 ];
 
 test("les 23 fiches de l'index sont cohérentes et pédagogiquement complètes", async () => {
@@ -154,4 +157,9 @@ test("familles de rythme et spot checks cliniques alignes avec le moteur", async
   expect("ecg-5-3-hyperkaliemie", "peakedT", true);
   expect("ecg-1-2-idm-etalonnage", "stElevation", { V2: 0.35, V3: 0.4, V4: 0.3 });
   expect("ecg-5-1-pericardite", "stDepression", { aVR: 0.12 });
+  // ── Spot checks v5 : le tracé soutient la question ──
+  expect("ecg-4-7-qrs-fragmentes", "qrsFragmented", true);
+  expect("ecg-4-6-pacemaker-idm", "pacemakerSpike", true);
+  expect("ecg-4-6-pacemaker-idm", "pAbsent", true);
+  expect("ecg-5-9-repolarisation-precoce", "stConcave", true);
 });

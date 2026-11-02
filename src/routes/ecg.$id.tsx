@@ -141,6 +141,8 @@ function EcgCasePage() {
             bpm={data.trace?.bpm ?? 75}
             soundType={data.sound ?? "bip_normal"}
             deformation={buildDeformation(data)}
+            mmPerSec={data.trace?.mmPerSec ?? 25}
+            initialGain={data.trace?.gainMmPerMv ?? null}
             autoStart
           />
           <EcgAnnotations step={step} annotations={data.annotations as never} />

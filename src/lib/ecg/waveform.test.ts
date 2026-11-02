@@ -102,3 +102,19 @@ test("fidélité clinique v4 : QT adaptatif Bazett, P inversée, PR sous-décal�
   expectLiteral(src, "const pAmp = def?.pFlip?.includes(lead) ? -w.P.a : w.P.a;");
   expectLiteral(src, "if (t > tQ - 0.06 && t < tQ - 0.02) v += prDep;");
 });
+
+test("fidélité clinique v5 : QRS fragmentés et spike pacemaker (2 chemins)", async () => {
+  const src = await waveformSource();
+  // QRS fragmentés (séquelle de nécrose) : crans 110 Hz fenêtrés sur R,
+  // plus une onde Q pathologique profonde et élargie.
+  expectLiteral(src, "const frag = def?.qrsFragmented ?? false;");
+  expectLiteral(src, "v += 0.09 * Math.sin(ph * 2 * Math.PI * 110) * gauss(ph, { mu: PHASE.r, a: 1, sigma: 0.03 });");
+  expectLiteral(src, "v += gauss(ph, { mu: PHASE.q, a: -0.20, sigma: 0.012 });");
+  expectLiteral(src, "v += 0.09 * Math.sin(t * 2 * Math.PI * 110) * gauss(t, { mu: tR, a: 1, sigma: 0.03 });");
+  expectLiteral(src, "v += gauss(t, { mu: tR + qOff, a: -0.20, sigma: 0.012 });");
+  // Pacemaker : spike de stimulation fin juste avant le QRS, sur les deux
+  // chemins de rendu (cycleValues et multiCyclePathMm).
+  expectLiteral(src, "const spike = def?.pacemakerSpike ?? false;");
+  expectLiteral(src, "v += gauss(ph, { mu: PHASE.q - 0.03, a: 2.0, sigma: 0.004 });");
+  expectLiteral(src, "if (spike) v += gauss(t, { mu: tR - 0.03, a: 2.0, sigma: 0.004 });");
+});
