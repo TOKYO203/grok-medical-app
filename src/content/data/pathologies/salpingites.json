@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "salpingites",
+  "title": "Salpingites aiguës non tuberculeuses",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Diagnostiquer une salpingite aiguë (infection génitale haute à gonocoque et chlamydia), la distinguer des autres urgences pelviennes, prescrire l'antibiothérapie probabiliste, dépister les complications (abcès, péritonite) et prévenir les séquelles de fertilité — dans le contexte de soins malgache.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 68,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 109,
+      "localNumber": 68,
+      "sectionLabel": "Médecine",
+      "title": "Salpingites aiguës non tuberculeuses",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche rédigée en français à partir de sources de référence francophones : salpingite aiguë comme forme gynécologique de la maladie inflammatoire pelvienne, germes responsables (Chlamydia trachomatis et Neisseria gonorrhoeae en tête), douleur pelvienne spontanée et provoquée au toucher vaginal avec lectrée, antibiothérapie probabiliste associant ceftriaxone et cycline couverte sur les anaérobies, complications (abcès tubo-ovarien, péritonite) et séquelles (infertilité tubaire, grossesse extra-utérine). Contexte malgache intégré (infections sexuellement transmissibles fréquentes et souvent silencieuses, dépistage et traitement du partenaire).",
+    "verificationNotes": "Contenu vérifié le 1er novembre 2026 : définition, diagnostic et complications selon le Manuel MSD (édition professionnelle, chapitre Maladie pelvienne inflammatoire) ; antibiothérapie selon les recommandations françaises de 2025 sur les infections génitales hautes et la fiche ameli consacrée au traitement de la salpingite. Posologies à adapter selon les protocoles locaux et la disponibilité des molécules.",
+    "qcChecklist": [
+      "Conformité programme Madagascar 2025 (item 68, section Médecine)",
+      "Sources documentaires vérérifiées et citées",
+      "Diagnostic différentiel des algies pelviennes aiguës exposé",
+      "Complications et séquelles de fertilité détaillées",
+      "Adaptation au contexte de soins malgache"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La salpingite aiguë est l'infection de la trompe utérine, constituant la forme la plus fréquente et la plus grave des infections génitales hautes de la femme — on parle aujourd'hui de maladie inflammatoire pelvienne pour désigner l'ensemble endométrite-salpingite-paramétrite. Non tuberculeuse, elle est presque toujours d'origine sexuellement transmissible, dominée par Chlamydia trachomatis et Neisseria gonorrhoeae."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est une maladie doublement redoutable : à court terme par ses complications aiguës (abcès tubo-ovarien, péritonite) ; à long terme parce que chaque épisode abîme la muqueuse tubaire et expose à l'infertilité, à la grossesse extra-utérine et aux récidives. Chez la femme jeune sexuellement active, toute douleur pelvienne fébrile doit faire évoquer une salpingite — le pronostic reproductif se joue sur la précocité du traitement. Les formes silencieuses, particulièrement à chlamydia, sont fréquentes et expliquent bien des infertilités tubaires découvertes tardivement à Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et épidémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La salpingite touche la femme jeune, sexuellement active, typiquement entre 15 et 30 ans. Les facteurs de risque sont comportementaux et obstétricaux : multipartenariat, antécédent d'infection sexuellement transmissible, changement récent de partenaire, absence de préservatif, mais aussi gestes endo-utérins (curetage, insertion de dispositif intra-utérin, accouchement récent, interruption de grossesse) qui ouvrent la voie ascendante de l'infection."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les germes : Chlamydia trachomatis est la première cause (souvent pauci-symptomatique, responsable des formes chroniques et des séquelles tubaires) ; Neisseria gonorrhoeae donne des tableaux plus aigus et fébriles ; Mycoplasma genitalium et les anaérobies de la flore vaginale (Gardnerella, bactéroïdes) s'associent volontiers dans les infections polymicrobiennes. Chez 10 à 20 % des femmes porteuses d'une cervicite gonococcique non traitée, l'infection remonte vers les trompes."
+        },
+        {
+          "type": "paragraph",
+          "text": "La propagation est ascendante : vagin → col → endomètre → trompes → péritoine. Le stade final est l'abcès tubo-ovarien et la péritonite pelvienne. À Madagascar, où les infections à gonocoque et chlamydia circulent largement et où le dépistage systématique est rare, la salpingite reste une cause majeure d'infertilité féminine tubaire — premier motif de consultation en gynécologie dans de nombreuses régions."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et facteurs favorisants",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Germes sexuellement transmissibles : Chlamydia trachomatis (le plus fréquent), Neisseria gonorrhoeae, Mycoplasma genitalium",
+            "Flore vaginale polymicrobienne : anaérobies, Gardnerella vaginalis, entérobactéries — surtout après gestes ou accouchement",
+            "Facteurs comportementaux : âge < 25 ans, multipartenariat, partenaire non traité, antécédent d'infection sexuellement transmissible",
+            "Facteurs iatrogènes et obstétricaux : dispositif intra-utérin (risque accru les premières semaines), curetage, interruption de grossesse, post-partum, post-partum ou post-abortum (infection ascendante à point de départ endo-utérin)",
+            "Forme à part : salpingite tuberculeuse — exclue de cette fiche, mais à évoquer devant une infection pelvienne trainante, fébrile au long cours, avec masse pelvienne fixée dans un contexte d'évolutivité tuberculeuse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tableau typique est celui d'une femme jeune, sexuellement active, présentant une douleur pelvienne basse bilatérale, spontanée et provoquée au toucher vaginal, d'apparition progressive, augmentée par les rapports ou la fatigue, accompagnée de leucorrhées purulentes, de métrorragies et d'une fièvre modérée (38–38,5 °C). Mais le spectre est large : formes peu fébriles et quasi silencieuses (chlamydia), jusqu'aux formes septicémiques avec défense abdominale et péritonite (gonocoque, abcès rompu).",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen retrouve une douleur exquise à la mobilisation utérine, un cul-de-sac de Douglas sensible, des annexes sensible(s) et épaissie(s), parfois une masse pelvique latéro-utérine douloureuse (abcès tubo-ovarien). Au spéculum : cervicite avec pus endocervical, saignement du col au contact (critère évocateur de cervicite). Les formes graves associent défense hypogastrique, ileus, tachycardie et hypotension.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est avant tout clinique, élargi devant tout tableau évocateur chez une femme à risque : la démarche de référence est de traiter précocement et probabilistiquement plutôt que d'attendre des preuves bactériologiques, chaque jour de retard augmentant le risque de séquelles tubaires. Examens à visée d'appui : test de grossesse systématique (éliminer une grossesse extra-utérine, première des urgences à écarter) ; NFS-CRP (syndrome inflammatoire) ; prélèvements cervicaux pour gonocoque et chlamydia (PCR si disponible, ou examen direct au laboratoire) ; échographie pelvienne devant toute masse ou tout doute (abcès, GEU, torsion d'annexe). L'échographie peut être normale dans les salpingites simples — sa normalité n'élimine rien."
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostics différentiels à éliminer systématiquement devant une algie pelvienne aiguë : grossesse extra-utérine (test de grossesse), appendicite aiguë (douleur localisée à droite, défense, migratrice), torsion d'annexe ou rupture de kyste ovarien (douleur brutale), interruption sur kyste hémorragique, et plus rarement endométriose ou pathologie urinaire. La coelioscopie, quand elle est disponible, redresse les diagnostics douteux et permet le prélèvement direct des trompes ; elle n'est pas nécessaire dans les formes typiques."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Femme jeune sexuellement active + douleur pelvienne bilatérale + leucorrhées purulentes + fièvre = salpingite jusqu'à preuve du contraire",
+            "Toucher vaginal : douleur à la mobilisation utérine, annexes douloureuses épaissies",
+            "Spéculum : cervicite (pus endocervical, saignement au contact)",
+            "Toujours : test de grossesse (éliminer une GEU), NFS-CRP, prélèvements, échographie si masse ou doute",
+            "Critères d'hospitalisation : fièvre > 38,5 °C, masse pelvienne, vomissements, suspicion de péritonite, grossesse, échec du traitement oral, impossibilité de suivi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est probabiliste, précoce et couvre systématiquement gonocoque et chlamydia, avec une couverture anaérobie. Schéma ambulatoire de référence : ceftriaxone 500 mg en injection intramusculaire unique + doxycycline 100 mg par voie orale deux fois par jour pendant 14 jours + métronidazole 500 mg deux fois par jour pendant 14 jours (couverture des anaérobies). À Madagascar, en cas d'indisponibilité de la ceftriaxone, la spectinomycine ou, à défaut, une fluoroquinolone si les protocoles locaux le permettent (attention aux résistances du gonocoque), peuvent être proposées selon les recommandations en vigueur ; l'azithromycine 1 g en une prise peut remplacer la doxycycline en cas d'intolérance ou de prévisibilité d'observance faible.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Hospitalisation et voie intraveineuse sont indiquées devant : fièvre élevée ou septicémie, masse pelvienne ou abcès tubo-ovarien, vomissements ou intolérance orale, péritonite, grossesse évolutive, immunodépression, échec du traitement ambulatoire à 72 heures. Le schéma intraveineux associe ceftriaxone + doxycycline + métronidazole, relayé par voie orale après 24 à 48 heures d'apyrexie, pour une durée totale de 14 jours.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mesures indissociables : (1) traiter le ou les partenaires sexuels, même asymptomatiques — sans quoi la réinfection est la règle — et conseiller l'abstinence de rapports non protégés jusqu'à guérison des deux ; (2) proposer systématiquement un dépistage du VIH, de la syphilis et des autres infections sexuellement transmissibles ; (3) contrôler la guérison cliniquement et, quand le prélèvement initial était positif, bactériologiquement ; (4) expliquer à la patiente les séquelles possibles — infertilité, grossesse extra-utérine, douleurs chroniques — pour renforcer l'observance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Complications chirurgicales : l'abcès tubo-ovarien non amendé par l'antibiothérapie (persistance de la masse et de la fièvre après 48–72 heures) relève du drainage — percutané sous guidage échographique ou chirurgical ; la péritonite impose la laparotomie avec lavage péritonéal, parfois l'annexectomie sur annexes détruites. Ces prises en charge nécessitent un transfert vers un centre disposant du bloc et de l'imagerie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ambulatoire : ceftriaxone 500 mg IM unique + doxycycline 100 mg × 2/j 14 jours + métronidazole 500 mg × 2/j 14 jours",
+            "Hospitalisation si : fièvre élevée, masse, vomissements, péritonite, grossesse, échec à 72 h",
+            "Traitement du partenaire obligatoire, dépistage VIH-syphilis systématique",
+            "Abstinence de rapports non protégés jusqu'à guérison des deux partenaires",
+            "Abcès : drainage échoguidé ou chirurgical ; péritonite : chirurgie en urgence",
+            "Contrôle clinique à 72 heures : absence d'amélioration = réévaluation et hospitalisation"
+          ],
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et séquelles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : préservatif systématique, dépistage des infections sexuellement transmissibles chez les femmes jeunes sexuellement actives et chez les partenaires, information sur les risques du multipartenariat. Toute cervicite dépistée doit être traitée avant qu'elle ne devienne salpingite : c'est la meilleure fenêtre de prévention des séquelles tubaires."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention des récidives et des séquelles : traiter complètement chaque épisode (durée totale de 14 jours), traiter simultanément le partenaire, réévaluer à 72 heures. Après une salpingite, l'avenir reproductif dépend de la rapidité du traitement initial : plus celui-ci est précoce, plus les trompes sont préservées. Toute femme aux antécédents de salpingite qui souhaite une grossesse doit être informée du risque accru de grossesse extra-utérine : toute grossesse débutante chez ces patientes impose un contrôle échographique précoce."
+        },
+        {
+          "type": "paragraph",
+          "text": "Séquences à long terme : infertilité tubaire (première cause d'infertilité féminine d'origine infectieuse — risque accru après chaque épisode), grossesse extra-utérine (risque multiplié), douleurs pelviennes chroniques, récidives. À Madagascar, où l'infertilité tubaire est un drame social, le dépistage et le traitement précoce des cervicites et salpingites constituent un enjeu de santé publique majeur."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La salpingite aiguë non tuberculeuse est une urgence gynécologique dont l'enjeu dépasse l'épisode aigu : chaque jour de retard de traitement abîme les trompes et hypothèque la fertilité future. Chez toute femme jeune sexuellement active présentant une douleur pelvienne, le réflexe doit être : test de grossesse, toucher vaginal, et si la salpingite est probable — antibiothérapie probabiliste immédiate couvrant gonocoque et chlamydia, sans attendre les prélèvements. Le traitement du partenaire fait partie intégrante de l'ordonnance, sinon la réinfection annulera l'antibiotique. À Madagascar, la lutte contre les salpingites silencieuses et leurs séquelles tubaires passe par un dépistage simple des cervicites et une éducation au préservatif — la fertilité de toute une génération de femmes en dépend."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Manuel MSD, édition professionnelle — Maladie pelvienne inflammatoire",
+            "Manuel MSD, édition professionnelle — Gonorrhée",
+            "Recommandations sur les infections génitales hautes, endométrite et salpingite (2025)",
+            "ameli — Traitement de la salpingite"
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Péritonite pelvienne / abcès rompu",
+      "text": "Défense abdominale hypogastrique, vomissements, ileus, tachycardie, hypotension chez une femme algique : abcès tubo-ovarien rompu ou péritonite — urgence chirurgicale. Deux voies veineuses, antibiothérapie intraveineuse à large spectre, transfert au bloc : le retard engage le pronostic vital et la fertilité."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Éliminer la grossesse extra-utérine",
+      "text": "Toute algie pelvienne chez une femme en âge de procréer impose un test de grossesse avant tout autre raisonnement : une GEU rompue peut mimer une salpingite (douleur latéro-utérine, masse, troubles hémodynamiques). La salpingite se traite par antibiotiques ; la GEU se traite par chirurgie ou méthotrexate — confondre les deux peut coûter la vie."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe : traiter le partenaire",
+      "text": "Ordonner l'antibiotique sans traiter le ou les partenaires, c'est programmer la réinfection : le partenaire asymptomatique porteur de gonocoque ou de chlamydia est la source de la récidive. Traitement simultané, abstinence de rapports non protégés jusqu'à guérison des deux, et dépistage VIH-syphilis systématique — cette consultation est l'occasion unique de casser la chaîne de transmission."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Femme jeune sexuellement active + douleur pelvienne bilatérale + douleur provoquée au toucher vaginal + leucorrhées purulentes ± fièvre = salpingite. Antibiothérapie probabiliste immédiate : ceftriaxone IM + doxycycline + métronidazole, 14 jours, partenaire traité, contrôle à 72 heures."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo : la salpingite silencieuse",
+      "text": "Les formes à chlamydia sont souvent peu ou pas fébriles : une « simple » douleur pelvienne trainante avec leucorrhées chez une femme jeune peut déjà être une salpingite. C'est elle qui fait les infertilités tubaires découvertes des années plus tard. Devant le moindre doute : toucher vaginal systématique, et ne pas hésiter à traiter probabilistiquement — le prix d'un traitement inutile est sans commune mesure avec celui d'une trompe détruite."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Triade de la salpingite aiguë",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Douleur pelvienne basse, bilatérale, spontanée et provoquée au toucher vaginal"
+        },
+        {
+          "key": "L",
+          "term": "Leucorrhées purulentes, cervicite au spéculum"
+        },
+        {
+          "key": "F",
+          "term": "Fièvre modérée, altération de l'état général variable"
+        }
+      ]
+    },
+    {
+      "label": "Antibiothérapie probabiliste",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Ceftriaxone 500 mg IM unique — couvre le gonocoque"
+        },
+        {
+          "key": "D",
+          "term": "Doxycycline 100 mg × 2/jour, 14 jours — couvre chlamydia"
+        },
+        {
+          "key": "M",
+          "term": "Métronidazole 500 mg × 2/jour, 14 jours — couvre les anaérobies"
+        },
+        {
+          "key": "P",
+          "term": "Partenaire traité simultanément"
+        }
+      ]
+    },
+    {
+      "label": "Critères d'hospitalisation",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fièvre > 38,5 °C ou septicémie"
+        },
+        {
+          "key": "M",
+          "term": "Masse pelvienne (abcès tubo-ovarien)"
+        },
+        {
+          "key": "V",
+          "term": "Vomissements, intolérance orale, péritonite"
+        },
+        {
+          "key": "E",
+          "term": "Échec du traitement oral à 72 heures, grossesse, suivi impossible"
+        }
+      ]
+    },
+    {
+      "label": "Séquelles tubaires",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Infertilité tubaire — première cause d'infertilité infectieuse"
+        },
+        {
+          "key": "G",
+          "term": "Grossesse extra-utérine — risque nettement accru"
+        },
+        {
+          "key": "D",
+          "term": "Douleurs pelviennes chroniques"
+        },
+        {
+          "key": "R",
+          "term": "Récidives — risque majoré après chaque épisode"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition de la salpingite aiguë non tuberculeuse ?",
+      "back": "Infection aiguë de la trompe utérine d'origine sexuellement transmissible (Chlamydia trachomatis, Neisseria gonorrhoeae), forme principale de la maladie inflammatoire pelvienne."
+    },
+    {
+      "id": "f2",
+      "front": "Deux principaux germes responsables ?",
+      "back": "Chlamydia trachomatis (le plus fréquent, formes silencieuses et séquelles tubaires) et Neisseria gonorrhoeae (tableaux plus aigus et fébriles) ; mycoplasmes et anaérobies en association."
+    },
+    {
+      "id": "f3",
+      "front": "Mécanisme de l'infection ?",
+      "back": "Propagation ascendante : vagin → col (cervicite) → endomètre (endométrite) → trompes (salpingite) → péritoine ; favorisée par les rapports non protégés, les gestes endo-utérins et le post-partum."
+    },
+    {
+      "id": "f4",
+      "front": "Présentation clinique typique ?",
+      "back": "Femme jeune sexuellement active : douleur pelvienne basse bilatérale, leucorrhées purulentes, métrorragies, fièvre modérée, douleur exquise à la mobilisation utérine au toucher vaginal."
+    },
+    {
+      "id": "f5",
+      "front": "Signes de cervicite au spéculum ?",
+      "back": "Pus endocervical et saignement du col au contact — signes évocateurs de l'infection à gonocoque ou chlamydia à l'origine de la salpingite."
+    },
+    {
+      "id": "f6",
+      "front": "Premier examen à demander devant toute algie pelvienne de la femme en âge de procréer ?",
+      "back": "Le test de grossesse : il élimine une grossesse extra-utérine ou une complication de grossesse avant tout autre raisonnement diagnostique."
+    },
+    {
+      "id": "f7",
+      "front": "Principaux diagnostics différentiels ?",
+      "back": "Grossesse extra-utérine, appendicite aiguë, torsion d'annexe ou rupture de kyste ovarien, interruption sur kyste hémorragique, pathologie urinaire."
+    },
+    {
+      "id": "f8",
+      "front": "Place de l'échographie pelvienne ?",
+      "back": "Utile devant toute masse ou tout doute (abcès tubo-ovarien, GEU, torsion) ; elle peut être parfaitement normale dans les salpingites simples — sa normalité n'élimine pas le diagnostic."
+    },
+    {
+      "id": "f9",
+      "front": "Antibiothérapie probabiliste ambulatoire de référence ?",
+      "back": "Ceftriaxone 500 mg IM unique + doxycycline 100 mg × 2/jour per os + métronidazole 500 mg × 2/jour, pendant 14 jours ; azithromycine 1 g possible en替代 de la doxycycline si l'observance est douteuse."
+    },
+    {
+      "id": "f10",
+      "front": "Critères d'hospitalisation d'une salpingite ?",
+      "back": "Fièvre élevée ou septicémie, masse pelvienne ou abcès, vomissements ou péritonite, grossesse, échec du traitement oral à 72 heures, impossibilité de suivi."
+    },
+    {
+      "id": "f11",
+      "front": "Que faire devant un abcès tubo-ovarien non amélioré après 48–72 h d'antibiothérapie IV ?",
+      "back": "Drainage échoguidé ou chirurgical, avis chirurgical ; la péritonite impose la laparotomie avec lavage péritonéal, parfois l'annexectomie."
+    },
+    {
+      "id": "f12",
+      "front": "Pourquoi traiter le partenaire est-il indispensable ?",
+      "back": "Le partenaire asymptomatique porteur de gonocoque ou de chlamydia est la source de la réinfection ; sans traitement simultané et abstinence jusqu'à guérison des deux, la récidive est la règle."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles séquelles à long terme d'une salpingite ?",
+      "back": "Infertilité tubaire (première cause d'infertilité infectieuse), grossesse extra-utérine (risque accru), douleurs pelviennes chroniques, récidives."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi la salpingite à chlamydia est-elle particulièrement trompeuse ?",
+      "back": "Elle est souvent peu fébrile, voire silencieuse : une douleur pelvienne trainante avec leucorrhées suffit — d'où les infertilités tubaires découvertes tardivement sans aucun souvenir d'épisode aigu."
+    },
+    {
+      "id": "f15",
+      "front": "Quel dépistage associer systématiquement à la prise en charge ?",
+      "back": "VIH, syphilis et autres infections sexuellement transmissibles ; prélèvements cervicaux pour gonocoque et chlamydia si disponibles (PCR ou examen direct)."
+    },
+    {
+      "id": "f16",
+      "front": "Conseil spécifique après une salpingite à une femme souhaitant une grossesse ?",
+      "back": "L'informer du risque accru de grossesse extra-utérine : toute grossesse débutante chez ces patienttes impose un contrôle échographique précoce pour la localiser."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Salpingites aiguës non tuberculeuses"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Définition et germes",
+        "children": [
+          {
+            "id": "b1a",
+            "label": "Infection de la trompe — maladie inflammatoire pelvienne"
+          },
+          {
+            "id": "b1b",
+            "label": "Chlamydia trachomatis, Neisseria gonorrhoeae"
+          },
+          {
+            "id": "b1c",
+            "label": "Propagation ascendante : col → endomètre → trompes → péritoine"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l1",
+            "label": "Femme 15–30 ans, sexuellement active"
+          },
+          {
+            "id": "l2",
+            "label": "Formes silencieuses à chlamydia"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b2a",
+            "label": "Douleur pelvienne bilatérale + leucorrhées purulentes + fièvre"
+          },
+          {
+            "id": "b2b",
+            "label": "Toucher vaginal : douleur à la mobilisation utérine"
+          },
+          {
+            "id": "b2c",
+            "label": "Test de grossesse systématique, prélèvements, échographie si masse"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l3",
+            "label": "Diagnostic clinique — traiter précocement et probabilistiquement"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Différentiels",
+        "children": [
+          {
+            "id": "b3a",
+            "label": "Grossesse extra-utérine"
+          },
+          {
+            "id": "b3b",
+            "label": "Appendicite aiguë, torsion d'annexe"
+          },
+          {
+            "id": "b3c",
+            "label": "Rupture de kyste, pathologie urinaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l4",
+            "label": "Coelioscopie si doute persistant"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "b4a",
+            "label": "Ceftriaxone IM + doxycycline + métronidazole, 14 jours"
+          },
+          {
+            "id": "b4b",
+            "label": "Hospitalisation si fièvre élevée, masse, péritonite, échec"
+          },
+          {
+            "id": "b4c",
+            "label": "Partenaire traité, dépistage VIH-syphilis"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l5",
+            "label": "Contrôle à 72 heures"
+          },
+          {
+            "id": "l6",
+            "label": "Abcès : drainage échoguidé ou chirurgical"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Séquelles et prévention",
+        "children": [
+          {
+            "id": "b5a",
+            "label": "Infertilité tubaire, grossesse extra-utérine"
+          },
+          {
+            "id": "b5b",
+            "label": "Douleurs chroniques, récidives"
+          },
+          {
+            "id": "b5c",
+            "label": "Préservatif, dépistage des cervicites, éducation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l7",
+            "label": "Enjeu majeur de santé publique à Madagascar"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Pelvic Inflammatory Disease (PID)",
+      "citation": "Manuel MSD, édition professionnelle — chapitre Vaginite, cervicite et maladie inflammatoire pelvienne",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/gyn%C3%A9cologie-et-obst%C3%A9trique/vaginite-cervicite-et-maladie-inflammatoire-pelvienne/maladie-pelvienne-inflammatoire-pid",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "définition",
+        "diagnostic",
+        "complications",
+        "traitement"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Recommandations : infections génitales hautes, endométrite et salpingite",
+      "citation": "Recommandations françaises de 2025 sur les infections génitales hautes de la femme",
+      "organization": "RecoMédicales",
+      "year": 2025,
+      "version": "Recommandation en ligne",
+      "url": "https://recomedicales.fr/recommandations/infections-genitales-hautes/",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "antibiothérapie",
+        "critères d'hospitalisation",
+        "suivi"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Traitement de la salpingite",
+      "citation": "Fiche ameli — traitement de référence de la salpingite, ceftriaxone en injection intramusculaire si le gonocoque est responsable",
+      "organization": "ameli.fr / Assurance Maladie",
+      "year": 2023,
+      "version": "Fiche santé en ligne",
+      "url": "https://www.ameli.fr/assure/sante/themes/salpingite/traitement",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "traitement",
+        "posologies"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Gonorrhea",
+      "citation": "Manuel MSD, édition professionnelle — chapitre Infections sexuellement transmissibles ; remée de 10 à 20 % des cervicites gonococciques vers les trompes",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/maladies-infectieuses/infections-sexuellement-transmissibles-ist/gonorrh%C3%A9e",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "histoire naturelle",
+        "germes"
+      ]
+    }
+  ]
+}
