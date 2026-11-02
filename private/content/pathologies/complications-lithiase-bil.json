@@ -1,0 +1,701 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "complications-lithiase-bil",
+  "title": "Complications de la lithiase biliaire",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Reconnaître et hiérarchiser les complications de la lithiase biliaire — cholécystite aiguë, angiocholite, pancréatite biliaire, iléus biliaire, perforation vésiculaire — connaître leur gravité respective et leur prise en charge urgente, en particulier les situations qui imposent un drainage sans délai.",
+  "language": "fr",
+  "updatedAt": "2026-11-02",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 40,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 215,
+      "localNumber": 40,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Complications de la lithiase biliaire",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des Tokyo Guidelines 2018 (critères diagnostiques, prise en charge chirurgicale et « bundles » de prise en charge de la cholécystite et de la cholangite aiguës). Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "L'angiocholite est présentée comme la seule complication biliaire qui tue en quelques heures : le drainage biliaire, endoscopique ou chirurgical, prime sur toute autre considération, conformément aux Tokyo Guidelines.",
+      "La gradation de gravité TG18 (cholécystite et cholangite légères / modérées / sévères) est utilisée comme grille de décision opératoire : cholécystectomie précoce pour les formes légères et modérées, drainage d'abord pour les formes sévères chez un patient instable.",
+      "Aucune posologie antibiotique ni antalgique n'est donnée : couverture des entérobactéries et des anaérobies, adaptation locale.",
+      "La pancréatite biliaire est traitée ici comme complication lithiasique, en renvoyant le détail de sa prise en charge à la logique générale de la pancréatite aiguë (items « pancréatite » du programme).",
+      "La cholécystectomie percutanée et le drainage percutané sont présentés comme des solutions de sauvetage pour le patient à haut risque opératoire — pertinentes en contexte à ressources limitées.",
+      "Les critères diagnostiques TG18 de la cholécystite et de la cholangite sont résumés sans être reproduits mot à mot."
+    ],
+    "qcChecklist": [
+      "Cholécystite : critères et gradation TG18",
+      "Angiocholite : urgence du drainage biliaire",
+      "Pancréatite biliaire : lien et conduite",
+      "Iléus biliaire et perforation vésiculaire",
+      "Cholécystostomie de sauvetage",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase biliaire devient une urgence quand son calcul migre ou enclave. Quatre complications dominent la pratique : la cholécystite aiguë (l'inflammation de la vésicule obstruée), la cholangite aiguë ou angiocholite (l'infection de la bile en amont d'un obstacle de la voie biliaire principale), la pancréatite aiguë biliaire (l'obstruction de l'ampoule par le calcul) et, plus rarement, l'iléus biliaire (le calcul migre par une fistule vers le grêle) et la perforation vésiculaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ces complications n'ont pas la même gravité, ni le même rythme. La cholécystite de la personne stable se traite en quelques jours ; l'angiocholite septique tue en quelques heures si la bile n'est pas drainée. Hiérarchiser, c'est déjà traiter."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit la logique de gravité croissante : reconnaître la cholécystite, reconnaître l'angiocholite, agir selon la gradation, puis gérer les formes rares."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-BUNDLES",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.519"
+        }
+      ]
+    },
+    {
+      "id": "cholecystite",
+      "title": "I. Cholécystite aiguë",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cholécystite aiguë fait suite à l'obstruction persistante du canal cystique. Le tableau associe douleur de l'hypochondre droit qui dure, fièvre, signe de Murphy positif (arrêt inspiratoire à la palpation), leucocytose et CRP élevées. L'échographie montre une paroi vésiculaire épaissie, un calcul enclavé, parfois un épanchement péri-vésiculaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "La gradation TG18 distingue trois niveaux : légère (inflammation sans défaillance d'organe ni retentissement majeur), modérée (durée supérieure à 72 heures, abcès péri-cholecystique, forme gazeuse, troubles biologiques marqués) et sévère (défaillance d'organe). Cette gradation décide de la stratégie : cholécystectomie précoce pour les formes légères et modérées opérables, drainage et réanimation d'abord pour les formes sévères ou inopérables d'emblée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Toute cholécystite justifie l'hospitalisation : antibiothérapie, réévaluation clinique et biologique.",
+            "Chez un patient stable : cholécystectomie précoce, de préférence cœlioscopique, par une équipe entraînée.",
+            "Chez le patient septique ou à très haut risque opératoire : drainage biliaire d'abord — cholécystostomie percutanée ou drainage chirurgical — et cholécystectomie différée.",
+            "La forme emphysémateuse (gas dans la paroi) et l'abcès péri-vésiculaire relèvent d'un contrôle de la source plus agressif.",
+            "Réévaluation à 48-72 heures : une évolution défavorable impose de réintervenir sur la stratégie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Cholécystite sévère = drainage d'abord",
+          "text": "Chez un patient en défaillance, l'objectif immédiat n'est pas d'enlever la vésicule mais de décomprimer la bile : cholécystostomie percutanée si disponible, sinon drainage chirurgical minimal. La cholécystectomie viendra à froid."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le sujet diabétique et le sujet âgé",
+          "text": "Les formes emphysémateuses et perforées sont plus fréquentes chez le diabétique et le sujet âgé, avec des signes généraux qui peuvent tromper : devant une sepsis de cause peu claire chez ces patients, l'échographie biliaire fait partie du bilan minimal."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-CRITERIA",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.515"
+        },
+        {
+          "id": "SRC-TG18-SURGERY",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: surgical management of acute cholecystitis: safe steps in laparoscopic cholecystectomy",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.517"
+        }
+      ]
+    },
+    {
+      "id": "angiocholite",
+      "title": "II. Angiocholite (cholangite aiguë)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'angiocholite est l'infection de la bile en amont d'un obstacle — le plus souvent un calcul de la voie biliaire principale. Le tableau classique de Charcot alterne fièvre avec frissons, ictère et douleur de l'hypochondre droit ; la forme complète est tardive, et l'attente du triptyque complet est une erreur : une fièvre avec frissons et un ictère doivent suffire à déclencher la prise en charge."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'angiocholite sévère (avec hypotension, confusion, défaillance d'organe) est une urgence vitale : l'antibiothérapie seule ne suffira pas tant que l'obstacle n'est pas levé. Le drainage biliaire — par voie endoscopique (sphinctérotomie et extraction du calcul) lorsqu'elle est disponible, par drainage chirurgical ou percutané sinon — doit être obtenu dans les heures qui suivent."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Degré TG18",
+            "Présentation",
+            "Conduite"
+          ],
+          "rows": [
+            [
+              "Angiocholite légère",
+              "Fièvre, ictère, douleur, état général conservé",
+              "Antibiothérapie et drainage biliaire programmé"
+            ],
+            [
+              "Angiocholite modérée",
+              "Âge élevé, bilirubine élevée, albumine basse",
+              "Drainage biliaire sans délai, surveillance rapprochée"
+            ],
+            [
+              "Angiocholite sévère",
+              "Défaillance d'organe, hypotension, confusion",
+              "Réanimation, antibiothérapie, drainage biliaire URGENT"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Drainer la bile, pas seulement antibiotiquer",
+          "text": "Dans l'angiocholite, l'antibiothérapie traite l'infection mais pas l'obstacle. Sans drainage biliaire, le sepsis se perpétue : c'est le geste qui sauve."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Trio de Charcot — sans en attendre la complétude",
+          "text": "Fièvre + frissons, ictère, douleur de l'hypochondre droit. Deux éléments sur trois chez un lithiasique doivent déjà déclencher la démarche : attendre le trio complet, c'est attendre le sepsis avéré."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-BUNDLES",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.519"
+        }
+      ]
+    },
+    {
+      "id": "pancreatite",
+      "title": "III. Pancréatite aiguë biliaire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le calcul qui obstrue l'ampoule de Vater déclenche une pancréatite aiguë : douleur transfixiante de l'épigastre irradiant en barre, vomissements, lipase élevée. La pancréatite biliaire signe une lithiase migratrice : le traitement de l'épisode suit les règles générales de la pancréatite aiguë — remplissage, analgésie, dépistage des formes sévères — et la cause se traite ensuite."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux décisions propres au contexte biliaire : la cholécystectomie doit être programmée dans les suites de l'épisode, idéalement sur le même séjour, pour éviter la récidive ; et devant une pancréatite avec angiocholite associée, le drainage endoscopique s'impose en urgence."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Toute pancréatite d'origine biliaire mérite une cholécystectomie",
+          "text": "Tant que la vésicule lithiasique est en place, la récidive menace. L'épisode de pancréatite est le moment où l'indication devient formelle — ne pas la perdre de vue en sortie d'hospitalisation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-BUNDLES",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.519"
+        }
+      ]
+    },
+    {
+      "id": "formes-rares",
+      "title": "IV. Formes rares et situations pièges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'iléus biliaire : un calcul volumineux migre par une fistule cholécysto-duodénale et obstrue le grêle, le plus souvent l'iléon terminal — occlusion chez une femme âgée, avec pneumobilie à l'imagerie. Le traitement est chirurgical : obstruction levée, fistule traitée dans le même temps ou à distance."
+        },
+        {
+          "type": "paragraph",
+          "text": "La perforation vésiculaire et l'abcès péri-vésiculaire : douleur brutale, défense, sepsis ; l'imagerie confirme. La prise en charge associe antibiothérapie, drainage et cholécystectomie, dont le moment dépend de la stabilité du patient."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le syndrome de Mirizzi : un calcul enclavé dans le canal cystique comprime de l'extérieur la voie biliaire principale, créant un ictère obstructif sans calcul dans la voie — piège opératoire majeur, car la dissection habituelle expose à une plaie de la voie biliaire principale. Le diagnostic préopératoire (imagerie) change la stratégie : drainage, puis chirurgie spécialisée."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Mirizzi : le piège de l'ictère « sans cause »",
+          "text": "Un ictère obstructif chez un lithiasique dont la voie biliaire principale semble vide doit faire évoquer la compression par un calcul du canal cystique. Opérer ce piège sans le savoir expose à une plaie de la voie biliaire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-SURGERY",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: surgical management of acute cholecystitis: safe steps in laparoscopic cholecystectomy",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.517"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les complications de la lithiase biliaire se hiérarchisent : la cholécystite hospitalise, l'angiocholite tue, la pancréatite menace la récidive. La gradation TG18 — légère, modérée, sévère — transforme cette hiérarchie en décision opératoire : cholécystectomie précoce chez le stable, drainage d'abord chez le septique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux réflexes résument la fiche : drainer la bile devant une angiocholite, et programmer la cholécystectomie après toute complication, pour que la crise ne se répète pas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-BUNDLES",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.519"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Yokoe M, Hata J, Takada T, et al. Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 41-54. doi:10.1002/jhbp.515.",
+            "Wakabayashi G. Tokyo Guidelines 2018: surgical management of acute cholecystitis: safe steps in laparoscopic cholecystectomy for acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 73-86. doi:10.1002/jhbp.517.",
+            "Miura F, Okamoto K, Takada T, et al. Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 96-100. doi:10.1002/jhbp.519."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-BUNDLES",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.519"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-charcot",
+      "label": "CHARCOT",
+      "intro": "L'angiocholite et ses pièges",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Curieuse : fièvre avec FRISONS — le trismus thermique oriente déjà."
+        },
+        {
+          "key": "H",
+          "term": "Hypotension : signe de gravité, ne pas attendre."
+        },
+        {
+          "key": "A",
+          "term": "Antibiothérapie large : entérobactéries et anaérobies — mais elle ne suffit pas."
+        },
+        {
+          "key": "R",
+          "term": "Réservoir de bile infectée : lever l'obstacle par voie endoscopique, percutanée ou chirurgicale."
+        },
+        {
+          "key": "C",
+          "term": "Compléter le trio est inutile : deux éléments suffisent pour agir."
+        },
+        {
+          "key": "O",
+          "term": "Ordre des gestes : réanimation, antibiotiques, DRAINAGE — le drainage est le geste qui sauve."
+        },
+        {
+          "key": "T",
+          "term": "Temps : heures, pas jours. L'angiocholite sévère tue en quelques heures."
+        }
+      ],
+      "note": "Le trio complet de Charcot est un repère académique, pas un critère d'attente."
+    },
+    {
+      "id": "mn-gradetg",
+      "label": "GRAVÉ",
+      "intro": "Gradation TG18 et décision opératoire",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Gravité : légère, modérée, sévère — la gradation décide."
+        },
+        {
+          "key": "R",
+          "term": "Rien de grave (légère/modérée) : cholécystectomie précoce si opérable."
+        },
+        {
+          "key": "A",
+          "term": "Altéré (défaillance d'organe) : drainage d'abord, chirurgie à froid."
+        },
+        {
+          "key": "V",
+          "term": "Vésicule : la cholécystostomie percutanée est le sauvetage du patient instable."
+        },
+        {
+          "key": "É",
+          "term": "Évaluer à 48-72 h : une évolution défavorable fait changer la stratégie."
+        }
+      ],
+      "note": "La gradation TG18 n'est pas un score académique : c'est un aiguillage opératoire."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle est la complication biliaire qui tue en quelques heures ?",
+      "back": "L'angiocholite (cholangite aiguë) septique : sans drainage biliaire, l'antibiothérapie seule ne contrôle pas l'infection.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Citer les trois complications principales de la lithiase biliaire.",
+      "back": "La cholécystite aiguë, l'angiocholite et la pancréatite aiguë biliaire.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quels critères définissent la cholécystite aiguë ?",
+      "back": "Douleur de l'hypochondre droit persistante, fièvre, signe de Murphy, leucocytose/CRP, paroi vésiculaire épaissie et calcul à l'échographie.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelle stratégie pour une cholécystite légère ou modérée chez un patient stable ?",
+      "back": "Antibiothérapie et cholécystectomie précoce, de préférence cœlioscopique, par une équipe entraînée.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle stratégie pour une cholécystite sévère avec défaillance d'organe ?",
+      "back": "Réanimation, antibiothérapie et drainage biliaire d'abord — cholécystostomie percutanée ou drainage chirurgical — cholécystectomie différée.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Que faut-il faire devant une angiocholite sévère ?",
+      "back": "Réanimation, antibiothérapie IV et drainage biliaire urgent — endoscopique si disponible, sinon percutané ou chirurgical.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Le trio de Charcot doit-il être complet pour traiter une angiocholite ?",
+      "back": "Non : deux des trois éléments (fièvre avec frissons, ictère, douleur) chez un patient suspect suffisent pour engager la prise en charge.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Pourquoi opérer la vésicule après une pancréatite biliaire ?",
+      "back": "Tant que la vésicule lithiasique est en place, la récidive menace : la cholécystectomie, idéalement sur le même séjour, prévient l'épisode suivant.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Qu'est-ce que l'iléus biliaire ?",
+      "back": "Une occlusion du grêle — souvent iléale — par un calcul volumineux passé par une fistule cholécysto-duodénale ; pneumobilie possible, traitement chirurgical.",
+      "tags": [
+        "forme rare"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Qu'est-ce que le syndrome de Mirizzi ?",
+      "back": "La compression de la voie biliaire principale par un calcul enclavé dans le canal cystique : ictère obstructif « sans calcul dans la VBP », piège opératoire majeur.",
+      "tags": [
+        "piège"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle forme de cholécystite est plus fréquente chez le diabétique ?",
+      "back": "La forme emphysémateuse (gaz dans la paroi vésiculaire), plus à risque de perforation et de sepsis grave.",
+      "tags": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quel est le drainage de sauvetage du patient instable avec cholécystite ?",
+      "back": "La cholécystostomie percutanée — ou à défaut un drainage chirurgical minimal — avant toute cholécystectomie différée.",
+      "tags": [
+        "traitement"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Complications de la lithiase biliaire",
+      "detail": "Quatre urgences de gravité décroissante dans l'ordre de la migration du calcul : cholécystite, angiocholite, pancréatite, formes rares. La gradation TG18 aiguille la décision opératoire."
+    },
+    "branches": [
+      {
+        "id": "cholecystite",
+        "label": "Cholécystite",
+        "tone": "reflexe",
+        "detail": "Obstruction cystique persistante, inflammation.",
+        "children": [
+          {
+            "id": "cho-criteres",
+            "label": "Critères",
+            "detail": "Douleur durable, fièvre, Murphy, biologie, échographie.",
+            "leaves": [
+              {
+                "id": "cho-criteres-1",
+                "label": "Gradation TG18",
+                "detail": "Légère, modérée, sévère."
+              }
+            ]
+          },
+          {
+            "id": "cho-traitement",
+            "label": "Traitement",
+            "detail": "Antibiothérapie + cholécystectomie précoce si stable.",
+            "leaves": [
+              {
+                "id": "cho-traitement-1",
+                "label": "Sévère",
+                "detail": "Drainage d'abord, chirurgie à froid."
+              },
+              {
+                "id": "cho-traitement-2",
+                "label": "Emphysémateuse",
+                "detail": "Diabétique, âgé : agressivité accrue."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "angiocholite",
+        "label": "Angiocholite",
+        "tone": "urgence",
+        "detail": "L'urgence vitale biliaire.",
+        "children": [
+          {
+            "id": "ang-clinique",
+            "label": "Clinique",
+            "detail": "Fièvre avec frissons, ictère, douleur.",
+            "leaves": [
+              {
+                "id": "ang-clinique-1",
+                "label": "Deux sur trois",
+                "detail": "Suffisent pour agir."
+              }
+            ]
+          },
+          {
+            "id": "ang-drainage",
+            "label": "Drainage biliaire",
+            "detail": "Endoscopique, percutané ou chirurgical — dans les heures.",
+            "leaves": [
+              {
+                "id": "ang-drainage-1",
+                "label": "Antibiotiques",
+                "detail": "Indispensables mais insuffisants seuls."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pancreatite",
+        "label": "Pancréatite biliaire",
+        "tone": "retenir",
+        "detail": "Calcul obstruant l'ampoule.",
+        "children": [
+          {
+            "id": "pan-episode",
+            "label": "Épisode aigu",
+            "detail": "Règles générales de la pancréatite aiguë.",
+            "leaves": [
+              {
+                "id": "pan-episode-1",
+                "label": "Lipase",
+                "detail": "Confirme le diagnostic."
+              }
+            ]
+          },
+          {
+            "id": "pan-cause",
+            "label": "Traitement de la cause",
+            "detail": "Cholécystectomie dans les suites, pour éviter la récidive.",
+            "leaves": [
+              {
+                "id": "pan-cause-1",
+                "label": "Même séjour",
+                "detail": "Si l'état du patient le permet."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rares",
+        "label": "Formes rares",
+        "tone": "prudence",
+        "detail": "Les pièges de l'imagerie et du bloc.",
+        "children": [
+          {
+            "id": "rar-ileus",
+            "label": "Iléus biliaire",
+            "detail": "Fistule cholécysto-duodénale, occlusion du grêle.",
+            "leaves": [
+              {
+                "id": "rar-ileus-1",
+                "label": "Pneumobilie",
+                "detail": "Signe d'appel à l'imagerie."
+              }
+            ]
+          },
+          {
+            "id": "rar-mirizzi",
+            "label": "Mirizzi",
+            "detail": "Compression de la VBP par le calcul du cystique.",
+            "leaves": [
+              {
+                "id": "rar-mirizzi-1",
+                "label": "Ictère sans calcul",
+                "detail": "Piège opératoire, diagnostic préopératoire indispensable."
+              }
+            ]
+          },
+          {
+            "id": "rar-perf",
+            "label": "Perforation",
+            "detail": "Douleur brutale, défense, sepsis, drainage.",
+            "leaves": [
+              {
+                "id": "rar-perf-1",
+                "label": "Abcès péri-vésiculaire",
+                "detail": "Drainage + cholécystectomie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "strategie",
+        "label": "Stratégie globale",
+        "tone": "memo",
+        "detail": "Hiérarchiser, c'est déjà traiter.",
+        "children": [
+          {
+            "id": "str-graduation",
+            "label": "Gradation TG18",
+            "detail": "Légère/modérée : opérer tôt. Sévère : drainer d'abord.",
+            "leaves": [
+              {
+                "id": "str-graduation-1",
+                "label": "48-72 h",
+                "detail": "Réévaluation obligatoire."
+              }
+            ]
+          },
+          {
+            "id": "str-sauvetage",
+            "label": "Sauvetage",
+            "detail": "Cholécystostomie percutanée du patient instable.",
+            "leaves": [
+              {
+                "id": "str-sauvetage-1",
+                "label": "Contexte",
+                "detail": "Utile en ressources limitées."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-TG18-CRITERIA",
+      "title": "Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis",
+      "citation": "Yokoe M, Hata J, Takada T, et al. Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 41-54. doi:10.1002/jhbp.515.",
+      "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+      "year": 2018,
+      "url": "https://doi.org/10.1002/jhbp.515",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Critères diagnostiques",
+        "Gradation de gravité",
+        "Décision opératoire"
+      ]
+    },
+    {
+      "id": "SRC-TG18-SURGERY",
+      "title": "Tokyo Guidelines 2018: surgical management of acute cholecystitis",
+      "citation": "Wakabayashi G. Tokyo Guidelines 2018: surgical management of acute cholecystitis: safe steps in laparoscopic cholecystectomy for acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 73-86. doi:10.1002/jhbp.517.",
+      "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+      "year": 2018,
+      "url": "https://doi.org/10.1002/jhbp.517",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Cholécystectomie précoce",
+        "Gestes de sauvetage",
+        "Conversion"
+      ]
+    },
+    {
+      "id": "SRC-TG18-BUNDLES",
+      "title": "Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis",
+      "citation": "Miura F, Okamoto K, Takada T, et al. Tokyo Guidelines 2018: management bundles for acute cholangitis and cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 96-100. doi:10.1002/jhbp.519.",
+      "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+      "year": 2018,
+      "url": "https://doi.org/10.1002/jhbp.519",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Bundles de prise en charge",
+        "Angiocholite",
+        "Chronologie des gestes"
+      ]
+    }
+  ]
+}

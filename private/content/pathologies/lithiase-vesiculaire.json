@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "lithiase-vesiculaire",
+  "title": "Lithiase vésiculaire",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Distinguer la lithiase vésiculaire asymptomatique, la colique biliaire simple et les complications, savoir quand la cholécystectomie est indiquée — et chez qui s'abstenir — et reconnaître les situations d'urgence qui imposent de hospitaliser et d'opérer sans délai.",
+  "language": "fr",
+  "updatedAt": "2026-11-02",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 39,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 214,
+      "localNumber": 39,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Lithiase vésiculaire",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations EASL 2016 sur la lithiase biliaire et des Tokyo Guidelines 2018 sur la cholécystite aiguë. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche suit la position EASL : la cholécystectomie n'est PAS indiquée pour une lithiase vésiculaire asymptomatique dans la grande majorité des cas, à l'exception de populations particulières (transplantation, hémodialyse, anomalies de la paroi) que la fiche cite sans trancher à leur place.",
+      "La distinction colique biliaire / cholécystite aiguë est présentée comme la décision clinique centrale : la colique cède en quelques heures, la cholécystite installe une fièvre et une défense qui durent.",
+      "Aucune posologie antalgique ni antibiotique n'est donnée ; les principes de prise en charge et la gravité guident la conduite.",
+      "La cholangiographie peropératoire et l'exploration de la voie biliaire principale sont mentionnées comme stratégies validées face à un calcul de la voie biliaire principale, sans privilégier une école (endoscopie préopératoire versus cholédocotomie) : les deux sont présentées avec leurs conditions.",
+      "Le risque de plaie de la voie biliaire principale est signalé comme la complication spécifique redoutée de la cholécystectomie, avec le concept de « critical view of safety » comme mesure de prévention."
+    ],
+    "qcChecklist": [
+      "Lithiase asymptomatique : abstention sauf populations particulières",
+      "Colique biliaire versus cholécystite",
+      "Indications de la cholécystectomie",
+      "Calcul de la voie biliaire principale : stratégies",
+      "Prévention de la plaie de la VBP (critical view of safety)",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase vésiculaire — les calculs biliaires — est l'une des pathologies digestives les plus fréquentes au monde. Sa particularité est que, dans l'immense majorité des cas, elle ne fait rien : la lithiase asymptomatique découverte fortuitement ne demande ni traitement ni surveillance rapprochée. Tout l'art de la prise en charge consiste donc à ne pas traiter ceux qui n'en ont pas besoin, et à reconnaître vite ceux dont le calcul va compliquer."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quand la lithiase se manifeste, c'est presque toujours par obstruction du col vésiculaire : la colique biliaire, douleur brutale de l'hypochondre droit, en coupe, irradiant vers l'épaule droite, cédant en quelques heures. Si l'obstruction persiste, l'inflammation s'installe : c'est la cholécystite aiguë, qui relève de l'hôpital."
+        },
+        {
+          "type": "paragraph",
+          "text": "La lithiase expose enfin à des complications plus graves — calcul de la voie biliaire principale avec ictère et angiocholite, pancréatite biliaire — détaillées dans la fiche « complications de la lithiase biliaire », et à un risque accru de cancer de la vésicule au long cours dans certaines lithiases à gros calculs de longue durée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EASL-GALLSTONES-2016",
+          "organization": "European Association for the Study of the Liver (EASL)",
+          "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jhep.2016.09.001"
+        }
+      ]
+    },
+    {
+      "id": "physiopathologie",
+      "title": "I. Formation et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Trois grands mécanismes produisent les calculs : la sursaturation de la bile en cholestérol (calculs cholestéroliques, les plus fréquents dans les populations occidentales), l'hémolyse chronique qui charge la bile en bilirubine non conjuguée (calculs pigmentés, fréquents dans les drépanocytoses et les hémoglobinopathies — pertinents à Madagascar), et la stase vésiculaire (grossesse, nutrition parentérale, jeûne prolongé)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le calcul devient pathogène quand il migre. Bloqué dans le col ou le canal cystique, il déclenche la colique puis la cholécystite. Descendu dans la voie biliaire principale, il donne l'ictère par obstruction, l'angiocholite si l'infection s'ajoute, et la pancréatite aiguë biliaire s'il obstrue l'ampoule. Ces trois trajectoires — colique, ictère, pancréatite — structurent toute la clinique de la lithiase."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Mécanisme",
+            "Conséquence"
+          ],
+          "rows": [
+            [
+              "Calcul enclavé dans le col",
+              "Obstruction cystique transitoire",
+              "Colique biliaire"
+            ],
+            [
+              "Obstruction persistante",
+              "Inflammation, œdème, surinfection",
+              "Cholécystite aiguë"
+            ],
+            [
+              "Calcul dans la voie biliaire principale",
+              "Obstruction du flux biliaire",
+              "Ictère, angiocholite"
+            ],
+            [
+              "Calcul à l'ampoule",
+              "Obstruction pancréatique",
+              "Pancréatite aiguë biliaire"
+            ],
+            [
+              "Fistule bilio-digestive",
+              "Calcul migre dans le grêle",
+              "Iléus sur calcul (maladie de Bouveret)"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Calculs pigmentés et hémoglobinopathies",
+          "text": "Chez le patient drépanocytaire ou porteur d'hémolyse chronique, penser lithiase pigmentée : elle survient plus tôt, et justifie une attention particulière des douleurs de l'hypochondre droit."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EASL-GALLSTONES-2016",
+          "organization": "European Association for the Study of the Liver (EASL)",
+          "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jhep.2016.09.001"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La colique biliaire typique est une douleur brutale de l'hypochondre droit ou de l'épigastre, en coupe, irradiant vers l'angle costal ou l'épaule droite, intense, obligeant à s'arrêter, accompagnée de nausées, durant typiquement moins de six heures puis cédant complètement. Entre les crises, le patient est bien. Ce caractère « tout ou rien » distingue la colique d'une douleur ulcéreuse ou d'une cholécystite."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Échographie abdominale : examen de référence — calculs intravésiculaires, paroi vésiculaire, calibre de la voie biliaire principale.",
+            "Biologie : NFS, CRP, bilan hépatique, lipase — pour dépister une complication, pas pour confirmer la lithiase simple.",
+            "La colique biliaire pure est biologique : un bilan hépatique cholestatique ou une lipase élevée fait chercher un calcul de la voie biliaire principale ou une pancréatite.",
+            "Échographie endoscopique ou IRM biliaire (cholangio-IRM) si suspicion de calcul de la voie biliaire principale non vu à l'échographie.",
+            "Pas de scanner de première intention pour la lithiase simple : l'échographie suffit."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La cholécystite aiguë s'installe quand la douleur ne cède pas : fièvre, défense de l'hypochondre droit, murphy échographique, leucocytose. C'est un changement de catégorie : le patient passe de la consultation à l'hospitalisation, de la chirurgie programmée à la prise en charge urgente."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Colique ou cholécystite ?",
+          "text": "La colique cède en quelques heures et laisse un patient indemne entre les crises. La douleur qui dure au-delà de six heures, avec fièvre et défense, est une cholécystite jusqu'à preuve du contraire — et change la conduite."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EASL-GALLSTONES-2016",
+          "organization": "European Association for the Study of the Liver (EASL)",
+          "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jhep.2016.09.001"
+        },
+        {
+          "id": "SRC-TG18-FLOW",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.516"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "III. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase asymptomatique découverte fortuitement ne justifie pas de cholécystectomie dans la grande majorité des cas : le risque annuel de devenir symptomatique est faible, et la chirurgie n'apporte pas de bénéfice net. Les exceptions discutées dans les recommandations — patients en attente de transplantation, hémodialysés, certaines anomalies de la paroi — relèvent d'une évaluation au cas par cas."
+        },
+        {
+          "type": "paragraph",
+          "text": "La colique biliaire récidivante justifie une cholécystectomie programmée : c'est le traitement de fond qui supprime l'organe lithogène et prévient les complications. La chirurgie est de préférence cœlioscopique, avec une convalescence courte. Différer indéfiniment une lithiase symptomatique, c'est accepter le risque de cholécystite, d'angiocholite ou de pancréatite."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Conduite",
+            "Remarques"
+          ],
+          "rows": [
+            [
+              "Lithiase asymptomatique",
+              "Abstention, pas de surveillance systématique",
+              "Exceptions : transplantation, hémodialyse — au cas par cas"
+            ],
+            [
+              "Colique biliaire",
+              "Antalgiques, puis cholécystectomie programmée",
+              "La cholécystectomie supprime le risque de complication"
+            ],
+            [
+              "Cholécystite aiguë",
+              "Hospitalisation, antibiothérapie, cholécystectomie précoce",
+              "Prise en charge urgente — cf. fiche complications"
+            ],
+            [
+              "Calcul de la voie biliaire principale",
+              "Extraction endoscopique ou cholédocotomie",
+              "Stratégie selon disponibilité et expertise"
+            ],
+            [
+              "Pancréatite biliaire",
+              "Traitement de la pancréatite + cholécystectomie",
+              "Cholécystectomie dans les suites, pour éviter la récidive"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Devant un calcul de la voie biliaire principale, deux stratégies validées coexistent : l'extraction par voie endoscopique (CPRE) avant ou après la cholécystectomie, et l'exploration chirurgicale de la voie biliaire principale au cours de la cholécystectomie, avec cholangiographie peropératoire. Le choix dépend de l'expertise disponible, du terrain et du contexte : la fiche n'en impose aucune."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "La plaie de la voie biliaire principale",
+          "text": "La complication redoutée de la cholécystectomie est la plaie de la voie biliaire principale. Sa prévention tient en une règle opératoire : identifier clairement le triangle de Calot et obtenir une « critical view of safety » avant de clamper tout canal — et savoir renoncer à une dissection dangereuse au profit d'une conversion ou d'un drainage."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Différer n'est pas neutraliser",
+          "text": "Un patient chez qui l'on diffère une cholécystectomie indiquée doit être informé des signes qui imposent de revenir en urgence : douleur qui dure, fièvre, ictère, urines foncées."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EASL-GALLSTONES-2016",
+          "organization": "European Association for the Study of the Liver (EASL)",
+          "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jhep.2016.09.001"
+        },
+        {
+          "id": "SRC-TG18-FLOW",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.516"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La lithiase vésiculaire asymptomatique ne se traite pas. La colique biliaire récidivante justifie une cholécystectomie programmée, de préférence cœlioscopique. La douleur qui dure, la fièvre, l'ictère ou la pancréatite sont des complications qui imposent l'hôpital."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le triage des patients — qui opérer, quand, et qui laisser tranquille — est l'essence de la prise en charge : c'est lui qui protège à la fois du traitement inutile et de la complication méconnue."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EASL-GALLSTONES-2016",
+          "organization": "European Association for the Study of the Liver (EASL)",
+          "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jhep.2016.09.001"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "European Association for the Study of the Liver. EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones. Journal of Hepatology 2016 ; 65 : 146-181. doi:10.1016/j.jhep.2016.09.001.",
+            "Okamoto K, Suzuki K, Takada T, et al. Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 55-72. doi:10.1002/jhbp.516."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TG18-FLOW",
+          "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+          "title": "Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis",
+          "year": 2018,
+          "url": "https://doi.org/10.1002/jhbp.516"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-trajet",
+      "label": "COLIQUE",
+      "intro": "La douleur qui fait le diagnostic",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Coup brutale : début soudain, sans prodrome."
+        },
+        {
+          "key": "O",
+          "term": "Oblique : hypochondre droit, en coupe, vers l'épaule droite."
+        },
+        {
+          "key": "L",
+          "term": "Limite : cède en moins de six heures, laisse un patient indemne."
+        },
+        {
+          "key": "I",
+          "term": "Insomniante : la douleur oblige à s'arrêter, sans position antalgique."
+        },
+        {
+          "key": "Q",
+          "term": "Quasi biologique : bilan normal dans la colique pure."
+        },
+        {
+          "key": "U",
+          "term": "Ultime question : la douleur a-t-elle cédé ? Si non — cholécystite."
+        },
+        {
+          "key": "E",
+          "term": "Échographie : l'examen qui confirme le calcul."
+        }
+      ],
+      "note": "Une douleur biliaire qui dure au-delà de six heures n'est plus une colique : c'est le seuil qui doit faire changer de catégorie."
+    },
+    {
+      "id": "mn-conduite",
+      "label": "TRIER",
+      "intro": "Qui opérer, qui observer",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tranquille : lithiase asymptomatique — abstention, pas de surveillance."
+        },
+        {
+          "key": "R",
+          "term": "Récidives : colique biliaire récidivante — cholécystectomie programmée."
+        },
+        {
+          "key": "I",
+          "term": "Installée : fièvre et défense — cholécystite, hôpital, urgence."
+        },
+        {
+          "key": "E",
+          "term": "Ictère : calcul de la voie biliaire principale — extraction, endoscopie ou chirurgie."
+        },
+        {
+          "key": "R",
+          "term": "Redouter : plaie de la VBP — critical view of safety avant tout clamps."
+        }
+      ],
+      "note": "Le triage protège des deux erreurs symétriques : opérer l'asymptomatique, banaliser le symptomatique."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Faut-il opérer une lithiase vésiculaire asymptomatique découverte fortuitement ?",
+      "back": "Non, dans la grande majorité des cas : abstention, sans surveillance systématique. Exceptions discutées au cas par cas (transplantation, hémodialyse).",
+      "tags": [
+        "indication"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Comment se présente la colique biliaire typique ?",
+      "back": "Douleur brutale de l'hypochondre droit, en coupe, irradiant vers l'épaule droite, avec nausées, durant moins de six heures et cédant complètement.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel est l'examen de référence de la lithiase vésiculaire ?",
+      "back": "L'échographie abdominale : elle montre les calculs, la paroi vésiculaire et le calibre de la voie biliaire principale.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Que doit faire chercher un bilan hépatique cholestatique chez un lithiasique ?",
+      "back": "Un calcul de la voie biliaire principale : la colique pure est biologique, tout blocage ou lipase élevée change la démarche.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel seuil clinique sépare la colique de la cholécystite ?",
+      "back": "La durée et l'inflammation : douleur au-delà de six heures avec fièvre, défense et leucocytose = cholécystite aiguë.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est le traitement de fond de la colique biliaire récidivante ?",
+      "back": "La cholécystectomie programmée, de préférence cœlioscopique : elle supprime l'organe lithogène et prévient les complications.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelles sont les deux stratégies validées devant un calcul de la voie biliaire principale ?",
+      "back": "L'extraction endoscopique (CPRE) et l'exploration chirurgicale de la voie biliaire avec cholangiographie peropératoire — le choix dépend de l'expertise et du terrain.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelle est la complication opératoire spécifique redoutée de la cholécystectomie ?",
+      "back": "La plaie de la voie biliaire principale, prévenue par l'obtention d'une « critical view of safety » avant tout clamps du canal cystique.",
+      "tags": [
+        "chirurgie"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi la lithiase est-elle fréquente chez le drépanocytaire ?",
+      "back": "L'hémolyse chronique charge la bile en bilirubine non conjuguée : calculs pigmentés, précoces et fréquents.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quand proposer une cholécystectomie après une pancréatite biliaire ?",
+      "back": "Dans les suites de l'épisode, sur le même séjour ou à brève échéance, pour éviter la récidive lithiasique.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Que dire au patient chez qui on diffère la cholécystectomie ?",
+      "back": "Les signes d'alerte qui imposent de revenir en urgence : douleur qui dure, fièvre, ictère, urines foncées.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Faut-il un scanner pour une lithiase simple ?",
+      "back": "Non : l'échographie suffit au diagnostic ; le scanner se justifie seulement devant une complication ou un doute diagnostique.",
+      "tags": [
+        "diagnostic"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Lithiase vésiculaire",
+      "detail": "Fréquente et le plus souvent silencieuse. La décision centrale est le triage : abstention pour l'asymptomatique, cholécystectomie pour la colique récidivante, urgence pour les complications."
+    },
+    "branches": [
+      {
+        "id": "comprendre",
+        "label": "Comprendre",
+        "tone": "retenir",
+        "detail": "Sursaturation, hémolyse, stase.",
+        "children": [
+          {
+            "id": "com-cholesterol",
+            "label": "Calculs cholestéroliques",
+            "detail": "Sursaturation biliaire, les plus fréquents.",
+            "leaves": [
+              {
+                "id": "com-cholesterol-1",
+                "label": "Terrain",
+                "detail": "Femme, obésité, multiparité, âge."
+              }
+            ]
+          },
+          {
+            "id": "com-pigmente",
+            "label": "Calculs pigmentés",
+            "detail": "Hémolyse chronique — drépanocytose, hémoglobinopathies.",
+            "leaves": [
+              {
+                "id": "com-pigmente-1",
+                "label": "Contexte local",
+                "detail": "Surtout chez le sujet jeune drépanocytaire."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manifestations",
+        "label": "Manifestations",
+        "tone": "reflexe",
+        "detail": "Trois trajectoires selon la migration du calcul.",
+        "children": [
+          {
+            "id": "man-colique",
+            "label": "Colique",
+            "detail": "Obstruction cystique transitoire, douleur qui cède.",
+            "leaves": [
+              {
+                "id": "man-colique-1",
+                "label": "< 6 heures",
+                "detail": "Le seuil vers la cholécystite."
+              }
+            ]
+          },
+          {
+            "id": "man-cholécystite",
+            "label": "Cholécystite",
+            "detail": "Obstruction persistante, fièvre, défense.",
+            "leaves": [
+              {
+                "id": "man-cholécystite-1",
+                "label": "Hôpital",
+                "detail": "Antibiothérapie, chirurgie urgente."
+              }
+            ]
+          },
+          {
+            "id": "man-vbp",
+            "label": "Voie biliaire principale",
+            "detail": "Ictère, angiocholite, pancréatite.",
+            "leaves": [
+              {
+                "id": "man-vbp-1",
+                "label": "Endoscopie",
+                "detail": "Ou cholédocotomie selon expertise."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "retenir",
+        "detail": "Échographie d'abord, biologie pour dépister la complication.",
+        "children": [
+          {
+            "id": "dia-echo",
+            "label": "Échographie",
+            "detail": "Calculs, paroi, voie biliaire principale.",
+            "leaves": [
+              {
+                "id": "dia-echo-1",
+                "label": "Examen clé",
+                "detail": "Suffit à la lithiase simple."
+              }
+            ]
+          },
+          {
+            "id": "dia-bio",
+            "label": "Biologie",
+            "detail": "Bilan hépatique, lipase, NFS, CRP.",
+            "leaves": [
+              {
+                "id": "dia-bio-1",
+                "label": "Colique pure",
+                "detail": "Biologie normale — sinon, chercher."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Trier : abstention, cholécystectomie programmée ou urgence.",
+        "children": [
+          {
+            "id": "tra-abstention",
+            "label": "Abstention",
+            "detail": "Lithiase asymptomatique, exceptions au cas par cas.",
+            "leaves": [
+              {
+                "id": "tra-abstention-1",
+                "label": "Pas de surveillance",
+                "detail": "Ni examen ni échographie systématiques."
+              }
+            ]
+          },
+          {
+            "id": "tra-programmee",
+            "label": "Cholécystectomie programmée",
+            "detail": "Colique récidivante, cœlioscopie privilégiée.",
+            "leaves": [
+              {
+                "id": "tra-programmee-1",
+                "label": "Différer",
+                "detail": "En informant des signes d'alerte."
+              }
+            ]
+          },
+          {
+            "id": "tra-vbp",
+            "label": "Calcul de la VBP",
+            "detail": "CPRE ou cholédocotomie, au choix structurel.",
+            "leaves": [
+              {
+                "id": "tra-vbp-1",
+                "label": "Cholangiographie",
+                "detail": "Peropératoire pour dépister."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "securite",
+        "label": "Sécurité chirurgicale",
+        "tone": "prudence",
+        "detail": "La plaie de la voie biliaire principale.",
+        "children": [
+          {
+            "id": "sec-cvs",
+            "label": "Critical view of safety",
+            "detail": "Identifier triangle de Calot avant tout clamps.",
+            "leaves": [
+              {
+                "id": "sec-cvs-1",
+                "label": "Renoncer",
+                "detail": "Conversion ou drainage si dissection dangereuse."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-EASL-GALLSTONES-2016",
+      "title": "2016 EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones",
+      "citation": "European Association for the Study of the Liver. EASL Clinical Practice Guidelines on the prevention, diagnosis and management of gallstones. Journal of Hepatology 2016 ; 65 : 146-181. doi:10.1016/j.jhep.2016.09.001.",
+      "organization": "European Association for the Study of the Liver (EASL)",
+      "year": 2016,
+      "url": "https://doi.org/10.1016/j.jhep.2016.09.001",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Indications de cholécystectomie",
+        "Lithiase asymptomatique",
+        "Calcul de la voie biliaire principale",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-TG18-FLOW",
+      "title": "Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis",
+      "citation": "Okamoto K, Suzuki K, Takada T, et al. Tokyo Guidelines 2018: flowchart for the management of acute cholecystitis. Journal of Hepato-Biliary-Pancreatic Sciences 2018 ; 25 : 55-72. doi:10.1002/jhbp.516.",
+      "organization": "Japanese Society of Hepato-Biliary-Pancreatic Surgery",
+      "year": 2018,
+      "url": "https://doi.org/10.1002/jhbp.516",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Distinction colique / cholécystite",
+        "Prise en charge de la cholécystite",
+        "Stratégies de drainage"
+      ]
+    }
+  ]
+}
