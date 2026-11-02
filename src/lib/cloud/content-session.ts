@@ -1,11 +1,13 @@
 import {
   clearToken,
   getToken,
+  getTokenRaw,
   hasContentSession,
   requestContentToken,
   setToken,
   tokenExpiresAt,
 } from "@/lib/auth/session";
+import { verifyLocalLicenseToken, peekLocalLicenseToken } from "@/lib/cloud/verify-receipt-local";
 import {
   activeLicence,
   isVerifiableLicenceKey,
@@ -279,7 +281,50 @@ async function requestSessionToken(accessToken: string): Promise<SessionTokenRes
   }
 }
 
+/**
+ * Grace period : 7 jours apres expiration, on tolere l'acces SI la signature
+ * du token reste valide. Permet a un etudiant en zone blanche de continuer a
+ * reviser sans connexion, dans la limite du raisonnable.
+ */
+const GRACE_PERIOD_MS = 7 * 24 * 60 * 60 * 1000;
+
+/**
+ * Fallback offline : tente d'utiliser le token en cache local pour accorder
+ * l'acces sans appel reseau. Ne s'active QUE si :
+ *   - un token est present en storage ;
+ *   - sa signature Ed25519 est valide (cle publique VITE_LICENSE_PUBLIC_KEY) ;
+ *   - il est non expire OU dans la grace period 7j.
+ *
+ * La signature est verifiee DANS LES DEUX CAS (strict + grace), pour eviter
+ * qu'un attaquant ne pose un faux token avec un exp proche.
+ *
+ * Retourne null si le fallback ne s'applique pas (refus).
+ */
+async function tryOfflineFallback(): Promise<ContentSessionResult | null> {
+  const token = getTokenRaw();
+  if (!token) return null;
+
+  // 1. Verification stricte (signature + expiration OK)
+  const strict = await verifyLocalLicenseToken(token);
+  if (strict) return markReady("token");
+
+  // 2. Grace period : signature TOUJOURS verifiee, expiration toleree 7j
+  const grace = await verifyLocalLicenseToken(token, Date.now(), {
+    allowExpiredMs: GRACE_PERIOD_MS,
+  });
+  if (grace) return markReady("token");
+
+  return null;
+}
+
 async function runEnsure(): Promise<ContentSessionResult> {
+  // 0. Fallback offline : si on est hors-ligne, tenter le cache local AVANT
+  //    tout appel reseau (l'app doit fonctionner en zone blanche).
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    const offline = await tryOfflineFallback();
+    if (offline) return offline;
+  }
+
   // 1. Chemin rapide : jeton déjà présent (et pas au bord de l'expiration).
   const existing = getToken();
   if (existing) {
@@ -296,6 +341,11 @@ async function runEnsure(): Promise<ContentSessionResult> {
   if (getToken()) return markReady("token");
 
   if (auth.status !== "authenticated") {
+    // Fallback offline : reseau mort mais token local potentiellement valide.
+    if (auth.status === "unavailable") {
+      const offline = await tryOfflineFallback();
+      if (offline) return offline;
+    }
     return markNone(auth.status === "unavailable" ? "offline" : "no-session");
   }
 
