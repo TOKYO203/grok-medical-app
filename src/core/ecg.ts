@@ -246,6 +246,16 @@ export type EcgTraceParams = {
    * `waves.R` et l'axe reste « normal » quel que soit le cas.
    */
   axisAmplitudes?: { i: number; avf: number };
+  /**
+   * Vitesse papier réelle du cas (mm/s) — piège pédagogique : un tracé
+   * enregistré à 50 mm/s montre des complexes 2× plus larges. Défaut : 25.
+   */
+  mmPerSec?: number;
+  /**
+   * Gain d'affichage initial forcé (mm/mV) — piège d'étalonnage :
+   * 20 mm/mV = amplitudes doublées visuellement. Défaut : automatique.
+   */
+  gainMmPerMv?: number;
 };
 
 export type WaveGaussian = {
