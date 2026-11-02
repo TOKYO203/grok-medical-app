@@ -1,0 +1,767 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "peritonite",
+  "title": "Péritonite aiguë généralisée",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Reconnaître une péritonite aiguë généralisée dès l'examen — contracture, abolition du murmure hydro-aérique, sepsis — identifier sa cause, et organiser sans délai la triade réanimation, antibiothérapie et chirurgie de contrôle de la source, seules mesures qui font baisser la mortalité.",
+  "language": "fr",
+  "updatedAt": "2026-11-02",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 14,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 189,
+      "localNumber": 14,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Péritonite aiguë généralisée",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de la World Society of Emergency Surgery (éditions 2013 et 2017) et des recommandations de l'Infectious Diseases Society of America sur les infections intra-abdominales compliquées. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche place le CONTRÔLE DE LA SOURCE au centre du traitement : sans chirurgie, l'antibiothérapie seule ne contrôle pas une péritonite généralisée. Cette hiérarchie suit les recommandations WSES et IDSA.",
+      "Aucune posologie ni durée d'antibiothérapie n'est donnée : les protocoles varient selon l'écologie locale et l'available des molécules. Seuls les principes de couverture (bacilles Gram négatif, anaérobies, entérocoques selon le terrain) sont exposés.",
+      "Le lavage péritonéal abondant et le drainage sont présentés comme des gestes d'accompagnement du contrôle de la source, conformément aux recommandations, et non comme des traitements isolés.",
+      "La place de la réanimation préopératoire est nuancée : elle doit optimiser le patient SANS retarder la chirurgie chez un patient en état de choc septique, la source continuant de nourrir le sepsis.",
+      "Les signes péritonéaux chez le sujet âgé, le diabétique et l'immunodéprimé peuvent être atténués : la fiche le signale explicitement comme source d'erreurs.",
+      "Le score de Mannheim n'est cité qu'à titre de classification pronostique, avec la mise en garde qu'il ne décide pas à la place de la clinique."
+    ],
+    "qcChecklist": [
+      "Contracture et signes péritonéaux généraux",
+      "Démarche étiologique : perforation d'organe creux avant tout",
+      "Triade réanimation — antibiothérapie — chirurgie",
+      "Contrôle de la source comme mesure centrale",
+      "Formes atténuées : sujet âgé, immunodéprimé",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La péritonite aiguë généralisée est l'infection ou l'inflammation diffuse du péritoine. C'est l'urgence abdominale maximale : la mortalité d'une péritonite généralisée reste élevée, et elle ne baisse que lorsque trois décisions sont prises vite — réanimer, antibiotiquer, opérer. Chaque heure de retard aggrave le pronostic."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans la grande majorité des cas, la péritonite généralisée est la complication d'une perforation d'organe creux : appendice, ulcère gastroduodénal, diverticule sigmoïdien, vésicule, ou d'une translocation bactérienne sur une ischémie digestive. Le péritoine, normalement stérile, est alors envahi par la flore digestive, riche en bacilles Gram négatif et en anaérobies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le tableau classique — douleur brutale, contracture, ileus, fièvre, puis choc septique — ne doit pas faire oublier les formes atténuées du sujet âgé, du diabétique ou de l'immunodéprimé, où une défense modée peut masquer une péritonite évoluée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-IAI-2013",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2013 WSES guidelines for management of intra-abdominal infections",
+          "year": 2013,
+          "url": "https://doi.org/10.1186/1749-7922-8-3"
+        }
+      ]
+    },
+    {
+      "id": "physiopathologie",
+      "title": "I. Physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le péritoine répond à l'agression bactérienne par une inflammation exsudative : l'exsudat commence clair, puis devient purulent. La réponse locale, si elle est contenue par l'épiploon et les anses, produit un plastron ou un abcès ; si elle déborde, la contamination devient généralisée et le sepsis s'installe."
+        },
+        {
+          "type": "paragraph",
+          "text": "Trois mécanismes mènent à la péritonite : la perforation d'un organe creux qui déverse son contenu (le plus fréquent), l'extension d'une infection viscérale non perforée — cholécystite, salpingite, abcès — et la translocation bactérienne sur ischémie ou obstacle. Le liquide péritonéal, résorbé en permanence, dissémine l'infection : c'est pourquoi une contamination localisée peut se généraliser en quelques heures."
+        },
+        {
+          "type": "paragraph",
+          "text": "La physiologie suit alors une double trajectoire : localement, le iléus pariétal fige l'abdomen ; systémiquement, les médiateurs de l'inflammation entraînent vasoplégie, hypovolémie, défaillance multiviscérale. Le retard de la chirurgie alimente en permanence les deux."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le délai est l'ennemi",
+          "text": "Une péritonite généralisée non opérée évolue vers le choc septique et la défaillance multiviscérale. Le pronostic dépend davantage du délai de contrôle de la source que du choix de l'antibiotique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-IAI-2013",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2013 WSES guidelines for management of intra-abdominal infections",
+          "year": 2013,
+          "url": "https://doi.org/10.1186/1749-7922-8-3"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique. Une douleur abdominale brutale, installée en une à quelques heures, suivie d'une contracture — le ventre « en planche » — oriente d'emblée. À l'examen : défense généralisée, abolition du murmure hydro-aérique, météorisme, douleur à la toux et à la marche, puis les signes du sepsis : fièvre ou hypothermie, tachycardie, polypnée, hypotension, confusion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire : début brutal (perforation) ou progressif (extension d'une infection), antécédents chirurgicaux, ulcéreux, diverticulaires, biliaires.",
+            "Examen : contracture ou défense généralisée, abolition du murmure hydro-aérique, signes de choc.",
+            "Biologie : hyperleucocytose ou leucopénie, CRP élevée, lactates, ionogramme, fonction rénale, hémostase, groupage.",
+            "Radiographie d'abdomen sans préparation : pneumopéritoine (environ la moitié des perforations digestives), niveaux liquides.",
+            "Échographie abdominale : recherche d'un épanchement intra-péritonéal, d'une cause biliaire.",
+            "Tomodensitométrie abdomino-pelvienne avec injection : examen de référence pour identifier la source, si l'état du patient le permet.",
+            "Chez la femme en âge de procréer : test de grossesse systématique."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cause",
+            "Élément d'orientation",
+            "Examens clés"
+          ],
+          "rows": [
+            [
+              "Perforation d'ulcère gastroduodénal",
+              "Douleur épigastrique brutale, pneumopéritoine",
+              "Scanner, ASP"
+            ],
+            [
+              "Appendice perforée",
+              "Douleur de la fosse iliaque droite antérieure",
+              "Scanner, échographie"
+            ],
+            [
+              "Diverticulite sigmoïdienne perforée",
+              "Douleur de la fosse iliaque gauche, sujet âgé",
+              "Scanner"
+            ],
+            [
+              "Perforation colique (cancer, diastatique)",
+              "Météorisme, contexte, âge",
+              "Scanner"
+            ],
+            [
+              "Cholécystite perforée",
+              "Douleur de l'hypochondre droit, ictère possible",
+              "Échographie, scanner"
+            ],
+            [
+              "Ischémie digestive",
+              "Douleur disproportionnée à l'examen, lactates",
+              "Scanner avec injection"
+            ],
+            [
+              "Salpingite, GEU rompue",
+              "Douleur pelvienne, test de grossesse",
+              "Échographie pelvienne"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas attendre l'imagerie",
+          "text": "Chez un patient en choc septique avec contracture, le diagnostic clinique suffit à indiquer la chirurgie : attendre un scanner pour « confirmer » une péritonite évidente coûte des heures de pronostic."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Formes atténuées",
+          "text": "Chez le sujet âgé, le diabétique ou l'immunodéprimé, la contracture peut manquer : une confusion, une hypothermie ou un iléus inexpliqué doivent déclencher la même démarche."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-IAI-2013",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2013 WSES guidelines for management of intra-abdominal infections",
+          "year": 2013,
+          "url": "https://doi.org/10.1186/1749-7922-8-3"
+        },
+        {
+          "id": "SRC-WSES-IAI-2017",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2017 WSES guidelines for management of intra-abdominal infections — a global perspective",
+          "year": 2017,
+          "url": "https://www.wses.org.uk/wp-content/uploads/2018/01/The-management-of-intra-abdominal-infections-from-a-global-perspective_-2017-WSES-guidelines-for-management-of-intra-abdominal-infections.pdf"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "III. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement repose sur trois piliers menés en parallèle, pas en série : la réanimation, l'antibiothérapie à large spectre par voie intraveineuse, et la chirurgie de contrôle de la source. La réanimation — voies veineuses, remplissage, correction des troubles ioniques, analgésie, oxygénothérapie — optimise le patient sans jamais devenir un motif de retarder l'intervention chez un patient septique."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'antibiothérapie couvre les bacilles Gram négatif, les anaérobies, et selon le terrain les entérocoques. Elle doit être initiée dès le diagnostic, après prélèvements si possible, sans attendre le bloc opératoire. Les protocoles et durées dépendent de l'écologie locale et de l'évolution : la fiche n'en fixe aucune posologie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La chirurgie a pour but le CONTRÔLE DE LA SOURCE : fermer ou réséquer l'organe perforé, évacuer le pus, faire un lavage abondant du péritoine. La voie d'abord, médiane en urgence le plus souvent, doit donner accès à tout l'abdomen. Le drainage est adjuvant, non obligatoire. En cas de péritonite stercorale sur cancer colique, la résection avec colostomie (type Hartmann pour le rectosigmoïde) reste la référence en urgence."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Étape",
+            "Objectif",
+            "Points de vigilance"
+          ],
+          "rows": [
+            [
+              "Réanimation",
+              "Restaurer la perfusion",
+              "Ne pas retarder la chirurgie, lactates, diurèse"
+            ],
+            [
+              "Antibiothérapie IV",
+              "Couvrir Gram négatif et anaérobies",
+              "Adaptation à l'écologie locale, prélèvements"
+            ],
+            [
+              "Chirurgie",
+              "Contrôle de la source, lavage",
+              "Abdomen entier exploré, résection si besoin"
+            ],
+            [
+              "Réanimation postopératoire",
+              "Prévenir la défaillance multiviscérale",
+              "Nutrition, surveillance des collections"
+            ],
+            [
+              "Réintervention",
+              "Péritonite persistante",
+              "Fièvre ou sepsis persistant, imagerie, reprise"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Péritonite persistante",
+          "text": "Un sepsis qui ne se contrôle pas après 48 à 72 heures impose de réévaluer la source : collection résiduelle, fistule, ischémie. La réintervention programmée ou guidée par l'imagerie fait partie de l'arsenal, avec le drainage percutané des collections accessibles."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-IAI-2013",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2013 WSES guidelines for management of intra-abdominal infections",
+          "year": 2013,
+          "url": "https://doi.org/10.1186/1749-7922-8-3"
+        },
+        {
+          "id": "SRC-IDSA-IAI-2010",
+          "organization": "Infectious Diseases Society of America (IDSA)",
+          "title": "Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children",
+          "year": 2010,
+          "url": "https://doi.org/10.1086/649979"
+        }
+      ]
+    },
+    {
+      "id": "suites",
+      "title": "IV. Suites et pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le pronostic dépend de l'âge, du terrain, du délai de prise en charge et de la cause. Les complications à surveiller sont les abcès résiduels, les fistules digestives, l'iléus prolongé, les occlusions sur brides, l'infection pariétale, et surtout la défaillance multiviscérale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La surveillance postopératoire est clinique d'abord : courbe de fièvre, transit, douleur, état de conscience, diurèse. Une fièvre persistante au-delà de quelques jours impose une imagerie à la recherche d'une collection. La nutrition précoce, la mobilisation et la prévention thromboembolique font partie du parcours, adaptées au terrain."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Fièvre persistante = chercher la collection",
+          "text": "Après une péritonite opérée, une fièvre qui ne cède pas doit faire rechercher un abcès sous-phrénique, sous-hépatique ou pelvien, par échographie ou scanner, et le drainer, percutanément si accessible, chirurgicalement sinon."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-IDSA-IAI-2010",
+          "organization": "Infectious Diseases Society of America (IDSA)",
+          "title": "Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children",
+          "year": 2010,
+          "url": "https://doi.org/10.1086/649979"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La péritonite aiguë généralisée se reconnaît à une contracture ou une défense généralisée sur douleur brutale, avec iléus et signes de sepsis. La démarche étiologique — perforation d'organe creux en tête — guide le scanner quand l'état du patient le permet."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement est une urgence triple et simultanée : réanimation, antibiothérapie à large spectre et chirurgie de contrôle de la source. C'est le délai de cette triade qui décide du pronostic, davantage que tout autre facteur modifiable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-IAI-2013",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "2013 WSES guidelines for management of intra-abdominal infections",
+          "year": 2013,
+          "url": "https://doi.org/10.1186/1749-7922-8-3"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sartelli M, Viale P, Catena F, et al. 2013 WSES guidelines for management of intra-abdominal infections. World Journal of Emergency Surgery 2013 ; 8 : 3. doi:10.1186/1749-7922-8-3.",
+            "Sartelli M, Chichom-Mefire A, Labricciosa FM, et al. 2017 WSES guidelines for management of intra-abdominal infections — a global perspective. World Journal of Emergency Surgery 2017.",
+            "Solomkin JS, Mazuski JE, Bradley JS, et al. Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children. Clinical Infectious Diseases 2010 ; 50 : 133-164. doi:10.1086/649979."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-IDSA-IAI-2010",
+          "organization": "Infectious Diseases Society of America (IDSA)",
+          "title": "Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children",
+          "year": 2010,
+          "url": "https://doi.org/10.1086/649979"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-contracture",
+      "label": "SEPSIS",
+      "intro": "Les signes qui imposent d'agir",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sepsis : fièvre ou hypothermie, tachycardie, hypotension, confusion."
+        },
+        {
+          "key": "E",
+          "term": "Examen : contracture ou défense généralisée, MHAA aboli."
+        },
+        {
+          "key": "P",
+          "term": "Pneumopéritoine possible à l'imagerie, mais absent dans près d'un cas sur deux."
+        },
+        {
+          "key": "S",
+          "term": "Source : chercher la perforation — ulcère, appendice, diverticule, colon."
+        },
+        {
+          "key": "I",
+          "term": "Ileus : météorisme, arrêt du transit, vomissements."
+        },
+        {
+          "key": "S",
+          "term": "Sans délai : réanimation, antibiotiques, bloc opératoire le jour même."
+        }
+      ],
+      "note": "La contracture n'est pas obligatoire : chez le sujet âgé, l'absence de défense ne doit pas rassurer."
+    },
+    {
+      "id": "mn-triade",
+      "label": "RAC",
+      "intro": "Les trois piliers du traitement, en parallèle",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Réanimation : remplissage, ions, analgésie, oxygène — sans retarder la chirurgie."
+        },
+        {
+          "key": "A",
+          "term": "Antibiothérapie intraveineuse à large spectre : Gram négatif, anaérobies, entérocoques selon le terrain."
+        },
+        {
+          "key": "C",
+          "term": "Chirurgie : contrôle de la source, lavage abondant, drainage adjuvant."
+        }
+      ],
+      "note": "Les trois lettres avancent ensemble : séquencer la réanimation au point d'ajourner la chirurgie est une erreur classique."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle est la cause la plus fréquente de péritonite aiguë généralisée ?",
+      "back": "La perforation d'un organe creux digestif : appendice, ulcère gastroduodénal, diverticule sigmoïdien, vésicule ou colon.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel signe clinique caractérise la péritonite généralisée ?",
+      "back": "La contracture ou la défense généralisée de l'abdomen, avec abolition du murmure hydro-aérique et signes de sepsis.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Un pneumopéritoine absent élimine-t-il une perforation ?",
+      "back": "Non : le pneumopéritoine manque dans près de la moitié des perforations digestives. Son absence n'élimine rien.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen d'imagerie identifie le mieux la source d'une péritonite ?",
+      "back": "La tomodensitométrie abdomino-pelvienne avec injection de produit de contraste — si l'état du patient la permet.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels sont les trois piliers du traitement de la péritonite généralisée ?",
+      "back": "Réanimation, antibiothérapie intraveineuse à large spectre et chirurgie de contrôle de la source — menés en parallèle.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Que signifie « contrôle de la source » ?",
+      "back": "Fermer ou réséquer l'organe perforé et évacuer le pus : c'est la mesure centrale, l'antibiothérapie seule étant insuffisante.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "La réanimation peut-elle retarder la chirurgie ?",
+      "back": "Non : elle optimise le patient dans les heures qui précèdent le bloc, mais chez un patient en choc septique, retarder l'intervention aggrave le pronostic.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelles bactéries l'antibiothérapie doit-elle couvrir ?",
+      "back": "Les bacilles Gram négatif et les anaérobies ; les entérocoques sont couverts selon le terrain et les recommandations locales.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi le tableau peut-il être trompeur chez le sujet âgé ?",
+      "back": "La contracture et la fièvre peuvent manquer : une confusion, une hypothermie ou un iléus inexpliqué peuvent être les seuls signes.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Que faire devant une fièvre persistante après chirurgie pour péritonite ?",
+      "back": "Chercher une collection résiduelle par imagerie et la drainer, percutanément si accessible, chirurgicalement sinon.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle intervention pour une péritonite stercorale sur cancer du rectosigmoïde ?",
+      "back": "La résection avec colostomie terminale (intervention de Hartmann) : réanastomoser en urgence sur colon non préparé et septique est dangereux.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Le drainage péritonéal suffit-il à traiter une péritonite généralisée ?",
+      "back": "Non : c'est un adjuvant du contrôle de la source, jamais un traitement isolé.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Qu'est-ce qu'une péritonite persistante ?",
+      "back": "Un sepsis non contrôlé après 48 à 72 heures malgré le traitement initial, imposant de réévaluer la source : collection, fistule, ischémie.",
+      "tags": [
+        "surveillance"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Péritonite aiguë généralisée",
+      "detail": "Urgence abdominale maximale. Le diagnostic est clinique, la cause souvent une perforation d'organe creux, et le pronostic dépend du délai de la triade réanimation — antibiotiques — chirurgie."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Douleur brutale, contracture, iléus, sepsis.",
+        "children": [
+          {
+            "id": "rec-clinique",
+            "label": "Clinique",
+            "detail": "Contracture ou défense généralisée, MHAA aboli, météorisme.",
+            "leaves": [
+              {
+                "id": "rec-clinique-1",
+                "label": "Formes atténuées",
+                "detail": "Sujet âgé, diabétique, immunodéprimé."
+              }
+            ]
+          },
+          {
+            "id": "rec-sepsis",
+            "label": "Sepsis",
+            "detail": "Fièvre ou hypothermie, tachycardie, hypotension, confusion.",
+            "leaves": [
+              {
+                "id": "rec-sepsis-1",
+                "label": "Lactates",
+                "detail": "Marqueur de gravité et de suivi."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chercher",
+        "label": "Chercher la source",
+        "tone": "retenir",
+        "detail": "Perforation d'organe creux en tête de liste.",
+        "children": [
+          {
+            "id": "src-perf",
+            "label": "Perforations",
+            "detail": "Ulcère, appendice, diverticule, colon, vésicule.",
+            "leaves": [
+              {
+                "id": "src-perf-1",
+                "label": "Pneumopéritoine",
+                "detail": "Présent dans environ la moitié des cas."
+              }
+            ]
+          },
+          {
+            "id": "src-autres",
+            "label": "Autres causes",
+            "detail": "Ischémie, salpingite, GEU, abcès rompu.",
+            "leaves": [
+              {
+                "id": "src-autres-1",
+                "label": "Test de grossesse",
+                "detail": "Systématique chez la femme en âge de procréer."
+              }
+            ]
+          },
+          {
+            "id": "src-imagerie",
+            "label": "Imagerie",
+            "detail": "Scanner avec injection si l'état le permet ; échographie au lit.",
+            "leaves": [
+              {
+                "id": "src-imagerie-1",
+                "label": "Urgence",
+                "detail": "Ne pas attendre le scanner chez le patient choqué."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Trois piliers simultanés.",
+        "children": [
+          {
+            "id": "tra-rea",
+            "label": "Réanimation",
+            "detail": "Remplissage, ions, analgésie, oxygène.",
+            "leaves": [
+              {
+                "id": "tra-rea-1",
+                "label": "Règle",
+                "detail": "Optimiser sans ajourner."
+              }
+            ]
+          },
+          {
+            "id": "tra-atb",
+            "label": "Antibiothérapie",
+            "detail": "IV large spectre : Gram négatif, anaérobies.",
+            "leaves": [
+              {
+                "id": "tra-atb-1",
+                "label": "Adaptation",
+                "detail": "Écologie locale, prélèvements, aucune posologie figée."
+              }
+            ]
+          },
+          {
+            "id": "tra-chir",
+            "label": "Chirurgie",
+            "detail": "Contrôle de la source, lavage abondant, drainage adjuvant.",
+            "leaves": [
+              {
+                "id": "tra-chir-1",
+                "label": "Voie médiane",
+                "detail": "Accès à tout l'abdomen."
+              },
+              {
+                "id": "tra-chir-2",
+                "label": "Hartmann",
+                "detail": "Référence en péritonite stercorale rectosigmoïdienne."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Le sepsis n'est pas fini à la fermeture.",
+        "children": [
+          {
+            "id": "sui-complications",
+            "label": "Complications",
+            "detail": "Abcès résiduels, fistules, iléus, brides, défaillance multiviscérale.",
+            "leaves": [
+              {
+                "id": "sui-complications-1",
+                "label": "Fièvre persistante",
+                "detail": "Imagerie systématique."
+              }
+            ]
+          },
+          {
+            "id": "sui-persistante",
+            "label": "Péritonite persistante",
+            "detail": "Sepsis non contrôlé à 48-72 heures : réévaluer la source.",
+            "leaves": [
+              {
+                "id": "sui-persistante-1",
+                "label": "Réintervention",
+                "detail": "Programmée ou guidée par l'imagerie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "memo",
+        "detail": "Ce qui ressemble à une péritonite sans l'être.",
+        "children": [
+          {
+            "id": "dif-pancreatite",
+            "label": "Pancréatite aiguë",
+            "detail": "Douleur transfixiante, lipase, pas de pneumopéritoine.",
+            "leaves": [
+              {
+                "id": "dif-pancreatite-1",
+                "label": "Scanner",
+                "detail": "Tranche le doute."
+              }
+            ]
+          },
+          {
+            "id": "dif-ileo",
+            "label": "Occlusion simple",
+            "detail": "Météorisme et arrêt du transit sans contracture.",
+            "leaves": [
+              {
+                "id": "dif-ileo-1",
+                "label": "Strangulation",
+                "detail": "Signe de passage à la péritonite."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WSES-IAI-2013",
+      "title": "2013 WSES guidelines for management of intra-abdominal infections",
+      "citation": "Sartelli M, Viale P, Catena F, et al. 2013 WSES guidelines for management of intra-abdominal infections. World Journal of Emergency Surgery 2013 ; 8 : 3. doi:10.1186/1749-7922-8-3.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2013,
+      "url": "https://doi.org/10.1186/1749-7922-8-3",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Physiopathologie",
+        "Démarche diagnostique",
+        "Contrôle de la source",
+        "Principes thérapeutiques"
+      ]
+    },
+    {
+      "id": "SRC-WSES-IAI-2017",
+      "title": "2017 WSES guidelines for management of intra-abdominal infections — a global perspective",
+      "citation": "Sartelli M, Chichom-Mefire A, Labricciosa FM, et al. 2017 WSES guidelines for management of intra-abdominal infections: a global perspective. World Journal of Emergency Surgery 2017.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2017,
+      "url": "https://www.wses.org.uk/wp-content/uploads/2018/01/The-management-of-intra-abdominal-infections-from-a-global-perspective_-2017-WSES-guidelines-for-management-of-intra-abdominal-infections.pdf",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Prise en charge en contexte à ressources limitées",
+        "Couverture antibiotique"
+      ]
+    },
+    {
+      "id": "SRC-IDSA-IAI-2010",
+      "title": "Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children",
+      "citation": "Solomkin JS, Mazuski JE, Bradley JS, et al. Diagnosis and Management of Complicated Intra-abdominal Infection in Adults and Children. Clinical Infectious Diseases 2010 ; 50 : 133-164. doi:10.1086/649979.",
+      "organization": "Infectious Diseases Society of America (IDSA)",
+      "year": 2010,
+      "url": "https://doi.org/10.1086/649979",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Couverture antibiotique",
+        "Surveillance postopératoire",
+        "Abcès résiduels"
+      ]
+    }
+  ]
+}
