@@ -11,7 +11,6 @@ import {
   ECG_GAIN_STEPS,
   ECG_NORMS,
   ECG_SWEEP_SECONDS,
-  type EcgGain,
 } from "@/core/ecg";
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -168,11 +167,17 @@ export function EcgMonitor({
   soundType = "bip_normal",
   deformation,
   autoStart = true,
+  mmPerSec = ECG_NORMS.paperSpeedMmPerSec,
+  initialGain = null,
 }: {
   bpm?: number;
   soundType?: SoundType;
   deformation?: EcgDeformation;
   autoStart?: boolean;
+  /** Vitesse papier réelle du cas (piège « 50 mm/s ») — 25 mm/s par défaut. */
+  mmPerSec?: number;
+  /** Gain initial forcé (piège d'étalonnage, ex. 20 mm/mV) — null = auto. */
+  initialGain?: number | null;
 }) {
   const [playing, setPlaying] = useState(autoStart);
   const [sound, setSound] = useState(false);
@@ -181,7 +186,7 @@ export function EcgMonitor({
   const [nativeFull, setNativeFull] = useState(false);
   // Repli CSS : cadre pivoté de 90° (mobile portrait sans verrou d'orientation).
   const [rotateFallback, setRotateFallback] = useState(false);
-  const [gainManual, setGainManual] = useState<EcgGain | null>(null);
+  const [gainManual, setGainManual] = useState<number | null>(initialGain);
   const [paperMode, setPaperMode] = useState(false);
   // Couleurs dynamiques selon mode papier / moniteur
   const ecgColor = paperMode ? "#1a1a1a" : C_ECG;
@@ -207,7 +212,7 @@ export function EcgMonitor({
    * Plancher volontaire à 5 mm/mV — jamais 2,5 (cf. README).
    */
   const autoReduced = viewport.w < 900 && viewport.w >= viewport.h;
-  const gain: EcgGain = gainManual ?? (autoReduced ? ECG_GAIN_REDUCED : 10);
+  const gain: number = gainManual ?? (autoReduced ? ECG_GAIN_REDUCED : 10);
   const reduced = gain < 10;
 
   // Détecte si une déformation multi-cycles est demandée (Wenckebach,
@@ -235,7 +240,7 @@ export function EcgMonitor({
           cycles: MULTI_CYCLES_COUNT,
           def: deformation,
           gainMmPerMv: gain,
-          mmPerSec: MM_PER_SEC,
+          mmPerSec,
           maxWidthMm: TRACE_MM,
         });
         out[lead] = {
@@ -252,11 +257,11 @@ export function EcgMonitor({
         bpm,
         def: deformation,
         gainMmPerMv: gain,
-        mmPerSec: MM_PER_SEC,
+        mmPerSec,
       });
     }
     return out;
-  }, [bpm, deformation, gain, needsMultiCycle]);
+  }, [bpm, deformation, gain, mmPerSec, needsMultiCycle]);
 
   const cycleSec = cycleSeconds(bpm);
 
@@ -266,7 +271,7 @@ export function EcgMonitor({
     const start = performance.now();
     let raf = 0;
     const tick = (now: number) => {
-      const phase = (((now - start) / 1000) % cycleSec) * MM_PER_SEC;
+      const phase = (((now - start) / 1000) % cycleSec) * mmPerSec;
       const tf = `translate(${(-phase).toFixed(3)},0)`;
       leftScrollRef.current?.setAttribute("transform", tf);
       rightScrollRef.current?.setAttribute("transform", tf);
@@ -277,7 +282,7 @@ export function EcgMonitor({
     // `full` : le plein écran passe par un PORTAL, ce qui change les nœuds DOM
     // référencés par `leftScrollRef` / `rightScrollRef` → il faut réattacher
     // la boucle de défilement à la nouvelle instance.
-  }, [playing, cycleSec, full]);
+  }, [playing, cycleSec, full, mmPerSec]);
 
   useEcgBeep({ enabled: sound && playing, bpm, soundType });
 
@@ -492,7 +497,7 @@ export function EcgMonitor({
             data-ecg-gain-label=""
             className={reduced ? "font-semibold text-amber-400" : "hidden text-white/30 sm:inline"}
           >
-            25 mm/s · {gain} mm/mV
+            {mmPerSec} mm/s · {gain} mm/mV
           </span>
           {reduced ? (
             <span
@@ -500,6 +505,14 @@ export function EcgMonitor({
               className="rounded-full bg-amber-400/15 px-2 py-0.5 text-[10px] font-semibold text-amber-300 ring-1 ring-amber-400/40"
             >
               Gain réduit
+            </span>
+          ) : null}
+          {mmPerSec !== ECG_NORMS.paperSpeedMmPerSec ? (
+            <span
+              data-ecg-speed-badge=""
+              className="rounded-full bg-amber-400/15 px-2 py-0.5 text-[10px] font-semibold text-amber-300 ring-1 ring-amber-400/40"
+            >
+              {mmPerSec} mm/s
             </span>
           ) : null}
           <span className="ml-auto flex items-center gap-2">
@@ -574,8 +587,8 @@ export function EcgMonitor({
           preserveAspectRatio="none"
           data-ecg-svg=""
           data-ecg-viewbox={`0 0 ${VIEW_W} ${VIEW_H}`}
-          data-ecg-sweep={SWEEP}
-          data-ecg-mm-per-sec={MM_PER_SEC}
+          data-ecg-sweep={(TRACE_MM / mmPerSec).toFixed(2)}
+          data-ecg-mm-per-sec={mmPerSec}
           data-ecg-mm-per-mv={gain}
           aria-label={`Moniteur ECG 12 dérivations à ${bpm} bpm — gain ${gain} mm/mV`}
           role="img"
