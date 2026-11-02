@@ -54,6 +54,19 @@ export type EcgDeformation = {
   stScooped?: boolean;
   /** Torsades : modulation lente de l'amplitude des QRS (« accordéon »). */
   torsadeTwist?: boolean;
+
+  // ── Fidélité clinique (v4) — les 4 derniers écarts QA ─────────────
+  // QA #355 : péricardite « concave » + « PR sous-décalé », malposition/
+  // ectopique « P positive en aVR », QT non adapté à la FC.
+  /** ST concave (péricardite) : bosse qui culmine à mi-segment, à mi-chemin
+   *  entre le plateau plat et le dôme de Brugada. */
+  stConcave?: boolean;
+  /** Sous-décalage du segment PR en mV (péricardite) — valeur négative. */
+  prDepressionMv?: number;
+  /** Polarité de l'onde P inversée dans ces dérivations — P positive en
+   *  aVR (rythme du sinus coronaire, inversion RA/LA de la malposition),
+   *  P négative en DII/DIII/aVF dans le même temps. */
+  pFlip?: string[];
 };
 
 export type WaveParams = {
