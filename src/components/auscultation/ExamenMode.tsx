@@ -19,6 +19,8 @@ import {
   getPulmonaireFiche,
   listFiches,
   listPulmonaireFiches,
+  type AuscultationSoundEntry,
+  type PulmonaireSoundEntry,
 } from "@/lib/auscultation/catalog";
 import { playLungSound, playSound, stop } from "@/lib/auscultation/engine";
 
@@ -34,29 +36,44 @@ type Question = {
 
 const QUESTIONS_PER_SESSION = 10;
 
+/** Tire 5 questions cardiaques (typage strict AuscultationTiming). */
+function pickCardio(cardio: AuscultationSoundEntry[], n: number): Question[] {
+  return [...cardio].sort(() => Math.random() - 0.5).slice(0, n).map((entry) => {
+    const fiche = getFiche(entry.id);
+    const audio = fiche?.audio;
+    return {
+      id: entry.id,
+      label: entry.label,
+      lung: false,
+      preset: audio?.preset ?? "normal_s1s2",
+      params: (audio?.params as Record<string, number>) ?? {},
+      hint: fiche?.timing.description ?? "",
+    };
+  });
+}
+
+/** Tire 5 questions pulmonaires (typage strict PulmonaireTiming). */
+function pickPulmo(pulmo: PulmonaireSoundEntry[], n: number): Question[] {
+  return [...pulmo].sort(() => Math.random() - 0.5).slice(0, n).map((entry) => {
+    const fiche = getPulmonaireFiche(entry.id);
+    const audio = fiche?.audio;
+    return {
+      id: entry.id,
+      label: entry.label,
+      lung: true,
+      preset: audio?.preset ?? "normal_vesicular",
+      params: (audio?.params as Record<string, number>) ?? {},
+      hint: `${fiche?.timing.moment ?? ""} — ${fiche?.timing.caractere ?? ""}`,
+    };
+  });
+}
+
 /** Tire une session : 5 sons cardiaques + 5 pulmonaires, mélangés. */
 function buildSession(): Question[] {
-  const cardio = listFiches();
-  const pulmo = listPulmonaireFiches();
-  const pick = (arr: typeof cardio, n: number, lung: boolean): Question[] =>
-    [...arr].sort(() => Math.random() - 0.5).slice(0, n).map((entry) => {
-      const fiche = lung ? getPulmonaireFiche(entry.id) : getFiche(entry.id);
-      const audio = fiche?.audio;
-      const hint = lung
-        ? `${fiche?.timing.moment ?? ""} — ${(fiche as { timing?: { caractere?: string } })?.timing?.caractere ?? ""}`
-        : (fiche?.timing.description ?? "");
-      return {
-        id: entry.id,
-        label: entry.label,
-        lung,
-        preset: audio?.preset ?? (lung ? "normal_vesicular" : "normal_s1s2"),
-        params: (audio?.params as Record<string, number>) ?? {},
-        hint,
-      };
-    });
-  return [...pick(cardio, 5, false), ...pick(pulmo, 5, true)].sort(
-    () => Math.random() - 0.5,
-  );
+  return [
+    ...pickCardio(listFiches(), 5),
+    ...pickPulmo(listPulmonaireFiches(), 5),
+  ].sort(() => Math.random() - 0.5);
 }
 
 /** 4 options : la bonne + 3 distracteurs du même module (cardio vs pulmo). */
