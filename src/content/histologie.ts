@@ -9,7 +9,7 @@
  * JAMAIS Radiopaedia (CC BY-NC, usage commercial interdit).
  */
 
-export type HistologyStaining = "H&E" | "Ziehl-Neelsen" | "PAS" | "Giemsa" | "Perls" | "autre";
+export type HistologyStaining = "H&E" | "Ziehl-Neelsen" | "PAS" | "Giemsa" | "Perls" | "Trichrome" | "autre";
 
 export type HistologyAnnotation = {
   /** Coordonnées et taille en pourcentage de l'image (0-100). */
