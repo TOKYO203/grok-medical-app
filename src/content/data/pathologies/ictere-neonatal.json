@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ictere-neonatal",
+  "title": "Ictère néonatal",
+  "specialty": "Pédiatrie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Classer les ictères néonataux (libres et conjugués, précoces et tardifs), identifier les ictères pathologiques nécessitant un bilan et un traitement, maîtriser les seuils de photothérapie et d'exsanguino-transfusion, prévenir l'ictère nucléaire, et connaître la particularité malgache des incompatibilités sanguines et du déficit en enzyme du globule rouge.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 79,
+    "specialty": "Pédiatrie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 120,
+      "localNumber": 79,
+      "sectionLabel": "Médecine",
+      "title": "Ictère néonatal",
+      "specialty": "Pédiatrie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche de synthèse : distinction bilirubine libre/conjuguée, ictères précoces (physiologique, hémolytiques, infectieux) et tardifs (prolongés, cholestatiques), démarche diagnostique graduée, traitements (photothérapie, immunoglobulines, exsanguino-transfusion) et prévention (anti-D, vaccination, surveillance). Les incompatibilités fœto-maternelles sont détaillées dans la fiche Immunisation sanguine fœto-maternelle, et l'examen du nouveau-né dans sa fiche dédiée.",
+    "verificationNotes": "Contenu conforme au référentiel du Collège National des Pédiatres Universitaires (item 278), aux arbres décisionnels du CNRHP (seuils de photothérapie et d'exsanguino-transfusion selon l'âge et les facteurs de risque) et aux recommandations du Réseau Périnatal Lorrain (dépistage et quantification par bilirubine transcutanée ou sanguine). Contexte malgache : dépistage du groupe sanguin et du test de Coombs inégal, photothérapie disponible dans les maternités de référence, nécessité d'une surveillance clinique de l'extension de l'ictère (kramer) quand le dosage n'est pas accessible.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec immunisation-foeto-mat et examen-nouveau-ne sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ictère néonatal, coloration jaune de la peau et des muqueuses par accumulation de bilirubine, est le motif de consultation le plus fréquent du nouveau-né. Dans la grande majorité des cas, il est bénin (ictère dit physiologique) : mais il peut aussi révéler une hémolyse sévère, une infection ou une maladie métabolique, et la bilirubine libre non conjuguée, toxique pour le système nerveux, menace alors le cerveau de l'enfant."
+        },
+        {
+          "type": "paragraph",
+          "text": "La démarche repose sur trois questions simples : quand est-il apparu (avant, après 24 heures, après une semaine) ? Est-il à bilirubine libre ou conjuguée ? Existe-t-il des facteurs de risque (prématurité, incompatibilité sanguine, infection) ? Les réponses orientent le bilan et le traitement. L'enjeu est d'éviter l'ictère nucléaire — atteinte irreversible des noyaux gris centraux — et ses séquelles."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Rappels et classifications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La bilirubine provient de la dégradation de l'hème de l'hémoglobine. Le nouveau-né produit davantage de bilirubine que l'adulte (masse érythrocytaire plus élevée et durée de vie des globules rouges plus courte) et la conjugue moins bien (immaturité hépatique, enzyme de conjugaison faible à la naissance). L'ictère dit physiologique apparaît entre 24 et 72 heures, culmine vers le quatrième jour entre 100 et 150 micromoles par litre, et disparaît en une à deux semaines."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ictère à bilirubine libre (non conjuguée) : le plus fréquent — risque neurologique (ictère nucléaire) si la bilirubine dépasse les seuils.",
+            "Ictère à bilirubine conjuguée (cholestatique) : urine foncée, selles décolorées — toujours pathologique, étiologie à rechercher.",
+            "Ictère précoce (avant 24 heures) : toujours pathologique — hémolyse en premier (incompatibilité, infection).",
+            "Ictère tardif (après 7 jours) ou prolongé (au-delà de 14 jours, ou 21 jours chez le prématuré) : ictère au lait maternel, hypothyroïdie, cholestase, infection."
+          ],
+          "sources": [
+            "s1"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'évaluation clinique de l'extension suit la règle de Kramer : face (environ 100 micromoles par litre), cou et thorax haut (150), thorax bas et abdomen (200), bras et jambes (250), paumes et plantes (300). Cette estimation ne remplace pas le dosage : toute bilirubine transcutanée ou sanguine élevée, tout ictère précoce ou étendu, impose une mesure de la bilirubinémie totale."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ictères à bilirubine libre précoces : hémolyses par incompatibilité fœto-maternelle — rhésus (mère rhésus négatif, enfant rhésus positif, test de Coombs positif, devenue plus rare grâce à la prévention par immunoglobulines anti-D) et groupe ABO (mère O, enfant A ou B, la plus fréquente, Coombs souvent faiblement positif) ; déficit en enzyme du globule rouge (fréquent en Afrique et dans l'océan Indien, déclenché par certains médicaments ou plantes) ; infections néonatales précoces ; hémolyses par sphérocytose ; hémorragies (céphalhématome, déglutition de sang maternel).",
+          "sources": [
+            "s1"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Ictères à bilirubine libre tardifs ou prolongés : ictère au lait maternel (bénin, lié à des substances du lait maternel, pauvreté des selles en pigment), ictère par jeûne ou insuffisance d'apports, hypothyroïdie congénitale, infections (notamment urinaires), anémie, prématurité. Ictères à bilirubine conjuguée : toujours pathologiques — atrésie des voies biliaires (à opérer avant 60 jours), cholestase néonatale, infections (cytomégalovirus, syphilis, toxoplasmose), mucoviscidose, déficits métaboliques (galactocémie, déficit en enzyme du métabolisme du galactose), syndrome d'Alagille."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ictère avant 24 heures",
+          "text": "Un ictère apparaissant dès les premières heures de vie est pathologique jusqu'à preuve du contraire : hémolyse (incompatibilité rhésus ou ABO) ou infection. Bilan immédiat : groupe sanguin, test de Coombs, hémogramme, réticulocytes, bilirubinémie, marqueurs infectieux."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant tout ictère : préciser l'heure d'apparition, le terme et le poids de naissance, les facteurs de risque (incompatibilité sanguine connue, fratrie atteinte, accouchement instrumental, allaitement insuffisant, infection maternelle), et apprécier l'extension (règle de Kramer). La mesure quantitative — bilirubine transcutanée en dépistage, confirmée par bilirubinémie sanguine si elle est élevée — est rapportée aux courbes de seuils en fonction de l'âge en heures et des facteurs de risque.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan orienté : devant un ictère précoce ou étendu, groupe sanguin et rhésus de l'enfant, test de Coombs direct, hémogramme avec réticulocytes et frottis (formes et fragments de globules rouges), dosage de l'enzyme du globule rouge si contexte ethnique et déclenchement médicamenteux, marqueurs infectieux (numération, marqueur de l'inflammation, hémoculture selon le contexte). Devant un ictère prolongé ou une suspicion de cholestase : bilirubine totale et fractionnée, transaminases, gamma-glutamyl-transférase, phosphatases alcalines, examen des selles (couleur), échographie abdominale, et dosage de l'hormone stimulant la thyroïde sur le test de Guthrie.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Signes de gravité imposant une prise en charge immédiate : bilirubine au-dessus ou proche des seuils d'exsanguino-transfusion, ictère des paumes et plantes, nouveau-né hypotonique ou irritable, geignement, accès de fièvre, arc en ciel anormal du cri, hypertonie avec opisthotonos (ictère nucléaire débutant). Chez le prématuré, les seuils de neurotoxicité sont plus bas : toute bilirubine élevée chez un enfant né avant 37 semaines doit être considérée comme plus dangereuse."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photothérapie : le traitement de référence des hyperbilirubinémies à bilirubine libre. Elle convertit la bilirubine cutanée en formes hydrosolubles éliminées dans les urines et les selles. Son intensité (conventionnelle ou intensive) et sa durée dépendent du niveau de bilirubine rapporté aux courbes de seuils (âge en heures, facteurs de risque, prématurité) ; la bilirubine est contrôlée toutes les 6 à 12 heures pendant le traitement. Mesures associées : hydratation et apports suffisants (l'allaitement est poursuivi, complété si besoin), protection des yeux, surveillance de la température.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Exsanguino-transfusion : réservée aux hyperbilirubinémies sévères dépassant les seuils (ou en cas d'ascension rapide malgré la photothérapie intensive), en particulier dans les hémolyses par incompatibilité rhésus ou ABO. Elle est réalisée en unité spécialisée, avec un sang compatible, une surveillance continue. Immunoglobulines intraveineuses : proposées dans l'hémolyse par incompatibilité rhésus ou ABO pour réduire le besoin d'exsanguino-transfusion. Autres traitements selon l'étiologie : antibiothérapie en cas d'infection (fiche Infections bactériennes du nouveau-né), traitement de l'hypothyroïdie, régime sans galactose en cas de déficit enzymatique du métabolisme du galactose, prise en charge chirurgicale de l'atrésie des voies biliaires avant 60 jours.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ictère nucléaire : reconnaître l'urgence",
+          "text": "Somnolence inhabituelle, refus de boire, hypotonie puis hypertonie, opisthotonos, cris aigus anormaux : bilirubine libre très élevée menaçant le cerveau — exsanguino-transfusion urgente en unité spécialisée, sans attendre."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention de l'immunisation rhésus : immunoglobulines anti-D à la mère rhésus négatif (accouchement, avortement, geste invasif), qui a fait chuter la fréquence des hémolyses rhésus (fiche Immunisation sanguine fœto-maternelle). Dépistage systématique : groupe sanguin et test de Coombs en salle de naissance en cas de différence de groupe connue, test de Guthrie (hypothyroïdie), surveillance de l'ictère à la maternité et au retour à domicile dans les premières semaines — d'autant plus rigoureuse que l'enfant est prématuré ou allaite peu."
+        },
+        {
+          "type": "paragraph",
+          "text": "Éducation des parents : reconnaître l'extension de l'ictère (descendre du visage vers les jambes est un signe d'aggravation), consulter si l'enfant devient somnolent ou refuse de boire, assurer des tétées fréquentes (8 à 12 par jour) dans les premiers jours pour stimuler le transit et l'élimination de la bilirubine. À Madagascar, éviter l'exposition à des substances oxydantes (naphtalène, certaines plantes traditionnelles) chez le nouveau-né, notamment en zone de forte prévalence du déficit en enzyme du globule rouge.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe sortie de maternité",
+          "text": "Avant la sortie : état de l'ictère noté, facteurs de risque identifiés, date de la première consultation fixée à 48-72 heures (moment du pic de l'ictère), et consignes données aux parents sur les signes d'alerte."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ictère néonatal est banal dans la majorité des cas, mais c'est la frontière entre le physiologique et le pathologique que le clinicien doit savoir tracer : avant 24 heures = pathologique ; extension rapide ou paumes et plantes jaunes = danger ; selles décolorées et urines foncées = cholestase à explorer. La bilirubinémie rapportée aux courbes de seuils guide la photothérapie ; l'exsanguino-transfusion reste le sauvetage des hyperbilirubinémies extrêmes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dans le contexte malgache, où les dosages et le test de Coombs ne sont pas toujours disponibles, la surveillance clinique rigoureuse (datation, extension, alertes alimentaires et neurologiques) et le recours précoce à la photothérapie dans les maternités de référence sont décisifs. Fiches liées : Immunisation sanguine fœto-maternelle, Examen du nouveau-né, Infections bactériennes du nouveau-né, Détresse respiratoire du nouveau-né."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Avant 24 heures : hémolyse ou infection. Après 24 heures : souvent physiologique, mais quantifier (bilirubine transcutanée puis sanguine). Photothérapie selon les courbes de seuils ; exsanguino-transfusion si seuil dépassé ou ascension rapide. Ictère conjugué ou selles décolorées : toujours pathologique. Somnolence, hypotonie, refus de boire : urgence neurologique."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche immunisation-foeto-mat — incompatibilités rhésus et ABO détaillées.",
+            "Fiche examen-nouveau-ne — dépistage de l'ictère dans la première semaine.",
+            "Fiche infections-neonatales (n°80, à venir) — infection néonatale précoce et ictère.",
+            "Fiche prematurite — seuils abaissés chez le prématuré.",
+            "Fiche transfusion et accidents-transfusionnels — exsanguino-transfusion et produits sanguins."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Ictère avant 24 heures",
+      "text": "Pathologique jusqu'à preuve du contraire : hémolyse (rhésus, ABO) ou infection. Groupe sanguin, Coombs, hémogramme, réticulocytes, bilirubinémie sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Ictère nucléaire : reconnaître l'urgence",
+      "text": "Somnolence, refus de boire, hypotonie puis hypertonie, opisthotonos, cris aigus : exsanguino-transfusion urgente en unité spécialisée."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe sortie de maternité",
+      "text": "Ictère noté, facteurs de risque identifiés, consultation à 48-72 heures programmée, consignes aux parents sur l'extension et les signes d'alerte."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Datation + quantification + courbes de seuils = décision. Photothérapie pour les libres élevées ; ictère conjugué toujours pathologique ; prématuré = seuils plus bas."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo règle de Kramer",
+      "text": "Face 100, cou 150, thorax 200, bras et jambes 250, paumes et plantes 300 micromoles par litre — l'extension descend du haut vers le bas du corps."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Datation de l'ictère",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Avant 24 heures : pathologique (hémolyse, infection)"
+        },
+        {
+          "key": "J",
+          "term": "Jour 2-4 : physiologique le plus souvent, quantifier"
+        },
+        {
+          "key": "A",
+          "term": "Après 7 jours : tardif — lait maternel, hypothyroïdie, cholestase"
+        }
+      ]
+    },
+    {
+      "label": "Causes d'hémolyse précoce",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Rhésus : mère négative, enfant positif, Coombs positif"
+        },
+        {
+          "key": "A",
+          "term": "ABO : mère O, enfant A ou B, la plus fréquente"
+        },
+        {
+          "key": "E",
+          "term": "Enzyme du globule rouge déficitaire (contexte africain)"
+        },
+        {
+          "key": "I",
+          "term": "Infection néonatale précoce"
+        }
+      ]
+    },
+    {
+      "label": "Bilan de l'ictère précoce",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Groupe sanguin et rhésus de l'enfant"
+        },
+        {
+          "key": "C",
+          "term": "Coombs direct"
+        },
+        {
+          "key": "H",
+          "term": "Hémogramme, réticulocytes, frottis"
+        },
+        {
+          "key": "B",
+          "term": "Bilirubinémie totale et dosages infectieux"
+        }
+      ]
+    },
+    {
+      "label": "Signes d'alerte de l'ictère nucléaire",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Somnolence, refus de boire"
+        },
+        {
+          "key": "H",
+          "term": "Hypotonie puis hypertonie, opisthotonos"
+        },
+        {
+          "key": "C",
+          "term": "Cris aigus anormaux"
+        },
+        {
+          "key": "E",
+          "term": "Extension aux paumes et plantes"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Pourquoi le nouveau-né est-il particulièrement exposé à l'hyperbilirubinémie ?",
+      "back": "Production accrue de bilirubine (masse érythrocytaire élevée, durée de vie des globules rouges courte) et conjugaison hépatique immature (enzyme de conjugaison faible)."
+    },
+    {
+      "id": "f2",
+      "front": "Quelles sont les caractéristiques de l'ictère physiologique ?",
+      "back": "Apparition entre 24 et 72 heures, pic vers le quatrième jour à 100-150 micromoles par litre, disparition en une à deux semaines, enfant bien portant."
+    },
+    {
+      "id": "f3",
+      "front": "Pourquoi un ictère avant 24 heures est-il toujours pathologique ?",
+      "back": "Parce que l'ictère physiologique n'apparaît qu'après 24 heures : un ictère précoce traduit une hémolyse (incompatibilité rhésus ou ABO) ou une infection néonatale."
+    },
+    {
+      "id": "f4",
+      "front": "Quelle est la cause la plus fréquente d'hémolyse néonatale par incompatibilité ?",
+      "back": "L'incompatibilité ABO (mère O, enfant A ou B) ; l'incompatibilité rhésus, plus grave, est devenue plus rare grâce aux immunoglobulines anti-D."
+    },
+    {
+      "id": "f5",
+      "front": "Comment estimer cliniquement le niveau de bilirubine ?",
+      "back": "Par la règle de Kramer : face 100, cou 150, thorax 200, bras et jambes 250, paumes et plantes 300 micromoles par litre — estimation à confirmer par dosage."
+    },
+    {
+      "id": "f6",
+      "front": "Comment différencier ictère à bilirubine libre et ictère cholestatique ?",
+      "back": "Bilirubine libre : enfant jaune, selles normales, urine normale. Cholestase (conjuguée) : urine foncée, selles décolorées, toujours pathologique."
+    },
+    {
+      "id": "f7",
+      "front": "Quel bilan devant un ictère précoce ?",
+      "back": "Groupe sanguin et rhésus, test de Coombs direct, hémogramme avec réticulocytes et frottis, bilirubinémie totale, marqueurs infectieux ; enzyme du globule rouge selon le contexte."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le mécanisme de la photothérapie ?",
+      "back": "La lumière convertit la bilirubine cutanée en formes hydrosolubles éliminées dans les urines et les selles, sans la conjuguer."
+    },
+    {
+      "id": "f9",
+      "front": "Comment surveille-t-on un enfant sous photothérapie ?",
+      "back": "Bilirubinémie toutes les 6 à 12 heures, protection des yeux, surveillance de la température et de l'hydratation, poursuite ou complément de l'allaitement."
+    },
+    {
+      "id": "f10",
+      "front": "Quelles sont les indications de l'exsanguino-transfusion ?",
+      "back": "Bilirubine dépassant les seuils d'échange selon les courbes (âge en heures, facteurs de risque, prématurité) ou ascension rapide malgré la photothérapie intensive."
+    },
+    {
+      "id": "f11",
+      "front": "Quel rôle ont les immunoglobulines intraveineuses dans l'ictère hémolytique ?",
+      "back": "Elles réduisent l'hémolyse par incompatibilité rhésus ou ABO et diminuent le besoin d'exsanguino-transfusion."
+    },
+    {
+      "id": "f12",
+      "front": "Qu'est-ce que l'ictère au lait maternel ?",
+      "back": "Un ictère tardif bénin, lié à des substances du lait maternel, sans danger pour l'enfant : allaitement poursuivi, surveillance simple, bilan si prolongé."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles maladies métaboliques donner un ictère cholestatique ?",
+      "back": "La galactocémie (déficit enzymatique du métabolisme du galactose) et le déficit en enzyme du métabolisme du galactose, la mucoviscidose, le syndrome d'Alagille, la fibrose kystique."
+    },
+    {
+      "id": "f14",
+      "front": "Quel délai chirurgical critique pour l'atrésie des voies biliaires ?",
+      "back": "L'intervention doit être réalisée avant 60 jours de vie, idéalement avant 45 : au-delà, les résultats de l'intervention se dégradent fortement."
+    },
+    {
+      "id": "f15",
+      "front": "Pourquoi les seuils de photothérapie sont-ils abaissés chez le prématuré ?",
+      "back": "Parce que la barrière hémato-encéphalique est plus perméable et l'albumine moins abondante : la toxicité neurologique survient à des niveaux de bilirubine plus bas."
+    },
+    {
+      "id": "f16",
+      "front": "Comment prévenir l'hémolyse par incompatibilité rhésus ?",
+      "back": "Immunoglobulines anti-D à la mère rhésus négatif lors des événements à risque (accouchement, avortement, geste invasif) pour éviter son immunisation (fiche dédiée)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "in-root",
+      "label": "Ictère néonatal"
+    },
+    "branches": [
+      {
+        "id": "in-b1",
+        "label": "Classification",
+        "children": [
+          {
+            "id": "in-b1-1",
+            "label": "Deux axes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "in-l1",
+            "label": "Libre (risque neurologique) vs conjuguée (cholestase)"
+          },
+          {
+            "id": "in-l2",
+            "label": "Précoce avant 24 h : pathologique"
+          },
+          {
+            "id": "in-l3",
+            "label": "Physiologique : 24-72 h, pic au 4e jour"
+          },
+          {
+            "id": "in-l4",
+            "label": "Tardif ou prolongé : après 7-14 jours"
+          }
+        ]
+      },
+      {
+        "id": "in-b2",
+        "label": "Étiologies libres",
+        "children": [
+          {
+            "id": "in-b2-1",
+            "label": "Hémolyse et autres"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "in-l5",
+            "label": "Rhésus et ABO (Coombs)"
+          },
+          {
+            "id": "in-l6",
+            "label": "Enzyme du globule rouge déficitaire"
+          },
+          {
+            "id": "in-l7",
+            "label": "Infections, hémorragies (céphalhématome)"
+          },
+          {
+            "id": "in-l8",
+            "label": "Lait maternel, hypothyroïdie, jeûne"
+          }
+        ]
+      },
+      {
+        "id": "in-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "in-b3-1",
+            "label": "Quantifier"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "in-l9",
+            "label": "Datation + règle de Kramer"
+          },
+          {
+            "id": "in-l10",
+            "label": "Bilirubine transcutanée puis sanguine"
+          },
+          {
+            "id": "in-l11",
+            "label": "Courbes de seuils selon l'âge et le risque"
+          }
+        ]
+      },
+      {
+        "id": "in-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "in-b4-1",
+            "label": "Gradué"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "in-l12",
+            "label": "Surveillance si physiologique"
+          },
+          {
+            "id": "in-l13",
+            "label": "Photothérapie selon les seuils"
+          },
+          {
+            "id": "in-l14",
+            "label": "Immunoglobulines (hémolyses)"
+          },
+          {
+            "id": "in-l15",
+            "label": "Exsanguino-transfusion urgente si seuil dépassé"
+          }
+        ]
+      },
+      {
+        "id": "in-b5",
+        "label": "Complications et prévention",
+        "children": [
+          {
+            "id": "in-b5-1",
+            "label": "Ictère nucléaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "in-l16",
+            "label": "Somnolence, hypotonie, opisthotonos, séquelles"
+          },
+          {
+            "id": "in-l17",
+            "label": "Prévention : anti-D, Guthrie, surveillance à 48-72 h"
+          },
+          {
+            "id": "in-l18",
+            "label": "Éducation : tétées fréquentes, signes d'alerte"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Ictère néonatal (chapitre 45, item 278)",
+      "citation": "CNPU — Ictère néonatal : étiologies, bilan et traitements",
+      "organization": "Collège National des Pédiatres Universitaires (Pédia-Univ)",
+      "year": 2023,
+      "version": "Référentiel national",
+      "url": "https://www.pedia-univ.fr/deuxieme-cycle/referentiel/neonatologie/ictere-neonatal",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "étiologies des ictères à bilirubine libre et conjuguée",
+        "conduite diagnostique",
+        "photothérapie et exsanguino-transfusion"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arbres et outils : ictère et hyperbilirubinémie non conjuguée du nouveau-né",
+      "citation": "CNRHP — Arbres décisionnels de l'ictère du nouveau-né (seuils de photothérapie intensive et d'exsanguino-transfusion)",
+      "organization": "Centre National de Référence en Santé Périnatale",
+      "year": 2018,
+      "version": "Arbres décisionnels",
+      "url": "https://cnrhp.fr/docs/ArbresOutilsIctereNN-%20CNRHP50518.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "seuils de bilirubine selon l'âge et les facteurs de risque",
+        "indications de photothérapie et d'exsanguino-transfusion"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Recommandations : ictère du nouveau-né (RECO 2019)",
+      "citation": "Réseau Périnatal Lorrain — Dépistage et quantification de l'ictère néonatal",
+      "organization": "Réseau Périnatal Lorrain",
+      "year": 2019,
+      "version": "Recommandation régionale",
+      "url": "https://www.reseauperinatallorrain.fr/app/download/31339577/RECO_RPL_icterenn_2019_vdef.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "dépistage et quantification (bilirubine transcutanée et sanguine)",
+        "surveillance"
+      ]
+    }
+  ]
+}
