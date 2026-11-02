@@ -45,9 +45,9 @@ export type NavGroup = {
 /** Onglets principaux : barre mobile en bas + premier bloc de la sidebar. */
 export const NAV = [
   { to: "/", labelKey: "nav.home", shortKey: "nav.homeShort", icon: Home },
+  { to: "/bibliotheque", labelKey: "nav.library", shortKey: "nav.libraryShort", icon: Library },
   { to: "/demarche", labelKey: "nav.orientation", shortKey: "nav.orientationShort", icon: Compass },
   { to: "/cas", labelKey: "nav.cases", shortKey: "nav.casesShort", icon: Stethoscope },
-  { to: "/programme", labelKey: "nav.nosography", shortKey: "nav.nosographyShort", icon: BookMarked },
   { to: "/profil", labelKey: "nav.profile", shortKey: "nav.profileShort", icon: UserRound },
 ] as const satisfies readonly NavEntry[];
 
@@ -60,7 +60,7 @@ export const EXPLORE_GROUPS = [
   {
     labelKey: "nav.group.learn",
     items: [
-      { to: "/bibliotheque", labelKey: "nav.library", icon: Library },
+      { to: "/programme", labelKey: "nav.nosography", icon: BookMarked },
       { to: "/parcours", labelKey: "nav.parcours", icon: Layers3 },
       { to: "/revue", labelKey: "nav.review", icon: RotateCcw },
     ],
