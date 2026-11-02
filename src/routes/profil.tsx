@@ -58,6 +58,9 @@ import { badgeGoals } from "@/lib/gamification/badge-progress";
 import { cn } from "@/lib/utils";
 import { currentLeague, useOptimus } from "@/state/store";
 import { toast } from "sonner";
+import { ProfileStat } from "@/components/profil/stat";
+import { ProfileMenuLink } from "@/components/profil/menu-link";
+import { coverImageStyle } from "@/components/profil/cover-style";
 
 export const Route = createFileRoute("/profil")({ component: ProfilPage });
 
@@ -945,70 +948,3 @@ function ProfilPage() {
   );
 }
 
-function ProfileStat({
-  label,
-  value,
-  bordered = false,
-}: {
-  label: string;
-  value: string;
-  bordered?: boolean;
-}) {
-  return (
-    <div className={cn("px-2 py-3 text-center", bordered && "border-l border-border")}>
-      <p className="font-display text-lg font-medium">{value}</p>
-      <p className="mt-0.5 text-[11px] uppercase tracking-wider text-muted">{label}</p>
-    </div>
-  );
-}
-
-function ProfileMenuLink({
-  icon: Icon,
-  label,
-  detail,
-  to,
-  last = false,
-}: {
-  icon: LucideIcon;
-  label: string;
-  detail: string;
-  to:
-    | "/bibliotheque"
-    | "/parcours"
-    | "/pro"
-    | "/achats"
-    | "/donnees"
-    | "/classement"
-    | "/import"
-    | "/contact"
-    | "/soutenir"
-    | "/a-propos";
-  last?: boolean;
-}) {
-  return (
-    <Link
-      to={to}
-      className={cn(
-        "flex min-h-16 items-center gap-3 px-4 py-3 transition-colors hover:bg-secondary",
-        !last && "border-b border-border",
-      )}
-    >
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
-        <Icon className="size-5" strokeWidth={1.7} />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-sm font-medium">{label}</span>
-        <span className="mt-0.5 block truncate text-xs text-muted">{detail}</span>
-      </span>
-      <ChevronRight className="size-4 shrink-0 text-subtle" />
-    </Link>
-  );
-}
-
-function coverImageStyle(url: string): CSSProperties {
-  return {
-    backgroundImage: `url(${url})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  };
-}
