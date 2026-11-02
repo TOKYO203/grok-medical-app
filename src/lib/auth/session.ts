@@ -82,6 +82,18 @@ function clearCookie(): void {
 }
 
 /** Jeton courant, ou `null`. Un jeton expiré est purgé au passage. */
+/**
+ * Retourne le token SANS verifier l'expiration.
+ * Sert au fallback offline (grace period 7j) : on doit pouvoir lire un token
+ * expire sans qu'il soit purge, pour decider si on est encore dans la fenetre
+ * de tolerance. Ne JAMAIS utiliser pour une decision d'acces : passer par
+ * verifyLocalLicenseToken() qui valide la signature.
+ */
+export function getTokenRaw(): string | null {
+  const store = storage();
+  return store?.getItem(SESSION_STORAGE_KEY) ?? null;
+}
+
 export function getToken(now = Date.now()): string | null {
   const store = storage();
   const token = store?.getItem(SESSION_STORAGE_KEY);
