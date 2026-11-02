@@ -84,10 +84,21 @@ test("fidélité clinique v3 : PR de la fiche, onde J, formes ST, 50 Hz, torsade
   expectLiteral(src, 'v += gauss(t, { mu: tR + sOff + 0.03, a: jWave, sigma: 0.035 });');
   // Formes ST : dôme décroissant (Brugada) et cupule (digitalique)
   expectLiteral(src, "if (def?.stCoved) v += st * Math.pow(1 - f, 1.6);");
-  expectLiteral(src, "else if (def?.stScooped) v += st * Math.sin(Math.PI * f);");
+  expectLiteral(src, "else if (def?.stScooped || def?.stConcave) v += st * Math.sin(Math.PI * f);");
   // Artefact secteur 50 Hz (parasitage SNCF) sur les deux chemins de rendu
   expectLiteral(src, "v += noise * Math.sin(ph * 2 * Math.PI * 50);");
   expectLiteral(src, "if (noise !== 0) v += noise * Math.sin(t * 2 * Math.PI * 50);");
   // Torsades : accordéon — l'amplitude des QRS tourne entre battements
   expectLiteral(src, "const beatAmp = twist ? 0.35 + 0.65 * Math.abs(Math.sin((Math.PI * (i + 0.5)) / 5)) : 1;");
+});
+
+test("fidélité clinique v4 : QT adaptatif Bazett, P inversée, PR sous-décalé, ST concave", async () => {
+  const src = await waveformSource();
+  expectLiteral(src, "const qtScale = Math.max(0.55, Math.min(1.35, Math.sqrt(cycleSec / 0.8)));");
+  expectLiteral(src, "if (def?.pFlip?.includes(lead)) parts = { ...parts, p: parts.p.map((v) => -v) };");
+  expectLiteral(src, "if (prDep !== 0 && ph > PHASE.p + 0.07 && ph < PHASE.q) v += prDep;");
+  expectLiteral(src, "else if (def?.stScooped || def?.stConcave) v += st * Math.sin(Math.PI * f);");
+  expectLiteral(src, "const qtScale = Math.max(0.55, Math.min(1.35, Math.sqrt(PP / 0.8)));");
+  expectLiteral(src, "const pAmp = def?.pFlip?.includes(lead) ? -w.P.a : w.P.a;");
+  expectLiteral(src, "if (t > tQ - 0.06 && t < tQ - 0.02) v += prDep;");
 });
