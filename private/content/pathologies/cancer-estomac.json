@@ -1,0 +1,738 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancer-estomac",
+  "title": "Cancer de l'estomac",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Connaître les facteurs de risque et la présentation clinique — souvent tardive — du cancer gastrique, comprendre la démarche diagnostique endoscopique et d'extension, et connaître les principes du traitement : chirurgie carcinologique adaptée au stade, chimiothérapie périopératoire et prise en charge multidisciplinaire.",
+  "language": "fr",
+  "updatedAt": "2026-11-04",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 37,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 212,
+      "localNumber": 37,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancer de l'estomac",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'ESMO sur le cancer de l'estomac et des données de la base GLOBOCAN. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche ne donne aucune posologie de chimiothérapie : les schémas varient selon l'état du patient, le stade et les protocoles locaux.",
+      "La chirurgie est présentée comme le traitement curatif de référence des formes localisées, avec insistance sur la qualité du bilan d'extension et de la discussion multidisciplinaire avant tout geste.",
+      "Les facteurs de risque locaux — infection à Helicobacter pylori, alimentation fumée et salée, tabac — sont soulignés car pertinents pour la prévention en contexte africain.",
+      "Le pronostic globalement défavorable est exposé honnêtement, avec l'accent mis sur le diagnostic précoce des lésions limitées, seules curables.",
+      "La gastrectomie partielle ou totale et le curage ganglionnaire sont décrits en principes, sans détail opératoire."
+    ],
+    "qcChecklist": [
+      "Facteurs de risque et rôle de Helicobacter pylori",
+      "Sémiologie souvent tardive et pièges cliniques",
+      "Endoscopie avec biopsies : examen clé",
+      "Bilan d'extension : TDM thoraco-abdomino-pelvienne",
+      "Chirurgie adaptée au stade, discussion multidisciplinaire",
+      "Chimiothérapie périopératoire pour les formes avancées localisées",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer de l'estomac est l'un des cancers digestifs les plus fréquents au monde, avec une forte prédominance en Asie de l'Est et en Amérique du Sud ; il reste une réalité en Afrique, souvent diagnostiqué tardivement. Son pronostic dépend étroitement du stade au diagnostic : les formes précoces, limitées à la muqueuse ou à la sous-muqueuse, sont curables, alors que les formes métastatiques relèvent d'un traitement palliatif."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'essentiel de la démarche est chronologique : identifier le patient à risque, reconnaître des signes d'alarme digestifs, confirmer par endoscopie avec biopsies, établir l'extension, puis discuter en réunion de concertation pluridisciplinaire entre chirurgie carcinologique, chimiothérapie périopératoire et soins de support."
+        },
+        {
+          "type": "paragraph",
+          "text": "Adénocarcinome représente plus de 90 % des tumeurs gastriques ; la fiche porte sur lui. Les lymphomes, les tumeurs stromales et les tumeurs neuroendocrines gastriques sont distincts et ne relèvent pas des mêmes traitements."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        },
+        {
+          "id": "SRC-GLOBOCAN",
+          "organization": "International Agency for Research on Cancer (IARC)",
+          "title": "GLOBOCAN 2022: estimated cancer incidence, mortality and prevalence worldwide",
+          "year": 2024,
+          "url": "https://gco.iarc.fr"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités, facteurs de risque et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'adénocarcinome gastrique naît le plus souvent dans une muqueuse inflammatoire chronique. Deux grands contextes le favorisent : la gastrite atrophique liée à Helicobacter pylori — la cause infectieuse majeure, classée cancérogène — et les lésions précancéreuses comme l'atrophie, la métaplasie intestinale et les polypes adénomateux. Les facteurs alimentaires (aliments fumés, salés, conservés ; faible consommation de fruits et légumes frais), le tabac et l'obésité surajoutent leur effet."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux types anatomiques coexistent : le type intestinal, sur muqueuse métaplasique, à progression locale, et le type diffus, à cellules indépendantes, à croissance infiltrante rapide et de plus mauvais pronostic. Les formes héréditaires — syndrome de Lynch, cancers gastriques diffus héréditaires liés à CDH1 — sont rares mais imposent une surveillance familiale."
+        },
+        {
+          "type": "paragraph",
+          "text": "La maladie se propage par voie directe (séreuse, organes de voisinage), lymphatique (curatures ganglionnaires), hématogène (foie, poumon) et péritonéale. Cette multiplicité explique la fréquence des découvertes avancées et impose un bilan d'extension complet avant toute décision."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Facteur",
+            "Nature",
+            "Commentaire"
+          ],
+          "rows": [
+            [
+              "Helicobacter pylori",
+              "Infection chronique",
+              "Principale cause infectieuse ; dépistage et éradication en population à risque"
+            ],
+            [
+              "Alimentation fumée, salée, conservée",
+              "Facteur alimentaire",
+              "Fréquent dans plusieurs régions africaines et asiatiques"
+            ],
+            [
+              "Tabac",
+              "Facteur d'exposition",
+              "Risque accru et effet dose"
+            ],
+            [
+              "Gastrite atrophique, métaplasie intestinale",
+              "Lésion précancéreuse",
+              "Justifie une surveillance endoscopique"
+            ],
+            [
+              "Antécédents de gastrectomie partielle",
+              "État précancéreux",
+              "Surveillance endoscopique à distance"
+            ],
+            [
+              "Syndrome de Lynch, mutation CDH1",
+              "Terrain héréditaire",
+              "Conseil génétique, surveillance rapprochée"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Helicobacter pylori : la cause infectieuse principale",
+          "text": "L'infection chronique à H. pylori est le premier facteur de risque identifié de cancer gastrique ; son éradication réduit le risque dans les populations à risque élevé."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas banaliser une dyspepsie qui change",
+          "text": "Une dyspepsie ancienne qui se modifie, un amaigrissement, une dysphagia ou une anémie ferriprive chez un patient de plus de 45-50 ans doivent déclencher une endoscopie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La présentation clinique est souvent tardive : douleur épigastrique et post-prandiale, anorexie, amaigrissement, anémie ferriprive par saignement occulte, dysphagia pour les tumeurs du cardia, vomissements pour les tumeurs antrales sténosantes. Une tumeur palpable ou une ascite signent une forme avancée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur l'endoscopie œsogastroduodénale avec biopsies multiples : elle visualise la tumeur, précise sa localisation et son aspect, et permet l'étude histologique. Les biopsies doivent être multiples pour éviter les faux négatifs."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan d'extension comporte une tomodensitométrie thoraco-abdomino-pelvienne, complétée selon les cas d'une échographie endoscopique pour évaluer la profondeur de l'infiltration pariétale et les ganglions péri-gastriques, et d'une cœlioscopie pour éliminer une carcinose péritonéale. Ces examens conditionnent la décision chirurgicale : ils doivent être faits avant tout geste."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Endoscopie œsogastroduodénale avec biopsies multiples : examen diagnostique clé.",
+            "Tomodensitométrie thoraco-abdomino-pelvienne : extension ganglionnaire, hépatique, pulmonaire.",
+            "Échographie endoscopique : profondeur pariétale et ganglions péri-gastriques pour les formes localisées.",
+            "Cœlioscopie exploratrice : recherche d'une carcinose péritonéale avant chirurgie.",
+            "Biologie : hémogramme, fer, albumine, fonction rénale et hépatique.",
+            "Test à l'uréase et histologie pour H. pylori sur les biopsies antrales.",
+            "Réunion de concertation pluridisciplinaire avant toute décision."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Examen",
+            "But",
+            "Place"
+          ],
+          "rows": [
+            [
+              "Endoscopie + biopsies",
+              "Diagnostic histologique",
+              "Examen clé"
+            ],
+            [
+              "TDM thoraco-abdomino-pelvienne",
+              "Extension, métastases",
+              "Systématique"
+            ],
+            [
+              "Échographie endoscopique",
+              "Stade pariétal T, ganglions",
+              "Formes potentiellement chirurgicales"
+            ],
+            [
+              "Cœlioscopie",
+              "Carcinose péritonéale",
+              "Avant chirurgie des formes avancées"
+            ],
+            [
+              "PET-scan",
+              "Lésions à distance",
+              "Discuté, faible accessibilité"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Anémie ferriprive et amaigrissement",
+          "text": "Une anémie ferriprive inexpliquée chez un adulte de plus de 45-50 ans impose une endoscopie digestive : elle peut révéler un cancer gastrique à un stade encore curable."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Jamais de chirurgie sans bilan complet",
+          "text": "Les explorations endoscopiques et d'extension doivent être réalisées avant tout geste, pour éviter des laparotomies palliatives inutiles."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes et situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La localisation conditionne le geste : les tumeurs antrales relèvent d'une gastrectomie des deux tiers, les tumeurs du fundus ou du cardia d'une gastrectomie totale, parfois étendue à l'œsophage ou à la rate selon l'extension."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cancer superficiel : limité à la muqueuse ou sous-muqueuse ; résection endoscopique possible pour des lésions sélectionnées.",
+            "Cancer localement avancé : infiltration transmural ou ganglionnaire régionale ; chirurgie carcinologique et chimiothérapie périopératoire.",
+            "Cancer métastatique : traitement systémique palliatif et soins de support ; chirurgie réservée aux complications.",
+            "Tumeur sténosante antrale : obstacle alimentaire ; levée de l'obstacle discutée selon l'état général.",
+            "Saignement tumoral : endoscopie hémostatique, radiotherapy ou chirurgie palliative selon contexte.",
+            "Terrain héréditaire : surveillance endoscopique rapprochée et conseil génétique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Penser aux formes héréditaires",
+          "text": "Chez un patient jeune, ou avec antécédents familiaux de cancers digestifs, évoquer un syndrome de Lynch ou une mutation CDH1 : la surveillance familiale peut sauver des vies."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est multidisciplinaire. Pour les formes localisées mais avancées (infiltration transmurale ou ganglions), la chimiothérapie périopératoire améliore la survie : elle précède et suit la chirurgie. La chirurgie carcinologique — gastrectomie partielle ou totale avec curage ganglionnaire — est le seul traitement curatif. Pour les formes métastatiques, le traitement est systémique : chimiothérapie, thérapies ciblées selon HER2, immunothérapie dans certaines indications, et soins de support."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stade",
+            "Prise en charge",
+            "Points de vigilance"
+          ],
+          "rows": [
+            [
+              "Superficial (T1)",
+              "Résection endoscopique ou gastrectomie limitée",
+              "Confirmation histologique, surveillance rapprochée"
+            ],
+            [
+              "Localisé avancé, résécable",
+              "Chimiothérapie périopératoire + gastrectomie avec curage",
+              "Bilan complet, nutrition périopératoire"
+            ],
+            [
+              "Localement avancé non résécable",
+              "Chimiothérapie, réévaluation",
+              "Discussion multidisciplinaire"
+            ],
+            [
+              "Métastatique",
+              "Traitement systémique et soins de support",
+              "Statut HER2, état général, objectifs réalistes"
+            ],
+            [
+              "Complication : hémorragie, sténose",
+              "Endoscopie, chirurgie palliative",
+              "Levée de l'obstacle, confort"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La prise en charge périopératoire compte autant que le geste : évaluation nutritionnelle avant gastrectomie (risque majeur de dénutrition), information sur les conséquences de la gastrectomie totale (repas fractionnés, carences en fer et vitamine B12 à suppléer), prévention thromboembolique et réhabilitation améliorée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Discussion multidisciplinaire systématique avant traitement.",
+            "Évaluation nutritionnelle avant et après gastrectomie.",
+            "Supplémentation en vitamine B12 après gastrectomie totale.",
+            "Suivi endoscopique après chirurgie selon les protocoles.",
+            "Soins de support : douleur, nutrition, accompagnement, dès le diagnostic."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La chirurgie est curative — si le stade s'y prête",
+          "text": "Le pronostic dépend du stade au diagnostic : d'où l'importance de l'endoscopie précoce et de la qualité du bilan d'extension."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne jamais opérer une forme métastatique pour « enlever la tumeur »",
+          "text": "Une chirurgie d'exérèse sans bénéfice attendu expose à une morbidité grave ; en cas de complication obstructive ou hémorragique, des gestes palliatifs ciblés existent."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention repose sur le dépistage et le traitement de l'infection à H. pylori dans les populations à risque, la correction des habitudes alimentaires (réduction des aliments fumés et salés, fruits et légumes frais), l'arrêt du tabac et la surveillance endoscopique des lésions précancéreuses et des terrains héréditaires."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi après traitement curatif combine examen clinique, biologie et imagerie selon les protocoles, avec une attention particulière à la nutrition, aux carences post-gastrectomie et aux signes de récidive. Le soutien psychologique et social fait partie du traitement."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Après gastrectomie totale",
+          "text": "Repas fractionnés, supplémentation en vitamine B12 et en fer, surveillance du poids : la qualité de vie dépend de l'éducation nutritionnelle postopératoire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer de l'estomac reste souvent diagnostiqué tardivement. L'essentiel est d'identifier les patients à risque, de ne pas banaliser une dyspepsie qui change et de confirmer par endoscopie avec biopsies sans retard."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement est multidisciplinaire : chimiothérapie périopératoire et chirurgie carcinologique pour les formes localisées avancées, traitement systémique et soins de support pour les formes métastatiques. La nutrition et l'accompagnement sont partie intégrante du parcours."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lordick F, et al. Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up. Annals of Oncology 2024.",
+            "Bray F, et al. Global cancer statistics 2022 (GLOBOCAN). CA: A Cancer Journal for Clinicians 2024. Base consultable : gco.iarc.fr."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESMO-GASTRIC",
+          "organization": "European Society for Medical Oncology (ESMO)",
+          "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+          "year": 2024,
+          "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext"
+        },
+        {
+          "id": "SRC-GLOBOCAN",
+          "organization": "International Agency for Research on Cancer (IARC)",
+          "title": "GLOBOCAN 2022: estimated cancer incidence, mortality and prevalence worldwide",
+          "year": 2024,
+          "url": "https://gco.iarc.fr"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-alarme",
+      "label": "ALARME",
+      "intro": "Signes d'alarme imposant une endoscopie",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Amaigrissement inexpliqué."
+        },
+        {
+          "key": "L",
+          "term": "Loss of appetite — anorexie durable."
+        },
+        {
+          "key": "A",
+          "term": "Anémie ferriprive inexpliquée."
+        },
+        {
+          "key": "R",
+          "term": "Reflux ou dyspepsie qui change chez un patient de plus de 45-50 ans."
+        },
+        {
+          "key": "M",
+          "term": "Méléna, saignement occulte."
+        },
+        {
+          "key": "E",
+          "term": "Épigastre douloureux fixe, ou dysphagia."
+        }
+      ],
+      "note": "Un seul de ces signes chez un patient à risque justifie l'endoscopie."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est le principal facteur de risque infectieux du cancer gastrique ?",
+      "back": "L'infection chronique à Helicobacter pylori, classée cancérogène.",
+      "tags": [
+        "épidémiologie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel examen fait le diagnostic du cancer de l'estomac ?",
+      "back": "L'endoscopie œsogastroduodénale avec biopsies multiples.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quels examens composent le bilan d'extension ?",
+      "back": "TDM thoraco-abdomino-pelvienne, échographie endoscopique et, selon les cas, cœlioscopie exploratrice.",
+      "tags": [
+        "extension"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel est le seul traitement curatif du cancer gastrique localisé ?",
+      "back": "La chirurgie carcinologique : gastrectomie partielle ou totale avec curage ganglionnaire.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle stratégie améliore la survie des formes localisées avancées ?",
+      "back": "La chimiothérapie périopératoire, avant et après la chirurgie.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle carence faut-il prévenir après gastrectomie totale ?",
+      "back": "La carence en vitamine B12, qui impose une supplémentation à vie, ainsi que le fer.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quel signe biologique révélateur faut-il connaître ?",
+      "back": "L'anémie ferriprive par saignement occulte, qui impose une endoscopie chez l'adulte de plus de 45-50 ans.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelle est la place de la cœlioscopie exploratrice avant chirurgie ?",
+      "back": "Éliminer une carcinose péritonéale qui contre-indiquerait une chirurgie d'exérèse.",
+      "tags": [
+        "extension"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Citer trois facteurs de risque alimentaires.",
+      "back": "Aliments fumés, salés ou conservés ; faible consommation de fruits et légumes frais ; tabac.",
+      "tags": [
+        "prévention"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Que proposer en cas de cancer métastatique ?",
+      "back": "Traitement systémique (chimiothérapie, thérapies ciblées selon HER2, immunothérapie selon indications) et soins de support.",
+      "tags": [
+        "traitement"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Cancer de l'estomac",
+      "detail": "Adénocarcinome gastrique : diagnostic souvent tardif, endoscopie avec biopsies, bilan d'extension complet, chirurgie carcinologique et chimiothérapie périopératoire pour les formes localisées, traitement systémique au-delà."
+    },
+    "branches": [
+      {
+        "id": "risque",
+        "label": "Facteurs de risque",
+        "tone": "retenir",
+        "detail": "H. pylori, alimentation, tabac, lésions précancéreuses, terrains héréditaires.",
+        "children": [
+          {
+            "id": "ris-infectieux",
+            "label": "Infectieux",
+            "detail": "Helicobacter pylori : principale cause infectieuse.",
+            "leaves": [
+              {
+                "id": "ris-infectieux-1",
+                "label": "Action",
+                "detail": "Dépistage et éradication en population à risque."
+              }
+            ]
+          },
+          {
+            "id": "ris-precancereux",
+            "label": "Précancéreux",
+            "detail": "Gastrite atrophique, métaplasie intestinale, gastrectomie partielle.",
+            "leaves": [
+              {
+                "id": "ris-precancereux-1",
+                "label": "Action",
+                "detail": "Surveillance endoscopique."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostic",
+        "label": "Diagnostic",
+        "tone": "reflexe",
+        "detail": "Signes d'alarme, endoscopie avec biopsies, extension.",
+        "children": [
+          {
+            "id": "dia-clinique",
+            "label": "Clinique",
+            "detail": "Dyspepsie qui change, amaigrissement, anémie ferriprive, dysphagia.",
+            "leaves": [
+              {
+                "id": "dia-clinique-1",
+                "label": "Piège",
+                "detail": "Symptômes banalisés, retard fréquent."
+              }
+            ]
+          },
+          {
+            "id": "dia-examens",
+            "label": "Examens",
+            "detail": "Endoscopie + biopsies, TDM, échoendoscopie, cœlioscopie.",
+            "leaves": [
+              {
+                "id": "dia-examens-1",
+                "label": "Règle",
+                "detail": "Bilan complet avant toute chirurgie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traitement",
+        "label": "Traitement",
+        "tone": "urgence",
+        "detail": "Multidisciplinaire, adapté au stade.",
+        "children": [
+          {
+            "id": "tra-curatif",
+            "label": "Curatif",
+            "detail": "Chimiothérapie périopératoire + gastrectomie avec curage.",
+            "leaves": [
+              {
+                "id": "tra-curatif-1",
+                "label": "Nutrition",
+                "detail": "Évaluation avant et après le geste."
+              }
+            ]
+          },
+          {
+            "id": "tra-palliatif",
+            "label": "Palliatif",
+            "detail": "Traitement systémique, gestes ciblés sur complications.",
+            "leaves": [
+              {
+                "id": "tra-palliatif-1",
+                "label": "Support",
+                "detail": "Douleur, nutrition, accompagnement."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivi",
+        "label": "Suivi",
+        "tone": "prudence",
+        "detail": "Carences, récidive, qualité de vie.",
+        "children": [
+          {
+            "id": "sui-carences",
+            "label": "Carences",
+            "detail": "Vitamine B12, fer, repas fractionnés.",
+            "leaves": [
+              {
+                "id": "sui-carences-1",
+                "label": "Réflexe",
+                "detail": "Supplémentation B12 après gastrectomie totale."
+              }
+            ]
+          },
+          {
+            "id": "sui-surveillance",
+            "label": "Surveillance",
+            "detail": "Clinique, biologie, imagerie selon protocoles.",
+            "leaves": [
+              {
+                "id": "sui-surveillance-1",
+                "label": "Familles",
+                "detail": "Conseil génétique si contexte héréditaire."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESMO-GASTRIC",
+      "title": "Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+      "citation": "Lordick F, et al. Gastric cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up. Annals of Oncology 2024.",
+      "organization": "European Society for Medical Oncology (ESMO)",
+      "year": 2024,
+      "url": "https://www.annalsofoncology.org/article/S0923-7534(22)01851-8/fulltext",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Diagnostic",
+        "Bilan d'extension",
+        "Traitement",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-GLOBOCAN",
+      "title": "GLOBOCAN 2022: estimated cancer incidence, mortality and prevalence worldwide",
+      "citation": "Bray F, et al. Global cancer statistics 2022 (GLOBOCAN). CA: A Cancer Journal for Clinicians 2024. Base : gco.iarc.fr.",
+      "organization": "International Agency for Research on Cancer (IARC)",
+      "year": 2024,
+      "url": "https://gco.iarc.fr",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Épidémiologie mondiale et régionale"
+      ]
+    }
+  ]
+}
