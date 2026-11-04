@@ -105,7 +105,7 @@ function PathologiePage() {
     <Shell title="Nosographie">
       <Page className="mx-auto max-w-lg">
         <Link
-          to="/programme"
+          to="/competences"
           className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg"
         >
           <ArrowLeft className="size-4" aria-hidden />
@@ -314,7 +314,7 @@ function LockedPanel({
           {t("pathologie.unlock")}
           <ArrowRight className="size-4" aria-hidden />
         </Link>
-        <Link to="/programme" className="mt-3 block text-center text-sm text-muted">
+        <Link to="/competences" className="mt-3 block text-center text-sm text-muted">
           {t("pathologie.back")}
         </Link>
       </div>
@@ -341,7 +341,7 @@ function PathologieNotFound() {
     <Shell title="Nosographie">
       <Page className="mx-auto max-w-lg">
         <p className="text-sm text-muted">{t("pathologie.notFound")}</p>
-        <Link to="/programme" className="mt-4 inline-flex text-sm font-medium text-primary">
+        <Link to="/competences" className="mt-4 inline-flex text-sm font-medium text-primary">
           {t("pathologie.back")}
         </Link>
       </Page>
@@ -416,7 +416,7 @@ function PathologieLocked() {
     <Shell title="Nosographie">
       <Page className="mx-auto max-w-lg" data-pathologie-locked>
         <Link
-          to="/programme"
+          to="/competences"
           className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg"
         >
           <ArrowLeft className="size-4" aria-hidden />
@@ -435,7 +435,7 @@ function PathologieLocked() {
           preview={preview ? { subtitle: preview.subtitle, objective: preview.objective } : undefined}
           sessionExpired={expired}
         >
-          <Link to="/programme" className="font-medium text-primary">
+          <Link to="/competences" className="font-medium text-primary">
             {t("pathologie.back")}
           </Link>
         </ContentLocked>

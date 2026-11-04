@@ -60,7 +60,7 @@ export const EXPLORE_GROUPS = [
   {
     labelKey: "nav.group.learn",
     items: [
-      { to: "/programme", labelKey: "nav.nosography", icon: BookMarked },
+      { to: "/competences", labelKey: "nav.nosography", icon: BookMarked },
       { to: "/parcours", labelKey: "nav.parcours", icon: Layers3 },
       { to: "/revue", labelKey: "nav.review", icon: RotateCcw },
     ],

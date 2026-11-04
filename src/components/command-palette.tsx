@@ -29,7 +29,7 @@ const PAGE_KEYWORDS: Record<string, string> = {
   "/": "home accueil dashboard tableau de bord",
   "/demarche": "orientation démarches diagnostiques diagnostic guide",
   "/cas": "cas cliniques cases",
- "/programme": "nosographie programme national référentiel items concours internat",
+ "/competences": "compétences competences curriculum référentiel items concours internat",
   "/profil": "profil compte badges stats",
   "/bibliotheque": "bibliothèque library catalogue content decks cas",
   "/parcours": "parcours decks cartes pathways spécialités",

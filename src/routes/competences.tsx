@@ -19,7 +19,7 @@ import {
 import { hasPathologyContent, listPathologySummaries } from "@/lib/pathologies/manifest";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/programme")({ component: ProgrammePage });
+export const Route = createFileRoute("/competences")({ component: ProgrammePage });
 
 const MONTHS_FR = [
   "janvier",
@@ -181,12 +181,12 @@ function ProgrammePage() {
   }
 
   return (
-    <Shell title="Programme national">
+    <Shell title="Compétences">
       <Page>
         <ScrollToTopButton />
         <PageHeader
           kicker={programme ? `${programme.flag} ${programme.pays} · ${programme.annee}` : "Référentiel"}
-          title="Programme national"
+          title="Compétences"
           description={
             programme
               ? `Les ${total} items officiels du concours, tels que publiés. Les spécialités déjà couvertes par vos decks ouvrent directement le contenu correspondant.`

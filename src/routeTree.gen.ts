@@ -25,6 +25,7 @@ import { Route as CalculateursRouteImport } from './routes/calculateurs'
 import { Route as CasRouteImport } from './routes/cas'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as ClassementRouteImport } from './routes/classement'
+import { Route as CompetencesRouteImport } from './routes/competences'
 import { Route as ConditionsRouteImport } from './routes/conditions'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ConseilEditorialRouteImport } from './routes/conseil-editorial'
@@ -44,7 +45,6 @@ import { Route as ParcoursRouteImport } from './routes/parcours'
 import { Route as PolitiqueEditorialeRouteImport } from './routes/politique-editoriale'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as ProfilRouteImport } from './routes/profil'
-import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as RevueRouteImport } from './routes/revue'
 import { Route as SignesRouteImport } from './routes/signes'
 import { Route as SourcesRouteImport } from './routes/sources'
@@ -156,6 +156,11 @@ const ClassementRoute = ClassementRouteImport.update({
   path: '/classement',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompetencesRoute = CompetencesRouteImport.update({
+  id: '/competences',
+  path: '/competences',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ConditionsRoute = ConditionsRouteImport.update({
   id: '/conditions',
   path: '/conditions',
@@ -249,11 +254,6 @@ const ProRoute = ProRouteImport.update({
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgrammeRoute = ProgrammeRouteImport.update({
-  id: '/programme',
-  path: '/programme',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RevueRoute = RevueRouteImport.update({
@@ -428,6 +428,7 @@ export interface FileRoutesByFullPath {
   '/cas': typeof CasRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
+  '/competences': typeof CompetencesRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
@@ -447,7 +448,6 @@ export interface FileRoutesByFullPath {
   '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
-  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/sources': typeof SourcesRoute
@@ -496,6 +496,7 @@ export interface FileRoutesByTo {
   '/cas': typeof CasRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
+  '/competences': typeof CompetencesRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
@@ -515,7 +516,6 @@ export interface FileRoutesByTo {
   '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
-  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/sources': typeof SourcesRoute
@@ -566,6 +566,7 @@ export interface FileRoutesById {
   '/cas': typeof CasRouteWithChildren
   '/changelog': typeof ChangelogRoute
   '/classement': typeof ClassementRoute
+  '/competences': typeof CompetencesRoute
   '/conditions': typeof ConditionsRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/conseil-editorial': typeof ConseilEditorialRoute
@@ -585,7 +586,6 @@ export interface FileRoutesById {
   '/politique-editoriale': typeof PolitiqueEditorialeRoute
   '/pro': typeof ProRoute
   '/profil': typeof ProfilRoute
-  '/programme': typeof ProgrammeRoute
   '/revue': typeof RevueRoute
   '/signes': typeof SignesRoute
   '/sources': typeof SourcesRoute
@@ -636,6 +636,7 @@ export interface FileRouteTypes {
     | '/cas'
     | '/changelog'
     | '/classement'
+    | '/competences'
     | '/conditions'
     | '/confidentialite'
     | '/conseil-editorial'
@@ -655,7 +656,6 @@ export interface FileRouteTypes {
     | '/politique-editoriale'
     | '/pro'
     | '/profil'
-    | '/programme'
     | '/revue'
     | '/signes'
     | '/sources'
@@ -704,6 +704,7 @@ export interface FileRouteTypes {
     | '/cas'
     | '/changelog'
     | '/classement'
+    | '/competences'
     | '/conditions'
     | '/confidentialite'
     | '/conseil-editorial'
@@ -723,7 +724,6 @@ export interface FileRouteTypes {
     | '/politique-editoriale'
     | '/pro'
     | '/profil'
-    | '/programme'
     | '/revue'
     | '/signes'
     | '/sources'
@@ -773,6 +773,7 @@ export interface FileRouteTypes {
     | '/cas'
     | '/changelog'
     | '/classement'
+    | '/competences'
     | '/conditions'
     | '/confidentialite'
     | '/conseil-editorial'
@@ -792,7 +793,6 @@ export interface FileRouteTypes {
     | '/politique-editoriale'
     | '/pro'
     | '/profil'
-    | '/programme'
     | '/revue'
     | '/signes'
     | '/sources'
@@ -843,6 +843,7 @@ export interface RootRouteChildren {
   CasRoute: typeof CasRouteWithChildren
   ChangelogRoute: typeof ChangelogRoute
   ClassementRoute: typeof ClassementRoute
+  CompetencesRoute: typeof CompetencesRoute
   ConditionsRoute: typeof ConditionsRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ConseilEditorialRoute: typeof ConseilEditorialRoute
@@ -862,7 +863,6 @@ export interface RootRouteChildren {
   PolitiqueEditorialeRoute: typeof PolitiqueEditorialeRoute
   ProRoute: typeof ProRoute
   ProfilRoute: typeof ProfilRoute
-  ProgrammeRoute: typeof ProgrammeRoute
   RevueRoute: typeof RevueRoute
   SignesRoute: typeof SignesRoute
   SourcesRoute: typeof SourcesRoute
@@ -1005,6 +1005,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClassementRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/competences': {
+      id: '/competences'
+      path: '/competences'
+      fullPath: '/competences'
+      preLoaderRoute: typeof CompetencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conditions': {
       id: '/conditions'
       path: '/conditions'
@@ -1136,13 +1143,6 @@ declare module '@tanstack/react-router' {
       path: '/profil'
       fullPath: '/profil'
       preLoaderRoute: typeof ProfilRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programme': {
-      id: '/programme'
-      path: '/programme'
-      fullPath: '/programme'
-      preLoaderRoute: typeof ProgrammeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/revue': {
@@ -1436,6 +1436,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasRoute: CasRouteWithChildren,
   ChangelogRoute: ChangelogRoute,
   ClassementRoute: ClassementRoute,
+  CompetencesRoute: CompetencesRoute,
   ConditionsRoute: ConditionsRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ConseilEditorialRoute: ConseilEditorialRoute,
@@ -1455,7 +1456,6 @@ const rootRouteChildren: RootRouteChildren = {
   PolitiqueEditorialeRoute: PolitiqueEditorialeRoute,
   ProRoute: ProRoute,
   ProfilRoute: ProfilRoute,
-  ProgrammeRoute: ProgrammeRoute,
   RevueRoute: RevueRoute,
   SignesRoute: SignesRoute,
   SourcesRoute: SourcesRoute,
