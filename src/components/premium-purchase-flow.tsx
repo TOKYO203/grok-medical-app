@@ -504,14 +504,18 @@ export function PremiumPurchaseFlow({
 
             {offer === "deck" ? (
               <>
-                <label className="mt-4 block text-xs font-medium text-muted" htmlFor="deck-number">Étape du parcours</label>
+                <label className="mt-4 block text-xs font-medium text-muted" htmlFor="deck-number">Sujet du module</label>
                 <select
                   id="deck-number"
                   className="mt-2 h-11 w-full rounded-[var(--radius-md)] bg-secondary px-3 text-sm shadow-[var(--shadow-border)]"
                   value={deckNumber}
                   onChange={(event) => setDeckNumber(Number(event.target.value))}
                 >
-                  {Array.from({ length: 10 }, (_, index) => index + 1).map((number) => <option key={number} value={number}>Module {number}</option>)}
+                  {(DECK_SUBJECTS[specialty] || ["Module 1"]).map((subject, index) => (
+                    <option key={index + 1} value={index + 1}>
+                      {subject} (L2-L5)
+                    </option>
+                  ))}
                 </select>
               </>
             ) : null}
@@ -780,6 +784,14 @@ function PurchaseSteps({ current }: { current: 1 | 2 | 3 }) {
     </ol>
   );
 }
+
+const DECK_SUBJECTS: Record<PremiumSpecialtyId, string[]> = {
+  cardiologie: ["Bases", "SCA", "Insuffisance cardiaque", "HTA", "Fibrillation atriale", "Valvulopathies", "Arrêt cardiaque", "OAP"],
+  neurologie: ["Bases", "AVC", "Épilepsie", "Syndromes dégénératifs", "Nerfs périphériques"],
+  infectiologie: ["Bases", "Typhoïde", "Tropical", "Sepsis", "Antibiothérapie", "VIH"],
+  urgences: ["Bases", "Détresses vitales", "Traumatologie", "Intoxications"],
+  dermatologie: ["Bases", "Dermatoses fréquentes"],
+};
 
 function OfferCard({ active, title, detail, price, features, recommended = false, badge, onClick }: {
   active: boolean;

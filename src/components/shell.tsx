@@ -23,7 +23,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
   const { t } = useI18n();
 
   return (
-    <div className="min-h-dvh text-fg">
+    <div className="min-h-dvh text-fg overflow-x-hidden">
       <a
         href="#main-content"
         className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-[var(--radius-md)] bg-primary px-4 py-2 text-sm font-medium text-primary-fg shadow-[var(--shadow-md)] transition-transform focus:translate-y-0"
@@ -131,7 +131,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       <nav
         aria-label={t("nav.ariaPrimary")}
         data-mobile-navigation="true"
-        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-6 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
+        className="fixed left-2 right-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-6 max-w-[calc(100vw-1rem)] overflow-hidden rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
       >
         {NAV.map((item) => {
           const active = isActive(pathname, item.to);
