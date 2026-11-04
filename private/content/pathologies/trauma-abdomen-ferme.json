@@ -1,0 +1,801 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "trauma-abdomen-ferme",
+  "title": "Traumatismes abdominaux fermés",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Prendre en charge un traumatisé abdominal fermé : décider qui est instable et doit aller au bloc d'emblée, qui bénéficie d'une imagerie, reconnaître les lésions des organes pleins et des organes creux, et connaître la place de la réanimation, du drainage, de l'embolisation et de la chirurgie de sauvetage.",
+  "language": "fr",
+  "updatedAt": "2026-11-04",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 11,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 186,
+      "localNumber": 11,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Traumatismes abdominaux fermés",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations WSES 2022 sur les lésions traumatiques du grêle et des principes ATLS. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Le principe directeur — l'instabilité hémodynamique prime sur l'imagerie — est énoncé comme une règle absolue, conformément aux principes ATLS.",
+      "Aucune posologie de produits sanguins ou de médicaments n'est donnée : les protocoles transfusionnels et d'antibiothérapie dépendent des ressources et des protocoles institutionnels.",
+      "Les techniques de sauvetage (packing, damage control) sont présentées en principes, sans détail opératoire.",
+      "Le contexte à ressources limitées est traité explicitement : échographie FAST et laparotomie de sauvetage restent les outils pivots.",
+      "La ceinture de sécurité, les traumatismes à haute cinétique (accidents de la route) et les chutes de grande hauteur sont cités comme contextes majeurs à Madagascar."
+    ],
+    "qcChecklist": [
+      "Instabilité : chirurgie sans imagerie",
+      "FAST et examen répété",
+      "Lésions d'organes pleins vs organes creux",
+      "Ceinture de sécurité et lésions du grêle",
+      "Damage control et packing",
+      "Indications de laparotomie d'emblée",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traumatisme abdominal fermé — accident de la route, chute de grande hauteur, coup, écrasement — tue par hémorragie ou par sepsis retardé. Les organes pleins (foie, rate, reins) saignent ; les organes creux (grêle, côlon, vessie) contaminent. La difficulté est que l'abdomen peut paraître normal au premier examen alors que les lésions évoluent : la surveillance répétée est un examen à part entière."
+        },
+        {
+          "type": "paragraph",
+          "text": "La décision centrale tient en une question : ce patient est-il stable ? L'instabilité persistante après réanimation impose une chirurgie d'emblée, sans imagerie. Le patient stable bénéficie d'examens : échographie FAST au lit du patient, puis tomodensitométrie si disponible."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche suit la logique de réception du traumatisé : évaluer, réanimer, imager ou opérer, puis surveiller."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Mécanismes et lésions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les lésions suivent le mécanisme. La décélération brutale déchire les organes fixes : rate, foie, mésentère, diaphragme. La compression écrase les viscères contre le rachis. Le choc direct sur l'abdomen, notamment le « coup de poing » ou le traumatisme par volant, peut rompre un grêle plein. La ceinture de sécurité, qui sauve des vies, laisse sa signature : ecchymose abdominale transversale, lésions du grêle et du mésentère, fractures lombaires."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les organes pleins — foie et rate surtout — saignent dans le péritoine ou l'espace rétropéritonéal. Les organes creux — grêle le plus souvent, puis côlon, vessie, estomac — perforent et contaminent, avec un risque septique qui croît avec le délai. Le mésentère, très vascularisé, peut saigner abondamment ou isoler un segment intestinal. Le pancréas et le duodénum, rétropéritonéaux, sont des lésions trompeuses et graves."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Organe",
+            "Type de lésion",
+            "Traduction clinique"
+          ],
+          "rows": [
+            [
+              "Rate",
+              "Fracture, éclatement",
+              "Hémopéritoine, instabilité"
+            ],
+            [
+              "Foie",
+              "Fracture, plaie profonde",
+              "Hémopéritoine, choc hémorragique"
+            ],
+            [
+              "Grêle et mésentère",
+              "Perforation, désinsertion",
+              "Péritonite retardée, sepsis"
+            ],
+            [
+              "Côlon et rectum",
+              "Perforation, contusion",
+              "Abcès, sepsis, péritonite"
+            ],
+            [
+              "Diaphragme",
+              "Rupture (surtout gauche)",
+              "Herniation, détresse à distance"
+            ],
+            [
+              "Pancréas, duodénum",
+              "Contusion, rupture",
+              "Tableau tardif et trompeur"
+            ],
+            [
+              "Vessie",
+              "Rupture (contexte pelvien)",
+              "Hématurie, gonflement hypogastrique"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Cintre de sécurité = penser grêle",
+          "text": "Une ecchymose transversale de l'abdomen après un accident ceinturé doit faire rechercher une lésion du grêle et du mésentère, même chez un patient stable."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Le péritoine peut se taire 24 heures",
+          "text": "Une perforation du grêle peut donner une péritonite retardée de plusieurs heures à un jour : l'examen initial normal ne rassure que s'il est répété."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Évaluation : qui opérer, qui imager",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge suit les principes ATLS : voies aériennes, respiration, circulation, avec recherche des sources d'hémorragie externes. Deux grandes voies se dessinent ensuite. Le patient instable — hypotension persistante malgré la réanimation, sans cause extra-abdominale — va au bloc sans imagerie. Le patient stable bénéficie d'examens complémentaires."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen clinique recherche ecchymyses, douleur provoquée, défense, distension, contracture ; il est répété car il change. L'échographie FAST au lit du patient détecte l'hémopéritoine et oriente d'emblée. La tomodensitométrie avec injection, chez le patient stable, est l'examen de référence : elle précise les lésions des organes pleins, du mésentère et du grêle. La radiographie du thorax recherche un hémopéthorax, une rupture diaphragmatique ; le « voile » ou l'épanchement gazeux est un signe tardif."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Instabilité persistante : laparotomie d'emblée, pas d'imagerie.",
+            "FAST au lit du patient : hémopéritoine rapide, répétable.",
+            "TDM abdomino-pelvienne injectée : examen de référence du patient stable.",
+            "Examen clinique répété : la péritonite retardée se déclare en quelques heures.",
+            "Radiographie thoracique : rupture diaphragmatique, lésions associées.",
+            "Bilan biologique : hémogramme, groupe, lactates, recherche de troubles de la coagulation.",
+            "Toucher rectal et sondage urinaire : rectorragies, hématurie, tonus."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Décision",
+            "Risque d'erreur"
+          ],
+          "rows": [
+            [
+              "Instable malgré réanimation",
+              "Laparotomie immédiate",
+              "Attendre un scanner"
+            ],
+            [
+              "Stable, suspicion de lésion",
+              "TDM, surveillance, avis chirurgical",
+              "Se contenter du premier examen"
+            ],
+            [
+              "Masse pulsatile, thrombose mésentérique suspectée",
+              "Chirurgie",
+              "Méconnaître la désinsertion"
+            ],
+            [
+              "FAST positif + stable",
+              "TDM et décision multidisciplinaire",
+              "Interpréter seul, sans clinique"
+            ],
+            [
+              "Péritonite retardée",
+              "Chirurgie",
+              "Banaliser une fièvre tardive"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Un abdomen qui saigne n'attend pas le scanner",
+          "text": "La règle est simple : hypotension persistante malgré la réanimation, abdomen distendu, FAST positif → bloc, pas de tomodensitométrie."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "L'examen initial n'est pas un examen final",
+          "text": "Chez un traumatisé stable, il faut réexaminer régulièrement : une défense qui apparaît signe une lésion d'organe creux qui se déclare."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Lésions principales et situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les lésions de la rate et du foie dominent les hémorragies : beaucoup relèvent d'un traitement non opératoire — surveillance, transfusion, embolisation — chez un patient stable, mais toute dégradation doit mener à la chirurgie. Les lésions du grêle et du mésentère relèvent de la chirurgie : suture, résection-anastomose, ou stomie selon l'état local et général. Les ruptures diaphragmatiques passent souvent inaperçues et se révèlent plus tard par une herniation : elles doivent être cherchées systématiquement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Traumatisme hépatique : non-opératoire si stable ; embolisation si hémorragie persistante ; chirurgie de sauvetage sinon.",
+            "Traumatisme splénique : non-opératoire si stable, chirurgie si instabilité ; vacciner après splénectomie.",
+            "Lésion du grêle : chirurgie, suture ou résection, avec méfiance pour les lésions multiples.",
+            "Lésion colique : résection, stomie fréquente en contexte septique.",
+            "Rupture diaphragmatique : réparation chirurgicale, à chercher devant tout traumatisme thoraco-abdominal gauche.",
+            "Lésion pancréatique ou duodénale : imagerie et avis spécialisé, risque de tableau retardé.",
+            "Traumatisme pelvien : associé aux ruptures vésicales et aux hémorragies rétropéritonéales."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Après splénectomie : vaccinations",
+          "text": "Le patient splénectomisé doit être vacciné contre les germes encapsulés et informé du risque d'infections fulminantes à vie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La réanimation précède et accompagne tout : remplissage prudent, transfusion selon les protocoles de contrôle des lésions, correction de l'hypothermie, de l'acidose et des troubles de la coagulation. Le damage control chirurgical — laparotomie écourtée, packing des zones qui saignent, fermeture provisoire, réanimation en réanimation, puis réintervention programmée — est la stratégie qui a fait baisser la mortalité des traumatismes les plus graves."
+        },
+        {
+          "type": "paragraph",
+          "text": "La chirurgie d'emblée s'impose devant une instabilité persistante, une péritonite, une lésion d'organe creux, ou une hémorragie non contrôlée. Le traitement non opératoire des lésions hépatiques et spléniques exige un environnement de surveillance : monitorage, possibilité de transfusion et de chirurgie immédiate, examen répété."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stratégie",
+            "Indication",
+            "Condition"
+          ],
+          "rows": [
+            [
+              "Chirurgie immédiate",
+              "Instabilité, péritonite, organe creux",
+              "Équipe et bloc disponibles"
+            ],
+            [
+              "Damage control",
+              "Triade de la mort : hypothermie, acidose, coagulopathie",
+              "Réanimation entre les temps"
+            ],
+            [
+              "Traitement non opératoire",
+              "Lésions spléniques/hépatiques chez un patient stable",
+              "Surveillance rapprochée, accès au bloc"
+            ],
+            [
+              "Embolisation",
+              "Hémorragie persistante, patient stable",
+              "Plateau de radiologie interventionnelle"
+            ],
+            [
+              "Drainage",
+              "Collections postopératoires",
+              "Guidage échographique ou TDM"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Réanimer avant et pendant la chirurgie.",
+            "Laparotomie de sauvetage : contrôler l'hémorragie et la contamination, rien de plus.",
+            "Packing des lésions hépatiques, fermeture provisoire par laparostomie.",
+            "Antibiothérapie et prévention du tétanos selon les protocoles.",
+            "Recherche systématique des lésions associées : thorax, bassin, tête.",
+            "Réévaluation à distance : complications pariétales, abcès, occlusions sur brides."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "La triade de la mort",
+          "text": "Hypothermie, acidose et coagulopathie se potentialisent : c'est le signal du damage control, pas celui d'une chirurgie longue et parfaite."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Pas de traitement non opératoire sans surveillance",
+          "back": "",
+          "text": "Le traitement non opératoire des lésions des organes pleins n'est valide que si le patient peut être surveillé de près et opéré rapidement en cas de dégradation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est celle des accidents de la route : vitesse, casques, ceintures — tout en sachant que la ceinture laisse des lésions spécifiques à reconnaître. La qualité de la prise en charge initiale — pas de retard, pas d'imagerie inutile chez l'instable, examen répété — détermine le pronostic."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les suites sont marquées par le risque d'abcès, de fistule, d'occlusion sur brides et de complications pariétales sur laparostomie. Le suivi rapproché des patients opérés, l'imagerie devant toute fièvre, et la réhabilitation sont indispensables."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Penser tétanos",
+          "text": "Tout patient traumatisé doit avoir une évaluation et une mise à jour de sa vaccination antitétanique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traumatisé abdominal fermé se résume en deux réflexes : l'instable va au bloc, le stable va à l'imagerie et à la surveillance répétée. La ceinture de sécurité fait rechercher des lésions du grêle, la péritonite retardée impose la réévaluation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les organes pleins saignent et tolèrent souvent un traitement non opératoire surveillé ; les organes creux contaminent et imposent la chirurgie. Le damage control a transformé le pronostic des formes graves."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Smyth N, et al. WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment. World Journal of Emergency Surgery 2022;17:13. doi:10.1186/s13017-022-00418-y.",
+            "American College of Surgeons. Advanced Trauma Life Support (ATLS), 10e édition. Chicago : ACS ; 2018."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-BOWEL-2022",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+          "year": 2022,
+          "url": "https://doi.org/10.1186/s13017-022-00418-y"
+        },
+        {
+          "id": "SRC-ATLS",
+          "organization": "American College of Surgeons",
+          "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+          "year": 2018,
+          "url": "https://www.facs.org"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-stable",
+      "label": "STABLE",
+      "intro": "La décision devant un abdomen traumatisé",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Stable ? Si oui : imagerie et surveillance ; si non : bloc d'emblée."
+        },
+        {
+          "key": "T",
+          "term": "Tension : hypotension persistante = chirurgie."
+        },
+        {
+          "key": "A",
+          "term": "Abdomen répété : la défense peut apparaître en quelques heures."
+        },
+        {
+          "key": "B",
+          "term": "Blood : groupe, transfusion, correction de la coagulopathie."
+        },
+        {
+          "key": "L",
+          "term": "Lésions associées : thorax, bassin, tête, membres."
+        },
+        {
+          "key": "E",
+          "term": "Examen clinique répété et FAST répétable."
+        }
+      ],
+      "note": "La stabilité hémodynamique est la variable qui commande tout le reste."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle est la question centrale devant un traumatisé abdominal fermé ?",
+      "back": "Le patient est-il hémodynamiquement stable ? Instable = bloc d'emblée, stable = imagerie et surveillance.",
+      "tags": [
+        "stratégie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel examen rapide détecte un hémopéritoine au lit du patient ?",
+      "back": "L'échographie FAST.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel est l'examen de référence chez le patient stable ?",
+      "back": "La tomodensitométrie abdomino-pelvienne avec injection de produit de contraste.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelles lésions associe-t-on au port de la ceinture de sécurité ?",
+      "back": "Des lésions du grêle et du mésentère, une ecchymose abdominale transversale et des fractures lombaires.",
+      "tags": [
+        "mécanismes"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels organes saignent le plus dans les traumatismes fermés ?",
+      "back": "La rate et le foie.",
+      "tags": [
+        "lésions"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Pourquoi une péritonite peut-elle apparaître tardivement ?",
+      "back": "Parce qu'une perforation d'organe creux peut se contenenir quelques heures avant de diffuser : d'où l'examen répété.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Qu'est-ce que le damage control ?",
+      "back": "Une laparotomie écourtée : contrôle de l'hémorragie et de la contamination, packing, fermeture provisoire, réanimation, puis réintervention programmée.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Qu'appelle-t-on la « triade de la mort » ?",
+      "back": "Hypothermie, acidose et coagulopathie, qui se potentialisent chez le traumatisé grave.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelle est la condition du traitement non opératoire d'une lésion splénique ?",
+      "back": "Un patient stable, une surveillance rapprochée et un accès rapide au bloc en cas de dégradation.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Que faut-il faire après une splénectomie traumatique ?",
+      "back": "Vacciner contre les germes encapsulés et informer du risque d'infections fulminantes.",
+      "tags": [
+        "suivi"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle lésion doit-on chercher devant un traumatisme thoraco-abdominal gauche ?",
+      "back": "Une rupture diaphragmatique gauche, souvent latente, qui peut se révéler par une herniation à distance.",
+      "tags": [
+        "lésions"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quelle vaccination vérifier chez tout patient traumatisé ?",
+      "back": "La vaccination antitétanique, à évaluer et mettre à jour systématiquement.",
+      "tags": [
+        "prévention"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Traumatismes abdominaux fermés",
+      "detail": "Abdomen traumatisé : l'instabilité commande la stratégie. L'instable va au bloc sans imagerie ; le stable va à la FAST et au scanner, avec examen répété. Organes pleins qui saignent, organes creux qui contaminent, damage control pour les formes graves."
+    },
+    "branches": [
+      {
+        "id": "decider",
+        "label": "Décider",
+        "tone": "urgence",
+        "detail": "Stable ou instable : la question qui change tout.",
+        "children": [
+          {
+            "id": "dec-instable",
+            "label": "Instable",
+            "detail": "Laparotomie d'emblée, damage control.",
+            "leaves": [
+              {
+                "id": "dec-instable-1",
+                "label": "Règle",
+                "detail": "Pas de scanner chez l'instable."
+              }
+            ]
+          },
+          {
+            "id": "dec-stable",
+            "label": "Stable",
+            "detail": "FAST, TDM, surveillance répétée.",
+            "leaves": [
+              {
+                "id": "dec-stable-1",
+                "label": "Réflexe",
+                "detail": "Réexaminer toutes les heures."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lesions",
+        "label": "Lésions",
+        "tone": "retenir",
+        "detail": "Organes pleins = hémorragie, organes creux = contamination.",
+        "children": [
+          {
+            "id": "les-pleins",
+            "label": "Organes pleins",
+            "detail": "Rate, foie, reins.",
+            "leaves": [
+              {
+                "id": "les-pleins-1",
+                "label": "Traitement",
+                "detail": "Non opératoire surveillé si stable."
+              }
+            ]
+          },
+          {
+            "id": "les-creux",
+            "label": "Organes creux",
+            "detail": "Grêle, côlon, vessie, diaphragme.",
+            "leaves": [
+              {
+                "id": "les-creux-1",
+                "label": "Traitement",
+                "detail": "Chirurgie, péritonite retardée possible."
+              }
+            ]
+          },
+          {
+            "id": "les-mecanisme",
+            "label": "Mécanismes",
+            "detail": "Ceinture : grêle et mésentère ; décélération : organes fixes.",
+            "leaves": [
+              {
+                "id": "les-mecanisme-1",
+                "label": "Signe",
+                "detail": "Ecchymose transversale."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Réanimation, chirurgie, embolisation, damage control.",
+        "children": [
+          {
+            "id": "tra-reanimation",
+            "label": "Réanimation",
+            "detail": "Remplissage, transfusion, correction de la triade de la mort.",
+            "leaves": [
+              {
+                "id": "tra-reanimation-1",
+                "label": "Objectif",
+                "detail": "Réparer la coagulation, pas seulement la tension."
+              }
+            ]
+          },
+          {
+            "id": "tra-chirurgie",
+            "label": "Chirurgie",
+            "detail": "Laparotomie, packing, stomie, résection.",
+            "leaves": [
+              {
+                "id": "tra-chirurgie-1",
+                "label": "Sauvetage",
+                "detail": "Contrôler, ne pas réparer à tout prix."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Complications précoces et tardives.",
+        "children": [
+          {
+            "id": "sui-precoce",
+            "label": "Précoce",
+            "detail": "Abcès, fistule, reprise du saignement.",
+            "leaves": [
+              {
+                "id": "sui-precoce-1",
+                "label": "Réflexe",
+                "detail": "Fièvre = imagerie."
+              }
+            ]
+          },
+          {
+            "id": "sui-tardif",
+            "label": "Tardif",
+            "detail": "Occlusion sur brides, hernie, splénectomie.",
+            "leaves": [
+              {
+                "id": "sui-tardif-1",
+                "label": "Prévention",
+                "detail": "Vaccins et information."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WSES-BOWEL-2022",
+      "title": "WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment",
+      "citation": "Smyth N, et al. WSES guidelines on blunt and penetrating bowel injury: diagnosis, investigations, and treatment. World Journal of Emergency Surgery 2022 ; 17 : 13. doi:10.1186/s13017-022-00418-y.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2022,
+      "url": "https://doi.org/10.1186/s13017-022-00418-y",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Diagnostic des lésions du grêle",
+        "Imagerie",
+        "Indications chirurgicales"
+      ]
+    },
+    {
+      "id": "SRC-ATLS",
+      "title": "Advanced Trauma Life Support (ATLS), 10e édition",
+      "citation": "American College of Surgeons. Advanced Trauma Life Support (ATLS), 10e édition. Chicago : ACS ; 2018.",
+      "organization": "American College of Surgeons",
+      "year": 2018,
+      "url": "https://www.facs.org",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Principes de réception du traumatisé",
+        "Priorités de réanimation"
+      ]
+    }
+  ]
+}
