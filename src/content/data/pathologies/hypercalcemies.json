@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hypercalcemies",
+  "title": "Hypercalcémies",
+  "specialty": "Métabolisme",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'hypercalcémie (calcémie corrigée supérieure à 2,60 millimoles par litre), reconnaître les signes (polyuro-polydipsie, troubles digestifs, confusion, lithiases), distinguer les deux grandes causes (hyperparathyroïdie primitive et hypercalcémie maligne), maîtriser la prise en charge de l'hypercalcémie aiguë symptomatique (réhydratation, bisphosphonates) et le traitement étiologique.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 95,
+    "specialty": "Métabolisme",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 136,
+      "localNumber": 95,
+      "sectionLabel": "Médecine",
+      "title": "Hypercalcémies",
+      "specialty": "Métabolisme"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche métabolique consacrée à l'hypercalcémie : définition sur calcémie corrigée, mécanismes (résorption osseuse, hyperparathyroïdie, humeur maligne), tableau clinique et urgence de l'hypercalcémie maligne, bilan étiologique centré sur la parathormone, traitement de l'hypercalcémie aiguë et des causes. L'insuffisance rénale et le myélome disposent de fiches dédiées.",
+    "verificationNotes": "Seuil d'hypercalcémie (calcémie corrigée supérieure à 2,60 millimoles par litre, hypercalcémie majeure au-delà de 3,50), traitement de l'hypercalcémie symptomatique (réhydratation intraveineuse puis bisphosphonate) et démarche étiologique (parathormone : haute dans l'hyperparathyroïdie, basse dans les causes malignes) conformes aux recommandations du Vidal et à la Revue du Praticien. Gravité de l'hypercalcémie maligne documentée par la revue de ScienceDirect.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypercalcémie est définie par une calcémie corrigée supérieure à 2,60 millimoles par litre ; elle est dite majeure — et potentiellement mortelle — au-delà de 3,50. Elle représente la complication métabolique la plus fréquente des cancers, mais sa cause la plus fréquente en population générale reste l'hyperparathyroïdie primitive."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'enjeu clinique est double : reconnaître et traiter l'hypercalcémie aiguë symptomatique, qui met en jeu le pronostic vital, et mener le bilan étiologique — dont le premier résultat clé est le dosage de la parathormone, qui oriente d'emblée entre hyperparathyroïdie et cause maligne."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et mécanismes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La calcémie est étroitement régulée par la parathormone, la vitamine D et le facteur FGF23 ; on raisonne sur la calcémie corrigée en fonction de l'albuminémie. Trois mécanismes principaux produisent une hypercalcémie : résorption osseuse excessive (métastases ostéolytiques, myélome, hyperparathyroïdie), absorption digestive accrue (intoxication à la vitamine D, surdosage), et diminution de l'élimination rénale (insuffisance rénale, thiazidiques, hyperparathyroïdie).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les manifestations sont proportionnelles à la rapidité d'installation plus qu'au chiffre absolu : formes chroniques pauci-symptomatiques (lithiases rénales, ostéoporose, fatigue) et formes aiguës avec déshydratation, confusion pouvant aller au coma, troubles digestifs et arythmies.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deux causes dominent et couvrent plus de 90 % des cas : l'hyperparathyroïdie primitive (adénome parathyroïdien unique dans 80-85 % des cas, hyperplasie plus rarement, cancer exceptionnel) — la première cause en population ambulatoire ; et l'hypercalcémie maligne (cancers du poumon, du sein, du rein, myélome), première cause chez le patient hospitalisé en cancérologie, par ostéolyse locale ou sécrétion de protéine apparentée à la parathormone.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hyperparathyroïdie primitive : adénome parathyroïdien (85 %), parathormone haute — première cause en ambulatoire.",
+            "Causes malignes : cancers du poumon, sein, rein, myélome ; ostéolyse ou protéine apparentée à la parathormone ; parathormone basse.",
+            "Causes médicamenteuses : vitamine D ou A en excès, thiazidiques, lithium.",
+            "Endocrinopathies : hyperthyroïdie, insuffisance surrénale, acromégalie.",
+            "Granulomatoses : sarcoïdose et autres (synthèse de vitamine D)."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Signes classiques, à relier au calcium : polyuro-polydipsie et déshydratation (trouble de la concentration urinaire), nausées, vomissements, constipation, anorexie (calcium sur la motricité digestive), asthénie, confusion, léthargie jusqu'au coma (calcium sur le système nerveux), et signes cardiaques : raccourcissement du segment QT, troubles du rythme. Les formes chroniques donnent lithiases rénales, néphrocalcinose, ostéoporose et parfois pancréatite ou ulcère.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : calcémie corrigée, albuminémie, créatininémie (l'insuffisance rénale entretient l'hypercalcémie), ionogramme, hémogramme. Examen clé : la parathormone — haute ou inadaptée à la calcémie = hyperparathyroïdie primitive ; basse = chercher une cause maligne ou médicamenteuse (électrophorèse, imagerie, dosage de la 25-hydroxyvitamine D et de la protéine apparentée à la parathormone selon le contexte). L'électrocardiogramme est systématique en cas d'hypercalcémie symptomatique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hypercalcémie majeure symptomatique",
+          "text": "Calcémie au-delà de 3 millimoles par litre, confusion, vomissements, déshydratation : urgence — hospitalisation, réhydratation intraveineuse, bisphosphonate, avis endocrinologique ou oncologique selon la cause."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Traitement de l'hypercalcémie aiguë symptomatique : 1) réhydratation intraveineuse par sérum salé isotonique (2 à 3 litres par jour) pour corriger la déshydratation et augmenter l'élimination rénale du calcium — la mesure la plus importante et la plus urgente ; 2) bisphosphonate par voie intraveineuse (acide zolédronique en pratique) dont l'effet est maximal en deux à quatre jours ; 3) la calcitonine peut abaisser rapidement le calcium pendant les premières heures en cas d'urgence vitale ; 4) dénosumab en cas d'échec ou de contre-indication aux bisphosphonates ; 5) diurétique de l'anse en cas de surcharge, jamais avant la restauration de la volémie ; dialyse en dernier recours dans les formes réfractaires avec atteinte rénale.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement étiologique : hyperparathyroïdie primitive — chirurgie parathyroïdienne (parathyroïdectomie) chez les patients symptomatiques ou répondant aux critères opératoires, surveillance des formes asymptomatiques compatibles ; hypercalcémie maligne — traitement du cancer (hydratation, bisphosphonates ou dénosumab systématiques en cancérologie) ; arrêt des médicaments en cause (vitamine D, thiazidiques, lithium) ; granulomatoses : corticoïdes. Correction simultanée des désordres associés : hypophosphatémie, hypokaliémie, insuffisance rénale.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Calcémie élevée = parathormone d'abord",
+          "text": "Haute ou inadaptée : hyperparathyroïdie primitive (imagerie parathyroïdienne, chirurgie). Basse : cause maligne ou médicamenteuse — électrophorèse et imagerie orientées."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : bon usage de la vitamine D et du calcium (éviter les surdosages, contrôler la calcémie en cas de supplémentation prolongée), vigilance chez les patients sous thiazidiques ou lithium. En cancérologie : prévention systématique de l'hypercalcémie par bisphosphonates ou dénosumab dans les formes osseuses à risque.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Suivi de l'hyperparathyroïdie primitive opérée : calcémie en postopératoire immédiat (risque d'hypocalcémie transitoire, « hungry bone syndrome »), puis contrôle à distance ; surveillance annuelle des formes non opérées (calcémie, fonction rénale, densitométrie osseuse). Éducation : hydratation abondante, éviter la déshydratation (chaleur, diarrhée) qui déclenche les poussées."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypercalcémie se résume : calcémie corrigée supérieure à 2,60, corrigée par la mesure de la parathormone qui partage les étiologies — haute : hyperparathyroïdie primitive ; basse : cause maligne ou médicamenteuse. L'hypercalcémie aiguë symptomatique est une urgence : réhydratation intraveineuse d'abord, bisphosphonates ensuite, traitement de la cause toujours.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Myélomes (cause majeure), Hypercortisolisme (cause endocrinienne), Insuffisance rénale aiguë (complication), Hyperthyroïdie (cause endocrinienne), Troubles acido-basiques (contexte métabolique)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Hypercalcémie : corrigée au-delà de 2,60 mmol/L, majeure au-delà de 3,50. Signes : polyuro-polydipsie, vomissements, constipation, confusion, QT court. Parathormone haute : hyperparathyroïdie ; basse : malignité. Traitement : sérum salé puis bisphosphonates."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche myelomes — cause maligne majeure d'hypercalcémie.",
+            "Fiche hypercortisolisme — cause endocrinienne rare.",
+            "Fiche insuffisance-renale-aigue — complication et entretien.",
+            "Fiche hyperthyroidie — cause endocrinienne.",
+            "Fiche troubles-acido-basique — équilibres métaboliques."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hypercalcémie majeure avec confusion",
+      "text": "Calcémie supérieure à 3,50 : urgence vitale — hospitalisation, réhydratation intraveineuse massive, bisphosphonate intraveineux, monitorage cardiaque, recherche de la cause."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hypercalcémie du patient cancéreux",
+      "text": "L'hypercalcémie maligne est une complication grave : hydratation, bisphosphonates ou dénosumab, et réévaluation du traitement du cancer — pronostic en dépend."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Parathormone devant toute hypercalcémie",
+      "text": "Un seul dosage oriente tout : haute ou inadaptée = hyperparathyroïdie primitive ; basse = chercher malignité, médicament, granulomatose."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Seuil : 2,60 mmol/L corrigés. Triade clinique : déshydratation + troubles digestifs + confusion. Électrocardiogramme : QT court. Traitement urgent : sérum salé puis bisphosphonates."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Ordre du traitement urgent",
+      "text": "R pour Réhydratation d'abord, B pour Bisphosphonate ensuite, C pour Calcitonine si urgence vitale, D pour Dénosumab si échec, D pour Dialyse en dernier recours."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes cliniques",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Polyuro-polydipsie, déshydratation"
+        },
+        {
+          "key": "D",
+          "term": "Digestif : nausées, vomissements, constipation"
+        },
+        {
+          "key": "N",
+          "term": "Neurologique : asthénie, confusion, coma"
+        },
+        {
+          "key": "C",
+          "term": "Cardiaque : QT court, arythmies"
+        }
+      ]
+    },
+    {
+      "label": "Étiologies",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hyperparathyroïdie primitive : adénome"
+        },
+        {
+          "key": "M",
+          "term": "Malignité : poumon, sein, rein, myélome"
+        },
+        {
+          "key": "M",
+          "term": "Médicaments : vitamine D, thiazidiques, lithium"
+        },
+        {
+          "key": "G",
+          "term": "Granulomatoses et endocrinopathies"
+        }
+      ]
+    },
+    {
+      "label": "Bilan minimal",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Calcémie corrigée, albumine"
+        },
+        {
+          "key": "P",
+          "term": "Parathormone"
+        },
+        {
+          "key": "R",
+          "term": "Créatinine, ionogramme"
+        },
+        {
+          "key": "E",
+          "term": "Électrocardiogramme si forme symptomatique"
+        }
+      ]
+    },
+    {
+      "label": "Traitement de l'urgence",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Réhydratation par sérum salé"
+        },
+        {
+          "key": "2",
+          "term": "Bisphosphonate intraveineux"
+        },
+        {
+          "key": "3",
+          "term": "Calcitonine si urgence vitale"
+        },
+        {
+          "key": "4",
+          "term": "Dénosumab ou dialyse si échec"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel est le seuil de définition de l'hypercalcémie ?",
+      "back": "Une calcémie corrigée en fonction de l'albuminémie supérieure à 2,60 millimoles par litre ; au-delà de 3,50, l'hypercalcémie est dite majeure et met en jeu le pronostic vital."
+    },
+    {
+      "id": "f2",
+      "front": "Comment corriger la calcémie en fonction de l'albuminémie ?",
+      "back": "Calcémie corrigée = calcémie mesurée + 0,02 × (40 − albuminémie en grammes par litre) : le calcium ionisé et l'albumine déterminent la fraction active."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les principaux signes cliniques ?",
+      "back": "Polyuro-polydipsie et déshydratation, nausées et vomissements, constipation, anorexie, asthénie, confusion pouvant aller au coma, lithiases et ostéoporose dans les formes chroniques."
+    },
+    {
+      "id": "f4",
+      "front": "Quel signe électrocardiographique évoquer ?",
+      "back": "Un segment QT raccourci ; des troubles du rythme sont possibles dans les formes aiguës."
+    },
+    {
+      "id": "f5",
+      "front": "Quelles sont les deux grandes causes d'hypercalcémie ?",
+      "back": "L'hyperparathyroïdie primitive (première cause en ambulatoire) et l'hypercalcémie maligne (première cause chez l'hospitalisé cancéreux) ; ensemble, elles couvrent plus de 90 % des cas."
+    },
+    {
+      "id": "f6",
+      "front": "Quel examen oriente l'étiologie ?",
+      "back": "Le dosage de la parathormone : haute ou inadaptée à la calcémie dans l'hyperparathyroïdie primitive, basse dans les causes malignes et médicamenteuses."
+    },
+    {
+      "id": "f7",
+      "front": "Qu'est-ce que l'hypercalcémie maligne ?",
+      "back": "Une complication des cancers (poumon, sein, rein, myélome) par ostéolyse métastatique ou sécrétion de protéine apparentée à la parathormone — pronostic sombre si non traitée."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le premier geste devant une hypercalcémie aiguë ?",
+      "back": "La réhydratation intraveineuse par sérum salé isotonique : elle corrige la déshydratation et augmente l'élimination rénale du calcium — avant tout médicament."
+    },
+    {
+      "id": "f9",
+      "front": "Quel médicament abaisse le calcium en 2 à 4 jours ?",
+      "back": "Un bisphosphonate par voie intraveineuse (acide zolédronique en pratique) ; le délai d'action impose de débuter dès la réhydratation."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle option si l'hypercalcémie menace la vie immédiatement ?",
+      "back": "La calcitonine, dont l'effet est rapide mais transitoire, en complément de la réhydratation et dans l'attente du bisphosphonate."
+    },
+    {
+      "id": "f11",
+      "front": "Quels médicaments peuvent causer une hypercalcémie ?",
+      "back": "La vitamine D ou A en excès, le calcium à forte dose, les diurétiques thiazidiques, le lithium, certaines préparations à base de plantes."
+    },
+    {
+      "id": "f12",
+      "front": "Comment traiter une hyperparathyroïdie primitive ?",
+      "back": "Parathyroïdectomie chirurgicale chez les patients symptomatiques ou remplissant les critères opératoires ; surveillance annuelle (calcémie, rein, os) des formes asymptomatiques compatibles."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle complication redouter après parathyroïdectomie ?",
+      "back": "L'hypocalcémie transitoire par « hungry bone syndrome » : surveillance rapprochée de la calcémie et supplémentation en calcium et vitamine D selon les protocoles."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi l'insuffisance rénale entretient-elle l'hypercalcémie ?",
+      "back": "Parce que la baisse de la filtration diminue l'élimination du calcium et favorise la réabsorption ; un cercle vicieux s'installe, renforcé par la déshydratation."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle cause d'hypercalcémie chez le patient jeune avec lithiases récidivantes ?",
+      "back": "L'hyperparathyroïdie primitive : parathormone haute, calcémie élevée — l'adénome est retiré chirurgicalement."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles mesures associer au traitement urgent ?",
+      "back": "Correction de l'hypophosphatémie et de l'hypokaliémie, arrêt des médicaments en cause, traitement de la cause (cancer, granulomatose), prévention de la déshydratation."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "hc-root",
+      "label": "Hypercalcémies"
+    },
+    "branches": [
+      {
+        "id": "hc-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "hc-b1-1",
+            "label": "Seuils"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hc-l1-1",
+            "label": "Corrigée supérieure à 2,60 mmol/L"
+          },
+          {
+            "id": "hc-l1-2",
+            "label": "Majeure au-delà de 3,50"
+          },
+          {
+            "id": "hc-l1-3",
+            "label": "Calcémie corrigée sur l'albuminémie"
+          }
+        ]
+      },
+      {
+        "id": "hc-b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "hc-b2-1",
+            "label": "Signes selon la gravité"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hc-l2-1",
+            "label": "Polyuro-polydipsie, déshydratation"
+          },
+          {
+            "id": "hc-l2-2",
+            "label": "Nausées, vomissements, constipation"
+          },
+          {
+            "id": "hc-l2-3",
+            "label": "Confusion jusqu'au coma"
+          },
+          {
+            "id": "hc-l2-4",
+            "label": "QT court, arythmies"
+          }
+        ]
+      },
+      {
+        "id": "hc-b3",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "hc-b3-1",
+            "label": "Parathormone : l'examen clé"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hc-l3-1",
+            "label": "Haute : hyperparathyroïdie primitive"
+          },
+          {
+            "id": "hc-l3-2",
+            "label": "Basse : malignité (poumon, sein, myélome)"
+          },
+          {
+            "id": "hc-l3-3",
+            "label": "Médicaments : vitamine D, thiazidiques"
+          },
+          {
+            "id": "hc-l3-4",
+            "label": "Granulomatoses, endocrinopathies"
+          }
+        ]
+      },
+      {
+        "id": "hc-b4",
+        "label": "Traitement de l'urgence",
+        "children": [
+          {
+            "id": "hc-b4-1",
+            "label": "Ordre des mesures"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hc-l4-1",
+            "label": "Réhydratation intraveineuse d'abord"
+          },
+          {
+            "id": "hc-l4-2",
+            "label": "Bisphosphonate intraveineux"
+          },
+          {
+            "id": "hc-l4-3",
+            "label": "Calcitonine si urgence vitale"
+          },
+          {
+            "id": "hc-l4-4",
+            "label": "Dénosumab, dialyse si échec"
+          }
+        ]
+      },
+      {
+        "id": "hc-b5",
+        "label": "Traitement de la cause",
+        "children": [
+          {
+            "id": "hc-b5-1",
+            "label": "Étiologique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hc-l5-1",
+            "label": "Parathyroïdectomie"
+          },
+          {
+            "id": "hc-l5-2",
+            "label": "Traitement du cancer"
+          },
+          {
+            "id": "hc-l5-3",
+            "label": "Arrêt des médicaments en cause"
+          },
+          {
+            "id": "hc-l5-4",
+            "label": "Surveillance et hydratation"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Recommandations : hypercalcémie",
+      "citation": "Vidal — Hypercalcémie : recommandations de prise en charge (réhydratation, bisphosphonates, étiologies)",
+      "organization": "Vidal",
+      "year": 2024,
+      "version": "Recommandations",
+      "url": "https://www.vidal.fr/maladies/recommandations/hypercalcemie-4051.html",
+      "usedFor": [
+        "prise en charge de l'hypercalcémie",
+        "traitement étiologique",
+        "bilan"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Hyperparathyroïdie primaire",
+      "citation": "La Revue du Praticien — Hyperparathyroïdie primaire : diagnostic biologique et prise en charge",
+      "organization": "La Revue du Praticien",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.larevuedupraticien.fr/article/hyperparathyroidie-primaire",
+      "usedFor": [
+        "hyperparathyroïdie primitive",
+        "critères de chirurgie"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Hypercalcémie maligne : complication grave",
+      "citation": "ScienceDirect — Hypercalcémie maligne : urgence métabolique et mortalité associée",
+      "organization": "ScienceDirect (Presse Médicale)",
+      "year": 2021,
+      "version": "Revue",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0003426621007253",
+      "usedFor": [
+        "hypercalcémie maligne",
+        "gravité et pronostic"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
