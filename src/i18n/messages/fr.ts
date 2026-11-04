@@ -17,7 +17,7 @@ export const fr: MessageCatalog = {
   "nav.cases": "Cas",
   "nav.casesShort": "Cas",
   "nav.nosography": "Compétences",
-  "nav.nosographyShort": "Compét.",
+  "nav.nosographyShort": "Comp.",
   "nav.profile": "Profil",
   "nav.profileShort": "Profil",
   "nav.library": "Bibliothèque",

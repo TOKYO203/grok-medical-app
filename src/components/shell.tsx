@@ -131,7 +131,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       <nav
         aria-label={t("nav.ariaPrimary")}
         data-mobile-navigation="true"
-        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
+        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-6 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
       >
         {NAV.map((item) => {
           const active = isActive(pathname, item.to);
@@ -141,7 +141,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
               key={item.to}
               to={item.to}
               className={cn(
-                "relative flex min-h-14 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[10px] font-medium truncate px-0.5 transition-[background-color,color,transform] active:scale-[0.98]",
+                "relative flex w-full min-h-14 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden rounded-[16px] text-[9px] font-medium truncate px-0.5 transition-[background-color,color,transform] active:scale-[0.98]",
                 active ? "bg-primary-soft text-primary" : "text-muted",
                 preferences.enhancedMotion && active && "optimus-nav-active",
               )}
