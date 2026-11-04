@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ptai",
+  "title": "Purpura thrombopénique",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir le purpura thrombopénique immunologique (plaquettes inférieures à 150 giga par litre sans cause centrale), reconnaître le purpura pétéchial et les signes de gravité hémorragique, maîtriser la démarche diagnostique (frottis, moelle riche en mégacaryocytes, bilan de causes secondaires) et le traitement (abstention, corticoïdes, immunoglobulines intraveineuses, rituximab, agonistes de la thrombopoïétine, splénectomie).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 87,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 128,
+      "localNumber": 87,
+      "sectionLabel": "Médecine",
+      "title": "Purpura thrombopénique",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur le purpura thrombopénique immunologique (PTI) de l'adulte et de l'enfant, item d'hématologie du programme. Le diagnostic différentiel des purpuras (thrombopénique, vasculaire, traumatique) et le syndrome d'Evans sont articulés avec la fiche Anémies hémolytiques à auto-anticorps.",
+    "verificationNotes": "Seuils de traitement (abstention si plaquettes supérieures à 30 giga par litre sans saignement), corticoïdes et immunoglobulines intraveineuses en urgence, rituximab et agonistes du récepteur de la thrombopoïétine en deuxième ligne conformes au protocole national de soins de la Haute autorité de santé et au document de la Société française de médecine interne.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le purpura thrombopénique immunologique (PTI, anciennement purpura thrombopénique idiopathique) est une thrombopénie par destruction périphérique plaquettaire médiée par des auto-anticorps, sans cause centrale : la moelle est riche en mégacaryocytes. C'est la thrombopénie la plus fréquente de la consultation d'hématologie et une cause classique de purpura chez l'enfant comme chez l'adulte jeune."
+        },
+        {
+          "type": "paragraph",
+          "text": "La présentation va du purpura modéré découvert fortuitement à l'hémorragie viscérale grave ; l'enjeu est de reconnaître les signes de gravité (purpura ecchymotique extensif, épistaxis rebelle, saignement digestif ou neurologique) et de ne pas méconnaître une cause secondaire."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Thrombopénie : plaquettes inférieures à 150 giga par litre. Le risque hémorragique devient significatif en dessous de 30 giga par litre et majeur en dessous de 10 giga par litre. Le PTI associe : une thrombopénie isolée (ou dominante) sans autre anomalie de l'hémogramme, un frottis sans schizocytes ni agrégats, une moelle riche en mégacaryocytes (myélogramme utile surtout chez l'adulte ou avant splénectomie), et l'absence de cause identifiée après bilan : c'est un diagnostic d'élimination.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Formes : PTI de l'adulte, chronique (prédominance féminine), pouvant révéler une maladie de système ou un déficit immunitaire commun variable ; PTI de l'enfant, aiguë, dans les semaines suivant une infection virale, résolutive spontanément dans plus de 80 % des cas en quelques semaines à quelques mois. Le syndrome d'Evans associe PTI et anémie hémolytique auto-immune.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo purpura",
+          "text": "Purpura pétéchial et ecchymotique, non prurigineux, ne s'effaçant pas à la vitropression : thrombopénique. Purpura vasculaire (petites pétéchies des membres inférieurs, prurigineux) : à distinguer par le chiffre de plaquettes."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Causes et diagnostics différentiels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le PTI est le plus souvent idiopathique, mais des causes doivent être systématiquement recherchées : infections par le VIH et les hépatites virales (C et B), Helicobacter pylori (l'éradication peut améliorer le chiffre de plaquettes), lupus et autres maladies auto-immunes, déficit immunitaire commun variable, hémopathies lymphoïdes (leucémie lymphoïde chronique), médicaments (héparine, quinine, sulfamides, vaccins, triméthoprime-sulfaméthoxazole).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostics différentiels d'une thrombopénie : fausse thrombopénie par agrégats (agitation du tube, prévention par le citrate), causes centrales (aplasie, leucémie, envahissement médullaire, carences en vitamine B12 ou folates), microangiopathies thrombotiques (schizocytes au frottis, hémolyse), coagulation intravasculaire disséminée, cirrhose avec hypersplénisme, purpura thrombotique thrombopénique, thrombopénies héréditaires. La grossesse fait discuter la thrombopénie gestationnelle et le syndrome de HELLP.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "PTI : diagnostic d'élimination — bilan viral et auto-immun systématique.",
+            "Fausse thrombopénie : agrégats au frottis, tube citraté.",
+            "Microangiopathie : schizocytes + hémolyse.",
+            "Moelle pauvre en mégacaryocytes : ce n'est pas un PTI — chercher une cause centrale.",
+            "Syndrome d'Evans : PTI + hémolyse auto-immune."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Clinique : purpura pétéchial et ecchymotiques des membres, épistaxis, gingivorragies, ménorragies ; signes de gravité : purpura buccal (vésicules hémorragiques), saignement digestif ou urinaire, céphalées ou troubles neurologiques (hémorragie intracrânienne, complication la plus grave), raideur (hémorragie méningée). Absence habituelle de splénomégalie significative (une grosse rate oriente vers une autre cause).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : hémogramme avec numération plaquettaire confirmée sur frottis (éliminer les agrégats), absence de schizocytes, lignées rouge et blanche normales ; bilan : réticulocytes, test de Coombs direct, bilan hépatique, fonction rénale, sérologies VIH et hépatites, anticorps antinucléaires, recherche d'Helicobacter pylori, bilan de coagulation (normal dans le PTI). Le myélogramme (mégacaryocytes nombreux) est recommandé chez l'adulte avant splénectomie, ou en cas de doute sur une cause centrale.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Purpura thrombopénique avec signes de gravité",
+          "text": "Purpura buccal, saignement viscéral, céphalées ou troubles neurologiques : hospitalisation en urgence, immunoglobulines intraveineuses et corticoïdes à forte dose, avis hématologique immédiat, imagerie cérébrale si point d'appel."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Adulte : abstention thérapeutique avec surveillance si plaquettes supérieures à 30 giga par litre sans saignement (le traitement ne se décide pas sur le seul chiffre). Traitement de première ligne si indication : corticoïdes (prednisone 1 milligramme par kilogramme, ou bolus de méthylprednisolone dans les formes aiguës) ; en urgence hémorragique : immunoglobulines intraveineuses (remontée rapide mais transitoire) avec corticoïdes, transfusion de plaquettes réservée aux hémorragies menaçant le pronostic vital (elles sont détruites rapidement).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Deuxième ligne (échec, rechute, corticodépendance) : rituximab, agonistes du récepteur de la thrombopoïétine (eltrombopag, romiplostim — plaquettes maintenues tant que le traitement est poursuivi), splénectomie (réponse durable dans environ deux tiers des cas, vaccinations antipneumococcique, anti-Haemophilus influenzae de type b et antiméningococcique au moins deux semaines avant). Traiter la cause (VIH, hépatite, Helicobacter, médicament). Mesures associées : éviter les antiagrégants et anticoagulants si possible, éviter les intramusculaires, contrôle de la pression artérielle, différer amygdalectomie et chirurgie.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie intracrânienne",
+          "text": "Céphalée brutale, trouble de conscience ou déficit chez un patient thrombopénique profond : tomodensitométrie en urgence, immunoglobulines intraveineuses, méthylprednisolone, transfusion plaquettaire massive, prise en charge neurochirurgicale."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Éducation du patient : éviter les médicaments qui altèrent les plaquettes (aspirine, anti-inflammatoires non stéroïdiens) en poussée, éviter les gestes à risque, consulter devant tout saignement anormal ou céphalée ; consignes écrites. Grossesse : suivi conjoint obstétrical-hématologique, la corticothérapie et les immunoglobulines sont utilisables, le risque principal étant l'hémorragie de la délivrance si le chiffre reste bas ; le nouveau-né peut présenter une thrombopénie néonatale par passage transplacentaire des anticorps.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant : PTI aigu post-infectieux de bon pronostic — abstention avec surveillance si plaquettes supérieures à 20-30 giga par litre et absence de saignement ; guérison spontanée dans la grande majorité ; réévaluation hématologique des formes persistantes au-delà de 3 à 6 mois. Vaccins avant splénectomie, antibioprophylaxie après.",
+          "sources": [
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe frottis",
+          "text": "Toute thrombopénie inexpliquée : frottis sanguin systématique — il élimine les agrégats (fausse thrombopénie), les schizocytes (microangiopathie) et oriente vers une cause centrale (blastes)."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le PTI est une thrombopénie périphérique auto-immune, diagnostic d'élimination : purpura, plaquettes basses, frottis sans schizocytes, moelle riche en mégacaryocytes, bilan de causes secondaires négatif. Chez l'adulte, on traite au-delà de 30 giga par litre ou en cas de saignement ; chez l'enfant, la forme aiguë guérit le plus souvent spontanément.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Anémies hémolytiques à auto-anticorps (syndrome d'Evans), Leucémie lymphoïde chronique et Lupus (causes secondaires), Transfusion et Accidents transfusionnels (produits plaquettaires), Hémorragie méningée (complication neurologique) et Grossesse et hypertension artérielle (thrombopénies de la grossesse)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Purpura pétéchial + plaquettes basses + frottis normal + mégacaryocytes présents = PTI. Gravité : purpura buccal, saignement viscéral, céphalées. Première ligne : corticoïdes ; urgence : immunoglobulines intraveineuses ; deuxième ligne : rituximab, agonistes de la thrombopoïétine, splénectomie."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche aai — syndrome d'Evans.",
+            "Fiche llc — thrombopénie des hémopathies lymphoïdes.",
+            "Fiche lupus — cause auto-immune.",
+            "Fiche transfusion — culots plaquettaires.",
+            "Fiche grossesse-hta — thrombopénies de la grossesse."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Purpura avec signes de gravité",
+      "text": "Purpura buccal, saignement viscéral, céphalées : hospitalisation, immunoglobulines intraveineuses, corticoïdes, avis hématologique."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hémorragie intracrânienne",
+      "text": "Tomodensitométrie urgente, immunoglobulines, méthylprednisolone, plaquettes, neurochirurgie."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe frottis",
+      "text": "Toute thrombopénie inexpliquée : frottis — agrégats, schizocytes, blastes, tout se joue là."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Diagnostic d'élimination, moelle riche en mégacaryocytes. Traiter si saignement ou plaquettes inférieures à 30 giga par litre. Corticoïdes puis rituximab, agonistes de la thrombopoïétine, splénectomie."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo purpura",
+      "text": "Pétéchies et ecchymoses, pas de blanchiment à la vitropression, plaquettes basses = purpura thrombopénique ; purpura prurigineux des jambes = vasculaire."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes de gravité",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Buccal : vésicules hémorragiques"
+        },
+        {
+          "key": "V",
+          "term": "Viscéral : digestif, urinaire"
+        },
+        {
+          "key": "N",
+          "term": "Neurologique : céphalées, déficit"
+        },
+        {
+          "key": "E",
+          "term": "Extensif : purpura ecchymotique diffus"
+        }
+      ]
+    },
+    {
+      "label": "Bilan du PTI",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Frottis sanguin"
+        },
+        {
+          "key": "V",
+          "term": "VIH et hépatites virales"
+        },
+        {
+          "key": "A",
+          "term": "Antinucléaires (lupus)"
+        },
+        {
+          "key": "H",
+          "term": "Helicobacter pylori"
+        }
+      ]
+    },
+    {
+      "label": "Traitement",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Corticoïdes en première intention"
+        },
+        {
+          "key": "I",
+          "term": "Immunoglobulines intraveineuses en urgence"
+        },
+        {
+          "key": "R",
+          "term": "Rituximab en deuxième ligne"
+        },
+        {
+          "key": "S",
+          "term": "Splénectomie et agonistes de la thrombopoïétine"
+        }
+      ]
+    },
+    {
+      "label": "Éliminer avant de conclure",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Agrégats (fausse thrombopénie)"
+        },
+        {
+          "key": "S",
+          "term": "Schizocytes (microangiopathie)"
+        },
+        {
+          "key": "C",
+          "term": "Causes centrales (myélogramme)"
+        },
+        {
+          "key": "M",
+          "term": "Médicaments (héparine, quinine)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que le purpura thrombopénique immunologique ?",
+      "back": "Une thrombopénie périphérique par auto-anticorps anti-plaquettes, sans cause centrale (moelle riche en mégacaryocytes), diagnostic d'élimination après bilan négatif."
+    },
+    {
+      "id": "f2",
+      "front": "À quel seuil de plaquettes le risque hémorragique devient-il majeur ?",
+      "back": "En dessous de 30 giga par litre le risque devient significatif, en dessous de 10 giga par litre il est majeur (purpura buccal, hémorragies viscérales)."
+    },
+    {
+      "id": "f3",
+      "front": "Quel est l'aspect du purpura thrombopénique ?",
+      "back": "Pétéchies et ecchymoses non prurigineuses, non infiltrées, ne s'effaçant pas à la vitropression, prédominant aux membres ; saignements muqueux associés (épistaxis, gingivorragies)."
+    },
+    {
+      "id": "f4",
+      "front": "Pourquoi le frottis sanguin est-il obligatoire ?",
+      "back": "Il élimine la fausse thrombopénie par agrégats, objective les schizocytes d'une microangiopathie et dépiste les causes centrales (blastes) : il conditionne tout le diagnostic."
+    },
+    {
+      "id": "f5",
+      "front": "Que montre le myélogramme dans le PTI ?",
+      "back": "Une moelle riche en mégacaryocytes, sans envahissement : la thrombopénie est périphérique (destruction), pas centrale (production)."
+    },
+    {
+      "id": "f6",
+      "front": "Quelles causes secondaires rechercher systématiquement ?",
+      "back": "VIH, hépatites B et C, Helicobacter pylori, lupus et maladies auto-immunes, déficit immunitaire commun variable, hémopathies lymphoïdes, médicaments (héparine, quinine, sulfamides)."
+    },
+    {
+      "id": "f7",
+      "front": "Quand s'abstenir de traiter un PTI de l'adulte ?",
+      "back": "Si les plaquettes sont supérieures à 30 giga par litre et qu'il n'y a aucun saignement : surveillance simple, le traitement ne se décide pas sur le seul chiffre."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le traitement de première intention chez l'adulte ?",
+      "back": "La corticothérapie (prednisone 1 milligramme par kilogramme par jour, ou bolus de méthylprednisolone dans les formes aiguës graves)."
+    },
+    {
+      "id": "f9",
+      "front": "Quel traitement remonte rapidement les plaquettes en urgence ?",
+      "back": "Les immunoglobulines intraveineuses (1 gramme par kilogramme pendant un à deux jours) : remontée en 24 à 48 heures, mais effet transitoire ; associées aux corticoïdes."
+    },
+    {
+      "id": "f10",
+      "front": "Quand transfuser des plaquettes dans un PTI ?",
+      "back": "Uniquement en hémorragie menaçant le pronostic vital (hémorragie intracrânienne) : les plaquettes transfusées sont détruites par les anticorps, l'effet est bref."
+    },
+    {
+      "id": "f11",
+      "front": "Quelles options de deuxième ligne ?",
+      "back": "Rituximab, agonistes du récepteur de la thrombopoïétine (eltrombopag, romiplostim), splénectomie (réponse durable dans environ deux tiers des cas après vaccinations préalables)."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle est l'évolution du PTI de l'enfant ?",
+      "back": "Aiguë, dans les semaines suivant une infection virale, guérison spontanée dans plus de 80 % des cas ; abstention surveillée si plaquettes supérieures à 20-30 giga par litre sans saignement."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que le syndrome d'Evans ?",
+      "back": "L'association PTI et anémie hémolytique auto-immune : deux lignées détruites par auto-anticorps, imposant la recherche d'un lupus, d'une hémopathie ou d'un déficit immunitaire."
+    },
+    {
+      "id": "f14",
+      "front": "Quel germe digestif rechercher et pourquoi ?",
+      "back": "Helicobacter pylori : son éradication peut améliorer le chiffre de plaquettes dans une partie des PTI positifs."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles mesures associées pendant une poussée ?",
+      "back": "Éviter aspirine et anti-inflammatoires non stéroïdiens, éviter les injections intramusculaires, traiter la fièvre par paracétamol, contrôler la pression artérielle, différer chirurgie et gestes dentaires."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles précautions vaccinales avant splénectomie ?",
+      "back": "Vaccinations antipneumococcique, anti-Haemophilus influenzae de type b et antiméningococcique au moins deux semaines avant l'intervention, puis antibioprophylaxie au long cours."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "pt-root",
+      "label": "Purpura thrombopénique"
+    },
+    "branches": [
+      {
+        "id": "pt-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "pt-b1-1",
+            "label": "Diagnostic d'élimination"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pt-l1",
+            "label": "Plaquettes inférieures à 150 giga par litre"
+          },
+          {
+            "id": "pt-l2",
+            "label": "Frottis sans schizocytes ni agrégats"
+          },
+          {
+            "id": "pt-l3",
+            "label": "Mégacaryocytes présents"
+          }
+        ]
+      },
+      {
+        "id": "pt-b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "pt-b2-1",
+            "label": "Gravité à évaluer"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pt-l4",
+            "label": "Pétéchies, ecchymoses, épistaxis"
+          },
+          {
+            "id": "pt-l5",
+            "label": "Gravité : purpura buccal, saignement viscéral"
+          },
+          {
+            "id": "pt-l6",
+            "label": "Hémorragie intracrânienne"
+          }
+        ]
+      },
+      {
+        "id": "pt-b3",
+        "label": "Bilan",
+        "children": [
+          {
+            "id": "pt-b3-1",
+            "label": "Causes secondaires"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pt-l7",
+            "label": "VIH, hépatites, Helicobacter"
+          },
+          {
+            "id": "pt-l8",
+            "label": "Lupus, hémopathies"
+          },
+          {
+            "id": "pt-l9",
+            "label": "Médicaments"
+          }
+        ]
+      },
+      {
+        "id": "pt-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "pt-b4-1",
+            "label": "Adulte et urgence"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pt-l10",
+            "label": "Abstention si supérieur à 30 sans saignement"
+          },
+          {
+            "id": "pt-l11",
+            "label": "Corticoïdes, immunoglobulines intraveineuses"
+          },
+          {
+            "id": "pt-l12",
+            "label": "Rituximab, agonistes, splénectomie"
+          }
+        ]
+      },
+      {
+        "id": "pt-b5",
+        "label": "Enfant et suivi",
+        "children": [
+          {
+            "id": "pt-b5-1",
+            "label": "Pronostic favorable"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pt-l13",
+            "label": "Forme aiguë post-virale, guérison spontanée"
+          },
+          {
+            "id": "pt-l14",
+            "label": "Éducation : éviter aspirine, consulter si céphalée"
+          },
+          {
+            "id": "pt-l15",
+            "label": "Grossesse : suivi conjoint, risque néonatal"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Purpura thrombopénique immunologique de l'adulte — protocole national de soins",
+      "citation": "Haute autorité de santé — PNDS : purpura thrombopénique immunologique de l'adulte",
+      "organization": "HAS",
+      "year": 2017,
+      "version": "Protocole national de soins et de diagnostic",
+      "url": "https://www.has-sante.fr/jcms/p_3578444/fr/purpura-thrombopenique-immunologique-de-l-adulte-pnds",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "seuils de traitement",
+        "stratégie de première et deuxième ligne",
+        "suivi"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Purpura thrombopénique immunologique ou PTI",
+      "citation": "Société française de médecine interne — Purpura thrombopénique immunologique",
+      "organization": "SNFMI",
+      "year": 2020,
+      "version": "Document de synthèse",
+      "url": "https://www.snfmi.org/content/purpura-thrombopenique-immunologique-ou-pti",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "démarche diagnostique",
+        "diagnostics différentiels",
+        "causes secondaires"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Purpura thrombopénique immunologique",
+      "citation": "Wikipédia — Purpura thrombopénique immunologique : formes de l'enfant et de l'adulte",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Purpura_thrombop%C3%A9nique_immunologique",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "forme pédiatrique",
+        "épidémiologie",
+        "options de deuxième ligne"
+      ]
+    }
+  ]
+}

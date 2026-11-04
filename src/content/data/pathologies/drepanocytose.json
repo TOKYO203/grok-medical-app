@@ -1,0 +1,629 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "drepanocytose",
+  "title": "Drépanocytose",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Décrire la génétique de la drépanocytose (mutation de l'hémoglobine S), reconnaître les manifestations aiguës (crises vaso-occlusives, syndrome thoracique aigu, anémie) et chroniques (arthropathie, retards de croissance, complications viscérales), maîtriser la prise en charge (hydratation, antalgiques, hydroxyurée, transfusions, prévention infectieuse) et la prévention (dépistage, conseil génétique).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 85,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 126,
+      "localNumber": 85,
+      "sectionLabel": "Médecine",
+      "title": "Drépanocytose",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche dédiée à la drépanocytose, pathologie majeure de l'Afrique subsaharienne : hémoglobinopathie emblématique au programme. Elle articule la génétique, les complications aiguës et chroniques, et la prise en charge symptomatique et préventive, complétée par les généralités de la fiche Généralités sur les anémies hémolytiques.",
+    "verificationNotes": "Prise en charge de la crise vaso-occlusive (hydratation, antalgiques par palier, oxygène) conforme au document de la Société française de médecine d'urgence. Recommandations de prise en charge (pénicilline prophylactique, hydroxyurée, vaccination) conformes aux guides médicaux de Médecins sans frontières.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La drépanocytose (anémie falciforme) est une hémoglobinopathie héréditaire à transmission autosomique récessive, due à la mutation du sixième acide aminé de la chaîne bêta-globine (acide glutamique remplacé par une valine) : l'hémoglobine S polymérise en situation de désaturation, déformant les globules rouges en faucille, qui obstruent la microcirculation et sont détruits précocement."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est la maladie génétique la plus fréquente en Afrique subsaharienne et à Madagascar : les sujets homozygotes (hémoglobine SS) sont atteints, les hétérozygotes (AS, porteurs du trait) sont en général asymptomatiques mais transmettent la mutation. La protection relative du portage AS contre le paludisme explique la fréquence du gène dans les régions d'endémie."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Physiopathologie et génétique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémoglobine S, en conditions de basse tension d'oxygène, polymérise en fibres qui rigidifient le globule rouge en forme de faucille. Deux conséquences : l'occlusion des petits vaisseaux (crises vaso-occlusives, ischémie, infarctus) et l'hémolyse chronique (durée de vie des globules rouges raccourcie à quelques semaines, anémie chronique). L'endothélium activé, l'inflammation chronique et l'hémolyse (libération d'arginase, baisse du monoxyde d'azote) entretiennent les lésions viscérales.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Génotypes : homozygote SS (forme majeure), hétérozygotes composites SH (hémoglobine S-bêta-thalassémie) et SC (formes souvent plus modérées mais risque de complications thrombotiques et rétiniennes) ; porteur sain AS sans anémie. Le diagnostic repose sur l'électrophorèse de l'hémoglobine (profil SS, SC ou AS), le test d'Emmel (falciformation) servant de test d'orientation rapide.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo génétique",
+          "text": "Deux parents porteurs AS : un risque sur quatre d'enfant SS (malade), un sur deux AS (porteur), un sur quatre AA (sain) — base du conseil génétique."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Manifestations de la maladie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Manifestations aiguës : crises vaso-occlusives douloureuses (os longs, rachis, abdomen — première cause d'hospitalisation, déclenchées par fièvre, déshydratation, froid, effort) ; syndrome thoracique aiguë (douleur thoracique, fièvre, infiltrat radiologique — urgence vitale) ; séquestration splénique aiguë du nourrisson (splénomégalie douloureuse et chute brutale de l'hémoglobine) ; accidents vasculaires cérébraux ; priapisme ; hémolyse aiguë aggravée lors d'infections (parvovirus B19 : érythroblastopénie).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Manifestations chroniques : anémie hémolytique chronique (hémoglobine habituelle entre 6 et 9 grammes par décilitre chez le SS), ictère, lithiase biliaire pigmentaire, retard de croissance et puberté, arthropathie chronique (nécrose de la tête fémorale, rachis), ulcères de jambe, atteinte viscérale (néphropathie, rétinopathie, hypertension pulmonaire, insuffisance cardiaque). Chez l'enfant non dépisté : pneumopathies et infections à répétition.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Crise vaso-occlusive : douleur osseuse ou abdominale brutale, fièvre possible.",
+            "Syndrome thoracique aiguë : urgence respiratoire du drépanocytaire.",
+            "Séquestration splénique du nourrisson : choc anémique brutal.",
+            "Accident vasculaire cérébral de l'enfant : urgence transfusionnelle.",
+            "Chronique : anémie, lithiase, ulcères de jambe, néphropathie."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chez le nourrisson ou l'enfant : anémie hémolytique normochrome (réticulocytes élevés, haptoglobine basse), crises douloureuses récidivantes, infections à répétition ; l'électrophorèse de l'hémoglobine confirme le génotype (hémoglobine S prépondérante, absence d'hémoglobine A chez le SS). Le test d'Emmel et le frottis (drépanocytes) orientent rapidement. Le dépistage néonatal, lorsqu'il existe, permet de débuter la prophylaxie avant les premières complications.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan de gravité et de suivi : hémogramme régulier (valeur de base de l'hémoglobine), réticulocytes, bilan rénal (protéinurie), échographie Doppler transcrânienne chez l'enfant (risque d'accident vasculaire cérébral), radiographies osseuses, échographie biliaire, fond d'œil et examen cardiovasculaire. Devant toute fièvre chez un drépanocytaire : hémocultures, goutte épaisse (paludisme), radiographie thoracique — la pneumonie et le paludisme sont les grandes causes de mort précoce.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Fièvre chez le drépanocytaire",
+          "text": "Toute fièvre est une urgence : risque de septicémie à pneumocoque, de syndrome thoracique et de paludisme. Hémocultures, goutte épaisse, antibiothérapie probabiliste sans attendre, hospitalisation si signes de gravité."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Crise vaso-occlusive : repos au chaud, réhydratation par voie orale ou intraveineuse (3 litres par mètre carré et par 24 heures), antalgiques selon l'intensité (paracétamol, anti-inflammatoires non stéroïdiens, morphine si douleur sévère, protocoles à intervalles fixes sans attendre la réapparition de la douleur), oxygène si désaturation, recherche et traitement du facteur déclenchant (infection, paludisme). Le syndrome thoracique aiguë associe oxygénothérapie, antibiothérapie et antalgiques ; l'échange transfusionnel est indiqué dans les formes graves et les accidents vasculaires cérébraux.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement de fond : hydroxyurée (hydroxycarbamide) chez l'adulte et l'enfant symptomatique — elle augmente l'hémoglobine fœtale, réduit la fréquence des crises et du syndrome thoracique ; programme transfusionnel chronique chez l'enfant à haut risque d'accident vasculaire cérébral (Doppler anormal) ; supplémentation en acide folique ; greffe de moelle osseuse (seul traitement curatif, réservée aux formes sévères de l'enfant avec donneur compatible).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Séquestration splénique du nourrisson",
+          "text": "Pâleur brutale, splénomégalie douloureuse, choc : urgence absolue — remplissage et transfusion immédiats. Éducation des parents à la palpation de la rate."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : dépistage néonatal ou préscolaire, conseil génétique des familles et des porteurs AS, information prénuptiale. Prévention des infections : prophylaxie par pénicilline orale dès le dépistage chez le nourrisson et l'enfant (jusqu'à 5 ans au moins), vaccinations antipneumococcique, anti-Haemophilus influenzae de type b, antiméningococcique, antigrippale et hépatite B, chimioprophylaxie antipalustre et moustiquaires imprégnées.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention des crises : hydratation abondante et régulière, éviter le froid, l'altitude, les efforts violents et la déshydratation, prise en charge rapide de toute fièvre, éducation thérapeutique (carnet de suivi, reconnaissance des signes d'alerte), suivi spécialisé régulier. Chez la femme enceinte drépanocytaire : suivi conjoint obstétrical-hématologique, supplémentation, risque accru de complications maternelles et fœtales.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe Doppler transcrânien",
+          "text": "Chez l'enfant drépanocytaire, un Doppler transcrânien annuel : vitesse élevée = risque élevé d'accident vasculaire cérébral = programme transfusionnel à débuter."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La drépanocytose est une hémoglobinopathie fréquente à Madagascar, caractérisée par l'occlusion vasculaire (crises vaso-occlusives) et l'hémolyse chronique. Les urgences — fièvre, syndrome thoracique, séquestration splénique, accident vasculaire cérébral — conditionnent le pronostic ; l'hydroxyurée, la prophylaxie infectieuse et le dépistage ont transformé l'espérance de vie.",
+          "sources": [
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Généralités sur les anémies hémolytiques (cadre général), Paludisme (co-infection), Immunisation sanguine fœto-maternelle (hémolyse néonatale), Transfusion et Accidents transfusionnels (support transfusionnel), Épilepsies et accidents vasculaires ischémiques pour les complications neurologiques."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Homozygote SS : anémie chronique, crises vaso-occlusives, risque infectieux (pneumocoque) et palustre. Urgences : fièvre, syndrome thoracique, séquestration splénique, accident vasculaire cérébral. Traitement de fond : hydroxyurée, acide folique, prophylaxie pénicilline, vaccins."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche anemies-hemolytiques — cadre général.",
+            "Fiche paludisme — co-infection et urgence parasitaire.",
+            "Fiche immunisation-foeto-mat — hémolyse néonatale par incompatibilité.",
+            "Fiche transfusion — programme transfusionnel du drépanocytaire."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fièvre chez le drépanocytaire",
+      "text": "Urgence : hémocultures, goutte épaisse, antibiothérapie probabiliste ; risque de septicémie, syndrome thoracique et paludisme."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Séquestration splénique du nourrisson",
+      "text": "Choc anémique brutal : remplissage et transfusion immédiats ; éducation des parents à palper la rate."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe Doppler transcrânien",
+      "text": "Chez l'enfant : Doppler annuel ; vitesse élevée = programme transfusionnel pour prévenir l'accident vasculaire cérébral."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Mutation bêta-globine, hémoglobine S, crises vaso-occlusives et hémolyse chronique. Hydroxyurée, acide folique, prophylaxie pénicilline, vaccins."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo conseil génétique",
+      "text": "Deux porteurs AS : 1/4 SS malade, 1/2 AS porteur, 1/4 AA sain — transmission autosomique récessive."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Urgences du drépanocytaire",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fièvre : septicémie, paludisme"
+        },
+        {
+          "key": "T",
+          "term": "Thoracique : syndrome thoracique aiguë"
+        },
+        {
+          "key": "S",
+          "term": "Séquestration splénique du nourrisson"
+        },
+        {
+          "key": "A",
+          "term": "Accident vasculaire cérébral"
+        }
+      ]
+    },
+    {
+      "label": "Déclencheurs de crise",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Infection et fièvre"
+        },
+        {
+          "key": "D",
+          "term": "Déshydratation"
+        },
+        {
+          "key": "F",
+          "term": "Froid et altitude"
+        },
+        {
+          "key": "E",
+          "term": "Effort violent"
+        }
+      ]
+    },
+    {
+      "label": "Prise en charge de la crise",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Repos au chaud"
+        },
+        {
+          "key": "H",
+          "term": "Hydratation (3 litres par mètre carré et 24 heures)"
+        },
+        {
+          "key": "A",
+          "term": "Antalgiques par paliers, intervalles fixes"
+        },
+        {
+          "key": "O",
+          "term": "Oxygène si désaturation"
+        }
+      ]
+    },
+    {
+      "label": "Traitement de fond",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hydroxyurée (hémoglobine fœtale)"
+        },
+        {
+          "key": "F",
+          "term": "Acide Folique"
+        },
+        {
+          "key": "P",
+          "term": "Pénicilline prophylactique"
+        },
+        {
+          "key": "V",
+          "term": "Vaccins (pneumocoque, Haemophilus, hépatite B)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est l'anomalie moléculaire de la drépanocytose ?",
+      "back": "Une mutation du gène de la bêta-globine : le sixième acide aminé (acide glutamique) est remplacé par une valine, créant l'hémoglobine S qui polymérise à basse tension d'oxygène."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le mode de transmission ?",
+      "back": "Autosomique récessive : les parents porteurs AS ont, à chaque grossesse, un risque d'un quart d'enfant SS atteint."
+    },
+    {
+      "id": "f3",
+      "front": "Pourquoi le gène S est-il si fréquent en Afrique ?",
+      "back": "Parce que le portage hétérozygote AS confère une protection relative contre le paludisme grave (sélection naturelle dans les zones d'endémie)."
+    },
+    {
+      "id": "f4",
+      "front": "Quels sont les deux mécanismes physiopathologiques principaux ?",
+      "back": "L'occlusion vasculaire par les globules rouges falciformés (crises vaso-occlusives, ischémie) et l'hémolyse chronique (anémie, libération d'arginase, baisse du monoxyde d'azote)."
+    },
+    {
+      "id": "f5",
+      "front": "Comment confirmer le diagnostic ?",
+      "back": "Par l'électrophorèse de l'hémoglobine : profil SS chez l'homozygote (hémoglobine S prépondérante, pas d'hémoglobine A), SC ou SH pour les formes composites, AS chez le porteur."
+    },
+    {
+      "id": "f6",
+      "front": "Qu'est-ce qu'une crise vaso-occlusive ?",
+      "back": "Une douleur aiguë (os longs, rachis, abdomen) par obstruction de la microcirculation par les globules rouges falciformés, déclenchée souvent par fièvre, déshydratation, froid ou effort."
+    },
+    {
+      "id": "f7",
+      "front": "Quels sont les signes du syndrome thoracique aiguë ?",
+      "back": "Douleur thoracique, fièvre, toux, dyspnée et infiltrat radiologique : c'est la première cause de décès des patients hospitalisés — urgence absolue."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce que la séquestration splénique aiguë ?",
+      "back": "Une urgence du nourrisson : le sang se séquestre brutalement dans la rate, causant splénomégalie douloureuse, chute de l'hémoglobine et choc — remplissage et transfusion immédiats."
+    },
+    {
+      "id": "f9",
+      "front": "Quelle valeur d'hémoglobine de base attendre chez un SS ?",
+      "back": "Une anémie chronique habituellement entre 6 et 9 grammes par décilitre, bien tolérée par adaptation ; une chute brutale doit faire chercher une cause surajoutée (crise aplasique, séquestration, paludisme)."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle prévention infectieuse est essentielle chez l'enfant ?",
+      "back": "Pénicilline orale prophylactique dès le dépistage (jusqu'à 5 ans au moins), vaccinations antipneumococcique, anti-Haemophilus influenzae de type b, antiméningococcique, antigrippale et hépatite B."
+    },
+    {
+      "id": "f11",
+      "front": "Quel est le traitement de fond de référence ?",
+      "back": "L'hydroxyurée (hydroxycarbamide), qui augmente l'hémoglobine fœtale et réduit crises, syndromes thoraciques et hospitalisations ; greffe de moelle osseuse si donneur compatible chez l'enfant sévère."
+    },
+    {
+      "id": "f12",
+      "front": "Comment traiter une crise vaso-occlusive ?",
+      "back": "Repos au chaud, réhydratation (environ 3 litres par mètre carré et par 24 heures), antalgiques par paliers à intervalles fixes (jusqu'à la morphine), oxygène si désaturation, traitement du facteur déclenchant."
+    },
+    {
+      "id": "f13",
+      "front": "Quand indiquer un échange transfusionnel ?",
+      "back": "Dans les accidents vasculaires cérébraux, les syndromes thoraciques graves, le priapisme réfractaire et avant certaines chirurgies ; un programme transfusionnel chronique prévient la récidive d'accident vasculaire cérébral chez l'enfant à haut risque."
+    },
+    {
+      "id": "f14",
+      "front": "Quel examen surveille le risque d'accident vasculaire cérébral de l'enfant ?",
+      "back": "Le Doppler transcrânien annuel : une vitesse circulatoire élevée signe un risque élevé et justifie un programme transfusionnel."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles complications chroniques citer ?",
+      "back": "Retard de croissance, nécrose de la tête fémorale, ulcères de jambe, lithiase biliaire pigmentaire, néphropathie, rétinopathie, hypertension pulmonaire et insuffisance cardiaque."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles précautions chez la femme enceinte drépanocytaire ?",
+      "back": "Suivi conjoint hématologique et obstétrical, acide folique, hydratation, dépistage du paludisme et des infections, risque accru de prématurité et de complications maternelles ; transfusion selon tolérance."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "dr-root",
+      "label": "Drépanocytose"
+    },
+    "branches": [
+      {
+        "id": "dr-b1",
+        "label": "Génétique et mécanismes",
+        "children": [
+          {
+            "id": "dr-b1-1",
+            "label": "Hémoglobine S"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dr-l1",
+            "label": "Mutation bêta-globine, récessive"
+          },
+          {
+            "id": "dr-l2",
+            "label": "Falciformation à basse oxygénation"
+          },
+          {
+            "id": "dr-l3",
+            "label": "Protection AS contre le paludisme"
+          }
+        ]
+      },
+      {
+        "id": "dr-b2",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "dr-b2-1",
+            "label": "Complications aiguës"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dr-l4",
+            "label": "Crise vaso-occlusive"
+          },
+          {
+            "id": "dr-l5",
+            "label": "Syndrome thoracique aiguë"
+          },
+          {
+            "id": "dr-l6",
+            "label": "Séquestration splénique, accident vasculaire cérébral"
+          }
+        ]
+      },
+      {
+        "id": "dr-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "dr-b3-1",
+            "label": "Confirmation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dr-l7",
+            "label": "Électrophorèse de l'hémoglobine"
+          },
+          {
+            "id": "dr-l8",
+            "label": "Frottis, test d'Emmel"
+          },
+          {
+            "id": "dr-l9",
+            "label": "Doppler transcrânien chez l'enfant"
+          }
+        ]
+      },
+      {
+        "id": "dr-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "dr-b4-1",
+            "label": "Aigu et de fond"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dr-l10",
+            "label": "Hydratation, antalgiques, oxygène"
+          },
+          {
+            "id": "dr-l11",
+            "label": "Hydroxyurée, acide folique"
+          },
+          {
+            "id": "dr-l12",
+            "label": "Transfusions, échanges, greffe"
+          }
+        ]
+      },
+      {
+        "id": "dr-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "dr-b5-1",
+            "label": "Mesures durables"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dr-l13",
+            "label": "Dépistage, conseil génétique"
+          },
+          {
+            "id": "dr-l14",
+            "label": "Pénicilline, vaccins, antipalustres"
+          },
+          {
+            "id": "dr-l15",
+            "label": "Hydratation, éviter froid et altitude"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Crise vaso-occlusive chez le drépanocytaire",
+      "citation": "Société française de médecine d'urgence — Crise vaso-occlusive chez le drépanocytaire",
+      "organization": "SFMU",
+      "year": 2015,
+      "version": "Document de congrès",
+      "url": "https://www.sfmu.org/upload/70_formation/02_eformation/02_congres/Urgences/urgences2015/donnees/pdf/005.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "prise en charge de la crise vaso-occlusive",
+        "hydratation et antalgiques"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Drépanocytose — guide médical",
+      "citation": "Médecins sans frontières — Guides médicaux : drépanocytose",
+      "organization": "MSF",
+      "year": 2023,
+      "version": "Guide clinique",
+      "url": "https://medicalguidelines.msf.org/fr/viewport/CG/francais/drepanocytose-18484698.html",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "dépistage",
+        "prophylaxie infectieuse",
+        "hydroxyurée",
+        "suivi"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Drépanocytose et réanimation",
+      "citation": "Société de réanimation de langue française — Drépanocytose et réanimation",
+      "organization": "SRLF",
+      "year": 2015,
+      "version": "Revue",
+      "url": "https://www.srlf.org/wp-content/uploads/2015/11/0708-Reanimation-Vol16-N4-p310_317.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "complications aiguës graves",
+        "échanges transfusionnels"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Drépanocytose",
+      "citation": "Wikipédia — Drépanocytose : génétique et physiopathologie",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Dr%C3%A9panocytose",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "génétique",
+        "manifestations chroniques",
+        "épidémiologie africaine"
+      ]
+    }
+  ]
+}

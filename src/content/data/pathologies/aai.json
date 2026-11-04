@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "aai",
+  "title": "Anémies hémolytiques à auto-anticorps",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir les anémies hémolytiques auto-immunes (auto-anticorps dirigés contre les antigènes du globule rouge), distinguer les formes à anticorps chauds et froids, connaître les causes secondaires (hémopathies, lupus, médicaments, infections), affirmer le diagnostic par le test de Coombs direct et maîtriser le traitement (corticoïdes, rituximab, splénectomie, transfusion prudente).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 86,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 127,
+      "localNumber": 86,
+      "sectionLabel": "Médecine",
+      "title": "Anémies hémolytiques à auto-anticorps",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur l'anémie hémolytique auto-immune de l'adulte et de l'enfant : cadre immunologique du programme d'hématologie. La démarche diagnostique générale et la transfusion sont traitées dans les fiches Généralités sur les anémies hémolytiques et Transfusion.",
+    "verificationNotes": "Corticothérapie de première intention (1 milligramme par kilogramme par jour), rituximab et splénectomie en deuxième ligne conformes à la revue EM-Consulte et au document de la Société française d'hématologie. Particularités de l'enfant (forme aiguë post-infectieuse spontanément résolutive) issues du Vidal.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie hémolytique auto-immune (AHAI) est due à des auto-anticorps dirigés contre les antigènes de la membrane du globule rouge, entraînant sa destruction principalement extravasculaire (splénique) pour les anticorps chauds, ou intravasculaire avec activation du complément pour les anticorps froids. C'est la plus fréquente des anémies hémolytiques extracorpusculaires de l'adulte."
+        },
+        {
+          "type": "paragraph",
+          "text": "La reconnaissance du test de Coombs direct, examen clé qui objective les anticorps ou le complément fixés sur les globules rouges, a fait de l'AHAI un diagnostic accessible dans tous les contextes disposant d'un laboratoire d'immunohématologie."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Formes selon la nature de l'anticorps : 1) anticorps chauds (environ 80 % des cas) : immunoglobulines G, actives à 37 degrés, hémolyse extravasculaire splénique, test de Coombs direct positif de type immunoglobulines G et/ou complément ; 2) anticorps froids : immunoglobulines M, actives à basse température, hémolyse intravasculaire par activation du complément, Coombs positif de type complément (maladie des agglutinines froides, hémagglutinines à froid des mycoplasmes et mononucléoses) ; 3) formes mixtes, rares.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Formes selon l'étiologie : idiopathiques (environ la moitié) ou secondaires — hémopathies lymphoïdes (leucémie lymphoïde chronique, lymphome), maladies auto-immunes (lupus, polyarthrite rhumatoïde), infections (mycoplasme, mononucléose infectieuse), médicaments (hautes doses de pénicilline, céphalosporines, méthyl-dopa). Chez l'enfant : forme aiguë éphémère post-virale de bon pronostic.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo Coombs",
+          "text": "Coombs direct : anticorps fixés sur le globule rouge du patient (AHAI). Coombs indirect : anticorps libres dans le sérum (suivi de la grossesse, allo-immunisation)."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Causes à rechercher",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Toute AHAI impose une enquête étiologique : examen clinique complet (adénopathies, splénomégalie, signes de lupus, purpura associé — évoquer un syndrome d'Evans en cas de thrombopénie associée), imagerie thoraco-abdominale, bilan auto-immun (anticorps antinucléaires), sérologies (mycoplasme, Epstein-Barr, VIH), électrophorèse des immunoglobulines et recherche de gammapathie monoclonale en cas d'agglutinines froides, révision de l'ordonnance médicamenteuse.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hémopathies lymphoïdes : leucémie lymphoïde chronique, lymphome non hodgkinien.",
+            "Maladies systémiques : lupus, polyarthrite rhumatoïde.",
+            "Infections : mycoplasme (agglutinines froides), mononucléose, VIH.",
+            "Médicaments : pénicilline à haute dose, céphalosporines, méthyl-dopa.",
+            "Enfant : forme aiguë post-virale, résolution spontanée habituelle."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le tableau associe un syndrome anémique d'installation variable (brutale dans les formes aiguës : pâleur, ictère, dyspnée, parfois douleurs lombaires et urines foncées), une splénomégalie modérée, parfois de la fièvre. Biologie : anémie normochrome régénérative (réticulocytes élevés — sauf en cas d'érythroblastopénie), haptoglobine effondrée, bilirubine libre et lactico-déshydrogénases augmentées, hémoglobinémie et hémoglobinurie dans les formes intravasculaires. Le frottis montre une sphérocytose (anticorps chauds) ou une agglutination érythrocytaire (anticorps froids).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le test de Coombs direct confirme le diagnostic : positif de type immunoglobulines G et/ou complément (anticorps chauds) ou de type complément isolé (anticorps froids). Sa négativité n'élimine pas complètement le diagnostic (formes à anticorps de faible affinité). Bilan d'extension obligatoire : numération plaquettaire (syndrome d'Evans), recherche de cause secondaire. Attention : l'auto-anticorps peut gêner le groupage et la compatibilité au laboratoire avec les culats érythrocytaires.",
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Anémie hémolytique aiguë profonde",
+          "text": "Hémoglobine inférieure à 7 grammes par décilitre ou signes de mauvaise tolérance : hospitalisation, surveillance rapprochée, transfusion selon la tolérance — avec phénotypage étendu et compatibilité renforcée."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Anticorps chauds : corticothérapie de première intention (1 milligramme par kilogramme et par jour de prednisone, dégression progressive sur plusieurs mois) — rémission dans environ 80 % des cas, rechute fréquente à la décroissance. Deuxième ligne : rituximab (anticorps anti-CD20) ou splénectomie (réponse dans environ deux tiers des cas, vaccins préalables obligatoires). Traitements immunosuppresseurs en cas d'échec. Traitement de la cause secondaire (chimiothérapie du lymphome, arrêt du médicament, traitement de l'infection).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Anticorps froids : la corticothérapie est peu efficace ; le traitement repose sur la protection contre le froid (gants, vêtements chauds), le traitement de la cause (mycoplasme, hémopathie sous-jacente) et, dans les formes graves, le rituximab ; les échanges transfusionnels avec réchauffement du sang peuvent être nécessaires. Support : acide folique, transfusion prudente de culats érythrocytaires phénotypés, supplémentation martiale si carence. Thromboprophylaxie en phase aiguë (risque thrombotique accru de l'hémolyse).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Syndrome d'Evans",
+          "text": "AHAI + purpura thrombopénique immunologique : double atteinte des lignées. Bilan étiologique complet (lupus, hémopathie, déficit immunitaire commun variable), avis hématologique, immunoglobulines intraveineuses et corticoïdes selon la prédominance."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention des rechutes : décroissance très lente de la corticothérapie, information du patient sur les signes d'alerte (ictère, pâleur, urines foncées, asthénie brutale), suivi hématologique régulier avec hémogramme. Éviter les médicaments suspects en cas de forme médicamenteuse ; protection thermique stricte dans les formes à agglutinines froides ; traiter précocement les infections déclenchantes.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'enfant : la forme aiguë post-virale guérit spontanément dans la majorité des cas en quelques semaines — corticothérapie courte seulement si anémie mal tolérée, surveillance simple. Vaccination antipneumococcique, anti-Haemophilus influenzae de type b et antiméningococcique avant splénectomie, puis antibioprophylaxie orale.",
+          "sources": [
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe transfusion",
+          "text": "Transfuser une AHAI n'est pas interdit mais exige phénotypage étendu, compatibilité au laboratoire et surveillance rapprochée : le gain attendu est une remontée modérée de l'hémoglobine, la survie des culats étant raccourcie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'AHAI est la grande cause immunologique d'anémie hémolytique : anémie régénérative, haptoglobine effondrée et test de Coombs direct positif. Les anticorps chauds répondent à la corticothérapie (première intention), au rituximab ou à la splénectomie ; les formes froides imposent une protection thermique et le traitement de la cause. Le bilan étiologique est systématique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Généralités sur les anémies hémolytiques (cadre), Purpura thrombopénique (syndrome d'Evans), Leucémie lymphoïde chronique (cause secondaire majeure), Lupus (maladie auto-immune associée), Transfusion et Accidents transfusionnels (support transfusionnel et ses pièges)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Anémie hémolytique régénérative + test de Coombs direct positif = AHAI. Chauds : immunoglobulines G, splénique, corticoïdes en première intention. Froids : immunoglobulines M, complément, protection contre le froid. Toujours chercher une cause : hémopathie, lupus, infection, médicament."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche anemies-hemolytiques — cadre général.",
+            "Fiche ptai — syndrome d'Evans.",
+            "Fiche llc — cause secondaire majeure.",
+            "Fiche lupus — cause auto-immune.",
+            "Fiche transfusion — compatibilité et phénotypage."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Anémie hémolytique aiguë profonde",
+      "text": "Hospitalisation, surveillance rapprochée, transfusion prudente avec phénotypage étendu et compatibilité renforcée."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Syndrome d'Evans",
+      "text": "Hémolyse + purpura thrombopénique : bilan étiologique complet, avis hématologique, corticoïdes et immunoglobulines selon la prédominance."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe transfusion",
+      "text": "Transfuser une AHAI : phénotypage étendu, compatibilité au laboratoire, gain modéré attendu, surveillance étroite."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Coombs direct positif = AHAI. Chauds : corticoïdes en première intention. Froids : protection thermique, rituximab si grave. Cause toujours cherchée."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo Coombs",
+      "text": "Coombs direct : anticorps sur le globule rouge du patient. Coombs indirect : anticorps libres dans le sérum du patient."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Chaud ou froid",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Chaud : immunoglobulines G, 37 degrés, splénique"
+        },
+        {
+          "key": "F",
+          "term": "Froid : immunoglobulines M, complément, intravasculaire"
+        },
+        {
+          "key": "S",
+          "term": "Sphérocytes au frottis si chauds"
+        },
+        {
+          "key": "A",
+          "term": "Agglutination au frottis si froids"
+        }
+      ]
+    },
+    {
+      "label": "Causes secondaires",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Lymphoprolifératif : leucémie lymphoïde chronique, lymphome"
+        },
+        {
+          "key": "A",
+          "term": "Auto-immun : lupus"
+        },
+        {
+          "key": "I",
+          "term": "Infections : mycoplasme, Epstein-Barr"
+        },
+        {
+          "key": "M",
+          "term": "Médicaments : pénicilline, méthyl-dopa"
+        }
+      ]
+    },
+    {
+      "label": "Traitement anticorps chauds",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Corticoïdes 1 milligramme par kilogramme et par jour"
+        },
+        {
+          "key": "R",
+          "term": "Rituximab en deuxième ligne"
+        },
+        {
+          "key": "S",
+          "term": "Splénectomie en alternative"
+        },
+        {
+          "key": "F",
+          "term": "Acide Folique et support transfusionnel prudent"
+        }
+      ]
+    },
+    {
+      "label": "Biologie de l'hémolyse",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Réticulocytes élevés"
+        },
+        {
+          "key": "H",
+          "term": "Haptoglobine effondrée"
+        },
+        {
+          "key": "B",
+          "term": "Bilirubine libre augmentée"
+        },
+        {
+          "key": "L",
+          "term": "Lactico-déshydrogénases élevées"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce qu'une anémie hémolytique auto-immune ?",
+      "back": "Une anémie hémolytique due à des auto-anticorps dirigés contre les antigènes membranaires des globules rouges, causant leur destruction, principalement extravasculaire (chauds) ou intravasculaire (froids)."
+    },
+    {
+      "id": "f2",
+      "front": "Quelle est la différence entre anticorps chauds et froids ?",
+      "back": "Chauds : immunoglobulines G actives à 37 degrés, hémolyse splénique extravasculaire, sphérocytose. Froids : immunoglobulines M actives à basse température, hémolyse intravasculaire par complément, agglutination."
+    },
+    {
+      "id": "f3",
+      "front": "Quel examen affirme le diagnostic ?",
+      "back": "Le test de Coombs direct, qui objective les immunoglobulines ou le complément fixés sur les globules rouges du patient."
+    },
+    {
+      "id": "f4",
+      "front": "Que signifie un Coombs direct de type complément isolé ?",
+      "back": "Une hémolyse à anticorps froids (agglutinines froides) : les immunoglobulines M se détachent mais laissent le complément fixé, détecté par le test."
+    },
+    {
+      "id": "f5",
+      "front": "Citez les principales causes secondaires.",
+      "back": "Hémopathies lymphoïdes (leucémie lymphoïde chronique, lymphome), maladies auto-immunes (lupus), infections (mycoplasme, mononucléose), médicaments (pénicilline à haute dose, méthyl-dopa)."
+    },
+    {
+      "id": "f6",
+      "front": "Qu'est-ce que le syndrome d'Evans ?",
+      "back": "L'association d'une anémie hémolytique auto-immune et d'un purpura thrombopénique immunologique : deux cytopénies auto-immunes simultanées, imposant un bilan étiologique complet."
+    },
+    {
+      "id": "f7",
+      "front": "Quel élément du frottis évoque des anticorps chauds ?",
+      "back": "Une sphérocytose : les immunoglobulines G fixées entraînent une phagocytose partielle de la membrane par les macrophages spléniques, arrondissant le globule rouge."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le traitement de première intention des formes à anticorps chauds ?",
+      "back": "La corticothérapie orale (prednisone 1 milligramme par kilogramme et par jour), efficace dans environ 80 % des cas, avec décroissance très progressive."
+    },
+    {
+      "id": "f9",
+      "front": "Quelles options en cas d'échec ou de rechute des anticorps chauds ?",
+      "back": "Le rituximab (anti-CD20) ou la splénectomie (réponse dans environ deux tiers des cas, après vaccinations obligatoires), puis immunosuppresseurs."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi la corticothérapie est-elle peu efficace dans les formes froides ?",
+      "back": "Parce que l'hémolyse est médiée par le complément et non par les macrophages spléniques : on protège du froid, on traite la cause, et on utilise le rituximab dans les formes graves."
+    },
+    {
+      "id": "f11",
+      "front": "Quelles précautions transfusionnelles dans une AHAI ?",
+      "back": "Phénotypage étendu, compatibilité au laboratoire (l'auto-anticorps masque les allo-anticorps), transfusion prudente : la survie des culats est raccourcie, le gain en hémoglobine est modeste."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle particularité pédiatrique connaître ?",
+      "back": "La forme aiguë post-virale du nourrisson et de l'enfant : anémie hémolytique sévère mais spontanément résolutive en quelques semaines ; corticothérapie courte si mauvaise tolérance."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle association médicamenteuse classique avec le mycoplasme ?",
+      "back": "Les agglutinines froides : une pneumonie à mycoplasme peut déclencher une hémolyse à immunoglobulines M anti-I avec acrocyanose."
+    },
+    {
+      "id": "f14",
+      "front": "Quels soins de support associer ?",
+      "back": "Acide folique (besoins accrus de l'érythropoïèse), supplémentation martiale si carence, thromboprophylaxie en phase aiguë (l'hémolyse augmente le risque thrombotique)."
+    },
+    {
+      "id": "f15",
+      "front": "Quel bilan étiologique devant toute AHAI de l'adulte ?",
+      "back": "Examen clinique (adénopathies, splénomégalie, purpura), bilan auto-immun, sérologies (mycoplasme, Epstein-Barr, VIH), imagerie thoraco-abdominale, électrophorèse des immunoglobulines, révision des médicaments."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle surveillance après rémission ?",
+      "back": "Hémogramme régulier pendant la décroissance puis à distance, éducation aux signes d'alerte (ictère, pâleur, urines foncées), éviction des médicaments suspects et protection thermique selon le type d'anticorps."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ai-root",
+      "label": "AHAI à auto-anticorps"
+    },
+    "branches": [
+      {
+        "id": "ai-b1",
+        "label": "Classification",
+        "children": [
+          {
+            "id": "ai-b1-1",
+            "label": "Selon l'anticorps"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l1",
+            "label": "Chauds : immunoglobulines G, splénique"
+          },
+          {
+            "id": "ai-l2",
+            "label": "Froids : immunoglobulines M, complément"
+          },
+          {
+            "id": "ai-l3",
+            "label": "Idiopathique ou secondaire"
+          }
+        ]
+      },
+      {
+        "id": "ai-b2",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "ai-b2-1",
+            "label": "Enquête systématique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l4",
+            "label": "Leucémie lymphoïde chronique, lymphome"
+          },
+          {
+            "id": "ai-l5",
+            "label": "Lupus"
+          },
+          {
+            "id": "ai-l6",
+            "label": "Mycoplasme, médicaments"
+          }
+        ]
+      },
+      {
+        "id": "ai-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ai-b3-1",
+            "label": "Confirmation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l7",
+            "label": "Anémie régénérative"
+          },
+          {
+            "id": "ai-l8",
+            "label": "Coombs direct positif"
+          },
+          {
+            "id": "ai-l9",
+            "label": "Syndrome d'Evans si purpura associé"
+          }
+        ]
+      },
+      {
+        "id": "ai-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "ai-b4-1",
+            "label": "Selon le type"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l10",
+            "label": "Chauds : corticoïdes, rituximab, splénectomie"
+          },
+          {
+            "id": "ai-l11",
+            "label": "Froids : protection thermique, rituximab"
+          },
+          {
+            "id": "ai-l12",
+            "label": "Support : folates, transfusion prudente"
+          }
+        ]
+      },
+      {
+        "id": "ai-b5",
+        "label": "Suivi",
+        "children": [
+          {
+            "id": "ai-b5-1",
+            "label": "Prévention des rechutes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l13",
+            "label": "Décroissance lente"
+          },
+          {
+            "id": "ai-l14",
+            "label": "Éducation aux signes d'alerte"
+          },
+          {
+            "id": "ai-l15",
+            "label": "Vaccins avant splénectomie"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Diagnostic et prise en charge de l'anémie hémolytique auto-immune",
+      "citation": "EM-Consulte — Diagnostic et prise en charge de l'anémie hémolytique auto-immune",
+      "organization": "EM-Consulte (La Presse Médicale)",
+      "year": 2013,
+      "version": "Revue",
+      "url": "https://www.em-consulte.com/article/134278/diagnostic-et-prise-en-charge-de-l-anemie-hemolyti",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "définition",
+        "classification anticorps chauds et froids",
+        "stratégie thérapeutique"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "L'anémie hémolytique auto-immune — information patient",
+      "citation": "Société française d'hématologie — L'anémie hémolytique auto-immune",
+      "organization": "SFH",
+      "year": 2020,
+      "version": "Document patient",
+      "url": "https://sfh.hematologie.net/sites/sfh.hematologie.net/files/medias/documents/anemie_hemolytique_autoimmune.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "principes de traitement",
+        "suivi et prévention des rechutes"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Anémies hémolytiques auto-immunes",
+      "citation": "HematoCell — Anémies hémolytiques auto-immunes (AHAI)",
+      "organization": "HematoCell",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.hematocell.fr/globules-rouges-et-leur-pathologie/anemies-hemolytiques-auto-immunes-ahai",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "biologie de l'hémolyse",
+        "test de Coombs",
+        "formes selon l'anticorps"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Anémie hémolytique auto-immune de l'enfant",
+      "citation": "Vidal — Anémie hémolytique auto-immune de l'enfant",
+      "organization": "Vidal",
+      "year": 2024,
+      "version": "Recommandations",
+      "url": "https://www.vidal.fr/maladies/recommandations/anemie-hemolytique-auto-immune-de-l-enfant-4030.html",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "forme pédiatrique post-virale",
+        "prise en charge de l'enfant"
+      ]
+    }
+  ]
+}
