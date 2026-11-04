@@ -30,7 +30,7 @@ import {
   type PremiumPurchase,
   type PremiumSpecialtyId,
 } from "@/content/purchase-order";
-import { formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS } from "@/content/pricing";
+import { detectPreferredCurrency, formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS } from "@/content/pricing";
 import type { Profile } from "@/core/types";
 import { useAppUser } from "@/hooks/useAppUser";
 import { authEnabled } from "@/lib/auth/client";
@@ -440,26 +440,45 @@ export function PremiumPurchaseFlow({
         <div className="mt-5 space-y-4">
           <div aria-label="Choisir une offre" className="grid gap-3 sm:grid-cols-3" role="radiogroup">
             <OfferCard
-              active={offer === "subscription"}
-              title={`Abonnement ${SUBSCRIPTION_MONTHS} mois`}
-              detail="Tout le catalogue Premium, sans limite"
-              price={formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")}
-              recommended
-              onClick={() => setOffer("subscription")}
+              active={offer === "deck"}
+              title="🎯 1 module"
+              detail="Un sujet précis, à votre rythme"
+              price={formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
+              features={[
+                { ok: true, text: "1 deck · 10 questions" },
+                { ok: true, text: "Accès 90 jours" },
+                { ok: false, text: "1 seul sujet" },
+                { ok: false, text: "Pas les autres spécialités" },
+              ]}
+              onClick={() => setOffer("deck")}
             />
             <OfferCard
               active={offer === "specialty"}
-              title="Spécialité"
-              detail="Tout le contenu d'une spécialité"
-              price={formatPrice(PRICES_MGA.specialty, "MGA")}
+              title="📚 Spécialité"
+              detail="Toute une spécialité, en profondeur"
+              price={formatPrice(PRICES_MGA.specialty, detectPreferredCurrency())}
+              badge="Meilleur rapport"
+              features={[
+                { ok: true, text: "15 decks de la spécialité" },
+                { ok: true, text: "Cas cliniques inclus" },
+                { ok: true, text: "Accès 90 jours" },
+                { ok: false, text: "1 seule spécialité" },
+              ]}
               onClick={() => setOffer("specialty")}
             />
             <OfferCard
-              active={offer === "deck"}
-              title="1 module"
-              detail="Une étape de parcours"
-              price={formatPrice(PRICES_MGA.deck, "MGA")}
-              onClick={() => setOffer("deck")}
+              active={offer === "subscription"}
+              title="🎓 Abonnement"
+              detail={`Tout le Premium · ${SUBSCRIPTION_MONTHS} mois`}
+              price={formatPrice(PRICES_MGA.subscriptionQuarter, detectPreferredCurrency())}
+              badge="Complet"
+              features={[
+                { ok: true, text: "5 spécialités + outils" },
+                { ok: true, text: "Cas cliniques + calculateurs" },
+                { ok: true, text: "Accès 90 jours renouvelables" },
+                { ok: true, text: "Sans engagement" },
+              ]}
+              onClick={() => setOffer("subscription")}
             />
           </div>
 
@@ -762,13 +781,45 @@ function PurchaseSteps({ current }: { current: 1 | 2 | 3 }) {
   );
 }
 
-function OfferCard({ active, title, detail, price, recommended = false, onClick }: { active: boolean; title: string; detail: string; price: string; recommended?: boolean; onClick: () => void }) {
+function OfferCard({ active, title, detail, price, features, recommended = false, badge, onClick }: {
+  active: boolean;
+  title: string;
+  detail: string;
+  price: string;
+  features?: { ok: boolean; text: string }[];
+  recommended?: boolean;
+  badge?: string;
+  onClick: () => void;
+}) {
   return (
-    <button type="button" role="radio" aria-checked={active} onClick={onClick} className={cn("relative min-h-36 rounded-[var(--radius-xl)] p-4 text-left shadow-[var(--shadow-border)] transition-colors", active ? "bg-primary-soft ring-2 ring-primary" : "bg-card")}>
-      {recommended ? <span className="absolute right-2 top-2 rounded-full bg-primary px-2 py-1 text-[9px] font-medium uppercase tracking-wide text-primary-fg">Économisez 3 000 Ar</span> : null}
-      <span className="block pt-5 text-sm font-medium">{title}</span>
+    <button
+      type="button"
+      role="radio"
+      aria-checked={active}
+      onClick={onClick}
+      className={cn(
+        "relative rounded-[var(--radius-xl)] p-4 text-left shadow-[var(--shadow-border)] transition-colors",
+        active ? "bg-primary-soft ring-2 ring-primary" : "bg-card",
+      )}
+    >
+      {badge ? (
+        <span className="absolute right-2 top-2 rounded-full bg-primary px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-primary-fg">
+          {badge}
+        </span>
+      ) : null}
+      <span className={cn("block text-sm font-medium", badge && "pt-5")}>{title}</span>
       <span className="mt-1 block text-xs text-muted">{detail}</span>
-      <span className="mt-5 block font-display text-xl font-medium">{price}</span>
+      <span className="mt-3 block font-display text-xl font-medium">{price}</span>
+      {features && features.length > 0 ? (
+        <ul className="mt-3 space-y-1 text-xs">
+          {features.map((f, i) => (
+            <li key={i} className={cn("flex items-start gap-1.5", f.ok ? "text-fg" : "text-muted/70")}>
+              <span aria-hidden>{f.ok ? "✅" : "❌"}</span>
+              <span className="leading-snug">{f.text}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </button>
   );
 }
