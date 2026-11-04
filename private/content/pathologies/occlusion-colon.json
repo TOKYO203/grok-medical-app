@@ -1,0 +1,721 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "occlusion-colon",
+  "title": "Occlusion intestinale du côlon",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Distinguer l'occlusion du côlon de celle du grêle, reconnaître le risque majeur — la perforation diastatique du cæcum —, identifier la cause (cancer en tête), et choisir entre prothèse endoscopique, résection d'emblée et colostomie de décharge selon le côté, la cause et l'état du patient.",
+  "language": "fr",
+  "updatedAt": "2026-11-02",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 41,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 216,
+      "localNumber": 41,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Occlusion intestinale du côlon",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'American Society of Colon and Rectal Surgeons sur le cancer du côlon, de la méta-analyse des essais randomisés sur les prothèses comme « pont vers la chirurgie » et de la fiche dédiée à l'occlusion du grêle du même référentiel. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche est volontairement complémentaire de l'occlusion du grêle (item 15) : la distinction grêle / côlon est présentée comme la première décision diagnostique, le cæcum étant le point faible mécanique.",
+      "Le cancer colorectal est présenté comme la première cause de l'occlusion colique de l'adulte : la prise en charge de l'occlusion intègre d'emblée la question carcinologique.",
+      "La prothèse endoscopique (SEMS) en « pont vers la chirurgie » est présentée avec sa condition : disponibilité de l'expertise endoscopique ; son alternative validée est la résection d'emblée avec colostomie. La fiche ne privilégie pas une école.",
+      "La volvulus du sigmoïde, cause fréquente en Afrique, est traité séparément : endoscopie détorsive en première intention sur côlon viable, résection en cas d'ischémie ou de récidives.",
+      "Le cæcum est identifié comme le point de rupture : la perforation diastatique est la complication qui tue, et sa prévention conditionne l'urgence de la décompression.",
+      "Aucune posologie n'est donnée ; les principes de réanimation et d'antibioprophylaxie suivent les protocoles locaux."
+    ],
+    "qcChecklist": [
+      "Distinction occlusion du grêle / du côlon",
+      "Cæcum : point de rupture, perforation diastatique",
+      "Cancer colorectal : première cause",
+      "Prothèse « pont vers la chirurgie » versus résection d'emblée",
+      "Volvulus du sigmoïde : endoscopie détorsive",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'occlusion du côlon est une urgence chirurgicale dont la gravité tient à un point mécanique : le cæcum. Lorsque le côlon est obstrué en aval et que la valve iléo-cæcale fonctionne, le cæcum devient un segment fermé qui se distend — c'est là qu'il se perforera. La perforation diastatique du cæcum est la complication qui tue, et toute la stratégie de prise en charge vise à l'éviter."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez l'adulte, la première cause est le cancer colorectal ; viennent ensuite la diverticulite sténosante, le volvulus — particulièrement fréquent sur le sigmoïde long en Afrique —, les sténoses ischémiques ou post-radique, et plus rarement les brides et hernies qui dominent l'occlusion du grêle. La distinction grêle / côlon est la première décision diagnostique, car les stratégies divergent complètement."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'occlusion colique se présente par des douleurs abdominales progressives avec arrêt des matières et des gaz, distension majeure débutant par les flancs, vomissements tardifs et souvent fécaloïdes. Le tableau se constitue en quelques jours : cette lenteur apparente ne doit pas rassurer — la distension cæcale progresse silencieusement."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "physiopathologie",
+      "title": "I. Physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le côlon obstrué en aval devient un segment fermé si la valve iléo-cæcale est continente : les gaz et les selles s'accumulent, la pression intraluminale monte, la paroi cæcale — la plus fine et la moins bien vascularisée du cadre — se distend puis se vascularise mal. La loi de Laplace fait du cæcum le point de rupture : plus grand rayon, plus grande tension pariétale."
+        },
+        {
+          "type": "paragraph",
+          "text": "En amont, l'ileus s'installe avec ses conséquences : déshydratation par troisième secteur, troubles ioniques, vomissements. La translocation bactérienne et la souffrance pariétale exposent au sepsis. Quand la paroi cæcale cède, c'est la péritonite stercorale, l'une des situations abdominales de plus mauvais pronostic."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Mécanisme",
+            "Conséquence",
+            "Élément surveillé"
+          ],
+          "rows": [
+            [
+              "Segment fermé avec valve continente",
+              "Distension progressive du cæcum",
+              "Diamètre cæcal à l'imagerie"
+            ],
+            [
+              "Pression intraluminale croissante",
+              "Souffrance pariétale, ischémie",
+              "Douleur, défense, sepsis"
+            ],
+            [
+              "Perforation diastatique",
+              "Péritonite stercorale",
+              "Pneumopéritoine, choc"
+            ],
+            [
+              "Ileus en amont",
+              "Déshydratation, troubles ioniques",
+              "Ionogramme, diurèse"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le cæcum décide de l'urgence",
+          "text": "Un diamètre cæcal qui dépasse environ 9-10 cm, ou des signes locaux, font craindre la perforation imminente : la décompression devient une course contre la distension."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic positif repose sur l'examen et l'imagerie. La radiographie d'abdomen sans préparation montre les cadres coliques distendus avec haustrations, et dispose les niveaux : les anses dilatées du côlon se reconnaissent à leur situation périphérique et à leurs haustrations, distinctes des valvules conniventes du grêle. La tomodensitométrie avec injection est l'examen de référence : elle confirme le niveau de l'obstacle, la cause — masse tumorale, diverticulite, volvulus avec son signe du « tourbillon » — et la souffrance cæcale."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire : ancienneté, altération de l'état général, rectorragies, antécédents coliques, épisodes antérieurs résolutifs (volvulus).",
+            "Examen : distension débordant les flancs, matité déclive, tympanisme, recherche d'une défense (souffrance, perforation), toucher rectal systématique.",
+            "Biologie : ionogramme, fonction rénale, NFS, CRP, lactates, bilan d'hémostase et groupage.",
+            "Radiographie d'abdomen sans préparation : distension colique, niveaux, pneumopéritoine à rechercher.",
+            "Tomodensitométrie abdomino-pelvienne avec injection : niveau, cause, vitalité pariétale, cæcum.",
+            "Endoscopie : diagnostique et parfois thérapeutique — biopsie d'une tumeur, détorsion d'un volvulus, mise en place d'une prothèse."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La distinction avec l'occlusion du grêle est le premier triage : le côlon distendu est périphérique avec haustrations, le grêle est central avec valvules conniventes ; les vomissements sont tardifs dans l'occlusion colique, l'arrêt des gaz précoce et complet. Une occlusion par hernie étranglée est une occlusion du grêle jusqu'à preuve du contraire."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Volvulus du sigmoïde",
+          "text": "Le volvulus du sigmoïde est une cause fréquente de l'occlusion colique en Afrique, sur un côlon long et redondant : tableau d'occlusion progressive avec distension majeure, et le signe du tourbillon à l'imagerie. Sur côlon viable, la détorsion endoscopique est le traitement de première intention — mais elle expose à la récidive."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "III. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge combine la réanimation — remplissage, correction des troubles ioniques, sonde naso-gastrique, sonde vésicale — et le traitement de l'obstacle, dont l'urgence dépend de la souffrance cæcale. L'antibioprophylaxie suit les protocoles locaux. Chez un patient avec péritonite ou perforation, la chirurgie est immédiate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pour l'obstruction maligne du côlon gauche, deux stratégies validées s'opposent terme à terme : la prothèse endoscopique métallique auto-expansive (SEMS) en « pont vers la chirurgie », qui décomprime le côlon et permet une chirurgie réglée avec anastomose, et la chirurgie d'emblée — le plus souvent résection avec colostomie terminale (Hartmann pour le rectosigmoïde) — qui garantit le contrôle de la source au prix d'une stomie souvent définitive. Le choix dépend de l'expertise endoscopique, de l'état du patient et du terrain carcinologique."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Options",
+            "Conditions"
+          ],
+          "rows": [
+            [
+              "Cancer du côlon gauche en pont",
+              "SEMS puis chirurgie réglée",
+              "Expertise endoscopique disponible, péritoine sain"
+            ],
+            [
+              "Cancer du côlon gauche sans endoscopie",
+              "Résection + colostomie (Hartmann)",
+              "Contrôle immédiat de la source"
+            ],
+            [
+              "Cancer du côlon droit occlusif",
+              "Résection avec anastomose iléo-colique en un temps",
+              "Côlon droit : résection d'emblée habituelle"
+            ],
+            [
+              "Volvulus sigmoïdien viable",
+              "Détorsion endoscopique",
+              "Puis résection programmée du sigmoïde pour éviter la récidive"
+            ],
+            [
+              "Volvulus ischémique ou perforé",
+              "Résection d'emblée",
+              "Stomie selon l'état local et général"
+            ],
+            [
+              "Sténose bénigne (diverticulaire, post-radique)",
+              "Dilatation endoscopique ou résection",
+              "Selon la cause, le terrain, la récidive"
+            ],
+            [
+              "Péritonite stercorale",
+              "Chirurgie immédiate, lavage, résection",
+              "Réanimation simultanée"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Côlon droit versus côlon gauche",
+          "text": "L'occlusion du côlon droit se traite habituellement par résection d'emblée avec anastomose iléo-colique — le segment d'amont est court et le cæcum est réséqué. Le côté gauche concentre les stratégies : prothèse en pont, Hartmann, stomie de décharge."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Décomprimer, puis opérer réglé",
+          "text": "La logique du « pont » est de transformer une urgence septique en chirurgie programmée sur un côlon décomprimé : mieux pour l'anastomose, mieux pour le cancer. Mais si l'endoscopie n'est pas disponible, la résection d'emblée reste une référence parfaitement valide."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-TAN-SEMS-2012",
+          "organization": "British Journal of Surgery",
+          "title": "Systematic review and meta-analysis of randomized clinical trials of self-expanding metallic stents as a bridge to surgery versus emergency surgery for malignant left-sided large bowel obstruction",
+          "year": 2012,
+          "url": "https://doi.org/10.1002/bjs.8689"
+        }
+      ]
+    },
+    {
+      "id": "suites",
+      "title": "IV. Suites, surveillance et pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les suites dépendent de la cause, du délai et de la survenue d'une perforation. Après résection en urgence, surveiller la stomie, le transit, les collections intra-abdominales et l'état nutritionnel. La réintroduction alimentaire est précoce quand l'état le permet."
+        },
+        {
+          "type": "paragraph",
+          "text": "La question carcinologique traverse toute la prise en charge d'une occlusion maligne : stadification, discussion en réunion pluridisciplinaire, chimiothérapie adjuvante selon le stade, et information du patient sur la stomie — définitive ou de rétablissement. Une occlusion colique de l'adulte doit toujours faire conclure par la question de la cause."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Après une détorsion de volvulus",
+          "text": "La détorsion endoscopique réussie n'est pas la fin : la récidive est la règle, et la résection programmée du sigmoïde est la seule prévention durable. Ne pas la perdre de vue en sortie d'hospitalisation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'occlusion du côlon est une occlusion à risque de perforation cæcale : le cancer en est la première cause, le volvulus sigmoïdien une cause fréquente en Afrique. L'imagerie — scanner avec injection — détermine le niveau, la cause et l'état du cæcum."
+        },
+        {
+          "type": "paragraph",
+          "text": "La stratégie tient en trois options : prothèse en pont vers la chirurgie réglée, résection d'emblée avec colostomie, détorsion endoscopique d'un volvulus viable — pondérées par l'état du patient et l'expertise disponible."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vogel JD, Eskicioglu C, Weiser MR, Feingold DL, Steele SR. The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer. Diseases of the Colon and Rectum 2017 ; 60 : 1001-1017. doi:10.1097/DCR.0000000000000926.",
+            "Tan CJ, Dasari BVM, Gardiner K. Systematic review and meta-analysis of randomized clinical trials of self-expanding metallic stents as a bridge to surgery versus emergency surgery for malignant left-sided large bowel obstruction. British Journal of Surgery 2012 ; 99 : 469-476. doi:10.1002/bjs.8689."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-TAN-SEMS-2012",
+          "organization": "British Journal of Surgery",
+          "title": "Systematic review and meta-analysis of randomized clinical trials of self-expanding metallic stents as a bridge to surgery versus emergency surgery for malignant left-sided large bowel obstruction",
+          "year": 2012,
+          "url": "https://doi.org/10.1002/bjs.8689"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-caccum",
+      "label": "CÆCUM",
+      "intro": "Le point qui décide de tout",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cœur mécanique de l'occlusion colique : segment fermé si la valve iléo-cæcale est continente."
+        },
+        {
+          "key": "Æ",
+          "term": "Æcès de vigilance : plus grand rayon, plus grande tension pariétale — c'est là que ça perce."
+        },
+        {
+          "key": "C",
+          "term": "Cadre colique distendu : haustrations périphériques, distinctes du grêle central."
+        },
+        {
+          "key": "U",
+          "term": "Urgence de la décompression : diamètre cæcal au-delà de 9-10 cm ou souffrance locale."
+        },
+        {
+          "key": "M",
+          "term": "Mémoire carcinologique : l'occlusion de l'adulte est cancéreuse jusqu'à preuve du contraire."
+        }
+      ],
+      "note": "Toute occlusion colique doit répondre à deux questions : que fait le cæcum, et quelle est la cause ?"
+    },
+    {
+      "id": "mn-strategie",
+      "label": "PONT",
+      "intro": "Les options devant l'obstruction maligne du côlon gauche",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Prothèse (SEMS) : décompression en pont vers une chirurgie réglée avec anastomose."
+        },
+        {
+          "key": "O",
+          "term": "Opérer d'emblée : résection avec colostomie — Hartmann pour le rectosigmoïde."
+        },
+        {
+          "key": "N",
+          "term": "Nature de la cause : cancer, diverticulite, volvulus — chacun change la stratégie."
+        },
+        {
+          "key": "T",
+          "term": "Terrain et expertise : c'est l'endoscopie disponible et l'état du patient qui tranchent."
+        }
+      ],
+      "note": "Prothèse et Hartmann sont deux références légitimes : aucune n'est « meilleure » dans l'absolu, tout est contexte."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est le point faible mécanique de l'occlusion colique ?",
+      "back": "Le cæcum : segment fermé le plus distensible, il se perforera en premier — perforation diastatique.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quelle est la première cause d'occlusion du côlon chez l'adulte ?",
+      "back": "Le cancer colorectal ; viennent ensuite la diverticulite sténosante et le volvulus sigmoïdien.",
+      "tags": [
+        "étiologie"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Comment distinguer radiologiquement le côlon du grêle distendu ?",
+      "back": "Le côlon est périphérique avec des haustrations ; le grêle est central avec des valvules conniventes.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen de référence précise niveau, cause et souffrance cæcale ?",
+      "back": "La tomodensitométrie abdomino-pelvienne avec injection de produit de contraste.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Que faire devant un volvulus du sigmoïde sur côlon viable ?",
+      "back": "La détorsion endoscopique en première intention, puis la résection programmée du sigmoïde pour éviter la récidive.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Qu'est-ce que la stratégie « pont vers la chirurgie » ?",
+      "back": "La mise en place d'une prothèse endoscopique (SEMS) pour décomprimer le côlon, permettant une chirurgie réglée secondaire avec anastomose.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quelle est l'alternative validée à la prothèse pour un cancer occlusif du côlon gauche ?",
+      "back": "La chirurgie d'emblée : résection avec colostomie terminale (Hartmann pour le rectosigmoïde).",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Comment traite-t-on habituellement une occlusion par cancer du côlon droit ?",
+      "back": "Résection d'emblée avec anastomose iléo-colique — le segment d'amont est court et le cæcum est réséqué.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quel diamètre cæcal fait craindre une perforation imminente ?",
+      "back": "Au-delà d'environ 9 à 10 cm, ou tout diamètre associé à des signes locaux de souffrance.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Pourquoi les vomissements sont-ils tardifs dans l'occlusion colique ?",
+      "back": "Parce que le point de fermentation iléal est loin de l'estomac : le tableau est dominé par la distension et l'arrêt des matières et des gaz.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Que faire devant une péritonite stercorale sur occlusion colique ?",
+      "back": "Chirurgie immédiate avec résection du segment perforé, lavage péritonéal et réanimation simultanée.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quelle est l'évolution d'un volvulus simplement détorsé sans résection ?",
+      "back": "La récidive est la règle : la résection programmée du sigmoïde est la seule prévention durable.",
+      "tags": [
+        "surveillance"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Occlusion intestinale du côlon",
+      "detail": "Urgence dont le point de rupture est le cæcum. Cancer en tête des causes, volvulus fréquent en Afrique ; la stratégie oppose prothèse en pont et résection d'emblée selon le côté et l'expertise."
+    },
+    "branches": [
+      {
+        "id": "mecanisme",
+        "label": "Mécanisme",
+        "tone": "retenir",
+        "detail": "Le segment fermé et la loi de Laplace.",
+        "children": [
+          {
+            "id": "mec-valve",
+            "label": "Valve iléo-cæcale",
+            "detail": "Continente : le côlon devient un segment fermé.",
+            "leaves": [
+              {
+                "id": "mec-valve-1",
+                "label": "Distension",
+                "detail": "Progressive, pendant des jours."
+              }
+            ]
+          },
+          {
+            "id": "mec-caecum",
+            "label": "Cæcum",
+            "detail": "Plus grand rayon : plus grande tension pariétale.",
+            "leaves": [
+              {
+                "id": "mec-caecum-1",
+                "label": "Perforation diastatique",
+                "detail": "La complication qui tue."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Trier grêle / côlon, puis chercher la cause.",
+        "children": [
+          {
+            "id": "dia-imagerie",
+            "label": "Imagerie",
+            "detail": "ASP puis scanner avec injection — niveau, cause, cæcum.",
+            "leaves": [
+              {
+                "id": "dia-imagerie-1",
+                "label": "Haustrations",
+                "detail": "Côlon périphérique versus grêle central."
+              }
+            ]
+          },
+          {
+            "id": "dia-causes",
+            "label": "Causes",
+            "detail": "Cancer, diverticulite, volvulus, sténose.",
+            "leaves": [
+              {
+                "id": "dia-causes-1",
+                "label": "Volvulus",
+                "detail": "Tourbillon à l'imagerie, côlon long."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Décomprimer et contrôler la cause.",
+        "children": [
+          {
+            "id": "tra-rea",
+            "label": "Réanimation",
+            "detail": "Remplissage, ions, sonde naso-gastrique, vésicale.",
+            "leaves": [
+              {
+                "id": "tra-rea-1",
+                "label": "Sans délai",
+                "detail": "Ne pas ajourner la décompression."
+              }
+            ]
+          },
+          {
+            "id": "tra-pont",
+            "label": "Prothèse (SEMS)",
+            "detail": "Pont vers une chirurgie réglée avec anastomose.",
+            "leaves": [
+              {
+                "id": "tra-pont-1",
+                "label": "Condition",
+                "detail": "Expertise endoscopique disponible."
+              }
+            ]
+          },
+          {
+            "id": "tra-resection",
+            "label": "Résection d'emblée",
+            "detail": "Hartmann pour le rectosigmoïde, anastomose iléo-colique à droite.",
+            "leaves": [
+              {
+                "id": "tra-resection-1",
+                "label": "Stomie",
+                "detail": "Définitive ou de rétablissement à discuter."
+              }
+            ]
+          },
+          {
+            "id": "tra-volvulus",
+            "label": "Volvulus viable",
+            "detail": "Détorsion endoscopique puis résection programmée.",
+            "leaves": [
+              {
+                "id": "tra-volvulus-1",
+                "label": "Récidive",
+                "detail": "La règle sans résection."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "differencier",
+        "label": "Différencier",
+        "tone": "memo",
+        "detail": "Les pièges différentiels.",
+        "children": [
+          {
+            "id": "dif-grele",
+            "label": "Occlusion du grêle",
+            "detail": "Vomissements précoces, valvules conniventes, hernies et brides.",
+            "leaves": [
+              {
+                "id": "dif-grele-1",
+                "label": "Pseudo-obstruction",
+                "detail": "Côlon dilaté sans obstacle organique — le voir avant d'opérer."
+              }
+            ]
+          },
+          {
+            "id": "dif-fecalomasse",
+            "label": "Fécalome",
+            "detail": "Sujet âgé, toucher rectal décisif, désimpaction.",
+            "leaves": [
+              {
+                "id": "dif-fecalomasse-1",
+                "label": "TR systématique",
+                "detail": "Toujours faire le toucher rectal."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Suites et question carcinologique.",
+        "children": [
+          {
+            "id": "sui-postop",
+            "label": "Postopératoire",
+            "detail": "Stomie, transit, collections, nutrition.",
+            "leaves": [
+              {
+                "id": "sui-postop-1",
+                "label": "Fièvre",
+                "detail": "Imagerie à la recherche d'un abcès."
+              }
+            ]
+          },
+          {
+            "id": "sui-cancer",
+            "label": "Cancérologie",
+            "detail": "Stadification, réunion pluridisciplinaire, chimiothérapie adjuvante.",
+            "leaves": [
+              {
+                "id": "sui-cancer-1",
+                "label": "Cause",
+                "detail": "Toute occlusion de l'adulte finit par la question de la cause."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ASCRS-COLON-2017",
+      "title": "The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer",
+      "citation": "Vogel JD, Eskicioglu C, Weiser MR, Feingold DL, Steele SR. The American Society of Colon and Rectal Surgeons clinical practice guidelines for the treatment of colon cancer. Diseases of the Colon and Rectum 2017 ; 60 : 1001-1017. doi:10.1097/DCR.0000000000000926.",
+      "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+      "year": 2017,
+      "url": "https://doi.org/10.1097/DCR.0000000000000926",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Prise en charge de l'occlusion maligne",
+        "Stratégies chirurgicales",
+        "Suivi carcinologique"
+      ]
+    },
+    {
+      "id": "SRC-TAN-SEMS-2012",
+      "title": "Self-expanding metallic stents as a bridge to surgery versus emergency surgery for malignant left-sided large bowel obstruction",
+      "citation": "Tan CJ, Dasari BVM, Gardiner K. Systematic review and meta-analysis of randomized clinical trials of self-expanding metallic stents as a bridge to surgery versus emergency surgery for malignant left-sided large bowel obstruction. British Journal of Surgery 2012 ; 99 : 469-476. doi:10.1002/bjs.8689.",
+      "organization": "British Journal of Surgery",
+      "year": 2012,
+      "url": "https://doi.org/10.1002/bjs.8689",
+      "verifiedAt": "2026-11-02",
+      "usedFor": [
+        "Prothèse en pont vers la chirurgie",
+        "Comparaison avec la chirurgie d'emblée"
+      ]
+    }
+  ]
+}
