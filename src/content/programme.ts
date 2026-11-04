@@ -16,6 +16,7 @@
 
 import catalogueJson from "./data/programmes/_index.json";
 import madagascar2025Json from "./data/programmes/madagascar-2025.json";
+import internationalAmeeJson from "./data/programmes/international-amee.json";
 
 /** Un item officiel du référentiel (numéroté tel que publié). */
 export type ProgrammeItem = {
@@ -84,6 +85,7 @@ type RawProgrammeFile = {
  */
 const CONTENT_BY_FILE: Record<string, RawProgrammeFile> = {
   "madagascar-2025.json": madagascar2025Json as RawProgrammeFile,
+  "international-amee.json": internationalAmeeJson as RawProgrammeFile,
 };
 
 export const PROGRAMMES: Programme[] = catalogueJson.programmes.flatMap((entry) => {

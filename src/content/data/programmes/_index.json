@@ -2,6 +2,69 @@
   "version": 1,
   "programmes": [
     {
+      "id": "international-amee",
+      "label": "International — Standards AMEE",
+      "short": "International",
+      "pays": "INT",
+      "flag": "🌍",
+      "annee": 2024,
+      "autorite": "AMEE · CanMEDS · ACGME",
+      "obligatoire": false,
+      "default": true,
+      "sections": [
+        {
+          "id": "raisonnement-clinique",
+          "label": "Raisonnement clinique",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "anamnese-communication",
+          "label": "Anamnèse et communication",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "examen-physique",
+          "label": "Examen physique",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "interpretation-examens",
+          "label": "Interprétation des examens",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "prise-en-charge",
+          "label": "Prise en charge thérapeutique",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "urgences-reanimation",
+          "label": "Urgences et réanimation",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "professionnalisme-ethique",
+          "label": "Professionnalisme et éthique",
+          "count": 8,
+          "type": "deck"
+        },
+        {
+          "id": "sante-publique",
+          "label": "Santé publique et prévention",
+          "count": 8,
+          "type": "deck"
+        }
+      ],
+      "total": 64,
+      "fichier": "international-amee.json"
+    },
+    {
       "id": "madagascar-2025",
       "label": "Madagascar — Internat Qualifiant",
       "short": "Madagascar 2025",
@@ -10,11 +73,26 @@
       "annee": 2025,
       "autorite": "Université d'Antananarivo — Faculté de Médecine",
       "obligatoire": true,
-      "default": true,
+      "default": false,
       "sections": [
-        { "id": "semiologie", "label": "Sémiologie",            "count": 41,  "type": "diagnostic" },
-        { "id": "medecine",   "label": "Médecine",              "count": 134, "type": "deck" },
-        { "id": "chirurgie",  "label": "Chirurgie spécialisée", "count": 65,  "type": "deck" }
+        {
+          "id": "semiologie",
+          "label": "Sémiologie",
+          "count": 41,
+          "type": "diagnostic"
+        },
+        {
+          "id": "medecine",
+          "label": "Médecine",
+          "count": 134,
+          "type": "deck"
+        },
+        {
+          "id": "chirurgie",
+          "label": "Chirurgie spécialisée",
+          "count": 65,
+          "type": "deck"
+        }
       ],
       "total": 240,
       "fichier": "madagascar-2025.json"
