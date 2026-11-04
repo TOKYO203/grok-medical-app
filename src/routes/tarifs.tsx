@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, redirect } from "@tanstack/react-router";
 import {
   ArrowRight,
   Building2,
@@ -42,7 +42,10 @@ import {
   type Currency,
 } from "@/content/pricing";
 
-export const Route = createFileRoute("/tarifs")({ component: TarifsPage });
+export const Route = createFileRoute("/tarifs")({
+  beforeLoad: () => {
+    throw redirect({ to: "/pro" });
+  }, component: TarifsPage });
 
 /* ============================================================================
    /tarifs — page de l'OFFRE, pas du catalogue.

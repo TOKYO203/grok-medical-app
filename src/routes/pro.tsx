@@ -188,7 +188,7 @@ function ProPage() {
             ) : null}
 
             <ButtonLink
-              to="/tarifs"
+              to="/pro"
               variant="secondary"
               fullWidth
               className="mt-4"
@@ -261,7 +261,7 @@ function ProPage() {
                   />
                 </div>
               ) : (
-                <ButtonLink to="/tarifs" variant="secondary" fullWidth className="mt-3" data-pro-pricing-link>
+                <ButtonLink to="/pro" variant="secondary" fullWidth className="mt-3" data-pro-pricing-link>
                   <Smartphone className="size-4" aria-hidden="true" />
                   Voir les offres et les tarifs
                 </ButtonLink>
@@ -302,7 +302,7 @@ function ProPage() {
                 // Paiement indisponible sur ce déploiement : un lien vers les
                 // tarifs, rien de plus. Aucun texte commercial codé en dur ici —
                 // il vieillirait à la première ouverture du paiement.
-                <ButtonLink to="/tarifs" variant="secondary" fullWidth className="mt-3" data-pro-pricing-link>
+                <ButtonLink to="/pro" variant="secondary" fullWidth className="mt-3" data-pro-pricing-link>
                   Voir les offres et les tarifs
                 </ButtonLink>
               )}

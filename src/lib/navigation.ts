@@ -92,7 +92,7 @@ export const EXPLORE_GROUPS = [
     labelKey: "nav.group.community",
     items: [
       { to: "/classement", labelKey: "nav.leaderboard", icon: Trophy },
-      { to: "/tarifs", labelKey: "nav.pricing", icon: BadgePercent },
+      { to: "/pro", labelKey: "nav.pricing", icon: BadgePercent },
     ],
   },
 ] as const satisfies readonly NavGroup[];

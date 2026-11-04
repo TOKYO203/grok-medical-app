@@ -23,7 +23,7 @@ function PaiementRetour() {
         Référence Ariari : <code>{paymentId}</code>
       </p>
       <Link
-        to="/tarifs"
+        to="/pro"
         className="inline-block px-6 py-3 rounded-lg bg-[#5B21B6] text-white hover:bg-[#43189A]"
       >
         Retour à mes offres

@@ -221,7 +221,7 @@ export function AuthScreen() {
           Ta progression locale est conservée : la connexion ne remplace rien, elle l'enregistre.
         </p>
         <p className="mt-2 text-center text-xs leading-5 text-subtle">
-          <Link to="/tarifs" className="underline decoration-border-strong underline-offset-4 hover:text-fg">
+          <Link to="/pro" className="underline decoration-border-strong underline-offset-4 hover:text-fg">
             Voir les offres Optimus
           </Link>
         </p>

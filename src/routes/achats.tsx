@@ -141,7 +141,7 @@ function PurchasesPage() {
               Voir les offres
             </Link>
             <p className="mt-3 text-sm">
-              <Link to="/tarifs" className="font-medium text-primary hover:underline">
+              <Link to="/pro" className="font-medium text-primary hover:underline">
                 Voir la grille tarifaire →
               </Link>
             </p>

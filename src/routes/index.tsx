@@ -535,7 +535,7 @@ function Dashboard() {
           </div>
         </div>
         <Link
-          to="/tarifs"
+          to="/pro"
           className={buttonVariants({ variant: "secondary", size: "sm", className: "mt-3" })}
         >
           {t("dash.compareCta")}

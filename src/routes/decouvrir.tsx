@@ -147,7 +147,7 @@ function DecouvrirPage() {
             <Sparkles className="size-4" aria-hidden="true" />
             Commencer gratuitement
           </ButtonLink>
-          <ButtonLink to="/tarifs" variant="secondary" data-landing-cta="pricing">
+          <ButtonLink to="/pro" variant="secondary" data-landing-cta="pricing">
             Voir les offres
             <ArrowRight className="size-4" aria-hidden="true" />
           </ButtonLink>
@@ -281,7 +281,7 @@ function DecouvrirPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 Tout le contenu Premium, toutes les spécialités, mises à jour incluses.
               </p>
-              <ButtonLink to="/tarifs" size="sm" className="mt-3" data-landing-cta="premium">
+              <ButtonLink to="/pro" size="sm" className="mt-3" data-landing-cta="premium">
                 Voir l'abonnement
                 <ArrowRight className="size-4" aria-hidden="true" />
               </ButtonLink>
