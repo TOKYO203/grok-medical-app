@@ -109,9 +109,6 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
             <ExperienceControls compact />
             <ThemeToggle className="bg-card" />
           </div>
-          <p className="optimus-kicker mt-3 px-3 text-[11px] uppercase tracking-[0.16em]">
-            {t("nav.madeIn")}
-          </p>
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col pb-24 md:pb-0">

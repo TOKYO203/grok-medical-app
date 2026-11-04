@@ -13,7 +13,7 @@ import { Page, PageHeader, Shell } from "@/components/shell";
 import { Badge } from "@/components/ui/ds/Badge";
 import { ButtonLink } from "@/components/ui/ds/ButtonLink";
 import { Card } from "@/components/ui/ds/Card";
-import { formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS } from "@/content/pricing";
+import { formatPrice, PRICES_MGA, SUBSCRIPTION_MONTHS, detectPreferredCurrency} from "@/content/pricing";
 
 export const Route = createFileRoute("/decouvrir")({ component: DecouvrirPage });
 
@@ -275,7 +275,7 @@ function DecouvrirPage() {
               <Badge tone="accent">Recommandé</Badge>
               <h3 className="mt-2 font-medium text-fg">Premium</h3>
               <p className="mt-1 text-2xl font-medium text-fg" data-landing-price>
-                {formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")}
+                {formatPrice(PRICES_MGA.subscriptionQuarter, detectPreferredCurrency())}
               </p>
               <p className="text-xs text-muted">/ {SUBSCRIPTION_MONTHS} mois, payable en Mobile Money</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">

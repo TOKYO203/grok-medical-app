@@ -55,7 +55,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Optimus — coach de formation médicale. Apprendre. Raisonner. Progresser. Made in Madagascar.",
+          "Optimus — coach de formation médicale. Apprendre. Raisonner. Progresser.",
       },
     ],
     links: [

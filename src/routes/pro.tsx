@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/ds/Button";
 import { ButtonLink } from "@/components/ui/ds/ButtonLink";
 import { Card } from "@/components/ui/ds/Card";
 import { PREMIUM_SPECIALTIES, type PremiumSpecialtyId } from "@/content/purchase-order";
-import { PRICES_MGA, SUBSCRIPTION_MONTHS, formatPrice } from "@/content/pricing";
+import {PRICES_MGA, SUBSCRIPTION_MONTHS, formatPrice, detectPreferredCurrency} from "@/content/pricing";
 import {
   getContentServerSnapshot,
   getContentSessionSnapshot,
@@ -242,7 +242,7 @@ function ProPage() {
                     <Badge tone="accent">Recommandé</Badge>
                   </div>
                   <p className="mt-1 text-sm text-muted">
-                    {formatPrice(PRICES_MGA.subscriptionQuarter, "MGA")} / {SUBSCRIPTION_MONTHS} mois —
+                    {formatPrice(PRICES_MGA.subscriptionQuarter, detectPreferredCurrency())} / {SUBSCRIPTION_MONTHS} mois —
                     tout le contenu Premium, toutes spécialités, sur votre compte.
                   </p>
                 </div>
@@ -274,8 +274,8 @@ function ProPage() {
                 <div className="min-w-0">
                   <p className="font-medium">Contenu à l&apos;unité</p>
                   <p className="mt-1 text-sm text-muted">
-                    {formatPrice(PRICES_MGA.deck, "MGA")} le module ·{" "}
-                    {formatPrice(PRICES_MGA.specialty, "MGA")} la spécialité — payé une fois, sans
+                    {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())} le module ·{" "}
+                    {formatPrice(PRICES_MGA.specialty, detectPreferredCurrency())} la spécialité — payé une fois, sans
                     engagement.
                   </p>
                 </div>

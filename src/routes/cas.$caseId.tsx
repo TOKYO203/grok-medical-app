@@ -20,7 +20,7 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { CLINICAL_CASES, getBuiltinDeck, getCase } from "@/content/catalog";
-import { PRICES_MGA, formatPrice } from "@/content/pricing";
+import {PRICES_MGA, formatPrice, detectPreferredCurrency} from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
 import { specialtyPackProduct } from "@/lib/library/content-index";
@@ -298,7 +298,7 @@ function CasePlay() {
                 className={buttonVariants({ size: "lg", className: "mt-5 w-full" })}
               >
                 {premiumSpecialty
-                  ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, "MGA")}`
+                  ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, detectPreferredCurrency())}`
                   : "Voir les offres et les tarifs"}
                 <ArrowRight className="size-4" />
               </Link>

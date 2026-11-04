@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { getDiagnostic } from "@/content/catalog";
-import { PRICES_MGA, formatPrice } from "@/content/pricing";
+import { PRICES_MGA, formatPrice, detectPreferredCurrency} from "@/content/pricing";
 import { getDemarcheContent } from "@/lib/demarches/catalog";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
 import { FicheView } from "@/components/demarche/fiche-view";
@@ -248,7 +248,7 @@ function LockedPanel({
           className={buttonVariants({ size: "lg", className: "w-full" })}
         >
           {premiumSpecialty
-            ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, "MGA")}`
+            ? `Débloquer cette spécialité · ${formatPrice(PRICES_MGA.specialty, detectPreferredCurrency())}`
             : "Voir les offres et les tarifs"}
           <ArrowRight className="size-4" />
         </Link>

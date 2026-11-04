@@ -20,7 +20,7 @@ import { BUILTIN_DECKS, YEARS } from "@/content/catalog";
 import { DECK_MEDICAL_REVIEW, REVIEW_STATUS_LABEL } from "@/content/deck-review-status";
 import { LESSONS } from "@/core/quiz-engine";
 import { deckMastery, deckProgressPct, masteryBand } from "@/core/mastery";
-import { PRICES_MGA, formatPrice } from "@/content/pricing";
+import {PRICES_MGA, formatPrice, detectPreferredCurrency} from "@/content/pricing";
 import { COMPETENCY_LABEL } from "@/core/types";
 import { seedBuiltinDecks } from "@/state/builtin-decks";
 import { hasAccess, useAllDecks, useOptimus } from "@/state/store";
@@ -176,7 +176,7 @@ function DeckPage() {
                   Essayer l’aperçu
                 </Link>
                 <Link to="/pro" className={buttonVariants({ variant: "secondary", className: "w-full" })}>
-                  Voir les offres · dès {formatPrice(PRICES_MGA.deck, "MGA")}
+                  Voir les offres · dès {formatPrice(PRICES_MGA.deck, detectPreferredCurrency())}
                 </Link>
               </div>
             </div>
