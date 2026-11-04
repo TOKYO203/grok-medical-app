@@ -1,0 +1,745 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancers-colon-rectum",
+  "title": "Cancers du côlon et du rectum",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Connaître les circonstances de découverte des cancers colorectaux — troubles du transit, anémie ferriprive, occlusion —, comprendre la démarche diagnostique coloscopique et d'extension, et connaître les principes du traitement : chirurgie carcinologique adaptée à la localisation, avec la place de la radiochimiothérapie pour le rectum et des traitements systémiques pour les formes avancées.",
+  "language": "fr",
+  "updatedAt": "2026-11-04",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 38,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 213,
+      "localNumber": 38,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancers du côlon et du rectum",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de l'American Society of Colon and Rectal Surgeons sur les cancers du côlon et du rectum. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Aucune posologie de chimiothérapie n'est donnée : les schémas dépendent du stade, de l'état du patient et des protocoles locaux.",
+      "La distinction côlon/rectum est soulignée car elle change le traitement : chirurgie d'emblée pour le côlon, radiochimiothérapie préopératoire discutée pour le rectum.",
+      "Le dépistage — sang occulte, coloscopie — est présenté comme la stratégie qui abaisse la mortalité, avec des modalités à adapter aux ressources.",
+      "L'occlusion maligne est traitée comme une urgence chirurgicale à part entière, renvoyant à la fiche dédiée.",
+      "Les syndromes héréditaires (Lynch, polypose adénomateuse familiale) sont signalés pour déclencher un conseil génétique."
+    ],
+    "qcChecklist": [
+      "Circonstances de découverte, dont occlusion et anémie ferriprive",
+      "Coloscopie avec biopsies : examen clé",
+      "Bilan d'extension et marqueur ACE",
+      "Chirurgie carcinologique selon la localisation",
+      "Radiochimiothérapie préopératoire pour le rectum",
+      "Chimiothérapie adjuvante et formes métastatiques",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer colorectal est l'un des cancers les plus fréquents au monde. Il se développe par la séquence adénome-carcinome : une lésion bénigne, le polype adénomateux, évolue sur des années vers un adénocarcinome. Cette longue préphase est la raison d'être du dépistage : détecter et résequer les polypes avant qu'ils ne dégénèrent, et les cancers au stade curable."
+        },
+        {
+          "type": "paragraph",
+          "text": "La localisation — côlon droit, côlon gauche, rectum — change la présentation clinique et le traitement. Le côlon droit donne des anémies ferriprives et des douleurs vagues ; le côlon gauche et le sigmoïde donnent des troubles du transit et des occlusions ; le rectum donne des rectorragies et des troubles de la exonération. Le rectum, à la fois digestif et pelvien, relève d'une stratégie spécifique avec radiochimiothérapie préopératoire pour les formes localement avancées."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit la démarche clinique : circonstances de découverte, confirmation coloscopique, bilan d'extension, décision multidisciplinaire, chirurgie adaptée à la localisation, adjuvant et suivi."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plus de 90 % des cancers colorectaux sont des adénocarcinomes. Ils naissent sur un adénome, selon la séquence décrite par Vogelstein : mutations successives aboutissant à la prolifération non contrôlée, à l'invasion locale puis à la dissémination ganglionnaire et hépatique. Le foie est le site métastatique dominant, ce qui conditionne le bilan d'extension."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les formes sporadiques dominent. Les formes héréditaires — syndrome de Lynch (défaut de réparation de l'ADN, cancers droits et précoces) et polypose adénomateuse familiale (APC, centaines de polypes) — sont moins fréquentes mais imposent une stratégie familiale : conseil génétique, coloscopies précoces et rapprochées. Les antécédents familiaux au premier degré, les maladies inflammatoires chroniques de l'intestin (colite ulcéreuse longue durée, Crohn colique) et le mode de vie (sédentarité, obésité, viandes rouges et transformées, tabac, alcool) augmentent le risque."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Facteur",
+            "Type",
+            "Conséquence pratique"
+          ],
+          "rows": [
+            [
+              "Âge (> 45-50 ans)",
+              "Démographique",
+              "Déclencher les explorations"
+            ],
+            [
+              "Antécédents familiaux au 1er degré",
+              "Familial",
+              "Coloscopie plus précoce et rapprochée"
+            ],
+            [
+              "Polypes adénomateux",
+              "Lésion précancéreuse",
+              "Résection endoscopique, surveillance"
+            ],
+            [
+              "Maladie inflammatoire chronique",
+              "Terrain",
+              "Surveillance coloscopique"
+            ],
+            [
+              "Syndrome de Lynch, FAP",
+              "Héréditaire",
+              "Conseil génétique, protocoles dédiés"
+            ],
+            [
+              "Mode de vie",
+              "Exposition",
+              "Prévention primaire"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La séquence adénome-carcinome justifie le dépistage",
+          "text": "Retrouver et résequer les adénomes avant leur dégénérescence est la seule stratégie qui abaisse durablement la mortalité du cancer colorectal."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La découverte est variée : troubles du transit récents et persistants, rectorragies, anémie ferriprive inexpliquée, douleurs abdominales, amaigrissement, occlusion, ou découverte lors d'un dépistage. Chez l'adulte de plus de 45-50 ans, aucun de ces signes ne doit être banalisé sans coloscopie."
+        },
+        {
+          "type": "paragraph",
+          "text": "La coloscopie avec biopsies fait le diagnostic : elle précise la localisation, l'aspect et permet l'histologie. En cas d'occlusion, un scanner avec opacification, une coloscopie partielle ou le bilan effectué en urgence peuvent s'imposer. Le bilan d'extension comporte une tomodensitométrie thoraco-abdomino-pelvienne (foie, poumon, ganglions) et le dosage de l'antigène carcino-embryonnaire (ACE) comme valeur de référence. Pour le rectum, l'imagerie par résonance magnétique pelvienne est l'examen clé du staging : elle évalue l'infiltration mésorectale et la marge circonférentielle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Coloscopie avec biopsies : examen diagnostique clé.",
+            "TDM thoraco-abdomino-pelvienne : extension, métastases hépatiques et pulmonaires.",
+            "IRM pelvienne : staging rectal, marge circonférentielle.",
+            "ACE : valeur de référence, suivi.",
+            "Hémogramme, bilan hépatique, albumine.",
+            "Échographie hépatique ou imagerie complémentaire selon le contexte.",
+            "Réunion de concertation pluridisciplinaire avant tout traitement."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Examen",
+            "But",
+            "Place"
+          ],
+          "rows": [
+            [
+              "Coloscopie + biopsies",
+              "Diagnostic et cartographie",
+              "Examen clé"
+            ],
+            [
+              "TDM TAP",
+              "Extension",
+              "Systématique"
+            ],
+            [
+              "IRM pelvienne",
+              "Staging du rectum",
+              "Indispensable pour le rectum"
+            ],
+            [
+              "ACE",
+              "Référence et suivi",
+              "Systématique"
+            ],
+            [
+              "Échoendoscopie rectale",
+              "Stade T précoce",
+              "Discuté"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Anémie ferriprive de l'adulte",
+          "text": "Une anémie ferriprive inexpliquée chez un homme ou une femme ménopausée impose la recherche d'un cancer digestif, y compris coloscopique."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Rectorragies ne sont pas « que des hémorroïdes »",
+          "text": "Chez un patient de plus de 45-50 ans, toute rectorragie impose un examen proctologique et une exploration endoscopique avant d'attribuer le saignement aux hémorroïdes."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Situations particulières",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer du rectum impose une stratégie spécifique : pour les formes localement avancées (marge circonférentielle menacée, envahissement du mésorecte ou des ganglions), la radiochimiothérapie préopératoire réduit le risque de récidive locale et permet une chirurgie de qualité (excision totale du mésorecte). Pour les formes précoces, une chirurgie d'emblée ou une radiothérapie courte peuvent suffire."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cancer occlusif : urgence chirurgicale, stratégie en un ou deux temps (renvoi à la fiche occlusion du côlon).",
+            "Cancer perforé : péritonite, résection en urgence.",
+            "Cancer avec métastases hépatiques résécables : stratégie multidisciplinaire, résection en un ou deux temps.",
+            "Cancer métastatique non résécable : chimiothérapie, thérapies ciblées, selon l'état général.",
+            "Terrain héréditaire : conseil génétique, surveillance rapprochée de l'entourage."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Syndrome de Lynch à évoquer",
+          "text": "Antécédents personnels ou familiaux de cancers colorectaux précoces ou associés (endomètre, ovaire, voies urinaires) : évoquer un syndrome de Lynch et adresser au conseil génétique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La chirurgie carcinologique est le traitement curatif de référence : résection segmentaire avec ligature vasculaire haute et curage, pour le côlon ; excision totale du mésorecte pour le rectum, avec projet de conservation sphinctérienne chaque fois que possible. La voie cœlioscopique est valide. La chimiothérapie adjuvante est indiquée pour les stades ganglionnaires ; pour le rectum, la radiochimiothérapie préopératoire est la référence des formes localement avancées. Les formes métastatiques relèvent d'un traitement systémique et, pour les métastases hépatiques résécables, de projets chirurgicaux combinés."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Prise en charge",
+            "Points de vigilance"
+          ],
+          "rows": [
+            [
+              "Côlon localisé",
+              "Résection segmentaire avec curage",
+              "Chimiothérapie adjuvante si stade ganglionnaire"
+            ],
+            [
+              "Rectum localisé avancé",
+              "Radiochimiothérapie puis excision totale du mésorecte",
+              "IRM préopératoire, marge circonférentielle"
+            ],
+            [
+              "Rectum précoce",
+              "Chirurgie d'emblée, parfois radiothérapie courte",
+              "Discussion multidisciplinaire"
+            ],
+            [
+              "Occlusion maligne",
+              "Chirurgie en urgence",
+              "Voir fiche dédiée"
+            ],
+            [
+              "Métastases hépatiques résécables",
+              "Chirurgie combinée",
+              "Équipe multidisciplinaire"
+            ],
+            [
+              "Métastatique non résécable",
+              "Chimiothérapie, thérapies ciblées",
+              "Objectifs et qualité de vie"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La prise en charge périopératoire suit les principes de réhabilitation améliorée : préparation adaptée, analgésie, mobilisation précoce, reprise alimentaire rapide, prévention thromboembolique. La stomie — temporaire ou définitive — doit être préparée et expliquée avant l'intervention : sa gestion conditionne la qualité de vie."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La marge circonférentielle décide de la récidive rectale",
+          "text": "Pour le rectum, la qualité de l'excision du mésorecte et le respect de la marge circonférentielle sont les déterminants majeurs de la récidive locale : le staging IRM et la radiochimiothérapie préopératoire en découlent."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas opérer sans imagerie",
+          "text": "Chez un patient occlus ou anémié, la tentation d'opérer sans bilan complet expose à des décisions inadaptées : scanner et, pour le rectum, IRM avant de programmer le geste, sauf urgence vitale."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le dépistage — recherche de sang occulte fécal puis coloscopie, ou coloscopie directe selon les ressources — abaisse la mortalité. La surveillance après polypectomie ou après traitement curatif suit des protocoles : coloscopies programmées, clinique, biologie et ACE, imagerie selon les cas. La prévention primaire passe par l'activité physique, la limitation des viandes transformées, l'arrêt du tabac."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez les patients stomisés, l'éducation à la stomie, le matériel adapté et le suivi diététique sont partie du traitement. Les syndromes héréditaires imposent une surveillance spécifique de l'entourage."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Surveillance après chirurgie",
+          "text": "La récidive peut être locale, hépatique ou pulmonaire : la surveillance combine clinique, biologie, coloscopie et imagerie, selon un calendrier multidisciplinaire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer colorectal se révèle par des signes qui n'ont rien de spectaculaire — troubles du transit, anémie, rectorragies — et c'est précisément là qu'il faut savoir prescrire une coloscopie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement est chirurgical d'abord : résection carcinologique adaptée à la localisation, précédée pour le rectum avancé d'une radiochimiothérapie préopératoire, et complétée par la chimiothérapie adjuvante des stades ganglionnaires. Les formes métastatiques relèvent d'une stratégie systémique multidisciplinaire."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fry RD, et al. The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer. Diseases of the Colon and Rectum 2017;60:1001-1017. doi:10.1097/DCR.0000000000000926.",
+            "Chang GJ, et al. The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer. Diseases of the Colon and Rectum 2017."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASCRS-COLON-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+          "year": 2017,
+          "url": "https://doi.org/10.1097/DCR.0000000000000926"
+        },
+        {
+          "id": "SRC-ASCRS-RECTAL-2017",
+          "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+          "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+          "year": 2017,
+          "url": "https://www.fascrs.org"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-tranquillite",
+      "label": "TRANSIT",
+      "intro": "Signes révélateurs qui imposent la coloscopie",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Transit modifié récemment et de façon durable."
+        },
+        {
+          "key": "R",
+          "term": "Rectorragies ou méléna."
+        },
+        {
+          "key": "A",
+          "term": "Anémie ferriprive inexpliquée."
+        },
+        {
+          "key": "N",
+          "term": "Nausées, vomissements, ballonnement (côlon gauche)."
+        },
+        {
+          "key": "S",
+          "term": "Slimming — amaigrissement inexpliqué."
+        },
+        {
+          "key": "I",
+          "term": "Installation progressive des douleurs abdominales."
+        },
+        {
+          "key": "T",
+          "term": "Terrain familial : évoquer un syndrome héréditaire."
+        }
+      ],
+      "note": "Chez un patient de plus de 45-50 ans, ces signes valent coloscopie."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle séquence physiopathologique décrit le cancer colorectal sporadique ?",
+      "back": "La séquence adénome-carcinome : accumulation de mutations menant du polype adénomateux à l'adénocarcinome.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel examen fait le diagnostic du cancer colorectal ?",
+      "back": "La coloscopie avec biopsies.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quelle différence clinique entre cancer du côlon droit et du côlon gauche ?",
+      "back": "Côlon droit : anémie ferriprive et douleurs vagues ; côlon gauche : troubles du transit, rectorragies, occlusion.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen est indispensable au staging du cancer du rectum ?",
+      "back": "L'IRM pelvienne, qui évalue l'infiltration du mésorecte et la marge circonférentielle.",
+      "tags": [
+        "extension"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle est la place de la radiochimiothérapie dans le cancer du rectum ?",
+      "back": "Préopératoire pour les formes localement avancées, afin de réduire la récidive locale et faciliter une chirurgie de qualité.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel geste chirurgical référence pour le cancer du rectum ?",
+      "back": "L'excision totale du mésorecte.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quel marqueur sert de référence pour le suivi ?",
+      "back": "L'antigène carcino-embryonnaire (ACE).",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels syndromes héréditaires prédisposent au cancer colorectal ?",
+      "back": "Le syndrome de Lynch et la polypose adénomateuse familiale.",
+      "tags": [
+        "génétique"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quel organe est le site métastatique dominant ?",
+      "back": "Le foie.",
+      "tags": [
+        "extension"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Pourquoi une anémie ferriprive impose-t-elle une exploration digestive ?",
+      "back": "Parce qu'elle traduit un saignement occulte, dont une cause est le cancer colorectal, curable si dépisté tôt.",
+      "tags": [
+        "clinique"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Cancers du côlon et du rectum",
+      "detail": "Adénocarcinome sur séquence adénome-carcinome : coloscopie pour le diagnostic, TDM et IRM pour l'extension, chirurgie carcinologique adaptée à la localisation, radiochimiothérapie préopératoire pour le rectum avancé."
+    },
+    "branches": [
+      {
+        "id": "decouvrir",
+        "label": "Découvrir",
+        "tone": "reflexe",
+        "detail": "Troubles du transit, anémie, rectorragies, occlusion.",
+        "children": [
+          {
+            "id": "dec-côlon",
+            "label": "Selon la localisation",
+            "detail": "Droit : anémie ; gauche : transit et occlusion ; rectum : rectorragies.",
+            "leaves": [
+              {
+                "id": "dec-côlon-1",
+                "label": "Réflexe",
+                "detail": "Coloscopie sans délai après 45-50 ans."
+              }
+            ]
+          },
+          {
+            "id": "dec-depistage",
+            "label": "Dépistage",
+            "detail": "Sang occulte fécal, coloscopie : abaisse la mortalité.",
+            "leaves": [
+              {
+                "id": "dec-depistage-1",
+                "label": "Action",
+                "detail": "Résequer les adénomes avant dégénérescence."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bilan",
+        "label": "Bilan",
+        "tone": "retenir",
+        "detail": "Endoscopie, histologie, extension, ACE.",
+        "children": [
+          {
+            "id": "bil-examens",
+            "label": "Examens",
+            "detail": "Coloscopie + biopsies, TDM TAP, IRM pelvienne pour le rectum.",
+            "leaves": [
+              {
+                "id": "bil-examens-1",
+                "label": "Règle",
+                "detail": "Bilan complet avant de programmer la chirurgie."
+              }
+            ]
+          },
+          {
+            "id": "bil-genetique",
+            "label": "Génétique",
+            "detail": "Lynch, FAP : conseil génétique.",
+            "leaves": [
+              {
+                "id": "bil-genetique-1",
+                "label": "Famille",
+                "detail": "Surveillance rapprochée de l'entourage."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Chirurgie carcinologique, stratégie selon la localisation.",
+        "children": [
+          {
+            "id": "tra-colon",
+            "label": "Côlon",
+            "detail": "Résection segmentaire avec curage ; adjuvant si ganglions.",
+            "leaves": [
+              {
+                "id": "tra-colon-1",
+                "label": "Occlusion",
+                "detail": "Urgence : voir fiche dédiée."
+              }
+            ]
+          },
+          {
+            "id": "tra-rectum",
+            "label": "Rectum",
+            "detail": "Radiochimiothérapie préopératoire puis excision totale du mésorecte.",
+            "leaves": [
+              {
+                "id": "tra-rectum-1",
+                "label": "Marge",
+                "detail": "Circonférentielle : clé de la récidive locale."
+              }
+            ]
+          },
+          {
+            "id": "tra-metastatique",
+            "label": "Métastatique",
+            "detail": "Systémique ; résection hépatique si résécable.",
+            "leaves": [
+              {
+                "id": "tra-metastatique-1",
+                "label": "Support",
+                "detail": "Qualité de vie, stomie préparée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Coloscopies, clinique, biologie, imagerie.",
+        "children": [
+          {
+            "id": "sui-protocole",
+            "label": "Protocole",
+            "detail": "Calendrier multidisciplinaire après traitement curatif.",
+            "leaves": [
+              {
+                "id": "sui-protocole-1",
+                "label": "Éducation",
+                "detail": "Stomie, nutrition, mode de vie."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ASCRS-COLON-2017",
+      "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer",
+      "citation": "Fry RD, et al. The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Colon Cancer. Diseases of the Colon and Rectum 2017 ; 60 : 1001-1017. doi:10.1097/DCR.0000000000000926.",
+      "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+      "year": 2017,
+      "url": "https://doi.org/10.1097/DCR.0000000000000926",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Diagnostic",
+        "Chirurgie du côlon",
+        "Adjuvant",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-ASCRS-RECTAL-2017",
+      "title": "The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer",
+      "citation": "Chang GJ, et al. The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Treatment of Rectal Cancer. Diseases of the Colon and Rectum 2017.",
+      "organization": "American Society of Colon and Rectal Surgeons (ASCRS)",
+      "year": 2017,
+      "url": "https://www.fascrs.org",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Staging rectal",
+        "Radiochimiothérapie préopératoire",
+        "Chirurgie rectale"
+      ]
+    }
+  ]
+}
