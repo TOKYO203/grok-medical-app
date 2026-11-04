@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "complications-appendicite",
+  "title": "Complications de l'appendicite aiguë",
+  "subtitle": "Fiche de nosographie — chirurgie digestive",
+  "objective": "Reconnaître les complications de l'appendicite — perforation, péritonite, plastron, abcès, sepsis — et organiser leur prise en charge : drainage, antibiothérapie, chirurgie différée ou immédiate, sans méconnaître les situations qui imposent d'opérer sans délai.",
+  "language": "fr",
+  "updatedAt": "2026-11-04",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 42,
+    "specialty": "Chirurgie viscérale",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 217,
+      "localNumber": 42,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Complications de l'appendicite aiguë",
+      "specialty": "Chirurgie viscérale"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations WSES 2020 sur l'appendicite et de la revue du Lancet sur la maladie. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "Aucune posologie d'antibiotique n'est donnée : les protocoles varient selon l'écologie et la forme anatomique.",
+      "La distinction plastron/abcès/péritonite est structurée car elle détermine la conduite : drainage seul, chirurgie différée, ou chirurgie immédiate.",
+      "La péritonite appendiculaire est renvoyée à la fiche péritonite pour la réanimation, l'antibiothérapie et le contrôle de la source, sans duplication.",
+      "Le risque de tumeur appendiculaire chez le sujet âgé est rappelé : l'histologie de la pièce est systématique, y compris après drainage.",
+      "La stérilisation du péritoine, la stratégie de « deferred appendectomy » après plastron et l'antibiothérapie prolongée des abcès drainés sont présentées comme des décisions d'équipe."
+    ],
+    "qcChecklist": [
+      "Formes compliquées : perforation, plastron, abcès, péritonite",
+      "Signes de sepsis et de gravité",
+      "Imagerie (échographie, scanner) devant une masse de fosse iliaque droite",
+      "Drainage des abcès, chirurgie différée après plastron",
+      "Chirurgie immédiate devant une péritonite",
+      "Complications postopératoires : abcès résiduel, fièvre persistante",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'appendicite aiguë évolue naturellement vers la complication : la pression intraluminale croissante isole la paroi, la gangrène survient, puis la perforation. Selon les capacités de défense du péritoine, la perforation donne une péritonite généralisée ou, à l'inverse, une collection enkystée — plastron ou abcès. C'est cette divergence qui structure la prise en charge : opérer d'urgence, ou drainer et attendre."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les complications tuent encore, en particulier là où l'accès aux soins est tardif : c'est précisément en contexte à ressources limitées que les formes avancées sont les plus fréquentes. Reconnaître un plastron, drainer un abcès, réanimer une péritonite : ces compétences ne sont pas optionnelles."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche part de la forme simple de l'appendicite (traitée dans sa fiche dédiée) et décrit ses complications : perforation et péritonite, plastron, abcès, sepsis, formes trompeuses de l'enfant, de la femme enceinte et du sujet âgé, et les suites postopératoires."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        },
+        {
+          "id": "SRC-LANCET-APPENDICITIS-2015",
+          "organization": "The Lancet",
+          "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+          "year": 2015,
+          "url": "https://doi.org/10.1016/S0140-6736(15)00275-5"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Physiopathologie des formes compliquées",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La progression de l'inflammation suit un ordre remarquablement constant : obstruction, distension, ischémie, gangrène, perforation. La perforation survient typiquement entre 36 et 72 heures d'évolution, ce qui justifie la règle de ne pas surveiller une appendicite évutive à domicile."
+        },
+        {
+          "type": "paragraph",
+          "text": "Face à la perforation, le péritoine réagit : les anses grêles, l'épiploon et les parois viennent enserrer le foyer — c'est le plastron, une masse inflammatoire qui contient la contamination. Si la containment échoue, la contamination diffuse : c'est la péritonite généralisée, urgence chirurgicale absolue. Si la collection s'organise en pus circulant, c'est l'abcès appendiculaire."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Forme",
+            "Définition",
+            "Conduite"
+          ],
+          "rows": [
+            [
+              "Appendicite gangrenée",
+              "Nécrose pariétale sans perforation libre",
+              "Chirurgie en urgence"
+            ],
+            [
+              "Perforation localisée",
+              "Contamination contenue",
+              "Chirurgie, drainage selon les lésions"
+            ],
+            [
+              "Péritonite appendiculaire",
+              "Contamination diffuse",
+              "Réanimation, antibiothérapie, chirurgie sans délai"
+            ],
+            [
+              "Plastron appendiculaire",
+              "Masse inflammatoire enkystée sans pus franc",
+              "Antibiothérapie, chirurgie différée discutée"
+            ],
+            [
+              "Abcès appendiculaire",
+              "Collection purulente organisée",
+              "Drainage (percutané ou chirurgical), antibiothérapie"
+            ],
+            [
+              "Sepsis / choc septique",
+              "Défaillance d'organe",
+              "Réanimation et contrôle de la source en urgence"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le plastron contient, la péritonite diffuse",
+          "text": "La capacité du péritoine à enserrer la contamination décide du pronostic : le plastron se traite par antibiothérapie et chirurgie différée, la péritonite par une chirurgie immédiate avec lavage."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        },
+        {
+          "id": "SRC-LANCET-APPENDICITIS-2015",
+          "organization": "The Lancet",
+          "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+          "year": 2015,
+          "url": "https://doi.org/10.1016/S0140-6736(15)00275-5"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Reconnaître une appendicite compliquée",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant une appendicite suspectée, certains signes annoncent la complication : douleur de plus de 72 heures, fièvre élevée, tachycardie, altération de l'état général, déshydratation, iléus, défense généralisée, contracture. Une masse palpable en fosse iliaque droite avec fièvre persistante évoque un plastron ou un abcès."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Douleur évoluant depuis plus de 3 jours : suspecter une forme compliquée.",
+            "Fièvre élevée, frissons, tachycardie, hypotension : sepsis.",
+            "Contracture, défense généralisée, ventre « planche » : péritonite.",
+            "Masse de fosse iliaque droite : plastron ou abcès.",
+            "Arrêt des matières et des gaz, vomissements : iléus réflexe ou occlusion.",
+            "Biologie : hyperleucocytose majeure, CRP très élevée ; syndrome inflammatoire croissant."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'imagerie précise la forme : échographie pour détecter une collection, tomodensitométrie abdomino-pelvienne pour caractériser plastron, abcès, perforation et extensions. Chez un patient septique, l'imagerie ne doit pas retarder le transfert au bloc."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Contracture = bloc",
+          "text": "Un ventre contracturé avec sepsis est une péritonite : réanimation, antibiothérapie et chirurgie sans délai, sans attendre un scanner."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Une masse n'opère pas comme une appendicite simple",
+          "text": "Le plastron et l'abcès se traitent d'abord par antibiothérapie et drainage : une chirurgie d'emblée sur un plastron expose à des dissections dangereuses et à des complications pariétales."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes cliniques",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La péritonite appendiculaire est la forme la plus grave : contamination diffuse, sepsis, risque de choc septique et de défaillance multiviscérale. Elle impose une réanimation avec remplissage, une antibiothérapie à large spectre, et un contrôle de la source chirurgical sans délai (voir la fiche péritonite)."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'abcès appendiculaire se manifeste par une fièvre prolongée et une masse douloureuse de fosse iliaque droite. Le drainage — percutané guidé par imagerie si disponible, sinon chirurgical — associé à une antibiothérapie adaptée en constitue le traitement. L'appendicectomie peut être différée, voire discutée selon l'âge et le contexte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le plastron est une masse inflammatoire sans pus franc : antibiothérapie, surveillance, nutrition, et discussion différée de l'appendicectomie, qui est souvent proposée à distance pour éviter la récidive. Chez le sujet âgé, une masse appendiculaire doit toujours faire évoquer une tumeur sous-jacente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Péritonite : réanimation + chirurgie immédiate.",
+            "Abcès : drainage + antibiothérapie, appendicectomie différée discutée.",
+            "Plastron : antibiothérapie, appendicectomie différée discutée.",
+            "Enfant : formes compliquées fréquentes et rapides, péritonite parfois pauci-symptomatique.",
+            "Femme enceinte : le retard de prise en charge double le risque de complications maternelles et fœtales.",
+            "Sujet âgé : présentation pauvre, perforation fréquente, penser tumeur."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Fièvre qui traîne après une masse de fosse iliaque droite",
+          "text": "Une masse fébrile persistante de fosse iliaque droite est un abcès jusqu'à preuve du contraire : imagerie, drainage, antibiothérapie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        },
+        {
+          "id": "SRC-LANCET-APPENDICITIS-2015",
+          "organization": "The Lancet",
+          "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+          "year": 2015,
+          "url": "https://doi.org/10.1016/S0140-6736(15)00275-5"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La stratégie dépend de la forme. La péritonite impose une prise en charge en urgence : réanimation, antibiothérapie intraveineuse à large spectre couvrant les germes digestifs, puis chirurgie avec appendicectomie, lavage péritonéal et drainage. L'abcès justifie un drainage, percutané si possible, avec antibiothérapie ; l'appendicectomie est différée de plusieurs semaines. Le plastron relève d'une antibiothérapie avec surveillance, et d'une appendicectomie différée discutée en équipe."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Forme",
+            "Traitement",
+            "Surveillance"
+          ],
+          "rows": [
+            [
+              "Péritonite",
+              "Réanimation + antibiothérapie + chirurgie immédiate",
+              "Réanimation postopératoire, sepsis"
+            ],
+            [
+              "Abcès",
+              "Drainage + antibiothérapie",
+              "Apyrexie, régression de la collection"
+            ],
+            [
+              "Plastron",
+              "Antibiothérapie ± appendicectomie différée",
+              "Régression de la masse, récidive"
+            ],
+            [
+              "Sepsis sévère",
+              "Réanimation, contrôle de la source",
+              "Défaillances d'organe"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ne pas opérer d'emblée un plastron : dissection dangereuse.",
+            "Drainer un abcès avant de discuter la chirurgie.",
+            "Ne pas retarder la chirurgie d'une péritonite pour une imagerie.",
+            "Antibiothérapie guidée par l'écologie locale, sans posologie standardisée ici.",
+            "Réévaluation clinique quotidienne : l'évolution commande la stratégie.",
+            "Après appendicectomie : surveillance de la fièvre, du transit, de la cicatrice."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Le contrôle de la source n'attend pas",
+          "text": "Devant un sepsis d'origine appendiculaire, l'antibiothérapie seule ne suffit pas : sans contrôle de la source, la mortalité grimpe."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Fièvre postopératoire persistante",
+          "text": "Après appendicectomie compliquée, une fièvre qui persiste doit faire rechercher un abcès résiduel, une infection pariétale ou une collection sous-phrénique ou sous-hépatique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention des complications est une affaire de délai : consulter tôt, ne pas banaliser une douleur de fosse iliaque droite, ne pas la masquer par des antalgiques et des antispasmodiques sans diagnostic, et opérer sans attendre devant une appendicite confirmée. La formation des soignants de première ligne, en particulier en zone rurale, est un déterminant majeur."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les suites d'une appendicite compliquée sont plus longues : antibiothérapie prolongée, drainage, rééducation alimentaire, risque d'occlusion sur brides à distance. La stomie de protection est rare mais possible dans les formes les plus graves ; elle doit être expliquée."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Toute appendicectomie impose une histologie",
+          "text": "Une pièce appendiculaire, même perforée, doit être analysée : une tumeur appendiculaire, notamment chez le sujet âgé, change le suivi et parfois le traitement."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les complications de l'appendicite se laissent classer : péritonite qui impose le bloc en urgence, abcès qui impose le drainage, plastron qui impose la patience. Cette classification commande le traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic dépend du délai de prise en charge et de la capacité à reconnaître le sepsis. Le contrôle de la source reste la mesure qui sauve, et l'antibiothérapie en est l'adjuvant, jamais le substitut."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        },
+        {
+          "id": "SRC-LANCET-APPENDICITIS-2015",
+          "organization": "The Lancet",
+          "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+          "year": 2015,
+          "url": "https://doi.org/10.1016/S0140-6736(15)00275-5"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Di Saverio S, et al. Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines. World Journal of Emergency Surgery 2020;15:27. doi:10.1186/s13017-020-00306-3.",
+            "Bhangu A, et al. Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management. The Lancet 2015;386:1278-1287. doi:10.1016/S0140-6736(15)00275-5."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-WSES-APPENDICITIS-2020",
+          "organization": "World Society of Emergency Surgery (WSES)",
+          "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+          "year": 2020,
+          "url": "https://doi.org/10.1186/s13017-020-00306-3"
+        },
+        {
+          "id": "SRC-LANCET-APPENDICITIS-2015",
+          "organization": "The Lancet",
+          "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+          "year": 2015,
+          "url": "https://doi.org/10.1016/S0140-6736(15)00275-5"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-classer",
+      "label": "CLASSE",
+      "intro": "Classer la forme compliquée pour décider",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Contracture : péritonite — chirurgie immédiate."
+        },
+        {
+          "key": "L",
+          "term": "Localement contenu : plastron — antibiothérapie, patience."
+        },
+        {
+          "key": "A",
+          "term": "Abcès : collection purulente — drainage."
+        },
+        {
+          "key": "S",
+          "term": "Sepsis : réanimation et contrôle de la source."
+        },
+        {
+          "key": "S",
+          "term": "Sujet âgé : penser tumeur sous-jacente."
+        },
+        {
+          "key": "E",
+          "term": "Évolution : c'est elle qui commande la stratégie."
+        }
+      ],
+      "note": "La forme commande le traitement ; la fièvre et la masse orientent, l'imagerie confirme."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel délai typique sépare le début de l'appendicite de la perforation ?",
+      "back": "Le plus souvent entre 36 et 72 heures d'évolution.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Comment définir un plastron appendiculaire ?",
+      "back": "Une masse inflammatoire qui enserre le foyer appendiculaire, sans pus franc circulant.",
+      "tags": [
+        "définitions"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quelle est la prise en charge d'un abcès appendiculaire ?",
+      "back": "Drainage (percutané si possible, sinon chirurgical) associé à une antibiothérapie ; appendicectomie différée discutée.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelle est la prise en charge d'une péritonite appendiculaire ?",
+      "back": "Réanimation, antibiothérapie à large spectre et chirurgie de contrôle de la source sans délai.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Pourquoi ne pas opérer d'emblée un plastron ?",
+      "back": "La dissection d'un plastron inflammatoire expose à des plaies digestives et à des complications pariétales ; on traite d'abord médicalement.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel examen oriente entre plastron et abcès ?",
+      "back": "La tomodensitométrie abdomino-pelvienne (ou l'échographie) qui objective la collection.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quand suspecter une tumeur appendiculaire ?",
+      "back": "Chez le sujet âgé, devant une appendicite atypique ou une masse appendiculaire ; l'histologie de la pièce est systématique.",
+      "tags": [
+        "pièges"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Que faire devant une fièvre persistante après appendicectomie compliquée ?",
+      "back": "Rechercher un abcès résiduel ou une infection pariétale par examen et imagerie.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quel principe gouverne le sepsis d'origine appendiculaire ?",
+      "back": "Le contrôle de la source : l'antibiothérapie seule ne remplace jamais le geste.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quels signes annoncent une appendicite compliquée à l'examen ?",
+      "back": "Douleur de plus de 72 heures, fièvre élevée, tachycardie, défense généralisée, masse de fosse iliaque droite, iléus.",
+      "tags": [
+        "clinique"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Complications de l'appendicite",
+      "detail": "La perforation appendiculaire donne trois tableaux : péritonite (chirurgie immédiate), abcès (drainage), plastron (antibiothérapie et chirurgie différée). Le sepsis impose le contrôle de la source."
+    },
+    "branches": [
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Signes de gravité : durée, fièvre, défense, masse, sepsis.",
+        "children": [
+          {
+            "id": "rec-gravite",
+            "label": "Gravité",
+            "detail": "Contracture, hypotension, altération de l'état général.",
+            "leaves": [
+              {
+                "id": "rec-gravite-1",
+                "label": "Réflexe",
+                "detail": "Bloc en urgence si péritonite."
+              }
+            ]
+          },
+          {
+            "id": "rec-masse",
+            "label": "Masse",
+            "detail": "Plastron ou abcès de fosse iliaque droite.",
+            "leaves": [
+              {
+                "id": "rec-masse-1",
+                "label": "Imagerie",
+                "detail": "Scanner ou échographie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "formes",
+        "label": "Formes",
+        "tone": "retenir",
+        "detail": "Péritonite, abcès, plastron, sepsis.",
+        "children": [
+          {
+            "id": "for-peritonite",
+            "label": "Péritonite",
+            "detail": "Réanimation + chirurgie immédiate.",
+            "leaves": [
+              {
+                "id": "for-peritonite-1",
+                "label": "Lien",
+                "detail": "Voir fiche péritonite."
+              }
+            ]
+          },
+          {
+            "id": "for-abces",
+            "label": "Abcès",
+            "detail": "Drainage + antibiothérapie.",
+            "leaves": [
+              {
+                "id": "for-abces-1",
+                "label": "Différé",
+                "detail": "Appendicectomie à distance, discutée."
+              }
+            ]
+          },
+          {
+            "id": "for-plastron",
+            "label": "Plastron",
+            "detail": "Antibiothérapie, surveillance.",
+            "leaves": [
+              {
+                "id": "for-plastron-1",
+                "label": "Piège",
+                "detail": "Sujet âgé : tumeur."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Adapter le geste à la forme ; le contrôle de la source prime.",
+        "children": [
+          {
+            "id": "tra-urgence",
+            "label": "Urgence",
+            "detail": "Réanimation, antibiothérapie, chirurgie.",
+            "leaves": [
+              {
+                "id": "tra-urgence-1",
+                "label": "Règle",
+                "detail": "Pas d'imagerie qui retarde le bloc."
+              }
+            ]
+          },
+          {
+            "id": "tra-differe",
+            "label": "Différé",
+            "detail": "Drainage d'abord, chirurgie à froid.",
+            "leaves": [
+              {
+                "id": "tra-differe-1",
+                "label": "Équipe",
+                "detail": "Décisions multidisciplinaires."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Fièvre postopératoire, abcès résiduel, histologie.",
+        "children": [
+          {
+            "id": "sui-postop",
+            "label": "Postopératoire",
+            "detail": "Fièvre, transit, cicatrice, collections.",
+            "leaves": [
+              {
+                "id": "sui-postop-1",
+                "label": "Réflexe",
+                "detail": "Imagerie si fièvre persistante."
+              }
+            ]
+          },
+          {
+            "id": "sui-histologie",
+            "label": "Histologie",
+            "detail": "Analyse systématique de la pièce.",
+            "leaves": [
+              {
+                "id": "sui-histologie-1",
+                "label": "Pourquoi",
+                "detail": "Ne pas méconnaître une tumeur."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-WSES-APPENDICITIS-2020",
+      "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+      "citation": "Di Saverio S, Podda M, De Simone B, et al. Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines. World Journal of Emergency Surgery 2020 ; 15 : 27. doi:10.1186/s13017-020-00306-3.",
+      "organization": "World Society of Emergency Surgery (WSES)",
+      "year": 2020,
+      "url": "https://doi.org/10.1186/s13017-020-00306-3",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Formes compliquées",
+        "Drainage",
+        "Chirurgie différée",
+        "Antibiothérapie"
+      ]
+    },
+    {
+      "id": "SRC-LANCET-APPENDICITIS-2015",
+      "title": "Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management",
+      "citation": "Bhangu A, Søreide K, Di Saverio S, et al. Acute appendicitis: modern understanding of pathogenesis, diagnosis, and management. The Lancet 2015 ; 386 (10000) : 1278-1287. doi:10.1016/S0140-6736(15)00275-5.",
+      "organization": "The Lancet",
+      "year": 2015,
+      "url": "https://doi.org/10.1016/S0140-6736(15)00275-5",
+      "verifiedAt": "2026-11-04",
+      "usedFor": [
+        "Physiopathologie de la perforation",
+        "Épidémiologie des formes compliquées"
+      ]
+    }
+  ]
+}
