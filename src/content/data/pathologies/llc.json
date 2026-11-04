@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "llc",
+  "title": "Leucémie lymphoïde chronique",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la leucémie lymphoïde chronique (prolifération clonale de lymphocytes B matures), connaître son épidémiologie du sujet âgé, la démarche diagnostique (hyperlymphocytose, ombres de Gümprecht, immunophénotypage), la classification pronostique de Binet, les critères d'instauration du traitement, les principales options thérapeutiques et les complications (infections, cytopénies auto-immunes, syndrome de Richter).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 90,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 131,
+      "localNumber": 90,
+      "sectionLabel": "Médecine",
+      "title": "Leucémie lymphoïde chronique",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée à la plus fréquente des leucémies de l'adulte : définition et physiopathologie, découverte fortuite typique, confirmée par l'immunophénotypage, stades de Binet qui guident l'abstention ou le traitement, options actuelles et complications évolutives. Les leucémies aiguës et la maladie de Hodgkin relèvent des fiches dédiées ; les cytopénies auto-immunes associées sont traitées dans les fiches Anémie hémolytique auto-immune et Purpura thrombopénique.",
+    "verificationNotes": "Classification de Binet (A, B, C) et critères d'instauration du traitement conformes aux documents Arcagy (référence Binet 1981) et GPnotebook. Fréquence (plus fréquente des leucémies de l'adulte occidental, sujet âgé), immunophénotypage et syndrome de Richter (lymphome de haut grade dans 3 à 10 % des cas) conformes aux articles de synthèse consultés.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La leucémie lymphoïde chronique (LLC) est la plus fréquente des leucémies de l'adulte dans les pays occidentaux : une prolifération clonale de lymphocytes B matures qui s'accumulent dans le sang, la moelle, les ganglions et la rate. Elle touche essentiellement le sujet de plus de 60 ans et évolue de façon très variable, de formes indolentes pendant des décennies à des formes qui nécessitent un traitement rapide."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sa particularité est double : elle se découvre le plus souvent de façon fortuite sur un hémogramme systématique, et son traitement ne se discute qu'en cas de forme évolutive — beaucoup de patients vivent des années sous simple surveillance. Elle sert de modèle aux hémopathies lymphoïdes indolentes."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La LLC est due à la prolifération et à l'accumulation de lymphocytes B matures (petits lymphocytes) d'un même clone, dans le sang, la moelle osseuse, les ganglions et la rate. La définition associe une hyperlymphocytose persistante (en pratique supérieure à 5 giga par litre) et un immunophénotypage caractéristique ; le score immunologique de Matutes (CD5, CD23 positifs, chaînes légères restreintes) confirme la nature clonale B.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'évolution est très hétérogène : certaines formes restent stables plus de dix ans (Binet A), d'autres progressent en quelques mois. Le pronostic dépend du stade (Binet), des marqueurs biologiques (bêta-2-microglobuline, anomalies génétiques comme la délétion 17p) et de la vitesse de progression (temps de doublement lymphocytaire).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Facteurs et formes évolutives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cause est inconnue : on évoque des facteurs environnementaux (pesticides, solvants), une agrégation familiale (risque multiplié chez les apparentés) et des anomalies immunitaires. Il n'existe aucun facteur de risque établi évitable. Les formes évolutives à connaître : la transformation en lymphome agressif — le syndrome de Richter — qui survient dans 3 à 10 % des cas, et les complications auto-immunes (anémie hémolytique, purpura thrombopénique) ou infectieuses liées au déficit immunitaire.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sujet âgé : médiane de diagnostic autour de 70 ans, sexes masculin prédominant.",
+            "Formes indolentes : Binet A, surveillées parfois plus de dix ans.",
+            "Syndrome de Richter : lymphome de haut grade dans 3 à 10 % des cas.",
+            "Complications auto-immunes : anémie hémolytique, purpura thrombopénique.",
+            "Complications infectieuses : hypogammaglobulinémie, déficit de l'immunité cellulaire."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et stades",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Circonstances de découverte : le plus souvent une hyperlymphocytose fortuite sur un hémogramme ; sinon adénopathies superficielles, splénomégalie, asthénie, amaigrissement, sueurs nocturnes, infections à répétition, ou complications (anémie, purpura). L'examen recherche des adénopathies symétriques, une splénomégalie, des signes généraux.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : hyperlymphocytose persistante supérieure à 5 giga par litre ; sur le frottis, petits lymphocytes matures avec ombres de Gümprecht (cellules étalées) ; l'immunophénotypage par cytométrie en flux confirme le score de Matutes ; le myélogramme ou la biopsie ostéomédullaire montrent une infiltration lymphocytaire. Bilan d'extension : échographie ou tomodensitométrie thoraco-abdominale, électrophorèse des protéines (gammapathie monoclonale associée possible), bilan immunitaire et rénal, bêta-2-microglobuline, sérologies virales avant traitement. La classification de Binet distingue : stade A (moins de trois aires lymphoïdes atteintes, hémoglobine et plaquettes normales), stade B (trois aires ou plus atteintes, lignées conservées), stade C (anémie et/ou thrombopénie par insuffisance médullaire).",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Détérioration brutale d'une LLC",
+          "text": "Adénopathie croissante, fièvre, amaigrissement rapide, LDH en hausse : penser au syndrome de Richter — biopsie ganglionnaire urgente, avis hématologique, imagerie."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La règle d'or : ne pas traiter une LLC stable et peu évoluée. L'abstention-surveillance est la conduite habituelle des stades A et B asymptomatiques (hémogramme et examen tous les trois à six mois). Le traitement s'impose au stade C (cytopénies), en cas de progression rapide (doublement lymphocytaire inférieur à six mois, adénopathies ou splénomégalie croissantes), de signes généraux, de complications auto-immunes réfractaires ou de syndrome de Richter.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les traitements actuels associent une immunochimiothérapie (anticorps anti-CD20 comme le rituximab combiné à une chimiothérapie, protocole de type fludarabine-cyclophosphamide-rituximab chez le sujet âgé non fragile) ou, de plus en plus, des thérapies ciblées orales : inhibiteurs de la tyrosine kinase de Bruton (ibrutinib, acalabrutinib) et inhibiteur de BCL-2 (vénétoclax), adaptés au terrain et aux anomalies génétiques (délétion 17p). Mesures d'accompagnement : prévention du syndrome de lyse tumorale lors de l'instauration (hydratation, allopurinol), prophylaxie anti-infectieuse selon les protocoles, immunoglobulines en cas d'hypogammaglobulinémie et infections récidivantes, prise en charge des cytopénies auto-immunes (corticoïdes).",
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Syndrome de lyse tumorale",
+          "text": "Instauration d'un traitement chez un patient à masse tumorale élevée (grosse splénomégalie, lymphocytose majeure) : hydratation abondante, allopurinol, surveillance ionique et rénale stricte les premiers jours."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de prévention de la LLC elle-même. La prévention des complications repose sur le suivi hématologique régulier, la vaccination antigrippale et antipneumococcique, la prise en charge rapide des fièvres (déficit immunitaire), la prophylaxie anti-infectieuse pendant certaines chimiothérapies, et la vigilance sur les cytopénies auto-immunes. Le patient informé connaît les signes d'alerte : fièvre, sueurs, amaigrissement, adénopathie croissante, pâleur, purpura.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi à vie est indispensable, y compris après réponse au traitement : dépister les rechutes, le syndrome de Richter et les secondes neoplasies (fréquence accrue chez ces patients immunodéprimés). Éducation sur l'observance des thérapies orales au long cours."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La LLC se résume : sujet âgé + hyperlymphocytose + ombres de Gümprecht + immunophénotypage B caractéristique. Le stade de Binet guide la conduite : abstention-surveillance pour les formes indolentes, traitement des formes évoluées par immunochimiothérapie ou thérapies ciblées orales. Les urgences sont infectieuses, auto-immunes et le syndrome de Richter.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Leucémie aiguë, Maladie de Hodgkin, Anémie hémolytique auto-immune, Purpura thrombopénique, Anémies hypochromes."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "LLC = hyperlymphocytose clonale B du sujet âgé. Diagnostic : immunophénotypage (score de Matutes). Binet A-B : surveillance ; Binet C ou forme évolutive : traitement. Complications : infections, cytopénies auto-immunes, syndrome de Richter (3-10 %)."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche leucemie-aigue — urgences des leucémies.",
+            "Fiche hodgkin — autre hémopathie lymphoïde.",
+            "Fiche aai — anémie hémolytique auto-immune associée.",
+            "Fiche ptai — purpura thrombopénique associé.",
+            "Fiche anemies-hypochromes — diagnostic différentiel des anémies."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Syndrome de Richter",
+      "text": "Détérioration brutale, adénopathie croissante, LDH élevées : biopsie ganglionnaire urgente et avis hématologique — le pronostic en dépend."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Fièvre chez un patient atteint de LLC",
+      "text": "Déficit immunitaire constant : toute fièvre impose prélèvements et antibiothérapie probabiliste sans attendre, surtout sous traitement."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Hyperlymphocytose du sujet âgé",
+      "text": "Penser LLC et demander frottis (ombres de Gümprecht) puis immunophénotypage — et ne jamais conclure sur un seul hémogramme : exiger la persistance plus de trois mois."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Binet A : moins de trois aires atteintes, lignées normales — surveillance. Binet B : trois aires ou plus — surveillance si stable. Binet C : anémie ou thrombopénie — traitement."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Signes d'instauration du traitement",
+      "text": "C pour Cytopénies (Binet C), O pour Organes : grosse rate ou adénopathies, S pour Signes généraux (amaigrissement, sueurs), P pour Progression rapide du lymphocyte, A pour Auto-immunité réfractaire."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Stades de Binet",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Aires atteintes : moins de trois — surveillance"
+        },
+        {
+          "key": "B",
+          "term": "B : trois aires ou plus, lignées normales"
+        },
+        {
+          "key": "C",
+          "term": "Cytopenies : anémie ou thrombopénie — traiter"
+        }
+      ]
+    },
+    {
+      "label": "Diagnostic biologique",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Lymphocytes supérieurs à 5 G/L, persistants"
+        },
+        {
+          "key": "G",
+          "term": "Gümprecht : ombres sur le frottis"
+        },
+        {
+          "key": "M",
+          "term": "Matutes : score immunologique"
+        },
+        {
+          "key": "B",
+          "term": "Biopsie ou myélogramme : infiltration médullaire"
+        }
+      ]
+    },
+    {
+      "label": "Complications",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Infections : hypogammaglobulinémie"
+        },
+        {
+          "key": "A",
+          "term": "Auto-immunité : anémie hémolytique, purpura"
+        },
+        {
+          "key": "R",
+          "term": "Richter : lymphome agressif"
+        },
+        {
+          "key": "S",
+          "term": "Seconds cancers : vigilance à vie"
+        }
+      ]
+    },
+    {
+      "label": "Le traitement en cinq lettres",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cytopénies : indication majeure"
+        },
+        {
+          "key": "O",
+          "term": "Organes : splénomégalie, adénopathies"
+        },
+        {
+          "key": "S",
+          "term": "Signes généraux"
+        },
+        {
+          "key": "P",
+          "term": "Progression rapide"
+        },
+        {
+          "key": "T",
+          "term": "Thérapies ciblées : ibrutinib, vénétoclax"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que la leucémie lymphoïde chronique ?",
+      "back": "Une prolifération clonale de lymphocytes B matures qui s'accumulent dans le sang, la moelle, les ganglions et la rate — la plus fréquente des leucémies de l'adulte occidental."
+    },
+    {
+      "id": "f2",
+      "front": "Chez qui survient-elle ?",
+      "back": "Essentiellement chez le sujet de plus de 60 ans (médiane autour de 70 ans), avec une prédominance masculine ; l'agrégation familiale est documentée."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la circonstance de découverte la plus fréquente ?",
+      "back": "Une hyperlymphocytose fortuite sur un hémogramme systématique, chez un patient asymptomatique."
+    },
+    {
+      "id": "f4",
+      "front": "Que voit-on sur le frottis sanguin ?",
+      "back": "De petits lymphocytes matures avec des ombres de Gümprecht — cellules lymphocytaires étalées, caractéristiques mais non spécifiques."
+    },
+    {
+      "id": "f5",
+      "front": "Quel examen confirme la nature clonale B ?",
+      "back": "L'immunophénotypage par cytométrie en flux : score de Matutes avec CD5 et CD23 positifs et restriction de chaînes légères."
+    },
+    {
+      "id": "f6",
+      "front": "Quels sont les trois stades de Binet ?",
+      "back": "A : moins de trois aires lymphoïdes atteintes, hémoglobine et plaquettes normales ; B : trois aires ou plus, lignées conservées ; C : anémie et/ou thrombopénie."
+    },
+    {
+      "id": "f7",
+      "front": "Quand traiter une LLC ?",
+      "back": "Stade C, progression rapide (doublement lymphocytaire inférieur à six mois), adénopathies ou splénomégalie croissantes, signes généraux, complications auto-immunes réfractaires ou syndrome de Richter."
+    },
+    {
+      "id": "f8",
+      "front": "Que faire devant un Binet A stable ?",
+      "back": "Abstention-surveillance : hémogramme et examen clinique tous les trois à six mois, sans traitement — le traitement précoce n'améliore pas la survie des formes indolentes."
+    },
+    {
+      "id": "f9",
+      "front": "Quelles sont les grandes options de traitement ?",
+      "back": "Immunochimiothérapie (anticorps anti-CD20 combinés à une chimiothérapie) ou thérapies ciblées orales : inhibiteurs de la tyrosine kinase de Bruton (ibrutinib) et inhibiteur de BCL-2 (vénétoclax)."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle anomalie génétique de mauvais pronostic connaître ?",
+      "back": "La délétion 17p, qui oriente d'emblée vers les thérapies ciblées plutôt que la chimiothérapie seule."
+    },
+    {
+      "id": "f11",
+      "front": "Qu'est-ce que le syndrome de Richter ?",
+      "back": "La transformation en lymphome agressif (le plus souvent diffus à grandes cellules B), survenant dans 3 à 10 % des LLC : adénopathie croissante, signes généraux, LDH élevées, diagnostic par biopsie."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles complications auto-immunes associer à la LLC ?",
+      "back": "L'anémie hémolytique auto-immune et le purpura thrombopénique immunologique, traités par corticoïdes en premier."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi les infections sont-elles fréquentes ?",
+      "back": "Parce que la LLC entraîne un déficit immunitaire : hypogammaglobulinémie, défaut de l'immunité cellulaire, majoré par les traitements."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle prévention du syndrome de lyse tumorale ?",
+      "back": "Hydratation abondante, allopurinol, surveillance ionique et rénale stricte lors de l'instauration du traitement chez un patient à masse tumorale élevée."
+    },
+    {
+      "id": "f15",
+      "front": "Quels marqueurs pronostiques utiliser ?",
+      "back": "Stade de Binet, bêta-2-microglobuline, temps de doublement lymphocytaire, anomalies génétiques (délétion 17p notamment) et état général."
+    },
+    {
+      "id": "f16",
+      "front": "Comment surveiller un patient en rémission ?",
+      "back": "Suivi hématologique à vie : dépister la rechute, le syndrome de Richter et les secondes neoplasies ; vaccinations et éducation sur les signes d'alerte."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "llc-root",
+      "label": "Leucémie lymphoïde chronique"
+    },
+    "branches": [
+      {
+        "id": "ll-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "ll-b1-1",
+            "label": "Prolifération B clonale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ll-l1-1",
+            "label": "Sujet âgé, plus fréquente des leucémies"
+          },
+          {
+            "id": "ll-l1-2",
+            "label": "Lymphocytes B matures accumulés"
+          },
+          {
+            "id": "ll-l1-3",
+            "label": "Découverte fortuite fréquente"
+          }
+        ]
+      },
+      {
+        "id": "ll-b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ll-b2-1",
+            "label": "Examens clés"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ll-l2-1",
+            "label": "Hyperlymphocytose supérieure à 5 G/L"
+          },
+          {
+            "id": "ll-l2-2",
+            "label": "Ombres de Gümprecht sur frottis"
+          },
+          {
+            "id": "ll-l2-3",
+            "label": "Immunophénotypage : score de Matutes"
+          },
+          {
+            "id": "ll-l2-4",
+            "label": "Infiltration médullaire"
+          }
+        ]
+      },
+      {
+        "id": "ll-b3",
+        "label": "Stades de Binet",
+        "children": [
+          {
+            "id": "ll-b3-1",
+            "label": "A, B, C"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ll-l3-1",
+            "label": "A : moins de trois aires — surveillance"
+          },
+          {
+            "id": "ll-l3-2",
+            "label": "B : trois aires ou plus"
+          },
+          {
+            "id": "ll-l3-3",
+            "label": "C : anémie ou thrombopénie — traitement"
+          }
+        ]
+      },
+      {
+        "id": "ll-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "ll-b4-1",
+            "label": "Indications et options"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ll-l4-1",
+            "label": "Abstention-surveillance si stable"
+          },
+          {
+            "id": "ll-l4-2",
+            "label": "Immunochimiothérapie anti-CD20"
+          },
+          {
+            "id": "ll-l4-3",
+            "label": "Ibrutinib, vénétoclax"
+          },
+          {
+            "id": "ll-l4-4",
+            "label": "Prévention de la lyse tumorale"
+          }
+        ]
+      },
+      {
+        "id": "ll-b5",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "ll-b5-1",
+            "label": "Vigilance"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ll-l5-1",
+            "label": "Infections : hypogammaglobulinémie"
+          },
+          {
+            "id": "ll-l5-2",
+            "label": "Cytopénies auto-immunes"
+          },
+          {
+            "id": "ll-l5-3",
+            "label": "Syndrome de Richter : 3-10 %"
+          },
+          {
+            "id": "ll-l5-4",
+            "label": "Seconds cancers"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Les différents stades de la leucémie lymphoïde chronique",
+      "citation": "Arcagy — Stades de la LLC : classification de Binet (référence Binet JL, Cancer 1981)",
+      "organization": "Arcagy",
+      "year": 2021,
+      "version": "Article de synthèse",
+      "url": "https://www.arcagy.org/infocancer/localisations/hemopathies-malignes-cancers-du-sang/leucemie-lymphoide-chronique/formes-de-la-maladie/les-differents-stades.html/",
+      "usedFor": [
+        "classification de Binet",
+        "critères d'instauration du traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Leucémie lymphoïde chronique",
+      "citation": "Wikipédia — Leucémie lymphoïde chronique : définition, épidémiologie, évolution",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Leuc%C3%A9mie_lympho%C3%AFde_chronique",
+      "usedFor": [
+        "définition",
+        "épidémiologie du sujet âgé",
+        "options thérapeutiques"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Syndrome de Richter",
+      "citation": "Wikipédia — Syndrome de Richter : transformation lymphomateuse de la LLC (3 à 10 % des cas)",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Syndrome_de_Richter",
+      "usedFor": [
+        "syndrome de Richter : fréquence et tableau"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "Stadification de la leucémie lymphoïde chronique",
+      "citation": "GPnotebook — Stadification de la LLC : systèmes Binet et Rai",
+      "organization": "GPnotebook",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://gpnotebook.com/fr/pages/hematologie/leucemie-lymphoide-chronique/stadification-de-la-leucemie-lymphoide-chronique",
+      "usedFor": [
+        "stades de Binet et Rai",
+        "pronostic"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
