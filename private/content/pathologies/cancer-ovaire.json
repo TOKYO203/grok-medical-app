@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancer-ovaire",
+  "title": "Cancer de l'ovaire",
+  "subtitle": "Fiche de nosographie — gynécologie-obstétrique et oncologie",
+  "objective": "Connaître l'hétérogénéité des cancers de l'ovaire (tumeurs épithéliales, germinales, du cordon sexuel), comprendre le tri des masses ovariennes et le rôle de l'oncogénétique BRCA, connaître la chirurgie de cytoréduction et les standards de traitement à base de platine, et la place des inhibiteurs de PARP en maintenance.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 54,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 229,
+      "localNumber": 54,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancer de l'ovaire",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir de la revue « Ovarian Cancer: A Review » publiée dans le JAMA en 2025 et des grands essais qui structurent les standards de traitement. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche distingue les tumeurs épithéliales (les plus fréquentes après la ménopause) des tumeurs germinales (jeune fille) et des tumeurs du cordon sexuel, dont les prises en charge diffèrent.",
+      "Aucune posologie de chimiothérapie ni d'inhibiteur de PARP n'est citée : les protocoles relèvent des référentiels institutionnels.",
+      "La triade diagnostique (examen, marqueurs CA-125 et imagerie) et le rôle du gynécologue-oncologue pour la chirurgie initiale sont soulignés, car la qualité de la cytoréduction conditionne le pronostic.",
+      "La mutation BRCA1/2 est présentée comme à la fois un facteur de risque familial et un guide thérapeutique (sensibilité au platine et aux PARP)."
+    ],
+    "qcChecklist": [
+      "Types histologiques couverts",
+      "Tri des masses annexielles",
+      "Chirurgie de cytoréduction",
+      "Traitement systémique sans posologie",
+      "Source citée avec référence vérifiée"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et types",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le terme « cancer de l'ovaire » recouvre plusieurs entités distinctes. Les tumeurs épithéliales (carcinome séreux haut grade le plus souvent, mais aussi endométrioïde, mucineux, à cellules claires) dominent après la ménopause. Les tumeurs germinales (dysgerminomes, tératomes immatures, tumeurs du sac vitellin) touchent la femme jeune. Les tumeurs du cordon sexuel (granulosa, Sertoli-Leydig) sont rares et souvent sécrétantes. Le carcinome séreux de haut grade, longtemps considéré comme ovarien, naît en réalité le plus souvent des trompes (fimbria) et se greffe sur l'ovaire."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Âge typique",
+            "Marqueurs",
+            "Particularité"
+          ],
+          "rows": [
+            [
+              "Épithélial séreux haut grade",
+              "Post-ménopause",
+              "CA-125",
+              "Diagnostic souvent avancé, chimiosensible, BRCA"
+            ],
+            [
+              "Endométrioïde / cellules claires",
+              "Péri/post-ménopause",
+              "CA-125 ±",
+              "Lien avec l'endométriose, pronostic intermédiaire"
+            ],
+            [
+              "Germinal (dysgerminome, sac vitellin)",
+              "Jeune fille",
+              "LDH, AFP, hCG",
+              "Très chimiosensible, conservation possible"
+            ],
+            [
+              "Cordon sexuel (granulosa)",
+              "Tout âge",
+              "Inhibine, œstrogènes",
+              "Sécrétion hormonale, diagnostic plus précoce"
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JAMA-OVARIAN-2025",
+          "organization": "JAMA",
+          "title": "Ovarian Cancer: A Review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et tri des masses annexielles",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Signes d'appel : ballonnement ou augmentation du tour de taille, douleurs pelviennes, troubles digestifs, ascite, altération de l'état général — souvent vagues et tardifs ; le cancer de l'ovaire est surnommé la « tumeur silencieuse ».",
+            "Examen clinique : masse pelvienne, cul-de-sac de Douglas, ascite, masse ombilicale (nodule de la sœur Mary Joseph).",
+            "Marqueurs : CA-125 pour les épithéliaux (modérément spécifique), AFP, hCG, LDH selon le type suspecté chez la femme jeune, inhibine pour la granulosa.",
+            "Imagerie : échographie pelvienne première, puis TDM thoraco-abdomino-pelvien pour le bilan d'extension ; l'IRM utile pour les masses indéterminées.",
+            "Oncogénétique : recherche de mutation BRCA1/2 et syndrome de Lynch proposée au diagnostic des carcinomes épithéliaux — elle guide le traitement et le dépistage familial."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Une masse annexielle solide, végétante, avec composante papillaire, ascite ou élévation du CA-125 chez une femme ménopausée est un cancer jusqu'à preuve du contraire : le tri oriente vers le centre spécialisé avant la première chirurgie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JAMA-OVARIAN-2025",
+          "organization": "JAMA",
+          "title": "Ovarian Cancer: A Review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Stades précoces : chirurgie complète de stadification (hystérectomie, annexectomie, omentectomie, curages, cytologie, biopsies) ; adjuvant selon le risque.",
+            "Stades avancés : la chirurgie de cytoréduction maximale (résidu nul si possible) est le déterminant majeur du pronostic ; selon l'extension, chirurgie première ou chimiothérapie d'induction puis chirurgie d'intervalle.",
+            "Chimiothérapie à base de sels de platine, associée au paclitaxel selon les protocoles, après cytoréduction (aucune posologie citée ici).",
+            "Maintenance : inhibiteurs de PARP en entretien pour les patientes avec mutation BRCA et/ou maladie répondant au platine selon les indications validées ; anti-angiogéniques dans certaines situations.",
+            "Femme jeune avec tumeur germinale unilatérale : chirurgie conservatrice (annexectomie unilatérale, stadification) discutée, la fertilité pouvant être préservée.",
+            "Suivi : examen clinique et marqueurs ; prise en charge des récidives en réunion pluridisciplinaire ; dépistage familial organisé pour les apparentées des porteuses de BRCA."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "Une chirurgie initiale incomplète par une équipe non spécialisée diminue les chances de survie : mieux vaut une chimiothérapie d'induction puis une chirurgie d'intervalle bien faite qu'une chirurgie première laissant un résidu important."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JAMA-OVARIAN-2025",
+          "organization": "JAMA",
+          "title": "Ovarian Cancer: A Review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "pronostic",
+      "title": "Pronostic et prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le pronostic des carcinomes épithéliaux avancés reste sévère, dominé par l'extension initiale et la qualité de la cytoréduction ; il s'est nettement amélioré avec le platine et la maintenance par PARP, surtout dans les mutations BRCA. Les tumeurs germinales ont un excellent pronostic. La prévention concerne les porteuses de BRCA : chirurgie de réduction du risque (annexectomie bilatérale après la période de procréation) et dépistage familial structuré ; il n'y a pas de dépistage de population validé."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JAMA-OVARIAN-2025",
+          "organization": "JAMA",
+          "title": "Ovarian Cancer: A Review",
+          "year": 2025
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "OVAIRE",
+      "expansion": "Orientation par l'âge et le marqueur (germinal jeune vs épithélial ménopausé) — Vague symptôme : ballonnement, tour de taille — Ascite et CA-125 : suspicions d'emblée — Imagerie : échographie puis TDM — Recherche BRCA systématique — Entretien PARP après platine chez les BRCA."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Type histologique le plus fréquent du cancer de l'ovaire post-ménopausique ?",
+      "back": "Le carcinome séreux de haut grade, souvent diagnostiqué à un stade avancé."
+    },
+    {
+      "front": "D'où naît le plus souvent le carcinome séreux de haut grade ?",
+      "back": "De la trompe (extrémité fimbriée) : il se greffe ensuite sur l'ovaire et le péritoine."
+    },
+    {
+      "front": "Marqueurs des tumeurs germinales ?",
+      "back": "AFP (sac vitellin), hCG (choriocarcinome), LDH (dysgerminome) ; CA-125 peu utile ici."
+    },
+    {
+      "front": "Signes d'appel typiques du cancer ovarien ?",
+      "back": "Vagues et tardifs : ballonnement, augmentation du tour de taille, douleurs pelviennes, troubles digestifs, ascite, altération de l'état général."
+    },
+    {
+      "front": "Rôle de l'oncogénétique BRCA au diagnostic ?",
+      "back": "Recherche de mutation BRCA1/2 (et Lynch) : guide la sensibilité au platine, l'indication des PARP en maintenance, et le dépistage des apparentées."
+    },
+    {
+      "front": "Déterminant majeur du pronostic des stades avancés ?",
+      "back": "La qualité de la cytoréduction chirurgicale : le résidu nul offre la meilleure survie."
+    },
+    {
+      "front": "Alternative à la chirurgie première d'emblée non résécable ?",
+      "back": "Chimiothérapie d'induction (néoadjuvante) puis chirurgie d'intervalle après réponse, souvent par cœlioscopie."
+    },
+    {
+      "front": "Chimiothérapie de référence des carcinomes épithéliaux ?",
+      "back": "Association à base de sels de platine (avec paclitaxel selon protocole), après cytoréduction."
+    },
+    {
+      "front": "Place des inhibiteurs de PARP ?",
+      "back": "Maintenance après réponse au platine, surtout en cas de mutation BRCA et/ou HRD : réduction des récidives selon indications validées."
+    },
+    {
+      "front": "Prise en charge d'une tumeur germinale unilatérale chez une jeune fille ?",
+      "back": "Annexectomie unilatérale avec stadification, conservation utérine et de l'autre ovaire si possible : excellent pronostic sous chimiothérapie."
+    },
+    {
+      "front": "Marqueur de la tumeur de la granulosa ?",
+      "back": "L'inhibine B, avec l'œstradiol sécrété ; tableau de métrorragies hyperœstrogéniques."
+    },
+    {
+      "front": "Prévention chez une porteuse de BRCA ?",
+      "back": "Annexectomie bilatérale de réduction du risque après la période de procréation ; pas de dépistage de population validé pour l'ovaire."
+    }
+  ],
+  "mindmap": {
+    "root": "Cancer de l'ovaire",
+    "branches": [
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "retenir",
+        "detail": "Épithélial, germinal, cordon sexuel.",
+        "children": [
+          {
+            "id": "epithelial",
+            "label": "Épithélial",
+            "detail": "Séreux haut grade, post-ménopause.",
+            "leaves": [
+              {
+                "id": "c1",
+                "label": "Origine tubaire",
+                "detail": "Fimbria puis greffe."
+              }
+            ]
+          },
+          {
+            "id": "germinal",
+            "label": "Germinal",
+            "detail": "Jeune fille, AFP/hCG/LDH.",
+            "leaves": [
+              {
+                "id": "c2",
+                "label": "Conservation",
+                "detail": "Chirurgie conservatrice possible."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "depister",
+        "label": "Diagnostiquer",
+        "tone": "urgence",
+        "detail": "Symptômes vagues, tri des masses.",
+        "children": [
+          {
+            "id": "marqueurs",
+            "label": "CA-125 ± AFP/hCG",
+            "detail": "Selon l'âge et le type.",
+            "leaves": [
+              {
+                "id": "d1",
+                "label": "Échographie puis TDM",
+                "detail": "Extension péritonéale."
+              }
+            ]
+          },
+          {
+            "id": "brca",
+            "label": "Oncogénétique",
+            "detail": "BRCA1/2, Lynch.",
+            "leaves": [
+              {
+                "id": "d2",
+                "label": "Famille",
+                "detail": "Dépistage des apparentées."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "operer",
+        "label": "Opérer",
+        "tone": "reflexe",
+        "detail": "Cytoréduction maximale.",
+        "children": [
+          {
+            "id": "precoces",
+            "label": "Stades précoces",
+            "detail": "Stadification complète.",
+            "leaves": [
+              {
+                "id": "o1",
+                "label": "Résidu nul",
+                "detail": "Objectif des stades avancés."
+              }
+            ]
+          },
+          {
+            "id": "intervalle",
+            "label": "Chirurgie d'intervalle",
+            "detail": "Après chimiothérapie d'induction.",
+            "leaves": [
+              {
+                "id": "o2",
+                "label": "Équipe spécialisée",
+                "detail": "Conditionne la survie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "prudence",
+        "detail": "Platine puis maintenance.",
+        "children": [
+          {
+            "id": "chimio",
+            "label": "Platine + paclitaxel",
+            "detail": "Selon protocoles (doses non citées).",
+            "leaves": [
+              {
+                "id": "t1",
+                "label": "PARP maintenance",
+                "detail": "BRCA et HRD surtout."
+              }
+            ]
+          },
+          {
+            "id": "recidive",
+            "label": "Récidives",
+            "detail": "Réunion pluridisciplinaire.",
+            "leaves": [
+              {
+                "id": "t2",
+                "label": "Anti-angiogéniques",
+                "detail": "Situations sélectionnées."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "memo",
+        "detail": "Chez les BRCA.",
+        "children": [
+          {
+            "id": "risque",
+            "label": "Annexectomie bilatérale",
+            "detail": "Après procréation.",
+            "leaves": [
+              {
+                "id": "p1",
+                "label": "Pas de dépistage validé",
+                "detail": "Population générale non concernée."
+              }
+            ]
+          },
+          {
+            "id": "pronostic",
+            "label": "Pronostic",
+            "detail": "Stade + cytoréduction + BRCA.",
+            "leaves": [
+              {
+                "id": "p2",
+                "label": "Germinales",
+                "detail": "Excellente guérison."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-JAMA-OVARIAN-2025",
+      "title": "Ovarian Cancer: A Review",
+      "citation": "Caruso G, Weroha SJ, Cliby W. Ovarian Cancer: A Review. JAMA 2025. PMID: 40690248. (DOI non cité ici faute de vérification directe ; référence vérifiée via PubMed et JAMA Network.)",
+      "organization": "JAMA",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40690248/",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Types histologiques",
+        "Signes d'appel et diagnostic",
+        "Chirurgie de cytoréduction",
+        "Chimiothérapie et maintenance",
+        "Oncogénétique BRCA"
+      ]
+    }
+  ]
+}
