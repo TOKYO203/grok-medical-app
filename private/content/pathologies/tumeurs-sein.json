@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "tumeurs-sein",
+  "title": "Tumeurs du sein",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser les tumeurs du sein : dépistage et diagnostics différentiels des nodule mammaire (bénin : fibroadénome, kyste, adénofibrome vs malin : carcinome canalaire ou lobulaire), signes d'alerte cliniques, bilan triple test (examen, imagerie, microbiopsie), classification TNM, traitements (chirurgie conservatrice ou mastectomie, curage sentinelle, radiothérapie, hormonothérapie, chimiothérapie, thérapies ciblées, immunothérapie) et suivi.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 28,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 28,
+      "localNumber": 28,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Tumeurs du sein",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Tumeurs du sein : le cancer du sein est le premier cancer féminin ; repères de dépistage : autopalpation, examen clinique, mammographie de dépistage tous les 2 ans de 50 à 74 ans (proposition systématique) ; tumeurs bénignes : fibroadénome (femme jeune, nodule ferme, mobile, indolore), kyste (rétention, douleur cyclique), adénome, dystrophie fibrokystique, ectasie canalaire, tumeur phyllode (à potentiel local) ; cancer : carcinome canalaire infiltrant (le plus fréquent), carcinome lobulaire, maladie de Paget du mamelon (écoulement, lésion aréolaire), carcinome canalaire in situ (CCIS) ; signes d'alerte : nodule dur, fixé, irrégulier, indolore, rétraction cutanée ou du mamelon, écoulement sanglant, œdème cutané (peau d'orange), ulcération, adénopathie axillaire dure ; formes inflammatoires : syndrome inflammatoire local, érythème : à différencier du cancer inflammatoire (peau d'orange diffus, rapidement évolutif) et de la mastite du post-partum ; diagnostic : triple concordance (examen clinique, imagerie adaptée à l'âge : mammographie bilatérale + échographie, IRM si dense/doute, microbiopsie sous échographie ou mammographie/stéréotaxie avec histologie et récepteurs hormonaux (ER, PR), HER2, indice mitotique) ; classification : T (taille), N (ganglions), M (métastases : os, foie, poumon, cerveau) ; bilan d'extension : TDM thoraco-abdomino-pelvienne, scintigraphie osseuse, bilan biologique (marqueurs si maladie avancée) ; traitement : chirurgie : tumorectomie (conservatrice) avec marges saines ou mastectomie selon taille/tumeur/patiente, avec curage sentinelle (ganglion axillaire) curage complémentaire si envahissement ; radiothérapie systématique après chirurgie conservatrice ; traitements adjuvants : chimiothérapie selon profil (anthracyclines, taxanes), hormonothérapie 5 à 10 ans (tamoxifène avant la ménopause, inhibiteurs de l'aromatase après), thérapies ciblées anti-HER2 (trastuzumab, pertuzumab), immunothérapie si triple négatif PD-L1 ; formes métastatiques : traitement systémique, os : biphosphonates ou anti-RANKL, radiothérapie palliative ; suivi clinique, mammographie, observance de l'hormonothérapie ; prévention : hygiène de vie, dépistage familial si mutation BRCA1/BRCA2 (IRM annuelle, chirurgie préventive discutée).",
+    "verificationNotes": "Contenu aligné sur les recommandations HAS sur le cancer du sein (dépistage, examen d'imagerie, stratégies thérapeutiques).",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "« Tumeurs du sein » recouvre un éventail de la femme jeune (fibroadénome bénin) au carcinome infiltrant de la femme ménopausée : la démarche devant tout nodule mammaire est stéréotypée : examen clinique, imagerie adaptée à l'âge et microbiopsie : la triple concordance commande la conduite à tenir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le cancer du sein est le premier cancer de la femme par sa fréquence ; la majorité se guérit quand il est diagnostiqué à un stade précoce : d'où l'importance du dépistage organisé (mammographie tous les 2 ans entre 50 et 74 ans) et de la reconnaissance des signes d'alerte."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et anatomie clinique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Anatomie : glande mammaire composée de 15 à 20 lobes drainés par des galactophores vers le mamelon ; quadrants : supéro-externe (site le plus fréquent des cancers), inféro-externe, internes ; irrigation lymphatique axillaire dominante (ganglions de niveaux I, II, III), accessoire mammaire interne ; exploration clinique : inspection (asymétrie, rétraction, œdème, écoulement), palpation des quadrants à plat, mamelon, aires axillaires et sous-claviculaires.",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Terrain du cancer : âge (50-70 ans), antécédents personnels (carcinome in situ, hyperplasie atypique), facteurs hormonaux (puberté précoce, ménopause tardive, nulliparité, première grossesse tardive, traitements hormonaux prolongés), obésité post-ménopausique, alcool, hérédité (BRCA1, BRCA2 : risque cumulé jusqu'à 60-80 pour cent, cancers de l'ovaire associés), irradiation thoracique jeune.",
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et pathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Tumeurs bénignes épithéliales : fibroadénome (femme jeune, nodule ferme mobile indolore), adénome ; tumeur phyllode : croissance rapide, potentiel local.",
+            "Lésions kystiques et dystrophiques : kyste solitaire, dystrophie fibrokystique, ectasie canalaire, galactocèle.",
+            "Cancers infiltrants : carcinome canalaire infiltrant (70-80 pour cent), carcinome lobulaire infiltrant (bilatéral, multifocal, diagnostic difficile) ; carcinome canalaire in situ (CCIS, non invasif) ; maladie de Paget du mamelon (écoulement, lésion aréolaire révélatrice d'un carcinome sous-jacent).",
+            "Cancer inflammatoire : blocage lymphatique diffus (peau d'orange diffus, érythème, chaleur) : pronostic sombre, chimiothérapie d'abord."
+          ],
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Signes d'alerte cliniques : nodule dur, irrégulier, fixé, indolore ; rétraction cutanée ou du mamelon ; œdème localisé (peau d'orange) ; écoulement mammaire sanglant ou unilatéral ; ulcération ; adénopathie axillaire dure fixée ; modification récente de la taille ou de la forme ; le nodule bénin classique (fibroadénome) est ferme, lisse, mobile, indolore, chez une femme jeune, de taille stable ; infection du post-partum (mastite) : douleur, érythème, fièvre : différente du cancer inflammatoire (indolore, diffus).",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Imagerie et histologie (triple test) : mammographie bilatérale (dépistage ou diagnostic) : opacité stellaire, microcalcifications groupées ; échographie mammaire : complément indispensable (nodule hypoéchogène, irrégulier, atténuation postérieure, vascularisation) ; IRM si sein dense, multifocalité, recherche d'extension ou de cicatrice, mise en évidence de rupture de prothèse ; microbiopsies (trucut) sous échographie ou macrobiopsies stéréotaxiques pour les microcalcifications : histologie (type, grade SBR, index mitotique Ki-67), récepteurs hormonaux (estrogènes, progestérone), statut HER2 : classification pronostique (luminal A, luminal B, HER2, triple négatif) ; bilan d'extension si signes d'appel avancés : TDM thoraco-abdomino-pelvien, scintigraphie osseuse, bilan biologique.",
+          "sources": ["s2", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chirurgie : carcinome infiltrant : tumorectomie avec marges saines (chirurgie conservatrice) suivie de radiothérapie, ou mastectomie (tumeur volumineuse, multifocale, patiente demande, contre-indication à la radiothérapie) ; curage du ganglion sentinelle systématique (technique du bleu et/ou radio-isotope) : curage axillaire complémentaire si envahissement massif ; reconstruction mammaire (immédiate ou différée) ; CCIS : exérèse large avec marges ou mastectomie, radiothérapie discutée ; tumeurs bénignes : exérèse des fibroadénomes évolutifs ou de diagnostic douteux, évacuation des kystes, surveillance sinon.",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitements systémiques adjuvants : chimiothérapie selon le risque (anthracyclines, taxanes) ; hormonothérapie 5 à 10 ans (tamoxifène avant la ménopause, inhibiteurs de l'aromatase ensuite) pour les tumeurs à récepteurs hormonaux positifs ; thérapies ciblées anti-HER2 (trastuzumab, pertuzumab, trastuzumab-emtansine) pour les tumeurs HER2 positives ; cancers triple négatifs : chimiothérapie, immunothérapie (anti-PD-L1) dans les formes avancées avec PD-L1 ; formes métastatiques : traitement systémique adapté au profil (os : biphosphonates ou anti-RANKL pour prévenir les complications), radiothérapie palliative des métastases osseuses ou cérébrales, chirurgie de sécurité ; suivi : examen clinique, mammographie annuelle, observance de l'hormonothérapie, accompagnement psycho-social.",
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Primaire : lutte contre l'obésité post-ménopausique, l'alcool, la sédentarité, allaitement maternel ; Dépistage : mammographie tous les 2 ans de 50 à 74 ans (invitation systématique), autopalpation mensuelle comme repère ; Haut risque familial (BRCA1/BRCA2) : consultation d'oncogénétique, IRM annuelle dès 25-30 ans, mammographie, chirurgie préventive (annexectomie après la procréation, mastectomie préventive discutée), chimioprévention exceptionnelle ; Tertiaire : suivi rapproché du sein traité et du sein controlatéral."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant tout nodule mammaire : triple concordance clinique, imagerie (mammographie et échographie), microbiopsie : aucune décision sans preuve histologique ; le cancer du sein se guérit à plus de 90 pour cent au stade précoce : le traitement moderne combine chirurgie conservatrice et radiothérapie, avec une personnalisation par les traitements systémiques (hormonothérapie, anti-HER2, chimiothérapie) guidée par le profil biologique de la tumeur.",
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hémorragie génitale et cancers de l'endomètre : hormonothérapie au tamoxifène.",
+            "Fiche adénopathie superficielle : ganglion axillaire.",
+            "Fiche leucorrhée et gynécologie de liaison.",
+            "Fiche cancers de l'ovaire : syndrome BRCA."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Cancer inflammatoire",
+      "text": "Sein augmenté de volume, érythème diffus, peau d'orange étendue, chaleur, sans fièvre : urgence oncologique : microbiopsie et bilan d'extension rapide : chimiothérapie d'abord, chirurgie secondaire : pronostic réservé."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Écoulement sanglant du mamelon",
+      "text": "Unilatéral, spontané, sanglant ou séro-sanglant : suspect jusqu'à preuve du contraire : examen du mamelon, imagerie, cytologie ou microbiopsie : éliminer un carcinome canalaire ou une maladie de Paget."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant tout nodule du sein : caractériser (dur, irrégulier, fixé, indolore : suspect ; lisse, mobile, élastique : rassurant), examiner les deux seins et les aires axillaires, ne jamais conclure sur la seule clinique : imagerie + microbiopsie."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Triple test = clinique + imagerie + microbiopsie. Suspicion : nodule dur fixé, rétraction, peau d'orange, écoulement sanglant. Profil : récepteurs hormonaux, HER2, Ki-67 (luminal A/B, HER2, triple négatif). Traitement : conservateur + radiothérapie, hormonothérapie 5-10 ans, anti-HER2 si HER2 positif. Dépistage : mammographie 50-74 ans tous les 2 ans."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Peau d'orange",
+      "text": "Œdème cutané avec pores dilatés en regard d'une tumeur : blocage des lymphatiques dermiques par l'infiltration : signe de malignité à ne jamais banaliser, localisé (stade avancé) ou diffus (cancer inflammatoire)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes de malignité",
+      "entries": [
+        { "key": "D", "term": "Dur, irrégulier" },
+        { "key": "F", "term": "Fixé (peau, plan profond)" },
+        { "key": "I", "term": "Indolore" },
+        { "key": "A", "term": "Adénopathie axillaire" }
+      ]
+    },
+    {
+      "label": "Triple test",
+      "entries": [
+        { "key": "E", "term": "Examen clinique" },
+        { "key": "I", "term": "Imagerie (mammographie, échographie)" },
+        { "key": "M", "term": "Microbiopsie (histologie)" },
+        { "key": "C", "term": "Concordance des trois" }
+      ]
+    },
+    {
+      "label": "Traitements adjuvants",
+      "entries": [
+        { "key": "C", "term": "Chimiothérapie (selon risque)" },
+        { "key": "R", "term": "Radiothérapie (après conservateur)" },
+        { "key": "H", "term": "Hormonothérapie (RH positifs)" },
+        { "key": "T", "term": "Thérapies ciblées (anti-HER2)" }
+      ]
+    },
+    {
+      "label": "Facteurs de risque",
+      "entries": [
+        { "key": "A", "term": "Âge (50-70 ans)" },
+        { "key": "H", "term": "Hormones (vie reproductive)" },
+        { "key": "B", "term": "BRCA1/BRCA2 (hérédité)" },
+        { "key": "O", "term": "Obésité, alcool" }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles tumeurs bénignes fréquentes du sein ?",
+      "back": "Fibroadénome (femme jeune, nodule ferme mobile indolore), kyste solitaire, dystrophie fibrokystique, ectasie canalaire, adénome ; tumeur phyllode : croissance rapide, potentiel local, exérèse large."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les principaux types histologiques de cancer du sein ?",
+      "back": "Carcinome canalaire infiltrant (70-80 pour cent), carcinome lobulaire infiltrant (multifocal, bilatéral), carcinome canalaire in situ (CCIS, non invasif), maladie de Paget du mamelon, cancer inflammatoire."
+    },
+    {
+      "id": "f3",
+      "front": "Quels signes cliniques de malignité ?",
+      "back": "Nodule dur, irrégulier, fixé, indolore ; rétraction cutanée ou du mamelon ; peau d'orange ; écoulement sanglant unilatéral ; ulcération ; adénopathie axillaire dure fixée."
+    },
+    {
+      "id": "f4",
+      "front": "Qu'est-ce que le triple test ?",
+      "back": "La concordance de trois éléments : examen clinique, imagerie adaptée (mammographie + échographie) et microbiopsie : toute discordance impose une réévaluation chirurgicale ou histologique."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle imagerie selon l'âge ?",
+      "back": "Femme jeune (< 40 ans) : échographie d'abord (sein dense) ; après 40-50 ans et au dépistage : mammographie bilatérale complétée par échographie ; IRM : sein dense, multifocalité, haut risque BRCA, prothèse."
+    },
+    {
+      "id": "f6",
+      "front": "Que comporte l'analyse histologique standard ?",
+      "back": "Type histologique, grade (SBR), index mitotique Ki-67, récepteurs hormonaux (œstrogènes, progestérone), statut HER2 : définit le profil (luminal A, luminal B, HER2, triple négatif)."
+    },
+    {
+      "id": "f7",
+      "front": "Quelle est la place du ganglion sentinelle ?",
+      "back": "Technique de référence pour l'exploration axillaire (bleu et/ou radio-isotope) : si le ganglion sentinelle est sain, pas de curage : s'il est envahi, curage axillaire complémentaire ou radiothérapie selon la charge."
+    },
+    {
+      "id": "f8",
+      "front": "Quand préférer la mastectomie à la tumorectomie ?",
+      "back": "Tumeur volumineuse par rapport au sein, multifocalité, CCIS étendu, marges envahies non rattrapables, contre-indication à la radiothérapie ou choix de la patiente."
+    },
+    {
+      "id": "f9",
+      "front": "Pourquoi la radiothérapie après chirurgie conservatrice ?",
+      "back": "Elle réduit de moitié le risque de récidive locale et améliore la survie : systématique après tumorectomie pour carcinome infiltrant ; les marges saines ne dispensent pas de l'irradiation."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle hormonothérapie et pour qui ?",
+      "back": "Tumeurs à récepteurs hormonaux positifs : tamoxifène avant la ménopause, inhibiteurs de l'aromatase après, pendant 5 à 10 ans : diminue récidive et mortalité ; surveillance gynécologique sous tamoxifène."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle prise en charge d'une tumeur HER2 positive ?",
+      "back": "Chirurgie + chimiothérapie + thérapie ciblée anti-HER2 (trastuzumab, pertuzumab) : transforme le pronostic ; surveillance cardiaque (échographie) sous trastuzumab."
+    },
+    {
+      "id": "f12",
+      "front": "Qu'est-ce qu'un cancer triple négatif ?",
+      "back": "Récepteurs hormonaux négatifs et HER2 négatif : pas d'hormonothérapie ni d'anti-HER2 : chimiothérapie classique, immunothérapie (anti-PD-L1) dans les formes avancées : pronostic plus réservé."
+    },
+    {
+      "id": "f13",
+      "front": "Comment reconnaître un cancer inflammatoire ?",
+      "back": "Érythème diffus, chaleur, œdème (peau d'orange étendue), augmentation rapide de volume, sans fièvre ni douleur dominante : microbiopsie en urgence : chimiothérapie d'emblée."
+    },
+    {
+      "id": "f14",
+      "front": "Comment différencier mastite du post-partum et cancer ?",
+      "back": "Mastite : douleur vive, fièvre, érythème localisé, femme allaitante : antibiothérapie, drainage d'abcès ; absence d'amélioration sous traitement : microbiopsie pour éliminer un cancer."
+    },
+    {
+      "id": "f15",
+      "front": "Quel dépistage organisé en France ?",
+      "back": "Mammographie bilatérale tous les 2 ans de 50 à 74 ans, avec double lecture, invitation par courrier : réduit la mortalité d'environ 20 pour cent ; haut risque BRCA : IRM annuelle dès 25-30 ans."
+    },
+    {
+      "id": "f16",
+      "front": "Quel suivi après traitement d'un cancer du sein ?",
+      "back": "Examen clinique tous les 4 à 6 mois pendant 2 ans puis espacé, mammographie annuelle, observance de l'hormonothérapie, dépistage des séquelles (lymphœdème), accompagnement psycho-social et des traitements."
+    }
+  ],
+  "mindmap": {
+    "root": { "id": "tumeurs-sein-root", "label": "Tumeurs du sein" },
+    "branches": [
+      {
+        "id": "ts-b1",
+        "label": "Types",
+        "children": [{ "id": "ts-b1-c", "label": "Bénin et malin" }],
+        "leaves": [
+          { "id": "ts-b1-l1", "label": "Fibroadénome, kyste" },
+          { "id": "ts-b1-l2", "label": "Canalaire infiltrant" },
+          { "id": "ts-b1-l3", "label": "Lobulaire, CCIS" },
+          { "id": "ts-b1-l4", "label": "Paget, inflammatoire" }
+        ]
+      },
+      {
+        "id": "ts-b2",
+        "label": "Signes",
+        "children": [{ "id": "ts-b2-c", "label": "Alerte clinique" }],
+        "leaves": [
+          { "id": "ts-b2-l1", "label": "Nodule dur, fixé" },
+          { "id": "ts-b2-l2", "label": "Rétraction, peau d'orange" },
+          { "id": "ts-b2-l3", "label": "Écoulement sanglant" },
+          { "id": "ts-b2-l4", "label": "Adénopathie axillaire" }
+        ]
+      },
+      {
+        "id": "ts-b3",
+        "label": "Diagnostic",
+        "children": [{ "id": "ts-b3-c", "label": "Triple test" }],
+        "leaves": [
+          { "id": "ts-b3-l1", "label": "Examen clinique" },
+          { "id": "ts-b3-l2", "label": "Mammographie, échographie" },
+          { "id": "ts-b3-l3", "label": "Microbiopsie, récepteurs" },
+          { "id": "ts-b3-l4", "label": "Bilan TNM, extension" }
+        ]
+      },
+      {
+        "id": "ts-b4",
+        "label": "Traitement",
+        "children": [{ "id": "ts-b4-c", "label": "Locorégional et systémique" }],
+        "leaves": [
+          { "id": "ts-b4-l1", "label": "Tumorectomie, mastectomie" },
+          { "id": "ts-b4-l2", "label": "Ganglion sentinelle" },
+          { "id": "ts-b4-l3", "label": "Radiothérapie" },
+          { "id": "ts-b4-l4", "label": "Chimio, hormono, ciblée" }
+        ]
+      },
+      {
+        "id": "ts-b5",
+        "label": "Prévention",
+        "children": [{ "id": "ts-b5-c", "label": "Dépistage, haut risque" }],
+        "leaves": [
+          { "id": "ts-b5-l1", "label": "Mammographie 50-74 ans" },
+          { "id": "ts-b5-l2", "label": "Hygiène de vie, allaitement" },
+          { "id": "ts-b5-l3", "label": "BRCA : IRM, génétique" },
+          { "id": "ts-b5-l4", "label": "Suivi du sein traité" }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Cancer du sein : prise en charge",
+      "citation": "HAS — Recommandations et parcours de soins : cancer du sein (dépistage, diagnostic, traitement)",
+      "organization": "Haute Autorité de santé",
+      "year": 2024,
+      "version": "Recommandation",
+      "url": "https://www.has-sante.fr/jcms/p_3261756/fr/cancer-du-sein",
+      "usedFor": ["prise en charge", "dépistage"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Recommandations sur l'examen du dépistage organisé du cancer du sein",
+      "citation": "HAS — Actualisation : examen du dépistage organisé du cancer du sein (mammographie, double lecture)",
+      "organization": "Haute Autorité de santé",
+      "year": 2024,
+      "version": "Actualisation",
+      "url": "https://www.has-sante.fr/jcms/p_3421814/fr/la-has-actualise-ses-recommandations-sur-l-examen-du-depistage-organise-du-cancer-du-sein",
+      "usedFor": ["dépistage", "imagerie"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Cancer du sein : recommandations régionales",
+      "citation": "Ressources AURA — Recommandations : cancer du sein (bilan, traitements systémiques, suivi)",
+      "organization": "Ressources AURA (réseau régional)",
+      "year": 2023,
+      "version": "Recommandation",
+      "url": "https://ressources-aura.fr/cancer-sein-recommandations/",
+      "usedFor": ["traitement", "suivi"],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancer-col-uterus",
+  "title": "Cancer du col de l'utérus",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser le cancer du col de l'utérus : rôle du papillomavirus humain (HPV), dépistage par frottis cervico-utérin et test HPV, lésions précancéreuses (CIN, dysplasies), présentations cliniques (métrorragies de contact, leucorrhées), bilan d'extension (FIGO), traitements (conisation, chirurgie, radiochimiothérapie, curiethérapie) et prévention par vaccination.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 27,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 27,
+      "localNumber": 27,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancer du col de l'utérus",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Cancer du col de l'utérus : modèle de la carcinogenèse virale : infection persistante par les papillomavirus humains oncogènes (HPV 16 et 18 responsables de 70 pour cent des cas) ; histoire naturelle : infection à HPV (transmission sexuelle, fréquente et souvent transitoire), dysplasie cervicale (CIN1, CIN2, CIN3 sur plusieurs années), puis cancer invasif ; terrain : sexualité précoce, multipartenariat, tabac, immunodépression, multiparité ; dépistage : frottis cervico-utérin (cytologie toutes les 3 ans de 25 à 65 ans après deux frottis normaux à un an d'intervalle) ou test HPV (toutes les 5 ans à partir de 30 ans), colposcopie et biopsies dirigées si anomalie ; signes d'appel : métrorragies de contact (spontanées ou provoquées), leucorrhées anormales, dyspareunie, douleurs pelviennes tardives, œdème des membres inférieurs et hydronéphrose aux stades avancés ; diagnostic : biopsie cervicale dirigée sous colposcopie (examen extemporané rarement), examen sous anesthésie (recueil FIGO clinique : toucher vaginal et rectal, cystoscopie, radiographie thoracique, urographie ou TDM, IRM pelvienne) ; classification FIGO : IA microinvasif (stades précoces découverts sur pièce de conisation), IB limité au col, II extension au vagin ou paramètre (IIA vagin, IIB paramètre), III extension pelvienne (paroi pelvienne, hydronéphrose), IV atteinte vésicale, rectale ou à distance ; traitement : stades précoces (IA1 sans embolement : conisation ; IA2-IB1 : hystérectomie élargie de type B-C avec curage, ou trachélectomie si désir de grossesse) ; stades IB2-IVA : radiochimiothérapie concomitante à visée curative (chimiothérapie à base de cisplatine, curiethérapie utéro-vaginale) ; stades métastatiques : chimiothérapie palliative (cisplatine-paclitaxel, bévacizumab, immunothérapie si PD-L1) ; prévention : vaccination anti-HPV des filles et garçons (9-14 ans avant les rapports), dépistage organisé, arrêt du tabac, condoms partiellement protecteurs.",
+    "verificationNotes": "Contenu aligné sur les recommandations francophones de dépistage et sur la classification FIGO du cancer du col utérin.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer du col de l'utérus est le cancer lié à une cause infectieuse virale : l'infection persistante par les papillomavirus humains oncogènes. Cette histoire naturelle, longue et bien décrite, permet à la fois un dépistage efficace et une prévention vaccinale : c'est un modèle de santé publique, particulièrement pertinent à Madagascar où la couverture vaccinale et le dépistage restent insuffisants."
+        },
+        {
+          "type": "paragraph",
+          "text": "La démarche associe dépistage des lésions précancéreuses, diagnostic histologique des lésions invasives, bilan d'extension FIGO et stratégies allant de la conisation à la radiochimiothérapie concomitante selon le stade."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et histoire naturelle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Épidémiologie : deuxième cancer de la femme dans les pays à ressources limitées ; pic entre 40 et 60 ans ; types histologiques : carcinome épidermoïde (le plus fréquent), adénocarcinome (endocervical, plus difficile à dépister par frottis) ; rôle central des HPV 16 et 18 (70 pour cent des cas), intégration de l'ADN viral (protéines E6, E7 inactivant p53 et Rb).",
+          "sources": ["s1", "s3"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Histoire naturelle : infection à HPV (le plus souvent transitoire et claire en 1 à 2 ans) ; si persistance : dysplasie de bas puis de haut grade (CIN1, CIN2, CIN3) sur 5 à 15 ans ; puis micro-invasion et cancer invasif ; facteurs favorisants : rapports précoces, multipartenariat, tabac, immunodépression (VIH), multiparité, déficit en micronutriments.",
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et facteurs de risque",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Infection persistante à HPV oncogènes (16, 18, 31, 33, 45...) : cause nécessaire ; transmission sexuelle.",
+            "Tabac : cofacteur dose-dépendant (carcinogènes locaux, immunité altérée).",
+            "Immunodépression (VIH, transplantation) : persistance virale et progression accélérée.",
+            "Facteurs sexuels et reproductifs : précocité, multipartenariat, multiparité, partenaires à risque.",
+            "Bas niveau socio-économique : moindre accès au dépistage."
+          ],
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dépistage : frottis cervico-utérin (cytologie) de 25 à 65 ans, tous les 3 ans après deux frottis normaux à un an d'intervalle ; test HPV seul à partir de 30 ans tous les 5 ans ; si frottis anormal ou test HPV positif : colposcopie avec biopsies dirigées et éventuellement endocervicottage ; les lésions précancéreuses (CIN) se traitent après biopsie et localisation : conisation diagnostique et thérapeutique.",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Cancer invasif : signes d'appel : métrorragies de contact (post-coïtales, provoquées au speculum), leucorrhées rosées ou brunâtres, dyspareunie, plus tardivement douleurs pelviennes lombaires, œdème des membres inférieurs, hydronéphrose, fistules ; examen : lésion bourgeonnante, ulcérée ou infiltrée du col, saignant au contact, extension au vagin ou aux paramètres ; diagnostic : biopsies dirigées (histologie) ; bilan d'extension FIGO clinique sous anesthésie (touchers vaginal et rectal, cystoscopie, proctoscopie) complété par IRM pelvienne, TDM thoraco-abdomino-pelvienne ou TEP ; stades FIGO : IA microinvasif, IB limité au col, IIA vagin, IIB paramètre, III paroi pelvienne ou hydronéphrose, IV vessie, rectum ou métastases.",
+          "sources": ["s2", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lésions précancéreuses : conisation (couteau, anse diathermique, laser) pour CIN2-CIN3 ; suivi cytologique et HPV à 6, 12, 24 mois ; CIN1 : surveillance possible. Stades précoces : IA1 sans embolement vasculaire et avec marges saines : conisation suffit (fertilisable) ; IA2-IB1 : hystérectomie élargie (type B ou C selon taille) avec curage pelvien, ou trachélectomie élargie avec curage si désir de grossesse chez des patientes sélectionnées.",
+          "sources": ["s1", "s3"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Stades localement avancés (IB2 à IVA) : radiochimiothérapie concomitante (radiothérapie externe pelvienne + chimiothérapie hebdomadaire à base de cisplatine) suivie de curiethérapie utéro-vaginale : traitement de référence à visée curative ; en cas d'anémie ou d'infection : correction préalable ; stades métastatiques ou récidive : chimiothérapie palliative (cisplatine-paclitaxel, bévacizumab), immunothérapie (anti-PD-1) si surexpression de PD-L1, soins de support et prise en charge de la douleur ; complications à surveiller : fistules vésico-vaginales ou recto-vaginales (obstruction, radiothérapie), lymphœdème, sténoses vaginales, insuffisance rénale obstructive.",
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Primaire : vaccination anti-HPV (types 6, 11, 16, 18 ou vaccin nonavalent) des filles et des garçons de 9 à 14 ans, idéalement avant les premiers rapports, avec rattrapage jusqu'à 19-26 ans ; Secondaire : dépistage cytologique systématique de 25 à 65 ans (ou test HPV après 30 ans), colposcopie des anomalies, traitement des CIN ; Tertiaire : diagnostic et traitement précoces des stades invasifs ; mesures associées : arrêt du tabac, préservatifs (protection partielle), dépistage des IST, contrôle du VIH."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer du col utérin est un cancer évitable : vaccination anti-HPV avant l'activité sexuelle et dépistage régulier par frottis ou test HPV interrompent la progression CIN vers l'invasion ; le diagnostic repose sur la biopsie sous colposcopie et le bilan FIGO ; la conisation traite les stades précoces, la chirurgie élargie les stades initiaux, la radiochimiothérapie concomitante avec curiethérapie les stades localement avancés : le pronostic s'effondre d'un stade à l'autre, d'où l'importance du dépistage.",
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche leucorrhée et infections uro-génitales à gonocoques et chlamydia : co-infections.",
+            "Fiche VIH : immunodépression et persistance virale.",
+            "Fiche hémorragie génitale de la femme : cadre sémiologique.",
+            "Fiche infection à VIH et vaccination."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Métrorragies de contact",
+      "text": "Saignement du col au contact (spéculum, rapport) chez une femme non ménopausée ou ménopausée : examiner le col, frottis si normal, biopsies immédiates si lésion suspecte : tout saignement de contact impose d'éliminer un cancer du col."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Stade avancé obstructif",
+      "text": "Douleurs pelviennes, œdème des membres inférieurs, insuffisance rénale : extension latérale du cancer (paramètre, uretères) : bilan d'extension urgent, dérivation urinaire si besoin : pronostic engagé."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant toute leucorrhée anormale ou métrorragie de contact : speculum systématique, inspection du col entier (exocol et endocol), frottis si aspect normal, biopsie dirigée si lésion visible, colposcopie en cas de frottis anormal."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "HPV 16 et 18 : 70 pour cent des cancers. Séquence : HPV persistant, CIN1-3, invasion. Dépistage : frottis 25-65 ans (3 ans) ou test HPV après 30 ans (5 ans). Traitement : conisation pour CIN2-3 et IA1, chirurgie élargie pour IB1, radiochimiothérapie concomitante pour IB2-IVA. Prévention : vaccination 9-14 ans."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "FIGO simplifiée",
+      "text": "I : limité au col (IA micro, IB franchement). II : au-delà du col sans la paroi pelvienne (IIA vagin, IIB paramètre). III : paroi pelvienne, hydronéphrose (IIIA vagin bas, IIIB paroi). IV : vessie, rectum (IVA) ou métastases (IVB)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "HPV oncogènes",
+      "entries": [
+        { "key": "16", "term": "Type le plus fréquent (épidermoïde)" },
+        { "key": "18", "term": "Adénocarcinome" },
+        { "key": "E6", "term": "Inactive p53" },
+        { "key": "E7", "term": "Inactive Rb" }
+      ]
+    },
+    {
+      "label": "Signes d'appel",
+      "entries": [
+        { "key": "M", "term": "Métrorragies de contact" },
+        { "key": "L", "term": "Leucorrhées anormales" },
+        { "key": "D", "term": "Dyspareunie" },
+        { "key": "O", "term": "Œdème, douleurs (avancé)" }
+      ]
+    },
+    {
+      "label": "Bilan d'extension",
+      "entries": [
+        { "key": "T", "term": "Touchers vaginal et rectal" },
+        { "key": "I", "term": "IRM pelvienne" },
+        { "key": "C", "term": "Cystoscopie, proctoscopie" },
+        { "key": "T", "term": "TDM ou TEP à distance" }
+      ]
+    },
+    {
+      "label": "Traitement par stade",
+      "entries": [
+        { "key": "IA1", "term": "Conisation" },
+        { "key": "IA2-IB1", "term": "Hystérectomie élargie + curage" },
+        { "key": "IB2-IVA", "term": "Radiochimiothérapie + curiethérapie" },
+        { "key": "IVB", "term": "Chimiothérapie palliative" }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la cause du cancer du col de l'utérus ?",
+      "back": "L'infection persistante par les papillomavirus humains oncogènes (HPV 16 et 18 dans 70 pour cent des cas), sexuellement transmise : cause nécessaire mais non suffisante."
+    },
+    {
+      "id": "f2",
+      "front": "Décrire l'histoire naturelle du cancer du col.",
+      "back": "Infection à HPV souvent transitoire ; persistance : dysplasies CIN1, CIN2, CIN3 sur 5 à 15 ans ; puis micro-invasion et cancer invasif : d'où l'efficacité du dépistage et de la vaccination."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les facteurs de risque ?",
+      "back": "Rapports sexuels précoces, multipartenariat, tabac, immunodépression (VIH), multiparité, bas niveau socio-économique avec absence de dépistage."
+    },
+    {
+      "id": "f4",
+      "front": "Comment se fait le dépistage en France ?",
+      "back": "Frottis cervico-utérin de 25 à 65 ans, tous les 3 ans après deux frottis normaux à un an d'intervalle ; test HPV seul à partir de 30 ans tous les 5 ans ; colposcopie si anomalie."
+    },
+    {
+      "id": "f5",
+      "front": "Que faire d'un frottis anormal ?",
+      "back": "Colposcopie avec biopsies dirigées des zones suspectes (acéto-blanches, iodonégatives), endocervicottage si besoin : histologie qui classe la lésion (CIN) et guide le traitement."
+    },
+    {
+      "id": "f6",
+      "front": "Comment traiter une CIN2-CIN3 ?",
+      "back": "Conisation (anse diathermique, couteau froid ou laser) : à la fois diagnostique et thérapeutique ; suivi cytologique et test HPV à 6, 12 et 24 mois ; CIN1 : surveillance possible."
+    },
+    {
+      "id": "f7",
+      "front": "Quels sont les signes du cancer invasif ?",
+      "back": "Métrorragies de contact (post-coïtales ou provoquées), leucorrhées anormales, dyspareunie ; plus tardivement douleurs pelviennes lombaires, œdème des membres inférieurs, hydronéphrose, fistules."
+    },
+    {
+      "id": "f8",
+      "front": "Comment confirter le diagnostic d'un cancer invasif ?",
+      "back": "Biopsies cervicales dirigées sous colposcopie : histologie (épidermoïde ou adénocarcinome) ; jamais de traitement sans preuve histologique."
+    },
+    {
+      "id": "f9",
+      "front": "Quel bilan d'extension FIGO ?",
+      "back": "Examen sous anesthésie : touchers vaginal et rectal, cystoscopie, proctoscopie ; IRM pelvienne (extension paramétriale), TDM thoraco-abdomino-pelvienne ou TEP pour les métastases : le stade FIGO reste clinique."
+    },
+    {
+      "id": "f10",
+      "front": "Résumer la classification FIGO.",
+      "back": "IA microinvasif, IB limité au col ; IIA vagin, IIB paramètre ; III paroi pelvienne et/ou hydronéphrose ; IVA vessie, rectum ou extension hors pelvis, IVB métastases à distance."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement pour un stade IA1 sans embolement ?",
+      "back": "Conisation avec marges saines : traitement suffisant, conservant la fertilité ; suivi rapproché par frottis et test HPV."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement pour un stade IB1 ?",
+      "back": "Hystérectomie élargie (type B ou C) avec curage pelvien ; trachélectomie élargie avec curage possible chez une patiente sélectionnée désirant une grossesse."
+    },
+    {
+      "id": "f13",
+      "front": "Quel traitement de référence des stades IB2 à IVA ?",
+      "back": "Radiochimiothérapie concomitante : radiothérapie externe pelvienne avec chimiothérapie hebdomadaire à base de cisplatine, puis curiethérapie utéro-vaginale : à visée curative."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle place de l'immunothérapie ?",
+      "back": "En cas de maladie métastatique ou récidivante avec surexpression de PD-L1 : anticorps anti-PD-1 en monothérapie ou associé à la chimiothérapie : améliore la survie dans ces stades."
+    },
+    {
+      "id": "f15",
+      "front": "Quand vacciner contre le HPV ?",
+      "back": "Entre 9 et 14 ans, idéalement avant les premiers rapports sexuels (2 doses), avec rattrapage jusqu'à 19 ans (3 doses si initiation tardive) : filles et garçons."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles complications du traitement ?",
+      "back": "Chirurgie : lymphœdème, fistules, sténoses vaginales, troubles mictionnels ; radiothérapie : fistules vésico-vaginales ou recto-vaginales, sténose, enterite radique ; chimiothérapie : neuropathie, insuffisance rénale."
+    }
+  ],
+  "mindmap": {
+    "root": { "id": "cancer-col-uterus-root", "label": "Cancer du col utérin" },
+    "branches": [
+      {
+        "id": "ccu-b1",
+        "label": "Cause",
+        "children": [{ "id": "ccu-b1-c", "label": "HPV" }],
+        "leaves": [
+          { "id": "ccu-b1-l1", "label": "HPV 16, 18" },
+          { "id": "ccu-b1-l2", "label": "Protéines E6, E7" },
+          { "id": "ccu-b1-l3", "label": "Persistance virale" },
+          { "id": "ccu-b1-l4", "label": "Cofacteurs : tabac, VIH" }
+        ]
+      },
+      {
+        "id": "ccu-b2",
+        "label": "Histoire naturelle",
+        "children": [{ "id": "ccu-b2-c", "label": "Progression" }],
+        "leaves": [
+          { "id": "ccu-b2-l1", "label": "CIN1" },
+          { "id": "ccu-b2-l2", "label": "CIN2-CIN3" },
+          { "id": "ccu-b2-l3", "label": "Micro-invasion" },
+          { "id": "ccu-b2-l4", "label": "Cancer invasif" }
+        ]
+      },
+      {
+        "id": "ccu-b3",
+        "label": "Diagnostic",
+        "children": [{ "id": "ccu-b3-c", "label": "Outils" }],
+        "leaves": [
+          { "id": "ccu-b3-l1", "label": "Frottis, test HPV" },
+          { "id": "ccu-b3-l2", "label": "Colposcopie" },
+          { "id": "ccu-b3-l3", "label": "Biopsies dirigées" },
+          { "id": "ccu-b3-l4", "label": "IRM, bilan FIGO" }
+        ]
+      },
+      {
+        "id": "ccu-b4",
+        "label": "Traitement",
+        "children": [{ "id": "ccu-b4-c", "label": "Selon le stade" }],
+        "leaves": [
+          { "id": "ccu-b4-l1", "label": "Conisation" },
+          { "id": "ccu-b4-l2", "label": "Chirurgie élargie" },
+          { "id": "ccu-b4-l3", "label": "Radiochimiothérapie" },
+          { "id": "ccu-b4-l4", "label": "Immunothérapie, palliatif" }
+        ]
+      },
+      {
+        "id": "ccu-b5",
+        "label": "Prévention",
+        "children": [{ "id": "ccu-b5-c", "label": "Niveaux" }],
+        "leaves": [
+          { "id": "ccu-b5-l1", "label": "Vaccination 9-14 ans" },
+          { "id": "ccu-b5-l2", "label": "Dépistage 25-65 ans" },
+          { "id": "ccu-b5-l3", "label": "Traitement des CIN" },
+          { "id": "ccu-b5-l4", "label": "Tabac, IST" }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Dépistage du cancer du col de l'utérus",
+      "citation": "Ameli — Dépistage organisé du cancer du col de l'utérus (frottis, test HPV, colposcopie)",
+      "organization": "Assurance Maladie (ameli.fr)",
+      "year": 2024,
+      "version": "Fiche",
+      "url": "https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/depistage-organise-cancer-col-uterus",
+      "usedFor": ["dépistage", "suivi"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Recommandations : cancer du col de l'utérus",
+      "citation": "Recommandations Médicales — Prise en charge du cancer du col utérin (bilan, stades, traitements)",
+      "organization": "Recommandations Médicales (recomedicales.fr)",
+      "year": 2023,
+      "version": "Recommandation",
+      "url": "https://recomedicales.fr/recommandations/cancer-col-uterus/",
+      "usedFor": ["classification", "traitement"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Bénéfices du dépistage du cancer du col de l'utérus",
+      "citation": "INCa — Communiqué et données : dépistage et vaccination HPV",
+      "organization": "Institut national du cancer",
+      "year": 2023,
+      "version": "Publication",
+      "url": "https://www.cancer.fr/presse/l-inca-rappelle-les-benefices-du-depistage-du-cancer-du-col-de-l-uterus",
+      "usedFor": ["épidémiologie", "vaccination"],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "goitre-nodule",
+  "title": "Goître diffus et nodule thyroïdien",
+  "specialty": "Endocrinologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la sémiologie du goitre et du nodule thyroïdien : examen clinique (consistance, mobilité, signes compressifs, adénopathies, signes de dysfonction), démarche diagnostique (TSH, échographie, cytoponction selon le profil de risque), étiologies (goitre simple, Hashimoto, Basedow, nodule bénin, cancer papillaire) et principes thérapeutiques (surveillance, lévothyroxine, chirurgie, iode radioactif).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 29,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 29,
+      "localNumber": 29,
+      "sectionLabel": "Sémiologie",
+      "title": "Goître diffus et nodule thyroïdien",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée aux pathologies thyroïdiennes nodulaires et diffuses : goitre diffus homogène ou hétérogène, nodule unique ou multiple, contexte de carence iodée et de terrain familial ; explorer la fonction (TSH, T4L), caractériser par échographie avec classification du risque, cytoponction des nodules suspects ; trancher entre surveillance, traitement suppressif et chirurgie ; dépister le cancer papillaire (nodule dur, adénopathie, croissance rapide).",
+    "verificationNotes": "Contenu aligné sur les référentiels endocrinologiques français : bilan TSH systématique, échographie avec score de risque, cytoponction des nodules sélectionnés, place de la chirurgie.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le goitre, augmentation diffuse ou nodulaire de la taille de la thyroïde, est très fréquent en zone de carence iodée, comme une grande partie de Madagascar. Le nodule thyroïdien pose la question du cancer, rare mais à ne pas manquer."
+        },
+        {
+          "type": "paragraph",
+          "text": "La démarche est double : évaluer la fonction thyroïdienne (TSH) et la nature lésionnelle (échographie, cytoponction), puis le retentissement compressif ou esthétique."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Goitre diffus : tuméfaction antérieure du cou, souple ou ferme, suivant les mouvements de déglutition, asymptomatique le plus souvent ; signes compressifs possibles (dysphagie, dyspnée, dysphonie, gêne au col) ; contexte : carence iodée, puberté, grossesse, Hashimoto (goitre ferme, hypothyroïdie), Basedow (goitre vasculaire avec souffle, hyperthyroïdie et signes oculaires).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Nodule thyroïdien : tuméfaction localisée, découverte par le patient ou à l'examen ; caractères : consistance (dur = suspect), taille, sensibilité, fixation, adénopathie cervicale ; nodule toxique autonome possible (hyperthyroïdie).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes de dysfonction : hypothyroïdie (fatigue, frilosité, bradycardie, prise de poids, peau sèche) ; hyperthyroïdie (amaigrissement, tachycardie, tremblement, thermophobie, diarrhée, signes oculaires de Basedow).",
+            "Signes de gravité : croissance rapide, dureté, fixation aux plans profonds, adénopathie cervicale, paralysie récurrentielle (voix bitonale), formes familiales de cancer thyroïdien ou irradiation cervicale antérieure."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Goitres diffuses : carence iodée (goitre simple, endémique), thyroïdite de Hashimoto (auto-immune, hypothyroïdie), maladie de Basedow (auto-immune, hyperthyroïdie), thyroïdite subaiguë (douleur, fièvre), goitre sporatique simple.",
+            "Nodules bénins : adénome folliculaire, kyste, nodule colloïde, goitre multinodulaire, nodule toxique autonome.",
+            "Cancers : carcinome papillaire (le plus fréquent, bon pronostic), vésiculaire, médullaire (CMT, calcitonine, NEM2), anaplasique (Sujet âgé, mauvais pronostic).",
+            "Facteurs de risque : irradiation cervicale dans l'enfance, antécédents familiaux de cancer thyroïdien ou de NEM2, carence iodée, sexe féminin, âge (très jeune ou très avancé)."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Examen clinique : inspection et palpation de la thyroïde (taille, consistance, nodules, mobilité à la déglutition), auscultation (souffle du Basedow), recherche de signes compressifs, examen cervical ganglionnaire, signes de dysfonction ; évaluer le retentissement esthétique ou compressif.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Examens : TSH (premier examen systématique ; T4L et T3L si anormale, anticorps anti-TPO et anti-TRAK selon le contexte), échographie thyroïdienne et cervicale (caractérisation des nodules, score de risque type EU-TIRADS), cytoponction à l'aiguille fine des nodules suspects ou volumineux (classification de Bethesda), scintigraphie si hyperthyroïdie ou nodule chaud, calcitonine si suspicion de cancer médullaire, bilan préopératoire (laryngoscopie, calcémie).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Nodule suspect",
+          "text": "Nodule dur, fixé, adénopathie cervicale, croissance rapide ou paralysie récurrentielle : cytoponction et avis endocrino-chirurgical sans délai."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Goitre simple diffus : correction de la carence iodée (sel iodé, compléments), surveillance clinique et échographique ; traitement freinateur par lévothyroxine discuté selon le contexte (goitre récent, patient jeune, TSH normale-haute) ; goitre compressif : chirurgie.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dysfonctions : hypothyroïdie : lévothyroxine substitutive ; hyperthyroïdie : antithyroïdiens de synthèse (carbimazole), bêtabloquants, iode radioactif ou chirurgie selon le contexte (Basedow, nodule toxique, goitre multinodulaire).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Nodules bénins : surveillance échographique régulière, cytoponction répétée si évolution ; chirurgie pour nodule volumineux, compressif, esthétique ou toxique ; cancers : chirurgie (thyroïdectomie totale avec curage selon le type) puis iode radioactif pour les formes différenciées, supplémentation en lévothyroxine à visée freinatrice, suivi par thyroglobuline ; cancer médullaire : génétique (RET) et dépistage familial.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Iodation du sel et supplémentation des femmes enceintes et allaitantes en zone carencée, information sur les antécédents d'irradiation cervicale, dépistage familial du cancer médullaire (NEM2), surveillance échographique des goitres et nodules connus."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant un goitre ou un nodule thyroïdien : évaluer la fonction (TSH), caractériser par l'échographie, cytoponctionner les nodules suspects et dépister les signes de gravité (dureté, adénopathie, croissance rapide, paralysie récurrentielle). Le traitement va de la simple surveillance et de la correction iodée à la chirurgie et à l'iode radioactif ; le cancer papillaire, dépisté tôt, a un excellent pronostic.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hyperthyroidie — Basedow et nodule toxique.",
+            "Fiche hypothyroidie — Hashimoto.",
+            "Fiche dysphonie — atteinte récurrentielle.",
+            "Fiche tumeurs-endocrines — NEM2 et cancer médullaire."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Nodule thyroïdien suspect",
+      "text": "Dur, fixé, adénopathie cervicale, croissance rapide, paralysie récurrentielle : cytoponction et avis chirurgical sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Goitre compressif",
+      "text": "Dyspnée, dysphagie, dysphonie par compression : évaluation rapide, chirurgie si retentissement."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Palpation avec déglutition, consistance et mobilité, adénopathies cervicales, signes de dysfonction ; TSH systématique ; échographie avec score de risque ; cytoponction des nodules suspects."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Goitre diffus souple, femme, carence iodée : goitre simple. Goitre ferme + hypothyroïdie : Hashimoto. Goitre vasculaire + signes oculaires : Basedow. Nodule dur + adénopathie : cancer papillaire. Nodule chaud + hyperthyroïdie : nodule toxique autonome."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Bilan thyroïdien nodulaire",
+      "text": "TSH d'abord ; échographie ensuite (score de risque) ; cytoponction si nodule suspect ou volumineux ; scintigraphie si hyperthyroïdie ; calcitonine si contexte médullaire ; laryngoscopie avant chirurgie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes de gravité d'un nodule",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Dur, fixé"
+        },
+        {
+          "key": "A",
+          "term": "Adénopathie cervicale"
+        },
+        {
+          "key": "C",
+          "term": "Croissance rapide"
+        },
+        {
+          "key": "R",
+          "term": "Récurentielle (voix bitonale)"
+        }
+      ]
+    },
+    {
+      "label": "Étiologies d'un goitre diffus",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Carence iodée"
+        },
+        {
+          "key": "H",
+          "term": "Hashimoto"
+        },
+        {
+          "key": "B",
+          "term": "Basedow"
+        },
+        {
+          "key": "S",
+          "term": "Subaiguë (thyroïdite douloureuse)"
+        }
+      ]
+    },
+    {
+      "label": "Bilan d'un nodule",
+      "entries": [
+        {
+          "key": "T",
+          "term": "TSH"
+        },
+        {
+          "key": "E",
+          "term": "Échographie (score de risque)"
+        },
+        {
+          "key": "C",
+          "term": "Cytoponction (Bethesda)"
+        },
+        {
+          "key": "S",
+          "term": "Scintigraphie si hyperthyroïdie)"
+        }
+      ]
+    },
+    {
+      "label": "Traitements disponibles",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Surveillance (bénin)"
+        },
+        {
+          "key": "L",
+          "term": "Lévothyroxine (substitution ou freinage)"
+        },
+        {
+          "key": "C",
+          "term": "Chirurgie (compressif, suspect, cancer)"
+        },
+        {
+          "key": "I",
+          "term": "Iode radioactif (différencié, toxique)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce qu'un goitre ?",
+      "back": "Une augmentation de volume de la thyroïde, diffuse ou nodulaire, le plus souvent bénin ; en zone de carence iodée, il peut toucher une large part de la population."
+    },
+    {
+      "id": "f2",
+      "front": "Pourquoi le goitre suit-il la déglutition ?",
+      "back": "La thyroïde est fixée à la trachée par les ligaments suspenseurs : elle monte avec le larynx lors de la déglutition, ce qui la distingue des autres tuméfactions cervicales."
+    },
+    {
+      "id": "f3",
+      "front": "Quels signes compressifs d'un goitre ?",
+      "back": "Dyspnée (compression trachéale), dysphagie (œsophage), dysphonie ou voix bitonale (nerf récurrentiel), gêne au col, congestion veineuse (signe de Pemberton)."
+    },
+    {
+      "id": "f4",
+      "front": "Comment se présente la maladie de Basedow ?",
+      "back": "Goitre diffus vasculaire avec souffle, hyperthyroïdie (amaigrissement, tachycardie, tremblement), signes oculaires (exophtalmie, rétraction palpébrale), anticorps anti-TRAK positifs."
+    },
+    {
+      "id": "f5",
+      "front": "Comment se présente le goitre de Hashimoto ?",
+      "back": "Goitre ferme, bosselé, avec hypothyroïdie (fatigue, frilosité, bradycardie, prise de poids), anticorps anti-TPO élevés ; parfois phase brève d'hyperthyroïdie initiale."
+    },
+    {
+      "id": "f6",
+      "front": "Quels caractères cliniques d'un nodule suspect ?",
+      "back": "Consistance dure, fixation aux plans profonds, taille supérieure à quatre centimètres, croissance rapide, adénopathie cervicale, paralysie récurrentielle, antécédent d'irradiation ou familial."
+    },
+    {
+      "id": "f7",
+      "front": "Quel est le premier examen biologique devant un nodule thyroïdien ?",
+      "back": "La TSH : normale dans la plupart des nodules bénins ; basse oriente vers un nodule toxique ou une hyperthyroïdie (scintigraphie) ; haute vers une hypothyroïdie (Hashimoto)."
+    },
+    {
+      "id": "f8",
+      "front": "Quel rôle de l'échographie thyroïdienne ?",
+      "back": "Elle caractérise les nodules (taille, contenu, forme, marges, vascularisation, microcalcifications), calcule un score de risque (type EU-TIRADS) et guide la cytoponction ; elle explore aussi les aires ganglionnaires cervicales."
+    },
+    {
+      "id": "f9",
+      "front": "Quand cytoponctionner un nodule ?",
+      "back": "Devant un nodule échographiquement suspect ou volumineux, un nodule palpable ferme ou croissant, une adénopathie associée ; la classification de Bethesda oriente la conduite (bénin, indéterminé, suspect, malin)."
+    },
+    {
+      "id": "f10",
+      "front": "Quels cancers thyroïdiens et leurs pronostics ?",
+      "back": "Papillaire : le plus fréquent, excellent pronostic ; vésiculaire : bon pronostic, sur goitre ancien ; médullaire : calcitonine, génétique (RET, NEM2) ; anaplasique : sujet âgé, pronostic sombre."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement d'un goitre simple diffus ?",
+      "back": "Correction de la carence iodée, surveillance clinique et échographique ; lévothyroxine freinatrice discutée dans certaines formes ; chirurgie si compression ou retentissement majeur."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement d'un nodule toxique autonome ?",
+      "back": "Iode radioactif le plus souvent, ou chirurgie (lobectomie) si nodule volumineux ou compressif ; antithyroïdiens pour préparer ou traiter transitoirement l'hyperthyroïdie."
+    },
+    {
+      "id": "f13",
+      "front": "Quel traitement d'un carcinome papillaire ?",
+      "back": "Thyroïdectomie totale avec curage central (et latéral selon l'extension), iode radioactif post-opératoire, lévothyroxine à dose freinatrice (TSH basse), suivi par thyroglobuline et échographie."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi doser la calcitonine ?",
+      "back": "Elle dépiste le cancer médullaire de la thyroïde : si élevée, génétique du proto-oncogène RET, dépistage familial (NEM2) et thyroïdectomie prophylactique des apparentés porteurs."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles précautions avant une thyroïdectomie ?",
+      "back": "Bilan de la fonction thyroïdienne (euthyroïdie ou équilibre), laryngoscopie (mobilité des cordes), calcémie, information sur les risques (récurentiel, parathyroïdes), supplémentation calcique et vitaminique post-opératoire surveillée."
+    },
+    {
+      "id": "f16",
+      "front": "Comment prévenir le goitre en zone endémique ?",
+      "back": "Iodation du sel, supplémentation iodée des femmes enceintes et allaitantes, éducation nutritionnelle ; la correction de la carence fait régressir les goitres récents et prévient les nodules."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "gtm-root",
+      "label": "Goître diffus et nodule thyroïdien"
+    },
+    "branches": [
+      {
+        "id": "gtm-b1",
+        "label": "Sémiologie",
+        "children": [
+          {
+            "id": "gtm-b1-c",
+            "label": "Examen du cou"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "gtm-b1-l1",
+            "label": "Tuméfaction mobile à la déglutition"
+          },
+          {
+            "id": "gtm-b1-l2",
+            "label": "Nodules, consistance, souffle"
+          },
+          {
+            "id": "gtm-b1-l3",
+            "label": "Signes compressifs"
+          },
+          {
+            "id": "gtm-b1-l4",
+            "label": "Adénopathies cervicales"
+          }
+        ]
+      },
+      {
+        "id": "gtm-b2",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "gtm-b2-c",
+            "label": "Diffus ou nodulaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "gtm-b2-l1",
+            "label": "Carence iodée"
+          },
+          {
+            "id": "gtm-b2-l2",
+            "label": "Hashimoto, Basedow"
+          },
+          {
+            "id": "gtm-b2-l3",
+            "label": "Adénome, kyste, goitre multinodulaire"
+          },
+          {
+            "id": "gtm-b2-l4",
+            "label": "Cancer papillaire, médullaire"
+          }
+        ]
+      },
+      {
+        "id": "gtm-b3",
+        "label": "Bilan",
+        "children": [
+          {
+            "id": "gtm-b3-c",
+            "label": "Étape par étape"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "gtm-b3-l1",
+            "label": "TSH, T4L, anticorps"
+          },
+          {
+            "id": "gtm-b3-l2",
+            "label": "Échographie + score de risque"
+          },
+          {
+            "id": "gtm-b3-l3",
+            "label": "Cytoponction (Bethesda)"
+          },
+          {
+            "id": "gtm-b3-l4",
+            "label": "Scintigraphie si hyperthyroïdie"
+          }
+        ]
+      },
+      {
+        "id": "gtm-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "gtm-b4-c",
+            "label": "Selon la cause"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "gtm-b4-l1",
+            "label": "Iode, surveillance"
+          },
+          {
+            "id": "gtm-b4-l2",
+            "label": "Lévothyroxine"
+          },
+          {
+            "id": "gtm-b4-l3",
+            "label": "Antithyroïdiens, iode radioactif"
+          },
+          {
+            "id": "gtm-b4-l4",
+            "label": "Chirurgie, curage"
+          }
+        ]
+      },
+      {
+        "id": "gtm-b5",
+        "label": "Gravité",
+        "children": [
+          {
+            "id": "gtm-b5-c",
+            "label": "À dépister"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "gtm-b5-l1",
+            "label": "Nodule dur, fixé"
+          },
+          {
+            "id": "gtm-b5-l2",
+            "label": "Croissance rapide"
+          },
+          {
+            "id": "gtm-b5-l3",
+            "label": "Adénopathie, récurrentielle"
+          },
+          {
+            "id": "gtm-b5-l4",
+            "label": "Contexte familial, irradiation"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Goitre, nodules thyroïdiens et cancers thyroïdiens",
+      "citation": "La Revue du Praticien — Article : goitre et nodules thyroïdiens, démarche diagnostique et cancers",
+      "organization": "La Revue du Praticien",
+      "year": 2023,
+      "version": "Article de revue",
+      "url": "https://www.larevuedupraticien.fr/article/goitre-nodules-thyroidiens-et-cancers-thyroidiens",
+      "usedFor": [
+        "démarche diagnostique",
+        "cancers"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Nodules de la thyroïde et goitres",
+      "citation": "FMC Tourcoing — Formation : nodules thyroïdiens et goitres, conduite à tenir",
+      "organization": "FMC Tourcoing",
+      "year": 2023,
+      "version": "Support de formation",
+      "url": "https://www.fmc-tourcoing.org/new/wp-content/uploads/2023/10/Nodules-thyroide-Goitres-2023.pdf",
+      "usedFor": [
+        "bilan",
+        "conduite à tenir"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Nodule de la thyroïde : diagnostic et chirurgie",
+      "citation": "Paris Thyroïde — Chirurgie de la thyroïde : nodule thyroïdien, bilan et traitements",
+      "organization": "Paris Thyroïde",
+      "year": 2023,
+      "version": "Fiche de consultation",
+      "url": "https://www.paris-thyroide.fr/chirurgie-thyroide/nodule-thyroide/",
+      "usedFor": [
+        "bilan",
+        "chirurgie"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

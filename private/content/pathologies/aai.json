@@ -1,0 +1,633 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "aai",
+  "title": "Anémies hémolytiques à auto-anticorps",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'anémie hémolytique auto-immune, distinguer les formes à anticorps chauds (IgG) et à anticorps froids (IgM), connaître les étiologies (idiopathique, hémopathies, infections, médicaments), affirmer le diagnostic par le test de Coombs direct et maîtriser le traitement (corticoïdes, rituximab, immunoglobulines, splénectomie) et la surveillance.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 86,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 127,
+      "localNumber": 86,
+      "sectionLabel": "Médecine",
+      "title": "Anémies hémolytiques à auto-anticorps",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée au versant auto-immun de l'hémolyse : typologie des auto-anticorps (chauds et froids), démarche diagnostique centrée sur le test de Coombs direct, étiologies à systématiquement rechercher, traitement de première et deuxième intention et conduite en urgence. Le cadre général de l'hémolyse et les accidents transfusionnels (hémolyse allo-immune) relèvent des fiches dédiées.",
+    "verificationNotes": "Typologie (anticorps chauds IgG à 37 degrés, hémolyse extravasculaire ; anticorps froids IgM, agglutinines froides) et place du test de Coombs direct conformes à la Revue Médicale Suisse et au document patient de la Société Française d'Hématologie. Corticothérapie en première ligne (environ un milligramme par kilo), rituximab et splénectomie en cas d'échec, prudence transfusionnelle : conformes aux mêmes sources et au polycopié d'oncologie (oncologik).",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie hémolytique auto-immune (AHAI) est liée à des auto-anticorps dirigés contre les antigènes de la membrane des globules rouges, dont la fixation entraîne leur destruction précoce. C'est la plus fréquente des anémies hémolytiques extracorpusculaires acquises de l'adulte, et une urgence potentielle : l'hémolyse peut être brutale et massive."
+        },
+        {
+          "type": "paragraph",
+          "text": "La découverte d'une AHAI impose une double démarche : caractériser l'anticorps (chaud ou froid) et rechercher la cause sous-jacente — hémopathie, infection, tumeur, médicament — car environ la moitié des formes secondaires révèlent la maladie causale."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et typologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deux grands types. Formes à anticorps chauds (les plus fréquentes) : IgG opsonisantes actives à 37 degrés, hémolyse surtout extravasculaire (rate), test de Coombs direct positif IgG, avec ou sans complément. Formes à anticorps froids : IgM agglutinantes actives sous 37 degrés, hémolyse intravasculaire médiée par le complément, syndrome de Raynaud à l'exposition au froid, test de Coombs positif C3 isolé ; la maladie des agglutinines froides en est le principal cadre.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémolyse peut être intense : hémoglobine parfois inférieure à 6 grammes par décilitre, réticulocytose majeure, LDH très élevées, haptoglobine effondrée ; des sphérocytes sont visibles sur le frottis dans les formes à IgG. La gravité tient à la rapidité d'installation, au terrain (sujet âgé, cardiaque) et aux complications : thrombose veineuse, décompensation cardiaque, atteinte rénale.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dans près de la moitié des cas des adultes, l'AHAI est idiopathique ; le diagnostic de cause doit néanmoins rester actif, une hémopathie pouvant être révélée des mois plus tard. Causes secondaires : hémopathies lymphoïdes (leucémie lymphoïde chronique, lymphome, maladie de Hodgkin), tumeurs solides (sein, ovaires, côlon, poumon), infections (mycoplasme — formes froides, mononucléose infectieuse, VIH, brucellose, paludisme), connectivites (lupus), médicaments (béta-lactamines à haute dose, méthyl-dopa, fludarabine).",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Idiopathique : environ la moitié des cas — diagnostic d'élimination actif.",
+            "Hémopathies lymphoïdes : leucémie lymphoïde chronique au premier rang.",
+            "Infections : mycoplasme et mononucléose (formes froides), VIH, paludisme.",
+            "Connectivites : lupus érythémateux en tête.",
+            "Médicaments : béta-lactamines à haute dose, méthyl-dopa, fludarabine."
+          ],
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le syndrome anémique est souvent brutal : pâleur, asthénie, ictère, dyspnée, parfois fièvre ; l'examen note une splénomégalie modérée, un syndrome de Raynaud dans les formes froides, des urines foncées en cas d'hémolyse intravasculaire. Biologie : anémie régénérative, réticulocytes élevés, LDH élevées, haptoglobine effondrée, bilirubine libre augmentée, sphérocytes sur le frottis ; hémoglobinurie et hémoglobinémie dans les formes à anticorps froids.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen clé est le test de Coombs direct : positif IgG (± C3d) dans les formes chaudes, positif C3d isolé dans les formes froides ; il est négatif dans environ 5 % des AHAI (formes à faible affinité) — le tableau prime alors. Le bilan étiologique est systématique : hémogramme complet (lymphocytes anormaux ?), bilan infectieux (sérologies VIH, mycoplasme, Epstein-Barr virus), dosage du facteur rhumatoïde et anticorps antinucléaires, bilan tumoral selon le contexte, électrophorèse des immunoglobulines ; le myélogramme ou la biopsie médullaire complètent le bilan des lymphocytoses.",
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Anémie hémolytique auto-immune menaçante",
+          "text": "Hémoglobine effondrée avec dyspnée, tachycardie, douleur thoracique ou trouble neurologique : hospitalisation immédiate en milieu hématologique — transfusion à cross-match complet malgré l'incompatibilité apparente, en accord avec le spécialiste."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Formes à anticorps chauds : corticothérapie orale à un milligramme par kilo par jour en première intention — réponse dans 80 à 90 % des cas, décroissance lente sur plusieurs mois ; en cas de corticodépendance ou de rechute : rituximab, immunoglobulines intraveineuses en relais court, immunosuppresseurs, splénectomie à distance de la phase aiguë. Formes à anticorps froids : la corticothérapie est peu efficace — protection contre le froid (gants, réchauffement) et rituximab ; traiter l'infection causale quand elle existe. L'acide folique est systématique ; la thromboprophylaxie est souvent nécessaire pendant la phase d'hémolyse active.",
+          "sources": [
+            "s1",
+            "s3",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La transfusion est possible malgré le test de Coombs positif : les concentrés érythrocytaires sont choisis en l'absence d'allo-anticorps associés, sans attendre un cross-match impossible ; elle se fait sous surveillance hématologique rapprochée. La surveillance associe hémogramme bi-hebdomadaire puis espacé, réticulocytes, LDH et bilirubine ; la recherche de la cause sous-jacente poursuit son cours (scanner thoraco-abdominal, biopsie selon les orientations), car traiter la maladie causale fait partie du traitement de l'anémie.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Coombs positif = chercher la cause",
+          "text": "Devant toute AHAI : hémogramme attentif aux lymphocytes, sérologies, bilan tumoral et auto-immun — une leucémie lymphoïde chronique ou un lymphome peuvent précéder ou suivre l'anémie."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention des rechutes : décroissance cortisonique très progressive, information du patient sur les signes d'alerte (ictère, urines foncées, pâleur, asthénie), carte mentionnant l'antécédent d'hémolyse immunitaire et les difficultés transfusionnelles possibles. Dans les formes froides : protection rigoureuse contre le froid, y compris pour les perfusions et la transfusion (réchauffement des produits).",
+          "sources": [
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi au long cours est indispensable : l'AHAI idiopathique peut révéler une hémopathie des années plus tard — surveillance clinique et hémogrammique annuelle au minimum, et réévaluation rapide en cas d'adénopathie, de splénomégalie croissante ou de syndrome tumoral.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'AHAI se résume en une équation : anémie hémolytique + test de Coombs direct positif. Le type d'anticorps (chaud, froid) dicte le traitement — corticoïdes pour les chauds, froid évité et rituximab pour les froids — et la recherche étiologique est indissociable du diagnostic. C'est une urgence hématologique potentielle : transfusion et spécialiste ne doivent jamais retarder la prise en charge.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Anémies hémolytiques (cadre général), Leucémie lymphoïde chronique et Maladie de Hodgkin (causes), Lupus, Transfusions et accidents transfusionnels, Thromboses veineuses."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "AHAI = hémolyse + Coombs direct positif. Chauds : IgG, 37 degrés, splénique, corticoïdes 1 mg/kg. Froids : IgM, complément, exposition au froid, rituximab. Toujours chercher : LLC, lymphome, infection, médicament. Acide folique, thromboprophylaxie, transfusion prudente sans retard."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche anemies-hemolytiques — cadre général.",
+            "Fiche llc — cause principale des formes chaudes secondaires.",
+            "Fiche hodgkin — hémopathie révélée par une hémolyse.",
+            "Fiche lupus — connectivite associée.",
+            "Fiche transfusion et accidents-transfusionnels — spécificités transfusionnelles.",
+            "Fiche thromboses-veineuses — complication de l'hémolyse active."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hémolyse massive avec anémie menaçante",
+      "text": "Dyspnée, tachycardie, signes de mauvaise tolérance : hospitalisation immédiate, transfusion sans retard malgré le Coombs positif, avis hématologique urgent."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Forme à anticorps froids déclenchée par le froid",
+      "text": "Exposition au froid + acrocyanose + urines foncées : réchauffer le patient et les produits perfusés, éviter toute nouvelle exposition, rituximab à discuter."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Coombs positif = bilan étiologique complet",
+      "text": "Hémogramme au microscope, sérologies, bilan auto-immun et tumoral : une cause secondaire est trouvée dans la moitié des cas."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Chauds : IgG, Coombs IgG positif, corticoïdes en première ligne, réponse dans 80-90 % des cas. Froids : IgM, Coombs C3 positif, protection contre le froid, rituximab."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Traiter l'AHAI chaude",
+      "text": "C pour Corticoïdes 1 mg/kg, F pour Acide Folique, T pour Thromboprophylaxie, R pour Rituximab en cas d'échec, S pour Splénectomie en dernier recours."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Type d'anticorps",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Chauds : IgG à 37 degrés, hémolyse splénique"
+        },
+        {
+          "key": "F",
+          "term": "Froids : IgM sous 37 degrés, complément, acrocyanose"
+        },
+        {
+          "key": "D",
+          "term": "Direct : le test de Coombs fait le diagnostic"
+        }
+      ]
+    },
+    {
+      "label": "Causes à chercher",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hémopathies : LLC, lymphome"
+        },
+        {
+          "key": "I",
+          "term": "Infections : mycoplasme, EBV, VIH"
+        },
+        {
+          "key": "T",
+          "term": "Tumeurs solides"
+        },
+        {
+          "key": "M",
+          "term": "Médicaments : béta-lactamines, méthyl-dopa"
+        },
+        {
+          "key": "L",
+          "term": "Lupus et connectivites"
+        }
+      ]
+    },
+    {
+      "label": "Traitement des formes chaudes",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Corticoïdes 1 mg/kg/jour"
+        },
+        {
+          "key": "2",
+          "term": "Rituximab si corticodépendance"
+        },
+        {
+          "key": "3",
+          "term": "Splénectomie en dernier recours"
+        }
+      ]
+    },
+    {
+      "label": "Mesures systématiques",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Acide Folique"
+        },
+        {
+          "key": "T",
+          "term": "Thromboprophylaxie"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance hématologique rapprochée"
+        },
+        {
+          "key": "C",
+          "term": "Carte du patient : mention de l'allo-immunisation possible"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Comment définit-on l'anémie hémolytique auto-immune ?",
+      "back": "Une anémie hémolytique extracorpusculaire acquise due à des auto-anticorps dirigés contre la membrane des globules rouges, dont la fixation entraîne leur destruction précoce."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les deux grands types d'AHAI ?",
+      "back": "À anticorps chauds (IgG actives à 37 degrés, hémolyse surtout splénique, Coombs IgG positif) et à anticorps froids (IgM actives sous 37 degrés, hémolyse intravasculaire par complément, Coombs C3d positif)."
+    },
+    {
+      "id": "f3",
+      "front": "Quel est l'examen diagnostique clé ?",
+      "back": "Le test de Coombs direct : il met en évidence les anticorps ou le complément fixés sur les globules rouges."
+    },
+    {
+      "id": "f4",
+      "front": "Que faire si le Coombs direct est négatif alors que le tableau évoque une AHAI ?",
+      "back": "Ne pas éliminer le diagnostic : environ 5 % des AHAI ont un Coombs direct négatif (anticorps de faible affinité) ; le tableau clinico-biologique prime."
+    },
+    {
+      "id": "f5",
+      "front": "Quelles sont les principales causes secondaires ?",
+      "back": "Hémopathies lymphoïdes (leucémie lymphoïde chronique, lymphome), tumeurs solides, infections (mycoplasme, mononucléose, VIH), connectivites (lupus), médicaments (béta-lactamines, méthyl-dopa, fludarabine)."
+    },
+    {
+      "id": "f6",
+      "front": "Quelle proportion d'AHAI est idiopathique ?",
+      "back": "Environ la moitié — mais le diagnostic de cause reste actif, une hémopathie pouvant être révélée des mois ou des années plus tard."
+    },
+    {
+      "id": "f7",
+      "front": "Quelle infection classiquement associée aux formes froides ?",
+      "back": "Le mycoplasme (pneumonie atypique), ainsi que la mononucléose infectieuse à Epstein-Barr virus."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le traitement de première intention des formes à anticorps chauds ?",
+      "back": "La corticothérapie orale à un milligramme par kilo par jour, avec réponse dans 80 à 90 % des cas, puis décroissance très progressive."
+    },
+    {
+      "id": "f9",
+      "front": "Quelles options en cas de corticodépendance ou de rechute ?",
+      "back": "Rituximab, immunoglobulines intraveineuses, immunosuppresseurs, puis splénectomie à distance de la phase aiguë."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi la corticothérapie est-elle peu efficace dans les formes froides ?",
+      "back": "Parce que l'hémolyse est médiée par le complément et les IgM, non dépendantes des macrophages spléniques : on protège du froid et on utilise le rituximab."
+    },
+    {
+      "id": "f11",
+      "front": "Quelles précautions transfusionnelles ?",
+      "back": "Transfuser sans retard si mauvaise tolérance, malgré le cross-match perturbé ; concentrés choisis sans allo-anticorps associés, surveillance rapprochée ; réchauffer les produits dans les formes froides."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle supplémentation systématique ?",
+      "back": "L'acide folique, l'érythropoïèse de compensation épuisant les réserves ; la thromboprophylaxie est souvent nécessaire pendant l'hémolyse active."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle complication thrombotique à redouter ?",
+      "back": "Les thromboses veineuses, favorisées par l'hémolyse active et l'inflammation — d'où la thromboprophylaxie pendant les poussées."
+    },
+    {
+      "id": "f14",
+      "front": "Que peut montrer le frottis dans les formes chaudes ?",
+      "back": "Des sphérocytes, par perte de membrane lors de la phagocytose partielle des globules rouges opsonisés."
+    },
+    {
+      "id": "f15",
+      "front": "Quels signes évoquent une forme à anticorps froids ?",
+      "back": "Acrocyanose et syndrome de Raynaud déclenchés par le froid, hémoglobinurie, ictère, Coombs C3d isolé."
+    },
+    {
+      "id": "f16",
+      "front": "Comment surveiller un patient après une AHAI ?",
+      "back": "Hémogramme régulier (annuel au minimum), attention aux adénopathies et splénomégalies nouvelles : une hémopathie peut se révéler secondairement."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ahai-root",
+      "label": "Anémie hémolytique auto-immune"
+    },
+    "branches": [
+      {
+        "id": "ai-b1",
+        "label": "Définition et typologie",
+        "children": [
+          {
+            "id": "ai-b1-1",
+            "label": "Auto-anticorps"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l1-1",
+            "label": "Chauds : IgG, 37 degrés, rate"
+          },
+          {
+            "id": "ai-l1-2",
+            "label": "Froids : IgM, complément"
+          },
+          {
+            "id": "ai-l1-3",
+            "label": "Coombs direct : examen clé"
+          },
+          {
+            "id": "ai-l1-4",
+            "label": "5 % de Coombs négatifs"
+          }
+        ]
+      },
+      {
+        "id": "ai-b2",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "ai-b2-1",
+            "label": "À chercher systématiquement"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l2-1",
+            "label": "LLC et lymphomes"
+          },
+          {
+            "id": "ai-l2-2",
+            "label": "Tumeurs solides"
+          },
+          {
+            "id": "ai-l2-3",
+            "label": "Infections : mycoplasme, EBV, VIH"
+          },
+          {
+            "id": "ai-l2-4",
+            "label": "Lupus, médicaments"
+          }
+        ]
+      },
+      {
+        "id": "ai-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ai-b3-1",
+            "label": "Clinique et biologie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l3-1",
+            "label": "Anémie brutale régénérative"
+          },
+          {
+            "id": "ai-l3-2",
+            "label": "LDH élevées, haptoglobine basse"
+          },
+          {
+            "id": "ai-l3-3",
+            "label": "Sphérocytes sur frottis"
+          },
+          {
+            "id": "ai-l3-4",
+            "label": "Bilan étiologique complet"
+          }
+        ]
+      },
+      {
+        "id": "ai-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "ai-b4-1",
+            "label": "Selon le type"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l4-1",
+            "label": "Chauds : corticoïdes 1 mg/kg"
+          },
+          {
+            "id": "ai-l4-2",
+            "label": "Froids : éviter le froid, rituximab"
+          },
+          {
+            "id": "ai-l4-3",
+            "label": "Échec : rituximab, splénectomie"
+          },
+          {
+            "id": "ai-l4-4",
+            "label": "Acide folique, thromboprophylaxie"
+          }
+        ]
+      },
+      {
+        "id": "ai-b5",
+        "label": "Urgences et suivi",
+        "children": [
+          {
+            "id": "ai-b5-1",
+            "label": "Points de vigilance"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ai-l5-1",
+            "label": "Anémie menaçante : transfuser sans retard"
+          },
+          {
+            "id": "ai-l5-2",
+            "label": "Thromboses de l'hémolyse active"
+          },
+          {
+            "id": "ai-l5-3",
+            "label": "Carte du patient"
+          },
+          {
+            "id": "ai-l5-4",
+            "label": "Surveillance à long terme des hémopathies"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Anémie hémolytique auto-immune : quelle prise en charge en urgence ?",
+      "citation": "Revue Médicale Suisse — Anémie hémolytique auto-immune : prise en charge en urgence (2020, vol. 714)",
+      "organization": "Revue Médicale Suisse",
+      "year": 2020,
+      "version": "Article de synthèse",
+      "url": "https://www.revmed.ch/revue-medicale-suisse/2020/revue-medicale-suisse-714/anemie-hemolytique-autoimmune-quelle-prise-en-charge-en-urgence",
+      "usedFor": [
+        "prise en charge en urgence",
+        "transfusion malgré le Coombs positif",
+        "stratégie thérapeutique"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Anémies hémolytiques auto-immunes",
+      "citation": "Oncologik — Anémies hémolytiques auto-immunes : typologie et étiologies",
+      "organization": "Oncologik",
+      "year": 2019,
+      "version": "Polycopié de cours",
+      "url": "https://oncologik.fr/uploads/files/Ahai.pdf",
+      "usedFor": [
+        "typologie chauds et froids",
+        "étiologies",
+        "Coombs négatif dans 5 % des cas"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "L'anémie hémolytique auto-immune — information patient",
+      "citation": "Société Française d'Hématologie — Notes d'information : anémie hémolytique auto-immune",
+      "organization": "Société Française d'Hématologie",
+      "year": 2018,
+      "version": "Document patient",
+      "url": "https://sfh.hematologie.net/sites/sfh.hematologie.net/files/medias/documents/anemie_hemolytique_autoimmune.pdf",
+      "usedFor": [
+        "traitement corticoïdes et décroissance",
+        "précautions des formes froides",
+        "suivi"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "Anémies hémolytiques auto-immunes (AHAI) — HematoCell",
+      "citation": "HematoCell — AHAI : idiopathique dans 50 % des cas, surveillance prolongée",
+      "organization": "HematoCell",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.hematocell.fr/globules-rouges-et-leur-pathologie/anemies-hemolytiques-auto-immunes-ahai",
+      "usedFor": [
+        "proportion de formes idiopathiques",
+        "surveillance prolongée des hémopathies"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "eclampsie",
+  "title": "Éclampsie",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'éclampsie, reconnaître la crise convulsive gravidique et la prendre en charge en urgence (sulfate de magnésium, contrôle tensionnel, extraction fœtale), identifier les signes de gravité, les diagnostics différentiels en contexte malgache et les complications maternelles et fœtales.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 76,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 117,
+      "localNumber": 76,
+      "sectionLabel": "Médecine",
+      "title": "Éclampsie",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche centrée sur l'urgence vitale : séquence de prise en charge de la crise, protocoles de sulfate de magnésium (voie veineuse et intramusculaire), extraction fœtale et surveillance. La physiopathologie, les signes d'alerte et le traitement de la pré-éclampsie sont détaillés dans la fiche Grossesse et hypertension artérielle, à consulter conjointement.",
+    "verificationNotes": "Doses issues des recommandations SFAR (prise en charge extra-hospitalière), du guide clinique MSF (contexte africain : alternative au sulfate, différents paludisme et méningite) et de la revue Cochrane confirmant le sulfate de magnésium comme médicament de référence. Schéma veineux (charge 4-6 g puis 1-2 g/h) et schéma intramusculaire (10 g puis 5 g toutes les 4 h) vérifiés. En contexte malgache, le diazépam reste l'alternative quand le sulfate de magnésium n'est pas disponible.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec la fiche grossesse-hta sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'éclampsie est la complication convulsive de la pré-éclampsie : elle se définit par la survenue de crises comitiales généralisées tonico-cloniques chez une femme enceinte, en travail ou en post-partum, dans un contexte de pathologie hypertensive gravidique. Elle constitue l'une des premières causes de mortalité maternelle dans le monde, et reste fréquente à Madagascar où le suivi prénatal est inégal."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est une urgence obstétricale vitale engageant à la fois le pronostic maternel (œdème cérébral, hémorragie cérébrale, insuffisance rénale, détresse respiratoire) et le pronostic fœtal (hypoxie, hématome rétro-placentaire, mort in utero). Le traitement de référence, le sulfate de magnésium, a transformé le pronostic ; son accès doit être sécurisé dans toutes les maternités."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition, physiopathologie et épidémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'éclampsie complique une pré-éclampsie (hypertension artérielle gravidique associée à une protéinurie ou à des signes d'atteinte d'organe, après 20 semaines d'aménorrhée). La crise survient le plus souvent au troisième trimestre, en per-partum ou dans les 48 heures du post-partum, mais des cas tardifs jusqu'à six semaines après l'accouchement sont décrits."
+        },
+        {
+          "type": "paragraph",
+          "text": "La physiopathologie associe un défaut de remodelage des artères spiralées (placentation anormale), une dysfonction endothéliale systémique, un vasospasme cérébral et une rupture de la barrière hémato-encéphalique responsable d'un œdème cérébral vasogénique (encéphalopathie postérieure reversible). Les facteurs de risque sont la primiparité, l'âge extrême de la maternité, les grossesses multiples, l'obésité, le diabète, l'hypertension chronique, les antécédents familiaux et le paludisme gravidique."
+        },
+        {
+          "type": "paragraph",
+          "text": "On parle d'éclampsie atypique lorsque la crise survient avant 20 semaines d'aménorrhée, plus de 48 heures après l'accouchement, ou devant une pression artérielle modérée : ce diagnostic, plus rare, impose d'éliminer en priorité les autres causes de convulsions.",
+          "sources": [
+            "s1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Circonstances de survenue et formes cliniques",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La crise survient typiquement chez une patiente présentant des signes précurseurs : céphalées rebelles, phosphènes, scotomes, douleur épigastrique en barre, vomissements, œdème rapide du visage et des mains, hyperreflexie avec clonies. Mais l'éclampsie peut aussi se déclarer de façon brutale, sans prodrome, chez une patiente dont la pression artérielle était jusque-là peu élevée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Éclampsie antepartum : avant le travail, la plus fréquente.",
+            "Éclampsie intrapartum : pendant le travail, majorée par les contractions et les efforts expulsatoires.",
+            "Éclampsie du post-partum : dans 48 heures le plus souvent, jusqu'à six semaines (formes tardives).",
+            "Éclampsie atypique : terme précoce, tension modérée, signes digestifs isolés."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique : crise convulsive tonico-clonique généralisée, avec perte de connaissance, morsure de langue ou perte d'urines, survenant chez une femme enceinte ou récemment accouchée, le plus souvent dans un contexte d'hypertension artérielle et de protéinurie. La crise dure habituellement moins d'une minute, suivie d'une confusion post-critique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan d'urgence comprend : pression artérielle aux deux bras, protéinurie (bandelette), plaquettes, hémogramme, transaminases, lactate déshydrogénase, créatininémie, bilirubine (recherche d'une hémiolyse et du syndrome HELLP), bilan de coagulation, glycémie, ionogramme. Le rythme cardiaque fœtal est enregistré en continu. L'imagerie cérébrale (scanner ou IRM) est indiquée si la présentation est atypique, si les convulsions persistent ou si la conscience ne récupère pas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Convulsion chez une femme enceinte = éclampsie",
+          "text": "Toute crise convulsive chez une femme enceinte, en travail ou en post-partum récent est une éclampsie jusqu'à preuve du contraire. Ne pas attendre la protéinurie ni l'hypertension pour débuter le traitement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostics différentiels à éliminer selon le contexte : paludisme cérébral (endémique à Madagascar : frottis ou test rapide systématique), méningite, épilepsie connue ou découverte, hypoglycémie, hémorragie méningée, thrombose veineuse cérébrale, intoxication, urémie. L'éclampsie atypique impose d'écarter systématiquement ces causes avant de retenir le diagnostic.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge en urgence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge suit une séquence rigoureuse, sur le lieu même de la crise : protéger la patiente (éviter les traumatismes, position latérale de sécurité, aspiration des sécrétions, oxygène), puis administrer le sulfate de magnésium sans délai. Le seul traitement curatif est l'extraction fœtale : l'accouchement (voie basse si possible, césarienne selon l'obstétrique) est décidé une fois la crise contrôlée et la mère stabilisée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Protocole veineux de sulfate de magnésium : dose de charge de 4 à 6 g en solution diluée, perfusée en 20 à 30 minutes, puis dose d'entretien de 1 à 2 g par heure, poursuivie 24 heures après l'accouchement ou la dernière crise. Protocole intramusculaire (en l'absence d'abord veineux) : 10 g (5 g dans chaque fesse), puis 5 g toutes les 4 heures. La surveillance clinique est horaire : réflexes rotuliens, fréquence respiratoire (au-dessus de 12 par minute), diurèse ; en cas de signes de surdosage (abolition des réflexes, dépression respiratoire), arrêter le sulfate et injecter du gluconate de calcium.",
+          "sources": [
+            "s2",
+            "s3",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le contrôle tensionnel vise une pression artérielle systolique inférieure à 160 mmHg et diastolique inférieure à 110 mmHg : labétalol, nicardipine ou urapidil par voie veineuse selon les disponibilités, avec un objectif de baisse progressive. En l'absence de sulfate de magnésium, le diazépam (10 mg en voie veineuse lente ou rectale, puis 40 mg sur 24 heures en perfusion) constitue l'alternative, moins efficace sur la récidive. La patiente est transférée en milieu spécialisé (maternité de niveau adapté, réanimation si besoin) après stabilisation ; l'extraction fœtale est décidée en équipe, sans précipitation vaine mais sans retard inutile.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Séquence de la crise",
+          "text": "Protéger (latéraliser, aspirer, oxygéner) → Sulfate de magnésium sans délai → Contrôle tensionnel → Bilan et enregistrement du rythme fœtal → Extraction fœtale une fois la mère stabilisée."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention repose d'abord sur le dépistage précoce et la prise en charge de la pré-éclampsie : suivi prénatal régulier, mesure de la pression artérielle et recherche de protéinurie à chaque consultation, hospitalisation en cas de signes de gravité (fiche Grossesse et hypertension artérielle). Le sulfate de magnésium est indiqué à titre prophylactique en cas de pré-éclampsie sévère avec signes de gravité, et l'acide acétylsalicylique à faible dose est prescrit aux patientes à risque dès le début du deuxième trimestre."
+        },
+        {
+          "type": "paragraph",
+          "text": "En post-partum, la surveillance (pression artérielle, céphalées, phosphènes, réflexes) se poursuit au moins 48 à 72 heures, et toute consultation pour céphalées ou convulsion chez une accouchée récente doit faire évoquer une éclampsie tardive. L'éducation des patientes et de l'entourage sur les signes d'alerte, et la disponibilité du sulfate de magnésium dans toutes les maternités, y compris périphériques, sont des priorités dans le contexte malgache."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe prévention",
+          "text": "Pré-éclampsie sévère avec signes de gravité (céphalées, phosphènes, barre épigastrique, hyperreflexie) : sulfate de magnésium prophylactique sans attendre la crise."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion et complications",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Complications maternelles : œdème aigu du poumon, insuffisance rénale aiguë, hémorragie cérébrale, œdème cérébral, hématome rétro-placentaire, coagulation intravasculaire disséminée, rupture hépatique, décès. Complications fœtales : hypoxie, mort in utero, prématurité, retard de croissance. Le pronostic dépend de la rapidité de la prise en charge : une femme correctement traitée par sulfate de magnésium, avec extraction opportune, a un pronostic transformé."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'éclampsie est l'archétype de l'urgence obstétricale : la survie dépend d'une séquence simple et mémorisable — protéger, magnésium, tension, bilan, extraction. La consultation conjointe de la fiche Grossesse et hypertension artérielle (dépistage, prévention, formes graves de pré-éclampsie) et de la fiche Menace d'accouchement prématuré (prise en charge de la prématurité induite) complète la préparation."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Crise convulsive gravidique = éclampsie jusqu'à preuve du contraire. Sulfate de magnésium : charge 4-6 g veineux puis 1-2 g/h (ou 10 g intramusculaire puis 5 g/4 h), poursuivi 24 h après l'accouchement. Seul traitement curatif : l'extraction fœtale. Surveiller réflexes, respiration, diurèse ; antidote : gluconate de calcium."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche grossesse-hta — pré-éclampsie, dépistage et formes graves.",
+            "Fiche map — menace d'accouchement prématuré et corticothérapie.",
+            "Fiche paludisme — paludisme cérébral de la femme enceinte (différentiel majeur à Madagascar).",
+            "Fiche epilepsies — convulsions et antiépileptiques.",
+            "Fiche hemorragie-meningee — différentiel des convulsions fébriles."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Convulsion chez une femme enceinte = éclampsie",
+      "text": "Ne pas attendre la protéinurie ni l'hypertension : toute crise convulsive gravidique est une éclampsie jusqu'à preuve du contraire."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Séquence de la crise",
+      "text": "Protéger → Sulfate de magnésium → Contrôle tensionnel → Bilan et rythme fœtal → Extraction fœtale après stabilisation maternelle."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe prévention",
+      "text": "Pré-éclampsie sévère avec céphalées, phosphènes, barre épigastrique ou hyperreflexie : sulfate de magnésium prophylactique immédiat."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Sulfate de magnésium : charge 4-6 g veineux puis 1-2 g/h, ou 10 g intramusculaire puis 5 g toutes les 4 h ; poursuivre 24 h. Antidote : gluconate de calcium."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo surveillance du sulfate",
+      "text": "Réflexes rotuliens présents, respiration au-dessus de 12 par minute, diurèse supérieure à 30 mL par heure : contrôle horaire obligatoire."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes précurseurs de l'éclampsie",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Céphalées rebelles"
+        },
+        {
+          "key": "P",
+          "term": "Phosphènes et scotomes"
+        },
+        {
+          "key": "B",
+          "term": "Barre épigastrique, vomissements"
+        },
+        {
+          "key": "O",
+          "term": "Œdème rapide du visage, hyperreflexie"
+        }
+      ]
+    },
+    {
+      "label": "Séquence de prise en charge",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Protéger : latéraliser, aspirer, oxygéner"
+        },
+        {
+          "key": "M",
+          "term": "Magnésium : sulfate sans délai"
+        },
+        {
+          "key": "T",
+          "term": "Tension : contrôler sous 160/110"
+        },
+        {
+          "key": "E",
+          "term": "Extraction fœtale après stabilisation"
+        }
+      ]
+    },
+    {
+      "label": "Surveillance du sulfate de magnésium",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Réflexes rotuliens présents"
+        },
+        {
+          "key": "R",
+          "term": "Respiration supérieure à 12/min"
+        },
+        {
+          "key": "D",
+          "term": "Diurèse supérieure à 30 mL/h"
+        }
+      ]
+    },
+    {
+      "label": "Différentiels en contexte malgache",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Paludisme cérébral (frottis/test rapide)"
+        },
+        {
+          "key": "M",
+          "term": "Méningite"
+        },
+        {
+          "key": "E",
+          "term": "Épilepsie"
+        },
+        {
+          "key": "H",
+          "term": "Hypoglycémie, hémorragie méningée"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la définition de l'éclampsie ?",
+      "back": "Survenue de crises convulsives tonico-cloniques généralisées chez une femme enceinte (après 20 SA), en travail ou en post-partum, dans un contexte de pathologie hypertensive gravidique."
+    },
+    {
+      "id": "f2",
+      "front": "Quand l'éclampsie survient-elle le plus souvent ?",
+      "back": "Au troisième trimestre, en per-partum ou dans les 48 heures du post-partum ; des formes tardives existent jusqu'à six semaines après l'accouchement."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les signes précurseurs classiques ?",
+      "back": "Céphalées rebelles, phosphènes et scotomes, douleur épigastrique en barre, vomissements, œdème rapide du visage et des mains, hyperreflexie avec clonies."
+    },
+    {
+      "id": "f4",
+      "front": "Qu'est-ce qu'une éclampsie atypique ?",
+      "back": "Une crise survenant avant 20 SA, plus de 48 h après l'accouchement ou avec une pression artérielle modérée : elle impose d'éliminer les autres causes de convulsions."
+    },
+    {
+      "id": "f5",
+      "front": "Quel est le médicament de référence de la crise d'éclampsie ?",
+      "back": "Le sulfate de magnésium : charge de 4 à 6 g en veineuse sur 20-30 minutes, puis 1 à 2 g par heure en entretien."
+    },
+    {
+      "id": "f6",
+      "front": "Quel est le protocole intramusculaire du sulfate de magnésium ?",
+      "back": "10 g (5 g dans chaque fesse) en dose de charge, puis 5 g toutes les 4 heures — utile en l'absence d'abord veineux."
+    },
+    {
+      "id": "f7",
+      "front": "Quelle est l'alternative quand le sulfate de magnésium n'est pas disponible ?",
+      "back": "Le diazépam : 10 mg en veineuse lente ou rectale, puis 40 mg sur 24 heures en perfusion — moins efficace sur la récidive."
+    },
+    {
+      "id": "f8",
+      "front": "Quels paramètres surveiller pendant la perfusion de sulfate de magnésium ?",
+      "back": "Réflexes rotuliens (présents), fréquence respiratoire (supérieure à 12/min), diurèse (supérieure à 30 mL/h) — contrôle horaire."
+    },
+    {
+      "id": "f9",
+      "front": "Quel est l'antidote du surdosage en sulfate de magnésium ?",
+      "back": "Le gluconate de calcium en veineuse, devant l'abolition des réflexes, une dépression respiratoire ou des troubles de la conscience."
+    },
+    {
+      "id": "f10",
+      "front": "Quel objectif tensionnel viser en urgence ?",
+      "back": "Une pression systolique inférieure à 160 mmHg et diastolique inférieure à 110 mmHg, par baisse progressive (labétalol, nicardipine ou urapidil veineux)."
+    },
+    {
+      "id": "f11",
+      "front": "Quel est le seul traitement curatif de l'éclampsie ?",
+      "back": "L'extraction fœtale (voie basse si conditions favorables, césarienne sinon), décidée après contrôle de la crise et stabilisation maternelle."
+    },
+    {
+      "id": "f12",
+      "front": "Combien de temps poursuivre le sulfate de magnésium après l'accouchement ?",
+      "back": "24 heures après l'accouchement ou la dernière crise, avec surveillance clinique continue."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle complication neurologique redouter en cas de céphalées persistantes post-crise ?",
+      "back": "L'œdème cérébral et l'hémorragie cérébrale : imagerie cérébrale si présentation atypique, convulsions récidivantes ou absence de réveil."
+    },
+    {
+      "id": "f14",
+      "front": "Quels diagnostics différentiels éliminer en priorité à Madagascar ?",
+      "back": "Le paludisme cérébral (frottis ou test rapide systématique), la méningite, l'hypoglycémie, l'épilepsie et l'hémorragie méningée."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles sont les principales complications maternelles ?",
+      "back": "Œdème aigu du poumon, insuffisance rénale aiguë, hémorragie cérébrale, œdème cérébral, hématome rétro-placentaire, coagulation intravasculaire disséminée, décès."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle prophylaxie chez une patiente à risque de pré-éclampsie ?",
+      "back": "Acide acétylsalicylique à faible dose dès le début du deuxième trimestre, suivi prénatal rapproché, et sulfate de magnésium si pré-éclampsie sévère avec signes de gravité."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ec-root",
+      "label": "Éclampsie"
+    },
+    "branches": [
+      {
+        "id": "ec-b1",
+        "label": "Définition et contexte",
+        "children": [
+          {
+            "id": "ec-b1-1",
+            "label": "Pré-éclampsie compliquée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ec-l1",
+            "label": "Crise tonico-clonique après 20 SA"
+          },
+          {
+            "id": "ec-l2",
+            "label": "Ante-, intra-, post-partum (48 h, jusqu'à 6 semaines)"
+          },
+          {
+            "id": "ec-l3",
+            "label": "Formes atypiques : tension modérée"
+          }
+        ]
+      },
+      {
+        "id": "ec-b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ec-b2-1",
+            "label": "Clinique et bilan"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ec-l4",
+            "label": "Signes précurseurs : céphalées, phosphènes, barre épigastrique"
+          },
+          {
+            "id": "ec-l5",
+            "label": "Protéinurie, plaquettes, transaminases, HELLP"
+          },
+          {
+            "id": "ec-l6",
+            "label": "Différentiels : paludisme cérébral, méningite, hypoglycémie"
+          }
+        ]
+      },
+      {
+        "id": "ec-b3",
+        "label": "Traitement de la crise",
+        "children": [
+          {
+            "id": "ec-b3-1",
+            "label": "Séquence d'urgence"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ec-l7",
+            "label": "Protéger : latéraliser, aspirer, oxygéner"
+          },
+          {
+            "id": "ec-l8",
+            "label": "Sulfate de magnésium : 4-6 g puis 1-2 g/h (ou 10 g IM)"
+          },
+          {
+            "id": "ec-l9",
+            "label": "Contrôle tensionnel sous 160/110"
+          },
+          {
+            "id": "ec-l10",
+            "label": "Extraction fœtale après stabilisation"
+          }
+        ]
+      },
+      {
+        "id": "ec-b4",
+        "label": "Surveillance",
+        "children": [
+          {
+            "id": "ec-b4-1",
+            "label": "Sulfate et mère"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ec-l11",
+            "label": "Réflexes, respiration, diurèse : contrôle horaire"
+          },
+          {
+            "id": "ec-l12",
+            "label": "Antidote : gluconate de calcium"
+          },
+          {
+            "id": "ec-l13",
+            "label": "Rythme cardiaque fœtal continu"
+          }
+        ]
+      },
+      {
+        "id": "ec-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "ec-b5-1",
+            "label": "En amont"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ec-l14",
+            "label": "Dépistage de la pré-éclampsie à chaque consultation"
+          },
+          {
+            "id": "ec-l15",
+            "label": "Aspirine à faible dose si risque ; sulfate si forme sévère"
+          },
+          {
+            "id": "ec-l16",
+            "label": "Surveillance post-partum 48-72 h"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Prise en charge extra-hospitalière d'une crise d'éclampsie",
+      "citation": "SFAR — Prise en charge extra-hospitalière d'une crise d'éclampsie",
+      "organization": "Société Française d'Anesthésie et de Réanimation",
+      "year": 2015,
+      "version": "Recommandation",
+      "url": "https://sfar.org/wp-content/uploads/2018/10/Prise-en-charge-extra-hospitaliere-dune-crise-d-eclampsie.pdf",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "prise en charge préhospitalière",
+        "diagnostics différentiels",
+        "éclampsie atypique"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "4.6 Éclampsie — Guides médicaux MSF",
+      "citation": "MSF — Guide clinique, chapitre Éclampsie",
+      "organization": "Médecins Sans Frontières",
+      "year": 2023,
+      "version": "Guide clinique",
+      "url": "https://medicalguidelines.msf.org/fr/viewport/ONC/francais/4-6-eclampsie-51416740.html",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "traitement de la crise",
+        "diazépam en alternative",
+        "contexte africain et différentiels palustres"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "What are the benefits and harms of one magnesium sulphate regimen versus another for women with pre-eclampsia and eclampsia?",
+      "citation": "Cochrane — Schémas de sulfate de magnésium dans la pré-éclampsie et l'éclampsie",
+      "organization": "Cochrane Library",
+      "year": 2021,
+      "version": "Revue systématique",
+      "url": "https://www.cochrane.org/fr/evidence/CD007388_what-are-benefits-and-harms-one-magnesium-sulphate-regimen-versus-another-women-pre-eclampsia-and",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "sulfate de magnésium traitement de référence",
+        "prévention de la récidive"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Eclampsia — WikEM (édition française)",
+      "citation": "WikEM — Éclampsie (protocoles de sulfate de magnésium)",
+      "organization": "WikEM",
+      "year": 2024,
+      "version": "Aide-mémoire clinique",
+      "url": "https://wikem.org/wiki/Eclampsia/fr",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "doses de charge et d'entretien",
+        "surveillance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "vaquez",
+  "title": "Maladie de Vaquez",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la polyglobulie primitive ou maladie de Vaquez (syndrome myéloprolifératif avec mutation JAK2), distinguer les polyglobulies primitives et secondaires, reconnaître les manifestations (érythromélalgie, prurit aquagénique, complications thrombotiques), poser le diagnostic (hématocrite, mutation JAK2, critères de l'Organisation mondiale de la santé) et maîtriser le traitement (saignées, hydroxyurée, aspirine) et la surveillance.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 93,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 134,
+      "localNumber": 93,
+      "sectionLabel": "Médecine",
+      "title": "Maladie de Vaquez",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche dédiée à la polyglobulie de Vaquez : définition par l'augmentation primitive de la masse globulaire rouge, marqueur moléculaire JAK2, tableaux cliniques dominés par la thrombose, critères diagnostiques et différentiels avec les polyglobulies secondaires (hypoxie, érythropoïétine), traitement par saignées et cytoréduction. Les autres syndromes myéloprolifératifs relèvent des fiches LMC et myélofibrose (non traitée ici).",
+    "verificationNotes": "Mutation JAK2 V617F présente chez environ 95 % des patients, critères de l'Organisation mondiale de la santé (hématocrite supérieur à 59 % chez l'homme et 49 % chez la femme selon la révision 2016) et traitement par saignées avec cible d'hématocrite inférieure à 45 %, hydroxyurée et aspirine à faible dose conformes aux documents Arcagy, EM-Consulte et Société Française d'Hématologie. Complications thrombotiques et évolution vers la myélofibrose documentées par les mêmes sources.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie de Vaquez (polyglobulie primitive, ou polycythemia vera dans la littérature anglophone) est un syndrome myéloprolifératif caractérisé par une production excessive et autonome de globules rouges, liée dans la grande majorité des cas à la mutation V617F du gène JAK2. L'excès de globules rouges épaissit le sang et expose aux thromboses — complications qui font toute la gravité de la maladie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostic souvent fortuit chez un patient de 60 ans, elle est le modèle de l'hémopathie chronique à risque thrombotique : sa prise en charge — saignées, aspirine, cytoréduction — visent moins à normaliser l'hémogramme qu'à prévenir les accidents vasculaires."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La polyglobulie se définit par l'augmentation de la masse globulaire (hématocrite et hémoglobine élevés) ; elle est primitive quand elle relève d'une anomalie de la cellule souche — c'est la maladie de Vaquez — et secondaire quand elle répond à une hypoxie chronique, un excès d'érythropoïétine ou une cause iatrogène. La mutation JAK2 V617F, présente chez environ 95 % des patients, active constitutivement la signalisation de l'érythropoïèse ; la lignée rouge est atteinte au premier plan, mais les plaquettes et les granuleux sont souvent augmentés aussi.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La viscosité sanguine accrue ralentit la microcirculation : cèphalées, acouphènes, vertiges, érythrose du visage, érythromélalgie (douleurs brûlantes des extrémités, gros orteil classiquement), prurit après le bain (prurit aquagénique), et surtout thromboses artérielles et veineuses — accident vasculaire cérébral, infarctus, thromboses splanchniques — qui touchent environ un tiers des patients non traités.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Causes et diagnostic différentiel",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant toute polyglobulie, il faut éliminer les causes secondaires : hypoxie chronique (tabagisme, bronchopneumopathie chronique obstructive, altitude, cardiopathie cyanogène, syndrome d'apnées du sommeil), excès d'érythropoïétine (tumeur rénale ou utérine, kystes rénaux), et causes iatrogènes (érythropoïétine, androgènes, dopage). La distinction est simple : dans la maladie de Vaquez, l'érythropoïétine sérique est basse et la mutation JAK2 est présente ; dans les polyglobulies secondaires, l'érythropoïétine est normale ou élevée et JAK2 est absent.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Primitive : mutation JAK2, érythropoïétine basse, splénomégalie possible.",
+            "Secondaire hypoxique : tabac, insuffisance respiratoire, altitude, cardiopathie cyanogène.",
+            "Secondaire à excès d'érythropoïétine : tumeur rénale, kystes, fibrome utérin.",
+            "Iatrogène : érythropoïétine injectée, androgènes à forte dose.",
+            "Pseudo-polyglobulie : déshydratation (hémoconcentration) — à éliminer par un bilan simple."
+          ],
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Signes d'appel : céphalées, vertiges, acouphènes, érythrose faciale, érythromélalgie, prurit après le bain, paresthésies ; ou complication inaugurale thrombotique, parfois une découverte fortuite d'un hématocrite élevé. L'examen note une splénomégalie dans environ la moitié des cas, un faciès plethorique, une hypertension artérielle associée.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : hémoglobine supérieure à 16,5 grammes par décilitre chez l'homme ou 16 chez la femme, hématocrite supérieur à 59 % chez l'homme et 49 % chez la femme selon les critères de l'Organisation mondiale de la santé ; souvent hyperleucocytose granulaire et thrombocytose associées. Le diagnostic combine : critère 1 (hématocrite élevé ou masse globulaire augmentée) et critères 2 (mutation JAK2 V617F démontrée) ou, à défaut, érythropoïétine basse avec prolifération des lignées myéloïdes. Bilan : dosage de l'érythropoïétine, recherche de JAK2, échographie abdominale (rate, rein), bilan de coagulation, acide urique et bilan martial. Diagnostic différentiel : polyglobulies secondaires (érythropoïétine haute), pseudopolyglobulie du tabac, autres syndromes myéloprolifératifs.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Thrombose inaugurale",
+          "text": "Accident vasculaire cérébral, infarctus ou thrombose splanchnique chez un patient polyglobulique : traitement de l'épisode, saignées urgentes pour abaisser l'hématocrite, avis hématologique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe trois volets : 1) les saignées (400 à 500 millilitres, tous les 15 jours au début puis espacés), avec une cible d'hématocrite inférieure à 45 % — elles réduisent la viscosité et le risque thrombotique, et sont le traitement de base de toutes les formes ; 2) l'aspirine à faible dose (100 milligrammes par jour) chez les patients sans contre-indication, qui réduit les thromboses sans excès hémorragique ; 3) la cytoréduction par hydroxyurée (ou interferon pégylé chez le sujet jeune ou la femme en âge de procréer, ruxolitinib en cas d'échec) quand le risque thrombotique est élevé : âge supérieur à 60 ans, antécédent de thrombose, plaquettes très élevées, symptômes invalidants.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mesures associées : correction des facteurs de risque vasculaire (tabac, hypertension, diabète, hyperlipidémie), prise en charge du prurit (antihistaminiques, photothérapie), de l'hyperuricémie (allopurinol), conseil génétique inutile (pas de transmission héréditaire connue). Surveillance : hémogramme régulier, examen clinique avec palpation de la rate, dépistage de l'évolution — après des années, la maladie peut se transformer en myélofibrose (spénomegalie majeure, foyers extramédullaires) plus rarement en leucémie aiguë, risque majoré par les cytoréducteurs anciens.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Hématocrite élevé = dosage de l'érythropoïétine",
+          "text": "Devant toute polyglobulie : érythropoïétine basse + mutation JAK2 = maladie de Vaquez ; érythropoïétine haute = chercher une cause secondaire (hypoxie, tumeur)."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention des thromboses est la raison d'être du traitement : saignées pour hématocrite inférieur à 45 %, aspirine à faible dose, contrôle des facteurs de risque vasculaire, arrêt du tabac. Chez les patientes en âge de procréer : éviter l'hydroxyurée (interféron en cas de besoin) et contraception adaptée au risque thrombotique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi à vie comporte hémogramme et examen clinique (rate) au moins deux fois par an, éducation sur les signes d'alerte thrombotique, et vigilance sur l'évolution hématologique (myélofibrose, leucémie). Avant toute chirurgie : hématocrite contrôlé, prévention thromboembolique renforcée."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La maladie de Vaquez est la polyglobulie primitive : hématocrite élevé + érythropoïétine basse + mutation JAK2. Sa gravité est thrombotique, et son traitement simple : saignées pour un hématocrite inférieur à 45 %, aspirine à faible dose, hydroxyurée si risque élevé. Le suivi dépiste la transformation en myélofibrose.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Leucémie myéloïde chronique (autre syndrome myéloprolifératif), Thromboses veineuses profondes, Accident vasculaire ischémique, Insuffisance respiratoire chronique (polyglobulie secondaire), Goutte (hyperuricémie)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Vaquez = polyglobulie primitive, JAK2 V617F (95 %), érythropoïétine basse. Signes : érythromélalgie, prurit aquagénique, splénomégalie. Traitement : saignées (hématocrite inférieur à 45 %) + aspirine + hydroxyurée si risque élevé. Complication majeure : thrombose."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche lmc — autre syndrome myéloprolifératif.",
+            "Fiche thromboses-veineuses — complication thrombotique.",
+            "Fiche avc-ischemique — complication artérielle.",
+            "Fiche insuff-respiratoire-chronique — polyglobulie secondaire hypoxique.",
+            "Fiche goutte — hyperuricémie associée."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Thrombose chez un polyglobulique",
+      "text": "Accident vasculaire cérébral, infarctus, thrombose splanchnique : traitement de l'épisode, saignées urgentes, avis hématologique — l'hématocrite doit être abaissé rapidement."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Érythromélalgie sévère",
+      "text": "Douleurs brûlantes des extrémités avec érythrose : signe évocateur et prédictif de thrombose — aspirine et saignées sans attendre."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Hématocrite élevé : érythropoïétine d'abord",
+      "text": "Basse : Vaquez (recherche de JAK2). Haute : polyglobulie secondaire — hypoxie, tumeur à érythropoïétine. Toujours éliminer la simple hémoconcentration."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Vaquez : hématocrite supérieur à 59 % (homme) ou 49 % (femme), JAK2 positif, érythropoïétine basse. Traitement : saignées vers 45 %, aspirine, hydroxyurée si âge ou antécédent thrombotique."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Les trois temps du traitement",
+      "text": "S pour Saignées, A pour Aspirine à faible dose, C pour Cytoréduction si risque élevé — et toujours corriger les facteurs de risque vasculaire."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Diagnostic",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hématocrite élevé (plus de 59 % homme, 49 % femme)"
+        },
+        {
+          "key": "J",
+          "term": "JAK2 V617F positif"
+        },
+        {
+          "key": "E",
+          "term": "Érythropoïétine basse"
+        },
+        {
+          "key": "S",
+          "term": "Splénomégalie possible"
+        }
+      ]
+    },
+    {
+      "label": "Signes cliniques",
+      "entries": [
+        {
+          "key": "E",
+          "term": "Érythromélalgie : douleurs brûlantes des orteils"
+        },
+        {
+          "key": "P",
+          "term": "Prurit aquagénique : après le bain"
+        },
+        {
+          "key": "C",
+          "term": "Céphalées, vertiges, acouphènes"
+        },
+        {
+          "key": "T",
+          "term": "Thromboses : la complication reine"
+        }
+      ]
+    },
+    {
+      "label": "Différentiel des polyglobulies",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hypoxie : tabac, insuffisance respiratoire, altitude"
+        },
+        {
+          "key": "E",
+          "term": "Excès d'érythropoïétine : tumeur rénale ou utérine"
+        },
+        {
+          "key": "I",
+          "term": "Iatrogène : érythropoïétine injectée"
+        },
+        {
+          "key": "D",
+          "term": "Déshydratation : pseudo-polyglobulie"
+        }
+      ]
+    },
+    {
+      "label": "Traitement",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Saignées : hématocrite inférieur à 45 %"
+        },
+        {
+          "key": "A",
+          "term": "Aspirine 100 mg par jour"
+        },
+        {
+          "key": "C",
+          "term": "Cytoréduction : hydroxyurée si risque élevé"
+        },
+        {
+          "key": "F",
+          "term": "Facteurs de risque vasculaire à corriger"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que la maladie de Vaquez ?",
+      "back": "Un syndrome myéloprolifératif caractérisé par une production excessive et autonome de globules rouges, liée à la mutation V617F de JAK2 dans environ 95 % des cas."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les seuils d'hématocrite du diagnostic ?",
+      "back": "Supérieur à 59 % chez l'homme et 49 % chez la femme, selon les critères de l'Organisation mondiale de la santé (ou masse globulaire mesurée augmentée)."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle mutation rechercher ?",
+      "back": "JAK2 V617F, présente chez environ 95 % des patients ; son absence n'élimine pas complètement le diagnostic (formes rares JAK2 exon 12)."
+    },
+    {
+      "id": "f4",
+      "front": "Comment distinguer polyglobulie primitive et secondaire ?",
+      "back": "Primitive : érythropoïétine basse, JAK2 positif, atteinte des trois lignées possible, splénomégalie. Secondaire : érythropoïétine normale ou haute, JAK2 négatif, cause hypoxique ou tumorale."
+    },
+    {
+      "id": "f5",
+      "front": "Quelles sont les principales causes de polyglobulie secondaire ?",
+      "back": "Hypoxie chronique (tabac, insuffisance respiratoire, altitude, cardiopathie cyanogène), excès d'érythropoïétine (tumeur rénale ou utérine, kystes), érythropoïétine injectée, hémoconcentration par déshydratation."
+    },
+    {
+      "id": "f6",
+      "front": "Qu'est-ce que l'érythromélalgie ?",
+      "back": "Des douleurs brûlantes des extrémités (classiquement le gros orteil) avec érythrose et chaleur, calmées par l'aspirine : très évocatrice et prédictive de thrombose."
+    },
+    {
+      "id": "f7",
+      "front": "Qu'est-ce que le prurit aquagénique ?",
+      "back": "Un prurit intense déclenché par le contact de l'eau (bain, douche), signe classique de la maladie de Vaquez."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle est la complication majeure de la maladie ?",
+      "back": "La thrombose artérielle ou veineuse — accident vasculaire cérébral, infarctus, thromboses splanchniques — touchant environ un tiers des patients non traités."
+    },
+    {
+      "id": "f9",
+      "front": "Quel est le traitement de base ?",
+      "back": "Les saignées (400 à 500 millilitres, espacées ensuite), avec une cible d'hématocrite inférieure à 45 %."
+    },
+    {
+      "id": "f10",
+      "front": "Quel rôle pour l'aspirine ?",
+      "back": "À faible dose (100 milligrammes par jour), elle réduit le risque thrombotique sans excès d'hémorragie, chez les patients sans contre-indication."
+    },
+    {
+      "id": "f11",
+      "front": "Quand proposer une cytoréduction ?",
+      "back": "Si risque thrombotique élevé : âge supérieur à 60 ans, antécédent de thrombose, plaquettes très élevées, symptômes invalidants — hydroxyurée en première ligne, interféron pégylé chez le sujet jeune ou la femme en âge de procréer."
+    },
+    {
+      "id": "f12",
+      "front": "Pourquoi préférer l'interféron chez la femme enceinte ou jeune ?",
+      "back": "Parce que l'hydroxyurée est potentiellement toxique pour le fœetus ; l'interféron pégylé est sûr et efficace dans cette situation."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles transformations redouter à long terme ?",
+      "back": "La myélofibrose (splénomégalie majeure, foyers hématopoïétiques extramédullaires) et, plus rarement, la leucémie aiguë, risque majoré par les anciens cytoréducteurs."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles mesures associées au traitement ?",
+      "back": "Correction des facteurs de risque vasculaire (tabac, tension, lipides), prise en charge du prurit et de l'hyperuricémie (allopurinol), mise à jour des vaccinations avant splénectomie éventuelle."
+    },
+    {
+      "id": "f15",
+      "front": "Comment surveiller un patient atteint de maladie de Vaquez ?",
+      "back": "Hémogramme et examen clinique (rate) au moins deux fois par an, éducation sur les signes thrombotiques, contrôle de l'hématocrite avant toute chirurgie."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle est l'évolution de la maladie ?",
+      "back": "Chronique sur des décennies, contrôlée par les saignées et la cytoréduction ; le pronostic dépend du contrôle de l'hématocrite et de la prévention des thromboses."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "vq-root",
+      "label": "Maladie de Vaquez"
+    },
+    "branches": [
+      {
+        "id": "vq-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "vq-b1-1",
+            "label": "Polyglobulie primitive"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "vq-l1-1",
+            "label": "Hématocrite : 59 % homme, 49 % femme"
+          },
+          {
+            "id": "vq-l1-2",
+            "label": "JAK2 V617F : 95 %"
+          },
+          {
+            "id": "vq-l1-3",
+            "label": "Érythropoïétine basse"
+          },
+          {
+            "id": "vq-l1-4",
+            "label": "Syndrome myéloprolifératif"
+          }
+        ]
+      },
+      {
+        "id": "vq-b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "vq-b2-1",
+            "label": "Hyperviscosité"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "vq-l2-1",
+            "label": "Érythromélalgie"
+          },
+          {
+            "id": "vq-l2-2",
+            "label": "Prurit aquagénique"
+          },
+          {
+            "id": "vq-l2-3",
+            "label": "Céphalées, vertiges, acouphènes"
+          },
+          {
+            "id": "vq-l2-4",
+            "label": "Splénomégalie"
+          }
+        ]
+      },
+      {
+        "id": "vq-b3",
+        "label": "Différentiel",
+        "children": [
+          {
+            "id": "vq-b3-1",
+            "label": "Secondaires"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "vq-l3-1",
+            "label": "Hypoxie : tabac, altitude, insuffisance respiratoire"
+          },
+          {
+            "id": "vq-l3-2",
+            "label": "Excès d'érythropoïétine : tumeurs"
+          },
+          {
+            "id": "vq-l3-3",
+            "label": "Iatrogène, hémoconcentration"
+          }
+        ]
+      },
+      {
+        "id": "vq-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "vq-b4-1",
+            "label": "Trois piliers"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "vq-l4-1",
+            "label": "Saignées : hématocrite inférieur à 45 %"
+          },
+          {
+            "id": "vq-l4-2",
+            "label": "Aspirine à faible dose"
+          },
+          {
+            "id": "vq-l4-3",
+            "label": "Hydroxyurée si risque élevé"
+          },
+          {
+            "id": "vq-l4-4",
+            "label": "Interféron chez le sujet jeune"
+          }
+        ]
+      },
+      {
+        "id": "vq-b5",
+        "label": "Évolution",
+        "children": [
+          {
+            "id": "vq-b5-1",
+            "label": "Surveillance"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "vq-l5-1",
+            "label": "Thromboses : la gravité"
+          },
+          {
+            "id": "vq-l5-2",
+            "label": "Myélofibrose possible"
+          },
+          {
+            "id": "vq-l5-3",
+            "label": "Leucémie aiguë rare"
+          },
+          {
+            "id": "vq-l5-4",
+            "label": "Suivi hématologique à vie"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "La maladie de Vaquez",
+      "citation": "Arcagy — Maladie de Vaquez : symptômes, diagnostic et traitement",
+      "organization": "Arcagy",
+      "year": 2021,
+      "version": "Article de synthèse",
+      "url": "https://www.arcagy.org/infocancer/localisations/hemopathies-malignes-cancers-du-sang/syndromes-my-lo-des/les-syndromes-myeloproliferatifs/la-maladie-de-vaquez.html/",
+      "usedFor": [
+        "diagnostic",
+        "traitement par saignées",
+        "cytoréduction"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Polyglobulie de Vaquez",
+      "citation": "EM-Consulte — Polyglobulie de Vaquez : cytoréducteurs et pronostic",
+      "organization": "EM-Consulte",
+      "year": 2019,
+      "version": "Article de synthèse",
+      "url": "https://www.em-consulte.com/article/1591256/polyglobulie-de-vaquez",
+      "usedFor": [
+        "cytoréducteurs (hydroxyurée, interféron, ruxolitinib)",
+        "pronostic"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "La polyglobulie primitive (maladie de Vaquez) — information patient",
+      "citation": "Société Française d'Hématologie — Notes d'information : la polyglobulie primitive",
+      "organization": "Société Française d'Hématologie",
+      "year": 2018,
+      "version": "Document patient",
+      "url": "https://sfh.hematologie.net/sites/sfh.hematologie.net/files/medias/documents/info%20patient%20Maladie%20Vasquez.pdf",
+      "usedFor": [
+        "signes cliniques",
+        "traitement et suivi"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "La polyglobulie primitive ou maladie de Vaquez",
+      "citation": "Haimatos — La polyglobulie primitive : diagnostic JAK2 et démarche",
+      "organization": "Haimatos",
+      "year": 2022,
+      "version": "Article de synthèse",
+      "url": "https://www.haimatos.org/maladies-du-sang/la-polyglobulie-primitive-ou-maladie-de-vaquez/",
+      "usedFor": [
+        "place de la mutation JAK2",
+        "diagnostic différentiel"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
