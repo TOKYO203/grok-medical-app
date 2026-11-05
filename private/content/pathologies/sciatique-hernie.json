@@ -1,0 +1,786 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "sciatique-hernie",
+  "title": "Sciatique par hernie discale lombaire",
+  "subtitle": "Fiche de nosographie — orthopédie",
+  "objective": "Reconnaître une sciatique par hernie discale, distinguer la sciatique commune de la sciatique en urgence (syndrome de la queue de cheval), et connaître les indications rationnelles du traitement conservateur et de la chirurgie.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 61,
+    "specialty": "Orthopédie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 236,
+      "localNumber": 61,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Sciatique par hernie discale lombaire",
+      "specialty": "Orthopédie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir de la revue clinique du BMJ sur la sciatique et de l'essai randomisé néerlandais comparant chirurgie précoce et traitement conservateur prolongé. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche distingue explicitement la douleur tronculaire L5/S1 radiculaire d'une simple lombalgie irradiée : c'est la topographie radiculaire qui fait le diagnostic.",
+      "Le syndrome de la queue de cheval (anesthésie périnéale en selle, troubles sphinctériens, sciatique bilatérale) est présenté comme une urgence chirurgicale absolue.",
+      "Aucune posologie d'antalgique ou d'anti-inflammatoire n'est donnée : les protocoles varient selon les pays et les autorisations locales ; seuls les paliers et principes sont exposés.",
+      "La chirurgie est présentée comme indiquée en urgence devant un déficit sévère ou une queue de cheval, et comme une option rapide et efficace — mais non indispensable à long terme — dans la sciatique commune persistante, conformément aux données de l'essai de Peul et collaborateurs.",
+      "Le repos strict prolongé est explicitement décillé : l'activité adaptée et la reprise précoce sont favorisées.",
+      "L'imagerie n'est pas systématique : elle est réservée aux suspicions d'urgence, aux déficits et aux douleurs persistant au-delà de quelques semaines (drapeaux rouges exclus)."
+    ],
+    "qcChecklist": [
+      "Topographie L5/S1 et signes radiculaires",
+      "Drapeaux rouges et syndrome de la queue de cheval",
+      "Imagerie réservée, pas systématique",
+      "Traitement conservateur de première intention",
+      "Indications chirurgicales : urgence et échec persistant",
+      "Absence de posologies"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La sciatique est une douleur radiculaire du membre inférieur, le plus souvent due à une hernie discale lombaire comprimant une racine, habituellement L5 ou S1. Elle est fréquente chez l'adulte jeune et actif, et elle régresse spontanément dans la grande majorité des cas en quelques semaines."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le message central de cette fiche est double. D'une part, la sciatique commune se traite d'abord médicalement : le temps est le principal allié. D'autre part, certaines sciatiques sont des urgences — déficit moteur sévère, syndrome de la queue de cheval — et attendre serait une faute."
+        },
+        {
+          "type": "paragraph",
+          "text": "La hernie discale correspond à une fissuration de l'anneau fibreux permettant au nucleus pulposus de faire saillie, le plus souvent postéro-latéralement, au contact d'une racine. C'est le conflit disco-radiculaire, et non la hernie elle-même, qui fait la maladie : une hernie visible à l'imagerie peut être asymptomatique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le disque intervertébral est composé d'un anneau fibreux périphérique et d'un nucleus pulposus central. Avec l'âge et les contraintes mécaniques, l'anneau se fissure ; le matériel nucléaire migre, le plus souvent en postéro-latéral, dans le récessus latéral où passent les racines. La douleur résulte de la compression, mais aussi de l'inflammation chimique qu'induit le matériel discal au contact de la racine."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Racine",
+            "Trajet de la douleur",
+            "Réflexe",
+            "Déficit moteur possible"
+          ],
+          "rows": [
+            [
+              "L5",
+              "Fesse, face postéro-latérale de cuisse, face externe de jambe, dos du pied, gros orteil",
+              "Aucun (pas de réflexe spécifique)",
+              "Relevé du pied (steppage), extension de l'hallux"
+            ],
+            [
+              "S1",
+              "Fesse, face postérieure de cuisse et jambe, talon, plante, bord externe du pied",
+              "Achilléen aboli ou diminué",
+              "Flexion plantaire, marche sur la pointe des pieds"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "C'est la douleur qui descend au-dessous du genou qui compte",
+          "text": "Une douleur lombaire qui s'arrête à la fesse ou à la cuisse est une lombalgie ; une douleur qui suit un trajet radiculaire jusqu'à la jambe ou au pied est une sciatique. La limite du genou est le repère clinique le plus simple."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Hernie ne veut pas dire sciatique",
+          "text": "Les hernies asymptomatiques sont très fréquentes à l'imagerie chez l'adulte : on traite le patient et ses symptômes, jamais une image."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        },
+        {
+          "id": "SRC-PEUL-NEJM-2007",
+          "organization": "New England Journal of Medicine",
+          "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1056/NEJMoa064039"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique. L'interrogatoire précise le début — souvent après un effort ou une position prolongée —, le trajet exact de la douleur dessiné par le patient, la présence de fourmillements, et surtout les signes d'alerte : troubles sphinctériens, anesthésie de la région périnéale, déficit d'apparition rapide, fièvre, amaigrissement, contexte de cancer ou de traumatisme."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen : marche, boiterie, attitude antalgique en inclinaison, rigidité rachidienne.",
+            "Signe de Lasègue : douleur radiculaire reproduite lors de l'élévation du membre inférieur tendu ; un angle inférieur à 30-45 degrés est très évocateur.",
+            "Examen neurologique systématique : force segmentaire, réflexes rotulien (L4) et achilléen (S1), sensibilité, marche sur les talons (L5) puis sur la pointe des pieds (S1).",
+            "Recherche des drapeaux rouges : syndrome de la queue de cheval, déficit moteur sévère et progressif, fièvre avec raideur, contexte néoplasique, traumatisme significatif.",
+            "Aucune imagerie n'est nécessaire dans la sciatique commune récente sans drapeau rouge.",
+            "Imagerie par résonance magnétique lombaire : indiquée en urgence devant un drapeau rouge, et dans les sciatiques persistantes malgré un traitement conservateur bien conduit (généralement après 6 à 8 semaines)."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Drapeau rouge",
+            "Ce qu'il évoque",
+            "Conduite"
+          ],
+          "rows": [
+            [
+              "Anesthésie en selle, rétention urinaire, sciatique bilatérale",
+              "Syndrome de la queue de cheval",
+              "Imagerie et chirurgie en urgence"
+            ],
+            [
+              "Déficit moteur sévère ou s'aggravant",
+              "Souffrance radiculaire majeure",
+              "Imagerie rapide, avis chirurgical"
+            ],
+            [
+              "Fièvre, frissons, raideur majeure",
+              "Spondylodiscite, abcès",
+              "Imagerie, biologie, avis urgent"
+            ],
+            [
+              "Cancer connu, amaigrissement, douleur nocturne non mécanique",
+              "Métastase rachidienne",
+              "Imagerie, avis oncologique"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Syndrome de la queue de cheval : urgence absolue",
+          "text": "L'association d'une douleur lombaire ou sciatique, d'une anesthésie périnéale en selle et de troubles sphinctériens (rétention, incontinence) impose une imagerie par résonance magnétique immédiate et une décompression chirurgicale dans les meilleurs délais : chaque heure compte pour le pronostic sphinctérien."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les diagnostics différentiels sont la lombalgie banale, la sciatique tronquée de cause extrême (syndrome du piriforme, tumeur du bassin), la claudication neurogène du canal lombaire rétréci chez le sujet âgé, la névralgie crurale L4 et, en zone d'endémie, une atteinte radiculo-méningée à vérifier selon le contexte."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        },
+        {
+          "id": "SRC-PEUL-NEJM-2007",
+          "organization": "New England Journal of Medicine",
+          "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1056/NEJMoa064039"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Sciatique L5 : douleur jusqu'au dos du pied et au gros orteil, déficit du relevé du pied ; le steppage signe un déficit avancé.",
+            "Sciatique S1 : douleur jusqu'à la plante et au talon, réflexe achilléen diminué, gêne à la marche sur la pointe des pieds.",
+            "Sciatique hyperalgique : douleur insomniante, rebelle ; elle impose une évaluation rapprochée et une décision thérapeutique active.",
+            "Sciatique déficitaire : la force est la donnée qui doit être notée et surveillée d'examen en examen.",
+            "Syndrome de la queue de cheval : urgence chirurgicale décrite plus haut.",
+            "Récidives et chronicisation : la persistance au-delà de quelques semaines fait discuter l'imagerie puis l'avis chirurgical."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Deux questions à chaque contrôle",
+          "text": "La douleur descend-elle toujours sous le genou ? La force du relevé du pied et de la marche sur la pointe est-elle conservée ? Ces deux réponses suffisent à suivre l'évolution et à ne pas manquer une urgence."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement conservateur est la règle dans la sciatique commune. Il repose sur l'information du patient — la douleur régresse le plus souvent en quelques semaines —, des antalgiques adaptés par paliers, le maintien d'une activité adaptée plutôt que le repos strict au lit, et la rééducation dès que la phase hyperalgique est passée. Les anti-inflammatoires et les antalgiques puissants relèvent des protocoles locaux, aucune posologie n'est fixée par cette fiche."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Conduite",
+            "Délai de référence"
+          ],
+          "rows": [
+            [
+              "Sciatique commune récente sans déficit",
+              "Traitement conservateur, information, activité adaptée, contrôle clinique",
+              "Réévaluation à 1-2 semaines"
+            ],
+            [
+              "Persistance malgré un traitement bien conduit",
+              "Imagerie par résonance magnétique, avis chirurgical",
+              "Généralement après 6-8 semaines"
+            ],
+            [
+              "Déficit moteur sévère ou évolutif",
+              "Imagerie rapide, avis chirurgical",
+              "Urgence relative, jours"
+            ],
+            [
+              "Syndrome de la queue de cheval",
+              "Imagerie immédiate, décompression",
+              "Urgence absolue, heures"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La chirurgie — discectomie le plus souvent — soulage plus vite que le traitement conservateur. À long terme, les résultats se rapprochent entre les deux stratégies : c'est l'enseignement principal de l'essai randomisé comparant chirurgie précoce et traitement conservateur prolongé. La chirurgie se justifie donc par l'urgence, le déficit, ou une douleur qui persiste et résiste ; elle ne se justifie pas par la seule présence d'une hernie sur l'image."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le repos strict prolongé est délétère",
+          "text": "L'alitement rigide plusieurs jours n'accélère pas la guérison et favorise la décondition. On autorise l'activité supportable et on décourage la station assise prolongée dans la phase douloureuse."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Annoncer le pronostic, c'est déjà traiter",
+          "text": "Expliquer que la grande majorité des sciatiques guérit spontanément, que l'image n'est pas la maladie, et que la reprise du travail adapté est possible avant la disparition totale de la douleur, fait partie intégrante du traitement."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        },
+        {
+          "id": "SRC-PEUL-NEJM-2007",
+          "organization": "New England Journal of Medicine",
+          "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1056/NEJMoa064039"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la récidive repose sur la lutte contre les facteurs mécaniques : gestes et port de charges, ergonomie posturale, renforcement de la sangle abdominale et des muscles du tronc, contrôle du surpoids, arrêt du tabac qui est associé à la dégénérescence discale. La rééducation bien conduite reste la meilleure arme contre la chronicisation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi est clinique : il traque l'efficacité du traitement, la régression du trajet douloureux, la force du relevé du pied et la marche sur la pointe. Toute apparition d'un trouble sphinctérien ou d'une anesthésie périnéale entre deux consultations impose un retour immédiat."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Chronophobie",
+          "text": "Chez un patient opéré ou non, l'installation d'une douleur mécanique atypique avec raideur fébrile doit faire évoquer une spondylodiscite : biologie et imagerie, sans attendre."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La sciatique par hernie discale est une douleur radiculaire L5 ou S1, le plus souvent spontanément résolutive. Le diagnostic est clinique ; l'imagerie est réservée aux drapeaux rouges et aux formes persistantes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement conservateur, fondé sur l'information, l'analgésie et le maintien d'une activité, est la règle. La chirurgie est une urgence devant un syndrome de la queue de cheval ou un déficit sévère, et une option efficace dans les douleurs persistantes, sans être indispensable au pronostic final."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        },
+        {
+          "id": "SRC-PEUL-NEJM-2007",
+          "organization": "New England Journal of Medicine",
+          "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1056/NEJMoa064039"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Koes BW, van Tulder MW, Peul WC. Diagnosis and treatment of sciatica. BMJ 2007 ; 334 (7607) : 1313-1317. doi:10.1136/bmj.39223.428495.BE.",
+            "Peul WC, van Houwelingen HC, van den Hout WB, et al. Surgery versus Prolonged Conservative Treatment for Sciatica. New England Journal of Medicine 2007 ; 356 : 2245-2256. doi:10.1056/NEJMoa064039."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMJ-SCIATICA-2007",
+          "organization": "BMJ",
+          "title": "Diagnosis and treatment of sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1136/bmj.39223.428495.BE"
+        },
+        {
+          "id": "SRC-PEUL-NEJM-2007",
+          "organization": "New England Journal of Medicine",
+          "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+          "year": 2007,
+          "url": "https://doi.org/10.1056/NEJMoa064039"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-trajet",
+      "label": "DESCEND",
+      "intro": "Les étapes du raisonnement devant une douleur lombaire irradiée",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Descend-elle sous le genou ? Sinon, ce n'est pas une sciatique."
+        },
+        {
+          "key": "E",
+          "term": "Examiner la force : talons (L5), pointe des pieds (S1), réflexe achilléen."
+        },
+        {
+          "key": "S",
+          "term": "Sphinctères et sensibilité périnéale : la question qui traque la queue de cheval."
+        },
+        {
+          "key": "C",
+          "term": "Chronologie : depuis quand, s'agit-il, s'aggrave-t-il ?"
+        },
+        {
+          "key": "E",
+          "term": "Éviter l'imagerie systématique : elle n'a de sens que si elle change la conduite."
+        },
+        {
+          "key": "N",
+          "term": "Ne pas prescrire de repos strict : l'activité adaptée aide."
+        },
+        {
+          "key": "D",
+          "term": "Décision chirurgicale : urgence, déficit, ou échec bien documenté."
+        }
+      ],
+      "note": "Deux réponses suffisent à orienter 90 % des situations : le trajet de la douleur et l'état des sphincteurs."
+    },
+    {
+      "id": "mn-urgences",
+      "label": "SELLE",
+      "intro": "Le syndrome de la queue de cheval",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Selle : anesthésie de la région périnéale en selle."
+        },
+        {
+          "key": "E",
+          "term": "Élimination : rétention ou incontinence urinaire, troubles du rectum."
+        },
+        {
+          "key": "L",
+          "term": "Lasègue souvent majeur, sciatique bilatérale ou basculante."
+        },
+        {
+          "key": "L",
+          "term": "Lombalgie fébrile à éliminer aussi : spondylodiscite."
+        },
+        {
+          "key": "E",
+          "term": "Examen : imagerie par résonance magnétique immédiate, décompression en urgence."
+        }
+      ],
+      "note": "Retarder la décompression, c'est jouer le pronostic sphinctérien et sexuel du patient."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelle racine est atteinte dans une sciatique douloureuse jusqu'au dos du pied et au gros orteil avec déficit du relevé du pied ?",
+      "back": "La racine L5.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quel réflexe teste-t-on pour la racine S1 ?",
+      "back": "Le réflexe achilléen, diminué ou aboli dans l'atteinte S1.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel signe clinique traduit le conflit disco-radiculaire à l'examen du membre inférieur tendu ?",
+      "back": "Le signe de Lasègue : reproduction de la douleur radiculaire lors de l'élévation du membre inférieur tendu.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quand demande-t-on une imagerie par résonance magnétique dans une sciatique ?",
+      "back": "En urgence devant un drapeau rouge (queue de cheval, déficit sévère, fièvre, cancer), et dans les sciatiques persistant malgré un traitement conservateur bien conduit.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quels signes définissent le syndrome de la queue de cheval ?",
+      "back": "Anesthésie périnéale en selle, troubles sphinctériens (rétention ou incontinence), souvent une sciatique bilatérale ou une lombalgie majeure.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle est la première intention thérapeutique dans la sciatique commune ?",
+      "back": "Le traitement conservateur : information, antalgiques par paliers, activité adaptée, réévaluation clinique.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Le repos strict au lit est-il recommandé ?",
+      "back": "Non : il est délétère ; on maintient une activité adaptée dans la limite de la douleur.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Qu'apporte la chirurgie par rapport au traitement conservateur dans la sciatique commune ?",
+      "back": "Une soulage plus rapide de la douleur ; à long terme les résultats des deux stratégies se rapprochent.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quelles sont les indications chirurgicales d'une hernie discale ?",
+      "back": "Le syndrome de la queue de cheval, le déficit moteur sévère ou évolutif, et la sciatique rebelle persistant malgré un traitement conservateur bien conduit.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Une hernie discale visible à l'imagerie suffit-elle à poser l'indication opératoire ?",
+      "back": "Non : les hernies asymptomatiques sont fréquentes ; on traite les symptômes et l'évolution clinique, pas l'image.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quels éléments surveiller entre deux consultations ?",
+      "back": "Le trajet de la douleur sous le genou, la force du relevé du pied et de la marche sur la pointe, et l'absence de trouble sphinctérien ou d'anesthésie périnéale.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quels facteurs préviennent la récidive ?",
+      "back": "Ergonomie des charges, renforcement du tronc, contrôle du poids, arrêt du tabac, rééducation.",
+      "tags": [
+        "prevention"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Sciatique par hernie discale",
+      "detail": "Douleur radiculaire L5 ou S1 par conflit disco-radiculaire. Traitement conservateur de règle, urgences chirurgicales bien définies, imagerie réservée."
+    },
+    "branches": [
+      {
+        "id": "comprendre",
+        "label": "Comprendre",
+        "tone": "retenir",
+        "detail": "Fissure de l'anneau, migration du nucleus, conflit avec la racine.",
+        "children": [
+          {
+            "id": "mecanisme",
+            "label": "Mécanisme",
+            "detail": "Compression et inflammation chimique de la racine.",
+            "leaves": [
+              {
+                "id": "mec-1",
+                "label": "Postéro-latéral",
+                "detail": "Site le plus fréquent de la hernie."
+              },
+              {
+                "id": "mec-2",
+                "label": "L5 / S1",
+                "detail": "Les deux racines les plus touchées."
+              }
+            ]
+          },
+          {
+            "id": "anatomie",
+            "label": "Anatomie",
+            "detail": "Anneau fibreux et nucleus pulposus.",
+            "leaves": [
+              {
+                "id": "ana-1",
+                "label": "Hernie asymptomatique",
+                "detail": "Fréquente à l'imagerie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "reflexe",
+        "detail": "Le trajet sous le genou fait le diagnostic.",
+        "children": [
+          {
+            "id": "l5",
+            "label": "Racine L5",
+            "detail": "Dos du pied, gros orteil, steppage possible.",
+            "leaves": [
+              {
+                "id": "l5-1",
+                "label": "Relevé du pied",
+                "detail": "Test de force clé."
+              }
+            ]
+          },
+          {
+            "id": "s1",
+            "label": "Racine S1",
+            "detail": "Plante, talon, réflexe achilléen diminué.",
+            "leaves": [
+              {
+                "id": "s1-1",
+                "label": "Lasègue",
+                "detail": "Signe du conflit radiculaire."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alerter",
+        "label": "Alerter",
+        "tone": "urgence",
+        "detail": "Drapeaux rouges : urgences à ne pas manquer.",
+        "children": [
+          {
+            "id": "queue",
+            "label": "Queue de cheval",
+            "detail": "Selle anesthésiée, sphincters, bilatéralité.",
+            "leaves": [
+              {
+                "id": "qc-1",
+                "label": "Imagerie immédiate",
+                "detail": "Décompression en urgence."
+              }
+            ]
+          },
+          {
+            "id": "autres",
+            "label": "Autres drapeaux",
+            "detail": "Déficit sévère, fièvre, cancer, traumatisme.",
+            "leaves": [
+              {
+                "id": "au-1",
+                "label": "Imagerie ciblée",
+                "detail": "Selon le drapeau identifié."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Conservateur d'abord, chirurgie à bon escient.",
+        "children": [
+          {
+            "id": "conservateur",
+            "label": "Conservateur",
+            "detail": "Information, antalgiques, activité adaptée, rééducation.",
+            "leaves": [
+              {
+                "id": "con-1",
+                "label": "Pas de repos strict",
+                "detail": "L'alitement prolongé est délétère."
+              }
+            ]
+          },
+          {
+            "id": "chirurgie",
+            "label": "Chirurgie",
+            "detail": "Urgence, déficit, échec persistant documenté.",
+            "leaves": [
+              {
+                "id": "chi-1",
+                "label": "Discectomie",
+                "detail": "Soulage plus vite ; long terme équivalent."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Évolution clinique, pas imagerique.",
+        "children": [
+          {
+            "id": "controles",
+            "label": "Contrôles",
+            "detail": "Trajet douloureux, force, sphincters à chaque visite.",
+            "leaves": [
+              {
+                "id": "ctr-1",
+                "label": "Retour immédiat",
+                "detail": "Si trouble sphinctérien nouveau."
+              }
+            ]
+          },
+          {
+            "id": "prevention",
+            "label": "Prévention",
+            "detail": "Charges, tronc, poids, tabac.",
+            "leaves": [
+              {
+                "id": "prev-1",
+                "label": "Rééducation",
+                "detail": "Meilleur rempart contre la chronicisation."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-BMJ-SCIATICA-2007",
+      "title": "Diagnosis and treatment of sciatica",
+      "citation": "Koes BW, van Tulder MW, Peul WC. Diagnosis and treatment of sciatica. BMJ 2007 ; 334 (7607) : 1313-1317. doi:10.1136/bmj.39223.428495.BE.",
+      "organization": "BMJ",
+      "year": 2007,
+      "url": "https://doi.org/10.1136/bmj.39223.428495.BE",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Diagnostic clinique",
+        "Topographie radiculaire",
+        "Traitement conservateur",
+        "Indications de l'imagerie"
+      ]
+    },
+    {
+      "id": "SRC-PEUL-NEJM-2007",
+      "title": "Surgery versus Prolonged Conservative Treatment for Sciatica",
+      "citation": "Peul WC, van Houwelingen HC, van den Hout WB, et al. Surgery versus Prolonged Conservative Treatment for Sciatica. New England Journal of Medicine 2007 ; 356 : 2245-2256. doi:10.1056/NEJMoa064039.",
+      "organization": "New England Journal of Medicine",
+      "year": 2007,
+      "url": "https://doi.org/10.1056/NEJMoa064039",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Place de la chirurgie",
+        "Histoire naturelle",
+        "Information du patient"
+      ]
+    }
+  ]
+}
