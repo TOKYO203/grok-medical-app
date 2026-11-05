@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "aspergillome",
+  "title": "Aspergillome pulmonaire",
+  "subtitle": "Fiche de nosographie — pneumologie et chirurgie thoracique",
+  "objective": "Comprendre la formation d'un aspergillome — colonisation saprophytique d'une cavité pulmonaire préexistante par Aspergillus — le dépister devant une hémoptysie sur séquelle tuberculeuse, connaître la classification des formes simples et complexes, et hiérarchiser les options : abstention-surveillance, traitement antifongique, embolisation, ou résection chirurgicale.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 59,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 234,
+      "localNumber": 59,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Aspergillome pulmonaire",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir de la revue « Pulmonary aspergilloma: from classification to management » publiée dans l'Asian Cardiovascular and Thoracic Annals en 2020. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche souligne l'importance du contexte tuberculeux : la grande majorité des aspergillomes de notre contexte surviennent sur des cavités tuberculeuses séquellaires.",
+      "Aucune posologie d'antifongique n'est citée : le traitement médical est mentionné comme option de recours (formes inopérables), la posologie relevant de protocoles spécialisés.",
+      "La hémoptysie est présentée comme le symptôme-roi et le critère principal de décision thérapeutique ; l'hémoptysie massive est une urgence radiologique-interventionnelle.",
+      "La distinction aspergillome simple (sphérique, paroi fine, patient fonctionnellement correct) vs complexe est mise en avant car elle guide le choix thérapeutique."
+    ],
+    "qcChecklist": [
+      "Physiopathologie sur cavité préexistante",
+      "Formes simples et complexes",
+      "Options thérapeutiques hiérarchisées sans posologie",
+      "Source citée avec DOI vérifié"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'aspergillome pulmonaire (fungome) est une masse fongique d'Aspergillus — le plus souvent Aspergillus fumigatus — qui se développe dans une cavité pulmonaire préexistante sans envahir le parenchyme : c'est une colonisation saprophytique, distincte de l'aspergillose invasive du patient immunodéprimé. Le mycéthome évolue dans la cavité en phase avec la respiration, entouré d'un croissant gazeux radiologique."
+        },
+        {
+          "type": "paragraph",
+          "content": "Les cavités-hôtes dominantes sont les séquelles de tuberculose pulmonaire, puis les bulles d'emphysème, les cavités de sarcoïdose, les bronchectasies et les cavités post-infarctus ou post-chirurgicales. Le contexte malgachable de forte prévalence tuberculeuse en fait une complication séquellaire fréquente de la tuberculose traitée."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Pas de cavité, pas d'aspergillome : le champignon colonise une cavité déjà là. Le terrain — tuberculose séquellaire, bulle, bronchectasie — est la clé de la suspicion."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASPERGILLOMA-2020",
+          "organization": "Asian Cardiovascular and Thoracic Annals",
+          "title": "Pulmonary aspergilloma: from classification to management",
+          "year": 2020
+        }
+      ]
+    },
+    {
+      "id": "classification",
+      "title": "Formes cliniques et classification",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Forme",
+            "Description",
+            "Implication"
+          ],
+          "rows": [
+            [
+              "Aspergillome simple",
+              "Cavité sphérique à paroi fine, bien délimitée, patient sans insuffisance respiratoire majeure",
+              "Meilleure candidate à la résection chirurgicale"
+            ],
+            [
+              "Aspergillome complexe",
+              "Paroi épaisse, cavité multiloculée, parenchyme destructuré, pleurésie ou insuffisance respiratoire",
+              "Chirurgie plus risquée, options non chirurgicales discutées"
+            ],
+            [
+              "Aspergillome bilatéral ou multifocal",
+              "Cavités multiples",
+              "Chirurgie d'emblée discutable, traitement médical ou embolisation"
+            ],
+            [
+              "Colonisation partielle (« aspergillome débutant »)",
+              "Dépôt fongique incomplet dans une cavité",
+              "Surveillance rapprochée, pas de traitement d'emblée"
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASPERGILLOMA-2020",
+          "organization": "Asian Cardiovascular and Thoracic Annals",
+          "title": "Pulmonary aspergilloma: from classification to management",
+          "year": 2020
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Circonstance de découverte : hémoptysie (du filement à l'hémoptysie massive), toux chronique, dyspnée, douleur thoracique, altération de l'état général, ou découverte fortuite sur une radiographie de contrôle post-tuberculose.",
+            "Radiographie thoracique : opacité arrondie ou ovalaire intracavitaire avec croissant gazeux périphérique, mobile entre les clichés en inspiration/expiration.",
+            "TDM thoracique : examen clé — montre le mycéthome, la cavité, le croissant aérique, l'état du parenchyme environnant et guide l'opérabilité.",
+            "Sérologie aspergillaire (précipitines) : utile quand l'imagerie est douteuse ; la documentation microbiologique directe est rarement nécessaire.",
+            "Exploration fonctionnelle respiratoire : déterminante pour la décision chirurgicale, elle apprécie la réserve postopératoire potentielle."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "content": "Hémoptysie massive sur terrain séquellaire : urgence vitale. Mise en décubitus latéral du côté atteint, contact chirurgical et radiologique interventionnel immédiat — l'embolisation des artères bronchiques est le geste de sauvetage quand la résection est impossible d'emblée."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASPERGILLOMA-2020",
+          "organization": "Asian Cardiovascular and Thoracic Annals",
+          "title": "Pulmonary aspergilloma: from classification to management",
+          "year": 2020
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Aspergillome asymptomatique, sans hémoptysie : abstention thérapeutique et surveillance tomodensitométrique ; le risque hémorragique existe mais ne justifie pas une chirurgie prophylactique chez un patient à haut risque opératoire.",
+            "Hémoptysie non massive : bilan complet, discussion du traitement — la résection chirurgicale (lobectomie le plus souvent) est le traitement de référence chez le patient opérable avec aspergillome simple.",
+            "Patient inopérable ou aspergillome complexe : embolisation des artères bronchiques à visée hémostatique, éventuellement répétée.",
+            "Formes inopérables avec progression : traitement antifongique systémique prolongé ou instillation intracavitaire — option de recours, d'efficacité inconstante.",
+            "Suivi post-thérapeutique : surveillance des hémoptysies, imagerie, sérologie et fonction respiratoire ; éducation du patient aux signes d'alerte hémorragiques.",
+            "Prévention de la colonisation : traitement correct de la tuberculose et suivi des séquelles cavitaires restent la meilleure prévention primaire dans notre contexte."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "La chirurgie de l'aspergillome se décide sur trois colonnes : la fréquence et l'importance des hémoptysies, la complexité anatomique, et la fonction respiratoire réservée. Opérer un aspergillome complexe sur poumon destructuré peut coûter plus qu'il ne rapporte."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASPERGILLOMA-2020",
+          "organization": "Asian Cardiovascular and Thoracic Annals",
+          "title": "Pulmonary aspergilloma: from classification to management",
+          "year": 2020
+        }
+      ]
+    },
+    {
+      "id": "pronostic",
+      "title": "Évolution et pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'évolution spontanée est capricieuse : stabilité prolongée possible, mais le risque d'hémoptysie — parfois massive et fatale — persiste au fil des années. La résection chirurgicale est curatrice mais comporte une morbidité propre sur ces poumons séquellaires (saignement, fistule bronchopleurale, insuffisance respiratoire). L'embolisation contrôle l'hémorragie aiguë mais ne guérit pas le mycéthome : elle s'intègre dans une stratégie à long terme."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ASPERGILLOMA-2020",
+          "organization": "Asian Cardiovascular and Thoracic Annals",
+          "title": "Pulmonary aspergilloma: from classification to management",
+          "year": 2020
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "CAVITE",
+      "expansion": "Cavité préexistante toujours — Aspergillus fumigatus dominant — Volumineux mycéthome au TDM avec croissant gazeux — Hémoptysie : symptôme-roi — Traiter selon fonction et formes (simple/complex) — Éviter la chirurgie prophylactique chez l'inopérable."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Définition de l'aspergillome pulmonaire ?",
+      "back": "Colonisation saprophytique d'Aspergillus (surtout A. fumigatus) se développant dans une cavité pulmonaire préexistante, formant un mycéthome sans invasion du parenchyme."
+    },
+    {
+      "front": "Cavité-hôte la plus fréquente dans notre contexte ?",
+      "back": "La séquelle cavitaire de tuberculose pulmonaire ; ensuite bulles d'emphysème, sarcoïdose, bronchectasies."
+    },
+    {
+      "front": "Signe radiologique classique ?",
+      "back": "Opacité arrondie intracavitaire avec croissant gazeux périphérique, mobilisable entre inspiration et expiration ; le TDM le confirme."
+    },
+    {
+      "front": "Symptôme-roi de l'aspergillome ?",
+      "back": "L'hémoptysie, du simple filement à l'hémoptysie massive engageant le pronostic vital."
+    },
+    {
+      "front": "Aspergillome simple vs complexe ?",
+      "back": "Simple : cavité à paroi fine, sphérique, patient fonctionnel — candidate à la chirurgie. Complexe : paroi épaisse, lésions multiloculées, parenchyme destructuré — chirurgie à haut risque."
+    },
+    {
+      "front": "Traitement de référence chez le patient opérable ?",
+      "back": "La résection chirurgicale (le plus souvent lobectomie) du fait du risque hémorragique de la lésion."
+    },
+    {
+      "front": "Option de sauvetage dans l'hémoptysie massive inopérable ?",
+      "back": "L'embolisation des artères bronchiques, geste radiologique interventionnel hémostatique, éventuellement répété."
+    },
+    {
+      "front": "Conduite devant un aspergillome asymptomatique ?",
+      "back": "Abstention et surveillance tomodensitométrique : le risque hémorragique ne justifie pas de chirurgie prophylactique sur un terrain à haut risque opératoire."
+    },
+    {
+      "front": "Place du traitement antifongique ?",
+      "back": "Option de recours (systémique ou intracavitaire) dans les formes inopérables évolutives, d'efficacité inconstante ; les posologies relèvent de protocoles spécialisés."
+    },
+    {
+      "front": "Pourquoi l'EFR avant de décider d'opérer ?",
+      "back": "Les poumons séquellaires ont une réserve limitée : l'exploration fonctionnelle apprécie le risque d'insuffisance respiratoire postopératoire."
+    },
+    {
+      "front": "Complications postopératoires spécifiques ?",
+      "back": "Saignement peropératoire sur pleurésie séquellaire, fistule broncho-pleurale, insuffisance respiratoire sur poumon remanié."
+    },
+    {
+      "front": "Prévention primaire de l'aspergillome dans notre contexte ?",
+      "back": "Traitement correct et suivi des tuberculoses, avec surveillance des séquelles cavitaires."
+    }
+  ],
+  "mindmap": {
+    "root": "Aspergillome pulmonaire",
+    "branches": [
+      {
+        "id": "definir",
+        "label": "Définir",
+        "tone": "retenir",
+        "detail": "Saprophyte sur cavité.",
+        "children": [
+          {
+            "id": "cavite",
+            "label": "Cavité-hôte",
+            "detail": "Tuberculose avant tout.",
+            "leaves": [
+              {
+                "id": "d1",
+                "label": "A. fumigatus",
+                "detail": "Champignon dominant."
+              }
+            ]
+          },
+          {
+            "id": "mycethome",
+            "label": "Mycéthome",
+            "detail": "Croissant gazeux au TDM.",
+            "leaves": [
+              {
+                "id": "d2",
+                "label": "Mobile",
+                "detail": "Inspiration/expiration."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "urgence",
+        "detail": "Hémoptysie.",
+        "children": [
+          {
+            "id": "hemoptysie",
+            "label": "Hémoptysie",
+            "detail": "Filement à massive.",
+            "leaves": [
+              {
+                "id": "r1",
+                "label": "Massive",
+                "detail": "Décubitus latéral atteint, embolisation."
+              }
+            ]
+          },
+          {
+            "id": "imagerie",
+            "label": "TDM thoracique",
+            "detail": "Examen clé.",
+            "leaves": [
+              {
+                "id": "r2",
+                "label": "Sérologie",
+                "detail": "Aide si doute."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "prudence",
+        "detail": "Simple ou complexe.",
+        "children": [
+          {
+            "id": "simple",
+            "label": "Simple",
+            "detail": "Paroi fine, fonction correcte.",
+            "leaves": [
+              {
+                "id": "c1",
+                "label": "Chirurgie",
+                "detail": "Référence si opérable."
+              }
+            ]
+          },
+          {
+            "id": "complexe",
+            "label": "Complexe",
+            "detail": "Destructuré, multiloculaire.",
+            "leaves": [
+              {
+                "id": "c2",
+                "label": "Haut risque",
+                "detail": "Options non chirurgicales."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "reflexe",
+        "detail": "Selon hémoptysie et fonction.",
+        "children": [
+          {
+            "id": "surveillance",
+            "label": "Abstention",
+            "detail": "Asymptomatique : surveiller.",
+            "leaves": [
+              {
+                "id": "t1",
+                "label": "Embolisation",
+                "detail": "Hémostatique, répétée."
+              }
+            ]
+          },
+          {
+            "id": "antifongique",
+            "label": "Antifongique",
+            "detail": "Recours inopérable.",
+            "leaves": [
+              {
+                "id": "t2",
+                "label": "Intracavitaire",
+                "detail": "Efficacité inconstante."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Risque hémorragique à vie.",
+        "children": [
+          {
+            "id": "postop",
+            "label": "Postopératoire",
+            "detail": "Fistule, insuffisance.",
+            "leaves": [
+              {
+                "id": "s1",
+                "label": "Éducation",
+                "detail": "Signes d'alerte hémorragiques."
+              }
+            ]
+          },
+          {
+            "id": "prevention",
+            "label": "Prévention",
+            "detail": "Traiter la tuberculose.",
+            "leaves": [
+              {
+                "id": "s2",
+                "label": "Séquelles",
+                "detail": "Surveillance des cavités."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ASPERGILLOMA-2020",
+      "title": "Pulmonary aspergilloma: from classification to management",
+      "citation": "Harmouchi H, Sani R, Issoufou I, Lakranbi M, Ouadnouni Y, Smahi M. Pulmonary aspergilloma: from classification to management. Asian Cardiovascular and Thoracic Annals 2020 ; 28 (4) : 193-202. doi:10.1177/0218492319895113.",
+      "organization": "Asian Cardiovascular and Thoracic Annals",
+      "year": 2020,
+      "url": "https://doi.org/10.1177/0218492319895113",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Classification simple/complexe",
+        "Diagnostic clinique et tomodensitométrique",
+        "Options thérapeutiques",
+        "Pronostic"
+      ]
+    }
+  ]
+}
