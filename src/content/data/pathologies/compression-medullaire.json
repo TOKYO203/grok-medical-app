@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "compression-medullaire",
+  "title": "Compression médullaire non traumatique",
+  "specialty": "Neurochirurgie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la démarche devant une compression médullaire non traumatique : syndrome lésionnel (radiculalgie, troubles sensitifs sous-lésionnels, parésie, troubles sphinctériens) selon le niveau, étiologies principales (métastases, hernie discale, tumeur intrinsèque, abcès, hématome, spondylodiscite) ; IRM médullaire urgente et traitement étiologique urgent (chirurgie de décompression, corticoïdes, radiothérapie) avant que la paralysie ne s'installe.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 3,
+    "specialty": "Neurochirurgie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 3,
+      "localNumber": 3,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Compression médullaire non traumatique",
+      "specialty": "Neurochirurgie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée à la compression médullaire non traumatique : urgence diagnostique et thérapeutique ; syndrome lésionnel : douleurs rachidiennes et radiculaires, troubles sensitifs sous-lésionnels (niveau sensitif), parésie ou paralysie des membres, troubles sphinctériens (rétention, constipation) ; localisation : cervicale (tétraparésie), thoracique (paraparésie, niveau sensitif), lombaire et cône médullaire, queue de cheval (sciatique bilatérale, anesthésie périnéale en selle, rétention) ; étiologies : métastases rachidiennes (sein, poumon, prostate), tumeurs intrinsèques (épendymome, gliome), hernie discale cervicale ou thoracique, spondylodiscite et abcès épidural (fièvre, syndrome inflammatoire), hématome (anticoagulés), malformations vasculaires ; diagnostic : IRM médullaire en urgence avec injection (examen clé), scanner osseux en complément ; traitement : corticoïdes (dexaméthasone) en cas de tumeur, chirurgie de décompression urgente, radiothérapie pour métastases sensibles, antibiothérapie et drainage pour abcès, arrêt des anticoagulants pour hématome ; pronostic marchant fonction du délai et de l'état moteur initial.",
+    "verificationNotes": "Contenu aligné sur les sources de neurologie et neurochirurgie françaises : compression médullaire et syndrome de la queue de cheval, IRM urgente, traitement étiologique.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La compression médullaire non traumatique est une urgence neurologique et neurochirurgicale : toute lésion occupant le canal rachidien (tumeur, hernie, abcès, hématome) comprime la moelle ou les racines et menace définitivement la marche et les sphincters."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic dépend de la rapidité du diagnostic (IRM urgente) et du traitement étiologique : un patient qui marche encore à l'admission a une forte chance de remarcher ; une paraplégie installée depuis des heures récupère mal."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le syndrome lésionnel associe : douleurs rachidiennes ( nocturnes, intenses pour les métastases) et radiculaires, troubles sensitifs sous-lésionnels avec un niveau sensitif, déficit moteur sous-lésionnel, troubles sphinctériens (rétention urinaire, constipation), parfois troubles de la marche et signe de Babinski ; l'examen recherche le niveau lésionnel et l'état sphinctérien (toucher rectal : tonus anal).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Selon le niveau : compression cervicale = tétraparésie avec troubles sensitifs des quatre membres ; thoracique = paraparésie spastique avec niveau sensitif tronc ; lombaire et cône = déficit des membres inférieurs, troubles sphinctériens précoces, anesthésie périnéale ; syndrome de la queue de cheval = sciatiques bilatérales, anesthésie en selle, rétention, hypotonie des membres inférieurs.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes associés : fièvre et raideur (abcès, spondylodiscite), altération de l'état général et néoplasie connue (métastase), anticoagulants (hématome), déclenchement brutal.",
+            "Examen : force segmentaire, sensibilité (pin prick), réflexes (abolis sous la lésion au début, Babinski), sphincters, marche si possible."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Tumorales : métastases rachidiennes (sein, poumon, prostate, rein, myélome), tumeurs intrinsèques de la moelle (épendymome, gliome, cavernome), tumeurs extradurales bénignes (méningiome, neurinome).",
+            "Degenerative : hernie discale cervicale ou thoracique, canal lombaire étroit (queue de cheval), spondylarthrose serrée.",
+            "Infectieuses : spondylodiscite, abcès épidural (staphylocoque, tuberculose : mal de Pott), brucellose.",
+            "Vasculaires : hématome épidural ou sous-dural (anticoagulants, malformations), fistule durale.",
+            "Autres : arachnoïdite, malformations osseuses et achondroplasie, cyrinx et syringomyélie."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "IRM médullaire en urgence avec injection de gadolinium : l'examen clé ; précise le niveau, l'étendue, le siège (intradural intramédullaire, intradural extramédullaire, extradural) et la nature probable de la lésion ; scanner rachidien en complément pour l'os ; radiographies standard peu utiles en dehors du mal de Pott ; biologie : NFS, CRP, hémocultures si fièvre, bilan d'hémostase si anticoagulants, bilan tumoral et protéinorachie selon le contexte ; biopsie ou intervention pour l'analyse anatomopathologique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostic différentiel : sclérose en plaques et myélite aiguë (pas d'effet de masse), neuropathies et polyradiculonévrites, accident vasculaire médullaire (infarctus : brutal, indolore, IRM sans effet de masse au début), cytopathie mitochondriale ; l'urgence impose de ne pas retarder l'IRM devant tout déficit d'installation subaiguë.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mesures immédiates : décubitus strict, éviter toute manipulation du rachis, sondage urinaire si rétention, prévention des complications de décubitus ; corticoïdes (dexaméthasone à forte dose) en cas de compression tumorale pour réduire l'œdème en attendant le traitement étiologique ; correction urgente d'une anticoagulation en cas d'hématome ; antibiothérapie intraveineuse et drainage chirurgical en cas d'abcès ou de spondylodiscite.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement étiologique : chirurgie de décompression (laminectomie, abord antérieur avec ostéosynthèse selon le niveau et la cause) pour hernie, tumeur bénigne, abcès, hématome, certaines métastases ; radiothérapie urgente pour métastases radiosensibles (myélome, prostate, sein) quand la chirurgie n'est pas indiquée ; chimiothérapie adaptée au type tumoral ; rééducation précoce (kinésithérapie, marche, sphincters), prise en charge de la douleur et suivi neurologique rapproché.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention des séquelles : diagnostic précoce devant toute douleur rachidienne inhabituelle (nocturne, chez un patient cancéreux) ou tout déficit des membres inférieurs d'installation progressive : IRM sans délai ; surveillance neurologique des patients à risque (cancers, anticoagulants) ; rééducation intensive après traitement ; prise en charge des complications de décubitus (escarres, phlébites) si séquelles."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La compression médullaire non traumatique associe douleurs rachidiennes ou radiculaires, niveau sensitif, déficit sous-lésionnel et troubles sphinctériens ; l'IRM médullaire urgente est indispensable ; les causes principales sont tumorales, discales, infectieuses et hémorragiques ; le traitement étiologique (décompression chirurgicale, radiothérapie, antibiotiques, arrêt des anticoagulants) doit intervenir avant l'installation d'une paralysie complète : la récupération dépend surtout de l'état moteur initial et du délai.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche sciatique-hernie — hernie discale lombaire.",
+            "Fiche lombalgie — démarche rachidienne.",
+            "Fiche trauma-rachis — atteinte traumatique.",
+            "Fiche avc-ischemique — neurologie."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Rétention + paraparésie d'installation subaiguë",
+      "text": "Compression médullaire ou de la queue de cheval : IRM médullaire en urgence (dans les heures), avis neurochirurgical : le pronostic de la marche se joue sur le délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Patient cancéreux avec douleur rachidienne",
+      "text": "Douleur rachidienne intense, nocturne, chez un patient porteur d'un cancer : métastase compressive jusqu'à preuve du contraire : IRM urgente, dexaméthasone, discussion radiothérapie ou chirurgie."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Définir le niveau : examen moteur, sensitif (niveau), sphincter (toucher rectal) ; fièvre ? anticoagulants ? cancer ? ; IRM médullaire avec injection sans délai ; pas de manipulation inutile du rachis."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Douleur + niveau sensitif + déficit sous-lésionnel + rétention = compression médullaire.Métastase : cancer connu, douleur nocturne, déficit progressif.Abcès : fièvre, rachis raide, syndrome inflammatoire.Hématome : anticoagulants, début brutale.IRM = examen clé, chirurgie = traitement."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Règle du pronostic",
+      "text": "Marche conservée à l'admission : forte chance de remarcher. Paraplégie complète installée depuis plusieurs heures : récupération faible : agir avant la paralysie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Causes",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tumeur, métastase"
+        },
+        {
+          "key": "H",
+          "term": "Hernie discale"
+        },
+        {
+          "key": "A",
+          "term": "Abcès, spondylodiscite"
+        },
+        {
+          "key": "H",
+          "term": "Hématome (anticoagulants)"
+        }
+      ]
+    },
+    {
+      "label": "Signes lésionnels",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Douleur rachidienne, radiculaire"
+        },
+        {
+          "key": "N",
+          "term": "Niveau sensitif"
+        },
+        {
+          "key": "P",
+          "term": "Parésie sous-lésionnelle"
+        },
+        {
+          "key": "S",
+          "term": "Sphincters (rétention)"
+        }
+      ]
+    },
+    {
+      "label": "Localisations",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cervicale : tétraparésie"
+        },
+        {
+          "key": "T",
+          "term": "Thoracique : paraparésie"
+        },
+        {
+          "key": "L",
+          "term": "Lombaire : membres inférieurs"
+        },
+        {
+          "key": "Q",
+          "term": "Queue de cheval : selle, sciatiques"
+        }
+      ]
+    },
+    {
+      "label": "Prise en charge",
+      "entries": [
+        {
+          "key": "I",
+          "term": "IRM urgente"
+        },
+        {
+          "key": "C",
+          "term": "Corticoïdes si tumeur"
+        },
+        {
+          "key": "D",
+          "term": "Décompression chirurgicale"
+        },
+        {
+          "key": "R",
+          "term": "Rééducation précoce"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que la compression médullaire non traumatique ?",
+      "back": "Une urgence neurochirurgicale : une lésion occupant le canal rachidien (tumeur, hernie, abcès, hématome) comprime la moelle ou les racines, menaçant la marche et les sphincters."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les signes du syndrome lésionnel ?",
+      "back": "Douleurs rachidiennes et radiculaires, troubles sensitifs sous-lésionnels avec un niveau sensitif, déficit moteur sous-lésionnel, troubles sphinctériens (rétention, constipation), troubles de la marche."
+    },
+    {
+      "id": "f3",
+      "front": "Comment se présente une compression cervicale ?",
+      "back": "Tétraparésie avec troubles sensitifs des quatre membres, réflexes vifs, signe de Babinski, troubles sphinctériens possibles, douleurs cervicales ou brachiales."
+    },
+    {
+      "id": "f4",
+      "front": "Comment se présente une compression thoracique ?",
+      "back": "Paraparésie spastique des membres inférieurs, niveau sensitif sur le tronc, rétention urinaire, douleurs intercostales ou dorsales ; cause fréquente : métastase."
+    },
+    {
+      "id": "f5",
+      "front": "Qu'est-ce que le syndrome de la queue de cheval ?",
+      "back": "Compression des racines lombo-sacrées : sciatiques bilatérales, anesthésie périnéale en selle, rétention urinaire, hypotonie et abolition des réflexes aux membres inférieurs."
+    },
+    {
+      "id": "f6",
+      "front": "Quelle est la cause la plus fréquente chez un patient cancéreux ?",
+      "back": "Les métastases rachidiennes (sein, poumon, prostate, rein, myélome) : douleur rachidienne intense et nocturne puis déficit progressif des membres inférieurs."
+    },
+    {
+      "id": "f7",
+      "front": "Quelles causes infectieuses ?",
+      "back": "La spondylodiscite, l'abcès épidural (staphylocoque), le mal de Pott tuberculeux : fièvre, douleur, raideur rachidienne, syndrome inflammatoire, risque de compression rapide."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle cause chez un patient anticoagulé ?",
+      "back": "L'hématome épidural ou sous-dural : début brutal, douleur et déficit majeurs sous anticoagulants ou antiagrégants : IRM urgente, arrêt et antidote, drainage chirurgical urgent."
+    },
+    {
+      "id": "f9",
+      "front": "Quel examen clé et dans quel délai ?",
+      "back": "L'IRM médullaire avec injection de gadolinium, en urgence (heures) devant tout déficit d'installation subaiguë : elle précise le niveau, le siège et la nature de la lésion."
+    },
+    {
+      "id": "f10",
+      "front": "Quels bilans complémentaires selon le contexte ?",
+      "back": "NFS, CRP, hémocultures si fièvre ; bilan d'hémostase et INR si anticoagulants ; bilan tumoral (mammographie, scanner thoracique, PSA) si métastase suspectée ; analyse du liquide et biopsie pour l'histologie."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle place des corticoïdes ?",
+      "back": "La dexaméthasone à forte dose en cas de compression tumorale : réduit l'œdème péri-lésionnel et soulage la douleur en attendant la chirurgie ou la radiothérapie ; pas d'effet démontré dans les causes non tumorales."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement d'une métastase compressive ?",
+      "back": "Corticoïdes puis radiothérapie urgente pour les tumeurs radiosensibles (myélome, prostate, sein), chirurgie de décompression avec ostéosynthèse si instabilité, déficit majeur ou récidive ; chimiothérapie adaptée au type."
+    },
+    {
+      "id": "f13",
+      "front": "Quel traitement d'un abcès épidural ?",
+      "back": "Antibiothérapie intraveineuse précoce (antistaphylococcique) et drainage chirurgical en urgence si déficit neurologique, associés au traitement de la spondylodiscite sous-jacente."
+    },
+    {
+      "id": "f14",
+      "front": "Quel traitement d'une hernie discale thoracique ou cervicale compressive ?",
+      "back": "Chirurgie de décompression (abord antérieur ou postérieur selon le niveau) devant tout déficit progressif ou troubles sphinctériens ; repos et antalgiques seuls si douleur isolée sans déficit."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles mesures générales immédiates ?",
+      "back": "Décub strict, sonde vésicale si rétention, prévention des escarres et phlébites, antalgiques, correction de l'anticoagulation si hématome, rééducation précoce dès le traitement étiologique."
+    },
+    {
+      "id": "f16",
+      "front": "Quels facteurs pronostiques ?",
+      "back": "L'état moteur initial (la marche conservée à l'admission prédit la remarche), la rapidité du traitement, le type de lésion ; une paraplégie complète installée depuis des heures récupère mal."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cm2-root",
+      "label": "Compression médullaire non traumatique"
+    },
+    "branches": [
+      {
+        "id": "cm2-b1",
+        "label": "Signes",
+        "children": [
+          {
+            "id": "cm2-b1-c",
+            "label": "Syndrome lésionnel"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cm2-b1-l1",
+            "label": "Douleur rachidienne"
+          },
+          {
+            "id": "cm2-b1-l2",
+            "label": "Niveau sensitif"
+          },
+          {
+            "id": "cm2-b1-l3",
+            "label": "Déficit sous-lésionnel"
+          },
+          {
+            "id": "cm2-b1-l4",
+            "label": "Rétention urinaire"
+          }
+        ]
+      },
+      {
+        "id": "cm2-b2",
+        "label": "Localisations",
+        "children": [
+          {
+            "id": "cm2-b2-c",
+            "label": "Selon le niveau"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cm2-b2-l1",
+            "label": "Cervicale : tétraparésie"
+          },
+          {
+            "id": "cm2-b2-l2",
+            "label": "Thoracique : paraparésie"
+          },
+          {
+            "id": "cm2-b2-l3",
+            "label": "Lombaire, cône"
+          },
+          {
+            "id": "cm2-b2-l4",
+            "label": "Queue de cheval : selle"
+          }
+        ]
+      },
+      {
+        "id": "cm2-b3",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "cm2-b3-c",
+            "label": "À classer"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cm2-b3-l1",
+            "label": "Métastase, tumeur"
+          },
+          {
+            "id": "cm2-b3-l2",
+            "label": "Hernie discale"
+          },
+          {
+            "id": "cm2-b3-l3",
+            "label": "Abcès, spondylodiscite"
+          },
+          {
+            "id": "cm2-b3-l4",
+            "label": "Hématome (anticoagulants)"
+          }
+        ]
+      },
+      {
+        "id": "cm2-b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "cm2-b4-c",
+            "label": "Urgent"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cm2-b4-l1",
+            "label": "IRM avec injection"
+          },
+          {
+            "id": "cm2-b4-l2",
+            "label": "Scanner osseux"
+          },
+          {
+            "id": "cm2-b4-l3",
+            "label": "Bilan infectieux, tumoral"
+          },
+          {
+            "id": "cm2-b4-l4",
+            "label": "Biopsie si besoin"
+          }
+        ]
+      },
+      {
+        "id": "cm2-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "cm2-b5-c",
+            "label": "Étiologique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cm2-b5-l1",
+            "label": "Corticoïdes si tumeur"
+          },
+          {
+            "id": "cm2-b5-l2",
+            "label": "Décompression chirurgicale"
+          },
+          {
+            "id": "cm2-b5-l3",
+            "label": "Radiothérapie, antibiotiques"
+          },
+          {
+            "id": "cm2-b5-l4",
+            "label": "Rééducation précoce"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Compression médullaire non traumatique",
+      "citation": "medG — Dossier : compression médullaire non traumatique (syndrome lésionnel, causes, traitement)",
+      "organization": "medG",
+      "year": 2023,
+      "version": "Dossier médical",
+      "url": "https://www.medg.fr/compression-medullaire-non-traumatique-od/",
+      "usedFor": [
+        "signes",
+        "causes"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Compression médullaire et syndrome de la queue de cheval",
+      "citation": "CEN Neurologie — Support : compression médullaire non traumatique et syndrome de la queue de cheval",
+      "organization": "Collège des enseignants de neurologie",
+      "year": 2022,
+      "version": "Support de cours",
+      "url": "https://www.cen-neurologie.fr/second-cycle/compression-medullaire-non-traumatique-et-syndrome-de-la-queue-de-cheval",
+      "usedFor": [
+        "diagnostic",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Compression médullaire",
+      "citation": "Campus de neurochirurgie — Article : compression médullaire, IRM et indications chirurgicales",
+      "organization": "Campus de neurochirurgie",
+      "year": 2021,
+      "version": "Article de référence",
+      "url": "https://campus.neurochirurgie.fr/article1655.html",
+      "usedFor": [
+        "imagerie",
+        "chirurgie"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
