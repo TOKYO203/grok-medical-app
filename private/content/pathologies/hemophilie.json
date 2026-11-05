@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hemophilie",
+  "title": "Hémophilie",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'hémophilie A (déficit en facteur VIII) et l'hémophilie B (déficit en facteur IX), connaître le mode de transmission lié à l'X, la présentation clinique (hémarthroses, hématomes, saignements prolongés), la biologie (temps de céphaline allongé, temps de prothrombine normal, dosage du facteur), le traitement substitutif et la prévention (prophylaxie, éducation, conseil génétique, inhibiteurs).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 88,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 129,
+      "localNumber": 88,
+      "sectionLabel": "Médecine",
+      "title": "Hémophilie",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur la plus fréquente des coagulopathies héréditaires : génétique liée à l'X, physiopathologie par déficit en facteur VIII ou IX, clinique dominée par les hémarthroses, biologie simple à interpréter, traitement substitutif et ses complications (inhibiteurs), et organisation de la prise en charge à vie. Les hémorragies aiguës et la transfusion relèvent des fiches dédiées ; la maladie de Willebrand n'est pas traitée ici.",
+    "verificationNotes": "Transmission liée à l'X, fréquences (hémophilie A environ un garçon sur 5000, B un sur 25000), classification en trois stades de sévérité, biologie (temps de céphaline allongé, temps de prothrombine normal) et traitement substitutif par concentrés de facteurs recombinants conformes aux recommandations du Vidal et aux lignes directrices de la Fédération mondiale de l'hémophilie. Données sur les inhibiteurs (environ 30 % des hémophilies A traitées) issues du consortium européen ; l'usage de la desmopressine dans les formes mineures A et de l'acide tranexamique conforme au Vidal.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémophilie est une maladie hémorragique héréditaire liée à l'X, due au déficit en facteur VIII (hémophilie A, la plus fréquente) ou en facteur IX (hémophilie B). Elle touche presque exclusivement les garçons, les femmes étant conductrices. Sa singularité clinique est le saignement profond : hémarthroses et hématomes, contrastant avec les saignements cutanéo-muqueux des thrombopathies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Autrefois mortelle à l'adolescence, l'espérance de vie est aujourd'hui quasi normale dans les pays où la substitution en facteur est disponible — mais l'accès au traitement reste inégal et l'arthropathie reste la principale complication à Madagascar comme ailleurs."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Génétique et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Transmission récessive liée à l'X : les garçons atteints transmettent le gène à toutes leurs filles (conductrices obligatoires) et à aucun de leurs fils ; une conductrice a un risque d'un garçon atteint sur deux. Environ un tiers des cas surviennent par mutation de novo. Hémophilie A : environ un garçon nouveau-né sur 5000 ; hémophilie B : environ un sur 25000. Le déficit est quantifié en unités par décilitre : sévère (inférieur à 1 %), modéré (1 à 5 %), léger (supérieur à 5 %).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La sévérité du déficit commande le phénotype : les formes sévères saignent spontanément (hémarthroses des genoux, coudes, chevilles), les formes modérées saignent après traumatisme modéré, les formes légères après chirurgie ou plaie importante — elles peuvent être diagnostiquées à l'âge adulte lors d'une intervention.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le facteur VIII est le cofacteur du facteur IX dans l'activation du facteur X : son déficit (hémophilie A, gène F8) ou celui du facteur IX (hémophilie B, gène F9) rompt la voie intrinsèque de la coagulation. Il en résulte un caillot friable, retardé, incapable de tenir face aux contraintes mécaniques articulaires : d'où les hémarthroses récidivantes qui, en quelques années, détruisent la synoviale et le cartilage (arthropathie hémophilique).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hémophilie A : déficit en facteur VIII — quatre à cinq fois plus fréquente que la B.",
+            "Hémophilie B : déficit en facteur IX — clinique identique, traitement différent.",
+            "Sévérité : inférieure à 1 % (sévère), 1-5 % (modérée), supérieure à 5 % (légère).",
+            "Femmes conductrices : le plus souvent asymptomatiques, parfois légèrement atteintes (lyonnisation défavorable)."
+          ],
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Circonstances de révélation : ecchymoses étendues et hématomes chez un garçon, hémarthrose spontanée ou après traumatisme minime (genou, coude, cheville), saignement prolongé après circoncision ou extraction dentaire, antécédents familiaux de saignements chez les hommes de la lignée maternelle. L'interrogatoire des femmes conductrices oriente.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : temps de saignement et temps de prothrombine normaux, plaquettes normales ; le temps de céphaline est allongé, corrigé par le plasma témoin. Le diagnostic est confirmé et quantifié par le dosage du facteur VIII ou IX, qui classe la sévérité. Devant un allongement isolé du temps de céphaline, il faut aussi éliminer une maladie de Willebrand (dosage du facteur de Willebrand) et, en cas d'inhibiteur, le temps de céphaline n'est pas corrigé par le mélange au plasma témoin : les inhibiteurs sont quantifiés par le test de Bethesda, à doser devant toute hémophilie traitée qui saigne plus qu'avant.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémophilie suspectée devant un tableau hémorragique",
+          "text": "Ne pas attendre le dosage du facteur : hémorragie active chez un garçon avec antécédents évocateurs = substitution probabiliste en facteur VIII, prélèvements pour bilan complet, transfert vers le centre d'hémophilie le plus proche."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement substitutif repose sur les concentrés de facteur VIII ou IX recombinants, par voie intraveineuse, adaptés au type et à la sévérité. Il se fait à la demande (chaque saignement, dose fixée selon le site : hémorragie articulaire, chirurgie) ou en prophylaxie régulière (deux à trois injections par semaine) dans les formes sévères, qui prévient l'arthropathie et constitue le standard moderne de l'enfant. L'hémophilie A légère peut bénéficier de la desmopressine ; l'acide tranexamique complète le traitement des saignements muqueux et dentaires.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mesures associées : traitement précoce des hémarthroses (substitution, antalgiques, ponction évacuatrice articulaire si nécessaire, puis kinésithérapie et rééducation, glaciation), régime hydrique et traitements par voie orale de préférence aux intramusculaires, vaccination contre l'hépatite A et B (via la voie sous-cutanée si nécessaire), suivi dentaire préventif. En cas d'inhibiteur (environ 30 % des hémophilies A sévères traitées) : agents by-passants (facteur VII activé, complexe prothrombique activé) pour court-circuiter l'inhibiteur, puis induction de tolérance immunitaire ; les nouvelles thérapies (émicizumab, thérapies géniques) transforment la prise en charge des formes sévères A.",
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Jamais d'intramusculaire chez un hémophile",
+          "text": "Chez tout patient hémophile : pas d'injection intramusculaire, pas d'aspirine ni d'anti-inflammatoires ; antalgiques par voie orale, vaccination par voie sous-cutanée."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : conseil génétique des conductrices et identification des familles (arbre généalogique de la lignée maternelle), diagnostic prénatal possible ; éducation thérapeutique dès l'enfance (reconnaître un saignement, traiter tôt, éviter les sports de contact violents au profit de la natation). Prévention de l'arthropathie : prophylaxie substitutive régulière et kinésithérapie.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention des complications infectieuses : les concentrés recombinants actuels ont éliminé le risque viral, mais les patients ayant reçu des dérivés plasmatiques anciens nécessitent un dépistage des hépatites B et C et du VIH. Carte de soins et d'identification, information des chirurgiens et dentistes avant tout geste, port d'un carnet mentionnant le type, la sévérité et le traitement.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémophilie se résume : garçon avec hémarthroses ou hématomes récidivants + temps de céphaline allongé à temps de prothrombine normal = dosage des facteurs VIII et IX. Le traitement substitutif, la prophylaxie et la rééducation ont transformé le pronostic ; l'arthropathie et les inhibiteurs restent les deux défis à long terme.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Transfusions (concentrés et produits dérivés), Hémorragies digestives, Arthropathie et Rhumatisme articulaire aigu (diagnostic différentiel des arthrites de l'enfant), Vih et Hépatites virales (séquelles des dérivés anciens)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Hémophilie : déficit en VIII (A) ou IX (B), transmission liée à l'X, garçons atteints. TCA allongé, TP normal, dosage du facteur pour classer. Substitution en facteur à la demande ou prophylactique, desmopressine si forme A légère. Jamais d'intramusculaire ni d'aspirine. Inhibiteurs : environ 30 % des formes A sévères."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche transfusion — concentrés de facteurs et produits dérivés du sang.",
+            "Fiche hepatites-virales — séquelles virales des dérivés plasmatiques.",
+            "Fiche vih — dépistage chez les patients multi-transfundés.",
+            "Fiche rheumatisme-articulaire-aigu — arthrite de l'enfant.",
+            "Fiche hemorragies-digestives — saignement profond."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Saignement actif chez un hémophile",
+      "text": "Traiter sans attendre le dosage : substitution probabiliste en facteur VIII (ou IX si connu), prélèvements, immobilisation et glace, avis du centre d'hémophilie."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hémorragie intracrânienne suspectée",
+      "text": "Traumatisme crânien ou céphalée inhabituelle chez un hémophile : urgence absolue — substitution immédiate au double de la dose habituelle, imagerie cérébrale sans délai."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Jamais d'intramusculaire, jamais d'aspirine",
+      "text": "Voie orale ou intraveineuse uniquement, antalgiques type paracétamol, vaccinations par voie sous-cutanée, information de tous les soignants."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Garçon + hémarthroses + TCA allongé + TP normal = hémophilie jusqu'au dosage des facteurs VIII-IX. Substitution = traitement ; prophylaxie = prévention de l'arthropathie."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Trois chiffres de sévérité",
+      "text": "Inférieur à 1 % : sévère, saignements spontanés. 1 à 5 % : modéré, saignement après traumatisme modéré. Supérieur à 5 % : léger, saignement après chirurgie ou plaie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Biologie de l'hémophilie",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Temps de céphaline allongé"
+        },
+        {
+          "key": "P",
+          "term": "Prothrombine (TP) : normal"
+        },
+        {
+          "key": "N",
+          "term": "Nombre de plaquettes : normal"
+        },
+        {
+          "key": "F",
+          "term": "Facteur VIII ou IX effondré"
+        }
+      ]
+    },
+    {
+      "label": "Clinique",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hémarthroses : genou, coude, cheville"
+        },
+        {
+          "key": "H",
+          "term": "Hématomes profonds des membres"
+        },
+        {
+          "key": "S",
+          "term": "Saignements prolongés post-chirurgie, post-extraction"
+        }
+      ]
+    },
+    {
+      "label": "Traitement substitutif",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Recombinant : concentrés de facteur"
+        },
+        {
+          "key": "P",
+          "term": "Prophylaxie : 2-3 injections par semaine si forme sévère"
+        },
+        {
+          "key": "D",
+          "term": "Desmopressine si hémophilie A légère"
+        },
+        {
+          "key": "T",
+          "term": "Acide Tranexamique pour les saignements muqueux"
+        }
+      ]
+    },
+    {
+      "label": "Interdits chez l'hémophile",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Intramusculaires interdites"
+        },
+        {
+          "key": "A",
+          "term": "Aspirine et anti-inflammatoires à éviter"
+        },
+        {
+          "key": "G",
+          "term": "Gestes invasifs à planifier avec le centre de traitement"
+        },
+        {
+          "key": "S",
+          "term": "Sports de contact violents déconseillés"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la différence entre hémophilie A et B ?",
+      "back": "L'hémophilie A correspond à un déficit en facteur VIII (environ un garçon sur 5000), la B à un déficit en facteur IX (environ un sur 25000) ; la clinique est identique, le substitut diffère."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le mode de transmission ?",
+      "back": "Récessif lié à l'X : les garçons atteints transmettent le gène à toutes leurs filles (conductrices) et à aucun fils ; une conductrice a un risque d'un garçon atteint sur deux."
+    },
+    {
+      "id": "f3",
+      "front": "Comment classe-t-on la sévérité ?",
+      "back": "Selon le taux du facteur : sévère inférieur à 1 %, modéré entre 1 et 5 %, léger au-delà de 5 % du taux normal."
+    },
+    {
+      "id": "f4",
+      "front": "Quel est le signe clinique le plus caractéristique ?",
+      "back": "L'hémarthrose spontanée ou post-traumatique des genoux, coudes et chevilles, récidivante, aboutissant à l'arthropathie hémophilique."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle anomalie biologique oriente le diagnostic ?",
+      "back": "Un temps de céphaline allongé isolé, avec temps de prothrombine normal et plaquettes normales."
+    },
+    {
+      "id": "f6",
+      "front": "Quel examen confirme le diagnostic ?",
+      "back": "Le dosage du facteur VIII ou IX, qui quantifie le déficit et classe la sévérité."
+    },
+    {
+      "id": "f7",
+      "front": "Quelle autre maladie éliminer devant un allongement isolé du temps de céphaline ?",
+      "back": "La maladie de Willebrand (dosage du facteur de Willebrand), surtout chez une fille ou femme qui saigne."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le traitement de base ?",
+      "back": "La substitution par concentrés de facteur VIII ou IX recombinants par voie intraveineuse, à la demande ou en prophylaxie régulière."
+    },
+    {
+      "id": "f9",
+      "front": "Qu'est-ce que la prophylaxie dans l'hémophilie sévère ?",
+      "back": "Des injections régulières (deux à trois par semaine) de facteur, destinées à prévenir les hémarthroses et l'arthropathie — le standard moderne chez l'enfant."
+    },
+    {
+      "id": "f10",
+      "front": "Quel traitement possible dans l'hémophilie A légère ?",
+      "back": "La desmopressine, qui élève transitoirement le facteur VIII endogène ; l'acide tranexamique complète les saignements muqueux et dentaires."
+    },
+    {
+      "id": "f11",
+      "front": "Comment traiter une hémarthrose ?",
+      "back": "Substitution précoce, antalgiques (paracétamol), glace et immobilisation, ponction évacuatrice si l'articulation est tendue, puis rééducation."
+    },
+    {
+      "id": "f12",
+      "front": "Qu'est-ce qu'un inhibiteur ?",
+      "back": "Un anticorps dirigé contre le facteur injecté (environ 30 % des hémophilies A sévères traitées), qui rend la substitution inefficace : détection par le test de Bethesda."
+    },
+    {
+      "id": "f13",
+      "front": "Comment traiter un patient avec inhibiteur ?",
+      "back": "Par des agents by-passants (facteur VII activé, complexe prothrombique activé) qui court-circuitent l'inhibiteur, puis induction de tolérance immunitaire ; l'émicizumab transforme la prise en charge des formes A sévères."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles sont les grandes interdictions pratiques ?",
+      "back": "Les injections intramusculaires, l'aspirine et les anti-inflammatoires non stéroïdiens, les sports de contact violents ; vacciner par voie sous-cutanée."
+    },
+    {
+      "id": "f15",
+      "front": "Pourquoi un dépistage des hépatites et du VIH chez les anciens patients ?",
+      "back": "Parce que les dérivés plasmatiques utilisés avant les concentrés recombinants ont transmis des virus hépatotropes et le VIH à une partie des patients traités."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles mesures préventives au long cours ?",
+      "back": "Carte de soins et carnet du patient, information des chirurgiens et dentistes avant tout geste, éducation thérapeutique, conseil génétique des conductrices, suivi articulaire et dentaire."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "hemo-root",
+      "label": "Hémophilie"
+    },
+    "branches": [
+      {
+        "id": "he-b1",
+        "label": "Génétique",
+        "children": [
+          {
+            "id": "he-b1-1",
+            "label": "Lé à l'X"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "he-l1-1",
+            "label": "F8 : facteur VIII (A)"
+          },
+          {
+            "id": "he-l1-2",
+            "label": "F9 : facteur IX (B)"
+          },
+          {
+            "id": "he-l1-3",
+            "label": "Filles conductrices"
+          },
+          {
+            "id": "he-l1-4",
+            "label": "Mutation de novo : un tiers des cas"
+          }
+        ]
+      },
+      {
+        "id": "he-b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "he-b2-1",
+            "label": "Saignements profonds"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "he-l2-1",
+            "label": "Hémarthroses : genou, coude, cheville"
+          },
+          {
+            "id": "he-l2-2",
+            "label": "Hématomes profonds"
+          },
+          {
+            "id": "he-l2-3",
+            "label": "Saignements post-opératoires"
+          },
+          {
+            "id": "he-l2-4",
+            "label": "Arthropathie chronique"
+          }
+        ]
+      },
+      {
+        "id": "he-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "he-b3-1",
+            "label": "Biologie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "he-l3-1",
+            "label": "TCA allongé, TP normal"
+          },
+          {
+            "id": "he-l3-2",
+            "label": "Dosage des facteurs VIII-IX"
+          },
+          {
+            "id": "he-l3-3",
+            "label": "Éliminer la maladie de Willebrand"
+          },
+          {
+            "id": "he-l3-4",
+            "label": "Inhibiteurs : test de Bethesda"
+          }
+        ]
+      },
+      {
+        "id": "he-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "he-b4-1",
+            "label": "Substitution et prévention"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "he-l4-1",
+            "label": "Concentrés recombinants"
+          },
+          {
+            "id": "he-l4-2",
+            "label": "Prophylaxie hebdomadaire"
+          },
+          {
+            "id": "he-l4-3",
+            "label": "Desmopressine si A légère"
+          },
+          {
+            "id": "he-l4-4",
+            "label": "Agents by-passants si inhibiteur"
+          }
+        ]
+      },
+      {
+        "id": "he-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "he-b5-1",
+            "label": "Éducation et suivi"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "he-l5-1",
+            "label": "Pas d'intramusculaire ni d'aspirine"
+          },
+          {
+            "id": "he-l5-2",
+            "label": "Vaccinations sous-cutanées"
+          },
+          {
+            "id": "he-l5-3",
+            "label": "Conseil génétique des conductrices"
+          },
+          {
+            "id": "he-l5-4",
+            "label": "Carte et carnet du patient"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Recommandations : hémophilie",
+      "citation": "Vidal — Hémophilie : recommandations de prise en charge (substitution, desmopressine, acide tranexamique)",
+      "organization": "Vidal",
+      "year": 2024,
+      "version": "Recommandations",
+      "url": "https://www.vidal.fr/maladies/recommandations/hemophilie-4046.html",
+      "usedFor": [
+        "traitement substitutif",
+        "desmopressine",
+        "mesures associées"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Lignes directrices de la FMH pour la prise en charge de l'hémophilie",
+      "citation": "Fédération Mondiale de l'Hémophilie — Lignes directrices pour la prise en charge de l'hémophilie (3e édition)",
+      "organization": "Fédération Mondiale de l'Hémophilie",
+      "year": 2020,
+      "version": "Lignes directrices",
+      "url": "https://www1.wfh.org/publications/files/pdf-2170.pdf",
+      "usedFor": [
+        "classification en sévérités",
+        "prophylaxie",
+        "prise en charge globale"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Déficit en facteur VIII : hémophilie A",
+      "citation": "Centre de Référence Hémophilie — Hémophilie A : prévalence, transmission, physiopathologie",
+      "organization": "Centre de Référence Hémophilie (France)",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.hemophilie-crh.fr/les-pathologies/deficit-en-facteur-viii-hemophilie-a/",
+      "usedFor": [
+        "transmission liée à l'X",
+        "physiopathologie du facteur VIII"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "Déficit en facteur VIII (hémophilie A)",
+      "citation": "European Haemophilia Consortium — Hémophilie A : inhibiteurs (environ 30 % des patients traités)",
+      "organization": "European Haemophilia Consortium",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.ehc.eu/fr/bleeding-disorder/deficit-en-facteur-viii-hemophilie-a/",
+      "usedFor": [
+        "inhibiteurs : fréquence et conséquences",
+        "agents by-passants"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
