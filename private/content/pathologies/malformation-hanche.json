@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "malformation-hanche",
+  "title": "Malformation congénitale de la hanche",
+  "subtitle": "Fiche de nosographie — orthopédie pédiatrique",
+  "objective": "Situer la luxation congénitale dans le spectre global des malformations de la hanche — dysplasie cotyloïdienne, subluxation, luxation, formes secondaires —, comprendre la logique du modelage par la croissance, et connaître les principes de surveillance d'une hanche malformée pendant toute l'enfance.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 65,
+    "specialty": "Orthopédie pédiatrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 240,
+      "localNumber": 65,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Malformation congénitale de la hanche",
+      "specialty": "Orthopédie pédiatrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, complémentaire de la fiche sur la luxation congénitale de la hanche : elle adopte l'angle du spectre malformatif global et des formes secondaires, à partir du rapport clinique de l'American Academy of Pediatrics et de la revue du Bone & Joint Journal. Texte entièrement reformulé, sans reprise de contenu sous droit d'auteur.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche est volontairement complémentaire de celle consacrée à la luxation congénitale : l'accent porte ici sur la dysplasie sans luxation, sur les formes secondaires et syndromiques, et sur le concept de modelage.",
+      "La distinction entre malformation de la hanche d'origine intrinsèque (dysplasie isolée) et secondaire (neurologique, septique, syndromique) est explicite car elle change le pronostic et la conduite.",
+      "La notion de fenêtre thérapeutique de croissance est centrale : la hanche de l'enfant se corrige par modelage, ce qui n'existe plus après maturation.",
+      "Les items d'examen clinique sont ceux du dépistage standard ; la fiche renvoie à la fiche sur la luxation congénitale pour les manœuvres détaillées afin d'éviter la duplication au sein de l'application.",
+      "Aucune classification chiffrée (angles et degrés cotyloïdiens détaillés) n'est fixée : les seuils varient avec l'âge et les équipes ; seuls les principes radiologiques sont exposés.",
+      "Le suivi à long terme vers la coxarthrose précoce de l'adulte jeune est souligné comme argument majeur du dépistage."
+    ],
+    "qcChecklist": [
+      "Spectre malformatif : dysplasie, subluxation, luxation",
+      "Formes secondaires : neurologiques, septiques, syndromiques",
+      "Modelage par la croissance et fenêtre thérapeutique",
+      "Dépistage clinique et imagerie adaptée à l'âge",
+      "Principes de traitement par étages",
+      "Suivi à long terme et coxarthrose précoce"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les malformations congénitales de la hanche forment un spectre : au minimum une dysplasie cotyloïdienne — un cotyle trop plat qui couvre mal la tête fémorale —, puis la subluxation où la tête appuie sans être centrée, enfin la luxation avérée où la tête est hors du cotyle. La luxation, traitée par ailleurs, n'est que l'extrémité de ce spectre."
+        },
+        {
+          "type": "paragraph",
+          "text": "À ce spectre d'origine développementale s'ajoutent des malformations secondaires : hanches neurologiques de l'arthrogrypose ou du spina bifida, séquelles de sepsis néonatal de hanche, malformations au sein de syndromes généraux. La distinction est capitale, car elle change le traitement et le pronostic : une hanche dysplasique isolée se corrige par la croissance, une hanche neurologique se dégradera toute la vie si la cause n'est pas gérée."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux idées résument la fiche : la hanche de l'enfant se modèle — c'est sa force et notre fenêtre thérapeutique ; et une malformation asymptomatique n'est pas une malformation bénigne, car la dysplasie résiduelle conduit à une arthrose précoce du sujet jeune."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Anatomie pathologique et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'articulation coxo-fémorale se construit par emboîtement réciproque : la tête fémorale cartilagineuse modèle le cotyle et le cotyle guide la tête. Toute perturbation de cet emboîtement — laxité, contrainte utérine, absence de mobilité fœtale, deficit neuro-musculaire — fausse cette construction. La sévérité se lit dans le même ordre : dysplasie cotyloïdienne isolée, subluxation, luxation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Forme",
+            "Anatomie",
+            "Signes cliniques",
+            "Devenir sans traitement"
+          ],
+          "rows": [
+            [
+              "Dysplasie cotyloïdienne isolée",
+              "Cotyle plat, tête centrée mais mal couverte",
+              "Souvent silencieuse dans l'enfance",
+              "Coxarthrose précoce du sujet jeune"
+            ],
+            [
+              "Subluxation",
+              "Tête partiellement sortie, ascension relative",
+              "Limitation d'abduction, asymétrie des plis",
+              "Dysplasie majorée, boiterie, arthrose"
+            ],
+            [
+              "Luxation",
+              "Tête hors du cotyle, cotyle rempli de graisse",
+              "Ressaut, abduction limitée, boiterie après la marche",
+              "Hanche haute et instable, handicap majeur"
+            ],
+            [
+              "Formes secondaires neurologiques",
+              "Laxité et défaut de modelage neuro-moteur",
+              "Contexte : spina bifida, arthrogrypose, paralysie cérébrale",
+              "Luxation progressive au fil de la croissance"
+            ],
+            [
+              "Formes septiques ou post-traumatiques (nouveau-né)",
+              "Destruction partielle du cartilage ou de l'épiphyse",
+              "Antécédent d'infection ou de traumatisme néonatal",
+              "Pseudarthrose, épiphysiolyse, déformation"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Dysplasie silencieuse n'est pas dysplasie bénigne",
+          "text": "Une hanche dysplasique peut marcher, courir et grandir sans douleur — puis se détruire à 30 ou 40 ans. Le dépistage et le suivi n'ont de sens que parce que la cible est cette arthrose précoce."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic repose sur le dépistage clinique systématique du nouveau-né et du nourrisson, complété par l'imagerie adaptée à l'âge. L'examen clinique et ses manœuvres sont détaillés dans la fiche consacrée à la luxation congénitale de la hanche ; ici, on retiendra les contextes qui doivent faire élargir la recherche."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen des hanches à chaque consultation du premier trimestre, chez tous les nouveau-nés, avec ou sans facteur de risque.",
+            "Antécédents à traquer : infection néonatale de hanche, traumatisme obstétrical, apport en oxygène ou réanimation néonatale prolongée, spina bifida ou autre pathologie neurologique.",
+            "Examen général : torticolis, pied bot, métatarsus varus, dysmorphie, hypotonie ou hypertonie — toute malformation associée doit faire examiner la hanche deux fois.",
+            "Échographie de hanche avant 4-6 mois : couverture cotyloïdienne, position et stabilité de la tête.",
+            "Radiographie du bassin après ossification : mesure de la couverture et des angles cotyloïdiens, comparaison au côté sain.",
+            "Dans les formes secondaires : bilan du déséquilibre neuro-musculaire, avis multidisciplinaire pédiatrique et orthopédique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Une malformation appelle les autres",
+          "text": "Torticolis, pied bot, métatarsus varus et dysplasie de hanche partagent des contraintes mécaniques communes : toute malformation des membres ou du cou chez un nouveau-né impose un examen attentif des hanches."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Physiopathologie du modelage et de ses limites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La croissance est le traitement de la hanche malformée : une tête centrée et mobile façonne un cotyle profond et congruent. Inversement, une tête luxée ou une hanche immobile laisse le cotyle se remplir, s'aplatir, se combler. Tout le traitement orthopédique de la hanche de l'enfant dérive de ce principe : centrer, maintenir, mobiliser — pendant la fenêtre de croissance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les limites du modelage sont tout aussi importantes à connaître. Le cartilage se déforme, mais la structure osseuse qui se forme sous contrainte anormale devient os dysplasique ; plus la correction est tardive, plus la part irréversible augmente. Les formes neurologiques ajoutent une menace continue : tant que le déséquilibre musculaire persiste, la hanche corrigée peut se reluxer."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Mécanisme",
+            "Effet sur le modelage",
+            "Conséquence pratique"
+          ],
+          "rows": [
+            [
+              "Centrage de la tête",
+              "Cotyle approfondi et remodelé",
+              "Réduction = première étape, toujours"
+            ],
+            [
+              "Mobilité articulaire",
+              "Modelage dynamique du cartilage",
+              "L'immobilisation prolongée non nécessaire est nuisible"
+            ],
+            [
+              "Équilibre neuro-musculaire",
+              "Stabilité du centrage dans le temps",
+              "Traitement du déséquilibre, pas seulement de l'os"
+            ],
+            [
+              "Croissance résiduelle",
+              "Corrige tant qu'elle dure",
+              "La fenêtre se referme avec la maturation"
+            ],
+            [
+              "Ischémie / contrainte excessive",
+              "Nécrose de la tête fémorale",
+              "La douceur prime sur la force, à tous les stades"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Centrer, maintenir, mobiliser",
+          "text": "Trois verbes suffisent à résumer la thérapeutique orthopédique de la hanche de l'enfant — et à expliquer pourquoi elle échoue quand l'un d'eux manque."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement s'organise par étages, du moins au plus invasif, guidé par l'âge et par la réductibilité — la fiche consacrée à la luxation congénitale détaille les modalités. On retient ici la logique d'ensemble et les spécificités des formes sans luxation avérée."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Principe",
+            "Moyens typiques"
+          ],
+          "rows": [
+            [
+              "Dysplasie ou instabilité du nourrisson",
+              "Surveillance ou contention souple",
+              "Répétition de l'examen, harnais de Pavlik si instabilité persistante"
+            ],
+            [
+              "Subluxation persistante",
+              "Recentrage et maintien en abduction modérée",
+              "Harnais, attelles, plâtre selon l'âge et l'équipe"
+            ],
+            [
+              "Luxation",
+              "Réduction puis maintien, chirurgie si fixée",
+              "Réduction fermée ou ouverte, ostéotomies selon l'âge"
+            ],
+            [
+              "Formes neurologiques",
+              "Traiter le déséquilibre et la hanche ensemble",
+              "Kinésithérapie, appareillage, chirurgie des parties molles et osseuses, suivi multidisciplinaire"
+            ],
+            [
+              "Séquelles septiques ou traumatiques",
+              "Reconstruction selon la lésion",
+              "Chirurgie de reconstruction, égalisation, adaptation"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux garde-fous traversent toutes ces stratégies. Le premier est la vascularisation de la tête fémorale : toute contrainte excessive, tout forçage, menace l'épiphyse en croissance et transforme une malformation correctible en nécrose définitive. Le second est l'objectif fonctionnel : une hanche stable et indolore, une mobilité utile et une longueur acceptable priment sur une radiographie parfaite."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "La radiographie parfaite n'est pas l'objectif",
+          "text": "Poursuivre une correction anatomique complète au prix d'une raideur, d'une nécrose ou de multiples reprises peut desservir l'enfant. La décision se prend avec la famille, en fonction de la fonction attendue."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention primaire vise les causes secondaires : prévention des infections néonatales de hanche, prise en charge du spina bifida et des pathologies neuro-musculaires, prévention obstétricale des traumatismes. La prévention du diagnostic tardif repose sur l'examen systématique et répété des hanches et sur l'information des parents sur le portage en abduction physiologique plutôt que l'emmaillotage serré en adduction."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi d'une hanche malformée se poursuit pendant toute la croissance : couverture cotyloïdienne, croissance de la tête fémorale, longueur des membres, marche et fonction. À l'approche de l'âge adulte, la dysplasie résiduelle impose une surveillance orientée vers la prévention de la coxarthrose précoce, avec information du patient sur les activités et la survei-lance de la douleur."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Douleur de hanche chez un jeune adulte porteur d'une dysplasie connue",
+          "text": "Ce n'est pas une banalité : c'est le début possible d'une arthrose précoce. Imager, orienter, ne pas banaliser."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les malformations congénitales de la hanche forment un spectre — dysplasie, subluxation, luxation — auquel s'ajoutent des formes secondaires neurologiques, septiques ou syndromiques. Le diagnostic repose sur le dépistage clinique répété et l'imagerie adaptée à l'âge."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement exploite la fenêtre de croissance : centrer la tête, maintenir la réduction, mobiliser l'articulation, avec pour limites la vascularisation de l'épiphyse et l'objectif fonctionnel. Une hanche malformée se suit pendant toute l'enfance et jusqu'à l'âge adulte, car la cible lointaine est la coxarthrose précoce."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Shaw BA, Segal LS, SECTION ON ORTHOPAEDICS. Evaluation and Referral for Developmental Dysplasia of the Hip in Infants. Pediatrics 2016 ; 138 (6) : e20163107. doi:10.1542/peds.2016-3107.",
+            "Aarvold A, Perry DC, Mavrotas J, Theologis T, Katchburian M. The management of developmental dysplasia of the hip in children aged under three months. Bone Joint J 2023 ; 105-B (2) : 209-214. doi:10.1302/0301-620X.105B2.BJJ-2022-0893.R1."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-spectre",
+      "label": "SPECTRE",
+      "intro": "Les formes de malformation de la hanche, de la moins à la plus sévère",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Silencieuse : la dysplasie isolée, sans signe dans l'enfance."
+        },
+        {
+          "key": "P",
+          "term": "Pré-arthrosique : toute couverture insuffisante use prématurément le cartilage."
+        },
+        {
+          "key": "E",
+          "term": "Examen : le dépistage clinique reste la clef, à chaque consultation."
+        },
+        {
+          "key": "C",
+          "term": "Centrage : la subluxation signifie une tête mal centrée, à recentrer."
+        },
+        {
+          "key": "T",
+          "term": "Tête hors du cotyle : la luxation, forme extrême traitée par ailleurs."
+        },
+        {
+          "key": "R",
+          "term": "Recherche associée : torticolis, pied bot, syndrome, contexte neurologique."
+        },
+        {
+          "key": "E",
+          "term": "Évolution : surveiller jusqu'à l'âge adulte, la cible est la coxarthrose."
+        }
+      ],
+      "note": "La dysplasie est la forme la plus trompeuse : indolore dans l'enfance, destructive à l'âge adulte."
+    },
+    {
+      "id": "mn-modelage",
+      "label": "CMM",
+      "intro": "Les trois verbes du traitement orthopédique de la hanche de l'enfant",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Centrer : réduire la tête dans le cotyle."
+        },
+        {
+          "key": "M",
+          "term": "Maintenir : contention, harnais, plâtre, le temps que le cotyle se façonne."
+        },
+        {
+          "key": "M",
+          "term": "Mobiliser : la croissance et le mouvement modelent ; l'immobilisation inutile nuit."
+        }
+      ],
+      "note": "Si un des trois verbes manque — tête non centrée, contention insuffisante, hanche raide ou déséquilibrée — le modelage échoue."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quelles sont les trois formes du spectre malformatif de la hanche ?",
+      "back": "La dysplasie cotyloïdienne isolée, la subluxation, et la luxation avérée.",
+      "tags": [
+        "classification"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Qu'est-ce qu'une dysplasie cotyloïdienne ?",
+      "back": "Un cotyle trop plat qui couvre insuffisamment la tête fémorale centrée, exposant à la coxarthrose précoce.",
+      "tags": [
+        "anatomie"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Pourquoi une dysplasie silencieuse doit-elle être prise au sérieux ?",
+      "back": "Parce qu'elle conduit à une arthrose précoce du sujet jeune : indolore dans l'enfance ne veut pas dire bénigne.",
+      "tags": [
+        "prognostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelles sont les grandes causes de malformation secondaire de la hanche ?",
+      "back": "Neuro-musculaires (spina bifida, arthrogrypose, paralysie cérébrale), septiques (infection néonatale de hanche), syndromiques et post-traumatiques.",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Pourquoi examiner les hanches chez un nouveau-né porteur d'un torticolis ou d'un pied bot ?",
+      "back": "Ces malformations partagent des contraintes mécaniques communes et s'associent significativement à la dysplasie de hanche.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Sur quel principe physiologique repose tout le traitement orthopédique de la hanche de l'enfant ?",
+      "back": "Le modelage : une tête centrée, maintenue et mobile façonne le cotyle pendant la croissance.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quels sont les trois verbes du traitement ?",
+      "back": "Centrer, maintenir, mobiliser.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelle est la principale menace vasculaire du traitement ?",
+      "back": "La nécrose de la tête fémorale, favorisée par la contrainte excessive sur l'épiphyse en croissance.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi les formes neurologiques se luxent-elles de façon progressive ?",
+      "back": "Parce que le déséquilibre musculaire persiste : la hanche corrigée se reluxe tant que la cause n'est pas traitée.",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quel examen d'imagerie avant 4-6 mois, et lequel ensuite ?",
+      "back": "L'échographie de hanche avant 4-6 mois, puis la radiographie du bassin après ossification du noyau céphalique.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quel est l'objectif prioritaire du traitement : anatomique ou fonctionnel ?",
+      "back": "Fonctionnel : une hanche stable, indolore et mobile primate sur une radiographie parfaite.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Jusqu'à quand suit-on une hanche malformée ?",
+      "back": "Pendant toute la croissance et à l'âge adulte, à cause du risque de coxarthrose précoce sur dysplasie résiduelle.",
+      "tags": [
+        "surveillance"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Malformation congénitale de la hanche",
+      "detail": "Spectre dysplasie - subluxation - luxation, plus formes secondaires. Le modelage par la croissance est la fenêtre thérapeutique ; la cible lointaine est la coxarthrose précoce."
+    },
+    "branches": [
+      {
+        "id": "spectre",
+        "label": "Spectre",
+        "tone": "retenir",
+        "detail": "Trois degrés, une même logique de couverture.",
+        "children": [
+          {
+            "id": "dysplasie",
+            "label": "Dysplasie",
+            "detail": "Cotyle plat, tête centrée, silence clinique.",
+            "leaves": [
+              {
+                "id": "dy-1",
+                "label": "Adulte",
+                "detail": "Coxarthrose du sujet jeune."
+              }
+            ]
+          },
+          {
+            "id": "sublux-lux",
+            "label": "Subluxation / luxation",
+            "detail": "Tête mal centrée puis sortie.",
+            "leaves": [
+              {
+                "id": "su-1",
+                "label": "Voir fiche LCH",
+                "detail": "Manœuvres et traitement détaillés."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "formes",
+        "label": "Formes secondaires",
+        "tone": "prudence",
+        "detail": "La cause change tout.",
+        "children": [
+          {
+            "id": "neuro",
+            "label": "Neurologiques",
+            "detail": "Spina bifida, arthrogrypose, paralysie cérébrale.",
+            "leaves": [
+              {
+                "id": "ne-1",
+                "label": "Reluxation",
+                "detail": "Tant que le déséquilibre persiste."
+              }
+            ]
+          },
+          {
+            "id": "septiques",
+            "label": "Septiques / traumatiques",
+            "detail": "Infection néonatale de hanche, traumatisme obstétrical.",
+            "leaves": [
+              {
+                "id": "se-1",
+                "label": "Séquelles",
+                "detail": "Pseudarthrose, déformation épiphysaire."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "depister",
+        "label": "Dépister",
+        "tone": "reflexe",
+        "detail": "Examen répété + imagerie selon l'âge.",
+        "children": [
+          {
+            "id": "assoc",
+            "label": "Associations",
+            "detail": "Torticolis, pied bot, métatarsus, syndrome.",
+            "leaves": [
+              {
+                "id": "as-1",
+                "label": "Réflexe",
+                "detail": "Une malformation appelle les autres."
+              }
+            ]
+          },
+          {
+            "id": "imagerie",
+            "label": "Imagerie",
+            "detail": "Échographie puis radiographie du bassin.",
+            "leaves": [
+              {
+                "id": "im-1",
+                "label": "Seuils variables",
+                "detail": "Principes plutôt que chiffres."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "retenir",
+        "detail": "Centrer, maintenir, mobiliser.",
+        "children": [
+          {
+            "id": "etages",
+            "label": "Par étages",
+            "detail": "Surveillance, harnais, réduction, ostéotomies.",
+            "leaves": [
+              {
+                "id": "et-1",
+                "label": "Fenêtre",
+                "detail": "La croissance ferme la fenêtre."
+              }
+            ]
+          },
+          {
+            "id": "limites",
+            "label": "Limites",
+            "detail": "Vascularisation de la tête, objectif fonctionnel.",
+            "leaves": [
+              {
+                "id": "li-1",
+                "label": "Douceur",
+                "detail": "Le forçage provoque la nécrose."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Toute l'enfance, jusqu'à l'adulte jeune.",
+        "children": [
+          {
+            "id": "croissance",
+            "label": "Pendant la croissance",
+            "detail": "Couverture, tête fémorale, longueur, marche.",
+            "leaves": [
+              {
+                "id": "cr-1",
+                "label": "Multidisciplinaire",
+                "detail": "Formes neurologiques surtout."
+              }
+            ]
+          },
+          {
+            "id": "adulte",
+            "label": "Âge adulte",
+            "detail": "Surveillance de la coxarthrose précoce.",
+            "leaves": [
+              {
+                "id": "ad-1",
+                "label": "Douleur de hanche",
+                "detail": "Jamais banale chez un dysplasique."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-AAP-DDH-2016",
+      "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+      "citation": "Shaw BA, Segal LS, SECTION ON ORTHOPAEDICS. Evaluation and Referral for Developmental Dysplasia of the Hip in Infants. Pediatrics 2016 ; 138 (6) : e20163107. doi:10.1542/peds.2016-3107.",
+      "organization": "American Academy of Pediatrics",
+      "year": 2016,
+      "url": "https://doi.org/10.1542/peds.2016-3107",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Spectre de la dysplasie",
+        "Dépistage",
+        "Formes secondaires",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-BJJ-DDH-2023",
+      "title": "The management of developmental dysplasia of the hip in children aged under three months",
+      "citation": "Aarvold A, Perry DC, Mavrotas J, Theologis T, Katchburian M. The management of developmental dysplasia of the hip in children aged under three months. Bone Joint J 2023 ; 105-B (2) : 209-214. doi:10.1302/0301-620X.105B2.BJJ-2022-0893.R1.",
+      "organization": "The Bone & Joint Journal",
+      "year": 2023,
+      "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Prise en charge avant trois mois",
+        "Principes de modelage",
+        "Limites du traitement"
+      ]
+    }
+  ]
+}

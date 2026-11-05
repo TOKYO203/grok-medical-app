@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hydrocephalie-nourrisson",
+  "title": "Hydrocéphalie du nourrisson",
+  "subtitle": "Fiche de nosographie — neurochirurgie",
+  "objective": "Reconnaître précocement une hydrocéphalie du nourrisson par les signes d'hypertension intracrânienne spécifiques du crâne expansible, en identifier la cause, et connaître les principes de la dérivation du liquide céphalorachidien et la surveillance de ses complications.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 62,
+    "specialty": "Neurochirurgie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 237,
+      "localNumber": 62,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Hydrocéphalie du nourrisson",
+      "specialty": "Neurochirurgie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir de la revue du Lancet sur l'hydrocéphalie de l'enfant (Kahle et collaborateurs, 2016). Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche insiste sur les signes propres au nourrisson — circonférence crânienne qui croît trop vite, fontanelle tendue, veines du scalp dilatées, regard en coucher de soleil — qui remplacent les signes classiques de l'hypertension intracrânienne de l'adulte.",
+      "La mesure du périmètre crânien et sa report sur les courbes de croissance est présentée comme l'outil de dépistage et de surveillance central, réalisable partout.",
+      "Les deux options chirurgicales — dérivation ventriculo-péritonéale et ventriculocisternostomie endoscopique — sont présentées avec leurs indications respectives et sans préférence affichée, la pertinence de chacune dépendant de la cause et du contexte d'équipement.",
+      "Les complications de la dérivation (obstruction, infection, surdrainage, dysfonctionnement) sont exposées comme un motif de réévaluation urgente : une valve n'est jamais un dispositif définitivement oublié.",
+      "Aucune posologie ni aucun protocole technique détaillé n'est donné : les pratiques chirurgicales varient selon les équipes et l'équipement disponible.",
+      "Dans les contextes à ressources limitées, l'hydrocéphalie post-infectieuse est fréquente : la prévention passe par la prise en charge des méningites néonatales, ce qui est souligné."
+    ],
+    "qcChecklist": [
+      "Signes d'hypertension intracrânienne du nourrisson",
+      "Périmètre crânien et courbes de croissance",
+      "Étiologies : malformatives, post-hémorragiques, post-infectieuses, tumorales",
+      "Imagerie : échographie transfontanellaire puis tomodensitométrie ou IRM",
+      "Dérivation versus ventriculocisternostomie : indications",
+      "Complications des dérivations et suivi"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hydrocéphalie est l'augmentation du volume des ventricules cérébraux par perturbation de la circulation ou de la résorption du liquide céphalorachidien. Chez le nourrisson, dont les sutures sont encore ouvertes, elle se traduit d'abord par une croissance anormale du périmètre crânien : c'est à la fois la chance du clinicien — un signe d'alerte visible — et le piège, car l'absence de céphalées ou de vomissements fait croire à tort à une maladie silencieuse."
+        },
+        {
+          "type": "paragraph",
+          "text": "Non traitée, l'hydrocéphalie comprime le parenthyme cérébral, amincit le cortex, menace la vue et le développement psychomoteur, et peut aboutir au décès. Traitée à temps, elle laisse souvent espérer un développement normal ou subnormal, en fonction de la cause et du délai."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fiche suit la logique clinique : mesurer et repérer la tête qui grossit trop vite, chercher la cause, imager, dériver, puis suivre à vie la dérivation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Physiopathologie et étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le liquide céphalorachidien est produit par les plexus choroïdes, circule des ventricules latéraux vers le troisième puis le quatrième ventricule, et se résorbe au niveau des granulations arachnoïdiennes. L'hydrocéphalie résulte d'un obstacle sur ce trajet, d'une production excessive ou d'un défaut de résorption. On distingue classiquement l'hydrocéphalie obstructive, ou non communicante, de l'hydrocéphalie communicante."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Groupe étiologique",
+            "Exemples",
+            "Particularités cliniques"
+          ],
+          "rows": [
+            [
+              "Malformatif",
+              "Sténose de l'aqueduc de Sylvius, malformation de Chiari, syndrome de Dandy-Walker",
+              "Souvent progressives, parfois familiales"
+            ],
+            [
+              "Post-hémorragique",
+              "Hémorragie intraventriculaire du prématuré, hémorragie post-traumatique",
+              "Fréquent en néonatologie"
+            ],
+            [
+              "Post-infectieuse",
+              "Méningite néonatale bactérienne, ventriculite, toxoplasmose ou cytomégalovirus congénitaux",
+              "Cause majeure dans les contextes à ressources limitées"
+            ],
+            [
+              "Tumorale et kystique",
+              "Tumeurs de la fosse postérieure, kystes arachnoïdiens",
+              "Signes focaux possibles, urgence liée à la masse"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Une tête qui grossit trop vite est une urgence diagnostique",
+          "text": "Le signe le plus précoce et le plus fiable n'est pas un périmètre grand en absolu, mais un périmètre qui franchit rapidement plusieurs couloirs de la courbe de croissance : la dynamique prime sur la valeur absolue."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'examen du nourrisson commence par la mesure du périmètre crânien, au ruban, sur la plus grande circonférence, reportée sur la courbe adaptée à l'âge et au sexe. L'inspection recherche une fontanelle antérieure bombée et tendue, des sutures écartées, un crâne d'aspect brillant avec veines du scalp dilatées, et le regard en coucher de soleil — limitation de l'élévation du regard par compression des centres oculomoteurs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Périmètre crânien croisant les couloirs de la courbe : signe majeur.",
+            "Fontanelle tendue ou bombée, sutures dissociées, signe de MacEwen (sonorité creuse à la percussion du crâne).",
+            "Regard en coucher de soleil, strabisme, nystagmus, et au fond d'œil une atrophie optique ou des hémorragies.",
+            "Irritabilité, vomissements, refus alimentaire, somnolence : signes tardifs d'hypertension intracrânienne.",
+            "Retard d'acquisition ou régression psychomotrice, hypertonie des membres inférieurs parfois révélatrice.",
+            "Échographie transfontanellaire : examen de première intention tant que la fontanelle est ouverte, sans sédation ni irradiation.",
+            "Tomodensitométrie ou imagerie par résonance magnétique : précisent la taille ventriculaire, l'étiologie et guident le geste chirurgical ; l'imagerie par résonance magnétique visualise les lésions obstructives fines et permet de discuter une ventriculocisternostomie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de décompensation",
+          "text": "Somnolence, vomissements en jet, opisthotonos, troubles respiratoires ou crises convulsives traduisent une hypertension intracrânienne menaçante : imagerie et avis neurochirurgical le jour même."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Ne pas confondre avec une macrocéphalie bénigne",
+          "text": "Une tête grande mais harmonieuse, chez un enfant tonique, sans fontanelle tendue ni signe neurologique, et dont la courbe suit un couloir parallèle, évoque une macrocéphalie familiale : l'imagerie rassure, mais la surveillance du périmètre reste de mise."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes cliniques",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Hydrocéphalie obstructive : obstacle sur les voies d'écoulement ; la ventriculocisternostomie endoscopique est souvent la première option si l'obstruction est accessible.",
+            "Hydrocéphalie communicante : défaut de résorption, notamment après hémorragie ou méningite ; la dérivation est la règle.",
+            "Hydrocéphalie active : progression ventriculaire et clinique ; elle relève du traitement chirurgical.",
+            "Hydrocéphalie arrêtée : stabilité clinique et ventriculaire ; simple surveillance, sans chirurgie systématique.",
+            "Forme du prématuré : après hémorragie intraventriculaire, surveillance échographique rapprochée avant toute décision.",
+            "Forme post-méningitique : fréquente après méningite néonatale ; elle justifie une surveillance du périmètre après toute méningite, prévention pratique soulignée en zone à ressources limitées."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Après une méningite néonatale, mesurer la tête",
+          "text": "Toute méningite du nourrisson doit être suivie de mesures répétées du périmètre crânien dans les semaines qui suivent : c'est le moyen le plus simple de dépister une hydrocéphalie post-infectieuse avant les signes graves."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est chirurgical. Il vise à dériver le liquide céphalorachidien hors des ventricules ou à restaurer son écoulement physiologique. Deux familles de gestes existent : la dérivation ventriculo-péritonéale, qui conduit le liquide vers la cavité péritonéale au moyen d'une valve, et la ventriculocisternostomie endoscopique du troisième ventricule, qui crée une voie d'écoulement directe vers les espaces sous-arachnoïdiens, adaptée surtout aux obstructions de l'aqueduc."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Option",
+            "Principe",
+            "Indications privilégiées",
+            "Limites"
+          ],
+          "rows": [
+            [
+              "Dérivation ventriculo-péritonéale",
+              "Cathéter ventriculaire, valve, cathéter péritonéal",
+              "Hydrocéphalies communicantes, obstructions non accessibles, grande disponibilité technique",
+              "Dépendance à vie à la valve, risques d'obstruction et d'infection"
+            ],
+            [
+              "Ventriculocisternostomie endoscopique",
+              "Fenestration endoscopique du plancher du troisième ventricule",
+              "Sténoses de l'aqueduc, certaines obstructions obstructives",
+              "Échec possible, nécessite expérience et matériel, moins adaptée aux formes communicantes"
+            ],
+            [
+              "Traitement de la cause",
+              "Ablation d'une tumeur, traitement d'une infection",
+              "Toute hydrocéphalie avec cause curable",
+              "Ne dispense pas toujours d'une dérivation"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les mesures médicales temporaires — restriction hydrique, médicaments réduisant la production de liquide — n'ont qu'un rôle d'attente très bref et ne remplacent jamais la chirurgie. La ponction lombaire ou ventriculaire externe peut servir de pont dans les hydrocéphalies post-hémorragiques ou infectieuses aiguës du nouveau-né, en milieu spécialisé."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Une valve qui dysfonctionne est une urgence",
+          "text": "Chez un enfant porteur d'une dérivation, tout retour de signes d'hypertension intracrânienne — irritabilité, vomissements, somnolence, périmètre qui repart à la hausse — fait suspecter une obstruction ou une rupture du matériel : imagerie et avis neurochirurgical sans délai."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Infection de dérivation",
+          "text": "Fièvre, irritabilité, rougeur le long du trajet du cathéter chez un enfant dérivé : suspicion d'infection du matériel, prélèvements et prise en charge en milieu neurochirurgical."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est avant tout celle des causes : prise en charge rigoureuse des méningites néonatales, soins du prématuré limitant l'hémorragie intraventriculaire, suivi des grossesses pour les infections congénitales. Le dépistage repose sur la mesure systématique du périmètre crânien à chaque consultation du nourrisson."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi d'un enfant dérivé est à vie : courbes de périmètre, développement psychomoteur, vision, et vigilance parentale sur les signes d'alerte d'un dysfonctionnement. La rééducation précoce, la stimulation et le suivi ORL et ophtalmologique complètent la prise en charge."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Éduquer les parents, c'est sécuriser l'enfant",
+          "text": "Les parents d'un enfant porteur d'une dérivation doivent savoir reconnaître les signes d'alerte et les expliquer à l'école et à l'entourage : leur vigilance est la première ligne de surveillance."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hydrocéphalie du nourrisson se dépiste par la dynamique du périmètre crânien et les signes d'hypertension intracrânienne adaptés au crâne expansible : fontanelle tendue, sutures écartées, regard en coucher de soleil."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'imagerie — échographie transfontanellaire puis tomodensitométrie ou imagerie par résonance magnétique — précise le diagnostic et la cause. Le traitement est chirurgical : dérivation ventriculo-péritonéale ou ventriculocisternostomie selon l'étiologie et le contexte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Kahle KT, Kulkarni AV, Limbrick DD, Warf BC. Hydrocephalus in children. The Lancet 2016 ; 387 (10021) : 788-799. doi:10.1016/S0140-6736(15)60647-5."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-KAHLE-LANCET-2016",
+          "organization": "The Lancet",
+          "title": "Hydrocephalus in children",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/S0140-6736(15)60647-5"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-tete",
+      "label": "TROP GROS",
+      "intro": "Les signes d'hydrocéphalie du nourrisson",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Trop rapide : le périmètre crânien franchit les couloirs de la courbe."
+        },
+        {
+          "key": "R",
+          "term": "Rigidité ou hypertonie des membres inférieurs, irritabilité."
+        },
+        {
+          "key": "O",
+          "term": "Œil : regard en coucher de soleil, strabisme, anomalies au fond d'œil."
+        },
+        {
+          "key": "P",
+          "term": "Percussion : sonorité creuse du crâne, sutures écartées."
+        },
+        {
+          "key": "G",
+          "term": "Grosse fontanelle : bombée, tendue, veines du scalp dilatées."
+        },
+        {
+          "key": "R",
+          "term": "Refus alimentaire, vomissements, somnolence aux stades avancés."
+        },
+        {
+          "key": "O",
+          "term": "Obtenir une échographie transfontanellaire en première intention."
+        },
+        {
+          "key": "S",
+          "term": "Statuer : dérivation ou ventriculocisternostomie, avis neurochirurgical."
+        }
+      ],
+      "note": "La dynamique du périmètre prime sur sa valeur absolue : une tête qui grossit vite est plus inquiétante qu'une grande tête stable."
+    },
+    {
+      "id": "mn-valve",
+      "label": "VALVE",
+      "intro": "Surveillance d'un enfant porteur d'une dérivation",
+      "entries": [
+        {
+          "key": "V",
+          "term": "Vigilance parentale : les parents connaissent les signes d'alerte."
+        },
+        {
+          "key": "A",
+          "term": "Alerte : irritabilité, vomissements, somnolence, périmètre qui repart."
+        },
+        {
+          "key": "L",
+          "term": "Long du trajet : rougeur ou douleur le long du cathéter = infection possible."
+        },
+        {
+          "key": "V",
+          "term": "Visites régulières : courbes de périmètre, développement, vision."
+        },
+        {
+          "key": "E",
+          "term": "En urgence : imagerie et avis neurochirurgical si dysfonction suspectée."
+        }
+      ],
+      "note": "Une valve se surveille à vie ; son dysfonctionnement se présente comme l'hydrocéphalie initiale."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel est le signe de dépistage le plus important d'une hydrocéphalie du nourrisson ?",
+      "back": "La croissance trop rapide du périmètre crânien, franchissant les couloirs de la courbe.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels signes d'hypertension intracrânienne sont propres au nourrisson ?",
+      "back": "Fontanelle bombée et tendue, sutures écartées, veines du scalp dilatées, regard en coucher de soleil, sonorité creuse à la percussion.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quel examen d'imagerie de première intention chez un nourrisson à fontanelle ouverte ?",
+      "back": "L'échographie transfontanellaire.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelles sont les grandes causes d'hydrocéphalie du nourrisson ?",
+      "back": "Malformatives (sténose de l'aqueduc, Chiari, Dandy-Walker), post-hémorragiques, post-infectieuses, tumorales et kystiques.",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Différence entre hydrocéphalie obstructive et communicante ?",
+      "back": "L'obstructive résulte d'un obstacle sur les voies d'écoulement ; la communicante d'un défaut de résorption, notamment après hémorragie ou méningite.",
+      "tags": [
+        "physiopathologie"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelles sont les deux options chirurgicales principales ?",
+      "back": "La dérivation ventriculo-péritonéale et la ventriculocisternostomie endoscopique du troisième ventricule.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Dans quel type d'hydrocéphalie la ventriculocisternostomie est-elle particulièrement indiquée ?",
+      "back": "Les hydrocéphalies obstructives par sténose de l'aqueduc de Sylvius.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quelles sont les principales complications d'une dérivation ventriculo-péritonéale ?",
+      "back": "Obstruction du cathéter, infection du matériel, surdrainage, rupture ou dysfonctionnement de la valve.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Que suspecter chez un enfant dérivé qui redevient irritable avec vomissements et somnolence ?",
+      "back": "Un dysfonctionnement de la dérivation : imagerie et avis neurochirurgical en urgence.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Comment prévenir l'hydrocéphalie post-infectieuse ?",
+      "back": "Par la prise en charge rigoureuse des méningites néonatales et la surveillance du périmètre crânien après l'épisode.",
+      "tags": [
+        "prevention"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Qu'est-ce que le regard en coucher de soleil ?",
+      "back": "La limitation de l'élévation du regard avec iris descendu, par compression des centres oculomoteurs dans l'hypertension intracrânienne.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Quelle est la différence entre hydrocéphalie active et arrêtée ?",
+      "back": "L'hydrocéphalie active progresse cliniquement et ventriculairement et relève de la chirurgie ; l'arrêtée est stable et relève de la surveillance.",
+      "tags": [
+        "formes"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Hydrocéphalie du nourrisson",
+      "detail": "Dilatation ventriculaire par trouble de la circulation ou de la résorption du liquide céphalorachidien. Dépistage par le périmètre crânien, traitement chirurgical, suivi à vie."
+    },
+    "branches": [
+      {
+        "id": "mecanismes",
+        "label": "Mécanismes",
+        "tone": "retenir",
+        "detail": "Obstruction, défaut de résorption, production excessive.",
+        "children": [
+          {
+            "id": "obstructive",
+            "label": "Obstructive",
+            "detail": "Aqueduc, fosse postérieure, tumeurs.",
+            "leaves": [
+              {
+                "id": "ob-1",
+                "label": "Ventriculocisternostomie",
+                "detail": "Option si obstruction accessible."
+              }
+            ]
+          },
+          {
+            "id": "communicante",
+            "label": "Communicante",
+            "detail": "Post-hémorragique, post-méningitique.",
+            "leaves": [
+              {
+                "id": "co-1",
+                "label": "Dérivation",
+                "detail": "Traitement de référence."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "depister",
+        "label": "Dépister",
+        "tone": "reflexe",
+        "detail": "La tête qui grossit trop vite.",
+        "children": [
+          {
+            "id": "perimetre",
+            "label": "Périmètre",
+            "detail": "Courbes de croissance, dynamique.",
+            "leaves": [
+              {
+                "id": "pe-1",
+                "label": "Chaque consultation",
+                "detail": "Mesure systématique du nourrisson."
+              }
+            ]
+          },
+          {
+            "id": "signes",
+            "label": "Signes",
+            "detail": "Fontanelle, sutures, coucher de soleil, vomissements.",
+            "leaves": [
+              {
+                "id": "si-1",
+                "label": "Tardifs",
+                "detail": "Somnolence = décompensation."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "imager",
+        "label": "Imager",
+        "tone": "retenir",
+        "detail": "Échographie puis coupes, étiologie et décision.",
+        "children": [
+          {
+            "id": "echo",
+            "label": "Échographie",
+            "detail": "Transfontanellaire, première intention.",
+            "leaves": [
+              {
+                "id": "ec-1",
+                "label": "Avantage",
+                "detail": "Sans sédation ni irradiation."
+              }
+            ]
+          },
+          {
+            "id": "irm",
+            "label": "TDM / IRM",
+            "detail": "Cause, guidage chirurgical.",
+            "leaves": [
+              {
+                "id": "ir-1",
+                "label": "IRM",
+                "detail": "Visualise les obstructions fines."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Chirurgie : dériver ou restaurer l'écoulement.",
+        "children": [
+          {
+            "id": "dvp",
+            "label": "Dérivation",
+            "detail": "Ventriculo-péritonéale, valve.",
+            "leaves": [
+              {
+                "id": "dv-1",
+                "label": "Dépendance",
+                "detail": "Surveillance à vie."
+              },
+              {
+                "id": "dv-2",
+                "label": "Infection",
+                "detail": "Rougeur, fièvre : urgence."
+              }
+            ]
+          },
+          {
+            "id": "vcs",
+            "label": "Endoscopie",
+            "detail": "Ventriculocisternostomie du troisième ventricule.",
+            "leaves": [
+              {
+                "id": "vc-1",
+                "label": "Aqueduc",
+                "detail": "Indication élective des sténoses."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Causes, courbes et vigilance des parents.",
+        "children": [
+          {
+            "id": "prevention",
+            "label": "Prévention",
+            "detail": "Méningites néonatales, prématurité, infections congénitales.",
+            "leaves": [
+              {
+                "id": "pr-1",
+                "label": "Après méningite",
+                "detail": "Mesurer la tête."
+              }
+            ]
+          },
+          {
+            "id": "developpement",
+            "label": "Développement",
+            "detail": "Psychomoteur, vision, rééducation.",
+            "leaves": [
+              {
+                "id": "de-1",
+                "label": "Parents",
+                "detail": "Première ligne de surveillance."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-KAHLE-LANCET-2016",
+      "title": "Hydrocephalus in children",
+      "citation": "Kahle KT, Kulkarni AV, Limbrick DD, Warf BC. Hydrocephalus in children. The Lancet 2016 ; 387 (10021) : 788-799. doi:10.1016/S0140-6736(15)60647-5.",
+      "organization": "The Lancet",
+      "year": 2016,
+      "url": "https://doi.org/10.1016/S0140-6736(15)60647-5",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Physiopathologie",
+        "Étiologies",
+        "Diagnostic",
+        "Options chirurgicales",
+        "Surveillance des dérivations"
+      ]
+    }
+  ]
+}
