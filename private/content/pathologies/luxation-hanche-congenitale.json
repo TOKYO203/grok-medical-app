@@ -1,0 +1,760 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "luxation-hanche-congenitale",
+  "title": "Luxation congénitale de la hanche",
+  "subtitle": "Fiche de nosographie — orthopédie pédiatrique",
+  "objective": "Savoir dépister la luxation congénitale de la hanche par l'examen systématique du nouveau-né et du nourrisson (manœuvres d'Ortolani et de Barlow), comprendre le principe du traitement progressif par réduction et contention, et connaître les conséquences d'un diagnostic tardif.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 64,
+    "specialty": "Orthopédie pédiatrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 239,
+      "localNumber": 64,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Luxation congénitale de la hanche",
+      "specialty": "Orthopédie pédiatrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir du rapport clinique de l'American Academy of Pediatrics sur l'évaluation et l'orientation de la dysplasie de développement de la hanche et de la revue du Bone & Joint Journal sur la prise en charge avant trois mois. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La terminologie actuelle de dysplasie de développement de la hanche est utilisée en équivalent, la fiche traitant ici spécifiquement de la luxation avérée, conformément à l'intitulé du programme.",
+      "L'examen clinique (Ortolani, Barlow, asymétrie des plis, limitation de l'abduction) est présenté comme le pivot du dépistage ; l'échographie est placée comme complément dont la disponibilité et l'âge d'utilisation varient selon les pays.",
+      "La stratégie thérapeutique est décrite par étages successifs — harnais de Pavlik, réduction avec ou sans traction, chirurgie — sans préconiser de protocole chiffré précis : les durées et modalités relèvent des équipes.",
+      "La fiche avertit explicitement que le harnais mal suivi peut échouer et que ses complications (nécrose de la tête fémorale) imposent un suivi médical régulier, pas une simple remise du matériel aux parents.",
+      "Le pronostic dépend avant tout de l'âge au diagnostic : ce message est répété car c'est la clef de la prévention de l'arthrose précoce de l'adulte jeune.",
+      "Les facteurs de risque (présentation du siège, antécédent familial, premier-né de sexe féminin, oligoamnios) sont exposés pour orienter la vigilance, tout en rappelant que la plupart des cas surviennent sans facteur de risque."
+    ],
+    "qcChecklist": [
+      "Manœuvres d'Ortolani et de Barlow correctement décrites",
+      "Dépistage systématique du nouveau-né et du nourrisson",
+      "Facteurs de risque",
+      "Harnais de Pavlik : principe et suivi",
+      "Échec et escalade thérapeutique",
+      "Conséquences du diagnostic tardif"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La luxation congénitale de la hanche est le déplacement permanent de la tête fémorale hors de l'acétabulum, présent dès la naissance ou s'installant dans les premières semaines de vie. Elle s'inscrit dans le spectre de la dysplasie de développement de la hanche, qui va de la simple instabilité à la luxation fixée."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est une maladie du dépistage : découverte à la maternité ou au premier mois, elle se traite par une simple contention adaptée pendant quelques semaines. Découverte après la marche, elle impose des réductions sanglantes, des ostéotomies, et laisse souvent une hanche dysplasique pour la vie. L'écart entre ces deux destins tient à un examen de quelques secondes."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fréquence de l'instabilité à la naissance est loin d'être négligeable, mais la plupart des hanches instables se stabilisent spontanément dans les premières semaines : c'est la raison pour laquelle le dépistage se répète à chaque consultation du nourrisson."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Généralités et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La hanche se forme pendant la vie fœtale par emboîtement réciproque de la tête fémorale, cartilagineuse, dans l'acétabulum. En fin de grossesse, l'instabilité naît de la laxité ligamentaire, des contraintes mécaniques utérines et d'un défaut d'adaptation du cotyle. La tête luxée ou subluxée n'exerce plus son effet de modelage : le cotyle devient plat, la capsule s'étire, et la luxation se fixe progressivement. La croissance, qui aurait pu corriger, devient alors le moteur de la déformation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Facteur de risque",
+            "Mécanisme",
+            "Poids relatif"
+          ],
+          "rows": [
+            [
+              "Présentation du siège",
+              "Contrainte en flexion-adduction dans l'utérus",
+              "Facteur mécanique majeur"
+            ],
+            [
+              "Antécédent familial",
+              "Laxité ligamentaire héréditaire, terrain dysplasique",
+              "Majeur"
+            ],
+            [
+              "Sexe féminin",
+              "Rôle hormonal de la laxité en fin de grossesse",
+              "Net : environ 4 filles pour 1 garçon"
+            ],
+            [
+              "Premier-né et oligoamnios",
+              "Utérus peu distensible, contraintes accrues",
+              "Modéré"
+            ],
+            [
+              "Torticolis congénital, pied bot, métatarsus",
+              "Association malformative, contraintes communes",
+              "Signaux d'alerte"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La plupart des luxations naissent sans facteur de risque",
+          "text": "Les facteurs de risque servent à renforcer la vigilance, pas à la remplacer : l'examen des hanches est systématique chez tout nouveau-né, à chaque consultation du premier trimestre."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'examen se pratique sur un nourrisson calme, déshabillé, sur un plan ferme. Une main stabilise le bassin ; l'autre saisit le genou, pouce sur la face interne de la cuisse, index sur le grand trochanter."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Manœuvre d'Ortolani (réduction) : abduction douce de la cuisse ; un ressaut, une butée traduisent le retour de la tête luxée dans le cotyle : hanche luxée luxable.",
+            "Manœuvre de Barlow (luxation) : adduction-flexion avec pression axiale douce ; un ressaut traduit une hanche qui se luxe sous contrainte : instabilité.",
+            "Limitation de l'abduction, surtout asymétrique : signe d'appel du nourrisson plus âgé.",
+            "Asymétrie des plis de cuisse et de l'entrejambe, brièveté apparente du membre : signes tardifs.",
+            "Après la marche : boiterie d'esquive, hyperlordose, signe du piston ; la hanche luxée unilatérale fait entrer la démarche dans une logique de Trendelenbourg.",
+            "Échographie de la hanche : examen de choix avant l'ossification du noyau céphalique ; elle objective la couverture cotyloïdienne, la position de la tête et l'instabilité, et guide la décision en cas de doute ou de facteur de risque.",
+            "Radiographie du bassin : devient utile avec l'ossification, généralement après l'âge de 4 à 6 mois, pour mesurer les lignes et angles du cotyle."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ressaut = orientation immédiate",
+          "text": "Toute hanche qui claque ou se luxe à l'examen doit être adressée sans attendre : chaque semaine compte, la fenêtre de croissance qui corrige tout se referme en quelques mois."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "L'absence de ressaut n'élimine pas la dysplasie",
+          "text": "Une hanche qui ne se réduit pas d'un ressaut peut être luxée fixée ; et une instabilité qui n'existait pas à la maternité peut apparaître ou se révéler plus tard : répéter l'examen à chaque consultation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes cliniques et devenirs",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Instabilité simple (hanche luxable) : le plus souvent résolution spontanée en quelques semaines ; surveillance rapprochée.",
+            "Subluxation : tête partiellement sortie, cotyle en cours de dysplasie ; traitement par contention si persistance.",
+            "Luxation réductible (Ortolani positif) : la tête se réduit ; harnais de Pavlik en première intention.",
+            "Luxation fixée (Ortolani négatif, abduction limitée) : la tête ne se réduit pas ; réduction sous anesthésie, souvent chirurgicale.",
+            "Luxation bilatérale : les signes d'asymétrie manquent, seul le retard d'abduction et les manoeuvres alertent ; c'est le piège classique du dépistage.",
+            "Formes secondaires : arthrogrypose, myéloméningocèle, sepsis néonatale de hanche — mécanismes différents mais hanche instable aussi."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Bilatéral = pas d'asymétrie",
+          "text": "Devant deux hanches raides en adduction-flexion et des plis symétriques, l'examen bref peut paraître normal : c'est la limitation bilatérale de l'abduction qui doit alerter."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le principe est le même à tous les âges : réduire la tête fémorale dans le cotyle et la maintenir dans une position de réduction et de flexion-abduction, le temps que la croissance modele et stabilise la hanche. Seuls les moyens changent avec l'âge."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Âge au diagnostic",
+            "Traitement de première intention",
+            "Échec / évolution"
+          ],
+          "rows": [
+            [
+              "Naissance à ~3-6 mois",
+              "Harnais de Pavlik (contention souple en flexion-abduction, laissée libre l'activité)",
+              "Contrôle clinique et échographique réguliers ; en cas d'échec, réduction sous anesthésie"
+            ],
+            [
+              "~6 mois à la marche",
+              "Réduction progressive : traction, réduction fermée ou ouverte, plâtre en position de réduction",
+              "Chirurgie croissante, arthrographie, sometimes ostéotomie à distance"
+            ],
+            [
+              "Après la marche",
+              "Réduction chirurgicale, ostéotomies fémorales et/ou pelviennes",
+              "Pronostic plus réservé, séquelles dysplasiques fréquentes"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le harnais de Pavlik ne se prescrit pas comme un médicament : il se surveille. Une contention trop lâche ne réduit pas, une contention trop verticale ou trop forcée favorise la nécrose de la tête fémorale, et son échec silencieux peut conduire à une luxation fixée sous harnais. Les parents doivent être informés des contraintes et des signes d'alerte, et l'enfant revu régulièrement."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "La position du harnais compte autant que sa présence",
+          "text": "Flexion et abduction modérées, genou couvert, pas de forçage : une hanche bien réduite mais trop contrainte peut souffrir de sa vascularisation."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Nécrose de la tête fémorale : la complication qui unit toutes les stratégies",
+          "text": "Quelle que soit la méthode — harnais, réduction fermée ou chirurgie — la contrainte excessive sur une tête fémorale en croissance menace sa vascularisation : c'est la raison pour laquelle la douceur et le suivi priment sur la force."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention est celle du diagnostic tardif : examen des hanches à chaque consultation du nourrisson, information des parents sur le dépistage et la surveillance, orientation rapide des hanches instables. Le portage en abduction physiologique de l'enfant, jambes écartées, est souvent cité comme favorable au modelage ; les positions forcées et les emmaillotages serrés en adduction-extension sont défavorables."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi d'une hanche traitée se poursuit pendant la croissance : radiographies de contrôle, surveillance de la couverture cotyloïdienne, et à l'âge adulte la recherche d'une dysplasie résiduelle qui expose à une coxarthrose précoce. Une hanche luxée guérie doit être suivie comme une hanche à risque."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Toute boiterie de l'enfant d'âge de marche exige une radiographie du bassin",
+          "text": "Un diagnostic manqué se présente un jour comme une boiterie isolée : devant toute boiterie de l'enfant, la radiographie du bassin est un réflexe, non une option."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La luxation congénitale de la hanche se dépiste par l'examen systématique du nouveau-né et du nourrisson : manœuvres d'Ortolani et de Barlow, limitation d'abduction, asymétrie des plis. L'échographie complète le diagnostic avant l'âge osseux utile de la radiographie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le traitement est progressif : harnais de Pavlik dans les premiers mois, réduction sous anesthésie ensuite, chirurgie après la marche. Le pronostic dépend directement de l'âge au diagnostic, et la surveillance d'une hanche traitée se poursuit pendant toute la croissance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Shaw BA, Segal LS, SECTION ON ORTHOPAEDICS. Evaluation and Referral for Developmental Dysplasia of the Hip in Infants. Pediatrics 2016 ; 138 (6) : e20163107. doi:10.1542/peds.2016-3107.",
+            "Aarvold A, Perry DC, Mavrotas J, Theologis T, Katchburian M. The management of developmental dysplasia of the hip in children aged under three months. Bone Joint J 2023 ; 105-B (2) : 209-214. doi:10.1302/0301-620X.105B2.BJJ-2022-0893.R1."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-AAP-DDH-2016",
+          "organization": "American Academy of Pediatrics",
+          "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+          "year": 2016,
+          "url": "https://doi.org/10.1542/peds.2016-3107"
+        },
+        {
+          "id": "SRC-BJJ-DDH-2023",
+          "organization": "The Bone & Joint Journal",
+          "title": "The management of developmental dysplasia of the hip in children aged under three months",
+          "year": 2023,
+          "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-examen",
+      "label": "ORLAO",
+      "intro": "L'examen de la hanche du nourrisson, dans l'ordre",
+      "entries": [
+        {
+          "key": "O",
+          "term": "Observer : plis de cuisse, longueur apparente, attitude spontanée."
+        },
+        {
+          "key": "R",
+          "term": "Ressaut d'Ortolani : la hanche luxée revient dans le cotyle à l'abduction."
+        },
+        {
+          "key": "L",
+          "term": "Luxation de Barlow : la hanche stable se luxe sous contrainte douce."
+        },
+        {
+          "key": "A",
+          "term": "Abduction : sa limitation, surtout asymétrique, alerte à tout âge."
+        },
+        {
+          "key": "O",
+          "term": "Orientation : hanches instables ou limitées = avis spécialisé, sans attendre."
+        }
+      ],
+      "note": "Répéter cet examen à chaque consultation du premier trimestre : une hanche stable à J2 peut devenir luxée à 2 mois."
+    },
+    {
+      "id": "mn-traitement",
+      "label": "PAS TROP",
+      "intro": "La conduite thérapeutique, du plus simple au plus lourd",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pavlik d'abord : harnais souple dans les premiers mois, si hanche réductible."
+        },
+        {
+          "key": "A",
+          "term": "Ajuster et surveiller : un harnais sans suivi est un harnais dangereux."
+        },
+        {
+          "key": "S",
+          "term": "Sous anesthésie ensuite : réduction fermée ou ouverte, plâtre de réduction."
+        },
+        {
+          "key": "T",
+          "term": "Trop tard = chirurgie : après la marche, ostéotomies et pronostic réservé."
+        },
+        {
+          "key": "R",
+          "term": "Rappelez-vous : la tête fémorale est fragile, la contrainte extrême la nécrose."
+        },
+        {
+          "key": "O",
+          "term": "Orthopédique toujours avant osseux : le modelage par croissance est l'allié."
+        },
+        {
+          "key": "P",
+          "term": "Poursuivre le suivi pendant toute la croissance : dysplasie résiduelle = coxarthrose précoce."
+        }
+      ],
+      "note": "Chaque mois de retard déplace l'enfant d'une ligne du tableau : du harnais vers l'ostéotomie."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Que teste la manœuvre d'Ortolani ?",
+      "back": "La réduction : lors de l'abduction douce de la cuisse, un ressaut signale le retour de la tête fémorale luxée dans le cotyle.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Que teste la manœuvre de Barlow ?",
+      "back": "La luxabilité : lors d'une adduction-flexion avec pression axiale douce, un ressaut signale une hanche qui se luxe sous contrainte.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Quels sont les principaux facteurs de risque de luxation congénitale de hanche ?",
+      "back": "Présentation du siège, antécédent familial, sexe féminin, premier-né, oligoamnios, associations malformatives (torticolis, pied bot).",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen d'imagerie de choix chez le nourrisson avant 4-6 mois ?",
+      "back": "L'échographie de la hanche, qui évalue la couverture cotyloïdienne et l'instabilité sans irradiation.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quand la radiographie du bassin devient-elle utile ?",
+      "back": "Avec l'ossification du noyau céphalique, généralement après 4 à 6 mois.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel est le traitement de première intention avant 3-6 mois ?",
+      "back": "Le harnais de Pavlik : contention souple en flexion-abduction, avec contrôle clinique et échographique régulier.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quels sont les risques d'un harnais mal suivi ?",
+      "back": "Échec de réduction (luxation fixée sous harnais) et nécrose de la tête fémorale par contrainte excessive.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Que faire devant une luxation diagnostiquée entre 6 mois et la marche ?",
+      "back": "Réduction sous anesthésie — progressive, fermée ou ouverte — puis plâtre en position de réduction.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi la luxation bilatérale est-elle un piège diagnostique ?",
+      "back": "Les signes sont symétriques : pas d'asymétrie de plis ni de longueur ; seule la limitation bilatérale de l'abduction alerte.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Comment se révèle une luxation méconnue après l'acquisition de la marche ?",
+      "back": "Boiterie d'esquive, hyperlordose lombaire, signe du piston, limitation d'abduction.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quelle est la complication commune à toutes les stratégies de réduction ?",
+      "back": "La nécrose de la tête fémorale, liée à la contrainte vasculaire sur une épiphyse en croissance.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Pourquoi suivre une hanche guérie pendant toute la croissance ?",
+      "back": "Une dysplasie résiduelle expose à une coxarthrose précoce du sujet jeune à l'âge adulte.",
+      "tags": [
+        "surveillance"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Luxation congénitale de la hanche",
+      "detail": "Luxation de la tête fémorale hors du cotyle, présente ou s'installant dans les premiers mois. Maladie du dépistage : vue tôt, une contention suffit ; vue tard, la chirurgie et l'arthrose suivent."
+    },
+    "branches": [
+      {
+        "id": "mecanismes",
+        "label": "Mécanismes",
+        "tone": "retenir",
+        "detail": "Laxité, contraintes utérines, défaut de modelage.",
+        "children": [
+          {
+            "id": "modelage",
+            "label": "Modelage",
+            "detail": "La tête dans le cotyle façonne le cotyle ; hors du cotyle, tout se déforme.",
+            "leaves": [
+              {
+                "id": "mo-1",
+                "label": "Fenêtre",
+                "detail": "Quelques mois de croissance corrective."
+              }
+            ]
+          },
+          {
+            "id": "risques",
+            "label": "Facteurs de risque",
+            "detail": "Siège, famille, fille, premier-né, oligoamnios.",
+            "leaves": [
+              {
+                "id": "ri-1",
+                "label": "Vigilance",
+                "detail": "Mais examen systématique chez tous."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "depister",
+        "label": "Dépister",
+        "tone": "reflexe",
+        "detail": "Ortolani, Barlow, abduction, plis.",
+        "children": [
+          {
+            "id": "manoeuvres",
+            "label": "Manœuvres",
+            "detail": "Ortolani réduit, Barlow luxe.",
+            "leaves": [
+              {
+                "id": "ma-1",
+                "label": "Ressaut",
+                "detail": "= orientation immédiate."
+              }
+            ]
+          },
+          {
+            "id": "signes",
+            "label": "Autres signes",
+            "detail": "Abduction limitée, plis asymétriques, boiterie après la marche.",
+            "leaves": [
+              {
+                "id": "si-1",
+                "label": "Bilatéral",
+                "detail": "Piège : pas d'asymétrie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "imager",
+        "label": "Imager",
+        "tone": "retenir",
+        "detail": "Échographie puis radiographie.",
+        "children": [
+          {
+            "id": "echo",
+            "label": "Échographie",
+            "detail": "Avant 4-6 mois : couverture, instabilité.",
+            "leaves": [
+              {
+                "id": "ec-1",
+                "label": "Sans irradiation",
+                "detail": "Répétée sous traitement."
+              }
+            ]
+          },
+          {
+            "id": "radio",
+            "label": "Radiographie",
+            "detail": "Après ossification : angles et lignes.",
+            "leaves": [
+              {
+                "id": "ra-1",
+                "label": "Réflexe",
+                "detail": "Devant toute boiterie de l'enfant."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Réduire et maintenir, par étages selon l'âge.",
+        "children": [
+          {
+            "id": "pavlik",
+            "label": "Harnais de Pavlik",
+            "detail": "Premiers mois, hanche réductible.",
+            "leaves": [
+              {
+                "id": "pa-1",
+                "label": "Surveillance",
+                "detail": "Échec silencieux possible."
+              },
+              {
+                "id": "pa-2",
+                "label": "Nécrose",
+                "detail": "Contrainte excessive = danger."
+              }
+            ]
+          },
+          {
+            "id": "chirurgie",
+            "label": "Après 6 mois / la marche",
+            "detail": "Réduction sous anesthésie, ostéotomies.",
+            "leaves": [
+              {
+                "id": "ch-1",
+                "label": "Pronostic",
+                "detail": "Correlé à l'âge au diagnostic."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Pendant toute la croissance.",
+        "children": [
+          {
+            "id": "controles",
+            "label": "Contrôles",
+            "detail": "Clinique, échographie puis radiographie.",
+            "leaves": [
+              {
+                "id": "co-1",
+                "label": "Parents",
+                "detail": "Informés des signes et du portage."
+              }
+            ]
+          },
+          {
+            "id": "adn",
+            "label": "Adulte jeune",
+            "detail": "Dysplasie résiduelle = coxarthrose précoce.",
+            "leaves": [
+              {
+                "id": "ad-1",
+                "label": "Suivi à vie",
+                "detail": "Hanche guérie = hanche à risque."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-AAP-DDH-2016",
+      "title": "Evaluation and Referral for Developmental Dysplasia of the Hip in Infants",
+      "citation": "Shaw BA, Segal LS, SECTION ON ORTHOPAEDICS. Evaluation and Referral for Developmental Dysplasia of the Hip in Infants. Pediatrics 2016 ; 138 (6) : e20163107. doi:10.1542/peds.2016-3107.",
+      "organization": "American Academy of Pediatrics",
+      "year": 2016,
+      "url": "https://doi.org/10.1542/peds.2016-3107",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Dépistage clinique",
+        "Facteurs de risque",
+        "Orientation",
+        "Suivi"
+      ]
+    },
+    {
+      "id": "SRC-BJJ-DDH-2023",
+      "title": "The management of developmental dysplasia of the hip in children aged under three months",
+      "citation": "Aarvold A, Perry DC, Mavrotas J, Theologis T, Katchburian M. The management of developmental dysplasia of the hip in children aged under three months. Bone Joint J 2023 ; 105-B (2) : 209-214. doi:10.1302/0301-620X.105B2.BJJ-2022-0893.R1.",
+      "organization": "The Bone & Joint Journal",
+      "year": 2023,
+      "url": "https://doi.org/10.1302/0301-620X.105B2.BJJ-2022-0893.R1",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Prise en charge avant trois mois",
+        "Harnais de Pavlik",
+        "Échec et escalade"
+      ]
+    }
+  ]
+}
