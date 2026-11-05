@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "infections-grossesse",
+  "title": "Maladies infectieuses au cours de la grossesse",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Synthétiser les principales infections susceptibles de retentir sur la grossesse et le fœtus (toxoplasmose, rubéole, cytomégalovirus, herpès, varicelle, VIH, syphilis, paludisme, hépatites, listériose), connaître les sérologies prénatales obligatoires et la conduite à tenir devant une séroconversion, et renvoyer aux fiches dédiées pour chaque pathologie.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 75,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 116,
+      "localNumber": 75,
+      "sectionLabel": "Médecine",
+      "title": "Maladies infectieuses au cours de la grossesse",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche de synthèse transversale : classification des infections materno-fœtales, calendrier des dépistages prénatals, interprétation des sérologies et grands principes de prise en charge. Chaque pathologie fait l'objet d'une fiche dédiée (toxoplasmose, paludisme, VIH, varicelle-zona, hépatites virales, gonocoques-chlamydia) à laquelle le lecteur est renvoyé.",
+    "verificationNotes": "Contenu vérifié contre les recommandations de la HAS (dépistage CMV au premier trimestre, surveillance toxoplasmose/rubéole), les fiches ameli et une revue récente sur les sérologies prénatales obligatoires en France (toxoplasmose, rubéole, syphilis, hépatite B ; VIH, VHC et CMV recommandés). Le contexte malgache impose d'adapter le dépistage : forte prévalence du VIH et du paludisme, vaccination rubéoleuse inconstante, sérologies non systématiquement répétées.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Renvois vers fiches dédiées sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections au cours de la grossesse revêtent une importance particulière : elles peuvent retentir sur la mère (avortement, accouchement prématuré, formes maternelles graves), sur le fœtus (infection congénitale, malformations, retard de croissance) ou sur le nouveau-né (infection néonatale). Certaines infections, bénignes chez l'adulte immunocompétent, deviennent particulièrement dangereuses chez la femme enceinte ou son enfant à naître."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est une synthèse transversale : elle présente la logique commune du dépistage prénatal, l'interprétation des sérologies et les grands principes de conduite à tenir. Le détail de chaque pathologie (clinique, diagnostic, protocoles thérapeutiques) est traité dans les fiches dédiées : toxoplasmose, paludisme, VIH, varicelle-zona, rougeole, grippe, hépatites virales, fièvres typhoïdes et infections à gonocoques et chlamydia."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "On distingue trois modes de contamination de l'enfant : transmission transplacentaire (hématogène, responsable des infections congénitales : toxoplasmose, rubéole, cytomégalovirus, syphilis, paludisme, parvovirus B19), transmission ascendante ou per-partum depuis le tractus génital (herpès, gonocoque, chlamydia, streptocoque du groupe B) et transmission post-natale par l'allaitement ou le contact (VIH, cytomégalovirus, hépatite B)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le terme historique TORCH désignait un groupe d'infections congénitales : toxoplasmose, autres infections, rubéole, cytomégalovirus et herpès. Cette notion a été élargie : s'y ajoutent le VIH, la syphilis, la varicelle, le parvovirus B19, le paludisme, les hépatites virales et la listériose. La sévérité fœtale dépend surtout du terme : le risque malformatif est maximal au premier trimestre, tandis que le risque de prématurité et d'infection néonatale domine au troisième trimestre."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Infections à tropisme fœtal malformatif : rubéole, cytomégalovirus, toxoplasmose, varicelle.",
+            "Infections responsables d'accouchement prématuré ou de rupture prématurée des membranes : paludisme, infections urinaires, listériose, gonocoque, chlamydia.",
+            "Infections transmissibles à l'accouchement ou par l'allaitement : VIH, hépatite B, herpès génital.",
+            "Infections maternelles graves : paludisme (accès grave), hépatite E fulminante, grippe, fièvres typhoïdes."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Agents en cause et terrain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les principaux agents en cause sont : le toxoplasme (parasite), le Plasmodium (paludisme, endemic dans plusieurs régions de Madagascar), le tréponème pâle (syphilis), Listeria monocytogenes (listériose d'origine alimentaire), les virus de la rubéole, du cytomégalovirus, de l'herpès simplex, de la varicelle et du zona, le parvovirus B19, le VIH, les virus des hépatites B, C et E."
+        },
+        {
+          "type": "paragraph",
+          "text": "La femme enceinte est immunologiquement tolérante vis-à-vis du fœtus, ce qui favorise la dissémination de certains agents (listériose, paludisme grave). Les femmes non immunisées (primipares séronégatives pour la toxoplasmose ou la rubéole, absence de cicatrice vaccinale) constituent le groupe à risque de séroconversion. À Madagascar, la couverture vaccinale rubéoleuse est inconstante, la prévalence du VIH et du paludisme chez la femme enceinte est non négligeable, et le dépistage repose souvent sur des tests rapides."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et dépistage prénatal",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le dépistage prénatal repose sur les sérologies réalisées lors de la première consultation prénatale : syphilis, rubéole et toxoplasmose en l'absence de preuve écrite d'immunité, hépatite B et VIH. En France, quatre sérologies sont obligatoires (toxoplasmose, rubéole, syphilis, hépatite B), les dépistages du VIH, du VHC et du cytomégalovirus étant recommandés et systématiquement proposés. En cas de séronégativité toxoplasmique, la surveillance sérologique est mensuelle jusqu'à l'accouchement."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'interprétation repose sur le couple IgM/IgG : les IgM traduisent une infection récente (mais peuvent persister des mois ou donner de faux positifs), les IgG une immunité ancienne. Devant une suspicion de séroconversion (apparition d'IgM, séroconversion IgG), la patiente est adressée à un centre spécialisé de diagnostic prénatal : la recherche du génome viral ou parasitaire par amplisation génique sur le liquide amniotique (amniocentèse) confirme l'infection fœtale pour la toxoplasmose, la rubéole et le cytomégalovirus, à distance suffisante de la contamination maternelle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le retentissement fœtal est évalué par l'échographie morphologique (retard de croissance intra-utérin, hydrocéphalie, calcifications intracrâniennes, hépatomégalie, anomalies cardiaques, placentite) et par l'IRM fœtale en cas de signes d'appel neurologiques. Au nouveau-né, le bilan associe sérologies comparatives mère-enfant, amplisation génique dans les urines ou la salive (cytomégalovirus), hémoculture et examen bactériologique selon le contexte."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Séroconversion en cours de grossesse",
+          "text": "Toute eruption fébrile ou notion de contage chez une femme enceinte séronégative (rubéole, varicelle, toxoplasmose) impose un contrôle sérologique immédiat et un avis spécialisé sans attendre la consultation programmée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Premier trimestre : sérologies obligatoires (syphilis, toxoplasmose, rubéole, hépatite B), dépistage du VIH, statut immunitaire.",
+            "Deuxième et troisième trimestres : sérologie toxoplasmique mensuelle si la patiente est séronégative, glycémie, recherche du streptocoque du groupe B en fin de grossesse.",
+            "Devant un tableau maternel fébrile : paludisme (frottis/test rapide), listériose (hémocultures), grippe selon le contexte épidémique.",
+            "Devant des signes échographiques évocateurs : adressage en centre de diagnostic prénatal."
+          ],
+          "sources": [
+            "s1",
+            "s3",
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge dépend de l'agent et du terme, et repose sur des protocoles détaillés dans les fiches dédiées. Les grands principes sont : traiter l'infection maternelle, tenter de prévenir ou de réduire la transmission fœtale, surveiller le fœtus, et organiser l'accouchement dans des conditions adaptées (prophylaxie antirétrovirale et choix de la voie d'accouchement pour le VIH, immunoprophylaxie de l'hépatite B à la naissance, césarienne en cas d'herpès génital évolutif en fin de grossesse)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Exemples de traitements spécifiques : spiramycine puis antiparasitaires (pyriméthamine-sulfadiazine avec acide folinique) selon le statut fœtal dans la toxoplasmose ; pénicilline G dans la syphilis ; antipalustres adaptés au trimestre et au tableau clinique dans le paludisme ; amoxicilline dans la listériose ; valaciclovir dans l'herpès et discuté dans le cytomégalovirus ; trithérapie antirétrovirale pour le VIH. Le paracétamol est l'antipyrétique de référence ; les anti-inflammatoires non stéroidiens sont à éviter, surtout au troisième trimestre."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Séroconversion toxoplasmique : spiramycine ; si infection fœtale prouvée, association pyriméthamine-sulfadiazine-acide folinique (fiche toxoplasmose).",
+            "Syphilis : pénicilline G selon le stade ;_traitement du parteur obligatoire.",
+            "Paludisme : antipalustres adaptés à l'espèce et au trimestre, formes graves en unité de soins intensifs (fiche paludisme).",
+            "VIH : trithérapie antirétrovirale, prophylaxie du nouveau-né, alternative à l'allaitement maternel selon les conditions locales (fiche VIH).",
+            "Hépatite B : immunoglobulines et vaccination du nouveau-né dans les premières heures de vie (fiche hepatites-virales)."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Fièvre chez la femme enceinte",
+          "text": "Toute fièvre chez une femme enceinte à Madagascar impose la recherche d'un paludisme par test rapide ou frottis, sans attendre, et la recherche d'une listériose ou d'une infection urinaire devant un tableau fébrile prolongé. Le paludisme grave de la femme enceinte est une urgence obstétricale."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention primaire repose sur les mesures d'hygiène et l'éducation : lavage des mains (notamment au contact de jeunes enfants en collectivité pour le cytomégalovirus), cuisson de la viande et lavage des crudités pour la toxoplasmose, éviter les fromages au lait cru et les charcuteries pour la listériose, moustiquaires imprégnées et chimioprophylaxie dans les zones de transmission du paludisme, rapports protégés pour le VIH et les infections sexuellement transmissibles."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention vaccinale est essentielle : les vaccins vivants atténués (rubéole, rougeole-oreillons-rubéole, varicelle, BCG, fièvre jaune) sont contre-indiqués pendant la grossesse ; les femmes séronégatives sont vaccinées en post-partum, en évitant une grossesse dans les deux mois suivant la vaccination rubéoleuse. La vaccination antigrippale est recommandée, la vaccination contre l'hépatite B est possible. Enfin, la prophylaxie ciblée (immunoglobulines après contage varicellelleux ou rubéolique selon le statut, césarienne et prophylaxie du nouveau-né pour le VIH et l'hépatite B) complète la prévention.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe dépistage prénatal",
+          "text": "À la première consultation prénatale : syphilis, toxoplasmose, rubéole, hépatite B, VIH. Si séronégative pour la toxoplasmose : sérologie mensuelle et conseils hygiéno-diététiques écrits."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les infections au cours de la grossesse représentent un chapitre transversal où la logique prime sur la mémorisation exhaustive : connaître le calendrier des dépistages, interpréter un couple IgM/IgG, savoir qu'un éruption fébrile chez une femme enceinte est une urgence diagnostique, et adapter la prévention au contexte malgach (paludisme, VIH, vaccination inconstante). Les fiches dédiées — toxoplasmose, paludisme, VIH, varicelle-zona, hépatites virales, gonocoques-chlamydia — détaillent chaque protocole et doivent être consultées conjointement."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Quatre sérologies prénatales obligatoires : syphilis, toxoplasmose, rubéole, hépatite B ; VIH systématiquement proposé. Séroconversion = avis spécialisé. Vaccins vivants contre-indiqués pendant la grossesse, vaccination du post-partum si séronégative. Fièvre = paludisme jusqu'à preuve du contraire à Madagascar."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche toxoplasmose — protocole spiramycine/pyriméthamine.",
+            "Fiche paludisme — accès grave de la femme enceinte.",
+            "Fiche VIH — prophylaxie de la transmission mère-enfant.",
+            "Fiche varicelle-zona — risque fœtal et néonatal.",
+            "Fiche hepatites-virales — immunoprophylaxie de l'hépatite B à la naissance.",
+            "Fiche gonocoques-chlamydia — infections génitales et grossesse."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Séroconversion en cours de grossesse",
+      "text": "Eruption fébrile ou contage chez une femme enceinte séronégative : contrôle sérologique immédiat et avis spécialisé sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Fièvre chez la femme enceinte",
+      "text": "Recherche systématique d'un paludisme par test rapide ; le paludisme grave gravidique est une urgence vitale maternelle et fœtale."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe dépistage prénatal",
+      "text": "Première consultation : syphilis, toxoplasmose, rubéole, hépatite B, VIH. Sérologie toxoplasmique mensuelle si séronégative."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "IgM = infection récente (à interpréter avec prudence), IgG = immunité ancienne. Vaccins vivants contre-indiqués pendant la grossesse, rattrapage en post-partum."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo TORCH élargi",
+      "text": "Toxoplasmose, Autres (syphilis, parvovirus B19, paludisme, listériose), Rubéole, CMV, Herpès — auxquels s'ajoutent VIH, varicelle et hépatites."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Sérologies prénatales obligatoires",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Syphilis"
+        },
+        {
+          "key": "T",
+          "term": "Toxoplasmose"
+        },
+        {
+          "key": "R",
+          "term": "Rubéole"
+        },
+        {
+          "key": "H",
+          "term": "Hépatite B (+ VIH proposé)"
+        }
+      ]
+    },
+    {
+      "label": "TORCH élargi",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Toxoplasmose"
+        },
+        {
+          "key": "O",
+          "term": "Autres : syphilis, parvovirus B19, listériose, paludisme"
+        },
+        {
+          "key": "R",
+          "term": "Rubéole"
+        },
+        {
+          "key": "C",
+          "term": "Cytomégalovirus"
+        },
+        {
+          "key": "H",
+          "term": "Herpès"
+        }
+      ]
+    },
+    {
+      "label": "Modes de transmission mère-enfant",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Transplacentaire (congénitale)"
+        },
+        {
+          "key": "A",
+          "term": "Ascendante / per-partum"
+        },
+        {
+          "key": "P",
+          "term": "Post-natale (allaitement, contact)"
+        }
+      ]
+    },
+    {
+      "label": "Mesures anti-toxoplasmose et listériose",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cuire la viande à cœur"
+        },
+        {
+          "key": "L",
+          "term": "Laver fruits et légumes"
+        },
+        {
+          "key": "F",
+          "term": "Fromages au lait cru et charcuteries à éviter"
+        },
+        {
+          "key": "M",
+          "term": "Mains lavées après contact avec chats et terre"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles sont les quatre sérologies prénatales obligatoires ?",
+      "back": "Syphilis, toxoplasmose, rubéole, hépatite B (auxquelles s'ajoutent le VIH et le VHC, recommandés et systématiquement proposés)."
+    },
+    {
+      "id": "f2",
+      "front": "Que signifie l'acronyme TORCH ?",
+      "back": "Toxoplasmose, Autres infections, Rubéole, Cytomegalovirus, Herpès — groupe historique des infections congénitales, aujourd'hui élargi (VIH, varicelle, syphilis, parvovirus B19...)."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les trois modes de transmission mère-enfant ?",
+      "back": "Transplacentaire (hématogène, infections congénitales), ascendante/per-partum (voies génitales), post-natale (allaitement, contact proche)."
+    },
+    {
+      "id": "f4",
+      "front": "Comment interpréter un couple IgM+/IgG− chez une femme enceinte ?",
+      "back": "Infection récente probable, mais faux positifs possibles : contrôle rapide, avis spécialisé et centre de diagnostic prénatal avant toute conclusion."
+    },
+    {
+      "id": "f5",
+      "front": "Quel examen confirme l'infection fœtale dans la toxoplasmose, la rubéole et le CMV ?",
+      "back": "L'ampliation génique (recherche du génome viral ou parasitaire) sur le liquide amniotique obtenu par amniocentèse, réalisée à distance suffisante de la contamination maternelle."
+    },
+    {
+      "id": "f6",
+      "front": "Quel est le risque maximal de la primo-infection rubéolique ?",
+      "back": "Embryofœtopathie (retard de croissance, cardiopathie, cataracte, surdité) : risque majeur avant 12 semaines d'aménorrhée, presque nul après 18 SA."
+    },
+    {
+      "id": "f7",
+      "front": "Pourquoi le cytomégalovirus est-il la première cause d'infection congénitale ?",
+      "back": "Forte séroprévalence, transmission transplacentaire possible même après une primo-infection discrète, risque de séquelles auditives et neurologiques fœtales."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle est la principale mesure de prévention du CMV pendant la grossesse ?",
+      "back": "L'hygiène des mains, notamment après contact avec les urines ou la salive de jeunes enfants en collectivité ; aucune vaccination n'est disponible."
+    },
+    {
+      "id": "f9",
+      "front": "Quel agent infectieux redouter devant une fièvre prolongée et des myalgies après consommation de fromage au lait cru ?",
+      "back": "Listeria monocytogenes (listériose) : hémocultures, amoxicilline ; risque d'accouchement prématuré et d'infection néonatale grave."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle première cause de fièvre rechercher chez une femme enceinte à Madagascar ?",
+      "back": "Le paludisme : test rapide ou frottis goutte épaisse systématique, antipalustres adaptés au trimestre ; forme grave = urgence."
+    },
+    {
+      "id": "f11",
+      "front": "Quels vaccins sont contre-indiqués pendant la grossesse ?",
+      "back": "Les vaccins vivants atténués : rubéole, rougeole-oreillons-rubéole, varicelle, BCG, fièvre jaune. Vaccination en post-partum si séronégative."
+    },
+    {
+      "id": "f12",
+      "front": "Quel délai respecter après une vaccination rubéoleuse avant une grossesse ?",
+      "back": "Deux mois, le vaccin étant vivant atténué et contre-indiqué pendant la grossesse."
+    },
+    {
+      "id": "f13",
+      "front": "Que proposer à un nouveau-né de mère porteuse de l'antigène HBs ?",
+      "back": "Immunoglobulines anti-HBs et vaccination contre l'hépatite B dans les premières heures de vie."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle conduite tenir en cas d'herpès génital évolutif en fin de grossesse ?",
+      "back": "Césarienne si lésions évolutives au moment du travail ; antiviraux (valaciclovir) pour réduire la excrétion virale ; éviter la voie basse."
+    },
+    {
+      "id": "f15",
+      "front": "Comment prévenir la transmission mère-enfant du VIH ?",
+      "back": "Trithérapie antirétrovirale maternelle, prophylaxie du nouveau-né, choix de la voie d'accouchement selon la charge virale, alimentation adaptée aux conditions locales (fiche VIH)."
+    },
+    {
+      "id": "f16",
+      "front": "Pourquoi la femme enceinte est-elle plus à risque de formes graves d'infections ?",
+      "back": "Modulation immunitaire de la grossesse (tolérance fœtale) favorisant la dissémination de Listeria et du Plasmodium : listériose et paludisme graves plus fréquents."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ig-root",
+      "label": "Infections et grossesse"
+    },
+    "branches": [
+      {
+        "id": "ig-b1",
+        "label": "Classification",
+        "children": [
+          {
+            "id": "ig-b1-1",
+            "label": "Transplacentaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ig-l1",
+            "label": "Congénitales : toxoplasmose, rubéole, CMV, syphilis, paludisme"
+          },
+          {
+            "id": "ig-l2",
+            "label": "Per-partum : herpès, gonocoque, streptocoque B"
+          },
+          {
+            "id": "ig-l3",
+            "label": "Post-natale : VIH, hépatite B, CMV"
+          }
+        ]
+      },
+      {
+        "id": "ig-b2",
+        "label": "Dépistage prénatal",
+        "children": [
+          {
+            "id": "ig-b2-1",
+            "label": "Premier trimestre"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ig-l4",
+            "label": "Obligatoires : syphilis, toxoplasmose, rubéole, hépatite B"
+          },
+          {
+            "id": "ig-l5",
+            "label": "Recommandés : VIH, VHC, CMV"
+          },
+          {
+            "id": "ig-l6",
+            "label": "Toxoplasmose séronégative : sérologie mensuelle"
+          }
+        ]
+      },
+      {
+        "id": "ig-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ig-b3-1",
+            "label": "Sérologies et PCR"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ig-l7",
+            "label": "IgM/IgG, séroconversions"
+          },
+          {
+            "id": "ig-l8",
+            "label": "Amniocentèse : toxoplasmose, rubéole, CMV"
+          },
+          {
+            "id": "ig-l9",
+            "label": "Échographie fœtale, IRM"
+          }
+        ]
+      },
+      {
+        "id": "ig-b4",
+        "label": "Prise en charge",
+        "children": [
+          {
+            "id": "ig-b4-1",
+            "label": "Protocoles par agent"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ig-l10",
+            "label": "Spiramycine/pyriméthamine : toxoplasmose"
+          },
+          {
+            "id": "ig-l11",
+            "label": "Pénicilline G : syphilis ; amoxicilline : listériose"
+          },
+          {
+            "id": "ig-l12",
+            "label": "Antipalustres, antirétroviraux, valaciclovir"
+          }
+        ]
+      },
+      {
+        "id": "ig-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "ig-b5-1",
+            "label": "Hygiène et vaccination"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ig-l13",
+            "label": "Hygiène des mains, alimentaire, moustiquaires"
+          },
+          {
+            "id": "ig-l14",
+            "label": "Vaccins vivants contre-indiqués, rattrapage post-partum"
+          },
+          {
+            "id": "ig-l15",
+            "label": "Prophylaxie du nouveau-né : VIH, hépatite B, herpès"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Les infections virales avec transmission de la mère à l'enfant pendant la grossesse",
+      "citation": "Ameli — Infections virales de la mère à l'enfant pendant la grossesse",
+      "organization": "Assurance Maladie (ameli.fr)",
+      "year": 2024,
+      "version": "Fiche grand public",
+      "url": "https://www.ameli.fr/assure/sante/devenir-parent/grossesse/difficultes-et-maladies-pendant-la-grossesse/infections/infections-virales",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "classification des infections materno-fœtales",
+        "rubéole et CMV",
+        "vaccins vivants contre-indiqués"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Dépistage du cytomégalovirus au 1er trimestre de la grossesse : prise en charge et suivi",
+      "citation": "HAS — Dépistage du cytomégalovirus au 1er trimestre de la grossesse",
+      "organization": "Haute Autorité de Santé",
+      "year": 2023,
+      "version": "Recommandation en santé publique",
+      "url": "https://www.has-sante.fr/jcms/p_3748990/fr/depistage-du-cytomegalovirus-au-1er-trimestre-de-la-grossesse-prise-en-charge-et-suivi",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "dépistage CMV",
+        "mesures d'hygiène",
+        "conduite à tenir en cas de primo-infection"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Current methods of systematic serological testing for infections in pregnant women in France",
+      "citation": "Méthodes actuelles de dépistage sérologique systématique des infections chez la femme enceinte en France",
+      "organization": "PubMed / GRIG",
+      "year": 2025,
+      "version": "Revue",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42439143/",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "sérologies obligatoires et recommandées",
+        "interprétation IgM/IgG"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Surveillance sérologique et prévention de la toxoplasmose et de la rubéole au cours de la grossesse",
+      "citation": "HAS — Surveillance sérologique et prévention de la toxoplasmose et de la rubéole au cours de la grossesse",
+      "organization": "Haute Autorité de Santé",
+      "year": 2009,
+      "version": "Recommandation en santé publique",
+      "url": "https://www.has-sante.fr/jcms/c_893585/fr/surveillance-serologique-et-prevention-de-la-toxoplasmose-et-de-la-rubeole-au-cours-de-la-grossesse-et-depistage-prenatal-de-l-hepatite-b-pertinence-des-modalites-de-realisation",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "dépistage prénatal obligatoire",
+        "surveillance mensuelle toxoplasmose",
+        "vaccination post-partum"
+      ]
+    }
+  ]
+}
