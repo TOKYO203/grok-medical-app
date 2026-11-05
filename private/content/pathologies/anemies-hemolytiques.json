@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "anemies-hemolytiques",
+  "title": "Généralités sur les anémies hémolytiques",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir l'anémie hémolytique, reconnaître les critères biologiques de l'hémolyse (réticulocytes élevés, LDH augmentées, haptoglobine effondrée, bilirubine libre augmentée), distinguer hémolyse intravasculaire et extravasculaire, corpusculaire et extracorpusculaire, mener la démarche étiologique et connaître les grands principes du traitement et de la prévention.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 84,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 125,
+      "localNumber": 84,
+      "sectionLabel": "Médecine",
+      "title": "Généralités sur les anémies hémolytiques",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche d'ensemble ouvrant la série hématologique : cadre défini (destruction prématurée des globules rouges), classification par site et par mécanisme, démarche diagnostique en trois temps (affirmer, typer, orienter), principes de traitement et prévention. La drépanocytose et l'anémie hémolytique auto-immune font l'objet de fiches dédiées ; l'anémie inflammatoire et carencielle relève de la fiche Anémies hypochromes.",
+    "verificationNotes": "Marqueurs biologiques (réticulocytose, LDH, haptoglobine, bilirubine libre, hémoglobinurie) et démarche diagnostique conformes au document du centre de référence des cytopénies auto-immunes (Pr Godeau, SNFMI) et au polycopié du CHU de Limoges. Étiologies corpusculaires et extracorpusculaires conformes à Wikimédecine et HematoCell. Place du paludisme comme cause majeure d'hémolyse aiguë fébrile en zone d'endémie.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie hémolytique résulte d'une destruction prématurée des globules rouges : le raccourcissement de leur durée de vie (normalement 120 jours) dépasse la capacité de compensation de la moelle. Elle réalise un tableau associant un syndrome anémique, un ictère et souvent une splénomégalie, avec une moelle régénérative — c'est l'anémie régénérative par excellence."
+        },
+        {
+          "type": "paragraph",
+          "text": "L'item ouvre la série hématologique du programme et sert de charpente aux fiches suivantes : drépanocytose et anémie hémolytique auto-immune en sont les deux illustrations majeures. À Madagascar, trois causes dominent la pratique : la drépanocytose, le paludisme et le déficit en glucose-6-phosphate déshydrogénase, souvent déclenché par un médicament ou une infection."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hémolyse se définit par une destruction des globules rouges avant 120 jours. La moelle réagit en accélérant l'érythropoïèse (réticulocytose) ; l'anémie n'apparaît que lorsque l'hémolyse dépasse la capacité maximale de compensation, estimée à six à huit fois la production basale. On classe les anémies hémolytiques selon le site (intravasculaire ou extravasculaire — cette dernière se fait dans les macrophages de la rate et du foie), le mécanisme (corpusculaire : défaut du globule rouge ; extracorpusculaire : agression extérieure) et la vitesse d'installation (aiguë ou chronique).",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémolyse intravasculaire libère l'hémoglobine dans le plasma : hémoglobinémie, hémoglobinurie (urines foncées, type Porto), hémosidérinurie, avec risque d'atteinte rénale aiguë. L'hémolyse extravasculaire donne un ictère par bilirubine libre, une splénomégalie et, au long cours, des lithiases biliaires pigmentaires. Une hémolyse chronique stimule l'érythropoïèse et épuise les réserves en acide folique.",
+          "sources": [
+            "s4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Causes corpusculaires (le globule rouge est en défaut) : anomalies de membrane (sphérocytose héréditaire, elliptocytose), déficits enzymatiques (déficit en glucose-6-phosphate déshydrogénase, fréquent en Afrique et à Madagascar, déclenché par les substances oxydantes — médicaments, fèves, infection ; déficit en pyruvate kinase), anomalies de l'hémoglobine (drépanocytose, thalassémies, hémoglobines instables).",
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Causes extracorpusculaires (le globule rouge est normal mais agressé) : immunologiques (anémies hémolytiques auto-immunes — fiche dédiée ; allo-immunes post-transfusionnelles), mécaniques (prothèses valvulaires, microangiopathie thrombotique avec schizocytes), infectieuses et parasitaires (paludisme au premier rang, septicémies, babesiose), toxiques et médicamenteuses, et hémoglobinurie paroxystique nocturne.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Corpusculaires — membrane : sphérocytose héréditaire ; enzymes : déficit en glucose-6-phosphate déshydrogénase ; hémoglobine : drépanocytose, thalassémies.",
+            "Extracorpusculaires — immunes : auto-anticorps, allo-immunisation ; mécaniques : valves, microangiopathie.",
+            "Infectieuses : paludisme — première cause d'hémolyse aiguë fébrile en zone d'endémie.",
+            "Toxiques et médicamenteuses : substances oxydantes chez le déficitaire enzymatique.",
+            "Rare mais grave : hémoglobinurie paroxystique nocturne (hémolyse intravasculaire chronique)."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Premier temps — affirmer l'hémolyse : anémie régénérative (réticulocytes élevés, supérieurs à 100 giga par litre), élévation des LDH, effondrement de l'haptoglobine, augmentation de la bilirubine libre ; cliniquement pâleur, ictère, splénomégalie, urines foncées en cas d'hémolyse intravasculaire. Deuxième temps — typer : frottis sanguin (drépanocytes, sphérocytes, schizocytes), test de Coombs direct qui oriente vers une cause immune, recherche d'une hémoglobinurie. Troisième temps — orienter l'étiologie selon le contexte : âge, origine, antécédents familiaux, médicaments, fièvre, grossesse ; électrophorèse de l'hémoglobine, dosage enzymatique, goutte épaisse et frottis mince au moindre doute de paludisme.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'imagerie et le bilan d'extension viennent ensuite : échographie à la recherche de lithiase biliaire, bilan martial et dosage de l'acide folique, fonction rénale. Le myélogramme est inutile dans la plupart des anémies hémolytiques pures (moelle riche) ; il ne se discute que si une hémopathie associée est suspectée.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Anémie hémolytique fébrile en zone d'endémie palustre",
+          "text": "Toute hémolyse aiguë fébrile impose une goutte épaisse et un frottis mince en urgence : le paludisme est une cause majeure et traitable, chaque heure compte."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est d'abord celui de la cause : arrêt du médicament ou de l'aliment oxydant (déficit en glucose-6-phosphate déshydrogénase), traitement du paludisme, des causes infectieuses, prise en charge spécifique de la drépanocytose ou de l'anémie hémolytique auto-immune. La supplémentation en acide folique est systématique, l'érythropoïèse accélérée épuisant les réserves. La transfusion de culots globulaires est réservée aux anémies mal tolérées, avec prudence immuno-hématologique (recherche d'agglutinines irrégulières, allo-immunisation).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'hémolyse aiguë massive est une urgence : oxygénothérapie, remplissage vasculaire, surveillance rapprochée de la diurèse pour prévenir l'atteinte rénale, arrêt du facteur déclenchant, transfusion si besoin. Les hémolyses chroniques imposent une surveillance (hémogramme, lithiases biliaires), une vaccination antipneumococcique, antiméningococcique et anti-Haemophilus avant toute splénectomie — celle-ci est indiquée dans la sphérocytose sévère et certaines formes ; les corticoïdes constituent le premier traitement des formes auto-immunes (fiche dédiée).",
+          "sources": [
+            "s1",
+            "s3",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Test de Coombs direct devant toute hémolyse",
+          "text": "Affirmer l'hémolyse puis typer : le test de Coombs direct se discute devant toute anémie hémolytique — s'il est positif, la démarche bascule vers l'origine auto-immune."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Elle repose sur le dépistage et l'éducation : dépistage néonatal de la drépanocytose quand il est disponible, information des déficitaires en glucose-6-phosphate déshydrogénase sur les substances oxydantes à éviter (certains antipalustres, sulfamides, nitrofuranes, fèves), conseil génétique pour les anomalies de l'hémoglobine, prévention du paludisme (moustiquaires imprégnées, traitement rapide des accès) et prise en charge précoce des infections.",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez les patients splénectomisés ou avant splénectomie : vaccinations antipneumococcique, antiméningococcique, anti-Haemophilus et antibioprophylaxie selon les protocoles. Toute hémolyse chronique justifie un suivi hématologique régulier et la mise à jour du carnet de vaccination."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'anémie hémolytique est un cadre, pas un diagnostic : affirmer l'hémolyse (réticulocytes élevés, LDH augmentées, haptoglobine effondrée, bilirubine libre augmentée), la typer (frottis, Coombs, site) puis en chercher la cause — drépanocytose, paludisme, déficit enzymatique et causes immunes en tête dans la pratique malgache. Le traitement associe celui de la cause, l'acide folique et la transfusion raisonnée.",
+          "sources": [
+            "s1"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Drépanocytose, Anémies hémolytiques à auto-anticorps, Anémies hypochromes hyposidérémiques (anémies carencielles), Paludisme, Transfusions et accidents transfusionnels."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Hémolyse = anémie régénérative + LDH élevées + haptoglobine effondrée + bilirubine libre augmentée. Frottis et test de Coombs pour typer ; étiologies en tête : drépanocytose, paludisme, déficit enzymatique, causes immunes. Acide folique toujours ; transfusion si mauvaise tolérance."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche drepanocytose — principal syndrome hémolytique héréditaire de la région.",
+            "Fiche aai — anémie hémolytique auto-immune.",
+            "Fiche anemies-hypochromes — anémies carencielles et différentiels.",
+            "Fiche paludisme — hémolyse fébrile aiguë.",
+            "Fiche transfusion et accidents-transfusionnels — hémolyse post-transfusionnelle.",
+            "Fiche ictere-conjugue — diagnostic différentiel des ictères."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hémolyse aiguë fébrile en zone d'endémie palustre",
+      "text": "Goutte épaisse et frottis mince en urgence : le paludisme est la première cause d'hémolyse aiguë fébrile à Madagascar et son traitement ne souffre aucun retard."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hémolyse intravasculaire aiguë",
+      "text": "Anémie brutale, urines Porto, douleurs lombaires : urgence — oxygénothérapie, remplissage, surveillance de la diurèse, arrêt du facteur déclenchant, transfusion si anémie menaçante."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Test de Coombs devant toute hémolyse",
+      "text": "Positif : cause auto-immune (corticoïdes à discuter). Négatif : penser corpusculaire, mécanique, infectieuse ou toxique."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Anémie régénérative + LDH élevées + haptoglobine effondrée + bilirubine libre augmentée = hémolyse. Réticulocytes élevés : c'est la clé du diagnostic."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Quatre marqueurs à doser",
+      "text": "H pour haptoglobine basse, L pour LDH élevées, B pour bilirubine libre augmentée, R pour réticulocytes élevés — le quatuor de l'hémolyse."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Quatuor biologique de l'hémolyse",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Haptoglobine effondrée"
+        },
+        {
+          "key": "L",
+          "term": "LDH élevées"
+        },
+        {
+          "key": "B",
+          "term": "Bilirubine libre augmentée"
+        },
+        {
+          "key": "R",
+          "term": "Réticulocytes élevés (régénération)"
+        }
+      ]
+    },
+    {
+      "label": "Causes corpusculaires",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Membrane : sphérocytose héréditaire"
+        },
+        {
+          "key": "E",
+          "term": "Enzyme : déficit en glucose-6-phosphate déshydrogénase"
+        },
+        {
+          "key": "H",
+          "term": "Hémoglobine : drépanocytose, thalassémies"
+        }
+      ]
+    },
+    {
+      "label": "Causes extracorpusculaires",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Immunes : auto-anticorps, allo-anticorps"
+        },
+        {
+          "key": "M",
+          "term": "Mécaniques : valves, microangiopathie"
+        },
+        {
+          "key": "I",
+          "term": "Infectieuses et parasitaires : paludisme, sepsis"
+        },
+        {
+          "key": "T",
+          "term": "Toxiques et médicamenteuses"
+        }
+      ]
+    },
+    {
+      "label": "Prise en charge",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cause à traiter en premier"
+        },
+        {
+          "key": "F",
+          "term": "Acide Folique systématique"
+        },
+        {
+          "key": "T",
+          "term": "Transfusion si mauvaise tolérance"
+        },
+        {
+          "key": "D",
+          "term": "Diurèse à surveiller en cas d'hémolyse aiguë"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce qu'une anémie hémolytique ?",
+      "back": "Une anémie due à la destruction prématurée des globules rouges (durée de vie inférieure à 120 jours), dépassant la capacité de compensation de la moelle."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le marqueur clé de la régénération érythrocytaire ?",
+      "back": "La réticulocytose : réticulocytes élevés (plus de 100 giga par litre), qui signe le caractère régénératif de l'anémie."
+    },
+    {
+      "id": "f3",
+      "front": "Citez les quatre marqueurs biologiques de l'hémolyse.",
+      "back": "LDH élevées, haptoglobine effondrée, bilirubine libre augmentée, réticulocytes élevés."
+    },
+    {
+      "id": "f4",
+      "front": "Pourquoi l'haptoglobine baisse-t-elle ?",
+      "back": "Parce qu'elle fixe l'hémoglobine libre libérée dans le plasma : elle est consommée puis éliminée, dès que l'hémolyse dépasse sa capacité de liaison."
+    },
+    {
+      "id": "f5",
+      "front": "Comment distinguer hémolyse intravasculaire et extravasculaire ?",
+      "back": "Intravasculaire : hémoglobinémie, hémoglobinurie (urines Porto), hémosidérinurie, risque rénal. Extravasculaire : ictère libre, splénomégalie, lithiases biliaires pigmentaires."
+    },
+    {
+      "id": "f6",
+      "front": "Que cherche-t-on sur le frottis sanguin ?",
+      "back": "Des drépanocytes (drépanocytose), des sphérocytes (sphérocytose héréditaire, formes immunes), des schizocytes (cause mécanique, microangiopathie)."
+    },
+    {
+      "id": "f7",
+      "front": "Quelles sont les trois familles de causes corpusculaires ?",
+      "back": "Anomalies de membrane (sphérocytose), déficits enzymatiques (glucose-6-phosphate déshydrogénase, pyruvate kinase), anomalies de l'hémoglobine (drépanocytose, thalassémies)."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce qui déclenche l'hémolyse chez un déficitaire en glucose-6-phosphate déshydrogénase ?",
+      "back": "Les substances oxydantes : certains antipalustres et sulfamides, les fèves, les infections — d'où l'importance de l'information du patient."
+    },
+    {
+      "id": "f9",
+      "front": "Quelles sont les grandes causes extracorpusculaires ?",
+      "back": "Causes immunes (auto et allo), causes mécaniques (valves, microangiopathie), causes infectieuses (paludisme en tête), causes toxiques et médicamenteuses, hémoglobinurie paroxystique nocturne."
+    },
+    {
+      "id": "f10",
+      "front": "Quel examen oriente vers une cause immune ?",
+      "back": "Le test de Coombs direct : positif en cas d'anticorps fixés sur les globules rouges."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle cause majeure d'hémolyse fébrile aiguë faut-il toujours éliminer à Madagascar ?",
+      "back": "Le paludisme : goutte épaisse et frottis mince en urgence devant toute hémolyse aiguë fébrile."
+    },
+    {
+      "id": "f12",
+      "front": "Quel rôle joue la rate dans l'hémolyse extravasculaire ?",
+      "back": "C'est le site principal de destruction : les macrophages spléniques phagocytent les globules rouges anormaux ou opsonisés, d'où la splénomégalie et l'ictère."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle complication biliaire survient lors des hémolyses chroniques ?",
+      "back": "Les lithiases biliaires pigmentaires, par surcharge de bilirubine libre conjuguée puis excrétée."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi supplémenter en acide folique ?",
+      "back": "Parce que l'érythropoïèse accélérée épuise les réserves en folates ; la carence limiterait la régénération."
+    },
+    {
+      "id": "f15",
+      "front": "Quand transfuser une anémie hémolytique ?",
+      "back": "Si l'anémie est mal tolérée (dyspnée, tachycardie, signes de mauvaise perfusion) — avec précautions immuno-hématologiques et recherche d'agglutinines irrégulières."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles vaccinations avant splénectomie ?",
+      "back": "Antipneumococcique, antiméningococcique, anti-Haemophilus influenzae b, suivies d'une antibioprophylaxie selon les protocoles."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ah-root",
+      "label": "Anémies hémolytiques"
+    },
+    "branches": [
+      {
+        "id": "ah-b1",
+        "label": "Définition et classification",
+        "children": [
+          {
+            "id": "ah-b1-1",
+            "label": "Cadre général"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ah-l1-1",
+            "label": "Destruction prématurée des globules rouges"
+          },
+          {
+            "id": "ah-l1-2",
+            "label": "Anémie régénérative"
+          },
+          {
+            "id": "ah-l1-3",
+            "label": "Intravasculaire : hémoglobinurie"
+          },
+          {
+            "id": "ah-l1-4",
+            "label": "Extravasculaire : ictère, splénomégalie"
+          }
+        ]
+      },
+      {
+        "id": "ah-b2",
+        "label": "Diagnostic en trois temps",
+        "children": [
+          {
+            "id": "ah-b2-1",
+            "label": "Démarche"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ah-l2-1",
+            "label": "Affirmer : LDH, haptoglobine, bilirubine, réticulocytes"
+          },
+          {
+            "id": "ah-l2-2",
+            "label": "Typer : frottis, Coombs, site"
+          },
+          {
+            "id": "ah-l2-3",
+            "label": "Orienter : contexte, électrophorèse, goutte épaisse"
+          }
+        ]
+      },
+      {
+        "id": "ah-b3",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "ah-b3-1",
+            "label": "Corpusculaire et extracorpusculaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ah-l3-1",
+            "label": "Membrane, enzyme, hémoglobine"
+          },
+          {
+            "id": "ah-l3-2",
+            "label": "Immunes : auto et allo"
+          },
+          {
+            "id": "ah-l3-3",
+            "label": "Mécaniques : valves, microangiopathie"
+          },
+          {
+            "id": "ah-l3-4",
+            "label": "Paludisme, sepsis, toxiques"
+          }
+        ]
+      },
+      {
+        "id": "ah-b4",
+        "label": "Urgences",
+        "children": [
+          {
+            "id": "ah-b4-1",
+            "label": "Situations aiguës"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ah-l4-1",
+            "label": "Hémolyse fébrile : goutte épaisse"
+          },
+          {
+            "id": "ah-l4-2",
+            "label": "Hémoglobinurie : protéger le rein"
+          },
+          {
+            "id": "ah-l4-3",
+            "label": "Anémie menaçante : transfusion"
+          }
+        ]
+      },
+      {
+        "id": "ah-b5",
+        "label": "Traitement et prévention",
+        "children": [
+          {
+            "id": "ah-b5-1",
+            "label": "Principes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ah-l5-1",
+            "label": "Traiter la cause"
+          },
+          {
+            "id": "ah-l5-2",
+            "label": "Acide folique systématique"
+          },
+          {
+            "id": "ah-l5-3",
+            "label": "Transfusion raisonnée"
+          },
+          {
+            "id": "ah-l5-4",
+            "label": "Vaccinations, éducation, dépistage"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Diagnostic des anémies hémolytiques",
+      "citation": "SNFMI — Diagnostic des anémies hémolytiques (Pr B. Godeau, centre de référence des cytopénies auto-immunes, CHU Henri Mondor)",
+      "organization": "SNFMI",
+      "year": 2015,
+      "version": "Document de référence",
+      "url": "https://www.snfmi.org/sites/default/files/old/anemies_hemolytiques_mode_de_compatibilite.pdf",
+      "usedFor": [
+        "démarche diagnostique en trois temps",
+        "marqueurs biologiques",
+        "principes de prise en charge"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Anémies hémolytiques",
+      "citation": "Wikimédecine — Anémies hémolytiques : classification étiologique",
+      "organization": "Wikimédecine (université médicale virtuelle francophone)",
+      "year": 2021,
+      "version": "Article de synthèse",
+      "url": "https://www.wikimedecine.fr/An%C3%A9mies_h%C3%A9molytiques",
+      "usedFor": [
+        "classification corpusculaire et extracorpusculaire",
+        "étiologies"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Anémies hémolytiques acquises non immunologiques",
+      "citation": "HematoCell — Anémies hémolytiques acquises non immunologiques",
+      "organization": "HematoCell",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.hematocell.fr/globules-rouges-et-leur-pathologie/anemies-hemolytiques-acquises-non-immunologiques",
+      "usedFor": [
+        "haptoglobine et marqueurs",
+        "causes acquises non immunologiques"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "Anémie hémolytique — enseignement",
+      "citation": "CHU de Limoges (Pr D. Bordessoule) — Anémie hémolytique : physiologie et mécanismes",
+      "organization": "CHU de Limoges",
+      "year": 2006,
+      "version": "Polycopié d'enseignement",
+      "url": "https://hemato.chu-limoges.fr/hematolim/Portals/0/Enseignement/DCEM3/Anemies/anemhemol.pdf",
+      "usedFor": [
+        "physiologie",
+        "hémolyse intravasculaire et extravasculaire"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
