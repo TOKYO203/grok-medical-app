@@ -1,0 +1,637 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "syphilis-primaire",
+  "title": "Syphilis primaire et secondaire",
+  "specialty": "Dermatologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la syphilis (tréponème pâle, infection sexuellement transmissible), connaître les stades primaire (chancre) et secondaire (éruptions), la sérologie (TPHA-VDRL, confirmation tréponémique), le traitement par pénicilline G, la réaction de Jarisch-Herxheimer, le dépistage des partenaires et les particularités de la grossesse.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 107,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 148,
+      "localNumber": 107,
+      "sectionLabel": "Médecine",
+      "title": "Syphilis primaire et secondaire",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux syphilis primaire et secondaire : chancre induré de l'entrée génitale puis dissémination hématogène avec éruptions polymorphes, sérologies non tréponémiques (VDRL) et tréponémiques (TPHA, FTA), PCR sur lésion, traitement par benzylpénicilline, dépistage systématique des autres infections sexuellement transmissibles et de la grossesse, suivi sérologique de guérison. Les phases tardives et la syphilis congénitale sont abordées pour la prévention ; les infections à gonocoques et chlamydia relèvent de la fiche dédiée.",
+    "verificationNotes": "Sérologies (TPHA, VDRL, FTA-ABS) et stratégies thérapeutiques conformes aux sources consultées (Wikipédia sur le TPHA, recommandations du CDC sur le traitement de la syphilis, fiche Vidal sur le diagnostic et le traitement). La réaction de Jarisch-Herxheimer est documentée comme réaction fréquente dans les premières heures après la première injection, bénigne mais à anticiper chez la femme enceinte.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La syphilis est une infection chronique due au Treponema pallidum, spirochète transmis par voie sexuelle ou de la mère à l'enfant. Longtemps appelée grande simulatrice, elle évolue par stades : primaire (chancre), secondaire (éruptions), latent, puis tertiaire. Les stades primaire et secondaire, contagieux, sont la cible du dépistage et du traitement précoce."
+        },
+        {
+          "type": "paragraph",
+          "text": "Son enjeu de santé publique reste réel, y compris à Madagascar où la syphilis circule chez l'adulte jeune et chez la femme enceinte — d'où le dépistage systématique prénatal : une syphilis maternelle non traitée se transmet au fœtus et provoque la syphilis congénitale."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Après la contamination, le tréponème se multiplie localement : le chancre d'inoculation apparaît en moyenne trois semaines après le contact, puis guérit spontanément en trois à huit semaines. Sans traitement, la dissémination hématogène survient : syphilis secondaire des semaines à mois plus tard, avec ses éruptions polymorphes et son risque de contagion ; puis latent, et à distance des atteintes tertiaires cardiovasculaires et neurologiques chez une partie des patients non traités.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le chancre : ulcération unique, propre, à fond induré et à bords relevés, indolore, siégeant sur les organes génitaux, l'anus ou la bouche, accompagnée d'une adénopathie satellite indolore et mobile. La syphilide secondaire est polymorphe : roseola (taches rosées diffuses), syphilides papuleuses des paumes et des plantes, plaques muqueuses buccales, condylomes plans anogénitaux, et parfois adénopathies généralisées et signes généraux."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et facteurs favorisants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Facteurs de risque : rapports sexuels non protégés, multipartenariat, autres infections sexuellement transmissibles associées (VIH en particulier), prostitution, toxicomanie intraveineuse. La transmission verticale se fait surtout in utero ; elle est d'autant plus probable que la syphilis maternelle est récente.",
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Incubation du chancre : environ trois semaines (10 à 90 jours).",
+            "Contagiosité maximale aux stades primaire et secondaire.",
+            "Co-infections à dépister : VIH, hépatites, gonocoques, chlamydia.",
+            "Grossesse : dépistage obligatoire au premier trimestre.",
+            "Risque de la syphilis congénitale : mort fœtale, retard de croissance, atteintes multiviscérales."
+          ],
+          "sources": [
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic du chancre est clinique : ulcération indurée, indolore, propre, à bords relevés, avec adénopathie satellite. Le microscope à fond noir ou la PCR sur le frottis du chancre (ou des plaques muqueuses) peuvent montrer ou détecter le tréponème selon les disponibilités. Mais le diagnostic repose essentiellement sur la sérologie, en deux étapes : un test non tréponémique quantitatif, le VDRL (ou RPR), et un test tréponémique confirmatoire, le TPHA, éventuellement complété par le FTA-ABS ; la PCR sur lésion aide aux formes atypiques.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Interprétation : TPHA et VDRL positifs = syphilis évolutive ou ancienne non traitée ; TPHA positif avec VDRL négatif = infection ancienne traitée ou très précoce (à refaire) ; VDRL seul positif = faux positif (grossesse, maladies auto-immunes, paludisme) à contrôler par le test tréponémique. Le VDRL, quantitatif, sert de marqueur d'activité et de guérison (négativation ou chute de quatre dilutions). Devant tout diagnostic : dépistage du VIH et des autres infections sexuellement transmissibles, recherche de grossesse, proposition de prélèvement du liquide céphalorachidien si suspicion d'atteinte neurologique, oculaire ou auditivo-vestibulaire, ou si traitement non conforme.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Chancre au cours de la grossesse",
+          "text": "Syphilis probable chez une femme enceinte : traitement immédiat par benzylpénicilline (seul traitement efficace pour le fœtus), surveillance fœtale, déclaration et information du partenaire ; les alternatives sont sans effet sur le fœtus."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement de référence est la benzylpénicilline G par voie intramusculaire (extencilline), en injection unique pour les stades précoces (primaire, secondaire et latent précoce), ou en cure de trois injections hebdomadaires pour les formes tardives ; les patients allergiques à la pénicilline reçoivent de la doxycycline (hors grossesse) ou, dans certains cas, une désensibilisation. Le traitement du patient impose celui du ou des partenaires, et le dépistage des co-infections.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La réaction de Jarisch-Herxheimer survient dans les heures suivant la première injection (fièvre, frissons, myalgies, aggravation transitoire des lésions) : bénigne chez l'adulte, elle justifie une surveillance chez la femme enceinte (risque de contractions, souffrance fœtale). Après le traitement : suivi sérologique du VDRL à trois, six, douze mois jusqu'à négativation ou chute significative, abstention sexuelle jusqu'à guérison clinique et traitement des partenaires, éducation sur le préservatif.",
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Jarisch-Herxheimer",
+          "text": "Dans les douze heures après la première injection : fièvre, frissons, myalgies transitoires — réassurance et antipyrétiques ; chez la femme enceinte, surveillance fœtale pendant la réaction."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention : préservatif systématique, réduction du multipartenariat, dépistage régulier chez les sujets exposés, dépistage prénatal systématique de la syphilis à la première consultation de grossesse — pierre angulaire de la prévention de la syphilis congénitale à Madagascar ; traitement des partenaires et notification anonyme si utile.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Suivi : contrôles sérologiques programmés jusqu'à guérison, détection des recontaminations (nouvelle ascension du VDRL), éducation du patient et de l'entourage, prise en charge intégrée des autres infections sexuellement transmissibles et contraception et prévention du VIH associées."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La syphilis se résume : chancre induré indolore à l'entrée, puis roseola et syphilides ; TPHA et VDRL au diagnostic, VDRL pour suivre. Benzylpénicilline G au traitement, Jarisch-Herxheimer à anticiper, partenaires à traiter et grossesse à dépister systématiquement.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Infections uro-génitales à gonocoques et chlamydia, VIH, Herpès cutanéo-muqueux, Grossesse : diagnostic, surveillance (dépistage prénatal)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Chancre : induré, indolore, propre, adénopathie satellite. Sérologie : TPHA (treponémique, trace l'infection) + VDRL (non treponémique, suit l'activité). Traitement : benzylpénicilline G intramusculaire ; Allergie : doxycycline hors grossesse."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche gonocoques-chlamydia — co-infections à dépister.",
+            "Fiche vih — dépistage systématique associé.",
+            "Fiche herpes-cutaneo — chancre génital du diagnostic différentiel.",
+            "Fiche infections-grossesse — dépistage prénatal de la syphilis."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Syphilis et grossesse",
+      "text": "Toute syphilis diagnostiquée chez une femme enceinte se traite immédiatement par benzylpénicilline : seul ce traitement protège le fœtus de la syphilis congénitale."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Jarisch-Herxheimer",
+      "text": "Fièvre et frissons dans les heures suivant la première injection de pénicilline : réaction bénigne et transitoire, à anticiper et surveiller chez la femme enceinte."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Ulcération génitale",
+      "text": "Tout chancre génital impose : sérologies syphilis et VIH, PCR herpes, dépistage des partenaires — jamais de traitement aveugle sans sérologie documentée."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Syphilis secondaire : éruption des paumes et plantes, plaques muqueuses, condylomes plans. VDRL quantitatif pour suivre la guérison. Traitement des partenaires obligatoire."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Chancre : C.H.A.N.C.R.E.",
+      "text": "C pour Clean (propre), H pour Hunter? Non : C pour Clean, A pour Adénopathie satellite, N pour Net bords relevés, C pour Cuire indurée? Simplifions : C pour Clean, H pour Homes sur les organes génitaux, A pour Adénopathie satellite, N pour Non douloureux, C pour Consistance indurée, R pour Rebords relevés, E pour Évolution spontanée vers la guérison en quelques semaines."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Chancre syphilitique",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Propre : fond net, non suppuré"
+        },
+        {
+          "key": "I",
+          "term": "Induré : base cartonnée"
+        },
+        {
+          "key": "N",
+          "term": "Non douloureux"
+        },
+        {
+          "key": "S",
+          "term": "Satellite : adénopathie mobile indolore"
+        },
+        {
+          "key": "G",
+          "term": "Génito-anal ou buccal selon la pratique"
+        }
+      ]
+    },
+    {
+      "label": "Syphilis secondaire",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Roseola : taches rosées du tronc"
+        },
+        {
+          "key": "P",
+          "term": "Paumes et plantes : syphilides papuleuses"
+        },
+        {
+          "key": "M",
+          "term": "Muqueuses : plaques érosées buccales"
+        },
+        {
+          "key": "C",
+          "term": "Condylomes plans anogénitaux"
+        },
+        {
+          "key": "A",
+          "term": "Adénopathies généralisées, fièvre"
+        }
+      ]
+    },
+    {
+      "label": "Sérologies",
+      "entries": [
+        {
+          "key": "T",
+          "term": "TPHA : tréponémique, trace l'infection"
+        },
+        {
+          "key": "V",
+          "term": "VDRL : non tréponémique, quantitatif"
+        },
+        {
+          "key": "F",
+          "term": "FTA-ABS : confirmation tréponémique"
+        },
+        {
+          "key": "P",
+          "term": "PCR : sur lésion, formes atypiques"
+        },
+        {
+          "key": "S",
+          "term": "Suivi : chute du VDRL à 3, 6 et 12 mois"
+        }
+      ]
+    },
+    {
+      "label": "Traitement",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Benzylpénicilline G intramusculaire"
+        },
+        {
+          "key": "U",
+          "term": "Unique injection au stade précoce"
+        },
+        {
+          "key": "D",
+          "term": "Doxycycline si allergie, hors grossesse"
+        },
+        {
+          "key": "J",
+          "term": "Jarisch-Herxheimer à anticiper"
+        },
+        {
+          "key": "P",
+          "term": "Partenaires traités simultanément"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel est l'agent de la syphilis ?",
+      "back": "Le Treponema pallidum, un spirochète, transmis par voie sexuelle, cutanée ou de la mère au fœtus."
+    },
+    {
+      "id": "f2",
+      "front": "Comment se présente le chancre primaire ?",
+      "back": "Une ulcération unique, propre, indolore, à fond induré et bords relevés, sur les organes génitaux, l'anus ou la bouche, avec adénopathie satellite indolore et mobile ; il guérit spontanément en trois à huit semaines."
+    },
+    {
+      "id": "f3",
+      "front": "Quel est le délai d'apparition du chancre ?",
+      "back": "En moyenne trois semaines après le contage (dix à quatre-vingt-dix jours)."
+    },
+    {
+      "id": "f4",
+      "front": "Comment se manifeste la syphilis secondaire ?",
+      "back": "Éruptions polymorphes : roseola du tronc, syphilides papuleuses des paumes et plantes, plaques muqueuses buccales, condylomes plans, adénopathies, fièvre et asthénie."
+    },
+    {
+      "id": "f5",
+      "front": "Quels sont les deux types de sérologies et leurs rôles ?",
+      "back": "Non tréponémiques (VDRL, RPR) : quantitatifs, témoins de l'activité et du suivi. Tréponémiques (TPHA, FTA-ABS) : spécifiques, ils restent positifs à vie et confirment l'infection."
+    },
+    {
+      "id": "f6",
+      "front": "Comment interpréter un TPHA positif avec VDRL négatif ?",
+      "back": "Infection syphilitique ancienne (traitée ou non), ou infection très précoce : contrôler la sérologie et confronter à la clinique ; un VDRL qui s'élève ensuite signe une infection évolutive."
+    },
+    {
+      "id": "f7",
+      "front": "Que penser d'un VDRL positif isolé ?",
+      "back": "Possible faux positif : grossesse, maladies auto-immunes, paludisme, hépatites — à confirmer par un test tréponémique."
+    },
+    {
+      "id": "f8",
+      "front": "Quel est le traitement de référence ?",
+      "back": "La benzylpénicilline G par voie intramusculaire : injection unique pour les stades précoces, trois injections hebdomadaires pour les formes tardives."
+    },
+    {
+      "id": "f9",
+      "front": "Quel traitement chez un patient allergique à la pénicilline ?",
+      "back": "Doxycycline par voie orale hors grossesse ; chez la femme enceinte, désensibilisation pénicillinique en milieu hospitalier car les alternatives ne traitent pas le fœtus."
+    },
+    {
+      "id": "f10",
+      "front": "Qu'est-ce que la réaction de Jarisch-Herxheimer ?",
+      "back": "Une réaction fébrile transitoire (frissons, myalgies, aggravation des lésions) survenant dans les heures suivant la première injection de pénicilline, liée à la lyse massive des tréponèmes ; bénigne, mais surveillée chez la femme enceinte."
+    },
+    {
+      "id": "f11",
+      "front": "Comment suivre la guérison ?",
+      "back": "Contrôles sérologiques du VDRL à trois, six et douze mois : négativation ou chute d'au moins quatre dilutions signent la réponse ; une remontée signe une recontamination ou une réinfection."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles mesures autour du cas index ?",
+      "back": "Dépistage et traitement des partenaires sexuels, dépistage du VIH et des autres infections sexuellement transmissibles, information et éducation sur le préservatif, abstention sexuelle jusqu'à guérison clinique."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi dépister systématiquement la syphilis pendant la grossesse ?",
+      "back": "Parce que la syphilis maternelle non traitée provoque la syphilis congénitale : mort fœtale, prématurité, atteintes multiviscérales et lésions tardives de l'enfant — une injection de pénicilline la prévient."
+    },
+    {
+      "id": "f14",
+      "front": "Quand suspecter une atteinte neurologique et que faire ?",
+      "back": "Signes neurologiques, oculaires ou auditifs, ou syphilis tardive : ponction lombaire avec étude du liquide céphalorachidien et traitement neurologique adapté."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle est la contagiosité des stades ?",
+      "back": "Maximale aux stades primaire et secondaire (lésions cutanéo-muqueuses riches en tréponèmes), décroissante ensuite, pratiquement nulle au stade tertiaire."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle place de la PCR dans la syphilis ?",
+      "back": "Elle confirme le diagnostic sur un prélèvement de chancre, de plaque muqueuse ou d'éruption atypique, et aide au diagnostic quand les sérologies sont difficilement interprétables (nouveau-né, immunodéprimé)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "syphilis-primaire-root",
+      "label": "Syphilis primaire et secondaire"
+    },
+    "branches": [
+      {
+        "id": "sy-b1",
+        "label": "Agent et stades",
+        "children": [
+          {
+            "id": "sy-b1-c",
+            "label": "Treponema pallidum"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sy-l1-1",
+            "label": "Primaire : chancre"
+          },
+          {
+            "id": "sy-l1-2",
+            "label": "Secondaire : éruptions"
+          },
+          {
+            "id": "sy-l1-3",
+            "label": "Latent puis tertiaire"
+          },
+          {
+            "id": "sy-l1-4",
+            "label": "Contagiosité des stades précoces"
+          }
+        ]
+      },
+      {
+        "id": "sy-b2",
+        "label": "Clinique",
+        "children": [
+          {
+            "id": "sy-b2-c",
+            "label": "Chancre puis éruption"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sy-l2-1",
+            "label": "Chancre induré indolore"
+          },
+          {
+            "id": "sy-l2-2",
+            "label": "Adénopathie satellite"
+          },
+          {
+            "id": "sy-l2-3",
+            "label": "Roseola, syphilides"
+          },
+          {
+            "id": "sy-l2-4",
+            "label": "Paumes et plantes, plaques buccales"
+          },
+          {
+            "id": "sy-l2-5",
+            "label": "Condylomes plans"
+          }
+        ]
+      },
+      {
+        "id": "sy-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "sy-b3-c",
+            "label": "Sérologie en deux étapes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sy-l3-1",
+            "label": "VDRL : quantitatif, suivi"
+          },
+          {
+            "id": "sy-l3-2",
+            "label": "TPHA, FTA : confirmation"
+          },
+          {
+            "id": "sy-l3-3",
+            "label": "PCR sur lésion atypique"
+          },
+          {
+            "id": "sy-l3-4",
+            "label": "Dépistage VIH associé"
+          }
+        ]
+      },
+      {
+        "id": "sy-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "sy-b4-c",
+            "label": "Benzylpénicilline G"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sy-l4-1",
+            "label": "Injection unique au stade précoce"
+          },
+          {
+            "id": "sy-l4-2",
+            "label": "Trois injections si tardif"
+          },
+          {
+            "id": "sy-l4-3",
+            "label": "Doxycycline si allergie hors grossesse"
+          },
+          {
+            "id": "sy-l4-4",
+            "label": "Jarisch-Herxheimer anticipée"
+          },
+          {
+            "id": "sy-l4-5",
+            "label": "Partenaires traités"
+          }
+        ]
+      },
+      {
+        "id": "sy-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "sy-b5-c",
+            "label": "Santé publique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sy-l5-1",
+            "label": "Préservatif, dépistage"
+          },
+          {
+            "id": "sy-l5-2",
+            "label": "Partenaires : notification"
+          },
+          {
+            "id": "sy-l5-3",
+            "label": "Grossesse : dépistage systématique"
+          },
+          {
+            "id": "sy-l5-4",
+            "label": "Prévention de la syphilis congénitale"
+          },
+          {
+            "id": "sy-l5-5",
+            "label": "Suivi VDRL à 3, 6, 12 mois"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "TPHA",
+      "citation": "Wikipédia — TPHA (Treponema pallidum hemagglutination assay) : sérologie tréponémique de la syphilis",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/TPHA",
+      "usedFor": [
+        "sérologie tréponémique",
+        "interprétation des tests"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Syphilis — STI Treatment Guidelines",
+      "citation": "CDC — Traitement de la syphilis : benzylpénicilline, schémas selon le stade, suivi sérologique",
+      "organization": "Centers for Disease Control and Prevention",
+      "year": 2021,
+      "version": "Recommandations",
+      "url": "https://www.cdc.gov/std/treatment-guidelines/syphilis.htm",
+      "usedFor": [
+        "traitement",
+        "suivi sérologique",
+        "Jarisch-Herxheimer"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Le diagnostic et le traitement de la syphilis",
+      "citation": "VIDAL — Syphilis : sérologies, PCR, traitement par pénicilline",
+      "organization": "VIDAL",
+      "year": 2024,
+      "version": "Fiche maladie",
+      "url": "https://www.vidal.fr/maladies/sexualite-contraception/syphilis/traitements.html",
+      "usedFor": [
+        "diagnostic",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
