@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hematome-intracranien",
+  "title": "Hématome intracrânien post-traumatique",
+  "specialty": "Neurochirurgie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la reconnaissance et la prise en charge des hématomes intracrâniens post-traumatiques : hématome extradural (interval lucide, fracture temporale, urgence chirurgicale), hématome sous-dural aigu (contusion, patients âgés anticoagulés), hémorragie intracérébrale traumatique ; scanner cérébral en urgence et chirurgie d'évacuation si besoin.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 2,
+    "specialty": "Neurochirurgie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 2,
+      "localNumber": 2,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Hématome intracrânien post-traumatique",
+      "specialty": "Neurochirurgie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux hématomes intracrâniens post-traumatiques : extradural (artériel, fracture de l'os temporal ou pariétal, interval lucide puis coma avec mydriase, urgence absolue), sous-dural aigu et chronique (veineux, patients âgés, anticoagulés, alcoholisme, chronique : syndrome déficient progressif avec hématome ancien, parfois des semaines après un traumatisme minime), hémorragies intracérébrales de contusion ; signes : troubles de conscience, anisocorie ou mydriase, déficit focal, bradycédie et hypertension (engagement) ; diagnostic : scanner cérébral en urgence (urgence de lésion hyperdense : extradural biconvexe, sous-dural en croissant) ; traitement : hyperosmolaires en attente, chirurgie d'évacuation (trépánation, volet) selon le volume et l'état clinique ; prévention : maîtrise de la vitesse, port du casque, prudence avec les anticoagulants chez les patients âgés.",
+    "verificationNotes": "Contenu aligné sur les sources de neurochirurgie et de radiologie françaises : hématome extradural et sous-dural, engagement, urgence chirurgicale.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les hématomes intracrâniens post-traumatiques sont des collectons de sang dans ou autour du cerveau après un traumatisme crânien ; leur gravité vient de l'effet de masse dans une boîte crânienne inextensible, avec risque d'engagement et de mort."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les trois principaux types : hématome extradural (entre l'os et la dure-mère, le plus souvent artériel), hématome sous-dural (entre la dure-mère et l'arachnoïde, veineux) et les hémorragies intracérébrales de contusion."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Signes d'appel : troubles de la conscience (score de Glasgow), céphalées, vomissements, déficit moteur ou troubles du langage, anisocorie ou mydriase aréactive (engagement temporal), bradycardie avec hypertension artérielle (hypertension intracrânienne), convulsions.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Hématome extradural : classique interval lucide (court coma initial, réveil, puis aggravation rapide) ; hématome sous-dural aigu : coma d'emblée ou déficit progressif, terrain âgé, anticoagulés, alcooliques ; sous-dural chronique : syndrome déficient progressif sur des semaines après un traumatisme minime, parfois oublié, chez le sujet âgé.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Examen : Glasgow répété, pupilles (anisocorie = urgence), motricité des quatre membres, fonctions vitales (bradycardie, hypertension, troubles respiratoires), plaie du scalp, signs d'impact (otorragie, ecchymose).",
+            "Terrain : anticoagulants et antiagrégants (majoration du risque), alcoolisme, sujet âgé avec atrophie cérébrale (sous-dural chronique)."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et mécanismes",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Extradural : fracture (os temporal ou pariétal) blessant l'artère méningée moyenne ; sujet jeune ; interval lucide dans environ la moitié des cas ; chirurgie d'urgence.",
+            "Sous-dural aigu : rupture des veines pont (veines corticales traversant l'espace sous-dural) lors d'une décélération ; contusions corticales associées ; terrain âgé, anticoagulés.",
+            "Sous-dural chronique : hématome ancien, encapsulé, se développant sur des semaines après un traumatisme minime (sujet âgé atrophique, anticoagulants, alcooliques).",
+            "Hémorragies intracérébrales de contusion : zones de coup et de contrecoup, fronto-temporales ; risque d'augmentation secondaire."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scanner cérébral sans injection en urgence, l'examen clé : extradural = collection biconvexe, hyperdense, limitée par les sutures, fracture en regard ; sous-dural = collection en croissant le long du cortex, hétérogène si aigu ; chronique = hypodense ; contusions = hyperdensités corticales ; signes d'engagement : déviation de la ligne médiane, effacement des ventricules et des citernes.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : bilan d'hémostase et INR urgents chez le patient anticoagulé (antidotes : vitamine K, PCC, plaquettes selon le traitement) ; alcoolémie, glycémie ; monitorage : Glasgow répété, surveillance pupillaire ; angiographie cérébrale si dissection vasculaire suspectée ; la ponction lombaire est contre-indiquée en hypertension intracrânienne avec effet de masse.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mesures d'urgence : contrôle des fonctions vitales (airway, respiration, circulation : éviter l'hypoxie et l'hypotension), élévation de la tête à 30 degrés, sédation et analgésie adaptées ; si signes d'engagement : thérapie par osmothérapie (mannitol ou sérum salé hypertonique), correction rapide d'une coagulopathie ; les corticoïdes n'ont pas de place.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chirurgie : évacuation en urgence de l'hématome extradural (trépánation d'urgence puis volet osseux) devant tout signe d'engagement ; sous-dural aigu : craniotomie et évacuation selon le volume, l'état clinique et la pression intracrânienne ; sous-duel chronique : trépánation avec drainage (technique simple, résultats souvent spectaculaires) ; hémorragies de contusion : surveillance et, si besoin, chirurgie de décompression (volet large avec duraplastie) ; réanimation neurochirurgicale : pression intracrânienne, équilibre hydrique, prévention des convulsions (traitement antiépileptique préventif une semaine), suivi du Glasgow.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : port du casque à moto et à vélo, ceinture de sécurité, maîtrise de la vitesse, prévention des chutes chez le sujet âgé ; prudence avec les anticoagulants et antiagrégants : réévaluation régulière du rapport bénéfice-risque, surveillance clinique après tout traumatisme crânien, même minime, chez le patient anticoagulé (consigne de consultation en cas de céphalées ou de troubles)."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant tout traumatisme crânien avec troubles de conscience, anisocorie ou score de Glasgow qui baisse : scanner cérébral immédiat à la recherche d'un hématome intracrânien ; l'hématome extradural avec mydriase est une urgence chirurgicale vitale ; le sous-dural chronique du sujet âgé anticoagulé doit être évoqué devant tout syndrome déficient progressif ; l'anticoagulation doit être corrigée en urgence, la chirurgie d'évacuation reste le traitement des hématomes compressifs.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche trauma-cranien-grave — traumatisés crâniens graves.",
+            "Fiche avc-hemorragique — hémorragie cérébrale non traumatique.",
+            "Fiche polytraumatisme — prise en charge globale.",
+            "Fiche arret-circulatoire — réanimation."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Mydriase aréactive + bradycardie",
+      "text": "Signes d'engagement cérébral : osmothérapie immédiate, scanner sans délai, chirurgie d'évacuation en urgence : chaque minute compte."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Patient anticoagulé",
+      "text": "Tout traumatisme crânien, même minime, sous anticoagulants ou antiagrégants : bilan d'hémostase urgent, antidotes si besoin (vitamine K, PCC, plaquettes), scanner discuté largement."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Score de Glasgow répété, pupilles, motricité ; scanner cérébral devant tout trouble de conscience, déficit ou anisocérie ; jamais de ponction lombaire devant un effet de masse."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Extradural : sujet jeune, fracture temporale, interval lucide, biconvexe au scanner, urgence chirurgicale absolue.Sous-dural aigu : sujet âgé, anticoagulé, coma d'emblée, en croissant.Sous-dural chronique : déficit progressif des semaines après un traumatisme minime, hypodense, drainage par trépánation."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Glasgow (œil, verbal, moteur)",
+      "text": "Ouverture des yeux : 1 à 4 ; réponse verbale : 1 à 5 ; réponse motrice : 1 à 6 ; total sur 15 : coma si inférieur ou égal à 8 : intubation, scanner, neurochirurgie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Types d'hématome",
+      "entries": [
+        {
+          "key": "E",
+          "term": "Extradural (artériel, jeune, urgent)"
+        },
+        {
+          "key": "S",
+          "term": "Sous-dural aigu (veineux, âgé)"
+        },
+        {
+          "key": "C",
+          "term": "Chronique (bilatéral, âgé, anticoagulé)"
+        },
+        {
+          "key": "I",
+          "term": "Intracérébral (contusion)"
+        }
+      ]
+    },
+    {
+      "label": "Signes d'engagement",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Anisocorie, mydriase"
+        },
+        {
+          "key": "D",
+          "term": "Décortication, déficit"
+        },
+        {
+          "key": "B",
+          "term": "Bradycardie"
+        },
+        {
+          "key": "H",
+          "term": "Hypertension (Cushing)"
+        }
+      ]
+    },
+    {
+      "label": "Diagnostic",
+      "entries": [
+        {
+          "key": "G",
+          "term": "Glasgow répété"
+        },
+        {
+          "key": "S",
+          "term": "Scanner sans injection"
+        },
+        {
+          "key": "H",
+          "term": "Hémostase, INR"
+        },
+        {
+          "key": "P",
+          "term": "Pupilles chaque heure"
+        }
+      ]
+    },
+    {
+      "label": "Prise en charge",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Airway, oxygen"
+        },
+        {
+          "key": "O",
+          "term": "Osmothérapie si engagement"
+        },
+        {
+          "key": "C",
+          "term": "Correction de l'anticoagulation"
+        },
+        {
+          "key": "E",
+          "term": "Evacuation chirurgicale"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quels sont les principaux types d'hématomes intracrâniens post-traumatiques ?",
+      "back": "L'hématome extradural (entre l'os et la dure-mère, le plus souvent artériel), l'hématome sous-dural aigu (veines pont), l'hématome sous-dural chronique et les hémorragies intracérébrales de contusion."
+    },
+    {
+      "id": "f2",
+      "front": "Quelle est l'origine de l'hématome extradural ?",
+      "back": "La rupture de l'artère méningée moyenne, le plus souvent au contact d'une fracture de l'os temporal ou pariétal ; c'est une urgence chirurgicale absolue."
+    },
+    {
+      "id": "f3",
+      "front": "Qu'est-ce que l'intervalle lucide ?",
+      "back": "Un court coma initial, puis un réveil apparent, puis une aggravation rapide avec troubles de conscience et mydriase : classique de l'hématome extradural, présent dans environ la moitié des cas."
+    },
+    {
+      "id": "f4",
+      "front": "Comment se présente l'hématome sous-dural aigu ?",
+      "back": "Rupture des veines pont lors d'une décélération : coma d'emblée ou aggravation progressive avec déficit, contusions associées ; terrain : sujet âgé, anticoagulé, alcoolique."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle est la présentation du sous-dural chronique ?",
+      "back": "Un syndrome déficient progressif (hémiparésie, troubles cognitifs, céphalées) sur des semaines, après un traumatisme parfois minime et oublié, chez un sujet âgé atrophique ou anticoagulé."
+    },
+    {
+      "id": "f6",
+      "front": "Quels signes font craindre un engagement cérébral ?",
+      "back": "Troubles de conscience, mydriase aréactive (anisocorie), déficit moteur controlatéral, bradycardie avec hypertension artérielle (réflexe de Cushing), troubles respiratoires : urgence absolue."
+    },
+    {
+      "id": "f7",
+      "front": "Quel examen diagnostic clé et quand ?",
+      "back": "Le scanner cérébral sans injection, immédiatement devant tout traumatisme crânien avec trouble de conscience, déficit, anisocorie, ou score de Glasgow qui baisse ou inférieur à 14."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle forme du scanner pour chaque hématome ?",
+      "back": "Extradural : collection biconvexe (lenticulaire) hyperdense, limitée par les sutures, avec fracture en regard ; sous-dural : collection en croissant le long du cortex ; sous-dural chronique : hypodense ; contusions : hyperdensités corticales."
+    },
+    {
+      "id": "f9",
+      "front": "Quel bilan biologique urgent ?",
+      "back": "Bilan d'hémostase et INR (anticoagulants), NFS, glycémie, alcoolémie ; la correction rapide d'une coagulopathie (vitamine K, concentrés de facteurs, plaquettes) fait partie du traitement urgent."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle mesure en urgence devant des signes d'engagement ?",
+      "back": "Contrôle des fonctions vitales, tête à 30 degrés, sédation adaptée, osmothérapie (mannitol ou sérum salé hypertonique), correction de la coagulopathie : en attente de la chirurgie d'évacuation."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement chirurgical de l'hématome extradural ?",
+      "back": "Évacuation en urgence : trépanation d'urgence si détresse immédiate, puis volet osseux avec évacuation de l'hématome et hémostase (artère méningée moyenne)."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement du sous-dural chronique symptomatique ?",
+      "back": "Trépanation avec évacuation et drainage (intervention simple sous anesthésie loco-régionale ou générale) : amélioration souvent spectaculaire des déficits."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi éviter la ponction lombaire ici ?",
+      "back": "En cas d'hypertension intracrânienne avec effet de masse, la ponction lombaire risque un engagement fatal (hémiétraction) : elle est contre-indiquée avant imagerie."
+    },
+    {
+      "id": "f14",
+      "front": "Quel traitement antiépileptique ?",
+      "back": "Un traitement préventif d'environ une semaine après un traumatisme crânien avec hématome, contusions ou fracture, pour prévenir les convulsions précoces ; pas de prolongation systématique au-delà."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles consignes chez le patient anticoagulé après un choc crânien ?",
+      "back": "Surveillance clinique prolongée, consultation rapide devant céphalées, vomissements ou troubles ; bilan d'hémostase et antidote si lésion hémorragique ; réévaluation du traitement anticoagulant."
+    },
+    {
+      "id": "f16",
+      "front": "Comment surveiller un traumatisé crânien hospitalisé ?",
+      "back": "Score de Glasgow répété et noté, pupilles à chaque examen, motricité des quatre membres, pression intracrânienne monitorée si Glasgow inférieur ou égal à 8, bilan hydrique, prévention des complications de décubitus."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "hi-root",
+      "label": "Hématome intracrânien post-traumatique"
+    },
+    "branches": [
+      {
+        "id": "hi-b1",
+        "label": "Types",
+        "children": [
+          {
+            "id": "hi-b1-c",
+            "label": "Selon la localisation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hi-b1-l1",
+            "label": "Extradural (artériel)"
+          },
+          {
+            "id": "hi-b1-l2",
+            "label": "Sous-dural aigu (veineux)"
+          },
+          {
+            "id": "hi-b1-l3",
+            "label": "Sous-dural chronique"
+          },
+          {
+            "id": "hi-b1-l4",
+            "label": "Contusions cérébrales"
+          }
+        ]
+      },
+      {
+        "id": "hi-b2",
+        "label": "Signes",
+        "children": [
+          {
+            "id": "hi-b2-c",
+            "label": "Hypertension intracrânienne"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hi-b2-l1",
+            "label": "Glasgow qui baisse"
+          },
+          {
+            "id": "hi-b2-l2",
+            "label": "Céphalées, vomissements"
+          },
+          {
+            "id": "hi-b2-l3",
+            "label": "Mydriase, anisocorie"
+          },
+          {
+            "id": "hi-b2-l4",
+            "label": "Bradycardie + hypertension"
+          }
+        ]
+      },
+      {
+        "id": "hi-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "hi-b3-c",
+            "label": "Scanner urgent"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hi-b3-l1",
+            "label": "Biconvexe : extradural"
+          },
+          {
+            "id": "hi-b3-l2",
+            "label": "En croissant : sous-dural"
+          },
+          {
+            "id": "hi-b3-l3",
+            "label": "Ligne médiane, citernes"
+          },
+          {
+            "id": "hi-b3-l4",
+            "label": "Hémostase, INR"
+          }
+        ]
+      },
+      {
+        "id": "hi-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "hi-b4-c",
+            "label": "Étagé"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hi-b4-l1",
+            "label": "Fonctions vitales"
+          },
+          {
+            "id": "hi-b4-l2",
+            "label": "Osmothérapie"
+          },
+          {
+            "id": "hi-b4-l3",
+            "label": "Correction anticoagulants"
+          },
+          {
+            "id": "hi-b4-l4",
+            "label": "Évacuation chirurgicale"
+          }
+        ]
+      },
+      {
+        "id": "hi-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "hi-b5-c",
+            "label": "Terrain et sécurité"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hi-b5-l1",
+            "label": "Casque, ceinture"
+          },
+          {
+            "id": "hi-b5-l2",
+            "label": "Prudence anticoagulants"
+          },
+          {
+            "id": "hi-b5-l3",
+            "label": "Surveillance du sujet âgé"
+          },
+          {
+            "id": "hi-b5-l4",
+            "label": "Consultation si signes"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Hématome intracrânien : extradural, sous-dural, intracérébral",
+      "citation": "Meimon & Nisenbaum — Lexique de neurochirurgie : hématomes intracrâniens post-traumatiques",
+      "organization": "Meimon & Nisenbaum (neurochirurgie)",
+      "year": 2023,
+      "version": "Page de référence",
+      "url": "https://www.meimonnisenbaum.com/fr/lexique-juridique/id-1163-hematome-intracranien-hematome-extradural-hematome-sous-dural-aigue-chronique-hematome-intracerebral",
+      "usedFor": [
+        "types",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Hématome sous-dural",
+      "citation": "Wikipédia — Article : hématome sous-dural (aigu et chronique, terrain, imagerie)",
+      "organization": "Wikipédia (article médical encyclopédique)",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/H%C3%A9matome_sous-dural",
+      "usedFor": [
+        "sous-dural",
+        "diagnostic"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Hématome extradural",
+      "citation": "Wikipédia — Article : hématome extradural (artère méningée moyenne, interval lucide, urgence)",
+      "organization": "Wikipédia (article médical encyclopédique)",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/H%C3%A9matome_extradural",
+      "usedFor": [
+        "extradural",
+        "urgence"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
