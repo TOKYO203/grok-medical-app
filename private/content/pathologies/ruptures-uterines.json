@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ruptures-uterines",
+  "title": "Ruptures utérines",
+  "subtitle": "Fiche de nosographie — gynécologie-obstétrique",
+  "objective": "Reconnaître une rupture utérine, identifier les femmes à risque (utérus cicatriciel, obstacles mécaniques, manœuvres instrumentales), et appliquer la logique de l'urgence : diagnostic instantané, laparotomie immédiate, réanimation de l'hémorragie, décision de conservation ou d'hystérectomie.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 56,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 231,
+      "localNumber": 56,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Ruptures utérines",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir d'une étude rétrospective de cohorte publiée dans le Journal of Obstetrics and Gynaecology Research sur l'incidence, les facteurs de risque et les issues des ruptures utérines complètes. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche sépare la rupture complète (toutes les couches du myomètre percées, urgence vitale immédiate) de la rupture partielle ou de la déhiscence de cicatrice, de pronostic différent.",
+      "Le contexte malgachable de haute parité et d'obstacles mécaniques non résolus (dystocie des épaules non reconnue, céphalopelvinienne négligée) est souligné : c'est une cause majeure de rupture sur utérus sain dans les contextes à ressources limitées.",
+      "Le signe pathognomonique — disparition des contractions avec douleur brutale, hémorragie, perte des bruits du cœur fœtal — est présenté comme une urgence chirurgicale absolue, le pronostic fœtal se jouant en minutes.",
+      "Aucune posologie de médicament n'est donnée : les molécules oxytociques sont citées comme cause (usage abusif) sans détail de dose."
+    ],
+    "qcChecklist": [
+      "Diagnostic positif et différentiel couverts",
+      "Signes d'urgence explicités",
+      "Traitement chirurgical décrit sans posologie",
+      "Sources citées avec DOI vérifiés"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et formes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "La rupture utérine est la solution de continuité de la paroi utérine survenant pendant la grossesse ou le travail. Elle est dite complète quand elle intéresse toutes les couches du myomètre avec effacement du péritoine viscéral, et partielle (ou incomplète) quand le péritoine reste intact — la déhiscence d'une cicatrice de césarienne en travail en est la forme la plus fréquente et la plus bénigne."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Toute rupture complète est une urgence chirurgicale absolue : la mortalité maternelle est liée à l'hémorragie, la mortalité fœtale à l'anoxie. Chaque minute compte."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JOG-RUPTURE-2025",
+          "organization": "Journal of Obstetrics and Gynaecology Research",
+          "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "epidemiologie",
+      "title": "Épidémiologie et facteurs de risque",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'incidence est faible dans les pays à ressources élevées (de l'ordre de quelques cas pour mille à dix mille accouchements) mais nettement plus élevée dans les contextes où la surveillance du travail et l'accès à la césarienne sont limités. Les études de cohorte confirment que la grande majorité des ruptures enregistrées en milieu hospitalier équipé surviennent sur utérus cicatriciel."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Terrain",
+            "Mécanisme",
+            "Risque relatif"
+          ],
+          "rows": [
+            [
+              "Cicatrice de césarienne (surtout classique, ou multiple)",
+              "Déhiscence en travail",
+              "Le plus élevé des causes obstétricales"
+            ],
+            [
+              "Manœuvre instrumentale interne (version, grande extraction)",
+              "Bride ou traction sur un utérus fragilisé",
+              "Élevé"
+            ],
+            [
+              "Ocytociques en usage abusif ou non surveillé",
+              "Hypercontractilité sur obstacle",
+              "Élevé"
+            ],
+            [
+              "Grande multiparité et distension utérine (grossesse gémellaire, hydramnios)",
+              "Paroi amincie",
+              "Modéré à élevé"
+            ],
+            [
+              "Obstacle mécanique non reconnu (céphalopelvinienne, épaule, präsentation transversale)",
+              "Contracture sur utérus sain",
+              "Cause majeure en contexte non équipé"
+            ],
+            [
+              "Métrorragie du travail, placenta accreta, myomectomie antérieure",
+              "Paroi fragilisée locale",
+              "Variable"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "L'association la plus redoutée : utérus cicatriciel PLUS ocytocine. C'est le profil type de la rupture évitable par une surveillance rigoureuse du travail."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JOG-RUPTURE-2025",
+          "organization": "Journal of Obstetrics and Gynaecology Research",
+          "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Douleur abdominale ou pelvienne brutale en plateau, puis résolution paradoxale des contractions.",
+            "Hémorragie génitale, souvent abondante, parfois absente si le sang s'épanche dans la cavité péritonéale.",
+            "Disparition ou ralentissement des bruits du cœur fœtal au stéthoscope ou au monitoring : signe le plus constant et le plus précoce de souffrance fœtale aiguë.",
+            "Présentation non palpable, martèlement des parties fœtales devenus anormalement superficiels, contracture abdominale défensive.",
+            "Signes de choc hémorragique maternels (pâleur, pouls filant, hypotension, polypnée), parfois d'apparition retardée."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "Le diagnostic est clinique : aucun examen complémentaire ne doit retarder la laparotomie. L'échographie n'a sa place que dans les formes atypiques de la grossesse non travaillée. La forme partielle peut être asymptomatique, découverte en fin de travail devant un saignement discret ou à l'examen de la cicatrice après l'accouchement."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "content": "Triade évocatrice en travail : douleur brutale avec arrêt des contractions, hémorragie, bruits du cœur perdus. Laparotomie immédiate sans confirmation d'imagerie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JOG-RUPTURE-2025",
+          "organization": "Journal of Obstetrics and Gynaecology Research",
+          "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Alerter l'équipe complète : obstétricien, anesthésiste-réanimateur, pédiatre, banque de sang.",
+            "Réanimation de l'hémorragie pendant même la préparation : deux voies veineuses, remplissage, commande de produits sanguins, monitorage.",
+            "Laparotomie sous anesthésie générale, incision médiane pour exposition large.",
+            "Extraire le fœtus et le placenta, apprécier la lésion : simple fissure sur utérus sain chez une femme jeune qui désire d'autres grossesses, la suture conservatrice est possible si l'hémostase est obtenue.",
+            "Discuter l'hystérectomie d'hémostase si la rupture est délabrante, sur placenta accreta, ou si l'hémostase conservatrice échoue : le pronostic vital maternel prime.",
+            "Réanimation postopératoire : compensation de la coagulopathie, surveillance du retour de la diurèse, antibioprophylaxie en cas de contamination.",
+            "Réunion d'information et de traçabilité : la rupture impose une fiche de déclaration et une information écrite pour les grossesses ultérieures."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "content": "Conservateur si jeune, desireuse, lésion simple et hémostase tenue. Hystérectomie si la vie est en jeu. Ne jamais s'obstiner à conserver un utérus qui saigne."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JOG-RUPTURE-2025",
+          "organization": "Journal of Obstetrics and Gynaecology Research",
+          "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "La prévention repose sur l'identification des grossesses à risque lors des consultations prénatales (cicatrices, multiparité, antécédents de myomectomie, obstacles prévus), la justification écrite de la voie d'accouchement, la surveillance continue du travail sur utérus cicatriciel, et l'usage encadré des ocytociques. Dans les contextes à ressources limitées, le levier majeur est l'accès rapide à la césarienne devant tout obstacle mécanique."
+        },
+        {
+          "type": "paragraph",
+          "content": "Le pronostic fœtal dépend surtout du délai entre la rupture et l'extraction : la mortalité et la morbidité neurologique néonatale augmentent rapidement avec le retard. Le pronostic maternel dépend de la rapidité de l'hémostase et de la réanimation. Une rupture conservée par suture impose une césarienne programmée pour toute grossesse ultérieure."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-JOG-RUPTURE-2025",
+          "organization": "Journal of Obstetrics and Gynaecology Research",
+          "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture",
+          "year": 2025
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "RUPTURE",
+      "expansion": "Risque cicatriciel reconnu — Utérus surveillé en continu — Péridurale et monitorage encadrés — Traction et manœuvres internes proscrits sur utérus fragile — Réaction immédiate à la douleur brutale — Utérus ou laparotomie sans délai — Réévaluation de la voie d'accouchement."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Rupture utérine complète vs partielle : différence essentielle ?",
+      "back": "Complète : toutes les couches du myomètre sont percées, péritoine viscéral inclus, hémorragie intrapéritonéale et souffrance fœtale aiguë. Partielle/déhiscence : péritoine intact, souvent peu ou pas symptomatique."
+    },
+    {
+      "front": "Signe fœtal le plus précoce d'une rupture en travail ?",
+      "back": "Anomalie ou disparition des bruits du cœur fœtal — souffrance aiguë par décollement placentaire et hématome."
+    },
+    {
+      "front": "Terrain à plus haut risque de rupture utérine ?",
+      "back": "Utérus cicatriciel (césarienne, surtout classique ou multiple), majoré par l'administration d'oxytociques non surveillée."
+    },
+    {
+      "front": "Pourquoi les contractions s'arrêtent-elles lors d'une rupture ?",
+      "back": "L'épanchement sanguin intrapéritonéal et la perte d'intégrité de la paroi abolissent l'efficacité contractile — c'est un signe d'alerte majeur et paradoxal."
+    },
+    {
+      "front": "Premier geste devant une suspicion de rupture en travail ?",
+      "back": "Laparotomie immédiate avec équipe complète et gestion de l'hémorragie — aucun examen d'imagerie ne doit retarder."
+    },
+    {
+      "front": "Critères de choix entre suture conservatrice et hystérectomie ?",
+      "back": "Femme jeune désireuse de grossesse, lésion simple, hémostase obtenue : suture. Lésion délabrante, accreta, échec d'hémostase ou état de choc : hystérectomie d'hémostase."
+    },
+    {
+      "front": "Rôle du monitoring dans la prévention sur utérus cicatriciel ?",
+      "back": "Il dépiste les hypercinésies iatrogènes et les anomalies du rythme qui précèdent la rupture — tout essai de voie basse sur cicatrice se fait sous monitorage."
+    },
+    {
+      "front": "Cause majeure de rupture sur utérus sain en contexte non équipé ?",
+      "back": "Obstacle mécanique négligé (disproportion, présentation transversale bloquée) avec contracture prolongée — d'où l'importance de la césarienne opportune."
+    },
+    {
+      "front": "Grossesse après une rupture suturée : conduite ?",
+      "back": "Césarienne programmée avant le terme des contractions spontanées ; information écrite du risque de récidive à l'entrée de chaque grossesse."
+    },
+    {
+      "front": "Deux complications maternelles principales de la rupture ?",
+      "back": "Choc hémorragique avec coagulopathie de consommation, et infection du postopératoire (péritonite, endométrite)."
+    },
+    {
+      "front": "Présentation du fœtus après rupture complète ?",
+      "back": "Souvent exteriorisé dans la cavité péritonéale, parties fœtales très superficielles à la palpation — l'extraction doit être rapide mais douce."
+    },
+    {
+      "front": "Pourquoi la déhiscence de cicatrice n'est pas une urgence vitale typique ?",
+      "back": "Le péritoine intact limite le saignement ; le plus souvent le travail se termine par voie basse sans retentissement majeur, avec surveillance de la perte sanguine."
+    }
+  ],
+  "mindmap": {
+    "root": "Ruptures utérines",
+    "branches": [
+      {
+        "id": "definir",
+        "label": "Définir",
+        "tone": "retenir",
+        "detail": "Complète vs partielle.",
+        "children": [
+          {
+            "id": "complete",
+            "label": "Complète",
+            "detail": "Péritoine percé, urgence.",
+            "leaves": [
+              {
+                "id": "c1",
+                "label": "Hémopéritoine",
+                "detail": "Choc rapide."
+              }
+            ]
+          },
+          {
+            "id": "partielle",
+            "label": "Partielle/déhiscence",
+            "detail": "Cicatrice entrouverte, péritoine sain.",
+            "leaves": [
+              {
+                "id": "p1",
+                "label": "Souvent silencieuse",
+                "detail": "Découverte du post-partum."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "risques",
+        "label": "Risquer",
+        "tone": "prudence",
+        "detail": "Cicatrice, ocytocine, obstacle.",
+        "children": [
+          {
+            "id": "cicatrice",
+            "label": "Utérus cicatriciel",
+            "detail": "Césarienne, myomectomie.",
+            "leaves": [
+              {
+                "id": "r1",
+                "label": "Césarienne classique",
+                "detail": "Risque maximal."
+              }
+            ]
+          },
+          {
+            "id": "iatrogene",
+            "label": "Iatrogène",
+            "detail": "Manœuvres internes, ocytociques.",
+            "leaves": [
+              {
+                "id": "r2",
+                "label": "Association interdite",
+                "detail": "Cicatrice + ocytocine non surveillée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "urgence",
+        "detail": "Triade du travail.",
+        "children": [
+          {
+            "id": "douleur",
+            "label": "Douleur brutale",
+            "detail": "Puis arrêt des contractions.",
+            "leaves": [
+              {
+                "id": "d1",
+                "label": "RCF",
+                "detail": "Bruits du cœur perdus."
+              }
+            ]
+          },
+          {
+            "id": "choc",
+            "label": "Choc",
+            "detail": "Pâleur, hypotension.",
+            "leaves": [
+              {
+                "id": "d2",
+                "label": "Saignement",
+                "detail": "Parfois interne donc trompeur."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agir",
+        "label": "Agir",
+        "tone": "reflexe",
+        "detail": "Laparotomie immédiate.",
+        "children": [
+          {
+            "id": "equipe",
+            "label": "Équipe et sang",
+            "detail": "Obstétricien, anesthésiste, banque de sang.",
+            "leaves": [
+              {
+                "id": "a1",
+                "label": "Réanimation simultanée",
+                "detail": "Deux voies, remplissage."
+              }
+            ]
+          },
+          {
+            "id": "geste",
+            "label": "Suture ou hystérectomie",
+            "detail": "Selon lésion, âge, hémostase.",
+            "leaves": [
+              {
+                "id": "a2",
+                "label": "Vie maternelle d'abord",
+                "detail": "Ne pas s'obstiner sur l'utérus."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "memo",
+        "detail": "Risque tracé, travail surveillé.",
+        "children": [
+          {
+            "id": "cpn",
+            "label": "Consultations prénatales",
+            "detail": "Dossier à risque identifié.",
+            "leaves": [
+              {
+                "id": "pr1",
+                "label": "Voie d'accouchement décidée",
+                "detail": "Par écrit."
+              }
+            ]
+          },
+          {
+            "id": "suivi",
+            "label": "Grossesses suivantes",
+            "detail": "Césarienne programmée si suture.",
+            "leaves": [
+              {
+                "id": "pr2",
+                "label": "Information écrite",
+                "detail": "Récidive possible."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-JOG-RUPTURE-2025",
+      "title": "Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture: A 10-Year Single-Center Retrospective Study",
+      "citation": "Rong Y, et al. Incidence, Risk Factors, and Outcomes of Complete Uterine Rupture: A 10-Year Single-Center Retrospective Study. Journal of Obstetrics and Gynaecology Research 2025. doi:10.1111/jog.70122.",
+      "organization": "Journal of Obstetrics and Gynaecology Research",
+      "year": 2025,
+      "url": "https://doi.org/10.1111/jog.70122",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Définition et formes",
+        "Facteurs de risque",
+        "Diagnostic clinique",
+        "Pronostic maternel et fœtal"
+      ]
+    }
+  ]
+}
