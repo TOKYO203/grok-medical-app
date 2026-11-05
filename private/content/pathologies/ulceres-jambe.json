@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ulceres-jambe",
+  "title": "Ulcères de jambe",
+  "subtitle": "Fiche de nosographie — dermatologie et chirurgie vasculaire",
+  "objective": "Classifier un ulcère de jambe par son mécanisme (veineux, artériel, mixte, ou autre), conduire l'évaluation étiologique clinique et doppler, et appliquer le traitement étiologique : compression thérapeutique pour l'ulcère veineux, revascularisation pour l'ulcère artériel, avec soins locaux et prévention de la récidive.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 58,
+    "specialty": "Dermatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 233,
+      "localNumber": 58,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Ulcères de jambe",
+      "specialty": "Dermatologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations de pratique clinique de la Society for Vascular Surgery et de l'American Venous Forum sur la prise en charge des ulcères veineux de jambe. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche insiste sur le geste étiologique obligatoire : mesurer les index de pression systolique avant toute compression, car une artériopathie méconnue contre-indique la compression forte.",
+      "Aucune posologie de médicament n'est citée ; les antibiotiques ne sont indiqués que sur infection clinique documentée, pas sur colonisation.",
+      "Les classifications CEAP et les stades d'ulcères veineux sont présentés comme outils de description, la décision reposant sur la clinique et le doppler.",
+      "La prévention de la récidive (compression d'entretien, correction de l'insuffisance veineuse, éducation) est mise au même niveau que le traitement."
+    ],
+    "qcChecklist": [
+      "Étiologies couvertes",
+      " IPS avant compression souligné",
+      "Traitement étiologique sans posologie",
+      "Source citée avec DOI vérifié"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'ulcère de jambe est une perte de substance cutanée chronique, le plus souvent de la jambe, qui ne cicatrise pas spontanément en quelques semaines. On classe par mécanisme : ulcère veineux (environ les deux à trois quarts des cas), ulcère artériel ou ischémique, ulcère mixte, et causes plus rares — neuropathique (pied diabétique), hypertensif, infectieux, tumoral, dermatologique ou hématologique."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Caractère",
+            "Ulcère veineux",
+            "Ulcère artériel"
+          ],
+          "rows": [
+            [
+              "Siège",
+              "Faces internes sus-malléolaires (C5-C6)",
+              "Point de pied, orteils, talon, zones de trauma"
+            ],
+            [
+              "Fond",
+              "Bourgeonnant, fibrineux, exsudatif",
+              "Nécrotique, atone, secs, peu exsudatif"
+            ],
+            [
+              "Bords",
+              "Réguliers, à pentes douces",
+              "Réguliers, « en carte de géographie », parfois punctiforme"
+            ],
+            [
+              "Douleur",
+              "Modérée, calmée en position surélevée",
+              "Intense, décubitus soulagé, claudication associée"
+            ],
+            [
+              "Peau périlésionnelle",
+              "Dermite ocre, eczéma variqueux, atrophie blanche, œdème",
+              "Peau fine, pâle, dépilée, ongles épaissis, absence de pouls"
+            ],
+            [
+              "Signes d'accompagnement",
+              "Varices, œdème vespéral, hyperpigmentation, lipodermatosclérose",
+              "Claudication, douleur de décubitus, abolition des pouls, érythrocyanose déclive"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Ul c'est le pouls qui fait la différence : pouls présents et œdème = veineux ; pouls abolis et claudication = artériel. En cas de doute, mesurer l'index de pression systolique avant de compresser."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-SVS-AVF-2014",
+          "organization": "Journal of Vascular Surgery",
+          "title": "Management of venous leg ulcers: clinical practice guidelines",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "Évaluation clinique et paraclinique",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Interrogatoire : ancienneté, circonstances de survenue, antécédents thrombotiques, chirurgie veineuse, diabète, tabac, douleur et retentissement.",
+            "Examen : inspection comparative des deux jambes, description de l'ulcère (siège, taille, fond, bords, pourtour), palpation des pouls, recherche d'œdème, de varices, de signes généraux et d'adénopathies.",
+            "Mesure des index de pression systoliques cheville-bras : geste obligatoire avant toute compression ; un index abaissé oriente vers l'artériel ou le mixte.",
+            "Écho-doppler artériel et veineux : perméabilité, reflux, cartographie des insuffisances saphènes et perforantes.",
+            "Bilan minimal : numération, glycémie, recherche d'infection clinique ; biopsie des bords si ulcère atypique, torpide ou suspect (croissance, bourgeonation excessive) pour éliminer une dégénérescence ou une cause spécifique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "Un ulcère qui ne cicatrise pas après des mois de traitement bien conduit, à bords ourlés ou à fond bourgeonnant anormal : biopsier. L'ulcère tumoral (dégénérescence, carcinome) est rare mais fatalement retardé par l'empirisme."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-SVS-AVF-2014",
+          "organization": "Journal of Vascular Surgery",
+          "title": "Management of venous leg ulcers: clinical practice guidelines",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le traitement est étiologique avant tout. Dans l'ulcère veineux, la base thérapeutique est la compression : multicouche forte si l'artère le permet, maintenue et refaite régulièrement, associée à la mobilisation de la cheville et à la surélévation nocturne. Le nettoyage, le détersion (autolytique ou mécanique sélective) et les pansements adaptés à l'exsudat accompagnent sans la remplacer. L'antibiothérapie n'est réservée qu'à l'infection clinique documentée (cellulite, lymphangite) : la colonisation bactérienne d'un ulcère chronique ne se traite pas."
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Contrôler la douleur et l'eczéma de stase (dermocorticoïdes courts sur la peau périlésionnelle, jamais dans la plaie).",
+            "Réévaluer chaque semaine la surface : un ulcère veineux doit réduire nettement dans les premières semaines de compression efficace.",
+            "Discuter le traitement interventionnel de l'insuffisance veineuse (ablation saphène, ligature de perforantes) une fois la plaie propre, pour réduire la récidive.",
+            "Ulcère artériel : bilan vasculaire complet, contrôle des facteurs de risque, revascularisation si l'anatomie le permet, soins locaux agressifs du tissu nécrotique, décharge des points d'appui.",
+            "Ulcère mixte : compromise entre compression modérée (si permise) et revascularisation d'abord.",
+            "Prévention de la récidive : compression d'entretien à vie dans la maladie veineuse chronique, activité physique régulière, hydratation cutanée, éducation au port des dispositifs."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "content": "Avant toute compression : pouls et index de pression systolique. Compresser une jambe ischémique peut transformer un ulcère en gangrène."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-SVS-AVF-2014",
+          "organization": "Journal of Vascular Surgery",
+          "title": "Management of venous leg ulcers: clinical practice guidelines",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "id": "suivi",
+      "title": "Évolution et pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'ulcère veineux cicatrise dans la majorité des cas sous compression bien conduite en quelques semaines à quelques mois, mais récidive fréquemment sans compression d'entretien : la maladie veineuse est chronique. L'ulcère artériel ne cicatrise pas sans revascularisation suffisante. Le retentissement (douleur, infection, immobilisation, arrêt de travail) impose une prise en charge globale, et le dépistage de chaque récidive par l'éducation du patient."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-SVS-AVF-2014",
+          "organization": "Journal of Vascular Surgery",
+          "title": "Management of venous leg ulcers: clinical practice guidelines",
+          "year": 2014
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "COMPRIMER",
+      "expansion": "Confronter les pouls des deux côtés — Œdème et dermite ocre : veineux — Mesurer l'index de pression avant bander — Pression forte pour le veineux, jamais sur l'artériel — Réévaluer la surface chaque semaine — Intervenir sur les saphènes après la plaie propre — Mesurer l'observance de la compression — Éducation à la récidive — Refaire des pansements adaptés à l'exsudat."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Répartition étiologique approximative des ulcères de jambe ?",
+      "back": "Veineux : environ les deux à trois quarts ; artériels et mixtes ensuite ; neuropathiques, tumoraux et autres causes plus rares."
+    },
+    {
+      "front": "Siège typique de l'ulcère veineux ?",
+      "back": "Face interne sus-malléolaire de la jambe, sur fond de dermite ocre et d'œdème."
+    },
+    {
+      "front": "Siège typique de l'ulcère artériel ?",
+      "back": "Point de pied, orteils, talon ou zones de frottement, sur peau fine et dépilée sans pouls."
+    },
+    {
+      "front": "Geste obligatoire avant toute compression ?",
+      "back": "Palpation des pouls et mesure de l'index de pression systolique cheville-bras : une artériopathie méconnue contre-indique la compression forte."
+    },
+    {
+      "front": "Quand prescrire une antibiothérapie sur un ulcère ?",
+      "back": "Seulement en cas d'infection clinique (cellulite, lymphangite, fièvre) ; la simple colonisation d'un ulcère chronique ne se traite pas."
+    },
+    {
+      "front": "Traitement de base de l'ulcère veineux ?",
+      "back": "Compression multicouche forte maintenue, associée à la mobilisation de la cheville et à la surélévation des jambes."
+    },
+    {
+      "front": "Signes cutanés de l'insuffisance veineuse chronique ?",
+      "back": "Dermite ocre, eczéma variqueux, atrophie blanche, lipodermatosclérose, varices, œdème vespéral."
+    },
+    {
+      "front": "Quand biopsier un ulcère de jambe ?",
+      "back": "Ulcère atypique, torpide malgré un traitement bien conduit, à bords ourlés ou bourgeonnement anormal : éliminer une dégénérescence carcinomateuse ou une cause spécifique."
+    },
+    {
+      "front": "Prévention de la récidive veineuse ?",
+      "back": "Compression d'entretien à vie, activité physique régulière, traitement interventionnel de l'insuffisance saphène, hydratation cutanée."
+    },
+    {
+      "front": "Traitement de l'ulcère artériel ?",
+      "back": "Revascularisation d'abord si possible, contrôle des facteurs de risque, détersion des nécroses, décharge ; la compression est proscrite ou très modérée selon le doppler."
+    },
+    {
+      "front": "Différence de douleur veineux vs artériel ?",
+      "back": "Veineux : douleur modérée, soulagée par la position surélevée. Artériel : douleur intense, soulagée par la descente du pied du lit, associée à la claudication."
+    },
+    {
+      "front": "Place du traitement interventionnel veineux ?",
+      "back": "Ablation des saphènes ou ligature des perforantes après la plaie propre, pour diminuer le risque de récidive, et non en urgence sur plaie sale."
+    }
+  ],
+  "mindmap": {
+    "root": "Ulcères de jambe",
+    "branches": [
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "retenir",
+        "detail": "Veineux, artériel, mixte, autre.",
+        "children": [
+          {
+            "id": "veineux",
+            "label": "Veineux",
+            "detail": "Sus-malléolaire, œdème, ocre.",
+            "leaves": [
+              {
+                "id": "v1",
+                "label": "C5-C6",
+                "detail": "Ul cère cicatrisé / actif."
+              }
+            ]
+          },
+          {
+            "id": "arteriel",
+            "label": "Artériel",
+            "detail": "Nécrotique, sans pouls.",
+            "leaves": [
+              {
+                "id": "a1",
+                "label": "Claudication",
+                "detail": "Douleur de décubitus."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "evaluer",
+        "label": "Évaluer",
+        "tone": "reflexe",
+        "detail": "Pouls et index d'abord.",
+        "children": [
+          {
+            "id": "ips",
+            "label": "Index de pression",
+            "detail": "Avant compression, obligatoire.",
+            "leaves": [
+              {
+                "id": "e1",
+                "label": "Écho-doppler",
+                "detail": "Reflux et perméabilité."
+              }
+            ]
+          },
+          {
+            "id": "biopsie",
+            "label": "Biopsie si atypique",
+            "detail": "Dégénérescence écartée.",
+            "leaves": [
+              {
+                "id": "e2",
+                "label": "Antibiogramme",
+                "detail": "Seulement si infection."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Étiologique d'abord.",
+        "children": [
+          {
+            "id": "compression",
+            "label": "Compression veineuse",
+            "detail": "Multicouche, maintenue.",
+            "leaves": [
+              {
+                "id": "tr1",
+                "label": "Réévaluation hebdo",
+                "detail": "Surface en baisse attendue."
+              }
+            ]
+          },
+          {
+            "id": "revasc",
+            "label": "Revascularisation artérielle",
+            "detail": "Avant tout soin local prolongé.",
+            "leaves": [
+              {
+                "id": "tr2",
+                "label": "Détersion",
+                "detail": "Nécrose retirée, pansement adapté."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prevenir",
+        "label": "Prévenir",
+        "tone": "memo",
+        "detail": "La récidive est la règle sans entretien.",
+        "children": [
+          {
+            "id": "entretien",
+            "label": "Compression à vie",
+            "detail": "Bas ou bandes.",
+            "leaves": [
+              {
+                "id": "p1",
+                "label": "Éducation",
+                "detail": "Observance du patient."
+              }
+            ]
+          },
+          {
+            "id": "intervention",
+            "label": "Saphènes traitées",
+            "detail": "Récidive réduite.",
+            "leaves": [
+              {
+                "id": "p2",
+                "label": "Activité",
+                "detail": "Mollet = pompe veineuse."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "prudence",
+        "detail": "Ulcère torpide = re-évaluer.",
+        "children": [
+          {
+            "id": "infection",
+            "label": "Infection",
+            "detail": "Cellulite, ostéite si profonde.",
+            "leaves": [
+              {
+                "id": "su1",
+                "label": "Dégénérescence",
+                "detail": "Biopsier à temps."
+              }
+            ]
+          },
+          {
+            "id": "retentissement",
+            "label": "Retentissement",
+            "detail": "Douleur, travail, isolement.",
+            "leaves": [
+              {
+                "id": "su2",
+                "label": "Qualité de vie",
+                "detail": "Objectif de soins."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-SVS-AVF-2014",
+      "title": "Management of venous leg ulcers: clinical practice guidelines of the Society for Vascular Surgery and the American Venous Forum",
+      "citation": "O'Donnell TF, Passman MA, Marston WA, Ennis WJ, Dalsing M, Kistner RL, Lurie F, Henke PK, Gloviczki P, Wakefield TW, Bohannon WT, Raffetto JD. Management of venous leg ulcers: clinical practice guidelines of the Society for Vascular Surgery and the American Venous Forum. Journal of Vascular Surgery 2014 ; 60 (2 Suppl) : 3S-59S. doi:10.1016/j.jvs.2014.04.049.",
+      "organization": "Journal of Vascular Surgery",
+      "year": 2014,
+      "url": "https://doi.org/10.1016/j.jvs.2014.04.049",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Classification étiologique",
+        "Évaluation par index de pression",
+        "Compression thérapeutique",
+        "Prévention de la récidive"
+      ]
+    }
+  ]
+}
