@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "brulures",
+  "title": "Brûlures : traitement précoce",
+  "specialty": "Chirurgie plastique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser le traitement précoce du brûlé : refroidissement, évaluation de la profondeur et de la surface (règle des neuf, Wallace), critères de gravité et de transfert en centre spécialisé, réanimation hydro-électrolytique (formule de Parkland), prévention de l'infection, soins locaux et excision-greffe précoce.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 13,
+    "specialty": "Chirurgie plastique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 13,
+      "localNumber": 13,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Brûlures : traitement précoce",
+      "specialty": "Chirurgie plastique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur le traitement précoce des brûlures : premiers gestes (refroidir à l'eau tempérée, retirer les vêtements, couvrir, ne pas rompre les bulles) ; évaluation : profondeur (épidermiques, dermiques superficielles ou profondes, profondes avec atteinte hypodermique, 4e degré), surface (règle des neuf, paume de la main 1 pour cent) ; gravité : surface cutanée brûlée, localisation (face, mains, périnée, circulaire), circonstances (closed space, électricité, association polytraumatisme), âge et terrain ; réanimation : formule de Parkland (Ringer lactate : 4 mL par pour-cent de surface et par kilo, la moitié dans les 8 premières heures), antalgie majeure, prévention du tétanos et de l'infection, sonde gastrique et diurèse ; soins locaux : nettoyage, pansements, sulfadiazine argentique, excision-greffe précoce pour les brûlures profondes ; brûlures particulières : voie aérienne (fumées d'incendie : intubation précoce), électrique, chimique (rincer abondamment), circulaire (incisions de décharge).",
+    "verificationNotes": "Contenu aligné sur les recommandations de pratique professionnelle SFMU (brûlures aux urgences) et SFAR (brûlé grave).",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La brûlure est une lésion de la peau et des tissus sous-jacents par la chaleur, l'électricité, les produits chimiques ou les radiations ; la gravité tient à la profondeur, la surface, la localisation et au terrain ; le traitement précoce (refroidissement, réanimation, pansements) conditionne la cicatrisation et la survie."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux enjeux : la réanimation hydro-électrolytique du brûlé grave (capitalisation liquidienne massive) et la limitation de l'extension en profondeur par un refroidissement rapide puis des soins adaptés ; la couverture vaccinale antitétanique et la prévention de l'infection sont systématiques."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Évaluation : profondeur et surface",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Profondeur : épidermique (couperose, douleur vive, guérison spontanée) ; dermique superficielle (phlyctènes, fond rose, douleur, cicatrisation en deux semaines) ; dermique profonde (fond blanchâtre ou marbré, sensibilité diminuée, cicatrisation lente et aléatoire) ; profonde (leucodermique ou carbonisée, insensible, chirurgie nécessaire).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Surface : règle des neuf de Wallace (tête et cou 9 pour cent, chaque membre supérieur 9, face antérieure du tronc 18, face postérieure 18, chaque membre inférieur 18, périnée 1) ; chez l'enfant, proportions différentes (tête plus grande) ; la paume de la main du patient vaut environ 1 pour cent.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gravité : brûlure menaçant le pronostic vital (surface supérieure à 10 pour cent chez l'enfant, 20 pour cent chez l'adulte), brûlure circulaire, localisation visage, mains, pieds, périnée, ou inhalation de fumées (closed space, suies, brûlures faciales, voix enrouée).",
+            "Terrain : nourrisson, sujet âgé, diabétique, éthylique, épileptique : aggravation."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et circonstances",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Liquides chauds (la plus fréquente, surtout chez l'enfant et la personne âgee), flammes, contact avec objets chauds, soleil.",
+            "Électriques (entrée et sortie, lésions profondes, troubles du rythme) : pronostic plus grave que ne laisse voir la peau.",
+            "Chimiques (acides, bases) : la base poursuit sa pénétration : rinçage prolongé.",
+            "Fumées d'incendie : brûlure des voies aériennes et intoxication oxycarbonée : urgence respiratoire."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et bilan",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le diagnostic est clinique : profondeur, surface (règle des neuf ou paume), localisations, circonstances ; examiner : signes d'atteinte des voies aériennes (suies, stridor, poils nasaux brûlés, expectoration carbonée), déshydratation, choc, lésions associées (traumatisme lors d'une chute ou d'un électrocution) ; carboxyhémoglobine si exposition aux fumées (dosage, oxymétrie faussement normale).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan paraclinique du brûlé grave : ionogramme, glycémie, hémostase, groupe sanguin, hémoculture selon le contexte ; chez l'électrisé : ECG, enzymes cardiaques, coloration des urines (myoglobine) et fonction rénale ; photographie et cartographie des lésions pour le suivi ; décision de transfert en centre de brûlés selon les critères de gravité.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement précoce",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Premiers gestes : refroidissement par eau tempérée (15 à 25 degrés, 15 minutes) sur la lésion, retirer vêtements et bagues, couvrir avec drap propre, ne pas percer les phlyctènes, pas de glace ni de produits gras ; antalgie immédiate (paracétamol, morphine si surface importante), prévention du tétanos, à jeun si chirurgie probable.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Réanimation du brûlé grave : remplissage par Ringer lactate selon la formule de Parkland : 4 mL par kilogramme et par pour-cent de surface brûlée sur 24 heures, la moitié dans les 8 premières heures, calculé à partir de l'heure de la brûlure ; objectifs diurèse 0,5 à 1 mL par kilo et par heure, hémodynamique stable ; sonde vésicale, sonde gastrique (iléus), prévention ulcéreuse et thromboembolique ; nutrition précoce hypercalorique et hyperprotéique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Soins locaux et chirurgie : nettoyage au sérum, excision des phlyctènes, pansements gras ou hydrocolloïdes ; brûlures profondes : excision-greffe précoce (dès la première semaine) en centre spécialisé ; brûlures circulaires des membres : incisions de décharge si ischémie ; brûlures de la face : soins en milieu spécialisé, intubation précoce si atteinte des voies aériennes ; antibiothérapie seulement si infection documentée.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention domestique : température de l'eau chaude sanitaire réglementée, manches de casserole tournées vers l'intérieur, surveillances des enfants en cuisine, pare-feu ; prévention professionnelle : équipements de protection, consignes incendie ; prévention des complications : réanimation correcte, soins locaux réguliers, rééducation et appareillage précoces pour éviter les rétractions."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement précoce d'une brûlure repose sur trois piliers : refroidir, évaluer (profondeur, surface, critères de transfert) et réanimer (Parkland) ; la menace vitale immédiate est le choc et l'atteinte des voies aériennes ; la menace fonctionnelle est l'extension en profondeur : excision-greffe précoce en centre spécialisé ; la rééducation commence dès les premiers jours pour prévenir les rétractions cicatricielles.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche intoxication oxycarbonée : exposition aux fumées.",
+            "Fiche état de choc : remplissage vasculaire.",
+            "Fiche déshydratation aiguë du nourrisson : brûlure du nourrisson.",
+            "Fiche tétanos : prophylaxie."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Voies aériennes brûlées",
+      "text": "Fumées d'incendie, suies, expectoration carbonée, voix enrouée : intubation précoce avant l'œdème : le retard peut rendre l'intubation impossible."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Refroidir d'abord",
+      "text": "Eau tempérée (15 à 25 degrés) pendant 15 minutes : arrête la propagation en profondeur ; jamais de glace (brûlure additive) ni de produits gras."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe devant une brûlure",
+      "text": "Retirer vêtements et bagues, refroidir, évaluer surface (paume = 1 pour cent), chercher des critères de gravité (circulaire, visage, mains, périnée, fumées) : décider du transfert ; antalgie et tétanos systématiques."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Parkland : Ringer lactate 4 mL par kilo et par pour-cent de surface brûlée sur 24 h, la moitié dans les 8 premières heures, dès l'heure de la brûlure ; objectif diurèse 0,5 à 1 mL par kilo et par heure ; jamais d'antibiothérapie prophylactique systématique."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Transfert en centre de brûlés",
+      "text": "Surface supérieure à 10 pour-cent chez l'enfant ou 20 pour cent chez l'adulte, brûlure de la face, des mains, des pieds, du périnée, circulaire, électrique, chimique, ou association à des fumées : appel et transfert sans délai."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Profondeur",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Épidermique"
+        },
+        {
+          "key": "2",
+          "term": "Dermique superficielle"
+        },
+        {
+          "key": "3",
+          "term": "Dermique profonde"
+        },
+        {
+          "key": "4",
+          "term": "Profonde, carbonisée"
+        }
+      ]
+    },
+    {
+      "label": "Règle des neuf (adulte)",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tête et cou : 9 pour cent"
+        },
+        {
+          "key": "M",
+          "term": "Chaque bras : 9 pour cent"
+        },
+        {
+          "key": "T",
+          "term": "Tronc : 36 pour cent (18 devant, 18 derrière)"
+        },
+        {
+          "key": "J",
+          "term": "Chaque jambe : 18 pour cent"
+        }
+      ]
+    },
+    {
+      "label": "Critères de gravité",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Surface étendue"
+        },
+        {
+          "key": "L",
+          "term": "Localisation : visage, mains, périnée"
+        },
+        {
+          "key": "C",
+          "term": "Circulaire"
+        },
+        {
+          "key": "F",
+          "term": "Fumées, voie aérienne"
+        }
+      ]
+    },
+    {
+      "label": "Premiers gestes",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Refroidir"
+        },
+        {
+          "key": "H",
+          "term": "Habits et bagues retirés"
+        },
+        {
+          "key": "C",
+          "term": "Couvrir propre"
+        },
+        {
+          "key": "A",
+          "term": "Antalgiques, tétanos"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quels sont les quatre stades de profondeur d'une brûlure ?",
+      "back": "Épidermique (érythème douloureux), dermique superficielle (phlyctènes, fond rose, douleur), dermique profonde (fond blanchâtre, sensibilité diminuée), profonde ou 4e degré (carbonisée, insensible, chirurgie)."
+    },
+    {
+      "id": "f2",
+      "front": "Comment calculer la surface brûlée chez l'adulte ?",
+      "back": "Règle des neuf de Wallace : tête et cou 9, chaque bras 9, thorax-abdomen devant 18, dos 18, chaque jambe 18, périnée 1 ; la paume de la main du patient représente environ 1 pour cent."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la différence avec la règle des neuf chez l'enfant ?",
+      "back": "Chez l'enfant, la tête représente une surface plus grande (18 pour cent chez le nourrisson, moins avec l'âge) et les membres une surface moindre : utiliser des tables pédiatriques."
+    },
+    {
+      "id": "f4",
+      "front": "Quels sont les critères de transfert en centre de brûlés ?",
+      "back": "Surface supérieure à 10 pour-cent chez l'enfant, 20 pour cent chez l'adulte, brûlure de la face, des mains, des pieds, du périnée ou des plis, brûlure circulaire, électrique, chimique, inhalation de fumées, terrain fragile (nourrisson, sujet âgé)."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle est la formule de Parkland ?",
+      "back": "Ringer lactate : 4 mL par kilogramme et par pour-cent de surface brûlée sur les premières 24 heures, la moitié dans les 8 premières heures, calculée depuis l'heure de la brûlure ; adapter sur la diurèse."
+    },
+    {
+      "id": "f6",
+      "front": "Quels objectifs de la réanimation du brûlé grave ?",
+      "back": "Diurèse 0,5 à 1 mL par kilo et par heure, hémodynamique stable, correction de l'hémoconcentration ; sonde vésicale pour la diurèse, sonde gastrique (iléus paralytique fréquent), nutrition entérale précoce."
+    },
+    {
+      "id": "f7",
+      "front": "Comment refroidir correctement une brûlure ?",
+      "back": "Eau tempérée 15 à 25 degrés, pendant environ 15 minutes, le plus tôt possible ; la glace provoque une vasoconstriction et une lésion additive : elle est interdite."
+    },
+    {
+      "id": "f8",
+      "front": "Quels signes d'atteinte des voies aériennes ?",
+      "back": "Exposition en espace clos, suies dans la bouche ou le nez, poils nasaux brûlés, expectoration carbonée, voix rauque, dyspnée, stridor : intubation précoce avant l'œdème."
+    },
+    {
+      "id": "f9",
+      "front": "Quelle est la particularité des brûlures électriques ?",
+      "back": "Les lésions cutanées visible sous-estiment les dégâts profonds (nécroses musculaires, atteinte cardiaque) : ECG, surveillance de la myoglobinurie et de la fonction rénale, fasciotomies souvent nécessaires."
+    },
+    {
+      "id": "f10",
+      "front": "Comment traiter une brûlure chimique ?",
+      "back": "Retirer les vêtements imbibés, rinçage abondant et prolongé à l'eau (en continu 15 minutes ou plus), surtout pour les bases qui poursuivent leur pénétration ; ne pas chercher à neutraliser avec un autre produit."
+    },
+    {
+      "id": "f11",
+      "front": "Pourquoi inciser une brûlure circulaire ?",
+      "back": "Une brûlure circulaire d'un membre ou du thorax forme un garrot : escarre circonférentielle comprétant les vaisseaux ou limitant la respiration : incisions de décharge en urgence."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle est la place de l'excision-greffe ?",
+      "back": "Brûlures profondes : excision précoce des escarres et greffe de peau (auto-greffe) dans la première semaine : réduit l'infection, la durée d'hospitalisation et les rétractions."
+    },
+    {
+      "id": "f13",
+      "front": "Quels pansements en phase aiguë ?",
+      "back": "Nettoyage au sérum, retrait des phlyctènes, pansements gras ou hydrocolloïdes changés tous les 1 à 3 jours ; topiques antiseptiques selon protocole ; pas d'antibiothérapie prophylactique systématique."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles complications précoces du brûlé grave ?",
+      "back": "Choc hypovolémique, iléus, ulcère de stress, infection surinfection, dénutrition, rétractions et positions vicieuses, syndrome compartimentaire, décompensation d'une pathologie chronique."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle prophylaxie systématique ?",
+      "back": "Vaccination antitétanique (mise à jour), prévention thromboembolique, prévention de l'ulcère de stress, antalgiques gradués, nutrition hyperprotéique et hypercalorique précoce."
+    },
+    {
+      "id": "f16",
+      "front": "Quand suspecter une brûlure non accidentuelle chez l'enfant ?",
+      "back": "Aspect symétrique et bien délimité (immersion : gants, chaussettes), retard de consultation, lésions d'âges différents, histoire incohérente : alerte et protection de l'enfant obligatoires."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "br-root",
+      "label": "Brûlures : traitement précoce"
+    },
+    "branches": [
+      {
+        "id": "br-b1",
+        "label": "Évaluation",
+        "children": [
+          {
+            "id": "br-b1-c",
+            "label": "Profondeur et surface"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "br-b1-l1",
+            "label": "Règle des neuf"
+          },
+          {
+            "id": "br-b1-l2",
+            "label": "Paume = 1 pour cent"
+          },
+          {
+            "id": "br-b1-l3",
+            "label": "Profondeur en 4 stades"
+          },
+          {
+            "id": "br-b1-l4",
+            "label": "Cartographie, photos"
+          }
+        ]
+      },
+      {
+        "id": "br-b2",
+        "label": "Gravité",
+        "children": [
+          {
+            "id": "br-b2-c",
+            "label": "Transfert en centre"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "br-b2-l1",
+            "label": "Surface étendue"
+          },
+          {
+            "id": "br-b2-l2",
+            "label": "Visage, mains, périnée"
+          },
+          {
+            "id": "br-b2-l3",
+            "label": "Circulaire"
+          },
+          {
+            "id": "br-b2-l4",
+            "label": "Fumées, électricité"
+          }
+        ]
+      },
+      {
+        "id": "br-b3",
+        "label": "Premiers gestes",
+        "children": [
+          {
+            "id": "br-b3-c",
+            "label": "Sur place"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "br-b3-l1",
+            "label": "Refroidir 15 min"
+          },
+          {
+            "id": "br-b3-l2",
+            "label": "Retirer habits, bagues"
+          },
+          {
+            "id": "br-b3-l3",
+            "label": "Couvrir propre"
+          },
+          {
+            "id": "br-b3-l4",
+            "label": "Antalgie, tétanos"
+          }
+        ]
+      },
+      {
+        "id": "br-b4",
+        "label": "Réanimation",
+        "children": [
+          {
+            "id": "br-b4-c",
+            "label": "Brûlé grave"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "br-b4-l1",
+            "label": "Parkland : Ringer lactate"
+          },
+          {
+            "id": "br-b4-l2",
+            "label": "Diurèse cible"
+          },
+          {
+            "id": "br-b4-l3",
+            "label": "Sondes, nutrition"
+          },
+          {
+            "id": "br-b4-l4",
+            "label": "Voies aériennes"
+          }
+        ]
+      },
+      {
+        "id": "br-b5",
+        "label": "Soins et chirurgie",
+        "children": [
+          {
+            "id": "br-b5-c",
+            "label": "Secondaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "br-b5-l1",
+            "label": "Pansements, phlyctènes"
+          },
+          {
+            "id": "br-b5-l2",
+            "label": "Excision-greffe précoce"
+          },
+          {
+            "id": "br-b5-l3",
+            "label": "Incisions de décharge"
+          },
+          {
+            "id": "br-b5-l4",
+            "label": "Rééducation"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Prise en charge du brûlé grave à la phase aiguë chez l'adulte et l'enfant",
+      "citation": "SFAR — Recommandations pour la pratique clinique : brûlé grave",
+      "organization": "Société française d'anesthésie et de réanimation",
+      "year": 2011,
+      "version": "Recommandation",
+      "url": "https://sfar.org/prise-en-charge-du-brule-grave-a-la-phase-aigue-chez-ladulte-et-lenfant/",
+      "usedFor": [
+        "réanimation",
+        "Parkland"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Brûlures : recommandations de pratiques professionnelles aux urgences",
+      "citation": "SFMU — Recommandations de pratiques professionnelnelles : prise en charge des brûlures aux urgences",
+      "organization": "Société française de médecine d'urgence",
+      "year": 2019,
+      "version": "Recommandation",
+      "url": "https://www.sfmu.org/upload/consensus/rpp_brul%C3%A9_2019.pdf",
+      "usedFor": [
+        "urgence",
+        "évaluation"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Brûlures de la peau",
+      "citation": "ameli.fr — Fiche santé : brûlures, premiers gestes et signes de gravité",
+      "organization": "Caisse nationale de l'assurance maladie",
+      "year": 2023,
+      "version": "Fiche grand public",
+      "url": "https://www.ameli.fr/assure/sante/urgence/accidents-domestiques/brulures-peau",
+      "usedFor": [
+        "premiers gestes",
+        "signes de gravité"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

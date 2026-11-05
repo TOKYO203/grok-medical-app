@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancers-broncho-pulm",
+  "title": "Cancers broncho-pulmonaires primitifs",
+  "specialty": "Chirurgie thoracique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la démarche devant une suspicion de cancer broncho-pulmonaire primitif : signes d'appel (tabagisme, symptômes respiratoux, radiographie), diagnostic (endoscopie, biopsies, TDM-TEP), histologie (petites cellules ou non à petites cellules), classification TNM et principes thérapeutiques : chirurgie, chimiothérapie, radiothérapie, immunothérapie et thérapies ciblées.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 24,
+    "specialty": "Chirurgie thoracique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 24,
+      "localNumber": 24,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancers broncho-pulmonaires primitifs",
+      "specialty": "Chirurgie thoracique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur les cancers broncho-pulmonaires primitifs : premier cancer par sa fréquence et sa mortalité, lié au tabac dans plus de 80 pour cent des cas ; signes d'appel : toux persistante ou modifiée, hémoptysie, dyspnée, douleur thoracique, infections récidivantes, altération de l'état général, ou découverte radiologique ; certains symptômes révélateurs : syndrome de Pancost (douleur de l'épaule, atteinte du plexus brachial), syndrome cave supérieur, syndrome de Schwartz-Bartter (hypercalcémie paranéoplasique), métastases (cerveau, os, foie, surrénale) ; bilan : radiographie thoracique, TDM thoracique avec coupes surrénaliennes et TEP, endoscopie bronchique avec biopsies, écho-endoscopie, biopsies sous scanner ; histologie : cancer non à petites cellules (adénocarcinome, épidermoïde, grandes cellules : 80 à 85 pour cent) et cancer à petites cellules (15 à 20 pour cent : chimiosensible mais d'évolution rapide) ; classification TNM et réunion de concertation pluridisciplinaire ; traitement : stades précoces : chirurgie (lobectomie, pneumonectomie, lymphadénectomie) avec chimiothérapie adjuvante, radiothérapie si inopérable ; stades avancés : chimiothérapie, immunothérapie, thérapies ciblées (EGFR, ALK pour les adénocarcinomes) ; prévention : sevrage tabagique.",
+    "verificationNotes": "Contenu aligné sur les recommandations INCa et le guide parcours de soins HAS sur les cancers broncho-pulmonaires.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer broncho-pulmonaire primitif est le premier cancer en fréquence et en mortalité dans le monde ; il est lié au tabac dans la grande majorité des cas ; deux familles déterminent tout : le cancer non à petites cellules (80 à 85 pour cent) dont le traitement des stades précoces est chirurgical, et le cancer à petites cellules (15 à 20 pour cent) d'emblée chimiosensible."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le pronostic reste sombre au stade avancé : d'où l'importance de la suspicion clinique devant tout symptôme respiratoire persistant chez un fumeur, et du bilan rapide (TDM, TEP, endoscopie) vers une réunion pluridisciplinaire."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Signes d'appel",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Terrain : fumeur (ou ancien fumeur), âge supérieur à 50 ans, exposition professionnelle (amiante, chrome, nickel, arsenic, radon) ; symptômes : toux persistante ou modifiée chez un fumeur, hémoptysie (même minime : jamais banale), dyspnée, douleur thoracique, sifflements localisés, infections pulmonaires récidivantes ou trainantes, amaigrissement, asthénie, anémie, fièvre.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Syndromes de voisinage : Pancoast (apex : douleur de l'épaule et du bras, atteinte de C8-T1, syndrome de Claude Bernard-Horner), syndrome cave supérieur (œdème et cyanose de la face, distension des veines du cou), paralysie récurrentielle (dysphonie), épanchement pleural ou péricardique.",
+            "Syndromes paranéoplasiques : hypercalcémie, ostéo-arthropathie hypertrophiante (hippocratisme digital), thromboses, syndrome de Cushing ectopique, neuropathies.",
+            "Métastases révélatrices : cerveau (céphalées, épilepsie), os (douleurs), foie, surrénales, peau."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Types histologiques et épidémiologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Non à petites cellules (80 à 85 pour cent) : adénocarcinome (le plus fréquent aujourd'hui, femme et non-fumeur inclus), épidermoïde (fumeur, tumeur proximale, cavitation), carcinome à grandes cellules.",
+            "À petites cellules (15 à 20 pour cent) : gros fumeur, tumeur centrale, croissance rapide, secrétion de marqueurs, chimiosensible, dissémination précoce.",
+            "Le risque dépend de l'intensité du tabagisme (paquets-années) et de l'exposition professionnelle ; le radon domestique est un facteur reconnu."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et bilan d'extension",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radiographie thoracique souvent révélatrice (opacité, atélectasie, épanchement) mais normale dans de rares cas ; TDM thoracique avec injection et coupes surrénaliennes : caractérisation et stadification locorégionale ; TEP-TDM : extension ganglionnaire et métastatique, nodules ; endoscopie bronchique avec biopsies : diagnostic histologique, lavages et brossages ; selon le siège : biopsie sous scanner (nodules périphériques), écho-endoscopie œsophagienne ou bronchique (ganglions médiastinaux : échantillonnage), ; biomarqueurs obligatoires sur les non à petites cellules avancés (EGFR, ALK, PD-L1).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bilan d'extension complet : TDM cérébrale ou IRM (métastases cérébrales fréquentes), examen clinique (foie, os, peau), biologie (NFS, hépatique, calcémie) ; bilan d'opérabilité : épreuves fonctionnelles respiratoires (VEMS, DLCO), évaluation cardiaque : le poumon restant doit suffire après résection ; classification TNM et réunion de concertation pluridisciplinaire avant toute décision.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Non à petites cellules : stades précoces (I et II) : chirurgie (lobectomie avec curage ganglionnaire, éventuellement segmentectomie, par thoracotomie ou thoracoscopique) ; chimiothérapie adjuvante pour les stades II et III opérés ; stade III localement avancé : chimio-radiothérapie concomitante, chirurgie dans des cas sélectionnés ; stade IV : immunothérapie (selon PD-L1), chimiothérapie à base de platine, thérapies ciblées (EGFR, ALK) pour les tumeurs mutées, radiothérapie palliative (os, cerveau).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "À petites cellules : maladie limitée : chimio-radiothérapie concomitante, puis prophylaxie cérébrale ; maladie extensive : chimiothérapie (platine-étoposide) plus immunothérapie : réponse souvent spectaculaire mais rechutes fréquentes ; symptômes : antalgiques, drainage des épanchements, oxygénothérapie ; accompagnement : sevrage tabagique (bénéfique même après le diagnostic), nutrition, soins de support, prise en charge en centre expert et essais cliniques.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : arrêt du tabac et lutte contre le tabagisme (le levier le plus efficace), protection contre les cancérogènes professionnels (amiante), contrôle du radon ; prévention secondaire : dépistage individuel possible par TDM faible dose chez les gros fumeurs (50 à 75 ans, plus de 30 paquets-années) : à discuter en exposant bénéfices et limites ; jamais banaliser une hémoptysie ou une toux persistante du fumeur."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant une toux persistante, une hémoptysie ou une opacité chez un fumeur : cancer broncho-pulmonaire jusqu'à preuve du contraire : TDM, TEP et endoscopie avec biopsies ; l'histologie (petites cellules ou non) et la classification TNM guident la réunion pluridisciplinaire : chirurgie et chimiothérapie adjuvante pour les stades précoces, chimio-radiothérapie pour les stades III, immunothérapie et thérapies ciblées pour les stades avancés ; le sevrage tabagique reste le meilleur traitement préventif.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hémoptysie : sémiologie (programme Sémiologie).",
+            "Fiche hémorragies digestives : autre hémorragie.",
+            "Fiche pneumothorax : épanchement gazeux.",
+            "Fiche traumatismes fermés du thorax : chirurgie thoracique."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hémoptysie du fumeur",
+      "text": "Toute hémoptysie, même minime et unique, chez un fumeur de plus de 40 ans : cancer broncho-pulmonaire jusqu'à preuve du contraire : radiographie, puis TDM et endoscopie : ne jamais traiter comme une simple bronchite."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Syndrome cave supérieur",
+      "text": "Œdème et cyanose du visage et du cou, distension des veines : obstruction de la veine cave par une tumeur médiastinale : urgence oncologique : corticoïdes, imagerie rapide, traitement spécifique."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Toux qui dure ou qui change chez un fumeur : radiographie thoracique ; amaigrissement avec douleur de l'épaule : penser au Pancoast ; dysphonie d'apparition récente : récurrent (envahissement) ; toujours quantifier le tabagisme en paquets-années."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Tabac : cause majeure. Deux familles : non à petites cellules (80-85 pour cent, chirurgie si précoce) et à petites cellules (chimiothérapie d'emblée). TEP-TDM et endoscopie avec biopsies : le bilan standard. Biomarqueurs (EGFR, ALK, PD-L1) sur les stades avancés."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Adénocarcinome du non-fumeur",
+      "text": "Femme, non-fumeur, nodule périphérique : penser adénocarcinome avec mutations (EGFR, ALK) : thérapies ciblées efficaces : le bilan biologique est systématique, même sans tabagisme."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Signes d'appel",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Toux persistante"
+        },
+        {
+          "key": "H",
+          "term": "Hémoptysie"
+        },
+        {
+          "key": "D",
+          "term": "Dyspnée, douleur"
+        },
+        {
+          "key": "A",
+          "term": "Amaigrissement"
+        }
+      ]
+    },
+    {
+      "label": "Types histologiques",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Adénocarcinome (périphérique)"
+        },
+        {
+          "key": "E",
+          "term": "Épidermoïde (proximal)"
+        },
+        {
+          "key": "G",
+          "term": "Grandes cellules"
+        },
+        {
+          "key": "P",
+          "term": "Petites cellules (central)"
+        }
+      ]
+    },
+    {
+      "label": "Bilan",
+      "entries": [
+        {
+          "key": "T",
+          "term": "TDM thoracique"
+        },
+        {
+          "key": "E",
+          "term": "Endoscopie avec biopsies"
+        },
+        {
+          "key": "T",
+          "term": "TEP-TDM"
+        },
+        {
+          "key": "C",
+          "term": "Cerveau (imagerie)"
+        }
+      ]
+    },
+    {
+      "label": "Facteurs de risque",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tabac (paquets-années)"
+        },
+        {
+          "key": "A",
+          "term": "Amiante"
+        },
+        {
+          "key": "R",
+          "term": "Radon"
+        },
+        {
+          "key": "N",
+          "term": "Nickel, chrome, arsenic"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la principale cause du cancer broncho-pulmonaire ?",
+      "back": "Le tabagisme (actif ou passif), impliqué dans plus de 80 pour cent des cas ; s'y ajoutent les expositions professionnelles (amiante, chrome, nickel, arsenic) et le radon domestique."
+    },
+    {
+      "id": "f2",
+      "front": "Quelles sont les deux grandes familles histologiques ?",
+      "back": "Les cancers non à petites cellules (80 à 85 pour cent : adénocarcinome, épidermoïde, grandes cellules) et le cancer à petites cellules (15 à 20 pour cent : croissance rapide, chimiosensible, dissémination précoce)."
+    },
+    {
+      "id": "f3",
+      "front": "Quels symptômes respiratoires doivent alerter ?",
+      "back": "Toux persistante ou modifiée chez un fumeur, hémoptysie même minime, dyspnée, douleur thoracique, sifflement localisé, infections pulmonaires récidivantes, amaigrissement et asthénie."
+    },
+    {
+      "id": "f4",
+      "front": "Qu'est-ce que le syndrome de Pancoast ?",
+      "back": "Une tumeur de l'apex qui envahit le plexus brachial et les premières côtes : douleur de l'épaule et du bras, atteinte de C8-T1 (fonte des petits muscles de la main), syndrome de Claude Bernard-Horner (enophtalmie, myosis, ptosis)."
+    },
+    {
+      "id": "f5",
+      "front": "Qu'est-ce que le syndrome cave supérieur ?",
+      "back": "Une obstruction de la veine cave supérieure par un bloc tumoral médiastinal : œdème et cyanose de la face et du cou, distension des veines, céphalées : urgence oncologique."
+    },
+    {
+      "id": "f6",
+      "front": "Quels syndromes paranéoplasiques des cancers pulmonaires ?",
+      "back": "Hypercalcémie (épine épaisse diaphysaire ou PTH-like), ostéo-arthropathie hypertrophiante et hippocratisme digital, thromboses, Cushing ectopique (petites cellules), neuropathies et syndromes neurologiques."
+    },
+    {
+      "id": "f7",
+      "front": "Quel bilan d'imagerie standard ?",
+      "back": "Radiographie thoracique (souvent anormale mais non suffisante), TDM thoracique avec injection et coupes surrénaliennes, TEP-TDM pour l'extension, imagerie cérébrale (métastases fréquentes)."
+    },
+    {
+      "id": "f8",
+      "front": "Comment obtenir le diagnostic histologique ?",
+      "back": "Endoscopie bronchique avec biopsies pour les tumeurs centrales ; biopsie sous scanner pour les nodules périphériques ; écho-endoscopie ou médiastinoscopie pour les ganglions médiastinaux ; biopsie d'une métastase ou d'un épanchement si nécessaire."
+    },
+    {
+      "id": "f9",
+      "front": "Quels biomarqueurs systématiques ?",
+      "back": "Sur les cancers non à petites cellules avancés : recherche des mutations EGFR, ALK (surtout adénocarcinomes) et expression de PD-L1 : ils ouvrent des thérapies ciblées et l'immunothérapie."
+    },
+    {
+      "id": "f10",
+      "front": "Quel traitement d'un stade précoce opérable ?",
+      "back": "Chirurgie : lobectomie avec curage ganglionnaire médiastinal (par thoracotomie ou thoracoscopie), parfois segmentectomie pour les petites tumeurs ; chimiothérapie adjuvante pour les stades II et III réséqués."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle évaluation avant chirurgie pulmonaire ?",
+      "back": "Épreuves fonctionnelles respiratoires (VEMS, DLCO) et mesure de la consommation d'oxygène : le poumon restant doit assurer la ventilation ; évaluation cardiaque : l'opérabilité conditionne la décision autant que l'oncologie."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement du cancer à petites cellules ?",
+      "back": "Maladie limitée : chimiothérapie (platine-étoposide) et radiothérapie thoracique concomitante, puis irradiation cérébrale prophylactique ; maladie extensive : chimiothérapie plus immunothérapie : réponse souvent rapide mais rechutes fréquentes."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles options du stade IV non à petites cellules ?",
+      "back": "Immunothérapie (selon PD-L1), chimiothérapie à base de platine, thérapies ciblées pour les tumeurs mutées (EGFR, ALK), radiothérapie palliative des métastases osseuses ou cérébrales, soins de support."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles métastases cérébrales fréquentes ?",
+      "back": "Le cancer pulmonaire est l'un des premiers pourvoyeurs de métastases cérébrales : céphalées, épilepsie, déficits focaux : imagerie cérébrale au bilan et à distance, radiothérapie (encéphalique ou stéréotaxique)."
+    },
+    {
+      "id": "f15",
+      "front": "Quel rôle du sevrage tabagique après le diagnostic ?",
+      "back": "Il améliore la survie et l'efficacité des traitements, réduit les complications post-opératoires : le sevrage fait partie intégrante du traitement, à tout stade."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle place du dépistage ?",
+      "back": "TDM à faible dose chez les gros fumeurs (50 à 75 ans, 30 paquets-années ou plus, sevrés depuis moins de 15 ans) : réduit la mortalité spécifique : à proposer en décision partagée, avec ses limites (faux positifs, irradiation)."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cbp-root",
+      "label": "Cancers broncho-pulmonaires primitifs"
+    },
+    "branches": [
+      {
+        "id": "cbp-b1",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "cbp-b1-c",
+            "label": "Facteurs de risque"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cbp-b1-l1",
+            "label": "Tabac"
+          },
+          {
+            "id": "cbp-b1-l2",
+            "label": "Amiante"
+          },
+          {
+            "id": "cbp-b1-l3",
+            "label": "Radon"
+          },
+          {
+            "id": "cbp-b1-l4",
+            "label": "Nickel, chrome"
+          }
+        ]
+      },
+      {
+        "id": "cbp-b2",
+        "label": "Signes",
+        "children": [
+          {
+            "id": "cbp-b2-c",
+            "label": "Appel clinique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cbp-b2-l1",
+            "label": "Toux, hémoptysie"
+          },
+          {
+            "id": "cbp-b2-l2",
+            "label": "Dyspnée, douleur"
+          },
+          {
+            "id": "cbp-b2-l3",
+            "label": "Pancoast, cave supérieur"
+          },
+          {
+            "id": "cbp-b2-l4",
+            "label": "Métastases, paranéoplasie"
+          }
+        ]
+      },
+      {
+        "id": "cbp-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "cbp-b3-c",
+            "label": "Bilan"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cbp-b3-l1",
+            "label": "TDM, TEP"
+          },
+          {
+            "id": "cbp-b3-l2",
+            "label": "Endoscopie, biopsies"
+          },
+          {
+            "id": "cbp-b3-l3",
+            "label": "Biomarqueurs"
+          },
+          {
+            "id": "cbp-b3-l4",
+            "label": "Cerveau, opérabilité"
+          }
+        ]
+      },
+      {
+        "id": "cbp-b4",
+        "label": "Histologie",
+        "children": [
+          {
+            "id": "cbp-b4-c",
+            "label": "Deux familles"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cbp-b4-l1",
+            "label": "Adénocarcinome"
+          },
+          {
+            "id": "cbp-b4-l2",
+            "label": "Épidermoïde"
+          },
+          {
+            "id": "cbp-b4-l3",
+            "label": "Grandes cellules"
+          },
+          {
+            "id": "cbp-b4-l4",
+            "label": "Petites cellules"
+          }
+        ]
+      },
+      {
+        "id": "cbp-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "cbp-b5-c",
+            "label": "Selon le stade"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cbp-b5-l1",
+            "label": "Chirurgie, adjuvante"
+          },
+          {
+            "id": "cbp-b5-l2",
+            "label": "Chimio-radiothérapie"
+          },
+          {
+            "id": "cbp-b5-l3",
+            "label": "Immunothérapie, ciblé"
+          },
+          {
+            "id": "cbp-b5-l4",
+            "label": "Soins de support, sevrage"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Recommandations pour les cancers bronchopulmonaires et pleuraux",
+      "citation": "INCa — Recommandations de bonnes pratiques cliniques : cancers broncho-pulmonaires",
+      "organization": "Institut national du cancer",
+      "year": 2021,
+      "version": "Recommandation",
+      "url": "https://www.cancer.fr/professionnels-de-sante/recommandations-et-aide-a-la-pratique/recommandations-de-bonnes-pratiques-cliniques/cancers-bronchopulmonaires-et-pleuraux",
+      "usedFor": [
+        "recommandations",
+        "stratégies"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Guide parcours de soins : cancers broncho-pulmonaires",
+      "citation": "HAS — Guide affection de longue durée : tumeur maligne broncho-pulmonaire (diagnostic et traitement)",
+      "organization": "Haute Autorité de santé",
+      "year": 2013,
+      "version": "Guide parcours de soins",
+      "url": "https://www.has-sante.fr/jcms/c_1652171/fr/guide-parcours-de-soins-cancers-broncho-pulmonaires",
+      "usedFor": [
+        "diagnostic",
+        "parcours"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Guide du parcours de soins : cancers broncho-pulmonaires (PDF)",
+      "citation": "HAS — Guide : prise en charge des cancers broncho-pulmonaires, du diagnostic au suivi",
+      "organization": "Haute Autorité de santé",
+      "year": 2013,
+      "version": "Guide",
+      "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-10/guide_k_bronchopulmonaires_finalweb__091013.pdf",
+      "usedFor": [
+        "suivi",
+        "bilan"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

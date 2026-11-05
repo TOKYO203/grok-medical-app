@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "colique-nephretique",
+  "title": "Colique néphrétique",
+  "specialty": "Néphrologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la colique néphrétique (douleur lombaire aiguë par mise en tension de la voie urinaire, le plus souvent par une lithiase), reconnaître la douleur typique (paroxystique, lombaire, irradiant vers les organes génitaux, patient agité), maîtriser la démarche diagnostique (imagerie en urgence, signes de gravité), le traitement de la crise (antalgiques, anti-inflammatoires) et la prévention des récidives.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 19,
+    "specialty": "Néphrologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 19,
+      "localNumber": 19,
+      "sectionLabel": "Sémiologie",
+      "title": "Colique néphrétique",
+      "specialty": "Néphrologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée à la colique néphrétique : douleur lombaire brutale en coup de poignard, patient agité sans position antalgique, nausées, hématurie microscopique ; diagnostics différentiels (pyélonéphrite, anévrisme, causes extra-urinaires) ; imagerie (tomodensitométrie ou échographie), traitement de la crise par anti-inflammatoires non stéroïdiens et morphiniques, drainage en urgence si fièvre ou anurie, enquête métabolique et prévention. Les fiches hematurie, syndrome-bas-urinaire et lombalgie complètent la démarche.",
+    "verificationNotes": "Prise en charge conforme aux fiches de référence françaises (ameli, Association Française d'Urologie) : antalgiques de palier, anti-inflammatoires non stéroïdiens, drainage urgent si obstacle infecté.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La colique néphrétique est une douleur lombaire aiguë, paroxystique, provoquée par la mise en tension brutale de la voie urinaire : la cause la plus fréquente est le calcul urinaire (lithiase), mais tout obstacle (caillot, papille, tumeur, sténose) peut la provoquer. C'est l'une des douleurs les plus intenses qui soient et un motif d'urgence très fréquent."
+        },
+        {
+          "type": "paragraph",
+          "text": "La gravité n'est pas la douleur mais ses complications : obstacle sur urine infectée (pyélonéphrite obstructive, sepsis), anurie (obstacle bilatéral ou sur rein unique), rein détruit. D'où la règle : traiter la douleur, mais toujours chercher le signe de gravité."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Douleur typique : brutale, en coup de poignard, lombaire, intense, paroxystique (le patient n'a pas de position antalgique, il s'agit, se cambre), irradiant de façon descendante vers la fosse iliaque, la région inguinale, les organes génitaux (testicule ou grande lèvre) ; associée à des nausées, vomissements, sueurs, parfois fièvre modérée. Douleur en deux phases possible : lombaire puis iliaque (migration du calcul).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Signes urinaires : envies fréquentes, brûlures, hématurie (macroscopique en fin de crise, ou microscopique). Examen : fossette lombaire sensible, bandelette urinaire (hématurie, leucocyturie, nitrites), fièvre à rechercher, évaluation de la diurèse.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Terrain : homme de vingt à soixante ans, antécédents de lithiase, apports hydriques faibles, climat chaud.",
+            "Signes de gravité : fièvre supérieure à trente-huit degrés cinq, frissons (obstacle infecté), anurie, oligurie, douleur résistante, rein unique, grossesse, insuffisance rénale."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Lithiases urinaires (plus de quatre-vingts pour cent des cas) : calciques (oxalate de calcium, phosphate), urique (acidité des urines), infectieuses (struvite), cystiniques (génétique).",
+            "Obstacles non lithiasiques : caillot (tumeur de vessie ou du rein), papille necrotique (diabète, drépanocytose, anti-inflammatoires), tumeur, sténose de la jonction pyélo-urétérale, fibrose rétropéritonéale.",
+            "Facteurs favorisants : faible apport hydrique, excès de sel et de protéines, obésité, hyperparathyroïdie, goutte, infections à répétition, climat chaud et déshydratation."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diagnostic positif : clinique typique. Bandelette urinaire : hématurie (présente dans la majorité des cas, mais son absence n'élimine rien), leucocyturie et nitrites (infection associée : urgence). Biologie : créatininémie (fonction rénale), ionogramme, numération formule sanguine (hyperleucocytose), protéine C réactive.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Imagerie : la tomodensitométrie abdominale sans injection est l'examen de référence (taille, localisation, densité du calcul) ; en son absence, échographie rénale (dilatation des cavités, calcul, rein unique) associée à la radiographie de l'abdomen sans préparation. Les diagnostics différentiels sont dominés par la pyélonéphrite aiguë (fièvre, douleur sourde), l'anévrisme aortique rompu, la pancréatite, la thrombose rénale et les douleurs abdominales chirurgicales.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Fièvre et frissons",
+          "text": "Colique néphrétique fébrile = pyélonéphrite obstructive : urgence vitale — drainage de la voie urinaire (sonde urétérale ou néphrostomie) en urgence, antibiothérapie parentérale, hospitalisation."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Traitement de la crise : antalgiques de palier selon l'intensité — paracétamol, puis anti-inflammatoires non stéroïdiens (kétoprofène) par voie injectable, puis morphiniques si échec ; antispasmodiques utiles ; jeûne pendant la crise ; boissons abondantes et marche après la crise. Un calcul de moins de cinq millimètres est éliminé spontanément dans la majorité des cas.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement de l'obstacle : drainage urgent (sonde urétérale, néphrostomie) si obstacle infecté, anurie, douleur rebelle ou grossesse ; traitement du calcul : lithotripsie extracorporelle par ondes de choc (calculs du rein), urétéroscopie laser (calculs urétéraux), chirurgie pour les grosses pierres coralliformes ; alcalinisation des urines pour les lithiases uriques.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Après la crise : filtrer les urines pour récupérer le calcul (analyse), enquête métabolique (calcémie, uricémie, oxalurie, cystinurie, bilan infectieux), conseils de prévention, suivi échographique et radiologique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention des récidives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Boire abondamment (plus de deux litres par jour, urines claires), régime adapté au type de calcul (limitation du sel et des protéines animales, limitation des oxalates pour les calculs d'oxalate, limitation des purines pour les calculs uriques), lutte contre la déshydratation en climat chaud, traitement des anomalies métaboliques et des infections, suivi régulier des récidivants.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La colique néphrétique est une douleur lombaire paroxystique par obstacle de la voie urinaire : soulager avec des antalgiques puissants, rechercher les signes de gravité (fièvre, anurie, rein unique), imager, et drainer en urgence tout obstacle infecté. Après la crise, l'enquête métabolique et la prévention hydrique et diététique sont la clé de la non-récidive.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hematurie — caillot et tumeur.",
+            "Fiche syndrome-bas-urinaire — calcul vésical.",
+            "Fiche lombalgie — diagnostic différentiel.",
+            "Fiche insuffisance-renale-chronique — obstruction chronique."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Colique fébrile",
+      "text": "Fièvre, frissons, obstacle : pyélonéphrite obstructive — drainage urgent de la voie urinaire, antibiothérapie parentérale ; ne pas attendre."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Anurie ou rein unique",
+      "text": "Absence d'urine ou lithiase sur rein unique : urgence de drainage, risque d'insuffisance rénale aiguë."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Quatre réflexes : 1) soulager (anti-inflammatoire non stéroïdien en première ligne), 2) bandelette (fièvre ?), 3) imager (tomodensitométrie ou échographie), 4) drainer si signe de gravité."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Douleur paroxystique lombaire, patient agité, irradiation génitale, hématurie. Première ligne : anti-inflammatoire non stéroïdien injectable et paracétamol, morphine si échec. Fièvre ou anurie : drainage. Calcul inférieur à 5 mm : expulsion spontanée. Prévention : boire 2 litres par jour."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Douleur agitée",
+      "text": "Le patient de la colique néphrétique s'agit, se cambre, ne trouve aucune position ; celui de la péritonite est immobile et contracturé — le contraste oriente d'emblée."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Douleur typique",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Lombaire brutale"
+        },
+        {
+          "key": "P",
+          "term": "Paroxystique"
+        },
+        {
+          "key": "I",
+          "term": "Irradiation génitale"
+        },
+        {
+          "key": "A",
+          "term": "Agitation (pas de position antalgique)"
+        }
+      ]
+    },
+    {
+      "label": "Signes de gravité",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fièvre, frissons"
+        },
+        {
+          "key": "A",
+          "term": "Anurie, oligurie"
+        },
+        {
+          "key": "R",
+          "term": "Rein unique, grossesse"
+        },
+        {
+          "key": "D",
+          "term": "Douleur rebelle, insuffisance rénale"
+        }
+      ]
+    },
+    {
+      "label": "Traitement de la crise",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Antalgiques (paracétamol, morphine)"
+        },
+        {
+          "key": "N",
+          "term": "Anti-inflammatoires non stéroïdiens"
+        },
+        {
+          "key": "S",
+          "term": "Spasmolytiques"
+        },
+        {
+          "key": "H",
+          "term": "Hydratation après la crise"
+        }
+      ]
+    },
+    {
+      "label": "Prévention des récidives",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Boire 2 litres ou plus"
+        },
+        {
+          "key": "É",
+          "term": "Éviter sel et protéines excessives"
+        },
+        {
+          "key": "A",
+          "term": "Adaptation au type de calcul"
+        },
+        {
+          "key": "S",
+          "term": "Suivi des récidivants"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles sont les caractéristiques de la douleur de la colique néphrétique ?",
+      "back": "Brutale, lombaire, intense, paroxystique, en coup de poignard, irradiant vers la fosse iliaque et les organes génitaux ; le patient est agité, sans position antalgique."
+    },
+    {
+      "id": "f2",
+      "front": "Pourquoi le patient s'agit-il ?",
+      "back": "La douleur par mise en tension de la voie urinaire n'est pas soulagée par l'immobilité (contrairement à la péritonite) : le patient cherche en vain une position, s'agit, se cambre."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la cause la plus fréquente de la colique néphrétique ?",
+      "back": "La lithiase urinaire (calcul), responsable de plus de quatre-vingts pour cent des cas ; les autres causes sont le caillot, la papille necrotique, la tumeur, la sténose."
+    },
+    {
+      "id": "f4",
+      "front": "Quels signes de gravité imposent un drainage urgent ?",
+      "back": "Fièvre supérieure à trente-huit degrés cinq avec frissons (obstacle infecté), anurie, obstacle sur rein unique, grossesse, douleur rebelle, insuffisance rénale aiguë."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle place de la bandelette urinaire ?",
+      "back": "Recherche d'une hématurie (fréquente mais inconstante), de leucocyturie et de nitrites (infection : obstacle infecté, urgence de drainage)."
+    },
+    {
+      "id": "f6",
+      "front": "Quel examen d'imagerie de référence ?",
+      "back": "La tomodensitométrie abdominale sans injection de produit de contraste : taille, siège, densité du calcul, dilatation ; échographie et radiographie d'abdomen sans préparation en alternative."
+    },
+    {
+      "id": "f7",
+      "front": "Quel traitement antalgique de première intention ?",
+      "back": "Anti-inflammatoire non stéroïdien injectable (kétoprofène) et paracétamol ; morphiniques si échec ; antispasmodiques en complément ; jeûne pendant la crise."
+    },
+    {
+      "id": "f8",
+      "front": "Que faire devant une colique néphrétique fébrile ?",
+      "back": "Drainage urgent de la voie urinaire (sonde urétérale ou néphrostomie), antibiothérapie parentérale, hospitalisation : risque de sepsis et de destruction rénale."
+    },
+    {
+      "id": "f9",
+      "front": "Quels traitements du calcul urinaire ?",
+      "back": "Lithotripsie extracorporelle par ondes de choc (calculs rénaux de moins de deux centimètres), urétéroscopie avec laser (calculs urétéraux), chirurgie percutanée ou coelioscopique pour les gros calculs coralliformes."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle chance d'expulsion spontanée d'un calcul ?",
+      "back": "Un calcul de moins de cinq millimètres est expulsé dans la majorité des cas en quelques jours ; au-delà de dix millimètres, l'expulsion est rare : traitement interventionnel."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle est la lithiase la plus fréquente ?",
+      "back": "Le calcul d'oxalate de calcium, favorisé par l'hyperoxalurie, l'hypercalciurie et les apports hydriques faibles ; opaque sur les radiographies."
+    },
+    {
+      "id": "f12",
+      "front": "Quel calcul est favorisé par l'acidité des urines ?",
+      "back": "Le calcul d'acide urique, favorisé par la goutte et les régimes riches en purines ; il est radiotransparent et peut être dissous par alcalinisation des urines."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle est la lithiase infectieuse ?",
+      "back": "Le calcul de struvite (phosphate ammoniaco-magnésien), favorisé par les germes uréolytiques : calcul coralliforme, souvent sur infection urinaire chronique."
+    },
+    {
+      "id": "f14",
+      "front": "Quels diagnostics différentiels de la colique néphrétique ?",
+      "back": "Pyélonéphrite aiguë (fièvre, douleur sourde), anévrisme aortique rompu, pancréatite, thrombose de l'artère rénale, occlusion intestinale, appendicite, pathologie gynécologique."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle prévention des récidives lithiasiques ?",
+      "back": "Boire plus de deux litres d'eau par jour (urines claires), limiter le sel et les protéines animales, adapter le régime au type de calcul, corriger les anomalies métaboliques, filtrer les urines pour analyser le calcul."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle enquête après un premier épisode de lithiase ?",
+      "back": "Analyse du calcul, calcémie, uricémie, ionogramme urinaire, recherche de cystinurie chez le sujet jeune, bilan infectieux ; dépistage d'une hyperparathyroïdie ou d'une maladie génétique si récidives."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cnr-root",
+      "label": "Colique néphrétique"
+    },
+    "branches": [
+      {
+        "id": "cnr-b1",
+        "label": "Douleur",
+        "children": [
+          {
+            "id": "cnr-b1-c",
+            "label": "Typique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cnr-b1-l1",
+            "label": "Brutale, lombaire"
+          },
+          {
+            "id": "cnr-b1-l2",
+            "label": "Paroxystique"
+          },
+          {
+            "id": "cnr-b1-l3",
+            "label": "Irradiation génitale"
+          },
+          {
+            "id": "cnr-b1-l4",
+            "label": "Patient agité"
+          }
+        ]
+      },
+      {
+        "id": "cnr-b2",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "cnr-b2-c",
+            "label": "Obstacles"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cnr-b2-l1",
+            "label": "Lithiase (80 %)"
+          },
+          {
+            "id": "cnr-b2-l2",
+            "label": "Caillot, tumeur"
+          },
+          {
+            "id": "cnr-b2-l3",
+            "label": "Papille necrotique"
+          },
+          {
+            "id": "cnr-b2-l4",
+            "label": "Sténose de la jonction"
+          }
+        ]
+      },
+      {
+        "id": "cnr-b3",
+        "label": "Gravité",
+        "children": [
+          {
+            "id": "cnr-b3-c",
+            "label": "À rechercher"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cnr-b3-l1",
+            "label": "Fièvre, frissons"
+          },
+          {
+            "id": "cnr-b3-l2",
+            "label": "Anurie, rein unique"
+          },
+          {
+            "id": "cnr-b3-l3",
+            "label": "Grossesse"
+          },
+          {
+            "id": "cnr-b3-l4",
+            "label": "Douleur rebelle"
+          }
+        ]
+      },
+      {
+        "id": "cnr-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "cnr-b4-c",
+            "label": "Crise et obstacle"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cnr-b4-l1",
+            "label": "AINS + paracétamol"
+          },
+          {
+            "id": "cnr-b4-l2",
+            "label": "Morphine si échec"
+          },
+          {
+            "id": "cnr-b4-l3",
+            "label": "Drainage urgent"
+          },
+          {
+            "id": "cnr-b4-l4",
+            "label": "Lithotripsie, urétéroscopie"
+          }
+        ]
+      },
+      {
+        "id": "cnr-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "cnr-b5-c",
+            "label": "Récidives"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cnr-b5-l1",
+            "label": "Boire 2 L/jour"
+          },
+          {
+            "id": "cnr-b5-l2",
+            "label": "Régime adapté"
+          },
+          {
+            "id": "cnr-b5-l3",
+            "label": "Enquête métabolique"
+          },
+          {
+            "id": "cnr-b5-l4",
+            "label": "Suivi des récidivants"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Colique néphrétique (calcul rénal, urinaire)",
+      "citation": "ameli — Fiche d'information sur la colique néphrétique : signes, prise en charge et conseils",
+      "organization": "Assurance Maladie (ameli.fr)",
+      "year": 2024,
+      "version": "Fiche grand public validée",
+      "url": "https://www.ameli.fr/assure/sante/urgence/pathologies/colique-nephretique-calcul-renal-urinaire",
+      "usedFor": [
+        "signes",
+        "urgence"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Coliques néphrétiques",
+      "citation": "Association Française d'Urologie — Fiche d'information patient : coliques néphrétiques, causes, traitements et prévention",
+      "organization": "urofrance",
+      "year": 2024,
+      "version": "Fiche d'information patient",
+      "url": "https://www.urofrance.org/wp-content/uploads/2024/12/COLIQUES-NEPHRETIQUES.pdf",
+      "usedFor": [
+        "traitement",
+        "prévention"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Colique néphrétique",
+      "citation": "Wikipédia — Article de synthèse : définition, mécanisme et prise en charge de la colique néphrétique",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Colique_n%C3%A9phr%C3%A9tique",
+      "usedFor": [
+        "mécanismes",
+        "définition"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
