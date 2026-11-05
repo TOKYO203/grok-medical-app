@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "corps-etrangers-va",
+  "title": "Corps étrangers des voies aériennes",
+  "specialty": "ORL",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la prise en charge des corps étrangers des voies aériennes : de la fausse route avec suffocation brutale de l'enfant (urgence vitale : manœuvres de désobstruction) au corps étranger laryngo-trachéo-bronchique ou œsophagien ; connaître les manœuvres d'urgence (claque dans le dos, manœuvre de Heimlich, tirage de langue), l'endoscopie sous anesthésie générale pour l'extraction, et les complications (pneumopathies, atélectasie) des corps étrangers passés inaperçus.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 4,
+    "specialty": "ORL",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 4,
+      "localNumber": 4,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Corps étrangers des voies aériennes",
+      "specialty": "ORL"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux corps étrangers des voies aériennes : distinction essentielle entre obstruction brutale des voies aériennes supérieures (suffocation : urgence vitale, désobstruction immédiate par claque dans le dos et manœuvre de Heimlich, tirage lingual chez le nourrisson) et corps étranger laryngo-trachéo-bronchique (toux, dyspnée, wheezing unilatéral, complication : atélectasie, pneumopathie obstructive, emphysème) ; terrain : enfants petits (arachides, petits objets), adultes (aliments, prothèses dentaires, alcoolisés) ; diagnostic : radiographie thoracique (corps radio-opaques, emphysème obstructif unilatéral à l'expiration), endoscopie ; traitement : endoscopie sous anesthésie générale (laryngoscopie, bronchoscopie rigide) pour extraction, jamais de manœuvre aveugle ; corps étranger œsophagien (dysphagie, hypersalivation) : endoscopie œsophagienne ; prévention : éviter petits aliments chez le nourrisson, découper les aliments, surveillance des enfants, mastication lente chez les personnes âgées.",
+    "verificationNotes": "Contenu aligné sur les sources ORL et pédiatriques françaises : détresse respiratoire aiguë par corps étranger, manœuvres de désobstruction, endoscopie d'extraction.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'inhalation d'un corps étranger va de la fausse route banale (toux productive qui expulse le corps) à l'obstruction brutale des voies aériennes (suffocation, mort en quelques minutes). C'est un accident fréquent du nourrisson et du petit enfant."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux situations : l'urgence vitale immédiate (obstruction, désobstruction sans délai, sans matériel) et le corps étranger intrabronchique ou laryngé (endoscopie sous anesthésie générale pour l'extraction, en urgence différée)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Obstruction des voies aériennes supérieures : tableau de suffocation brutale, l'enfant ne peut ni parler, ni tousser, ni crier, s'agite, cyanose, s'effondre ; c'est l'urgence absolue : manœuvres de désobstruction immédiates, sans attendre les secours.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Corps étranger laryngé ou trachéo-bronchique : épisode de fausse route initial (toux, suffocation) suivi d'une accalmie trompeuse, puis toux persistante, dyspnée, wheezing unilatéral, asymétrie auscultatoire, accès de cyanose ; formes traînantes : bronchite ou pneumopathie récidivante, atélectasie, dilatation des bronches ; corps étranger œsophagien : hypersalivation, dysphagie, douleur rétrosternale, refus alimentaire, parfois compression trachéale avec dyspnée.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Terrain : nourrisson et petit enfant (arachides, graines, petits jouets, piles boutons), adulte alcoolisé ou porteur de prothèses dentaires, personnes âgées, troubles de déglutition (neurologiques).",
+            "Examen : conscience, coloration, fréquence respiratoire, auscultation (wheezing unilatéral, abolition localisée), tirage, cornage, dysphonie ; ne jamais faire vomir ni tenter une extraction aveugle."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et mécanismes",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Nature : aliments durs et petits (arachide, noix, graines de tournesol, carotte crue), petits objets (jouets, perles, piles boutons : danger de brûlure caustique), chez l'adulte : viande (syndrome du café de bistrot), prothèses dentaires, épingles, clous.",
+            "Siège : larynx (dyspnée et dysphonie sévères), trachée (tirage, cornage), bronches (le plus souvent droite, plus verticale et large : wheezing, atélectasie), œsophage (dysphagie, compression trachéale).",
+            "Facteurs favorisants : petit enfant mangeant en jouant ou courant, mauvaise mastication, alcoolisme, neuropathies de déglutition, anesthésie locale pharyngée."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'histoire de fausse route est le maître symptôme : toute toux ou détresse respiratoire survenant pendant un repas ou un jeu chez un enfant doit y faire penser. Auscultation : wheezing unilatéral, râles localisés ; radiographie thoracique inspiratoire-expiratoire : corps radio-opaque, emphysème obstructif unilatéral (trappe aérienne), atélectasie, médiastinal ; corps radiotransparents : la radiographie peut être normale : c'est l'endoscopie qui tranche.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Endoscopie diagnostique et thérapeutique : laryngoscopie et bronchoscopie rigide sous anesthésie générale, extraction avec pince adaptée (le bronchoscope rigide reste l'outil de référence chez l'enfant) ; pour l'œsophage : endoscopie œsophagienne ; complications à rechercher : pneumopathie obstructive, atélectasie, emphysème, pneumothorax, granulome ; jamais de doigt ou d'instrument aveugle au fond de la gorge.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Obstruction complète avec suffocation : si le sujet tousse efficacement : l'encourager à tousser, ne pas interférer ; si la toux est inefficace (pas de parole, pas de toux, cyanose) : cinq claques dans le dos entre les omoplates, puis, chez l'adulte et l'enfant, manœuvre de Heimlich (compressions abdominales) ; nourrisson : cinq claques dorsales tête vers le bas puis cinq compressions thoraciques ; si la victime devient inconsciente : réanimation cardiopulmonaire et recherche du corps dans la gorge sous vision directe.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Corps étranger laryngo-trachéo-bronchique une fois la détresse contrôlée : endoscopie sous anesthésie générale (bronchoscopie rigide) et extraction en urgence différée dans un centre équipé ; corps étranger œsophagien : extraction par endoscopie souple ou rigide (dans les 24 heures, surtout les piles boutons : urgence absolue) ; suites : surveillance respiratoire, kinésithérapie, antibiothérapie si pneumopathie, radiographie de contrôle ; les corticoïdes et bronchodilatateurs n'empêchent pas l'extraction : le corps étranger doit toujours être retiré.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ne pas donner d'arachides, de noix, de graines et de petits aliments durs avant 3 à 5 ans, découper les aliments en petits morceaux, faire manger assis et calmement (pas en jouant ni en courant), surveiller les enfants avec de petits objets et piles, ranger les piles boutons hors de portée, mastication lente chez les personnes âgées et alcoolisées, prudence en cas de troubles de la déglutition ; éducation de l'entourage aux manœuvres de désobstruction."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le corps étranger des voies aériennes va de la fausse route bénigne à la suffocation mortelle : la désobstruction (claques dorsales, Heimlich) se fait immédiatement, sans matériel ; tout corps étranger laryngo-trachéo-bronchique ou œsophagien non expulsé impose une extraction endoscopique sous anesthésie générale ; l'accalmie après une fausse route est trompeuse : la wheezing unilatéral et la pneumopathie récidivante de l'enfant doivent faire rechercher un corps étranger.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche dyspnee — détresse respiratoire.",
+            "Fiche bronchites-pneumo — pneumopathies.",
+            "Fiche dysphagie — obstacle œsophagien.",
+            "Fiche lipothymie-syncope — malaises."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Suffocation : obstruction complète",
+      "text": "Le sujet ne parle plus, ne tousse plus, cyanose : cinq claques dorsales, puis Heimlich (adulte, enfant) ; nourrisson : claques dorsales tête basse et compressions thoraciques ; ne jamais perdre de temps à chercher du matériel."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Pile bouton œsophagienne",
+      "text": "Brûlure caustique en quelques heures : extraction endoscopique en urgence absolue, même chez un enfant peu symptomatique."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Fausse route + accalmie + wheezing unilatéral ou toux persistante = corps étranger bronchique : radiographie inspiratoire-expiratoire puis endoscopie ; jamais d'extraction à l'aveugle, jamais faire vomir."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Nourrisson et petit enfant : arachides, graines, petits objets.Après la fausse route, accalmie trompeuse.Wheezing unilatéral, pneumopathie récidivante.Bronchoscopie rigide sous AG = référence.Obstruction : claques dorsales puis Heimlich."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Manœuvres selon l'âge",
+      "text": "Nourrisson : 5 claques dorsales tête basse + 5 compressions thoraciques. Enfant et adulte conscient : 5 claques dorsales + manœuvre de Heimlich. Victime inconsciente : réanimation, corps cherché sous vision directe."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Désobstruction",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Claques dorsales x 5"
+        },
+        {
+          "key": "H",
+          "term": "Heimlich x 5"
+        },
+        {
+          "key": "T",
+          "term": "Tirage de langue si visible"
+        },
+        {
+          "key": "R",
+          "term": "Réanimation si inconscient"
+        }
+      ]
+    },
+    {
+      "label": "Signes bronchiques",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Toux persistante"
+        },
+        {
+          "key": "W",
+          "term": "Wheezing unilatéral"
+        },
+        {
+          "key": "A",
+          "term": "Asymétrie auscultatoire"
+        },
+        {
+          "key": "C",
+          "term": "Cyanose par accès"
+        }
+      ]
+    },
+    {
+      "label": "Terrain",
+      "entries": [
+        {
+          "key": "E",
+          "term": "Enfant (arachide, jouet)"
+        },
+        {
+          "key": "A",
+          "term": "Alcoolisé, viande"
+        },
+        {
+          "key": "P",
+          "term": "Prothèses dentaires"
+        },
+        {
+          "key": "D",
+          "term": "Dysphagie neurologique"
+        }
+      ]
+    },
+    {
+      "label": "Complications",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Atélectasie"
+        },
+        {
+          "key": "P",
+          "term": "Pneumopathie obstructive"
+        },
+        {
+          "key": "E",
+          "term": "Emphysème unilatéral"
+        },
+        {
+          "key": "G",
+          "term": "Granulome, dilatation des bronches"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Comment reconnaître une obstruction complète des voies aériennes par corps étranger ?",
+      "back": "Suffocation brutale : la victime ne peut ni parler, ni crier, ni tousser efficacement, s'agite, devient cyanosée puis s'effondre : urgence absolue, désobstruction immédiate."
+    },
+    {
+      "id": "f2",
+      "front": "Que faire si la victime tousse efficacement ?",
+      "back": "L'encourager à tousser et ne pas interférer : une toux efficace (bruyante, avec expulsion possible) est plus efficace que les manœuvres externes ; surveiller en permanence."
+    },
+    {
+      "id": "f3",
+      "front": "Quelles manœuvres chez l'adulte conscient avec obstruction ?",
+      "back": "Cinq claques dans le dos entre les omoplates, puis manœuvre de Heimlich (compressions abdominales brèves vers le haut), en alternance jusqu'à expulsion ou perte de connaissance."
+    },
+    {
+      "id": "f4",
+      "front": "Quelles manœuvres chez le nourrisson ?",
+      "back": "Cinq claques dorsales, tête plus basse que le corps (sur l'avant-bras), puis cinq compressions thoraciques (deux doigts sur le sternum), en alternance ; jamais de Heimlich abdominal chez le nourrisson."
+    },
+    {
+      "id": "f5",
+      "front": "Que faire si la victime devient inconsciente ?",
+      "back": "Alerte, réanimation cardiopulmonaire, ouvrir la bouche sous vision directe et retirer le corps s'il est visible et accessible ; ne jamais saisir à l'aveugle au fond de la gorge."
+    },
+    {
+      "id": "f6",
+      "front": "Quels signes d'un corps étranger bronchique après la fausse route ?",
+      "back": "Accalmie trompeuse après la fausse route initiale, puis toux persistante, dyspnée, wheezing unilatéral, asymétrie auscultatoire, accès de cyanose, parfois fièvre (pneumopathie)."
+    },
+    {
+      "id": "f7",
+      "front": "Pourquoi la bronche droite est-elle la plus souvent en cause ?",
+      "back": "Elle est plus large, plus verticale et dans l'axe de la trachée : les corps étrangers migrants y pénètrent préférentiellement, d'où des signes du côté droit."
+    },
+    {
+      "id": "f8",
+      "front": "Que peut montrer la radiographie thoracique ?",
+      "back": "Un corps radio-opaque, un emphysème obstructif unilatéral (trappe aérienne à l'expiration), une atélectasie, un décalage médiastinal ; un corps radiotransparent (arachide) peut donner une radio normale : l'endoscopie tranche."
+    },
+    {
+      "id": "f9",
+      "front": "Quel est le traitement du corps étranger bronchique non expulsé ?",
+      "back": "Extraction par bronchoscopie rigide sous anesthésie générale, en urgence (détresse) ou en urgence différée dans un centre équipé ; jamais de manœuvre aveugle, jamais attendre la expulsion spontanée."
+    },
+    {
+      "id": "f10",
+      "front": "Comment se présente un corps étranger œsophagien ?",
+      "back": "Hypersalivation, dysphagie, douleur rétrosternale, refus de s'alimenter, parfois dyspnée par compression trachéale ; endoscopie œsophagienne pour le diagnostic et l'extraction."
+    },
+    {
+      "id": "f11",
+      "front": "Pourquoi la pile bouton est-elle particulièrement dangereuse ?",
+      "back": "Elle provoque une brûlure caustique de l'œsophage en quelques heures (courant électrique et alcali) : extraction endoscopique en urgence absolue, même devant des signes minimes, et surveillance des sténoses."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles complications d'un corps étranger bronchique méconnu ?",
+      "back": "Pneumopathie obstructive récidivante, atélectasie, emphysème, granulome, dilatation des bronches, pneumothorax, fistule ; toute pneumopathie récidivante de l'enfant doit faire chercher un corps étranger."
+    },
+    {
+      "id": "f13",
+      "front": "Quels terrains à risque chez l'adulte ?",
+      "back": "Alcoolisme (viande, syndrome du café de bistrot), prothèses dentaires, personnes âgées avec troubles de déglutition, neuropathies ( AVC, Parkinson), anesthésie pharyngée locale."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles précautions chez le petit enfant ?",
+      "back": "Pas d'arachides, noix, graines ni petits aliments durs avant 3 à 5 ans, découper les aliments, manger assis et calmement, petits objets et piles hors de portée, éducation de l'entourage."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles suites après extraction endoscopique ?",
+      "back": "Surveillance respiratoire, radiographie de contrôle, kinésithérapie de drainage, antibiothérapie si pneumopathie, consulter en cas de toux ou fièvre persistantes (rétention de fragment)."
+    },
+    {
+      "id": "f16",
+      "front": "Quels diagnostics différentiels d'une wheezing unilatéral chez l'enfant ?",
+      "back": "Asthme (bilatéral), bronchiolite, pneumopathie, adénopathie médiastinale compressive, malformation vasculaire (anneau aortique), tumeur : la notion de fausse route et l'endoscopie tranchent."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ceva-root",
+      "label": "Corps étrangers des voies aériennes"
+    },
+    "branches": [
+      {
+        "id": "ceva-b1",
+        "label": "Formes",
+        "children": [
+          {
+            "id": "ceva-b1-c",
+            "label": "De la banale à la fatale"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ceva-b1-l1",
+            "label": "Fausse route + toux"
+          },
+          {
+            "id": "ceva-b1-l2",
+            "label": "Suffocation : obstruction"
+          },
+          {
+            "id": "ceva-b1-l3",
+            "label": "Corps bronchique (accalmie)"
+          },
+          {
+            "id": "ceva-b1-l4",
+            "label": "Corps œsophagien"
+          }
+        ]
+      },
+      {
+        "id": "ceva-b2",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "ceva-b2-c",
+            "label": "À risque"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ceva-b2-l1",
+            "label": "Nourrisson, petit enfant"
+          },
+          {
+            "id": "ceva-b2-l2",
+            "label": "Arachides, graines, jouets"
+          },
+          {
+            "id": "ceva-b2-l3",
+            "label": "Alcoolisé, viande"
+          },
+          {
+            "id": "ceva-b2-l4",
+            "label": "Prothèses dentaires"
+          }
+        ]
+      },
+      {
+        "id": "ceva-b3",
+        "label": "Urgence",
+        "children": [
+          {
+            "id": "ceva-b3-c",
+            "label": "Désobstruction"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ceva-b3-l1",
+            "label": "Encourager la toux"
+          },
+          {
+            "id": "ceva-b3-l2",
+            "label": "Claques dorsales x 5"
+          },
+          {
+            "id": "ceva-b3-l3",
+            "label": "Heimlich (adulte)"
+          },
+          {
+            "id": "ceva-b3-l4",
+            "label": "Nourrisson : compressions"
+          }
+        ]
+      },
+      {
+        "id": "ceva-b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ceva-b4-c",
+            "label": "Après stabilisation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ceva-b4-l1",
+            "label": "Wheezing unilatéral"
+          },
+          {
+            "id": "ceva-b4-l2",
+            "label": "Radio inspi-expiratoire"
+          },
+          {
+            "id": "ceva-b4-l3",
+            "label": "Endoscopie = référence"
+          },
+          {
+            "id": "ceva-b4-l4",
+            "label": "Jamais d'extraction aveugle"
+          }
+        ]
+      },
+      {
+        "id": "ceva-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "ceva-b5-c",
+            "label": "Extraction"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ceva-b5-l1",
+            "label": "Bronchoscopie rigide sous AG"
+          },
+          {
+            "id": "ceva-b5-l2",
+            "label": "Endoscopie œsophagienne"
+          },
+          {
+            "id": "ceva-b5-l3",
+            "label": "Pile bouton : urgence"
+          },
+          {
+            "id": "ceva-b5-l4",
+            "label": "Suites : surveillance, radio"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Inhalation d'un corps étranger : que faire",
+      "citation": "ameli — Fiche : corps étranger inhalé, gestes d'urgence (claques, Heimlich)",
+      "organization": "Assurance maladie (ameli.fr)",
+      "year": 2023,
+      "version": "Fiche santé",
+      "url": "https://www.ameli.fr/assure/sante/urgence/corps-etrangers/inhale",
+      "usedFor": [
+        "urgence",
+        "manœuvres"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Détresse respiratoire aiguë et corps étrangers ORL",
+      "citation": "Campus ORL — Item : corps étranger des voies aériennes supérieures et autres corps étrangers ORL",
+      "organization": "Collège des enseignants d'ORL",
+      "year": 2017,
+      "version": "Support de cours",
+      "url": "https://campusorl.fr/wp-content/uploads/2017/12/Item-354-De%CC%81tresse-respiratoire-aigue%CC%88-du-nourrisson-de-l%E2%80%99enfant-et-de-l%E2%80%99adulte.-Corps-e%CC%81tranger-des-voies-ae%CC%81riennes-supe%CC%81rieures-et-autres-corps-e%CC%81trangers-ORL.pdf",
+      "usedFor": [
+        "sémiologie",
+        "endoscopie"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Corps étrangers des voies aériennes de l'enfant",
+      "citation": "mPédia — Article : inhalation de corps étranger chez l'enfant",
+      "organization": "mPédia (pédiatrie)",
+      "year": 2023,
+      "version": "Article de référence",
+      "url": "https://www.mpedia.fr/art-inhalation-corps-etranger/",
+      "usedFor": [
+        "enfant",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
