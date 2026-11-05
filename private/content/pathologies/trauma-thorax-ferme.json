@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "trauma-thorax-ferme",
+  "title": "Traumatismes fermés du thorax",
+  "specialty": "Chirurgie thoracique",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la prise en charge des traumatismes fermés du thorax : lésions pariétales (fractures de côtes, volet thoracique), lésions pleuro-pulmonaires (pneumothorax, hémothorax, contusion pulmonaire), lésions médiastinales (rupture aortique, rupture bronchique, rupture diaphragmatique) et lésions cardiaques ; priorités : drainage en urgence d'un pneumothorax ou d'un hémothorax, analgésie efficace, oxygénation, et imagerie par scanner corps entier.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 10,
+    "specialty": "Chirurgie thoracique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 10,
+      "localNumber": 10,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Traumatismes fermés du thorax",
+      "specialty": "Chirurgie thoracique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux traumatismes fermés du thorax : lésions de la paroi (fractures simples de côtes : douleur, crépitation, point douloureux ; fractures multiples : volet thoracique avec respiration paradoxale, hypoventilation et déclenchement douloureux : analgésie majeure, oxygénothérapie, drainage, ventilation si insuffisance) ; lésions pleuro-pulmonaires : pneumothorax (détresse, tympanisme, absence de murmure vésiculaire : drainage thoracique en urgence, exsufflation si compressif), hémothorax (matité, dyspnée, choc : drainage de gros calibre, chirurgie si saignement abondant), contusion pulmonaire (opacité à l'imagerie, hypoxie) ; lésions graves à rechercher : rupture traumatique de l'aorte (décélération violente : élargissement médiastinal, angio-TDM, chirurgie ou endoprothèse), rupture bronchique (emphysème sous-cutané majeur, pneumothorax non réexpansif, ventilation impossible : chirurgie), rupture diaphragmatique (gauche le plus souvent : herniation abdominale à l'imagerie, chirurgie), contusion myocardique et tamponnade ; réanimation : ABCDE du polytraumatisé, drainage pleural avant tout transport aérien, analgésie (y compris péridurale), kinésithérapie respiratoire.",
+    "verificationNotes": "Contenu aligné sur les recommandations SFAR/SFMU : prise en charge des 48 premières heures du traumatisme thoracique, drainage, analgésie et imagerie.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le thorax fermé traumatique est fréquent (AVP, chutes, écrasements) : les lésions vont de la simple fracture costale bénigne à la rupture de l'aorte thoracique, potentiellement mortelle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux pièges : sous-estimer une contusion pulmonaire qui s'aggrave dans les heures, et méconnaître une lésion médiastinale ou un volet thoracique sous une douleur banalisée ; la démarche ABCDE et l'imagerie précoce guident tout."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lésions pariétales : douleur thoracique majorée à la respiration et à la palpation, crépitation osseuse, ecchymoses ; fractures costales multiples : dyspnée, hypoventilation localisée ; volet thoracique : respiration paradoxale du fragment détaché, dyspnée majeure, insuffisance respiratoire par inefficacité ventilatoire et douleur.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Lésions pleuro-pulmonaires : pneumothorax : douleur, dyspnée, absence de murmure vésiculaire, tympanisme, accélération du rythme ; pneumothorax compressif : choc, distension cervicale, déviation du médiastin : drainage immédiat sans imagerie ; hémothorax : matité, choc, anémie : drainage ; contusion pulmonaire : hypoxie, hémoptysie, opacité à l'imagerie ; emphysème sous-cutané : signe de gravité (rupture bronchique, lésion œsophagienne).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes de gravité : détresse respiratoire ou hémodynamique, volet, emphysème extensif, distension des veines du cou, choc ; lésions associées du polytraumatisé (crâne, abdomen, rachis) à rechercher systématiquement.",
+            "Terrain : sujet jeune (accidents) ou âgé (chutes, fractures fragiles), insuffisant respiratoire chronique (BPCO) : fragilité accrue."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Lésions selon le mécanisme",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Compression directe : fractures costales, sternales, contusion pulmonaire, rupture myocardique ; choc sur le guidon : rupture diaphragmatique.",
+            "Décélération violente : rupture traumatique de l'aorte (isthme), lésions des gros vaisseaux.",
+            "Blast (accélération de l'air) : lésions alvéolaires, emphysème, pneumothorax.",
+            "Augmentation brutale de pression intra-thoracique : rupture bronchique, lésion œsophagienne."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Examen clinique : inspection (ecchymoses, respiration paradoxale, distension cervicale), palpation (crépitation osseuse, emphysème sous-cutané), auscultation (absence de murmure, matité), hémodynamique ; radiographie thoracique au lit : pneumothorax, hémothorax, élargissement médiastinal, opacités ; scanner thoracique avec injection (examen de référence du polytraumatisé stable) : fractures, contusion, lésions aortiques (angio-TDM), diaphragme ; écho FAST : épanchement péricardique ; biologie : groupe, NFS, gaz du sang, lactates, troponine et ECG si suspicion de contusion myocardique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pneumothorax compressif : diagnostic clinique, drainage sans attendre l'imagerie ; lésion aortique suspectée : angio-TDM (élargissement médiastinal, asymétrie tensionnelle des membres) ; rupture bronchique suspectée : pneumothorax non réexpansif malgré le drainage, emphysème majeur, TDM et bronchoscopie ; rupture diaphragmatique : scanner (herniation digestive) ; tamponnade : distension cervicale, bradycardie, pouls paradoxal, échographie et drainage péricardique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mesures immédiates : oxygénothérapie (masque, ventilation si détresse), drainage thoracique en urgence d'un pneumothorax ou d'un hémothorax (drain de gros calibre pour l'hémothorax) ; choc hémorragique : remplissage et transfusion, chirurgie d'hémostase si hémothorax abondant ou saignement persistant ; analgésie forte indispensable (antalgiques majeurs, bloc intercostal, péridurale si fractures multiples) : une analgésie insuffisante aggrave l'insuffisance respiratoire ; kinésithérapie respiratoire précoce.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Lésions spécifiques : volet thoracique : oxygénothérapie, analgésie péridurale, ventilation non invasive puis intubation si défaillance, exceptionnelle stabilisation chirurgicale ; contusion pulmonaire : oxygénothérapie, ventilation protectrice, limitation des apports ; rupture aortique : contrôle tensionnel, chirurgie ou endoprothèse en urgence ; rupture bronchique : drainage, intubation sélective, chirurgie de réparation ; rupture diaphragmatique : chirurgie après stabilisation ; tamponnade : drainage péricardique et chirurgie ; surveillance : radiographies répétées, douleur, fièvre (pneumopathie), réexpansion pulmonaire ; prévention thromboembolique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : sécurité routière (ceinture, airbags), protections au travail, casques ; prévention des complications : analgésie précoce et efficace, kinésithérapie respiratoire dès que possible, arrêt du tabac, vaccination antipneumococcique et antigrippale chez le sujet à risque, prévention de la thrombose."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le thorax fermé traumatique associe lésions pariétales, pleuro-pulmonaires et médiastinales : la détresse respiratoire impose drainage d'un pneumothorax ou d'un hémothorax, l'élargissement médiastinal fait chercher une rupture aortique, l'emphysème une rupture bronchique ; l'analgésie et la kinésithérapie précoce préviennent l'encombrement et la pneumopathie ; le volet et la contusion pulmonaire relèvent d'une réanimation respiratoire ; le scanner corps entier complète le bilan chez les patients stables.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche pneumothorax : pneumothorax spontané.",
+            "Fiche épanchement pleural : pleurésies.",
+            "Fiche polytraumatisme : démarche ABCDE.",
+            "Fiche embolie pulmonaire : dyspnée aiguë."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Pneumothorax compressif",
+      "text": "Choc avec distension cervicale, abolition du murmure vésiculaire d'un côté : drainage thoracique immédiat sans attendre la radiographie : c'est un geste de sauvetage."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Élargissement médiastinal",
+      "text": "Décélération violente : rupture traumatique de l'aorte à suspecter : angio-TDM en urgence, contrôle tensionnel, chirurgie ou endoprothèse."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant tout thorax traumatique : auscultation des deux champs (murmure ? matité ?), palpation (emphysème, crépitation), pouls et tension, radiographie puis scanner ; toujours drainer un pneumothorax avant un transport aérien ou la ventilation."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Volet : respiration paradoxale, analgésie péridurale, ventilation si défaillance. Pneumothorax compressif : drainage immédiat. Hémothorax abondant : chirurgie. Emphysème sous-cutané extensif : rupture bronchique. Contusion pulmonaire : s'aggrave dans les heures, oxygéner."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Douleur costale : ne pas banaliser",
+      "text": "Fractures costales multiples : insuffisance respiratoire retardée par douleur et encombrement : analgésie forte, kinésithérapie, oxygénothérapie : prévenir la pneumopathie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Lésions pariétales",
+      "entries": [
+        {
+          "key": "F",
+          "term": "Fractures costales"
+        },
+        {
+          "key": "V",
+          "term": "Volet thoracique"
+        },
+        {
+          "key": "S",
+          "term": "Fracture sternale"
+        },
+        {
+          "key": "E",
+          "term": "Emphysème sous-cutané"
+        }
+      ]
+    },
+    {
+      "label": "Lésions pleuro-pulmonaires",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pneumothorax"
+        },
+        {
+          "key": "H",
+          "term": "Hémothorax"
+        },
+        {
+          "key": "C",
+          "term": "Contusion pulmonaire"
+        },
+        {
+          "key": "D",
+          "term": "Rupture diaphragmatique"
+        }
+      ]
+    },
+    {
+      "label": "Lésions médiastinales",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Aorte (rupture)"
+        },
+        {
+          "key": "B",
+          "term": "Bronche (rupture)"
+        },
+        {
+          "key": "C",
+          "term": "Cœur : contusion, tamponnade"
+        },
+        {
+          "key": "O",
+          "term": "Œsophage (rare)"
+        }
+      ]
+    },
+    {
+      "label": "Prise en charge",
+      "entries": [
+        {
+          "key": "O",
+          "term": "Oxygéner"
+        },
+        {
+          "key": "D",
+          "term": "Drainer"
+        },
+        {
+          "key": "A",
+          "term": "Antalgiques forts (péridurale)"
+        },
+        {
+          "key": "K",
+          "term": "Kinésithérapie respiratoire"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles sont les grandes familles de lésions du thorax fermé ?",
+      "back": "Pariétales (fractures costales, sternales, volet), pleuro-pulmonaires (pneumothorax, hémothorax, contusion pulmonaire) et médiastinales (aorte, bronches, diaphragme, cœur)."
+    },
+    {
+      "id": "f2",
+      "front": "Comment reconnaître un volet thoracique ?",
+      "back": "Fractures costales multiples (au moins trois côtes fracturées en deux points) : respiration paradoxale du fragment détaché (rentré en inspiration, sorti en expiration), douleur majeure, insuffisance respiratoire progressive."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la prise en charge d'un volet thoracique ?",
+      "back": "Oxygénothérapie, analgésie intensive (péridurale en priorité), kinésithérapie, ventilation non invasive puis intubation et ventilation si défaillance ; la stabilisation chirurgicale est exceptionnelle."
+    },
+    {
+      "id": "f4",
+      "front": "Comment diagnostiquer un pneumothorax compressif et que faire ?",
+      "back": "Clinique : choc, distension cervicale, abolition du murmure vésiculaire, tympanisme, cyanose : drainage thoracique immédiat, sans imagerie : ne jamais attendre la radiographie."
+    },
+    {
+      "id": "f5",
+      "front": "Comment gérer un hémothorax ?",
+      "back": "Drainage thoracique en urgence (drain de gros calibre), remplissage et transfusion ; chirurgie en urgence si volume initial abondant (plus de 1500 mL), saignement persistant (plus de 200 mL par heure) ou instabilité."
+    },
+    {
+      "id": "f6",
+      "front": "Qu'est-ce que la contusion pulmonaire ?",
+      "back": "Une hémorragie intra-alvéolaire post-traumatique : opacité parenchymateuse à l'imagerie, hypoxie, parfois hémoptysie ; elle s'aggrave dans les 24 à 48 heures : oxygénothérapie et ventilation protectrice."
+    },
+    {
+      "id": "f7",
+      "front": "Quand suspecter une rupture traumatique de l'aorte ?",
+      "back": "Mécanisme en décélération violente : élargissement médiastinal à la radio, asymétrie tensionnelle des membres, douleur thoracique ou dorsale intense, parfois sans signe initial : angio-TDM urgent."
+    },
+    {
+      "id": "f8",
+      "front": "Quels signes d'une rupture bronchique ?",
+      "back": "Emphysème sous-cutané extensif et progressif, pneumothorax qui ne se réexpanse pas malgré le drainage, fuite d'air massive, parfois détresse ventilatoire : TDM et bronchoscopie, chirurgie de réparation."
+    },
+    {
+      "id": "f9",
+      "front": "Comment reconnaître une rupture diaphragmatique ?",
+      "back": "Choc thoraco-abdominal ou compression : herniation de viscères abdominaux dans le thorax (radio, scanner, sonde gastrique intra-thoracique), le plus souvent à gauche : chirurgie après stabilisation."
+    },
+    {
+      "id": "f10",
+      "front": "Quels signes d'une tamponnade post-traumatique ?",
+      "back": "Choc avec distension cervicale, bradycardie, pouls paradoxal, assourdissement des bruits du cœur, épanchement péricardique à l'écho FAST : drainage péricardique et chirurgie en urgence."
+    },
+    {
+      "id": "f11",
+      "front": "Pourquoi l'analgésie est-elle un traitement majeur ?",
+      "back": "La douleur costale empêche la respiration profonde, la toux et l'expectoration : encombrement, atélectasies et pneumopathies ; antalgiques majeurs et péridurale préviennent l'insuffisance respiratoire."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle imagerie et selon quelles conditions ?",
+      "back": "Radiographie thoracique au lit en première intention (détresse, drainage), scanner thoracique avec injection chez le patient stable : c'est l'examen de référence pour fractures, contusion, aorte et diaphragme."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi drainer avant tout transport ?",
+      "back": "Un pneumothorax, même minime, devient compressif en altitude ou sous ventilation : tout patient traumatisé thoracique transporté (hélicoptère, avion) ou ventilé doit être drainé au préalable."
+    },
+    {
+      "id": "f14",
+      "front": "Quel rôle de la kinésithérapie respiratoire ?",
+      "back": "Précoce et quotidienne : désencombrement, réexpansion, prévention des atélectasies et pneumopathies, associée à une analgésie suffisante pour être efficace."
+    },
+    {
+      "id": "f15",
+      "front": "Quels éléments de surveillance hospitalière ?",
+      "back": "Radiographie répétée, saturation, fréquence respiratoire, douleur, fièvre, volume et aspect du drainage, gaz du sang ; rechercher pneumopathie, atélectasie, persistance d'une fuite d'air ou d'un saignement."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles lésions cardiaques post-traumatiques ?",
+      "back": "Contusion myocardiale (ECG, troponine, troubles du rythme), tamponnade, plus rarement rupture valvulaire ou septale : monitorage cardiaque devant tout thorax violent avec anomalies ECG."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "tt-root",
+      "label": "Traumatismes fermés du thorax"
+    },
+    "branches": [
+      {
+        "id": "tt-b1",
+        "label": "Paroi",
+        "children": [
+          {
+            "id": "tt-b1-c",
+            "label": "Lésions osseuses"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tt-b1-l1",
+            "label": "Fractures costales"
+          },
+          {
+            "id": "tt-b1-l2",
+            "label": "Volet thoracique"
+          },
+          {
+            "id": "tt-b1-l3",
+            "label": "Fracture sternale"
+          },
+          {
+            "id": "tt-b1-l4",
+            "label": "Emphysème sous-cutané"
+          }
+        ]
+      },
+      {
+        "id": "tt-b2",
+        "label": "Plèvre, poumon",
+        "children": [
+          {
+            "id": "tt-b2-c",
+            "label": "À drainer"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tt-b2-l1",
+            "label": "Pneumothorax"
+          },
+          {
+            "id": "tt-b2-l2",
+            "label": "Hémothorax"
+          },
+          {
+            "id": "tt-b2-l3",
+            "label": "Contusion pulmonaire"
+          },
+          {
+            "id": "tt-b2-l4",
+            "label": "Rupture diaphragmatique"
+          }
+        ]
+      },
+      {
+        "id": "tt-b3",
+        "label": "Médiastin",
+        "children": [
+          {
+            "id": "tt-b3-c",
+            "label": "À redouter"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tt-b3-l1",
+            "label": "Rupture aortique"
+          },
+          {
+            "id": "tt-b3-l2",
+            "label": "Rupture bronchique"
+          },
+          {
+            "id": "tt-b3-l3",
+            "label": "Tamponnade, contusion du cœur"
+          },
+          {
+            "id": "tt-b3-l4",
+            "label": "Lésion œsophagienne"
+          }
+        ]
+      },
+      {
+        "id": "tt-b4",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "tt-b4-c",
+            "label": "Étagé"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tt-b4-l1",
+            "label": "Clinique + radio au lit"
+          },
+          {
+            "id": "tt-b4-l2",
+            "label": "Scanner avec injection"
+          },
+          {
+            "id": "tt-b4-l3",
+            "label": "Écho FAST, ECG"
+          },
+          {
+            "id": "tt-b4-l4",
+            "label": "Drainage si compressif"
+          }
+        ]
+      },
+      {
+        "id": "tt-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "tt-b5-c",
+            "label": "Respiratoire et chirurgical"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tt-b5-l1",
+            "label": "Oxygène, drainage"
+          },
+          {
+            "id": "tt-b5-l2",
+            "label": "Antalgiques, péridurale"
+          },
+          {
+            "id": "tt-b5-l3",
+            "label": "Kinésithérapie"
+          },
+          {
+            "id": "tt-b5-l4",
+            "label": "Chirurgie des lésions graves"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Traumatisme thoracique : prise en charge des 48 premières heures",
+      "citation": "SFAR — Recommandation formalisée d'experts : traumatisme thoracique (drainage, analgésie, ventilation)",
+      "organization": "Société française d'anesthésie et de réanimation",
+      "year": 2015,
+      "version": "Recommandation",
+      "url": "https://sfar.org/wp-content/uploads/2015/10/2_AFAR_Traumatisme-thoracique-_prise-en-charge-des-48-premieres-heures.pdf",
+      "usedFor": [
+        "recommandations",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "RFE traumatisme thoracique SFAR/SFMU",
+      "citation": "SFMU — Recommandation formalisée d'experts : prise en charge du traumatisme thoracique",
+      "organization": "Société française de médecine d'urgence",
+      "year": 2020,
+      "version": "Recommandation",
+      "url": "https://www.sfmu.org/upload/consensus/rfe_trauma_thoracique_sfar_sfmu.pdf",
+      "usedFor": [
+        "urgence",
+        "imagerie"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Traumatismes thoraciques",
+      "citation": "HUG (Hôpitaux universitaires de Genève) — Chirurgie thoracique : traumatismes thoraciques",
+      "organization": "Hôpitaux universitaires de Genève",
+      "year": 2023,
+      "version": "Page de référence",
+      "url": "https://www.hug.ch/chirurgie-thoracique/traumatismes-thoraciques",
+      "usedFor": [
+        "lésions",
+        "prise en charge"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

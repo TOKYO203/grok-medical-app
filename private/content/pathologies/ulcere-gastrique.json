@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ulcere-gastrique",
+  "title": "Ulcère gastrique chronique",
+  "specialty": "Gastro-entérologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Diagnostiquer un ulcère gastrique chronique, toujours écarter un cancer gastrique par des biopsies multiples, prescrire le traitement antisécrétoire et l'éradication de Helicobacter pylori, et reconnaître les complications — dans le contexte de soins malgache.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 65,
+    "specialty": "Gastro-entérologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 106,
+      "localNumber": 65,
+      "sectionLabel": "Médecine",
+      "title": "Ulcère gastrique chronique",
+      "specialty": "Gastro-entérologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche rédigée en français à partir de sources de référence francophones : définition, place majeure des biopsies systématiques pour éliminer un adénocarcinome gastrique, douleur déclenchée par les repas, endoscopie avec prélèvements multiples, traitement antisécrétoire prolongé et éradication de Helicobacter pylori, surveillance endoscopique jusqu'à cicatrisation. Contexte malgache intégré (cancer de l'estomac fréquent, accès limité à l'endoscopie).",
+    "verificationNotes": "Contenu vérifié le 1er novembre 2026 : définition, diagnostic et traitement selon le Manuel MSD (édition professionnelle) ; stratégie d'éradication selon la Haute Autorité de Santé et la FMC HGE ; données malgaches de prévalence de Helicobacter pylori issues de la littérature indexée sur PubMed. Schéma simplifié adapté aux moyens locaux, à confronter aux protocoles de service.",
+    "qcChecklist": [
+      "Conformité programme Madagascar 2025 (item 65, section Médecine)",
+      "Sources documentaires vérérifiées et citées",
+      "Place des biopsies systématiques soulignée (éliminer un cancer)",
+      "Complications aiguës détaillées avec signes d'alerte",
+      "Adaptation au contexte de soins malgache"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ulcère gastrique chronique est une perte de substance de la paroi gastrique franchissant la musculeuse, siégeant le plus souvent sur la petite courbure ou l'angle gastrique. Deux fois moins fréquent que l'ulcère duodénal, il s'en distingue par un point capital : toute perte de substance gastrique peut masquer un adénocarcinome, ce qui impose des biopsies systématiques et multiples avant d'affirmer son caractère bénin."
+        },
+        {
+          "type": "paragraph",
+          "text": "Comme l'ulcère duodénal, il relève de la maladie acidopeptique et de ses deux grands pourvoyeurs : Helicobacter pylori et les anti-inflammatoires non stéroïdiens (AINS). Mais la part des AINS y est plus importante, la douleur est déclenchée par les repas, la cicatrisation plus lente, et la surveillance endoscopique jusqu'à cicatrisation complète est la règle."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et épidémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ulcère gastrique touche l'adulte plus âgé que l'ulcère duodénal (pic vers 55–65 ans), sans prédominance masculine nette. La part des AINS et de l'aspirine y est plus grande, ce qui explique l'âge plus avancé et le risque hémorragique accru."
+        },
+        {
+          "type": "paragraph",
+          "text": "Helicobacter pylori est retrouvé chez environ deux tiers des patients : la bactérie induit une gastrite chronique fundique et antrale qui fragilise la muqueuse, tandis que la sécrétion acide reste le plus souvent normale ou diminuée — l'ulcère gastrique n'est pas une maladie d'hyperacidité, ce qui impose un traitement antisécrétoire plus prolongé pour obtenir la cicatrisation."
+        },
+        {
+          "type": "paragraph",
+          "text": "À Madagascar, où la prévalence de H. pylori dépasse la moitié de la population adulte et où le cancer de l'estomac figure parmi les cancers digestifs fréquents, tout ulcère gastrique doit être considéré comme potentiellement malin jusqu'à preuve histologique du contraire. La rareté des centres d'endoscopie en dehors des grandes villes rend d'autant plus nécessaire un adressage adapté dès la suspicion."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ulcère gastrique naît d'un déséquilibre entre l'agression acido-peptique et les défenses muqueuses, au profit de l'agression. Contrairement au duodénum, la sécrétion acide est normale ou basse : c'est la barrière muqueuse défaillante qui laisse l'acide attaquer la paroi."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Helicobacter pylori : présent chez environ deux tiers des ulcères gastriques ; gastrite chronique active, atrophie progressive",
+            "AINS et aspirine : première cause chez le sujet âgé ; inhibition des prostaglandines protectrices, lésions directes",
+            "Facteurs favorisants : tabac (retard de cicatrisation), alcool, stress, dénutrition",
+            "Ulcères rares ou suspects : adénocarcinome gastrique (à éliminer systématiquement), lymphome gastrique de type MALT, syndrome de Zollinger-Ellison, maladie de Crohn gastrique"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Particularité : l'ulcère gastrique « bénin » et le cancer gastrique ulcéré peuvent être cliniquement et endoscopiquement indiscernables. Seule l'histologie tranche — et elle exige des biopsies nombreuses (au moins six, sur les quatre quadrants et le fond de l'ulcère) car la composante maligne peut être focale."
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La douleur épigastrique est typiquement déclenchée ou majorée par les repas, sans rythme « à jeun » comme dans l'ulcère duodénal ; elle s'accompagne souvent d'anorexie, de nausées et d'une perte de poids, signes qui doivent alerter sur une éventuelle malignité. L'évolution est chronique par poussées. Chez le sujet âgé sous AINS, la présentation est fréquemment atone : anémie hypochrome inexpliquée, méléna isolé, voire absence totale de douleur.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen clé est la fibroscopie œso-gastro-duodénale (FOGD) : elle localise l'ulcère (petite courbure, angle, antre, fundus), apprécie sa taille et son aspect, et surtout permet des biopsies systématiques et multiples — au moins six prélèvements sur les berges et le fond — pour l'étude histologique (caractère bénin, recherche de H. pylori, dysplasie, malignité). En l'absence d'endoscopie, le transit œso-gastro-duodénal baryté montre une niche ulcéreuse gastrique mais ne permet aucune certitude histologique : toute image ulcéreuse gastrique constatée au transit impose, dès que possible, une vérification endoscopique avec biopsies."
+        },
+        {
+          "type": "paragraph",
+          "text": "La recherche de H. pylori accompagne toujours l'endoscopie : histologie et test rapide à l'uréase sur biopsies (antrum et fundus car l'atteinte fundique peut fausser les tests antraux isolés) ; en l'absence d'endoscopie, test respiratoire à l'urée ou antigène stoolaire. Une numération formule sanguine recherche une anémie ; aucun bilan tumoral extensif n'est nécessaire si l'histologie est bénigne."
+        },
+        {
+          "type": "paragraph",
+          "text": "Complications révélatrices : hématémèse et méléna (hémorragie, plus fréquente que dans l'ulcère duodénal du fait de l'âge et des AINS), douleur brutale en coup de poignard avec abdomen de bois (perforation, parfois scellée par l'épiploon), vomissements post-prandiaux avec clapotage (sténose antro-pylorique). Signes de gravité évocateurs d'un cancer : masse épigastrique, adénopathie de Troisier ou ombilicale, altération de l'état général, anémie profonde.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Douleur épigastrique déclenchée ou majorée par les repas, anorexie, perte de poids",
+            "FOGD + biopsies multiples (≥ 6) : examen indispensable avant tout traitement d'un ulcère gastrique",
+            "Recherche systématique de H. pylori (histologie, test à l'uréase sur biopsies antrales et fundiques)",
+            "Transit baryté : alternative radiologique, sans valeur histologique",
+            "Signes d'alerte de malignité : masse épigastrique, adénopathie sus-claviculaire gauche, anémie profonde, amaigrissement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement associe un antisécrétoire et, le cas échéant, l'éradication de Helicobacter pylori, mais il ne débute qu'après biopsies ayant affirmé le caractère bénin de l'ulcère. Cicatriser sans éliminer un cancer gastrique est l'erreur la plus grave de cette maladie.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Antisécrétoire : IPP à double dose (oméprazole 20 mg matin et soir ou équivalent) pendant 6 à 8 semaines — plus longtemps que pour l'ulcère duodénal car la cicatrisation gastrique est plus lente. Si l'ulcère est lié aux AINS, leur arrêt est la mesure la plus efficace ; s'ils sont indispensables (douleur chronique), les remplacer par du paracétamol, ou poursuivre l'IPP en co-prescription de prévention."
+        },
+        {
+          "type": "paragraph",
+          "text": "Éradication de H. pylori : quadrithérapie de 10 à 14 jours recommandée par la Haute Autorité de Santé (IPP double dose + trois antibiotiques, dont amoxicilline) ou trithérapie adaptée aux moyens locaux selon les protocoles de service ; dans le contexte malgache, des schémas génériques à base d'amoxicilline et de métronidazole sont souvent retenus. L'éradication réduit fortement le risque de récidive et le risque de cancer gastrique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Contrôle obligatoire : une FOGD de contrôle est systématique à l'issue du traitement (6 à 8 semaines), avec biopsies multiples si l'ulcère n'est pas cicatrisé, pour éliminer formellement un cancer ulcéré et vérifier la guérison. Un ulcère gastrique résistant au traitement après deux cures bien conduites doit faire évoquer un cancer ou un Zollinger-Ellison et conduire à un avis spécialisé."
+        },
+        {
+          "type": "paragraph",
+          "text": "Complications : l'hémorragie impose une hémostase endoscopique en urgence (injection adrénalinée, clip), un relais par IPP intraveineux à forte dose et la transfusion si nécessaire ; la perforation relève de la chirurgie en urgence (suture simple le plus souvent) ; la sténose peut bénéficier de dilatation endoscopique ou d'une chirurgie de résection. L'exérèse chirurgicale de l'ulcère gastrique bénin est aujourd'hui exceptionnelle, réservée aux complications."
+        },
+        {
+          "type": "list",
+          "items": [
+            "IPP double dose 6 à 8 semaines, arrêt des AINS",
+            "Éradication de H. pylori si l'infection est documentée (quadrithérapie 10–14 jours ou schéma local)",
+            "FOGD de contrôle systématique à la fin du traitement, avec biopsies si cicatrisation incomplète",
+            "Hémorragie : hémostase endoscopique urgente, IPP IV à forte dose, transfusion",
+            "Perforation : chirurgie en urgence ; sténose : dilatation ou chirurgie",
+            "Toujours éliminer un adénocarcinome gastrique avant de conclure à un ulcère bénin"
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention de la récidive repose sur l'éradication documentée de H. pylori, l'éviction des AINS et l'arrêt du tabac. Chez tout patient nécessitant un traitement anti-inflammatoire au long cours, un IPP de prévention est systématiquement associé, notamment après 65 ans ou en cas d'antécédent ulcéreuse hémorragique."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention du cancer gastrique passe par le traitement de l'infection à H. pylori : son éradication, recommandée par la Haute Autorité de Santé précisément pour prévenir ulcère et cancer chez l'adulte, réduit l'incidence des lésions précancéreuses. L'hygiène des collectivités (eau potable, assainissement, lavage des mains) reste la stratégie de fond de la maîtrise de la prévalence à Madagascar."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suivi : revoir le patient après le traitement pour vérifier la cicatrisation endoscopique et l'observance ; contrôler l'éradication de H. pylori après un ulcère compliqué ou récidivant. Éduquer le patient sur les signes d'alerte : hématémèse, méléna, douleur brutale intense, vomissements alimentaires, amaigrissement — tout signe nouveau imposant une consultation rapide."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'ulcère gastrique chronique se soigne aujourd'hui comme le duodénal : antisécrétoire et éradication de Helicobacter pylori. Mais il s'en distingue par une règle absolue : toute perte de substance gastrique impose des biopsies multiples avant traitement, et une endoscopie de contrôle à la fin de la cure. À Madagascar, où H. pylori et cancer de l'estomac sont fréquents, cette règle est vitale : traiter par antisécrétoire un cancer ulcéré sans histologie retarde le diagnostic d'une maladie curable au stade précoce. La vigilance sur les complications — hémorragie, perforation, sténose — demeure, car elles touchent des patients plus âgés et plus fragiles."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Manuel MSD, édition professionnelle — Ulcère gastroduodénal",
+            "Haute Autorité de Santé — Helicobacter pylori : traiter pour prévenir ulcère et cancer de l'estomac chez l'adulte",
+            "FMC-HGE — Helicobacter pylori : diagnostic, indications et modalités d'éradication",
+            "PubMed — Séroprévalence de l'infection à Helicobacter pylori dans la population malgache"
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hémorragie ulcéreuse",
+      "text": "Hématémèse ou méléna chez un ulcéreux : hospitalisation urgente, deux voies veineuses, remplacement volémique prudent (cible modeste de tension), FOGD pour hémostase endoscopique dans les 24 heures, puis IPP intraveineux à forte dose. Sujet âgé sous AINS : grande prudence au remplissage."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Perforation ulcéreuse",
+      "text": "Douleur épigastrique brutale en coup de poignard, contracture générale, abdomen de bois, état de choc : urgence chirurgicale absolue. Ne jamais se contenter d'un traitement médical de l'ulcère devant ce tableau, et ne pas retarder la décision opératoire pour un examen complémentaire discutable."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe : biopsier avant de traiter",
+      "text": "Devant toute perte de substance gastrique à l'endoscopie : biopsies multiples (au moins six, berges et fond) avant tout traitement antisécrétoire, et FOGD de contrôle à 6–8 semaines avec nouvelles biopsies si la cicatrisation est incomplète. Aucun ulcère gastrique n'est bénin tant que l'histologie n'est pas rendue."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Douleur déclenchée par les repas + anorexie ou amaigrissement = ulcère gastrique jusqu'à preuve du contraire. IPP double dose 6–8 semaines + éradication de H. pylori + arrêt des AINS, et contrôle endoscopique systématique avec biopsies."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Mémo : piège du transit baryté",
+      "text": "Une niche ulcéreuse gastrique vue au transit baryté n'est jamais un diagnostic définitif : sans biopsie, un cancer ulcéré peut avoir exactement le même aspect. Toute image ulcéreuse au transit impose, dès que possible, une endoscopie avec prélèvements histologiques."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Différencier ulcère gastrique et duodénal",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Déclenchée par les repas : douleur de l'ulcère gastrique (majeure à jeun : duodénal)"
+        },
+        {
+          "key": "A",
+          "term": "Âge : 55–65 ans (gastrique) vs 30–50 ans (duodénal)"
+        },
+        {
+          "key": "B",
+          "term": "Biopsies obligatoires (gastrique) — jamais nécessaires d'emblée (duodénal)"
+        },
+        {
+          "key": "C",
+          "term": "Contrôle endoscopique systématique (gastrique)"
+        }
+      ]
+    },
+    {
+      "label": "Complications de l'ulcère gastrique",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hémorragie (la plus fréquente, sujet âgé sous AINS)"
+        },
+        {
+          "key": "P",
+          "term": "Perforation (abdomen de bois)"
+        },
+        {
+          "key": "S",
+          "term": "Sténose antro-pylorique (vomissements, clapotage)"
+        },
+        {
+          "key": "M",
+          "term": "Malignité : la complication à éliminer par l'histologie"
+        }
+      ]
+    },
+    {
+      "label": "Signes d'alerte de malignité",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Amaigrissement et anorexie"
+        },
+        {
+          "key": "M",
+          "term": "Masse épigastrique palpable"
+        },
+        {
+          "key": "D",
+          "term": "Dysphagie ou vomissements récents"
+        },
+        {
+          "key": "E",
+          "term": "Épanchement (adénopathie sus-claviculaire gauche, ombilicale) ou anémie profonde"
+        }
+      ]
+    },
+    {
+      "label": "Traitement de l'ulcère gastrique",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Biopsier d'abord (éliminer un cancer)"
+        },
+        {
+          "key": "I",
+          "term": "IPP double dose, 6–8 semaines"
+        },
+        {
+          "key": "E",
+          "term": "Éradiquer H. pylori si documenté"
+        },
+        {
+          "key": "C",
+          "term": "Contrôler par FOGD à la fin de la cure, avec biopsies si non cicatrisé"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition de l'ulcère gastrique chronique ?",
+      "back": "Perte de substance de la paroi gastrique franchissant la musculeuse, le plus souvent sur la petite courbure ou l'angle gastrique, évoluant par poussées récidivantes."
+    },
+    {
+      "id": "f2",
+      "front": "Règle absolue devant tout ulcère gastrique ?",
+      "back": "Biopsies systématiques et multiples (au moins six, sur les berges et le fond) avant tout traitement, pour éliminer un adénocarcinome ulcéré ; l'aspect endoscopique ne suffit jamais."
+    },
+    {
+      "id": "f3",
+      "front": "Deux grandes causes de l'ulcère gastrique ?",
+      "back": "Helicobacter pylori (environ deux tiers des cas) et les anti-inflammatoires non stéroïdiens / aspirine (première cause chez le sujet âgé)."
+    },
+    {
+      "id": "f4",
+      "front": "Différence physiopathologique avec l'ulcère duodénal ?",
+      "back": "Sécrétion acide normale ou diminuée avec défense muqueuse défaillante (gastrique) vs hypersécrétion acide induite par la gastrite antrale (duodénal) ; la cicatrisation gastrique est plus lente."
+    },
+    {
+      "id": "f5",
+      "front": "Caractéristique de la douleur de l'ulcère gastrique ?",
+      "back": "Douleur épigastrique déclenchée ou majorée par les repas, souvent accompagnée d'anorexie, de nausées et d'un amaigrissement ; sans rythme à jeun."
+    },
+    {
+      "id": "f6",
+      "front": "Présentation atone de l'ulcère gastrique ?",
+      "back": "Surtout chez le sujet âgé sous AINS : anémie hypochrome isolée, méléna, ou absence totale de douleur ; d'où l'intérêt de la FOGD devant toute anémie inexpliquée."
+    },
+    {
+      "id": "f7",
+      "front": "Examen diagnostique de référence ?",
+      "back": "La FOGD avec biopsies multiples (≥ 6) et recherche de H. pylori sur biopsies antrales et fundiques (histologie, test rapide à l'uréase)."
+    },
+    {
+      "id": "f8",
+      "front": "Limite du transit baryté dans l'ulcère gastrique ?",
+      "back": "Il montre la niche ulcéreuse mais ne donne aucune certitude histologique : un cancer ulcéré peut avoir le même aspect ; toute image ulcéreuse impose une endoscopie avec biopsies dès que possible."
+    },
+    {
+      "id": "f9",
+      "front": "Traitement antisécrétoire de l'ulcère gastrique ?",
+      "back": "IPP à double dose (oméprazole 20 mg × 2/jour) pendant 6 à 8 semaines, plus longtemps que pour l'ulcère duodénal, avec arrêt des AINS."
+    },
+    {
+      "id": "f10",
+      "front": "Quand proposer l'éradication de H. pylori ?",
+      "back": "Dès que l'infection est documentée chez un patient porteur d'ulcère gastrique : quadrithérapie 10–14 jours (ou trithérapie adaptée selon les protocoles), pour prévenir la récidive et le cancer gastrique."
+    },
+    {
+      "id": "f11",
+      "front": "Pourquoi une FOGD de contrôle est-elle systématique ?",
+      "back": "Pour vérifier la cicatrisation et éliminer formellement un cancer : si l'ulcère n'est pas cicatrisé, de nouvelles biopsies sont indispensables ; un ulcère résistant après deux cures fait suspecter un cancer ou un Zollinger-Ellison."
+    },
+    {
+      "id": "f12",
+      "front": "Signes d'alerte de malignité devant un ulcère gastrique ?",
+      "back": "Masse épigastrique, adénopathie sus-claviculaire gauche ou ombilicale, altération de l'état général, anémie profonde, ulcère ne cicatrisant pas."
+    },
+    {
+      "id": "f13",
+      "front": "Trois complications aiguës de l'ulcère gastrique ?",
+      "back": "Hémorragie (la plus fréquente, favorisée par l'âge et les AINS), perforation (coup de poignard, abdomen de bois) et sténose antro-pylorique (vomissements tardifs, clapotage)."
+    },
+    {
+      "id": "f14",
+      "front": "Prise en charge d'une hémorragie d'origine gastrique ?",
+      "back": "Hospitalisation urgente, remplacement volémique prudent, FOGD dans les 24 heures avec hémostase endoscopique (injection adrénalinée, clip), puis IPP intraveineux à forte dose et transfusion si besoin."
+    },
+    {
+      "id": "f15",
+      "front": "Prévention de la récidive de l'ulcère gastrique ?",
+      "back": "Éradication documentée de H. pylori, arrêt des AINS (IPP de prévention si indispensables), arrêt du tabac, contrôle endoscopique de la cicatrisation."
+    },
+    {
+      "id": "f16",
+      "front": "Pourquoi l'éradication de H. pylori est-elle un geste de prévention du cancer ?",
+      "back": "L'infection chronique entretient la gastrite atrophique, lésion précancéreuse gastrique ; l'éradication réduit l'incidence des ulcères et du cancer de l'estomac — recommandation de la Haute Autorité de Santé."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Ulcère gastrique chronique"
+    },
+    "branches": [
+      {
+        "id": "b1",
+        "label": "Définition et particularités",
+        "children": [
+          {
+            "id": "b1a",
+            "label": "Perte de substance gastrique franchissant la musculeuse, petite courbure et angle"
+          },
+          {
+            "id": "b1b",
+            "label": "Sécrétion acide normale ou basse : défaut de défense muqueuse"
+          },
+          {
+            "id": "b1c",
+            "label": "Cicatrisation plus lente que le duodénal"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l1",
+            "label": "Sujet plus âgé : 55–65 ans"
+          },
+          {
+            "id": "l2",
+            "label": "Part plus grande des AINS"
+          }
+        ]
+      },
+      {
+        "id": "b2",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "b2a",
+            "label": "Helicobacter pylori (≈ 2/3 des cas)"
+          },
+          {
+            "id": "b2b",
+            "label": "AINS et aspirine (sujet âgé)"
+          },
+          {
+            "id": "b2c",
+            "label": "À éliminer : adénocarcinome ulcéré, lymphome MALT, Zollinger-Ellison"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l3",
+            "label": "Tabac et alcool retardent la cicatrisation"
+          }
+        ]
+      },
+      {
+        "id": "b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "b3a",
+            "label": "Douleur déclenchée par les repas + anorexie, amaigrissement"
+          },
+          {
+            "id": "b3b",
+            "label": "FOGD + biopsies multiples (≥ 6) : jamais de traitement sans histologie"
+          },
+          {
+            "id": "b3c",
+            "label": "Recherche de H. pylori : histologie, test à l'uréase (antrum + fundus)"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l4",
+            "label": "Anémie isolée du sujet âgé sous AINS"
+          }
+        ]
+      },
+      {
+        "id": "b4",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "b4a",
+            "label": "Hémorragie : hémostase endoscopique urgente"
+          },
+          {
+            "id": "b4b",
+            "label": "Perforation : chirurgie en urgence"
+          },
+          {
+            "id": "b4c",
+            "label": "Sténose : dilatation ou chirurgie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l5",
+            "label": "Malignité : la « complication » à éliminer par les biopsies"
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "label": "Traitement et suivi",
+        "children": [
+          {
+            "id": "b5a",
+            "label": "IPP double dose 6–8 semaines + arrêt AINS"
+          },
+          {
+            "id": "b5b",
+            "label": "Éradication H. pylori : quadrithérapie 10–14 j ou schéma local"
+          },
+          {
+            "id": "b5c",
+            "label": "FOGD de contrôle avec biopsies si cicatrisation incomplète"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "l6",
+            "label": "Éducation : signes d'alerte hématémèse, méléna, douleur brutale"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Peptic Ulcer Disease",
+      "citation": "Manuel MSD, édition professionnelle — chapitre Gastrite et ulcère gastroduodénal",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/troubles-gastro-intestinaux/gastrite-et-ulc%C3%A8re-gastroduod%C3%A9nal/ulc%C3%A8re-gastroduod%C3%A9nal",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "définition",
+        "diagnostic",
+        "traitement",
+        "complications"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Helicobacter pylori : traiter pour prévenir ulcère et cancer de l'estomac chez l'adulte",
+      "citation": "Haute Autorité de Santé — recommandation diffusée en 2025",
+      "organization": "Haute Autorité de Santé",
+      "year": 2025,
+      "version": "Fiche de bon usage",
+      "url": "https://www.has-sante.fr/jcms/pprd_2974257/fr/helicobacter-pylori-traiter-pour-prevenir-ulcere-cancer-chez-l-adulte",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "éradication",
+        "prévention du cancer gastrique"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Helicobacter pylori : diagnostic, indications et modalités d'éradication",
+      "citation": "FMC HGE — formation médicale continue en hépato-gastroentérologie",
+      "organization": "FMC-HGE",
+      "year": 2022,
+      "version": "Texte post-universitaire",
+      "url": "https://www.fmcgastro.org/texte-postu/postu-2022/helicobacter-pylori-diagnostic-indications-et-modalites-deradication/",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "modalités d'éradication",
+        "suivi"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Seroprevalence of Helicobacter pylori infection in Malagasy population",
+      "citation": "Étude de séroprévalence de l'infection à Helicobacter pylori dans la population malgache — PubMed",
+      "organization": "PubMed",
+      "year": 2007,
+      "version": "Article indexé",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17402699/",
+      "verifiedAt": "2026-11-01",
+      "usedFor": [
+        "épidémiologie à Madagascar"
+      ]
+    }
+  ]
+}

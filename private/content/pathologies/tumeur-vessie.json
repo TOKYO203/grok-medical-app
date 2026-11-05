@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "tumeur-vessie",
+  "title": "Tumeur de la vessie",
+  "specialty": "Urologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la démarche devant une hématurie : diagnostic de la tumeur vésicale (cytologie, cystoscopie, scanner uro-TDM), classification TVNIM et TVIM, et les principes thérapeutiques : résection transurétrale, instillations de BCG ou chimiothérapie intravésicale pour les tumeurs n'infiltrant pas le muscle, cystectomie et chimiothérapie pour les tumeurs infiltrant le muscle.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 18,
+    "specialty": "Urologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 18,
+      "localNumber": 18,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Tumeur de la vessie",
+      "specialty": "Urologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur les tumeurs de la vessie : circonstances de découverte (hématurie macroscopique totale, indolore, spontanément résolutive ; syndrome de miction accompagné, infections urinaires à répétition) ; facteurs de risque (tabac, exposition professionnelle aux amines aromatiques, cyclophosphamide, schistosomiase pour le carcinome épidermoïde) ; bilan : cytologie urinaire, cystoscopie et résection endoscopique (double résection pour les TVIM), uro-TDM pour le bilan d'extension, classification OMS 2022 ; histologie : carcinome urothélial (majoritaire), épidermoïde ; distinction TVNIM (superficielles : résection puis instillations de mitomycine ou BCG selon le risque) et TVIM (cystectomie avec dérivation urinaire et chimiothérapie à base de cisplatine) ; surveillance cystoscopique prolongée (récidives fréquentes).",
+    "verificationNotes": "Contenu aligné sur les recommandations du comité de cancérologie de l'Association française d'urologie (CC-AFU) et les fiches ameli/InfoCancer.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La tumeur de la vessie est la tumeur urologique la plus fréquente après celle de la prostate ; elle se révèle le plus souvent par une hématurie macroscopique chez un homme de plus de 60 ans, fumeur ; c'est un cancer dont la prise en charge dépend d'un seul critère : l'infiltration ou non du muscle détrusor."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux mondes : les tumeurs n'infiltrant pas le muscle (TVNIM), traitées par résection endoscopique et instillations, avec des récurrences fréquentes nécessitant une surveillance à vie ; et les tumeurs infiltrant le muscle (TVIM), dont le traitement est la cystectomie avec chimiothérapie."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Épidémiologie et présentation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tumeur de l'adulte (âge médian autour de 70 ans), prédominance masculine ; premier signe : hématurie macroscopique totale, indolore, spontanément résolutive (il ne faut jamais la banaliser même si elle cède) ; parfois troubles mictionnels (pollakiurie, urgenturie) ou infections urinaires récidivantes ; forme schistosomienne (bilharziose) : carcinome épidermoïde chez le sujet jeune venant de zones d'endémie.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Facteurs de risque : tabagisme (le principal, actif ou passé), expositions professionnelles (teintures, amines aromatiques, caoutchouc, peintures), cyclophosphamide, irradiation pelvienne, schistosomiase (carcinome épidermoïde), cystites chroniques et sonde à demeure.",
+            "95 pour cent des tumeurs primitives sont des carcinomes urothéliaux ; environ 70 à 75 pour cent sont non infiltrantes au diagnostic, mais le risque de récidive et de progression est élevé."
+          ],
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Physiopathologie et classification",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Carcinogenèse urothéliale multifocale : la muqueuse urothéliale est exposée aux carcinogènes urinaires (tabac, amines) : tumeurs multiples et récidivantes.",
+            "Classification : TVNIM (pTa, pTis ou carcinome in situ, pT1 sous-urothélial) et TVIM (pT2 muscle, pT3 graisse péri-vésicale, pT4 organes de voisinage) ; grades OMS 2022 (bas grade, haut grade).",
+            "Le carcinome in situ : plaque veloutée rouge, haut grade, haut risque de progression : BCG intravésical obligatoire."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant toute hématurie macroscopique (et microscopique après 40 ans) : cytologie urinaire, échographie vésicale et rénale (masse, retentissement sur le haut appareil), cystoscopie (examen clé : localise et décrit la ou les tumeurs), puis résection transurétale de vessie (RTUV) : geste diagnostique et thérapeutique, avec muscle dans la résection ; uro-TDM (ou uro-IRM) pour le bilan d'extension (paroi, graisse, ganglions, haut appareil).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le bilan d'extension des TVIM : uro-TDM thoraco-abdomino-pelvien, scintigraphie osseuse si signes d'appel, bilan pré-opératoire (cardio-respiratoire, fonction rénale) ; en contexte d'hématurie, éliminer les autres causes : calcul, tumeur du rein ou des voies urinaires, infection, troubles de la coagulation.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "TVNIM : résection transurétrale complète (avec muscle), une seconde résection pour les tumeurs de haut grade, pT1 ou incomplètes ; instillation précoce unique de mitomycine après résection à faible risque ; instillations de BCG (induction puis entretien) pour les tumeurs de moyen et haut risque et le carcinome in situ ; surveillance par cystoscopie et cytologie régulière, adaptée au risque.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "TVIM : cystectomie radicale avec curage ganglionnaire pelvien et dérivation urinaire (bricker ou néovessie) chez les patients opérables ; chimiothérapie néoadjuvante à base de cisplatine (si fonction rénale adéquate) ; pour les patients inopérables : radiochimiothérapie ou résection palliative ; formes métastatiques : chimiothérapie à base de cisplatine puis immunothérapie ; dans tous les cas : sevrage tabagique et prise en charge multidisciplinaire (réunion de concertation pluridisciplinaire).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : sevrage tabagique actif (et éviction du tabagisme passif), protection professionnelle contre les amines aromatiques, lutte contre la schistosomiase dans les zones d'endémie (traitement de l'infection et assainissement de l'eau) ; prévention secondaire : ne jamais banaliser une hématurie macroscopique même transitoire, examens de contrôle rigoureux chez les patients traités (récidives possibles tardives)."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Devant une hématurie macroscopique totale et indolore, penser tumeur vésicale jusqu'à preuve du contraire : cytologie, cystoscopie, résection et uro-TDM ; les TVNIM relèvent d'une résection soigneuse et d'instillations selon le risque, avec une surveillance cystoscopique prolongée ; les TVIM relèvent d'une cystectomie avec chimiothérapie néoadjuvante à base de cisplatine ; le tabac est le premier facteur de risque : le sevrage fait partie du traitement.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hématurie : sémiologie (programme Sémiologie).",
+            "Fiche syndrome du bas appareil urinaire.",
+            "Fiche infections urinaires.",
+            "Fiche schistosomiase : carcinome épidermoïde."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hématurie macroscopique de l'adulte",
+      "text": "Toute hématurie macroscopique, surtout totale, indolore et résolutive, chez un sujet de plus de 40 ans : tumeur de la vessie jusqu'à preuve du contraire, même si le saignement cède et même après antibiothérapie."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Rétention ou hématurie abondante",
+      "text": "Une tumeur peut se compliquer de rétention vésicale (caillots) ou d'une anémie : drainage, lavages vésicaux, transfusion si nécessaire, puis bilan sans délai."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Hématurie : préciser le moment du saignement dans les urines (initiale urétrale, terminale vésicale, totale vésicale ou rénale), l'âge, le tabagisme, les expositions professionnelles ; toujours un examen cytobactériologique, une cytologie, une échographie et une cystoscopie."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "TVNIM : résection + BCG ou mitomycine selon le risque, surveillance à vie. TVIM : cystectomie + curage + cisplatine néoadjuvant. Tabac : premier facteur. Cystoscopie : examen clé. Récidive fréquente : surveillance stricte."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "BCG intravésical",
+      "text": "Induction hebdomadaire puis entretien : c'est le traitement de fond des TVNIM de haut risque et du carcinome in situ ; effets secondaires : cystite, fièvre ; contre-indication : immunodépression, tuberculose évolutive."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Facteurs de risque",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tabac"
+        },
+        {
+          "key": "A",
+          "term": "Amines aromatiques (profession)"
+        },
+        {
+          "key": "C",
+          "term": "Cyclophosphamide"
+        },
+        {
+          "key": "S",
+          "term": "Schistosomiase"
+        }
+      ]
+    },
+    {
+      "label": "Bilan de l'hématurie",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cytologie urinaire"
+        },
+        {
+          "key": "E",
+          "term": "Échographie rénale et vésicale"
+        },
+        {
+          "key": "C",
+          "term": "Cystoscopie"
+        },
+        {
+          "key": "U",
+          "term": "Uro-TDM"
+        }
+      ]
+    },
+    {
+      "label": "TVNIM : traitement",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Résection transurétrale"
+        },
+        {
+          "key": "I",
+          "term": "Instillation précoce mitomycine"
+        },
+        {
+          "key": "B",
+          "term": "BCG si haut risque"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance cystoscopique"
+        }
+      ]
+    },
+    {
+      "label": "TVIM : traitement",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cystectomie radicale"
+        },
+        {
+          "key": "C",
+          "term": "Curage ganglionnaire"
+        },
+        {
+          "key": "D",
+          "term": "Dérivation urinaire"
+        },
+        {
+          "key": "C",
+          "term": "Chimiothérapie cisplatine"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la présentation typique d'une tumeur vésicale ?",
+      "back": "Hématurie macroscopique totale, indolore, spontanément résolutive chez un homme de plus de 60 ans fumeur ; parfois pollakiurie, urgenturie ou infections urinaires récidivantes."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le principal facteur de risque du carcinome urothélial ?",
+      "back": "Le tabagisme (actif ou passé) ; viennent ensuite les expositions professionnelles aux amines aromatiques (teinture, caoutchouc, peinture), le cyclophosphamide et l'irradiation pelvienne."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle tumeur est associée à la schistosomiase ?",
+      "back": "Le carcinome épidermoïde de la vessie, chez des patients plus jeunes venant de zones d'endémie bilharzienne (le carcinome urothélial reste le type le plus fréquent globalement)."
+    },
+    {
+      "id": "f4",
+      "front": "Comment classer les tumeurs vésicales ?",
+      "back": "TVNIM : pTa (mucosale), pTis (carcinome in situ), pT1 (sous-urothéliale) ; TVIM : pT2 (muscle), pT3 (graisse péri-vésicale), pT4 (organes voisins) ; grade bas ou haut (OMS 2022)."
+    },
+    {
+      "id": "f5",
+      "front": "Quel est l'examen clé du diagnostic ?",
+      "back": "La cystoscopie : visualise la ou les tumeurs (nombre, taille, aspect pédiculé ou infiltrant, siège) ; elle est complétée par la résection transurétrale qui fournit l'histologie et le stade."
+    },
+    {
+      "id": "f6",
+      "front": "Pourquoi faut-il du muscle dans la résection ?",
+      "back": "Sans muscle détrusor dans le spécimen, impossible de distinguer TVNIM et TVIM : la résection doit être profonde ; une seconde résection est indiquée si le muscle est absent ou la résection incomplète."
+    },
+    {
+      "id": "f7",
+      "front": "Quel bilan d'extension pour une TVIM ?",
+      "back": "Uro-TDM thoraco-abdomino-pelvien (paroi, ganglions, haut appareil, métastases), bilan pré-opératoire cardio-respiratoire et rénal ; scintigraphie osseuse si signes d'appel."
+    },
+    {
+      "id": "f8",
+      "front": "Quelle place de la cytologie urinaire ?",
+      "back": "Utile pour le haut grade et le carcinome in situ, et dans la surveillance ; une cytologie positive avec cystoscopie normale impose une exploration du haut appareil et des biopsies."
+    },
+    {
+      "id": "f9",
+      "front": "Quel traitement pour une TVNIM à faible risque ?",
+      "back": "Résection endoscopique complète suivie d'une instillation unique précoce de mitomycine dans les 24 heures ; pas de BCG ; surveillance cystoscopique espacée."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle indication du BCG intravésical ?",
+      "back": "TVNIM de moyen et haut risque (haut grade, pT1, tumeurs multiples, récidives précoces) et carcinome in situ : induction puis entretien pendant un à trois ans."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement d'une TVIM chez un patient opérable ?",
+      "back": "Cystectomie radicale avec curage ganglionnaire pelvien et dérivation urinaire (bricker ou néovessie), précédée d'une chimiothérapie néoadjuvante à base de cisplatine si fonction rénale adéquate."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles options si le patient est inopérable ?",
+      "back": "Radiochimiothérapie exclusive, résection palliative, instillations ou surveillance, selon l'espérance de vie et les comorbidités ; réunion pluridisciplinaire indispensable."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi une surveillance à vie ?",
+      "back": "Les TVNIM récidivent dans 50 à 70 pour cent des cas et peuvent progresser ; la surveillance associe cystoscopie et cytologie à intervalles adaptés au risque, sans relâchement après plusieurs années."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles complications de la cystectomie ?",
+      "back": "Mortalité péri-opératoire faible mais morbidité importante : fuite anastomotique, infection, thrombose, troubles de la sexualité, troubles du réservoir (néovessie) : information et préparation."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle place du sevrage tabagique ?",
+      "back": "Essentielle : le tabac est le premier facteur de risque, la poursuite augmente les récidives et la progression, et aggrave le pronostic après traitement ; le sevrage fait partie du traitement."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle est la particularité du carcinome in situ ?",
+      "back": "Plaque veloutée rouge, de haut grade, non délimitée, à haut risque de progression : BCG intravésical obligatoire ; cytologie souvent fortement positive."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "tv-root",
+      "label": "Tumeur de la vessie"
+    },
+    "branches": [
+      {
+        "id": "tv-b1",
+        "label": "Découverte",
+        "children": [
+          {
+            "id": "tv-b1-c",
+            "label": "Signes d'appel"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tv-b1-l1",
+            "label": "Hématurie totale"
+          },
+          {
+            "id": "tv-b1-l2",
+            "label": "Troubles mictionnels"
+          },
+          {
+            "id": "tv-b1-l3",
+            "label": "Infections récidivantes"
+          },
+          {
+            "id": "tv-b1-l4",
+            "label": "Anémie (rare)"
+          }
+        ]
+      },
+      {
+        "id": "tv-b2",
+        "label": "Facteurs de risque",
+        "children": [
+          {
+            "id": "tv-b2-c",
+            "label": "Terrain"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tv-b2-l1",
+            "label": "Tabac"
+          },
+          {
+            "id": "tv-b2-l2",
+            "label": "Amines aromatiques"
+          },
+          {
+            "id": "tv-b2-l3",
+            "label": "Cyclophosphamide"
+          },
+          {
+            "id": "tv-b2-l4",
+            "label": "Schistosomiase"
+          }
+        ]
+      },
+      {
+        "id": "tv-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "tv-b3-c",
+            "label": "Étapes"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tv-b3-l1",
+            "label": "Cytologie urinaire"
+          },
+          {
+            "id": "tv-b3-l2",
+            "label": "Échographie"
+          },
+          {
+            "id": "tv-b3-l3",
+            "label": "Cystoscopie"
+          },
+          {
+            "id": "tv-b3-l4",
+            "label": "RTUV + uro-TDM"
+          }
+        ]
+      },
+      {
+        "id": "tv-b4",
+        "label": "Classification",
+        "children": [
+          {
+            "id": "tv-b4-c",
+            "label": "Stades"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tv-b4-l1",
+            "label": "pTa, pTis, pT1 : TVNIM"
+          },
+          {
+            "id": "tv-b4-l2",
+            "label": "pT2 à pT4 : TVIM"
+          },
+          {
+            "id": "tv-b4-l3",
+            "label": "Grades OMS 2022"
+          },
+          {
+            "id": "tv-b4-l4",
+            "label": "Extension, ganglions"
+          }
+        ]
+      },
+      {
+        "id": "tv-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "tv-b5-c",
+            "label": "Selon le stade"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "tv-b5-l1",
+            "label": "TVNIM : résection + BCG"
+          },
+          {
+            "id": "tv-b5-l2",
+            "label": "TVIM : cystectomie + cisplatine"
+          },
+          {
+            "id": "tv-b5-l3",
+            "label": "Surveillance à vie"
+          },
+          {
+            "id": "tv-b5-l4",
+            "label": "Sevrage tabagique"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Tumeurs vésicales : référentiel du Collège d'urologie (AFU)",
+      "citation": "AFU — Chapitre 18, Item 311 : tumeurs vésicales (diagnostic, classification, traitement)",
+      "organization": "Association française d'urologie",
+      "year": 2021,
+      "version": "Référentiel",
+      "url": "https://www.urofrance.org/sites/default/files/chapitre_18_item_311_-_ue_9_-_tumeurs_vesicales.pdf",
+      "usedFor": [
+        "classification",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Recommandations du comité de cancérologie de l'AFU : tumeurs de la vessie",
+      "citation": "AFU — Actualisation 2022-2024 du CC-AFU sur les tumeurs vésicales (TVNIM et TVIM)",
+      "organization": "Association française d'urologie",
+      "year": 2023,
+      "version": "Recommandation",
+      "url": "https://www.urofrance.org/recommandation/recommandations-du-comite-de-cancerologie-de-lassociation-francaise-durologie-actualisation-2022-2024-tumeurs-de-la-vessie-infiltrant-le-muscle-tvim-2/",
+      "usedFor": [
+        "recommandations",
+        "BCG",
+        "cystectomie"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Cancer de la vessie : symptômes et diagnostic",
+      "citation": "ameli.fr / InfoCancer — Fiches patient : signes et démarche diagnostique du cancer de la vessie",
+      "organization": "Caisse nationale de l'assurance maladie",
+      "year": 2023,
+      "version": "Fiche grand public",
+      "url": "https://www.ameli.fr/assure/sante/themes/cancer-vessie/symptomes-diagnostic",
+      "usedFor": [
+        "signes",
+        "parcours"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
