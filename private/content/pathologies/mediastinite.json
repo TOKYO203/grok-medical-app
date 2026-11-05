@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "mediastinite",
+  "title": "Médiastinite aiguë odontogène",
+  "subtitle": "Fiche de nosographie — stomatologie et chirurgie thoracique",
+  "objective": "Comprendre la diffusion d'une infection dentaire vers les espaces cervicaux puis le médiastin (médiastinite descendante nécrosante), reconnaître les signes d'alarme au stade cervical, connaître la classification des extensions, et appliquer la double urgence : drainage chirurgical cervical et médiastinal, antibiothérapie, réanimation, et cause dentaire traitée.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 60,
+    "specialty": "Stomatologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 235,
+      "localNumber": 60,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Médiastinite aiguë odontogène",
+      "specialty": "Stomatologie"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir de la revue narrative « Etiology, diagnosis, and management of descending necrotizing mediastinitis » publiée dans Mediastinum en 2025. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche reprend le concept de médiastinite descendante nécrosante : infection oropharyngée ou odontogène diffusant par les espaces cervicaux fasciaux vers le médiastin, avec nécrose et mortalité élevée.",
+      "Le TDM cervico-thoracique est affirmé comme l'examen clé, à demander dès la suspicion devant une cellulite cervicale descendante.",
+      "Aucune posologie d'antibiotique n'est citée : l'antibiothérapie est décrite comme probabiliste à large spectre, adaptée secondairement aux prélèvements.",
+      "Le pronostic dépend du délai de drainage chirurgical combiné (cervical + médiastinal) : la fiche insiste sur le caractère évitable de l'issue fatale quand la diffusion est arrêtée tôt."
+    ],
+    "qcChecklist": [
+      "Voies de diffusion anatomiques couvertes",
+      "Classification des extensions",
+      "Prise en charge chirurgicale décrite",
+      "Source citée avec DOI vérifié"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et anatomie de la diffusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "La médiastinite descendante nécrosante est la diffusion d'une infection des parties molles de la sphère oropharyngée ou odontogène le long des espaces cervicaux jusqu'au médiastin, provoquant une nécrose des tissus, un emphysème, des collections et une septicémie. Le point de départ odontogène (abcès dentaire, péricoronaire, cellulite) est l'une des principales portes d'entrée avec les pharyngites et les amygdalites."
+        },
+        {
+          "type": "paragraph",
+          "content": "La diffusion suit les espaces inter-fasciaux du cou : l'espace viscéral prétrachéal gagne le médiastin antérieur, l'espace rétro-viscéral gagne le médiastin postérieur, et l'espace rétropharyngien forme un couloir direct vers les espaces profonds. La gravité vient de la vitesse de descente et de la nécrose extensive dans des espaces inextensibles."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Toute cellulite cervicale profonde d'origine dentaire descendante doit faire évoquer la médiastinite : la radiographie du cou puis le TDM cervico-thoracique sont demandés sans attendre la fièvre ou l'empoussièrement thoracique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-MEDIASTINUM-DNM-2025",
+          "organization": "Mediastinum",
+          "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "classification",
+      "title": "Classification des extensions",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Extension",
+            "Signification"
+          ],
+          "rows": [
+            [
+              "Type I",
+              "Médiastin antérieur et/ou inférieur (sous la carène)",
+              "Forme classique de l'extension odontogène via l'espace viscéral"
+            ],
+            [
+              "Type IIA",
+              "Médiastin antérieur et supérieur",
+              "Diffusion cervicale basse prédominante"
+            ],
+            [
+              "Type IIB",
+              "Médiastin antérieur et postérieur (diffuse)",
+              "Extension large, pronostic plus sévère, drainage plus extensif nécessaire"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "Cette classification tomodensitométrique guide le choix des voies de drainage : plus l'extension est basse et postérieure, plus le drainage doit être agressif et combiné, y compris par thoracotomie ou vidéothoracoscopie."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-MEDIASTINUM-DNM-2025",
+          "organization": "Mediastinum",
+          "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Terrain : patient avec infection dentaire ou péricoronaire évolutive, parfois négligée ou traitée tardivement, fièvre, douleur cervicale, trismus.",
+            "Stade cervical : tuméfaction douloureuse dure puis crépitante (emphysème sous-cutané), douleur thoracique, dysphagie, voix étouffée.",
+            "Stade médiastinal : douleur rétrosternale, dyspnée, emphysème cervico-thoracique descendant, signes de choc septique (hypotension, oligurie, confusion).",
+            "Biologie : syndrome inflammatoire majeur, hyperleucocytose, syndrome de réponse inflammatoire systémique ; hémocultures et prélèvements peropératoires.",
+            "TDM cervico-thoracique avec injection : examen clé — collections, gaz, infiltration de la graisse médiastinale, extension sous-diaphragmatique éventuelle ; à répéter en cas d'évolution défavorable."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "content": "Emphysème sous-cutané cervical descendant + sepsis + point de départ dentaire = médiastinite jusqu'à preuve du contraire. Le TDM confirme ; le traitement ne l'attend pas."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-MEDIASTINUM-DNM-2025",
+          "organization": "Mediastinum",
+          "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Réanimation du sepsis d'emblée : remplissage, amines si besoin, oxygène, surveillance continue.",
+            "Antibiothérapie probabiliste à large spectre couvrant les streptocoques, anaérobies et bacilles à Gram négatif, adaptée secondairement aux prélèvements (aucune posologie détaillée ici : protocoles institutionnels).",
+            "Drainage chirurgical sans délai : cervicotomie bilatérale pour drainage des espaces cervicaux, associé au drainage médiastinal — par thoracotomie ou vidéothoracoscopie selon l'extension — avec débridement des tissus nécrotiques.",
+            "Résection de la dent cause ou du foyer péricoronaire dans le même temps opératoire.",
+            "Soins répétés : révision des plaies, lavages, drainage aspiratif ; second look programmé si l'évolution n'est pas rapidement favorable.",
+            "Réévaluation tomodensitométrique précoce à la recherche d'une extension résiduelle ou d'un abcès secondaire (péricardique, pleural, sous-diaphragmatique).",
+            "Prise en charge multidisciplinaire : stomatologue, chirurgien thoracique, anesthésiste-réanimateur, réanimateur, radiologue."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "content": "Drainage cervical seul pour une médiastinite descendante est insuffisant : le drainage médiastinal combiné dans le même temps est la règle, chaque heure de retard augmente la mortalité."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-MEDIASTINUM-DNM-2025",
+          "organization": "Mediastinum",
+          "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "pronostic",
+      "title": "Pronostic et prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "La mortalité de la médiastinite descendante nécrosante reste élevée, historiquement jusqu'à un tiers des patients, améliorée par le diagnostic tomodensitométrique précoce et le drainage chirurgical extensif combiné. Les facteurs de mauvais pronostic incluent l'âge, les comorbidités, le retard de prise en charge et l'extension diffuse (type IIB). La prévention primaire est stomatologique : traitement précoce des infections dentaires et péricoronarites, éducation à l'hygiène bucco-dentaire et éviter l'automédication qui masque les signes."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-MEDIASTINUM-DNM-2025",
+          "organization": "Mediastinum",
+          "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+          "year": 2025
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "DESCENDRE",
+      "expansion": "Dent cause identifiée et traitée — Emphysème cervical : signe-roi — Se psis : réanimation d'emblée — Collection : TDM cervico-thoracique — Espaces fasciaux : voies de descente — Ne pas attendre : drainage combiné cervico-médiastinal — Drainage répété et révisé — Réévaluation tomodensitométrique précoce — Équipe multidisciplinaire mobilisée."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Définition de la médiastinite descendante nécrosante ?",
+      "back": "Diffusion d'une infection oropharyngée ou odontogène par les espaces cervicaux fasciaux vers le médiastin, avec nécrose tissulaire et sepsis grave."
+    },
+    {
+      "front": "Portes d'entrée odontogènes typiques ?",
+      "back": "Abcès dentaire, infection péricoronaire (dent de sagesse), cellulite odontogène, parfois après extraction ou traitement tardif."
+    },
+    {
+      "front": "Trois espaces cervicaux de diffusion ?",
+      "back": "L'espace viscéral prétrachéal (médiastin antérieur), l'espace rétro-viscéral (médiastin postérieur) et l'espace rétropharyngien, véritable couloir profond."
+    },
+    {
+      "front": "Signe clinique cervical le plus évocateur ?",
+      "back": "L'emphysème sous-cutané cervical crépitant, descendant vers le thorax, sur un contexte infectieux dentaire."
+    },
+    {
+      "front": "Examen clé du diagnostic ?",
+      "back": "Le TDM cervico-thoracique injecté : collections, gaz, infiltration médiastinale, classification de l'extension."
+    },
+    {
+      "front": "Type I de la classification ?",
+      "back": "Extension au médiastin antérieur et/ou inférieur sous la carène, forme classique de la diffusion odontogène."
+    },
+    {
+      "front": "Erreur chirurgicale classique ?",
+      "back": "Limiter le drainage à la cervicotomie : le drainage médiastinal combiné (thoracotomie ou vidéothoracoscopie) dans le même temps est indispensable."
+    },
+    {
+      "front": "Place de l'antibiothérapie ?",
+      "back": "Probabiliste à large spectre couvrant streptocoques, anaérobies et Gram négatifs, adaptée aux prélèvements, jamais substitutive au drainage."
+    },
+    {
+      "front": "Que faire de la dent cause ?",
+      "back": "Résection ou traitement du foyer dentaire dans le même temps opératoire, sinon la source persiste."
+    },
+    {
+      "front": "Deux complications intrathoraciques à surveiller ?",
+      "back": "Péricardite purulente et pyopneumothorax, plus empoisonnement pleural ou extension sous-diaphragmatique (abcès hépatique)."
+    },
+    {
+      "front": "Facteurs de mauvais pronostic ?",
+      "back": "Retard de drainage, extension type IIB, âge, comorbidités et choc septique installé."
+    },
+    {
+      "front": "Prévention primaire ?",
+      "back": "Prise en charge stomatologique précoce des infections dentaires et péricoronarites, hygiène bucco-dentaire, éviter l'automédication masquant les signes."
+    }
+  ],
+  "mindmap": {
+    "root": "Médiastinite odontogène",
+    "branches": [
+      {
+        "id": "comprendre",
+        "label": "Comprendre",
+        "tone": "retenir",
+        "detail": "Descente par les fascias.",
+        "children": [
+          {
+            "id": "porte",
+            "label": "Porte dentaire",
+            "detail": "Abcès, péricoronaire.",
+            "leaves": [
+              {
+                "id": "c1",
+                "label": "Couloirs",
+                "detail": "Viscéral, rétro-viscéral, rétropharyngien."
+              }
+            ]
+          },
+          {
+            "id": "necrose",
+            "label": "Nécrose",
+            "detail": "Espaces inextensibles.",
+            "leaves": [
+              {
+                "id": "c2",
+                "label": "Vitesse",
+                "detail": "Descente en heures."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "urgence",
+        "detail": "Emphysème + sepsis.",
+        "children": [
+          {
+            "id": "cervical",
+            "label": "Stade cervical",
+            "detail": "Crépitation, douleur, trismus.",
+            "leaves": [
+              {
+                "id": "r1",
+                "label": "TDM",
+                "detail": "Cervico-thoracique injecté, clé."
+              }
+            ]
+          },
+          {
+            "id": "sepsis",
+            "label": "Stade médiastinal",
+            "detail": "Rétrosternal, dyspnée, choc.",
+            "leaves": [
+              {
+                "id": "r2",
+                "label": "Biologie",
+                "detail": "Prélèvements, hémocultures."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "classer",
+        "label": "Classer",
+        "tone": "prudence",
+        "detail": "Types I, IIA, IIB.",
+        "children": [
+          {
+            "id": "t1",
+            "label": "Type I",
+            "detail": "Antérieur et inférieur, odontogène classique.",
+            "leaves": [
+              {
+                "id": "cl1",
+                "label": "Type IIB",
+                "detail": "Diffuse, pronostic sévère."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agir",
+        "label": "Agir",
+        "tone": "reflexe",
+        "detail": "Drainage combiné sans délai.",
+        "children": [
+          {
+            "id": "chirurgie",
+            "label": "Cervicotomie + thoracotomie",
+            "detail": "Même temps opératoire.",
+            "leaves": [
+              {
+                "id": "a1",
+                "label": "Dent cause",
+                "detail": "Réséquée dans le temps."
+              }
+            ]
+          },
+          {
+            "id": "reanimation",
+            "label": "Réanimation",
+            "detail": "Sepsis, remplissage, amines.",
+            "leaves": [
+              {
+                "id": "a2",
+                "label": "Antibiothérapie",
+                "detail": "Large spectre adaptée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Révision et re-TDM.",
+        "children": [
+          {
+            "id": "secondlook",
+            "label": "Second look",
+            "detail": "Si évolution lente.",
+            "leaves": [
+              {
+                "id": "s1",
+                "label": "Complications",
+                "detail": "Péricardite, pyothorax."
+              }
+            ]
+          },
+          {
+            "id": "prevention",
+            "label": "Prévention",
+            "detail": "Soins dentaires précoces.",
+            "leaves": [
+              {
+                "id": "s2",
+                "label": "Éducation",
+                "detail": "Hygiène, pas d'automédication."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-MEDIASTINUM-DNM-2025",
+      "title": "Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review",
+      "citation": "Chaulk RC, Sahai D, Raj L, Nayak R. Etiology, diagnosis, and management of descending necrotizing mediastinitis: a narrative review. Mediastinum 2025 ; 9 : 9. doi:10.21037/med-24-29.",
+      "organization": "Mediastinum",
+      "year": 2025,
+      "url": "https://doi.org/10.21037/med-24-29",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Définition et voies de diffusion",
+        "Classification des extensions",
+        "Diagnostic clinique et tomodensitométrique",
+        "Prise en charge chirurgicale combinée",
+        "Pronostic"
+      ]
+    }
+  ]
+}
