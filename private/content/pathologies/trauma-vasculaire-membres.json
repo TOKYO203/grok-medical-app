@@ -1,0 +1,756 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "trauma-vasculaire-membres",
+  "title": "Traumatisme vasculaire des membres",
+  "subtitle": "Fiche de nosographie — chirurgie vasculaire",
+  "objective": "Reconnaître un traumatisme vasculaire d'un membre devant les signes durs et les signes mous, appliquer la logique de l'ischémie aiguë : revasculariser vite, réparer les structures associées, préserver la vie avant le membre.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 63,
+    "specialty": "Chirurgie vasculaire",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 238,
+      "localNumber": 63,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Traumatisme vasculaire des membres",
+      "specialty": "Chirurgie vasculaire"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir d'une étude de cohorte publiée dans l'European Journal of Vascular and Endovascular Surgery sur l'épidémiologie et le pronostic des traumatismes vasculaires dans un centre de traumatologie majeur, et des principes classiques de réanimation du traumatisé. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La fiche hiérarchise explicitement : la vie avant le membre — l'hémostase et la réanimation précèdent la revascularisation, qui précède la réparation ostéo-articulaire fine.",
+      "Les signes durs (ischémie, pouls abolis, hématome pulsatile, souffle, hémorragie active) sont distingués des signes mous, dont la valeur prédictive impose une surveillance ou une imagerie, non une laparotomie imaginaire du membre.",
+      "L'index de pression systolique (pressions doppler comparées) est présenté comme l'outil simple d'orientation en absence d'imagerie avancée.",
+      "Aucune technique de suture, aucun matériel, aucune posologie d'anticoagulation n'est détaillé : ces choix relèvent des équipes et de l'équipement disponible.",
+      "La restauration du flux doit être rapide : la fiche rappelle la relation entre durée d'ischémie et perte musculaire irréversible, sans fixer de seuil chiffré universel.",
+      "Le syndrome d'ischémie-reperfusion et le syndrome des loges sont présentés comme des complications attendues à anticiper, pas comme des surprises.",
+      "La prophylaxie du tétanos et l'antibioprophylaxie des plaies sont mentionnées comme principes, sans protocole détaillé."
+    ],
+    "qcChecklist": [
+      "Signes durs versus signes mous",
+      "Hémostase et réanimation avant revascularisation",
+      "Index de pression et imagerie selon disponibilité",
+      "Réparation vasculaire et ostéosynthèse : ordre des priorités",
+      "Syndrome des loges et reperfusion à anticiper",
+      "Prévention : tétanos, antibiotiques, réhabilitation"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traumatisme vasculaire des membres regroupe les lésions des artères et des veines par traumatisme ouvert — plaie par arme blanche ou par balle, traumatismes de travail — ou fermé — fractures déplacées, luxations, écrasements. Sa gravité tient à la double menace : l'hémorragie qui tue, et l'ischémie qui ampute."
+        },
+        {
+          "type": "paragraph",
+          "text": "La logique de prise en charge est simple à énoncer et exigeante à appliquer : arrêter l'hémorragie et réanimer, restaurer le flux dans les délais les plus courts, réparer les structures associées — os, nerfs, tendons, peau — puis surveiller le membre qui se reperfuse, car la reperfusion elle-même peut blesser."
+        },
+        {
+          "type": "paragraph",
+          "text": "En contexte de traumatologie, ces lésions s'intègrent dans le polytraumatisme : la décision de tenter la sauvetage d'un membre se discute toujours en regard de l'état global du patient."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "I. Physiopathologie et lésions en cause",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les mécanismes lésionnels sont multiples : plaie directe de l'axe artériel, contusion pariétale avec thrombose ou dissection, étirement lors d'une luxation — genou surtout pour l'artère poplitée —, ou spame vasculaire prolongé. Une lésion artérielle non traitée évolue vers la thrombose, l'ischémie des tissus, puis la nécrose ; le muscle est le tissu le plus fragile face à l'ischémie, et sa destruction libère des toxines qui délètent l'organisme entier."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type de lésion",
+            "Mécanisme typique",
+            "Presentation"
+          ],
+          "rows": [
+            [
+              "Plaie artérielle",
+              "Arme blanche, balle, traumatisme industriel",
+              "Hémorragie extériorisée ou hématome expansif"
+            ],
+            [
+              "Contusion avec thrombose",
+              "Fracture fermée, écrasement",
+              "Ischémie sans plaie : piège du traumatisme fermé"
+            ],
+            [
+              "Dissection ou pseudo-anévrysme",
+              "Déceleration, étirement",
+              "Pouls présents puis ischémie différée ou masse pulsatile"
+            ],
+            [
+              "Fistule artério-veineuse",
+              "Plaie simultanée des deux axes",
+              "Souffre continu, masse battante, signes d'insuffisance cardiaque locale"
+            ],
+            [
+              "Lésion veineuse isolée ou associée",
+              "Plaie profonde, fratricide des axes",
+              "Hémorragie sombre, œdème, risque d'embolie"
+            ],
+            [
+              "Spasme",
+              "Contusion minimale, exposition opératoire",
+              "Ischémie régressive après correction du stimulus"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "Le muscle est l'horloge",
+          "text": "La tolérance du membre à l'ischémie dépend surtout du muscle : c'est lui qui meurt le premier, lui qui libère potassium et myoglobine à la reperfusion, et lui qui décide in fine de la conservation du membre. Chaque heure compte."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "II. Démarche diagnostique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'évaluation suit les principes de la prise en charge du traumatisé : voie veineuse, contrôle hémorragique par pression directe ou garrot, réanimation, puis examen du membre. La classique opposition entre signes durs et signes mous guide la suite."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signes durs (exploration vasculaire indiquée)",
+            "Signes mous (surveillance ou imagerie)"
+          ],
+          "rows": [
+            [
+              "Hémorragie active, hématome expansif ou pulsatile",
+              "Plaie proche d'un axe vasculaire, sans autre signe"
+            ],
+            [
+              "Pouls abolis ou asymétriques",
+              "Hématome stable"
+            ],
+            [
+              "Ischémie : pâleur, marbrures, froideur, douleur, parésie",
+              "Dysesthésies transitoires isolées"
+            ],
+            [
+              "Souffle ou frémissement à l'auscultation du trajet vasculaire",
+              "Choc hypovolémique expliqué par une autre lésion"
+            ],
+            [
+              "Pulsations distales abolies sur index de pression effondré",
+              "Anamnèse de saignement abondant déjà tarri"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes durs : l'exploration vasculaire est indiquée ; l'imagerie ne doit pas la retarder.",
+            "Signes mous : surveillance rapprochée des pouls et de l'examen neurologique, index de pression, imagerie selon disponibilité et évolution.",
+            "Index de pression systolique : comparaison au doppler de la pression du membre traumatisé au membre controlatéral ; une valeur très abaissée évoque une lésion.",
+            "Écho-doppler au lit du patient : utile pour le dépistage quand un opérateur expérimenté est disponible.",
+            "Angiographie par tomodensitométrie : cartographie lésionnelle chez un patient stable ; elle ne fait pas attendre un membre ischémique.",
+            "Radiographie du membre : fractures et corps étrangers, à intégrer au plan opératoire.",
+            "Examen neurologique distal documenté : c'est le nerf qui décidera en partie du pronostic fonctionnel."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ischémie aiguë : le membre décompensé",
+          "text": "Douleur intense, pâleur, froideur, parésie, pouls abolus : l'ischémie constituée impose la revascularisation dans les délais les plus courts ; aucun examen ne doit la retarder. Envisager d'emblée le clampage ou l'exploration en salle."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Un pouls présent n'exclut rien",
+          "text": "Une plaie contusive, une dissection ou une fistule peuvent coexister avec des poux perçus. Devant des signes mous évocateurs, la surveillance doit être active et documentée, répétée dans le temps."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Formes cliniques et pièges",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Lésion de l'artère poplitée : complication redoutée des traumatismes du genou — luxation, fracture du plateau tibial — ; tolérance ischémique faible, taux d'amputation élevé si le diagnostic tarde.",
+            "Lésion de l'artère axillaire ou sous-clavière : traumatismes de l'épaule et du thorax supérieur ; risque hémorragique et neurologique associé (plexus).",
+            "Lésion de l'artère fémorale : plaies de la cuisse, fractures fémorales ; terrain des traumatismes de la circulation.",
+            "Lésion de l'artère humérale : plaies du bras, fractures supracondyliennes chez l'enfant — piège pédiatrique classique.",
+            "Lésion veineuse associée : aggrave le saignement et le œdème, et peut menacer le résultat de la réparation artérielle.",
+            "Traumatisme fermé : l'absence de plaie ne doit pas faire écarter une lésion vasculaire devant toute ischémie ou asymétrie des pouls.",
+            "Syndrome des loges : complication attendue des ischémies reperfusées et des écrasements ; douleur disproportionnée à la mobilisation passive des orteils ou des doigts, compartiment dur."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Genou traumatisé : examiner les pouls, toujours",
+          "text": "Tout traumatisme important du genou — luxation, fracture — impose la vérification des pouls distaux répétée : l'artère poplitée est à quelques millimètres de la liberté de la jambe."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sur le terrain et aux urgences, la priorité est l'hémostase : pression directe, pansement compressif, garrot en cas d'hémorragie non contrôlée, réanimation du choc hypovolémique, bilan des lésions associées. La prophylaxie du tétanos et l'antibioprophylaxie des plaies sont systématiques en présence d'une plaie contaminée."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Étape",
+            "Objectif",
+            "Points de vigilance"
+          ],
+          "rows": [
+            [
+              "Contrôle hémorragique et réanimation",
+              "Arrêter le saignement, restaurer la volémie",
+              "Garrot assume et documenté, horodatage"
+            ],
+            [
+              "Exploration et réparation vasculaire",
+              "Restaurer le flux",
+              "Voie d'abord adaptée, clampage, réparation directe ou greffe veineuse selon la perte de substance"
+            ],
+            [
+              "Ostéosynthèse",
+              "Stabiliser le squelette",
+              "Souvent réalisée autour de la réparation : l'ordre dépend de la stabilité et de l'ischémie"
+            ],
+            [
+              "Fasciotomie",
+              "Prévenir ou traiter le syndrome des loges",
+              "À envisager largement dans les ischémies reperfusées et les écrasements"
+            ],
+            [
+              "Couverture cutanée",
+              "Protéger les réparations",
+              "Plaies parfois différées, avis plastique"
+            ],
+            [
+              "Surveillance postopératoire",
+              "Pouls, coloration, température, douleur, diurèse",
+              "Reperfusion à surveiller : myoglobine, ionogramme, fonction rénale"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La revascularisation doit précéder la reconstruction ostéo-articulaire fine : un membre stabilisé mais ischémique se perd. La réparation fait appel à la suture directe, au patch, ou à l'interposition d'un greffon veineux autologue selon la perte de substance ; les choix techniques relèvent de l'équipe. La fasciotomie prophylactique se discute largement dans les ischémies prolongées, les écrasements et les lésions veineuses associées."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Reperfusion : la vigilance continue",
+          "text": "Après revascularisation, l'ischémie-reperfusion libère potassium et myoglobine : surveiller rythme, ionogramme, diurèse et l'état des loges. Un membre revascularisé peut se perdre par un syndrome des loges négligé."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Discuter du membre, pas seulement avec le scalpel",
+          "text": "Chez un patient instable ou polytraumatisé, la conservation d'un membre dévitalisé peut menacer la vie : la décision d'amputation en urgence existe, elle se prend avec l'équipe et elle doit être expliquée au patient et à sa famille chaque fois que possible."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "V. Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention des traumatismes vasculaires relève de la sécurité routière, du port d'équipements de protection et de la sécurité au travail. Sur le plan médical, la prévention est celle des complications : fasciotomie opportune, anticoagulation de la réparation selon protocole, kinésithérapie précoce, suivi des séquelles neurologiques et de l'œdème chronique."
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi porte sur la perméabilité de la réparation — pouls, index de pression, écho-doppler —, la cicatrisation, la fonction du membre et la réadaptation professionnelle. Les séquelles ischémiques, neurologiques et l'insuffisance veineuse post-lésionnelle justifient une réhabilitation prolongée."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réévaluer, toujours",
+          "text": "Après toute réparation vasculaire, tout changement des pouls, de la coloration ou de la douleur en postopératoire impose une réévaluation immédiate : la thrombose secondaire est une complication précoce classique."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traumatisme vasculaire des membres menace à la fois la vie par l'hémorragie et le membre par l'ischémie. Les signes durs imposent l'exploration sans délai ; les signes mous imposent une surveillance active et documentée."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prise en charge suit un ordre immuable : hémostase et réanimation, revascularisation rapide, stabilisation ostéo-articulaire, fasciotomie à envisager largement, surveillance de la reperfusion. Le pronostic fonctionnel dépend du délai, des lésions nerveuses associées et du syndrome des loges."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cette fiche est en attente de relecture médicale et doit être confrontée au protocole national avant toute utilisation en soins."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références essentielles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les références ci-dessous ont été vérifiées à la date indiquée."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre. European Journal of Vascular and Endovascular Surgery 2012. doi:10.1016/j.ejvs.2012.05.013."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-EJVS-VASCTRAUMA-2012",
+          "organization": "European Journal of Vascular and Endovascular Surgery",
+          "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+          "year": 2012,
+          "url": "https://doi.org/10.1016/j.ejvs.2012.05.013"
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "mn-durs",
+      "label": "HARD 5",
+      "intro": "Les signes durs : explorer, pas imager",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hémorragie : active, extériorisée, ou hématome expansif et pulsatile."
+        },
+        {
+          "key": "A",
+          "term": "Absence de pouls distal, asymétrie franche."
+        },
+        {
+          "key": "R",
+          "term": "Rétention ischémique : pâleur, froideur, marbrures, parésie, douleur."
+        },
+        {
+          "key": "D",
+          "term": "Doppler : souffle ou frémissement sur le trajet artériel."
+        },
+        {
+          "key": "5",
+          "term": "5 signes pour une seule conduite : exploration vasculaire sans délai."
+        }
+      ],
+      "note": "Devant un signe dur, l'imagerie ne doit jamais retarder l'exploration : le muscle ne peut pas attendre le scanner."
+    },
+    {
+      "id": "mn-ordre",
+      "label": "SAUVÉ",
+      "intro": "L'ordre des priorités du membre traumatisé",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Stopper l'hémorragie : pression, garrot, réanimation."
+        },
+        {
+          "key": "A",
+          "term": "Anticiper le tétanos et l'antibioprophylaxie des plaies."
+        },
+        {
+          "key": "U",
+          "term": "Urgence de la revascularisation : flux avant ostéosynthèse fine."
+        },
+        {
+          "key": "V",
+          "term": "Vérifier les loges : fasciotomie largement envisagée."
+        },
+        {
+          "key": "É",
+          "term": "Évaluer la reperfusion : pouls, ionogramme, myoglobine, diurèse."
+        }
+      ],
+      "note": "Un membre bien réparé sur le plan vasculaire peut se perdre par un syndrome des loges négligé."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels sont les signes durs d'une lésion vasculaire d'un membre ?",
+      "back": "Hémorragie active ou hématome expansif/pulsatile, pouls abolis, ischémie (pâleur, froideur, parésie), souffle ou frémissement vasculaire.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Que faire devant des signes durs ?",
+      "back": "Explorer le vaisseau chirurgicalement sans délai ; l'imagerie ne doit pas retarder la revascularisation.",
+      "tags": [
+        "urgence"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Que sont les signes mous et quelle est leur conduite ?",
+      "back": "Plaie proche d'un axe, hématome stable, dysesthésies transitoires : surveillance rapprochée des pouls, index de pression, imagerie selon évolution.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quel examen simple oriente vers une lésion en absence d'imagerie avancée ?",
+      "back": "L'index de pression systolique au doppler, comparé au membre controlatéral.",
+      "tags": [
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle artère est menacée par un traumatisme du genou ?",
+      "back": "L'artère poplitée, notamment lors des luxations et fractures du plateau tibial.",
+      "tags": [
+        "formes"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quelle est la première priorité devant un traumatisme vasculaire hémorragique ?",
+      "back": "L'hémostase — pression directe ou garrot — et la réanimation du choc hypovolémique.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "La revascularisation précède-t-elle l'ostéosynthèse ?",
+      "back": "Oui : le flux se restaure avant la reconstruction ostéo-articulaire fine, sauf instabilité majeure empêchant la réparation.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quels matériaux de réparation vasculaire sont utilisés ?",
+      "back": "Suture directe, patch, ou interposition d'un greffon veineux autologue selon la perte de substance — choix technique d'équipe.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Pourquoi pratiquer une fasciotomie ?",
+      "back": "Pour prévenir ou traiter un syndrome des loges, particulièrement après ischémie reperfusée, écrasement ou lésion veineuse associée.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Quels sont les signes du syndrome des loges ?",
+      "back": "Douleur disproportionnée et majorée par la mobilisation passive, compartiment dur, paresthésies, puis déficit et pouls conservés tardivement.",
+      "tags": [
+        "complications"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quels paramètres surveiller après revascularisation ?",
+      "back": "Pouls et coloration du membre, douleur, ionogramme (potassium), myoglobine, diurèse et fonction rénale.",
+      "tags": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Un pouls présent élimine-t-il une lésion vasculaire ?",
+      "back": "Non : dissection, fistule artério-veineuse ou lésion contusive peuvent coexister avec des pouls perçus.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "Quand envisager une amputation en urgence ?",
+      "back": "Quand le membre est dévitalisé et que sa conservation menace la vie d'un patient instable ; décision d'équipe, expliquée à la famille.",
+      "tags": [
+        "traitement"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Traumatisme vasculaire des membres",
+      "detail": "Lésion artérielle et/ou veineuse d'un membre par traumatisme ouvert ou fermé. L'hémorragie tue, l'ischémie ampute : l'ordre des priorités décide du pronostic."
+    },
+    "branches": [
+      {
+        "id": "menaces",
+        "label": "Menaces",
+        "tone": "urgence",
+        "detail": "Double risque vital et fonctionnel.",
+        "children": [
+          {
+            "id": "hemorragie",
+            "label": "Hémorragie",
+            "detail": "Choc hypovolémique, hématome expansif.",
+            "leaves": [
+              {
+                "id": "he-1",
+                "label": "Garrot",
+                "detail": "Assumé, documenté, horodaté."
+              }
+            ]
+          },
+          {
+            "id": "ischemie",
+            "label": "Ischémie",
+            "detail": "Muscle = tissu le plus fragile.",
+            "leaves": [
+              {
+                "id": "is-1",
+                "label": "Délai",
+                "detail": "Chaque heure compte."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diagnostic",
+        "label": "Diagnostiquer",
+        "tone": "reflexe",
+        "detail": "Signes durs contre signes mous.",
+        "children": [
+          {
+            "id": "durs",
+            "label": "Signes durs",
+            "detail": "Hémorragie, pouls abolus, ischémie, souffle.",
+            "leaves": [
+              {
+                "id": "du-1",
+                "label": "Explorer",
+                "detail": "Sans imagerie qui retarde."
+              }
+            ]
+          },
+          {
+            "id": "mous",
+            "label": "Signes mous",
+            "detail": "Plaie proche d'un axe, hématome stable.",
+            "leaves": [
+              {
+                "id": "mo-1",
+                "label": "Surveiller",
+                "detail": "Index de pression, répétition."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lesions",
+        "label": "Lésions",
+        "tone": "retenir",
+        "detail": "Artères cibles et pièges.",
+        "children": [
+          {
+            "id": "poplitee",
+            "label": "Poplitée",
+            "detail": "Luxation et traumatisme du genou.",
+            "leaves": [
+              {
+                "id": "po-1",
+                "label": "Pouls",
+                "detail": "À vérifier à chaque examen du genou."
+              }
+            ]
+          },
+          {
+            "id": "autres",
+            "label": "Autres axes",
+            "detail": "Axillaire, fémorale, humérale (supracondylienne de l'enfant).",
+            "leaves": [
+              {
+                "id": "au-1",
+                "label": "Fermé",
+                "detail": "Pas de plaie n'exclut pas la lésion."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "urgence",
+        "detail": "Hémostase, flux, squelette, loges.",
+        "children": [
+          {
+            "id": "revask",
+            "label": "Revasculariser",
+            "detail": "Suture, patch, greffon veineux.",
+            "leaves": [
+              {
+                "id": "re-1",
+                "label": "Avant ostéo",
+                "detail": "Le flux précède la reconstruction fine."
+              }
+            ]
+          },
+          {
+            "id": "fascio",
+            "label": "Fasciotomie",
+            "detail": "Ischémie reperfusée, écrasement, lésion veineuse.",
+            "leaves": [
+              {
+                "id": "fa-1",
+                "label": "Loges",
+                "detail": "Douleur à la mobilisation passive."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Reperfusion et réhabilitation.",
+        "children": [
+          {
+            "id": " reperfusion",
+            "label": "Reperfusion",
+            "detail": "Ionogramme, myoglobine, diurèse, pouls.",
+            "leaves": [
+              {
+                "id": "rp-1",
+                "label": "Thrombose",
+                "detail": "Complication précoce à dépister."
+              }
+            ]
+          },
+          {
+            "id": "reeducation",
+            "label": "Réadaptation",
+            "detail": "Séquelles nerveuses, œdème, fonction.",
+            "leaves": [
+              {
+                "id": "ra-1",
+                "label": "Perméabilité",
+                "detail": "Index de pression, écho-doppler."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-EJVS-VASCTRAUMA-2012",
+      "title": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre",
+      "citation": "Epidemiology and Outcome of Vascular Trauma at a British Major Trauma Centre. European Journal of Vascular and Endovascular Surgery 2012. doi:10.1016/j.ejvs.2012.05.013.",
+      "organization": "European Journal of Vascular and Endovascular Surgery",
+      "year": 2012,
+      "url": "https://doi.org/10.1016/j.ejvs.2012.05.013",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Épidémiologie",
+        "Signes durs et mous",
+        "Pronostic",
+        "Organisation de la prise en charge"
+      ]
+    }
+  ]
+}
