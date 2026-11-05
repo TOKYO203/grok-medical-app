@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hypoglycemie",
+  "title": "Hypoglycémie",
+  "specialty": "Endocrinologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la reconnaissance et la prise en charge de l'hypoglycémie chez l'adulte : triade de Whipple, signes neuroglucopéniques et adrénergiques, seuils diagnostiques, resucage immédiat (voie orale ou veineuse selon la conscience), puis démarche étiologique (traitement du diabète, insuline exogène, insulome, sepsis, insuffisance hépatique ou surrénale, alcool), avec les particularités de l'hypoglycémie sévère et de la recherche d'une cause organique.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 37,
+    "specialty": "Endocrinologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 37,
+      "localNumber": 37,
+      "sectionLabel": "Sémiologie",
+      "title": "Hypoglycémie",
+      "specialty": "Endocrinologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée à l'hypoglycémie : glycémie inférieure à 0,6 gramme par litre (3,3 millimoles) avec triade de Whipple (signes, glycémie basse, régression après resucage) ; signes adrénergiques (sueurs, tremblements, faim, tachycardie) puis neuroglucopéniques (troubles visuels, confusion, convulsions, coma) ; premier geste : resucage immédiat, voie orale si conscience conservée, glucose intraveineux sinon, puis prévention de la récidive ; étiologies : erreur thérapeutique du diabétique (cause la plus fréquente), jeûne prolongé avec alcool, insuffisance hépatique ou surrénale, sepsis, insulome (hypoglycémie de jeûne avec insuline et peptide C non abaissés), factitious ; bilan étiologique orienté.",
+    "verificationNotes": "Contenu aligné sur les recommandations françaises : triade de Whipple, resucage immédiat par glucose, démarche étiologique de l'hypoglycémie organique.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypoglycémie se définit par une glycémie inférieure à 0,6 gramme par litre (3,3 millimoles par litre), confirmée par la triade de Whipple : signes cliniques évocateurs, glycémie basse documentée au moment des signes, régression complète après resucage."
+        },
+        {
+          "type": "paragraph",
+          "text": "Chez le diabétique traité, l'hypoglycémie est la complication aiguë la plus fréquente ; chez le non-diabétique, elle impose une recherche étiologique, dominée par l'alcool et le jeûne, avant d'évoquer l'insulome."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Signes adrénergiques (premiers, sauf sous bêtabloquant) : sueurs, tremblements, palpitations, faim, anxiété, pâleur ; signes neuroglucopéniques : troubles visuels et de la parole, difficultés de concentration, confusion, troubles du comportement, convulsions, coma ; hypothermie possible.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Hypoglycémie sévère : nécessitant l'aide d'un tiers (coma, confusion) ; chez le diabétique : seuil d'alerte variable selon le contrôle glycémique ; hypoglycémies répétées : perte de la sensation d'alerte, risque de mort subite ; l'hypoglycémie du jeûne (à distance des repas) est plus suspecte d'une cause organique que l'hypoglycémie réactionnelle post-prandiale.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Terrain : diabète traité (insuline, sulfamides), insuffisance rénale ou hépatique, alcool, dénutrition, cancer, grossesse, sport intensif.",
+            "Signes associés : amaigrissement, douleur abdominale (insulinome), prise médicamenteuse (sulfamides, insuline, quinine), sueurs profuses, signes d'insuffisance surrénale (mélodermie, hypotension)."
+          ],
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Liées au traitement du diabète : insuline (erreur de dose, horaires, exercice, jeûne, alcool), sulfamides hypoglycémiants, insuffisance rénale (accumulation) ; cause la plus fréquente.",
+            "Jeûne et alcool : hypoglycémie du buveur jeûnant (blocage de la néoglucogenèse), dénutrition, anorexie.",
+            "Causes organiques : insuffisance hépatique sévère, insuffisance surrénale, hypopituitarisme, sepsis et infections graves, défaillance cardiaque, insuffisance rénale terminale.",
+            "Insulinome : tumeur des cellules bêta pancréatiques, hypoglycémies de jeûne, Whipple Clinique (crises à jeun, glycémie < 0,4 g, insuline et peptide C non freinés), syndrome d'insuline auto-immune.",
+            "Causes médicamenteuses et toxiques : sulfamides, quinine, pentamidine, salicylés en surdose, insuline ou sulfamides à visée factice.",
+            "Rares : défauts enzymatiques, cachexie, pathologies surrénaliennes, grossesse."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Au moment des signes : glycémie capillaire confirmée au laboratoire si possible, et surtout prélèvement conservé : insuline, peptide C, corps cétoniques, cortisol, lactates, alcoolémie : dosage fait au moment de la crise qui oriente tout le bilan étiologique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Démarche : diabétique connu : erreur de dose, horaires des injections et repas, exercice, insuffisance rénale ; non-diabétique : contexte de jeûne, alcool, médicaments ; si hypoglycémie de jeûne inexpliquée : épreuve de jeûne de 48 à 72 heures sous surveillance hospitalière, dosages couplés insulinémie-peptide C (élevés : insulinome ou sulfamides ; effondrés : cause extrapancréatique), anticorps anti-insuline ; imagerie pancréatique (écho-endoscopie, résonance) et calcium stimulé si insulinome suspecté ; bilan des insuffisances d'organe (cortisol au matin, hépatique, rénal).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Coma hypoglycémique",
+          "text": "Glycémie capillaire devant tout coma ou malaise, toute convulsion : glucose intraveineux immédiat si Trouble de conscience ; ne jamais attendre le résultat biologique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resucage immédiat : si conscience conservée : sucre oral (trois morceaux ou boisson sucrée, puis collation glucidique) ; si trouble de conscience : jamais de voie orale (fausse route), glucose intraveineux (sérum glucosé hypertonique), réévaluation glycémique à quinze minutes, relais par perfusion glucosée et surveillance, recherche de la cause, resucage répété si récidive ; glucagon intramusculaire alternative en préhospitalier.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Prévention de la récidive chez le diabétique : éducation (reconnaissance des signes, autosurveillance, adaptation des doses à l'activité et aux repas), adaptation du traitement (revue des sulfamides et de l'insuline), prise en compte de l'insuffisance rénale, encadrement des jeûnes (ramadan, préopératoire), kit de resucage à disposition.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement étiologique : insulinome : localisation (écho-endoscopie, résonance) puis chirurgie (énucléation), diazoxide ou analogues de la somatostatine en attente ou si inopérable ; hypoglycémies organiques : traitement de la cause (sepsis, insuffisance surrénale : hydrocortisone, hépatique, alcool : sevrage et renutrition) ; causes médicamenteuses : arrêt du médicament en cause ; formes factices : abord psychiatrique conjoint."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Éducation thérapeutique du diabétique insulino-traité (autosurveillance, adaptation, signes d'alerte), vigilance lors des infections, des jeûnes et de l'exercice, correction des erreurs de dose, suivi de la fonction rénale, information des proches sur le resucage, port d'une carte de diabétique."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypoglycémie est une urgence diagnostique et thérapeutique : triade de Whipple, glycémie capillaire devant tout malaise, coma ou convulsion, resucage immédiat par voie orale ou intraveineuse selon la conscience. Chez le diabétique, elle traduit le plus souvent une erreur thérapeutique ; chez le non-diabétique, les hypoglycémies de jeûne imposent un bilan complet avec dosages couplés insuline-peptide C et épreuve de jeûne, pour dépister l'insulinome et les insuffisances d'organe.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche diabete-type-1 et diabete-type-2 — terrain.",
+            "Fiche diabete-acidocetose — complication métabolique aiguë.",
+            "Fiche insuff-surrenale-aigue — cause d'hypoglycémie.",
+            "Fiche lipothymie-syncope — malaise et perte de connaissance."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Glycémie capillaire devant tout coma",
+      "text": "Tout coma, malaise, convulsion ou trouble du comportement : glycémie capillaure immédiate ; si basse et conscience altérée : glucose intraveineux sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Jamais de voie orale si conscience altérée",
+      "text": "Risque de fausse route : resucage intraveineux (sérum glucosé hypertonique) ; glucagon intramusculaire possible en attente."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Triade de Whipple (signes, glycémie basse, régression après sucre) ; prélever avant de resucager si possible (insuline, peptide C, cortisol) ; réévaluer à quinze minutes et prévenir la récidive."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Diabétique sous insuline ou sulfamides : erreur de dose ou insuffisance rénale. Jeûne + alcool : hypoglycémie du buveur. Insuline et peptide C non freinés à jeun : insulinome. Cortisol bas : insuffisance surrénale. Fièvre : sepsis."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Signes d'hypoglycémie",
+      "text": "A (sueurs, Adrénergiques : tremblements, faim, palpitations) puis N (Neuroglucopéniques : vision, confusion, convulsions, coma) — le cerveau manque de sucre."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Triade de Whipple",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Signes évocateurs"
+        },
+        {
+          "key": "G",
+          "term": "Glycémie basse documentée"
+        },
+        {
+          "key": "R",
+          "term": "Régression après Resucage"
+        }
+      ]
+    },
+    {
+      "label": "Signes adrénergiques",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sueurs"
+        },
+        {
+          "key": "T",
+          "term": "Tremblements"
+        },
+        {
+          "key": "F",
+          "term": "Faim"
+        },
+        {
+          "key": "P",
+          "term": "Palpitations"
+        }
+      ]
+    },
+    {
+      "label": "Signes neuroglucopéniques",
+      "entries": [
+        {
+          "key": "V",
+          "term": "troubles Visuels"
+        },
+        {
+          "key": "C",
+          "term": "Confusion"
+        },
+        {
+          "key": "C",
+          "term": "Convulsions"
+        },
+        {
+          "key": "C",
+          "term": "Coma"
+        }
+      ]
+    },
+    {
+      "label": "Causes chez le non-diabétique",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Alcool + jeûne"
+        },
+        {
+          "key": "I",
+          "term": "Insulinome"
+        },
+        {
+          "key": "S",
+          "term": "Sepsis, insuffisances d'organe"
+        },
+        {
+          "key": "M",
+          "term": "Médicaments, factice"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Comment définir l'hypoglycémie ?",
+      "back": "Glycémie inférieure à 0,6 gramme par litre (3,3 millimoles) avec signes cliniques, confirmée par la triade de Whipple : signes, glycémie basse au moment des signes, régression complète après resucage."
+    },
+    {
+      "id": "f2",
+      "front": "Quelle est la triade de Whipple ?",
+      "back": "Signes cliniques évocateurs, glycémie basse documentée au moment de la crise, disparition des signes après administration de sucre."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les signes adrénergiques de l'hypoglycémie ?",
+      "back": "Sueurs, tremblements, palpitations, tachycardie, faim intense, anxiété, pâleur : dus à la décharge de catécholamines ; ils peuvent manquer sous bêtabloquant ou après hypoglycémies répétées."
+    },
+    {
+      "id": "f4",
+      "front": "Quels sont les signes neuroglucopéniques ?",
+      "back": "Troubles visuels et de la parole, difficultés de concentration, confusion, troubles du comportement, convulsions, coma : le cerveau privé de glucose ; ils imposent un resucage immédiat."
+    },
+    {
+      "id": "f5",
+      "front": "Quel est le premier geste devant un malaise ?",
+      "back": "La glycémie capillaire, devant tout malaise, coma, convulsion ou trouble du comportement : c'est un geste immédiat, simple, qui oriente tout le reste."
+    },
+    {
+      "id": "f6",
+      "front": "Comment resucager un patient conscient ?",
+      "back": "Sucre oral : trois morceaux de sucre ou une boisson sucrée, puis réévaluation à quinze minutes et collation glucidique complexe pour éviter la rechute."
+    },
+    {
+      "id": "f7",
+      "front": "Comment resucager un patient inconscient ?",
+      "back": "Jamais de voie orale (fausse route) : glucose intraveineux (sérum glucosé hypertonique), réévaluation glycémique, relais par perfusion glucosée ; glucagon intramusculaire en alternative."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce qu'une hypoglycémie sévère ?",
+      "back": "Une hypoglycémie nécessitant l'aide d'un tiers (confusion, coma) : elle est un facteur de mortalité chez le diabétique et impose une hospitalisation et une révision du traitement."
+    },
+    {
+      "id": "f9",
+      "front": "Quelles causes d'hypoglycémie chez le diabétique ?",
+      "back": "Erreur de dose d'insuline ou de sulfamides, repas sauté ou décalé, exercice non compensé, alcool, insuffisance rénale (accumulation des sulfamides et de l'insuline), infections."
+    },
+    {
+      "id": "f10",
+      "front": "Qu'est-ce que l'hypoglycémie du buveur jeûnant ?",
+      "back": "Elle survient après une absorption d'alcool sans repas : l'alcool bloque la néoglucogenèse hépatique et le jeûne épuise le glycogène ; sucré, elle se prévient en mangeant avec l'alcool."
+    },
+    {
+      "id": "f11",
+      "front": "Comment se présente l'insulinome ?",
+      "back": "Hypoglycémies de jeûne (matinales ou à distance des repas), sueurs et malaises récidivants, prise de poids, crises confusionnelles ; insuline et peptide C non freinés malgré la glycémie basse ; diagnostic par épreuve de jeûne et imagerie pancréatique."
+    },
+    {
+      "id": "f12",
+      "front": "Quelle interprétation des dosages insuline-peptide C pendant une hypoglycémie ?",
+      "back": "Élevés : hyperinsulinisme (insulinome, sulfamides, insuline ou factice) ; effondrés : cause extrapancréatique (alcool, insuffisance hépatique ou surrénale, sepsis) : c'est le couple clé du bilan étiologique."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles insuffisances d'organe responsables d'hypoglycémie ?",
+      "back": "Insuffisance hépatique sévère (plus de glycogène ni de néoglucogenèse), insuffisance surrénale (déficit en cortisol), hypopituitarisme, insuffisance rénale terminale, dénutrition et cachexie."
+    },
+    {
+      "id": "f14",
+      "front": "Quel traitement d'un insulinome ?",
+      "back": "Localisation par écho-endoscopie et imagerie, puis chirurgie conservatrice (énucléation) ; diazoxide ou analogues de la somatostatine en attente ou si non opérable ; nutrition fractionnée en relais."
+    },
+    {
+      "id": "f15",
+      "front": "Comment prévenir les récidives chez le diabétique ?",
+      "back": "Éducation (signes d'alerte, autosurveillance glycémique), adaptation des doses à l'activité et aux repas, revue des sulfamides si insuffisance rénale, encadrement des jeûnes, kit de resucage et information des proches."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle épreuve diagnostique devant une hypoglycémie de jeûne inexpliquée ?",
+      "back": "L'épreuve de jeûne de 48 à 72 heures sous surveillance hospitalière avec dosages couplés glycémie, insuline, peptide C et corps cétoniques au moment de la crise : elle objective l'hypoglycémie et en oriente la cause."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "hyp-root",
+      "label": "Hypoglycémie"
+    },
+    "branches": [
+      {
+        "id": "hyp-b1",
+        "label": "Signes",
+        "children": [
+          {
+            "id": "hyp-b1-c",
+            "label": "Deux étages"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hyp-b1-l1",
+            "label": "Adrénergiques (sueurs, tremblements)"
+          },
+          {
+            "id": "hyp-b1-l2",
+            "label": "Neuroglucopéniques (confusion, coma)"
+          },
+          {
+            "id": "hyp-b1-l3",
+            "label": "Triade de Whipple"
+          },
+          {
+            "id": "hyp-b1-l4",
+            "label": "Hypoglycémie sévère"
+          }
+        ]
+      },
+      {
+        "id": "hyp-b2",
+        "label": "Urgence",
+        "children": [
+          {
+            "id": "hyp-b2-c",
+            "label": "Resucage"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hyp-b2-l1",
+            "label": "Glycémie capillaire"
+          },
+          {
+            "id": "hyp-b2-l2",
+            "label": "Oral si conscient"
+          },
+          {
+            "id": "hyp-b2-l3",
+            "label": "Intraveineux si Trouble"
+          },
+          {
+            "id": "hyp-b2-l4",
+            "label": "Réévaluation à 15 minutes"
+          }
+        ]
+      },
+      {
+        "id": "hyp-b3",
+        "label": "Causes",
+        "children": [
+          {
+            "id": "hyp-b3-c",
+            "label": "Chez qui ?"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hyp-b3-l1",
+            "label": "Diabétique : insuline, sulfamides"
+          },
+          {
+            "id": "hyp-b3-l2",
+            "label": "Jeûne + alcool"
+          },
+          {
+            "id": "hyp-b3-l3",
+            "label": "Insulinome"
+          },
+          {
+            "id": "hyp-b3-l4",
+            "label": "Insuffisances d'organe, sepsis"
+          }
+        ]
+      },
+      {
+        "id": "hyp-b4",
+        "label": "Bilan",
+        "children": [
+          {
+            "id": "hyp-b4-c",
+            "label": "Au moment de la crise"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hyp-b4-l1",
+            "label": "Insuline, peptide C"
+          },
+          {
+            "id": "hyp-b4-l2",
+            "label": "Cortisol, corps cétoniques"
+          },
+          {
+            "id": "hyp-b4-l3",
+            "label": "Épreuve de jeûne 48-72 h"
+          },
+          {
+            "id": "hyp-b4-l4",
+            "label": "Imagerie pancréatique"
+          }
+        ]
+      },
+      {
+        "id": "hyp-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "hyp-b5-c",
+            "label": "Au long cours"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "hyp-b5-l1",
+            "label": "Éducation thérapeutique"
+          },
+          {
+            "id": "hyp-b5-l2",
+            "label": "Adaptation des doses"
+          },
+          {
+            "id": "hyp-b5-l3",
+            "label": "Vigilance jeûne, exercice"
+          },
+          {
+            "id": "hyp-b5-l4",
+            "label": "Kit de resucage, proches informés"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Item 240 — Hypoglycémie chez l'adulte et l'enfant",
+      "citation": "Société Française d'Endocrinologie — Recommandations : diagnostic des hypoglycémies organiques",
+      "organization": "Société Française d'Endocrinologie",
+      "year": 2013,
+      "version": "Recommandations",
+      "url": "https://www.sfendocrino.org/item-240-hypoglycemie-chez-ladulte-et-lenfant/",
+      "usedFor": [
+        "bilan",
+        "hypoglycémies organiques"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Hypoglycémie et diabète",
+      "citation": "RecoMédicales — Recommandations : hypoglycémie du diabétique, définition, prise en charge et prévention",
+      "organization": "RecoMédicales",
+      "year": 2026,
+      "version": "Recommandations",
+      "url": "https://recomedicales.fr/recommandations/hypoglycemie-diabetique/",
+      "usedFor": [
+        "définition",
+        "prise en charge"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Hypoglycémie : aide-mémoire de prise en charge en urgence",
+      "citation": "Médecine Cardiovasculaire — Article : hypoglycémie en urgence, resucage et surveillance",
+      "organization": "Médecine Cardiovasculaire (cardiovasc.fr)",
+      "year": 2023,
+      "version": "Aide-mémoire",
+      "url": "https://cardiovasc.fr/articles/hypoglycemie-aide-memoire-de-prise-en-charge-en-urgence",
+      "usedFor": [
+        "urgence",
+        "resucage"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
