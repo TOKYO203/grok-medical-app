@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "myelomes",
+  "title": "Myélomes",
+  "specialty": "Hématologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir le myélome multiple (prolifération clonale de plasmocytes médullaires sécrétant une immunoglobuline monoclonale), connaître les critères diagnostiques (plasmocytose, composant monoclonal, critères CRAB et SLiM), les complications (douleurs osseuses, fractures, hypercalcémie, atteinte rénale, anémie, infections), le bilan et les principes du traitement (bortézomib, immunomodulateurs, autogreffe, bisphosphonates, soins de support).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 94,
+    "specialty": "Hématologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 135,
+      "localNumber": 94,
+      "sectionLabel": "Médecine",
+      "title": "Myélomes",
+      "specialty": "Hématologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur la plus fréquente des hémopathies malignes après les lymphomes : prolifération plasmocytaire médullaire, sécrétion d'immunoglobuline monoclonale, tableau de personne âgée avec douleurs osseuses et complications CRAB, diagnostic par immunofixation et myélogramme, traitement moderne et soins de support. Les autres gammapathies monoclonales de signification indéterminée sont évoquées ; l'hypercalcémie dispose de sa propre fiche.",
+    "verificationNotes": "Critères diagnostiques (plasmocytose médullaire d'au moins 10 % ou plasmocytome, composant monoclonal, critères CRAB et SLiM de la classification internationale de l'Organisation mondiale de la santé 2014) et conduite thérapeutique (bortézomib, immunomodulateurs, autogreffe de cellules souches chez le sujet apte, bisphosphonates) conformes à la Revue du Praticien, à l'Institut Curie et au polycopié Lecofer.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le myélome multiple est une hémopathie maligne caractérisée par la prolifération clonale de plasmocytes dans la moelle osseuse, qui sécrètent une immunoglobuline monoclonale (composant M) détectable dans le sang ou les urines. C'est la seconde hémopathie maligne en fréquence, touchant le sujet âgé (médiane autour de 70 ans)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sa gravité tient aux lésions osseuses (douleurs, fractures, tassements vertébraux), à l'insuffisance rénale, à l'hypercalcémie, à l'anémie et aux infections. Le diagnostic repose sur un triplet simple : plasmocytose médullaire, composant monoclonal et lésions d'organe."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les plasmocytes tumoraux infiltrent la moelle (étirement des os : ostéolyse, douleurs, fractures) et sécrètent une immunoglobuline monoclonale complète (le plus souvent immunoglobuline G) ou une chaîne légère seule (myélome à chaînes légères, protéine de Bence-Jones urinaire). Les chaînes légères sont néphrotoxiques (tubulopathie, insuffisance rénale) ; l'activation des ostéoclastes par les cellules myélomateuses lyse l'os et libère le calcium (hypercalcémie).",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "On distingue le myélome symptomatique (avec critères d'atteinte d'organe, à traiter), le myélome indolent ou smoldering (critères biologiques présents mais sans atteinte d'organe : surveillance), et les gammapathies monoclonales de signification indéterminée (composant monoclonal sans plasmocytose significative : suivi annuel). La moelle des patients est immunodéprimée : infections à germes encapsulés fréquentes.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Formes et facteurs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La cause est inconnue : la maladie résulte d'accumulation d'anomalies génétiques des plasmocytes, avec des translocations caractéristiques ; aucun facteur environnemental établi. L'évolution décrite ci-dessus (gammapathie de signification indéterminée, puis myélome indolent, puis myélome actif) se fait sur des années. Formes particulières : myélome à chaînes légères (rein au premier plan), plasmocytome solitaire (une seule lésion, traitement local), leucémie plasmocytaire (formes avancées avec plasmocytes circulants).",
+          "sources": [
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sujet âgé : médiane autour de 70 ans.",
+            "Myélome symptomatique : critères CRAB ou SLiM présents — à traiter.",
+            "Myélome indolent : surveillance clinique et biologique.",
+            "Gammapathie monoclonale de signification indéterminée : suivi annuel simple.",
+            "Formes particulières : chaînes légères, plasmocytome solitaire."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tableau typique : douleurs osseuses persistantes (rachis, côtes, bassin), inhabituelles pour un sujet âgé, résistantes aux antalgiques simples ; fractures ou tassements vertébraux ; asthénie et pâleur (anémie) ; soif, polyurie, confusion (hypercalcémie) ; infections à répétition (pneumonies, pyélonéphrites). L'examen peut retrouver des déformations rachidiennes, rarement des tuméfactions costales ; la rate n'est pas augmentée.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Biologie : vitesse de sédimentation très accélérée, anémie normochrome, insuffisance rénale, hypercalcémie. Le diagnostic associe trois éléments : 1) composant monoclonal sanguin ou urinaire (électrophorèse et immunofixation des protéines sériques et urinaires, dosage des chaînes légères libres) ; 2) plasmocytose médullaire d'au moins 10 % au myélogramme (ou plasmocytome biopsié) ; 3) critères d'atteinte d'organe CRAB : hyperCalcémie, atteinte Rénale, Anémie, lésions osseuses (plus de une lésion focale) — ou critères SLiM pour les formes récentes. Imagerie : radiographies du squelette (ostéolyse à l'emporte-pièce, ostéoporose), mieux résonance magnétique ou scanner corps entier, évaluation du risque fracturaire.",
+          "sources": [
+            "s1",
+            "s2",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Insuffisance rénale aiguë d'un myélome",
+          "text": "Créatinine en hausse chez un patient myélome : hydratation, correction de l'hypercalcémie, arrêt des néphrotoxiques (anti-inflammatoires, produits de contraste), alkalinisation, bortézomib urgent — avis hématologique et néphrologique."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Seuls les myélomes symptomatiques sont traités. Le traitement de référence associe des protocoles à base de bortézomib (inhibiteur du protéasome) et de dexaméthasone, combinés à des immunomodulateurs (thalidomide, lénalidomide), en triple association ; chez le sujet âgé non éligible à l'autogreffe, des protocoles adaptés au terrain (bortézomib-melphalan-prednisone). Chez le sujet plus jeune et apte, le traitement d'induction est suivi d'une autogreffe de cellules souches hématopoïétiques après chimiothérapie intensive, puis d'un traitement d'entretien. Les nouvelles classes (anticorps monoclonaux anti-CD38 comme le daratumumab) s'ajoutent aux protocoles actuels.",
+          "sources": [
+            "s1",
+            "s4"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Soins de support essentiels : bisphosphonates (acide zolédronique) pour prévenir les complications osseuses et l'hypercalcémie, prévention du syndrome de lyse, antalgiques adaptés, correction de l'anémie (transfusion, érythropoïétine selon protocoles), prévention des infections (vaccinations, immunoglobulines si déficit), kinésithérapie et corset en cas d'atteinte rachidienne, radiothérapie antalgique sur lésions douloureuses ou chirurgie orthopédique (fractures, compression médullaire). Prévention de la nephropathie : hydratation abondante, éviter les néphrotoxiques.",
+          "sources": [
+            "s1",
+            "s3",
+            "s4"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Douleurs osseuses du sujet âgé = myélome jusqu'à preuve du contraire",
+          "text": "Vitesse de sédimentation, électrophorèse des protéines, hémogramme, créatinine, calcémie : cinq examens simples qui font le diagnostic dans la majorité des cas."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention et suivi",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Il n'existe pas de prévention primaire du myélome. La prévention des complications repose sur le diagnostic précoce devant des douleurs osseuses inexpliquées du sujet âgé, la correction de l'hypercalcémie et de la déshydratation, l'éviction des néphrotoxiques, les bisphosphonates systématiques et l'activité physique adaptée.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le suivi du myélome traité comporte : électrophorèse et chaînes légères libres (marqueurs de la maladie résiduelle), hémogramme, fonction rénale, imagerie si signes nouveaux ; la surveillance des gammapathies de signification indéterminée est annuelle et simple (électrophorèse, examen). Éducation du patient : boire abondamment, signaler toute douleur osseuse nouvelle ou fièvre."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le myélome multiple se résume : sujet âgé + douleurs osseuses + anémie + vitesse de sédimentation très élevée = électrophorèse et myélogramme. Le diagnostic associe composant monoclonal, plasmocytose et critères CRAB ; le traitement moderne — bortézomib, immunomodulateurs, autogreffe chez l'apte, bisphosphonates — a transformé le pronostic sans le rendre curatif hors greffe.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Hypercalcémies, Insuffisance rénale aiguë, Anémies hypochromes, Leucémie aiguë, Vih (infections récidivantes)."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Myélome = plasmocytes clonaux + immunoglobuline monoclonale. CRAB : hyperCalcémie, atteinte Rénale, Anémie, lésions osseuses. Diagnostic : immunofixation + myélogramme + imagerie. Traitement : bortézomib-dexaméthasone + immunomodulateurs, autogreffe si apte, bisphosphonates."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hypercalcemies — complication métabolique.",
+            "Fiche insuffisance-renale-aigue — atteinte rénale et urgence.",
+            "Fiche anemies-hypochromes — diagnostic différentiel des anémies.",
+            "Fiche leucemie-aigue — autres hémopathies.",
+            "Fiche infections-cutanees — risque infectieux."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Compression médullaire",
+      "text": "Douleurs rachidiennes + déficit neurologique sous-lésionnel chez un myélome : urgence absolue — imagerie, corticoïdes, radiothérapie ou chirurgie sans délai."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Hypercalcémie menaçante du myélome",
+      "text": "Confusion, déshydratation, calcémie élevée : réhydratation intraveineuse, bisphosphonates, avis hématologique — voir fiche Hypercalcémies."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Douleur osseuse du sujet âgé",
+      "text": "Cinq examens : vitesse de sédimentation, électrophorèse, hémogramme, créatinine, calcémie — jamais de diagnostic de simple ostéoporose sans les avoir écartés."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "CRAB : Calcémie, Rein, Anémie, Bone (os). Immunofixation sanguine et urinaire + myélogramme = diagnostic. Bortézomib au cœur du traitement ; bisphosphonates pour l'os."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Bilan minimum devant une douleur osseuse du sujet âgé",
+      "text": "V pour Vitesse de sédimentation, E pour Électrophorèse, H pour Hémogramme, C pour Créatinine et Calcémie — le quinté du myélome."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Critères CRAB",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Calcémie élevée"
+        },
+        {
+          "key": "R",
+          "term": "Rein : insuffisance rénale"
+        },
+        {
+          "key": "A",
+          "term": "Anémie"
+        },
+        {
+          "key": "B",
+          "term": "Bone : lésions osseuses"
+        }
+      ]
+    },
+    {
+      "label": "Triplet diagnostique",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Monoclonal : composant M sanguin ou urinaire"
+        },
+        {
+          "key": "P",
+          "term": "Plasmocytose médullaire (au moins 10 %)"
+        },
+        {
+          "key": "O",
+          "term": "Organes : critères CRAB ou SLiM"
+        }
+      ]
+    },
+    {
+      "label": "Formes cliniques",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Actif : symptomatique, à traiter"
+        },
+        {
+          "key": "I",
+          "term": "Indolent : surveillance"
+        },
+        {
+          "key": "G",
+          "term": "Gammapathie de signification indéterminée : suivi annuel"
+        },
+        {
+          "key": "S",
+          "term": "Solitaire : plasmocytome, traitement local"
+        }
+      ]
+    },
+    {
+      "label": "Piliers du traitement",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Bortézomib et Bbisphosphonates"
+        },
+        {
+          "key": "I",
+          "term": "Immunomodulateurs (lénalidomide)"
+        },
+        {
+          "key": "G",
+          "term": "Greffe autologue chez le sujet apte"
+        },
+        {
+          "key": "S",
+          "term": "Soins de support : os, rein, anémie, infections"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que le myélome multiple ?",
+      "back": "Une hémopathie maligne caractérisée par la prolifération clonale de plasmocytes médullaires sécrétant une immunoglobuline monoclonale, touchant surtout le sujet âgé."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le composant monoclonal ?",
+      "back": "L'immunoglobuline anormale sécrétée par le clone : immunoglobuline complète le plus souvent (G), ou chaîne légère seule — protéine de Bence-Jones urinaire, néphrotoxique."
+    },
+    {
+      "id": "f3",
+      "front": "Que signifie l'acronyme CRAB ?",
+      "back": "HyperCalcémie, atteinte Rénale, Anémie, lésions osseuses (Bone) : les quatre atteintes d'organe qui définissent le myélome actif."
+    },
+    {
+      "id": "f4",
+      "front": "Quels sont les trois éléments du diagnostic ?",
+      "back": "Composant monoclonal (immunofixation sanguine et urinaire), plasmocytose médullaire d'au moins 10 % au myélogramme, et critères d'atteinte d'organe CRAB ou SLiM."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle est la présentation clinique typique ?",
+      "back": "Douleurs osseuses du rachis, des côtes ou du bassin, fractures et tassements, asthénie et pâleur, soif et confusion, infections à répétition chez un sujet âgé."
+    },
+    {
+      "id": "f6",
+      "front": "Pourquoi la vitesse de sédimentation est-elle très élevée ?",
+      "back": "Parce que l'immunoglobuline monoclonale augmente considérablement la charge protéique du plasma, agglutinant les globules rouges (rouleaux)."
+    },
+    {
+      "id": "f7",
+      "front": "Comment se manifestent les lésions osseuses à la radiographie ?",
+      "back": "Ostéolyse à l'emporte-pièce (crâne typiquement), ostéoporose diffuse, tassements vertébraux ; le scanner ou la résonance magnétique sont plus sensibles."
+    },
+    {
+      "id": "f8",
+      "front": "Comment le myélome abîme-t-il le rein ?",
+      "back": "Par les chaînes légères précipitant dans les tubules (tubulopathie, cylindres), l'hypercalcémie, la déshydratation et l'hyperuricémie — d'où le risque des néphrotoxiques."
+    },
+    {
+      "id": "f9",
+      "front": "Qu'est-ce que la protéine de Bence-Jones ?",
+      "back": "Les chaînes légères libres excrétées dans les urines, détectées par immunofixation urinaire ; elles signent un myélome à chaînes légères, souvent révélateur au rein."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle différence entre myélome indolent et actif ?",
+      "back": "L'indolent (smoldering) a le composant monoclonal et la plasmocytose mais sans atteinte d'organe : surveillance ; l'actif a des critères CRAB ou SLiM : traitement immédiat."
+    },
+    {
+      "id": "f11",
+      "front": "Que devenir des gammapathies monoclonales de signification indéterminée ?",
+      "back": "Un suivi annuel simple (électrophorèse, examen clinique) : une petite proportion évolue vers un myélome ou une autre hémopathie après des années."
+    },
+    {
+      "id": "f12",
+      "front": "Quel est le traitement d'induction de référence ?",
+      "back": "Une triple association à base de bortézomib et dexaméthasone, combinée à un immunomodulateur (lénalidomide, thalidomide) ; daratumumab (anti-CD38) s'y ajoute souvent."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle place pour l'autogreffe ?",
+      "back": "Chez le sujet apte (jeune, en bon état), après l'induction : chimiothéramie intensive puis réinjection de cellules souches autologues, suivie d'un entretien."
+    },
+    {
+      "id": "f14",
+      "front": "Quel rôle jouent les bisphosphonates ?",
+      "back": "Ils réduisent les complications osseuses (fractures, douleurs) et corrigent l'hypercalcémie ; acide zolédronique en pratique courante, avec surveillance dentale."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles mesures protéger le rein du patient myélome ?",
+      "back": "Hydratation abondante permanente, éviter les néphrotoxiques (anti-inflammatoires, produits de contraste), corriger l'hypercalcémie, allopurinol selon protocoles, bortézomib rapide en cas d'insuffisance rénale."
+    },
+    {
+      "id": "f16",
+      "front": "Comment surveiller la maladie sous traitement ?",
+      "back": "Électrophorèse et dosage des chaînes légères libres (marqueurs de réponse), hémogramme, fonction rénale, examen clinique et imagerie si symptômes nouveaux."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "my-root",
+      "label": "Myélome multiple"
+    },
+    "branches": [
+      {
+        "id": "my-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "my-b1-1",
+            "label": "Prolifération plasmocytaire"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "my-l1-1",
+            "label": "Plasmocytes clonaux médullaires"
+          },
+          {
+            "id": "my-l1-2",
+            "label": "Immunoglobuline monoclonale"
+          },
+          {
+            "id": "my-l1-3",
+            "label": "Chaînes légères : Bence-Jones"
+          },
+          {
+            "id": "my-l1-4",
+            "label": "Sujet âgé, seconde hémopathie"
+          }
+        ]
+      },
+      {
+        "id": "my-b2",
+        "label": "Critères CRAB",
+        "children": [
+          {
+            "id": "my-b2-1",
+            "label": "Atteintes d'organe"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "my-l2-1",
+            "label": "Hypercalcémie"
+          },
+          {
+            "id": "my-l2-2",
+            "label": "Insuffisance rénale"
+          },
+          {
+            "id": "my-l2-3",
+            "label": "Anémie"
+          },
+          {
+            "id": "my-l2-4",
+            "label": "Lésions osseuses : fractures, tassements"
+          }
+        ]
+      },
+      {
+        "id": "my-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "my-b3-1",
+            "label": "Examens"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "my-l3-1",
+            "label": "Immunofixation sanguine et urinaire"
+          },
+          {
+            "id": "my-l3-2",
+            "label": "Myélogramme : au moins 10 % de plasmocytes"
+          },
+          {
+            "id": "my-l3-3",
+            "label": "Imagerie osseuse"
+          },
+          {
+            "id": "my-l3-4",
+            "label": "Chaînes légères libres"
+          }
+        ]
+      },
+      {
+        "id": "my-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "my-b4-1",
+            "label": "Protocoles et support"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "my-l4-1",
+            "label": "Bortézomib-dexaméthasone-lénalidomide"
+          },
+          {
+            "id": "my-l4-2",
+            "label": "Autogreffe chez le sujet apte"
+          },
+          {
+            "id": "my-l4-3",
+            "label": "Bisphosphonates pour l'os"
+          },
+          {
+            "id": "my-l4-4",
+            "label": "Soins de support : rein, anémie, infections"
+          }
+        ]
+      },
+      {
+        "id": "my-b5",
+        "label": "Urgences et suivi",
+        "children": [
+          {
+            "id": "my-b5-1",
+            "label": "Vigilance"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "my-l5-1",
+            "label": "Compression médullaire"
+          },
+          {
+            "id": "my-l5-2",
+            "label": "Insuffisance rénale aiguë"
+          },
+          {
+            "id": "my-l5-3",
+            "label": "Hypercalcémie"
+          },
+          {
+            "id": "my-l5-4",
+            "label": "Suivi : électrophorèse, chaînes légères"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Myélome multiple des os",
+      "citation": "La Revue du Praticien — Myélome multiple : critères CRAB et SLiM, myélomes indolents, traitements",
+      "organization": "La Revue du Praticien",
+      "year": 2022,
+      "version": "Article de synthèse",
+      "url": "https://www.larevuedupraticien.fr/article/myelome-multiple-des-os",
+      "usedFor": [
+        "critères diagnostiques",
+        "myélome indolent",
+        "traitements"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Critères diagnostiques du myélome multiple",
+      "citation": "La Revue du Praticien — Outil : critères diagnostiques du myélome multiple",
+      "organization": "La Revue du Praticien",
+      "year": 2022,
+      "version": "Outil pratique",
+      "url": "https://www.larevuedupraticien.fr/outil/criteres-diagnostiques-du-myelome-multiple",
+      "usedFor": [
+        "critères CRAB et SLiM",
+        "seuils diagnostiques"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Symptômes et diagnostic du myélome multiple",
+      "citation": "Institut Curie — Symptômes et diagnostic du myélome multiple",
+      "organization": "Institut Curie",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://curie.fr/symptomes-et-diagnostic-du-myelome-multiple",
+      "usedFor": [
+        "présentation clinique",
+        "bilan diagnostique"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s4",
+      "title": "Myélome multiple des os — cours",
+      "citation": "Lecofer — Myélome multiple des os : myélogramme, imagerie, traitement",
+      "organization": "Lecofer (collège français des enseignants)",
+      "year": 2020,
+      "version": "Polycopié de cours",
+      "url": "http://www.lecofer.org/item-cours-1-28-0.php",
+      "usedFor": [
+        "myélogramme et biopsie ostéomédullaire",
+        "protocoles thérapeutiques"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
