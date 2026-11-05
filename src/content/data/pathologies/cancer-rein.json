@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancer-rein",
+  "title": "Cancer du rein de l'adulte",
+  "specialty": "Urologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la démarche diagnostique du cancer du rein de l'adulte (découverte fortuite sur imagerie, hématurie, triade classique), le bilan d'extension (TDM), la classification anatomique (TNM, Robson) et les principes thérapeutiques : chirurgie conservatrice (néphrectomie partielle) ou élargie (néphrectomie radicale), thérapies ciblées et immunothérapie pour les formes métastatiques.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 20,
+    "specialty": "Urologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 20,
+      "localNumber": 20,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancer du rein de l'adulte",
+      "specialty": "Urologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur le cancer du rein de l'adulte (adénocarcinome à cellules claires dans la majorité des cas) : présentation moderne : découverte fortuite sur une échographie ou un scanner (plus de la moitié des cas), plus rarement hématurie macroscopique, douleur lombaire et masse (triade classique tardive), fièvre, anémie ou polyglobulie, varicocèle gauche ; facteurs de risque : tabac, obésité, hypertension, maladie de von Hippel-Lindau ; bilan : scanner avec injection (caractérise la masse, le thrombus cave, les ganglions), TDM thoracique, fonction rénale ; diagnostic différentiel des masses rénales (kyste bénin, angiomyolipome, métastase, lymphome) ; traitement : néphrectomie partielle (tumeur de moins de 4 à 7 cm, rein unique) ou radicale élargie (tumeurs grosses ou centrales), abord cœlioscopique ou lombotomie, thrombectomie cave si extension ; formes métastatiques : thérapies ciblées (anti-angiogéniques : inhibiteurs de tyrosine kinase) et immunothérapie ; surveillance et préservation de la fonction rénale ; pronostic selon le stade TNM et le grade de Fuhrman.",
+    "verificationNotes": "Contenu aligné sur les recommandations françaises du comité de cancérologie de l'AFU (cancer du rein 2024-2026) et les référentiels collège.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer du rein de l'adulte est un adénocarcinome (carcinome à cellules claires dans 80 à 90 pour cent des cas) ; il est aujourd'hui le plus souvent découvert par hasard sur une imagerie abdominale, à un stade localisé, ce qui a transformé son pronostic."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deux messages : une masse rénale chez l'adulte est un cancer jusqu'à preuve du contraire (le scanner avec injection fait le diagnostic de nature), et la chirurgie conservatrice (néphrectomie partielle) est devenue la référence pour les petites tumeurs, pour préserver la fonction rénale."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Épidémiologie et présentation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deux fois plus fréquent chez l'homme, pic entre 60 et 70 ans ; facteurs de risque : tabac, obésité, hypertension artérielle, dialyse au long cours (reins kystiques), syndrome de von Hippel-Lindau (tumeurs bilatérales, précoces) ; la présentation classique (hématurie, douleur lombaire, masse palpable) est tardive et ne concerne plus qu'une minorité de patients.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes généraux : fièvre, altération de l'état général, anémie inflammatoire, plus rarement polyglobulie (érythropoïétine), hypercalcémie, amylose.",
+            "La triade hématurie-douleur-masse ne doit plus être attendue : le dépistage fortuit par imagerie fait le diagnostic."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Anatomie pathologique et classification",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Carcinome à cellules claires (80 à 90 pour cent), papillaire, chromophobe ; grade nucléaire (Fuhrman ou OMS) et stade TNM déterminants.",
+            "Extension locale : graisse péri-rénale, veine rénale, thrombus dans la veine cave (chirurgical), surrénale ; à distance : poumons (métastases les plus fréquentes), os, foie, cerveau.",
+            "Tumeurs bénignes à ne pas opérer : angiomyolipome (gras au scanner), oncocytome."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une masse rénale solide au scanner avec injection (prise de contraste) est en règle un carcinome : pas de biopsie systématique avant chirurgie, sauf situations particulières (syndrome tumoral, suspicion de lymphome, de métastase) ; bilan pré-opératoire : fonction rénale (créatinine, clairance), scanner thoracique d'extension, écho-Doppler des vaisseaux pour un thrombus cave ; l'imagerie précise la taille, le siège (polaire, central, contact avec la voie excrétrice), le caractère limité ou non.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagnostic différentiel des masses rénales : kyste simple ou compliqué (classification de Bosniak), angiomyolipome (densité graisseuse caractéristique), métastase d'un autre cancer, lymphome, infection focale (tuberculome, abcès) ; en cas de doute, une biopsie scanographique peut être discutée en réunion pluridisciplinaire.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tumeurs localisées : néphrectomie partielle (tumeur de moins de 7 cm, en particulier moins de 4 cm, rein unique, maladie de von Hippel-Lindau) par cœlioscopie ou lombotomie, marge saine, préservation du parenchyme ; néphrectomie radicale élargie (tumeur centrale, grande, avec thrombus cave) avec ou sans surrénalectomie selon le siège ; petites tumeurs du sujet âgé ou fragile : surveillance active ou thermoablation (radiofréquence, cryothérapie).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Formes localement avancées : chirurgie étendue avec thrombectomie cave ; formes métastatiques : néphrectomie ou métastasectomie dans des cas sélectionnés (oligométastatique), thérapies anti-angiogéniques (inhibiteurs de tyrosine kinase : sunitinib, pazopanib, cabozantinib) et immunothérapie (inhibiteurs de points de contrôle, associations) en première ligne ; surveillance : fonction rénale, récidive locale ou métastatique (scanner), suivi à vie ; réunion pluridisciplinaire systématique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention : sevrage tabagique, poids santé, contrôle de l'hypertension artérielle ; dépistage ciblé chez les patients à risque (von Hippel-Lindau, dialyse longue, antécédents familiaux) : échographie régulière ; toute masse rénale découverte fortuitement doit être caractérisée et suivie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le cancer du rein de l'adulte est aujourd'hui découvert le plus souvent par hasard sur une imagerie : une masse rénale solide prenant le contraste est un carcinome jusqu'à preuve du contraire ; le bilan TDM thoraco-abdominal stadifie la maladie ; la néphrectomie partielle est la référence pour les tumeurs localisées de petite taille, la néphrectomie élargie pour les grosses tumeurs ; les formes métastatiques relèvent des thérapies ciblées et de l'immunothérapie ; le pronostic des stades localisés opérés est excellent.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hématurie : sémiologie.",
+            "Fiche colique néphrétique : douleur lombaire.",
+            "Fiche tumeur de la vessie : hématurie de l'adulte.",
+            "Fiche insuffisance rénale chronique : fonction rénale post-opératoire."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Hématurie avec douleur lombaire et masse",
+      "text": "La triade hématurie-douleur-masse du cancer du rein est tardive : son apparition impose un scanner avec injection en urgence : ne jamais se contenter d'un traitement d'infection urinaire."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Thrombus cave",
+      "text": "Un cancer du rein peut s'étendre dans la veine rénale puis la veine cave : œdèmes des membres inférieurs, dilatation veineuse : écho-Doppler, chirurgie spécialisée avec circulation extracorporelle parfois nécessaire."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant une masse lombaire ou une hématurie de l'adulte : examiner les deux reins, prise de tension, hémogramme (polyglobulie), échographie puis scanner avec injection : jamais de diagnostic sur la seule échographie."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Découverte fortuite sur imagerie : la règle. Cellules claires : le type. Scanner avec injection : l'examen clé. Néphrectomie partielle : petites tumeurs. Thérapies ciblées et immunothérapie : formes métastatiques. Métastases : poumons en premier."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Angiomyolipome",
+      "text": "Masse rénale avec composante graisseuse au scanner : tumeur bénigne (angiomyolipome) : pas de chirurgie en dehors des complications (hémorragie) : éviter une néphrectomie inutile."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Triade classique",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Hématurie"
+        },
+        {
+          "key": "D",
+          "term": "Douleur lombaire"
+        },
+        {
+          "key": "M",
+          "term": "Masse palpable"
+        }
+      ]
+    },
+    {
+      "label": "Facteurs de risque",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tabac"
+        },
+        {
+          "key": "O",
+          "term": "Obésité"
+        },
+        {
+          "key": "H",
+          "term": "Hypertension"
+        },
+        {
+          "key": "V",
+          "term": "Von Hippel-Lindau"
+        }
+      ]
+    },
+    {
+      "label": "Extension",
+      "entries": [
+        {
+          "key": "V",
+          "term": "Veine rénale, cave"
+        },
+        {
+          "key": "S",
+          "term": "Surrénale"
+        },
+        {
+          "key": "P",
+          "term": "Poumons"
+        },
+        {
+          "key": "O",
+          "term": "Os, foie, cerveau"
+        }
+      ]
+    },
+    {
+      "label": "Options thérapeutiques",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Partielle (conservatrice)"
+        },
+        {
+          "key": "R",
+          "term": "Radicale élargie"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance, thermoablation"
+        },
+        {
+          "key": "T",
+          "term": "Thérapies ciblées"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel est le type histologique le plus fréquent du cancer du rein de l'adulte ?",
+      "back": "L'adénocarcinome à cellules claires (80 à 90 pour cent) ; viennent ensuite les carcinomes papillaires et chromophobes ; le grade nucléaire et le stade TNM guident le pronostic."
+    },
+    {
+      "id": "f2",
+      "front": "Comment le cancer du rein se découvre-t-il le plus souvent aujourd'hui ?",
+      "back": "Fortuitement, sur une échographie ou un scanner abdominal réalisé pour autre chose ; la triade hématurie-douleur-masse est devenue rare et tardive."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les principaux facteurs de risque ?",
+      "back": "Tabac, obésité, hypertension artérielle, insuffisance rénale dialysée, syndrome de von Hippel-Lindau (tumeurs bilatérales et précoces)."
+    },
+    {
+      "id": "f4",
+      "front": "Quel examen fait le diagnostic de nature d'une masse rénale ?",
+      "back": "Le scanner avec injection : une masse solide prenant le contraste est un carcinome jusqu'à preuve du contraire ; la biopsie n'est pas systématique avant chirurgie, sauf contexte particulier."
+    },
+    {
+      "id": "f5",
+      "front": "Quels syndromes paranéoplasiques du cancer du rein ?",
+      "back": "Polyglobulie (érythropoïétine), hypercalcémie, fièvre, anémie inflammatoire, amylose, hypertension (rénine) : ils peuvent révéler la maladie et régresser après néphrectomie."
+    },
+    {
+      "id": "f6",
+      "front": "Comment classe-t-on les masses rénales liquidiennes ?",
+      "back": "Classification de Bosniak des kystes rénaux au scanner : plus les cloisons et les rehaussements sont nombreux, plus le risque de malignité est élevé (Bosniak 4 : chirurgie)."
+    },
+    {
+      "id": "f7",
+      "front": "Qu'est-ce qu'un angiomyolipome ?",
+      "back": "Une tumeur bénigne du rein contenant de la graisse (densité typique au scanner), parfois associée à une sclérose tubéreuse de Bourneville ; risque hémorragique : pas de néphrectomie sauf complication."
+    },
+    {
+      "id": "f8",
+      "front": "Quel bilan d'extension réaliser ?",
+      "back": "Scanner thoracique (métastases pulmonaires), écho-Doppler des vaisseaux (thrombus cave), fonction rénale (créatinine, clairance), bilan cardiaque avant chirurgie ; scintigraphie osseuse si signes d'appel."
+    },
+    {
+      "id": "f9",
+      "front": "Quand proposer une néphrectomie partielle ?",
+      "back": "Tumeur localisée de petite taille (en particulier moins de 4 cm, jusqu'à 7 cm si techniquement possible), tumeur sur rein unique, maladie de von Hippel-Lindau : elle préserve la fonction rénale avec la même efficacité carcinologique."
+    },
+    {
+      "id": "f10",
+      "front": "Quelles sont les indications de néphrectomie radicale élargie ?",
+      "back": "Tumeurs volumineuses, centrales, avec extension à la graisse, thrombus cave, ou lorsque la chirurgie conservatrice n'est pas réalisable ; elle peut être réalisée par cœlioscopie ou lombotomie."
+    },
+    {
+      "id": "f11",
+      "front": "Quelles options pour un patient fragile avec une petite tumeur ?",
+      "back": "Surveillance active (imagerie répétée) ou thermoablation (radiofréquence, cryothérapie) : alternatives à la chirurgie chez le sujet âgé ou avec comorbidités importantes."
+    },
+    {
+      "id": "f12",
+      "front": "Comment traiter un cancer du rein métastatique ?",
+      "back": "Thérapies anti-angiogéniques (inhibiteurs de tyrosine kinase : sunitinib, pazopanib, cabozantinib) et immunothérapie (inhibiteurs de points de contrôle), souvent en association ; néphrectomie ou métastasectomie dans des cas sélectionnés."
+    },
+    {
+      "id": "f13",
+      "front": "Pourquoi le poumon est-il la première cible métastatique ?",
+      "back": "Le drainage veineux rénal aboutit à la veine cave puis aux poumons : les métastases pulmonaires sont les plus fréquentes (parfois révélatrices), avant l'os, le foie et le cerveau."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle surveillance après traitement ?",
+      "back": "Fonction rénale (créatinine), scanner abdomino-thoracique à intervalles adaptés au stade, recherche de récidive locale, de métastases ou d'une tumeur du rein controlatéral : suivi prolongé."
+    },
+    {
+      "id": "f15",
+      "front": "Quelle est la particularité de la maladie de von Hippel-Lindau ?",
+      "back": "Maladie génétique (chromosome 3) avec cancers du rein bilatéraux et multifocaux, hémangioblastomes, phéochromocytomes : dépistage familial et chirurgie conservatrice impérative."
+    },
+    {
+      "id": "f16",
+      "front": "Quel pronostic du cancer du rein ?",
+      "back": "Excellent pour les stades localisés opérés (survie à 5 ans supérieure à 90 pour cent pour pT1), intermédiaire pour les stades localement avancés, transformé pour les formes métastatiques par les thérapies ciblées et l'immunothérapie."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cr-root",
+      "label": "Cancer du rein de l'adulte"
+    },
+    "branches": [
+      {
+        "id": "cr-b1",
+        "label": "Découverte",
+        "children": [
+          {
+            "id": "cr-b1-c",
+            "label": "Modes de révélation"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cr-b1-l1",
+            "label": "Fortuite (imagerie)"
+          },
+          {
+            "id": "cr-b1-l2",
+            "label": "Hématurie"
+          },
+          {
+            "id": "cr-b1-l3",
+            "label": "Douleur lombaire"
+          },
+          {
+            "id": "cr-b1-l4",
+            "label": "Syndrome paranéoplasique"
+          }
+        ]
+      },
+      {
+        "id": "cr-b2",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "cr-b2-c",
+            "label": "Imagerie"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cr-b2-l1",
+            "label": "Échographie"
+          },
+          {
+            "id": "cr-b2-l2",
+            "label": "Scanner avec injection"
+          },
+          {
+            "id": "cr-b2-l3",
+            "label": "Thorax, vaisseaux"
+          },
+          {
+            "id": "cr-b2-l4",
+            "label": "Fonction rénale"
+          }
+        ]
+      },
+      {
+        "id": "cr-b3",
+        "label": "Différentiel",
+        "children": [
+          {
+            "id": "cr-b3-c",
+            "label": "Masses rénales"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cr-b3-l1",
+            "label": "Kyste (Bosniak)"
+          },
+          {
+            "id": "cr-b3-l2",
+            "label": "Angiomyolipome"
+          },
+          {
+            "id": "cr-b3-l3",
+            "label": "Métastase, lymphome"
+          },
+          {
+            "id": "cr-b3-l4",
+            "label": "Infection focale"
+          }
+        ]
+      },
+      {
+        "id": "cr-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "cr-b4-c",
+            "label": "Chirurgie et systémique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cr-b4-l1",
+            "label": "Néphrectomie partielle"
+          },
+          {
+            "id": "cr-b4-l2",
+            "label": "Néphrectomie radicale"
+          },
+          {
+            "id": "cr-b4-l3",
+            "label": "Surveillance, thermoablation"
+          },
+          {
+            "id": "cr-b4-l4",
+            "label": "Thérapies ciblées, immunothérapie"
+          }
+        ]
+      },
+      {
+        "id": "cr-b5",
+        "label": "Suivi",
+        "children": [
+          {
+            "id": "cr-b5-c",
+            "label": "Pronostic"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cr-b5-l1",
+            "label": "Fonction rénale"
+          },
+          {
+            "id": "cr-b5-l2",
+            "label": "Scanner répété"
+          },
+          {
+            "id": "cr-b5-l3",
+            "label": "Récidive, métastases"
+          },
+          {
+            "id": "cr-b5-l4",
+            "label": "Rein controlatéral"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Recommandations françaises du comité de cancérologie de l'AFU : cancer du rein",
+      "citation": "AFU — Actualisation 2024-2026 : prise en charge du cancer du rein de l'adulte",
+      "organization": "Association française d'urologie",
+      "year": 2024,
+      "version": "Recommandation",
+      "url": "https://www.urofrance.org/recommandation/recommandations-francaises-du-comite-de-cancerologie-de-lafu-actualisation-2024-2026-cancer-du-rein/",
+      "usedFor": [
+        "recommandations",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Tumeurs du rein de l'adulte : référentiel du Collège d'urologie",
+      "citation": "AFU — Chapitre 17, Item 311 : tumeurs du rein de l'adulte",
+      "organization": "Association française d'urologie",
+      "year": 2021,
+      "version": "Référentiel",
+      "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-6eme-edition/chapitre-17-item-311-tumeurs-du-rein-de-ladulte/",
+      "usedFor": [
+        "classification",
+        "chirurgie"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Cancer du rein : recommandations 2026",
+      "citation": "RecoMédicales — Synthèse des recommandations sur le cancer du rein de l'adulte",
+      "organization": "RecoMédicales",
+      "year": 2026,
+      "version": "Synthèse",
+      "url": "https://recomedicales.fr/recommandations/cancer-rein/",
+      "usedFor": [
+        "synthèse",
+        "bilan"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

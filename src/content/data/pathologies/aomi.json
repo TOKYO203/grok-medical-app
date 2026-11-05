@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "aomi",
+  "title": "Artériopathie oblitérante de l'aorte et des membres inférieurs",
+  "specialty": "Chirurgie vasculaire",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser l'artériopathie oblitérante des membres inférieurs (AOMI) : symptômes selon les stades de Leriche et Fontaine, examen clinique des pouls, index de pression systolique (IPS), évaluation du risque cardiovasculaire global, et stratégies thérapeutiques : arrêt du tabac, marche, statines et antiagrégants, revascularisation (chirurgie ou endovasculaire).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 22,
+    "specialty": "Chirurgie vasculaire",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 22,
+      "localNumber": 22,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Artériopathie oblitérante de l'aorte et des membres inférieurs",
+      "specialty": "Chirurgie vasculaire"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sur l'artériopathie oblitérante des membres inférieurs : manifestation périphérique de l'athérosclérose (même terrain que l'infarctus et l'AVC : tabac, diabète, hypertension, dyslipidémie, âge) ; stades de Fontaine : I asymptomatique, II claudication intermittente (douleur de marche soulagée par l'arrêt, stade IIa > 200 m, IIb < 200 m), III douleurs de décubitus (ischémie critique), IV troubles trophiques, ulcères ou gangrène ; Leriche : syndrome de l'aorte terminale (claudication des deux membres + impuissance + abolition des pouls) ; examen : pouls (fémoraux, poplités, pédieux, tibiaux postérieurs), souffles, temps de recoloration, IPS (inférieur à 0,9) ; bilan : IPS et écho-Doppler, angio-IRM ou angio-TDM avant revascularisation, évaluation cardiaque ; traitement : arrêt du tabac, marche (rééducation), statines, antiagrégants, contrôle glycémique et tensionnel ; ischémie critique : revascularisation (pontage ou angioplastie) urgente, amputation si non revascularisable ; pronostic : risque majeur d'infarctus et d'AVC à 5 ans.",
+    "verificationNotes": "Contenu aligné sur les recommandations HAS sur la prise en charge de l'AOMI et les objectifs de réduction du risque cardiovasculaire.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'artériopathie oblitérante des membres inférieurs (AOMI) est la localisation périphérique de l'athérosclérose : elle touche l'aorte, les artères iliaques, fémorales ou des jambes ; c'est un marqueur de risque cardiovasculaire : un patient artériopathe a surtout un risque d'infarctus du myocarde et d'AVC."
+        },
+        {
+          "type": "paragraph",
+          "text": "La clé du suivi : dépister même les formes asymptomatiques (abolition des pouls, IPS abaissé), traiter les facteurs de risque avec la même rigueur qu'après un infarctus, et revasculariser avant que l'ischémie ne devienne critique."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stades de Fontaine : I : asymptomatique (abolition des pouls, parfois froideur du pied) ; II : claudication intermittente (douleur crampoïde du mollet ou de la fesse à la marche, disparaissant à l'arrêt : IIa au-delà de 200 mètres, IIb en deçà) ; III : douleurs de décubitus, soulagées par la jambe pendante ; IV : troubles trophiques (ulcères, gangrène) : ischémie critique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Syndrome de Leriche : atteinte de l'aorte terminale et des iliaques : claudication des deux membres et de la fesse, impuissance, abolition des pouls fémoraux, atrophie des membres ; examen : pouls comparés, souffles abdominaux et fémoraux, temps de recoloration et de remplissage capillaire allongés, peau sèche, ongles épais, absence de poils.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Claudication : douleur d'effort reproduite à distance constante, soulagée en quelques minutes d'arrêt : différencier des douleurs rachidiennes (rupture discale) et veineuses.",
+            "Ischémie critique : douleur de décubitus, ulcère ou gangrène, IPS inférieur à 0,5 : menace du membre : avis vasculaire urgent."
+          ],
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Athérosclérose : cause écrasante (tabac, diabète, hypertension, dyslipidémie, âge, insuffisance rénale) ; plaques obstructives : fémorale superficielle (le plus souvent), aorte et iliaques (Leriche), artères de jambe (diabétique).",
+            "Autres causes à connaître : embolie (ischémie aiguë), artérite inflammatoire, thrombose de pontage, irradiation, entrée poplitée piégée (sportif jeune).",
+            "Le diabète favorise les lésions distales des artères de jambe et les infections du pied : mécanisme des maux perforants."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Clinique : pouls des quatre membres, souffles, temps de recoloration, inspection des pieds (ulcères, fissures, onychopathies) ; index de pression systolique (IPS : pression à la cheville sur pression à l'humérale) : normal supérieur à 0,9, AOMI entre 0,9 et 0,5, ischémie critique en dessous de 0,5 (calcifications chez le diabétique : IPS faussement élevé, utiliser les pressions d'orteil) ; écho-Doppler artériel : localise et grade les sténoses.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Avant revascularisation : cartographie complète par angio-IRM ou angio-TDM (ou artériographie) : anatomie des lésions, lit d'aval, choix entre angioplastie et pontage ; bilan du risque cardiovasculaire : ECG, éventuellement échographie cardiaque et épreuve d'effort, bilan lipidique et glycémie, recherche d'un anévrysme ou d'une atteinte carotidienne associée.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Traitement médical (tous les patients) : arrêt du tabac (premier objectif), marche régulière ou rééducation (la claudication s'améliore avec l'entraînement), statines (objectif LDL bas), antiagrégants plaquettaires (aspirine ou clopidogrel), contrôle de la tension, du diabète et du poids ; soins des pieds (ongles, chaussures, lutte contre l'hyperkératose), vaccinations, éducation : tout patient AOMI est un patient à haut risque cardiovasculaire.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Revascularisation : indiquée si claudication invalidante malgré le traitement médical, ou d'emblée en ischémie critique : angioplastie avec stent (lésions courtes, iliaques) ou pontage (fémoro-poplité, fémoro-distal, aorto-bifémoral) selon la cartographie ; ischémie critique : revascularisation urgente, traitement des plaies, antibiothérapie si infection, amputation mineure (orteil, transmétatarsienne) ou majeure en dernier recours si membre non revascularisable ou patient en impasse thérapeutique ; suivi : IPS, échographie des pontages, persistance du sevrage tabagique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention primaire : ne pas commencer à fumer, traiter tôt les facteurs de risque ; secondaire chez tout artériopathe : sevrage tabagique, statines, antiagrégants, contrôle tensionnel et glycémique, activité physique : réduire le risque d'infarctus, d'AVC et de décès, pas seulement sauver le membre ; soins podologiques rigoureux chez le diabétique."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'AOMI est un marqueur d'athérosclérose diffuse : la claudication s'évalue cliniquement (Fontaine), l'IPS et l'écho-Doppler confirment et localisent ; le traitement médical (tabac, marche, statines, antiagrégants) est le socle et protège le cœur et le cerveau ; la revascularisation (angioplastie ou pontage) est réservée à la claudication invalidante et à l'ischémie critique ; le pronostic vital à cinq ans dépend de la maîtrise des facteurs de risque.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche ischémie aiguë des membres inférieurs : complication.",
+            "Fiche anévrysme de l'aorte abdominale : même terrain.",
+            "Fiche diabète de type 2 : pied diabétique.",
+            "Fiche ulcères de jambe : diagnostic différentiel."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Ischémie critique",
+      "text": "Douleurs de décubitus, ulcère ou gangrène, IPS inférieur à 0,5 : le membre est menacé : avis et revascularisation en urgence, antalgiques, soins des plaies : ne jamais surélevier la jambe."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "AOMI et risque cardiaque",
+      "text": "Un patient AOMI a un risque d'infarctus ou de décès cardiovasculaire à 5 ans majeur : statines, antiagrégants et contrôle des facteurs de risque : traiter le patient, pas seulement la jambe."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant une claudication : palper tous les pouls (fémoraux d'abord), chercher des souffles, prendre la tension aux deux bras, mesurer l'IPS : pas de pouls fémoraux : penser au Leriche ; diabétique : examiner les pieds à chaque consultation."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Fontaine : II claudication, III décubitus, IV trophique. IPS : inférieur à 0,9 AOMI, inférieur à 0,5 critique. Traitement médical pour tous : tabac, marche, statines, antiagrégant. Revascularisation : invalidant ou critique. Tabac : ennemi numéro un."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Douleur du pied la nuit",
+      "text": "Douleur de décubitus soulagée quand le patient laisse pendre le pied au bord du lit : ischémie critique : la jambe ne tolère plus la position horizontale : revasculariser."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Fontaine",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Asymptomatique"
+        },
+        {
+          "key": "II",
+          "term": "Claudication (IIa > 200 m, IIb < 200 m)"
+        },
+        {
+          "key": "III",
+          "term": "Douleurs de décubitus"
+        },
+        {
+          "key": "IV",
+          "term": "Ulcères, gangrène"
+        }
+      ]
+    },
+    {
+      "label": "Leriche",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Claudication des deux membres"
+        },
+        {
+          "key": "I",
+          "term": "Impuissance"
+        },
+        {
+          "key": "A",
+          "term": "Abolition des pouls fémoraux"
+        },
+        {
+          "key": "T",
+          "term": "Atrophie des membres"
+        }
+      ]
+    },
+    {
+      "label": "Facteurs de risque",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Tabac"
+        },
+        {
+          "key": "D",
+          "term": "Diabète"
+        },
+        {
+          "key": "H",
+          "term": "Hypertension"
+        },
+        {
+          "key": "D",
+          "term": "Dyslipidémie"
+        }
+      ]
+    },
+    {
+      "label": "Traitement médical",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sevrage tabagique"
+        },
+        {
+          "key": "M",
+          "term": "Marche"
+        },
+        {
+          "key": "S",
+          "term": "Statines"
+        },
+        {
+          "key": "A",
+          "term": "Antiagrégant"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que l'AOMI ?",
+      "back": "L'artériopathie oblitérante des membres inférieurs : manifestation périphérique de l'athérosclérose des artères de l'aorte aux artères de jambe, marqueur d'un risque cardiovasculaire élevé."
+    },
+    {
+      "id": "f2",
+      "front": "Décrire la claudication intermittente.",
+      "back": "Douleur crampoïde du mollet (ou de la fesse si atteinte iliaque) apparaissant à la marche à distance constante, obligeant à l'arrêt, disparaissant en quelques minutes : stade II de Fontaine."
+    },
+    {
+      "id": "f3",
+      "front": "Quels sont les stades de Fontaine ?",
+      "back": "I asymptomatique, II claudication (IIa au-delà de 200 mètres, IIb en deçà), III douleurs de décubitus, IV troubles trophiques (ulcères, gangrène) ; III et IV définissent l'ischémie critique."
+    },
+    {
+      "id": "f4",
+      "front": "Qu'est-ce que le syndrome de Leriche ?",
+      "back": "Atteinte de l'aorte terminale et des iliaques : claudication des deux membres (fesses et cuisses), impuissance, abolition des pouls fémoraux, membre parfois atrophié : demander un avis vasculaire."
+    },
+    {
+      "id": "f5",
+      "front": "Comment mesurer et interpréter l'IPS ?",
+      "back": "Pression systolique à la cheville divisée par la pression à l'humérale : normal supérieur à 0,9 ; inférieur à 0,9 : AOMI ; inférieur à 0,5 : ischémie critique ; chez le diabétique, les calcifications majorent l'IPS : pressions d'orteil."
+    },
+    {
+      "id": "f6",
+      "front": "Quels signes trophiques de l'ischémie chronique ?",
+      "back": "Peau fine et sèche, dépilation, ongles épais et cassants, hyperkératose, ulcères superficiels et creusants, gangrène sèche des orteils, temps de recoloration allongé."
+    },
+    {
+      "id": "f7",
+      "front": "Quel bilan avant revascularisation ?",
+      "back": "Écho-Doppler complet, puis angio-IRM ou angio-TDM pour cartographier les lésions et le lit d'aval ; bilan cardiaque (ECG, parfois échographie), lipidique et glycémique : le risque opératoire est surtout cardiaque."
+    },
+    {
+      "id": "f8",
+      "front": "Pourquoi le tabac est-il l'ennemi numéro un ?",
+      "back": "Il accélère l'athérogenèse, favorise la thrombose, la progression vers l'ischémie critique et l'échec des pontages : le sevrage est le traitement le plus rentable, y compris après revascularisation."
+    },
+    {
+      "id": "f9",
+      "front": "Quel traitement médical de fond ?",
+      "back": "Arrêt du tabac, marche (rééducation à l'effort), statines à objectif LDL bas, antiagrégant plaquettaire (aspirine ou clopidogrel), contrôle de la tension et de la glycémie, soins des pieds."
+    },
+    {
+      "id": "f10",
+      "front": "Quand revasculariser ?",
+      "back": "Claudication invalidante résistante au traitement médical optimal, ou d'emblée en ischémie critique (douleurs de décubitus, troubles trophiques) : le choix entre angioplastie et pontage suit la cartographie."
+    },
+    {
+      "id": "f11",
+      "front": "Angioplastie ou pontage : comment choisir ?",
+      "back": "Angioplastie avec stent : lésions courtes et concentrées, surtout iliaques : peu invasive, résultat plus fragile en fémoral profond ; pontage : lésions longues, multiples, avec bon lit d'aval : plus durable mais plus lourd."
+    },
+    {
+      "id": "f12",
+      "front": "Comment prendre en charge une ischémie critique ?",
+      "back": "Hospitalisation, antalgiques, soin des plaies, antibiothérapie si infection, revascularisation rapide (pontage distal ou angioplastie) ; amputation mineure ou majeure si le membre n'est pas revascularisable."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle différence entre ulcère artériel et veineux ?",
+      "back": "Artériel : talon, orteils, bords du pied, creusant, nécrotique, douloureux, sans pouls ; veineux : sus-malléolaire interne, superficiel, exsudatif, fond fibrineux, œdème et varices : chercher les deux causes chez le même patient."
+    },
+    {
+      "id": "f14",
+      "front": "Quel suivi d'un patient revascularisé ?",
+      "back": "Sevrage tabagique maintenu, statines et antiagrégants, IPS et écho-Doppler des pontages (surveillance de la sténose du pontage), examen des pieds, dépistage carotidien et coronaire : suivi à vie."
+    },
+    {
+      "id": "f15",
+      "front": "Quel pronostic à 5 ans ?",
+      "back": "Environ 10 à 20 pour cent de décès, surtout cardiaques, plus élevés en ischémie critique ; 10 pour cent évoluent vers l'ischémie critique : d'où l'importance du traitement médical global."
+    },
+    {
+      "id": "f16",
+      "front": "Quelle éducation du patient diabétique artériopathe ?",
+      "back": "Examen quotidien des pieds, chaussures adaptées, jamais de marche pieds nus, coupement d'ongles prudent, consultation rapide pour toute plaie, équilibre glycémique : le mal perforant plantaire se prévient."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "aomi-root",
+      "label": "AOMI"
+    },
+    "branches": [
+      {
+        "id": "aomi-b1",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "aomi-b1-c",
+            "label": "Facteurs de risque"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "aomi-b1-l1",
+            "label": "Tabac"
+          },
+          {
+            "id": "aomi-b1-l2",
+            "label": "Diabète"
+          },
+          {
+            "id": "aomi-b1-l3",
+            "label": "Hypertension, lipides"
+          },
+          {
+            "id": "aomi-b1-l4",
+            "label": "Âge, insuffisance rénale"
+          }
+        ]
+      },
+      {
+        "id": "aomi-b2",
+        "label": "Symptômes",
+        "children": [
+          {
+            "id": "aomi-b2-c",
+            "label": "Fontaine"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "aomi-b2-l1",
+            "label": "Asymptomatique"
+          },
+          {
+            "id": "aomi-b2-l2",
+            "label": "Claudication"
+          },
+          {
+            "id": "aomi-b2-l3",
+            "label": "Décubitus"
+          },
+          {
+            "id": "aomi-b2-l4",
+            "label": "Ulcères, gangrène"
+          }
+        ]
+      },
+      {
+        "id": "aomi-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "aomi-b3-c",
+            "label": "Clinique et mesures"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "aomi-b3-l1",
+            "label": "Pouls, souffles"
+          },
+          {
+            "id": "aomi-b3-l2",
+            "label": "IPS"
+          },
+          {
+            "id": "aomi-b3-l3",
+            "label": "Écho-Doppler"
+          },
+          {
+            "id": "aomi-b3-l4",
+            "label": "Angio-IRM, angio-TDM"
+          }
+        ]
+      },
+      {
+        "id": "aomi-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "aomi-b4-c",
+            "label": "Médical et chirurgical"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "aomi-b4-l1",
+            "label": "Tabac, marche, statines"
+          },
+          {
+            "id": "aomi-b4-l2",
+            "label": "Antiagrégants"
+          },
+          {
+            "id": "aomi-b4-l3",
+            "label": "Angioplastie, stent"
+          },
+          {
+            "id": "aomi-b4-l4",
+            "label": "Pontage, amputation"
+          }
+        ]
+      },
+      {
+        "id": "aomi-b5",
+        "label": "Pronostic",
+        "children": [
+          {
+            "id": "aomi-b5-c",
+            "label": "Risque global"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "aomi-b5-l1",
+            "label": "Infarctus, AVC"
+          },
+          {
+            "id": "aomi-b5-l2",
+            "label": "Ischémie critique"
+          },
+          {
+            "id": "aomi-b5-l3",
+            "label": "Suivi des pontages"
+          },
+          {
+            "id": "aomi-b5-l4",
+            "label": "Éducation du pied"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Prise en charge de l'artériopathie chronique oblitérante des membres inférieurs",
+      "citation": "HAS — Recommandations : AOMI, stratification du risque et stratégies de prise en charge",
+      "organization": "Haute Autorité de santé",
+      "year": 2022,
+      "version": "Recommandation",
+      "url": "https://www.has-sante.fr/upload/docs/application/pdf/AOMI_recos.pdf",
+      "usedFor": [
+        "recommandations",
+        "prise en charge"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Artériopathie oblitérante des membres inférieurs : synthèse des bonnes pratiques",
+      "citation": "HAS — Synthèse : recommandations sur l'AOMI (dépistage, IPS, suivi)",
+      "organization": "Haute Autorité de santé",
+      "year": 2022,
+      "version": "Synthèse",
+      "url": "https://www.has-sante.fr/upload/docs/application/pdf/2022-08/synthese_aps_aomi_vf.pdf",
+      "usedFor": [
+        "IPS",
+        "suivi"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Artériopathie oblitérante des membres inférieurs",
+      "citation": "VIDAL — Recommandations : AOMI (définition, stades, traitements)",
+      "organization": "VIDAL",
+      "year": 2023,
+      "version": "Fiche",
+      "url": "https://www.vidal.fr/maladies/recommandations/arteriopathie-obliterante-des-membres-inferieurs-1472.html",
+      "usedFor": [
+        "stades",
+        "traitements"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
