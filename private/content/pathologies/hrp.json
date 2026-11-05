@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "hrp",
+  "title": "Hématome rétro-placentaire",
+  "subtitle": "Fiche de nosographie — gynécologie-obstétrique",
+  "objective": "Reconnaître l'hématome rétro-placentaire devant sa triade (métrorragie noirâtre, douleur utérine en bois, hypertonicité), comprendre ses facteurs de risque (HTA, prééclampsie, tabac, trauma), cerner l'urgence de l'extraction fœtale et les complications maternelles (coagulopathie, insuffisance rénale) et fœtales.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 55,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 230,
+      "localNumber": 55,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Hématome rétro-placentaire",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir d'une revue systématique avec méta-analyse publiée dans BMC Pregnancy and Childbirth en 2024 sur les facteurs de risque indépendants de l'hématome rétro-placentaire. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La triade classique (métrorragie noirâtre, douleur utérine, utérus en bois) est présentée comme évocatrice mais non constante, notamment dans les formes du trimestre et les hématomes marginaux.",
+      "Le lien majeur avec l'hypertension et la prééclampsie est souligné : l'HRP est une complication vasculaire placentaire, pas un simple accident mécanique.",
+      "Aucune posologie n'est citée ; la prise en charge est obstétricale et réanimative : extraction fœtale rapide, correction de la coagulopathie, prévention de l'atonie.",
+      "Le pronostic fœtal (mortalité périnatale élevée selon le délai et le volume) et les complications maternelles (CIVD, insuffisance rénale aiguë, rupture utérine rare) sont explicités."
+    ],
+    "qcChecklist": [
+      "Triade clinique",
+      "Facteurs de risque",
+      "Conduite en urgence",
+      "Complications maternelles et fœtales",
+      "Source citée avec DOI vérifié"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "L'hématome rétro-placentaire (HRP) est le décollement prématuré du placenta normalement inséré, avant la naissance, par une hémorragie qui s'interpose entre le placenta et la paroi utérine. Il s'oppose au placenta praevia (insertion basse). La rupture des artères spiralées, souvent sur terrain vasculaire (HTA, prééclampsie), crée l'hématome qui décolle le placenta, réduisant les échanges et irritant le myomètre."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "HRP = placenta normalement inséré qui se décolle. Praevia = placenta mal inséré qui saigne. Les deux font saigner le 3e trimestre, mais l'HRP fait mal et durcit l'utérus, le praevia saigne sans douleur et utérus souple."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMC-HRP-2024",
+          "organization": "BMC Pregnancy and Childbirth",
+          "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": "risques",
+      "title": "Facteurs de risque",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Hypertension artérielle chronique et prééclampsie : facteurs majeurs, l'HRP étant une complication vasculaire placentaire.",
+            "Antécédent d'HRP : risque de récidive nettement accru lors des grossesses suivantes.",
+            "Tabac et consommation de cocaïne : vasculopathie et vasoconstriction.",
+            "Traumatisme abdominal (accident, violence, chute) et version par manœuvre externe.",
+            "Multiparité, âge maternel élevé, rupture prématurée des membranes prolongée, chorioamniotite, anomalies cordon/liquide (oligoamnios).",
+            "Thrombophilies discutées selon les méta-analyses : association inconstante."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "Toute prééclampsie qui devient douloureuse ou qui saigne est suspecte d'HRP : la surveillance de ces grossesses intègre ce risque jusqu'à l'accouchement."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMC-HRP-2024",
+          "organization": "BMC Pregnancy and Childbirth",
+          "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "La triade classique : métrorragie de sang noirâtre, non coagulable, des 3e trimestre ou du travail ; douleur utérine brutale, en coup de poignard ; utérus dur, en bois, hypertendu, avec difficulté à percevoir les bruits du cœur fœtal. Le degré de choc maternel dépasse souvent les pertes visibles : l'hémorragie peut être partiellement cachée dans la cavité utérine ou rétro-placentaire."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Formes atypiques : hématome marginal découvrant le travail, formes pauci-symptomiques du 2e trimestre, HRP du permier trimestre.",
+            "Signes fœtaux : souffrance fœtale aiguë, décélération du rythme cardiaque, décès in utero dans les formes sévères.",
+            "Biologie : bilan de coagulation d'emblée (la CIVD est la complication maternelle majeure), groupe, numération, bilan rénal.",
+            "Échographie : peut montrer l'hématome rétro-placentaire, mais un hématome frais est parfois isodense et l'échographie normale n'élimine PAS le diagnostic — il est avant tout clinique.",
+            "Classification : selon le degré (0 découvert sur placenta, 1 modéré, 2 sévère avec fœtus vivant, 3 sévère avec décès fœtal et coagulopathie possible)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "content": "Utérus en bois + métrorragie noirâtre + fœtus en souffrance : HEP d'emblée, extraction sans délai. L'échographie ne doit pas retarder la décision obstétricale."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMC-HRP-2024",
+          "organization": "BMC Pregnancy and Childbirth",
+          "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Prise en charge",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Urgence obstétricale : appel de l'équipe, deux voies veineuses, commande de sang, monitorage fœtal maternel continu, bilan de coagulation immédiat.",
+            "Décision d'extraction selon l'état fœtal et maternel et le terme : césarienne en urgence pour fœtus vivant en souffrance ou état maternel grave ; accouchement par voie basse possible si fœtus mort ou extraction imminente sur état stable.",
+            "Correction de la coagulopathie : plasma, plaquettes, fibrinogène selon la surveillance biologique, en parallèle de la réanimation du choc.",
+            "Prévention de l'atonie et de l'hémorragie du post-partum : l'utérus de Couvelaire, infiltré d'hématomes, est vulnérable à l'atonie — protocole d'HPP d'emblée.",
+            "Surveillance rénale : prévention de la néphropathie tubulaire aiguë et de l'insuffisance rénale par le maintien de la perfusion.",
+            "Annonce et suivi psychologique en cas de mort fœtale ; surveillance de la lactation et accompagnement du deuil périnatal."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "content": "La vitesse de l'extraction fœtale et de la correction de la coagulation fait le pronostic : chaque minute compte pour le fœtus vivant, chaque heure pour le risque rénal maternel."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMC-HRP-2024",
+          "organization": "BMC Pregnancy and Childbirth",
+          "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "id": "pronostic",
+      "title": "Pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le pronostic fœtal dépend du degré de décollement, du terme et du délai d'extraction : la mortalité périnatale reste élevée dans les formes sévères, et les survivants exposent à la prématurité et à ses complications. Chez la mère, la coagulopathie de consommation, l'insuffisance rénale aiguë et, rarement, la rupture utérine sur utérus infiltré font la gravité. La récidive lors d'une grossesse ultérieure est significativement accrue, justifiant une surveillance rapprochée et une information écrite."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-BMC-HRP-2024",
+          "organization": "BMC Pregnancy and Childbirth",
+          "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+          "year": 2024
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "DECOLLEMENT",
+      "expansion": "Douleur en coup de poignard — Épanchement : sang noirâtre, non coagulable — Coagulation vérifiée d'emblée (CIVD) — Œdème : utérus en bois — Larmes du côté maternel : HTA, prééclampsie — Extraction sans délai si fœtus vivant en souffrance — Materno-natal : deux patients à sauver — Entretien post-partum : risque de récidive ; Noter le degré (0 à 3) ; Traitement antihypertenseur et arrêt du tabac."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Définition de l'HRP ?",
+      "back": "Décollement prématuré, avant la naissance, d'un placenta normalement inséré, par un hématome qui s'interpose entre placenta et utérus."
+    },
+    {
+      "front": "Triade classique de l'HRP ?",
+      "back": "Métrorragie noirâtre non coagulable, douleur utérine brutale, utérus dur « en bois » hypertendu, avec bruits du cœur fœtaux difficiles à percevoir."
+    },
+    {
+      "front": "Différence majeure HRP vs placenta praevia ?",
+      "back": "HRP : placenta normalement inséré, douleur et utérus dur. Praevia : insertion basse, saignement rouge, indolore, utérus souple."
+    },
+    {
+      "front": "Terrain vasculaire majeur de l'HRP ?",
+      "back": "HTA chronique et prééclampsie : l'HRP est une complication vasculaire placentaire."
+    },
+    {
+      "front": "Pourquoi le choc maternel dépasse-t-il le saignement visible ?",
+      "back": "Une partie de l'hémorragie est cachée (rétro-placentaire, intramurale ou derrière un utérus de Couvelaire) : les pertes visibles sous-estiment l'hémorragie réelle."
+    },
+    {
+      "front": "Complication biologique maternelle majeure ?",
+      "back": "La coagulopathie de consommation (CIVD), à rechercher d'emblée par un bilan de coagulation complet."
+    },
+    {
+      "front": "Place de l'échographie dans l'HRP ?",
+      "back": "Elle peut montrer l'hématome, mais un hématome frais peut être isodense : l'échographie normale n'élimine PAS le diagnostic, qui est clinique."
+    },
+    {
+      "front": "Décision obstétricale devant un HRP avec fœtus vivant en souffrance ?",
+      "back": "Césarienne en urgence sans attendre l'imagerie, avec réanimation maternelle et gestion de la coagulation en parallèle."
+    },
+    {
+      "front": "Qu'est-ce que l'utérus de Couvelaire ?",
+      "back": "Un utérus infiltré d'hématomes sous-séreux et intramurux par le décollement : vulnérable à l'atonie et à l'hémorragie du post-partum."
+    },
+    {
+      "front": "Deux complications maternelles de l'HRP sévère ?",
+      "back": "La coagulopathie de consommation (CIVD) et l'insuffisance rénale aiguë ; la rupture utérine est plus rare."
+    },
+    {
+      "front": "Récidive de l'HRP lors d'une grossesse suivante ?",
+      "back": "Le risque est nettement accru par rapport à la population : surveillance rapprochée et information écrite lors des grossesses ultérieures."
+    },
+    {
+      "front": "Degré 3 de la classification de l'HRP ?",
+      "back": "Forme sévère avec mort fœtale in utero, fréquemment associée à une coagulopathie maternelle."
+    }
+  ],
+  "mindmap": {
+    "root": "Hématome rétro-placentaire",
+    "branches": [
+      {
+        "id": "definir",
+        "label": "Définir",
+        "tone": "retenir",
+        "detail": "Décollement d'un placenta normal.",
+        "children": [
+          {
+            "id": "opposition",
+            "label": "vs praevia",
+            "detail": "Insertion basse, indolore, utérus souple.",
+            "leaves": [
+              {
+                "id": "d1",
+                "label": "Vasculaire",
+                "detail": "HTA, prééclampsie en cause."
+              }
+            ]
+          },
+          {
+            "id": "degre",
+            "label": "Degrés 0 à 3",
+            "detail": "3 = mort fœtale, CIVD.",
+            "leaves": [
+              {
+                "id": "d2",
+                "label": "Classification",
+                "detail": "Guide l'urgence."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reconnaitre",
+        "label": "Reconnaître",
+        "tone": "urgence",
+        "detail": "Triade en bois.",
+        "children": [
+          {
+            "id": "triade",
+            "label": "Sang noirâtre, douleur, utérus dur",
+            "detail": "Choc > pertes visibles.",
+            "leaves": [
+              {
+                "id": "r1",
+                "label": "Échographie",
+                "detail": "Peut être normale, ne retarde rien."
+              }
+            ]
+          },
+          {
+            "id": "foetus",
+            "label": "Souffrance fœtale",
+            "detail": "RCF anormal, décès possible.",
+            "leaves": [
+              {
+                "id": "r2",
+                "label": "Biologie",
+                "detail": "Coagulation d'emblée."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "risques",
+        "label": "Risquer",
+        "tone": "prudence",
+        "detail": "Terrain vasculaire.",
+        "children": [
+          {
+            "id": "hta",
+            "label": "HTA, prééclampsie",
+            "detail": "Facteurs majeurs.",
+            "leaves": [
+              {
+                "id": "ri1",
+                "label": "Récidive",
+                "detail": "Antécédent d'HRP."
+              }
+            ]
+          },
+          {
+            "id": "exogene",
+            "label": "Tabac, cocaïne, trauma",
+            "detail": "Vasculopathie, chocs.",
+            "leaves": [
+              {
+                "id": "ri2",
+                "label": "Multiparité",
+                "detail": "RPM prolongée, infection."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agir",
+        "label": "Agir",
+        "tone": "reflexe",
+        "detail": "Extraction rapide.",
+        "children": [
+          {
+            "id": "cesarienne",
+            "label": "Césarienne urgente",
+            "detail": "Fœtus vivant en souffrance.",
+            "leaves": [
+              {
+                "id": "a1",
+                "label": "Voie basse possible",
+                "detail": "Fœtus mort, état stable, travail avancé."
+              }
+            ]
+          },
+          {
+            "id": "coagulopathie",
+            "label": "CIVD corrigée",
+            "detail": "Plasma, plaquettes, fibrinogène.",
+            "leaves": [
+              {
+                "id": "a2",
+                "label": "HPP prévenue",
+                "detail": "Utérus de Couvelaire = atonie."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Mère et deuil.",
+        "children": [
+          {
+            "id": "renal",
+            "label": "Rein surveillé",
+            "detail": "Insuffisance rénale aiguë.",
+            "leaves": [
+              {
+                "id": "s1",
+                "label": "Annonce",
+                "detail": "Mort fœtale, deuil accompagné."
+              }
+            ]
+          },
+          {
+            "id": "suivant",
+            "label": "Grossesse suivante",
+            "detail": "Surveillance rapprochée, information écrite.",
+            "leaves": [
+              {
+                "id": "s2",
+                "label": "Tabac arrêté",
+                "detail": "Prévention active des récidives."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-BMC-HRP-2024",
+      "title": "Independent risk factors for placental abruption: a systematic review and meta-analysis",
+      "citation": "Li H, Hu Z, Fan Y, Hao Y. Independent risk factors for placental abruption: a systematic review and meta-analysis. BMC Pregnancy and Childbirth 2024 ; 24 (1) : 345. doi:10.1186/s12884-024-06545-5.",
+      "organization": "BMC Pregnancy and Childbirth",
+      "year": 2024,
+      "url": "https://doi.org/10.1186/s12884-024-06545-5",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Facteurs de risque",
+        "Physiopathologie vasculaire",
+        "Récidive",
+        "Pronostic"
+      ]
+    }
+  ]
+}

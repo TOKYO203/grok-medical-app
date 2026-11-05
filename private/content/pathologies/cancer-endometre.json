@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "cancer-endometre",
+  "title": "Cancers de l'endomètre",
+  "subtitle": "Fiche de nosographie — gynécologie-obstétrique et oncologie",
+  "objective": "Connaître les deux types tumoraux de l'endomètre et leurs terrains, dépister le cancer devant toute métrorragie post-ménopausique, comprendre le bilan d'extension et la chirurgie de stadification, et situer les traitements adjuvants selon le risque.",
+  "language": "fr",
+  "updatedAt": "2026-11-05",
+  "reviewStatus": "pending-medical-review",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 53,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 228,
+      "localNumber": 53,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Cancers de l'endomètre",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": [],
+    "caseIds": []
+  },
+  "editorial": {
+    "sourceDocument": null,
+    "reformulation": "Fiche rédigée sans document source fourni, à partir des recommandations ESGO/ESTRO/ESP 2021 sur la prise en charge des carcinomes de l'endomètre. Texte entièrement reformulé.",
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "verificationNotes": [
+      "La dichotomie de Bokhman (type I œstrogéno-dépendant sur endomètre hyperplasique vs type II sur endomètre atrophique, profil moléculaire différent) est présentée comme clé de compréhension.",
+      "Aucune posologie de chimiothérapie ou d'hormonothérapie n'est citée ; les protocoles adjuvants sont nommés sans détail de doses.",
+      "La règle d'or diagnostique : toute métrorragie post-ménopausique est un cancer de l'endomètre jusqu'à preuve du contraire, avec biopsie endométriale obligatoire.",
+      "La classification moléculaire (POLEmut, MMRd, p53abn, NSMP) est mentionnée comme intégrée au pronostic dans les recommandations 2021."
+    ],
+    "qcChecklist": [
+      "Types tumoraux et terrains",
+      "Diagnostic par biopsie endométriale",
+      "Stadification chirurgicale",
+      "Adjuvant selon risque, sans posologie",
+      "Source citée avec DOI vérifié"
+    ]
+  },
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Définition, types et terrain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Les cancers de l'endomètre sont les carcinomes développés aux dépens de la muqueuse utérine, adénocarcinomes endométrioïdes dans la grande majorité des cas. On distingue schématiquement le type I, œstrogéno-dépendant, sur endomètre hyperplasique chez une femme proche de la ménopause, en surpoids ou porteuse d'un syndrome de Lynch ; et le type II, agressif, sur endomètre atrophique, comportant les carcinomes séreux et claires, souvent p53-anormaux."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Caractère",
+            "Type I",
+            "Type II"
+          ],
+          "rows": [
+            [
+              "Terrain",
+              "Ménopause récente, obésité, diabète, nulliparité, Lynch",
+              "Femme plus âgée, endomètre atrophique"
+            ],
+            [
+              "Histologie",
+              "Endométrioïde, grade 1-2",
+              "Séreux, à cellules claires, endométrioïde grade 3"
+            ],
+            [
+              "Profil moléculaire",
+              "Instabilité microsatellite, PTEN, NSMP",
+              "p53 anormal (serous-like)"
+            ],
+            [
+              "Pronostic",
+              "Bon si pris tôt",
+              "Pronostic plus sévère, extension fréquente"
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESGO-ENDOMETRIUM-2021",
+          "organization": "Int J Gynecol Cancer",
+          "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le signe d'appel cardinal est la métrorragie post-ménopausique ; chez la femme périménopausée, ce sont des règles anormales ou des saignements intercurrents. Le diagnostic repose sur la biopsie endométriale (pipelle de Cornier, ou curetage après échographie). L'échographie pelvienne montre un endomètre épaissi et oriente ; elle ne remplace jamais l'histologie."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "content": "Toute métrorragie post-ménopausique = biopsie endométriale jusqu'à preuve du contraire. Le cancer de l'endomètre se guérit quand on l'attrape tôt ; le retarder, c'est le laisser avancer."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESGO-ENDOMETRIUM-2021",
+          "organization": "Int J Gynecol Cancer",
+          "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "bilan",
+      "title": "Bilan d'extension et stadification",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Examen clinique et examen sous spéculum : extension locale, atteinte cervicale, lésions secondaires.",
+            "Imagerie : échographie pelvienne, TDM thoraco-abdomino-pelvienne ou IRM selon les cas pour l'extension myométriale et ganglionnaire.",
+            "Stadification chirurgicale FIGO : hystérectomie totale avec annexectomie bilatérale, avec curage ganglionnaire selon le risque et la technique du ganglion sentinelle ; prélèvements péritonéaux et cytologie selon les cas.",
+            "Analyse anatomopathologique complète : type, grade, profondeur d'invasion myométriale, emboles, profil MMR/p53 ; classification moléculaire intégrée (POLEmut, MMRd, p53abn, NSMP).",
+            "Recherche de syndrome de Lynch si contexte évocateur : proposer un test MMR sur la tumeur et la consultation d'oncogénétique."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "content": "L'évaluation ganglionnaire est guidée par le risque estimé : ganglion sentinelle pour les tumeurs à risque intermédiaire, curage ou sentinelle bilatérale pour les hauts risques — la stadification conditionne tout l'adjuvant."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESGO-ENDOMETRIUM-2021",
+          "organization": "Int J Gynecol Cancer",
+          "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Traitement de référence : chirurgie de stadification complète (hystérectomie avec annexectomie ± curage/sentinnelle), voie cœlioscopique chaque fois que possible.",
+            "Adjuvant selon le groupe de risque : bas risque — surveillance ; risque intermédiaire — radiothérapie vaginale (brachythérapie) le plus souvent ; risque intermédiaire-haut et haut risque — radiothérapie ± chimiothérapie selon les protocoles et le profil moléculaire (aucune posologie citée).",
+            "Tumeurs avancées ou métastatiques : chimiothérapie à base de sels de platine, radiothérapie ciblée, et pour les tumeurs MMRd/p53abn les options immuno-oncologiques selon accès.",
+            "Fonction ovarienne : l'annexectomie peut être discutée chez la femme jeune pré-ménopausée avec tumeur de bas risque, au cas par cas.",
+            "Suivi : examen clinique et surveillance vaginale régulière, dépistage des seconds cancers, accompagnement du surpoids et des comorbidités (le cancer de l'endomètre est souvent le signal visible d'un syndrome métabolique)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "content": "Chirurgie d'abord, adjuvant ensuite selon le risque histologique et moléculaire : bas risque = surveillance, intermédiaire = brachythérapie vaginale, haut risque = radiothérapie et chimiothérapie discutées en réunion de concertation pluridisciplinaire."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESGO-ENDOMETRIUM-2021",
+          "organization": "Int J Gynecol Cancer",
+          "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "pronostic",
+      "title": "Pronostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "Le pronostic global est favorable, dominé par le stade au diagnostic et le type histologique : les tumeurs endométrioïdes de bas grade découvertes tôt guérissent dans la grande majorité des cas, tandis que les carcinomes séreux et p53-abnormaux gardent un pronostic réservé même stadés. La survie se dégrade nettement au-delà du stade I. La classification moléculaire affine la prédiction : POLEmut favorable, p53abn péjoratif."
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-ESGO-ENDOMETRIUM-2021",
+          "organization": "Int J Gynecol Cancer",
+          "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+          "year": 2021
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "text": "METRORRAGIE",
+      "expansion": "Ménopause récente ou lointaine — Endomètre épaissi à l'échographie — Type I ou II orienté par le terrain — Biopsie endométriale obligatoire (histologie) — Risque estimé par imagerie — Adjuvant guidé par le groupe de risque — Ganglion sentinelle selon la tumeur — Approche moléculaire intégrée — Pronostic lié au stade — Éducation au syndrome métabolique."
+    }
+  ],
+  "flashcards": [
+    {
+      "front": "Signe d'appel cardinal du cancer de l'endomètre ?",
+      "back": "La métrorragie post-ménopausique — toute saignement post-ménopausique impose une biopsie endométriale."
+    },
+    {
+      "front": "Différence entre type I et type II ?",
+      "back": "Type I : endométrioïde, œstrogéno-dépendant, sur endomètre hyperplasique, pronostic plutôt bon. Type II : séreux ou cellules claires, sur endomètre atrophique, p53abn souvent, pronostic sévère."
+    },
+    {
+      "front": "Terrains à risque de cancer de l'endomètre ?",
+      "back": "Obésité, diabète, nulliparité, œstrogènes exogènes non opposés, syndrome de Lynch, tamoxifène au long cours."
+    },
+    {
+      "front": "Diagnostic de certitude ?",
+      "back": "La biopsie endométriale (pipelle ou curetage) avec analyse anatomopathologique ; l'échographie oriente mais ne remplace pas l'histologie."
+    },
+    {
+      "front": "Chirurgie de référence ?",
+      "back": "Hystérectomie totale avec annexectomie bilatérale, plus évaluation ganglionnaire (sentinelle ou curage selon le risque), par cœlioscopie si possible."
+    },
+    {
+      "front": "Adjuvant du cancer à risque intermédiaire ?",
+      "back": "Le plus souvent une brachythérapie vaginale postopératoire, réduisant les récidives vaginales."
+    },
+    {
+      "front": "Quand discuter la chimiothérapie ?",
+      "back": "Risques intermédiaire-haut et haut, stades avancés, carcinomes séreux/cellules claires, tumeurs p53abn : protocoles à base de sels de platine, en réunion pluridisciplinaire."
+    },
+    {
+      "front": "Classification moléculaire intégrée (2021) ?",
+      "back": "Quatre groupes pronostiques : POLEmut (favorable), MMRd (intermédiaire), NSMP (intermédiaire), p53abn (péjoratif)."
+    },
+    {
+      "front": "Pourquoi tester MMR sur la tumeur ?",
+      "back": "Détecter les déficits de réparation des mésappariements : oriente le pronostic, ouvre des options d'immunothérapie, et démasque un syndrome de Lynch."
+    },
+    {
+      "front": "Lien entre obésité et cancer de l'endomètre ?",
+      "back": "L'aromatisation périphérique des androgènes en œstrogènes dans le tissu adipeux crée une hyperœstrogénie chronique non opposée, stimulant l'hyperplasie puis la tumeur de type I."
+    },
+    {
+      "front": "Deux éléments histopronostiques majeurs ?",
+      "back": "La profondeur d'invasion myométriale et le grade ; avec les emboles lymphovasculaires et le type, ils déterminent le groupe de risque et l'adjuvant."
+    },
+    {
+      "front": "Conduite chez une femme jeune pré-ménopausique, tumeur de bas risque ?",
+      "back": "L'annexectomie bilatérale systématique peut être discutée au cas par cas, en pesant la morbidité de la ménopause chirurgicale précoce."
+    }
+  ],
+  "mindmap": {
+    "root": "Cancers de l'endomètre",
+    "branches": [
+      {
+        "id": "comprendre",
+        "label": "Comprendre",
+        "tone": "retenir",
+        "detail": "Deux types, deux terrains.",
+        "children": [
+          {
+            "id": "type1",
+            "label": "Type I",
+            "detail": "Œstrogéno-dépendant, endométrioïde.",
+            "leaves": [
+              {
+                "id": "c1",
+                "label": "Hyperœstrogénie",
+                "detail": "Obésité, Lynch."
+              }
+            ]
+          },
+          {
+            "id": "type2",
+            "label": "Type II",
+            "detail": "Séreux, claires, p53abn.",
+            "leaves": [
+              {
+                "id": "c2",
+                "label": "Endomètre atrophique",
+                "detail": "Pronostic sévère."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "depister",
+        "label": "Dépister",
+        "tone": "urgence",
+        "detail": "Métrorragie post-ménopausique.",
+        "children": [
+          {
+            "id": "biopsie",
+            "label": "Biopsie endométriale",
+            "detail": "Pipelle ou curetage.",
+            "leaves": [
+              {
+                "id": "d1",
+                "label": "Échographie",
+                "detail": "Oriente, ne remplace pas."
+              }
+            ]
+          },
+          {
+            "id": "mmr",
+            "label": "Test MMR sur tumeur",
+            "detail": "Lynch et immunothérapie.",
+            "leaves": [
+              {
+                "id": "d2",
+                "label": "Oncogénétique",
+                "detail": "Si contexte évocateur."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stader",
+        "label": "Stader",
+        "tone": "reflexe",
+        "detail": "Chirurgie de stadification.",
+        "children": [
+          {
+            "id": "chirurgie",
+            "label": "Hystérectomie + annexes",
+            "detail": "Cœlioscopie si possible.",
+            "leaves": [
+              {
+                "id": "s1",
+                "label": "Sentinelle",
+                "detail": "Selon le risque."
+              }
+            ]
+          },
+          {
+            "id": "anapath",
+            "label": "Anapath complète",
+            "detail": "Type, grade, invasion, emboles.",
+            "leaves": [
+              {
+                "id": "s2",
+                "label": "Moléculaire",
+                "detail": "POLEmut/MMRd/p53abn/NSMP."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "traiter",
+        "label": "Traiter",
+        "tone": "prudence",
+        "detail": "Adjuvant selon le risque.",
+        "children": [
+          {
+            "id": "bas",
+            "label": "Bas risque",
+            "detail": "Surveillance.",
+            "leaves": [
+              {
+                "id": "t1",
+                "label": "Intermédiaire",
+                "detail": "Brachythérapie vaginale."
+              }
+            ]
+          },
+          {
+            "id": "haut",
+            "label": "Haut risque",
+            "detail": "Radiothérapie ± chimiothérapie.",
+            "leaves": [
+              {
+                "id": "t2",
+                "label": "Avancé",
+                "detail": "Platine, options ciblées."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suivre",
+        "label": "Suivre",
+        "tone": "memo",
+        "detail": "Guérison si tôt.",
+        "children": [
+          {
+            "id": "pronostic",
+            "label": "Pronostic",
+            "detail": "Stade et type dominants.",
+            "leaves": [
+              {
+                "id": "su1",
+                "label": "Surveillance vaginale",
+                "detail": "Récidives dominantes."
+              }
+            ]
+          },
+          {
+            "id": "comorbidites",
+            "label": "Syndrome métabolique",
+            "detail": "La tumeur est un signal.",
+            "leaves": [
+              {
+                "id": "su2",
+                "label": "Seconds cancers",
+                "detail": "Dépistage Lynch."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-ESGO-ENDOMETRIUM-2021",
+      "title": "ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma",
+      "citation": "Concin N, Matias-Guiu X, Vergote I, Cibula D, Mirza MR, Marnitz S, Ledermann J, Bosse T, Chargari C, Fagotti A, et al. ESGO/ESTRO/ESP guidelines for the management of patients with endometrial carcinoma. International Journal of Gynecological Cancer 2021 ; 31 (1) : 12-39. doi:10.1136/ijgc-2020-002230.",
+      "organization": "International Journal of Gynecological Cancer",
+      "year": 2021,
+      "url": "https://doi.org/10.1136/ijgc-2020-002230",
+      "verifiedAt": "2026-11-05",
+      "usedFor": [
+        "Types tumoraux",
+        "Diagnostic et biopsie",
+        "Stadification chirurgicale",
+        "Adjuvant selon le risque",
+        "Classification moléculaire"
+      ]
+    }
+  ]
+}
