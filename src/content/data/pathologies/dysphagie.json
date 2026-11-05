@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "dysphagie",
+  "title": "Dysphagie",
+  "specialty": "Gastro-entérologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la dysphagie, distinguer la dysphagie haute (oropharyngée) de la dysphagie basse (œsophagienne), reconnaître les caractères sémiologiques orientant vers une cause organique — dont le cancer — ou fonctionnelle, connaître les examens clés (endoscopie, transit) et les principes de prise en charge.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 6,
+    "specialty": "Gastro-entérologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 6,
+      "localNumber": 6,
+      "sectionLabel": "Sémiologie",
+      "title": "Dysphagie",
+      "specialty": "Gastro-entérologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée à la dysphagie : démarche diagnostique basée sur trois questions (localisation, progression, association à une fausse route), causes obstructives (cancer, peptique, anneau) et motrices (achalasie, sclérodermie), examens de première intention, et traitements étiologiques. Les fiches cancer-oesophage et reflux-gastro-oesophagien approfondissent les causes principales.",
+    "verificationNotes": "Sémiologie et stratégie diagnostique conformes aux sources consultées (La Revue du Praticien, Wikipédia) : caractères discriminants, indications de l'endoscopie, causes principales.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La dysphagie est une gêne ou une difficulté à la progression des aliments dans la bouche, le pharynx ou l'œsophage. Elle se distingue de l'odynophagie (douleur à la déglutition) et de la sensation de « boule » pharyngée (globus), qui n'entrave pas la déglutition."
+        },
+        {
+          "type": "paragraph",
+          "text": "C'est un symptôme jamais anodin : toute dysphagie organique, notamment d'apparition récente et progressive chez un sujet de plus de cinquante ans, impose une endoscopie pour éliminer un cancer de l'œsophage, dont le pronostic dépend de la précocité du diagnostic."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définitions et cadre sémiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Deux niveaux : la dysphagie haute (oropharyngée) survient immédiatement, au passage de la bouche vers le pharynx, souvent accompagnée de fausses routes, de toux ou de régurgitations nasales ; elle relève de causes neurologiques (accident vasculaire cérébral, maladie de Parkinson, sclérose latérale amyotrophique) ou ORL.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La dysphagie basse (œsophagienne) survient quelques secondes après le début de la déglutition, avec une sensation de blocage rétrosternal ou épigastrique. Trois caractères orientent : le type d'aliments (solides seulement = obstacle ; solides puis liquides et progressive = cancer ; solides et liquides d'emblée et paroxystique = trouble moteur), l'ancienne évolution (brève ou longue) et les signes associés (amaigrissement, régurgitations, douleur thoracique, fistule œso-trachéale).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Dysphagie haute (oropharyngée) : causes neurologiques — accident vasculaire cérébral (la cause la plus fréquente), maladie de Parkinson, sclérose latérale amyotrophique, myasthénie.",
+            "Dysphagie haute (ORL) : tumeurs pharyngées et laryngées, amylose, diverticule de Zenker, séquelles de radiothérapie.",
+            "Dysphagie basse obstructive : cancer de l'œsophage (adénocarcinome ou carcinome épidermoïde), sténose peptique (endobrachyœsophage), œsophagite caustique ou médicamenteuse, anneau de Schatzki, compression extrinsèque.",
+            "Dysphagie basse motrice : achalasie (primitive ou secondaire à une maladie de Chagas, endémique dans certaines régions d'Amérique du Sud), spasme diffus de l'œsophage, sclérodermie, œsophagite à éosinophiles.",
+            "Chez l'immunodéprimé : candidose, cytomégalovirus, herpès (odynophagie fébrile)."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'interrogatoire précise le siège (haute ou basse), le type d'aliments concernés, le caractère progressif ou paroxystique, l'ancienneté, l'amaigrissement, les fausses routes, les régurgitations, le tabagisme et l'alcool (facteurs du cancer épidermoïde), la consommation de boissons très chaudes, les antécédents de reflux ou de radiothérapie.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen évalue l'état nutritionnel (poids, dénutrition), l'examen ORL (laryngoscopie indirecte), la recherche d'adénopathies cervicales ou sus-claviculaires, et les signes neurologiques associés. La fibroscopie œsophagienne avec biopsies est l'examen clé : elle visualise la lésion, précise son siège et sa nature ; en cas de dysphagie haute neurologique, l'endoscopie est précédée d'une évaluation de la déglutition ( Vidéofluoroscopie, fibroscopie de la déglutition).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Le transit œsophagien baryté garde une place en cas de suspicion de trouble moteur (aspect en bec de flamme de l'achalasie) ou de diverticule ; la manométrie œsophagienne confirme les troubles moteurs (achalasie, spasme). La tomodensitométrie thoraco-abdominale et l'écho-endoscopie stadient les tumeurs.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Fausse route et pneumonie de déglutition",
+          "text": "Toux ou fièvre après les repas, encombrement : pneumonie d'inhalation sur dysphagie haute — adaptation alimentaire, avis orthophonique et pneumologique urgents."
+        },
+        {
+          "id": "c2",
+          "tone": "urgence",
+          "title": "Dysphagie avec amaigrissement et tabac",
+          "text": "Un homme de plus de cinquante ans, tabagique et alcoolique, avec dysphagie progressive aux solides et amaigrissement : cancer de l'œsophage probable — endoscopie sans délai."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traitement est étiologique. Cancer de l'œsophage : chirurgie, radio-chimiothérapie ou traitement palliatif selon le stade, avec soutien nutritionnel. Sténose peptique : dilatation endoscopique avec traitement du reflux associé (inhibiteur de la pompe à protons). Achalasie : dilatation pneumatique ou myotomie (Heller, ou perorale), injection de toxine botulique en alternative. Anneau de Schatzki et sténoses courtes : dilatation endoscopique. Diverticule de Zenker : chirurgie ou myotomie endoscopique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La dysphagie neurologique relève de la rééducation orthophonique, d'adaptations de texture (épaississants, mixés) et, si besoin, d'une nutrition entérale par sonde (gastrostomie). Toute dysphagie sévère impose des mesures anti-fausses routes : position assise, petites bouchées, textures adaptées, surveillance post-prandiale."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention agit sur les facteurs de risque : sevrage tabagique et alcoolique (cancer épidermoïde), traitement du reflux et surveillance de l'endobrachyœsophage (adénocarcinome), prudence avec les caustiques et les médicaments œsophagotoxiques (prises avec un grand verre d'eau, en position debout), prévention de la maladie de Chagas dans les zones endémiques."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La dysphagie se lit en trois questions : siège, type d'aliments, évolution. Toute dysphagie organique progressive, notamment chez le sujet âgé tabagique, est un cancer de l'œsophage jusqu'à preuve du contraire : endoscopie avec biopsies. Les troubles moteurs confirmés par manométrie ont des traitements endoscopiques ou chirurgicaux efficaces.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche cancer-oesophage — dysphagie progressive et amaigrissement.",
+            "Fiche reflux-gastro-oesophagien — endobrachyœsophage et sténose peptique.",
+            "Fiche sclerodermie — dysphagie et syndrome de Raynaud.",
+            "Fiche myasthenie — dysphagie avec fatigue musculaire."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Fausse route répétée",
+      "text": "Toux au repas, encombrement, fièvre : pneumonie d'inhalation probable sur dysphagie haute — adaptations de texture et avis spécialisés urgents."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Cancer jusqu'à preuve du contraire",
+      "text": "Dysphagie progressive aux solides, amaigrissement, sujet de plus de cinquante ans avec tabac ou alcool : endoscopie œsophagienne rapide avec biopsies."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Localiser (haute ou basse ?), qualifier (solides ? liquides ? progressive ou paroxystique ?), peser (amaigrissement ? tabac ?) : trois étapes qui orientent toute la suite."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Solides seuls = obstacle (cancer, sténose). Solides puis liquides et progressive = cancer. Solides et liquides d'emblée, paroxystique = trouble moteur (achalasie). Fausse route = dysphagie haute neurologique ou ORL."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "D.Y.S.P.H.A.G.I.E.",
+      "text": "Déglutition immédiate (haute) ou différée (basse), Yup : amaigrissement, Solides ou liquides, Paroxystique ou progressif, Histoire tabagique et alcoolique, Adénopathies cervicales, Endoscopie clé, Irradiation et caustiques."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Dysphagie haute ou basse",
+      "entries": [
+        {
+          "key": "H",
+          "term": "Haute : blocage immédiat, fausses routes, causes neurologiques et ORL"
+        },
+        {
+          "key": "B",
+          "term": "Basse : blocage rétrosternal quelques secondes après, causes obstructives et motrices de l'œsophage"
+        }
+      ]
+    },
+    {
+      "label": "Causes obstructives",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cancer de l'œsophage"
+        },
+        {
+          "key": "S",
+          "term": "Sténose peptique (endobrachyœsophage)"
+        },
+        {
+          "key": "C",
+          "term": "Caustiques et médicaments"
+        },
+        {
+          "key": "A",
+          "term": "Anneau de Schatzki"
+        }
+      ]
+    },
+    {
+      "label": "Causes motrices",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Achalasie (et maladie de Chagas)"
+        },
+        {
+          "key": "S",
+          "term": "Spasme diffus de l'œsophage"
+        },
+        {
+          "key": "S",
+          "term": "Sclérodermie"
+        },
+        {
+          "key": "E",
+          "term": "Œsophagite à éosinophiles"
+        }
+      ]
+    },
+    {
+      "label": "Examens clés",
+      "entries": [
+        {
+          "key": "E",
+          "term": "Endoscopie avec biopsies"
+        },
+        {
+          "key": "T",
+          "term": "Transit baryté (bec de flamme de l'achalasie)"
+        },
+        {
+          "key": "M",
+          "term": "Manométrie (troubles moteurs)"
+        },
+        {
+          "key": "T",
+          "term": "Tomodensitométrie et écho-endoscopie (stadification)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que la dysphagie ?",
+      "back": "Une gêne ou difficulté à la progression des aliments dans la bouche, le pharynx ou l'œsophage, allant de la sensation de blocage à l'impossibilité de déglutir."
+    },
+    {
+      "id": "f2",
+      "front": "Comment distinguer dysphagie haute et basse ?",
+      "back": "Haute (oropharyngée) : blocage immédiat, fausses routes, régurgitations nasales ; basse (œsophagienne) : blocage rétrosternal quelques secondes après le début de la déglutition."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la signification d'une dysphagie aux solides seulement ?",
+      "back": "Elle évoque un obstacle organique : cancer, sténose peptique, anneau de Schatzki, compression extrinsèque."
+    },
+    {
+      "id": "f4",
+      "front": "Quelle dysphagie évoque un trouble moteur ?",
+      "back": "Une dysphagie touchant d'emblée solides et liquides, paroxystique, intermittente — achalasie, spasme diffus, sclérodermie."
+    },
+    {
+      "id": "f5",
+      "front": "Quelle est la cause la plus fréquente de dysphagie haute ?",
+      "back": "L'accident vasculaire cérébral, devant les autres causes neurologiques : maladie de Parkinson, sclérose latérale amyotrophique, myasthénie."
+    },
+    {
+      "id": "f6",
+      "front": "Quel examen clé devant une dysphagie basse ?",
+      "back": "La fibroscopie œsophagienne avec biopsies : elle visualise l'obstacle, précise sa nature et permet le diagnostic de cancer."
+    },
+    {
+      "id": "f7",
+      "front": "Quel aspect radiologique signe l'achalasie ?",
+      "back": "Au transit baryté, un aspect en « bec de flamme » ou en « queue de radis » de la jonction œsophagienne, avec dilatation de l'œsophage en amont."
+    },
+    {
+      "id": "f8",
+      "front": "Quel examen confirme un trouble moteur ?",
+      "back": "La manométrie œsophagienne : absence de relâchement du sphincter inférieur et apéristaltisme dans l'achalasie."
+    },
+    {
+      "id": "f9",
+      "front": "Quels signes évoquent un cancer de l'œsophage ?",
+      "back": "Dysphagie progressive (solides puis liquides), amaigrissement rapide, sujet de plus de cinquante ans, tabac et alcool, anémie, adénopathie sus-claviculaire."
+    },
+    {
+      "id": "f10",
+      "front": "Qu'est-ce que le diverticule de Zenker ?",
+      "back": "Un diverticule pharyngien qui se remplit d'aliments, provoquant dysphagie haute, régurgitations d'aliments non digérés et halitose ; traitement chirurgical ou myotomie endoscopique."
+    },
+    {
+      "id": "f11",
+      "front": "Comment se manifeste la sclérodermie œsophagienne ?",
+      "back": "Dysphagie basse avec reflux important, incontinence du sphincter inférieur, dans un contexte de syndrome de Raynaud et de sclérodactylie."
+    },
+    {
+      "id": "f12",
+      "front": "Quel risque des dysphagies hautes neurologiques ?",
+      "back": "Les fausses routes avec pneumonies d'inhalation répétées, dénutrition et encombrement — d'où adaptations de texture et rééducation orthophonique."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle est la dysphagie du sujet immunodéprimé ?",
+      "back": "Une odynophagie fébrile avec dysphagie : candidose, herpès, cytomégalovirus ; l'endoscopie avec biopsies fait le diagnostic."
+    },
+    {
+      "id": "f14",
+      "front": "Quel traitement pour une sténose peptique ?",
+      "back": "Dilatation endoscopique progressive associée au traitement du reflux par inhibiteur de la pompe à protons."
+    },
+    {
+      "id": "f15",
+      "front": "Quels traitements de l'achalasie ?",
+      "back": "Dilatation pneumatique, myotomie chirurgicale de Heller ou perorale, injection de toxine botulique dans le sphincter inférieur."
+    },
+    {
+      "id": "f16",
+      "front": "Quelles mesures devant toute dysphagie sévère ?",
+      "back": "Évaluation nutritionnelle, adaptations de texture (mixé, épaissi), position assise, petites bouchées, supplémentation orale, et nutrition entérale (sonde, gastrostomie) si besoin."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "dys-root",
+      "label": "Dysphagie"
+    },
+    "branches": [
+      {
+        "id": "dys-b1",
+        "label": "Sémiologie",
+        "children": [
+          {
+            "id": "dys-b1-c",
+            "label": "Trois questions"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dys-b1-l1",
+            "label": "Siège : haute ou basse"
+          },
+          {
+            "id": "dys-b1-l2",
+            "label": "Type d'aliments"
+          },
+          {
+            "id": "dys-b1-l3",
+            "label": "Évolution : progressive ou paroxystique"
+          }
+        ]
+      },
+      {
+        "id": "dys-b2",
+        "label": "Causes hautes",
+        "children": [
+          {
+            "id": "dys-b2-c",
+            "label": "Neurologiques et ORL"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dys-b2-l1",
+            "label": "Accident vasculaire cérébral"
+          },
+          {
+            "id": "dys-b2-l2",
+            "label": "Parkinson, SLA"
+          },
+          {
+            "id": "dys-b2-l3",
+            "label": "Tumeurs ORL"
+          },
+          {
+            "id": "dys-b2-l4",
+            "label": "Diverticule de Zenker"
+          }
+        ]
+      },
+      {
+        "id": "dys-b3",
+        "label": "Causes basses",
+        "children": [
+          {
+            "id": "dys-b3-c",
+            "label": "Obstacles et moteurs"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dys-b3-l1",
+            "label": "Cancer de l'œsophage"
+          },
+          {
+            "id": "dys-b3-l2",
+            "label": "Sténose peptique, anneau"
+          },
+          {
+            "id": "dys-b3-l3",
+            "label": "Achalasie, Chagas"
+          },
+          {
+            "id": "dys-b3-l4",
+            "label": "Sclérodermie"
+          }
+        ]
+      },
+      {
+        "id": "dys-b4",
+        "label": "Examens",
+        "children": [
+          {
+            "id": "dys-b4-c",
+            "label": "Démarche clé"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dys-b4-l1",
+            "label": "Endoscopie avec biopsies"
+          },
+          {
+            "id": "dys-b4-l2",
+            "label": "Transit baryté"
+          },
+          {
+            "id": "dys-b4-l3",
+            "label": "Manométrie"
+          },
+          {
+            "id": "dys-b4-l4",
+            "label": "Écho-endoscopie, scanner"
+          }
+        ]
+      },
+      {
+        "id": "dys-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "dys-b5-c",
+            "label": "Selon la cause"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dys-b5-l1",
+            "label": "Chirurgie, radio-chimiothérapie"
+          },
+          {
+            "id": "dys-b5-l2",
+            "label": "Dilatations endoscopiques"
+          },
+          {
+            "id": "dys-b5-l3",
+            "label": "Myotomie de l'achalasie"
+          },
+          {
+            "id": "dys-b5-l4",
+            "label": "Rééducation, nutrition entérale"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Dysphagie",
+      "citation": "La Revue du Praticien — Démarche diagnostique devant une dysphagie : localisation, causes obstructives et motrices, examens clés",
+      "organization": "La Revue du Praticien",
+      "year": 2022,
+      "version": "Article de référence",
+      "url": "https://www.larevuedupraticien.fr/article/dysphagie",
+      "usedFor": [
+        "sémiologie",
+        "stratégie diagnostique"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Dysphagie",
+      "citation": "Wikipédia — Définition, types (oropharyngée et œsophagienne) et principales causes",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Dysphagie",
+      "usedFor": [
+        "définition",
+        "étiologies"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Cancer de l'œsophage",
+      "citation": "La Revue du Praticien — Dysphagie révélatrice du cancer de l'œsophage : endoscopie et stadification",
+      "organization": "La Revue du Praticien",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.larevuedupraticien.fr/article/cancer-de-loesophage",
+      "usedFor": [
+        "diagnostic",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
