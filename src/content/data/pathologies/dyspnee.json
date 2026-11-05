@@ -1,0 +1,590 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "dyspnee",
+  "title": "Dyspnée",
+  "specialty": "Pneumologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la dyspnée, la caractériser sémiologiquement (type, horaire, degré), organiser la démarche étiologique — causes respiratoires, cardiaques, métaboliques, neurologiques et anémiques — et reconnaître la dyspnée aiguë grave imposant une prise en charge immédiate.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 11,
+    "specialty": "Pneumologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 11,
+      "localNumber": 11,
+      "sectionLabel": "Sémiologie",
+      "title": "Dyspnée",
+      "specialty": "Pneumologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée à la dyspnée : définition et mécanismes (obstruction, restriction, atteinte de la pompe ventilatoire, hypoxie), analyse clinique (aiguë ou chronique, inspiratoire ou expiratoire, orthopnée, dyspnée d'effort), examen clinique et paraclinique, grandes causes et traitements. Les fiches asthme, bpco, oap et insuff-respiratoire-chronique détaillent les principales étiologies.",
+    "verificationNotes": "Sémiologie et démarche conforme aux sources consultées (EM consulte, Revue Médicale Suisse) : mécanismes, classification NYHA et grandes étiologies.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La dyspnée est une respiration difficile, pénible, perçue comme inconfortable par le patient — une sensation de « souffle court ». C'est l'un des symptômes les plus fréquents en pathologie : toute atteinte du poumon, du cœur, du sang ou du système nerveux peut s'exprimer par une dyspnée."
+        },
+        {
+          "type": "paragraph",
+          "text": "La démarche distingue la dyspnée aiguë, parfois vitale (œdème aigu du poumon, embolie pulmonaire, pneumothorax, asthme grave), de la dyspnée chronique, souvent progressive (bronchopneumopathie chronique obstructive, insuffisance cardiaque, anémie). Le degré fonctionnel guide l'urgence et le pronostic."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définitions et cadre sémiologique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "On analyse : le mode d'installation (brutal, rapide, progressif), l'horaire (d'effort, de repos, nocturne, paroxystique), le type inspiratoire (obstruction des voies aériennes supérieures, tirage) ou expiratoire (obstruction bronchique, sibilants), la position (orthopnée, dyspnée de décubitus). La classification NYHA quantifie la dyspnée d'effort d'origine cardiaque : stade I sans limitation, II pour les efforts importants, III pour les efforts modérés, IV au repos.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Les mécanismes : obstruction des voies aériennes (asthme, bronchopneumopathie obstructive), restriction parenchymateuse (pneumopathies interstitielles), atteinte de la pompe ventilatoire (obésité, neuromusculaire, déformations thoraciques), causes cardiaques (insuffisance ventriculaire gauche, valvulopathies, hypertension pulmonaire), métaboliques (acidose), anémie, et dyspnée psychogène (hyperventilation).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Dyspnée aiguë brutale : embolie pulmonaire, pneumothorax, corps étranger, œdème aigu du poumon, cause psychogène.",
+            "Dyspnée aiguë fébrile : pneumopathie infectieuse, bronchiolite du nourrisson, exacerbation de bronchopneumopathie obstructive.",
+            "Dyspnée paroxystique avec sibilants : crise d'asthme, insuffisance cardiaque gauche.",
+            "Dyspnée chronique progressive avec tabagisme : bronchopneumopathie chronique obstructive.",
+            "Dyspnée chronique avec orthopnée et œdèmes : insuffisance cardiaque chronique.",
+            "Dyspnée avec anémie et pâleur : anémies (paludisme, carence martiale, hémoglobinopathies).",
+            "Dyspnée d'origine interstitielle : pneumopathies infiltrantes, sarcoïdose, tuberculose extensive, pneumocystose chez l'immunodéprimé.",
+            "Dyspnée de la pompe ventilatoire : obésité, neuromusculaires (poliomyélite, sclérose latérale amyotrophique), déformations thoraciques.",
+            "Dyspnée de terrain tropical : tuberculose, paludisme grave, ankylostomiase (anémie)."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'examen commence par l'évaluation de la gravité : fréquence respiratoire, tirage, battement des ailes du nez, cyanose, balancement thoraco-abdominal, troubles de conscience, saturation en oxygène. Une polypnée supérieure à trente par minute, une bradypnée ou une altération de conscience signent une urgence respiratoire.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen pleuro-pulmonaire : symétrie de l'expansion, matité ou tympanisme, murmure vésiculaire, sibilants ou crépitants, frottement pleural. L'examen cardiaque : tachycardie, galop, souffles, reflux hépato-jugulaire, œdèmes des membres inférieurs. La palpation des chevilles et l'inspection de la conjonctive recherchent œdèmes et pâleur.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Paraclinique de première intention : oxymétrie, gaz du sang si grave, radiographie de thorax, électrocardiogramme, hémogramme. Selon l'orientation : spirométrie avec bronchodilatateur (obstruction réversible de l'asthme), épreuves d'effort, échocardiogramme, scanner thoracique, dosage du peptide natriurétique pour distinguer origine cardiaque et respiratoire, d-dimères si embolie pulmonaire suspectée.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Détresse respiratoire",
+          "text": "Polypnée avec tirage, cyanose, saturation basse, troubles de conscience : urgence vitale — oxygène, position assise, appel du réanimateur, recherche de la cause (œdème aigu du poumon, asthme grave, embolie, pneumothorax)."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dyspnée aiguë grave : oxygénothérapie titrée sur la saturation, position assise, traitement de la cause — diurétiques et vasodilatateurs de l'œdème aigu du poumon, bronchodilatateurs et corticoïdes de la crise d'asthme, exsufflation ou drainage du pneumothorax, anticoagulation de l'embolie pulmonaire, antibiothérapie des pneumopathies. La ventilation non invasive ou l'intubation se discutent en réanimation selon la gravité.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dyspnée chronique : traitement étiologique au long cours (bronchodilatateurs de la bronchopneumopathie obstructive, traitement de l'insuffisance cardiaque, correction de l'anémie par fer et acide folique, transfusion si anémie grave, antituberculeux), réhabilitation respiratoire, sevrage tabagique, vaccination antigrippale et antipneumococcique, oxygénothérapie de longue durée si insuffisance respiratoire chronique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sevrage tabagique, lutte contre les combustions domestiques et la biomasse, vaccination (grippe, pneumocoque), traitement précoce des infections respiratoires, dépistage et traitement de la tuberculose, prophylaxie du paludisme, correction des anémies nutritionnelles, contrôle des facteurs de risque cardiovasculaire."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La dyspnée est un symptôme carrefour dont la lecture est clinique : mode d'installation, horaire, type, signes associés. La gravité s'évalue d'abord (tirage, cyanose, conscience) ; le bilan oriente ensuite vers le poumon, le cœur, le sang ou le système nerveux. Toute dyspnée aiguë avec signes de lutte est une urgence avant d'être un diagnostic.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche asthme-aigu-grave — dyspnée paroxystique avec sibilants.",
+            "Fiche oap — dyspnée aiguë avec crépitants et orthopnée.",
+            "Fiche embolie-pulmonaire — dyspnée et douleur brutales.",
+            "Fiche insuff-respiratoire-chronique — dyspnée chronique et hypoxémie."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Détresse respiratoire",
+      "text": "Polypnée, tirage, cyanose, saturation effondrée ou troubles de conscience : urgence vitale — oxygène, position assise, réanimation, recherche de la cause en parallèle."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Trois tueurs à éliminer",
+      "text": "Devant une dyspnée aiguë brutale : embolie pulmonaire, pneumothorax, œdème aigu du poumon — trois diagnostics à éliminer avant tout apaisement diagnostique."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Six questions : aiguë ou chronique ? brutale ou progressive ? inspiratoire ou expiratoire ? d'effort ou de repos ? avec quels bruits (sibilants, crépitants) ? quels signes associés (fièvre, œdèmes, pâleur, douleur) ?"
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Sibilants = obstruction bronchique (asthme, bronchopneumopathie obstructive). Crépitations des bases avec orthopnée = cardiaque. Brutale avec douleur = embolie ou pneumothorax. Anémie + dyspnée = paludisme ou carence. NYHA quantifie la dyspnée cardiaque d'effort."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "D.Y.S.P.N.É.E.",
+      "text": "Douloureuse (embolie, pneumothorax), Y a-t-il des œdèmes (cardiaque) ?, Sibilants (asthme, obstructif), Pâleur (anémie, paludisme), Nocturne et paroxystique (insuffisance gauche), Épanchement (pleurésie), Effort puis repos (chronique évoluée)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Type de dyspnée",
+      "entries": [
+        {
+          "key": "I",
+          "term": "Inspiratoire, tirage : voies aériennes supérieures"
+        },
+        {
+          "key": "E",
+          "term": "Expiratoire, sifflante : obstruction bronchique"
+        },
+        {
+          "key": "M",
+          "term": "Mixte : parenchymateuse ou cardiaque avancée"
+        }
+      ]
+    },
+    {
+      "label": "Causes aiguës brutales",
+      "entries": [
+        {
+          "key": "E",
+          "term": "Embolie pulmonaire"
+        },
+        {
+          "key": "P",
+          "term": "Pneumothorax"
+        },
+        {
+          "key": "O",
+          "term": "Œdème aigu du poumon"
+        },
+        {
+          "key": "C",
+          "term": "Corps étranger"
+        }
+      ]
+    },
+    {
+      "label": "Causes chroniques",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Bronchopneumopathie obstructive (tabac)"
+        },
+        {
+          "key": "C",
+          "term": "Cardiaque (insuffisance, valvulopathie)"
+        },
+        {
+          "key": "I",
+          "term": "Interstitialles (infiltrantes)"
+        },
+        {
+          "key": "A",
+          "term": "Anémies chroniques"
+        }
+      ]
+    },
+    {
+      "label": "Bilan de première intention",
+      "entries": [
+        {
+          "key": "O",
+          "term": "Oxymétrie, gaz du sang"
+        },
+        {
+          "key": "R",
+          "term": "Radiographie de thorax"
+        },
+        {
+          "key": "É",
+          "term": "Électrocardiogramme"
+        },
+        {
+          "key": "H",
+          "term": "Hémogramme, peptide natriurétique selon orientation"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Qu'est-ce que la dyspnée ?",
+      "back": "Une respiration difficile et pénible, perçue subjectivement comme un inconfort respiratoire — le « souffle court » — résultant d'un déséquilibre entre la demande ventilatoire et la capacité respiratoire."
+    },
+    {
+      "id": "f2",
+      "front": "Comment classer la dyspnée cardiaque d'effort ?",
+      "back": "Par la classification NYHA : stade I sans gêne, II gêne aux efforts importants, III gêne aux efforts modérés, IV dyspnée au repos ou au moindre effort."
+    },
+    {
+      "id": "f3",
+      "front": "Qu'est-ce que l'orthopnée ?",
+      "back": "Une dyspnée majorée en position allongée, soulagée par la position assise, caractéristique de l'insuffisance cardiaque gauche et de l'œdème aigu du poumon."
+    },
+    {
+      "id": "f4",
+      "front": "Quels signes de gravité d'une dyspnée ?",
+      "back": "Polypnée supérieure à trente, tirage, battement des ailes du nez, cyanose, balancement thoraco-abdominal, bradypnée, troubles de conscience, saturation effondrée."
+    },
+    {
+      "id": "f5",
+      "front": "Que signifient des sibilants expiratoires ?",
+      "back": "Une obstruction bronchique : asthme ou bronchopneumopathie chronique obstructive ; le test aux bronchodilatateurs juge de la réversibilité."
+    },
+    {
+      "id": "f6",
+      "front": "Que signifient des crépitations des deux bases ?",
+      "back": "Un œdème interstitiel ou alvéolaire des bases : insuffisance ventriculaire gauche, mais aussi pneumopathie bilatérale ou fibrose selon le contexte."
+    },
+    {
+      "id": "f7",
+      "front": "Quelle est la présentation de l'embolie pulmonaire ?",
+      "back": "Dyspnée et tachycardie brutales, douleur thoracique, parfois syncope ; facteurs thrombo-emboliques ; d-dimères puis angio-scanner selon la probabilité."
+    },
+    {
+      "id": "f8",
+      "front": "Comment reconnaître un pneumothorax ?",
+      "back": "Douleur et dyspnée brutales, abolition du murmure vésiculaire et tympanisme d'un hémithorax, déviation possible du médiastin — radiographie de confirmation."
+    },
+    {
+      "id": "f9",
+      "front": "Quel rôle du peptide natriurétique ?",
+      "back": "Marqueur élevé en cas de dyspnée d'origine cardiaque : aide à distinguer une dyspnée cardiaque d'une dyspnée respiratoire aux urgences."
+    },
+    {
+      "id": "f10",
+      "front": "Quelles causes de dyspnée avec pâleur ?",
+      "back": "Les anémies : paludisme, carence martiale, hémoglobinopathies, ankylostomiase ; la chute du transport d'oxygène impose une adaptation ventilatoire."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle dyspnée chez l'immunodéprimé ?",
+      "back": "Pneumocystose, tuberculose, cytomégalovirus : une dyspnée fébrile sèche avec hypoxémie — scanner et endoscopie bronchique avec lavage."
+    },
+    {
+      "id": "f12",
+      "front": "Quelles causes de dyspnée de la pompe ventilatoire ?",
+      "back": "Obésité, affections neuromusculaires (sclérose latérale amyotrophique, séquelles de poliomyélite), déformations thoraciques, fatigabilité du diaphragme."
+    },
+    {
+      "id": "f13",
+      "front": "Quelle caractéristique de la dyspnée psychogène ?",
+      "back": "Survenant au repos, avec hyperventilation, paresthésies péri-orales, crise d'angoisse, résistante au traitement classique et soulagée par la parole — diagnostic d'élimination."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle prise en charge immédiate d'une dyspnée grave ?",
+      "back": "Position assise, oxygénothérapie titrée sur la saturation, mise en place d'une voie veineuse, monitorage, traitement de la cause identifiée, avis réanimatoire si détresse."
+    },
+    {
+      "id": "f15",
+      "front": "Quels traitements de fond des dyspnées chroniques obstructives ?",
+      "back": "Bronchodilatateurs de longue durée, corticoïdes inhalés si asthme, réhabilitation respiratoire, sevrage tabagique, vaccination, oxygénothérapie de longue durée si hypoxémie."
+    },
+    {
+      "id": "f16",
+      "front": "Comment quantifier la dyspnée en pratique ?",
+      "back": "Interrogatoire sur l'activité limitée (marche, escaliers, toilette), classification NYHA pour le cœur, échelle de Borg pour l'effort, suivi des exacerbations et des réveils nocturnes."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "dsp-root",
+      "label": "Dyspnée"
+    },
+    "branches": [
+      {
+        "id": "dsp-b1",
+        "label": "Sémiologie",
+        "children": [
+          {
+            "id": "dsp-b1-c",
+            "label": "Analyse codifiée"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dsp-b1-l1",
+            "label": "Aiguë ou chronique"
+          },
+          {
+            "id": "dsp-b1-l2",
+            "label": "Inspiratoire ou expiratoire"
+          },
+          {
+            "id": "dsp-b1-l3",
+            "label": "Effort ou repos"
+          },
+          {
+            "id": "dsp-b1-l4",
+            "label": "NYHA pour le cœur"
+          }
+        ]
+      },
+      {
+        "id": "dsp-b2",
+        "label": "Causes aiguës",
+        "children": [
+          {
+            "id": "dsp-b2-c",
+            "label": "Urgences"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dsp-b2-l1",
+            "label": "Embolie pulmonaire"
+          },
+          {
+            "id": "dsp-b2-l2",
+            "label": "Pneumothorax"
+          },
+          {
+            "id": "dsp-b2-l3",
+            "label": "Œdème aigu du poumon"
+          },
+          {
+            "id": "dsp-b2-l4",
+            "label": "Asthme grave, pneumopathie"
+          }
+        ]
+      },
+      {
+        "id": "dsp-b3",
+        "label": "Causes chroniques",
+        "children": [
+          {
+            "id": "dsp-b3-c",
+            "label": "Progressives"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dsp-b3-l1",
+            "label": "Bronchopneumopathie obstructive (tabac)"
+          },
+          {
+            "id": "dsp-b3-l2",
+            "label": "Insuffisance cardiaque"
+          },
+          {
+            "id": "dsp-b3-l3",
+            "label": "Interstitialles"
+          },
+          {
+            "id": "dsp-b3-l4",
+            "label": "Anémies (paludisme)"
+          }
+        ]
+      },
+      {
+        "id": "dsp-b4",
+        "label": "Bilan",
+        "children": [
+          {
+            "id": "dsp-b4-c",
+            "label": "Examens"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dsp-b4-l1",
+            "label": "Oxymétrie, gaz du sang"
+          },
+          {
+            "id": "dsp-b4-l2",
+            "label": "Radiographie, électrocardiogramme"
+          },
+          {
+            "id": "dsp-b4-l3",
+            "label": "Spirométrie, peptide natriurétique"
+          },
+          {
+            "id": "dsp-b4-l4",
+            "label": "Scanner, échocardiogramme"
+          }
+        ]
+      },
+      {
+        "id": "dsp-b5",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "dsp-b5-c",
+            "label": "Selon la cause"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "dsp-b5-l1",
+            "label": "Oxygène, position assise"
+          },
+          {
+            "id": "dsp-b5-l2",
+            "label": "Diurétiques, bronchodilatateurs"
+          },
+          {
+            "id": "dsp-b5-l3",
+            "label": "Anticoagulation, drainage"
+          },
+          {
+            "id": "dsp-b5-l4",
+            "label": "Réhabilitation, sevrage tabagique"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mécanismes et diagnostic des dyspnées",
+      "citation": "EM consulte — Synthèse : mécanismes ventilatoires de la dyspnée et démarche diagnostique chez l'adulte",
+      "organization": "EM consulte",
+      "year": 2023,
+      "version": "Article de synthèse",
+      "url": "https://www.em-consulte.com/article/735522/mecanismes-et-diagnostic-des-dyspnees",
+      "usedFor": [
+        "mécanismes",
+        "stratégie diagnostique"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Diagnostic et traitement d'un état dyspnéique aigu",
+      "citation": "EM consulte — Prise en charge de la dyspnée aiguë : évaluation de la gravité et orientations thérapeutiques",
+      "organization": "EM consulte",
+      "year": 2022,
+      "version": "Article de synthèse",
+      "url": "https://www.em-consulte.com/article/12965/diagnostic-et-traitement-d-un-etat-dyspneique-aigu",
+      "usedFor": [
+        "urgences",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Approche diagnostique de la dyspnée chronique chez l'adulte",
+      "citation": "Revue Médicale Suisse — Démarche clinique et examens devant une dyspnée chronique",
+      "organization": "Revue Médicale Suisse",
+      "year": 2020,
+      "version": "Article de revue",
+      "url": "https://www.revmed.ch/revue-medicale-suisse/2020/revue-medicale-suisse-715/approche-diagnostique-de-la-dyspnee-chronique-chez-l-adulte",
+      "usedFor": [
+        "dyspnée chronique",
+        "examens"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}

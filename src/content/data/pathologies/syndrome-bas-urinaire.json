@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "syndrome-bas-urinaire",
+  "title": "Syndrome du bas appareil urinaire",
+  "specialty": "Urologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir le syndrome du bas appareil urinaire (ensemble des troubles de la miction : brûlures, pollakiurie, impériosités, dysurie, rétention, incontinence), maîtriser la démarche diagnostique (bandelette, examen cytobactériologique des urines, débitmétrie, échographie vésicoprostatique, résidu post-mictionnel) et connaître les principales étiologies (cystite, hyperplasie bénigne de la prostate, tumeur de vessie, lithiase, vessie neurologique, incontinence).",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 18,
+    "specialty": "Urologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 18,
+      "localNumber": 18,
+      "sectionLabel": "Sémiologie",
+      "title": "Syndrome du bas appareil urinaire",
+      "specialty": "Urologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée au syndrome du bas appareil urinaire : symptômes irritatifs (pollakiurie, impériosité, brûlures) et obstructifs (dysurie, jet faible, rétention), calendrier mictionnel, bandelette et examen cytobactériologique, résidu post-mictionnel à l'échographie, étiologies selon l'âge et le sexe, traitements spécifiques. Les fiches hematurie et colique-nephretique complètent la démarche.",
+    "verificationNotes": "Démarche conforme au référentiel du Collège d'urologie (troubles mictionnels de l'adulte) et aux fiches VIDAL et ameli sur la cystite.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le syndrome du bas appareil urinaire regroupe l'ensemble des troubles de la miction liés à la vessie, à la prostate ou à l'urètre. On distingue les symptômes irritatifs (pollakiurie, impériosités, brûlures mictionnelles, nycturie) et les symptômes obstructifs (dysurie, jet faible, poussée, sensation de vidange incomplète, rétention)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ce syndrome est d'une extrême fréquence : cystite de la femme, troubles mictionnels de l'homme âgé (adénome prostatique), rétention aiguë, incontinence. La démarche doit distinguer les causes bénignes des causes graves (tumeur, rétention)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Symptômes irritatifs : pollakiurie (mictions fréquentes de faible volume), impériosités (besoin soudain, irrésistible, avec fuite possible), brûlures mictionnelles, nycturie (plus de deux mictions nocturnes), douleurs sus-pubiennes. Ils orientent vers une inflammation (cystite, tumeur, lithiase vésicale, corps étranger) ou une vessie hyperactive.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Symptômes obstructifs : dysurie (difficulté à initier et à maintenir le jet), jet faible, poussée abdominale, miction en deux temps, gouttes retardataires, sensation de vidange incomplète, rétention aiguë (globe vésical douloureux) ou chronique (mictions par regorgement). Ils orientent vers un obstacle : prostate, sténose urétrale, lithiase, prolapsus, ou vers un problème neurologique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calendrier mictionnel : horaires, volumes, fuites sur trois jours — outil simple d'évaluation.",
+            "Incontinence : d'effort (toux, efforts), par impériosité, mixte, par regorgement (obstacle chronique).",
+            "Examen clinique : globe vésical (rétention), toucher rectal (prostate), examen périnéal et neurologique."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Infectieuses : cystite aiguë simple ou compliquée, prostatite, urétrite, tuberculose urinaire, schistosomiase.",
+            "Obstructives : hyperplasie bénigne de la prostate (première cause chez l'homme après cinquante ans), sténose urétrale, lithiase vésicale ou urétrale, phimosis, prolapsus, tumeur de vessie ou de l'urètre.",
+            "Neurologiques (vessie neurologique) : blessés médullaires, sclérose en plaques, diabète (rétention indolore), maladie de Parkinson, spina-bifida.",
+            "Autres : vessie hyperactive idiopathique, incontinence d'effort (post-accouchement), tumeur de vessie (impériosités, hématurie), médicaments anticholinergiques (rétention)."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Démarche : calendrier mictionnel, bandelette urinaire (leucocyturie, nitrites, hématurie), examen cytobactériologique des urines, échographie vésicoprostatique avec mesure du résidu post-mictionnel, débitmétrie ; chez l'homme : toucher rectal et score symptomatique ; en cas d'hématurie ou de suspicion tumorale : cytologie urinaire et cystoscopie ; bilan neurologique si vessie neurologique suspectée.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Signes d'orientation : fièvre et brûlures chez la femme : cystite ; fièvre frissonnante et douleur périnéale chez l'homme : prostatite ; rétention aiguë chez l'homme âgé : adénome prostatique ; impériosités avec hématurie : tumeur de vessie ; rétention indolore postopératoire ou chez le diabétique : vessie neurologique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Rétention urinaire aiguë",
+          "text": "Globe vésical douloureux : sondage vésical en urgence (asepsie stricte), décompression progressive, puis bilan étiologique : échographie, toucher rectal, adaptation du traitement."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Traitement étiologique : antibiothérapie de la cystite simple chez la femme (dose unique de fosphomycine ou furanes trois à cinq jours), de la cystite compliquée et de la prostatite (fluoroquinolones, durée prolongée), traitement de la bilharziose (praziquantel), résection endoscopique de l'adénome ou de la tumeur de vessie, dilatation ou urétrotomie des sténoses, extraction des calculs vésicaux.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement symptomatique : alpha-bloquants (tamsulosine) pour lever l'obstacle prostatique, inhibiteurs de la 5-alpha-rédustase (finastéride) si volume prostatique important, anticholinergiques (oxybutynine) de la vessie hyperactive, rééducation périnéale de l'incontinence, sondage intermittent des vessies neurologiques, bandelette sous-urétrale de l'incontinence d'effort.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mesures associées : hydratation suffisante, mictions complètes et régulières, traitement de la constipation, hygiène périnéale ; suivi : contrôle des urines après antibiothérapie, surveillance du résidu post-mictionnel, dépistage des récidives et des complications.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hydratation abondante et mictions complètes, traitement des infections à répétition (prophylaxie, recherche d'un obstacle ou d'un corps étranger), miction post-coïtale chez la femme (cystite récidivante), dépistage et traitement de la bilharziose dans les zones endémiques, évaluation régulière des troubles prostatiques de l'homme vieillissant, rééducation périnéale du post-partum."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le syndrome du bas appareil urinaire oppose les symptômes irritatifs (inflammation, tumeur, vessie hyperactive) aux symptômes obstructifs (prostate, sténose, lithiase, vessie neurologique). Le calendrier mictionnel, la bandelette, l'échographie avec résidu post-mictionnel et le toucher rectal orientent ; la rétention aiguë est une urgence de sondage, l'hématurie associée impose d'éliminer une tumeur de vessie.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hematurie — tumeur de vessie à dépister.",
+            "Fiche colique-nephretique — lithiase urinaire.",
+            "Fiche proteinurie — atteinte du haut appareil.",
+            "Fiche diabete — vessie neurologique."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Rétention aiguë d'urine",
+      "text": "Globe vésical douloureux : sondage en urgence, en asepsie, décompression progressive ; puis recherche d'un obstacle (prostate, lithiase, médicament)."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Prostatite aiguë",
+      "text": "Fièvre, frissons, brûlures, prostate douloureuse au toucher rectal : fluoroquinolone, avis urologique, risque d'abcès."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Quatre questions : 1) irritatif ou obstructif ? 2) fièvre ? 3) hématurie ? 4) résidu post-mictionnel ? Une hématurie ou une rétention impose un avis spécialisé."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Irritatif : cystite (femme), tumeur (hématurie), vessie hyperactive. Obstructif : prostate (homme après cinquante ans), sténose, lithiase, vessie neurologique. Outils : calendrier, bandelette, examen cytobactériologique, échographie avec résidu, toucher rectal."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Irritatif ou obstructif",
+      "text": "Irritatif = inflammation (cystite, tumeur) ; obstructif = obstacle (prostate, sténose) ; les deux peuvent coexister ; la vessie neurologique donne une rétention indolore ; l'hématurie change tout : cystoscopie."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Symptômes irritatifs",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Pollakiurie"
+        },
+        {
+          "key": "I",
+          "term": "Impériosités"
+        },
+        {
+          "key": "B",
+          "term": "Brûlures mictionnelles"
+        },
+        {
+          "key": "N",
+          "term": "Nycturie"
+        }
+      ]
+    },
+    {
+      "label": "Symptômes obstructifs",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Dysurie"
+        },
+        {
+          "key": "J",
+          "term": "Jet faible"
+        },
+        {
+          "key": "R",
+          "term": "Résidu, vidange incomplète"
+        },
+        {
+          "key": "G",
+          "term": "Gouttes retardataires"
+        }
+      ]
+    },
+    {
+      "label": "Étiologies obstructives",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Prostate (adénome)"
+        },
+        {
+          "key": "S",
+          "term": "Sténose urétrale"
+        },
+        {
+          "key": "L",
+          "term": "Lithiase vésicale"
+        },
+        {
+          "key": "P",
+          "term": "Prolapsus, phimosis"
+        }
+      ]
+    },
+    {
+      "label": "Bilan de base",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Calendrier mictionnel"
+        },
+        {
+          "key": "B",
+          "term": "Bandelette, ECBU"
+        },
+        {
+          "key": "É",
+          "term": "Échographie + résidu"
+        },
+        {
+          "key": "T",
+          "term": "Toucher rectal"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quels sont les symptômes irritatifs du bas appareil urinaire ?",
+      "back": "Pollakiurie, impériosités, brûlures mictionnelles, nycturie, douleurs sus-pubiennes : ils orientent vers une inflammation (cystite, tumeur, lithiase) ou une vessie hyperactive."
+    },
+    {
+      "id": "f2",
+      "front": "Quels sont les symptômes obstructifs du bas appareil urinaire ?",
+      "back": "Dysurie, jet faible, poussée, miction en deux temps, gouttes retardataires, sensation de vidange incomplète, rétention : obstacle (prostate, sténose) ou vessie neurologique."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle est la première cause d'obstruction chez l'homme après cinquante ans ?",
+      "back": "L'hyperplasie bénigne de la prostate : dysurie progressive, nycturie, jet faible, rétention possible ; évaluation par score symptomatique, toucher rectal et débitmétrie."
+    },
+    {
+      "id": "f4",
+      "front": "Comment prendre en charge une rétention urinaire aiguë ?",
+      "back": "Sondage vésical en urgence en asepsie stricte, décompression progressive, surveillance de la diurèse ; puis bilan étiologique : échographie, toucher rectal, traitement de la cause."
+    },
+    {
+      "id": "f5",
+      "front": "Comment traiter une cystite aiguë simple de la femme ?",
+      "back": "Antibiothérapie courte : dose unique de fosphomycine ou furanes trois à cinq jours ; hydratation abondante ; réévaluation si persistance des signes au-delà de quarante-huit heures."
+    },
+    {
+      "id": "f6",
+      "front": "Quand suspecter une prostatite aiguë ?",
+      "back": "Fièvre, frissons, brûlures mictionnelles, douleurs périnéales, prostate douloureuse, chaude et augmentée de volume au toucher rectal : fluoroquinolones, durée prolongée, risque d'abcès."
+    },
+    {
+      "id": "f7",
+      "front": "Quand suspecter une tumeur de vessie devant des troubles mictionnels ?",
+      "back": "Impériosités et pollakiurie persistantes, surtout avec hématurie microscopique, chez l'adulte fumeur : cytologie urinaire et cystoscopie indispensables."
+    },
+    {
+      "id": "f8",
+      "front": "Qu'est-ce que la vessie neurologique ?",
+      "back": "Un trouble mictionnel d'origine neurologique (moelle, diabète, sclérose en plaques, Parkinson) : rétention indolore, impériosités, infections à répétition ; sondage intermittent et bilan urodynamique."
+    },
+    {
+      "id": "f9",
+      "front": "Quelle parasitose donne des troubles mictionnels dans les zones tropicales ?",
+      "back": "La schistosomiase urinaire (bilharziose) : hématurie terminale, pollakiurie, cystite chronique, risque de cancer de vessie ; traitement par praziquantel."
+    },
+    {
+      "id": "f10",
+      "front": "Qu'est-ce que le résidu post-mictionnel ?",
+      "back": "Le volume d'urine restant dans la vessie après une miction, mesuré à l'échographie : supérieur à cent millilitres, il signe une obstruction ou un trouble de la contractilité vésicale."
+    },
+    {
+      "id": "f11",
+      "front": "Quel traitement médical de l'adénome prostatique ?",
+      "back": "Alpha-bloquants (tamsulosine) pour améliorer le jet, inhibiteurs de la 5-alpha-rédustase (finastéride) si volume important ; chirurgie (résection endoscopique) si complications : rétentions, infections, lithiase."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement de la vessie hyperactive ?",
+      "back": "Rééducation vésicale, mesures hygiéno-diététiques, anticholinergiques (oxybutynine, solifénacine) ; rechercher et traiter les causes (cystite, lithiase, tumeur)."
+    },
+    {
+      "id": "f13",
+      "front": "Quels types d'incontinence urinaire ?",
+      "back": "D'effort (fuites aux efforts, toux, post-accouchement), par impériosité (besoin soudain), mixte, par regorgement (obstacle chronique) ; traitement : rééducation, anticholinergiques, bandelette sous-urétrale."
+    },
+    {
+      "id": "f14",
+      "front": "Quel examen simple pour évaluer les troubles mictionnels ?",
+      "back": "Le calendrier mictionnel : horaires, volumes, fuites sur trois jours ; combiné à la bandelette urinaire, il oriente vers irritatif ou obstructif et vers infectieux ou non."
+    },
+    {
+      "id": "f15",
+      "front": "Quels médicaments peuvent causer une rétention urinaire ?",
+      "back": "Anticholinergiques, antidépresseurs tricycliques, certains antihypertenseurs, antihistaminiques, décongestionnants : à rechercher systématiquement chez le patient dysurique."
+    },
+    {
+      "id": "f16",
+      "front": "Quand adresser le patient à l'urologue ?",
+      "back": "Rétention récidivante, hématurie, suspicion de tumeur, échec du traitement médical de l'adénome, incontinence invalidante, vessie neurologique, lithiase vésicale."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "sba-root",
+      "label": "Syndrome du bas appareil urinaire"
+    },
+    "branches": [
+      {
+        "id": "sba-b1",
+        "label": "Symptômes",
+        "children": [
+          {
+            "id": "sba-b1-c",
+            "label": "Irritatifs ou obstructifs"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sba-b1-l1",
+            "label": "Pollakiurie, impériosités"
+          },
+          {
+            "id": "sba-b1-l2",
+            "label": "Brûlures, nycturie"
+          },
+          {
+            "id": "sba-b1-l3",
+            "label": "Dysurie, jet faible"
+          },
+          {
+            "id": "sba-b1-l4",
+            "label": "Rétention, résidu"
+          }
+        ]
+      },
+      {
+        "id": "sba-b2",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "sba-b2-c",
+            "label": "Selon le terrain"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sba-b2-l1",
+            "label": "Cystite (femme)"
+          },
+          {
+            "id": "sba-b2-l2",
+            "label": "Adénome (homme âgé)"
+          },
+          {
+            "id": "sba-b2-l3",
+            "label": "Tumeur de vessie"
+          },
+          {
+            "id": "sba-b2-l4",
+            "label": "Vessie neurologique, bilharziose"
+          }
+        ]
+      },
+      {
+        "id": "sba-b3",
+        "label": "Bilan",
+        "children": [
+          {
+            "id": "sba-b3-c",
+            "label": "Outils"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sba-b3-l1",
+            "label": "Calendrier mictionnel"
+          },
+          {
+            "id": "sba-b3-l2",
+            "label": "Bandelette, ECBU"
+          },
+          {
+            "id": "sba-b3-l3",
+            "label": "Échographie + résidu"
+          },
+          {
+            "id": "sba-b3-l4",
+            "label": "Toucher rectal, cystoscopie"
+          }
+        ]
+      },
+      {
+        "id": "sba-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "sba-b4-c",
+            "label": "Étiologique et symptomatique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sba-b4-l1",
+            "label": "Antibiothérapie, praziquantel"
+          },
+          {
+            "id": "sba-b4-l2",
+            "label": "Alpha-bloquants, finastéride"
+          },
+          {
+            "id": "sba-b4-l3",
+            "label": "Anticholinergiques"
+          },
+          {
+            "id": "sba-b4-l4",
+            "label": "Sondage, chirurgie"
+          }
+        ]
+      },
+      {
+        "id": "sba-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "sba-b5-c",
+            "label": "Long terme"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "sba-b5-l1",
+            "label": "Hydratation, hygiène"
+          },
+          {
+            "id": "sba-b5-l2",
+            "label": "Mictions complètes"
+          },
+          {
+            "id": "sba-b5-l3",
+            "label": "Dépistage bilharziose"
+          },
+          {
+            "id": "sba-b5-l4",
+            "label": "Rééducation périnéale"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Troubles de la miction et incontinence urinaire de l'adulte et du sujet âgé",
+      "citation": "Collège d'urologie — Référentiel : troubles mictionnels et incontinence de l'adulte, démarche diagnostique et thérapeutique",
+      "organization": "Association Française d'Urologie (urofrance)",
+      "year": 2018,
+      "version": "Référentiel du Collège d'urologie",
+      "url": "https://www.urofrance.org/lafu-academie/formation-du-college/referentiel-du-college-durologie-6eme-edition/chapitre-8-item-125-troubles-de-la-miction-et-incontinence-urinaire-de-ladulte-et-du-sujet-age/",
+      "usedFor": [
+        "référentiel",
+        "bilan"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Cystite (infection urinaire)",
+      "citation": "VIDAL — Fiche d'information : cystite de la femme adulte, causes, signes et traitement",
+      "organization": "VIDAL",
+      "year": 2024,
+      "version": "Fiche d'information",
+      "url": "https://www.vidal.fr/maladies/reins-voies-urinaires/infection-urinaire-cystite.html",
+      "usedFor": [
+        "cystite",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Cystite : la reconnaître",
+      "citation": "ameli — Fiche d'information sur la reconnaissance et la prise en charge de la cystite",
+      "organization": "Assurance Maladie (ameli.fr)",
+      "year": 2024,
+      "version": "Fiche grand public validée",
+      "url": "https://www.ameli.fr/assure/sante/themes/cystite/reconnaitre-cystite",
+      "usedFor": [
+        "signes",
+        "conseils"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
