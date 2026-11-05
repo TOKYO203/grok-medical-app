@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "proteinurie",
+  "title": "Protéinurie",
+  "specialty": "Néphrologie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la protéinurie (présence de protéines dans les urines, traduisant le plus souvent une atteinte glomérulaire), connaître les seuils (physiologique inférieure à cent cinquante milligrammes par vingt-quatre heures, pathologique supérieure à trois cents milligrammes, néphrotique supérieure à trois grammes), la démarche diagnostique (bandelette, rapport protéine-créatinine, étiologies glomérulaires et tubulaires) et les principes thérapeutiques.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 16,
+    "specialty": "Néphrologie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 16,
+      "localNumber": 16,
+      "sectionLabel": "Sémiologie",
+      "title": "Protéinurie",
+      "specialty": "Néphrologie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche sémiologique consacrée à la protéinurie : dépistage à la bandelette urinaire, quantification (rapport protéine-créatinine sur échantillon ou protéinurie des vingt-quatre heures), distinction protéinurie glomérulaire (albumine dominante, syndrome néphrotique) et tubulaire (protéines de bas poids moléculaire, défaut de réabsorption), démarche étiologique et traitement. Les fiches syndrome-nephrotique et insuffisance-renale-chronique complètent la démarche.",
+    "verificationNotes": "Seuils et démarche conformes aux recommandations de la HAS sur l'albuminurie et la créatininurie et aux référentiels de néphrologie clinique.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La protéinurie est la présence d'une quantité anormale de protéines dans les urines. Elle est le plus souvent glomérulaire, traduisant une altération de la barrière de filtration, et constitue à la fois un signe d'atteinte rénale et un facteur d'aggravation de celle-ci : sa quantification et son exploration sont donc un enjeu majeur."
+        },
+        {
+          "type": "paragraph",
+          "text": "Découverte le plus souvent fortuite à la bandelette urinaire, elle peut révéler un syndrome néphrotique, une néphropathie diabétique, une hypertension artérielle ou une néphropathie glomérulaire."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et quantification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La filtration glomérulaire normale laisse passer très peu de protéines (moins de cent cinquante milligrammes par vingt-quatre heures, dont de l'albumine en quantité minime). Une protéinurie pathologique est affirmée au-delà de trois cents milligrammes par vingt-quatre heures ou d'un rapport protéine-créatinine supérieur à cinquante milligrammes par millimole.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La bandelette urinaire détecte l'albumine (seuil environ trois cents milligrammes par litre) : elle est très spécifique mais manque les protéinuries tubulaires et les microalbuminuries. La microalbuminurie (albuminurie entre trente et trois cents milligrammes par vingt-quatre heures) signe une atteinte glomérulaire débutante : néphropathie diabétique, hypertension artérielle.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Protéinurie permanente : constante, traduisant une atteinte rénale organique.",
+            "Protéinurie transitoire ou orthostatique : disparaissant au décubitus, bénigne, fréquente chez l'adolescent.",
+            "Protéinurie intermittente : fièvre, effort, infection urinaire.",
+            "Seuils : 150 mg/24 h (normale), 300 mg/24 h (pathologique), 3 g/24 h (néphrotique, si hypoalbuminémie et œdèmes)."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Glomérulaires (albumine dominante) : syndrome néphrotique (néphrose lipoïdique, néphropathie à dépôts d'immunoglobulines A, néphropathie membrano-proliférative, néphropathie extramembraneuse), néphropathie diabétique (première cause de protéinurie permanente), hypertension artérielle néphrosclérose, néphropathie lupique, amylose.",
+            "Tubulaires (protéines de bas poids moléculaires, moins de 1 g/24 h) : syndrome de Fanconi, tubulopathie toxique ou héréditaire, pyélonéphrite chronique.",
+            "Orthostatique : adolescente, jeune adulte, bénigne, disparaissant au repos.",
+            "Par dépassement (overflow) : chaînes légères du myélome (protéinurie de Bence-Jones), myoglobinurie.",
+            "Transitoires : fièvre, effort, insuffisance cardiaque, infection urinaire."
+          ],
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Démarche : affirmer et quantifier (bandelette, puis rapport protéine-créatinine sur échantillon d'urine du matin, ou protéinurie des vingt-quatre heures), éliminer les fausses protéinuries (leucocyturie, hématurie, menstruation, exercice, position debout), évaluer la fonction rénale (créatininémie, débit de filtration glomérulaire estimé), rechercher un syndrome néphrotique (protéinurie supérieure à trois grammes, hypoalbuminémie inférieure à trente grammes par litre, œdèmes, hyperlipidémie), et évaluer la tension artérielle.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Examens orientés : échographie rénale (taille, dilatation, asymétrie), bilan immunologique selon le contexte (complément, anticorps antinucléaires, sérologies), électrophorèse des protéines sériques et urinaires (chaînes légères), glycémie, recherche de diabète et de dyslipidémie. La ponction-biopsie rénale est indiquée devant un syndrome néphrotique de l'adulte, une protéinurie glomérulaire supérieure à un gramme par vingt-quatre heures avec hématurie ou insuffisance rénale, ou une atteinte du complement pour caractériser la néphropathie et guider le traitement.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "id": "c1",
+          "tone": "urgence",
+          "title": "Syndrome néphrotique",
+          "text": "Protéinurie supérieure à trois grammes par vingt-quatre heures avec œdèmes blancs et hypoalbuminémie : syndrome néphrotique — urgence diagnostique (biopsie), anticoagulation si albuminémie inférieure à vingt, recherche de complications (thrombose, infection)."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mesures générales : régime désodé (moins de six grammes par jour, deux en cas de syndrome néphrotique), restriction hydrique si hyponatrémie, arrêt du tabac, contrôle de la glycémie et de la tension artérielle.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mesures néphroprotectrices : inhibiteurs du système rénine-angiotensine (inhibiteur de l'enzyme de conversion ou antagoniste des récepteurs de l'angiotensine 2) — réduisent la protéinurie et ralentissent la progression, y compris chez le diabétique et l'hypertendu ; contrôle strict de la pression artérielle (cible inférieure à cent trente sur quatre-vingts si protéinurie) ; éviction des médicaments néphrotoxiques (anti-inflammatoires, produits de contraste iodés).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Traitement de la cause : corticoïdes et immunosupresseurs des néphropathies glomérulaires immunes (lupus, néphropathie à dépôts d'immunoglobulines A), équilibre du diabète, statines de la dyslipidémie du syndrome néphrotique, anticoagulation si risque thrombotique majeur, diurétiques des œdèmes, supplémentation en vitamine D et calcium si néphropathie chronique. Suivi : protéinurie, créatininémie, tension artérielle tous les trois à six mois.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dépistage annuel de la microalbuminurie chez le diabétique et l'hypertendu ; bonne observance des mesures néphroprotectrices, traitement étiologique précoce, éviction des néphrotoxiques, information des patients porteurs d'une protéinurie orthostatique (bénignité, réassurance)."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La protéinurie se dépiste à la bandelette et se quantifie sur échantillon : au-delà de trois cents milligrammes par vingt-quatre heures elle est pathologique et impose une évaluation de la fonction rénale, une recherche de syndrome néphrotique et un traitement néphroprotecteur par inhibiteurs du système rénine-angiotensine ; au-delà d'un gramme glomérulaire, la biopsie rénale discutée. Son contrôle ralentit la progression vers l'insuffisance rénale chronique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche syndrome-nephrotique — complication majeure de la protéinurie glomérulaire.",
+            "Fiche insuffisance-renale-chronique — évolution de la néphropathie protéinurique.",
+            "Fiche hematurie — autre signe glomérulaire.",
+            "Fiche diabete — néphropathie diabétique."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Syndrome néphrotique de l'adulte",
+      "text": "Protéinurie supérieure à trois grammes, hypoalbuminémie, œdèmes : biopsie rénale discutée en urgence, anticoagulation si albuminémie inférieure à vingt grammes par litre, recherche de cause (lupus, diabète, médicaments)."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Protéinurie et insuffisance rénale aiguë",
+      "text": "Protéinurie abondante avec créatinine qui monte rapidement : glomérulonéphrite rapidement progressive — hospitalisation, biopsie rapide, traitement immunosuppresseur urgent."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Quatre étapes : 1) confirmer (bandelette, quantifier sur échantillon du matin), 2) éliminer une cause transitoire (fièvre, effort, infection), 3) évaluer fonction rénale et tension, 4) orienter : glomérulaire, tubulaire ou orthostatique."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Bandelette positive : quantifier (protéine-créatinine). Supérieure à 3 g/24 h avec hypoalbuminémie : syndrome néphrotique. Supérieure à 1 g/24 h glomérulaire : biopsie à discuter. Traitement de fond : inhibiteurs du système rénine-angiotensine + tension inférieure à 130/80."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "300-1-3",
+      "text": "Trois seuils à retenir : 300 mg (pathologique), 1 g (biopsie à discuter), 3 g (syndrome néphrotique)."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Seuils de la protéinurie",
+      "entries": [
+        {
+          "key": "1",
+          "term": "150 mg : limite normale"
+        },
+        {
+          "key": "3",
+          "term": "300 mg : pathologique"
+        },
+        {
+          "key": "30",
+          "term": "30 mg d'albumine : microalbuminurie"
+        },
+        {
+          "key": "3 g",
+          "term": "3 g : syndrome néphrotique"
+        }
+      ]
+    },
+    {
+      "label": "Causes glomérulaires",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Diabète (première cause)"
+        },
+        {
+          "key": "H",
+          "term": "Hypertension (néphrosclérose)"
+        },
+        {
+          "key": "L",
+          "term": "Lupus (néphropathie lupique)"
+        },
+        {
+          "key": "A",
+          "term": "Amylose, glomérulonéphrites"
+        }
+      ]
+    },
+    {
+      "label": "Démarche diagnostique",
+      "entries": [
+        {
+          "key": "B",
+          "term": "Bandelette"
+        },
+        {
+          "key": "Q",
+          "term": "Quantifier (protéine-créatinine)"
+        },
+        {
+          "key": "F",
+          "term": "Fonction rénale (créatinine)"
+        },
+        {
+          "key": "B",
+          "term": "Biopsie si indiquée"
+        }
+      ]
+    },
+    {
+      "label": "Traitement néphroprotecteur",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sel limité"
+        },
+        {
+          "key": "A",
+          "term": "Antihypertenseur (système rénine-angiotensine)"
+        },
+        {
+          "key": "T",
+          "term": "Tension sous contrôle"
+        },
+        {
+          "key": "S",
+          "term": "Statines, sevrage toxique"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quel est le seuil de la protéinurie physiologique ?",
+      "back": "Moins de cent cinquante milligrammes par vingt-quatre heures, composée surtout de protéines de bas poids moléculaires et de l'albumine en très petite quantité."
+    },
+    {
+      "id": "f2",
+      "front": "Quel est le seuil de la protéinurie pathologique ?",
+      "back": "Supérieure à trois cents milligrammes par vingt-quatre heures (ou rapport protéine-créatinine supérieur à cinquante milligrammes par millimole sur échantillon)."
+    },
+    {
+      "id": "f3",
+      "front": "Qu'est-ce que la microalbuminurie ?",
+      "back": "Une albuminurie entre trente et trois cents milligrammes par vingt-quatre heures : atteinte glomérulaire débutante, dépistage de la néphropathie diabétique et de l'atteinte vasculaire de l'hypertension artérielle."
+    },
+    {
+      "id": "f4",
+      "front": "Comment quantifier une protéinurie ?",
+      "back": "Rapport protéine-créatinine sur un échantillon d'urine du matin (valeur approchant la protéinurie des vingt-quatre heures en mg/mmol), ou recueil des urines de vingt-quatre heures."
+    },
+    {
+      "id": "f5",
+      "front": "Quelles limites de la bandelette urinaire ?",
+      "back": "Elle détecte l'albumine (seuil environ 300 mg/L) : elle manque les protéinuries tubulaires (protéines de bas poids moléculaire) et la microalbuminurie ; une protéinurie de Bence-Jones peut être négative."
+    },
+    {
+      "id": "f6",
+      "front": "Qu'est-ce que la protéinurie orthostatique ?",
+      "back": "Une protéinurie présente uniquement en position debout, fréquente chez l'adolescent, bénigne, disparaissant au décubitus ; elle ne nécessite pas de traitement."
+    },
+    {
+      "id": "f7",
+      "front": "Qu'est-ce que le syndrome néphrotique ?",
+      "back": "Protéinurie supérieure à trois grammes par vingt-quatre heures, hypoalbuminémie inférieure à trente grammes par litre, œdèmes blancs, hyperlipidémie ; complications : thromboses, infections, insuffisance rénale."
+    },
+    {
+      "id": "f8",
+      "front": "Quand proposer une ponction-biopsie rénale ?",
+      "back": "Syndrome néphrotique de l'adulte, protéinurie glomérulaire supérieure à un gramme par vingt-quatre heures (surtout avec hématurie, hypertension ou insuffisance rénale), suspicion de néphropathie rapidement progressive."
+    },
+    {
+      "id": "f9",
+      "front": "Quelle est la première cause de protéinurie permanente ?",
+      "back": "La néphropathie diabétique : dépistage par microalbuminurie annuelle chez tout diabétique, prévention par l'équilibre glycémique et les inhibiteurs du système rénine-angiotensine."
+    },
+    {
+      "id": "f10",
+      "front": "Pourquoi les inhibiteurs du système rénine-angiotensine sont-ils centraux ?",
+      "back": "Ils abaissent la pression intraglomérulaire, réduisent la protéinurie et ralentissent la progression vers l'insuffisance rénale chronique, indépendamment de l'effet antihypertenseur."
+    },
+    {
+      "id": "f11",
+      "front": "Quelle cible tensionnelle en cas de protéinurie ?",
+      "back": "Inférieure à cent trente sur quatre-vingts millimètres de mercure ; le contrôle de la pression artérielle et de la protéinurie est le meilleur déterminant du ralentissement de la néphropathie."
+    },
+    {
+      "id": "f12",
+      "front": "Qu'est-ce que la protéinurie tubulaire ?",
+      "back": "Une protéinurie de bas poids moléculaires (moins d'un gramme par vingt-quatre heures), par défaut de réabsorption tubulaire : syndrome de Fanconi, tubulopathie toxique (ifosfamide, aminosides) ou héréditaire."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que la protéinurie de Bence-Jones ?",
+      "back": "Protéinurie de chaînes légères libres du myélome multiple : bandelette souvent négative, dépistée par électrophorèse et immunofixation des protéines urinaires."
+    },
+    {
+      "id": "f14",
+      "front": "Quelles mesures diététiques du syndrome néphrotique ?",
+      "back": "Régime désodé strict (deux grammes de sel), restriction hydrique si hyponatrémie, apports protidiques adaptés, éviction du tabac et des néphrotoxiques."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles complications du syndrome néphrotique ?",
+      "back": "Thromboses veineuses (anticoagulation si albuminémie inférieure à vingt), infections (pneumocoque, péritonite), hyperlipidémie (statines), insuffisance rénale, dénutrition."
+    },
+    {
+      "id": "f16",
+      "front": "Quel suivi d'une protéinurie chronique ?",
+      "back": "Protéinurie, créatininémie et tension artérielle tous les trois à six mois, adaptation du traitement néphroprotecteur, dépistage des complications ; l'objectif est de réduire la protéinurie au minimum."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "pro-root",
+      "label": "Protéinurie"
+    },
+    "branches": [
+      {
+        "id": "pro-b1",
+        "label": "Dépistage",
+        "children": [
+          {
+            "id": "pro-b1-c",
+            "label": "Outils"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pro-b1-l1",
+            "label": "Bandelette urinaire"
+          },
+          {
+            "id": "pro-b1-l2",
+            "label": "Protéine-créatinine"
+          },
+          {
+            "id": "pro-b1-l3",
+            "label": "24 heures"
+          },
+          {
+            "id": "pro-b1-l4",
+            "label": "Microalbuminurie"
+          }
+        ]
+      },
+      {
+        "id": "pro-b2",
+        "label": "Seuils",
+        "children": [
+          {
+            "id": "pro-b2-c",
+            "label": "À retenir"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pro-b2-l1",
+            "label": "150 mg : normale"
+          },
+          {
+            "id": "pro-b2-l2",
+            "label": "300 mg : pathologique"
+          },
+          {
+            "id": "pro-b2-l3",
+            "label": "3 g : néphrotique"
+          },
+          {
+            "id": "pro-b2-l4",
+            "label": "30 mg : microalbuminurie"
+          }
+        ]
+      },
+      {
+        "id": "pro-b3",
+        "label": "Étiologies",
+        "children": [
+          {
+            "id": "pro-b3-c",
+            "label": "Selon le mécanisme"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pro-b3-l1",
+            "label": "Glomérulaire : diabète, lupus"
+          },
+          {
+            "id": "pro-b3-l2",
+            "label": "Tubulaire : Fanconi"
+          },
+          {
+            "id": "pro-b3-l3",
+            "label": "Orthostatique : bénigne"
+          },
+          {
+            "id": "pro-b3-l4",
+            "label": "Dépassement : myélome"
+          }
+        ]
+      },
+      {
+        "id": "pro-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "pro-b4-c",
+            "label": "Néphroprotection"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pro-b4-l1",
+            "label": "Régime désodé"
+          },
+          {
+            "id": "pro-b4-l2",
+            "label": "Système rénine-angiotensine"
+          },
+          {
+            "id": "pro-b4-l3",
+            "label": "Tension sous 130/80"
+          },
+          {
+            "id": "pro-b4-l4",
+            "label": "Immunosuppresseurs si cause immune"
+          }
+        ]
+      },
+      {
+        "id": "pro-b5",
+        "label": "Suivi",
+        "children": [
+          {
+            "id": "pro-b5-c",
+            "label": "Chronique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "pro-b5-l1",
+            "label": "Protéinurie tous les 3-6 mois"
+          },
+          {
+            "id": "pro-b5-l2",
+            "label": "Créatininémie"
+          },
+          {
+            "id": "pro-b5-l3",
+            "label": "Biopsie si indiquée"
+          },
+          {
+            "id": "pro-b5-l4",
+            "label": "Prévention de l'insuffisance rénale"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Protéinurie",
+      "citation": "Wikipédia — Article de synthèse : définition, mécanismes et étiologies de la protéinurie",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Prot%C3%A9inurie",
+      "usedFor": [
+        "définition",
+        "mécanismes"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Syndrome néphrotique",
+      "citation": "Wikipédia — Article de synthèse : syndrome néphrotique de l'adulte et de l'enfant, causes et prise en charge",
+      "organization": "Wikipédia",
+      "year": 2024,
+      "version": "Article encyclopédique",
+      "url": "https://fr.wikipedia.org/wiki/Syndrome_n%C3%A9phrotique",
+      "usedFor": [
+        "syndrome néphrotique",
+        "complications"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Rapport d'évaluation : albuminurie et créatininurie",
+      "citation": "HAS — Rapport d'évaluation sur le dosage de l'albuminurie et de la créatininurie dans le dépistage des néphropathies",
+      "organization": "Haute Autorité de Santé",
+      "year": 2011,
+      "version": "Rapport d'évaluation",
+      "url": "https://www.has-sante.fr/upload/docs/application/pdf/2011-12/rapport__albuminurie_creatininurie_2011-12-27_14-57-31_440.pdf",
+      "usedFor": [
+        "dépistage",
+        "quantification"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
