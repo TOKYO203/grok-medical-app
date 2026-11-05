@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "complications-fractures",
+  "title": "Complications précoces des fractures de membres",
+  "specialty": "Orthopédie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser les complications précoces des fractures de membres : complications locales (ouverture, lésions vasculo-nerveuses, syndrome d'ischémie aiguë des loges, lésions cutanées, infection) et générales (embolie graisseuse, thrombose veineuse, embolie pulmonaire, complications de décubitus), savoir les dépister par l'examen clinique initiale et sous plâtre, et connaître leur prise en charge urgente.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 33,
+    "specialty": "Orthopédie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 33,
+      "localNumber": 33,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Complications précoces des fractures de membres",
+      "specialty": "Orthopédie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Complications précoces des fractures de membres (jours à semaines) : locales : ouverture cutanée (classification Cauchoix-Duparc : type 1 plaie punctiforme simple, type 2 plaie plus large sans écrasement, type 3 grand écrasement, contamination : risque septique, gestion en urgence : parage-lavage, antibiothérapie, antitétanique, ostéosynthèse ou fixateur) ; lésions vasculaires (plaie ou écrasement artériel : ischémie aiguë du membre : pâleur, douleur, abolition des pouls, paraesthésies, paralysie, poikilothermie : réduction, exploration, revascularisation en urgence) ; lésions nerveuses (étirement, contusion, section : médian au poignet, radial à la diaphyse humérale, sciatique à la hanche, fibulaire commun au genou : bilan moteur et sensitif, la plupart récupèrent, les sections opérées) ; syndrome des loges (ischémie aiguë des loges musculaires : doulourant, majorée à l'extension passive, tension de la loge, paraesthésies puis paralysie : jambe et avant-bras surtout, fracture de jambe, supracondylienne : fasciotomie d'urgence, séquelle Volkmann) ; complications de la peau et des tissus mous (bulles, escarres de plâtre, plaies de décubitus), rupture tendineuse ; infection (fracture ouverte, ostéite sur broche, arthrite septique) ; générales : embolie graisseuse (fracture des os longs, 24-72 heures : détresse respiratoire, confusion, pétéchies, thrombopénie : réanimation, oxygène) ; thrombose veineuse profonde et embolie pulmonaire (immobilisation, plâtre : prophylaxie par héparine de bas poids moléculaire, mobilisation précoce) ; complications de décubitus (escarres, encombrement, infection urinaire, constipation, confusion chez le sujet âgé) ; dénutrition, complications anémiques (saignement des fractures fermées : cuisse, bassin) ; dépistage : examen clinique initial complet (pouls, sensibilité, motricité, peau) répété après réduction et sous plâtre (douleur sous plâtre = urgence), surveillance des fractures à risque (fémur, bassin, jambe, coude de l'enfant) ; règles : toute douleur croissante sous plâtre impose sa fenêtre ou son ablation ; toute ischémie impose la levée de la contrainte (plâtre, broches) ; toute ouverture impose le bloc en urgence ; la prévention (vaccination antitétanique, anticoagulation, lever précoce, immobilisation correcte) prime sur la correction.",
+    "verificationNotes": "Contenu aligné sur les ECN/item français sur les complications des fractures et la littérature orthopédique francophone.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Toute fracture de membre, même fermée et bien réduite, peut se compliquer dans les premiers jours : la gravité vient rarement de l'os lui-même, presque toujours de ce qui l'entoure (peau, vaisseaux, nerfs, loges musculaires) et du lit du patient (thrombose, embolie, décubitus)."
+        },
+        {
+          "type": "paragraph",
+          "text": "La règle d'or : examiner avant, pendant et après : pouls, sensibilité, motricité et peau au premier examen, recontrôler après réduction et immobilisation, et considérer toute douleur croissante sous plâtre comme une urgence (ischémie des loges ou cutanée)."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Généralités et classification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Complications immédiates (lésions associées au traumatisme) : ouverture cutanée, lésions vasculaires et nerveuses, rupture tendineuse, lésions viscérales associées (polytraumatisme) ; complications secondaires (heures à semaines) : syndrome des loges, thrombose veineuse, embolie graisseuse, infection locale ou générale, escarres, perte de réduction ; complications tardives (hors de cette fiche) : pseudarthrose, cal vicieux, nécrose, algodystrophie, arthrose.",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fractures à haut risque : fémur et bassin (hémorragie, embolie graisseuse), jambe (syndrome des loges), coude supracondylien de l'enfant (artère brachiale, Volkmann), genou (poplité) ; le terrain aggrave : sujet âgé (décubitus, confusion, thrombose), polytraumatisé (choc, hypocoagulabilité), diabétique (infection, peau fragile).",
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Mécanismes et physiopathologie",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Ouverture : le fragment perce la peau (de dedans en dehors) ou l'agent vulnérant fracture l'os (de dehors en dedans) : contamination bactérienne, risque d'ostéite.",
+            "Syndrome des loges : hématome et œdème dans une loge inextensible : pression > perfusion : ischémie musculaire et nerveuse : séquelle irréversible (Volkmann) si la fasciotomie tarde.",
+            "Lésions vasculaires : plaie directe, étirement intimal, thrombose secondaire, spasme sur le foyer : ischémie aiguë du membre.",
+            "Embolie graisseuse : passage de la moelle dans la circulation après fracture des os longs : détresse respiratoire, signes cutanés et neurologiques, thrombopénie.",
+            "Thrombose veineuse : stase par immobilisation et inflammation : embolie pulmonaire possible."
+          ],
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Locales : ouverture (plaie en regard du foyer, parfois minime : toujours explorer, jamais sondée) ; ischémie du membre : douleur, pâleur, absence de pouls, paraesthésies, paralysie, poikilothermie (les 6 P) ; syndrome des loges : douleur intense et croissante, majorée à l'extension passive des doigts ou des orteils, loge dure et tendue, hypoesthésie dans le territoire du nerf de la loge, pouls souvent conservés au début ; lésions nerveuses : déficit moteur et sensitif systématiquement consigné au premier examen ; infection : fièvre, douleur, écoulement, rougeur autour du foyer ou des broches.",
+          "sources": ["s1", "s3"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Générales : embolie graisseuse (24-72 h) : polypnée, hypoxie, confusion, pétéchies conjonctivales et thoraciques, thrombopénie : radiographie thoracique infiltrats ; thrombose veineuse : douleur et œdème du mollet, parfois asymptomatique, signe de Homans peu spécifique : écho-Doppler ; embolie pulmonaire : dyspnée, douleur thoracique, tachycardie : angio-TDM ; escarres : rougeur persistante puis nécrose aux points d'appui (talons, sacrum) ; anémie : fracture fermée du fémur (500 à 1500 mL) ou du bassin : surveiller la fréquence cardiaque, la tension, la diurèse.",
+          "sources": ["s2", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Locales : fracture ouverte : urgence chirurgicale : parage-lavage abondant, excision des tissus dévitalisés, couverture cutanée différée si besoin, antibiothérapie (anti-staphylococcique adaptée au type), prévention du tétanos, stabilisation (fixateur externe ou ostéosynthèse selon le type) ; ischémie aiguë : réduction de la fracture en urgence, levée des pansements compressifs, exploration vasculaire et revascularisation (suture, greffe, thrombectomie) avec fasciotomie prophylactique ; syndrome des loges : fasciotomie en urgence de toutes les loges, traitement de la cause (réduction, hématome), retentissement rénal (rhabdomyolyse : hyperkaliémie : réhydratation, alcalinisation) ; lésions nerveuse : immobilisation, réévaluation à 3-6 semaines, exploration chirurgicale si section ou absence de récupération ; infection : nettoyage, prélèvements, antibiothérapie adaptée, parfois ablation du matériel.",
+          "sources": ["s1", "s2"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Générales : embolie graisseuse : oxygénothérapie, ventilation au besoin, réanimation, prévention du retard de consolidation ; thrombose veineuse : anticoagulation curative (héparine), puis relais oral, évaluation de l'embolie pulmonaire ; prévention systématique : héparine de bas poids moléculaire chez tout traumatisé immobilisé (surtout membre inférieur, sujet âgé), mobilisation précoce, contention élastique ; décubitus : lever précoce, changes, soins de peau, kinésithérapie respiratoire, hydratation et nutrition ; douleur sous plâtre : ablation ou fenêtre immédiate, jamais d'antalgiques seuls ; hémorragie : remplissage, transfusion selon le retentissement, immobilisation du foyer (fémur : traction, bassin : ceinture).",
+          "sources": ["s1", "s3"]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Au premier examen : inspecter la peau, palper les pouls, tester la motricité et la sensibilité, et le consigner ; immobiliser sans compression, couper le plâtre en deux en cas de grosse douleur ; vacciner contre le tétanos ; anticoaguler prophylactiquement le traumatisé immobilisé ; mobiliser et lever tôt, hydrater et nourrir ; surveiller la douleur, la couleur, la chaleur et la sensibilité des extrémités les premières 48 heures : la prévention de l'ischémie et de la thrombose se joue dans les premières heures."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les complications précoces des fractures menacent le membre (ouverture, ischémie, syndrome des loges, lésions nerveuses) et la vie (embolie graisseuse, thromboembolie, hémorragie, décubitus) ; trois gestes sauvent : examiner (vasculo-nerveux, peau) avant et après immobilisation, ouvrir en urgence toute plaie et toute loge tendue, anticoaguler et mobiliser tôt : la douleur croissante sous plâtre n'est jamais banale.",
+          "sources": ["s1", "s2"]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche polytraumatisme : cadre général.",
+            "Fiche thromboses veineuses profondes des membres inférieurs.",
+            "Fiche embolie pulmonaire.",
+            "Fiche complications de décubitus et de l'immobilité.",
+            "Fiche fracture de jambe et fracture de la palette humérale : terrains du syndrome des loges."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Douleur sous plâtre",
+      "text": "Douleur croissante, doigts ou orteils gonflés, bleutés ou insensibles sous une immobilisation : ischémie des loges ou cutanée probable : ablation ou fenêtre immédiate du plâtre et réexamen : jamais d'antalgiques isolés, jamais de silence."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Syndrome des loges",
+      "text": "Loge dure et tendue, douleur majorée à l'extension passive des orteils ou des doigts, hypoesthésie, pouls encore présents : fasciotomie d'urgence de toutes les loges : chaque heure compte avant la nécrose (séquelle de Volkmann)."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant toute fracture : peau (plaie, bulles, plis), pouls, sensibilité, motricité, à consigner au premier examen puis après réduction ; les fractures à haut risque vasculaire et loge (jambe, coude de l'enfant, genou, fémur) imposent une surveillance rapprochée des premières 48 heures."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Locales : ouverture (bloc en urgence, antitétanique), ischémie (6 P), syndrome des loges (fasciotomie), nerfs (bilan consigné). Générales : embolie graisseuse (24-72 h : hypoxie, pétéchies), thrombose (anticoagulation prophylactique), décubitus (escarres, lever précoce). Règle : douleur sous plâtre = ouvrir."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Les 6 P de l'ischémie aiguë",
+      "text": "Douleur, Pâleur, Pouls abolis, Paraesthésies, Paralysie, Poïkilothermie : le déficit sensitif précoce est le meilleur signal : ne pas attendre la disparition du pouls pour agir."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Les 6 P de l'ischémie",
+      "entries": [
+        { "key": "P", "term": "Douleur" },
+        { "key": "P", "term": "Pâleur" },
+        { "key": "P", "term": "Pouls abolis" },
+        { "key": "P", "term": "Paraesthésies, paralysie, poïkilothermie" }
+      ]
+    },
+    {
+      "label": "Ouvertures Cauchoix-Duparc",
+      "entries": [
+        { "key": "1", "term": "Plaie punctiforme simple" },
+        { "key": "2", "term": "Plaie large sans écrasement" },
+        { "key": "3", "term": "Écrasement, contamination" },
+        { "key": "T", "term": "Tétanos : toujours à couvrir" }
+      ]
+    },
+    {
+      "label": "Complications générales",
+      "entries": [
+        { "key": "E", "term": "Embolie graisseuse (24-72 h)" },
+        { "key": "T", "term": "Thrombose veineuse, embolie pulmonaire" },
+        { "key": "D", "term": "Décubitus (escarres, encombrement)" },
+        { "key": "H", "term": "Hémorragie (fémur, bassin)" }
+      ]
+    },
+    {
+      "label": "Prévention systématique",
+      "entries": [
+        { "key": "A", "term": "Anticoagulation prophylactique" },
+        { "key": "M", "term": "Mobilisation, lever précoce" },
+        { "key": "S", "term": "Surveillance des pouls et de la peau" },
+        { "key": "P", "term": "Plâtre sans compression, coupé si douleur" }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles sont les grandes catégories de complications précoces ?",
+      "back": "Locales : ouverture cutanée, lésions vasculo-nerveuses, syndrome des loges, infection ; générales : embolie graisseuse, thrombose veineuse et embolie pulmonaire, complications de décubitus, hémorragie."
+    },
+    {
+      "id": "f2",
+      "front": "Comment classer une fracture ouverte ?",
+      "back": "Classification de Cauchoix-Duparc : type 1 plaie punctiforme simple, type 2 plaie plus large sans écrasement, type 3 écrasement et contamination majeurs : le type guide le risque septique et le traitement."
+    },
+    {
+      "id": "f3",
+      "front": "Quelle prise en charge d'une fracture ouverte ?",
+      "back": "Urgence chirurgicale : parage-lavage, excision des tissus dévitalisés, antibiothérapie anti-staphylococcique, prévention du tétanos, stabilisation (fixateur externe ou ostéosynthèse) : jamais de fermeture primaire sur tissus contus."
+    },
+    {
+      "id": "f4",
+      "front": "Citer les 6 P de l'ischémie aiguë du membre.",
+      "back": "Douleur, pâleur, abolition des pouls, paraesthésies, paralysie, poïkilothermie (membre froid) : le déficit sensitif précoce doit alerter avant la perte du pouls."
+    },
+    {
+      "id": "f5",
+      "front": "Comment reconnaître un syndrome des loges ?",
+      "back": "Douleur intense et croissante, majorée à l'extension passive des doigts ou des orteils, loge dure et tendue, hypoesthésie dans le territoire nerveux, pouls souvent conservés au début : jambe et avant-bras en première ligne."
+    },
+    {
+      "id": "f6",
+      "front": "Quel traitement du syndrome des loges ?",
+      "back": "Fasciotomie d'urgence de toutes les loges concernées, levée de la cause (réduction, hématome, pansement compressif), surveillance de la rhabdomyolyse (hyperkaliémie, insuffisance rénale) : séquelle de Volkmann si retard."
+    },
+    {
+      "id": "f7",
+      "front": "Pourquoi le pouls conservé ne rassure-t-il pas ?",
+      "back": "Dans le syndrome des loges, la pression de la loge dépasse la pression veineuse mais reste sous la pression systolique : le pouls persiste alors que muscles et nerfs meurent : seul le tableau douloureux commande la fasciotomie."
+    },
+    {
+      "id": "f8",
+      "front": "Quels nerfs menacés par les fractures ?",
+      "back": "Médian (poignet, supracondylien), radial (diaphyse humérale), ulnaire (olécrane, épicondyle), sciatique (hanche, fémur), fibulaire commun (col du fibula, genou) : bilan moteur et sensitif consigné d'emblée."
+    },
+    {
+      "id": "f9",
+      "front": "Quand survient l'embolie graisseuse ?",
+      "back": "Dans les 24 à 72 heures après une fracture des os longs (fémur surtout) : hypoxie, polypnée, confusion, pétéchies conjonctivales et thoraciques, thrombopénie : traitement réanimatoire, oxygène, ventilation si besoin."
+    },
+    {
+      "id": "f10",
+      "front": "Quelle prophylaxie thromboembolique ?",
+      "back": "Héparine de bas poids moléculaire chez tout traumatisé immobilisé (membre inférieur, sujet âgé, plâtre), contention élastique, mobilisation et lever précoce, hydratation : l'embolie pulmonaire est une cause majeure de mortalité évitable."
+    },
+    {
+      "id": "f11",
+      "front": "Quelles complications de décubitus ?",
+      "back": "Escarres (talons, sacrum), encombrement et pneumopathie, infection urinaire sur sonde, constipation, dénutrition, confusion et désorientation du sujet âgé, rétention : prévention par lever et mobilisation précoce."
+    },
+    {
+      "id": "f12",
+      "front": "Que faire devant une douleur croissante sous plâtre ?",
+      "back": "Fenêtre ou ablation immédiate du plâtre, réexamen vasculo-nerveux et cutané : la douleur sous plâtre traduit une ischémie ou une compression jusqu'à preuve du contraire : jamais d'antalgiques seuls."
+    },
+    {
+      "id": "f13",
+      "front": "Quelles fractures saignent abondamment ?",
+      "back": "Fémur (500 à 1500 mL), bassin (rétro-péritonéal), fracture ouverte : surveiller pouls, tension, diurèse, et compenser : une hypotension chez un traumatisé des membres doit faire rechercher l'hémorragie (et les lésions viscérales)."
+    },
+    {
+      "id": "f14",
+      "front": "Comment dépister une infection précoce du foyer ?",
+      "back": "Fièvre, douleur croissante, rougeur et chaleur autour du foyer ou des broches, écoulement : bilan biologique (CRP), prélèvements locaux et hémocultures, antibiothérapie adaptée, reprise chirurgicale selon le tableau."
+    },
+    {
+      "id": "f15",
+      "front": "Quel examen clinique systématique au premier examen ?",
+      "back": "Peau (plaie, ecchymose, plis, bulles), pouls et recoloration, sensibilité et motricité distales, tous consignés : ce bilan sert de référence pour détecter l'aggravation (ischémie, loge, nerf) après réduction et immobilisation."
+    },
+    {
+      "id": "f16",
+      "front": "Pourquoi la vaccination antitétanique est-elle systématique ?",
+      "back": "Toute fracture ouverte expose au tétanos (spores telluriques) : vérifier le statut vaccinal, rappel ou immunoglobulines selon le statut et le type de plaie : une plaie sale sur terrain non vacciné est une urgence vaccinale."
+    }
+  ],
+  "mindmap": {
+    "root": { "id": "complications-fractures-root", "label": "Complications précoces des fractures" },
+    "branches": [
+      {
+        "id": "cf-b1",
+        "label": "Locales",
+        "children": [{ "id": "cf-b1-c", "label": "Membre menacé" }],
+        "leaves": [
+          { "id": "cf-b1-l1", "label": "Ouverture cutanée" },
+          { "id": "cf-b1-l2", "label": "Ischémie (6 P)" },
+          { "id": "cf-b1-l3", "label": "Syndrome des loges" },
+          { "id": "cf-b1-l4", "label": "Lésions nerveuses" }
+        ]
+      },
+      {
+        "id": "cf-b2",
+        "label": "Générales",
+        "children": [{ "id": "cf-b2-c", "label": "Vie menacée" }],
+        "leaves": [
+          { "id": "cf-b2-l1", "label": "Embolie graisseuse" },
+          { "id": "cf-b2-l2", "label": "Thrombose, embolie pulmonaire" },
+          { "id": "cf-b2-l3", "label": "Hémorragie (fémur, bassin)" },
+          { "id": "cf-b2-l4", "label": "Décubitus, infection" }
+        ]
+      },
+      {
+        "id": "cf-b3",
+        "label": "Dépistage",
+        "children": [{ "id": "cf-b3-c", "label": "Examen répété" }],
+        "leaves": [
+          { "id": "cf-b3-l1", "label": "Pouls, sensibilité, motricité" },
+          { "id": "cf-b3-l2", "label": "Peau : plaie, plis, bulles" },
+          { "id": "cf-b3-l3", "label": "Douleur sous plâtre : ouvrir" },
+          { "id": "cf-b3-l4", "label": "48 premières heures" }
+        ]
+      },
+      {
+        "id": "cf-b4",
+        "label": "Traitement",
+        "children": [{ "id": "cf-b4-c", "label": "Urgences" }],
+        "leaves": [
+          { "id": "cf-b4-l1", "label": "Parage, antibio, tétanos" },
+          { "id": "cf-b4-l2", "label": "Fasciotomie" },
+          { "id": "cf-b4-l3", "label": "Revascularisation" },
+          { "id": "cf-b4-l4", "label": "Anticoagulation, réanimation" }
+        ]
+      },
+      {
+        "id": "cf-b5",
+        "label": "Prévention",
+        "children": [{ "id": "cf-b5-c", "label": "Systématique" }],
+        "leaves": [
+          { "id": "cf-b5-l1", "label": "Anticoagulation prophylactique" },
+          { "id": "cf-b5-l2", "label": "Lever et mobilisation précoces" },
+          { "id": "cf-b5-l3", "label": "Plâtre sans compression" },
+          { "id": "cf-b5-l4", "label": "Vaccination antitétanique" }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Item : complications des fractures des membres de l'adulte",
+      "citation": "ECN Bordeaux — Polycopié : complications des fractures des membres de l'adulte",
+      "organization": "ECN Bordeaux (université)",
+      "year": 2015,
+      "version": "Polycopié",
+      "url": "http://ecn.bordeaux.free.fr/ECN_Bordeaux/CSCT_files/item201f%20membres%20bis.pdf",
+      "usedFor": ["classification", "prise en charge"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Complications des fractures des membres de l'adulte",
+      "citation": "EM-Consulte — Article : complications des fractures des membres de l'adulte",
+      "organization": "EM-Consulte (Elsevier Masson)",
+      "year": 2019,
+      "version": "Article",
+      "url": "https://www.em-consulte.com/article/46813/complications-des-fractures-des-membres-de-l-adult",
+      "usedFor": ["dépistage", "complications"],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Complications précoces des fractures de membres",
+      "citation": "Médecine traumatologie du sport — Fiche : complications précoces des fractures de membres",
+      "organization": "Médecine traumatologie du sport",
+      "year": 2021,
+      "version": "Fiche",
+      "url": "https://medecine-traumatologie-sport.com/complications-precoces-des-fractures-de-membres/",
+      "usedFor": ["syndrome des loges", "prévention"],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
