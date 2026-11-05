@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "trauma-epaule",
+  "title": "Traumatisme de l'épaule",
+  "specialty": "Orthopédie",
+  "language": "fr",
+  "updatedAt": "2026-11-01",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Maîtriser la prise en charge des traumatismes de l'épaule : luxation gléno-humérale antérieure (la plus fréquente, attitude en traiteur, réduction puis immobilisation et prévention de la récidive), luxation acromio-claviculaire et fracture de l'extrémité supérieure de l'humérus ; savoir réduire une luxation antérieure, reconnaître les complications (lésion du nerf axillaire, des vaisseaux, fractures associées) et orienter entre traitement orthopédique et chirurgical.",
+  "curriculum": {
+    "collection": "pathologies",
+    "chapterNumber": 9,
+    "specialty": "Orthopédie",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 9,
+      "localNumber": 9,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Traumatisme de l'épaule",
+      "specialty": "Orthopédie"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux traumatismes de l'épaule : luxation gléno-humérale antérieure (attitude en traiteur : bras en abduction légère, coude fléchi, soutien du membre ; réduction sous sédation analgésique ou anesthésie locale intra-articulaire, techniques de réduction douces, puis immobilisation en rotation neutre 3 semaines chez le sujet jeune, kinésithérapie ; récidive fréquente chez le jeune : instabilité chronique et chirurgie de stabilisation ; luxation postérieure plus rare : diagnostic souvent retardé, examen systématique du relief deltoïdien ; luxation acromio-claviculaire (chute sur le moignon de l'épaule) : degrés de gravité selon la rupture des ligaments coraco-claviculaires, bosse au sommet de l'épaule, traitement orthopédique le plus souvent, chirurgie si déplacement majeur ; fracture de l'extrémité supérieure de l'humérus (sujet âgé, chute banale) : classification selon les fragments (col anatomique, col chirurgical, trochiter, tubercule majeur), traitement orthopédique si peu déplacée, ostéosynthèse ou prothèse si déplacée ; complications à dépister : lésion du nerf axillaire (sensibilité du régiment des galons, abduction), lésion vasculaire, lésion du nerf radial, raideur et algodystrophie.",
+    "verificationNotes": "Contenu aligné sur les sources d'orthopédie-traumatologie françaises : luxation antérieure de l'épaule, réduction et prévention de la récidive, fractures proximales de l'humérus.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'épaule est l'articulation la plus luxée du corps ; les traumatismes associent luxations (gléno-humérale, acromio-claviculaire), fractures de l'extrémité supérieure de l'humérus et lésions des parties molles (coiffe des rotateurs)."
+        },
+        {
+          "type": "paragraph",
+          "text": "La prise en charge va du geste de réduction en urgence au traitement chirurgical des lésions instables ou déplacées ; l'examen neurovasculaire systématique évite de manquer une lésion du nerf axillaire."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Sémiologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Luxation antérieure : chute sur la main, épisode déjà vu chez un sujet jeune ; attitude en traiteur : bras en abduction et rotation interne, coude fléchi, le patient soutient son membre avec l'autre main ; perte des reliefs normaux de l'épaule, tête humérale palpable en avant et en dessous ; douleur majeure, abduction et rotation externe impossibles.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Luxation acromio-claviculaire : chute sur le moignon de l'épaule : douleur au sommet, bosse latéro-supérieure (extrémité externe de la clavicicle saillante), comparaison des deux côtés ; luxation postérieure : rare, souvent méconnue : examen de profil strict, disparition du relief antérieur du deltoïde, rotation externe impossible ; fracture de l'humérus proximal : sujet âgé, chute banale, douleur et impotence, œdème, ecchymose (signe du bandage) ; toujours tester le nerf axillaire avant et après réduction (sensibilité de la face externe de l'épaule : régiment des galons, abduction du bras).",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mécanismes : chute sur la main en abduction (luxation antérieure), choc direct sur le moitié de l'épaule (acromio-claviculaire), chute sur le coude ou sur l'épaule (fracture humérale).",
+            "Terrain : jeune sportif (luxations récidivantes), sujet âgé ostéoporotique (fractures, luxations après chute banale)."
+          ],
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Types de lésions",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Luxations gléno-humérales : antérieures (95 %), postérieures (épilepsie, électrocution, choc antérieur), inférieures (luxatio erecta, rare).",
+            "Luxations et entorses acromio-claviculaires : grades croissants (entorse simple, subluxation, luxation complète avec rupture des ligaments coraco-claviculaires).",
+            "Fractures de l'extrémité supérieure de l'humérus : céphalique, col chirurgical, trochiter et tubercule majeur ; selon le nombre de fragments et le déplacement.",
+            "Lésions associées : fracture de la glène, du trochiter (le plus fréquent), coiffe des rotateurs chez le sujet de plus de 40 ans, lésion du plexus brachial (rares) et du nerf axillaire."
+          ],
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radiographies standard : face, profil strict dit scapulaire et profil dit axillaire ou transthoracique : pour la luxation antérieure, l'humérus est en dehors et en dessous de la glène ; toujours chercher une fracture associée (trochiter, glène, col chirurgical) avant la réduction ; la tomodensitométrie est utile si une récidive ou une lésion osseuse (fracture de la glène, encoche de Malgaigne) est suspectée ; IRM pour les lésions de la coiffe et l'instabilité chronique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Examen clinique : toujours tester le nerf axillaire (sensibilité du régiment des galons), les pouls (lésion axillaire), le reste du membre supérieur (nerf radial) ; diagnostics différentiels : fracture déplacée, luxation acromio-claviculaire, rupture de la coiffe, algodystrophie à distance ; devant toute douleur persistante avec radiographies normales : discuter une luxation postérieure ou une lésion ligamentaire.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Luxation antérieure : réduction en urgence après radiographies et examen neurovasculaire, sous sédation analgésique ou anesthésie loco-régionale (ou intra-articulaire) : techniques de réduction douces (traction-controtraction, méthode d'Hippocrate ou de Milch, manœuvres de Stimson) ; immobilisation en écharpe ou attelle en rotation neutre pendant environ 3 semaines chez le sujet jeune (1 semaine chez le sujet âgé pour éviter la raideur), puis kinésithérapie progressive ; récidives chez le sujet jeune : bilan d'instabilité (IRM, arthro-scanner) et chirurgie de stabilisation (Butler ou Bankart arthroscopique) ; luxation postérieure : réduction et immobilisation en rotation externe légère.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Luxation acromio-claviculaire : grades peu déplacés : Immobilisation par bande et antalgiques, kinésithérapie précoce ; grades sévères (déplacement majeur, rupture coraco-claviculaire) : chirurgie (broche, hauban ou plaque) surtout chez le sujet jeune et actif ; fracture de l'humérus proximal : peu déplacée : Immobilisation et rééducation précoce ; déplacée (plus d'un centimètre, plus de 45 degrés de tilt) ou multifragmentaire chez le sujet âgé : ostéosynthèse ou prothèse d'épaule ; surveillance des complications : algodystrophie, raideur, cal vicieux, lésion du nerf axillaire persistante, nécrose céphalique.",
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prévention de la récidive : immobilisation suffisante chez le sujet jeune, rééducation propre de la coiffe et des stabilisateurs scapulaires, sports différés quelques semaines, éducation gestuelle ; chez le sujet âgé : prévention des chutes (équilibration, marche, port de charges prudent), traitement de l'ostéoporose, rééducation précoce pour éviter la raideur et l'algodystrophie."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le traumatisme de l'épaule regroupe luxations et fractures dont la prise en charge dépend du type et de l'âge : la luxation antérieure se réduit en urgence puis s'immobilise, avec un risque de récidive chez le jeune qui peut imposer une stabilisation chirurgicale ; l'acromio-claviculaire est le plus souvent orthopédique ; les fractures humérales déplacées relèvent d'une ostéosynthèse ou d'une prothèse ; l'examen du nerf axillaire avant et après tout geste est systématique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche fracture-radius-adulte — fractures du membre supérieur.",
+            "Fiche complications-fractures — complications des fractures.",
+            "Fiche lombalgie, sciatique-hernie — traumatologie et rachis.",
+            "Fiche luxation-tm — autres luxations."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Luxation avec complications vasculo-nerveuses",
+      "text": "Absence de pouls, hématome expansif, anesthésie massive du bras : lésion axillaire ou du plexus : réduction urgente, avis chirurgie vasculaire, pas de réduction aveugle retardée."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Luxation à_reduction impossible en dehors du bloc",
+      "text": "Réduction sous sédation encadrée ou anesthésie loco-régionale ; ne pas multiplier les tentatives douleureuses à vif : risque de fracture iatrogène et de lésion nerveuse."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Réflexe clinique",
+      "text": "Devant toute épaule traumatique : pouls, nerf axillaire (régiment des galons), pouvoirs des rotateurs ; radiographies de face et profil scapulaire avant réduction ; rechercher une fracture du trochiter et une luxation acromio-claviculaire associée."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "À retenir",
+      "text": "Luxation antérieure : attitude en traiteur, réduction douce puis immobilisation 3 semaines (jeune).Récidive chez le jeune : stabilisation chirurgicale.Acromio-claviculaire : bosse, orthopédique le plus souvent.Fracture humérale déplacée : ostéosynthèse ou prothèse.Nerf axillaire : tester avant et après."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Rééducation de l'épaule",
+      "text": "R (Rotation externe interdite au début), E (Élévation progressive), P (Pendulaires précoces), A (Actifs du coude et du poignet dès le début) : rythme de reprise encadré par le chirurgien."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Types de lésions",
+      "entries": [
+        {
+          "key": "L",
+          "term": "Luxation gléno-humérale"
+        },
+        {
+          "key": "A",
+          "term": "Acromio-claviculaire"
+        },
+        {
+          "key": "F",
+          "term": "Fracture humérus proximal"
+        },
+        {
+          "key": "C",
+          "term": "Coiffe des rotateurs"
+        }
+      ]
+    },
+    {
+      "label": "Signes de la luxation antérieure",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Traiteur (attitude)"
+        },
+        {
+          "key": "P",
+          "term": "Perte des reliefs"
+        },
+        {
+          "key": "D",
+          "term": "Douleur, abduction impossible"
+        },
+        {
+          "key": "T",
+          "term": "Tête humérale palpable en avant"
+        }
+      ]
+    },
+    {
+      "label": "Complications",
+      "entries": [
+        {
+          "key": "N",
+          "term": "Nerf axillaire"
+        },
+        {
+          "key": "V",
+          "term": "Vaisseaux axillaires"
+        },
+        {
+          "key": "F",
+          "term": "Fracture du trochiter"
+        },
+        {
+          "key": "R",
+          "term": "Récidive, instabilité"
+        }
+      ]
+    },
+    {
+      "label": "Traitement",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Réduction douce"
+        },
+        {
+          "key": "I",
+          "term": "Immobilisation 3 semaines"
+        },
+        {
+          "key": "K",
+          "term": "Kinésithérapie"
+        },
+        {
+          "key": "S",
+          "term": "Stabilisation chirurgicale si récidive"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelle est la lésion la plus fréquente de l'épaule traumatique ?",
+      "back": "La luxation gléno-humérale antérieure, la plus fréquente des luxations du corps : elle touche surtout le sujet jeune sportif et le sujet âgé après une chute."
+    },
+    {
+      "id": "f2",
+      "front": "Comment se présente une luxation antérieure de l'épaule ?",
+      "back": "Attitude en traiteur : bras en abduction légère, coude fléchi, main sur l'abdomen, membre soutenu par l'autre main ; perte du galbe de l'épaule, tête humérale palpable en avant, douleur majeure, rotation externe impossible."
+    },
+    {
+      "id": "f3",
+      "front": "Quel est le premier examen à réaliser ?",
+      "back": "Des radiographies de l'épaule (face, profil scapulaire, profil axillaire ou transthoracique) avant toute réduction : elles confirment la luxation et dépistent une fracture associée (trochiter, glène, col chirurgical)."
+    },
+    {
+      "id": "f4",
+      "front": "Quelles complications dépister systématiquement ?",
+      "back": "La lésion du nerf axillaire (anesthésie du régiment des galons, défaut d'abduction), les lésions vasculaires axillaires (pouls, hématome), la fracture du trochiter ou de la glène, et les lésions de la coiffe chez le sujet de plus de 40 ans."
+    },
+    {
+      "id": "f5",
+      "front": "Comment réduire une luxation antérieure ?",
+      "back": "Sous sédation ou anesthésie loco-régionale : traction-controtraction douce, méthode de Milch (abduction progressive), Stimson (décubitus avec poids), ou manœuvre d'Hippocrate : jamais de force brutale ni de multiples tentatives à vif."
+    },
+    {
+      "id": "f6",
+      "front": "Quelle immobilisation après réduction ?",
+      "back": "Une immobilisation en rotation neutre (écharpe, attelle) pendant environ 3 semaines chez le sujet jeune pour consolider les parties molles ; chez le sujet âgé, une semaine suffit pour éviter la raideur, avec rééducation précoce."
+    },
+    {
+      "id": "f7",
+      "front": "Pourquoi la luxation récidive-t-elle chez le jeune ?",
+      "back": "La lésion du labrum et de la capsule (lésion de Bankart) et l'encoche humérale guérissent mal chez le sujet jeune : instabilité chronique avec récidives, souvent chirurgicale (stabilisation arthroscopique)."
+    },
+    {
+      "id": "f8",
+      "front": "Quand proposer une chirurgie de stabilisation ?",
+      "back": "Devant des récidives répétées ou une première luxation chez un jeune sportif à risque élevé : bilan d'instabilité (IRM, arthroscanner) puis stabilisation arthroscopique (Bankart) ou à ciel ouvert selon les lésions."
+    },
+    {
+      "id": "f9",
+      "front": "Comment reconnaître une luxation acromio-claviculaire ?",
+      "back": "Chute sur le moitié de l'épaule : douleur et bosse au sommet (extrémité claviculaire saillante), amplification en portant une charge ; les radiographies des deux côtés mesurent le déplacement coraco-claviculaire."
+    },
+    {
+      "id": "f10",
+      "front": "Quel traitement de la luxation acromio-claviculaire ?",
+      "back": "Grades peu déplacés : traitement orthopédique (bandage, antalgiques) et rééducation ; grades sévères ou sujets jeunes actifs avec déplacement majeur : chirurgie (hauban coraco-claviculaire, plaque)."
+    },
+    {
+      "id": "f11",
+      "front": "Comment se présentent les fractures de l'humérus proximal ?",
+      "back": "Surtout le sujet âgé ostéoporotique après une chute : douleur, impotence, œdème, ecchymose thoraco-brachiale ; classification selon les fragments (céphalique, col chirurgical, trochiter, tubercule majeur) et le déplacement."
+    },
+    {
+      "id": "f12",
+      "front": "Quel traitement d'une fracture humérale proximale ?",
+      "back": "Peu déplacée : immobilisation (écharpe, attelle thoraco-brachiale) et rééducation précoce ; déplacée, multifragmentaire ou nécrose : ostéosynthèse ou arthroplastie (prothèse d'épaule), surtout chez le sujet âgé."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que la luxation postérieure de l'épaule ?",
+      "back": "Une luxation rare (épilepsie, électrocution, choc antérieur) souvent méconnue : rotation externe impossible, disparition du relief antérieur, diagnostic radiologique de profil strict (profil axillaire)."
+    },
+    {
+      "id": "f14",
+      "front": "Quels signes d'une lésion du nerf axillaire ?",
+      "back": "Anesthésie de la face externe de l'épaule (régiment des galons) et défaut d'abduction du bras (deltoïde) ; à tester avant et après la réduction : la plupart récupèrent, mais une section nécessite un avis chirurgical."
+    },
+    {
+      "id": "f15",
+      "front": "Quelles complications tardives des traumatismes de l'épaule ?",
+      "back": "Raideur et algodystrophie, cal vicieux, instabilité chronique avec récidives, arthrose post-traumatique, raideur de la coiffe, nécrose céphalique après fracture."
+    },
+    {
+      "id": "f16",
+      "front": "Quels principes de rééducation ?",
+      "back": "Reprise encadrée : pendulaires précoces, coude et poignet actifs dès le début, rotation externe et abduction différées, renforcement progressif des stabilisateurs de la scapula et de la coiffe ; rééducation précoce chez le sujet âgé pour éviter la raideur."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "te-root",
+      "label": "Traumatisme de l'épaule"
+    },
+    "branches": [
+      {
+        "id": "te-b1",
+        "label": "Lésions",
+        "children": [
+          {
+            "id": "te-b1-c",
+            "label": "Trois cadres"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "te-b1-l1",
+            "label": "Luxation gléno-humérale"
+          },
+          {
+            "id": "te-b1-l2",
+            "label": "Acromio-claviculaire"
+          },
+          {
+            "id": "te-b1-l3",
+            "label": "Fracture humérus proximal"
+          },
+          {
+            "id": "te-b1-l4",
+            "label": "Coiffe des rotateurs"
+          }
+        ]
+      },
+      {
+        "id": "te-b2",
+        "label": "Sémiologie",
+        "children": [
+          {
+            "id": "te-b2-c",
+            "label": "Signes clés"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "te-b2-l1",
+            "label": "Attitude en traiteur"
+          },
+          {
+            "id": "te-b2-l2",
+            "label": "Perte des reliefs"
+          },
+          {
+            "id": "te-b2-l3",
+            "label": "Bosse acromio-claviculaire"
+          },
+          {
+            "id": "te-b2-l4",
+            "label": "Nerf axillaire à tester"
+          }
+        ]
+      },
+      {
+        "id": "te-b3",
+        "label": "Imagerie",
+        "children": [
+          {
+            "id": "te-b3-c",
+            "label": "Avant tout geste"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "te-b3-l1",
+            "label": "Face + profil scapulaire"
+          },
+          {
+            "id": "te-b3-l2",
+            "label": "Profil axillaire"
+          },
+          {
+            "id": "te-b3-l3",
+            "label": "Fracture du trochiter ?"
+          },
+          {
+            "id": "te-b3-l4",
+            "label": "Scanner / IRM si besoin"
+          }
+        ]
+      },
+      {
+        "id": "te-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "te-b4-c",
+            "label": "Selon le type"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "te-b4-l1",
+            "label": "Réduction douce"
+          },
+          {
+            "id": "te-b4-l2",
+            "label": "Immobilisation 3 semaines"
+          },
+          {
+            "id": "te-b4-l3",
+            "label": "Kinésithérapie"
+          },
+          {
+            "id": "te-b4-l4",
+            "label": "Chirurgie si instabilité"
+          }
+        ]
+      },
+      {
+        "id": "te-b5",
+        "label": "Suites",
+        "children": [
+          {
+            "id": "te-b5-c",
+            "label": "À surveiller"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "te-b5-l1",
+            "label": "Récidive (jeune)"
+          },
+          {
+            "id": "te-b5-l2",
+            "label": "Raideur, algodystrophie"
+          },
+          {
+            "id": "te-b5-l3",
+            "label": "Arthrose post-traumatique"
+          },
+          {
+            "id": "te-b5-l4",
+            "label": "Rééducation encadrée"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Luxation antérieure de l'épaule : premier épisode",
+      "citation": "La médecine du sport — Article : luxation antérieure de l'épaule, prise en charge du premier épisode",
+      "organization": "La médecine du sport",
+      "year": 2022,
+      "version": "Article de référence",
+      "url": "https://www.lamedecinedusport.com/traumatologie/luxation-anterieure-de-lepaule-faire-face-a-premier-episode/",
+      "usedFor": [
+        "luxation",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s2",
+      "title": "Traumatisme de l'épaule",
+      "citation": "Dr Éric Roulot (chirurgie orthopédique) — Page : traumatismes de l'épaule, luxations et fractures",
+      "organization": "Cabinet de chirurgie de l'épaule",
+      "year": 2023,
+      "version": "Page de référence",
+      "url": "https://eric-roulot.com/epaule/traumatisme-epaule/",
+      "usedFor": [
+        "lésions",
+        "traitement"
+      ],
+      "verifiedAt": "2026-11-01"
+    },
+    {
+      "id": "s3",
+      "title": "Traumatismes de l'épaule",
+      "citation": "HUG (Hôpitaux universitaires de Genève) — Chirurgie orthopédique : traumatismes de l'épaule",
+      "organization": "Hôpitaux universitaires de Genève",
+      "year": 2023,
+      "version": "Page de référence",
+      "url": "https://www.hug.ch/chirurgie-orthopedique-traumatologie-lappareil-moteur/traumatismes-lepaule",
+      "usedFor": [
+        "fractures",
+        "prise en charge"
+      ],
+      "verifiedAt": "2026-11-01"
+    }
+  ]
+}
