@@ -5,8 +5,8 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (74 decks, 767 questions, zéro orphelin) :
- *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=17 · dermato=1 · urgences=6
+ * Répartition cible (79 decks, 817 questions, zéro orphelin) :
+ *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=22 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
 
@@ -218,6 +218,14 @@ export const CURRICULUM_INFECTIO: CurriculumSpecialty = {
       levels: [...LEVELS_PATHO],
       description: "Reconnaître l'urgence, traiter les spasmes, prévenir par la vaccination.",
       decks: ["infectio-tetanos-l2", "infectio-tetanos-l3", "infectio-tetanos-l4", "infectio-tetanos-l5", "infectio-tetanos-int"],
+    },
+    {
+      id: "rougeole",
+      label: "Rougeole",
+      icon: "🤒",
+      levels: [...LEVELS_PATHO],
+      description: "Reconnaître l'éruption, traiter les complications, prévenir par la vaccination.",
+      decks: ["infectio-rougeole-l2", "infectio-rougeole-l3", "infectio-rougeole-l4", "infectio-rougeole-l5", "infectio-rougeole-int"],
     },
   ],
 };
