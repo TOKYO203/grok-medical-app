@@ -1,4 +1,21 @@
 #!/usr/bin/env node
+// GARDE CLOUDFLARE PAGES — voir docs/DEPLOIEMENT-CLOUDFLARE.md.
+// Sur Cloudflare Pages (CF_PAGES=1), le preset Nitro est `cloudflare-pages` :
+// le serveur est émis pour le runtime workerd (dist/_worker.js) et ne peut pas
+// être démarré dans le Node du build. Ce smoke HTTP reste la référence sur
+// Vercel/Netlify ; sur Cloudflare on vérifie seulement que le bundle worker
+// existe, puis on sort proprement pour ne pas casser `npm run build`.
+if (process.env.CF_PAGES) {
+  const { access } = await import("node:fs/promises");
+  try {
+    await access("dist/_worker.js");
+    console.log("[survey-security] CF_PAGES : dist/_worker.js présent — smoke HTTP Node ignoré (runtime workerd).");
+  } catch {
+    console.warn("[survey-security] CF_PAGES : dist/_worker.js introuvable — vérifier la sortie du preset cloudflare-pages.");
+  }
+  process.exit(0);
+}
+
 import assert from "node:assert/strict";
 import { generateKeyPairSync } from "node:crypto";
 import { createServer } from "node:http";
