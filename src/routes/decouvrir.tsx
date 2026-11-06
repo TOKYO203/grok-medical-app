@@ -30,7 +30,7 @@ export const Route = createFileRoute("/decouvrir")({ component: DecouvrirPage })
      (source unique, ABO-2) ;
    - copy conforme à docs/POSITIONING-V2.md § 3.4 : bénéfice utilisateur,
      apprentissage clinique, zéro jargon tech ;
-   - chiffres de preuve mesurés le 2026-10-22 (docs/PRODUCT-VISION.md § 1.1) ;
+   - chiffres de preuve mesurés le 2026-11-06 (audit de crédibilité : 667 questions réelles) (docs/PRODUCT-VISION.md § 1.1) ;
    - public sans session : src/lib/cloud/gate.ts (PUBLIC_PATHS).
    ============================================================================ */
 
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/decouvrir")({ component: DecouvrirPage })
    (pages trust) — la confiance se démontre, elle ne se promet pas. */
 const TRUST_BADGES = [
   {
-    label: "567 questions expliquées et sourcées",
+    label: "667 questions expliquées et sourcées",
     to: "/methodologie" as const,
   },
   {
@@ -96,7 +96,7 @@ const PERSONAS = [
 ] as const;
 
 const PROOF_STATS = [
-  { value: "567 / 567", label: "questions expliquées et sourcées" },
+  { value: "667 / 667", label: "questions expliquées et sourcées" },
   { value: "110", label: "fiches signes & syndromes, 220 sources vérifiables" },
   { value: "78", label: "calculateurs cliniques, 9 catégories" },
   { value: "4", label: "langues d'interface (fr, en, es, pt)" },
@@ -242,7 +242,7 @@ function DecouvrirPage() {
             <h2 id="preuve-titre" className="font-display text-2xl font-medium tracking-tight">
               La qualité se mesure
             </h2>
-            <Badge tone="neutral">Mesures du 22 octobre 2026</Badge>
+            <Badge tone="neutral">Mesures du 6 novembre 2026</Badge>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
             {PROOF_STATS.map((stat) => (

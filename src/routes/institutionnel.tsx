@@ -43,7 +43,7 @@ const OFFERS = [
 ];
 
 const PROOFS = [
-  "567 questions expliquées et sourcées",
+  "667 questions expliquées et sourcées",
   "78 calculateurs cliniques",
   "Protocole de relecture v2026.10-Mada",
   "Conseil éditorial et registre publics",
@@ -64,7 +64,7 @@ const FAQ = [
   },
   {
     q: "Que devient la progression des étudiants ?",
-    a: "Les données de progression appartiennent à chaque étudiant ; l'établissement ne voit que des agrégés de promotion. Détail sur la page Données.",
+    a: "Les données de progression appartiennent à chaque étudiant ; l'établissement ne voit que des données agrégées de promotion. Détail sur la page Données.",
   },
 ];
 
