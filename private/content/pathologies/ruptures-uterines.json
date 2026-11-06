@@ -1,0 +1,618 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "ruptures-uterines",
+  "title": "Ruptures utérines",
+  "specialty": "Gynécologie-Obstétrique",
+  "language": "fr",
+  "updatedAt": "2026-11-06",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Définir la rupture utérine (perfection de la paroi myométrale survenant le plus souvent au cours du travail), distinguer la déhiscence de la cicatrice et la rupture complète, connaître les circonstances (utérus cicatriciel, travail obstructif prolongé, grande multiparité, usage inapproprié des utérotoniques), reconnaître les signes d'alarme (bradycardie fœtale, douleur brutale, arrêt des contractions, hémorragie, choc) et maîtriser la prise en charge : laparotomie d'urgence, réanimation, réparation ou hystérectomie d'hémostase — dans le contexte de soins malgache.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 56,
+    "specialty": "Gynécologie-Obstétrique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 231,
+      "localNumber": 56,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Ruptures utérines",
+      "specialty": "Gynécologie-Obstétrique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux ruptures utérines : définition anatomique (déhiscence versus rupture complète), terrain de l'utérus cicatriciel et du travail obstructif de la grande multipare, signes d'alarme maternels et fœtaux pendant le travail, et prise en charge chirurgicale d'urgence (réparation ou hystérectomie d'hémostase) avec réanimation de l'hémorragie massive. L'hémorragie de la délivrance, la menace d'accouchement prématuré et les hémorragies du troisième trimestre relèvent des fiches dédiées.",
+    "verificationNotes": "Signes d'alarme de la rupture sur utérus cicatriciel (bradycardie fœtale, douleur, perte du contact, hémorragie) et conduite d'urgence conformes aux guides cliniques MSF et au Manuel MSD consultés ; gradation réparation/hystérectomie d'hémostase conforme à la revue EM-Consulte. Aucune posologie citée : les doses relèvent des protocoles institutionnels.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rupture utérine est la solution de continuité de la paroi utérine, complète ou incomplète, survenant le plus souvent pendant le travail. C'est l'une des catastrophes obstétricales : elle met en jeu simultanément la vie de la mère (hémorragie massive, choc) et celle du fœtus (anoxie par bradycardie brutale, expulsion partielle dans la cavité abdominale)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Elle oppose deux tableaux : la déhiscence d'une cicatrice de césarienne, souvent silencieuse et de bon pronostic, et la rupture complète, qui touche toute l'épaisseur du myomètre et ouvre la cavité abdominale. Dans les contextes où l'accouchement est longtemps prolongé à domicile avant transfert, comme cela reste fréquent à Madagascar, la rupture sur travail obstructif de la grande multipare reste une urgence redoutable."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et physiopathologie",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "On distingue la rupture incomplète ou déhiscence (la séreuse reste respectée, découverte souvent fortuitement lors d'une césarienne) de la rupture complète (perforation de toute la paroi, communication avec la cavité abdominale, hémorragie active). Le mécanisme associe étirement et amincissement progressifs d'un segment inférieur distendu, sur utérus sain lorsque le travail est obstructif et prolongé, ou sur une zone fragilisée (cicatrice de césarienne, myomectomie, perforation instrumentale).",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La rupture survient le plus souvent au niveau du segment inférieur, zone de moindre résistance. Le danger est double : l'hémorragie, souvent interne et massivement cachée dans la cavité abdominale, et l'anoxie fœtale aiguë par décollement ou compression. La gravité maternelle est liée à la richesse de la vascularisation utérine : quelques minutes suffisent pour vider une part de la masse sanguine d'une jeune femme."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Étiologies et facteurs favorisants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Les causes se répartissent entre utérus fragilisé et travail anormal. Le premier terrain est l'utérus cicatriciel : césarienne (surtout classical ou itérative), myomectomie transfixiante, perforation utérine réparée, synéchiolyse, césarienne corporéale. Le deuxième est le travail obstructif prolongé : disproportion fœto-pelvienne non reconnue, présentations dystociques défléchies ou transverses, grand multipare, travail prolongé à domicile avant transfert.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Utérus cicatriciel : césarienne, myomectomie, perforation réparée.",
+            "Travail obstructif : disproportion fœto-pelvienne, présentation dystocique, grand multiparité.",
+            "Usage inapproprié des utérotoniques : doses excessives, protocole non respecté, uterus cicatriciel.",
+            "Manœuvres obstétricales instrumentales : grande extraction, version interne, forceps sur col non dilaté.",
+            "Rares : hématome rétroplacentaire, accreta, traumatisme abdominal, malformations utérines.",
+            "Contexte : retard de transfert et absence de partogramme, fréquents dans les contextes à ressources limitées."
+          ],
+          "sources": [
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et signes d'alarme",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pendant le travail, la rupture est précédée de signes de menace : hypercinésie prolongée pathologique avec segment inférieur distendu et douloureux, œdème du col, bourrelet des replis vaginaux, globe de sécurité de Bandl, puis arrêt des contractions. La rupture installée associe de façon variable : douleur abdominale brutale en coup de poignard, bradycardie fœtale d'installation soudaine ou disparition des bruits du cœur, saignement génital ou au contraire hémorragie interne masquée, perte du contact de la présentation, agitation et choc hémorragique.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "L'examen retrouve un utérus difficile à individualiser, une présentation mobile ou décollée, un abdomen météorisé et défensif. Le diagnostic est clinique et l'imagerie ne doit jamais retarder la chirurgie : l'échographie au lit peut montrer l'enfant hors de l'utérus, une quantification grossière de l'hémopéritoine. Devant toute bradycardie fœtale brutale sur utérus cicatriciel, la rupture est le diagnostic à éliminer en premier."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes d'alarme sur utérus cicatriciel",
+          "text": "Bradycardie fœtale brutale, douleur sus-pubienne persistante entre les contractions, saignement, perte du contact : arrêt de toute tentative de voie basse et césarienne immédiate en salle de césarienne, pas en salle d'accouchement."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prise en charge est une urgence chirurgicale absolue : appel à l'aide, deux voies veineuses, remplissage et commande de sang immédiats, bilan de coagulation, oxygène. La laparotomie médiane est réalisée sans délai : on vide l'hémopéritoine, extériorise l'enfant, le prend en charge par le pédiatre, clampe les bords saignants et choisit entre réparation de la brèche et hystérectomie d'hémostase selon l'état de la patiente, l'étendue et la localisation de la rupture et le souhait de grossesse.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La réparation s'efforce de conserver l'utérus lorsque la brèche est nette, sur segment inférieur, avec une patiente stable ; la césarienne itérative devient alors obligatoire pour les grossesses suivantes. L'hystérectomie d'hémostase, totale ou subtotale selon le contexte, s'impose en cas de rupture étendue, délabrante, bilatérale ou d'hémorragie incontrôlable : la vie de la mère passe avant la conservation de l'utérus. La réanimation postopératoire poursuit la correction de la coagulopathie, le réchauffement et la surveillance de la diurèse ; l'antibioprophylaxie et la prévention thromboembolique sont systématiques.",
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Devant une rupture confirmée",
+          "text": "Laparotomie médiane immédiate, remplissage et commande de sang dès l'appel, extraction de l'enfant et clampage rapide, réparer si simple et stable, hysterectomie si délabré ou instable."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention repose d'abord sur le bon usage de la césarienne : chaque césarienne supplémentaire fragilise un utérus, les indications doivent être justifiées et l'incision classique réservée à des indications précises. Ensuite sur la surveillance du travail : partogramme systématique, reconnaissance de la dystocie, vigilance maximale chez la grand multipare et l'utérus cicatriciel, ocytociques proscrits sur cicatrice sauf protocole rigoureux et surveillance continue."
+        },
+        {
+          "type": "paragraph",
+          "text": "La tentative de voie basse après césarienne ne s'envisage que dans des conditions strictes : cicatrice unique transversale, bassin estimé favorable, présentation céphalique, disponibilité immédiate d'une salle de césarienne et d'un équipe complète. Enfin, organiser le système : transfert précoce des parturientes à risque, information des femmes cicatricielles sur le lieu d'accouchement, et tenue à jour de la trace de la cicatrice pour chaque grossesse."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La rupture utérine se retient en trois temps : les terrains (utérus cicatriciel, travail obstructif de la grande multipare, utérotoniques mal utilisés), les signes (bradycardie fœtale brutale, douleur, arrêt des contractions, hémorragie, choc), et l'attitude (laparotomie immédiate, réparation ou hystérectomie d'hémostase, réanimation de l'hémorragie massive).",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Hémorragies de la délivrance, Hématome rétroplacentaire, Menace d'accouchement prématuré, Accouchement normal et suites de couches physiologiques."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Sur utérus cicatriciel : toute bradycardie fœtale brutale est une rupture jusqu'à preuve du contraire. La chirurgie ne se discute pas : salle d'opération immédiate, sang commandé, vie de la mère d'abord."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche hemorragies-delivrance — hémorragie du post-partum et gradation des gestes d'hémostase.",
+            "Fiche hrp — douleur brutale et utérus de bois au troisième trimestre.",
+            "Fiche accouchement-normal — conduite physiologique et surveillance du travail.",
+            "Fiche map — tocolyse et conditions de la voie basse."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Bradycardie fœtale brutale",
+      "text": "Sur utérus cicatriciel pendant le travail, elle signe la rupture jusqu'à preuve du contraire : césarienne en urgence absolue, sans attendre l'échographie."
+    },
+    {
+      "id": "c2",
+      "tone": "urgence",
+      "title": "Choc hémorragique masqué",
+      "text": "L'hémorragie est souvent interne : un abdomen douloureux avec constantes qui se dégradent après un travail prolongé vaut diagnostic de rupture."
+    },
+    {
+      "id": "c3",
+      "tone": "reflexe",
+      "title": "Globe de sécurité de Bandl",
+      "text": "Rétraction de l'utérus au-dessus d'un segment inférieur surdistendu : c'est le dernier moment pour césariser avant la rupture, chez la grand multipare obstructée."
+    },
+    {
+      "id": "c4",
+      "tone": "retenir",
+      "title": "Déhiscence ou rupture ?",
+      "text": "Déhiscence : cicatrice qui s'entrouvre, séreuse respectée, souvent silencieuse. Rupture complète : toute la paroi percée, enfant menacé, mère hémorragique."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Ocytocine sur cicatrice",
+      "text": "Les utérotoniques à hautes doses sur utérus cicatriciel ou travail non surveillé sont une cause majeure et évitable de rupture : protocole, dilatation complète, surveillance continue, ou césarienne."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Terrains de rupture utérine",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cicatrice : césarienne, myomectomie, perforation"
+        },
+        {
+          "key": "O",
+          "term": "Obstruction : disproportion, présentation dystocique, travail prolongé"
+        },
+        {
+          "key": "M",
+          "term": "Multiparité : grande multipare à utérus délité"
+        },
+        {
+          "key": "U",
+          "term": "Utérotoniques : usage inapproprié, protocole non respecté"
+        },
+        {
+          "key": "M",
+          "term": "Manœuvres : version interne, grande extraction, forceps abusif"
+        }
+      ]
+    },
+    {
+      "label": "Signes de la rupture installée",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Douleur brutale en coup de poignard"
+        },
+        {
+          "key": "B",
+          "term": "Bradycardie fœtale soudaine ou disparition des bruits"
+        },
+        {
+          "key": "A",
+          "term": "Arrêt des contractions"
+        },
+        {
+          "key": "H",
+          "term": "Hémorragie externe ou interne masquée"
+        },
+        {
+          "key": "C",
+          "term": "Choc hémorragique, perte du contact de la présentation"
+        }
+      ]
+    },
+    {
+      "label": "Conduite chirurgicale",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Sang : deux voies, remplissage, commande immédiate"
+        },
+        {
+          "key": "L",
+          "term": "Laparotomie médiane sans délai"
+        },
+        {
+          "key": "E",
+          "term": "Extraction de l'enfant et clampage des bords"
+        },
+        {
+          "key": "R",
+          "term": "Réparer si brèche simple et patiente stable"
+        },
+        {
+          "key": "H",
+          "term": "Hystérectomie d'hémostase si délabrement ou hémorragie incontrôlée"
+        }
+      ]
+    },
+    {
+      "label": "Prévention",
+      "entries": [
+        {
+          "key": "P",
+          "term": "Partogramme systématique pendant le travail"
+        },
+        {
+          "key": "A",
+          "term": "Antécédents utérins tracés pour chaque grossesse"
+        },
+        {
+          "key": "C",
+          "term": "Césarienne justifiée, jamais automatique"
+        },
+        {
+          "key": "O",
+          "term": "Ocytociques surveillés, proscrits sur cicatrice hors protocole"
+        },
+        {
+          "key": "T",
+          "term": "Transfert précoce des parturientes à risque"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Définition de la rupture utérine ?",
+      "back": "Solution de continuité de la paroi utérine, complète (toute l'épaisseur, cavité abdominale ouverte) ou incomplète (déhiscence, séreuse respectée), survenant le plus souvent pendant le travail."
+    },
+    {
+      "id": "f2",
+      "front": "Déhiscence ou rupture complète ?",
+      "back": "Déhiscence : entrouverture d'une cicatrice, souvent silencieuse, bon pronostic. Rupture complète : brèche transfixiante, hémopéritoine, souffrance fœtale aiguë, choc maternel."
+    },
+    {
+      "id": "f3",
+      "front": "Où la rupture se produit-elle le plus souvent ?",
+      "back": "Au segment inférieur, zone de moindre résistance, distendu lors du travail obstructif ou fragilisé par une cicatrice."
+    },
+    {
+      "id": "f4",
+      "front": "Premier terrain de rupture utérine ?",
+      "back": "L'utérus cicatriciel : césarienne (surtout classique ou itérative), myomectomie transfixiante, perforation réparée."
+    },
+    {
+      "id": "f5",
+      "front": "Terrain typique de rupture sur utérus sain ?",
+      "back": "La grande multipare en travail obstructif prolongé : disproportion fœto-pelvienne ou présentation dystocique non reconnue, segment inférieur surdistendu."
+    },
+    {
+      "id": "f6",
+      "front": "Rôle des utérotoniques dans la rupture ?",
+      "back": "Doses excessives ou usage non surveillé, surtout sur utérus cicatriciel ou travail non contrôlé : cause majeure et totalement évitable."
+    },
+    {
+      "id": "f7",
+      "front": "Signes de menace de rupture (travail obstructif) ?",
+      "back": "Hypercinésie pathologique, segment inférieur douloureux et distendu, globe de sécurité de Bandl, œdème du col, agitation de la patiente."
+    },
+    {
+      "id": "f8",
+      "front": "Signes de la rupture installée ?",
+      "back": "Douleur brutale, bradycardie fœtale ou disparition des bruits, arrêt des contractions, hémorragie externe ou interne, perte du contact, choc."
+    },
+    {
+      "id": "f9",
+      "front": "Pourquoi le diagnostic est-il avant tout clinique ?",
+      "back": "Parce que chaque minute compte : l'échographie peut aider mais ne doit jamais retarder la laparotomie devant un tableau typique."
+    },
+    {
+      "id": "f10",
+      "front": "Que faire devant une bradycardie fœtale brutale sur utérus cicatriciel ?",
+      "back": "Considérer la rupture jusqu'à preuve du contraire : arrêt de la voie basse, césarienne en urgence absolue en salle d'opération, réanimation et sang prêts."
+    },
+    {
+      "id": "f11",
+      "front": "Premiers gestes devant une rupture confirmée ?",
+      "back": "Appel à l'aide, deux voies veineuses, remplissage et commande de sang, bilan de coagulation, laparotomie médiane immédiate."
+    },
+    {
+      "id": "f12",
+      "front": "Critères de choix entre réparation et hystérectomie ?",
+      "back": "Réparer si brèche nette du segment inférieur et patiente stable ; hystérectomie d'hémostase si rupture délabrante, étendue, bilatérale ou hémorragie incontrôlable."
+    },
+    {
+      "id": "f13",
+      "front": "Conséquence obstétricale d'une réparation utérine ?",
+      "back": "Césarienne itérative obligatoire pour toute grossesse ultérieure, avec information écrite de la patiente et traçabilité de la cicatrice."
+    },
+    {
+      "id": "f14",
+      "front": "Pourquoi l'hémorragie de rupture est-elle si brutale ?",
+      "back": "La rupture ouvre les vaisseaux utérins dans la cavité abdominale : l'hémorragie est interne, massive et peut vider la masse sanguine en quelques minutes."
+    },
+    {
+      "id": "f15",
+      "front": "Conditions d'une tentative de voie basse après césarienne ?",
+      "back": "Cicatrice unique transversale, présentation céphalique, bassin favorable, absence d'antécédent de rupture, césarienne possible immédiatement : sinon césarienne programmée."
+    },
+    {
+      "id": "f16",
+      "front": "Trois mesures de prévention systématique ?",
+      "back": "Partogramme pour tout travail, ocytociques encadrés par protocole, et justification stricte de chaque césarienne pour ne pas multiplier les utérus cicatriciels."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ru-root",
+      "label": "Ruptures utérines"
+    },
+    "branches": [
+      {
+        "id": "ru-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "ru-b1-c",
+            "label": "Deux tableaux"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ru-l1-1",
+            "label": "Déhiscence : séreuse respectée"
+          },
+          {
+            "id": "ru-l1-2",
+            "label": "Rupture complète : cavité ouverte"
+          },
+          {
+            "id": "ru-l1-3",
+            "label": "Siège : segment inférieur"
+          },
+          {
+            "id": "ru-l1-4",
+            "label": "Urgence vitale double : mère et enfant"
+          }
+        ]
+      },
+      {
+        "id": "ru-b2",
+        "label": "Terrain",
+        "children": [
+          {
+            "id": "ru-b2-c",
+            "label": "Utérus fragilisé ou travail anormal"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ru-l2-1",
+            "label": "Cicatrice de césarienne, myomectomie"
+          },
+          {
+            "id": "ru-l2-2",
+            "label": "Travail obstructif, grande multipare"
+          },
+          {
+            "id": "ru-l2-3",
+            "label": "Utérotoniques inappropriés"
+          },
+          {
+            "id": "ru-l2-4",
+            "label": "Manœuvres instrumentales"
+          }
+        ]
+      },
+      {
+        "id": "ru-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "ru-b3-c",
+            "label": "Clinique, sans retarder"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ru-l3-1",
+            "label": "Bradycardie fœtale brutale"
+          },
+          {
+            "id": "ru-l3-2",
+            "label": "Douleur, arrêt des contractions"
+          },
+          {
+            "id": "ru-l3-3",
+            "label": "Hémorragie masquée, choc"
+          },
+          {
+            "id": "ru-l3-4",
+            "label": "Perte du contact de la présentation"
+          }
+        ]
+      },
+      {
+        "id": "ru-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "ru-b4-c",
+            "label": "Chirurgie immédiate"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ru-l4-1",
+            "label": "Laparotomie médiane, sang prêt"
+          },
+          {
+            "id": "ru-l4-2",
+            "label": "Réparation si simple et stable"
+          },
+          {
+            "id": "ru-l4-3",
+            "label": "Hystérectomie d'hémostase sinon"
+          },
+          {
+            "id": "ru-l4-4",
+            "label": "Réanimation de l'hémorragie massive"
+          }
+        ]
+      },
+      {
+        "id": "ru-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "ru-b5-c",
+            "label": "Éviter chaque rupture"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "ru-l5-1",
+            "label": "Partogramme, surveillance du travail"
+          },
+          {
+            "id": "ru-l5-2",
+            "label": "Césariennes justifiées"
+          },
+          {
+            "id": "ru-l5-3",
+            "label": "Ocytociques protocollés"
+          },
+          {
+            "id": "ru-l5-4",
+            "label": "Transfert précoce des patientes à risque"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Rupture utérine — Manuel MSD, édition professionnelle",
+      "citation": "Manuel MSD — Rupture utérine : symptômes, diagnostic et traitement de l'urgence obstétricale",
+      "organization": "Manuel MSD",
+      "year": 2024,
+      "version": "Édition professionnelle en ligne",
+      "url": "https://www.msdmanuals.com/fr/professional/gyn%C3%A9cologie-et-obst%C3%A9trique/complications-intrapartum/rupture-ut%C3%A9rine",
+      "usedFor": [
+        "définition",
+        "signes cliniques",
+        "prise en charge"
+      ],
+      "verifiedAt": "2026-11-06"
+    },
+    {
+      "id": "s2",
+      "title": "Rupture utérine : prédiction, diagnostic et prise en charge",
+      "citation": "EM-Consulte — Rupture utérine : prédiction, diagnostic et prise en charge (revue)",
+      "organization": "EM-Consulte",
+      "year": 2013,
+      "version": "Article de synthèse",
+      "url": "https://www.em-consulte.com/article/773189/rupture-uterine-prediction-diagnostic-et-prise-en-charge",
+      "usedFor": [
+        "facteurs de risque",
+        "conduite chirurgicale"
+      ],
+      "verifiedAt": "2026-11-06"
+    },
+    {
+      "id": "s3",
+      "title": "Rupture utérine — Guides médicaux MSF",
+      "citation": "Guides médicaux MSF — Rupture utérine : conduite en situation à ressources limitées",
+      "organization": "Médecins Sans Frontières",
+      "year": 2023,
+      "version": "Guide clinique",
+      "url": "https://medicalguidelines.msf.org/fr/viewport/ONC/francais/3-3-rupture-uterine-51416306.html",
+      "usedFor": [
+        "urgence chirurgicale",
+        "contexte à ressources limitées"
+      ],
+      "verifiedAt": "2026-11-06"
+    }
+  ]
+}
