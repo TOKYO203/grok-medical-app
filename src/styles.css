@@ -199,15 +199,20 @@ html[data-theme="dark"] {
     -moz-osx-font-smoothing: grayscale;
     background: var(--app-bg);
     color: var(--app-fg);
-  }
+    overflow-x: clip;
+  max-width: 100%;
+}
 
   body {
+    overflow-x: hidden;
     min-height: 100dvh;
     background: var(--app-body-bg);
     background-attachment: fixed;
     color: var(--app-fg);
     font-family: var(--font-sans);
-  }
+    overflow-x: clip;
+  max-width: 100%;
+}
 
   h1,
   h2,
