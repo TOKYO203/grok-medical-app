@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "kind": "pathology",
+  "slug": "complications-decubitus",
+  "title": "Complications de décubitus et de l'immobilité",
+  "specialty": "Médecine physique",
+  "language": "fr",
+  "updatedAt": "2026-11-06",
+  "reviewStatus": "pending-medical-review",
+  "objective": "Connaître les complications de l'immobilité prolongée et du décubitus : thromboses veineuses profondes et embolie pulmonaire, escarres, complications respiratoires (encombrement, pneumopathie), urinaires et digestives, ostéoporose et ostéopathie de l'immobilisation, rétractions et amyotrophie, déconditionnement cardiovasculaire, troubles psychiques ; maîtriser leur prévention systématique : mobilisation et verticalisation précoces, kinésithérapie, anticoagulation, soins de peau, nutrition et lutte contre la constipation — dans le contexte de soins malgache.",
+  "curriculum": {
+    "collection": "Nosographie — spécialité médicale",
+    "chapterNumber": 57,
+    "specialty": "Médecine physique",
+    "referential": {
+      "programme": "madagascar-2025",
+      "ordinal": 232,
+      "localNumber": 57,
+      "sectionLabel": "Chirurgie spécialisée",
+      "title": "Complications de décubitus et de l'immobilité",
+      "specialty": "Médecine physique"
+    }
+  },
+  "related": {
+    "deckIds": []
+  },
+  "editorial": {
+    "reviewStatus": "pending-medical-review",
+    "reviewedBy": null,
+    "reformulation": "Fiche consacrée aux complications du décubitus et de l'immobilité prolongée : revue systématique par appareil (thromboembolique, cutané, respiratoire, urinaire, digestif, ostéoarticulaire, circulatoire, psychique) et prévention centrée sur la mobilisation précoce, la kinésithérapie respiratoire, l'anticoagulation prophylactique, les soins de peau et la verticalisation. Les thromboses veineuses, la rééducation après fracture et les plaies chroniques relèvent des fiches dédiées.",
+    "verificationNotes": "Revue des complications par système conforme aux références de médecine physique consultées (Revue du Praticien, item d'enseignement, protocole de soins) ; la prévention des escarres (changements de position toutes les deux à trois heures, supports, état nutritionnel) et la prophylaxie thromboembolique médicamenteuse selon niveau de risque sont conformes aux recommandations, sans posologie détaillée.",
+    "qcChecklist": [
+      "8 sections requises présentes",
+      "Sources citées dans le diagnostic et le traitement",
+      "5 encadrés pédagogiques",
+      "4 mnémoniques",
+      "16 cartes de révision",
+      "Carte mentale complète",
+      "Articulation avec les fiches existantes sans duplication"
+    ]
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'immobilité prolongée, quelle qu'en soit la cause (traumatisme, AVC, chirurgie, maladie grave, âge), déclenche un syndrome de déconditionnement qui touche tous les appareils. Le décubitus n'est jamais un traitement neutre : il coûte plus qu'il ne soigne, et le médecin doit savoir débusquer et prévenir ses complications dès le premier jour."
+        },
+        {
+          "type": "paragraph",
+          "text": "Les délais sont courts : la stase veineuse et l'hypostase respiratoire débutent dès les premières heures, les escarres peuvent se constituer en quelques jours sur un terrain fragile, et l'amyotrophie devient mesurable dès la deuxième semaine. À l'inverse, presque toutes ces complications sont évitables par une prévention simple, organisée et peu coûteuse, adaptée aux contextes où les moyens de rééducation sont limités."
+        }
+      ]
+    },
+    {
+      "id": "generalites",
+      "title": "Définition et mécanismes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le décubitus impose au corps trois contraintes majeures : la suppression de la pompe musculoveineuse (stase, thromboses), la pression prolongée sur les points d'appui (ischion, sacrum, talon, occiput) écrasant les tissus entre os et support (escarres), et l'hypostase pulmonaire avec encombrement des bases (atélectasies, pneumopathies).",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "À cela s'ajoutent la fonte musculaire (perte rapide de la masse et de la force), la déminéralisation osseuse de l'immobilisation, les rétractions capsulaires et tendineuses des membres et de la hanche, l'hypotension orthostatique par perte de l'adaptation vasomotrice, la constipation et la rétention urinaire, les infections urinaires sur sonde, et la dénutrition qui accélère tous les autres processus. Chaque complication crée un cercle : l'escarre impose l'immobilité, qui aggrave la fonte musculaire, qui retarde la verticalisation."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "Complications par appareil",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tromboembolique : thrombose veineuse profonde des membres inférieurs avec risque d'embolie pulmonaire, majoré par la chirurgie, le traumatisme et l'alitement. Cutané : escarres des points d'appui, de stade d'érythème à la plaie profonde jusqu'à l'os. Respiratoire : encombrement, atélectasies, pneumopathies d'hypostase, en particulier chez le sujet âgé et le blessé thoracique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cardiovasculaire : thrombose veineuse, embolie pulmonaire, hypotension orthostatique, tachycardie de décubitus.",
+            "Cutané : escarres (sacrum, talons, occiput, ischions), macération, infection des plaies.",
+            "Respiratoire : encombrement, atélectasies, pneumopathie d'hypostase.",
+            "Urinaire et digestif : infection urinaire sur sonde, rétention, constipation, reflux et fausse route.",
+            "Ostéoarticulaire : amyotrophie, ostéoporose d'immobilisation, rétractions, ankyloses, algodystrophie.",
+            "Psychique et cognitif : confusion du sujet âgé, dépression, désorientation, dépendance acquise.",
+            "Métabolique : dénutrition, hypercalcurie, lithiases rénales."
+          ],
+          "sources": [
+            "s2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostic",
+      "title": "Diagnostic et évaluation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'évaluation est quotidienne et systématique : inspection des points d'appui à chaque change (érythème ne blanchissant pas à la pression = escarre stade 1), recherche d'un œdème ou d'une douleur du mollet (thrombose), auscultation et percussions des bases, fréquence respiratoire et fever. On traque les signes de confusion du sujet âgé, la diminution des prises alimentaires, le nombre de selles, la diminution de la diurèse.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Devant une fièvre d'un patient alité, on cherche dans l'ordre : pneumopathie d'hypostase, infection urinaire sur sonde, escarre infectée, thrombose surinfectée. L'échographie doppler veineuse confirme la thrombose ; le bilan nutritionnel et l'évaluation de la force musculaire guident la rééducation. Le niveau de risque thromboembolique et le score d'échelle de risque d'escarre orientent l'intensité de la prophylaxie."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Fièvre chez l'alité",
+          "text": "Quatre diagnostics à contrôler avant tout : les poumons (hypostase), la sonde (infection urinaire), la peau (escarre infectée), les veines (thrombose). Quatre causes simples, presque toutes évitables."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "Traitement et prise en charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chaque complication a son traitement : anticoagulation curative de la thrombose veineuse profonde et surveillance de l'embolie ; soins des escarres par décharge totale du point d'appui, détersion mécanique ou chirurgicale des plaies profondes, pansements adaptés au stade, apport nutritionnel ; drainage postural et kinésithérapie respiratoire des encombrements ; antibiothérapie des infections documentées ; traitement de la constipation et sevrage aussi rapide que possible de la sonde urinaire.",
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mais le traitement principal est le lever : verticalisation progressive, marche assistée dès que possible, kinésithérapie quotidienne de mobilisation active et passive, lutte contre les rétractions par postures. Le déconditionnement se corrige par le mouvement. Chaque jour d'immobilité supplémentaire coûte des semaines de rééducation.",
+          "sources": [
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Embolie pulmonaire",
+          "text": "Dyspnée brutale, douleur thoracique, tachycardie ou syncope chez un patient alité : suspicion d'embolie pulmonaire sur thrombose non diagnostiquée, prise en charge immédiate ; la prévention a échoué quelque part."
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "title": "Prévention",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La prévention thromboembolique associe mobilisation précoce, contention veineuse élastique et anticoagulation prophylactique selon le niveau de risque (chirurgie, traumatisme des membres inférieurs, AVC, patient âgé). Celle des escarres repose sur les changements de position toutes les deux à trois heures, la mise à disposition de supports (matelas, coussins), l'hygiène et la sécheresse de la peau, la lutte contre la macération, et surtout l'adéquation nutritionnelle et hydrique.",
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La prévention respiratoire conjugue position demi-assise, mobilisations, kinésithérapie respiratoire, arrêt du tabac et hydratation. La prévention digestive et urinaire : boissons suffisantes, alimentation en fibres, sonde urinaire retirée dès que possible. La prévention ostéoarticulaire et musculaire : kinésithérapie dès le premier jour, verticalisation au fauteuil dès que l'état le permet, postures contre les rétractions. Enfin, stimulation des relations et de la communication pour préserver l'humeur et le cadre temporel, surtout chez le sujet âgé confus."
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'immobilité est une maladie iatrogène que le médecin prescrit parfois sans s'en rendre compte. Ses complications, thromboemboliques, cutanées, respiratoires, digestives, ostéoarticulaires et psychiques, sont prévisibles et évitables par une prévention simple : lever tôt, bouger souvent, retourner régulièrement, nourrir correctement, anticoaguler selon le risque.",
+          "sources": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fiches liées : Thromboses veineuses profondes des membres inférieurs, Embolie pulmonaire, Brûlures, Traumatisme du rachis, Complications précoces des fractures de membres."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Le meilleur traitement du décubitus est son interruption : la prévention commence dès le premier jour, avec des moyens simples (mouvements, changes, eau, fibres, anticoagulation à bon escient) qui sauvent plus que n'importe quel pansement."
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Références et fiches liées",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Fiche thromboses-veineuses — diagnostic et traitement curatif de la thrombose profonde.",
+            "Fiche embolie-pulmonaire — urgence respiratoire de la maladie thromboembolique.",
+            "Fiche trauma-rachis — blessé médullaire et immobilisation prolongée.",
+            "Fiche brulures — réanimation et mobilisation du brûlé."
+          ]
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "tone": "urgence",
+      "title": "Embolie pulmonaire",
+      "text": "Dyspnée brutale ou syncope chez un patient alité : embolie pulmonaire à éliminer en premier ; l'anticoagulation curative ne remplace pas la prophylaxie manquée."
+    },
+    {
+      "id": "c2",
+      "tone": "reflexe",
+      "title": "Fièvre de l'alité",
+      "text": "Poumons, sonde, peau, veines : quatre causes simples et évitables à contrôler avant d'imaginer l'exceptionnel."
+    },
+    {
+      "id": "c3",
+      "tone": "retenir",
+      "title": "Érythème qui ne blanchit pas",
+      "text": "Un point d'appui rouge qui ne s'efface pas à la pression est déjà une escarre stade 1 : décharge immédiate, avant la plaie."
+    },
+    {
+      "id": "c4",
+      "tone": "memo",
+      "title": "Changes et horaires",
+      "text": "Retournement toutes les deux à trois heures, peau sèche et protégée, sacrum et talons soulevés : l'escarre est une horloge, le change la désamorce."
+    },
+    {
+      "id": "c5",
+      "tone": "memo",
+      "title": "Le lever est un médicament",
+      "text": "Verticalisation précoce au fauteuil puis marche assistée : le plus puissant antidote au déconditionnement, à prescrire avec une posologie : quotidienne."
+    }
+  ],
+  "mnemonics": [
+    {
+      "label": "Complications du décubitus",
+      "entries": [
+        {
+          "key": "T",
+          "term": "Thromboemboliques : thrombose veineuse, embolie pulmonaire"
+        },
+        {
+          "key": "E",
+          "term": "Escarres des points d'appui"
+        },
+        {
+          "key": "P",
+          "term": "Pulmonaires : encombrement, atélectasies, pneumopathies d'hypostase"
+        },
+        {
+          "key": "U",
+          "term": "Urinaires et digestives : infection sur sonde, rétention, constipation"
+        },
+        {
+          "key": "M",
+          "term": "Musculo-squelettiques : amyotrophie, ostéoporose, rétractions"
+        }
+      ]
+    },
+    {
+      "label": "Prévention des escarres",
+      "entries": [
+        {
+          "key": "R",
+          "term": "Retournements toutes les 2 à 3 heures"
+        },
+        {
+          "key": "E",
+          "term": "Eau : hydratation suffisante"
+        },
+        {
+          "key": "P",
+          "term": "Points d'appui soulagés par coussins et supports"
+        },
+        {
+          "key": "E",
+          "term": "État nutritionnel surveillé et corrigé"
+        },
+        {
+          "key": "S",
+          "term": "Sécheresse et hygiène de la peau, pas de macération"
+        }
+      ]
+    },
+    {
+      "label": "Prévention thromboembolique",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Mobilisation et lever précoces"
+        },
+        {
+          "key": "O",
+          "term": "Occlusion du risque par contention veineuse"
+        },
+        {
+          "key": "V",
+          "term": "Vérification du niveau de risque (chirurgie, traumatisme, âge)"
+        },
+        {
+          "key": "E",
+          "term": "Anticoagulation prophylactique Évaluée selon le risque"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance clinique des mollets chaque jour"
+        }
+      ]
+    },
+    {
+      "label": "Rééducation de l'immobilité",
+      "entries": [
+        {
+          "key": "S",
+          "term": "Siège : verticalisation au fauteuil dès que possible"
+        },
+        {
+          "key": "T",
+          "term": "Travail musculaire actif et passif quotidien"
+        },
+        {
+          "key": "A",
+          "term": "Appui et marche progressifs assistés"
+        },
+        {
+          "key": "N",
+          "term": "Nutrition riche en protéines pour la fonte musculaire"
+        },
+        {
+          "key": "D",
+          "term": "Dépistage et étirement des rétractions par postures"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "Quelles sont les trois principales complications systémiques de l'immobilité ?",
+      "back": "Thrombose veineuse profonde avec risque d'embolie pulmonaire, escarres des points d'appui, pneumopathies d'hypostase par encombrement des bases."
+    },
+    {
+      "id": "f2",
+      "front": "Par quels mécanismes surviennent les escarres ?",
+      "back": "Pression prolongée entre un point d'appui osseux et le support : ischémie tissulaire, puis nécrose de la graisse et de la peau, aggravée par cisaillement, macération et dénutrition."
+    },
+    {
+      "id": "f3",
+      "front": "Points d'appui à inspecter en priorité ?",
+      "back": "Sacrum et coccyx, talons, ischions, grands trochanters, occiput, omoplates, coudes, malléoles."
+    },
+    {
+      "id": "f4",
+      "front": "Premier stade d'escarre ?",
+      "back": "Un érythème qui ne blanchit pas à la pression : décharge immédiate et surveillance rapprochée, avant toute plaie."
+    },
+    {
+      "id": "f5",
+      "front": "Pourquoi le décubitus favorise-t-il la thrombose veineuse ?",
+      "back": "Suppression de la pompe musculoveineuse et stasis veineuse des membres inférieurs, majorées par l'inflammation de la maladie causale."
+    },
+    {
+      "id": "f6",
+      "front": "Quelle prophylaxie thromboembolique chez le patient alité à risque ?",
+      "back": "Mobilisation et lever précoces, contention veineuse, anticoagulation prophylactique adaptée au niveau de risque (chirurgie, traumatisme, AVC, âge)."
+    },
+    {
+      "id": "f7",
+      "front": "Complications respiratoires du décubitus ?",
+      "back": "Encombrement des bases, atélectasies d'hypostase, pneumopathies de décubitus, surtout chez le sujet âgé et le blessé thoracique."
+    },
+    {
+      "id": "f8",
+      "front": "Prévention des complications respiratoires ?",
+      "back": "Position demi-assise, mobilisations fréquentes, kinésithérapie respiratoire, hydratation, arrêt du tabac, contrôle de la douleur pour permettre la toux."
+    },
+    {
+      "id": "f9",
+      "front": "Complications urinaires et digestives du décubitus ?",
+      "back": "Infection urinaire sur sonde, rétention, lithiases, constipation, fausses routes et reflux chez le sujet âgé demi-assis insuffisamment."
+    },
+    {
+      "id": "f10",
+      "front": "Complications ostéoarticulaires et musculaires ?",
+      "back": "Amyotrophie rapide, ostéoporose d'immobilisation et hypercalcémie, rétractions capsulaires et tendineuses, ankyloses, algodystrophie."
+    },
+    {
+      "id": "f11",
+      "front": "Rythme des changements de position pour prévenir les escarres ?",
+      "back": "Toutes les deux à trois heures, associés aux supports de décharge des talons et du sacrum, à l'hygiène cutanée et à la nutrition."
+    },
+    {
+      "id": "f12",
+      "front": "Devant une fièvre chez un patient alité, quelles causes rechercher en priorité ?",
+      "back": "Pneumopathie d'hypostase, infection urinaire sur sonde, escarre infectée, thrombose veineuse : quatre causes simples, évitables, avant les diagnostics rares."
+    },
+    {
+      "id": "f13",
+      "front": "Qu'est-ce que l'hypotension orthostatique du décubitus ?",
+      "back": "Perte de l'adaptation vasomotrice après alitement prolongé : malaise et chute tensionnelle à la verticalisation, d'où lever progressif et surveillé."
+    },
+    {
+      "id": "f14",
+      "front": "Quelle est la place de la nutrition dans la prévention ?",
+      "back": "Centrale : la dénutrition favorise escarres, infections et fonte musculaire ; apports hydriques et protéiques suffisants, surveillance des prises alimentaires quotidiennes."
+    },
+    {
+      "id": "f15",
+      "front": "Complications psychiques de l'immobilité ?",
+      "back": "Confusion et désorientation du sujet âgé, dépression, anxiété, dépendance acquise : stimuler les contacts, la lumière du jour et le repérage temporel."
+    },
+    {
+      "id": "f16",
+      "front": "Quel est le principe du traitement du déconditionnement ?",
+      "back": "Le mouvement : verticalisation précoce, marche assistée, kinésithérapie quotidienne et postures ; chaque jour d'immobilité évité économise des semaines de rééducation."
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "cd-root",
+      "label": "Complications de décubitus"
+    },
+    "branches": [
+      {
+        "id": "cd-b1",
+        "label": "Définition",
+        "children": [
+          {
+            "id": "cd-b1-c",
+            "label": "Déconditionnement global"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cd-l1-1",
+            "label": "Tous les appareils touchés"
+          },
+          {
+            "id": "cd-l1-2",
+            "label": "Délai : heures à jours"
+          },
+          {
+            "id": "cd-l1-3",
+            "label": "Presque tout évitable"
+          },
+          {
+            "id": "cd-l1-4",
+            "label": "Le décubitus n'est jamais neutre"
+          }
+        ]
+      },
+      {
+        "id": "cd-b2",
+        "label": "Complications",
+        "children": [
+          {
+            "id": "cd-b2-c",
+            "label": "Par appareil"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cd-l2-1",
+            "label": "Thrombose veineuse, embolie"
+          },
+          {
+            "id": "cd-l2-2",
+            "label": "Escarres des points d'appui"
+          },
+          {
+            "id": "cd-l2-3",
+            "label": "Encombrement, pneumopathies"
+          },
+          {
+            "id": "cd-l2-4",
+            "label": "Amyotrophie, rétractions, ostéoporose"
+          }
+        ]
+      },
+      {
+        "id": "cd-b3",
+        "label": "Diagnostic",
+        "children": [
+          {
+            "id": "cd-b3-c",
+            "label": "Quotidien et systématique"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cd-l3-1",
+            "label": "Peau : érythème ne blanchissant pas"
+          },
+          {
+            "id": "cd-l3-2",
+            "label": "Mollets, poumons, selles"
+          },
+          {
+            "id": "cd-l3-3",
+            "label": "Prises alimentaires, diurèse"
+          },
+          {
+            "id": "cd-l3-4",
+            "label": "Confusion du sujet âgé"
+          }
+        ]
+      },
+      {
+        "id": "cd-b4",
+        "label": "Traitement",
+        "children": [
+          {
+            "id": "cd-b4-c",
+            "label": "Soigner et bouger"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cd-l4-1",
+            "label": "Anticoagulation de la thrombose"
+          },
+          {
+            "id": "cd-l4-2",
+            "label": "Décharge et détersion des escarres"
+          },
+          {
+            "id": "cd-l4-3",
+            "label": "Kinésithérapie respiratoire"
+          },
+          {
+            "id": "cd-l4-4",
+            "label": "Verticalisation, marche assistée"
+          }
+        ]
+      },
+      {
+        "id": "cd-b5",
+        "label": "Prévention",
+        "children": [
+          {
+            "id": "cd-b5-c",
+            "label": "Simple et précoce"
+          }
+        ],
+        "leaves": [
+          {
+            "id": "cd-l5-1",
+            "label": "Changes toutes les 2 à 3 heures"
+          },
+          {
+            "id": "cd-l5-2",
+            "label": "Lever et mobilisation dès le premier jour"
+          },
+          {
+            "id": "cd-l5-3",
+            "label": "Nutrition et hydratation"
+          },
+          {
+            "id": "cd-l5-4",
+            "label": "Anticoagulation selon le risque"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Complications de l'immobilité et du décubitus",
+      "citation": "La Revue du Praticien — Complications de l'immobilité et du décubitus : revue systématique par appareil et prévention",
+      "organization": "La Revue du Praticien",
+      "year": 2012,
+      "version": "Article de synthèse",
+      "url": "https://www.larevuedupraticien.fr/article/complications-de-limmobilite-et-du-decubitus",
+      "usedFor": [
+        "revue des complications",
+        "prévention"
+      ],
+      "verifiedAt": "2026-11-06"
+    },
+    {
+      "id": "s2",
+      "title": "Complications de l'immobilité et du décubitus — item d'enseignement",
+      "citation": "Externat de médecine — Item : complications de l'immobilité et du décubitus, prévention et prise en charge",
+      "organization": "externat-medecine.fr",
+      "year": 2023,
+      "version": "Support d'enseignement",
+      "url": "https://externat-medecine.fr/items/120-complications-immobilite-et-decubitus/",
+      "usedFor": [
+        "prévention systématique",
+        "rééducation"
+      ],
+      "verifiedAt": "2026-11-06"
+    },
+    {
+      "id": "s3",
+      "title": "Prévention des complications de décubitus — protocole de soins",
+      "citation": "Chir-Ortho — Prévention des complications de décubitus : changes, supports, prophylaxie",
+      "organization": "chir-ortho.com",
+      "year": 2022,
+      "version": "Protocole de soins",
+      "url": "https://chir-ortho.com/informations-techniques/protocoles-de-soins/prevention-des-complications-de-decubitus/",
+      "usedFor": [
+        "soins de peau",
+        "protocole de changes"
+      ],
+      "verifiedAt": "2026-11-06"
+    }
+  ]
+}
