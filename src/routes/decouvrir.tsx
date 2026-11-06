@@ -38,7 +38,7 @@ export const Route = createFileRoute("/decouvrir")({ component: DecouvrirPage })
    (pages trust) — la confiance se démontre, elle ne se promet pas. */
 const TRUST_BADGES = [
   {
-    label: "567 questions expliquées et sourcées",
+    label: "667 questions expliquées et sourcées",
     to: "/methodologie" as const,
   },
   {
@@ -96,7 +96,7 @@ const PERSONAS = [
 ] as const;
 
 const PROOF_STATS = [
-  { value: "567 / 567", label: "questions expliquées et sourcées" },
+  { value: "667 / 667", label: "questions expliquées et sourcées" },
   { value: "110", label: "fiches signes & syndromes, 220 sources vérifiables" },
   { value: "78", label: "calculateurs cliniques, 9 catégories" },
   { value: "4", label: "langues d'interface (fr, en, es, pt)" },
