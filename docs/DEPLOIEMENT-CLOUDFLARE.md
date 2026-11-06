@@ -62,3 +62,27 @@ explicite si le repli PGLite était malgré tout atteint.
 
 Si un futur ajout de contenu repousse le bundle au-dessus de la limite, le log
 de build liste les modules > 500 Ko : commencer par là.
+
+## Stubs de bundle : le gate est CF_PAGES, pas STUB_CLOUDFLARE
+
+`vite.config.ts` active les stubs Cloudflare quand **`CF_PAGES`** est posé
+(chaîne **"1"**, posée automatiquement par Pages sur chaque build — jamais
+"true"). `STUB_CLOUDFLARE=true` reste disponible comme override local pour
+reproduire le build CF sur ta machine : `STUB_CLOUDFLARE=true npm run
+build:cloudflare`.
+
+Stubs appliqués (worker ~26,5 → ~23,8 MiB, sous la limite de 25 Mo) :
+
+- `@electric-sql/pglite` → `src/lib/db/pglite-stub.ts` (jamais utilisé en
+  prod CF : `DATABASE_URL` requis → driver `pg`)
+- `postgres` → `src/lib/db/postgres-stub.ts` (idem)
+- `better-auth` et `@better-auth/*` → `src/lib/auth/stub-ssr.ts`
+  (`VITE_AUTH_ENABLED=false` en production)
+
+Pièges connus :
+1. Le champ **Build command du dashboard** Pages écrase le script npm : un
+   préfixe `VAR=...` ajouté dans package.json n'apparaît jamais dans le log
+   si le dashboard exécute sa propre commande.
+2. `CF_PAGES === 'true'` ne matche jamais : la valeur est "1".
+3. Ne pas mettre ce drapeau dans `.env.production` : scopé au mode, pas à la
+   plateforme — casserait Vercel/Netlify.

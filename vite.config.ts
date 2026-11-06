@@ -174,23 +174,51 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
   },
   resolve: {
     tsconfigPaths: true,
-    // Cloudflare Pages : le bundle Functions est limité à 25 Mo. PGlite
-    // (Postgres WASM : pglite.wasm ~3 Mo, initdb.wasm ~1,3 Mo, pglite.data
-    // ~15 Mo embarqués via l'import dynamique de src/lib/db.ts) n'est JAMAIS
-    // utilisé en prod CF (DATABASE_URL est requis → driver `postgres` pur JS).
-    // On le remplace donc par le stub qui lève explicitement, cf.
-    // src/lib/db/pglite-stub.ts. Sans cet alias, chaque déploiement échouait :
-    // "Generated Pages Functions bundle size (...) is over the limit of 25.0 MiB".
-    ...(process.env.CF_PAGES
+    // ── STUBS CLOUDFLARE PAGES ──────────────────────────────────────────
+    // Le bundle Functions (dist/_worker.js) est limité à 25 Mo. Cloudflare
+    // pose CF_PAGES=1 (la chaîne "1", PAS "true") sur chaque build Pages :
+    // c'est le seul signal garanti par la plateforme, aucune variable à
+    // configurer dans le dashboard. STUB_CLOUDFLARE=true reste un override
+    // LOCAL pour reproduire le build CF hors Cloudflare.
+    //
+    // Ne JAMAIS déplacer ce drapeau dans .env.production : les fichiers
+    // .env* sont scopés au MODE (production), pas à la plateforme — cela
+    // stubberait aussi les builds Vercel/Netlify et casserait leurs runtimes.
+    //
+    // Effet mesuré (stubs actifs) : worker ~26,5 → ~23,8 MiB.
+    ...(!!process.env.CF_PAGES || process.env.STUB_CLOUDFLARE === "true"
       ? [
+          // Postgres WASM (~735 Ko) : jamais utilisé en prod CF
+          // (DATABASE_URL requis → driver pg), cf. src/lib/db/pglite-stub.ts.
           {
             find: /^@electric-sql\/pglite$/,
             replacement: resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts"),
           },
+          // Driver postgres (porsager, ~67 Ko) : en prod CF la DB passe par
+          // pg (DATABASE_URL + Pool), cf. src/lib/db/postgres-stub.ts.
+          {
+            find: /^postgres$/,
+            replacement: resolvePath(process.cwd(), "src/lib/db/postgres-stub.ts"),
+          },
+          // better-auth + @better-auth/* (~1,8 Mo avec le kysely-adapter) :
+          // VITE_AUTH_ENABLED=false en production → aucune vraie fonction
+          // n'est appelée côté serveur, cf. src/lib/auth/stub-ssr.ts.
+          {
+            find: /^better-auth$/,
+            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
+          },
+          {
+            find: /^better-auth\//,
+            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
+          },
+          {
+            find: /^@better-auth\//,
+            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
+          },
         ]
       : []),
   },
-  plugins: [authStubSsr(), 
+    plugins: [authStubSsr(), 
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),
