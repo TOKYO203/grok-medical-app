@@ -49,3 +49,16 @@ Le site Netlify `cheerful-otter-56f2b3` est un vestige d'une ancienne
 installation (crédits de build épuisés, build `build:netlify`). Il n'est pas
 la production : à supprimer ou déconnecter du dépôt pour éviter toute
 confusion.
+
+## Limite de taille du bundle Functions (25 Mo)
+
+Le bundle `dist/_worker.js` est plafonné à **25 Mo**. PGlite (Postgres WASM :
+`pglite.wasm` ~3 Mo, `initdb.wasm` ~1,3 Mo, `pglite.data` ~15 Mo) ne doit
+donc jamais entrer dans le graphe serveur d'un build Cloudflare : en prod CF,
+`DATABASE_URL` est requis et le driver `postgres` (porsager, pur JS) prend
+tout. `vite.config.ts` aliasé `@electric-sql/pglite` vers
+`src/lib/db/pglite-stub.ts` quand `CF_PAGES=1` : le stub lève une erreur
+explicite si le repli PGLite était malgré tout atteint.
+
+Si un futur ajout de contenu repousse le bundle au-dessus de la limite, le log
+de build liste les modules > 500 Ko : commencer par là.

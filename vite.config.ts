@@ -13,7 +13,7 @@ function withServerEnv(config: any) {
 }
 
 import { readdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve as resolvePath } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig, loadEnv } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -172,7 +172,24 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
     port: 8081,
     strictPort: true,
   },
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    tsconfigPaths: true,
+    // Cloudflare Pages : le bundle Functions est limité à 25 Mo. PGlite
+    // (Postgres WASM : pglite.wasm ~3 Mo, initdb.wasm ~1,3 Mo, pglite.data
+    // ~15 Mo embarqués via l'import dynamique de src/lib/db.ts) n'est JAMAIS
+    // utilisé en prod CF (DATABASE_URL est requis → driver `postgres` pur JS).
+    // On le remplace donc par le stub qui lève explicitement, cf.
+    // src/lib/db/pglite-stub.ts. Sans cet alias, chaque déploiement échouait :
+    // "Generated Pages Functions bundle size (...) is over the limit of 25.0 MiB".
+    ...(process.env.CF_PAGES
+      ? [
+          {
+            find: /^@electric-sql\/pglite$/,
+            replacement: resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts"),
+          },
+        ]
+      : []),
+  },
   plugins: [authStubSsr(), 
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
