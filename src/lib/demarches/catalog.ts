@@ -6,6 +6,9 @@ import syncope from "@/content/data/demarches/syncope.json";
 import fievrePersistante from "@/content/data/demarches/fievre-persistante.json";
 import adenopathie from "@/content/data/demarches/adenopathie.json";
 import oedemesMi from "@/content/data/demarches/oedemes-mi.json";
+import diarrheeAigue from "@/content/data/demarches/diarrhee-aigue.json";
+import coliqueNephretique from "@/content/data/demarches/colique-nephretique.json";
+import hemorragiesDigestives from "@/content/data/demarches/hemorragies-digestives.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -24,6 +27,9 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "fievre-persistante.json": fievrePersistante as unknown as DemarcheContent,
   "adenopathie.json": adenopathie as unknown as DemarcheContent,
   "oedemes-mi.json": oedemesMi as unknown as DemarcheContent,
+  "diarrhee-aigue.json": diarrheeAigue as unknown as DemarcheContent,
+  "colique-nephretique.json": coliqueNephretique as unknown as DemarcheContent,
+  "hemorragies-digestives.json": hemorragiesDigestives as unknown as DemarcheContent,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
