@@ -134,7 +134,7 @@ export function Shell({ children, title }: { children: ReactNode; title?: string
       <nav
         aria-label={t("nav.ariaPrimary")}
         data-mobile-navigation="true"
-        className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 grid grid-cols-5 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
+        className="fixed inset-x-0 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-30 mx-auto grid w-[calc(100%-1rem)] max-w-md grid-cols-5 min-w-0 rounded-[22px] border border-border bg-bg/80 p-1 shadow-[0_20px_55px_-18px_rgb(0_0_0/0.5)] backdrop-blur-xl backdrop-saturate-150 md:hidden"
       >
         {NAV.map((item) => {
           const active = isActive(pathname, item.to);
