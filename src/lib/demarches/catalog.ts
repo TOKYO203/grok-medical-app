@@ -10,6 +10,12 @@ import oedemesMi from "@/content/data/demarches/oedemes-mi.json";
 import diarrheeAigue from "@/content/data/demarches/diarrhee-aigue.json";
 import coliqueNephretique from "@/content/data/demarches/colique-nephretique.json";
 import hemorragiesDigestives from "@/content/data/demarches/hemorragies-digestives.json";
+import arretCirculatoire from "@/content/data/demarches/arret-circulatoire.json";
+import hypoglycemie from "@/content/data/demarches/hypoglycemie.json";
+import pneumothorax from "@/content/data/demarches/pneumothorax.json";
+import epistaxis from "@/content/data/demarches/epistaxis.json";
+import hemorragiePremierTrimestre from "@/content/data/demarches/hemorragie-premier-trimestre.json";
+import hemorragieTroisiemeTrimestre from "@/content/data/demarches/hemorragie-troisieme-trimestre.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -32,6 +38,12 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "diarrhee-aigue.json": diarrheeAigue as unknown as DemarcheContent,
   "colique-nephretique.json": coliqueNephretique as unknown as DemarcheContent,
   "hemorragies-digestives.json": hemorragiesDigestives as unknown as DemarcheContent,
+  "arret-circulatoire.json": arretCirculatoire as unknown as DemarcheContent,
+  "hypoglycemie.json": hypoglycemie as unknown as DemarcheContent,
+  "pneumothorax.json": pneumothorax as unknown as DemarcheContent,
+  "epistaxis.json": epistaxis as unknown as DemarcheContent,
+  "hemorragie-premier-trimestre.json": hemorragiePremierTrimestre as unknown as DemarcheContent,
+  "hemorragie-troisieme-trimestre.json": hemorragieTroisiemeTrimestre as unknown as DemarcheContent,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
