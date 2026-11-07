@@ -1,6 +1,7 @@
 import indexJson from "@/content/data/demarches/_index.json";
 import douleurThoracique from "@/content/data/demarches/douleur-thoracique.json";
 import dyspnee from "@/content/data/demarches/dyspnee.json";
+import fievreAigue from "@/content/data/demarches/fievre-aigue.json";
 import hemoptysie from "@/content/data/demarches/hemoptysie.json";
 import syncope from "@/content/data/demarches/syncope.json";
 import fievrePersistante from "@/content/data/demarches/fievre-persistante.json";
@@ -22,6 +23,7 @@ import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "douleur-thoracique.json": douleurThoracique as unknown as DemarcheContent,
   "dyspnee.json": dyspnee as unknown as DemarcheContent,
+  "fievre-aigue.json": fievreAigue as unknown as DemarcheContent,
   "hemoptysie.json": hemoptysie as unknown as DemarcheContent,
   "syncope.json": syncope as unknown as DemarcheContent,
   "fievre-persistante.json": fievrePersistante as unknown as DemarcheContent,
