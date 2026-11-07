@@ -1971,5 +1971,649 @@
       }
     ],
     "synthesis": "Saignement du 3e trimestre → hospitalisation d'office, pas de toucher vaginal avant l'échographie → indolore + présentation haute : praevium (césarienne si couvrant) ; douleur + utérus en bois + MA diminués sur HTA : HRP → bilan d'hémostase avec fibrinogène → fœtus vivant souffrant : césarienne ; MFIU stable : déclenchement voies + hémostase corrigée → utérus cicatriciel en travail : toute douleur anormale = rupture. Référence anticipée vers un centre opérable et transfusable."
+  },
+  {
+    "id": "DX-ICTERE-001",
+    "title": "Ictère à bilirubine conjuguée — démarche",
+    "specialty": "Hépato-gastroentérologie",
+    "vignette": "Homme de 58 ans, ictère progressif depuis deux semaines, prurit, urines foncées, selles décolorées, sans douleur. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "orientation",
+        "title": "1. Orientation",
+        "lead": "Quels signes l'ictère avec selles décolorées et prurit évoquent-ils ?",
+        "prompt": "Le syndrome décrit est :",
+        "choices": [
+          "Une hémolyse",
+          "Une cholestase (obstacle ou cholestase intra-hépatique)",
+          "Un syndrome de Gilbert",
+          "Une cirrhose compensée"
+        ],
+        "correct": 1,
+        "explanation": "Urines foncées + selles décolorées + prurit = bilirubine conjuguée qui ne s'évacue plus dans le tube digestif : cholestase. L'hémolyse donne un ictère à bilirubine libre avec selles normales ; le Gilbert un ictère modulé intermittent sans signe."
+      },
+      {
+        "id": "gravite",
+        "title": "2. Urgence à écarter",
+        "lead": "Quelle urgence cherche-t-on systématiquement devant un ictère fébrile ?",
+        "prompt": "La combinaison fièvre + douleur hypochondre droit + ictère définit :",
+        "choices": [
+          "Une hépatite virale aiguë",
+          "Une angiocholite : antibiothérapie IV et drainage biliaire urgents",
+          "Un syndrome de Zieve",
+          "Une cholécystite simple"
+        ],
+        "correct": 1,
+        "explanation": "La triade de Charcot signe l'angiocholite (sepsis biliaire) : l'antibiothérapie IV est immédiate et le drainage biliaire (endoscopique, percutané ou chirurgical) doit suivre — attendre les cultures ou l'imagerie pour drainer est une erreur qui tue."
+      },
+      {
+        "id": "bilan",
+        "title": "3. Bilan",
+        "lead": "Quel bilan biologique de première intention ?",
+        "prompt": "Le bilan indispensable comprend :",
+        "choices": [
+          "Bilirubine totale et directe, PAL/GGT, transaminases, TP, NFS",
+          "Seulement une bilirubine totale",
+          "Un bilan uniquement à la recherche d'une hémolyse",
+          "Une CRP seule"
+        ],
+        "correct": 0,
+        "explanation": "Bilirubine totale et directe (confirmer le caractère conjugué), PAL et GGT (cholestase), transaminases (atteinte hépatocellulaire), TP (marqueur de gravité), NFS et CRP (infection). Le TP bas avec encéphalopathie signe l'insuffisance hépatique : urgence."
+      },
+      {
+        "id": "imagerie",
+        "title": "4. Imagerie",
+        "lead": "Quel examen d'imagerie de première intention ?",
+        "prompt": "L'examen pivot est :",
+        "choices": [
+          "La TDM abdominale injectée d'emblée",
+          "L'échographie abdominale : dilatation des voies biliaires ?",
+          [
+            "La coloscopie"
+          ],
+          "L'IRM biliaire systématique"
+        ],
+        "correct": 1,
+        "explanation": "L'échographie trie en une visite : voies biliaires dilatées = obstacle (lithiase, tumeur) à drainer ; voies fines = foie malade ou cholestase intra-hépatique. La TDM ou l'écho-endoscopie viennent après, pour caractériser."
+      },
+      {
+        "id": "obstacle",
+        "title": "5. Obstacle",
+        "lead": "Ictère indolore, progressif, amaigrissement de 6 kg, sujet de 58 ans. Quelle hypothèse principale ?",
+        "prompt": "Le diagnostic à craindre est :",
+        "choices": [
+          "Une lithiase du cholédoque",
+          "Un cancer (pancréas, voies biliaires, hile) jusqu'à preuve du contraire",
+          "Une hépatite alcoolique",
+          "Une angiocholite"
+        ],
+        "correct": 1,
+        "explanation": "L'ictère obstructif indolore avec amaigrissement chez un sujet de plus de 50 ans est un cancer jusqu'à preuve du contraire (adénocarcinome pancréatique, cholangiocarcinome, syndrome de Klatskin). Bilan d'extension et drainage biliaire, avis oncologique."
+      },
+      {
+        "id": "contexte",
+        "title": "6. Contexte local",
+        "lead": "Quelles causes à interroger spécifiquement dans un contexte tropical ?",
+        "prompt": "À l'interrogatoire, on cherche :",
+        "choices": [
+          "Seulement la consommation d'alcool",
+          "Hépatites virales, plantes traditionnelles hépatotoxiques, paludisme, parasitoses biliaires",
+          "Les allergies",
+          "Les antécédents familiaux de Gilbert"
+        ],
+        "correct": 1,
+        "explanation": "Hépatites B et E (E gravissime chez la femme enceinte), plantes et poudres traditionnelles (hépatites toxiques), paludisme (l'ictère est un critère de gravité), ascaridiose biliaire et douves : l'interrogatoire sans jugement sur les tradipraticiens trouve des causes quotidiennes."
+      },
+      {
+        "id": "traitement",
+        "title": "7. Traitement",
+        "lead": "Angiocholite confirmée : quel enchaînement correct ?",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Antibiothérapie IV puis drainage biliaire dans la foulée, réanimation du sepsis",
+          "Drainage seul sans antibiotique",
+          "Attendre les hémocultures 48 h avant tout",
+          "Corticoïdes et antihistaminiques"
+        ],
+        "correct": 0,
+        "explanation": "Antibiothérapie IV à couverture entérique et drainage biliaire : les deux, sans délai, avec réanimation du sepsis. Le drainage sans antibiotique expose au choc septique ; l'attente des cultures expose au choc septique."
+      }
+    ],
+    "synthesis": "Ictère progressif + selles décolorées + prurit = cholestase → bilan (bilirubine, PAL/GGT, TP) + échographie → dilatation = obstacle : lithiase (douleur) ou cancer (indolore > 50 ans) ; fièvre + douleur + ictère = angiocholite : ATB IV + drainage sans attendre. Voies fines : hépatite (virus, alcool, plantes, paludisme), surveiller le TP."
+  },
+  {
+    "id": "DX-ASCITE-001",
+    "title": "Ascite — démarche",
+    "specialty": "Hépato-gastroentérologie / Médecine interne",
+    "vignette": "Homme de 47 ans, distension abdominale progressive depuis trois semaines, asthénie, antécédent d'hépatite B. Vous construisez le raisonnement, un geste à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe",
+        "lead": "Quel geste fait-on systématiquement devant cette ascite de novo ?",
+        "prompt": "Le geste systématique est :",
+        "choices": [
+          "Une TDM abdominale immédiate",
+          "Une ponction exploratrice avec analyse du liquide",
+          "Un traitement diurétique d'emblée",
+          "Attendre l'évolution"
+        ],
+        "correct": 1,
+        "explanation": "Toute ascite de novo (ou décompensée) est ponctionnée : cellules (ILA si > 250/mm³), protides/albumine avec albuminémie (gradient), cytologie bactériologique au lit, macroscopie. Le diagnostic d'infection se fait sur le liquide : un tiers des infections sont apyrétiques."
+      },
+      {
+        "id": "analyse",
+        "title": "2. Analyse du liquide",
+        "lead": "Protides du liquide à 12 g/L, gradient albumine sérum-liquide à 16 g/L. Quelle lecture ?",
+        "prompt": "Le liquide est un :",
+        "choices": [
+          "Exsudat : tuberculose probable",
+          "Transsudat : hypertension portale ou cause cardiaque",
+          "Chyleux",
+          "Pancréatique"
+        ],
+        "correct": 1,
+        "explanation": "Gradient > 11 g/L = transsudat : hypertension portale (cirrhose, ici contexte d'hépatite B) ou insuffisance cardiaque. Exsudat (< 11 g/L) : péritonite, tuberculose, carcinose, liquide pancréatique."
+      },
+      {
+        "id": "ila",
+        "title": "3. Infection du liquide",
+        "lead": "280 éléments neutrophiles/mm³, patient peu fébrile. Quelle conduite ?",
+        "prompt": "Le diagnostic est une :",
+        "choices": [
+          "ILA : céphalosporine 3e génération IV + albumine, sans attendre les cultures",
+          "Cirrhose simple : diurétiques seuls",
+          "Carcinose péritonéale",
+          "Tuberculose péritonéale"
+        ],
+        "correct": 0,
+        "explanation": "Plus de 250 éléments/mm³ = infection du liquide d'ascite : antibiothérapie IV (céphalosporine 3e génération) immédiate et albumine (1,5 g/kg à J1) pour prévenir le syndrome hépatorénal ; contrôle cytologique à 48 h. La fièvre manque souvent : c'est la ponction qui fait le diagnostic."
+      },
+      {
+        "id": "cause",
+        "title": "4. Cause de la décompensation",
+        "lead": "Quels facteurs déclenchants cherche-t-on chez ce cirrhotique ?",
+        "prompt": "On cherche systématiquement :",
+        "choices": [
+          "La consommation récente d'alcool seulement",
+          "ILA (déjà prouvée), saignement digestif, médicaments néphrotoxiques (AINS), thrombose portale, alcool",
+          "Une allergie alimentaire",
+          "Un effort physique"
+        ],
+        "correct": 1,
+        "explanation": "Toute décompensation a un facteur : infection (ILA ici), saignement digestif, AINS ou néphrotoxiques, thrombose portale, alcool, hépatocarcinome. L'identifier change le pronostic — et l'ILA elle-même est un facteur de décompensation."
+      },
+      {
+        "id": "differentiel",
+        "title": "5. Diagnostic différentiel",
+        "lead": "Même tableau chez une femme de 26 ans : fièvre prolongée, sueurs, amaigrissement, liquide exsudatif lymphocytaire. Quelle hypothèse ?",
+        "prompt": "Le diagnostic à évoquer est :",
+        "choices": [
+          "Une cirrhose",
+          "Une tuberculose péritonéale",
+          "Un syndrome de Meigs",
+          "Une insuffisance cardiaque"
+        ],
+        "correct": 1,
+        "explanation": "Exsudat lymphocytaire + fièvre longue + AEG du sujet jeune en zone d'endémie = tuberculose péritonéale : ADA élevée, confirmation par culture ou biopsie péritonéale, quadrithérapie. La carcinose péritonéale se voit plutôt après 50 ans."
+      },
+      {
+        "id": "traitement",
+        "title": "6. Traitement de l'ascite",
+        "lead": "Après l'ILA traitée, quel traitement de fond de l'ascite cirrhotique ?",
+        "prompt": "Le socle du traitement est :",
+        "choices": [
+          "Régime hydrosodé restrictif + spironolactone (± furosémide), arrêt de l'alcool et des AINS",
+          "Ponctions évacuatrices quotidiennes",
+          "Corticoïdes",
+          "Antibiotiques au long cours"
+        ],
+        "correct": 0,
+        "explanation": "Moins de 2 g de sodium/jour, spironolactone titrée sur le poids (-500 g/j sans œdèmes) et la kaliémie, arrêt de l'alcool et des néphrotoxiques. Les ponctions évacuatrices sont réservées à la détresse ou à l'inconfort, avec compensation albuminique si grande abondance."
+      },
+      {
+        "id": "surveillance",
+        "title": "7. Surveillance",
+        "lead": "Quels paramètres surveiller pendant le traitement ?",
+        "prompt": "La surveillance porte sur :",
+        "choices": [
+          "Le poids quotidien, la créatinine, la kaliémie et l'état neurologique",
+          "La seule courbe de température",
+          "La glycémie uniquement",
+          "Rien de particulier"
+        ],
+        "correct": 0,
+        "explanation": "Poids quotidien (efficacité des diurétiques), créatinine (syndrome hépatorénal), kaliémie (diurétiques), conscience (encéphalopathie) et signes de récidive de l'ILA. L'éducation du patient (régime sans sel, poids, signes d'alerte) fait partie du traitement."
+      }
+    ],
+    "synthesis": "Ascite de novo → ponction : cellules (> 250/mm³ = ILA : céphalo 3e gen + albumine), gradient d'albumine (> 11 = transsudat : cirrhose ou cœur ; < 11 = exsudat : tuberculose, carcinose) → cirrhose décompensée : chercher le facteur déclenchant → régime sans sel + spironolactone, poids quotidien, créatinine. Exsudat lymphocytaire fébrile du sujet jeune : tuberculose péritonéale."
+  },
+  {
+    "id": "DX-PROTEINURIE-001",
+    "title": "Protéinurie — démarche",
+    "specialty": "Néphrologie",
+    "vignette": "Femme de 33 ans, bandelette urinaire positive (++) lors d'un examen d'embauche, œdèmes des chevilles depuis dix jours, tension 150/90. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "confirmer",
+        "title": "1. Confirmer",
+        "lead": "La bandelette est positive. Quelle est l'étape suivante ?",
+        "prompt": "Il faut :",
+        "choices": [
+          "Prescrire des diurétiques immédiatement",
+          "Confirmer et quantifier par un rapport protéine/créatinine sur miction (ou protéinurie des 24 h)",
+          "Considérer la bandelette comme définitive",
+          "Refaire une bandelette dans un an"
+        ],
+        "correct": 1,
+        "explanation": "La bandelette détecte l'albumine mais ne quantifie pas : le rapport protéine/créatinine sur miction isolée (mg/g) estime la protéinurie des 24 heures. > 150 mg/g = anormale ; avec œdèmes et HTA, le tableau évoque un syndrome néphrotique ou néphritique."
+      },
+      {
+        "id": "syndrome",
+        "title": "2. Syndromiser",
+        "lead": "Rapport P/C à 5200 mg/g, albuminémie 24 g/L, œdèmes. Quel syndrome ?",
+        "prompt": "Le syndrome est :",
+        "choices": [
+          "Une protéinurie orthostatique",
+          "Un syndrome néphrotique",
+          "Une protéinurie tubulaire",
+          "Une infection urinaire"
+        ],
+        "correct": 1,
+        "explanation": "Protéinurie > 3 g/j + hypoalbuminémie < 30 g/L + œdèmes = syndrome néphrotique. Complications à prévoir : thromboses (fuite d'antithrombine), infections (pneumocoque), hypovolémie."
+      },
+      {
+        "id": "examen",
+        "title": "3. Examen clinique",
+        "lead": "Quels éléments cliniques orientent l'enquête étiologique ?",
+        "prompt": "On cherche en priorité :",
+        "choices": [
+          "HTA, éruption, arthralgies, fièvre, signes de lupus ou d'infection récente, diabète",
+          "Seulement le poids",
+          "Un examen dermatologique seul",
+          "La palpation de la thyroïde"
+        ],
+        "correct": 0,
+        "explanation": "Le syndrome néphrotique de l'adulte impose de chercher les causes systémiques et infectieuses : lupus (arthralgies, éruption, photosensibilité), diabète, hépatites B et C, VIH, paludisme, médicaments, néoplasie. Le bilan : complément (C3-C4), sérologies, glycémie, NFS."
+      },
+      {
+        "id": "grossesse",
+        "title": "4. Situation particulière",
+        "lead": "La même protéinurie chez une femme enceinte de 32 SA avec TA 160/100 et céphalées : quelle urgence ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une cystite",
+          "Une pré-éclampsie : hospitalisation, bilan et décision obstétricale",
+          "Une protéinurie orthostatique",
+          "Un syndrome néphrotique simple"
+        ],
+        "correct": 1,
+        "explanation": "Après 20 SA, protéinurie + HTA = pré-éclampsie : hospitalisation, bilan (plaquettes, ASAT/ALAT, créatinine), antihypertenseurs, sulfate de magnésium si signes neurologiques, décision d'extraction avec l'obstétricien. Jamais « fonctionnelle » après 20 SA."
+      },
+      {
+        "id": "enfant",
+        "title": "5. Enfant",
+        "lead": "Un enfant de 4 ans avec le même tableau. Quelle cause est la plus probable ?",
+        "prompt": "La cause la plus fréquente chez l'enfant est :",
+        "choices": [
+          "Un lupus",
+          "Une néphrose lipoïdique (lésions glomérulaires minimes), corticosensible",
+          "Un diabète",
+          "Un cancer"
+        ],
+        "correct": 1,
+        "explanation": "90 % des syndromes néphrotiques de l'enfant sont des néphroses lipoïdiques, corticosensibles : corticothérapie orale selon protocole, vaccination contre le pneumocoque, avis néphrologique si corticorésistance."
+      },
+      {
+        "id": "traitement",
+        "title": "6. Traitement de fond",
+        "lead": "Chez l'adulte, quel traitement réduit la protéinurie et protège le rein ?",
+        "prompt": "Le socle thérapeutique est :",
+        "choices": [
+          "IEC ou ARA2 + contrôle tensionnel + régime hyposodé",
+          "Antibiotiques prolongés",
+          "Corticoïdes systématiques chez tous",
+          "Repos seul"
+        ],
+        "correct": 0,
+        "explanation": "IEC/ARA2 (surveillance créatinine et kaliémie à l'initiation), contrôle tensionnel strict, régime hyposodé, arrêt du tabac et des néphrotoxiques. La biopsie rénale et les traitements spécifiques (immunosuppresseurs) dépendent de la cause, d'où l'avis néphrologique."
+      },
+      {
+        "id": "suivi",
+        "title": "7. Suivi",
+        "lead": "Quel suivi instaurer ?",
+        "prompt": "Le suivi repose sur :",
+        "choices": [
+          "Rapport protéine/créatinine, créatinine et tension tous les 3-6 mois",
+          "Une bandelette annuelle",
+          "Aucun suivi",
+          "Une échographie hebdomadaire"
+        ],
+        "correct": 0,
+        "explanation": "Rapport P/C, créatinine, tension et kaliémie à intervalles réguliers selon la maladie ; éducation : éviter les AINS et les poudres traditionnelles néphrotoxiques, régime sans sel, suivi de l'observance. Chez le diabétique et l'hypertendu, dépistage annuel de la microalbuminurie."
+      }
+    ],
+    "synthesis": "Bandelette positive → confirmer par rapport P/C → > 3 g/j + hypoalbuminémie + œdèmes = syndrome néphrotique → chercher la cause (lupus, diabète, VIH, hépatites, paludisme, médicaments) → IEC/ARA2 + TA stricte + hyposodé ; enfant : néphrose corticosensible ; femme enceinte après 20 SA : pré-éclampsie = hospitalisation. Suivi : P/C, créatinine, tension."
+  },
+  {
+    "id": "DX-HEMATURIE-001",
+    "title": "Hématurie — démarche",
+    "specialty": "Urologie / Néphrologie",
+    "vignette": "Homme de 62 ans, fumeur, hématurie macroscopique totale indolore il y a trois jours, spontanément résolutive. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "confirmer",
+        "title": "1. Confirmer",
+        "lead": "Le saignement a cessé. Quelle est la conduite correcte ?",
+        "prompt": "Devant cette hématurie macroscopique de l'adulte :",
+        "choices": [
+          "Explorer complètement même si le saignement a cessé",
+          "Rassurer : la guérison spontanée est de bon aloi",
+          "Attendre la récidive pour explorer",
+          "Traiter comme une cystite sans examen"
+        ],
+        "correct": 0,
+        "explanation": "Toute hématurie macroscopique de l'adulte (surtout > 40 ans, tabagique) impose une exploration complète (imagerie des voies urinaires + cystoscopie si disponible), même unique et résolutive : le cancer de vessie saigne par intermittence, et l'hématurie qui « guérit » n'est pas une hématurie explorée."
+      },
+      {
+        "id": "confirmer_bio",
+        "title": "2. Confirmer biologiquement",
+        "lead": "Quel examen confirme l'hématurie et l'oriente ?",
+        "prompt": "L'examen de base est :",
+        "choices": [
+          "L'ECBU (hématies, leucocytes, morphologie)",
+          "Une bandelette répétée",
+          "Une cystoscopie d'emblée",
+          "Un dosage du PSA"
+        ],
+        "correct": 0,
+        "explanation": "L'ECBU confirme les hématies, cherche une infection (leucocyturie, germes) et, à l'examen cytologique, évalue leur morphologie : dysmorphiques + cylindres = glomérulaire ; normomorphes + caillots = urologique. Le PSA se dose à distance, après exploration, chez l'homme de cet âge."
+      },
+      {
+        "id": "localiser",
+        "title": "3. Localiser",
+        "lead": "Hématies normomorphes, caillots, sans protéinurie ni HTA. Quelle est l'origine ?",
+        "prompt": "L'hématurie est d'origine :",
+        "choices": [
+          "Glomérulaire",
+          "Urologique : imagerie + cystoscopie",
+          "Fausse (colorant)",
+          "Indéterminée, aucune exploration"
+        ],
+        "correct": 1,
+        "explanation": "Hématies normomorphes + caillots + absence de protéinurie/HTA = origine urologique : vessie (cancer, tabac, bilharziose), rein (tumeur, lithiase), prostate. Imagerie (échographie rénale et vésicale, TDM urographie selon moyens) et cystoscopie si disponible."
+      },
+      {
+        "id": "cause",
+        "title": "4. Hypothèse principale",
+        "lead": "Homme de 62 ans, tabagique, hématurie indolore. Quelle est la cause à craindre ?",
+        "prompt": "Le diagnostic à écarter en priorité est :",
+        "choices": [
+          "Une lithiase rénale",
+          "Un cancer de vessie",
+          "Une prostatite",
+          "Une glomérulonéphrite"
+        ],
+        "correct": 1,
+        "explanation": "Hématurie macroscopique totale indolore + tabac + âge = cancer de vessie jusqu'à preuve du contraire. Le tabagisme est le premier facteur de risque ; la bilharziose urinaire (S. haematobium) est l'autre cause majeure en zone d'endémie, avec le même risque cancéreux à long terme."
+      },
+      {
+        "id": "tropical",
+        "title": "5. Contexte tropical",
+        "lead": "Quel examen simple demander en zone de bilharziose ?",
+        "prompt": "On recherche :",
+        "choices": [
+          "Des œufs de S. haematobium dans les urines (fin de miction)",
+          "Une sérologie uniquement",
+          "Un frottis de sang",
+          "Une goutte épaisse"
+        ],
+        "correct": 0,
+        "explanation": "La recherche d'œufs de Schistosoma haematobium dans les urines de fin de miction est simple et rentable en zone d'endémie : hématurie terminale, cystite, risque de cancer de vessie. Traitement : praziquantel, traitement de l'entourage, surveillance au long cours."
+      },
+      {
+        "id": "anticoagulant",
+        "title": "6. Patient anticoagulé",
+        "lead": "Le même patient prend un anticoagulant. Quelle est l'attitude correcte ?",
+        "prompt": "L'attitude est :",
+        "choices": [
+          "Attribuer l'hématurie à l'anticoagulant et ne pas explorer",
+          "Explorer complètement : l'anticoagulant ne fait pas saigner une voie urinaire saine",
+          "Arrêter l'anticoagulant définitivement sans avis",
+          "Réduire la dose et attendre"
+        ],
+        "correct": 1,
+        "explanation": "L'anticoagulant ne fait pas saigner un vaisseau sain : l'hématurie sous anticoagulant reste une indication d'exploration complète ; la décision sur le traitement anticoagulant se prend avec le prescripteur selon le rapport bénéfice/risque, pas en aveugle."
+      },
+      {
+        "id": "urgence",
+        "title": "7. Urgence",
+        "lead": "Le patient revient avec hématurie abondante, caillots et impossibilité d'uriner. Quelle est la conduite ?",
+        "prompt": "La prise en charge est :",
+        "choices": [
+          "Sonde vésicale à double courant, irrigation-lavage, bilan d'anémie, avis urologique",
+          "Attendre la dissolution spontanée des caillots",
+          "Diurétiques IV",
+          "Antibiothérapie seule"
+        ],
+        "correct": 0,
+        "explanation": "L'hématurie abondante peut obstruer la vessie par des caillots : sonde à double courant, irrigation-lavage, compensation volémique et transfusion si besoin, avis urologique urgent. C'est la seule vraie urgence mécanique de l'hématurie."
+      }
+    ],
+    "synthesis": "Hématurie macroscopique de l'adulte tabagique → ECBU + morphologie → normomorphe + caillots = urologique : imagerie + cystoscopie, même si le saignement a cessé → cancer de vessie à écarter (tabac, bilharziose : œufs dans les urines) → caillots + rétention : sonde double courant et irrigation. Anticoagulant : explorer quand même."
+  },
+  {
+    "id": "DX-ANOMALIE-MICTION-001",
+    "title": "Anomalie de la miction — démarche",
+    "specialty": "Urologie / Infectiologie",
+    "vignette": "Homme de 68 ans, dysurie progressive depuis six mois, jet faible, lever nocturne trois fois, et ce matin impossibilité totale d'uriner avec douleur sus-pubienne. Vous construisez la conduite, un geste à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe immédiat",
+        "lead": "Vessie palpable et douloureuse au-dessus du pubis. Quel est le premier geste ?",
+        "prompt": "Le geste immédiat est :",
+        "choices": [
+          "Un sondage évacuateur aseptique",
+          "Une échographie en attente",
+          "Des diurétiques IV",
+          "Un antalgique et l'attente"
+        ],
+        "correct": 0,
+        "explanation": "Globe vésical = rétention aiguë : sondage évacuateur aseptique, lentement si gros volume (surveillance de la tolérance), puis recherche de la cause. Laisser un globe en attente expose à la distension, à la douleur et à la décompensation rénale."
+      },
+      {
+        "id": "cause_medicale",
+        "title": "2. Causes iatrogènes et mécaniques",
+        "lead": "Quelles causes de rétention cherche-t-on à l'anamnèse et à l'examen ?",
+        "prompt": "On vérifie :",
+        "choices": [
+          "Médicaments anticholinergiques récents, fécalome, adénome prostatique, lithiase",
+          "Une allergie",
+          "La tension artérielle uniquement",
+          "La glycémie"
+        ],
+        "correct": 0,
+        "explanation": "Anticholinergiques et neuroleptiques (rétention iatrogène), fécalome (sujet âgé), adénome de prostate (première cause à cet âge), lithiase ou tumeur, vessie neurologique (diabète). Toucher rectal (après sondage) : volume et consistance de la prostate."
+      },
+      {
+        "id": "cystite",
+        "title": "3. Symptômes infectieux",
+        "lead": "Sa femme de 28 ans consulte pour brûlures mictionnelles et envies pressantes, sans fièvre ni lombalgie. Quelle prise en charge ?",
+        "prompt": "Il s'agit d'une :",
+        "choices": [
+          "Cystite simple : traitement court possible selon protocole local",
+          "Pyélonéphrite : 10-14 jours d'antibiotiques",
+          "Infection compliquée : ECBU obligatoire",
+          "Cystite interstitielle"
+        ],
+        "correct": 0,
+        "explanation": "Femme jeune non enceinte, symptômes typiques, sans fièvre ni douleur lombaire : cystite simple, traitement court selon l'écologie locale. ECBU obligatoire chez l'homme, la femme enceinte, le diabétique, les récidives et les tableaux atypiques."
+      },
+      {
+        "id": "homme",
+        "title": "4. Infection de l'homme",
+        "lead": "Ce patient avait eu, il y a un mois, une fièvre à 39 °C avec douleur pelvienne et TR douloureux. Quel diagnostic rétrospectif ?",
+        "prompt": "Le tableau évoquait :",
+        "choices": [
+          "Une prostatite aiguë",
+          "Une cystite simple",
+          "Une épididymite isolée",
+          "Un herpes"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + douleur pelvienne + prostate douloureuse au TR = prostatite aiguë : antibiothérapie prolongée (3-4 semaines), ECBU, et reconnaissance d'une infection compliquée de l'homme (risque d'abcès et de rétention). Toute infection urinaire de l'homme est compliquée."
+      },
+      {
+        "id": "prostate",
+        "title": "5. Bilan de l'obstacle",
+        "lead": "Après le sondage, quel bilan pour cette dysurie de l'homme de 68 ans ?",
+        "prompt": "Le bilan comprend :",
+        "choices": [
+          "TR, échographie avec résidu post-mictionnel, créatinine, PSA à distance de tout épisode infectieux ou de rétention",
+          "Un PSA immédiat",
+          "Une cystoscopie en première intention",
+          "Rien : le sondage suffit"
+        ],
+        "correct": 0,
+        "explanation": "Toucher rectal, résidu post-mictionnel à l'échographie, créatinine (rétention chronique ?) et PSA à distance : le PSA est faussé par la rétention et l'infection. Le traitement de l'adénome : alpha-bloquant en première intention, chirurgie selon gravité et moyens."
+      },
+      {
+        "id": "ist",
+        "title": "6. Cause du jeune homme",
+        "lead": "Un homme de 24 ans : dysurie progressive, jet faible, infections répétées, antécédent d'écoulement urétral non traité. Quel diagnostic évoquer ?",
+        "prompt": "Le diagnostic probable est :",
+        "choices": [
+          "Un adénome de prostate",
+          "Une sténose urétrale post-gonococcique",
+          "Un cancer de vessie",
+          "Une vessie neurologique"
+        ],
+        "correct": 1,
+        "explanation": "Une gonococcie non traitée cicatrise en sténose urétrale : dysurie progressive du jeune homme, infections répétées. Dépistage des IST et traitement du partenaire, urétrotomie ou urétroplastie selon les moyens. C'est une séquelle fréquente et évitable."
+      },
+      {
+        "id": "surveillance",
+        "title": "7. Prévention des récidives",
+        "lead": "Quels conseils à la sortie pour les infections urinaires répétées de sa femme ?",
+        "prompt": "Les conseils comprennent :",
+        "choices": [
+          "Hydratation abondante, mictions post-coïtales, éviter la rétention volontaire, consulter si fièvre ou lombalgie",
+          "Antibiotiques au long cours",
+          "Restriction hydrique",
+          "Cystoscopie annuelle"
+        ],
+        "correct": 0,
+        "explanation": "Hydratation, miction post-coïtale, ne pas se retenir, hygiène périnéale ; consulter en cas de fièvre, de douleur lombaire ou de sang : signes d'infection haute. Les récidives fréquentes justifient un avis (bilan, prophylaxie)."
+      }
+    ],
+    "synthesis": "Globe = sondage évacuateur d'abord, cause ensuite (anticholinergiques, fécalome, adénome, lithiase, vessie neurologique) → dysurie de l'homme > 50 ans : TR, résidu, créatinine, PSA à distance → cystite simple seulement chez la femme jeune typique ; homme, enceinte, diabétique : ECBU → jeune homme dysurique : sténose urétrale post-gonococcique, dépistage IST → conseils de prévention des récidives."
+  },
+  {
+    "id": "DX-AGITATION-001",
+    "title": "Agitation — démarche",
+    "specialty": "Psychiatrie / Urgences",
+    "vignette": "Homme de 44 ans amené par sa famille : agitation depuis ce matin, discours incohérent, agressivité, fièvre rapportée à 38,5 °C. Vous construisez la conduite, une étape à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe initial",
+        "lead": "Quel geste faire avant toute chose ?",
+        "prompt": "Le geste immédiat est :",
+        "choices": [
+          "Une sédation médicamenteuse forte",
+          "Glycémie capillaire, constantes, SpO2, température",
+          "Appeler la police",
+          "Un interrogatoire prolongé du patient"
+        ],
+        "correct": 1,
+        "explanation": "Sécuriser la scène, puis glycémie + constantes : hypoglycémie, hypoxie et sepsis se traitent en minutes. La sédation avant l'évaluation masque l'examen ; l'interrogatoire du patient agité est impossible, celui de la famille vient ensuite."
+      },
+      {
+        "id": "febrile",
+        "title": "2. Fièvre en zone d'endémie",
+        "lead": "Fièvre 38,5 °C, zone d'endémie palustre, trouble de conscience fluctuant. Quel diagnostic écarter en priorité ?",
+        "prompt": "Le diagnostic à écarter est :",
+        "choices": [
+          "Une bouffée délirante",
+          "Un paludisme cérébral (TDR + goutte épaisse immédiats)",
+          "Un sevrage alcoolique",
+          "Une psychose maniaque"
+        ],
+        "correct": 1,
+        "explanation": "Agitation fébrile + trouble de conscience en zone d'endémie = paludisme cérébral jusqu'à preuve du contraire : TDR et goutte épaisse immédiats, artésunate parentéral si positif. L'étiquette psychiatrique sur une confusion fébrile est l'erreur qui tue."
+      },
+      {
+        "id": "organique",
+        "title": "3. Chercher l'organique",
+        "lead": "Quelles causes organiques passe-t-on en revue ?",
+        "prompt": "La liste comprend :",
+        "choices": [
+          "Hypoglycémie, sepsis, hyponatrémie, traumatisme crânien, sevrage, épilepsie, intoxication",
+          "Seulement les causes psychiatriques",
+          "Une allergie",
+          "Un ulcère gastrique"
+        ],
+        "correct": 0,
+        "explanation": "Métaboliques (hypoglycémie, hyponatrémie), infectieuses (palu, méningite, sepsis), toxiques (alcool, pesticides, plantes), neurologiques (traumatisme, AVC, épilepsie post-critique), iatrogènes. Che ce patient fébrile : infection du SNC et sepsis d'abord."
+      },
+      {
+        "id": "entourage",
+        "title": "4. Anamnèse",
+        "lead": "La famille rapporte un début brutal ce matin, pas d'antécédent psychiatrique, alcool occasionnel. Qu'en déduire ?",
+        "prompt": "Le début brutal sans antécédent psychiatrique oriente vers :",
+        "choices": [
+          "Une cause organique",
+          "Une schizophrénie",
+          "Un trouble bipolaire",
+          "Une personnalité borderline"
+        ],
+        "correct": 0,
+        "explanation": "Le début brutal, l'absence d'antécédent, l'âge et la fièvre militent pour une cause organique : la confusion (délirium) a un début soudain, des fluctuations et une désorientation ; la psychose, elle, respecte l'orientation et s'inscrit dans une histoire."
+      },
+      {
+        "id": "sedation",
+        "title": "5. Sédation",
+        "lead": "Le patient reste dangereux malgré la désescalade verbale. Quelles règles de sédation ?",
+        "prompt": "La sédation correcte est :",
+        "choices": [
+          "Forte dose unique pour être tranquille",
+          "Molécule adaptée à la cause présumée, dose titrée, surveillance continue",
+          "Association systématique de deux psychotropes",
+          "Contention physique seule, sans réévaluation"
+        ],
+        "correct": 1,
+        "explanation": "Sédation titrée, guidée par la cause présumée (benzodiazépine pour sevrage ou ivresse, neuroleptique pour psychose ou delirium), surveillance de la conscience, de la FR et de la TA. Les associations lourdes exposent le sujet âgé et l'insuffisant respiratoire."
+      },
+      {
+        "id": "examens",
+        "title": "6. Bilan",
+        "lead": "Quel bilan minimal selon contexte ?",
+        "prompt": "Le bilan comprend :",
+        "choices": [
+          "Glycémie, NFS, ionogramme, créatinine, TDR/goutte épaisse, recherche de toxiques ; PL discutée si méningite suspectée",
+          "Rien si l'aspect est « psy »",
+          "Une TDM cérébrale systématique chez tous",
+          "Un EEG seul"
+        ],
+        "correct": 0,
+        "explanation": "Glycémie, ionogramme (hyponatrémie), NFS-CRP, créatinine, goutte épaisse, alcoolemie et toxiques si contexte ; PL si suspicion de méningite (après TDM ou sans signes de focalisation) ; imagerie cérébrale si traumatisme, signes focaux ou âge."
+      },
+      {
+        "id": "suivi",
+        "title": "7. Après l'épisode",
+        "lead": "Cause organique traitée, patient apaisé. Quelles suites ?",
+        "prompt": "Les suites comprennent :",
+        "choices": [
+          "Synthèse écrite, traitement et surveillance de la cause, information de la famille, consultation de suivi",
+          "Sortie sans consignes",
+          "Un traitement psychiatrique au long cours d'office",
+          "Aucune information à la famille"
+        ],
+        "correct": 0,
+        "explanation": "Synthèse écrite (cause, traitement, conduite en cas de récidive), suivi de la cause organique, éducation de la famille sur les signes d'alerte et l'observance si traitement chronique ; avis psychiatrique si le bilan somatique reste négatif."
+      }
+    ],
+    "synthesis": "Agitation → sécuriser + glycémie + constantes → fièvre en zone d'endémie : paludisme cérébral à écarter (TDR, goutte épaisse, artésunate) → début brutal sans antécédent = organique : sepsis, métabolique, toxique, traumatique → sédation titrée et surveillée, jamais avant l'évaluation → anamnèse familiale essentielle → synthèse écrite et suivi."
   }
 ]
