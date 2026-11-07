@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       - name: Build Worker
         run: npm run build:worker
         env:

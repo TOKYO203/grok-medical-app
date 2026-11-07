@@ -188,7 +188,13 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // scripts/performance-budget.test.mjs (quatre chunks de floor(plafond/4)+1
   // doivent rester sous le plafond par chunk de 584 KiB), même philosophie
   // que les relevés précédents.
-  maxTotalJavascriptBytes: 2334 * 1024,
+  // Relevé 2334 → 2560 KiB le 2026-11-07 (contenu : catalogue decks 567 → 667
+  // questions + orientations diagnostiques Phase 13 + fiches chirurgie 51-60).
+  // Le catalogue decks.json est importé par la route /decks et donc compté dans
+  // le total ; la croissance est du contenu légitime, pas une dérive de code.
+  // Marge volontairement faible à recalibrer au prochain relevé : le garde-fou
+  // rapporte le total exact dans le log de chaque build.
+  maxTotalJavascriptBytes: 2560 * 1024,
   maxPublicAssetBytes: 512 * 1024,
   maxTotalPublicAssetBytes: 2 * 1024 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
