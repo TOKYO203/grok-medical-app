@@ -234,7 +234,7 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
             // The repository feeds both Vercel and Netlify previews. Pinning
             // this to Vercel made Netlify publish assets without the SSR
             // function, so every application route returned its 404 page.
-            preset: process.env.CF_PAGES
+            preset: process.env.CF_WORKER === "true" ? "cloudflare_module" : process.env.CF_PAGES
               ? "cloudflare-pages"
               : process.env.NETLIFY === "true"
                 ? "netlify"

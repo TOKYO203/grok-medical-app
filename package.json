@@ -37,6 +37,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "build:cloudflare": "node scripts/with-app-env.mjs vite build && npm run postbuild:cloud",
+    "build:worker": "CF_WORKER=true CF_PAGES=1 node scripts/with-app-env.mjs vite build && npm run postbuild:cloud",
     "secret:scan": "node scripts/secret-scan.mjs",
     "payment:readiness": "node scripts/payment-readiness.mjs",
     "postbuild:cloud": "node scripts/assert-supabase-build.mjs",
