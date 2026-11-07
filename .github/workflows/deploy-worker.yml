@@ -1,15 +1,10 @@
 name: Deploy Worker
 
+# Déclenchement manuel uniquement : la prod vit sur Cloudflare Pages
+# (déploiement confirmé le 2026-11-07, worker 23,63 MiB < 25 MiB).
+# La voie Workers reste disponible pour un futur besoin (64 MiB).
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/deploy-worker.yml'
-      - 'vite.config.ts'
-      - 'src/**'
-      - 'scripts/**'
-      - 'package.json'
 
 jobs:
   deploy:
