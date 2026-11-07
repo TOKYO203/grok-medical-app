@@ -44,6 +44,7 @@ import {
   replaceImportedDecks,
 } from "@/lib/imported-deck-storage";
 import { todayKey, uid } from "@/lib/utils";
+import { useCatalogVersion } from "@/content/catalog";
 import { getBuiltinDecks } from "@/state/builtin-decks";
 import {
   migrateOptimusPersistedState,
@@ -909,6 +910,9 @@ function pickPersist(s: PersistShape): PersistShape {
 }
 
 export function useAllDecks(): Deck[] {
+  // S'abonne à l'arrivée du catalogue distant : sans ça, le premier rendu
+  // (listes vides) restait figé même après le fetch de /data/*.json.
+  useCatalogVersion();
   const imported = useOptimus((s) => s.importedDecks);
   const builtin = getBuiltinDecks();
   const ids = new Set(builtin.map((d) => d.id));

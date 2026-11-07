@@ -23,8 +23,12 @@ type CatalogState = {
 const state: CatalogState = { decks: [], cases: [], diagnostics: [], ready: false, error: null };
 const listeners = new Set<() => void>();
 let inflight: Promise<void> | null = null;
+let version = 0;
 
-function emit() { listeners.forEach((l) => l()); }
+function emit() {
+  version += 1;
+  listeners.forEach((l) => l());
+}
 function subscribe(cb: () => void) { listeners.add(cb); return () => { listeners.delete(cb); }; }
 
 // ─── Transformations (identiques à avant) ──────────────────────────────────
@@ -87,6 +91,18 @@ export function useCatalog() {
   return useSyncExternalStore(subscribe, () => state, () => state);
 }
 
+/**
+ * Version du catalogue — incrémentée à chaque arrivée de données.
+ *
+ * state est muté en place (identité stable), donc useSyncExternalStore ne
+ * redessinait JAMAIS les composants au chargement : les pages restaient figées
+ * sur des listes vides même après le fetch. Consommer la version comme snapshot
+ * force le re-rendu.
+ */
+export function useCatalogVersion(): number {
+  return useSyncExternalStore(subscribe, () => version, () => 0);
+}
+
 // ─── Proxies (compat API, aucune route à modifier) ─────────────────────────
 function proxiedArray<T>(getArr: () => T[]): T[] {
   return new Proxy([] as T[], {
@@ -140,6 +156,14 @@ export const GOALS = [
   { id: "clinic", label: "Garde et clinique" },
   { id: "review", label: "Réviser une matière" },
 ] as const;
+
+// Boot client : AUCUNE route n'appelait loadCatalog() depuis le refactor G51 —
+// les proxys (decks/cas/diagnostics) restaient donc vides à l'exécution
+// (« cas 0 », chapitres « en préparation », fiches introuvables). Le module est
+// évalué par la première route consommatrice ; on déclenche le chargement ici,
+// une seule fois, côté navigateur uniquement (en SSR les listes restent vides
+// par contrat).
+if (typeof window !== "undefined") void loadCatalog();
 
 export function decksForYear(year: number, decks: Deck[]): Deck[] {
   return decks.filter((d) => Math.abs(d.studyYear - year) <= 1 || year === 0);
