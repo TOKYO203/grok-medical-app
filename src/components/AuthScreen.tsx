@@ -17,15 +17,12 @@ import { track } from "@/lib/analytics/client";
  * `onAuthStateChange` met à jour le store de session, le gate rebascule et
  * l'application s'affiche à la même URL. Aucun `navigate()` manuel à maintenir.
  *
- * ÉDITION 2026-11-07 — « la première impression compte » : l'écran passe en
- * composition deux colonnes sur grand écran (panneau d'identité à gauche,
- * formulaire à droite). Toute la logique et les attributs data-* (audit QA)
- * restent strictement identiques ; seuls l'enrobage et la typographie du
- * design system (tokens.css : .type-*, --sh-*, --r-*) changent.
- *
- * FOND PHOTO 4K : image grand format servie par CDN externe sous dégradé de
- * lisibilité (calque aria-hidden plus bas) — l'effet premium sans toucher au
- * budget JS (hors bundle client).
+ * ÉDITION 2026-11-07 — « la première impression compte » : composition façon
+ * Stripe — photographie plein écran (cerveau-circuit IA, 4K), panneau d'identité
+ * à gauche sur grand écran, formulaire COMPACT à droite dans une carte solide.
+ * Toute la logique et les attributs data-* (audit QA) restent strictement
+ * identiques ; seuls l'enrobage et la typographie du design system
+ * (tokens.css : .type-*, --sh-*, --r-*) changent.
  */
 
 type AuthMode = "signin" | "signup";
@@ -142,16 +139,14 @@ export function AuthScreen() {
       data-cloud-auth-mode={mode}
     >
       {/*
-       * FOND PHOTO 4K : photographie grand format (servie en w=3840 par le CDN
-       * Unsplash, format auto) sous un double dégradé de --app-bg — le bloc
-       * opératoire impose l'univers médical dès la première seconde ; le
-       * donne la matière premium, le dégradé garantit la lisibilité du texte
-       * quel que soit le thème. Le halo d'accent reste par-dessus.
-       * Purement décoratif : aria-hidden, aucun texte ne repose dessus.
+       * FOND PHOTO 4K, STYLE STRIPE : le cerveau-circuit (IA + médecine) occupe
+       * tout l'écran ; un dégradé de --app-bg garantit la lisibilité des textes
+       * posés dessus, la carte formulaire est elle-même solide. Purement
+       * décoratif : aria-hidden, aucun texte ne repose sur l'image elle-même.
        */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=3840&auto=format&fit=crop"
+          src="https://unsplash.com/photos/yeJHJXzqvDo/download?force=true&w=3840&q=80&auto=format&fit=crop"
           alt=""
           decoding="async"
           fetchPriority="high"
@@ -161,7 +156,7 @@ export function AuthScreen() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, color-mix(in oklab, var(--app-bg) 40%, transparent), color-mix(in oklab, var(--app-bg) 70%, transparent)), linear-gradient(to right, color-mix(in oklab, var(--app-bg) 45%, transparent), transparent 65%)",
+              "linear-gradient(to bottom, color-mix(in oklab, var(--app-bg) 30%, transparent), color-mix(in oklab, var(--app-bg) 55%, transparent)), linear-gradient(to right, color-mix(in oklab, var(--app-bg) 40%, transparent), transparent 65%)",
           }}
         />
       </div>
@@ -178,10 +173,11 @@ export function AuthScreen() {
         }}
       />
 
-      <div className="relative grid w-full max-w-5xl gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.15fr_minmax(360px,460px)] lg:gap-20">
         {/*
          * PANNEAU D'IDENTITÉ (grand écran uniquement) : la promesse du produit
-         * avant le formulaire — la première impression d'un travail sérieux.
+         * posée directement sur la photo, à gauche — le formulaire reste petit
+         * et latéral, jamais étalé au centre.
          */}
         <aside className="hidden flex-col justify-center lg:flex">
           <p className="type-display-lg text-fg">
@@ -226,129 +222,133 @@ export function AuthScreen() {
         </aside>
 
         {/*
-         * PANNEAU FORMULAIRE : toute la logique ci-dessous est inchangée
-         * (champs, ids, autoComplete, data-*, gestion d'erreurs).
+         * PANNEAU FORMULAIRE, STYLE STRIPE : une carte compacte et solide,
+         * calée à droite sur grand écran, centrée sur mobile. Toute la logique
+         * ci-dessous est inchangée (champs, ids, autoComplete, data-*,
+         * gestion d'erreurs).
          */}
-        <section className="flex flex-col justify-center">
-          <header className="mb-6 text-center lg:hidden">
-            <p className="type-display-lg text-fg">
-              Optimus<span className="text-primary">.</span>
-            </p>
-            <p className="type-micro mt-2 text-muted">Apprendre · Raisonner · Progresser</p>
-          </header>
-
-          <div className="optimus-card p-5 sm:p-7" style={{ boxShadow: "var(--sh-overlay)" }}>
-            <h1 className="type-title-lg text-fg">
-              {isSignUp ? "Créer un compte" : "Connexion"}
-            </h1>
-            <p className="type-body-sm mt-1.5 text-muted">
-              {isSignUp
-                ? "Ton compte synchronise ta progression sur tous tes appareils."
-                : "Retrouve ta progression et tes contenus sur tous tes appareils."}
-            </p>
-
-            {!configured ? (
-              <p
-                className="mt-5 rounded-[var(--r-md)] p-3 text-sm text-fg"
-                style={{ backgroundColor: "var(--tone-warn-soft)" }}
-                role="alert"
-              >
-                La connexion cloud n'est pas configurée sur ce déploiement. Ton contenu local reste
-                accessible.
+        <section className="flex justify-center lg:justify-end">
+          <div className="w-full max-w-md">
+            <header className="mb-6 text-center lg:hidden">
+              <p className="type-display-lg text-fg">
+                Optimus<span className="text-primary">.</span>
               </p>
-            ) : (
-              <form className="mt-5 flex flex-col gap-3" onSubmit={handleSubmit} noValidate>
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="cloud-email" className="text-sm font-medium text-fg">
-                    Email
-                  </label>
-                  <Input
-                    id="cloud-email"
-                    name="email"
-                    type="email"
-                    inputMode="email"
-                    autoComplete="email"
-                    autoCapitalize="none"
-                    spellCheck={false}
-                    placeholder="prenom@exemple.com"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    aria-invalid={error ? true : undefined}
-                    required
-                    disabled={busy}
-                  />
-                </div>
+              <p className="type-micro mt-2 text-muted">Apprendre · Raisonner · Progresser</p>
+            </header>
 
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="cloud-password" className="text-sm font-medium text-fg">
-                    Mot de passe
-                  </label>
-                  <Input
-                    id="cloud-password"
-                    name="password"
-                    type="password"
-                    autoComplete={isSignUp ? "new-password" : "current-password"}
-                    placeholder="Au moins 6 caractères"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    aria-invalid={error ? true : undefined}
-                    minLength={6}
-                    required
-                    disabled={busy}
-                  />
-                </div>
+            <div className="optimus-card p-5 sm:p-7" style={{ boxShadow: "var(--sh-overlay)" }}>
+              <h1 className="type-title-lg text-fg">
+                {isSignUp ? "Créer un compte" : "Connexion"}
+              </h1>
+              <p className="type-body-sm mt-1.5 text-muted">
+                {isSignUp
+                  ? "Ton compte synchronise ta progression sur tous tes appareils."
+                  : "Retrouve ta progression et tes contenus sur tous tes appareils."}
+              </p>
 
-                {error ? (
-                  <p className="rounded-[var(--r-md)] px-3 py-2 text-sm text-fg" role="alert"
-                    style={{ backgroundColor: "var(--tone-danger-soft)" }}>
-                    {error}
-                  </p>
-                ) : null}
+              {!configured ? (
+                <p
+                  className="mt-5 rounded-[var(--r-md)] p-3 text-sm text-fg"
+                  style={{ backgroundColor: "var(--tone-warn-soft)" }}
+                  role="alert"
+                >
+                  La connexion cloud n'est pas configurée sur ce déploiement. Ton contenu local reste
+                  accessible.
+                </p>
+              ) : (
+                <form className="mt-5 flex flex-col gap-3" onSubmit={handleSubmit} noValidate>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="cloud-email" className="text-sm font-medium text-fg">
+                      Email
+                    </label>
+                    <Input
+                      id="cloud-email"
+                      name="email"
+                      type="email"
+                      inputMode="email"
+                      autoComplete="email"
+                      autoCapitalize="none"
+                      spellCheck={false}
+                      placeholder="prenom@exemple.com"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      aria-invalid={error ? true : undefined}
+                      required
+                      disabled={busy}
+                    />
+                  </div>
 
-                {notice ? (
-                  <p className="rounded-[var(--r-md)] px-3 py-2 text-sm text-fg" role="status"
-                    style={{ backgroundColor: "var(--tone-success-soft)" }}>
-                    {notice}
-                  </p>
-                ) : null}
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="cloud-password" className="text-sm font-medium text-fg">
+                      Mot de passe
+                    </label>
+                    <Input
+                      id="cloud-password"
+                      name="password"
+                      type="password"
+                      autoComplete={isSignUp ? "new-password" : "current-password"}
+                      placeholder="Au moins 6 caractères"
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                      aria-invalid={error ? true : undefined}
+                      minLength={6}
+                      required
+                      disabled={busy}
+                    />
+                  </div>
 
-                <Button type="submit" size="lg" className="mt-1 w-full" disabled={busy} data-cloud-auth-submit>
-                  {busy ? "Connexion…" : isSignUp ? "Créer mon compte" : "Se connecter"}
-                </Button>
-              </form>
-            )}
+                  {error ? (
+                    <p className="rounded-[var(--r-md)] px-3 py-2 text-sm text-fg" role="alert"
+                      style={{ backgroundColor: "var(--tone-danger-soft)" }}>
+                      {error}
+                    </p>
+                  ) : null}
 
-            {configured ? (
-              <button
-                type="button"
-                className="mt-4 w-full text-center text-sm text-muted underline decoration-border-strong underline-offset-4 hover:text-fg"
-                onClick={() => {
-                  setMode(isSignUp ? "signin" : "signup");
-                  setError(null);
-                  setNotice(null);
-                }}
-                data-cloud-auth-switch
+                  {notice ? (
+                    <p className="rounded-[var(--r-md)] px-3 py-2 text-sm text-fg" role="status"
+                      style={{ backgroundColor: "var(--tone-success-soft)" }}>
+                      {notice}
+                    </p>
+                  ) : null}
+
+                  <Button type="submit" size="lg" className="mt-1 w-full" disabled={busy} data-cloud-auth-submit>
+                    {busy ? "Connexion…" : isSignUp ? "Créer mon compte" : "Se connecter"}
+                  </Button>
+                </form>
+              )}
+
+              {configured ? (
+                <button
+                  type="button"
+                  className="mt-4 w-full text-center text-sm text-muted underline decoration-border-strong underline-offset-4 hover:text-fg"
+                  onClick={() => {
+                    setMode(isSignUp ? "signin" : "signup");
+                    setError(null);
+                    setNotice(null);
+                  }}
+                  data-cloud-auth-switch
+                >
+                  {isSignUp ? "J'ai déjà un compte" : "Pas de compte ? Créer un compte"}
+                </button>
+              ) : null}
+            </div>
+
+            <p className="mt-5 text-center text-xs leading-5 text-subtle">
+              Ta progression locale est conservée : la connexion ne remplace rien, elle l'enregistre.
+            </p>
+            <p className="mt-2 text-center text-xs leading-5 text-subtle">
+              <Link to="/tarifs" className="underline decoration-border-strong underline-offset-4 hover:text-fg">
+                Voir les offres Optimus
+              </Link>
+              <span aria-hidden="true"> · </span>
+              <a
+                href="/decouvrir"
+                className="underline decoration-border-strong underline-offset-4 hover:text-fg"
               >
-                {isSignUp ? "J'ai déjà un compte" : "Pas de compte ? Créer un compte"}
-              </button>
-            ) : null}
+                Découvrir sans compte
+              </a>
+            </p>
           </div>
-
-          <p className="mt-5 text-center text-xs leading-5 text-subtle">
-            Ta progression locale est conservée : la connexion ne remplace rien, elle l'enregistre.
-          </p>
-          <p className="mt-2 text-center text-xs leading-5 text-subtle">
-            <Link to="/tarifs" className="underline decoration-border-strong underline-offset-4 hover:text-fg">
-              Voir les offres Optimus
-            </Link>
-            <span aria-hidden="true"> · </span>
-            <a
-              href="/decouvrir"
-              className="underline decoration-border-strong underline-offset-4 hover:text-fg"
-            >
-              Découvrir sans compte
-            </a>
-          </p>
         </section>
       </div>
     </main>
