@@ -143,14 +143,15 @@ export function AuthScreen() {
     >
       {/*
        * FOND PHOTO 4K : photographie grand format (servie en w=3840 par le CDN
-       * Unsplash, format auto) sous un double dégradé de --app-bg — l'image
+       * Unsplash, format auto) sous un double dégradé de --app-bg — le bloc
+       * opératoire impose l'univers médical dès la première seconde ; le
        * donne la matière premium, le dégradé garantit la lisibilité du texte
        * quel que soit le thème. Le halo d'accent reste par-dessus.
        * Purement décoratif : aria-hidden, aucun texte ne repose dessus.
        */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=3840&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=3840&auto=format&fit=crop"
           alt=""
           decoding="async"
           fetchPriority="high"
@@ -160,7 +161,7 @@ export function AuthScreen() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, color-mix(in oklab, var(--app-bg) 58%, transparent), color-mix(in oklab, var(--app-bg) 78%, transparent)), linear-gradient(to right, color-mix(in oklab, var(--app-bg) 55%, transparent), transparent 70%)",
+              "linear-gradient(to bottom, color-mix(in oklab, var(--app-bg) 40%, transparent), color-mix(in oklab, var(--app-bg) 70%, transparent)), linear-gradient(to right, color-mix(in oklab, var(--app-bg) 45%, transparent), transparent 65%)",
           }}
         />
       </div>
