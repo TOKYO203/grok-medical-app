@@ -3,7 +3,7 @@ import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-r
 import { ArrowRight, CheckCircle2, Clock3, Lock, Search } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import diagnosticTopics from "@/content/data/diagnostic-topics.json";
-import { DIAGNOSTIC_CASES } from "@/content/catalog";
+import { DIAGNOSTIC_CASES, useCatalogVersion } from "@/content/catalog";
 import { useOptimus } from "@/state/store";
 
 export const Route = createFileRoute("/demarche")({
@@ -18,6 +18,8 @@ function normalize(s: string) {
 }
 
 function DemarchePage() {
+  // Re-render dès que le catalogue distant arrive (accès direct à l'URL).
+  useCatalogVersion();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const dxDone = useOptimus((s) => s.diagnosticsCompleted);
   const [query, setQuery] = useState("");

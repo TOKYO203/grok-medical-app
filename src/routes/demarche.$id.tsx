@@ -5,7 +5,7 @@ import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
-import { getDiagnostic } from "@/content/catalog";
+import { getDiagnostic, useCatalogVersion } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { getDemarcheContent } from "@/lib/demarches/catalog";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
@@ -26,6 +26,8 @@ export const Route = createFileRoute("/demarche/$id")({
 });
 
 function DemarchePage() {
+  // Re-render dès que le catalogue distant arrive (accès direct à l'URL).
+  useCatalogVersion();
   const { id } = Route.useParams();
   const { vue } = Route.useSearch();
   const dx = getDiagnostic(id);

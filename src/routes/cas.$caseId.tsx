@@ -19,7 +19,7 @@ import { OptimusAnalysisPanel } from "@/components/ai/OptimusAnalysisPanel";
 import { Page, Shell } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { CLINICAL_CASES, getBuiltinDeck, getCase } from "@/content/catalog";
+import { CLINICAL_CASES, getBuiltinDeck, getCase, useCatalogVersion } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
 import { caseXp } from "@/core/quiz-engine";
 import { hasEntitlement, useOptimus } from "@/state/store";
@@ -68,6 +68,8 @@ function caseDurationMinutes(clinical: ClinicalCase): number {
 }
 
 function CasePlay() {
+  // Re-render dès que le catalogue distant arrive (accès direct à l'URL).
+  useCatalogVersion();
   const { caseId } = Route.useParams();
   const clinical = getCase(caseId);
   const navigate = useNavigate();
