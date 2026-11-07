@@ -139,14 +139,16 @@ export function AuthScreen() {
       data-cloud-auth-mode={mode}
     >
       {/*
-       * FOND PHOTO 4K, STYLE STRIPE : le cerveau-circuit (IA + médecine) occupe
+       * FOND PHOTO 4K, STYLE STRIPE : un médecin étudie une IRM cérébrale sur
+       * tablette (médecine + intelligence, photo LIBRE vérifiée via l'API Unsplash) —
+       * elle occupe
        * tout l'écran ; un dégradé de --app-bg garantit la lisibilité des textes
        * posés dessus, la carte formulaire est elle-même solide. Purement
        * décoratif : aria-hidden, aucun texte ne repose sur l'image elle-même.
        */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <img
-          src="https://unsplash.com/photos/yeJHJXzqvDo/download?force=true&w=3840&q=80&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1758691462668-046fd85ceac9?q=80&w=3840&auto=format&fit=crop"
           alt=""
           decoding="async"
           fetchPriority="high"
