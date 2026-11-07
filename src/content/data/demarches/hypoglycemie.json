@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-HYPOGLYCEMIE-001",
+  "slug": "hypoglycemie",
+  "title": "Hypoglycémie",
+  "subtitle": "Orientation diagnostique — urgence métabolique, adulte et enfant",
+  "objective": "Reconnaître l'hypoglycémie devant tout trouble neurologique ou comportemental aigu, la corriger immédiatement par le sucre, puis en chercher la cause.",
+  "updatedAt": "2026-11-07",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "summary": "Le cerveau ne tolère pas le manque de glucose : traiter avant d'expliquer.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'hypoglycémie est une glycémie inférieure à 0,60 g/L (3,3 mmol/L) avec symptômes, ou inférieure à 0,50 g/L quel que soit le contexte. C'est une urgence absolue : le cerveau ne stocke pas de glucose et souffrent en quelques minutes."
+        },
+        {
+          "type": "paragraph",
+          "text": "La règle d'or : tout trouble de conscience, toute crise convulsive inexpliquée, tout trouble comportemental aigu bénéficient d'une glycémie capillaire. Le« glucomètre avant le scanner »."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Signes adrénergiques (glycémie en baisse rapide) : sueurs, tremblements, palpitations, faim, pâleur, anxiété.",
+            "Signes neuroglycopéniques (cerveau privé de glucose) : confusion, comportement aberrant, somnolence, convulsions, déficit focal, coma — imitant l'ivresse, l'AVC ou la psychose aiguë.",
+            "Chez le diabétique traité (insuline, sulfamides), l'hypoglycémie est la complication la plus fréquente et la plus redoutée ; chez le nourrisson, toute hypothermie ou malaise impose une glycémie."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Geste immédiat",
+          "text": "Glycémie capillaire < 0,60 g/L symptomatique = resucrage sans attendre : 15 à 20 g de sucre par voie orale si conscient (3 morceaux, jus, sirop), sinon 50 à 100 mL de sérum glucosé à 30 % IV (ou 1 mg de glucagon IM si pas de voie veineuse). Réévaluer à 15 minutes."
+        }
+      ]
+    },
+    {
+      "id": "demarche",
+      "title": "II. Démarche diagnostique",
+      "summary": "Corriger d'abord, expliquer ensuite : l'interrogatoire et l'examen se font pendant le resucrage.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une fois la glycémie corrigée et le patient sécurité, l'enquête causale suit un arbre simple : diabétique connu (traitement, repas, effort, alcool, insuffisance rénale) ou non diabétique (à jeun ? après repas ?) — et chez le non-diabétique, l'hypoglycémie à jeun impose un bilan étiologique."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Contexte",
+            "Ce qui l'évoque",
+            "Orientation"
+          ],
+          "rows": [
+            [
+              "Diabétique traité",
+              "Insuline ou sulfamide, repas sauté, effort inhabituel, vomissements, insuffisance rénale",
+              "Éducation thérapeutique, adaptation du traitement, lever les causes favorisantes"
+            ],
+            [
+              "Alcool",
+              "Jeûne + alcool aigu, éthylisme chronique, dénutrition",
+              "Thiamine avant glucose chez l'éthylique, resucrage, carences"
+            ],
+            [
+              "Paludisme grave",
+              "Enfant fébrile, zone d'endémie, prostration",
+              "TDR, artésunate : l'hypoglycémie est un critère OMS de gravité"
+            ],
+            [
+              "Médicamenteux",
+              "Quinine, sulfamides, bêtabloquants, salicylés, pentamidine",
+              "Revue des ordonnances, arrêt du médicament en cause"
+            ],
+            [
+              "Insuffisance surrénale",
+              "Asthénie, hypotension, hyperpigmentation, hyponatrémie + hyperkaliémie",
+              "Cortisol, hydrocortisone IV"
+            ],
+            [
+              "Insulinome (rare)",
+              "Hypoglycémies à jeun répétées, syndrome de Whipple (fringales + sueurs + malaise soulagé par le sucre)",
+              "Insulinémie + peptide C couplés à la glycémie, adresser en endocrinologie"
+            ],
+            [
+              "Nourrisson / sepsis",
+              "Hypothermie, refus de biberon, infection néonatale",
+              "Glycémie systématique, antibiothérapie si infection"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interrogatoire (entourage si besoin) : traitement du diabète et dernière prise, repas, effort, alcool, fièvre, médicaments récents, épisodes antérieurs.",
+            "Examen : conscience, température, hydratation, poids (dénutrition), signes de sepsis, pigmentation, chez la femme : grossesse.",
+            "Examens : glycémie veineuse couplée à la capillaire (à refaire à distance), si hypoglycémie à jeun inexpliquée : insulinémie et peptide C sur le prélèvement hypoglycémique, fonctions rénale et hépatique, cortisol, selon contexte TDR paludisme."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Piège classique",
+          "text": "Confondre l'hypoglycémie avec l'ivresse ou la psychose aiguë (comportement aberrant, agressivité) et laisser le patient en détresse ; oublier que l'hypoglycémie du sulfamide récidive plusieurs heures : surveillance prolongée ; oublier l'hypoglycémie du paludisme grave chez l'enfant."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "summary": "Trois familles : le traitement du diabétique, l'urgence tropicale, les causes rares mais curables.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Liées au traitement du diabète : insuline (dose, horaires, repas), sulfamides hypoglycémiants (surtout à demi-vie longue chez le sujet âgé ou insuffisant rénal), jeûne, effort, alcool.",
+            "Causes infectieuses et tropicales : paludisme grave (critère OMS chez l'enfant et la femme enceinte), sepsis profond, dénutrition sévère.",
+            "Endocriniennes : insuffisance surrénale, hypopituitarisme, insulinome, jeûne prolongé de la femme enceinte (vomissements).",
+            "Toxiques et médicamenteuses : alcool, quinine, salicylés, sulfamides, bêtabloquants ; erreurs d'administration d'insuline (unités, confusion de stylos)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Tout trouble de conscience ou tout malaise = glycémie capillaire. Corriger par le sucre (le moins cher et le plus efficace des médicaments), réévaluer à 15 minutes, puis chercher la cause — et chez le diabétique, éviter la récidive vaut mieux que corriger une fois."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement & contexte Madagascar",
+      "summary": "Resucrer, surveiller, éduquer, adapter le traitement de fond.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Conscient et capable de déglutir : 15-20 g de glucose oral (sucre, jus, sirop), réévaluer à 15 min, renouveler si besoin, puis collation complexe (pain, riz) si le repas est loin.",
+            "Inconscient ou incapable de déglutir : G30 % 50 à 100 mL IV lent (1 à 2 mL/kg chez l'enfant : G10 % 2 à 5 mL/kg, nouveau-né G10 % 2-3 mL/kg), ou glucagon 1 mg IM (0,5 mg < 25 kg) si aucune voie.",
+            "Éthylique dénutri : thiamine (vitamine B1) 100-250 mg IV avant ou avec le glucose.",
+            "Hypoglycémie du sulfamide ou de l'insuline lente : hospitaliser, perfusion glucosée et surveillance glycémique pendant 24 à 48 h.",
+            "Paludisme grave : artésunate parentéral et resucrage ; l'hypoglycémie est un critère de gravité à consigner."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Éducation du diabétique : reconnaître ses signes, toujours avoir du sucre sur soi, ne jamais sauter un repas après l'insuline, adapter l'effort.",
+            "Contexte local : le glucomètre doit être disponible à chaque poste d'accueil ; les stylos d'insuline et les sulfamides sont fréquents — vérifier la technique d'injection et les doses réellement prises.",
+            "Prévention de la récidive : réévaluer le traitement de fond à chaque hypoglycémie sévère (une hypoglycémie sévère = une indication de modification du traitement)."
+          ]
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "triade",
+      "label": "T.R.O.I.S. F.O.I.S.",
+      "intro": "La conduite qui sauve.",
+      "entries": [
+        {
+          "key": "1",
+          "term": "Glycémie capillaire devant tout malaise"
+        },
+        {
+          "key": "2",
+          "term": "Resucrer immédiatement : 15-20 g de sucre"
+        },
+        {
+          "key": "3",
+          "term": "Réévaluer à 15 minutes, renouveler si besoin"
+        },
+        {
+          "key": "4",
+          "term": "Collation complexe pour éviter la rechute"
+        },
+        {
+          "key": "5",
+          "term": "Surveillance 24-48 h si sulfamide ou insuline lente"
+        }
+      ]
+    },
+    {
+      "id": "causes",
+      "label": "C.A.F.É.",
+      "intro": "Les causes à passer en revue.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Complication du traitement du diabète (insuline, sulfamides)"
+        },
+        {
+          "key": "A",
+          "term": "Alcool et dénutrition"
+        },
+        {
+          "key": "F",
+          "term": "Fièvre : paludisme grave, sepsis"
+        },
+        {
+          "key": "É",
+          "term": "Endocrino : surrénale, insulinome, médicaments (quinine)"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quel seuil définit l'hypoglycémie ?",
+      "back": "Glycémie < 0,60 g/L (3,3 mmol/L) avec symptômes, ou < 0,50 g/L quel que soit le contexte. Urgence : corriger avant d'expliquer.",
+      "tags": [
+        "definition"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Quels signes neuroglycopéniques une hypoglycémie peut-elle produire ?",
+      "back": "Confusion, comportement aberrant ou agressif, somnolence, convulsions, déficit focal pseudo-AVC, coma — d'où la glycémie systématique devant tout trouble neurologique aigu.",
+      "tags": [
+        "clinique"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Comment resucrer un patient conscient ?",
+      "back": "15 à 20 g de glucose oral (sucre, jus), réévaluation à 15 minutes, renouveler si nécessaire, puis collation complexe si le repas est éloigné.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Comment resucrer un patient inconscient sans voie veineuse ?",
+      "back": "Glucagon 1 mg IM (0,5 mg si < 25 kg) ; dès qu'une voie est posée : G30 % 50-100 mL IV lent chez l'adulte, G10 % 2-5 mL/kg chez l'enfant.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quelle vitamine donner à l'éthylique dénutri avant le glucose ?",
+      "back": "Thiamine (B1) 100-250 mg IV : le glucose peut précipiter une encéphalopathie de Gayet-Wernicke chez le carencé.",
+      "tags": [
+        "piège"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Pourquoi surveiller 24 à 48 h une hypoglycémie sous sulfamide ?",
+      "back": "Les sulfamides (demi-vie longue) et l'insuline lente provoquent des récidives tardives : hospitalisation et perfusion glucosée avec glycémies rapprochées.",
+      "tags": [
+        "traitement"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Quel lien entre paludisme grave et hypoglycémie ?",
+      "back": "L'hypoglycémie (glycémie < 2,2 mmol/L soit 0,40 g/L) est un critère OMS de paludisme grave, surtout chez l'enfant et la femme enceinte : TDR + artésunate + resucrage.",
+      "tags": [
+        "tropical"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Quel syndrome évoque l'insulinome ?",
+      "back": "La triade de Whipple : malaises à jeun avec sueurs/confusion, glycémie basse, soulagement immédiat par le sucre — bilan : insulinémie et peptide C couplés à une glycémie basse.",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Quels médicaments, outre l'insuline, peuvent causer une hypoglycémie ?",
+      "back": "Sulfamides hypoglycémiants, quinine, salicylés, bêtabloquants, pentamidine, alcool.",
+      "tags": [
+        "etiologie"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Devant quelles situations cliniques faire une glycémie capillaire systématique ?",
+      "back": "Tout trouble de conscience, convulsion inexpliquée, trouble comportemental aigu, malaise, hypothermie du nourrisson, prostration fébrile en zone d'endémie palustre.",
+      "tags": [
+        "reflexe"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "Quel bilan biologique coupler au prélèvement d'une hypoglycémie à jeun inexpliquée ?",
+      "back": "Insulinémie et peptide C sur le même tube (documenter l'hyperinsulinisme endogène), cortisol, fonction rénale et hépatique.",
+      "tags": [
+        "bilan"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Que faire après une hypoglycémie sévère chez un diabétique traité ?",
+      "back": "Toujours modifier le traitement de fond ou lever le facteur favorisant : une hypoglycémie sévère est une indication de réévaluation, pas un incident isolé.",
+      "tags": [
+        "suivi"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "root",
+      "label": "Hypoglycémie",
+      "detail": "Glycémie < 0,60 g/L symptomatique. Le cerveau sans glucose souffre en minutes : corriger d'abord, expliquer ensuite. Le glucomètre fait partie de l'examen neurologique."
+    },
+    "branches": [
+      {
+        "id": "signes",
+        "label": "Signes",
+        "tone": "urgence",
+        "detail": "Deux étages qui ne s'additionnent pas toujours.",
+        "children": [
+          {
+            "id": "si-adr",
+            "label": "Adrénergiques",
+            "detail": "Sueurs, tremblements, palpitations, faim, pâleur — les signes d'alarme qui disparaissent chez le diabétique ancien ou sous bêtabloquant.",
+            "leaves": [
+              {
+                "id": "si-adr-beta",
+                "label": "Bêtabloquant masque l'alarme"
+              }
+            ]
+          },
+          {
+            "id": "si-neuro",
+            "label": "Neuroglycopéniques",
+            "detail": "Confusion, agressivité, convulsions, déficit, coma : le grand imiteur (ivresse, psychose, AVC).",
+            "leaves": [
+              {
+                "id": "si-neuro-avc",
+                "label": "Pseudo-AVC"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reflexe",
+        "label": "Réflexe thérapeutique",
+        "tone": "reflexe",
+        "detail": "Le sucre est le premier médicament.",
+        "children": [
+          {
+            "id": "re-oral",
+            "label": "Voie orale",
+            "detail": "15-20 g de glucose si conscient, réévaluer à 15 min.",
+            "leaves": [
+              {
+                "id": "re-oral-collation",
+                "label": "Puis collation complexe"
+              }
+            ]
+          },
+          {
+            "id": "re-iv",
+            "label": "Voie IV / IM",
+            "detail": "G30 % IV lent ou glucagon IM ; G10 % chez l'enfant et le nouveau-né.",
+            "leaves": [
+              {
+                "id": "re-iv-thiamine",
+                "label": "B1 d'abord si éthylisme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "causes",
+        "label": "Causes",
+        "tone": "prudence",
+        "detail": "Quatre familles à passer en revue pendant le resucrage.",
+        "children": [
+          {
+            "id": "ca-diabete",
+            "label": "Traitement du diabète",
+            "detail": "Insuline, sulfamides, repas sauté, effort, insuffisance rénale.",
+            "leaves": [
+              {
+                "id": "ca-diabete-technique",
+                "label": "Vérifier stylos et doses"
+              }
+            ]
+          },
+          {
+            "id": "ca-tropical",
+            "label": "Paludisme grave / sepsis",
+            "detail": "Critère OMS de gravité : TDR immédiat chez tout fébrile prostré.",
+            "leaves": [
+              {
+                "id": "ca-tropical-palu",
+                "label": "Artésunate + resucrage"
+              }
+            ]
+          },
+          {
+            "id": "ca-endocrino",
+            "label": "Endocrino / médicamenteux",
+            "detail": "Surrénale, insulinome, quinine, alcool et dénutrition.",
+            "leaves": [
+              {
+                "id": "ca-endocrino-whipple",
+                "label": "Whipple = insulinome"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surveillance",
+        "label": "Surveillance & éducation",
+        "tone": "retenir",
+        "detail": "Corriger une fois ne suffit pas : éviter la récidive est l'objectif.",
+        "children": [
+          {
+            "id": "su-récidive",
+            "label": "Risque de récidive",
+            "detail": "Sulfamide et insuline lente : 24-48 h de surveillance, perfusion glucosée.",
+            "leaves": [
+              {
+                "id": "su-récidive-hosp",
+                "label": "Hospitalisation"
+              }
+            ]
+          },
+          {
+            "id": "su-education",
+            "label": "Éducation",
+            "detail": "Reconnaître ses signes, sucre sur soi, jamais de repas sauté après l'insuline, réévaluer le traitement après chaque épisode sévère.",
+            "leaves": [
+              {
+                "id": "su-education-adapt",
+                "label": "1 épisode = 1 adaptation"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "ADA — Standards of Care",
+      "citation": "American Diabetes Association — Standards of Care in Diabetes 2025, chap. Hypoglycemia, Diabetes Care 2025;48(Suppl 1).",
+      "organization": "ADA",
+      "year": 2025,
+      "url": "https://diabetesjournals.org/care",
+      "verifiedAt": "2026-11-07"
+    },
+    {
+      "title": "OMS — Paludisme",
+      "citation": "WHO guidelines for malaria : critères de gravité (hypoglycémie), Genève, 2025.",
+      "organization": "OMS",
+      "year": 2025,
+      "url": "https://www.who.int/publications/i/item/9789241540416",
+      "verifiedAt": "2026-11-07"
+    },
+    {
+      "title": "ERC",
+      "citation": "European Resuscitation Council Guidelines 2021 : hypoglycémie dans l'urgence.",
+      "organization": "ERC",
+      "year": 2021,
+      "url": "https://www.erc.edu/guidelines",
+      "verifiedAt": "2026-11-07"
+    }
+  ]
+}
