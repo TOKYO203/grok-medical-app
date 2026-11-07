@@ -16,12 +16,12 @@ import pneumothorax from "@/content/data/demarches/pneumothorax.json";
 import epistaxis from "@/content/data/demarches/epistaxis.json";
 import hemorragiePremierTrimestre from "@/content/data/demarches/hemorragie-premier-trimestre.json";
 import hemorragieTroisiemeTrimestre from "@/content/data/demarches/hemorragie-troisieme-trimestre.json";
-import ictereConjugueAdulte from "../../content/data/demarches/ictere-conjugue-adulte.json";
-import ascite from "../../content/data/demarches/ascite.json";
-import proteinurie from "../../content/data/demarches/proteinurie.json";
-import hematurie from "../../content/data/demarches/hematurie.json";
-import anomalieMiction from "../../content/data/demarches/anomalie-miction.json";
-import agitation from "../../content/data/demarches/agitation.json";
+import ictereConjugueAdulte from "@/content/data/demarches/ictere-conjugue-adulte.json";
+import ascite from "@/content/data/demarches/ascite.json";
+import proteinurie from "@/content/data/demarches/proteinurie.json";
+import hematurie from "@/content/data/demarches/hematurie.json";
+import anomalieMiction from "@/content/data/demarches/anomalie-miction.json";
+import agitation from "@/content/data/demarches/agitation.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
