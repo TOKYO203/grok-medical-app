@@ -108,12 +108,24 @@ let failed = false;
 const markers = [
   ["[pglite-stub]", "stub PGlite"],
   ["[pg-stub]", "stub pg"],
-  ["[stub] kysely", "stub better-auth"],
 ];
 for (const [marker, label] of markers) {
   if (!code.includes(marker)) {
     console.error(`[assert-worker-stubs] ${label} ABSENT du worker : les alias de stubs ne s'appliquent pas au bundle Nitro. Couches attendues : resolve.alias + cfStubPlugin + nitro({ alias }) dans vite.config.ts.`);
     failed = true;
+  }
+}
+// better-auth : avec VITE_AUTH_ENABLED=false, le module n'est parfois pas
+// importé du tout par le graphe serveur (contrôlé plus haut) — dans ce cas le
+// stub n'y figure pas non plus et il n'y a RIEN à stubber. Exiger le marqueur
+// était un faux positif qui faisait échouer des builds sains. Le marqueur ne
+// reste fatal que si le VRAI module better-auth est détecté dans le bundle.
+if (!code.includes("[stub] kysely")) {
+  if (/better-auth|BetterAuth/.test(code)) {
+    console.error("[assert-worker-stubs] stub better-auth ABSENT du worker alors que le vrai module y figure : les alias de stubs ne s'appliquent pas au bundle Nitro. Couches attendues : resolve.alias + cfStubPlugin + nitro({ alias }) dans vite.config.ts.");
+    failed = true;
+  } else {
+    console.warn("[assert-worker-stubs] stub better-auth absent du worker, mais better-auth n'y figure pas non plus (VITE_AUTH_ENABLED=false : module non importé) — rien à stubber.");
   }
 }
 if (mib >= LIMIT_MIB) {
