@@ -22,6 +22,10 @@ import { track } from "@/lib/analytics/client";
  * formulaire à droite). Toute la logique et les attributs data-* (audit QA)
  * restent strictement identiques ; seuls l'enrobage et la typographie du
  * design system (tokens.css : .type-*, --sh-*, --r-*) changent.
+ *
+ * FOND PHOTO 4K : image grand format servie par CDN externe sous dégradé de
+ * lisibilité (calque aria-hidden plus bas) — l'effet premium sans toucher au
+ * budget JS (hors bundle client).
  */
 
 type AuthMode = "signin" | "signup";
@@ -138,9 +142,31 @@ export function AuthScreen() {
       data-cloud-auth-mode={mode}
     >
       {/*
-       * Matière de fond : un halo d'accent très discret en haut à droite,
-       * dérivé de --app-accent (suit le thème et la palette d'accent choisie).
+       * FOND PHOTO 4K : photographie grand format (servie en w=3840 par le CDN
+       * Unsplash, format auto) sous un double dégradé de --app-bg — l'image
+       * donne la matière premium, le dégradé garantit la lisibilité du texte
+       * quel que soit le thème. Le halo d'accent reste par-dessus.
        * Purement décoratif : aria-hidden, aucun texte ne repose dessus.
+       */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=3840&auto=format&fit=crop"
+          alt=""
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, color-mix(in oklab, var(--app-bg) 58%, transparent), color-mix(in oklab, var(--app-bg) 78%, transparent)), linear-gradient(to right, color-mix(in oklab, var(--app-bg) 55%, transparent), transparent 70%)",
+          }}
+        />
+      </div>
+      {/*
+       * Halo d'accent très discret en haut à droite, dérivé de --app-accent
+       * (suit le thème et la palette d'accent choisie).
        */}
       <div
         aria-hidden="true"
