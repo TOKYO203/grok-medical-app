@@ -158,6 +158,55 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+/**
+ * ── STUBS CLOUDFLARE PAGES (worker < 25 Mo) ─────────────────────────────
+ * La limite Functions est 25 Mo ; sans stubs le worker fait ~26,5 Mo.
+ * Gate : CF_PAGES=1 (posé par la plateforme sur chaque build Pages — jamais
+ * "true") ; STUB_CLOUDFLARE=true est l'override local.
+ *
+ * STUBS SÛRS UNIQUEMENT :
+ *  • pglite  : n'est atteint que si DATABASE_URL est absent (or la prod CF
+ *    l'exige — le driver réel est `postgres` ci-dessous) ;
+ *  • pg      : node-postgres exige net.Socket, absent de workerd — toute
+ *    utilisation réelle échoue déjà ; seule consommatrice : Better Auth
+ *    (VITE_AUTH_ENABLED=false en prod) ;
+ *  • better-auth : Supabase est l'identité de prod ; Better Auth est le
+ *    repli legacy, jamais appelé quand l'auth est désactivée.
+ * ⚠️ NE PAS stubber `postgres` (porsager) : c'est le driver DB de prod
+ * (cloudflare:sockets). Le stubber casserait chaque requête SQL.
+ *
+ * Trois couches d'application, car le bundle Nitro ne traverse pas
+ * toujours le resolver Vite : (1) resolve.alias, (2) cfStubPlugin via
+ * resolveId (tous les environnements Vite), (3) nitro({ alias }).
+ * Vérification : scripts/assert-worker-stubs.mjs (postbuild:cfstubs).
+ */
+const stubCloudflare =
+  !!process.env.CF_PAGES || process.env.STUB_CLOUDFLARE === "true";
+
+const CF_STUB_ALIASES: { find: RegExp; replacement: string }[] = [
+  { find: /^@electric-sql\/pglite$/, replacement: "src/lib/db/pglite-stub.ts" },
+  { find: /^pg$/, replacement: "src/lib/db/pg-stub.ts" },
+  { find: /^better-auth$/, replacement: "src/lib/auth/stub-ssr.ts" },
+  { find: /^better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
+  { find: /^@better-auth\//, replacement: "src/lib/auth/stub-ssr.ts" },
+];
+
+function cfStubPlugin(): Plugin {
+  return {
+    name: "app-builder:cf-stubs",
+    enforce: "pre",
+    resolveId(source) {
+      if (!stubCloudflare) return null;
+      for (const entry of CF_STUB_ALIASES) {
+        if (entry.find.test(source)) {
+          return resolvePath(process.cwd(), entry.replacement);
+        }
+      }
+      return null;
+    },
+  };
+}
+
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
@@ -174,51 +223,15 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
   },
   resolve: {
     tsconfigPaths: true,
-    // ── STUBS CLOUDFLARE PAGES ──────────────────────────────────────────
-    // Le bundle Functions (dist/_worker.js) est limité à 25 Mo. Cloudflare
-    // pose CF_PAGES=1 (la chaîne "1", PAS "true") sur chaque build Pages :
-    // c'est le seul signal garanti par la plateforme, aucune variable à
-    // configurer dans le dashboard. STUB_CLOUDFLARE=true reste un override
-    // LOCAL pour reproduire le build CF hors Cloudflare.
-    //
-    // Ne JAMAIS déplacer ce drapeau dans .env.production : les fichiers
-    // .env* sont scopés au MODE (production), pas à la plateforme — cela
-    // stubberait aussi les builds Vercel/Netlify et casserait leurs runtimes.
-    //
-    // Effet mesuré (stubs actifs) : worker ~26,5 → ~23,8 MiB.
-    ...(!!process.env.CF_PAGES || process.env.STUB_CLOUDFLARE === "true"
-      ? [
-          // Postgres WASM (~735 Ko) : jamais utilisé en prod CF
-          // (DATABASE_URL requis → driver pg), cf. src/lib/db/pglite-stub.ts.
-          {
-            find: /^@electric-sql\/pglite$/,
-            replacement: resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts"),
-          },
-          // Driver postgres (porsager, ~67 Ko) : en prod CF la DB passe par
-          // pg (DATABASE_URL + Pool), cf. src/lib/db/postgres-stub.ts.
-          {
-            find: /^postgres$/,
-            replacement: resolvePath(process.cwd(), "src/lib/db/postgres-stub.ts"),
-          },
-          // better-auth + @better-auth/* (~1,8 Mo avec le kysely-adapter) :
-          // VITE_AUTH_ENABLED=false en production → aucune vraie fonction
-          // n'est appelée côté serveur, cf. src/lib/auth/stub-ssr.ts.
-          {
-            find: /^better-auth$/,
-            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
-          },
-          {
-            find: /^better-auth\//,
-            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
-          },
-          {
-            find: /^@better-auth\//,
-            replacement: resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts"),
-          },
-        ]
+    // Couche 1/3 des stubs Cloudflare — cf. section STUBS en tête de fichier.
+    ...(stubCloudflare
+      ? CF_STUB_ALIASES.map((entry) => ({
+          find: entry.find,
+          replacement: resolvePath(process.cwd(), entry.replacement),
+        }))
       : []),
   },
-    plugins: [authStubSsr(), 
+  plugins: [authStubSsr(), cfStubPlugin(), 
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),
@@ -239,6 +252,24 @@ export default defineConfig(withServerEnv(({ command, isPreview }) => ({
               : process.env.NETLIFY === "true"
                 ? "netlify"
                 : "vercel",
+            // Couche 3/3 des stubs Cloudflare : le bundle serveur Nitro ne
+            // traverse pas toujours le resolver Vite — alias au niveau Nitro.
+            // Clés exactes (pas de "pg" : le matching par préfixe de Nitro
+            // pourrait avaler "pglite"). cfStubPlugin gère pg strictement.
+            alias: stubCloudflare
+              ? Object.fromEntries([
+                  ["@electric-sql/pglite", resolvePath(process.cwd(), "src/lib/db/pglite-stub.ts")],
+                  ["better-auth", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/plugins", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/tanstack-start", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/react", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/api", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/cookies", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["better-auth/oauth2", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["@better-auth/core", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                  ["@better-auth/kysely-adapter", resolvePath(process.cwd(), "src/lib/auth/stub-ssr.ts")],
+                ])
+              : undefined,
             // Rolldown can otherwise split TanStack Start's SSR facade into a
             // circular pair and emit an undefined `ssr_exports` binding.
             inlineDynamicImports: true,
