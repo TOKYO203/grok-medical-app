@@ -16,6 +16,12 @@ import pneumothorax from "@/content/data/demarches/pneumothorax.json";
 import epistaxis from "@/content/data/demarches/epistaxis.json";
 import hemorragiePremierTrimestre from "@/content/data/demarches/hemorragie-premier-trimestre.json";
 import hemorragieTroisiemeTrimestre from "@/content/data/demarches/hemorragie-troisieme-trimestre.json";
+import ictereConjugueAdulte from "../../content/data/demarches/ictere-conjugue-adulte.json";
+import ascite from "../../content/data/demarches/ascite.json";
+import proteinurie from "../../content/data/demarches/proteinurie.json";
+import hematurie from "../../content/data/demarches/hematurie.json";
+import anomalieMiction from "../../content/data/demarches/anomalie-miction.json";
+import agitation from "../../content/data/demarches/agitation.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -44,6 +50,12 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "epistaxis.json": epistaxis as unknown as DemarcheContent,
   "hemorragie-premier-trimestre.json": hemorragiePremierTrimestre as unknown as DemarcheContent,
   "hemorragie-troisieme-trimestre.json": hemorragieTroisiemeTrimestre as unknown as DemarcheContent,
+  "ictere-conjugue-adulte.json": ictereConjugueAdulte,
+  "ascite.json": ascite,
+  "proteinurie.json": proteinurie,
+  "hematurie.json": hematurie,
+  "anomalie-miction.json": anomalieMiction,
+  "agitation.json": agitation,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
