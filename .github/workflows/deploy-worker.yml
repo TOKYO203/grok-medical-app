@@ -1,10 +1,15 @@
 name: Deploy Worker
 
+# ⚠️ Ce workflow cible Cloudflare WORKERS (`wrangler deploy`), un produit
+# DIFFÉRENT de Cloudflare Pages : même réussi, il ne mettrait jamais à jour
+# optimusmedical.pages.dev. La production suit par le build Pages (git).
+# Déclenchement manuel uniquement, pour expérimentation.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
+  # push volontairement désactivé :
+  # push:
+  #   branches: [main]
+  #   paths:
       - '.github/workflows/deploy-worker.yml'
       - 'vite.config.ts'
       - 'src/**'
