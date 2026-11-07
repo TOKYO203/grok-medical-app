@@ -1329,5 +1329,647 @@
       }
     ],
     "synthesis": "Patient → cirrhose connue + hématémèse → réanimation (2 voies, groupe, remplissage) → antibiothérapie + vasoactif → endoscopie sous 12 h → varices grade III ligaturées → triptyque complet + prévention secondaire. La démarche force la réanimation avant l'endoscopie et le triptyque en cas de varice."
+  },
+  {
+    "id": "DX-ARRET-CIRCULATOIRE-001",
+    "title": "Arrêt circulatoire — démarche",
+    "specialty": "Urgences / Réanimation",
+    "vignette": "Homme de 62 ans retrouvé inconscient au domicile, ne respire pas normalement. Vous construisez la réanimation, une seconde à la fois.",
+    "steps": [
+      {
+        "id": "reconnaitre",
+        "title": "1. Reconnaître",
+        "lead": "Comment confirmer l'arrêt circulatoire en moins de dix secondes ?",
+        "prompt": "Le signe qui déclenche la réanimation est :",
+        "choices": [
+          "L'absence de pouls radial pendant 30 secondes",
+          "L'inconscience avec absence de respiration normale (apnée ou gasps)",
+          "Une mydriase bilatérale",
+          "Une cyanose des lèvres"
+        ],
+        "correct": 1,
+        "explanation": "Inconscience + absence de respiration normale suffisent : le gaspourt agonique est un signe d'arrêt. Chez un non-spécialiste, chercher le pouls au-delà de 10 secondes retarde le massage, qui est le seul traitement dont la survie dépend dès la première minute."
+      },
+      {
+        "id": "premier_geste",
+        "title": "2. Première minute",
+        "lead": "Que faites-vous dans la première minute ?",
+        "prompt": "L'ordre correct est :",
+        "choices": [
+          "Attendre le matériel de réanimation avant de toucher le patient",
+          "Masser immédiatement : 100-120 compressions/min, 5-6 cm de profondeur, en alerter",
+          "Poser une voie veineuse d'abord",
+          "Faire un ECG avant tout geste"
+        ],
+        "correct": 1,
+        "explanation": "Masser tôt et fort, alerter en parallèle (numéro local, défibrillateur). Toute minute perdue coûte environ 10 % de survie. Le massage du premier soignant présent double ou triple les chances, bien avant l'arrivée du matériel."
+      },
+      {
+        "id": "rythme",
+        "title": "3. Rythme",
+        "lead": "Le défibrillateur arrive : rythme de fibrillation ventriculaire. Que faites-vous ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Trois chocs successifs sans reprendre le massage",
+          "Un choc immédiat puis reprise du massage sans délai",
+          "Adrénaline avant le premier choc",
+          "Amiodarone avant le premier choc"
+        ],
+        "correct": 1,
+        "explanation": "FV = rythme choquable : choc immédiat, puis reprise des compressions dès que le choc est délivré (interruptions < 10 s). L'adrénaline et l'amiodarone viennent ensuite selon le protocole (adrénaline au 3e choc dans les recommandations européennes actuelles, amiodarone 300 mg au 3e choc)."
+      },
+      {
+        "id": "drogues",
+        "title": "4. Drogues",
+        "lead": "Rythme non choquable (asystolie), voie veineuse posée. Quel médicament ?",
+        "prompt": "Le médicament de première intention et son rythme :",
+        "choices": [
+          "Adrénaline 1 mg IV/IO toutes les 3 à 5 minutes",
+          "Amiodarone 300 mg IV toutes les 3 minutes",
+          "Bicarbonate de sodium 100 mL toutes les 5 minutes",
+          "Atropine 1 mg IV en une fois"
+        ],
+        "correct": 0,
+        "explanation": "Dans un rythme non choquable, l'adrénaline 1 mg IV/IO toutes les 3-5 minutes est le pilier, dès que la voie est disponible. Le bicarbonate est réservé à l'hyperkaliémie ou l'intoxication aux tricycliques ; l'atropine n'a plus d'indication en réanimation."
+      },
+      {
+        "id": "cause",
+        "title": "5. Chercher la cause",
+        "lead": "Pendant les cycles, quelles causes réversibles recherchez-vous ?",
+        "prompt": "Le cadre de référence s'appelle :",
+        "choices": [
+          "Les 3A : anémie, anoxie, arrêt",
+          "Les 4H et 4T",
+          "Les 5P de la réanimation",
+          "La triade de Cushing"
+        ],
+        "correct": 1,
+        "explanation": "4H : hypoxie, hypovolémie, hyper-/hypokaliémie et troubles métaboliques, hypothermie. 4T : tension pneumothorax, tamponnade, toxiques, thrombose (coronaire ou pulmonaire). Chaque cause a son geste spécifique — la reprise sans traitement de la cause récidive."
+      },
+      {
+        "id": "enfant",
+        "title": "6. Particularité pédiatrique",
+        "lead": "Nourrisson de 8 mois en arrêt. Quelle différence majeure ?",
+        "prompt": "Chez l'enfant, l'arrêt est le plus souvent :",
+        "choices": [
+          "Cardiaque d'emblée : le massage seul prime",
+          "Hypoxique : 5 insufflations initiales et ventilation prioritaire",
+          "Métabolique : bicarbonate d'abord",
+          "Toxique : antidote d'abord"
+        ],
+        "correct": 1,
+        "explanation": "L'arrêt pédiatrique est hypoxique (paludisme grave, pneumopathie, déshydratation) : 5 insufflations initiales puis 30:2 (15:2 en pédiatrie à 2 sauveteurs), adrénaline 10 µg/kg. Le pouls se prend au bras (brachial) chez le nourrisson."
+      },
+      {
+        "id": "arret",
+        "title": "7. Quand arrêter",
+        "lead": "Quinze minutes de réanimation, pas de retour à la circulation, aucune cause réversible identifiée. Quelle règle encadre l'arrêt ?",
+        "prompt": "La conduite habituelle est :",
+        "choices": [
+          "Arrêter dès 5 minutes dans tous les cas",
+          "Poursuivre tant qu'une cause réversible est traitable ; décision d'arrêt selon protocole (souvent 20-30 min) et contexte",
+          "Poursuivre 2 heures systématiquement",
+          "Arrêter dès l'arrivée du médecin"
+        ],
+        "correct": 1,
+        "explanation": "On poursuit tant qu'une cause réversible (toxique, hypothermie, hypovolémie opérable) est en cours de traitement — « pas de mort avant d'être réchauffé ». Sinon, la décision d'arrêt suit le protocole local, souvent après 20-30 minutes sans retour à la circulation."
+      }
+    ],
+    "synthesis": "Patient → inconscient + gasps → massage immédiat (100-120/min, 5-6 cm) + alerte → DAE : FV choquable ou asystolie non choquable → adrénaline 1 mg/3-5 min, amiodarone au 3e choc en FV → 4H-4T cherchées à chaque cycle → RACS : soins post-arrêt (SpO2, TA, température, ECG). La qualité du massage est le seul levier toujours disponible, même sans matériel."
+  },
+  {
+    "id": "DX-HYPOGLYCEMIE-001",
+    "title": "Hypoglycémie — démarche",
+    "specialty": "Endocrinologie / Urgences",
+    "vignette": "Homme de 54 ans, diabétique sous insuline, retrouvé confus et agressif au domicile. Vous construisez le raisonnement, un geste à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe initial",
+        "lead": "Quel examen fait-on immédiatement devant ce trouble neurologique aigu ?",
+        "prompt": "L'examen qui guide tout est :",
+        "choices": [
+          "Une TDM cérébrale en urgence",
+          "Une glycémie capillaire",
+          "Un dosage de la CRP",
+          "Un ECG"
+        ],
+        "correct": 1,
+        "explanation": "Tout trouble de conscience ou comportement aigu impose une glycémie capillaire : c'est l'examen le plus rapide, le moins cher et le plus rentable. Le « glucomètre avant le scanner » — l'hypoglycémie imite l'ivresse, l'AVC et la psychose aiguë."
+      },
+      {
+        "id": "mesure",
+        "title": "2. Mesure",
+        "lead": "Glycémie capillaire : 0,38 g/L. Comment qualifier la situation ?",
+        "prompt": "La situation est :",
+        "choices": [
+          "Une hypoglycémie modérée à surveiller à domicile",
+          "Une hypoglycémie sévère (neuroglycopénie) : resucrage immédiat",
+          "Une glycémie normale pour un diabétique",
+          "Un artefact de mesure à confirmer par un laboratoire avant tout geste"
+        ],
+        "correct": 1,
+        "explanation": "0,38 g/L avec signes neuroglycopéniques = hypoglycémie sévère : resucrer sans attendre la moindre confirmation. Le laboratoire viendra après le traitement ; la preuve documentaire peut se faire sur le tube prélevé au moment du resucrage."
+      },
+      {
+        "id": "traitement",
+        "title": "3. Traitement immédiat",
+        "lead": "Le patient est confus mais déglutit. Comment resucrer ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "15-20 g de sucre par voie orale, réévaluation à 15 minutes",
+          "Un sandwich entier immédiatement",
+          "Glucagon 1 mg IM en première intention",
+          "Sérum glucosé à 30 % IV"
+        ],
+        "correct": 0,
+        "explanation": "Si le patient déglutit : 15-20 g de glucose oral (sucre, jus), réévaluer à 15 min, renouveler si besoin, puis collation complexe. Le glucagon IM et le G30 % IV sont réservés à l'impossibilité de déglutir ou à la perte de connaissance."
+      },
+      {
+        "id": "etiologie",
+        "title": "4. Chercher la cause",
+        "lead": "Après le resucrage, quelle est la cause la plus probable chez ce diabétique ?",
+        "prompt": "La première cause d'hypoglycémie sévère est :",
+        "choices": [
+          "Un insulinome",
+          "Le traitement antidiabétique (dose, repas sauté, effort)",
+          "Une insuffisance surrénale",
+          "Un paludisme"
+        ],
+        "correct": 1,
+        "explanation": "Chez le diabétique traité, l'hypoglycémie est la complication la plus fréquente : dose inadaptée, repas sauté, effort inhabituel, vomissements, insuffisance rénale. On vérifie la technique d'injection et le traitement réel pris."
+      },
+      {
+        "id": "palu",
+        "title": "5. Contexte fébrile",
+        "lead": "Le même tableau chez un enfant fébrile et prostré en zone d'endémie : quel réflexe ?",
+        "prompt": "L'hypoglycémie est alors :",
+        "choices": [
+          "Un signe de jeûne bénin",
+          "Un critère OMS de paludisme grave",
+          "Un signe de méningite isolé",
+          "Un effet du paracétamol"
+        ],
+        "correct": 1,
+        "explanation": "Chez l'enfant et la femme enceinte, une glycémie < 2,2 mmol/L (0,40 g/L) est un critère OMS de paludisme grave : TDR immédiat, artésunate parentéral, resucrage — l'hypoglycémie aggrave le pronostic cérébral."
+      },
+      {
+        "id": "surveillance",
+        "title": "6. Surveillance",
+        "lead": "Le patient était sous sulfamide hypoglycémiant (gliclazide). Quelle surveillance ?",
+        "prompt": "La particularité des sulfamides est :",
+        "choices": [
+          "Une hypoglycémie ponctuelle sans risque de récidive",
+          "Des récidives tardives possibles : surveillance 24-48 h, hospitalisation",
+          "Une contre-indication définitive du sucre",
+          "Aucune surveillance nécessaire après resucrage"
+        ],
+        "correct": 1,
+        "explanation": "Les sulfamides (demi-vie longue) et l'insuline lente provoquent des récidives à distance : hospitalisation, perfusion glucosée, glycémies rapprochées pendant 24-48 h. Le « resucrer et laisser repartir » du sulfamide est une erreur classique."
+      },
+      {
+        "id": "suivi",
+        "title": "7. Après l'épisode",
+        "lead": "Glycémie normalisée, patient asymptomatique. Quelle décision de fond ?",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Reprendre le traitement antérieur à l'identique",
+          "Réévaluer systématiquement le traitement de fond et éduquer le patient",
+          "Arrêter tout traitement antidiabétique définitivement",
+          "Hospitaliser à vie"
+        ],
+        "correct": 1,
+        "explanation": "Une hypoglycémie sévère est une indication de modification du traitement ou de levée du facteur favorisant. Éducation : reconnaître ses signes, toujours avoir du sucre, jamais sauter un repas après l'insuline."
+      }
+    ],
+    "synthesis": "Confusion aiguë d'un diabétique → glycémie capillaire immédiate → 0,38 g/L = hypoglycémie sévère → resucrage 15-20 g oral (G30 % IV ou glucagon si inconscient) → réévaluer à 15 min → cause : traitement antidiabétique → sulfamide = surveillance 24-48 h → éducation et adaptation du traitement de fond. Le glucomètre fait partie de l'examen neurologique."
+  },
+  {
+    "id": "DX-PNEUMOTHORAX-001",
+    "title": "Pneumothorax — démarche",
+    "specialty": "Pneumologie / Urgences",
+    "vignette": "Homme de 22 ans, fumeur, douleur thoracique droite brutale au repos avec essoufflement. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "orientation",
+        "title": "1. Orientation",
+        "lead": "Quelle hypothèse principale ce tableau évoque-t-il ?",
+        "prompt": "Le diagnostic le plus probable chez ce jeune fumeur est :",
+        "choices": [
+          "Un infarctus du myocarde",
+          "Un pneumothorax spontané",
+          "Une embolie pulmonaire",
+          "Une pneumopathie franche"
+        ],
+        "correct": 1,
+        "explanation": "Homme jeune, longiligne, fumeur, douleur latérale brutale au repos avec dyspnée : pneumothorax spontané primaire jusqu'à preuve du contraire. L'examen confirme : abolition du murmure vésiculaire et de l'expansion du côté atteint, tympanisme."
+      },
+      {
+        "id": "gravite",
+        "title": "2. Signes de gravité",
+        "lead": "À l'examen : TA 78/46, FC 128, jugulaires tendues, thorax droit silencieux. Quelle est votre lecture ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un pneumothorax simple à surveiller",
+          "Un pneumothorax compressif : exsufflation immédiate, avant tout examen complémentaire",
+          "Une embolie pulmonaire grave : thrombolyse",
+          "Un infarctus avec choc cardiogénique"
+        ],
+        "correct": 1,
+        "explanation": "Hypotension + tachycardie + jugulaires tendues + thorax silencieux et tympanique = choc obstructif par compression : l'aiguille (14-16 G, 2e espace intercostal médioclaviculaire) avant la radiographie. La radio attendra un patient exsufflé."
+      },
+      {
+        "id": "imagerie",
+        "title": "3. Imagerie",
+        "lead": "Patient stable, sans signe compressif. Quel examen confirme ?",
+        "prompt": "L'examen de première intention est :",
+        "choices": [
+          "Une TDM thoracique immédiate",
+          "Une radiographie de thorax de face",
+          "Une échographie cardiaque",
+          "Une gazométrie seule"
+        ],
+        "correct": 1,
+        "explanation": "La radio de face objective le décollement (ligne pleurale viscérale, hyperclarté avasculaire) et le retentissement. Une radio normale n'écarte pas un petit pneumothorax antérieur : forte suspicion + radio normale = TDM si disponible ou surveillance rapprochée."
+      },
+      {
+        "id": "terrain",
+        "title": "4. Terrain",
+        "lead": "Le patient a 68 ans, BPCO connu, même tableau. Qu'est-ce qui change ?",
+        "prompt": "Chez ce patient, le pneumothorax est :",
+        "choices": [
+          "Plus bénin car la dyspnée est habituelle",
+          "Un pneumothorax secondaire : drainage quasi systématique",
+          "Un pneumothorax qui se surveille à domicile",
+          "Une complication à traiter par corticoïdes"
+        ],
+        "correct": 1,
+        "explanation": "Le pneumothorax secondaire (BPCO, tuberculose — fréquente à Madagascar) est plus grave : le poumon malade tolère mal le décollement, l'évolution vers la compression est rapide. Drainage quasi systématique et traitement de la cause."
+      },
+      {
+        "id": "conduite",
+        "title": "5. Conduite",
+        "lead": "Pneumothorax spontané primaire, décollement < 2 cm, patient peu dyspnéique. Quelle conduite ?",
+        "prompt": "La conduite adaptée est :",
+        "choices": [
+          "Drainage thoracique systématique",
+          "Oxygène et surveillance 6-24 h, consignes de reconsultation",
+          "Exsufflation à l'aiguille",
+          "Chirurgie immédiate"
+        ],
+        "correct": 1,
+        "explanation": "Petit + bien toléré + primaire : oxygène (accélère la résorption) et surveillance, contrôle clinique et radiologique, consignes écrites. Le drainage se réserve aux formes volumineuses, secondaires, mal tolérées ou récidivantes."
+      },
+      {
+        "id": "interdiction",
+        "title": "6. Piège de la ventilation",
+        "lead": "Le patient s'aggrave ; un collègue propose la ventilation au masque. Quelle est la bonne réponse ?",
+        "prompt": "La ventilation en pression positive :",
+        "choices": [
+          "Est sans risque particulier ici",
+          "Risque de transformer le pneumothorax en compression : avis expert indispensable",
+          "Est le traitement du pneumothorax",
+          "Accélère la résorption de l'air"
+        ],
+        "correct": 1,
+        "explanation": "La pression positive peut transformer un pneumothorax simple en compression : jamais de ventilation au masque (ni de plongée ni d'avion) tant que le poumon n'est pas recollé. C'est le piège classique aux urgences."
+      },
+      {
+        "id": "prevention",
+        "title": "7. Prévention de la récidive",
+        "lead": "Deuxième épisode en un an. Quelle décision ?",
+        "prompt": "La prévention de la récidive repose sur :",
+        "choices": [
+          "L'arrêt du tabac et la discussion de pleurodèse",
+          "La poursuite du tabac avec surveillance",
+          "Des corticoïdes au long cours",
+          "Une antibioprophylaxie"
+        ],
+        "correct": 0,
+        "explanation": "Le tabac est le principal facteur modifiable ; après récidive, la pleurodose (chimique ou chirurgicale par VATS si disponible) prévient les épisodes suivants. Bilan TDM des bulles apicales avant la décision."
+      }
+    ],
+    "synthesis": "Jeune fumeur + douleur latérale brutale → examen : murmure aboli, tympanisme → si hypotension + jugulaires tendues : compression, exsuffler avant la radio → sinon radio de face → primaire petit et toléré : O2 + surveillance ; secondaire (BPCO, TB) : drainage → jamais de ventilation en pression positive sans avis → arrêt du tabac, pleurodose si récidive. La tolérance clinique prime sur la taille."
+  },
+  {
+    "id": "DX-EPISTAXIS-001",
+    "title": "Épistaxis — démarche",
+    "specialty": "ORL / Urgences",
+    "vignette": "Homme de 68 ans, hypertendu, sous antivitamine K, saignement nasal abondant depuis 20 minutes. Vous construisez la conduite, un geste à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe initial",
+        "lead": "Quel est le premier geste à faire réaliser ou à faire ?",
+        "prompt": "Le premier geste est :",
+        "choices": [
+          "La compression correcte des ailes du nez pendant 10 minutes",
+          "Un méchage postérieur immédiat",
+          "Un scanner des sinus",
+          "L'arrêt immédiat de l'anticoagulant par vous-même"
+        ],
+        "correct": 0,
+        "explanation": "La compression correcte arrête la majorité des épistaxis : se moucher, puis pincer la partie molle des ailes du nez (pas la racine), 10 minutes sans relâcher, tête penchée en avant. Toute autre démarche vient après."
+      },
+      {
+        "id": "interrogatoire",
+        "title": "2. Interrogatoire",
+        "lead": "Pendant la compression, que cherchez-vous prioritairement ?",
+        "prompt": "Le terrain prioritaire ici est :",
+        "choices": [
+          "La prise d'anticoagulants et le contrôle de la tension artérielle",
+          "Une allergie aux pollens",
+          "Le tabagisme passif",
+          "Un antécédent d'amygdalectomie"
+        ],
+        "correct": 0,
+        "explanation": "AVK + HTA = double facteur de gravité et de récidive. On contrôle la TA (facteur favorisant et entretien du saignement), on dose l'INR. La décision sur l'anticoagulant se prend avec le prescripteur selon le rapport bénéfice/risque, jamais seule et systématiquement."
+      },
+      {
+        "id": "gravite",
+        "title": "3. Signes de gravité",
+        "lead": "Le sang coule dans le pharynx et le saignement est bilatéral. Quelle est votre lecture ?",
+        "prompt": "Le tableau évoque :",
+        "choices": [
+          "Une épistaxis antérieure simple",
+          "Une épistaxis postérieure : méchage postérieur, hospitalisation, avis ORL",
+          "Une gingivorragie",
+          "Un saignement d'origine digestive"
+        ],
+        "correct": 1,
+        "explanation": "Sang pharyngé + bilatéralité + terrain âgé et anticoagulé : épistaxis postérieure. Méchage postérieur ou ballonnet, hospitalisation, surveillance respiratoire du patient méché, bilan de coagulation et correction ciblée si nécessaire."
+      },
+      {
+        "id": "examen",
+        "title": "4. Examen local",
+        "lead": "Le saignement antérieur cède à la compression. Que faites-vous ensuite ?",
+        "prompt": "L'examen suivant est :",
+        "choices": [
+          "Une endoscopie nasale sous anesthésie générale",
+          "L'examen de la cavité nasale en bonne lumière après vasoconstricteur, à la recherche du point de saignement",
+          "Un simple pansement nasal sans examen",
+          "Un scanner immédiat"
+        ],
+        "correct": 1,
+        "explanation": "Après l'arrêt, on inspecte les fosses nasales en bonne lumière (spéculum, otoscope), après vasoconstricteur local si possible : point de saignement de Kiesselbach, hématome de cloison, lésion tumorale, corps étranger. Le point visible sera cautérisé au nitrate d'argent."
+      },
+      {
+        "id": "etiologie",
+        "title": "5. Étiologie",
+        "lead": "Femme de 58 ans : épistaxis unilatéraux récidivants avec obstruction nasale progressive. Quel diagnostic redouter ?",
+        "prompt": "Le diagnostic à évoquer est :",
+        "choices": [
+          "Une rhinite allergique",
+          "Une tumeur de la cavité nasale : endoscopie ORL",
+          "Un simple curetage",
+          "Une épistaxis essentielle"
+        ],
+        "correct": 1,
+        "explanation": "Tout épistaxis unilatéral récidivant de l'adulte mérite une endoscopie nasale : la tumeur nasosinusale est rare mais diagnostiquée tard. Chez l'adolescent garçon, obstruction unilatérale + épistaxis = angiofibrome nasopharyngien (pas de biopsie aveugle)."
+      },
+      {
+        "id": "traitement",
+        "title": "6. Traitement",
+        "lead": "Échec de la compression après deux tentatives correctes. Quel est l'étage suivant ?",
+        "prompt": "Le traitement suivant est :",
+        "choices": [
+          "Un méchage antérieur (mèche grasse ou à la cire) laissé 24-48 h",
+          "Une ligature de la carotide externe",
+          "La cautérisation immédiate au nitrate d'argent sur un saignement actif",
+          "Un arrêt définitif des soins"
+        ],
+        "correct": 0,
+        "explanation": "L'échec d'une compression correcte appelle le méchage antérieur (mèche grasse), laissé 24-48 h, parfois sous couverture antibiotique. La cautérisation ne se fait que sur un point sec et visible. Le méchage postérieur suit en cas d'échec ou de saignement postérieur."
+      },
+      {
+        "id": "prevention",
+        "title": "7. Prévention des récidives",
+        "lead": "Après l'arrêt du saignement, que prescrire pour prévenir la récidive ?",
+        "prompt": "Les mesures de prévention sont :",
+        "choices": [
+          "Humidification (saline, vaseline), traitement de la rhinite, contrôle de la TA, arrêt du cureillage",
+          "Des antibiotiques au long cours",
+          "Un méchage hebdomadaire préventif",
+          "Rien : la récidive est inévitable"
+        ],
+        "correct": 0,
+        "explanation": "Prévention : humidifier (climat sec), traiter rhinite et HTA, éducation (couper les ongles des enfants, mouchage doux), cautérisation du point visible. Toute épistaxis abondante est aussi une occasion de dépister une HTA non contrôlée."
+      }
+    ],
+    "synthesis": "Épistaxis du sujet âgé anticoagulé → compression correcte 10 min (ailes du nez, tête en avant) → évaluer TA et INR en parallèle → sang pharyngé ou bilatéral : épistaxis postérieure, méchage postérieur + hospitalisation → échec antérieur : mèche grasse 24-48 h → examen local en bonne lumière : cautérisation du point de Kiesselbach → épistaxis unilatéral récidivant de l'adulte : endoscopie. La technique de compression est le premier traitement."
+  },
+  {
+    "id": "DX-HEMORRAGIE-T1-001",
+    "title": "Hémorragie du premier trimestre — démarche",
+    "specialty": "Obstétrique / Urgences",
+    "vignette": "Femme de 27 ans, 6 semaines d'aménorrhée, douleur pelvienne droite brutale avec spotting. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "urgence",
+        "title": "1. Premier réflexe",
+        "lead": "À l'examen : pâleur, FC 118, TA 84/50. Quelle est la priorité ?",
+        "prompt": "La conduite immédiate est :",
+        "choices": [
+          "Une échographie avant tout",
+          "Stabilisation : deux voies, groupe, RAI, avis chirurgical sans attendre",
+          "Un dosage de β-hCG en attente du résultat",
+          "Un retour à domicile avec consignes"
+        ],
+        "correct": 1,
+        "explanation": "Toute douleur pelvienne aiguë avec instabilité chez une femme en âge de procréer est une GEU rompue jusqu'à preuve du contraire : réanimation et chirurgie, sans attendre l'échographie. Le sang péritonéal n'apparaît pas au spéculum et la patiente peut s'effondrer en minutes."
+      },
+      {
+        "id": "bilan",
+        "title": "2. Bilan",
+        "lead": "Patiente stable. Quel couple d'examens guide le diagnostic ?",
+        "prompt": "Les deux examens pivots sont :",
+        "choices": [
+          "NFS et CRP",
+          "β-hCG plasmatiques et échographie pelvienne (idéalement endovaginale)",
+          "ECBU et TDR paludisme",
+          "Frottis et sérologie VIH"
+        ],
+        "correct": 1,
+        "explanation": "β-hCG + échographie : sac intra-utérin avec activité cardiaque = grossesse évolutive intra-utérine ; utérus vide avec β-hCG au-dessus du seuil de visibilité (~1500-2000 UI/L) = grossesse de localisation incertaine à réévaluer à 48 h ; masse latéro-utérine ou épanchement du Douglas = GEU probable."
+      },
+      {
+        "id": "cinetique",
+        "title": "3. Cinétique",
+        "lead": "β-hCG à 1800 UI/L, utérus vide, aucune masse. Quelle interprétation ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Affirmer une fausse couche et laisser partir",
+          "Réévaluer β-hCG et échographie à 48 h : doublement = intra-utérine probable, plateau ou baisse lente = GEU probable",
+          "Méthotrexate immédiat",
+          "Césarienne"
+        ],
+        "correct": 1,
+        "explanation": "Une β-hCG au-dessus du seuil sans sac intra-utérin ne permet pas de conclure : la cinétique sur 48 h tranche. Ne pas s'appuyer sur un test urinaire : chez une patiente cliniquement suspecte, un test négatif n'écarte rien tant que les β-hCG plasmatiques ne sont pas doses."
+      },
+      {
+        "id": "classer",
+        "title": "4. Classer",
+        "lead": "Sac intra-utérin de 8 SA avec activité cardiaque, saignement modéré, col fermé. Quel diagnostic ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une fausse couche complète",
+          "Une menace d'avortement",
+          "Une GEU",
+          "Une môle"
+        ],
+        "correct": 1,
+        "explanation": "Saignement modéré + col fermé + grossesse évolutive intra-utérine = menace d'avortement : surveillance, explication, pas d'hospitalisation systématique. Le col ouvert ou l'expulsion signent la fausse couche en cours ; la rétention impose l'évacuation."
+      },
+      {
+        "id": "mole",
+        "title": "5. Piège de l'utérus trop grand",
+        "lead": "Utérus correspondant à 14 SA pour une grossesse datée de 8 SA, β-hCG très élevées, saignement « en grappes ». Quel diagnostic ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une grossesse gémellaire",
+          "Une môle hydatiforme",
+          "Un fibrome",
+          "Une rétention placentaire"
+        ],
+        "correct": 1,
+        "explanation": "Utérus trop grand + β-hCG très élevées + saignement typique = môle hydatiforme : évacuation par aspiration, surveillance β-hCG jusqu'à négativation puis contraception 6-12 mois, dépistage du choriocarcinome. Pas d'ocytociques majeurs."
+      },
+      {
+        "id": "septique",
+        "title": "6. Avortement septique",
+        "lead": "Fièvre 39 °C, douleur, saignement après manœuvre abortive. Quelle urgence ?",
+        "prompt": "La prise en charge est :",
+        "choices": [
+          "Antibiothérapie IV à large spectre + évacuation utérine + réanimation, prévention du tétanos",
+          "Antipyrétiques seuls et surveillance",
+          "Attendre la fin du saignement",
+          "Corticoïdes"
+        ],
+        "correct": 0,
+        "explanation": "Avortement septique = double urgence infectieuse et hémorragique : ATB IV large, évacuation, réanimation du sepsis, prévention tétanique, prise en charge sans jugement. La morbi-mortalité reste élevée là où l'avortement est illégal ou inégalement accessible."
+      },
+      {
+        "id": "rh",
+        "title": "7. Prévention allo-immunisation",
+        "lead": "La patiente est Rh négatif. Quel geste systématique ?",
+        "prompt": "Le geste est :",
+        "choices": [
+          "Une prophylaxie anti-D selon protocole",
+          "Une transfusion systématique",
+          "Rien de particulier",
+          "Une corticothérapie"
+        ],
+        "correct": 0,
+        "explanation": "Toute femme Rh négatif avec saignement du premier trimestre reçoit une prophylaxie anti-D selon le protocole local, pour éviter l'allo-immunisation Rhésus qui compromettra les grossesses suivantes."
+      }
+    ],
+    "synthesis": "Douleur pelvienne + spotting + aménorrhée → instabilité : GEU rompue, bloc sans attendre l'écho → stable : β-hCG + échographie → sac évolutif intra-utérin : classer (menace, en cours, complète, rétention) → utérus vide : cinétique des β-hCG à 48 h → utérus trop grand + β-hCG très élevées : môle → fièvre post-manœuvre : avortement septique → anti-D si Rh négatif. La GEU est le diagnostic qui tue."
+  },
+  {
+    "id": "DX-HEMORRAGIE-T3-001",
+    "title": "Hémorragie du troisième trimestre — démarche",
+    "specialty": "Obstétrique / Urgences",
+    "vignette": "Femme de 31 ans, 34 SA, troisième pare, saignement génital rouge vif abondant, sans douleur. Vous construisez la conduite, une décision à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Premier réflexe",
+        "lead": "Quel est le premier geste et le premier interdit ?",
+        "prompt": "La conduite correcte est :",
+        "choices": [
+          "Toucher vaginal pour évaluer le col",
+          "Hospitaliser, voie veineuse, groupe-RAI, monitorage fœtal — pas de toucher vaginal avant l'échographie",
+          "Renvoyer à domicile avec un pansement",
+          "Déclencher le travail immédiatement"
+        ],
+        "correct": 1,
+        "explanation": "Toute hémorragie du 3e trimestre est hospitalisée d'office. Le toucher vaginal est contre-indiqué tant que le praevium n'est pas écarté : un toucher sur praevium peut déclencher une hémorragie cataclysmique. Voie veineuse, bilan d'hémostase, monitorage fœtal en parallèle."
+      },
+      {
+        "id": "orientation",
+        "title": "2. Orientation clinique",
+        "lead": "Saignement indolore, rouge vif, utérus souple, présentation haute. Quelle hypothèse principale ?",
+        "prompt": "Le diagnostic probable est :",
+        "choices": [
+          "Un hématome rétro-placentaire",
+          "Un placenta praevium",
+          "Une rupture utérine",
+          "Un vasa praevia"
+        ],
+        "correct": 1,
+        "explanation": "Saignement indolore, abondant, récidivant + utérus souple + présentation haute : placenta praevium jusqu'à preuve du contraire. L'échographie objective le placenta bas inséré, couvrant ou non l'orifice."
+      },
+      {
+        "id": "differential",
+        "title": "3. Diagnostic différentiel",
+        "lead": "Même terme, mais douleur brutale, utérus dur « en bois », mouvements actifs diminués, HTA à 160/100. Quelle lecture ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un placenta praevium",
+          "Un hématome rétro-placentaire (HRP)",
+          "Une contraction utérine normale",
+          "Un simple malaise"
+        ],
+        "correct": 1,
+        "explanation": "Douleur + utérus en bois + MA diminués + HTA/pré-éclampsie = HRP. Piège : l'HRP fermé saigne peu par voie vaginale alors que la perte maternelle et la souffrance fœtale sont majeures. Bilan d'hémostase (fibrinogène !) : risque de CIVD."
+      },
+      {
+        "id": "he_mostase",
+        "title": "4. Bilan",
+        "lead": "Quel bilan d'hémostase guide la prise en charge ?",
+        "prompt": "L'examen clé est :",
+        "choices": [
+          "La NFS seule",
+          "Le fibrinogène (avec TP, TCA, plaquettes)",
+          "La CRP",
+          "Les D-dimères"
+        ],
+        "correct": 1,
+        "explanation": "L'HRP consume la fibrine : le fibrinogène guide la correction de la coagulopathie (plasma, fibrinogène, plaquettes selon disponibilité) et la décision de voie d'accouchement. Les D-dimères sont inutiles : toujours élevés pendant la grossesse."
+      },
+      {
+        "id": "decision",
+        "title": "5. Décision d'extraction",
+        "lead": "HRP confirmé, fœtus vivant, RYCF : décélérations répétées. Quelle décision ?",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Césarienne en urgence",
+          "Tocolyse et surveillance 48 h",
+          "Déclenchement par voies",
+          "Expectative à domicile"
+        ],
+        "correct": 0,
+        "explanation": "HRP + fœtus vivant souffrant = césarienne en urgence, en corrigeant l'hémostase en parallèle. Si mort fœtale in utero et mère stable : déclenchement par voies avec hémostase corrigée ; la césarienne se discute selon l'état maternel."
+      },
+      {
+        "id": "rupture",
+        "title": "6. Utérus cicatriciel",
+        "lead": "Autre patiente, 38 SA, utérus cicatriciel, en travail : douleur brutale, perte du RYCF, hémorragie, choc. Diagnostic ?",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un placenta praevium",
+          "Une rupture utérine : laparotomie immédiate",
+          "Un HRP partiel",
+          "Une simple contraction"
+        ],
+        "correct": 1,
+        "explanation": "Sur utérus cicatriciel en travail, toute douleur anormale avec anomalies du RYCF = rupture utérine jusqu'à preuve du contraire : lapotomie immédiate (réparation ou hystérectomie), réanimation. D'où la règle : tout utérus cicatriciel accouche dans une structure opérable."
+      },
+      {
+        "id": "prevention",
+        "title": "7. Après l'épisode",
+        "lead": "Césarienne réalisée, mère et enfant stables. Que prévoir ensuite ?",
+        "prompt": "Les suites incluent :",
+        "choices": [
+          "Surveillance de l'anémie et de la coagulation, fer, traitement de l'HTA, soutien psychologique",
+          "Reprise immédiate d'une grossesse",
+          "Aucune surveillance",
+          "Un traitement anticoagulant à vie"
+        ],
+        "correct": 0,
+        "explanation": "Post-partum : surveillance de l'anémie (fer), de la coagulation plusieurs jours après un HRP, traitement de la cause (HTA), prévention Rh (anti-D si négatif), soutien psychologique en cas de perte fœtale, contraception et espacement des grossesses."
+      }
+    ],
+    "synthesis": "Saignement du 3e trimestre → hospitalisation d'office, pas de toucher vaginal avant l'échographie → indolore + présentation haute : praevium (césarienne si couvrant) ; douleur + utérus en bois + MA diminués sur HTA : HRP → bilan d'hémostase avec fibrinogène → fœtus vivant souffrant : césarienne ; MFIU stable : déclenchement voies + hémostase corrigée → utérus cicatriciel en travail : toute douleur anormale = rupture. Référence anticipée vers un centre opérable et transfusable."
   }
 ]
