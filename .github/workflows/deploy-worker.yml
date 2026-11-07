@@ -1,25 +1,35 @@
-name: Deploy Worker
+name: Deploy Cloudflare Worker
 
-# ⚠️ Ce workflow cible Cloudflare WORKERS (`wrangler deploy`), un produit
-# DIFFÉRENT de Cloudflare Pages : même réussi, il ne mettrait jamais à jour
-# optimusmedical.pages.dev. La production suit par le build Pages (git).
-# Déclenchement manuel uniquement, pour expérimentation.
+# Production : Workers + Static Assets via wrangler 4 (limite 64 MiB, bundle
+# unique — cf. wrangler.jsonc et docs/DEPLOIEMENT-CLOUDFLARE.md). Nécessite les
+# secrets CLOUDFLARE_API_TOKEN ( Workers Scripts:Edit) et
+# CLOUDFLARE_ACCOUNT_ID. Sans eux ce workflow échoue rouge et visible.
+
 on:
   workflow_dispatch:
-  # push volontairement désactivé :
-  # push:
-  #   branches: [main]
-  #   paths:
+  push:
+    branches: [main]
+    paths:
       - '.github/workflows/deploy-worker.yml'
+      - 'wrangler.jsonc'
       - 'vite.config.ts'
       - 'src/**'
       - 'scripts/**'
+      - 'server/**'
+      - 'public/**'
+      - 'private/**'
+      - 'migrations/**'
       - 'package.json'
+      - 'package-lock.json'
+
+concurrency:
+  group: deploy-worker-production
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,19 +37,18 @@ jobs:
           node-version: '22'
           cache: 'npm'
       - run: npm ci
-      - name: Build Worker
+      - name: Build (preset cloudflare_module, stubs actifs via CF_PAGES)
         run: npm run build:worker
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      - name: Nettoyer la redirection wrangler (conflit Nitro Pages/Workers)
+      - name: Nettoyer la config wrangler générée par Nitro (conflit)
+        run: rm -rf .wrangler
+      - name: Vérifier les sorties
         run: |
-          rm -rf .wrangler
-          ls -la .output/server/ | head -5
-      - name: Deploy with Wrangler
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: .output/server
-          command: deploy
+          echo "— .output/server —" && ls -la .output/server/ | head -5
+          echo "— dist —" && ls dist/ | head -10
+          test -f .output/server/index.mjs
+          test -d dist
+      - name: Deploy (wrangler 4 du repo)
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

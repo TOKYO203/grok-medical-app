@@ -86,3 +86,44 @@ Pièges connus :
 2. `CF_PAGES === 'true'` ne matche jamais : la valeur est "1".
 3. Ne pas mettre ce drapeau dans `.env.production` : scopé au mode, pas à la
    plateforme — casserait Vercel/Netlify.
+
+## Architecture cible : Workers + Static Assets (déploiement GitHub Actions)
+
+Depuis le 2026-09-04, les Workers acceptent **64 MiB non compressés sur tous
+les plans** (les anciens plafonds 3 Mo free / 10 Mo payant compressés sont
+supprimés), et `wrangler deploy` bundle le serveur en **un script unique** —
+plus de listing de ~450 fichiers `.mjs` (crash `internal error occurred` du
+wrangler plateforme 3.x des builds Pages, hors de notre contrôle).
+
+Le plafond Pages Functions (25 MiB + wrangler plateforme figé) a été contourné
+une première fois par les stubs (worker ~23,8 MiB), mais la seconde limite
+(nombre de modules) est indépassable côté config : le plugin TanStack Start
+n'expose aucune option de split serveur (schema vérifié dans les sources).
+
+### Réglages
+
+- `wrangler.jsonc` : `main` = `.output/server/index.mjs`, `assets` =
+  `./dist` (binding `ASSETS`), `nodejs_compat`, observabilité activée.
+- Build : `npm run build:worker` (preset `cloudflare_module`, stubs actifs).
+- Déploiement : `.github/workflows/deploy-worker.yml` sur push vers main,
+  `npx wrangler deploy` (wrangler 4 du repo — pas le wrangler plateforme).
+
+### À configurer côté Cloudflare/GitHub (une fois)
+
+1. GitHub → Settings → Secrets → Actions :
+   - `CLOUDFLARE_API_TOKEN` (permissions **Workers Scripts : Edit**)
+   - `CLOUDFLARE_ACCOUNT_ID`
+2. Workers → optimusmedical → Settings → Variables and Secrets : les variables
+   runtime que le projet Pages avait (`DATABASE_URL`, `RESPONSE_SALT`,
+   `RATE_LIMIT_SALT`, `LICENSE_JWT_SECRET`, …) — un Worker ne partage PAS
+   l'environnement du projet Pages.
+3. URL : le Worker vit sur `optimusmedical.<account>.workers.dev` ; le domaine
+   `optimusmedical.pages.dev` ne peut PAS être attaché à un Worker. Prévoir le
+   domaine custom (`optimus-medical.com`) ou rediriger.
+
+### Pages : que devient l'ancienne prod ?
+
+Le projet Pages peut être mis en pause (Settings → Builds & deployments →
+Pause) une fois le Worker validé : le build Pages git ne sert plus à rien et
+consomme du temps de build. Ne pas le supprimer avant d'avoir validé le
+domaine custom.

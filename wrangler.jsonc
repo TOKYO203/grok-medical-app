@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Production : Cloudflare Workers + Static Assets (64 MiB, tous plans —
+  // cf. docs/DEPLOIEMENT-CLOUDFLARE.md). Les déploiements partent de
+  // .github/workflows/deploy-worker.yml (wrangler 4 du repo), plus du build
+  // Pages git, plafonné à 25 MiB et limité par son wrangler plateforme 3.x.
+  "name": "optimusmedical",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
