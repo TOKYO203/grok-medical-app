@@ -19,3 +19,5 @@ export const createAuthClient = (_opts?: any) => ({
   useSession: () => ({ data: null, isPending: false, error: null }),
   getSession: async () => null,
 });
+// Hook better-auth/react standard (jamais appelé, auth désactivée — mais l'import nommé doit exister côté worker).
+export const useSession = () => ({ data: null, isPending: false, error: null });
