@@ -1,8 +1,8 @@
 name: Diagnostic tests
 
 # TEMPORAIRE — à supprimer une fois la suite réparée (R7).
-# v4 : UNE annotation par fichier en échec (fichier + tests + 1re ligne
-# d'erreur fusionnés), pour tenir dans le cap de 10 annotations.
+# v5 : annotation courte (1/fichier) + log complet de chaque fichier en échec
+# dans le résumé du job (pas de cap de taille).
 on:
   push:
     branches: [main]
@@ -31,15 +31,20 @@ jobs:
 
       - name: Tests scripts (.mjs)
         run: |
+          {
+            echo "# Diagnostic tests — logs complets des échecs"
+          } >> "$GITHUB_STEP_SUMMARY"
           for f in scripts/*.test.mjs; do
             node --test "$f" > /tmp/one.log 2>&1 || true
             if grep -qE '^not ok ' /tmp/one.log; then
               names=$(grep -E '^not ok ' /tmp/one.log | sed 's/^not ok [0-9]* - //' | head -n 4 | tr '\n' ';' | cut -c1-200)
-              err=$(grep -E '^\s+error:' /tmp/one.log | head -n 1 | sed 's/^\s*//' | cut -c1-320)
-              if [ -z "$err" ]; then
-                err=$(grep -B1 -E '^\s+(expected|actual):' /tmp/one.log | grep -vE '^\s*$' | head -n 1 | sed 's/^\s*//' | cut -c1-320)
-              fi
-              echo "::error::FICHIER $f :: TESTS $names :: ERR $err"
+              echo "::error::FICHIER $f :: TESTS $names"
+              {
+                echo "## $f"
+                echo '~~~'
+                sed -n '1,200p' /tmp/one.log
+                echo '~~~'
+              } >> "$GITHUB_STEP_SUMMARY"
             fi
           done
 
