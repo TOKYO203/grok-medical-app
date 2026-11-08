@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux grands mécanismes : l'embolie (le plus souvent sur fibrillation atriale) chez un patient aux artères saines, et la thrombose sur lésion artérielle préexistante chez l'artériopathe ; la démarche est la même : hépariner immédiatement, confirmer, revasculariser sans délai."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Membre froid et douloureux",
+          "text": "Douleur brutale d'un membre, pâleur, abolition des pouls : ischémie aiguë : héparine intraveineuse immédiate et appel du chirurgien vasculaire : le muscle ne supporte que 6 heures : ne pas attendre l'imagerie pour hépariner."
         }
       ]
     },
@@ -76,6 +83,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Paralysie ou anesthésie",
+          "text": "Pied insensible ou immobile, marbrures, contracture du mollet : ischémie avancée : bloc opératoire immédiat (embolectomie ou thrombectomie) et information sur le risque d'amputation."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant toute douleur brutale d'un membre : palper les pouls des deux côtés (le côté sain sert de référence), évaluer sensibilité et motricité, ECG à la recherche d'une fibrillation atriale, chercher un anévrysme (source d'embolie) : quatre gestes en cinq minutes."
         }
       ]
     },
@@ -116,6 +135,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Embolie : cœur ou anévrysme, Fogarty. Thrombose : artériopathe, thrombectomie ou lyse. Héparine : immédiate, pour tous. Reperfusion : hyperkaliémie, myoglobine, reins. Fasciotomie si loges tendues. Délai : 6 heures pour sauver le muscle."
         }
       ]
     },
@@ -138,6 +163,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Six signes de l'ischémie aiguë",
+          "text": "Douleur, pâleur, pouls abolis, paresthésies, paralysie, poïkilothermie : le membre froid ; la perte de la sensibilité et de la motricité transforme l'urgence en urgence extrême."
         }
       ]
     },
@@ -218,14 +249,6 @@
       "label": "Les six signes",
       "entries": [
         {
-          "key": "D",
-          "term": "Douleur"
-        },
-        {
-          "key": "P",
-          "term": "Pâleur"
-        },
-        {
           "key": "P",
           "term": "Pouls abolis"
         },
@@ -233,7 +256,8 @@
           "key": "S",
           "term": "Sensibilité diminuée, poïkilothermie"
         }
-      ]
+      ],
+      "id": "mn-les-six-signes"
     },
     {
       "label": "Causes d'embolie",
@@ -254,7 +278,8 @@
           "key": "V",
           "term": "Valvulopathie, végétations"
         }
-      ]
+      ],
+      "id": "mn-causes-d-embolie"
     },
     {
       "label": "Traitement immédiat",
@@ -275,7 +300,8 @@
           "key": "C",
           "term": "Chirurgien vasculaire appelé"
         }
-      ]
+      ],
+      "id": "mn-traitement-imm-diat"
     },
     {
       "label": "Syndrome de reperfusion",
@@ -285,10 +311,6 @@
           "term": "Hyperkaliémie"
         },
         {
-          "key": "A",
-          "term": "Acidose"
-        },
-        {
           "key": "M",
           "term": "Myoglobinurie, rhabdomyolyse"
         },
@@ -296,7 +318,8 @@
           "key": "R",
           "term": "Insuffisance rénale aiguë"
         }
-      ]
+      ],
+      "id": "mn-syndrome-de-reperfusion"
     }
   ],
   "flashcards": [
@@ -384,7 +407,8 @@
   "mindmap": {
     "root": {
       "id": "iam-root",
-      "label": "Ischémie aiguë des membres inférieurs"
+      "label": "Ischémie aiguë des membres inférieurs",
+      "detail": "Ischémie aiguë des membres inférieurs : Signes, Causes, Bilan, Traitement, Suites — synthèse du référentiel."
     },
     "branches": [
       {
@@ -413,7 +437,8 @@
             "id": "iam-b1-l4",
             "label": "Paresthésies, paralysie"
           }
-        ]
+        ],
+        "detail": "Signes : Le membre menacé"
       },
       {
         "id": "iam-b2",
@@ -441,7 +466,8 @@
             "id": "iam-b2-l4",
             "label": "Traumatisme, dissection"
           }
-        ]
+        ],
+        "detail": "Causes : Mécanismes — Causes"
       },
       {
         "id": "iam-b3",
@@ -469,7 +495,8 @@
             "id": "iam-b3-l4",
             "label": "ECG, biologie"
           }
-        ]
+        ],
+        "detail": "Bilan : Urgence — Bilan"
       },
       {
         "id": "iam-b4",
@@ -497,7 +524,8 @@
             "id": "iam-b4-l4",
             "label": "Pontage, angioplastie"
           }
-        ]
+        ],
+        "detail": "Traitement : Revascularisation"
       },
       {
         "id": "iam-b5",
@@ -525,7 +553,8 @@
             "id": "iam-b5-l4",
             "label": "Séquelles, rééducation"
           }
-        ]
+        ],
+        "detail": "Suites : Reperfusion et suivi"
       }
     ]
   },

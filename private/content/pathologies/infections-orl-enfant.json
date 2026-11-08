@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -49,6 +50,12 @@
         {
           "type": "paragraph",
           "text": "L'enjeu pour le médecin est double : ne pas manquer une complication rare mais grave (extension orbitaire ou endocrânienne d'une sinusite, abcès rétropharyngé ou péri-amygdalien, rhumatisme articulaire aigu après angine à streptocoque), et ne pas prescrire d'antibiotique inutilement — l'antibiorésistance progressant partout, y compris à Madagascar. Cette fiche détaille les critères qui permettent de trancher entre virose banale à traiter symptomatiquement et infection bactérienne à traiter par antibiotique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Complication orbitaire d'une sinusite",
+          "text": "Œdème de la paupière, proptose, œil rouge, limitation des mouvements oculaires ou baisse de l'acuité visuelle chez un enfant enrhumé et fébrile : cellulite ou abcès orbitaire — urgence absolue. Hospitalisation, antibiothérapie intraveineuse, imagerie et avis ORL et ophtalmologique sans délai : la cécité et l'extension endocrânienne se jouent en quelques heures."
         }
       ]
     },
@@ -67,6 +74,12 @@
         {
           "type": "paragraph",
           "text": "Germes en cause dans les surinfections bactériennes : Streptococcus pneumoniae et Haemophilus influenzae viennent largement en tête, Moraxella catarrhalis plus rare ; le streptocoque du groupe A domine les pharyngites bactériennes de l'enfant de plus de 3 ans (angine érythémato-pultacée). Les âges clés : rhinopharyngite virale du nourrisson et du petit enfant ; angine streptococcique rare avant 3 ans ; sinusite maxillaire dès 1–2 ans."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Extension endocrânienne",
+          "text": "Vomissements en jet, céphalées intenses, raideur de nuque, convulsions, troubles de conscience ou déficit neurologique chez un enfant avec infection ORL : méningite, abcès cérébral ou empyème jusqu'à preuve du contraire. Ponction lombière et imagerie si le contexte le permet, antibiothérapie IV en urgence — ne jamais se contenter d'un traitement oral devant ce tableau."
         }
       ]
     },
@@ -87,6 +100,12 @@
             "Facteurs favorisants : vie en collectivité, tabagisme environnemental, carence nutritionnelle, terrain allergique, corps étranger nasal (rhinorrhée unilatérale purulente et fétide)",
             "À connaître : rhinorrhée unilatérale chronique ou purulente et fétide chez un enfant = corps étranger nasal ou sinusite jusqu'à preuve du contraire, jamais une simple virose"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : rhinorrhée unilatérale fétide",
+          "text": "Une narine qui coule d'un seul côté, avec sécrétions purulentes et nauséabondes, chez un enfant : penser au corps étranger nasal avant d'étiqueter « rhinite à répétition ». Examen de la narine au spéculum, ablation si accessible — sinon avis ORL. Ce signe n'est jamais celui d'une virose banale."
         }
       ]
     },
@@ -135,6 +154,12 @@
             "Rhinorrhée unilatérale purulente et fétide : corps étranger nasal à éliminer",
             "Complications : signes ophtalmologiques, neurologiques ou cervicaux = urgence"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Sinusite bactérienne de l'enfant = trois présentations : persistance des signes > 10 jours, double poussée après amélioration initiale, évolution traînante avec purulence. Amoxicilline forte dose 5 jours. Rhinopharyngite virale = jamais d'antibiotique : lavage de nez + paracétamol + patience."
         }
       ]
     },
@@ -179,6 +204,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo : ce qui fait sortir du cadre banal",
+          "text": "Un rhume d'enfant devient une urgence si : fièvre > 3 jours ou très élevée, œdème de la paupière, torticolis ou douleur cervicale, trismus ou voix étouffée, vomissements avec céphalées, somnolence anormale, ou signes strictement unilatéraux. En dehors de ces signes, le rhume guérit seul : expliquer aux parents quand revenir plutôt que prescrire un antibiotique."
         }
       ]
     },
@@ -274,7 +305,8 @@
           "key": "T",
           "term": "Traînante : évolution lente et trainante avec purulence nette"
         }
-      ]
+      ],
+      "id": "mn-trois-pr-sentations-de-la-sinusite-bact-rienne"
     },
     {
       "label": "Traitement de la rhinopharyngite virale",
@@ -295,7 +327,8 @@
           "key": "S",
           "term": "Surveillance : alimenter après désobstruction, surveiller le poids du nourrisson"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-la-rhinopharyngite-virale"
     },
     {
       "label": "Signes d'alerte d'une sinusite compliquée",
@@ -316,7 +349,8 @@
           "key": "F",
           "term": "Fièvre élevée persistante malgré le traitement"
         }
-      ]
+      ],
+      "id": "mn-signes-d-alerte-d-une-sinusite-compliqu-e"
     },
     {
       "label": "Antibiothérapies utiles",
@@ -333,7 +367,8 @@
           "key": "R",
           "term": "Rhinopharyngite : aucune — virose"
         }
-      ]
+      ],
+      "id": "mn-antibioth-rapies-utiles"
     }
   ],
   "flashcards": [
@@ -421,7 +456,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Infections naso-sinusiennes et pharyngées de l'enfant"
+      "label": "Infections naso-sinusiennes et pharyngées de l'enfant",
+      "detail": "Infections naso-sinusiennes et pharyngées de l'enfant : Rhinopharyngite virale, Sinusite bactérienne, Pharyngites, Complications, Traitement et prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -450,7 +486,8 @@
             "id": "l2",
             "label": "Pics en saison fraîche et humide"
           }
-        ]
+        ],
+        "detail": "Rhinopharyngite virale : Fièvre, rhinorrhée, obstruction nasale, toux, Guérison spontanée en 7–10 jours, Aucun examen complémentaire"
       },
       {
         "id": "b2",
@@ -474,7 +511,8 @@
             "id": "l3",
             "label": "Amoxicilline forte dose 5 jours"
           }
-        ]
+        ],
+        "detail": "Sinusite bactérienne : Persistance > 10 jours / double poussée / trainante purulente, Pneumocoque, Haemophilus influenzae, Moraxella, Ethmoïde + maxillaire pneumatisés dès la naissance"
       },
       {
         "id": "b3",
@@ -498,7 +536,8 @@
             "id": "l4",
             "label": "Prévention du rhumatisme articulaire aigu : antibiotique obligatoire"
           }
-        ]
+        ],
+        "detail": "Pharyngites : Virales avant 3 ans (adénovirus, coxsackie), Streptocoque A dès 3–5 ans : angine érythémato-pultacée, Différentiels : mononucléose, diphtérie selon le contexte"
       },
       {
         "id": "b4",
@@ -522,7 +561,8 @@
             "id": "l5",
             "label": "Hospitalisation + antibiothérapie IV + imagerie"
           }
-        ]
+        ],
+        "detail": "Complications : Orbitaires : œdème palpébral, proptose — urgence, Endocrâniennes : méningite, abcès, empyème, Abcès rétropharyngé et péri-amygdalien"
       },
       {
         "id": "b5",
@@ -546,7 +586,8 @@
             "id": "l6",
             "label": "Lutter contre l'antibiorésistance : épargner les antibiotiques"
           }
-        ]
+        ],
+        "detail": "Traitement et prévention : Virose : lavage de nez, paracétamol, hydratation — pas d'antibiotique, Éducation des parents : signes de reconsultation, Vaccins PEV, hygiène des mains, arrêt du tabagisme environnemental"
       }
     ]
   },

@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -270,14 +271,11 @@
           "term": "Toxoplasmose"
         },
         {
-          "key": "R",
-          "term": "Rubéole"
-        },
-        {
           "key": "H",
           "term": "Hépatite B (+ VIH proposé)"
         }
-      ]
+      ],
+      "id": "mn-s-rologies-pr-natales-obligatoires"
     },
     {
       "label": "TORCH élargi",
@@ -291,18 +289,11 @@
           "term": "Autres : syphilis, parvovirus B19, listériose, paludisme"
         },
         {
-          "key": "R",
-          "term": "Rubéole"
-        },
-        {
           "key": "C",
           "term": "Cytomégalovirus"
-        },
-        {
-          "key": "H",
-          "term": "Herpès"
         }
-      ]
+      ],
+      "id": "mn-torch-largi"
     },
     {
       "label": "Modes de transmission mère-enfant",
@@ -319,7 +310,8 @@
           "key": "P",
           "term": "Post-natale (allaitement, contact)"
         }
-      ]
+      ],
+      "id": "mn-modes-de-transmission-m-re-enfant"
     },
     {
       "label": "Mesures anti-toxoplasmose et listériose",
@@ -340,7 +332,8 @@
           "key": "M",
           "term": "Mains lavées après contact avec chats et terre"
         }
-      ]
+      ],
+      "id": "mn-mesures-anti-toxoplasmose-et-list-riose"
     }
   ],
   "flashcards": [
@@ -428,7 +421,8 @@
   "mindmap": {
     "root": {
       "id": "ig-root",
-      "label": "Infections et grossesse"
+      "label": "Infections et grossesse",
+      "detail": "Infections et grossesse : Classification, Dépistage prénatal, Diagnostic, Prise en charge, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -453,7 +447,8 @@
             "id": "ig-l3",
             "label": "Post-natale : VIH, hépatite B, CMV"
           }
-        ]
+        ],
+        "detail": "Classification : Transplacentaire"
       },
       {
         "id": "ig-b2",
@@ -477,7 +472,8 @@
             "id": "ig-l6",
             "label": "Toxoplasmose séronégative : sérologie mensuelle"
           }
-        ]
+        ],
+        "detail": "Dépistage prénatal : Premier trimestre"
       },
       {
         "id": "ig-b3",
@@ -501,7 +497,8 @@
             "id": "ig-l9",
             "label": "Échographie fœtale, IRM"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Sérologies et PCR"
       },
       {
         "id": "ig-b4",
@@ -525,7 +522,8 @@
             "id": "ig-l12",
             "label": "Antipalustres, antirétroviraux, valaciclovir"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Protocoles par agent"
       },
       {
         "id": "ig-b5",
@@ -549,7 +547,8 @@
             "id": "ig-l15",
             "label": "Prophylaxie du nouveau-né : VIH, hépatite B, herpès"
           }
-        ]
+        ],
+        "detail": "Prévention : Hygiène et vaccination"
       }
     ]
   },

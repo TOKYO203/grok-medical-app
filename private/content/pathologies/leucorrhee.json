@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -141,7 +142,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Salpingite à ne pas manquer",
-          "text": "Leucorrhées + douleur pelvienne + fièvre + douleur à la mobilisation utérine : infection génitale haute, antibiothérapie probabiliste et bilan IST urgents."
+          "text": "Leucorrhées + douleur pelvienne + fièvre + douleur à la mobilisation utérine : infection génitale haute, antibiothérapie probabiliste et bilan IST urgents.",
+          "type": "callout"
         }
       ]
     },
@@ -271,7 +273,8 @@
           "key": "G",
           "term": "Gonocoque, Chlamydia (cervicite)"
         }
-      ]
+      ],
+      "id": "mn-causes-infectieuses"
     },
     {
       "label": "Critères d'Amsel",
@@ -292,7 +295,8 @@
           "key": "C",
           "term": "Clue cells"
         }
-      ]
+      ],
+      "id": "mn-crit-res-d-amsel"
     },
     {
       "label": "Signes d'infection haute",
@@ -302,10 +306,6 @@
           "term": "Douleur pelvienne"
         },
         {
-          "key": "F",
-          "term": "Fièvre"
-        },
-        {
           "key": "M",
           "term": "douleur à la Mobilisation utérine"
         },
@@ -313,7 +313,8 @@
           "key": "S",
           "term": "Syndrome inflammatoire biologique"
         }
-      ]
+      ],
+      "id": "mn-signes-d-infection-haute"
     },
     {
       "label": "Traitement",
@@ -334,7 +335,8 @@
           "key": "T",
           "term": "Traitement de la cause (corps étranger, diabète)"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -422,7 +424,8 @@
   "mindmap": {
     "root": {
       "id": "lcr-root",
-      "label": "Leucorrhée"
+      "label": "Leucorrhée",
+      "detail": "Leucorrhée : Physiologique vs pathologique, Causes infectieuses, Examens, Traitement, Situations particulières — synthèse du référentiel."
     },
     "branches": [
       {
@@ -451,7 +454,8 @@
             "id": "lcr-b1-l4",
             "label": "Signes associés"
           }
-        ]
+        ],
+        "detail": "Physiologique vs pathologique : Caractériser"
       },
       {
         "id": "lcr-b2",
@@ -479,7 +483,8 @@
             "id": "lcr-b2-l4",
             "label": "Cervicite, salpingite"
           }
-        ]
+        ],
+        "detail": "Causes infectieuses : Basses ou hautes"
       },
       {
         "id": "lcr-b3",
@@ -507,7 +512,8 @@
             "id": "lcr-b3-l4",
             "label": "Frottis, échographie"
           }
-        ]
+        ],
+        "detail": "Examens : Démarche — Examens"
       },
       {
         "id": "lcr-b4",
@@ -535,7 +541,8 @@
             "id": "lcr-b4-l4",
             "label": "Antibiothérapie cervicite"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       },
       {
         "id": "lcr-b5",
@@ -563,7 +570,8 @@
             "id": "lcr-b5-l4",
             "label": "Ménopause atrophique"
           }
-        ]
+        ],
+        "detail": "Situations particulières : À ne pas manquer"
       }
     ]
   },

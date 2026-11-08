@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -130,7 +131,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Syncope à l'effort ou avec anomalie électrique",
-          "text": "Syncope survenant à l'effort, ou électrocardiogramme anormal (bloc, QT long, ondes Q) : syncope cardiaque à risque de mort subite — hospitalisation, monitorage, bilan cardiologique sans délai."
+          "text": "Syncope survenant à l'effort, ou électrocardiogramme anormal (bloc, QT long, ondes Q) : syncope cardiaque à risque de mort subite — hospitalisation, monitorage, bilan cardiologique sans délai.",
+          "type": "callout"
         }
       ]
     },
@@ -241,7 +243,8 @@
           "key": "C",
           "term": "Cardiaque : arythmie, obstacle"
         }
-      ]
+      ],
+      "id": "mn-trois-familles-de-syncope"
     },
     {
       "label": "Éliminer le diagnostic différentiel",
@@ -262,7 +265,8 @@
           "key": "P",
           "term": "Psychogène : faux syncopes, sans anomalie"
         }
-      ]
+      ],
+      "id": "mn-liminer-le-diagnostic-diff-rentiel"
     },
     {
       "label": "Bilan initial",
@@ -283,7 +287,8 @@
           "key": "B",
           "term": "Biologie : glycémie, hémogramme"
         }
-      ]
+      ],
+      "id": "mn-bilan-initial"
     },
     {
       "label": "Critères d'hospitalisation",
@@ -304,7 +309,8 @@
           "key": "A",
           "term": "Âge élevé, comorbidités, anémie"
         }
-      ]
+      ],
+      "id": "mn-crit-res-d-hospitalisation"
     }
   ],
   "flashcards": [
@@ -392,7 +398,8 @@
   "mindmap": {
     "root": {
       "id": "syn-root",
-      "label": "Lipothymie et syncope"
+      "label": "Lipothymie et syncope",
+      "detail": "Lipothymie et syncope : Définitions, Causes réflexes, Causes orthostatiques, Causes cardiaques, Prise en charge — synthèse du référentiel."
     },
     "branches": [
       {
@@ -421,7 +428,8 @@
             "id": "syn-b1-l4",
             "label": "Récupération complète"
           }
-        ]
+        ],
+        "detail": "Définitions : Positif et différentiel"
       },
       {
         "id": "syn-b2",
@@ -449,7 +457,8 @@
             "id": "syn-b2-l4",
             "label": "Bénin, conseils"
           }
-        ]
+        ],
+        "detail": "Causes réflexes : Les plus fréquentes"
       },
       {
         "id": "syn-b3",
@@ -477,7 +486,8 @@
             "id": "syn-b3-l4",
             "label": "Tension couché-debout"
           }
-        ]
+        ],
+        "detail": "Causes orthostatiques : Médicaments et volémie"
       },
       {
         "id": "syn-b4",
@@ -505,7 +515,8 @@
             "id": "syn-b4-l4",
             "label": "Hospitalisation, monitorage"
           }
-        ]
+        ],
+        "detail": "Causes cardiaques : À risque"
       },
       {
         "id": "syn-b5",
@@ -533,7 +544,8 @@
             "id": "syn-b5-l4",
             "label": "Conseils, contre-pression"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Bilan et traitement"
       }
     ]
   },

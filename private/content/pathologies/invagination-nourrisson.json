@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "C'est une urgence : l'obstruction puis l'ischémie mènent à la nécrose et à la perforation ; la réduction par lavement sous pression réussit dans la grande majorité des cas si le diagnostic est précoce."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Occlusion douloureuse du nourrisson",
+          "text": "Crises paroxystiques + vomissements + refus du biberon : échographie abdominale en urgence : chaque heure de retard augmente le risque de nécrose intestinale."
         }
       ]
     },
@@ -77,6 +84,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de gravité",
+          "text": "Péritonite, défense, choc, fièvre, rectorragies abondantes, hypo-activité : ischémie ou perforation probable : réanimation et chirurgie sans tentative de lavement réducteur."
         }
       ]
     },
@@ -95,6 +108,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Nourrisson 3 mois-2 ans : crises de pleurs avec pâleur, intervalles libres, vomissements : examiner l'abdomen (masse en saucisse ?), regarder les selles (glaires sanglantes ?), échographie : cocarde."
         }
       ]
     },
@@ -117,6 +136,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Pic : 6 à 9 mois, après virose.Léio-cacale le plus souvent, idiopathique.Crise douloureuse + vomissements + selles en chair de prune.Échographie : cocarde.Lavement réducteur en 1re intention, chirurgie si échec.Récidive : environ 10 %."
         }
       ]
     },
@@ -139,6 +164,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Enfant plus âgé : chercher la cause",
+          "text": "Au-delà de 2-3 ans, une invagination est souvent secondaire : diverticule de Meckel, polype, duplication, lymphome, purpura rhumatoïde : imagerie et avis chirurgical systématiques."
         }
       ]
     },
@@ -230,7 +261,8 @@
           "key": "R",
           "term": "Rectorragies (glaires sanglantes)"
         }
-      ]
+      ],
+      "id": "mn-triade-de-bayard"
     },
     {
       "label": "Échographie",
@@ -251,7 +283,8 @@
           "key": "D",
           "term": "Doppler : ischémie ?"
         }
-      ]
+      ],
+      "id": "mn-chographie"
     },
     {
       "label": "Traitement",
@@ -272,19 +305,12 @@
           "key": "C",
           "term": "Chirurgie si échec, péritonite"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     },
     {
       "label": "Causes secondaires",
       "entries": [
-        {
-          "key": "M",
-          "term": "Meckel"
-        },
-        {
-          "key": "P",
-          "term": "Polype"
-        },
         {
           "key": "D",
           "term": "Duplication"
@@ -293,7 +319,8 @@
           "key": "L",
           "term": "Lymphome, purpura"
         }
-      ]
+      ],
+      "id": "mn-causes-secondaires"
     }
   ],
   "flashcards": [
@@ -381,7 +408,8 @@
   "mindmap": {
     "root": {
       "id": "inv-root",
-      "label": "Invagination intestinale aiguë du nourrisson"
+      "label": "Invagination intestinale aiguë du nourrisson",
+      "detail": "Invagination intestinale aiguë du nourrisson : Terrain, Signes, Diagnostic, Traitement, Suites — synthèse du référentiel."
     },
     "branches": [
       {
@@ -410,7 +438,8 @@
             "id": "inv-b1-l4",
             "label": "Forme idiopathique"
           }
-        ]
+        ],
+        "detail": "Terrain : Nourrisson"
       },
       {
         "id": "inv-b2",
@@ -438,7 +467,8 @@
             "id": "inv-b2-l4",
             "label": "Masse en saucisse"
           }
-        ]
+        ],
+        "detail": "Signes : Triade + masse"
       },
       {
         "id": "inv-b3",
@@ -466,7 +496,8 @@
             "id": "inv-b3-l4",
             "label": "Gravité : péritonite"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Échographie"
       },
       {
         "id": "inv-b4",
@@ -494,7 +525,8 @@
             "id": "inv-b4-l4",
             "label": "Chirurgie si échec"
           }
-        ]
+        ],
+        "detail": "Traitement : Étagé — Traitement"
       },
       {
         "id": "inv-b5",
@@ -522,7 +554,8 @@
             "id": "inv-b5-l4",
             "label": "Information parents"
           }
-        ]
+        ],
+        "detail": "Suites : Surveillance"
       }
     ]
   },

@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -44,6 +45,12 @@
         {
           "type": "paragraph",
           "text": "La grossesse est une situation à risque d'infection urinaire (jusqu'à 18 % des grossesses selon les séries) : la dilatation urétérale, l'hypopéristaltisme à médiation hormonale (progestérone) et la compression des uretères par l'utérus gravide créent une stase urinaire. L'infection urinaire de la femme enceinte se présente sous trois formes : colonisation urinaire gravidique (bactériurie asymptomatique), cystite aiguë et pyélonéphrite aiguë. Sa particularité est d'exposer, en l'absence de traitement, à des complications maternelles (sepsis) et obstétricales (accouchement prématuré, faible poids de naissance) — d'où un dépistage et un traitement systématiques, contrairement à la femme non enceinte (voir la fiche Infections urinaires pour les généralités)."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Pyélonéphrite gravidique",
+          "text": "Fièvre avec frissons et douleur lombaire chez une femme enceinte : hospitalisation sans délai, antibiothérapie intraveineuse (céphalosporine de 3e génération), hydratation et surveillance obstétricale — risque de sepsis, de menace d'accouchement prématuré et d'hypotrophie."
         }
       ]
     },
@@ -58,6 +65,12 @@
         {
           "type": "paragraph",
           "text": "Formes cliniques. La colonisation urinaire gravidique (bactériurie asymptomatique) touche 2 à 10 % des femmes enceintes ; sans traitement, 20 à 40 % évoluent vers une pyélonéphrite aiguë, et elle ne disparaît pas spontanément contrairement à ce qu'on observe hors grossesse. La cystite aiguë gravidique associe signes fonctionnels urinaires et bactériurie. La pyélonéphrite aiguë gravidique est l'infection du haut appareil : c'est la complication la plus grave, pouvant évoluer vers le sepsis maternel, la coagulation intravasculaire disséminée et le syndrome de détresse respiratoire aiguë, et elle menace la grossesse (menace d'accouchement prématuré, hypotrophie)."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Sepsis sur infection urinaire",
+          "text": "Fièvre avec hypotension, oligurie, polypnée ou troubles de la conscience : choc septique jusqu'à preuve du contraire — hémocultures, antibiothérapie intraveineuse large et prise en charge en référence (lien avec la fiche État de choc)."
         }
       ]
     },
@@ -76,6 +89,12 @@
             "Risques obstétricaux : menace d'accouchement prématuré et accouchement prématuré, rupture prématurée des membranes, hypotrophie et faible poids de naissance, mort fœtale in utero (formes graves).",
             "Conséquence pratique : toute bactériurie, même asymptomatique, doit être traitée pendant la grossesse ; le streptocoque du groupe B dans les urines impose une antibioprophylaxie per-partum."
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe dépistage",
+          "text": "À chaque consultation prénatale : bandelette urinaire. Femme à risque (diabète, uropathie, antécédents) : ECBU à la première consultation puis mensuel dès le 4e mois. Toute positivité = ECBU avant l'antibiothérapie probabiliste."
         }
       ]
     },
@@ -102,6 +121,12 @@
             "s1",
             "s4"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Colonisation urinaire : bactériurie ≥ 100 000 UFC/mL sans signe — 2 à 10 % des grossesses, 20 à 40 % de pyélonéphrite si non traitée : toujours traiter. Cystite : 5 à 7 jours ; pyélonéphrite : 10 à 14 jours, hospitalisation et voie intraveineuse. ECBU de contrôle à 8–10 jours puis mensuel ; SGB dans les urines = prophylaxie per-partum."
         }
       ]
     },
@@ -132,6 +157,12 @@
         {
           "type": "paragraph",
           "text": "Surveillance et situations particulières. Après tout épisode : ECBU de contrôle 8 à 10 jours après la fin du traitement, puis ECBU mensuel jusqu'à l'accouchement (20 % de récidive). En cas de récidives ou de pyélonéphrite : traitement suppressif par céphalexine à faible dose quotidienne jusqu'à l'accouchement selon les protocoles. Streptocoque du groupe B dans les urines (quelle que soit la concentration) : antibioprophylaxie par amoxicilline ou pénicilline G pendant le travail pour prévenir l'infection néonatale (lien avec la fiche Infections bactériennes du nouveau-né). Boire abondamment, mictions fréquentes et traitement des leucorrhées complètent la prise en charge."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo antibiotiques",
+          "text": "Sûrs : céphalosporines, amoxicilline (si sensible), fosfomycine, pivmécillinam. Prudence : nitrofurantoïne (éviter 1er trimestre et dernier mois), triméthoprime-sulfaméthoxazole (éviter 1er trimestre et fin de grossesse, acide folique si obligatoire). Contre-indiqués : fluoroquinolones (toute la grossesse)."
         }
       ]
     },
@@ -227,7 +258,8 @@
           "key": "P",
           "term": "Pyélonéphrite aiguë : fièvre + douleur lombaire, hospitalisation"
         }
-      ]
+      ],
+      "id": "mn-formes-cliniques-bcp"
     },
     {
       "label": "Pourquoi la grossesse favorise (SDC)",
@@ -244,7 +276,8 @@
           "key": "C",
           "term": "Colonisation bactérienne favorisée (glycosurie, germe : Escherichia coli)"
         }
-      ]
+      ],
+      "id": "mn-pourquoi-la-grossesse-favorise-sdc"
     },
     {
       "label": "Surveillance après traitement (CTM)",
@@ -261,7 +294,8 @@
           "key": "M",
           "term": "Mesures associées : hydratation, mictions fréquentes, prophylaxie SGB au travail"
         }
-      ]
+      ],
+      "id": "mn-surveillance-apr-s-traitement-ctm"
     },
     {
       "label": "Antibiotiques selon le trimestre (SFP)",
@@ -278,7 +312,8 @@
           "key": "P",
           "term": "Proscrits : fluoroquinolones pendant toute la grossesse"
         }
-      ]
+      ],
+      "id": "mn-antibiotiques-selon-le-trimestre-sfp"
     }
   ],
   "flashcards": [
@@ -366,7 +401,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Infections urinaires et grossesse"
+      "label": "Infections urinaires et grossesse",
+      "detail": "Infections urinaires et grossesse : Formes, Diagnostic, Traitement, Risques, Surveillance — synthèse du référentiel."
     },
     "branches": [
       {
@@ -391,7 +427,8 @@
             "id": "b1l1",
             "label": "20–40 % de PNA si non traitée"
           }
-        ]
+        ],
+        "detail": "Formes : Colonisation : 2–10 %, Cystite aiguë, Pyélonéphrite : hospitalisation"
       },
       {
         "id": "b2",
@@ -419,7 +456,8 @@
             "id": "b2l1",
             "label": "Germes : E. coli, SGB"
           }
-        ]
+        ],
+        "detail": "Diagnostic : BU : leucocytes, nitrites, ECBU ≥ 100 000 UFC/mL, Dépistage : ECBU 1re consult si risque, Mensuel dès le 4e mois"
       },
       {
         "id": "b3",
@@ -447,7 +485,8 @@
             "id": "b3l1",
             "label": "Nitrofurantoïne, sulfamides : précautions de terme"
           }
-        ]
+        ],
+        "detail": "Traitement : Céphalosporines, amoxicilline, Cystite : 5–7 jours, PNA : 10–14 jours, IV, Quinolones contre-indiquées"
       },
       {
         "id": "b4",
@@ -475,7 +514,8 @@
             "id": "b4l1",
             "label": "Prophylaxie per-partum si SGB"
           }
-        ]
+        ],
+        "detail": "Risques : Sepsis, anémie, IRA, Prématurité, RPM, Hypotrophie, faible poids, Infection néonatale à SGB"
       },
       {
         "id": "b5",
@@ -503,7 +543,8 @@
             "id": "b5l1",
             "label": "Conseils : hydratation, mictions"
           }
-        ]
+        ],
+        "detail": "Surveillance : ECBU de contrôle 8–10 j, ECBU mensuel jusqu'à l'accouchement, Récidive : traitement suppressif, Rechercher un obstacle"
       }
     ]
   },
