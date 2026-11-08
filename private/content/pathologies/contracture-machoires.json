@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "C'est un motif fréquent en consultation de stomatologie, avec un retentissement majeur : alimentation, hygiène, parole, examens dentaires impossibles ; son traitement est souvent chirurgical."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Suspicion de tumeur",
+          "text": "Limitation progressive et unilatérale, tuméfaction rétromolaire ou jugale, saignement, adénopathie, altération de l'état général : biopsie et imagerie urgentes."
         }
       ]
     },
@@ -87,6 +94,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Retentissement nutritionnel",
+          "text": "Ouverture buccale très limitée : risque de dénutrition et de difficultés d'examen et de soins dentaires ; prise en charge nutritionnelle et bucco-dentaire adaptée."
         }
       ]
     },
@@ -108,6 +121,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Mesurer la distance inter-incisive, chercher un antécédent de traumatisme, d'infection, de chirurgie ou de radiothérapie, une fibrose cutanée, une tuméfaction rétromolaire, une douleur articulaire ; imagerie systématique."
         }
       ]
     },
@@ -130,6 +149,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Ancienne, depuis l'enfance, post-traumatique : ankylose temporo-mandibulaire.Sujet irradié : fibrose post-radique.Évolutive et unilatérale : tumeur jusqu'à preuve du contraire.Post-infectieuse : fibrose des masticateurs.Sans cause organique : psychogène, diagnostic d'élimination."
         }
       ]
     },
@@ -152,6 +177,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Distinguer trismus et contracture permanente",
+          "text": "Trismus : réflexe, transitoire, douloureux, réductible avec le traitement de la cause.Contracture permanente : fixée, non réductible, souvent indolore au repos, cause organique (ankylose, fibrose, tumeur)."
         }
       ]
     },
@@ -247,7 +278,8 @@
           "key": "T",
           "term": "Tumeur rétromolaire, nasopharynx"
         }
-      ]
+      ],
+      "id": "mn-causes-de-contracture-permanente"
     },
     {
       "label": "Anamnèse clé",
@@ -268,7 +300,8 @@
           "key": "I",
           "term": "Infection ancienne"
         }
-      ]
+      ],
+      "id": "mn-anamn-se-cl"
     },
     {
       "label": "Examen",
@@ -289,7 +322,8 @@
           "key": "C",
           "term": "Cicatrices, fibrose cutanée"
         }
-      ]
+      ],
+      "id": "mn-examen"
     },
     {
       "label": "Traitement",
@@ -310,7 +344,8 @@
           "key": "S",
           "term": "Suivi et prévention de récidive"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -398,7 +433,8 @@
   "mindmap": {
     "root": {
       "id": "cm-root",
-      "label": "Contracture permanente des mâchoires"
+      "label": "Contracture permanente des mâchoires",
+      "detail": "Contracture permanente des mâchoires : Définition, Causes, Démarche, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -427,7 +463,8 @@
             "id": "cm-b1-l4",
             "label": "Cause organique"
           }
-        ]
+        ],
+        "detail": "Définition : vs trismus"
       },
       {
         "id": "cm-b2",
@@ -455,7 +492,8 @@
             "id": "cm-b2-l4",
             "label": "Tumeur rétromolaire"
           }
-        ]
+        ],
+        "detail": "Causes : À classer — Causes"
       },
       {
         "id": "cm-b3",
@@ -483,7 +521,8 @@
             "id": "cm-b3-l4",
             "label": "Biopsie si tuméfaction"
           }
-        ]
+        ],
+        "detail": "Démarche : Étape par étape"
       },
       {
         "id": "cm-b4",
@@ -511,7 +550,8 @@
             "id": "cm-b4-l4",
             "label": "Traitement oncologique"
           }
-        ]
+        ],
+        "detail": "Traitement : Étiologique"
       },
       {
         "id": "cm-b5",
@@ -539,7 +579,8 @@
             "id": "cm-b5-l4",
             "label": "Suivi nutritionnel"
           }
-        ]
+        ],
+        "detail": "Prévention : Anticiper"
       }
     ]
   },

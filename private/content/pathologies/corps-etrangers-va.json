@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux situations : l'urgence vitale immédiate (obstruction, désobstruction sans délai, sans matériel) et le corps étranger intrabronchique ou laryngé (endoscopie sous anesthésie générale pour l'extraction, en urgence différée)."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Suffocation : obstruction complète",
+          "text": "Le sujet ne parle plus, ne tousse plus, cyanose : cinq claques dorsales, puis Heimlich (adulte, enfant) ; nourrisson : claques dorsales tête basse et compressions thoraciques ; ne jamais perdre de temps à chercher du matériel."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Pile bouton œsophagienne",
+          "text": "Brûlure caustique en quelques heures : extraction endoscopique en urgence absolue, même chez un enfant peu symptomatique."
         }
       ]
     },
@@ -102,6 +115,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Fausse route + accalmie + wheezing unilatéral ou toux persistante = corps étranger bronchique : radiographie inspiratoire-expiratoire puis endoscopie ; jamais d'extraction à l'aveugle, jamais faire vomir."
         }
       ]
     },
@@ -124,6 +143,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Nourrisson et petit enfant : arachides, graines, petits objets.Après la fausse route, accalmie trompeuse.Wheezing unilatéral, pneumopathie récidivante.Bronchoscopie rigide sous AG = référence.Obstruction : claques dorsales puis Heimlich."
         }
       ]
     },
@@ -146,6 +171,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Manœuvres selon l'âge",
+          "text": "Nourrisson : 5 claques dorsales tête basse + 5 compressions thoraciques. Enfant et adulte conscient : 5 claques dorsales + manœuvre de Heimlich. Victime inconsciente : réanimation, corps cherché sous vision directe."
         }
       ]
     },
@@ -241,7 +272,8 @@
           "key": "R",
           "term": "Réanimation si inconscient"
         }
-      ]
+      ],
+      "id": "mn-d-sobstruction"
     },
     {
       "label": "Signes bronchiques",
@@ -262,7 +294,8 @@
           "key": "C",
           "term": "Cyanose par accès"
         }
-      ]
+      ],
+      "id": "mn-signes-bronchiques"
     },
     {
       "label": "Terrain",
@@ -283,7 +316,8 @@
           "key": "D",
           "term": "Dysphagie neurologique"
         }
-      ]
+      ],
+      "id": "mn-terrain"
     },
     {
       "label": "Complications",
@@ -304,7 +338,8 @@
           "key": "G",
           "term": "Granulome, dilatation des bronches"
         }
-      ]
+      ],
+      "id": "mn-complications"
     }
   ],
   "flashcards": [
@@ -392,7 +427,8 @@
   "mindmap": {
     "root": {
       "id": "ceva-root",
-      "label": "Corps étrangers des voies aériennes"
+      "label": "Corps étrangers des voies aériennes",
+      "detail": "Corps étrangers des voies aériennes : Formes, Terrain, Urgence, Diagnostic, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -421,7 +457,8 @@
             "id": "ceva-b1-l4",
             "label": "Corps œsophagien"
           }
-        ]
+        ],
+        "detail": "Formes : De la banale à la fatale"
       },
       {
         "id": "ceva-b2",
@@ -449,7 +486,8 @@
             "id": "ceva-b2-l4",
             "label": "Prothèses dentaires"
           }
-        ]
+        ],
+        "detail": "Terrain : À risque — Terrain"
       },
       {
         "id": "ceva-b3",
@@ -477,7 +515,8 @@
             "id": "ceva-b3-l4",
             "label": "Nourrisson : compressions"
           }
-        ]
+        ],
+        "detail": "Urgence : Désobstruction"
       },
       {
         "id": "ceva-b4",
@@ -505,7 +544,8 @@
             "id": "ceva-b4-l4",
             "label": "Jamais d'extraction aveugle"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Après stabilisation"
       },
       {
         "id": "ceva-b5",
@@ -533,7 +573,8 @@
             "id": "ceva-b5-l4",
             "label": "Suites : surveillance, radio"
           }
-        ]
+        ],
+        "detail": "Traitement : Extraction"
       }
     ]
   },

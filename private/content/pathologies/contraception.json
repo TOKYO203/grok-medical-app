@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -49,6 +50,12 @@
         {
           "type": "paragraph",
           "text": "Pour le médecin, la contraception est une affaire de choix éclairé : il n'existe pas de « meilleure méthode » universelle, mais une méthode adaptée à chaque femme — selon son âge, ses habitudes de vie, son désir de grossesse future, son allaitement, ses comorbidités et ses préférences. La consultation contraceptive comporte toujours : un entretien, un examen clinique, une information loyale sur les bénéfices et les risques de chaque méthode, et un suivi."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes d'alerte sous œstroprogestative",
+          "text": "Douleur thoracique, essoufflement, céphalées brutales et intenses, troubles visuels, douleur et gonflement d'un mollet, hémiplégie : suspicion de thrombose ou d'accident vasculaire — arrêt immédiat de la pilule, avis médical urgent, bilan de thrombose. Ne jamais banaliser ces signes chez une utilisatrice de pilule."
         }
       ]
     },
@@ -75,6 +82,12 @@
         {
           "type": "paragraph",
           "text": "Les méthodes réversibles à longue durée d'action — implant et DIU — ont une efficacité comparable à la stérilisation tout en restant réversibles : ce sont les méthodes de premier choix chez la femme jeune, y compris nulligeste. La contraception hormonale se divise en combinée (œstrogène + progestatif : pilule, anneau, patch) et progestative seule (micro-pilule, implant, injectable, DIU hormonal) ; cette distinction gouverne les contre-indications : ce sont les œstrogènes qui portent le risque thrombotique."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "DIU et grossesse",
+          "text": "Retard de règles, algie pelvienne ou saignement anormal chez une porteuse de DIU : test de grossesse obligatoire. Une grossesse sur DIU expose à la grossesse extra-utérine — échographie pour localiser avant tout autre geste. Fils non vus au spéculum : ne pas tirer, explorer le canal cervical puis échographier (expulsion ou perforation)."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "Femmes à privilégier vers les méthodes progestatives seules ou non hormonales : tabac après 35 ans, migraine avec aura, antécédent thrombotique, HTA non contrôlée, allaitement < 6 semaines, obésité importante",
             "Le DIU au cuivre est la méthode de référence chez la femme qui ne souhaite pas d'hormones ; il est également trait des ménorragies fonctionnelles... à l'inverse, il peut les majorer"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : tension artérielle avant toute pilule",
+          "text": "Aucune prescription d'œstroprogestative sans avoir pris la tension artérielle et vérifié tabac, migraine et antécédents thrombotiques. Un seul chiffre de tension élevé ou une migraine avec aura contre-indique les œstrogènes : orienter vers un progestatif seul, un DIU ou le préservatif plutôt que de prendre le risque."
         }
       ]
     },
@@ -134,6 +153,12 @@
             "Injectable : rappel toutes les 13 semaines ; implant : 3 ans ; DIU cuivre : jusqu'à 10 ans",
             "Toujours associer le préservatif si risque d'infection sexuellement transmissible"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Méthodes les plus efficaces : implant, DIU et stérilisation (< 1 % d'échec), avant pilule et injectable (1–9 %), avant méthodes naturelles. Œstrogènes = risque thrombotique : contre-indiqués si thrombose, migraine avec aura, tabac après 35 ans, allaitement < 6 semaines. Progestatifs seuls : presque toujours possibles."
         }
       ]
     },
@@ -185,6 +210,12 @@
             "Urgence : lévonorgestrel 1,5 mg ≤ 72 h ; DIU cuivre ≤ 5 jours (le plus efficace)",
             "Post-partum : progestatifs seuls et DIU dès la sortie ; œstroprogestatifs seulement après 6 semaines"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo : contraception d'urgence",
+          "text": "Rapport non protégé : agir vite. Lévonorgestrel 1,5 mg en une prise, le plus tôt possible, jusqu'à 72 heures (efficacité dégressive avec le temps) ; DIU au cuivre jusqu'à 5 jours, la méthode la plus efficace. Pas d'abortif, pas dangereux en cas de grossesse déjà installée, mais ne remplace pas une contraception régulière : après la prise, démarrer immédiatement une méthode de fond et contrôler les règles."
         }
       ]
     },
@@ -284,7 +315,8 @@
           "key": "N",
           "term": "Naturelles et préservatif seul : > 9 % (peu efficaces seuls)"
         }
-      ]
+      ],
+      "id": "mn-hi-rarchie-d-efficacit-r-elle"
     },
     {
       "label": "Contre-indications aux œstroprogestatifs (catégorie 4)",
@@ -305,7 +337,8 @@
           "key": "H",
           "term": "HTA non contrôlée, cancer du sein, hépatopathie sévère, tabac après 35 ans"
         }
-      ]
+      ],
+      "id": "mn-contre-indications-aux-stroprogestatifs-cat-gorie-4"
     },
     {
       "label": "Conduite devant un oubli de pilule",
@@ -322,7 +355,8 @@
           "key": "2+",
           "term": "Deux oublis ou plus : écarter une grossesse, contraception d'urgence si rapport récent"
         }
-      ]
+      ],
+      "id": "mn-conduite-devant-un-oubli-de-pilule"
     },
     {
       "label": "Contraception du post-partum",
@@ -339,7 +373,8 @@
           "key": "Œ",
           "term": "Œstroprogestatifs : seulement après 6 semaines"
         }
-      ]
+      ],
+      "id": "mn-contraception-du-post-partum"
     }
   ],
   "flashcards": [
@@ -427,7 +462,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Contraception"
+      "label": "Contraception",
+      "detail": "Contraception : Méthodes hormonales, Méthodes non hormonales et définitives, Contre-indications et choix, Situations particulières, Santé publique à Madagascar — synthèse du référentiel."
     },
     "branches": [
       {
@@ -452,7 +488,8 @@
             "id": "l1",
             "label": "Efficacité réelle : 1–9 % selon l'observance"
           }
-        ]
+        ],
+        "detail": "Méthodes hormonales : Combinées : pilule, anneau, patch — risque thrombotique, Progestatives seules : micro-pilule, implant 3 ans, injectable 13 semaines, DIU hormonal : diminue les saignements"
       },
       {
         "id": "b2",
@@ -476,7 +513,8 @@
             "id": "l2",
             "label": "Implant et DIU : les plus efficaces (< 1 %)"
           }
-        ]
+        ],
+        "detail": "Méthodes non hormonales et définitives : DIU au cuivre : jusqu'à 10 ans, sans hormone, Préservatif : seule protection contre les IST, Stérilisation tubaire, vasectomie : définitives"
       },
       {
         "id": "b3",
@@ -500,7 +538,8 @@
             "id": "l3",
             "label": "Tension artérielle obligatoire avant pilule"
           }
-        ]
+        ],
+        "detail": "Contre-indications et choix : Œstroprogestatifs : thrombose, migraine avec aura, tabac > 35 ans, HTA, Progestatifs seuls : presque toujours possibles, Critères OMS : catégories 1 à 4"
       },
       {
         "id": "b4",
@@ -524,7 +563,8 @@
             "id": "l4",
             "label": "Post-urgence : démarrer une méthode de fond"
           }
-        ]
+        ],
+        "detail": "Situations particulières : Allaitement : aménorrhée lactationnelle 6 mois max, progestatifs et DIU dès la sortie, Oubli de pilule : < 12 h → simple ; > 12 h → préservatif 7 jours, Urgence : lévonorgestrel ≤ 72 h, DIU cuivre ≤ 5 jours"
       },
       {
         "id": "b5",
@@ -548,7 +588,8 @@
             "id": "l5",
             "label": "Chaque consultation = occasion de conseil"
           }
-        ]
+        ],
+        "detail": "Santé publique à Madagascar : Besoins non satisfaits importants, mortalité maternelle élevée, Offre gratuite ou à coût réduit : injectables, implants, DIU, préservatifs, Espacement des naissances ≥ 2 ans : vies sauvées"
       }
     ]
   },

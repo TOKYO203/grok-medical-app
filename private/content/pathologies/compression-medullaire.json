@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Le pronostic dépend de la rapidité du diagnostic (IRM urgente) et du traitement étiologique : un patient qui marche encore à l'admission a une forte chance de remarcher ; une paraplégie installée depuis des heures récupère mal."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rétention + paraparésie d'installation subaiguë",
+          "text": "Compression médullaire ou de la queue de cheval : IRM médullaire en urgence (dans les heures), avis neurochirurgical : le pronostic de la marche se joue sur le délai."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Patient cancéreux avec douleur rachidienne",
+          "text": "Douleur rachidienne intense, nocturne, chez un patient porteur d'un cancer : métastase compressive jusqu'à preuve du contraire : IRM urgente, dexaméthasone, discussion radiothérapie ou chirurgie."
         }
       ]
     },
@@ -105,6 +118,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Définir le niveau : examen moteur, sensitif (niveau), sphincter (toucher rectal) ; fièvre ? anticoagulants ? cancer ? ; IRM médullaire avec injection sans délai ; pas de manipulation inutile du rachis."
         }
       ]
     },
@@ -127,6 +146,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Douleur + niveau sensitif + déficit sous-lésionnel + rétention = compression médullaire.Métastase : cancer connu, douleur nocturne, déficit progressif.Abcès : fièvre, rachis raide, syndrome inflammatoire.Hématome : anticoagulants, début brutale.IRM = examen clé, chirurgie = traitement."
         }
       ]
     },
@@ -149,6 +174,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Règle du pronostic",
+          "text": "Marche conservée à l'admission : forte chance de remarcher. Paraplégie complète installée depuis plusieurs heures : récupération faible : agir avant la paralysie."
         }
       ]
     },
@@ -244,7 +275,8 @@
           "key": "H",
           "term": "Hématome (anticoagulants)"
         }
-      ]
+      ],
+      "id": "mn-causes"
     },
     {
       "label": "Signes lésionnels",
@@ -265,7 +297,8 @@
           "key": "S",
           "term": "Sphincters (rétention)"
         }
-      ]
+      ],
+      "id": "mn-signes-l-sionnels"
     },
     {
       "label": "Localisations",
@@ -286,7 +319,8 @@
           "key": "Q",
           "term": "Queue de cheval : selle, sciatiques"
         }
-      ]
+      ],
+      "id": "mn-localisations"
     },
     {
       "label": "Prise en charge",
@@ -307,7 +341,8 @@
           "key": "R",
           "term": "Rééducation précoce"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge"
     }
   ],
   "flashcards": [
@@ -395,7 +430,8 @@
   "mindmap": {
     "root": {
       "id": "cm2-root",
-      "label": "Compression médullaire non traumatique"
+      "label": "Compression médullaire non traumatique",
+      "detail": "Compression médullaire non traumatique : Signes, Localisations, Causes, Diagnostic, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -424,7 +460,8 @@
             "id": "cm2-b1-l4",
             "label": "Rétention urinaire"
           }
-        ]
+        ],
+        "detail": "Signes : Syndrome lésionnel"
       },
       {
         "id": "cm2-b2",
@@ -452,7 +489,8 @@
             "id": "cm2-b2-l4",
             "label": "Queue de cheval : selle"
           }
-        ]
+        ],
+        "detail": "Localisations : Selon le niveau"
       },
       {
         "id": "cm2-b3",
@@ -480,7 +518,8 @@
             "id": "cm2-b3-l4",
             "label": "Hématome (anticoagulants)"
           }
-        ]
+        ],
+        "detail": "Causes : À classer — Causes"
       },
       {
         "id": "cm2-b4",
@@ -508,7 +547,8 @@
             "id": "cm2-b4-l4",
             "label": "Biopsie si besoin"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Urgent — Diagnostic"
       },
       {
         "id": "cm2-b5",
@@ -536,7 +576,8 @@
             "id": "cm2-b5-l4",
             "label": "Rééducation précoce"
           }
-        ]
+        ],
+        "detail": "Traitement : Étiologique"
       }
     ]
   },

@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Infections à dermatophytes de la peau glabre et des plis : trois genres (Trichophyton, Microsporum, Epidermophyton) kératinophiles contaminant la couche cornée ; formes cliniques : herpès circiné de la peau glabre (placard annulaire à bord actif pustulo-vésiculeux avec décalottage centrifuge et épargne du centre), eczéma marginé de Hebra des plis inguinaux (bord arciforme en relief, extension scrotale possible jamais balanienne), intertrigo interdigitoplantaire « pied d'athlète » (porte d'entrée des érysipèles), teignes de l'enfant (tondante microsporique, trichophytique, inflammatoire = kerion), onyxis et périomyxis ; diagnostic clinique + prélèvement mycologique (KOH : filaments articulés, culture Sabouraud, examen des cheveux en lumière de Wood pour Microsporum) ; traitement : azolés ou allylamines topiques (terbinafine) 2-4 semaines, terbinafine orale ou itraconazole si atteinte étendue, onyxis ou teigne ; règles d'hygiène (serviettes, linge, séchage des plis, désinfection des sols en collectivité) ; pièges : corticoïdes (tinea incognito), impétigo, eczéma nummulaire, psoriasis inversé, erythrasma à Corynebacterium (lumière de Wood corail rouge).",
@@ -81,8 +82,10 @@
       "title": "Formes cliniques",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Peau glabre"
+          "type": "list",
+          "items": [
+            "Peau glabre"
+          ]
         },
         {
           "type": "list",
@@ -90,10 +93,6 @@
             "HERPÈS CIRCINÉ (tinea corporis) : placard érythémato-squameux annulaire ou polycyclique, à bord en relief pustulo-vésiculeux, décalotté, prurigineux, s'étendant de façon centrifuge avec clarification du centre ; siège : tronc, membres, visage, cou.",
             "Formes particulières : lésions multiples par auto-inoculation ; granulome de Majocchi (folliculaire, dermique) après rasage ; tinea incognito : lésion modifiée et étalée par les corticoïdes (bord flou, atrophie, poussées)."
           ]
-        },
-        {
-          "type": "heading",
-          "text": "Plis"
         },
         {
           "type": "list",
@@ -104,8 +103,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Phanères et enfant (pour savoir les reconnaître)"
+          "type": "list",
+          "items": [
+            "Phanères et enfant (pour savoir les reconnaître)"
+          ]
         },
         {
           "type": "list",
@@ -314,7 +315,8 @@
           "key": "G",
           "term": "Gants de toilette individuels + 2 cm au-delà du bord sous topique, 1-2 semaines de plus après guérison"
         }
-      ]
+      ],
+      "id": "mn-r-i-n-g"
     }
   ],
   "flashcards": [
@@ -387,7 +389,8 @@
   "mindmap": {
     "root": {
       "id": "dermato",
-      "label": "Dermatophytoses : peau glabre et plis"
+      "label": "Dermatophytoses : peau glabre et plis",
+      "detail": "Dermatophytoses : peau glabre et plis : Agents, Peau glabre, Plis, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -412,7 +415,8 @@
             "id": "b1l1",
             "label": "M. canis : chat, enfant"
           }
-        ]
+        ],
+        "detail": "Agents : Trichophyton, Microsporum, Epidermophyton, Anthropophiles / zoophiles / géophiles, Kératinases, chaleur + humidité"
       },
       {
         "id": "b2",
@@ -436,7 +440,8 @@
             "id": "b2l1",
             "label": "Épargne du centre"
           }
-        ]
+        ],
+        "detail": "Peau glabre : Herpès circiné : bord actif, Tinea incognito (corticoïdes), Granulome de Majocchi"
       },
       {
         "id": "b3",
@@ -460,7 +465,8 @@
             "id": "b3l1",
             "label": "Sécher les espaces interdigitaux"
           }
-        ]
+        ],
+        "detail": "Plis : Hebra : inguocrural, scrotum oui, gland non, Pied d'athlète : porte d'entrée érysipèle, Deux pieds, une main"
       },
       {
         "id": "b4",
@@ -488,7 +494,8 @@
             "id": "b4l1",
             "label": "Différentiels : eczéma, impétigo, erythrasma"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique : bord décalotté, KOH : filaments articulés, Culture Sabouraud, Wood : Microsporum vert"
       },
       {
         "id": "b5",
@@ -516,7 +523,8 @@
             "id": "b5l1",
             "label": "Topique : lésion + 2 cm, poursuivre 1-2 sem"
           }
-        ]
+        ],
+        "detail": "Traitement : Terbinafine topique 1-2 sem, Azolés 2-4 sem, Oral : terbinafine, itraconazole, Teigne : oral obligatoire"
       },
       {
         "id": "b6",
@@ -540,7 +548,8 @@
             "id": "b6l1",
             "label": "Érysipèles récidivants : traiter les pieds"
           }
-        ]
+        ],
+        "detail": "Prévention : Linge individuel, douches : sandales, Traiter animaux (M. canis), Teignes scolaires : fratrie + classe"
       }
     ]
   },
