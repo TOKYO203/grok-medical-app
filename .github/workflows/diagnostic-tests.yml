@@ -1,0 +1,54 @@
+name: Diagnostic tests
+
+# TEMPORAIRE — à supprimer une fois la suite RPC/webhook réparée (R7).
+# But : rendre visibles (en annotations publiques) les échecs exacts des
+# étapes non bloquantes de la CI : tests, typecheck, lint.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    name: Echecs visibles en annotations
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Tests scripts (.mjs)
+        run: |
+          node --test 'scripts/**/*.test.mjs' > /tmp/scripts-tests.log 2>&1 || true
+          grep -cE '^not ok ' /tmp/scripts-tests.log || true
+          grep -E '^not ok ' /tmp/scripts-tests.log | head -n 10 | sed 's/^not ok [0-9]* - /::error::script-test /'
+
+      - name: Tests src (.ts)
+        run: |
+          find src -name '*.test.ts' -print0 | xargs -0 node --experimental-strip-types --test > /tmp/src-tests.log 2>&1 || true
+          grep -cE '^not ok ' /tmp/src-tests.log || true
+          grep -E '^not ok ' /tmp/src-tests.log | head -n 10 | sed 's/^not ok [0-9]* - /::error::src-test /'
+
+      - name: Typecheck
+        run: |
+          npx tsc --noEmit > /tmp/typecheck.log 2>&1 || true
+          grep -cE 'error TS' /tmp/typecheck.log || true
+          grep -E 'error TS' /tmp/typecheck.log | head -n 10 | sed 's/^/::error::tsc /'
+
+      - name: Lint
+        run: |
+          npx eslint . > /tmp/lint.log 2>&1 || true
+          grep -cE '  error  ' /tmp/lint.log || true
+          grep -E '  error  ' /tmp/lint.log | head -n 10 | sed 's/^/::error::eslint /'
