@@ -1,0 +1,761 @@
+{
+  "schemaVersion": 1,
+  "diagnosticId": "DX-ADENOPATHIE-001",
+  "slug": "adenopathie",
+  "title": "Adénopathie superficielle",
+  "subtitle": "Orientation diagnostique — adulte, infectiologie et hématologie",
+  "objective": "Caractériser une adénopathie (siège, taille, consistance, évolution, contexte) afin de distinguer les causes infectieuses dominantes à Madagascar — tuberculose ganglionnaire, VIH, infections bactériennes — des hémopathies malignes et des métastases, et de poser l'indication de la ponction ou de la biopsie sans retard.",
+  "updatedAt": "2026-10-27",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "I. Introduction",
+      "summary": "Définir l'adénopathie et ses seuils de gravité.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Une adénopathie est un ganglion lymphatique anormal par sa taille, sa consistance ou son inflammation. Toutes les adénopathies ne se biopsient pas, mais certaines ne pardonnent pas d'attendre : la démarche consiste à trier."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Seuils utiles : un ganglion périphérique de plus de 1 cm, dur, fixé, ou augmentant de taille depuis plus de 4-6 semaines justifie une exploration.",
+            "Caractères suspects : dureté pierreuses, fixation aux plans profonds, caractère sus-claviculaire (métastase ou lymphome jusqu'à preuve du contraire), adénopathies multiples et symétriques.",
+            "Caractères rassurants : petite taille, mollesse, mobilité, sensibilité (infection aiguë), siège cervical ou inguinal isolé chez le sujet jeune.",
+            "À Madagascar, la tuberculose ganglionnaire est la première cause d'adénopathie chronique ; le VIH, les infections bactériennes et les lymphomes suivent."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signaux d'alarme",
+          "text": "Adénopathie sus-claviculaire, ganglion de plus de 2 cm dur et fixé, croissance rapide, fièvre prolongée avec sueurs et amaigrissement, hépatosplénomégalie : exploration histologique rapide."
+        },
+        {
+          "type": "paragraph",
+          "text": "Toute adénopathie s'analyse en contexte : âge, fièvre, amaigrissement, prurit après bain (Hodgkin), contage tuberculeux, comportement à risque, vaccination récente, morsure animale, lésion cutanée d'inoculation dans le territoire de drainage."
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Piège classique",
+          "text": "Une adénopathie jugée « bénigne » et traitée par plusieurs cures d'antibiotiques sans effet pendant des mois : l'antibiorésistance paradoxale signe presque toujours la tuberculose ganglionnaire ou le lymphome, jamais l'infection bactérienne banale."
+        }
+      ]
+    },
+    {
+      "id": "demarche",
+      "title": "II. Démarche diagnostique",
+      "summary": "Caractériser, contextualiser, prélever.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "L'examen décrit chaque ganglion : siège (cervical, axillaire, inguinal, sus-claviculaire), taille mesurée, consistance, mobilité, sensibilité, signes inflammatoires en regard, fistule ou abcès froid. On recherche l'adénopathie de drainage d'une lésion cutanée ou ORL du territoire."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Conduite immédiate",
+          "text": "1) Examen complet : tous les aires ganglionnaires, foie, rate, peau, ORL, seins et testicules. 2) Recherche de la porte d'entrée dans le territoire de drainage. 3) Si suspicion infectieuse aiguë : surveillance courte (10-14 jours) sous traitement de la cause. 4) Si signaux d'alarme ou persistance à 4-6 semaines : sérologie VIH, BK/GeneXpert, radiographie thoracique, puis ponction-biopsie ganglionnaire."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Aspect",
+            "Orientation",
+            "Action"
+          ],
+          "rows": [
+            [
+              "Aigu, inflammatoire, douloureux",
+              "Infection bactérienne du territoire",
+              "Traiter la porte d'entrée, surveiller 10-14 jours"
+            ],
+            [
+              "Chronique, ferme, indolore, cervical",
+              "Tuberculose ganglionnaire, toxoplasmose",
+              "VIH, BK/GeneXpert, ponction-biopsie, IDR"
+            ],
+            [
+              "Dur, fixé, sus-claviculaire",
+              "Métastase, lymphome",
+              "Biopsie ganglionnaire, imagerie, cytologie"
+            ],
+            [
+              "Multiples, symétriques, avec fièvre",
+              "VIH, lymphome, tuberculose disséminée",
+              "Sérologie VIH, NFS, biopsie si besoin"
+            ],
+            [
+              "Fistulisé, abcès froid",
+              "Tuberculose (scrofula), actinomycose",
+              "Ponction à l'aiguille fine, BK, biopsie"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Interrogatoire : vitesse d'installation, douleur, fièvre, sueurs nocturnes, amaigrissement, prurit, contage tuberculeux, vaccination BCG, morsure de chat (bartonellose), contact animal, comportement à risque, lésion cutanée, angines récentes, terrain VIH connu."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Première ligne : NFS-CRP, sérologie VIH (consentement), radiographie thoracique (médicastinal, miliaire), BK crachats si toux, IDR/IGRA selon disponibilité, sérologies selon contexte (toxoplasmose, hépatites).",
+            "Geste clé : la ponction à l'aiguille fine — simple, réalisable en première intention ; la biopsie ganglionnaire (exérèse) reste l'examen de référence en cas de doute, en prenant un ganglion cervical ou sus-claviculaire plutôt qu'inguinal.",
+            "Imagerie : échographie (siège, abcédation), TDM thoraco-abdominale si syndrome tumoral ou adénopathies profondes suspectes.",
+            "Selon histologie : antibiothérapie de la cause infectieuse, antituberculeux si granulome épithélioïde et nécrose caséeuse, orientation hématologique-oncologique si lymphome ou métastase (classification de Lugano pour le bilan d'extension)."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Le réflexe qui sauve",
+          "text": "Ne jamais biopsier un ganglion avant d'avoir éliminé une infection curable du territoire (dents, scalp, membre) : mais ne jamais laisser une adénopathie suspecte au-delà de 4-6 semaines sans prélèvement histologique."
+        }
+      ]
+    },
+    {
+      "id": "etiologie",
+      "title": "III. Synthèse étiologique",
+      "summary": "Infectieux, tumoral, général — par fréquence locale.",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Groupe",
+            "Causes",
+            "Arguments"
+          ],
+          "rows": [
+            [
+              "Bactérien aigu",
+              "Adénite du territoire (dents, peau, ORL)",
+              "Douleur, rougeur, porte d'entrée, régression sous traitement"
+            ],
+            [
+              "Tuberculose",
+              "Scrofula, adénopathies cervicales froides",
+              "Fistule, abcès froid, IDR, contexte, nécrose caséeuse"
+            ],
+            [
+              "VIH",
+              "Lymphadénopathie généralisée, opportunistes",
+              "Sérologie positive, fièvre, amaigrissement, multiples aires"
+            ],
+            [
+              "Viral et parasitaire",
+              "Mononucléose, CMV, toxoplasmose, bartonellose",
+              "Terrain, sérologies, morsure, angine"
+            ],
+            [
+              "Hémopathies",
+              "Hodgkin, lymphomes non hodgkiniens, leucémie",
+              "Prurit, fièvre de Pel-Ebstein, hépatosplénomégalie, NFS"
+            ],
+            [
+              "Métastases",
+              "Cancers ORL, thyroïde, sein, digestif",
+              "Sus-claviculaire, dur, fixé, lésion primitive à chercher"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "La localisation oriente : cervicales (ORL, TB, Hodgkin), sus-claviculaires (métastase abdominale ou thoracique, lymphome), axillaires (membre, sein), inguinales (membre, génital, IST).",
+            "Le rythme oriente : aigu douloureux (bactérien), subaigu (viral), chronique indolore (TB, lymphome), fistulisé (scrofula).",
+            "Le terrain oriente : sujet jeune cervical molle = bénin ; adulte > 40 ans sus-claviculaire = cancer jusqu'à preuve du contraire."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "prudence",
+          "title": "Adénopathie et VIH",
+          "text": "Toute adénopathie persistante chez un patient vivant avec le VIH n'est pas « logique » pour autant : lymphome, tuberculose et mycobactérioses doivent être documentés par prélèvement, pas couverts par des antibiotiques."
+        }
+      ]
+    },
+    {
+      "id": "traitement",
+      "title": "IV. Traitement & contexte Madagascar",
+      "summary": "Traiter la cause, documenter l'histologie.",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Adénite bactérienne : traitement de la porte d'entrée (dents, peau) ± antibiothérapie courte ciblée ; abcédation = drainage.",
+            "Tuberculose ganglionnaire : quadrithérapie selon le protocole national (la fistule et la régression lente sont fréquentes), dépistage des contacts, déclaration.",
+            "Toxoplasmose et bartonellose : traitement adapté selon le terrain (grossesse, VIH).",
+            "Lymphome : orientation hématologique, biopsie ganglionnaire complète (architecture indispensable), bilan d'extension selon la classification de Lugano, chimiothérapie selon protocole."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Diagnostic",
+            "Traitement",
+            "Suivi"
+          ],
+          "rows": [
+            [
+              "Adénite bactérienne",
+              "Porte d'entrée ± antibiotiques",
+              "Régression attendue en 10-14 jours"
+            ],
+            [
+              "Tuberculose ganglionnaire",
+              "Quadrithérapie antituberculeuse",
+              "Observance, fistule possible en cours"
+            ],
+            [
+              "VIH + opportuniste",
+              "Traitement de l'infection, ARV",
+              "Charge virale, CD4, réévaluation"
+            ],
+            [
+              "Lymphome",
+              "Biopsie, extension, chimiothérapie",
+              "Onco-hématologie, évaluation de réponse"
+            ],
+            [
+              "Métastase ganglionnaire",
+              "Bilan du primitif, avis oncologique",
+              "Selon le cancer primitif"
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Adénopathie > 1 cm depuis plus de 4-6 semaines, dure, fixée ou sus-claviculaire : sérologie VIH + BK + radiographie, puis ponction-biopsie sans retard. Une histologie vaut mieux que dix antibiotiques."
+        }
+      ]
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "cinq-c",
+      "label": "Les 5 C de l'examen",
+      "intro": "Décrire le ganglion en cinq points.",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Consistance (molle, ferme, pierreuse)"
+        },
+        {
+          "key": "C",
+          "term": "Contour et mobilité (fixé ou mobile)"
+        },
+        {
+          "key": "C",
+          "term": "Croissance depuis combien de temps"
+        },
+        {
+          "key": "C",
+          "term": "Contour du territoire : porte d'entrée"
+        },
+        {
+          "key": "C",
+          "term": "Contexte : fièvre, VIH, amaigrissement, contage"
+        }
+      ]
+    },
+    {
+      "id": "sus-claviculaire",
+      "label": "Sus-claviculaire = cancer",
+      "intro": "La règle d'or de la localisation.",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Droite : médiastin, poumon, œsophage"
+        },
+        {
+          "key": "G",
+          "term": "Gauche (ganglion de Troisier) : abdomen, testicule, pelvis"
+        },
+        {
+          "key": "B",
+          "term": "Biopsie sans attendre, jamais d'antibiotiques d'épreuve"
+        },
+        {
+          "key": "H",
+          "term": "Hodgkin ou métastase : les deux hypothèses à couvrir"
+        }
+      ]
+    },
+    {
+      "id": "triage",
+      "label": "Triage en 3 cas",
+      "intro": "Trois profils, trois rythmes.",
+      "entries": [
+        {
+          "key": "A",
+          "term": "Aigu douloureux : infection du territoire, surveillance courte"
+        },
+        {
+          "key": "B",
+          "term": "Bénin chronique : < 1 cm, mou, mobile, sujet jeune : surveiller"
+        },
+        {
+          "key": "C",
+          "term": "Craignable : dur, fixé, > 2 cm, sus-claviculaire : biopsie"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-01",
+      "front": "Quels caractères rendent une adénopathie suspecte ?",
+      "back": "Taille > 1 cm (surtout > 2 cm), consistance dure ou pierreuse, fixation aux plans profonds, siège sus-claviculaire, croissance progressive, contexte d'altération de l'état général.",
+      "tags": [
+        "définition"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "Pourquoi l'adénopathie sus-claviculaire est-elle un signal d'alarme ?",
+      "back": "Elle évoque une métastase (poumon, œsophage, abdomen, testicule côté gauche — ganglion de Troisier) ou un lymphome : biopsie sans attendre, jamais d'antibiotothérapie d'épreuve.",
+      "tags": [
+        "oncologie"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "Première cause d'adénopathie cervicale chronique à Madagascar ?",
+      "back": "La tuberculose ganglionnaire (scrofula) : ganglion ferme indolore, parfois abcès froid ou fistule — BK/GeneXpert, ponction-biopsie (granulome épithélioïde avec nécrose caséeuse), IDR.",
+      "tags": [
+        "contexte"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "Quelle conduite devant une adénopathie aiguë douloureuse ?",
+      "back": "Chercher la porte d'entrée du territoire de drainage (dents, peau, ORL), la traiter, surveiller 10-14 jours : la régression confirme l'adénite bactérienne banale.",
+      "tags": [
+        "méthode"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "Quel examen est le geste clé d'une adénopathie persistante ?",
+      "back": "La ponction à l'aiguille fine en première intention, puis la biopsie ganglionnaire (exérèse d'un ganglion cervical plutôt qu'inguinal) qui analyse l'architecture — indispensable au diagnostic de lymphome.",
+      "tags": [
+        "examens"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "Quel bilan minimal avant la biopsie d'une adénopathie ?",
+      "back": "Sérologie VIH avec consentement, NFS-CRP, radiographie thoracique, BK crachats si toux, recherche de la porte d'entrée — l'histologie s'interprète toujours avec le contexte.",
+      "tags": [
+        "examens",
+        "contexte"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "Fièvre prolongée, sueurs, prurit après le bain et adénopathies cervicales chez un jeune adulte : quelle hypothèse ?",
+      "back": "Maladie de Hodgkin : biopsie ganglionnaire (architecture), NFS, VS, puis bilan d'extension selon la classification de Lugano.",
+      "tags": [
+        "hémato"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "Adénopathies multiples symétriques avec fièvre et amaigrissement : quels diagnostics ?",
+      "back": "VIH (lymphadénopathie généralisée), tuberculose disséminée, lymphome : sérologie VIH, BK, biopsie d'un ganglion accessible.",
+      "tags": [
+        "infectieux",
+        "hémato"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "Que faire d'une adénopathie fistulisée à la peau ?",
+      "back": "Évoquer la scrofula tuberculeuse : ponction à l'aiguille fine (pas d'incision large), BK/GeneXpert, antituberculeux — la fistule cicatrise lentement sous traitement bien conduit.",
+      "tags": [
+        "contexte",
+        "chirurgie"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "Pourquoi ne pas traiter une adénopathie suspecte par des antibiotiques successifs ?",
+      "back": "Cela retarde le diagnostic (TB, lymphome, métastase), sélectionne des résistances et brouille l'histologie : après 4-6 semaines sans régression, le prélèvement s'impose.",
+      "tags": [
+        "piège",
+        "pharmaco"
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "id": "ad-root",
+      "label": "Adénopathie superficielle",
+      "detail": "Ganglion anormal par la taille, la consistance ou l'évolution. La démarche décrit le ganglion (les 5 C), cherche la porte d'entrée et le contexte (VIH, TB, terrain), puis fixe le moment du prélèvement : la ponction-biopsie est le pivot du dossier."
+    },
+    "branches": [
+      {
+        "id": "ad-caracteres",
+        "label": "Caractériser le ganglion",
+        "tone": "reflexe",
+        "detail": "Les 5 C : consistance, contour/mobilité, croissance, contour du territoire, contexte. Cette description seule oriente déjà 80 % des cas.",
+        "children": [
+          {
+            "id": "ad-ca-consistance",
+            "label": "Consistance",
+            "detail": "Molle = inflammation ; ferme = TB, toxoplasmose ; pierreuse = métastase ; élastique dense = lymphome.",
+            "leaves": [
+              {
+                "id": "ad-ca-co-pierreuse",
+                "label": "Pierreuse = métastase"
+              },
+              {
+                "id": "ad-ca-co-molle",
+                "label": "Molle = infection"
+              }
+            ]
+          },
+          {
+            "id": "ad-ca-mobilite",
+            "label": "Mobilité et fixation",
+            "detail": "Mobile = rassurant ; fixé aux plans profonds = suspect, biopsie.",
+            "leaves": [
+              {
+                "id": "ad-ca-mo-fixe",
+                "label": "Fixé = biopsie"
+              },
+              {
+                "id": "ad-ca-mo-mobile",
+                "label": "Mobile = surveiller"
+              }
+            ]
+          },
+          {
+            "id": "ad-ca-croissance",
+            "label": "Croissance et ancienneté",
+            "detail": "Plus de 4-6 semaines sans régression malgré le traitement de la porte d'entrée : prélèvement histologique.",
+            "leaves": [
+              {
+                "id": "ad-ca-cr-seuil",
+                "label": "Seuil : 4-6 semaines"
+              },
+              {
+                "id": "ad-ca-cr-rapide",
+                "label": "Rapide = urgence"
+              }
+            ]
+          },
+          {
+            "id": "ad-ca-siege",
+            "label": "Siège",
+            "detail": "Cervical (TB, Hodgkin, ORL), sus-claviculaire (métastase — Troisier à gauche), axillaire (membre, sein), inguinal (membre, génital, IST).",
+            "leaves": [
+              {
+                "id": "ad-ca-si-troisier",
+                "label": "Troisier = abdomen"
+              },
+              {
+                "id": "ad-ca-si-cervical",
+                "label": "Cervical : TB, Hodgkin"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ad-infectieux",
+        "label": "Causes infectieuses",
+        "tone": "prudence",
+        "detail": "Les pourvoyeurs locaux, du banal au grave : adénite bactérienne, tuberculose, VIH, viroses et parasitoses.",
+        "children": [
+          {
+            "id": "ad-in-bacterien",
+            "label": "Adénite bactérienne",
+            "detail": "Aiguë, douloureuse, porte d'entrée du territoire : traiter la cause et surveiller la régression en 10-14 jours.",
+            "leaves": [
+              {
+                "id": "ad-in-ba-porte",
+                "label": "Porte d'entrée"
+              },
+              {
+                "id": "ad-in-ba-delai",
+                "label": "Régression attendue"
+              }
+            ]
+          },
+          {
+            "id": "ad-in-tb",
+            "label": "Tuberculose ganglionnaire",
+            "detail": "Scrofula : ganglion cervical ferme indolore, abcès froid, fistule — première cause chronique à Madagascar.",
+            "leaves": [
+              {
+                "id": "ad-in-tb-caseum",
+                "label": "Nécrose caséeuse"
+              },
+              {
+                "id": "ad-in-tb-fistule",
+                "label": "Fistule possible"
+              }
+            ]
+          },
+          {
+            "id": "ad-in-vih",
+            "label": "VIH",
+            "detail": "Lymphadénopathie généralisée chronique ou opportuniste : sérologie avec consentement, prélèvement documenté.",
+            "leaves": [
+              {
+                "id": "ad-in-vi-sero",
+                "label": "Sérologie VIH"
+              },
+              {
+                "id": "ad-in-vi-generalisee",
+                "label": "Multiples aires"
+              }
+            ]
+          },
+          {
+            "id": "ad-in-viral",
+            "label": "Viral et parasitaire",
+            "detail": "Mononucléose, CMV, toxoplasmose (cervical), bartonellose (morsure de chat) : sérologies et contexte.",
+            "leaves": [
+              {
+                "id": "ad-in-vi-barton",
+                "label": "Morsure de chat"
+              },
+              {
+                "id": "ad-in-vi-toxo",
+                "label": "Toxoplasmose"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ad-tumoral",
+        "label": "Causes tumorales",
+        "tone": "urgence",
+        "detail": "Ce qui ne pardonne pas d'attendre : lymphome et métastase. La biopsie avec architecture fait le diagnostic.",
+        "children": [
+          {
+            "id": "ad-tu-hodgkin",
+            "label": "Hodgkin",
+            "detail": "Jeune adulte, prurit après bain, fièvre de Pel-Ebstein : biopsie ganglionnaire, extension selon Lugano.",
+            "leaves": [
+              {
+                "id": "ad-tu-ho-biopsie",
+                "label": "Biopsie avec architecture"
+              },
+              {
+                "id": "ad-tu-ho-prurit",
+                "label": "Prurit après bain"
+              }
+            ]
+          },
+          {
+            "id": "ad-tu-nhl",
+            "label": "Lymphomes non hodgkiniens",
+            "detail": "Adulte âgé ou VIH : croissance rapide, ganglions profonds, NFS — biopsie urgente, avis hématologique.",
+            "leaves": [
+              {
+                "id": "ad-tu-nh-vih",
+                "label": "VIH : risque accru"
+              },
+              {
+                "id": "ad-tu-nh-croissance",
+                "label": "Croissance rapide"
+              }
+            ]
+          },
+          {
+            "id": "ad-tu-metastase",
+            "label": "Métastases",
+            "detail": "Sus-claviculaire ou dur fixé : chercher le primitif (ORL, poumon, sein, thyroïde, abdomen, testicule).",
+            "leaves": [
+              {
+                "id": "ad-tu-me-primitif",
+                "label": "Chercher le primitif"
+              },
+              {
+                "id": "ad-tu-me-orl",
+                "label": "Examen ORL obligatoire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ad-bilan",
+        "label": "Bilan & prélèvement",
+        "tone": "reflexe",
+        "detail": "Du simple au geste : le timing du prélèvement est la décision la plus importante du dossier.",
+        "children": [
+          {
+            "id": "ad-bi-ligne1",
+            "label": "Première ligne",
+            "detail": "NFS-CRP, sérologie VIH, radiographie thoracique, BK si toux, IDR selon disponibilité, porte d'entrée.",
+            "leaves": [
+              {
+                "id": "ad-bi-l1-vih",
+                "label": "VIH systématique"
+              },
+              {
+                "id": "ad-bi-l1-radio",
+                "label": "Radio thoracique"
+              }
+            ]
+          },
+          {
+            "id": "ad-bi-ponction",
+            "label": "Ponction à l'aiguille fine",
+            "detail": "Simple et rapide : cytologie, recherche de BK, abcès froid ; ne remplace pas la biopsie si suspicion de lymphome.",
+            "leaves": [
+              {
+                "id": "ad-bi-po-cyto",
+                "label": "Cytologie + BK"
+              },
+              {
+                "id": "ad-bi-po-limite",
+                "label": "Insuffisante pour lymphome"
+              }
+            ]
+          },
+          {
+            "id": "ad-bi-biopsie",
+            "label": "Biopsie ganglionnaire",
+            "detail": "Exérèse d'un ganglion cervical ou sus-claviculaire complet : l'architecture fait le diagnostic de Hodgkin.",
+            "leaves": [
+              {
+                "id": "ad-bi-bi-cervical",
+                "label": "Cervical > inguinal"
+              },
+              {
+                "id": "ad-bi-bi-architecture",
+                "label": "Architecture indispensable"
+              }
+            ]
+          },
+          {
+            "id": "ad-bi-imagerie",
+            "label": "Imagerie",
+            "detail": "Échographie (abcédation), TDM thoraco-abdominale si adénopathies profondes ou bilan d'extension.",
+            "leaves": [
+              {
+                "id": "ad-bi-im-echo",
+                "label": "Échographie locale"
+              },
+              {
+                "id": "ad-bi-im-tdm",
+                "label": "TDM d'extension"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ad-triage",
+        "label": "Triage & décision",
+        "tone": "retenir",
+        "detail": "Trois profils, trois conduites : la bonne décision est un délai et un geste, pas une ordonnance.",
+        "children": [
+          {
+            "id": "ad-tr-aigu",
+            "label": "Aigu douloureux",
+            "detail": "Infection du territoire : traiter la porte d'entrée, surveiller 10-14 jours, revoir systématiquement.",
+            "leaves": [
+              {
+                "id": "ad-tr-aq-revoir",
+                "label": "Revoir à 14 jours"
+              },
+              {
+                "id": "ad-tr-aq-porte",
+                "label": "Traiter la cause"
+              }
+            ]
+          },
+          {
+            "id": "ad-tr-benin",
+            "label": "Petit, mou, mobile, jeune",
+            "detail": "Surveillance simple : mesurer, revoir, ne pas biopsier d'emblée ce qui a toutes les caractéristiques d'un ganglion réactif.",
+            "leaves": [
+              {
+                "id": "ad-tr-be-surveil",
+                "label": "Mesurer et revoir"
+              },
+              {
+                "id": "ad-tr-be-calm",
+                "label": "Pas de biopsie d'emblée"
+              }
+            ]
+          },
+          {
+            "id": "ad-tr-suspect",
+            "label": "Suspect",
+            "detail": "Dur, fixé, > 2 cm, sus-claviculaire, altération de l'état général : VIH, BK, radio, puis biopsie sans retard.",
+            "leaves": [
+              {
+                "id": "ad-tr-su-biopsie",
+                "label": "Biopsie sans retard"
+              },
+              {
+                "id": "ad-tr-su-bilan",
+                "label": "Bilan avant le geste"
+              }
+            ]
+          },
+          {
+            "id": "ad-tr-antibio",
+            "label": "Le piège des antibiotiques",
+            "detail": "Des cures répétées sans effet pendant des mois : c'est la signature de la TB ou du lymphome, pas d'une bactérie banale.",
+            "leaves": [
+              {
+                "id": "ad-tr-an-arret",
+                "label": "Arrêter les cures"
+              },
+              {
+                "id": "ad-tr-an-prelev",
+                "label": "Prélever"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Lugano classification — Lymphoma staging",
+      "citation": "Barrington SF et al. Role of imaging in the staging and response assessment of lymphoma: consensus of the ICML, Ann Oncol 2014;25(S1).",
+      "organization": "ICML / ESMO",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25113753/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "title": "WHO — Tuberculosis guidelines",
+      "citation": "WHO guidelines on tuberculosis preventive treatment, 2024 — programme mondial de lutte antituberculeuse.",
+      "organization": "OMS",
+      "year": 2024,
+      "url": "https://www.who.int/publications/i/item/9789240107243",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "title": "NCBI — Tuberculosis knowledge base",
+      "citation": "Tuberculosis — NCBI Bookshelf, WHO guidance summary (formes extrapulmonaires).",
+      "organization": "NCBI / OMS",
+      "year": 2021,
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK572344/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "title": "WHO — HIV",
+      "citation": "OMS — prise en charge de l'infection à VIH, pages directives.",
+      "organization": "OMS",
+      "year": 2025,
+      "url": "https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/hiv",
+      "verifiedAt": "2026-10-27"
+    }
+  ]
+}
