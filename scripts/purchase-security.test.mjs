@@ -60,7 +60,10 @@ test("payment replay protection binds a unique operator reference and proof dige
   assert.match(verificationMigration, /purchase_orders_payment_reference_unique_idx/);
   assert.match(verificationMigration, /purchase_orders_proof_digest_unique_idx/);
   assert.match(purchaseFlow, /crypto\.subtle\.digest\("SHA-256"/);
-  assert.match(serverOrders, /normalizePaymentReference/);
+  // 2026-11-08 : la normalisation de la référence opérateur vit dans
+  // helpers.server.ts (module *.server.ts, jamais importable côté client) ;
+  // purchase-orders.ts ne duplique plus un import mort pour satisfaire ce grep.
+  assert.match(sharedHelpers, /normalizePaymentReference/);
   assert.match(serverOrders, /proofDigest/);
   assert.match(serverOrders, /paymentReference/);
   assert.match(serverOrders, /demande idempotente correspond déjà à une autre offre/);
