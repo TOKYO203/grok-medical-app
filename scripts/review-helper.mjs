@@ -23,10 +23,12 @@ try {
     });
     console.log("");
   }
-} catch {}
+} catch {
+  /* JSON invalide : la fiche est traitée comme du texte brut */
+}
 
 // Posologies
-const posologies = text.match(/\d+([.,]\d+)?\s*(mg|µg|UI|mg\/kg)\b(?![\/\w])/gi) || [];
+const posologies = text.match(/\d+([.,]\d+)?\s*(mg|µg|UI|mg\/kg)\b(?![/\w])/gi) || [];
 if (posologies.length) {
   console.log("💊 POSOLOGIES (" + posologies.length + ") :");
   [...new Set(posologies)].forEach(p => console.log("   - " + p));

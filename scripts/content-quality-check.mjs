@@ -26,7 +26,7 @@ const FORBIDDEN_PATTERNS = [
 
 // Posologies CHIFFRÉES (mg, µg, UI, mg/kg) — on exclut les seuils biologiques (g/L, mmol/L)
 const POSOLOGY_PATTERNS = [
-  /\b\d+([.,]\d+)?\s*mg(?![\/\w])/gi,
+  /\b\d+([.,]\d+)?\s*mg(?![/\w])/gi,
   /\b\d+([.,]\d+)?\s*µg\b/gi,
   /\b\d+([.,]\d+)?\s*UI(?![\s/]|L|ml|mL|kg|m2)/gi,
   /\b\d+([.,]\d+)?\s*mg\s*\/\s*kg\b/gi,

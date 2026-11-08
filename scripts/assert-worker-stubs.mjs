@@ -76,7 +76,9 @@ if (isWorkerMode) {
     try {
       read = { path: candidate, content: await readFile(candidate, "utf8") };
       break;
-    } catch {}
+    } catch {
+      /* candidat absent : on essaie le suivant */
+    }
   }
   if (read === null) {
     console.error("[assert-worker-stubs] dist/_worker.js introuvable — le build est-il complet ?");
@@ -98,7 +100,9 @@ if (isWorkerMode) {
         console.warn(`[assert-worker-stubs] ⚠️ ${files.length} fichiers : le listing wrangler plateforme (3.x) plante au-delà de ~450. Migrer sur Workers (wrangler.jsonc + deploy-worker.yml).`);
       }
     }
-  } catch {}
+  } catch {
+    /* _worker.js est un fichier simple : rien de plus à additionner */
+  }
 }
 
 const mib = bytes / (1024 * 1024);
