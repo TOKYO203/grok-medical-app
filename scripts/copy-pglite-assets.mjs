@@ -10,6 +10,13 @@ export function copyPgliteAssets(
   root,
   { provider = process.env.NETLIFY === "true" ? "netlify" : "vercel" } = {},
 ) {
+  // Sur Cloudflare Pages (CF_PAGES=1), PGLite est stubbé et la sortie est dist/_worker.js.
+  // PGLite WASM n'est jamais exécuté sur workerd (DATABASE_URL requis en prod).
+  if (process.env.CF_PAGES === "1" || process.env.CF_PAGES === "true") {
+    console.log("[copy-pglite-assets] CF_PAGES détecté : PGLite est stubbé pour Cloudflare, copie ignorée.");
+    return;
+  }
+
   const sourceDir = join(root, "node_modules/@electric-sql/pglite/dist");
   const functionDir =
     provider === "netlify"
