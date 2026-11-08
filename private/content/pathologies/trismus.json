@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "En zone d'endémie ou chez un patient non vacciné, un trismus avec contractures diffuses est une urgence vitale : la porte d'entrée peut être minime ou passée inaperçue."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Tétanos à évoquer systématiquement",
+          "text": "Trismus + risus sardonicus + spasmes ou contractures diffuses + porte d'entrée + non-vaccination : réanimation, sérums antitétaniques, sédation ; urgence vitale."
         }
       ]
     },
@@ -86,6 +93,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Trismus fébrile avec tuméfaction",
+          "text": "Cellulite ou abcès dentaire : risque d'extension aux espaces cervicaux et de détresse respiratoire ; drainage et antibiothérapie, surveillance rapprochée."
         }
       ]
     },
@@ -107,6 +120,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Mesurer l'ouverture buccale, examiner la zone rétomolaire et les dents, chercher une tuméfaction et une fièvre, une porte d'entrée cutanée, le status vaccinal ; imagerie et avis odontologique ou ORL."
         }
       ]
     },
@@ -129,6 +148,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Jeune adulte, dent de sagesse, fièvre : périconarite ou cellulite. Non-vacciné, plaie, risus sardonicus : tétanos. Post-traumatisme : fracture mandibulaire. Chronique et progressif : tumeur ou fibrose radique. Douleur à la mastication avec craquements : articulation temporo-mandibulaire."
         }
       ]
     },
@@ -155,6 +180,12 @@
         {
           "type": "paragraph",
           "text": "Causes articulaires : antalgiques, anti-inflammatoires, gouttière ou attelle occlusale, kinésithérapie, arthrocentèse ou chirurgie selon l'étiologie ; causes traumatiques : réduction et ostéosynthèse des fractures ; causes tumorales : biopsies et traitement oncologique ; trismus post-radique : kinésithérapie précoce, dilatation, traitement de la douleur."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Causes de trismus",
+          "text": "D (Dentaire : sagesse, abcès, cellulite), T (Tétanos), A (Articulation temporo-mandibulaire), T (Traumatisme), T (Tumeur)."
         }
       ]
     },
@@ -239,10 +270,6 @@
           "term": "Dentaire (périconarite, cellulite)"
         },
         {
-          "key": "T",
-          "term": "Tétanos"
-        },
-        {
           "key": "A",
           "term": "Articulation temporo-mandibulaire"
         },
@@ -250,15 +277,12 @@
           "key": "T",
           "term": "Traumatisme, Tumeur"
         }
-      ]
+      ],
+      "id": "mn-causes-de-trismus"
     },
     {
       "label": "Signes du tétanos",
       "entries": [
-        {
-          "key": "T",
-          "term": "Trismus"
-        },
         {
           "key": "R",
           "term": "Risus sardonicus"
@@ -271,7 +295,8 @@
           "key": "S",
           "term": "Spasmes au stimulus"
         }
-      ]
+      ],
+      "id": "mn-signes-du-t-tanos"
     },
     {
       "label": "Démarche",
@@ -292,7 +317,8 @@
           "key": "I",
           "term": "Imagerie (panoramique, scanner)"
         }
-      ]
+      ],
+      "id": "mn-d-marche"
     },
     {
       "label": "Prise en charge odontogène",
@@ -313,7 +339,8 @@
           "key": "S",
           "term": "Surveillance respiratoire"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge-odontog-ne"
     }
   ],
   "flashcards": [
@@ -401,7 +428,8 @@
   "mindmap": {
     "root": {
       "id": "tri-root",
-      "label": "Trismus"
+      "label": "Trismus",
+      "detail": "Trismus : Causes locales, Tétanos, Autres causes, Démarche, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -430,7 +458,8 @@
             "id": "tri-b1-l4",
             "label": "Espaces masticateurs"
           }
-        ]
+        ],
+        "detail": "Causes locales : Odontogènes"
       },
       {
         "id": "tri-b2",
@@ -458,7 +487,8 @@
             "id": "tri-b2-l4",
             "label": "Non-vaccination"
           }
-        ]
+        ],
+        "detail": "Tétanos : Urgence vitale"
       },
       {
         "id": "tri-b3",
@@ -486,7 +516,8 @@
             "id": "tri-b3-l4",
             "label": "Fibrose post-radique"
           }
-        ]
+        ],
+        "detail": "Autres causes : À ne pas manquer"
       },
       {
         "id": "tri-b4",
@@ -514,7 +545,8 @@
             "id": "tri-b4-l4",
             "label": "Status vaccinal"
           }
-        ]
+        ],
+        "detail": "Démarche : Étape par étape"
       },
       {
         "id": "tri-b5",
@@ -542,7 +574,8 @@
             "id": "tri-b5-l4",
             "label": "Kinésithérapie d'ouverture"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

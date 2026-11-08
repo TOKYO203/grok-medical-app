@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux pièges : sous-estimer une contusion pulmonaire qui s'aggrave dans les heures, et méconnaître une lésion médiastinale ou un volet thoracique sous une douleur banalisée ; la démarche ABCDE et l'imagerie précoce guident tout."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Pneumothorax compressif",
+          "text": "Choc avec distension cervicale, abolition du murmure vésiculaire d'un côté : drainage thoracique immédiat sans attendre la radiographie : c'est un geste de sauvetage."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Élargissement médiastinal",
+          "text": "Décélération violente : rupture traumatique de l'aorte à suspecter : angio-TDM en urgence, contrôle tensionnel, chirurgie ou endoprothèse."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant tout thorax traumatique : auscultation des deux champs (murmure ? matité ?), palpation (emphysème, crépitation), pouls et tension, radiographie puis scanner ; toujours drainer un pneumothorax avant un transport aérien ou la ventilation."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Volet : respiration paradoxale, analgésie péridurale, ventilation si défaillance. Pneumothorax compressif : drainage immédiat. Hémothorax abondant : chirurgie. Emphysème sous-cutané extensif : rupture bronchique. Contusion pulmonaire : s'aggrave dans les heures, oxygéner."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Douleur costale : ne pas banaliser",
+          "text": "Fractures costales multiples : insuffisance respiratoire retardée par douleur et encombrement : analgésie forte, kinésithérapie, oxygénothérapie : prévenir la pneumopathie."
         }
       ]
     },
@@ -242,7 +273,8 @@
           "key": "E",
           "term": "Emphysème sous-cutané"
         }
-      ]
+      ],
+      "id": "mn-l-sions-pari-tales"
     },
     {
       "label": "Lésions pleuro-pulmonaires",
@@ -263,7 +295,8 @@
           "key": "D",
           "term": "Rupture diaphragmatique"
         }
-      ]
+      ],
+      "id": "mn-l-sions-pleuro-pulmonaires"
     },
     {
       "label": "Lésions médiastinales",
@@ -284,7 +317,8 @@
           "key": "O",
           "term": "Œsophage (rare)"
         }
-      ]
+      ],
+      "id": "mn-l-sions-m-diastinales"
     },
     {
       "label": "Prise en charge",
@@ -294,10 +328,6 @@
           "term": "Oxygéner"
         },
         {
-          "key": "D",
-          "term": "Drainer"
-        },
-        {
           "key": "A",
           "term": "Antalgiques forts (péridurale)"
         },
@@ -305,7 +335,8 @@
           "key": "K",
           "term": "Kinésithérapie respiratoire"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge"
     }
   ],
   "flashcards": [
@@ -393,7 +424,8 @@
   "mindmap": {
     "root": {
       "id": "tt-root",
-      "label": "Traumatismes fermés du thorax"
+      "label": "Traumatismes fermés du thorax",
+      "detail": "Traumatismes fermés du thorax : Paroi, Plèvre, poumon, Médiastin, Diagnostic, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -422,7 +454,8 @@
             "id": "tt-b1-l4",
             "label": "Emphysème sous-cutané"
           }
-        ]
+        ],
+        "detail": "Paroi : Lésions osseuses"
       },
       {
         "id": "tt-b2",
@@ -450,7 +483,8 @@
             "id": "tt-b2-l4",
             "label": "Rupture diaphragmatique"
           }
-        ]
+        ],
+        "detail": "Plèvre, poumon : À drainer"
       },
       {
         "id": "tt-b3",
@@ -478,7 +512,8 @@
             "id": "tt-b3-l4",
             "label": "Lésion œsophagienne"
           }
-        ]
+        ],
+        "detail": "Médiastin : À redouter"
       },
       {
         "id": "tt-b4",
@@ -506,7 +541,8 @@
             "id": "tt-b4-l4",
             "label": "Drainage si compressif"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Étagé — Diagnostic"
       },
       {
         "id": "tt-b5",
@@ -534,7 +570,8 @@
             "id": "tt-b5-l4",
             "label": "Chirurgie des lésions graves"
           }
-        ]
+        ],
+        "detail": "Traitement : Respiratoire et chirurgical"
       }
     ]
   },

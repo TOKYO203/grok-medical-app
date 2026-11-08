@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -49,6 +50,12 @@
         {
           "type": "paragraph",
           "text": "Longtemps considéré comme une maladie chronique incurable réservée à la chirurgie, l'ulcère duodénal a été radicalement transformé par deux révolutions : la découverte de Helicobacter pylori (1982), bactérie responsable de la grande majorité des cas, et celle des antisécrétoires puissants (IPP). Aujourd'hui, l'ulcère duodénal se guérit : éradiquer H. pylori et suspendre les anti-inflammatoires non stéroïdiens suffit à éviter la récidive dans la plupart des cas."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Perforation ulcéreuse",
+          "text": "Douleur épigastrique brutale en coup de poignard, contracture abdominale, abdomen de bois, état de choc : c'est une urgence chirurgicale absolue. Ne pas laisser jeûner un patient septique sans réanimation : transport immédiat au bloc."
         }
       ]
     },
@@ -67,6 +74,12 @@
         {
           "type": "paragraph",
           "text": "L'ulcère duodénal est deux à trois fois plus fréquent que l'ulcère gastrique. Il expose surtout au risque d'hémorragie digestive, première complication par ordre de fréquence et urgence thérapeutique majeure."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie digestive",
+          "text": "Hématémèse, méléna ou une chute inexpliquée de l'hémoglobine chez un ulcéreux : hospitalisation urgente, deux voies veineuses, remplacement volémique prudent, FOGD pour hémostase endoscopique dans les 24 heures."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "Facteurs favorisants : tabac (retard de cicatrisation, récidives), alcool, stress",
             "Causes rares à ne pas méconnaître : syndrome de Zollinger-Ellison (hypergastrinémie par tumeur pancréatique), hyperparathyroïdie, mastocytose systémique"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : rechercher H. pylori",
+          "text": "Tout ulcère duodénal justifie une recherche de Helicobacter pylori (biopsies antrales, test rapide à l'uréase, ou test non invasif si l'endoscopie manque). Éradiquer sans documenter expose au surtraitement ; ne pas éradiquer expose à la récidive."
         }
       ]
     },
@@ -129,6 +148,12 @@
             "FOGD : diagnostic de certitude, ulcère bulbaire (face antérieure ou postérieure), biopsies antrales",
             "Diagnostic différentiel : ulcère gastrique, gastrite, reflux gastro-œsophagien, pancréatopathie, colique hépatique"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Douleur épigastrique rythmée à jeun et nocturne, calmée par la nourriture = ulcère duodénal jusqu'à preuve du contraire. IPP double dose 4 semaines pour cicatriser, éradication de H. pylori pour guérir, arrêt des AINS pour éviter la récidive."
         }
       ]
     },
@@ -178,6 +203,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo : examen et régime",
+          "text": "L'examen physique est souvent normal dans l'ulcère simple : un examen normal n'élimine pas le diagnostic. Le « régime de l'ulcéreux » n'a plus d'intérêt ; seuls comptent les repas réguliers, l'arrêt du tabac et l'observance du traitement."
         }
       ]
     },
@@ -273,7 +304,8 @@
           "key": "A",
           "term": "Apaisée par l'Alimentation et les antisécrétoires"
         }
-      ]
+      ],
+      "id": "mn-rythme-de-la-douleur-duod-nale"
     },
     {
       "label": "Complications de l'ulcère duodénal",
@@ -294,7 +326,8 @@
           "key": "D",
           "term": "Douleur résistante au traitement (défense d'évoquer un cancer)"
         }
-      ]
+      ],
+      "id": "mn-complications-de-l-ulc-re-duod-nal"
     },
     {
       "label": "Trithérapie d'éradication classique",
@@ -311,7 +344,8 @@
           "key": "C",
           "term": "Clarithromycine 500 mg × 2/jour — 14 jours"
         }
-      ]
+      ],
+      "id": "mn-trith-rapie-d-radication-classique"
     },
     {
       "label": "Causes d'ulcère duodénal",
@@ -332,7 +366,8 @@
           "key": "Z",
           "term": "Zollinger-Ellison (rare, ulcères multiples et résistants)"
         }
-      ]
+      ],
+      "id": "mn-causes-d-ulc-re-duod-nal"
     }
   ],
   "flashcards": [
@@ -420,7 +455,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Ulcère duodénal chronique"
+      "label": "Ulcère duodénal chronique",
+      "detail": "Ulcère duodénal chronique : Définition et physiopathologie, Causes, Diagnostic, Complications, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -449,7 +485,8 @@
             "id": "l2",
             "label": "Prévalence H. pylori très élevée à Madagascar"
           }
-        ]
+        ],
+        "detail": "Définition et physiopathologie : Perte de substance franchissant la musculeuse, bulbe duodénal, Déséquilibre acidité / défenses muqueuses, Maladie acidopeptique, poussées et rémissions"
       },
       {
         "id": "b2",
@@ -473,7 +510,8 @@
             "id": "l3",
             "label": "Facteurs favorisants : tabac, alcool, stress"
           }
-        ]
+        ],
+        "detail": "Causes : Helicobacter pylori (>90 % des cas), AINS et aspirine, Rares : Zollinger-Ellison, hyperparathyroïdie"
       },
       {
         "id": "b3",
@@ -497,7 +535,8 @@
             "id": "l4",
             "label": "Examen physique souvent normal"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Douleur épigastrique rythmée : à jeun, nocturne, calmée par la nourriture, FOGD + biopsies antrales (test à l'uréase, histologie), Transit baryté si l'endoscopie manque ; test respiratoire à l'urée"
       },
       {
         "id": "b4",
@@ -521,7 +560,8 @@
             "id": "l5",
             "label": "Anémie hypochrome : ulcère hémorragique jusqu'à preuve du contraire"
           }
-        ]
+        ],
+        "detail": "Complications : Hémorragie : méléna, hématémèse — FOGD urgente, Perforation : chirurgie en urgence, Sténose : vomissements, dilatation ou chirurgie"
       },
       {
         "id": "b5",
@@ -549,7 +589,8 @@
             "id": "l7",
             "label": "Chirurgie réservée aux complications"
           }
-        ]
+        ],
+        "detail": "Traitement : IPP double dose 4 semaines, Éradication H. pylori : quadrithérapie 10–14 j ou trithérapie adaptée, Arrêt AINS, arrêt tabac"
       }
     ]
   },

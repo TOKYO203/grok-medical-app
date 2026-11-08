@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Définition : score de Glasgow inférieur ou égal à 8 après réanimation ; c'est une urgence vitale neurochirurgicale dont la prise en charge des 24 premières heures détermine le devenir."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Mydriase aréactive",
+          "text": "Un œil dilaté et figé chez un traumatisé crânien : engagement cérébral imminent : mannitol ou soluté hypertonique, ventilation, et évacuation chirurgicale sans délai : le pronostic se joue en minutes."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Glasgow inférieur ou égal à 8",
+          "text": "Coma post-traumatique : intubation, ventilation, maintien de la pression artérielle, puis scanner cérébral urgent : la précocité de la correction de l'hypoxie et de l'hypotension conditionne le pronostic."
         }
       ]
     },
@@ -102,6 +115,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant tout coma traumatique : score de Glasgow chiffré, pupilles, recherche d'un trauma (scalp, base du crâne, embarrure), rachis immobilisé, glycémie ; ne pas attribuer un coma au seul trauma avant d'avoir écarté hypoglycémie, intoxication, cause métabolique."
         }
       ]
     },
@@ -124,6 +143,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Hématome extradural : fracture temporale, intervalle lucide, lenticulaire au scanner : chirurgie. Hématome sous-dural : croissant, sujet âgé ou alcoolique : chirurgie. Contusions et œdème : réanimation. Hypoxie et hypotension : ennemis numéro un du cerveau traumatisé."
         }
       ]
     },
@@ -146,6 +171,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Anomalie pupillaire",
+          "text": "Pupille dilatée aréactive unilatérale : engagement du côté dilaté, urgence neurochirurgicale ; deux mydriases : pronostic très sombre ; toujours vérifier après sédation et immobilisation avant d'imputer au trauma."
         }
       ]
     },
@@ -241,15 +272,12 @@
           "key": "R",
           "term": "Rachis immobilisé"
         }
-      ]
+      ],
+      "id": "mn-valuation"
     },
     {
       "label": "Agression cérébrale secondaire",
       "entries": [
-        {
-          "key": "H",
-          "term": "Hypoxie"
-        },
         {
           "key": "H",
           "term": "Hypotension"
@@ -262,7 +290,8 @@
           "key": "H",
           "term": "Hyperthermie"
         }
-      ]
+      ],
+      "id": "mn-agression-c-r-brale-secondaire"
     },
     {
       "label": "Lésions au scanner",
@@ -283,7 +312,8 @@
           "key": "E",
           "term": "Embarrure"
         }
-      ]
+      ],
+      "id": "mn-l-sions-au-scanner"
     },
     {
       "label": "Cibles de la phase précoce",
@@ -304,7 +334,8 @@
           "key": "S",
           "term": "Scanner cérébral précoce"
         }
-      ]
+      ],
+      "id": "mn-cibles-de-la-phase-pr-coce"
     }
   ],
   "flashcards": [
@@ -392,7 +423,8 @@
   "mindmap": {
     "root": {
       "id": "tcg-root",
-      "label": "Traumatisme crânien grave"
+      "label": "Traumatisme crânien grave",
+      "detail": "Traumatisme crânien grave : Évaluation, Lésions, Urgences, Phase précoce, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -421,7 +453,8 @@
             "id": "tcg-b1-l4",
             "label": "Rachis immobilisé"
           }
-        ]
+        ],
+        "detail": "Évaluation : Clinique"
       },
       {
         "id": "tcg-b2",
@@ -449,7 +482,8 @@
             "id": "tcg-b2-l4",
             "label": "Lésions axonales"
           }
-        ]
+        ],
+        "detail": "Lésions : Scanner — Lésions"
       },
       {
         "id": "tcg-b3",
@@ -477,7 +511,8 @@
             "id": "tcg-b3-l4",
             "label": "Hématome compressif"
           }
-        ]
+        ],
+        "detail": "Urgences : Vitales — Urgences"
       },
       {
         "id": "tcg-b4",
@@ -505,7 +540,8 @@
             "id": "tcg-b4-l4",
             "label": "Sédation"
           }
-        ]
+        ],
+        "detail": "Phase précoce : Cibles"
       },
       {
         "id": "tcg-b5",
@@ -533,7 +569,8 @@
             "id": "tcg-b5-l4",
             "label": "Rééducation"
           }
-        ]
+        ],
+        "detail": "Traitement : Réanimation et chirurgie"
       }
     ]
   },

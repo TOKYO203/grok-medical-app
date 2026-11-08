@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux enjeux : ne pas aggraver une lésion médullaire par une mobilisation intempestive, et dépister une instabilité qui menace la moelle : l'immobilisation et la mobilisation en bloc font partie des gestes de sauvetage."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Déficit neurologique progressif",
+          "text": "Toute aggravation motrice, sensitive ou sphinctérienne : urgence : IRM si possible, réduction et décompression chirurgicale en urgence : chaque heure compte pour la moelle."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rachis cervical haut",
+          "text": "Lésion C1-C4 : détresse respiratoire (muscles respiratoires et intercostaux) : anticiper l'intubation, monitorage en soins intensifs, attention aux manipulations."
         }
       ]
     },
@@ -105,6 +118,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Tout traumatisme violent : rachis suspect jusqu'à preuve du contraire : collier, plan dur, log roll ; examen neurologique noté et répété ; scanner du rachis, IRM si déficit ; jamais mobiliser sans bloc."
         }
       ]
     },
@@ -127,6 +146,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Sièges : cervical bas (C5-C7) et thoraco-lombaire (T12-L1).Burst et luxations = instables, risque médullaire.Immobilisation + log roll dès la scène.Scanner (os) + IRM (moelle).Déficit : chirurgie de décompression.Pas d'hypotension : perfuser la moelle."
         }
       ]
     },
@@ -149,6 +174,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Prévention des complications du blessé médullaire",
+          "text": "E (Escarres : changements de position, support), T (Thrombose : anticoagulation), V (Voies urinaires : sonde, infections), R (Rééducation respiratoire et motrice) : les quatre axes des premières semaines."
         }
       ]
     },
@@ -244,7 +275,8 @@
           "key": "F",
           "term": "Fractures-luxations (déficit)"
         }
-      ]
+      ],
+      "id": "mn-types-de-fractures"
     },
     {
       "label": "Prise en charge précoce",
@@ -265,7 +297,8 @@
           "key": "E",
           "term": "Examen neurologique répété"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge-pr-coce"
     },
     {
       "label": "Conduite à tenir selon la stabilité",
@@ -286,7 +319,8 @@
           "key": "O",
           "term": "Ostéoporose : cimentoplastie"
         }
-      ]
+      ],
+      "id": "mn-conduite-tenir-selon-la-stabilit"
     },
     {
       "label": "Niveaux lésionnels",
@@ -307,7 +341,8 @@
           "key": "L",
           "term": "Lombaire : queue de cheval"
         }
-      ]
+      ],
+      "id": "mn-niveaux-l-sionnels"
     }
   ],
   "flashcards": [
@@ -395,7 +430,8 @@
   "mindmap": {
     "root": {
       "id": "tr-root",
-      "label": "Traumatisme du rachis"
+      "label": "Traumatisme du rachis",
+      "detail": "Traumatisme du rachis : Suspicion, Lésions, Imagerie, Traitement, Complications — synthèse du référentiel."
     },
     "branches": [
       {
@@ -424,7 +460,8 @@
             "id": "tr-b1-l4",
             "label": "Plongeon, chute"
           }
-        ]
+        ],
+        "detail": "Suspicion : Systématique"
       },
       {
         "id": "tr-b2",
@@ -452,7 +489,8 @@
             "id": "tr-b2-l4",
             "label": "Tassement ostéoporotique"
           }
-        ]
+        ],
+        "detail": "Lésions : Selon le type"
       },
       {
         "id": "tr-b3",
@@ -480,7 +518,8 @@
             "id": "tr-b3-l4",
             "label": "Bilan polytrauma"
           }
-        ]
+        ],
+        "detail": "Imagerie : Os et moelle"
       },
       {
         "id": "tr-b4",
@@ -508,7 +547,8 @@
             "id": "tr-b4-l4",
             "label": "Réanimation du blessé"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la stabilité"
       },
       {
         "id": "tr-b5",
@@ -536,7 +576,8 @@
             "id": "tr-b5-l4",
             "label": "Rééducation précoce"
           }
-        ]
+        ],
+        "detail": "Complications : À prévenir"
       }
     ]
   },

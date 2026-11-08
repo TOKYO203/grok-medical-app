@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux mondes : les tumeurs n'infiltrant pas le muscle (TVNIM), traitées par résection endoscopique et instillations, avec des récurrences fréquentes nécessitant une surveillance à vie ; et les tumeurs infiltrant le muscle (TVIM), dont le traitement est la cystectomie avec chimiothérapie."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hématurie macroscopique de l'adulte",
+          "text": "Toute hématurie macroscopique, surtout totale, indolore et résolutive, chez un sujet de plus de 40 ans : tumeur de la vessie jusqu'à preuve du contraire, même si le saignement cède et même après antibiothérapie."
         }
       ]
     },
@@ -76,6 +83,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rétention ou hématurie abondante",
+          "text": "Une tumeur peut se compliquer de rétention vésicale (caillots) ou d'une anémie : drainage, lavages vésicaux, transfusion si nécessaire, puis bilan sans délai."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Hématurie : préciser le moment du saignement dans les urines (initiale urétrale, terminale vésicale, totale vésicale ou rénale), l'âge, le tabagisme, les expositions professionnelles ; toujours un examen cytobactériologique, une cytologie, une échographie et une cystoscopie."
         }
       ]
     },
@@ -116,6 +135,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "TVNIM : résection + BCG ou mitomycine selon le risque, surveillance à vie. TVIM : cystectomie + curage + cisplatine néoadjuvant. Tabac : premier facteur. Cystoscopie : examen clé. Récidive fréquente : surveillance stricte."
         }
       ]
     },
@@ -138,6 +163,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "BCG intravésical",
+          "text": "Induction hebdomadaire puis entretien : c'est le traitement de fond des TVNIM de haut risque et du carcinome in situ ; effets secondaires : cystite, fièvre ; contre-indication : immunodépression, tuberculose évolutive."
         }
       ]
     },
@@ -218,10 +249,6 @@
       "label": "Facteurs de risque",
       "entries": [
         {
-          "key": "T",
-          "term": "Tabac"
-        },
-        {
           "key": "A",
           "term": "Amines aromatiques (profession)"
         },
@@ -233,7 +260,8 @@
           "key": "S",
           "term": "Schistosomiase"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     },
     {
       "label": "Bilan de l'hématurie",
@@ -249,12 +277,9 @@
         {
           "key": "C",
           "term": "Cystoscopie"
-        },
-        {
-          "key": "U",
-          "term": "Uro-TDM"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-l-h-maturie"
     },
     {
       "label": "TVNIM : traitement",
@@ -275,7 +300,8 @@
           "key": "S",
           "term": "Surveillance cystoscopique"
         }
-      ]
+      ],
+      "id": "mn-tvnim-traitement"
     },
     {
       "label": "TVIM : traitement",
@@ -296,7 +322,8 @@
           "key": "C",
           "term": "Chimiothérapie cisplatine"
         }
-      ]
+      ],
+      "id": "mn-tvim-traitement"
     }
   ],
   "flashcards": [
@@ -384,7 +411,8 @@
   "mindmap": {
     "root": {
       "id": "tv-root",
-      "label": "Tumeur de la vessie"
+      "label": "Tumeur de la vessie",
+      "detail": "Tumeur de la vessie : Découverte, Facteurs de risque, Diagnostic, Classification, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -413,7 +441,8 @@
             "id": "tv-b1-l4",
             "label": "Anémie (rare)"
           }
-        ]
+        ],
+        "detail": "Découverte : Signes d'appel"
       },
       {
         "id": "tv-b2",
@@ -441,7 +470,8 @@
             "id": "tv-b2-l4",
             "label": "Schistosomiase"
           }
-        ]
+        ],
+        "detail": "Facteurs de risque : Terrain"
       },
       {
         "id": "tv-b3",
@@ -469,7 +499,8 @@
             "id": "tv-b3-l4",
             "label": "RTUV + uro-TDM"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Étapes — Diagnostic"
       },
       {
         "id": "tv-b4",
@@ -497,7 +528,8 @@
             "id": "tv-b4-l4",
             "label": "Extension, ganglions"
           }
-        ]
+        ],
+        "detail": "Classification : Stades"
       },
       {
         "id": "tv-b5",
@@ -525,7 +557,8 @@
             "id": "tv-b5-l4",
             "label": "Sevrage tabagique"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le stade"
       }
     ]
   },

@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "La prise en charge va du geste de réduction en urgence au traitement chirurgical des lésions instables ou déplacées ; l'examen neurovasculaire systématique évite de manquer une lésion du nerf axillaire."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Luxation avec complications vasculo-nerveuses",
+          "text": "Absence de pouls, hématome expansif, anesthésie massive du bras : lésion axillaire ou du plexus : réduction urgente, avis chirurgie vasculaire, pas de réduction aveugle retardée."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Luxation à réduction impossible en dehors du bloc",
+          "text": "Réduction sous sédation encadrée ou anesthésie loco-régionale ; ne pas multiplier les tentatives douloureuses à vif : risque de fracture iatrogène et de lésion nerveuse."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant toute épaule traumatique : pouls, nerf axillaire (régiment des galons), pouvoirs des rotateurs ; radiographies de face et profil scapulaire avant réduction ; rechercher une fracture du trochiter et une luxation acromio-claviculaire associée."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Luxation antérieure : attitude en traiteur, réduction douce puis immobilisation 3 semaines (jeune).Récidive chez le jeune : stabilisation chirurgicale.Acromio-claviculaire : bosse, orthopédique le plus souvent.Fracture humérale déplacée : ostéosynthèse ou prothèse.Nerf axillaire : tester avant et après."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Rééducation de l'épaule",
+          "text": "R (Rotation externe interdite au début), E (Élévation progressive), P (Pendulaires précoces), A (Actifs du coude et du poignet dès le début) : rythme de reprise encadré par le chirurgien."
         }
       ]
     },
@@ -242,7 +273,8 @@
           "key": "C",
           "term": "Coiffe des rotateurs"
         }
-      ]
+      ],
+      "id": "mn-types-de-l-sions"
     },
     {
       "label": "Signes de la luxation antérieure",
@@ -263,7 +295,8 @@
           "key": "T",
           "term": "Tête humérale palpable en avant"
         }
-      ]
+      ],
+      "id": "mn-signes-de-la-luxation-ant-rieure"
     },
     {
       "label": "Complications",
@@ -284,7 +317,8 @@
           "key": "R",
           "term": "Récidive, instabilité"
         }
-      ]
+      ],
+      "id": "mn-complications"
     },
     {
       "label": "Traitement",
@@ -305,7 +339,8 @@
           "key": "S",
           "term": "Stabilisation chirurgicale si récidive"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -393,7 +428,8 @@
   "mindmap": {
     "root": {
       "id": "te-root",
-      "label": "Traumatisme de l'épaule"
+      "label": "Traumatisme de l'épaule",
+      "detail": "Traumatisme de l'épaule : Lésions, Sémiologie, Imagerie, Traitement, Suites — synthèse du référentiel."
     },
     "branches": [
       {
@@ -422,7 +458,8 @@
             "id": "te-b1-l4",
             "label": "Coiffe des rotateurs"
           }
-        ]
+        ],
+        "detail": "Lésions : Trois cadres"
       },
       {
         "id": "te-b2",
@@ -450,7 +487,8 @@
             "id": "te-b2-l4",
             "label": "Nerf axillaire à tester"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Signes clés"
       },
       {
         "id": "te-b3",
@@ -478,7 +516,8 @@
             "id": "te-b3-l4",
             "label": "Scanner / IRM si besoin"
           }
-        ]
+        ],
+        "detail": "Imagerie : Avant tout geste"
       },
       {
         "id": "te-b4",
@@ -506,7 +545,8 @@
             "id": "te-b4-l4",
             "label": "Chirurgie si instabilité"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le type"
       },
       {
         "id": "te-b5",
@@ -534,7 +574,8 @@
             "id": "te-b5-l4",
             "label": "Rééducation encadrée"
           }
-        ]
+        ],
+        "detail": "Suites : À surveiller"
       }
     ]
   },
