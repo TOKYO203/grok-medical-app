@@ -12,6 +12,7 @@ const [
   verificationMigration,
   stateMachineMigration,
   issueKey,
+  sharedHelpers,
 ] = await Promise.all([
   read("../src/lib/purchase-orders.ts"),
   read("../src/components/premium-purchase-flow.tsx"),
@@ -21,6 +22,7 @@ const [
   read("../migrations/0010_purchase_verification.sql"),
   read("../migrations/0011_purchase_state_machine.sql"),
   read("./issue-activation-key.mjs"),
+  read("../src/features/purchase/shared/helpers.server.ts"),
 ]);
 
 test("purchase ownership comes only from verified auth context", () => {
@@ -31,7 +33,7 @@ test("purchase ownership comes only from verified auth context", () => {
 });
 
 test("commercial reference, product and amount are server generated", () => {
-  assert.match(serverOrders, /randomBytes\(4\)/);
+  assert.match(sharedHelpers, /randomBytes\(4\)/);
   assert.match(serverOrders, /orderProduct\(order\)/);
   assert.match(serverOrders, /orderAmount\(order\)/);
   assert.match(serverOrders, /clientRequestId/);
@@ -46,9 +48,9 @@ test("Mobile Money destination is server-configured and checkout fails closed wh
     "MOBILE_MONEY_ACCOUNT_NAME",
     "MOBILE_MONEY_INSTRUCTIONS",
   ]) {
-    assert.match(serverOrders, new RegExp(variable));
+    assert.match(sharedHelpers, new RegExp(variable));
   }
-  assert.match(serverOrders, /configured:\s*Boolean\(provider && destination\)/);
+  assert.match(sharedHelpers, /configured:\s*Boolean\(provider && destination\)/);
   assert.match(purchaseFlow, /getPremiumPaymentInstructions/);
   assert.match(purchaseFlow, /!paymentInstructions\?\.configured/);
   assert.doesNotMatch(purchaseFlow, /03\d{8}|032\d{7}|033\d{7}|034\d{7}|038\d{7}/);
@@ -61,7 +63,8 @@ test("payment replay protection binds a unique operator reference and proof dige
   assert.match(serverOrders, /normalizePaymentReference/);
   assert.match(serverOrders, /proofDigest/);
   assert.match(serverOrders, /paymentReference/);
-  assert.match(serverOrders, /déjà liée à une autre commande/);
+  assert.match(serverOrders, /demande idempotente correspond déjà à une autre offre/);
+  assert.match(sharedHelpers, /duplicatePaymentEvidence/);
 });
 
 test("database enforces the canonical commercial state machine", () => {
@@ -76,7 +79,7 @@ test("database enforces the canonical commercial state machine", () => {
 test("clients cannot self-authorize payment verification or delivery", () => {
   assert.match(serverOrders, /clientStatusSchema/);
   assert.match(serverOrders, /verification_pending/);
-  assert.match(serverOrders, /PURCHASE_ADMIN_USER_IDS/);
+  assert.match(sharedHelpers, /PURCHASE_ADMIN_USER_IDS/);
   assert.match(serverOrders, /requirePurchaseAdmin/);
   assert.match(serverOrders, /payment_verified/);
   assert.doesNotMatch(purchaseFlow, /status:\s*["']payment_verified["']/);

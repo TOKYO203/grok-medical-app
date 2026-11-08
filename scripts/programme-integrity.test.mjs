@@ -94,7 +94,13 @@ test("chaque programme est cohérent : sections, numérotation, identifiants, to
 
       section.items.forEach((item, index) => {
         const itemWhere = `${sectionWhere}#${index}`;
-        assert.equal(item.n, index + 1, `${itemWhere} : numérotation non séquentielle (n=${item.n})`);
+        // La numérotation est celle du référentiel officiel : elle peut avoir des
+        // trous (items retirés du concours), mais doit rester strictement
+        // croissante au sein d'une section.
+        assert.ok(
+          index === 0 || item.n > section.items[index - 1].n,
+          `${itemWhere} : numérotation non croissante (n=${item.n})`,
+        );
         assert.ok(item.id?.trim(), `${itemWhere} : id manquant`);
         assert.ok(
           item.title?.trim().length >= 3,

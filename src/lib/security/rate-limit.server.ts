@@ -62,7 +62,8 @@ async function rateLimitUpstash(key: string, max: number, windowMs: number): Pro
       ]),
     });
     if (!res.ok) return null;
-    const data = (await res.json()) as Array<{ result: number }>;
+    const data = (await res.json()) as Array<{ result?: number; error?: unknown }>;
+    if (data[0] !== undefined && "error" in data[0]) return null;
     const count = Number(data[0]?.result ?? 0);
     const pttl = Number(data[2]?.result ?? windowMs);
     const resetAt = Date.now() + Math.max(0, pttl);

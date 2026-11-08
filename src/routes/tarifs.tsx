@@ -164,7 +164,6 @@ function TarifsPage() {
        déconnexions : y réagir par une redirection rejouerait exactement le
        symptôme de « double authentification » corrigé en AUTH-8. */
     const gate = decideCardAuthGate(authStatus, Boolean(session?.access_token));
-    console.log("[checkout] called", { paying, gate, authStatus, hasToken: Boolean(session?.access_token), cardReady });
     if (gate === "login") {
       void navigate({ to: "/login" });
       return;

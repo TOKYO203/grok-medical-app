@@ -82,6 +82,21 @@ export const DECK_MEDICAL_REVIEW: Record<string, DeckMedicalReview> = {
   "neuro-epi-l4": { status: "structural_only", verifiedAt: null },
   "neuro-epi-l5": { status: "structural_only", verifiedAt: null },
   "neuro-epi-int": { status: "structural_only", verifiedAt: null },
+  "infectio-rougeole-l2": { status: "structural_only", verifiedAt: null },
+  "infectio-rougeole-l3": { status: "structural_only", verifiedAt: null },
+  "infectio-rougeole-l4": { status: "structural_only", verifiedAt: null },
+  "infectio-rougeole-l5": { status: "structural_only", verifiedAt: null },
+  "infectio-rougeole-int": { status: "structural_only", verifiedAt: null },
+  "infectio-tetanos-l2": { status: "structural_only", verifiedAt: null },
+  "infectio-tetanos-l3": { status: "structural_only", verifiedAt: null },
+  "infectio-tetanos-l4": { status: "structural_only", verifiedAt: null },
+  "infectio-tetanos-l5": { status: "structural_only", verifiedAt: null },
+  "infectio-tetanos-int": { status: "structural_only", verifiedAt: null },
+  "infectio-vih-l2": { status: "structural_only", verifiedAt: null },
+  "infectio-vih-l3": { status: "structural_only", verifiedAt: null },
+  "infectio-vih-l4": { status: "structural_only", verifiedAt: null },
+  "infectio-vih-l5": { status: "structural_only", verifiedAt: null },
+  "infectio-vih-int": { status: "structural_only", verifiedAt: null },
 };
 
 export const REVIEW_STATUS_LABEL: Record<MedicalReviewStatus, string> = {

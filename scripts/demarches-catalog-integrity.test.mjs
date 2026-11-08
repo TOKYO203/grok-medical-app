@@ -181,7 +181,6 @@ test("chaque démarche disponible est complète et rattachée au bon QCM", async
         assert.match(source.verifiedAt, /^\d{4}-\d{2}-\d{2}$/, `${entry.file}: date de vérification invalide`);
       }
     }
-  }
   } catch (error) {
     ficheFailures.push(`${entry.file}: ${String(error.message).split("\n")[0]}`);
   }

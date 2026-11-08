@@ -32,6 +32,7 @@ const [
   migration0009,
   migration0010,
   migration0011,
+  sharedHelpers,
 ] = await Promise.all([
   read("../src/lib/purchase-orders.ts"),
   read("../src/content/purchase-order.ts"),
@@ -41,6 +42,7 @@ const [
   read("../migrations/0009_purchase_orders.sql"),
   read("../migrations/0010_purchase_verification.sql"),
   read("../migrations/0011_purchase_state_machine.sql"),
+  read("../src/features/purchase/shared/helpers.server.ts"),
 ]);
 
 /** Source sans commentaires : un test ne doit pas échouer sur sa documentation. */
@@ -248,7 +250,7 @@ test("la référence d'abonnement est distincte et validée partout", () => {
   const domainCode = stripComments(domain);
 
   // Le serveur n'écrit plus « CMD- » en dur : il prend le préfixe du domaine.
-  assert.match(server, /purchaseReferencePrefix\(/);
+  assert.match(sharedHelpers, /purchaseReferencePrefix\(/);
   assert.doesNotMatch(server, /\/\^CMD-\[A-Z0-9\]\+-/);
   // Le format accepté couvre les deux familles, et seulement elles.
   assert.match(domainCode, /PURCHASE_REFERENCE_PATTERN = \/\^CMD-\(\?:SUB-\)\?\[A-Z0-9\]\+-\[A-F0-9\]\{8\}\$\//);
