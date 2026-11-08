@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -273,7 +274,8 @@
           "key": "C",
           "term": "Cardiaque : QT court, arythmies"
         }
-      ]
+      ],
+      "id": "mn-signes-cliniques"
     },
     {
       "label": "Étiologies",
@@ -294,7 +296,8 @@
           "key": "G",
           "term": "Granulomatoses et endocrinopathies"
         }
-      ]
+      ],
+      "id": "mn-tiologies"
     },
     {
       "label": "Bilan minimal",
@@ -315,7 +318,8 @@
           "key": "E",
           "term": "Électrocardiogramme si forme symptomatique"
         }
-      ]
+      ],
+      "id": "mn-bilan-minimal"
     },
     {
       "label": "Traitement de l'urgence",
@@ -336,7 +340,8 @@
           "key": "4",
           "term": "Dénosumab ou dialyse si échec"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-l-urgence"
     }
   ],
   "flashcards": [
@@ -424,7 +429,8 @@
   "mindmap": {
     "root": {
       "id": "hc-root",
-      "label": "Hypercalcémies"
+      "label": "Hypercalcémies",
+      "detail": "Hypercalcémies : Définition, Clinique, Étiologies, Traitement de l'urgence, Traitement de la cause — synthèse du référentiel."
     },
     "branches": [
       {
@@ -449,7 +455,8 @@
             "id": "hc-l1-3",
             "label": "Calcémie corrigée sur l'albuminémie"
           }
-        ]
+        ],
+        "detail": "Définition : Seuils — Définition"
       },
       {
         "id": "hc-b2",
@@ -477,7 +484,8 @@
             "id": "hc-l2-4",
             "label": "QT court, arythmies"
           }
-        ]
+        ],
+        "detail": "Clinique : Signes selon la gravité"
       },
       {
         "id": "hc-b3",
@@ -505,7 +513,8 @@
             "id": "hc-l3-4",
             "label": "Granulomatoses, endocrinopathies"
           }
-        ]
+        ],
+        "detail": "Étiologies : Parathormone : l'examen clé"
       },
       {
         "id": "hc-b4",
@@ -533,7 +542,8 @@
             "id": "hc-l4-4",
             "label": "Dénosumab, dialyse si échec"
           }
-        ]
+        ],
+        "detail": "Traitement de l'urgence : Ordre des mesures"
       },
       {
         "id": "hc-b5",
@@ -561,7 +571,8 @@
             "id": "hc-l5-4",
             "label": "Surveillance et hydratation"
           }
-        ]
+        ],
+        "detail": "Traitement de la cause : Étiologique"
       }
     ]
   },

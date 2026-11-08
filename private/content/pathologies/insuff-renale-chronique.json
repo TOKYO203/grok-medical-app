@@ -91,23 +91,67 @@
         },
         {
           "type": "table",
-          "columns": ["Stade", "Débit estimé (mL/min/1,73 m²)", "Catégorie"],
+          "columns": [
+            "Stade",
+            "Débit estimé (mL/min/1,73 m²)",
+            "Catégorie"
+          ],
           "rows": [
-            ["G1", "≥ 90 avec anomalie rénale", "Fonction préservée"],
-            ["G2", "60-89", "Légèrement diminuée"],
-            ["G3a", "45-59", "Modérément diminuée"],
-            ["G3b", "30-44", "Modérément à sévèrement diminuée"],
-            ["G4", "15-29", "Sévèrement diminuée"],
-            ["G5", "< 15", "Insuffisance rénale terminale"]
+            [
+              "G1",
+              "≥ 90 avec anomalie rénale",
+              "Fonction préservée"
+            ],
+            [
+              "G2",
+              "60-89",
+              "Légèrement diminuée"
+            ],
+            [
+              "G3a",
+              "45-59",
+              "Modérément diminuée"
+            ],
+            [
+              "G3b",
+              "30-44",
+              "Modérément à sévèrement diminuée"
+            ],
+            [
+              "G4",
+              "15-29",
+              "Sévèrement diminuée"
+            ],
+            [
+              "G5",
+              "< 15",
+              "Insuffisance rénale terminale"
+            ]
           ]
         },
         {
           "type": "table",
-          "columns": ["Catégorie", "Albuminurie (mg/g de créatinine)", "Signification"],
+          "columns": [
+            "Catégorie",
+            "Albuminurie (mg/g de créatinine)",
+            "Signification"
+          ],
           "rows": [
-            ["A1", "< 30", "Normale ou légèrement augmentée"],
-            ["A2", "30-300", "Modérément augmentée"],
-            ["A3", "> 300", "Sévèrement augmentée"]
+            [
+              "A1",
+              "< 30",
+              "Normale ou légèrement augmentée"
+            ],
+            [
+              "A2",
+              "30-300",
+              "Modérément augmentée"
+            ],
+            [
+              "A3",
+              "> 300",
+              "Sévèrement augmentée"
+            ]
           ]
         },
         {
@@ -370,8 +414,14 @@
       "label": "G + A — les deux axes",
       "intro": "Un stade de fonction, une catégorie d'albuminurie.",
       "entries": [
-        { "key": "G", "term": "Débit de filtration glomérulaire estimé : G1 à G5." },
-        { "key": "A", "term": "Albuminurie : A1 (< 30), A2 (30-300), A3 (> 300 mg/g)." }
+        {
+          "key": "G",
+          "term": "Débit de filtration glomérulaire estimé : G1 à G5."
+        },
+        {
+          "key": "A",
+          "term": "Albuminurie : A1 (< 30), A2 (30-300), A3 (> 300 mg/g)."
+        }
       ],
       "note": "Les deux axes sont nécessaires : un patient G1A3 a une maladie rénale significative malgré un débit normal."
     },
@@ -380,12 +430,30 @@
       "label": "Les 6 complications à dépister",
       "intro": "Systématiques à partir des stades modérés.",
       "entries": [
-        { "key": "A", "term": "Anémie : numération, fer, érythropoïétine." },
-        { "key": "C", "term": "Acidose métabolique : bicarbonates." },
-        { "key": "K", "term": "Kaliémie : hyperkaliémie favorisée par les traitements." },
-        { "key": "P", "term": "Phosphore et calcium : hyperparathyroïdie secondaire." },
-        { "key": "H", "term": "Hydratation et pression artérielle : surcharge et hypertension." },
-        { "key": "N", "term": "Nutrition : dénutrition protéino-énergétique." }
+        {
+          "key": "A",
+          "term": "Anémie : numération, fer, érythropoïétine."
+        },
+        {
+          "key": "C",
+          "term": "Acidose métabolique : bicarbonates."
+        },
+        {
+          "key": "K",
+          "term": "Kaliémie : hyperkaliémie favorisée par les traitements."
+        },
+        {
+          "key": "P",
+          "term": "Phosphore et calcium : hyperparathyroïdie secondaire."
+        },
+        {
+          "key": "H",
+          "term": "Hydratation et pression artérielle : surcharge et hypertension."
+        },
+        {
+          "key": "N",
+          "term": "Nutrition : dénutrition protéino-énergétique."
+        }
       ],
       "note": "Le risque cardiovasculaire est présent dès les stades modérés : il fait partie de la surveillance, même sans dialyse."
     },
@@ -394,11 +462,26 @@
       "label": "Quand appeler le néphrologue ?",
       "intro": "Cinq situations à ne pas laisser traîner.",
       "entries": [
-        { "key": "1", "term": "Débit estimé inférieur à 30 mL/min/1,73 m²." },
-        { "key": "2", "term": "Albuminurie sévère ou progression rapide." },
-        { "key": "3", "term": "Hypertension résistante ou hyperkaliémie récurrente." },
-        { "key": "4", "term": "Suspicion de glomérulonéphrite ou de maladie héréditaire." },
-        { "key": "5", "term": "Complications métaboliques ou hématologiques difficiles à contrôler." }
+        {
+          "key": "1",
+          "term": "Débit estimé inférieur à 30 mL/min/1,73 m²."
+        },
+        {
+          "key": "2",
+          "term": "Albuminurie sévère ou progression rapide."
+        },
+        {
+          "key": "3",
+          "term": "Hypertension résistante ou hyperkaliémie récurrente."
+        },
+        {
+          "key": "4",
+          "term": "Suspicion de glomérulonéphrite ou de maladie héréditaire."
+        },
+        {
+          "key": "5",
+          "term": "Complications métaboliques ou hématologiques difficiles à contrôler."
+        }
       ],
       "note": "Un adressage précoce permet de préparer la dialyse ou la transplantation dans de meilleures conditions, et parfois d'éviter une urgence."
     }
@@ -408,67 +491,90 @@
       "id": "fc-01",
       "front": "Comment définit-on la maladie rénale chronique ?",
       "back": "Par une anomalie de la structure ou de la fonction rénale persistant plus de trois mois, avec des implications pour la santé : débit de filtration glomérulaire abaissé, albuminurie, anomalie du sédiment ou de l'imagerie.",
-      "tags": ["définition"]
+      "tags": [
+        "définition"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quels sont les deux examens de dépistage de la maladie rénale chronique ?",
       "back": "Le débit de filtration glomérulaire estimé à partir de la créatinine et le rapport albumine/créatinine urinaire.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Que signifient les stades G1 à G5 ?",
       "back": "G1 : débit ≥ 90 avec anomalie rénale ; G2 : 60-89 ; G3a : 45-59 ; G3b : 30-44 ; G4 : 15-29 ; G5 : < 15 mL/min/1,73 m².",
-      "tags": ["classification"]
+      "tags": [
+        "classification"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Que signifient les catégories A1, A2 et A3 ?",
       "back": "A1 : albuminurie < 30 mg/g ; A2 : 30-300 mg/g ; A3 : > 300 mg/g de créatinine. L'albuminurie est un facteur pronostique majeur.",
-      "tags": ["classification"]
+      "tags": [
+        "classification"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quel est l'objectif de pression artérielle proposé par KDIGO ?",
       "back": "Une pression artérielle systolique inférieure à 120 mmHg lorsqu'elle est tolérée, avec une mesure standardisée et une surveillance de la fonction rénale et du potassium.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quand utiliser un inhibiteur de SGLT2 dans la maladie rénale chronique ?",
       "back": "Chez l'adulte avec maladie rénale chronique et débit estimé à partir de 20 mL/min/1,73 m², selon les indications de KDIGO 2024 et avec les précautions d'usage.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quelles sont les complications de la maladie rénale chronique ?",
       "back": "Anémie, acidose métabolique, hyperkaliémie, troubles phosphocalciques avec hyperparathyroïdie secondaire, surcharge hydrosodée, hypertension, dénutrition et risque cardiovasculaire accru.",
-      "tags": ["complications"]
+      "tags": [
+        "complications"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Pourquoi une maladie rénale chronique augmente-t-elle le risque cardiovasculaire ?",
       "back": "Par l'hypertension, la surcharge hydrosodée, les troubles phosphocalciques, l'anémie, l'inflammation et l'athérosclérose accélérée. Le risque cardiovasculaire est souvent le premier danger avant le stade terminal.",
-      "tags": ["complications"]
+      "tags": [
+        "complications"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Quels médicaments faut-il éviter ou adapter en cas de maladie rénale chronique ?",
       "back": "Les anti-inflammatoires non stéroïdiens, les aminosides, certains produits de contraste, les antiviraux néphrotoxiques et de nombreuses molécules nécessitant une adaptation posologique. La phytothérapie non contrôlée doit être interrogée.",
-      "tags": ["iatrogénie"]
+      "tags": [
+        "iatrogénie"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quand adresser un patient au néphrologue ?",
       "back": "Débit estimé inférieur à 30 mL/min/1,73 m², albuminurie sévère, progression rapide, hypertension résistante, hyperkaliémie récurrente, suspicion de glomérulonéphrite ou complications difficiles à contrôler.",
-      "tags": ["orientation"]
+      "tags": [
+        "orientation"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Comment préparer un patient au stade terminal ?",
       "back": "Information sur la dialyse, la transplantation et les soins conservateurs, évaluation du capital veineux, vaccination, correction de l'anémie et des troubles métaboliques, et coordination avec le centre de référence.",
-      "tags": ["suivi", "Madagascar"]
+      "tags": [
+        "suivi",
+        "Madagascar"
+      ]
     }
   ],
   "mindmap": {
@@ -484,9 +590,40 @@
         "tone": "reflexe",
         "detail": "Deux mesures à trois mois d'intervalle, débit estimé et rapport albumine/créatinine, puis recherche de la cause.",
         "children": [
-          { "id": "diag-debit", "label": "Débit estimé", "leaves": [{ "id": "diag-debit-1", "label": "Créatinine" }] },
-          { "id": "diag-albumine", "label": "Albuminurie", "leaves": [{ "id": "diag-albumine-1", "label": "Ratio A/C" }] },
-          { "id": "diag-cause", "label": "Cause", "leaves": [{ "id": "diag-cause-1", "label": "Diabète" }, { "id": "diag-cause-2", "label": "HTA" }] }
+          {
+            "id": "diag-debit",
+            "label": "Débit estimé",
+            "leaves": [
+              {
+                "id": "diag-debit-1",
+                "label": "Créatinine"
+              }
+            ]
+          },
+          {
+            "id": "diag-albumine",
+            "label": "Albuminurie",
+            "leaves": [
+              {
+                "id": "diag-albumine-1",
+                "label": "Ratio A/C"
+              }
+            ]
+          },
+          {
+            "id": "diag-cause",
+            "label": "Cause",
+            "leaves": [
+              {
+                "id": "diag-cause-1",
+                "label": "Diabète"
+              },
+              {
+                "id": "diag-cause-2",
+                "label": "HTA"
+              }
+            ]
+          }
         ]
       },
       {
@@ -495,8 +632,26 @@
         "tone": "memo",
         "detail": "Stades G1 à G5 et catégories A1 à A3. Les deux axes sont indispensables pour évaluer le risque.",
         "children": [
-          { "id": "class-g", "label": "G1-G5", "leaves": [{ "id": "class-g-1", "label": "Filtration" }] },
-          { "id": "class-a", "label": "A1-A3", "leaves": [{ "id": "class-a-1", "label": "Albuminurie" }] }
+          {
+            "id": "class-g",
+            "label": "G1-G5",
+            "leaves": [
+              {
+                "id": "class-g-1",
+                "label": "Filtration"
+              }
+            ]
+          },
+          {
+            "id": "class-a",
+            "label": "A1-A3",
+            "leaves": [
+              {
+                "id": "class-a-1",
+                "label": "Albuminurie"
+              }
+            ]
+          }
         ]
       },
       {
@@ -504,9 +659,40 @@
         "label": "Complications",
         "detail": "Anémie, acidose, hyperkaliémie, troubles phosphocalciques, surcharge hydrosodée et dénutrition.",
         "children": [
-          { "id": "comp-anemie", "label": "Anémie", "leaves": [{ "id": "comp-anemie-1", "label": "Fer" }, { "id": "comp-anemie-2", "label": "EPO" }] },
-          { "id": "comp-mbd", "label": "Os et phosphore", "leaves": [{ "id": "comp-mbd-1", "label": "PTH" }] },
-          { "id": "comp-acidose", "label": "Acidose", "leaves": [{ "id": "comp-acidose-1", "label": "Bicarbonates" }] }
+          {
+            "id": "comp-anemie",
+            "label": "Anémie",
+            "leaves": [
+              {
+                "id": "comp-anemie-1",
+                "label": "Fer"
+              },
+              {
+                "id": "comp-anemie-2",
+                "label": "EPO"
+              }
+            ]
+          },
+          {
+            "id": "comp-mbd",
+            "label": "Os et phosphore",
+            "leaves": [
+              {
+                "id": "comp-mbd-1",
+                "label": "PTH"
+              }
+            ]
+          },
+          {
+            "id": "comp-acidose",
+            "label": "Acidose",
+            "leaves": [
+              {
+                "id": "comp-acidose-1",
+                "label": "Bicarbonates"
+              }
+            ]
+          }
         ]
       },
       {
@@ -515,9 +701,36 @@
         "tone": "retenir",
         "detail": "Contrôle tensionnel, inhibition du système rénine-angiotensine si albuminurie, SGLT2, statine et traitement des complications.",
         "children": [
-          { "id": "ttt-pa", "label": "Pression artérielle", "leaves": [{ "id": "ttt-pa-1", "label": "Objectif individualisé" }] },
-          { "id": "ttt-ras", "label": "IEC / ARA2", "leaves": [{ "id": "ttt-ras-1", "label": "Si albuminurie" }] },
-          { "id": "ttt-sglt2", "label": "SGLT2", "leaves": [{ "id": "ttt-sglt2-1", "label": "Débit ≥ 20" }] }
+          {
+            "id": "ttt-pa",
+            "label": "Pression artérielle",
+            "leaves": [
+              {
+                "id": "ttt-pa-1",
+                "label": "Objectif individualisé"
+              }
+            ]
+          },
+          {
+            "id": "ttt-ras",
+            "label": "IEC / ARA2",
+            "leaves": [
+              {
+                "id": "ttt-ras-1",
+                "label": "Si albuminurie"
+              }
+            ]
+          },
+          {
+            "id": "ttt-sglt2",
+            "label": "SGLT2",
+            "leaves": [
+              {
+                "id": "ttt-sglt2-1",
+                "label": "Débit ≥ 20"
+              }
+            ]
+          }
         ]
       },
       {
@@ -526,9 +739,36 @@
         "tone": "prudence",
         "detail": "Éviter les néphrotoxiques, adapter les posologies, hydrater avant certains examens et surveiller la fonction rénale.",
         "children": [
-          { "id": "iatro-ains", "label": "AINS", "leaves": [{ "id": "iatro-ains-1", "label": "Éviter" }] },
-          { "id": "iatro-contraste", "label": "Contraste", "leaves": [{ "id": "iatro-contraste-1", "label": "Prévenir" }] },
-          { "id": "iatro-adapt", "label": "Posologies", "leaves": [{ "id": "iatro-adapt-1", "label": "Adapter" }] }
+          {
+            "id": "iatro-ains",
+            "label": "AINS",
+            "leaves": [
+              {
+                "id": "iatro-ains-1",
+                "label": "Éviter"
+              }
+            ]
+          },
+          {
+            "id": "iatro-contraste",
+            "label": "Contraste",
+            "leaves": [
+              {
+                "id": "iatro-contraste-1",
+                "label": "Prévenir"
+              }
+            ]
+          },
+          {
+            "id": "iatro-adapt",
+            "label": "Posologies",
+            "leaves": [
+              {
+                "id": "iatro-adapt-1",
+                "label": "Adapter"
+              }
+            ]
+          }
         ]
       },
       {
@@ -536,9 +776,36 @@
         "label": "Orienter",
         "detail": "Adresser au néphrologue avant le stade terminal pour préparer la dialyse, la transplantation ou les soins conservateurs.",
         "children": [
-          { "id": "orient-seuil", "label": "Seuil", "leaves": [{ "id": "orient-seuil-1", "label": "DFG < 30" }] },
-          { "id": "orient-progression", "label": "Progression", "leaves": [{ "id": "orient-progression-1", "label": "Rapide" }] },
-          { "id": "orient-preparation", "label": "Préparation", "leaves": [{ "id": "orient-preparation-1", "label": "Dialyse" }] }
+          {
+            "id": "orient-seuil",
+            "label": "Seuil",
+            "leaves": [
+              {
+                "id": "orient-seuil-1",
+                "label": "DFG < 30"
+              }
+            ]
+          },
+          {
+            "id": "orient-progression",
+            "label": "Progression",
+            "leaves": [
+              {
+                "id": "orient-progression-1",
+                "label": "Rapide"
+              }
+            ]
+          },
+          {
+            "id": "orient-preparation",
+            "label": "Préparation",
+            "leaves": [
+              {
+                "id": "orient-preparation-1",
+                "label": "Dialyse"
+              }
+            ]
+          }
         ]
       },
       {
@@ -546,9 +813,36 @@
         "label": "Contexte malgache",
         "detail": "Dialyse et transplantation limitées et coûteuses : la prévention et le dépistage précoce sont prioritaires.",
         "children": [
-          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Dialyse" }] },
-          { "id": "mada-prevention", "label": "Prévention", "leaves": [{ "id": "mada-prevention-1", "label": "HTA et diabète" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+          {
+            "id": "mada-acces",
+            "label": "Accès",
+            "leaves": [
+              {
+                "id": "mada-acces-1",
+                "label": "Dialyse"
+              }
+            ]
+          },
+          {
+            "id": "mada-prevention",
+            "label": "Prévention",
+            "leaves": [
+              {
+                "id": "mada-prevention-1",
+                "label": "HTA et diabète"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "National"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -605,5 +899,6 @@
         "Contexte francophone"
       ]
     }
-  ]
+  ],
+  "specialty": "Néphrologie"
 }

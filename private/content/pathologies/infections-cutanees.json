@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Infections cutanées bactériennes : spectre du superficiel (impétigo à streptocoque A/staphylocoque doré — non bulleux et bulleux ; folliculite, furoncle, ecthyma) au profond (érysipèle, dermohypodermite aiguë non nécrosante à streptocoque, cellulite, abcès à staphylocoque, dermohypodermite nécrosante et fasciite nécrosante comme urgences), portes d'entrée (intertrigos, gale, plaies, pédiculose, morsures), terrain (diabète, immunodépression, lymphœdème), traitement gradué : désinfection et antibiotiques topiques pour l'impétigo limité, pénicilline/amoxicilline pour l'érysipèle, incision-drainage des abcès, et urgence chirurgicale + pénicilline G + clindamycine pour les formes nécrosantes, contexte Madagascar (impétigo endémique de l'enfant, associé à la gale).",
@@ -86,8 +87,10 @@
       "title": "Principales entités cliniques",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Infections superficielles"
+          "type": "list",
+          "items": [
+            "Infections superficielles"
+          ]
         },
         {
           "type": "list",
@@ -99,8 +102,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Infections profondes"
+          "type": "list",
+          "items": [
+            "Infections profondes"
+          ]
         },
         {
           "type": "list",
@@ -295,7 +300,8 @@
           "key": "U",
           "term": "Urgence : douleur disproportionnée + toxémie = dermohypodermite nécrosante"
         }
-      ]
+      ],
+      "id": "mn-p-e-a-u"
     }
   ],
   "flashcards": [
@@ -363,7 +369,8 @@
   "mindmap": {
     "root": {
       "id": "infcut",
-      "label": "Infections cutanées bactériennes"
+      "label": "Infections cutanées bactériennes",
+      "detail": "Infections cutanées bactériennes : Germes, Superficiel, Derme, Profond, Portes d'entrée, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -388,7 +395,8 @@
             "id": "b1l1",
             "label": "Complications : GNA, RAA"
           }
-        ]
+        ],
+        "detail": "Germes : Streptocoque A : impétigo, érysipèle, Staphylocoque doré : bulles, abcès, Contexte : pasteurella, vibrio, Buruli"
       },
       {
         "id": "b2",
@@ -412,7 +420,8 @@
             "id": "b2l1",
             "label": "Topique si limité (mupirocine)"
           }
-        ]
+        ],
+        "detail": "Superficiel : Impétigo non bulleux / bulleux, Ecthyma, Folliculite, furoncle, anthrax"
       },
       {
         "id": "b3",
@@ -432,7 +441,8 @@
             "id": "b3l1",
             "label": "Pénicilline / amoxicilline-clav"
           }
-        ]
+        ],
+        "detail": "Derme : Érysipèle : bord net, fièvre, Cellulite : bords flous"
       },
       {
         "id": "b4",
@@ -452,7 +462,8 @@
             "id": "b4l1",
             "label": "Pénicilline G + clindamycine"
           }
-        ]
+        ],
+        "detail": "Profond : Abcès : drainage, Fasciite nécrosante : bloc urgent"
       },
       {
         "id": "b5",
@@ -476,7 +487,8 @@
             "id": "b5l1",
             "label": "Diabète : examiner les pieds"
           }
-        ]
+        ],
+        "detail": "Portes d'entrée : Intertrigo, gale, Plaies, morsures, Ulcères, lymphœdème"
       },
       {
         "id": "b6",
@@ -500,7 +512,8 @@
             "id": "b6l1",
             "label": "Couple gale-impétigo en zone tropicale"
           }
-        ]
+        ],
+        "detail": "Prévention : Hygiène, linge individuel, Traiter gale + intertrigo, Contention du lymphœdème"
       }
     ]
   },
