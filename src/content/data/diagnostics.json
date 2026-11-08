@@ -3983,5 +3983,843 @@
       }
     ],
     "synthesis": "Lombalgie = drapeaux rouges d’abord (traumatisme, fièvre, cancer, déficit, sphincters). Fièvre + raideur + amaigrissement = Mal de Pott. Queue de cheval = neurochirurgie sur les heures. Commune = information + mouvement + antalgiques, pas d’imagerie. Toujours penser viscéral (rein, aorte) et brucellose chez l’éleveur."
+  },
+  {
+    "id": "DX-OTALGIE-001",
+    "title": "Écoulement d'oreille, otalgie — démarche",
+    "specialty": "ORL / Urgences",
+    "vignette": "Enfant de 6 ans, fièvre et otalgie droite depuis 2 jours, avec écoulement auriculaire. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Triage",
+        "lead": "Qu'est-ce qui change immédiatement la prise en charge ?",
+        "prompt": "Le signe de gravité à chercher d'emblée est :",
+        "choices": [
+          "Un écoulement purulent avec fièvre et douleur importante",
+          "Un cérumen banal",
+          "Une otalgie sans fièvre chez l'adulte jeune",
+          "Un bouchon de cérumen dur"
+        ],
+        "correct": 0,
+        "explanation": "L'association fièvre + otalgie intense + écoulement évoque une otite moyenne aiguë purulente, très fréquente chez l'enfant à Madagascar ; le bouchon de cérumen est indolore et apyrétique."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Comment examinez-vous ?",
+        "prompt": "L'examen otoscopique montre une bombe congestive ; l'élément qui oriente est :",
+        "choices": [
+          "La membrane tympanique congestive, bombée, parfois perforée avec écoulement",
+          "Un conduit auditif externe normal",
+          "Une mastoïde souple et indolore des deux côtés",
+          "Une parotidomégalie"
+        ],
+        "correct": 0,
+        "explanation": "L'otoscopie est l'examen clé : bombe congestive = OMA. Toujours comparer les deux oreilles et palper les mastoïdes."
+      },
+      {
+        "id": "urgence",
+        "title": "3. Signes de gravité",
+        "lead": "Vous palpez la mastoïde : elle est tuméfiée, douloureuse, avec l'oreille décollée.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une mastoïdite : urgence hospitalière, antibiothérapie IV, avis ORL",
+          "Une otite externe bénigne",
+          "Une otite séreuse",
+          "Un simple traumatisme auriculaire"
+        ],
+        "correct": 0,
+        "explanation": "Mastoïdite = complication d'OMA : hospitalisation immédiate, imagerie si disponible, drainage si abcès ; ne jamais la confondre avec une simple otite externe."
+      },
+      {
+        "id": "differentiel",
+        "title": "4. Diagnostic différentiel",
+        "lead": "Douleur à la mobilisation du pavillon et du tragus, conduit sténosé, pas de fièvre haute, tympans normaux.",
+        "prompt": "Vous concluez à :",
+        "choices": [
+          "Une otite externe diffuse (nettoyage, gouttes antibiotiques locales)",
+          "Une OMA bilatérale",
+          "Une mastoïdite débutante",
+          "Une otite séro-muqueuse"
+        ],
+        "correct": 0,
+        "explanation": "La douleur au tragus signe l'atteinte du conduit (otite externe), souvent chez le nageur ou après nettoyages agressifs (coton-tige) ; les tympans sont normaux."
+      },
+      {
+        "id": "paraclinique",
+        "title": "5. Examens complémentaires",
+        "lead": "Dans notre contexte, l'examen à demander si fièvre élevée et contexte est :",
+        "prompt": [
+          "La goutte épaisse (paludisme), sans oublier l'examen otoscopique comme référence",
+          "Une IRM cérébrale systématique",
+          "Une audiométrie en urgence",
+          "Un scanner des rochers d'emblée"
+        ],
+        "choices": 0,
+        "correct": "Fièvre élevée = éliminer le paludisme ; l'imagerie est réservée aux complications (mastoïdite, abcès cérébral suspects). L'audiométrie se fait à froid."
+      },
+      {
+        "id": "traitement",
+        "title": "6. Traitement",
+        "lead": "Comment traitez-vous l'OMA purulente de l'enfant ?",
+        "prompt": [
+          "Antalgiques, antipyrétiques, antibiothérapie orale adaptée (amoxicilline), éducation, réévaluation à 48-72 h",
+          "Antibiotiques locaux seuls",
+          "Aucun traitement, ça passera",
+          "Corticoïdes oraux systématiques"
+        ],
+        "choices": 0,
+        "correct": "L'OMA se traite par antalgiques + amoxicilline ; réévaluer à 48-72 h. Les gouttes locales seules ne traitent pas l'otite moyenne."
+      },
+      {
+        "id": "complications",
+        "title": "7. Complications et suivi",
+        "lead": "Après guérison, l'enfant garde une hypoacousie et un tympan rétracté à 1 mois.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une otite séro-muqueuse : surveillance, avis ORL si persistance, dépistage du retard de langage",
+          "Un épisode banal sans suite",
+          "Une mastoïdite chronique",
+          "Une surdité définitive d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "L'otite séro-muqueuse est fréquente après OMA : surveiller, dépister l'hypoacousie (retard de langage) et demander l'avis ORL si l'épanchement persiste."
+      }
+    ],
+    "synthesis": "Otalgie = otoscopie systématique et comparée. Fièvre + bombe congestive = OMA (antalgiques + amoxicilline, réévaluation 48-72 h). Douleur au tragus, tympans normaux = otite externe (gouttes locales). Tuméfaction mastoïdienne, oreille décollée = mastoïdite : hospitalisation, IV. Fièvre élevée = goutte épaisse. Hypoacousie persistante = avis ORL et dépistage du langage chez l'enfant."
+  },
+  {
+    "id": "DX-DYSPHONIE-001",
+    "title": "Dysphonie — démarche",
+    "specialty": "ORL",
+    "vignette": "Homme de 52 ans, enseignant, dysphonie persistante depuis 6 semaines, tabagique. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous d'abord ?",
+        "prompt": "Le critère d'orientation principal est :",
+        "choices": [
+          "La durée : au-delà de 3-4 semaines, une laryngoscopie est obligatoire",
+          "La présence d'un rhume associé",
+          "Le fait qu'il chante le week-end",
+          "Sa consommation de café"
+        ],
+        "correct": 0,
+        "explanation": "Une dysphonie qui dure plus de 3-4 semaines impose l'examen du larynx : chez un tabagique, il faut éliminer un cancer laryngé."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Comment examinez-vous ?",
+        "prompt": "L'examen décisif est :",
+        "choices": [
+          "La laryngoscopie (miroir ou endoscope souple si disponible) : mobilité des cordes, lésion, obstruction",
+          "Une radiographie thoracique seule",
+          "Un examen du nez seul",
+          "Une auscultation cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "Voir les cordes vocales est indispensable : nodule, paralysie, lésion suspecte. L'examen au miroir laryngé est réalisable en pratique de ville."
+      },
+      {
+        "id": "urgence",
+        "title": "3. Signes de gravité",
+        "lead": "En plus de la dysphonie : dyspnée inspiratoire, dysphagie, crachats sanglants, amaigrissement, adénopathie cervicale.",
+        "prompt": "Le diagnostic à craindre est :",
+        "choices": [
+          "Un cancer laryngé : avis ORL urgent, biopsie",
+          "Une laryngite virale",
+          "Un nodule de la corde vocale",
+          "Un spasme laryngé banal"
+        ],
+        "correct": 0,
+        "explanation": "Dysphonie + signes généraux + dyspnée laryngée chez un tabagique = cancer jusqu'à preuve du contraire ; la biopsie fait le diagnostic."
+      },
+      {
+        "id": "etiologie",
+        "title": "4. Étiologies",
+        "lead": "Dysphonie chronique chez un enseignant, cordes vocales symétriques, sans lésion suspecte.",
+        "prompt": "Le diagnostic le plus probable est :",
+        "choices": [
+          "Des lésions bénignes d'effort vocal (nodules, œdème de Reinke) : repos vocal, orthophonie",
+          "Un cancer du larynx",
+          "Une laryngite aiguë virale",
+          "Une amygdalite"
+        ],
+        "correct": 0,
+        "explanation": "Le surmenage vocal explique l'essentiel des dysphonies chroniques chez les enseignants : hygiène vocale, hydratation, orthophonie."
+      },
+      {
+        "id": "paralysie",
+        "title": "5. Paralysie laryngée",
+        "lead": "Une autre patiente : dysphonie et dyspnée d'effort après une thyroïdectomie récente.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une paralysie récurrentielle postopératoire : avis ORL, laryngoscopie",
+          "Un cancer du larynx",
+          "Une sinusite",
+          "Un reflux gastro-œsophagien"
+        ],
+        "correct": 0,
+        "explanation": "Le nerf récurrent est à risque en chirurgie thyroïdienne : dysphonie post-thyroïdectomie = laryngoscopie obligatoire, la majorité récupère spontanément."
+      },
+      {
+        "id": "differentiel",
+        "title": "6. Autres causes",
+        "lead": "Reflux, pyrosis, enrouement matinal qui s'améliore dans la journée.",
+        "prompt": "Vous pensez à :",
+        "choices": [
+          "Une laryngite postérieure par reflux : règles hygiéno-diététiques, IPP, contrôle à distance",
+          "Une tumeur du larynx",
+          "Une laryngite tuberculeuse",
+          "Une allergie"
+        ],
+        "correct": 0,
+        "explanation": "Le reflux pharyngolaryngé explique l'enrouement matinal ; traiter le reflux et contrôler le larynx car il imite et accompagne les lésions chroniques."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "Dysphonie persistante du tabagique, endoscopie en cours.",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Avis ORL avec laryngoscopie et biopsie si lésion, arrêt du tabac, éducation vocale",
+          "Antibiothérapie orale",
+          "Repos vocal seul sans contrôle",
+          "Corticoïdes inhalés systématiquement"
+        ],
+        "correct": 0,
+        "explanation": "Toute dysphonie de plus de 3-4 semaines = laryngoscopie ; tabac = sevrage obligatoire ; la lésion suspecte = biopsie sans délai."
+      }
+    ],
+    "synthesis": "Dysphonie de plus de 3-4 semaines = laryngoscopie obligatoire. Tabagique + dysphonie + signes généraux = cancer laryngé jusqu'à preuve du contraire (biopsie). Enseignant = lésions d'effort vocal (hygiène vocale, orthophonie). Post-thyroïdectomie = paralysie récurrentielle. Enrouement matinal = reflux. Urgence : dyspnée laryngée (obstruction)."
+  },
+  {
+    "id": "DX-GOITRE-001",
+    "title": "Goitre et nodule thyroïdien — démarche",
+    "specialty": "Endocrinologie / Chirurgie",
+    "vignette": "Femme de 42 ans, goitre nodulaire découvert à la palpation, sans signes fonctionnels. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que recherchez-vous ?",
+        "prompt": [
+          "Signes de dysthyroïdie (palpitations, amaigrissement, frilosité), croissance rapide du goitre, irradiation cervicale, histoire familiale",
+          "Son groupe sanguin uniquement",
+          "Ses habitudes de sommeil",
+          "Sa couleur préférée de vêtements"
+        ],
+        "choices": 0,
+        "correct": "Dysthyroïdie, croissance rapide, irradiation, antécédents familiaux (cancer médullaire) orientent le bilan et l'urgence."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "À l'examen, vous évaluez :",
+        "prompt": [
+          "La consistance, la mobilité, les adénopathies cervicales, les signes d'hyperthyroïdie, la compression (dysphonie, dysphagie, dyspnée)",
+          "Seulement la taille du goitre",
+          "Uniquement la peau",
+          "Les réflexes patellaires"
+        ],
+        "choices": 0,
+        "correct": "Nodule dur, fixé, adénopathie, paralysie récurrentielle (dysphonie) = suspicion de cancer ; goitre compressif = urgence chirurgicale."
+      },
+      {
+        "id": "urgence",
+        "title": "3. Signes de gravité",
+        "lead": "Nodule dur, fixé, adénopathie cervicale homolatérale, dysphonie.",
+        "prompt": "Vous suspectez :",
+        "choices": [
+          "Un cancer thyroïdien : avis spécialisé, échographie et cytoponction si disponibles",
+          "Un kyste bénin",
+          "Une thyroïdite subaiguë",
+          "Un goitre simple"
+        ],
+        "correct": 0,
+        "explanation": "Crainte carcinologique : dureté, fixation, adénopathie, dysphonie. La cytoponction échoguidée est l'examen de référence si accessible ; sinon avis rapide."
+      },
+      {
+        "id": "hyperthyroidie",
+        "title": "4. Hyperthyroïdie",
+        "lead": "Palpitations, amaigrissement, tremblement, goitre vasculaire, exophtalmie.",
+        "prompt": "Le diagnostic le plus probable est :",
+        "choices": [
+          "Une maladie de Basedow : TSH basse si disponible, avis endocrinologique",
+          "Un goitre simple",
+          "Un cancer thyroïdien",
+          "Une hypothyroïdie"
+        ],
+        "correct": 0,
+        "explanation": "Basedow = hyperthyroïdie auto-immune : goitre vasculaire, exophtalmie ; antithyroïdiens de synthèse, coordination avec l'orbitopathie."
+      },
+      {
+        "id": "hypothyroidie",
+        "title": "5. Hypothyroïdie",
+        "lead": "Frilosité, prise de poids, constipation, bradycardie, peau sèche.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une hypothyroïdie (carences iodées, Hashimoto) : L-thyroxine selon poids et protocoles, TSH de contrôle",
+          "Une maladie de Basedow",
+          "Une thyroïdite subaiguë",
+          "Un goitre toxique"
+        ],
+        "correct": 0,
+        "explanation": "L'hypothyroïdie goitreuse est fréquente en zone de carence iodée : substitution et éducation (sel iodé, observance)."
+      },
+      {
+        "id": "paraclinique",
+        "title": "6. Examens",
+        "lead": "Dans notre contexte, le bilan de base comprend :",
+        "prompt": [
+          "TSH si disponible, échographie cervicale si accessible, cytoponction des nodules suspects ; la scintigraphie est rarement accessible",
+          "Une TDM thoracique systématique",
+          "Un scanner cérébral",
+          "Une radiographie des mains"
+        ],
+        "choices": 0,
+        "correct": "TSH + échographie + cytoponction (Bethesda si accessible) : les examens accessibles orientent vers surveillance, traitement médical ou chirurgie."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "Goitre multinodulaire simple, euthyroïdien, non compressif.",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Surveillance clinique, éducation (sel iodé, signes d'alerte), avis chirurgical si compression, suspicion de cancer ou retentissement majeur",
+          "Chirurgie systématique de tout goitre",
+          "Radio-iode pour tous",
+          "Ablation par laser d'emblée"
+        ],
+        "correct": 0,
+        "explanation": "Le goitre simple se surveille ; la chirurgie est indiquée si compression, suspicion de cancer ou hyperthyroïdie non contrôlée."
+      }
+    ],
+    "synthesis": "Goitre = examiner (consistance, mobilité, adénopathies, compression, signes de dysthyroïdie). Nodule dur, fixé + adénopathie + dysphonie = cancer : avis + cytoponction. Palpitations et exophtalmie = Basedow (TSH basse, antithyroïdiens). Frilosité et bradycardie = hypothyroïdie (L-thyroxine). Goitre simple = surveillance + sel iodé. Compression = chirurgie."
+  },
+  {
+    "id": "DX-LEUCORRHEE-001",
+    "title": "Leucorrhée — démarche",
+    "specialty": "Gynécologie / Infectiologie",
+    "vignette": "Femme de 27 ans, leucorrhées depuis une semaine avec prurit vulvaire. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que précisez-vous d'abord ?",
+        "prompt": [
+          "Le caractère (couleur, odeur, prurit), les rapports sexuels, les partenaires, les symptômes associés (douleur pelvienne, fièvre), les gestes locaux",
+          "Sa consommation de thé",
+          "Son groupe sanguin",
+          "Son poids de naissance"
+        ],
+        "choices": 0,
+        "correct": "Caractéristiques, contexte sexuel (IST) et signes associés (fièvre, douleur = salpingite) orientent le diagnostic."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "L'examen comprend :",
+        "prompt": [
+          "Examen vulvaire, spéculum (aspect du col, glaire), toucher pelvien (douleur à la mobilisation utérine, masse), température",
+          "Une échographie d'emblée",
+          "Un frottis du col uniquement",
+          "Aucun examen"
+        ],
+        "choices": 0,
+        "correct": "Le spéculum voit la leucorrhée et l'aspect du col ; le toucher pelvien cherche une douleur latéro-utérine (annexite) qui change le pronostic de fertilité."
+      },
+      {
+        "id": "candidose",
+        "title": "3. Leucorrhée blanche",
+        "lead": "Leucorrhées blanches, grumeleuses, prurit intense, rapports douloureux, sans fièvre.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une candidose vulvo-vaginale (mycose) : antifongique local (ovules, crème)",
+          "Une salpingite",
+          "Une cervicite à gonocoque",
+          "Une vaginose bactérienne"
+        ],
+        "correct": 0,
+        "explanation": "Prurit + leucorrhées blanches en lait caillé = candidose : traitement local antifongique ; rechercher un diabète en cas de récidives."
+      },
+      {
+        "id": "vaginose",
+        "title": "4. Leucorrhée malodorante",
+        "lead": "Leucorrhées grisâtres, odeur de poisson, sans prurit ni inflammation majeure.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une vaginose bactérienne (Gardnerella) : métronidazole ou clindamycine selon disponibilité",
+          "Une candidose",
+          "Une salpingite aiguë",
+          "Un cancer du col"
+        ],
+        "correct": 0,
+        "explanation": "Vaginose = odeur (test à la potasse positif si disponible), irritation minime : métronidazole ; c'est un déséquilibre de flore, pas une IST."
+      },
+      {
+        "id": "ist",
+        "title": "5. Cervicite / IST",
+        "lead": "Leucorrhées purulentes, endocol rouge, douleur pelvienne, fièvre, partenaire symptomatique.",
+        "prompt": "Vous craignez :",
+        "choices": [
+          "Une IST (gonocoque, chlamydia) avec risque de salpingite : antibiothérapie, traitement du partenaire, dépistage VIH et syphilis",
+          "Une mycose banale",
+          "Une vaginose",
+          "Une simple irritation allergique"
+        ],
+        "correct": 0,
+        "explanation": "Leucorrhées purulentes + douleur pelvienne + fièvre = cervicite/salpingite : risque de stérilité ; traiter, dépister VIH et syphilis, traiter le partenaire."
+      },
+      {
+        "id": "gravite",
+        "title": "6. Signes de gravité",
+        "lead": "Fièvre 39 °C, douleur pelvienne violente, défense, masse du cul-de-sac.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une salpingite ou un abcès tubo-ovarien : hospitalisation, antibiothérapie IV, avis chirurgical",
+          "Une cystite",
+          "Une candidose",
+          "Un retard de règles"
+        ],
+        "correct": 0,
+        "explanation": "Douleur + fièvre + masse = infection haute : la stérilité tubaire et l'abcès menacent ; hospitalisation sans délai."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge et prévention",
+        "lead": "Comment complétez-vous ?",
+        "prompt": [
+          "Dépistage IST et VIH chez la patiente et le(s) partenaire(s), préservatifs, éducation à l'hygiène, suivi et contrôle après traitement",
+          "Antibiotiques au hasard",
+          "Pas de suivi",
+          "Examen du partenaire inutile"
+        ],
+        "choices": 0,
+        "correct": "Le traitement du partenaire et le dépistage (VIH, syphilis, hépatites) complètent la guérison ; les récidives orientent vers un partenaire non traité ou un diabète."
+      }
+    ],
+    "synthesis": "Leucorrhées = spéculum + toucher pelvien. Prurit + blanc grumeleux = candidose (antifongique). Odeur de poisson = vaginose (métronidazole). Purulente + douleur + fièvre = cervicite/salpingite : antibiothérapie, dépistage VIH/syphilis, partenaire traité. Fièvre + défense + masse = hospitalisation (abcès). Toujours dépister les IST."
+  },
+  {
+    "id": "DX-AMENORRHEE-001",
+    "title": "Aménorrhée secondaire — démarche",
+    "specialty": "Endocrinologie / Gynécologie",
+    "vignette": "Femme de 26 ans, absence de règles depuis 6 mois, sans grossesse en cours. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "premiere",
+        "title": "1. Première cause",
+        "lead": "Le premier examen à faire ou à refaire est :",
+        "prompt": [
+          "Un test de grossesse (ou échographie) : la grossesse est la première cause d'aménorrhée secondaire",
+          "Une IRM hypophysaire d'emblée",
+          "Un bilan thyroïdien en premier",
+          "Un caryotype"
+        ],
+        "choices": 0,
+        "correct": "Toute aménorrhée secondaire = éliminer une grossesse avant tout autre bilan ; c'est l'erreur classique."
+      },
+      {
+        "id": "interrogatoire",
+        "title": "2. Interrogatoire",
+        "lead": "Après avoir éliminé la grossesse, vous cherchez :",
+        "prompt": [
+          "Contraception (pilule, injectable), allaitement, stress, amaigrissement, exercice intense, galactorrhée, hirsutisme, céphalées",
+          "Sa pointure",
+          "Ses déplacements récents",
+          "Son groupe sanguin"
+        ],
+        "choices": 0,
+        "correct": "La cause est souvent dans l'histoire : contraception, post-partum/allaitement (hyperprolactinémie physiologique), stress, anorexie, SOPK (hirsutisme)."
+      },
+      {
+        "id": "lactation",
+        "title": "3. Galactorrhée",
+        "lead": "Vous constatez un écoulement lacté des deux seins.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une hyperprolactinémie (adénome hypophysaire, médicaments) : prolactinémie si disponible, avis endocrinologique",
+          "Une grossesse évolutive",
+          "Un SOPK",
+          "Une ménopause"
+        ],
+        "correct": 0,
+        "explanation": "Galactorrhée + aménorrhée = hyperprolactinémie : doser la prolactine, chercher les médicaments (neuroleptiques), IRM hypophysaire si élevée."
+      },
+      {
+        "id": "sopk",
+        "title": "4. Hirsutisme et SOPK",
+        "lead": "Prise de poids, hirsutisme, acné, cycles longs avant l'arrêt complet des règles.",
+        "prompt": "Le diagnostic le plus probable est :",
+        "choices": [
+          "Un syndrome des ovaires polykystiques (SOPK) : bilan si disponible (échographie), règles progestatives, hygiène de vie",
+          "Une ménopause précoce",
+          "Un adénome à prolactine",
+          "Une grossesse"
+        ],
+        "correct": 0,
+        "explanation": "SOPK = hyperandrogénie + dysovulation : aménorrhée avec androgynie clinique ; règles induites, prise en charge du surpoids et de l'infertilité le cas échéant."
+      },
+      {
+        "id": "iatrogene",
+        "title": "5. Cause iatrogène",
+        "lead": "Aménorrhée depuis le début d'une contraception injectable (DMPA) 4 mois plus tôt.",
+        "prompt": "Vous concluez à :",
+        "choices": [
+          "Une aménorrhée iatrogène sous contraceptif : rassurer, discuter de l'alternative si inquiétude, éliminer une grossesse si doute",
+          "Une ménopause",
+          "Un SOPK certain",
+          "Un cancer utérin"
+        ],
+        "correct": 0,
+        "explanation": "Les contraceptifs hormonaux (surtout injectables) peuvent aménorrhéiser : c'est bénin et réversible ; rassurer et vérifier la grossesse au moindre doute."
+      },
+      {
+        "id": "nutritionnelle",
+        "title": "6. Cause nutritionnelle",
+        "lead": "Jeune femme amaigrie (IMC 16), sportive intensive, aménorrhée depuis 8 mois.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une aménorrhée hypothalamique fonctionnelle : nutrition, repos, prise en charge des troubles du comportement, avis si résistance",
+          "Un SOPK",
+          "Une hyperprolactinémie",
+          "Une ménopause"
+        ],
+        "correct": 0,
+        "explanation": "Le déficit énergétique (anorexie, sport intensif) coupe l'axe gonadotrope : la renutrition rétablit les cycles ; risque osseux à couvrir (calcium, vitamine D)."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "La conduite globale comprend :",
+        "prompt": [
+          "Éliminer la grossesse, traiter la cause (médicament, nutrition, prolactine, SOPK), règles progestatives si aménorrhée prolongée, avis selon désir de grossesse",
+          "Induire l'ovulation d'emblée",
+          "Hystérectomie",
+          "Un bilan complet systématique coûteux"
+        ],
+        "choices": 0,
+        "correct": "Aménorrhée prolongée = protéger l'endomètre (progestatifs), corriger la cause ; l'infertilité éventuelle se discute après le bilan étiologique."
+      }
+    ],
+    "synthesis": "Aménorrhée secondaire = test de grossesse d'abord. Puis : contraception/allaitement (bénin), galactorrhée (prolactine, IRM si élevée), hirsutisme + surpoids (SOPK), amaigrissement/sport (hypothalamique, renutrition), médicaments. Traiter la cause, protéger l'endomètre si aménorrhée prolongée, avis endocrino-gynéco pour l'infertilité."
+  },
+  {
+    "id": "DX-TRISMUS-001",
+    "title": "Trismus — démarche",
+    "specialty": "Stomatologie / Urgences",
+    "vignette": "Homme de 30 ans, ouverture buccale limitée depuis 3 jours après une plaie au pied négligée. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Triage",
+        "lead": "Quelle est la première évaluation ?",
+        "prompt": "Devant tout trismus, on évalue d'abord :",
+        "choices": [
+          "Les voies aériennes : gêne à respirer, à avaler, tirage, hypersalivation",
+          "La couleur des dents",
+          "L'odorat",
+          "Le pouls radial"
+        ],
+        "correct": 0,
+        "explanation": "Le trismus menace la respiration et complique l'intubation : voies aériennes d'abord, rien par bouche si gêne à avaler, référence urgente."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "L'examen cherche :",
+        "prompt": [
+          "Ouverture buccale mesurée, dents et gingives, plancher buccal, amygdale, parotide, plaie et statut vaccinal, raideur, spasmes",
+          "Uniquement la gorge",
+          "Le seul abdomen",
+          "La peau des bras"
+        ],
+        "choices": 0,
+        "correct": "Mesurer l'ouverture (normale 3-4 cm), chercher la cause locale (dent, Ludwig, amygdale) et la porte d'entrée + vaccin antitétanique."
+      },
+      {
+        "id": "tetanos",
+        "title": "3. Piste tétanos",
+        "lead": "Trismus + raideur de nuque, risus sardonicus, spasmes au bruit, pas de fièvre, plaie au pied ancienne.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un tétanos : hospitalisation immédiate, environnement calme, immunoglobulines, détersion de la plaie",
+          "Un simple abcès dentaire",
+          "Une méningite bactérienne certaine",
+          "Une dystonie passagère"
+        ],
+        "correct": 0,
+        "explanation": "Trismus sans fièvre + raideur + spasmes déclenchés + plaie = tétanos jusqu'à preuve du contraire en zone de couverture vaccinale incomplète ; le patient tétanique n'est pas stimulé."
+      },
+      {
+        "id": "urgence2",
+        "title": "4. Urgence locale",
+        "lead": "Fièvre, plancher buccal dur et bombé, voix étouffée, gêne à avaler.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une angine de Ludwig : hospitalisation, antibiothérapie IV, avis chirurgical, anticipation de l'intubation difficile",
+          "Une gingivite simple",
+          "Une parotidite virale",
+          "Un ulcère buccal"
+        ],
+        "correct": 0,
+        "explanation": "Ludwig = cellulite du plancher buccal, menace les voies aériennes : IV + chirurgie ; intubation très difficile : anticiper, appeler de l'aide."
+      },
+      {
+        "id": "differentiel",
+        "title": "5. Diagnostic différentiel",
+        "lead": "Douleur unilatérale pharyngée intense, fièvre, voile dévié, hypersalivation.",
+        "prompt": "Vous pensez à :",
+        "choices": [
+          "Un abcès péri-amygdalien : antibiothérapie et drainage par soignant formé",
+          "Une angine virale",
+          "Une pharyngite fongique",
+          "Un reflux gastro-œsophagien"
+        ],
+        "correct": 0,
+        "explanation": "Abcès péri-amygdalien : drainage + antibiothérapie ; le trismus unilatéral fébrile d'origine pharyngée en est la cause classique."
+      },
+      {
+        "id": "medicamenteux",
+        "title": "6. Cause médicamenteuse",
+        "lead": "Trismus aigu sans fièvre ni plaie, patient sous neuroleptique récent, pas de raideur généralisée.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une dystonie aiguë médicamenteuse : réévaluation du traitement, anticholinergique selon protocole",
+          "Un tétanos débutant",
+          "Une fracture mandibulaire",
+          "Une méningite"
+        ],
+        "correct": 0,
+        "explanation": "La dystonie des neuroleptiques et antiémétiques mime le trismus : l'anamnèse médicamenteuse tranche ; fièvre + rigidité = syndrome malin, urgence."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "Le patient tétanique est hospitalisé.",
+        "prompt": "La prise en charge comprend :",
+        "choices": [
+          "Environnement calme et sombre, immunoglobulines antitétaniques, détersion, sédation des spasmes, surveillance respiratoire, vaccination active à la convalescence",
+          "Antibiothérapie seule",
+          "Chirurgie immédiate de la mâchoire",
+          "Soins dentaires en urgence"
+        ],
+        "correct": 0,
+        "explanation": "La guérison du tétanos n'immunise pas : vacciner à la convalescence ; le calme, la neutralisation de la toxine et la surveillance respiratoire font le pronostic."
+      }
+    ],
+    "synthesis": "Trismus = voies aériennes d'abord, mesurer l'ouverture, chercher la cause locale (dent, Ludwig, amygdale, parotide). Sans fièvre + raideur + spasmes + plaie = tétanos : hospitalisation, immunoglobulines, calme, détersion. Fièvre + plancher dur = Ludwig : IV + chirurgie. Neuroleptiques = dystonie. Prévention : vaccin à jour à chaque plaie."
+  },
+  {
+    "id": "DX-CONTRACTURE-001",
+    "title": "Contracture des mâchoires — démarche",
+    "specialty": "Stomatologie / Médecine générale",
+    "vignette": "Femme de 45 ans, difficulté progressive à ouvrir la bouche depuis des mois, craquements, douleur à la mastication. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que précisez-vous ?",
+        "prompt": [
+          "Le mode d'installation (aigu ou progressif), les craquements, le serrement des dents (bruxisme), les soins dentaires anciens, les médicaments",
+          "Son périmètre de marche",
+          "Ses loisirs",
+          "Sa tension artérielle"
+        ],
+        "choices": 0,
+        "correct": "Le contraste aigu (urgence) vs progressif (chronique) décide : bruxisme, dysfonction ATM et ankyloses dominent les formes chroniques."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "L'examen comprend :",
+        "prompt": [
+          "Mesure de l'ouverture, palpation des ATM (craquements, douleur), muscles masticateurs, occlusion dentaire, état dentaire, recherche de causes générales (tétanos, méningite)",
+          "Uniquement la luette",
+          "L'abdomen seul",
+          "Les genoux"
+        ],
+        "choices": 0,
+        "correct": "Palpation des ATM et masticateurs, mesure de l'ouverture, examen dentaire : le contraste entre la douleur articulaire et la contracture musculaire oriente."
+      },
+      {
+        "id": "atm",
+        "title": "3. Dysfonction ATM",
+        "lead": "Craquements, douleur à la mastication, ouverture limitée mais non bloquée, patiente stressée, serrement nocturne des dents.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un syndrome de dysfonction de l'articulation temporo-mandibulaire (DTM) : antalgiques, alimentation molle, gouttière si disponible, gestion du stress",
+          "Une ankylose",
+          "Un tétanos",
+          "Une arthrite septique de l'ATM"
+        ],
+        "correct": 0,
+        "explanation": "La DTM est la cause la plus fréquente : antalgiques, repos articulaire, gouttière, traitement du bruxisme et du stress ; évolue par poussées."
+      },
+      {
+        "id": "ankylose",
+        "title": "4. Ankylose",
+        "lead": "Ouverture fixe à moins d'un travers de doigt depuis l'enfance, après un traumatisme mandibulaire ou une otite ancienne.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une ankylose temporo-mandibulaire : avis stomatologique, imagerie, chirurgie de libération",
+          "Une DTM",
+          "Une myosite banale",
+          "Une dystonie"
+        ],
+        "correct": 0,
+        "explanation": "L'ankylose, souvent post-traumatique ou post-infectieuse de l'enfance, limite sévèrement l'ouverture : traitement chirurgical spécialisé, prévention de la récidive."
+      },
+      {
+        "id": "systemique",
+        "title": "5. Causes systémiques",
+        "lead": "Contracture progressive avec sclérose cutanée, microstomie, reflux, télangiectasies.",
+        "prompt": "Vous pensez à :",
+        "choices": [
+          "Une sclérodermie systémique (microstomie) : avis, bilan, soins dentaires adaptés",
+          "Une DTM",
+          "Un tétanos chronique",
+          "Une myasthénie"
+        ],
+        "correct": 0,
+        "explanation": "La sclérodermie rétracte les tissus péribuccaux : microstomie, hygiène dentaire compromise : soins dentaires, rééducation, avis rhumatologique."
+      },
+      {
+        "id": "urgences",
+        "title": "6. Éliminer l'urgence",
+        "lead": "À chaque consultation vous vérifiez :",
+        "prompt": [
+          "L'absence de fièvre, de raideur de nuque, de spasmes au stimulus, de gêne respiratoire (tétanos, Ludwig)",
+          "Seulement les craquements",
+          "Les caries",
+          "La langue"
+        ],
+        "choices": 0,
+        "correct": "Toute contracture d'allure nouvelle avec raideur, spasmes ou fièvre repart vers le bilan du trismus aigu : tétanos et infection profonde d'abord."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "La conduite pour une DTM comprend :",
+        "prompt": [
+          "Information, antalgiques, alimentation molle, gouttière occlusale si disponible, kinésithérapie articulaire, avis si échec",
+          "Chirurgie d'emblée",
+          "Antibiothérapie systématique",
+          "Corticoïdes injectables systématiques"
+        ],
+        "choices": 0,
+        "correct": "La DTM se traite médicalement et fonctionnellement ; la chirurgie est exceptionnelle ; l'éducation (mastication, stress, bruxisme) prévient les récidives."
+      }
+    ],
+    "synthesis": "Contracture chronique = DTM d'abord (craquements, bruxisme, stress : antalgiques, gouttière, alimentation molle). Enfance + traumatisme = ankylose (chirurgie). Microstomie + sclérose cutanée = sclérodermie. Toujours éliminer les urgences du trismus aigu (tétanos, Ludwig, fièvre). Avis stomatologique si blocage fixe ou échec."
+  },
+  {
+    "id": "DX-EXOPHTALMIE-001",
+    "title": "Exophtalmie — démarche",
+    "specialty": "Ophtalmologie / Endocrinologie",
+    "vignette": "Femme de 38 ans, yeux proéminents depuis 6 mois, yeux rouges, larmoiement, palpitations. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "premiere",
+        "title": "1. Premier réflexe",
+        "lead": "Quel examen faites-vous systématiquement en premier ?",
+        "prompt": [
+          "L'acuité visuelle des deux yeux",
+          "Une prise de sang",
+          "Une radiographie du crâne",
+          "Un EEG"
+        ],
+        "choices": 0,
+        "correct": "La baisse d'acuité change tout (compression du nerf optique) : acuité visuelle + réflexes pupillaires + motilité + cornée + fond d'œil à chaque consultation."
+      },
+      {
+        "id": "laterabilite",
+        "title": "2. Latéralité",
+        "lead": "Qu'est-ce qui oriente le diagnostic ?",
+        "prompt": [
+          "Bilatérale + signes thyroïdiens = orbitopathie de Basedow ; unilatérale = cellulite, tumeur ou pseudo-tumeur jusqu'à preuve du contraire",
+          "La couleur de l'iris",
+          "L'âge du patient uniquement",
+          "La tension artérielle"
+        ],
+        "choices": 0,
+        "correct": "La latéralité est le premier triage : bilatérale évoque le Basedow, unilatérale impose d'éliminer l'infection (urgence) et la tumeur."
+      },
+      {
+        "id": "urgence",
+        "title": "3. Urgence visuelle",
+        "lead": "Baisse d'acuité, défaut pupillaire afférent, œdème papillaire.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Une compression du nerf optique : corticoïdes IV selon protocoles et avis urgent, décompression si menace persistante",
+          "Une conjonctivite",
+          "Une myopie",
+          "Un orgelet"
+        ],
+        "correct": 0,
+        "explanation": "Menace visuelle = urgence absolue : corticoïdes IV, avis ophtalmo-endocrinologique, décompression orbitaire selon accessibilité."
+      },
+      {
+        "id": "cellulite",
+        "title": "4. Urgence infectieuse",
+        "lead": "Exophtalmie unilatérale fébrile, œil rouge douloureux, mouvements limités, sinusite récente.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une cellulite orbitaire : hospitalisation, antibiothérapie IV, imagerie, avis ORL",
+          "Une conjonctivite virale",
+          "Une blépharite",
+          "Un chalazion"
+        ],
+        "correct": 0,
+        "explanation": "Cellulite orbitaire = menace visuelle et complications (thrombose du sinus caverneux, méningite) : hospitalisation IV sans délai ; ne pas la prendre pour une conjonctivite."
+      },
+      {
+        "id": "basedow",
+        "title": "5. Orbitopathie de Basedow",
+        "lead": "Exophtalmie bilatérale, rétraction palpébrale, diplopie, tabagisme, signes thyroïdiens.",
+        "prompt": "La prise en charge comprend :",
+        "choices": [
+          "Arrêt strict du tabac, protection cornéenne (larmes, occlusion nocturne), traitement de l'hyperthyroïdie coordonné, avis selon gravité",
+          "Chirurgie esthétique d'emblée",
+          "Antibiotiques",
+          "Collyre antibiotique seul"
+        ],
+        "correct": 0,
+        "explanation": "Le tabac est le facteur d'aggravation majeur ; la protection cornéenne est immédiate ; formes sévères actives : corticoïdes et avis spécialisé."
+      },
+      {
+        "id": "tumeur",
+        "title": "6. Piste tumorale",
+        "lead": "Exophtalmie unilatérale progressive, indolore, sans fièvre.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une tumeur orbitaire : avis ophtalmologique, imagerie, biopsie",
+          "Un Basedow asymétrique certain d'emblée",
+          "Une sinusite chronique",
+          "Une allergie"
+        ],
+        "correct": 0,
+        "explanation": "Progressive + indolore + unilatérale = tumeur jusqu'à preuve du contraire ; l'imagerie est obligatoire ; chez l'enfant : urgence (rhabdomyosarcome)."
+      },
+      {
+        "id": "cornée",
+        "title": "7. Protection cornéenne",
+        "lead": "Les paupières ne ferment pas complètement la nuit.",
+        "prompt": "Vous prescrivez d'emblée :",
+        "choices": [
+          "Des larmes artificielles fréquentes, une pommade et une occlusion nocturne",
+          "Rien",
+          "Un antibiotique oral",
+          "Un cycloplégique seul"
+        ],
+        "correct": 0,
+        "explanation": "L'œil qui ne ferme pas s'ulcère : la protection cornéenne est le traitement le plus rentable dans notre contexte, dès la première consultation."
+      }
+    ],
+    "synthesis": "Exophtalmie = acuité visuelle d'abord, comparer les deux yeux. Bilatérale + thyroïde = Basedow (tabac, protection cornéenne, corticoïdes si sévère). Unilatérale fébrile douloureuse = cellulite orbitaire (IV). Unilatérale progressive indolore = tumeur (imagerie, biopsie). Baisse d'acuité ou défaut pupillaire = compression : corticoïdes IV, urgence. Yeux qui ne ferment pas = larmes + occlusion nocturne."
   }
 ]
