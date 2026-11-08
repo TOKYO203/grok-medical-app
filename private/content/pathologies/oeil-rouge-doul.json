@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -143,7 +144,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Brûlure chimque",
-          "text": "Lavage immédiat et prolongé au sérum physiologique ou à l'eau pendant au moins quinze minutes avant tout examen ; l'urgence est le lavage, pas le diagnostic."
+          "text": "Lavage immédiat et prolongé au sérum physiologique ou à l'eau pendant au moins quinze minutes avant tout examen ; l'urgence est le lavage, pas le diagnostic.",
+          "type": "callout"
         }
       ]
     },
@@ -270,7 +272,8 @@
           "key": "E",
           "term": "Endophtalmie (hypopion, post-opératoire)"
         }
-      ]
+      ],
+      "id": "mn-urgetouches-de-l-il-rouge-douloureux"
     },
     {
       "label": "Examen d'urgence",
@@ -286,12 +289,9 @@
         {
           "key": "T",
           "term": "Tonométrie"
-        },
-        {
-          "key": "P",
-          "term": "Pupille"
         }
-      ]
+      ],
+      "id": "mn-examen-d-urgence"
     },
     {
       "label": "Glaucome aigu",
@@ -312,7 +312,8 @@
           "key": "D",
           "term": "Dur à la palpation"
         }
-      ]
+      ],
+      "id": "mn-glaucome-aigu"
     },
     {
       "label": "Uvéite antérieure",
@@ -333,7 +334,8 @@
           "key": "S",
           "term": "Synéchies (cycloplégie pour prévenir)"
         }
-      ]
+      ],
+      "id": "mn-uv-ite-ant-rieure"
     }
   ],
   "flashcards": [
@@ -421,7 +423,8 @@
   "mindmap": {
     "root": {
       "id": "ord-root",
-      "label": "Œil rouge douloureux avec baisse visuelle"
+      "label": "Œil rouge douloureux avec baisse visuelle",
+      "detail": "Œil rouge douloureux avec baisse visuelle : Urgence, Causes, Examen, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -450,7 +453,8 @@
             "id": "ord-b1-l4",
             "label": "Nausées, vomissements"
           }
-        ]
+        ],
+        "detail": "Urgence : Vision menacée"
       },
       {
         "id": "ord-b2",
@@ -478,7 +482,8 @@
             "id": "ord-b2-l4",
             "label": "Endophtalmie, sclérite"
           }
-        ]
+        ],
+        "detail": "Causes : Par segment"
       },
       {
         "id": "ord-b3",
@@ -506,7 +511,8 @@
             "id": "ord-b3-l4",
             "label": "Pupille, fond d'œil"
           }
-        ]
+        ],
+        "detail": "Examen : Systématique"
       },
       {
         "id": "ord-b4",
@@ -534,7 +540,8 @@
             "id": "ord-b4-l4",
             "label": "Antibiothérapie, avis urgent"
           }
-        ]
+        ],
+        "detail": "Traitement : Avant adressage"
       },
       {
         "id": "ord-b5",
@@ -562,7 +569,8 @@
             "id": "ord-b5-l4",
             "label": "Contrôle des maladies systémiques"
           }
-        ]
+        ],
+        "detail": "Prévention : Long terme"
       }
     ]
   },

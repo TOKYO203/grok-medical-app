@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -133,7 +134,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Syndrome de la queue de cheval",
-          "text": "Anesthésie de la selle, troubles sphinctériens, rétention, déficits bilatéraux : urgence chirurgicale absolue (imagerie immédiate, décompression) : chaque heure compte pour le pronostic sphinctérien."
+          "text": "Anesthésie de la selle, troubles sphinctériens, rétention, déficits bilatéraux : urgence chirurgicale absolue (imagerie immédiate, décompression) : chaque heure compte pour le pronostic sphinctérien.",
+          "type": "callout"
         }
       ]
     },
@@ -263,7 +265,8 @@
           "key": "D",
           "term": "Déficit, troubles sphinctériens"
         }
-      ]
+      ],
+      "id": "mn-drapeaux-rouges"
     },
     {
       "label": "Lombalgie commune",
@@ -284,7 +287,8 @@
           "key": "A",
           "term": "Activité maintenue"
         }
-      ]
+      ],
+      "id": "mn-lombalgie-commune"
     },
     {
       "label": "Urgences",
@@ -301,7 +305,8 @@
           "key": "C",
           "term": "Compression canalaire"
         }
-      ]
+      ],
+      "id": "mn-urgences"
     },
     {
       "label": "Prise en charge",
@@ -322,7 +327,8 @@
           "key": "P",
           "term": "Prévention (exercice, posture)"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge"
     }
   ],
   "flashcards": [
@@ -410,7 +416,8 @@
   "mindmap": {
     "root": {
       "id": "lom-root",
-      "label": "Lombalgie"
+      "label": "Lombalgie",
+      "detail": "Lombalgie : Sémiologie, Tri clinique, Étiologies, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -439,7 +446,8 @@
             "id": "lom-b1-l4",
             "label": "Trajet radiculaire"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Mécanique ou inflammatoire"
       },
       {
         "id": "lom-b2",
@@ -467,7 +475,8 @@
             "id": "lom-b2-l4",
             "label": "Déficit, sphincters"
           }
-        ]
+        ],
+        "detail": "Tri clinique : Drapeaux rouges"
       },
       {
         "id": "lom-b3",
@@ -495,7 +504,8 @@
             "id": "lom-b3-l4",
             "label": "Extra-rachidienne"
           }
-        ]
+        ],
+        "detail": "Étiologies : Fréquence et gravité"
       },
       {
         "id": "lom-b4",
@@ -523,7 +533,8 @@
             "id": "lom-b4-l4",
             "label": "Chirurgie si urgence"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le tri"
       },
       {
         "id": "lom-b5",
@@ -551,7 +562,8 @@
             "id": "lom-b5-l4",
             "label": "Prise en charge globale"
           }
-        ]
+        ],
+        "detail": "Prévention : Récidives et chronicité"
       }
     ]
   },

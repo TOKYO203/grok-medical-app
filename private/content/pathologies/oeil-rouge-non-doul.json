@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -134,7 +135,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Rougeur + lentilles de contact",
-          "text": "Port de lentilles + rougeur : kératite jusqu'à preuve du contraire (ablation des lentilles, fluorescéine, avis ophtalmologique le jour même : risque d'ulcère)."
+          "text": "Port de lentilles + rougeur : kératite jusqu'à preuve du contraire (ablation des lentilles, fluorescéine, avis ophtalmologique le jour même : risque d'ulcère).",
+          "type": "callout"
         }
       ]
     },
@@ -260,7 +262,8 @@
           "key": "P",
           "term": "Pinguécule, ptérygion"
         }
-      ]
+      ],
+      "id": "mn-causes-b-nignes"
     },
     {
       "label": "Pièges de l'œil rouge indolore",
@@ -281,7 +284,8 @@
           "key": "G",
           "term": "Glaucome chronique"
         }
-      ]
+      ],
+      "id": "mn-pi-ges-de-l-il-rouge-indolore"
     },
     {
       "label": "Examen obligatoire",
@@ -295,14 +299,11 @@
           "term": "Cornée à la fluorescéine"
         },
         {
-          "key": "P",
-          "term": "Pupille"
-        },
-        {
           "key": "T",
           "term": "Tension oculaire"
         }
-      ]
+      ],
+      "id": "mn-examen-obligatoire"
     },
     {
       "label": "Traitement des conjonctivites",
@@ -323,7 +324,8 @@
           "key": "H",
           "term": "Hygiène des mains si virale"
         }
-      ]
+      ],
+      "id": "mn-traitement-des-conjonctivites"
     }
   ],
   "flashcards": [
@@ -411,7 +413,8 @@
   "mindmap": {
     "root": {
       "id": "orn-root",
-      "label": "Œil rouge non douloureux"
+      "label": "Œil rouge non douloureux",
+      "detail": "Œil rouge non douloureux : Sémiologie, Causes bénignes, Pièges, Examen, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -440,7 +443,8 @@
             "id": "orn-b1-l4",
             "label": "Sans douleur profonde"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Surface"
       },
       {
         "id": "orn-b2",
@@ -468,7 +472,8 @@
             "id": "orn-b2-l4",
             "label": "Pinguécule, ptérygion"
           }
-        ]
+        ],
+        "detail": "Causes bénignes : Fréquentes"
       },
       {
         "id": "orn-b3",
@@ -496,7 +501,8 @@
             "id": "orn-b3-l4",
             "label": "Glaucome chronique"
           }
-        ]
+        ],
+        "detail": "Pièges : À ne pas manquer"
       },
       {
         "id": "orn-b4",
@@ -524,7 +530,8 @@
             "id": "orn-b4-l4",
             "label": "Tension oculaire"
           }
-        ]
+        ],
+        "detail": "Examen : Sécurité — Examen"
       },
       {
         "id": "orn-b5",
@@ -552,7 +559,8 @@
             "id": "orn-b5-l4",
             "label": "Adressage si signe d'alerte"
           }
-        ]
+        ],
+        "detail": "Traitement : Première intention"
       }
     ]
   },

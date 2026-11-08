@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -135,7 +136,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Œdème unilatéral douloureux",
-          "text": "Gros mollet douloureux, chaud, avec œdème : thrombose veineuse profonde jusqu'à preuve du contraire — Doppler en urgence, anticoagulation, recherche d'embolie pulmonaire."
+          "text": "Gros mollet douloureux, chaud, avec œdème : thrombose veineuse profonde jusqu'à preuve du contraire — Doppler en urgence, anticoagulation, recherche d'embolie pulmonaire.",
+          "type": "callout"
         }
       ]
     },
@@ -262,7 +264,8 @@
           "key": "I",
           "term": "Iatrogène (inhibiteurs calciques)"
         }
-      ]
+      ],
+      "id": "mn-causes-bilat-rales-c3r-vi"
     },
     {
       "label": "Causes unilatérales (TV2LE)",
@@ -283,7 +286,8 @@
           "key": "E",
           "term": "Érysipèle, infection"
         }
-      ]
+      ],
+      "id": "mn-causes-unilat-rales-tv2le"
     },
     {
       "label": "Caractériser l'œdème",
@@ -304,7 +308,8 @@
           "key": "D",
           "term": "Douleur (indolore ou douloureux)"
         }
-      ]
+      ],
+      "id": "mn-caract-riser-l-d-me"
     },
     {
       "label": "Traitement",
@@ -325,7 +330,8 @@
           "key": "E",
           "term": "Étiologie (anticoagulation, antibiotiques)"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -413,7 +419,8 @@
   "mindmap": {
     "root": {
       "id": "oed-root",
-      "label": "Œdèmes des membres inférieurs"
+      "label": "Œdèmes des membres inférieurs",
+      "detail": "Œdèmes des membres inférieurs : Sémiologie, Causes bilatérales, Causes unilatérales, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -442,7 +449,8 @@
             "id": "oed-b1-l4",
             "label": "Périmètre des mollets"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Signes — Sémiologie"
       },
       {
         "id": "oed-b2",
@@ -470,7 +478,8 @@
             "id": "oed-b2-l4",
             "label": "Iatrogène (calciques)"
           }
-        ]
+        ],
+        "detail": "Causes bilatérales : Systémiques"
       },
       {
         "id": "oed-b3",
@@ -498,7 +507,8 @@
             "id": "oed-b3-l4",
             "label": "Érysipèle"
           }
-        ]
+        ],
+        "detail": "Causes unilatérales : Locales"
       },
       {
         "id": "oed-b4",
@@ -526,7 +536,8 @@
             "id": "oed-b4-l4",
             "label": "Drainage lymphatique"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       },
       {
         "id": "oed-b5",
@@ -554,7 +565,8 @@
             "id": "oed-b5-l4",
             "label": "Traitement étiologique"
           }
-        ]
+        ],
+        "detail": "Prévention : Long terme"
       }
     ]
   },

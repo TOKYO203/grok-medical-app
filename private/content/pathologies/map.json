@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -44,6 +45,12 @@
         {
           "type": "paragraph",
           "text": "La menace d'accouchement prématuré (MAP) est définie par l'association, avant 37 semaines d'aménorrhée (SA), de contractions utérines régulières et de modifications du col de l'utérus. Elle expose à la naissance d'un enfant prématuré, première cause de mortalité néonatale et de handicap d'origine périnatale. La prise en charge a pour but de retarder l'accouchement le temps d'administrer les traitements qui améliorent le pronostic de l'enfant (corticothérapie, transfert in utero) et de traiter la cause quand elle est identifiée."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Chorioamniotite : ne pas tocolyser",
+          "text": "Fièvre maternelle, utérus sensible, liquide amniotique trouble ou fétide, pouls fœtal accéléré : la tocolyse est contre-indiquée, l'accouchement doit être programmé sous antibiothérapie sans délai."
         }
       ]
     },
@@ -58,6 +65,12 @@
         {
           "type": "paragraph",
           "text": "Épidémiologie. La prématurité touche environ un nouveau-né sur dix dans le monde, avec une forte concentration en Afrique et en Asie ; à Madagascar, les causes infectieuses (paludisme, infections urinaires, chorioamniotite), l'anémie maternelle et la rupture prématurée des membranes en sont les principaux déterminants. Environ la moitié des accouchements prématurés sont précédés d'une MAP, dont l'issue dépend surtout de l'âge gestationnel de naissance."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "MAP avant 34 SA : urgence thérapeutique",
+          "text": "Toute MAP entre 24 et 34 SA impose, dès l'admission : corticothérapie de maturation pulmonaire (bétaméthasone 12 mg × 2 à 24 h d'intervalle), tocolyse de 48 h et organisation du transfert in utero vers une maternité disposant d'une unité néonatale."
         }
       ]
     },
@@ -77,6 +90,12 @@
             "Facteurs de risque maternels : âge inférieur à 18 ans ou supérieur à 35 ans, antécédent d'accouchement prématuré, tabac et toxiques, dénutrition, grossesses rapprochées, conditions de travail pénibles, faible niveau socio-économique, mort fœtale in utero antérieure.",
             "Contexte iatrogène et chirurgical : utérus cicatriciel, prématurité induite pour indication maternelle ou fœtale (environ un tiers des prématurités)."
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe devant des contractions avant 37 SA",
+          "text": "Speculum d'abord (liquide, métrorragies, signes infectieux), toucher vaginal ensuite, tococardiogramme, échographie du col (longueur < 25 mm = MAP), bilan infectieux et paludisme, puis décider tocolyse et corticoïdes."
         }
       ]
     },
@@ -99,6 +118,12 @@
         {
           "type": "paragraph",
           "text": "Diagnostic différentiel et signes de gravité. Ne pas confondre avec les contractions simples de la grossesse (Braxton Hicks), la dyspepsie gravidique ou une infection urinaire isolée. Signes de gravité : terme inférieur à 32 SA, col très modifié avec poche des eaux visible au spéculum, rupture des membranes, métrorragies, fièvre et utérus sensible (chorioamniotite), grossesse multiple, tocolyse inefficace, maternité de niveau inadapté."
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "MAP = contractions (≥ 4 par 20 min) + modifications du col avant 37 SA. Tocolyse : 48 h maximum, inhibiteur calcique en référence, pour laisser agir la corticothérapie et transférer. Corticoïdes : 24–34 SA, bétaméthasone 12 mg × 2 à 24 h d'intervalle. Sulfate de magnésium avant 32 SA (neuroprotection)."
         }
       ]
     },
@@ -134,6 +159,12 @@
         {
           "type": "paragraph",
           "text": "Mesures associées. Sulfate de magnésium intraveineux avant 32 SA pour la neuroprotection fœtale (réduction du risque de paralysie cérébrale). Antibiothérapie : uniquement si infection documentée (infection urinaire, chorioamniotite) ou prophylaxie du streptocoque B en cas de rupture et d'accouchement prévu ; pas d'antibiothérapie systématique de la MAP sur membranes intactes. Traitement de la cause : antipaludiques si paludisme, correction d'une anémie, arrêt du tabac. Prévention de l'immunisation rhésus chez la femme rhésus négatif (immunoglobulines anti-D selon protocole, lien avec la fiche Immunisation sanguine fœto-maternelle)."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo contre-indications de la tocolyse",
+          "text": "Pensez à CHAMP : Chorioamniotite (infection), Hémorragie (métrorragies abondantes, hématome rétro-placentaire), Anomalies du rythme fœtal (souffrance aiguë), Membranes rompues (selon terme et protocole), Pré-éclampsie grave ou pathologie cardiaque maternelle."
         }
       ]
     },
@@ -233,7 +264,8 @@
           "key": "E",
           "term": "Échographie du col < 25 mm, fibronectine fœtale"
         }
-      ]
+      ],
+      "id": "mn-diagnostic-de-map-core"
     },
     {
       "label": "Causes de MAP (CAUSES)",
@@ -262,7 +294,8 @@
           "key": "S",
           "term": "Secondaire : placenta praevia, hématome rétro-placentaire"
         }
-      ]
+      ],
+      "id": "mn-causes-de-map-causes"
     },
     {
       "label": "Prise en charge (TCSA)",
@@ -283,7 +316,8 @@
           "key": "A",
           "term": "Antibiothérapie seulement si infection documentée ; transfert in utero"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge-tcsa"
     },
     {
       "label": "Contre-indications de la tocolyse (CHAMP)",
@@ -308,7 +342,8 @@
           "key": "P",
           "term": "Pré-éclampsie grave, pathologie cardiaque maternelle"
         }
-      ]
+      ],
+      "id": "mn-contre-indications-de-la-tocolyse-champ"
     }
   ],
   "flashcards": [
@@ -396,7 +431,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Menace d'accouchement prématuré"
+      "label": "Menace d'accouchement prématuré",
+      "detail": "Menace d'accouchement prématuré : Diagnostic, Causes, Tocolyse, Traitement fœtal, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -425,7 +461,8 @@
             "id": "b1l1",
             "label": "Speculum avant tout toucher"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Contractions ≥ 4/20 min, Col modifié au TV, Écho col < 25 mm, Fibronectine fœtale"
       },
       {
         "id": "b2",
@@ -453,7 +490,8 @@
             "id": "b2l1",
             "label": "Éliminer une cause imposant l'accouchement"
           }
-        ]
+        ],
+        "detail": "Causes : Col et utérus : béance, fibrome, Infection : urinaire, chorioamniotite, Surcharge : gémellaire, hydramnios, Maternelles : âge, tabac, anémie"
       },
       {
         "id": "b3",
@@ -481,7 +519,8 @@
             "id": "b3l1",
             "label": "Transfert in utero si < 32–34 SA"
           }
-        ]
+        ],
+        "detail": "Tocolyse : Inhibiteur calcique 48 h, Contre-indications : CHAMP, Surveillance tension, glycémie, But : laisser agir corticoïdes"
       },
       {
         "id": "b4",
@@ -509,7 +548,8 @@
             "id": "b4l1",
             "label": "Antibiothérapie seulement si infection documentée"
           }
-        ]
+        ],
+        "detail": "Traitement fœtal : Bétaméthasone 12 mg × 2, Fenêtre 24–34 SA, Sulfate de magnésium < 32 SA, Anti-D si rhésus négatif"
       },
       {
         "id": "b5",
@@ -537,7 +577,8 @@
             "id": "b5l1",
             "label": "Lien avec fiches Prématurité et Contraception"
           }
-        ]
+        ],
+        "detail": "Prévention : Espacement des naissances, Dépistage infections et anémie, Progestérone ou cerclage si récidive, Éducation aux signes d'alerte"
       }
     ]
   },
