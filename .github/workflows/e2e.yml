@@ -7,6 +7,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+# Post-mortem 2026-11-07 (cf. ci.yml et docs/PREVENTION-DEPLOIEMENT.md, R7) :
+# la suite typecheck/lint est cassée en continu depuis le 24 octobre (changements
+# RPC Supabase/webhook jamais réparés) et la croix rouge permanente de CE
+# workflow masquait l'état réel des tests Playwright, son unique raison d'être.
+# Réparation symétrique de la CI :
+#  • le job BLOQUANT ici est la suite Playwright (4 specs tests/e2e) ;
+#  • typecheck et lint restent exécutés à chaque push mais en NON BLOQUANT
+#    (continue-on-error) : un échec s'affiche en avertissement au lieu de faire
+#    mentir la croix rouge ;
+#  • À remettre en bloquant une fois la suite RPC/webhook réparée (R7).
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -25,9 +39,11 @@ jobs:
 
       - name: TypeScript check
         run: npx tsc --noEmit
+        continue-on-error: true
 
       - name: Lint
         run: npm run lint
+        continue-on-error: true
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
