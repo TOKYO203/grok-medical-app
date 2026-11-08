@@ -64,10 +64,19 @@ test("le pont provisionne `optimus_user_state` pour une session Supabase", async
   );
   assert.match(bridge, /buildOptimusSnapshot/, "l'instantané doit être construit par le modèle partagé");
   // Le tunnel exige la ligne : le message doit rester une preuve de la dépendance.
+  // 2026-11-08 : la lecture d'`optimus_user_state` vit désormais dans le RPC
+  // Supabase `create_premium_purchase_order` (migration 0008) — le dépôt n'en
+  // garde que l'appel. La dépendance reste prouvée par le rattachement de la
+  // commande à l'identité Optimus (`p_optimus_id`).
   assert.match(
     purchaseOrders,
-    /optimus_user_state/,
-    "createPremiumPurchaseOrder lit optimus_user_state — c'est la raison du provisionnement",
+    /create_premium_purchase_order/,
+    "la commande passe par le RPC Supabase create_premium_purchase_order",
+  );
+  assert.match(
+    purchaseOrders,
+    /p_optimus_id/,
+    "la commande reste rattachée à l'identité Optimus — c'est la raison du provisionnement",
   );
 });
 
