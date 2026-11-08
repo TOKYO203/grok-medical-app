@@ -3257,5 +3257,731 @@
       }
     ],
     "synthesis": "Hémorragie génitale → test de grossesse systématique → quantifier le retentissement (hémoglobine, constantes) → speculum : saignement de contact = examiner le col et biopsier toute lésion (cancer du col) → échographie : fibrome, môle, rétention → fonctionnel = élimination → stopper le saignement, traiter la cause, corriger l'anémie."
+  },
+  {
+    "id": "DX-ERYTHEMES-001",
+    "title": "Érythèmes : scarlatiniforme, morbilliforme, rubéoliforme — démarche",
+    "specialty": "Dermatologie / Infectiologie",
+    "vignette": "Enfant de 5 ans, fièvre depuis 3 jours avec éruption généralisée. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Triage de sécurité",
+        "lead": "Que recherchez-vous d’abord ?",
+        "prompt": "Devant toute éruption fébrile, le premier réflexe est :",
+        "choices": [
+          "Chercher un purpura, un choc et une atteinte des muqueuses",
+          "Prescrire un antihistaminique",
+          "Demander une échographie",
+          "Attendre la desquamation"
+        ],
+        "correct": 0,
+        "explanation": "Purpura fulminans (méningocoque), Stevens-Johnson/Lyell et chocs septiques sont les urgences à éliminer avant tout raisonnement étiologique."
+      },
+      {
+        "id": "interrogatoire",
+        "title": "2. Interrogatoire",
+        "lead": "L’enfant n’est pas vacciné contre la rougeole.",
+        "prompt": "Le prodrome catarrhal (toux, coryza, conjonctivite) suivi d’une éruption descendante évoque :",
+        "choices": [
+          "La scarlatine",
+          "La rougeole",
+          "La rubéole",
+          "Une urticaire"
+        ],
+        "correct": 1,
+        "explanation": "Catarrhe oculo-nasal 3-4 jours puis éruption du visage vers le tronc : rougeole (points de Koplik en bouche), fréquente en contexte de faible couverture vaccinale."
+      },
+      {
+        "id": "examen",
+        "title": "3. Examen clinique",
+        "lead": "Que cherchez-vous à l’examen ?",
+        "prompt": "Un érythème fin, granité, rugueux, accentué dans les plis, avec langue framboisée, évoque :",
+        "choices": [
+          "La scarlatine (streptocoque A)",
+          "La varicelle",
+          "Un purpura",
+          "Un dermographisme"
+        ],
+        "correct": 0,
+        "explanation": "L’érythème scarlatiniforme est fin, granité (« papier de verre »), avec angine et desquamation secondaire : streptocoque du groupe A."
+      },
+      {
+        "id": "syndrome",
+        "title": "4. Syndrome",
+        "lead": "Fièvre, catarrhe, éruption descendante confluente.",
+        "prompt": "Le syndrome est :",
+        "choices": [
+          "Une méningite",
+          "Une rougeole (éruption morbilliforme)",
+          "Un psoriasis",
+          "Une miliaire sudorale"
+        ],
+        "correct": 1,
+        "explanation": "On nomme le syndrome éruptif avant les complications : rougeole probable, avec risque de pneumonie, de diarrhée et de cécité cornéenne."
+      },
+      {
+        "id": "examens",
+        "title": "5. Traitement prioritaire",
+        "lead": "Aucun examen n’est nécessaire pour confirmer une rougeole clinique.",
+        "prompt": "Le traitement prioritaire est :",
+        "choices": [
+          "Antibiotique immédiat",
+          "Vitamine A deux doses et isolement",
+          "Corticoïdes oraux",
+          "Bain antiseptique"
+        ],
+        "correct": 1,
+        "explanation": "La vitamine A réduit la mortalité de la rougeole ; l’isolement protège l’entourage, la vaccination de rattrapage suit."
+      },
+      {
+        "id": "complications",
+        "title": "6. Complications à surveiller",
+        "lead": "Quels dangers immédiats de cette rougeole ?",
+        "prompt": "Les complications à redouter sont :",
+        "choices": [
+          "Pneumonie, diarrhée déshydratante, cécité cornéenne",
+          "Lithiase biliaire",
+          "Appendicite",
+          "Diabète"
+        ],
+        "correct": 0,
+        "explanation": "Surinfections respiratoires et digestives, cécité cornéenne par carence en vitamine A : peser, hydrater, revacciner, et revoir l’enfant."
+      },
+      {
+        "id": "medicament",
+        "title": "7. La cause médicamenteuse",
+        "lead": "L’enfant avait reçu de l’amoxicilline le jour de l’éruption.",
+        "prompt": "L’éruption sous amoxicilline au décours d’une rougeole signifie :",
+        "choices": [
+          "Une allergie à vie à la pénicilline",
+          "Souvent une éruption virale, pas une allergie vraie",
+          "Un impératif d’arrêt définitif",
+          "Une contre-indication aux vaccins"
+        ],
+        "correct": 1,
+        "explanation": "Éruption virus-antibiotique fréquente : ne pas étiqueter « allergique à la pénicilline » à vie sans analyse critique."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter et suivre ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Vitamine A, hydratation, traitement des surinfections, isolement, vaccination des contacts",
+          "Un arrêt de toutes les fièvres par corticoïdes",
+          "Une transfusion systématique",
+          "Des bains froids répétés"
+        ],
+        "correct": 0,
+        "explanation": "Traitement simple + prévention autour du cas : la rougeole se combat par vitamine A et vaccination, pas par des médicaments coûteux."
+      }
+    ],
+    "synthesis": "Éruption fébrile = purpura ? choc ? muqueuses ? d’abord. Catarrhe + éruption descendante = rougeole : vitamine A et isolement. Érythème granité avec angine = scarlatine : pénicilline. Médicament récent = suspendre et documenter ; jamais d’étiquette d’allergie hâtive."
+  },
+  {
+    "id": "DX-DYSPHAGIE-001",
+    "title": "Dysphagie — démarche",
+    "specialty": "Gastroentérologie / ORL",
+    "vignette": "Homme de 60 ans, tabagique, gêne progressive pour les solides depuis 3 mois avec amaigrissement de 8 kg. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "interrogatoire",
+        "title": "1. Interrogatoire",
+        "lead": "Que précisez-vous d’abord ?",
+        "prompt": "L’élément le plus inquiétant de cette dysphagie est :",
+        "choices": [
+          "Sa nature intermittente",
+          "Sa progression aux solides avec amaigrissement chez un sujet de 60 ans",
+          "Une sensation de boule hors repas",
+          "Une douleur à la déglutition isolée"
+        ],
+        "correct": 1,
+        "explanation": "Solides progressifs + amaigrissement + âge + tabac = cancer de l’œsophage jusqu’à preuve du contraire : endoscopie avec biopsies."
+      },
+      {
+        "id": "examen",
+        "title": "2. Examen clinique",
+        "lead": "Que recherchez-vous à l’examen ?",
+        "prompt": "L’examen de ce patient comprend :",
+        "choices": [
+          "Pesée, examen de la bouche et du cou (adénopathies, goitre), signes d’anémie",
+          "Une palpation abdominale seule",
+          "Un interrogatoire du voisin",
+          "Rien avant l’endoscopie"
+        ],
+        "correct": 0,
+        "explanation": "Dénutrition, masse cervicale, adénopathie sus-claviculaire et anémie orientent le pronostic et l’urgence."
+      },
+      {
+        "id": "syndrome",
+        "title": "3. Syndrome",
+        "lead": "Dysphagie œsophagienne organique progressive.",
+        "prompt": "Le syndrome est :",
+        "choices": [
+          "Un globus fonctionnel",
+          "Une dysphagie organique obstructive avec dénutrition",
+          "Un reflux gastro-œsophagien",
+          "Une dysphagie pharyngée neurologique"
+        ],
+        "correct": 1,
+        "explanation": "On nomme le syndrome (obstructif organique) avant l’étiologie ; le globus ne gêne pas vraiment pour manger."
+      },
+      {
+        "id": "hypotheses",
+        "title": "4. Hypothèses",
+        "lead": "Quelles hypothèses gardez-vous ?",
+        "prompt": "Le diagnostic en tête est :",
+        "choices": [
+          "Cancer de l’œsophage, puis sténose peptique, achalasie",
+          "Simple gastrite",
+          "Angine",
+          "Migraine"
+        ],
+        "correct": 0,
+        "explanation": "Le terrain impose le cancer en premier ; les diagnostics alternatifs restent possibles mais ne rassurent jamais avant biopsies."
+      },
+      {
+        "id": "examens",
+        "title": "5. Examens",
+        "lead": "Quel examen fait le diagnostic ?",
+        "prompt": "L’examen clé est :",
+        "choices": [
+          "L’endoscopie œso-gastro-duodénale avec biopsies",
+          "Une radiographie du thorax seule",
+          "Une échographie thyroïdienne seule",
+          "Un bilan hépatique"
+        ],
+        "correct": 0,
+        "explanation": "L’endoscopie visualise, biopsie et permet des gestes ; si indisponible, un transit œsophagien et la référence se discutent."
+      },
+      {
+        "id": "fausses",
+        "title": "6. Dysphagies neurologiques",
+        "lead": "Chez un autre patient, AVC récent, toux au repas.",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Test de déglutition avant tout repas oral, textures épaissies, prévention de l’inhalation",
+          "Laisser boire librement",
+          "Gavage immédiat sans test",
+          "Antibiotique systématique"
+        ],
+        "correct": 0,
+        "explanation": "Les fausses routes du sujet neurologique tuent par pneumonie d’inhalation : tester, épaissir, petites bouchées, kinésithérapie."
+      },
+      {
+        "id": "caustique",
+        "title": "7. Antécédent particulier",
+        "lead": "Chez une jeune femme : ingestion de soude caustique il y a un an.",
+        "prompt": "Vous craignez :",
+        "choices": [
+          "Une sténose caustique avec dilatations itératives",
+          "Une fausse route purement fonctionnelle",
+          "Une achalasie",
+          "Un ulcère gastroduodénal"
+        ],
+        "correct": 0,
+        "explanation": "La sténose caustique est fréquente après ingestion de produits ménagers : dilatations progressives, et prise en charge psychiatrique de la tentative."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter et suivre ?",
+        "prompt": "La prise en charge comprend :",
+        "choices": [
+          "Endoscopie rapide, biopsies, avis chirurgical ou palliatif, soutien nutritionnel",
+          "IPP seuls sans contrôle",
+          "Corticoïdes oraux",
+          "Attente de 6 mois"
+        ],
+        "correct": 0,
+        "explanation": "Cancer : extension, chirurgie ou palliatif (prothèse, gastrostomie) selon les moyens ; la dénutrition se corrige en parallèle, jamais après."
+      }
+    ],
+    "synthesis": "Dysphagie = où, quels aliments, depuis quand. Solides progressifs + amaigrissement + âge = endoscopie pour cancer. Régurgitations d’aliments non digérés = achalasie. Toux au repas + contexte neurologique = fausses routes. Caustique = sténose. Globus = après examen et endoscopie rassurants."
+  },
+  {
+    "id": "DX-SPLENOMEGALIE-001",
+    "title": "Splénomégalie — démarche",
+    "specialty": "Médecine interne / Hématologie",
+    "vignette": "Enfant de 8 ans, gros ventre depuis des mois, accès fébriles répétés, pâleur. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "examen",
+        "title": "1. Examen clinique",
+        "lead": "Que confirmez-vous d’abord ?",
+        "prompt": "Avant d’étiqueter une « grosse rate », il faut :",
+        "choices": [
+          "Confirmer la palpation splénique (matité, bord inférieur, décubitus latéral) et écarter un rein ou une masse",
+          "Commander une IRM",
+          "Faire une ponction",
+          "Rien, la parole du parent suffit"
+        ],
+        "correct": 0,
+        "explanation": "La rate est palpable quand elle a doublé de volume ; on la confirme en inspiration profonde et on la cote en travers de doigts."
+      },
+      {
+        "id": "contexte",
+        "title": "2. Contexte local",
+        "lead": "Zone d’endémie palustre, aucun voyage.",
+        "prompt": "La première cause à évoquer ici est :",
+        "choices": [
+          "Le paludisme à répétition avec splénomégalie tropicale",
+          "Une leucémie aiguë",
+          "La tuberculose",
+          "Un kyste hydatique"
+        ],
+        "correct": 0,
+        "explanation": "Enfance + zone d’endémie + accès répétés + anémie : paludisme chronique et hyperimmunité palustre dominent."
+      },
+      {
+        "id": "examens",
+        "title": "3. Premiers examens",
+        "lead": "Quels examens de première intention ?",
+        "prompt": "Le duo le plus rentable est :",
+        "choices": [
+          "Goutte épaisse (TDR), NFS-frottis, pesée",
+          "Scanner abdominal d’emblée",
+          "Ponction splénique",
+          "Bilan hormonal"
+        ],
+        "correct": 0,
+        "explanation": "Goutte épaisse et frottis sanguin tranchent l’essentiel en contexte de ressources limitées : paludisme, hémopathies, hémolyse."
+      },
+      {
+        "id": "anemie",
+        "title": "4. Anémie associée",
+        "lead": "Hémoglobine 7 g/dL, frottis avec cellules falciformes.",
+        "prompt": "Le diagnostic associé est :",
+        "choices": [
+          "Une drépanocytose, avec risque de séquestration splénique aiguë",
+          "Une carence martiale isolée",
+          "Un paludisme seul",
+          "Une leucose"
+        ],
+        "correct": 0,
+        "explanation": "Chez l’enfant drépanocytaire, la rate peut se séquestrer brutalement (choc) : urgence transfusionnelle à connaître."
+      },
+      {
+        "id": "fievre",
+        "title": "5. Forme fébrile de l’adulte",
+        "lead": "Si l’adulte est fébrile avec amaigrissement ?",
+        "prompt": "Devant splénomégalie fébrile prolongée avec sueurs, évoquez :",
+        "choices": [
+          "La tuberculose en priorité (dont abdominale)",
+          "Un rhume",
+          "Une simple fatigue",
+          "Un fibrome"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre prolongée + sueurs nocturnes + amaigrissement : tuberculose en tête, recherche active et souvent traitement d’épreuve encadré."
+      },
+      {
+        "id": "porte",
+        "title": "6. Hypertension portale",
+        "lead": "Splénomégalie avec hépatomégalie ferme et ascite.",
+        "prompt": "Ce tableau évoque :",
+        "choices": [
+          "Une hypertension portale (cirrhose, bilharziose) avec risque de rupture de varices",
+          "Une simple hépatite A",
+          "Une goutte",
+          "Une pancréatite"
+        ],
+        "correct": 0,
+        "explanation": "Rate + foie dur + ascite = hypertension portale : échographie, prévention de la rupture des varices, en cherchant la bilharziose chez le jeune adulte."
+      },
+      {
+        "id": "hydatique",
+        "title": "7. Piège parasitaire",
+        "lead": "Masse hépatique associée chez un berger.",
+        "prompt": "Quelle erreur ne jamais commettre ?",
+        "choices": [
+          "Ponctionner à l’aveugle une masse hépatique (risque de choc anaphylactique si hydatique)",
+          "Prescrire du fer",
+          "Faire une goutte épaisse",
+          "Palper le ventre"
+        ],
+        "correct": 0,
+        "explanation": "Le kyste hydatique se diagnostique par échographie ; la ponction aveugle peut être fatale."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter et suivre ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Traiter le paludisme à chaque accès (ACT), prévenir (moustiquaire), fer, suivi mensuel de la rate",
+          "Une splénectomie d’emblée",
+          "Des plantes « purgatives »",
+          "Une transfusion mensuelle systématique"
+        ],
+        "correct": 0,
+        "explanation": "La rate tropicale régresse en mois sous traitement et prévention ; la splénectomie reste exceptionnelle et exige vaccinations et éducation."
+      }
+    ],
+    "synthesis": "Splénomégalie = confirmer la palpation, puis goutte épaisse + NFS-frottis + échographie si possible. Enfant d’endémie : paludisme chronique, drépanocytose. Adulte fébrile : tuberculose. Jeune adulte avec gros foie dur : bilharziose. Rate + ascite : hypertension portale. Jamais de ponction aveugle."
+  },
+  {
+    "id": "DX-HEPATOMEGALIE-001",
+    "title": "Hépatomégalie — démarche",
+    "specialty": "Hépato-gastroentérologie",
+    "vignette": "Homme de 30 ans, fièvre et douleur de l’hypochondre droit depuis une semaine, gros foie douloureux. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Triage de gravité",
+        "lead": "Que recherchez-vous d’abord ?",
+        "prompt": "Le premier danger à éliminer est :",
+        "choices": [
+          "Un choc septique ou une rupture d’abcès (amibien) dans le péritoine",
+          "Un rhumatisme",
+          "Une simple grippe",
+          "Un ulcère"
+        ],
+        "correct": 0,
+        "explanation": "L’abcès amibien du foie peut rompre ou septiqué : constantes, échographie, métronidazole, drainage si besoin."
+      },
+      {
+        "id": "contexte",
+        "title": "2. Contexte",
+        "lead": "Il a eu une dysenterie il y a deux mois, il boit de l’eau de puits.",
+        "prompt": "Le diagnostic en tête est :",
+        "choices": [
+          "Abcès amibien du foie",
+          "Cirrhose",
+          "Hépatite B chronique",
+          "Insuffisance cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + douleur hypochondre droit + dysenterie passée + gros foie douloureux : abcès amibien, très fréquent en contexte tropical."
+      },
+      {
+        "id": "examens",
+        "title": "3. Examens de première intention",
+        "lead": "Quel bilan de première ligne ?",
+        "prompt": "Le bilan comprend :",
+        "choices": [
+          "Échographie abdominale, NFS, goutte épaisse (fièvre), bilan hépatique avec TP",
+          "Radiographie du genou",
+          "Ponction hépatique immédiate",
+          "Scanner cérébral"
+        ],
+        "correct": 0,
+        "explanation": "Échographie (collection), goutte épaisse si fièvre (paludisme), TP si ictère : pas de ponction à l’aveugle avant imagerie."
+      },
+      {
+        "id": "differenciel",
+        "title": "4. Diagnostic différentiel fébrile",
+        "lead": "Si la goutte épaisse est positive ?",
+        "prompt": "Le paludisme aigu peut donner :",
+        "choices": [
+          "Une hépatomégalie modérée douloureuse avec fièvre : traiter par ACT",
+          "Une cirrhose",
+          "Un purpura",
+          "Une ascite isolée"
+        ],
+        "correct": 0,
+        "explanation": "Le paludisme se traite d’abord ; l’hépatomégalie régresse avec la fièvre. Toujours la goutte épaisse devant un gros foie fébrile."
+      },
+      {
+        "id": "dur",
+        "title": "5. Gros foie dur",
+        "lead": "Un autre patient, 25 ans, foie dur à bord tranchant + grosse rate, baignades en eau douce.",
+        "prompt": "Le diagnostic à évoquer est :",
+        "choices": [
+          "Bilharziose à S. mansoni avec fibrose périportale",
+          "Mononucléose",
+          "Carence en fer",
+          "Diabète"
+        ],
+        "correct": 0,
+        "explanation": "Foie dur + splénomégalie + eaux douces = bilharziose hépato-splénique : œufs dans les selles, praziquantel, prévenir les varices."
+      },
+      {
+        "id": "ictère",
+        "title": "6. Gros foie avec ictère",
+        "lead": "Si le patient devient ictérique avec TP bas ?",
+        "prompt": "Vous craignez :",
+        "choices": [
+          "Une insuffisance hépatique aiguë : référence urgente et arrêt des hépatotoxiques",
+          "Un simple psoriasis",
+          "Une migraine",
+          "Une colique néphrétique"
+        ],
+        "correct": 0,
+        "explanation": "Le TP bas signe la gravité : hépatite virale, toxique (paracétamol, plantes) : référence immédiate ; l’ALAT seul ne mesure pas la gravité."
+      },
+      {
+        "id": "cardiaque",
+        "title": "7. Fausses hépatomégalies",
+        "lead": "Chez un cardiaque dyspnéique, gros foie douloureux avec turgescence jugulaire.",
+        "prompt": "Il s’agit d’un :",
+        "choices": [
+          "Foie cardiaque : il régresse avec la décongestion",
+          "Abcès amibien",
+          "Cancer du foie",
+          "Kyste hydatique"
+        ],
+        "correct": 0,
+        "explanation": "Insuffisance cardiaque droite : traiter le cœur, le foie fond ; chercher aussi anévrisme aortique et causes viscérales irradiées."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Métronidazole 10 jours + amebicide luminal ± drainage pour l’abcès, et prévention de l’amibiase (eau potable)",
+          "Antibiotiques à vie",
+          "Chirurgie immédiate systématique",
+          "Corticoïdes"
+        ],
+        "correct": 0,
+        "explanation": "Abcès amibien : métronidazole avec amebicide luminal, drainage si grande taille ou non-réponse à 3-5 jours ; l’eau potable fait la prévention."
+      }
+    ],
+    "synthesis": "Hépatomégalie = décrire (taille, bord, surface, douleur) puis goutte épaisse si fièvre, TP si ictère, échographie. Gros foie douloureux fébrile = abcès amibien. Gros foie dur + rate = bilharziose ou cirrhose. Foie cardiaque = décongestion. Jamais de ponction aveugle, toujours lister les hépatotoxiques."
+  },
+  {
+    "id": "DX-POLYURIE-001",
+    "title": "Syndrome polyuropolydipsique — démarche",
+    "specialty": "Endocrinologie / Néphrologie",
+    "vignette": "Femme de 28 ans, soif intense et urines abondantes depuis trois semaines, réveils nocturnes multiples. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Triage de sécurité",
+        "lead": "Que recherchez-vous d’abord ?",
+        "prompt": "Le premier examen, simple et décisif, est :",
+        "choices": [
+          "La glycémie à jeun",
+          "Une IRM cérébrale",
+          "Un scanner rénal",
+          "Une fibroscopie"
+        ],
+        "correct": 0,
+        "explanation": "Le diabète sucré explique la majorité des polyuries : glycémie à jeun ≥ 1,26 g/L (7 mmol/L) deux fois, ou ≥ 2 g/L avec symptômes."
+      },
+      {
+        "id": "quantifier",
+        "title": "2. Quantifier",
+        "lead": "Elle urine environ 4 litres par jour.",
+        "prompt": "Avant d’aller plus loin, il faut :",
+        "choices": [
+          "Confirmer le volume (recueil 24 h) et distinguer polyurie et pollakiurie",
+          "Prescrire un diurétique",
+          "Restreindre l’eau à domicile",
+          "Faire un ECBU systématique"
+        ],
+        "correct": 0,
+        "explanation": "La pollakiurie (cystite, prostate) n’est pas une polyurie ; quantifier les volumes et la nycturie structure la suite."
+      },
+      {
+        "id": "urgence",
+        "title": "3. Urgence ?",
+        "lead": "Amaigrissement de 6 kg, nausées, douleur abdominale, haleine fruitée.",
+        "prompt": "Vous craignez :",
+        "choices": [
+          "Une décompensation cétosique : soluté salé IV, insuline, kaliémie, référence",
+          "Une grossesse normale",
+          "Une cystite",
+          "Une hypothyroïdie"
+        ],
+        "correct": 0,
+        "explanation": "Diabète de type 1 révélé : cétonurie positive ; la douleur abdominale et les vomissements font partie du tableau, ne pas la prendre pour une gastro-entérite."
+      },
+      {
+        "id": "sucre",
+        "title": "4. Si le sucre n’est pas en cause",
+        "lead": "Glycémie à jeun normale deux fois, bandelette sans glucose.",
+        "prompt": "La démarche explore alors :",
+        "choices": [
+          "Diabète insipide (central, néphrogénique) et polydipsie primitive",
+          "Une anémie",
+          "Un ulcère",
+          "Une allergie"
+        ],
+        "correct": 0,
+        "explanation": "Urines pâles très diluées (densité basse) : lithium, traumatisme crânien, chirurgie, post-partum, hypercalcémie à chercher."
+      },
+      {
+        "id": "lithium",
+        "title": "5. Cause médicamenteuse",
+        "lead": "Elle est traitée pour trouble bipolaire au lithium.",
+        "prompt": "Le diagnostic probable est :",
+        "choices": [
+          "Diabète insipide néphrogénique au lithium",
+          "Diabète insipide central",
+          "Polydipsie psychogène",
+          "Diabète sucré tardif"
+        ],
+        "correct": 0,
+        "explanation": "Le lithium rend le rein insensible à la vasopressine : ionogramme, avis psychiatrique pour adaptation ; la desmopressine est inefficace dans cette forme."
+      },
+      {
+        "id": "central",
+        "title": "6. Causes centrales",
+        "lead": "Un autre patient : traumatisme crânien il y a un mois.",
+        "prompt": "La cause à évoquer est :",
+        "choices": [
+          "Un diabète insipide central post-traumatique : desmopressine",
+          "Une cystite",
+          "Un diabète sucré",
+          "Une hypertension"
+        ],
+        "correct": 0,
+        "explanation": "Traumatisme, chirurgie hypophysaire, tumeur, tuberculose : déficit en vasopressine, substitué par desmopressine ; attention à l’hyponatrémie si surboison."
+      },
+      {
+        "id": "psychogene",
+        "title": "7. Polydipsie primitive",
+        "lead": "Une patiente boit 6 litres par jour, contexte anxieux, urines parfois concentrées la nuit.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Polydipsie psychogène, diagnostic d’élimination : restriction encadrée démontrant la concentration",
+          "Diabète insipide avéré d’emblée",
+          "Diabète sucré",
+          "Insuffisance rénale"
+        ],
+        "correct": 0,
+        "explanation": "Le patient qui concentre ses urines à la restriction boit trop : prise en charge comportementale, surveiller la natrémie."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter et suivre ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Traiter le diabète ou le diabète insipide selon le mécanisme, éduquer (signes d’urgence, ne pas surboire sous desmopressine), peser et suivre",
+          "Restreindre l’eau à tout prix",
+          "Diurétiques au long cours",
+          "Antibiothérapie"
+        ],
+        "correct": 0,
+        "explanation": "Le mécanisme commande le traitement ; l’éducation (hypoglycémie, hyponatrémie, goutte épaisse si fièvre chez le diabétique) fait le suivi."
+      }
+    ],
+    "synthesis": "Polyurie-polydipsie = quantifier les volumes, glycémie à jeun, bandelette (glucose, cétones, densité). Diabète + haleine acétonique = cétose : réhydrater, insuliner. Glycémie normale : lithium ? traumatisme ? post-partum ? hypercalcémie ? ; central (desmopressine) vs néphrogénique (corriger la cause) vs psychogène (restriction encadrée)."
+  },
+  {
+    "id": "DX-LOMBALGIE-001",
+    "title": "Lombalgie — démarche",
+    "specialty": "Rhumatologie / Urgences",
+    "vignette": "Homme de 45 ans, douleur lombaire depuis trois semaines avec sueurs nocturnes et amaigrissement. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "triage",
+        "title": "1. Drapeaux rouges",
+        "lead": "Que cherchez-vous d’abord ?",
+        "prompt": "Devant toute lombalgie, les signes à chercher systématiquement sont :",
+        "choices": [
+          "Fièvre, traumatisme, cancer, déficit neurologique, troubles sphinctériens",
+          "Le prix des médicaments",
+          "La couleur des urines uniquement",
+          "L’âge du matelas"
+        ],
+        "correct": 0,
+        "explanation": "Les drapeaux rouges changent tout : fracture, infection, tumeur, queue de cheval ; sans eux, la lombalgie commune est de bon pronostic."
+      },
+      {
+        "id": "contexte",
+        "title": "2. Contexte",
+        "lead": "Sueurs nocturnes, amaigrissement de 5 kg, toux prolongée dans l’entourage.",
+        "prompt": "Le diagnostic à évoquer en priorité à Madagascar est :",
+        "choices": [
+          "Le Mal de Pott (tuberculose vertébrale)",
+          "Un lumbago banal",
+          "Une sciatique discale",
+          "Un psoriasis"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + sueurs + amaigrissement + raideur progressive : tuberculose vertébrale jusqu’à preuve du contraire ; radiographie (pincement, géodes), antituberculeux 9-12 mois."
+      },
+      {
+        "id": "examen",
+        "title": "3. Examen clinique",
+        "lead": "Que faites-vous à l’examen ?",
+        "prompt": "L’examen comprend :",
+        "choices": [
+          "Force des releveurs du pied et du gros orteil, sensibilité, réflexes, périnée et sphincters, température, percussion des fosses lombaires",
+          "Palpation du genou",
+          "Seulement la marche",
+          "Rien"
+        ],
+        "correct": 0,
+        "explanation": "Un déficit du releveur du pied ou des troubles sphinctériens changent le pronostic et l’urgence ; la percussion lombaire oriente vers le rein."
+      },
+      {
+        "id": "urgence",
+        "title": "4. Urgence neurologique",
+        "lead": "Un autre patient : anesthésie du périnée et rétention urinaire aiguë.",
+        "prompt": "Le diagnostic est :",
+        "choices": [
+          "Un syndrome de la queue de cheval : avis neurochirurgical en urgence sur les heures",
+          "Un lumbago",
+          "Une prostatite",
+          "Une constipation"
+        ],
+        "correct": 0,
+        "explanation": "Selle anesthésiée + troubles sphinctériens + sciatique bilatérale : chirurgie urgente ; le pronostic dépend de la rapidité."
+      },
+      {
+        "id": "commune",
+        "title": "5. Lombalgie commune",
+        "lead": "Jeune adulte, port de charges, douleur mécanique, examen normal.",
+        "prompt": "Le traitement principal est :",
+        "choices": [
+          "Information sur le bon pronostic, maintien de l’activité, antalgiques simples",
+          "Alitement de 3 semaines",
+          "Corticoïdes injectables",
+          "Corset plâtré systématique"
+        ],
+        "correct": 0,
+        "explanation": "Le mouvement guérit le lumbago ; le lit prolongé est le pire traitement, pas d’imagerie systématique sans drapeau rouge."
+      },
+      {
+        "id": "sciatique",
+        "title": "6. Sciatique",
+        "lead": "Douleur irradiant derrière la cuisse jusqu’au pied, Lasègue positif, sans déficit.",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Traitement médical et rééducation ; imagerie seulement si déficit, queue de cheval ou échec à 6-8 semaines",
+          "Chirurgie immédiate",
+          "Antibiothérapie",
+          "Radio systématique le jour même"
+        ],
+        "correct": 0,
+        "explanation": "La sciatique sans déficit se traite médicalement ; le Lasègue est un signe d’examen, pas de gravité."
+      },
+      {
+        "id": "fausses",
+        "title": "7. Fausses lombalgies",
+        "lead": "Fièvre à 39 °C, brûlures mictionnelles, fosse lombaire douloureuse à la percussion.",
+        "prompt": "Vous évoquez :",
+        "choices": [
+          "Une pyélonéphrite (fausse lombalgie) : bandelette, ECBU, antibiothérapie",
+          "Un lumbago",
+          "Une hernie discale",
+          "Un anévrisme"
+        ],
+        "correct": 0,
+        "explanation": "Pyélonéphrite, lithiase, pancréatite, anévrisme de l’aorte, GEU : l’examen abdominal et mictionnel oriente avant de conclure au dos."
+      },
+      {
+        "id": "pec",
+        "title": "8. Prise en charge globale",
+        "lead": "Comment traiter le Mal de Pott ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Antituberculeux 9-12 mois, éducation à l’observance, dépistage des contacts, avis orthopédique si déficit ou abcès",
+          "Antalgiques seuls",
+          "Corticoïdes",
+          "Kinésithérapie seule"
+        ],
+        "correct": 0,
+        "explanation": "Le Pott se guérit par l’observance du traitement ; les formes neurologiques ou instables relèvent d’un avis spécialisé."
+      }
+    ],
+    "synthesis": "Lombalgie = drapeaux rouges d’abord (traumatisme, fièvre, cancer, déficit, sphincters). Fièvre + raideur + amaigrissement = Mal de Pott. Queue de cheval = neurochirurgie sur les heures. Commune = information + mouvement + antalgiques, pas d’imagerie. Toujours penser viscéral (rein, aorte) et brucellose chez l’éleveur."
   }
 ]
