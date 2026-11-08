@@ -1,6 +1,6 @@
 name: Diagnostic tests
 
-# TEMPORAIRE — à supprimer une fois la suite RPC/webhook réparée (R7).
+# TEMPORAIRE — à supprimer une fois la suite réparée (R7).
 on:
   push:
     branches: [main]
@@ -33,20 +33,12 @@ jobs:
             node --test "$f" > /tmp/one.log 2>&1 || true
             if grep -qE '^not ok ' /tmp/one.log; then
               names=$(grep -E '^not ok ' /tmp/one.log | sed 's/^not ok [0-9]* - //' | head -n 4 | tr '\n' ';' | cut -c1-220)
-              detail=$(grep -m1 -E '^ *error: ' /tmp/one.log | cut -c1-260)
-              echo "::error::FICHIER $f :: TESTS $names :: DETAIL $detail"
+              echo "::error::FICHIER $f :: TESTS $names"
+              # Blocs d'erreur YAML : erreur + expected + actual (multi-lignes)
+              awk '/^ *error:/{c=8} c&&c--' /tmp/one.log | head -n 14 | sed 's/^ */ /' > /tmp/errblock
+              paste -sd '|' /tmp/errblock | cut -c1-1400 | sed 's/^/::error::DETAIL /'
             fi
           done
-
-      - name: Tests src (.ts)
-        run: |
-          find src -name '*.test.ts' -print0 | xargs -0 node --experimental-strip-types --test > /tmp/src-tests.log 2>&1 || true
-          grep -E '^not ok ' /tmp/src-tests.log | head -n 10 | sed 's/^not ok [0-9]* - /::error::src-test /'
-
-      - name: Typecheck
-        run: |
-          npx tsc --noEmit > /tmp/typecheck.log 2>&1 || true
-          grep -E 'error TS' /tmp/typecheck.log | head -n 10 | sed 's/^/::error::tsc /'
 
       - name: Lint
         run: |
