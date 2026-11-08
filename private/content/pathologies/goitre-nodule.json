@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -132,7 +133,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Nodule suspect",
-          "text": "Nodule dur, fixé, adénopathie cervicale, croissance rapide ou paralysie récurrentielle : cytoponction et avis endocrino-chirurgical sans délai."
+          "text": "Nodule dur, fixé, adénopathie cervicale, croissance rapide ou paralysie récurrentielle : cytoponction et avis endocrino-chirurgical sans délai.",
+          "type": "callout"
         }
       ]
     },
@@ -258,7 +260,8 @@
           "key": "R",
           "term": "Récurentielle (voix bitonale)"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit-d-un-nodule"
     },
     {
       "label": "Étiologies d'un goitre diffus",
@@ -272,22 +275,15 @@
           "term": "Hashimoto"
         },
         {
-          "key": "B",
-          "term": "Basedow"
-        },
-        {
           "key": "S",
           "term": "Subaiguë (thyroïdite douloureuse)"
         }
-      ]
+      ],
+      "id": "mn-tiologies-d-un-goitre-diffus"
     },
     {
       "label": "Bilan d'un nodule",
       "entries": [
-        {
-          "key": "T",
-          "term": "TSH"
-        },
         {
           "key": "E",
           "term": "Échographie (score de risque)"
@@ -300,7 +296,8 @@
           "key": "S",
           "term": "Scintigraphie si hyperthyroïdie)"
         }
-      ]
+      ],
+      "id": "mn-bilan-d-un-nodule"
     },
     {
       "label": "Traitements disponibles",
@@ -321,7 +318,8 @@
           "key": "I",
           "term": "Iode radioactif (différencié, toxique)"
         }
-      ]
+      ],
+      "id": "mn-traitements-disponibles"
     }
   ],
   "flashcards": [
@@ -409,7 +407,8 @@
   "mindmap": {
     "root": {
       "id": "gtm-root",
-      "label": "Goître diffus et nodule thyroïdien"
+      "label": "Goître diffus et nodule thyroïdien",
+      "detail": "Goître diffus et nodule thyroïdien : Sémiologie, Étiologies, Bilan, Traitement, Gravité — synthèse du référentiel."
     },
     "branches": [
       {
@@ -438,7 +437,8 @@
             "id": "gtm-b1-l4",
             "label": "Adénopathies cervicales"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Examen du cou"
       },
       {
         "id": "gtm-b2",
@@ -466,7 +466,8 @@
             "id": "gtm-b2-l4",
             "label": "Cancer papillaire, médullaire"
           }
-        ]
+        ],
+        "detail": "Étiologies : Diffus ou nodulaire"
       },
       {
         "id": "gtm-b3",
@@ -494,7 +495,8 @@
             "id": "gtm-b3-l4",
             "label": "Scintigraphie si hyperthyroïdie"
           }
-        ]
+        ],
+        "detail": "Bilan : Étape par étape"
       },
       {
         "id": "gtm-b4",
@@ -522,7 +524,8 @@
             "id": "gtm-b4-l4",
             "label": "Chirurgie, curage"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       },
       {
         "id": "gtm-b5",
@@ -550,7 +553,8 @@
             "id": "gtm-b5-l4",
             "label": "Contexte familial, irradiation"
           }
-        ]
+        ],
+        "detail": "Gravité : À dépister"
       }
     ]
   },

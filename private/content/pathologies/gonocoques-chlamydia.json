@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Infections uro-génitales à gonocoques et chlamydia. Gonocoque (Neisseria gonorrhoeae, diplocoque à Gram négatif en « grain de café ») : urétrite aiguë purulente de l'homme (incubation 2-7 jours), cervicite muco-purulente de la femme souvent pauci-symptomatique, anorectite, pharyngite, ophtalmie purulente (néonatale = urgence oculaire), dissémination (arthrite, dermatite) ; RÉSISTANCE : le gonocoque développe des résistances à toutes les classes d'antibiotiques — l'OMS le classe parmi les menaces mondiales ; traitement recommandé : CEFTRIAXONE 500 mg IM en dose unique (monothérapie selon CDC 2021, adaptée aux antibiogrammes locaux), cefixime oral en alternative. Chlamydia trachomatis (sérovars D-K uro-génitaux, L1-L3 = lymphogranulomatose vénérienne) : IST bactérienne la plus fréquente au monde, ASYMPTOMATIQUE dans la majorité des cas, urétrite non gonococcique de l'homme, cervicite, SALPINGITE et maladie inflammatoire du pelvis de la femme (cause majeure d'INFERTILITÉ TUBAIRE et de grossesse extra-utérine), conjonctivite et pneumopathie du nouveau-né ; traitement : DOXYCYCLINE 100 mg ×2/j ×7 jours (azithromycine 1 g dose unique si grossesse) ; dépistage systématique des moins de 25 ans et des partenaires, notification et traitement simultané des partenaires, dépistage VIH-syphilis associé. Complication commune aiguë : salpingite / épididymite ; urgences : ophtalmie gonococcique néonatale (perte visuelle rapide), douleur pelvienne fébrile de la femme.",
@@ -98,8 +99,10 @@
       "title": "Clinique",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Chez l'homme"
+          "type": "list",
+          "items": [
+            "Chez l'homme"
+          ]
         },
         {
           "type": "list",
@@ -113,8 +116,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Chez la femme"
+          "type": "list",
+          "items": [
+            "Chez la femme"
+          ]
         },
         {
           "type": "list",
@@ -329,7 +334,8 @@
           "key": "Y",
           "term": "7 jours de doxycycline 100 mg ×2/j (adultes hors grossesse)"
         }
-      ]
+      ],
+      "id": "mn-c-h-l-a-m-y"
     },
     {
       "label": "G.O.N.O.",
@@ -350,7 +356,8 @@
           "key": "O",
           "term": "Oligo-arthrite du jeune adulte : gonococcie disséminée à évoquer"
         }
-      ]
+      ],
+      "id": "mn-g-o-n-o"
     }
   ],
   "flashcards": [
@@ -433,7 +440,8 @@
   "mindmap": {
     "root": {
       "id": "gc",
-      "label": "Infections à gonocoques et chlamydia"
+      "label": "Infections à gonocoques et chlamydia",
+      "detail": "Infections à gonocoques et chlamydia : Agents, Homme, Femme, Diagnostic, Traitement, Urgences & prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -458,7 +466,8 @@
             "id": "b1l1",
             "label": "Résistance du gonocoque : menace OMS"
           }
-        ]
+        ],
+        "detail": "Agents : N. gonorrhoeae : diplocoque « grain de café », C. trachomatis : intracellulaire, D-K / L1-L3, Co-infections fréquentes : traiter les deux"
       },
       {
         "id": "b2",
@@ -486,7 +495,8 @@
             "id": "b2l1",
             "label": "Urétrite persistante : M. genitalium ?"
           }
-        ]
+        ],
+        "detail": "Homme : Urétrite : pus franc (gonocoque) / discret (chlamydia), Épididymite, Anorectite, pharyngite, Gonococcie disséminée : arthrite du genou"
       },
       {
         "id": "b3",
@@ -514,7 +524,8 @@
             "id": "b3l1",
             "label": "Test de grossesse devant toute algie pelvienne"
           }
-        ]
+        ],
+        "detail": "Femme : Cervicite souvent silencieuse, Salpingite / MIP, Infertilité tubaire, GEU, Grossesse : contamination néonatale"
       },
       {
         "id": "b4",
@@ -538,7 +549,8 @@
             "id": "b4l1",
             "label": "Dépistage < 25 ans + prénatal"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Syndromique : traiter sans attendre, NAAT (PCR) : test de référence, Gram du pus : diagnostic rapide chez l'homme"
       },
       {
         "id": "b5",
@@ -566,7 +578,8 @@
             "id": "b5l1",
             "label": "Partenaires traités simultanément"
           }
-        ]
+        ],
+        "detail": "Traitement : Ceftriaxone 500 mg IM dose unique, Doxycycline 7 j (azithromycine 1 g si grossesse), MIP : ceftriaxone + doxycycline + métronidazole, LGV : doxycycline 21 jours"
       },
       {
         "id": "b6",
@@ -590,7 +603,8 @@
             "id": "b6l1",
             "label": "Traiter les IST = prévenir le VIH"
           }
-        ]
+        ],
+        "detail": "Urgences & prévention : Ophtalmie néonatale : ceftriaxone immédiate, Salpingite fébrile : hospitalisation si sévère, Préservatif, dépistage VIH-syphilis"
       }
     ]
   },
