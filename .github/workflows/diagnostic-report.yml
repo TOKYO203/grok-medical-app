@@ -29,21 +29,31 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Régénère l'arbre des routes
+        run: npm run routes:generate
+
       - name: Collecte des rapports
         run: |
+          npm test > /tmp/tests.log 2>&1 || true
+          npm run typecheck > /tmp/typecheck.log 2>&1 || true
+          npm run lint > /tmp/lint.log 2>&1 || true
           {
             echo "# Rapport R7 — commit ${GITHUB_SHA}"
-            echo '## Tests'
+            echo '## Tests en échec (lignes TAP `not ok`)'
             echo '```'
-            npm test 2>&1 | tail -n 120
+            grep -E '^(not ok|# (tests|suites|pass|fail|cancelled|skipped|todo))' /tmp/tests.log | head -n 80 || true
+            echo '```'
+            echo '## Tests (queue du log)'
+            echo '```'
+            tail -n 120 /tmp/tests.log
             echo '```'
             echo '## Typecheck'
             echo '```'
-            npm run typecheck 2>&1 | tail -n 120
+            tail -n 120 /tmp/typecheck.log
             echo '```'
             echo '## Lint'
             echo '```'
-            npm run lint 2>&1 | tail -n 120
+            tail -n 120 /tmp/lint.log
             echo '```'
           } > /tmp/report.md
           exit 0
