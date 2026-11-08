@@ -196,17 +196,18 @@ function Dashboard() {
           <DailyProgress value={dailyPct} answered={daily.answered} goal={dailyGoal} />
           <div className="min-w-0 flex-1">
             <p className="optimus-kicker--hero text-xs font-medium uppercase tracking-[0.14em] opacity-75">
-              {t("dash.sessionToday")}
+              Ma Journée • {t("dash.sessionToday")}
             </p>
             <h2 className="mt-1 font-display text-2xl font-medium tracking-tight">
               {remaining === 0
                 ? t("dash.goalReached")
                 : daily.answered > 0
                   ? t("dash.questionsLeft", { count: remaining })
-                  : t("dash.ready")}
+                  : "Votre file de révision est prête"}
             </h2>
             <p className="mt-1 text-sm opacity-75">
-              {daily.xp > 0 ? t("dash.xpToday", { xp: daily.xp }) : t("dash.noXpYet")}
+              {dueCount > 0 ? `${dueCount} carte${dueCount > 1 ? "s" : ""} à réviser • ` : ""}
+              {daily.xp > 0 ? t("dash.xpToday", { xp: daily.xp }) : "12-15 min pour consolider vos acquis"}
             </p>
           </div>
         </div>
@@ -214,17 +215,17 @@ function Dashboard() {
           <Link
             to="/revue"
             search={{ mode: "today" }}
-            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
+            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90 font-medium" })}
           >
             {daily.answered > 0
               ? t("dash.continueSession")
-              : t("dash.startWith", { count: todayItems.length })}
+              : `Lancer ma journée (${todayItems.length} questions)`}
             <ChevronRight className="size-4" />
           </Link>
         ) : (
           <Link
             to="/bibliotheque"
-            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90" })}
+            className={buttonVariants({ className: "mt-4 w-full bg-bg text-fg hover:bg-bg/90 font-medium" })}
           >
             {t("dash.exploreLibrary")}
           </Link>
