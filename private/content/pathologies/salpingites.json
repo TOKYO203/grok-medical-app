@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -49,6 +50,12 @@
         {
           "type": "paragraph",
           "text": "C'est une maladie doublement redoutable : à court terme par ses complications aiguës (abcès tubo-ovarien, péritonite) ; à long terme parce que chaque épisode abîme la muqueuse tubaire et expose à l'infertilité, à la grossesse extra-utérine et aux récidives. Chez la femme jeune sexuellement active, toute douleur pelvienne fébrile doit faire évoquer une salpingite — le pronostic reproductif se joue sur la précocité du traitement. Les formes silencieuses, particulièrement à chlamydia, sont fréquentes et expliquent bien des infertilités tubaires découvertes tardivement à Madagascar."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Péritonite pelvienne / abcès rompu",
+          "text": "Défense abdominale hypogastrique, vomissements, ileus, tachycardie, hypotension chez une femme algique : abcès tubo-ovarien rompu ou péritonite — urgence chirurgicale. Deux voies veineuses, antibiothérapie intraveineuse à large spectre, transfert au bloc : le retard engage le pronostic vital et la fertilité."
         }
       ]
     },
@@ -67,6 +74,12 @@
         {
           "type": "paragraph",
           "text": "La propagation est ascendante : vagin → col → endomètre → trompes → péritoine. Le stade final est l'abcès tubo-ovarien et la péritonite pelvienne. À Madagascar, où les infections à gonocoque et chlamydia circulent largement et où le dépistage systématique est rare, la salpingite reste une cause majeure d'infertilité féminine tubaire — premier motif de consultation en gynécologie dans de nombreuses régions."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Éliminer la grossesse extra-utérine",
+          "text": "Toute algie pelvienne chez une femme en âge de procréer impose un test de grossesse avant tout autre raisonnement : une GEU rompue peut mimer une salpingite (douleur latéro-utérine, masse, troubles hémodynamiques). La salpingite se traite par antibiotiques ; la GEU se traite par chirurgie ou méthotrexate — confondre les deux peut coûter la vie."
         }
       ]
     },
@@ -83,6 +96,12 @@
             "Facteurs iatrogènes et obstétricaux : dispositif intra-utérin (risque accru les premières semaines), curetage, interruption de grossesse, post-partum, post-partum ou post-abortum (infection ascendante à point de départ endo-utérin)",
             "Forme à part : salpingite tuberculeuse — exclue de cette fiche, mais à évoquer devant une infection pelvienne trainante, fébrile au long cours, avec masse pelvienne fixée dans un contexte d'évolutivité tuberculeuse"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : traiter le partenaire",
+          "text": "Ordonner l'antibiotique sans traiter le ou les partenaires, c'est programmer la réinfection : le partenaire asymptomatique porteur de gonocoque ou de chlamydia est la source de la récidive. Traitement simultané, abstinence de rapports non protégés jusqu'à guérison des deux, et dépistage VIH-syphilis systématique — cette consultation est l'occasion unique de casser la chaîne de transmission."
         }
       ]
     },
@@ -123,6 +142,12 @@
             "Toujours : test de grossesse (éliminer une GEU), NFS-CRP, prélèvements, échographie si masse ou doute",
             "Critères d'hospitalisation : fièvre > 38,5 °C, masse pelvienne, vomissements, suspicion de péritonite, grossesse, échec du traitement oral, impossibilité de suivi"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Femme jeune sexuellement active + douleur pelvienne bilatérale + douleur provoquée au toucher vaginal + leucorrhées purulentes ± fièvre = salpingite. Antibiothérapie probabiliste immédiate : ceftriaxone IM + doxycycline + métronidazole, 14 jours, partenaire traité, contrôle à 72 heures."
         }
       ]
     },
@@ -168,6 +193,12 @@
             "s2",
             "s4"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo : la salpingite silencieuse",
+          "text": "Les formes à chlamydia sont souvent peu ou pas fébriles : une « simple » douleur pelvienne trainante avec leucorrhées chez une femme jeune peut déjà être une salpingite. C'est elle qui fait les infertilités tubaires découvertes des années plus tard. Devant le moindre doute : toucher vaginal systématique, et ne pas hésiter à traiter probabilistiquement — le prix d'un traitement inutile est sans commune mesure avec celui d'une trompe détruite."
         }
       ]
     },
@@ -263,7 +294,8 @@
           "key": "F",
           "term": "Fièvre modérée, altération de l'état général variable"
         }
-      ]
+      ],
+      "id": "mn-triade-de-la-salpingite-aigu"
     },
     {
       "label": "Antibiothérapie probabiliste",
@@ -284,7 +316,8 @@
           "key": "P",
           "term": "Partenaire traité simultanément"
         }
-      ]
+      ],
+      "id": "mn-antibioth-rapie-probabiliste"
     },
     {
       "label": "Critères d'hospitalisation",
@@ -305,7 +338,8 @@
           "key": "E",
           "term": "Échec du traitement oral à 72 heures, grossesse, suivi impossible"
         }
-      ]
+      ],
+      "id": "mn-crit-res-d-hospitalisation"
     },
     {
       "label": "Séquelles tubaires",
@@ -326,7 +360,8 @@
           "key": "R",
           "term": "Récidives — risque majoré après chaque épisode"
         }
-      ]
+      ],
+      "id": "mn-s-quelles-tubaires"
     }
   ],
   "flashcards": [
@@ -414,7 +449,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Salpingites aiguës non tuberculeuses"
+      "label": "Salpingites aiguës non tuberculeuses",
+      "detail": "Salpingites aiguës non tuberculeuses : Définition et germes, Diagnostic, Différentiels, Traitement, Séquelles et prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -443,7 +479,8 @@
             "id": "l2",
             "label": "Formes silencieuses à chlamydia"
           }
-        ]
+        ],
+        "detail": "Définition et germes : Infection de la trompe — maladie inflammatoire pelvienne, Chlamydia trachomatis, Neisseria gonorrhoeae, Propagation ascendante : col → endomètre → trompes → péritoine"
       },
       {
         "id": "b2",
@@ -467,7 +504,8 @@
             "id": "l3",
             "label": "Diagnostic clinique — traiter précocement et probabilistiquement"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Douleur pelvienne bilatérale + leucorrhées purulentes + fièvre, Toucher vaginal : douleur à la mobilisation utérine, Test de grossesse systématique, prélèvements, échographie si masse"
       },
       {
         "id": "b3",
@@ -491,7 +529,8 @@
             "id": "l4",
             "label": "Coelioscopie si doute persistant"
           }
-        ]
+        ],
+        "detail": "Différentiels : Grossesse extra-utérine, Appendicite aiguë, torsion d'annexe, Rupture de kyste, pathologie urinaire"
       },
       {
         "id": "b4",
@@ -519,7 +558,8 @@
             "id": "l6",
             "label": "Abcès : drainage échoguidé ou chirurgical"
           }
-        ]
+        ],
+        "detail": "Traitement : Ceftriaxone IM + doxycycline + métronidazole, 14 jours, Hospitalisation si fièvre élevée, masse, péritonite, échec, Partenaire traité, dépistage VIH-syphilis"
       },
       {
         "id": "b5",
@@ -543,7 +583,8 @@
             "id": "l7",
             "label": "Enjeu majeur de santé publique à Madagascar"
           }
-        ]
+        ],
+        "detail": "Séquelles et prévention : Infertilité tubaire, grossesse extra-utérine, Douleurs chroniques, récidives, Préservatif, dépistage des cervicites, éducation"
       }
     ]
   },

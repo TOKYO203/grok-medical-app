@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -134,7 +135,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Splénomégalie avec fièvre et pancytopénie",
-          "text": "Fièvre, saignements, pâleur et grosse rate : hémopathie aiguë ou leishmaniose viscérale — hémogramme en urgence, avis hématologique, biopsie médullaire."
+          "text": "Fièvre, saignements, pâleur et grosse rate : hémopathie aiguë ou leishmaniose viscérale — hémogramme en urgence, avis hématologique, biopsie médullaire.",
+          "type": "callout"
         }
       ]
     },
@@ -248,7 +250,8 @@
           "key": "S",
           "term": "Systémiques et infiltratives (lupus, amylose, Gaucher)"
         }
-      ]
+      ],
+      "id": "mn-causes-principales"
     },
     {
       "label": "Hypersplénisme",
@@ -269,7 +272,8 @@
           "key": "P",
           "term": "Perte cellulaire splénique excessive"
         }
-      ]
+      ],
+      "id": "mn-hyperspl-nisme"
     },
     {
       "label": "Bilan de base",
@@ -290,7 +294,8 @@
           "key": "S",
           "term": "Sérologies selon le contexte"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-base"
     },
     {
       "label": "Avant splénectomie",
@@ -311,7 +316,8 @@
           "key": "É",
           "term": "Éducation : fièvre = consultation immédiate"
         }
-      ]
+      ],
+      "id": "mn-avant-spl-nectomie"
     }
   ],
   "flashcards": [
@@ -399,7 +405,8 @@
   "mindmap": {
     "root": {
       "id": "spl-root",
-      "label": "Splénomégalie"
+      "label": "Splénomégalie",
+      "detail": "Splénomégalie : Examen, Causes infectieuses, Causes hématologiques, Causes congestives et systémiques, Prise en charge — synthèse du référentiel."
     },
     "branches": [
       {
@@ -428,7 +435,8 @@
             "id": "spl-b1-l4",
             "label": "Hypersplénisme à rechercher"
           }
-        ]
+        ],
+        "detail": "Examen : Palpation et degrés"
       },
       {
         "id": "spl-b2",
@@ -456,7 +464,8 @@
             "id": "spl-b2-l4",
             "label": "Tuberculose, brucellose"
           }
-        ]
+        ],
+        "detail": "Causes infectieuses : Zone tropicale"
       },
       {
         "id": "spl-b3",
@@ -484,7 +493,8 @@
             "id": "spl-b3-l4",
             "label": "Drépanocytose, thalassémie"
           }
-        ]
+        ],
+        "detail": "Causes hématologiques : Hémopathies"
       },
       {
         "id": "spl-b4",
@@ -512,7 +522,8 @@
             "id": "spl-b4-l4",
             "label": "Amylose, Gaucher"
           }
-        ]
+        ],
+        "detail": "Causes congestives et systémiques : Portal et infiltrations"
       },
       {
         "id": "spl-b5",
@@ -540,7 +551,8 @@
             "id": "spl-b5-l4",
             "label": "Vaccins avant splénectomie"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Traitement et prévention"
       }
     ]
   },

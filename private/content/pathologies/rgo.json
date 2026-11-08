@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -273,7 +274,8 @@
           "key": "D",
           "term": "Douleur thoracique non cardiaque"
         }
-      ]
+      ],
+      "id": "mn-signes-du-rgo"
     },
     {
       "label": "Règles hygiéno-diététiques",
@@ -298,7 +300,8 @@
           "key": "A",
           "term": "Alcool et tabac à arrêter"
         }
-      ]
+      ],
+      "id": "mn-r-gles-hygi-no-di-t-tiques"
     },
     {
       "label": "Signes d'alarme imposant l'endoscopie",
@@ -323,7 +326,8 @@
           "key": "C",
           "term": "Cinquante ans et plus au début des symptômes"
         }
-      ]
+      ],
+      "id": "mn-signes-d-alarme-imposant-l-endoscopie"
     },
     {
       "label": "Complications",
@@ -331,10 +335,6 @@
         {
           "key": "O",
           "term": "Œsophagite peptique"
-        },
-        {
-          "key": "S",
-          "term": "Sténose"
         },
         {
           "key": "U",
@@ -348,7 +348,8 @@
           "key": "A",
           "term": "Adénocarcinome"
         }
-      ]
+      ],
+      "id": "mn-complications"
     }
   ],
   "flashcards": [
@@ -436,7 +437,8 @@
   "mindmap": {
     "root": {
       "id": "rgo-root",
-      "label": "Reflux gastro-œsophagien"
+      "label": "Reflux gastro-œsophagien",
+      "detail": "Reflux gastro-œsophagien : Définition et mécanismes, Clinique, Diagnostic, Traitement, Complications — synthèse du référentiel."
     },
     "branches": [
       {
@@ -465,7 +467,8 @@
             "id": "rg-l1-4",
             "label": "RGO symptomatique vs RGO-maladie"
           }
-        ]
+        ],
+        "detail": "Définition et mécanismes : Barrière antireflux"
       },
       {
         "id": "rg-b2",
@@ -493,7 +496,8 @@
             "id": "rg-l2-4",
             "label": "Nourrisson : régurgitations bénignes"
           }
-        ]
+        ],
+        "detail": "Clinique : Signes typiques et atypiques"
       },
       {
         "id": "rg-b3",
@@ -521,7 +525,8 @@
             "id": "rg-l3-4",
             "label": "pH-métrie à distance des inhibiteurs"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique d'abord"
       },
       {
         "id": "rg-b4",
@@ -549,7 +554,8 @@
             "id": "rg-l4-4",
             "label": "Fundoplicature cas sélectionnés"
           }
-        ]
+        ],
+        "detail": "Traitement : Par paliers"
       },
       {
         "id": "rg-b5",
@@ -577,7 +583,8 @@
             "id": "rg-l5-4",
             "label": "Adénocarcinome : surveillance"
           }
-        ]
+        ],
+        "detail": "Complications : Vigilance"
       }
     ]
   },

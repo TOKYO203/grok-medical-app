@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -134,7 +135,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Syndrome cave supérieur",
-          "text": "Œdème de la face et du cou, circulation veineuse collatérale, céphalées : compression de la veine cave supérieure — scanner urgent, biopsie si lymphome ou cancer (traitement spécifique), corticoïdes et radiothérapie ou chimiothérapie selon la nature."
+          "text": "Œdème de la face et du cou, circulation veineuse collatérale, céphalées : compression de la veine cave supérieure — scanner urgent, biopsie si lymphome ou cancer (traitement spécifique), corticoïdes et radiothérapie ou chimiothérapie selon la nature.",
+          "type": "callout"
         }
       ]
     },
@@ -261,15 +263,12 @@
           "key": "N",
           "term": "Nerfs : dysphonie, Horner, phrénique"
         }
-      ]
+      ],
+      "id": "mn-signes-de-compression"
     },
     {
       "label": "Médiastin antérieur",
       "entries": [
-        {
-          "key": "T",
-          "term": "Thymome"
-        },
         {
           "key": "G",
           "term": "Germinales"
@@ -282,7 +281,8 @@
           "key": "L",
           "term": "Lymphome"
         }
-      ]
+      ],
+      "id": "mn-m-diastin-ant-rieur"
     },
     {
       "label": "Médiastin moyen et postérieur",
@@ -303,7 +303,8 @@
           "key": "A",
           "term": "Anévrismes aortiques"
         }
-      ]
+      ],
+      "id": "mn-m-diastin-moyen-et-post-rieur"
     },
     {
       "label": "Bilan",
@@ -324,7 +325,8 @@
           "key": "B",
           "term": "Biopsie (médiastinoscopie, écho-endoscopie)"
         }
-      ]
+      ],
+      "id": "mn-bilan"
     }
   ],
   "flashcards": [
@@ -412,7 +414,8 @@
   "mindmap": {
     "root": {
       "id": "smd-root",
-      "label": "Syndrome médiastinal"
+      "label": "Syndrome médiastinal",
+      "detail": "Syndrome médiastinal : Signes, Localisations, Causes, Bilan, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -441,7 +444,8 @@
             "id": "smd-b1-l4",
             "label": "Syndrome cave, Horner"
           }
-        ]
+        ],
+        "detail": "Signes : Compressions"
       },
       {
         "id": "smd-b2",
@@ -469,7 +473,8 @@
             "id": "smd-b2-l4",
             "label": "Kystes, anévrismes"
           }
-        ]
+        ],
+        "detail": "Localisations : Scanner"
       },
       {
         "id": "smd-b3",
@@ -497,7 +502,8 @@
             "id": "smd-b3-l4",
             "label": "Goître, anévrisme"
           }
-        ]
+        ],
+        "detail": "Causes : Par nature — Causes"
       },
       {
         "id": "smd-b4",
@@ -525,7 +531,8 @@
             "id": "smd-b4-l4",
             "label": "Biopsie (écho-endoscopie)"
           }
-        ]
+        ],
+        "detail": "Bilan : Démarche — Bilan"
       },
       {
         "id": "smd-b5",
@@ -553,7 +560,8 @@
             "id": "smd-b5-l4",
             "label": "Urgences : drainage, stent"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },
@@ -565,7 +573,7 @@
       "organization": "Société de Pneumologie de Langue Française (CEP-SPLF)",
       "year": 2014,
       "version": "Chapitre du CEP",
-      "url": "http://cep.splf.fr/wp-content/uploads/2014/12/4Syndromes_mediastinaux.doc",
+      "url": "https://cep.splf.fr/wp-content/uploads/2014/12/4Syndromes_mediastinaux.doc",
       "usedFor": [
         "sémiologie",
         "étiologies"
