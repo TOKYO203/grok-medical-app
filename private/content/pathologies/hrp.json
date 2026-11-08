@@ -186,7 +186,43 @@
   "mnemonics": [
     {
       "text": "DECOLLEMENT",
-      "expansion": "Douleur en coup de poignard — Épanchement : sang noirâtre, non coagulable — Coagulation vérifiée d'emblée (CIVD) — Œdème : utérus en bois — Larmes du côté maternel : HTA, prééclampsie — Extraction sans délai si fœtus vivant en souffrance — Materno-natal : deux patients à sauver — Entretien post-partum : risque de récidive ; Noter le degré (0 à 3) ; Traitement antihypertenseur et arrêt du tabac."
+      "expansion": "Douleur en coup de poignard — Épanchement : sang noirâtre, non coagulable — Coagulation vérifiée d'emblée (CIVD) — Œdème : utérus en bois — Larmes du côté maternel : HTA, prééclampsie — Extraction sans délai si fœtus vivant en souffrance — Materno-natal : deux patients à sauver — Entretien post-partum : risque de récidive ; Noter le degré (0 à 3) ; Traitement antihypertenseur et arrêt du tabac.",
+      "label": "DECOLLEMENT",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Douleur en coup de poignard"
+        },
+        {
+          "key": "É",
+          "term": "Épanchement : sang noirâtre, non coagulable"
+        },
+        {
+          "key": "C",
+          "term": "Coagulation vérifiée d'emblée (CIVD)"
+        },
+        {
+          "key": "Œ",
+          "term": "Œdème : utérus en bois"
+        },
+        {
+          "key": "L",
+          "term": "Larmes du côté maternel : HTA, prééclampsie"
+        },
+        {
+          "key": "E",
+          "term": "Extraction sans délai si fœtus vivant en souffrance"
+        },
+        {
+          "key": "M",
+          "term": "Materno-natal : deux patients à sauver"
+        },
+        {
+          "key": "E",
+          "term": "Entretien post-partum : risque de récidive ; Noter le degré (0 à 3) ; Traitement antihypertenseur et arrêt du tabac."
+        }
+      ],
+      "id": "mn-decollement"
     }
   ],
   "flashcards": [
@@ -240,7 +276,11 @@
     }
   ],
   "mindmap": {
-    "root": "Hématome rétro-placentaire",
+    "root": {
+      "id": "h-matome-r-tro-placentaire",
+      "label": "Hématome rétro-placentaire",
+      "detail": "Hématome rétro-placentaire : Définir, Reconnaître, Risquer, Agir, Suivre — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "definir",
@@ -278,7 +318,7 @@
         "id": "reconnaitre",
         "label": "Reconnaître",
         "tone": "urgence",
-        "detail": "Triade en bois.",
+        "detail": "Reconnaître : Sang noirâtre, douleur, utérus dur, Souffrance fœtale",
         "children": [
           {
             "id": "triade",
@@ -310,7 +350,7 @@
         "id": "risques",
         "label": "Risquer",
         "tone": "prudence",
-        "detail": "Terrain vasculaire.",
+        "detail": "Risquer : HTA, prééclampsie, Tabac, cocaïne, trauma",
         "children": [
           {
             "id": "hta",
@@ -342,7 +382,7 @@
         "id": "agir",
         "label": "Agir",
         "tone": "reflexe",
-        "detail": "Extraction rapide.",
+        "detail": "Agir : Césarienne urgente, CIVD corrigée",
         "children": [
           {
             "id": "cesarienne",
@@ -374,7 +414,7 @@
         "id": "suivre",
         "label": "Suivre",
         "tone": "memo",
-        "detail": "Mère et deuil.",
+        "detail": "Suivre : Rein surveillé, Grossesse suivante",
         "children": [
           {
             "id": "renal",
@@ -420,5 +460,6 @@
         "Pronostic"
       ]
     }
-  ]
+  ],
+  "specialty": "Gynécologie-Obstétrique"
 }

@@ -186,7 +186,43 @@
   "mnemonics": [
     {
       "text": "DELIVRER",
-      "expansion": "Dilatation suivie sur partogramme — Efforts expulsifs libres et guidés — Liquide amniotique surveillé (couleur) — Instrumentation évitée au maximum — Vigilance du rythme fœtal — Restitution vérifiée avant dégagement des épaules — Rétraction utérine attendue avant traction du cordon — Expulsion surveillée des 2 premières heures."
+      "expansion": "Dilatation suivie sur partogramme — Efforts expulsifs libres et guidés — Liquide amniotique surveillé (couleur) — Instrumentation évitée au maximum — Vigilance du rythme fœtal — Restitution vérifiée avant dégagement des épaules — Rétraction utérine attendue avant traction du cordon — Expulsion surveillée des 2 premières heures.",
+      "label": "DELIVRER",
+      "entries": [
+        {
+          "key": "D",
+          "term": "Dilatation suivie sur partogramme"
+        },
+        {
+          "key": "E",
+          "term": "Efforts expulsifs libres et guidés"
+        },
+        {
+          "key": "L",
+          "term": "Liquide amniotique surveillé (couleur)"
+        },
+        {
+          "key": "I",
+          "term": "Instrumentation évitée au maximum"
+        },
+        {
+          "key": "V",
+          "term": "Vigilance du rythme fœtal"
+        },
+        {
+          "key": "R",
+          "term": "Restitution vérifiée avant dégagement des épaules"
+        },
+        {
+          "key": "R",
+          "term": "Rétraction utérine attendue avant traction du cordon"
+        },
+        {
+          "key": "E",
+          "term": "Expulsion surveillée des 2 premières heures."
+        }
+      ],
+      "id": "mn-delivrer"
     }
   ],
   "flashcards": [
@@ -240,7 +276,11 @@
     }
   ],
   "mindmap": {
-    "root": "Accouchement normal et délivrance",
+    "root": {
+      "id": "accouchement-normal-et-d-livrance",
+      "label": "Accouchement normal et délivrance",
+      "detail": "Accouchement normal et délivrance : Dilatation, Expulsion, Délivrance, Post-partum immédiat, Soins respectueux — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "phase1",
@@ -310,7 +350,7 @@
         "id": "phase3",
         "label": "Délivrance",
         "tone": "urgence",
-        "detail": "30 minutes max.",
+        "detail": "Délivrance : Signes de décollement, Placenta complet",
         "children": [
           {
             "id": "signes",
@@ -421,5 +461,6 @@
         "Délivrance et post-partum immédiat"
       ]
     }
-  ]
+  ],
+  "specialty": "Gynécologie-Obstétrique"
 }

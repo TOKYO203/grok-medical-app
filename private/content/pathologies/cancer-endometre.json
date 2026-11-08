@@ -198,7 +198,51 @@
   "mnemonics": [
     {
       "text": "METRORRAGIE",
-      "expansion": "Ménopause récente ou lointaine — Endomètre épaissi à l'échographie — Type I ou II orienté par le terrain — Biopsie endométriale obligatoire (histologie) — Risque estimé par imagerie — Adjuvant guidé par le groupe de risque — Ganglion sentinelle selon la tumeur — Approche moléculaire intégrée — Pronostic lié au stade — Éducation au syndrome métabolique."
+      "expansion": "Ménopause récente ou lointaine — Endomètre épaissi à l'échographie — Type I ou II orienté par le terrain — Biopsie endométriale obligatoire (histologie) — Risque estimé par imagerie — Adjuvant guidé par le groupe de risque — Ganglion sentinelle selon la tumeur — Approche moléculaire intégrée — Pronostic lié au stade — Éducation au syndrome métabolique.",
+      "label": "METRORRAGIE",
+      "entries": [
+        {
+          "key": "M",
+          "term": "Ménopause récente ou lointaine"
+        },
+        {
+          "key": "E",
+          "term": "Endomètre épaissi à l'échographie"
+        },
+        {
+          "key": "T",
+          "term": "Type I ou II orienté par le terrain"
+        },
+        {
+          "key": "B",
+          "term": "Biopsie endométriale obligatoire (histologie)"
+        },
+        {
+          "key": "R",
+          "term": "Risque estimé par imagerie"
+        },
+        {
+          "key": "A",
+          "term": "Adjuvant guidé par le groupe de risque"
+        },
+        {
+          "key": "G",
+          "term": "Ganglion sentinelle selon la tumeur"
+        },
+        {
+          "key": "A",
+          "term": "Approche moléculaire intégrée"
+        },
+        {
+          "key": "P",
+          "term": "Pronostic lié au stade"
+        },
+        {
+          "key": "É",
+          "term": "Éducation au syndrome métabolique."
+        }
+      ],
+      "id": "mn-metrorragie"
     }
   ],
   "flashcards": [
@@ -252,7 +296,11 @@
     }
   ],
   "mindmap": {
-    "root": "Cancers de l'endomètre",
+    "root": {
+      "id": "cancers-de-l-endom-tre",
+      "label": "Cancers de l'endomètre",
+      "detail": "Cancers de l'endomètre : Comprendre, Dépister, Stader, Traiter, Suivre — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "comprendre",
@@ -386,7 +434,7 @@
         "id": "suivre",
         "label": "Suivre",
         "tone": "memo",
-        "detail": "Guérison si tôt.",
+        "detail": "Suivre : Pronostic, Syndrome métabolique",
         "children": [
           {
             "id": "pronostic",
@@ -433,5 +481,6 @@
         "Classification moléculaire"
       ]
     }
-  ]
+  ],
+  "specialty": "Gynécologie-Obstétrique"
 }

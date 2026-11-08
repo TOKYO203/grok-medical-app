@@ -198,7 +198,35 @@
   "mnemonics": [
     {
       "text": "CAVITE",
-      "expansion": "Cavité préexistante toujours — Aspergillus fumigatus dominant — Volumineux mycéthome au TDM avec croissant gazeux — Hémoptysie : symptôme-roi — Traiter selon fonction et formes (simple/complex) — Éviter la chirurgie prophylactique chez l'inopérable."
+      "expansion": "Cavité préexistante toujours — Aspergillus fumigatus dominant — Volumineux mycéthome au TDM avec croissant gazeux — Hémoptysie : symptôme-roi — Traiter selon fonction et formes (simple/complex) — Éviter la chirurgie prophylactique chez l'inopérable.",
+      "label": "CAVITE",
+      "entries": [
+        {
+          "key": "C",
+          "term": "Cavité préexistante toujours"
+        },
+        {
+          "key": "A",
+          "term": "Aspergillus fumigatus dominant"
+        },
+        {
+          "key": "V",
+          "term": "Volumineux mycéthome au TDM avec croissant gazeux"
+        },
+        {
+          "key": "H",
+          "term": "Hémoptysie : symptôme-roi"
+        },
+        {
+          "key": "T",
+          "term": "Traiter selon fonction et formes (simple/complex)"
+        },
+        {
+          "key": "É",
+          "term": "Éviter la chirurgie prophylactique chez l'inopérable."
+        }
+      ],
+      "id": "mn-cavite"
     }
   ],
   "flashcards": [
@@ -252,7 +280,11 @@
     }
   ],
   "mindmap": {
-    "root": "Aspergillome pulmonaire",
+    "root": {
+      "id": "aspergillome-pulmonaire",
+      "label": "Aspergillome pulmonaire",
+      "detail": "Aspergillome pulmonaire : Définir, Reconnaître, Classer, Traiter, Suivre — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "definir",
@@ -290,7 +322,7 @@
         "id": "reconnaitre",
         "label": "Reconnaître",
         "tone": "urgence",
-        "detail": "Hémoptysie.",
+        "detail": "Reconnaître : Hémoptysie, TDM thoracique",
         "children": [
           {
             "id": "hemoptysie",
@@ -322,7 +354,7 @@
         "id": "classer",
         "label": "Classer",
         "tone": "prudence",
-        "detail": "Simple ou complexe.",
+        "detail": "Classer : Simple, Complexe",
         "children": [
           {
             "id": "simple",
@@ -432,5 +464,6 @@
         "Pronostic"
       ]
     }
-  ]
+  ],
+  "specialty": "Pneumologie"
 }

@@ -181,7 +181,35 @@
   "mnemonics": [
     {
       "text": "OVAIRE",
-      "expansion": "Orientation par l'âge et le marqueur (germinal jeune vs épithélial ménopausé) — Vague symptôme : ballonnement, tour de taille — Ascite et CA-125 : suspicions d'emblée — Imagerie : échographie puis TDM — Recherche BRCA systématique — Entretien PARP après platine chez les BRCA."
+      "expansion": "Orientation par l'âge et le marqueur (germinal jeune vs épithélial ménopausé) — Vague symptôme : ballonnement, tour de taille — Ascite et CA-125 : suspicions d'emblée — Imagerie : échographie puis TDM — Recherche BRCA systématique — Entretien PARP après platine chez les BRCA.",
+      "label": "OVAIRE",
+      "entries": [
+        {
+          "key": "O",
+          "term": "Orientation par l'âge et le marqueur (germinal jeune vs épithélial ménopausé)"
+        },
+        {
+          "key": "V",
+          "term": "Vague symptôme : ballonnement, tour de taille"
+        },
+        {
+          "key": "A",
+          "term": "Ascite et CA-125 : suspicions d'emblée"
+        },
+        {
+          "key": "I",
+          "term": "Imagerie : échographie puis TDM"
+        },
+        {
+          "key": "R",
+          "term": "Recherche BRCA systématique"
+        },
+        {
+          "key": "E",
+          "term": "Entretien PARP après platine chez les BRCA."
+        }
+      ],
+      "id": "mn-ovaire"
     }
   ],
   "flashcards": [
@@ -235,7 +263,11 @@
     }
   ],
   "mindmap": {
-    "root": "Cancer de l'ovaire",
+    "root": {
+      "id": "cancer-de-l-ovaire",
+      "label": "Cancer de l'ovaire",
+      "detail": "Cancer de l'ovaire : Classer, Diagnostiquer, Opérer, Traiter, Prévenir — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "classer",
@@ -369,7 +401,7 @@
         "id": "prevenir",
         "label": "Prévenir",
         "tone": "memo",
-        "detail": "Chez les BRCA.",
+        "detail": "Prévenir : Annexectomie bilatérale, Pronostic",
         "children": [
           {
             "id": "risque",
@@ -416,5 +448,6 @@
         "Oncogénétique BRCA"
       ]
     }
-  ]
+  ],
+  "specialty": "Gynécologie-Obstétrique"
 }
