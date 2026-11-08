@@ -11,32 +11,49 @@ permissions:
 jobs:
   diagnostic:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      TEST_POSTGRES_URL: postgresql://postgres:postgres@localhost:5432/postgres
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
-      - run: npm ci
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci --legacy-peer-deps
+      - run: npm run routes:generate
       - name: Tests
         run: |
           set +e
           npm test > /tmp/tests.log 2>&1
           code=$?
           {
-            echo "## Tests (exit $code)"
+            echo "## Tests (exit $code, $(wc -l < /tmp/tests.log) lignes)"
             echo ""
             echo "### Tests en échec"
             echo ""
             echo "```"
           } > /tmp/report.md
-          grep -E -A 25 '^not ok' /tmp/tests.log | head -n 500 >> /tmp/report.md || true
+          grep -E -A 30 '^not ok' /tmp/tests.log | head -n 600 >> /tmp/report.md
           {
             echo "```"
             echo ""
-            echo "### Fin du log"
+            echo "### Queue du log"
             echo ""
             echo "```"
-            tail -n 30 /tmp/tests.log
+            tail -n 60 /tmp/tests.log
             echo "```"
           } >> /tmp/report.md
           exit 0
