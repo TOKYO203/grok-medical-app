@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux questions structurantes : faut-il dépister (décision individuelle partagée : PSA sans dépistage organisé) et faut-il traiter (surveillance active possible pour les formes de faible risque) ; le pronostic des formes localisées traitées est excellent, celui des formes métastatiques a changé avec les nouvelles hormonothérapies."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rétention urinaire ou insuffisance rénale",
+          "text": "Un cancer prostatique localement avancé peut se révéler par une rétention aiguë ou une insuffisance rénale obstructive : drainage, bilan et prise en charge spécifique sans délai."
         }
       ]
     },
@@ -76,6 +83,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Risque de compression médullaire",
+          "text": "Chez un patient metastatique osseux du rachis, une sciatique ou des douleurs du dos avec troubles sensitifs : urgence : imagerie, corticoïdes, radiothérapie."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Toucher rectal systématique devant des troubles mictionnels de l'homme de plus de 50 ans : nodule dur, pierreux, indolore : biopsies ; PSA à interpréter selon l'âge et la cinétique : jamais de diagnostic posé sur le seul PSA."
         }
       ]
     },
@@ -116,6 +135,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Adénocarcinome de la zone périphérique ; diagnostic : IRM puis biopsies, score de Gleason ; traitement localisé : surveillance active, chirurgie ou radiothérapie selon risque et espérance de vie ; metastatique : castration plus nouvelle hormonothérapie ; PSA : outil de suivi."
         }
       ]
     },
@@ -138,6 +163,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Interpréter un PSA élevé",
+          "text": "PSA élevé ne veut pas dire cancer (hypertrophie bénigne, prostatite, geste récent) : refaire après traitement d'une infection, éviter le dosage après un toucher ou un sondage récent ; la cinétique compte plus que la valeur isolée."
         }
       ]
     },
@@ -233,7 +264,8 @@
           "key": "A",
           "term": "Alimentation riche en graisses"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     },
     {
       "label": "Diagnostic",
@@ -243,10 +275,6 @@
           "term": "Toucher rectal"
         },
         {
-          "key": "P",
-          "term": "PSA"
-        },
-        {
           "key": "I",
           "term": "IRM prostatique"
         },
@@ -254,7 +282,8 @@
           "key": "B",
           "term": "Biopsies échoguidées"
         }
-      ]
+      ],
+      "id": "mn-diagnostic"
     },
     {
       "label": "Traitement localisé",
@@ -275,7 +304,8 @@
           "key": "H",
           "term": "Hormonothérapie si haut risque"
         }
-      ]
+      ],
+      "id": "mn-traitement-localis"
     },
     {
       "label": "Castration : effets",
@@ -296,7 +326,8 @@
           "key": "B",
           "term": "Bouffées de chaleur"
         }
-      ]
+      ],
+      "id": "mn-castration-effets"
     }
   ],
   "flashcards": [
@@ -384,7 +415,8 @@
   "mindmap": {
     "root": {
       "id": "cp-root",
-      "label": "Cancer de la prostate"
+      "label": "Cancer de la prostate",
+      "detail": "Cancer de la prostate : Découverte, Diagnostic, Stades, Traitement, Suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -413,7 +445,8 @@
             "id": "cp-b1-l4",
             "label": "Métastases osseuses"
           }
-        ]
+        ],
+        "detail": "Découverte : Signes — Découverte"
       },
       {
         "id": "cp-b2",
@@ -441,7 +474,8 @@
             "id": "cp-b2-l4",
             "label": "Score de Gleason"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Étapes — Diagnostic"
       },
       {
         "id": "cp-b3",
@@ -469,7 +503,8 @@
             "id": "cp-b3-l4",
             "label": "Métastatique osseux"
           }
-        ]
+        ],
+        "detail": "Stades : Extension — Stades"
       },
       {
         "id": "cp-b4",
@@ -497,7 +532,8 @@
             "id": "cp-b4-l4",
             "label": "Hormonothérapie, chimiothérapie"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le stade"
       },
       {
         "id": "cp-b5",
@@ -525,7 +561,8 @@
             "id": "cp-b5-l4",
             "label": "Récidive : bilan, RCP"
           }
-        ]
+        ],
+        "detail": "Suivi : PSA et tolérance"
       }
     ]
   },

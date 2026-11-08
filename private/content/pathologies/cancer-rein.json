@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux messages : une masse rénale chez l'adulte est un cancer jusqu'à preuve du contraire (le scanner avec injection fait le diagnostic de nature), et la chirurgie conservatrice (néphrectomie partielle) est devenue la référence pour les petites tumeurs, pour préserver la fonction rénale."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hématurie avec douleur lombaire et masse",
+          "text": "La triade hématurie-douleur-masse du cancer du rein est tardive : son apparition impose un scanner avec injection en urgence : ne jamais se contenter d'un traitement d'infection urinaire."
         }
       ]
     },
@@ -76,6 +83,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Thrombus cave",
+          "text": "Un cancer du rein peut s'étendre dans la veine rénale puis la veine cave : œdèmes des membres inférieurs, dilatation veineuse : écho-Doppler, chirurgie spécialisée avec circulation extracorporelle parfois nécessaire."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant une masse lombaire ou une hématurie de l'adulte : examiner les deux reins, prise de tension, hémogramme (polyglobulie), échographie puis scanner avec injection : jamais de diagnostic sur la seule échographie."
         }
       ]
     },
@@ -116,6 +135,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Découverte fortuite sur imagerie : la règle. Cellules claires : le type. Scanner avec injection : l'examen clé. Néphrectomie partielle : petites tumeurs. Thérapies ciblées et immunothérapie : formes métastatiques. Métastases : poumons en premier."
         }
       ]
     },
@@ -138,6 +163,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Angiomyolipome",
+          "text": "Masse rénale avec composante graisseuse au scanner : tumeur bénigne (angiomyolipome) : pas de chirurgie en dehors des complications (hémorragie) : éviter une néphrectomie inutile."
         }
       ]
     },
@@ -229,19 +260,12 @@
           "key": "M",
           "term": "Masse palpable"
         }
-      ]
+      ],
+      "id": "mn-triade-classique"
     },
     {
       "label": "Facteurs de risque",
       "entries": [
-        {
-          "key": "T",
-          "term": "Tabac"
-        },
-        {
-          "key": "O",
-          "term": "Obésité"
-        },
         {
           "key": "H",
           "term": "Hypertension"
@@ -250,7 +274,8 @@
           "key": "V",
           "term": "Von Hippel-Lindau"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     },
     {
       "label": "Extension",
@@ -264,14 +289,11 @@
           "term": "Surrénale"
         },
         {
-          "key": "P",
-          "term": "Poumons"
-        },
-        {
           "key": "O",
           "term": "Os, foie, cerveau"
         }
-      ]
+      ],
+      "id": "mn-extension"
     },
     {
       "label": "Options thérapeutiques",
@@ -292,7 +314,8 @@
           "key": "T",
           "term": "Thérapies ciblées"
         }
-      ]
+      ],
+      "id": "mn-options-th-rapeutiques"
     }
   ],
   "flashcards": [
@@ -380,7 +403,8 @@
   "mindmap": {
     "root": {
       "id": "cr-root",
-      "label": "Cancer du rein de l'adulte"
+      "label": "Cancer du rein de l'adulte",
+      "detail": "Cancer du rein de l'adulte : Découverte, Diagnostic, Différentiel, Traitement, Suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -409,7 +433,8 @@
             "id": "cr-b1-l4",
             "label": "Syndrome paranéoplasique"
           }
-        ]
+        ],
+        "detail": "Découverte : Modes de révélation"
       },
       {
         "id": "cr-b2",
@@ -437,7 +462,8 @@
             "id": "cr-b2-l4",
             "label": "Fonction rénale"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Imagerie"
       },
       {
         "id": "cr-b3",
@@ -465,7 +491,8 @@
             "id": "cr-b3-l4",
             "label": "Infection focale"
           }
-        ]
+        ],
+        "detail": "Différentiel : Masses rénales"
       },
       {
         "id": "cr-b4",
@@ -493,7 +520,8 @@
             "id": "cr-b4-l4",
             "label": "Thérapies ciblées, immunothérapie"
           }
-        ]
+        ],
+        "detail": "Traitement : Chirurgie et systémique"
       },
       {
         "id": "cr-b5",
@@ -521,7 +549,8 @@
             "id": "cr-b5-l4",
             "label": "Rein controlatéral"
           }
-        ]
+        ],
+        "detail": "Suivi : Pronostic — Suivi"
       }
     ]
   },

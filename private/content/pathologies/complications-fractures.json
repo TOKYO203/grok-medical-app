@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "La règle d'or : examiner avant, pendant et après : pouls, sensibilité, motricité et peau au premier examen, recontrôler après réduction et immobilisation, et considérer toute douleur croissante sous plâtre comme une urgence (ischémie des loges ou cutanée)."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Douleur sous plâtre",
+          "text": "Douleur croissante, doigts ou orteils gonflés, bleutés ou insensibles sous une immobilisation : ischémie des loges ou cutanée probable : ablation ou fenêtre immédiate du plâtre et réexamen : jamais d'antalgiques isolés, jamais de silence."
         }
       ]
     },
@@ -61,12 +68,24 @@
         {
           "type": "paragraph",
           "text": "Complications immédiates (lésions associées au traumatisme) : ouverture cutanée, lésions vasculaires et nerveuses, rupture tendineuse, lésions viscérales associées (polytraumatisme) ; complications secondaires (heures à semaines) : syndrome des loges, thrombose veineuse, embolie graisseuse, infection locale ou générale, escarres, perte de réduction ; complications tardives (hors de cette fiche) : pseudarthrose, cal vicieux, nécrose, algodystrophie, arthrose.",
-          "sources": ["s1", "s2"]
+          "sources": [
+            "s1",
+            "s2"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Fractures à haut risque : fémur et bassin (hémorragie, embolie graisseuse), jambe (syndrome des loges), coude supracondylien de l'enfant (artère brachiale, Volkmann), genou (poplité) ; le terrain aggrave : sujet âgé (décubitus, confusion, thrombose), polytraumatisé (choc, hypocoagulabilité), diabétique (infection, peau fragile).",
-          "sources": ["s1", "s3"]
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Syndrome des loges",
+          "text": "Loge dure et tendue, douleur majorée à l'extension passive des orteils ou des doigts, hypoesthésie, pouls encore présents : fasciotomie d'urgence de toutes les loges : chaque heure compte avant la nécrose (séquelle de Volkmann)."
         }
       ]
     },
@@ -83,7 +102,16 @@
             "Embolie graisseuse : passage de la moelle dans la circulation après fracture des os longs : détresse respiratoire, signes cutanés et neurologiques, thrombopénie.",
             "Thrombose veineuse : stase par immobilisation et inflammation : embolie pulmonaire possible."
           ],
-          "sources": ["s1", "s2"]
+          "sources": [
+            "s1",
+            "s2"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant toute fracture : peau (plaie, bulles, plis), pouls, sensibilité, motricité, à consigner au premier examen puis après réduction ; les fractures à haut risque vasculaire et loge (jambe, coude de l'enfant, genou, fémur) imposent une surveillance rapprochée des premières 48 heures."
         }
       ]
     },
@@ -94,12 +122,24 @@
         {
           "type": "paragraph",
           "text": "Locales : ouverture (plaie en regard du foyer, parfois minime : toujours explorer, jamais sondée) ; ischémie du membre : douleur, pâleur, absence de pouls, paraesthésies, paralysie, poikilothermie (les 6 P) ; syndrome des loges : douleur intense et croissante, majorée à l'extension passive des doigts ou des orteils, loge dure et tendue, hypoesthésie dans le territoire du nerf de la loge, pouls souvent conservés au début ; lésions nerveuses : déficit moteur et sensitif systématiquement consigné au premier examen ; infection : fièvre, douleur, écoulement, rougeur autour du foyer ou des broches.",
-          "sources": ["s1", "s3"]
+          "sources": [
+            "s1",
+            "s3"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Générales : embolie graisseuse (24-72 h) : polypnée, hypoxie, confusion, pétéchies conjonctivales et thoraciques, thrombopénie : radiographie thoracique infiltrats ; thrombose veineuse : douleur et œdème du mollet, parfois asymptomatique, signe de Homans peu spécifique : écho-Doppler ; embolie pulmonaire : dyspnée, douleur thoracique, tachycardie : angio-TDM ; escarres : rougeur persistante puis nécrose aux points d'appui (talons, sacrum) ; anémie : fracture fermée du fémur (500 à 1500 mL) ou du bassin : surveiller la fréquence cardiaque, la tension, la diurèse.",
-          "sources": ["s2", "s3"]
+          "sources": [
+            "s2",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Locales : ouverture (bloc en urgence, antitétanique), ischémie (6 P), syndrome des loges (fasciotomie), nerfs (bilan consigné). Générales : embolie graisseuse (24-72 h : hypoxie, pétéchies), thrombose (anticoagulation prophylactique), décubitus (escarres, lever précoce). Règle : douleur sous plâtre = ouvrir."
         }
       ]
     },
@@ -110,12 +150,24 @@
         {
           "type": "paragraph",
           "text": "Locales : fracture ouverte : urgence chirurgicale : parage-lavage abondant, excision des tissus dévitalisés, couverture cutanée différée si besoin, antibiothérapie (anti-staphylococcique adaptée au type), prévention du tétanos, stabilisation (fixateur externe ou ostéosynthèse selon le type) ; ischémie aiguë : réduction de la fracture en urgence, levée des pansements compressifs, exploration vasculaire et revascularisation (suture, greffe, thrombectomie) avec fasciotomie prophylactique ; syndrome des loges : fasciotomie en urgence de toutes les loges, traitement de la cause (réduction, hématome), retentissement rénal (rhabdomyolyse : hyperkaliémie : réhydratation, alcalinisation) ; lésions nerveuse : immobilisation, réévaluation à 3-6 semaines, exploration chirurgicale si section ou absence de récupération ; infection : nettoyage, prélèvements, antibiothérapie adaptée, parfois ablation du matériel.",
-          "sources": ["s1", "s2"]
+          "sources": [
+            "s1",
+            "s2"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Générales : embolie graisseuse : oxygénothérapie, ventilation au besoin, réanimation, prévention du retard de consolidation ; thrombose veineuse : anticoagulation curative (héparine), puis relais oral, évaluation de l'embolie pulmonaire ; prévention systématique : héparine de bas poids moléculaire chez tout traumatisé immobilisé (surtout membre inférieur, sujet âgé), mobilisation précoce, contention élastique ; décubitus : lever précoce, changes, soins de peau, kinésithérapie respiratoire, hydratation et nutrition ; douleur sous plâtre : ablation ou fenêtre immédiate, jamais d'antalgiques seuls ; hémorragie : remplissage, transfusion selon le retentissement, immobilisation du foyer (fémur : traction, bassin : ceinture).",
-          "sources": ["s1", "s3"]
+          "sources": [
+            "s1",
+            "s3"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Les 6 P de l'ischémie aiguë",
+          "text": "Douleur, Pâleur, Pouls abolis, Paraesthésies, Paralysie, Poïkilothermie : le déficit sensitif précoce est le meilleur signal : ne pas attendre la disparition du pouls pour agir."
         }
       ]
     },
@@ -136,7 +188,10 @@
         {
           "type": "paragraph",
           "text": "Les complications précoces des fractures menacent le membre (ouverture, ischémie, syndrome des loges, lésions nerveuses) et la vie (embolie graisseuse, thromboembolie, hémorragie, décubitus) ; trois gestes sauvent : examiner (vasculo-nerveux, peau) avant et après immobilisation, ouvrir en urgence toute plaie et toute loge tendue, anticoaguler et mobiliser tôt : la douleur croissante sous plâtre n'est jamais banale.",
-          "sources": ["s1", "s2"]
+          "sources": [
+            "s1",
+            "s2"
+          ]
         }
       ]
     },
@@ -193,38 +248,82 @@
     {
       "label": "Les 6 P de l'ischémie",
       "entries": [
-        { "key": "P", "term": "Douleur" },
-        { "key": "P", "term": "Pâleur" },
-        { "key": "P", "term": "Pouls abolis" },
-        { "key": "P", "term": "Paraesthésies, paralysie, poïkilothermie" }
-      ]
+        {
+          "key": "P",
+          "term": "Pouls abolis"
+        },
+        {
+          "key": "P",
+          "term": "Paraesthésies, paralysie, poïkilothermie"
+        }
+      ],
+      "id": "mn-les-6-p-de-l-isch-mie"
     },
     {
       "label": "Ouvertures Cauchoix-Duparc",
       "entries": [
-        { "key": "1", "term": "Plaie punctiforme simple" },
-        { "key": "2", "term": "Plaie large sans écrasement" },
-        { "key": "3", "term": "Écrasement, contamination" },
-        { "key": "T", "term": "Tétanos : toujours à couvrir" }
-      ]
+        {
+          "key": "1",
+          "term": "Plaie punctiforme simple"
+        },
+        {
+          "key": "2",
+          "term": "Plaie large sans écrasement"
+        },
+        {
+          "key": "3",
+          "term": "Écrasement, contamination"
+        },
+        {
+          "key": "T",
+          "term": "Tétanos : toujours à couvrir"
+        }
+      ],
+      "id": "mn-ouvertures-cauchoix-duparc"
     },
     {
       "label": "Complications générales",
       "entries": [
-        { "key": "E", "term": "Embolie graisseuse (24-72 h)" },
-        { "key": "T", "term": "Thrombose veineuse, embolie pulmonaire" },
-        { "key": "D", "term": "Décubitus (escarres, encombrement)" },
-        { "key": "H", "term": "Hémorragie (fémur, bassin)" }
-      ]
+        {
+          "key": "E",
+          "term": "Embolie graisseuse (24-72 h)"
+        },
+        {
+          "key": "T",
+          "term": "Thrombose veineuse, embolie pulmonaire"
+        },
+        {
+          "key": "D",
+          "term": "Décubitus (escarres, encombrement)"
+        },
+        {
+          "key": "H",
+          "term": "Hémorragie (fémur, bassin)"
+        }
+      ],
+      "id": "mn-complications-g-n-rales"
     },
     {
       "label": "Prévention systématique",
       "entries": [
-        { "key": "A", "term": "Anticoagulation prophylactique" },
-        { "key": "M", "term": "Mobilisation, lever précoce" },
-        { "key": "S", "term": "Surveillance des pouls et de la peau" },
-        { "key": "P", "term": "Plâtre sans compression, coupé si douleur" }
-      ]
+        {
+          "key": "A",
+          "term": "Anticoagulation prophylactique"
+        },
+        {
+          "key": "M",
+          "term": "Mobilisation, lever précoce"
+        },
+        {
+          "key": "S",
+          "term": "Surveillance des pouls et de la peau"
+        },
+        {
+          "key": "P",
+          "term": "Plâtre sans compression, coupé si douleur"
+        }
+      ],
+      "id": "mn-pr-vention-syst-matique"
     }
   ],
   "flashcards": [
@@ -310,62 +409,156 @@
     }
   ],
   "mindmap": {
-    "root": { "id": "complications-fractures-root", "label": "Complications précoces des fractures" },
+    "root": {
+      "id": "complications-fractures-root",
+      "label": "Complications précoces des fractures",
+      "detail": "Complications précoces des fractures : Locales, Générales, Dépistage, Traitement, Prévention — synthèse du référentiel."
+    },
     "branches": [
       {
         "id": "cf-b1",
         "label": "Locales",
-        "children": [{ "id": "cf-b1-c", "label": "Membre menacé" }],
+        "children": [
+          {
+            "id": "cf-b1-c",
+            "label": "Membre menacé"
+          }
+        ],
         "leaves": [
-          { "id": "cf-b1-l1", "label": "Ouverture cutanée" },
-          { "id": "cf-b1-l2", "label": "Ischémie (6 P)" },
-          { "id": "cf-b1-l3", "label": "Syndrome des loges" },
-          { "id": "cf-b1-l4", "label": "Lésions nerveuses" }
-        ]
+          {
+            "id": "cf-b1-l1",
+            "label": "Ouverture cutanée"
+          },
+          {
+            "id": "cf-b1-l2",
+            "label": "Ischémie (6 P)"
+          },
+          {
+            "id": "cf-b1-l3",
+            "label": "Syndrome des loges"
+          },
+          {
+            "id": "cf-b1-l4",
+            "label": "Lésions nerveuses"
+          }
+        ],
+        "detail": "Locales : Membre menacé"
       },
       {
         "id": "cf-b2",
         "label": "Générales",
-        "children": [{ "id": "cf-b2-c", "label": "Vie menacée" }],
+        "children": [
+          {
+            "id": "cf-b2-c",
+            "label": "Vie menacée"
+          }
+        ],
         "leaves": [
-          { "id": "cf-b2-l1", "label": "Embolie graisseuse" },
-          { "id": "cf-b2-l2", "label": "Thrombose, embolie pulmonaire" },
-          { "id": "cf-b2-l3", "label": "Hémorragie (fémur, bassin)" },
-          { "id": "cf-b2-l4", "label": "Décubitus, infection" }
-        ]
+          {
+            "id": "cf-b2-l1",
+            "label": "Embolie graisseuse"
+          },
+          {
+            "id": "cf-b2-l2",
+            "label": "Thrombose, embolie pulmonaire"
+          },
+          {
+            "id": "cf-b2-l3",
+            "label": "Hémorragie (fémur, bassin)"
+          },
+          {
+            "id": "cf-b2-l4",
+            "label": "Décubitus, infection"
+          }
+        ],
+        "detail": "Générales : Vie menacée"
       },
       {
         "id": "cf-b3",
         "label": "Dépistage",
-        "children": [{ "id": "cf-b3-c", "label": "Examen répété" }],
+        "children": [
+          {
+            "id": "cf-b3-c",
+            "label": "Examen répété"
+          }
+        ],
         "leaves": [
-          { "id": "cf-b3-l1", "label": "Pouls, sensibilité, motricité" },
-          { "id": "cf-b3-l2", "label": "Peau : plaie, plis, bulles" },
-          { "id": "cf-b3-l3", "label": "Douleur sous plâtre : ouvrir" },
-          { "id": "cf-b3-l4", "label": "48 premières heures" }
-        ]
+          {
+            "id": "cf-b3-l1",
+            "label": "Pouls, sensibilité, motricité"
+          },
+          {
+            "id": "cf-b3-l2",
+            "label": "Peau : plaie, plis, bulles"
+          },
+          {
+            "id": "cf-b3-l3",
+            "label": "Douleur sous plâtre : ouvrir"
+          },
+          {
+            "id": "cf-b3-l4",
+            "label": "48 premières heures"
+          }
+        ],
+        "detail": "Dépistage : Examen répété"
       },
       {
         "id": "cf-b4",
         "label": "Traitement",
-        "children": [{ "id": "cf-b4-c", "label": "Urgences" }],
+        "children": [
+          {
+            "id": "cf-b4-c",
+            "label": "Urgences"
+          }
+        ],
         "leaves": [
-          { "id": "cf-b4-l1", "label": "Parage, antibio, tétanos" },
-          { "id": "cf-b4-l2", "label": "Fasciotomie" },
-          { "id": "cf-b4-l3", "label": "Revascularisation" },
-          { "id": "cf-b4-l4", "label": "Anticoagulation, réanimation" }
-        ]
+          {
+            "id": "cf-b4-l1",
+            "label": "Parage, antibio, tétanos"
+          },
+          {
+            "id": "cf-b4-l2",
+            "label": "Fasciotomie"
+          },
+          {
+            "id": "cf-b4-l3",
+            "label": "Revascularisation"
+          },
+          {
+            "id": "cf-b4-l4",
+            "label": "Anticoagulation, réanimation"
+          }
+        ],
+        "detail": "Traitement : Urgences"
       },
       {
         "id": "cf-b5",
         "label": "Prévention",
-        "children": [{ "id": "cf-b5-c", "label": "Systématique" }],
+        "children": [
+          {
+            "id": "cf-b5-c",
+            "label": "Systématique"
+          }
+        ],
         "leaves": [
-          { "id": "cf-b5-l1", "label": "Anticoagulation prophylactique" },
-          { "id": "cf-b5-l2", "label": "Lever et mobilisation précoces" },
-          { "id": "cf-b5-l3", "label": "Plâtre sans compression" },
-          { "id": "cf-b5-l4", "label": "Vaccination antitétanique" }
-        ]
+          {
+            "id": "cf-b5-l1",
+            "label": "Anticoagulation prophylactique"
+          },
+          {
+            "id": "cf-b5-l2",
+            "label": "Lever et mobilisation précoces"
+          },
+          {
+            "id": "cf-b5-l3",
+            "label": "Plâtre sans compression"
+          },
+          {
+            "id": "cf-b5-l4",
+            "label": "Vaccination antitétanique"
+          }
+        ],
+        "detail": "Prévention : Systématique"
       }
     ]
   },
@@ -377,8 +570,11 @@
       "organization": "ECN Bordeaux (université)",
       "year": 2015,
       "version": "Polycopié",
-      "url": "http://ecn.bordeaux.free.fr/ECN_Bordeaux/CSCT_files/item201f%20membres%20bis.pdf",
-      "usedFor": ["classification", "prise en charge"],
+      "url": "https://ecn.bordeaux.free.fr/ECN_Bordeaux/CSCT_files/item201f%20membres%20bis.pdf",
+      "usedFor": [
+        "classification",
+        "prise en charge"
+      ],
       "verifiedAt": "2026-11-01"
     },
     {
@@ -389,7 +585,10 @@
       "year": 2019,
       "version": "Article",
       "url": "https://www.em-consulte.com/article/46813/complications-des-fractures-des-membres-de-l-adult",
-      "usedFor": ["dépistage", "complications"],
+      "usedFor": [
+        "dépistage",
+        "complications"
+      ],
       "verifiedAt": "2026-11-01"
     },
     {
@@ -400,7 +599,10 @@
       "year": 2021,
       "version": "Fiche",
       "url": "https://medecine-traumatologie-sport.com/complications-precoces-des-fractures-de-membres/",
-      "usedFor": ["syndrome des loges", "prévention"],
+      "usedFor": [
+        "syndrome des loges",
+        "prévention"
+      ],
       "verifiedAt": "2026-11-01"
     }
   ]

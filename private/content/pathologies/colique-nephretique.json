@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -132,7 +133,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Fièvre et frissons",
-          "text": "Colique néphrétique fébrile = pyélonéphrite obstructive : urgence vitale — drainage de la voie urinaire (sonde urétérale ou néphrostomie) en urgence, antibiothérapie parentérale, hospitalisation."
+          "text": "Colique néphrétique fébrile = pyélonéphrite obstructive : urgence vitale — drainage de la voie urinaire (sonde urétérale ou néphrostomie) en urgence, antibiothérapie parentérale, hospitalisation.",
+          "type": "callout"
         }
       ]
     },
@@ -263,7 +265,8 @@
           "key": "A",
           "term": "Agitation (pas de position antalgique)"
         }
-      ]
+      ],
+      "id": "mn-douleur-typique"
     },
     {
       "label": "Signes de gravité",
@@ -284,7 +287,8 @@
           "key": "D",
           "term": "Douleur rebelle, insuffisance rénale"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Traitement de la crise",
@@ -305,7 +309,8 @@
           "key": "H",
           "term": "Hydratation après la crise"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-la-crise"
     },
     {
       "label": "Prévention des récidives",
@@ -326,7 +331,8 @@
           "key": "S",
           "term": "Suivi des récidivants"
         }
-      ]
+      ],
+      "id": "mn-pr-vention-des-r-cidives"
     }
   ],
   "flashcards": [
@@ -414,7 +420,8 @@
   "mindmap": {
     "root": {
       "id": "cnr-root",
-      "label": "Colique néphrétique"
+      "label": "Colique néphrétique",
+      "detail": "Colique néphrétique : Douleur, Causes, Gravité, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -443,7 +450,8 @@
             "id": "cnr-b1-l4",
             "label": "Patient agité"
           }
-        ]
+        ],
+        "detail": "Douleur : Typique — Douleur"
       },
       {
         "id": "cnr-b2",
@@ -471,7 +479,8 @@
             "id": "cnr-b2-l4",
             "label": "Sténose de la jonction"
           }
-        ]
+        ],
+        "detail": "Causes : Obstacles — Causes"
       },
       {
         "id": "cnr-b3",
@@ -499,7 +508,8 @@
             "id": "cnr-b3-l4",
             "label": "Douleur rebelle"
           }
-        ]
+        ],
+        "detail": "Gravité : À rechercher"
       },
       {
         "id": "cnr-b4",
@@ -527,7 +537,8 @@
             "id": "cnr-b4-l4",
             "label": "Lithotripsie, urétéroscopie"
           }
-        ]
+        ],
+        "detail": "Traitement : Crise et obstacle"
       },
       {
         "id": "cnr-b5",
@@ -555,7 +566,8 @@
             "id": "cnr-b5-l4",
             "label": "Suivi des récidivants"
           }
-        ]
+        ],
+        "detail": "Prévention : Récidives"
       }
     ]
   },

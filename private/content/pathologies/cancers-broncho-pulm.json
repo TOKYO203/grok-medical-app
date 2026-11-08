@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Le pronostic reste sombre au stade avancé : d'où l'importance de la suspicion clinique devant tout symptôme respiratoire persistant chez un fumeur, et du bilan rapide (TDM, TEP, endoscopie) vers une réunion pluridisciplinaire."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémoptysie du fumeur",
+          "text": "Toute hémoptysie, même minime et unique, chez un fumeur de plus de 40 ans : cancer broncho-pulmonaire jusqu'à preuve du contraire : radiographie, puis TDM et endoscopie : ne jamais traiter comme une simple bronchite."
         }
       ]
     },
@@ -77,6 +84,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Syndrome cave supérieur",
+          "text": "Œdème et cyanose du visage et du cou, distension des veines : obstruction de la veine cave par une tumeur médiastinale : urgence oncologique : corticoïdes, imagerie rapide, traitement spécifique."
         }
       ]
     },
@@ -95,6 +108,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Toux qui dure ou qui change chez un fumeur : radiographie thoracique ; amaigrissement avec douleur de l'épaule : penser au Pancoast ; dysphonie d'apparition récente : récurrent (envahissement) ; toujours quantifier le tabagisme en paquets-années."
         }
       ]
     },
@@ -117,6 +136,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Tabac : cause majeure. Deux familles : non à petites cellules (80-85 pour cent, chirurgie si précoce) et à petites cellules (chimiothérapie d'emblée). TEP-TDM et endoscopie avec biopsies : le bilan standard. Biomarqueurs (EGFR, ALK, PD-L1) sur les stades avancés."
         }
       ]
     },
@@ -139,6 +164,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Adénocarcinome du non-fumeur",
+          "text": "Femme, non-fumeur, nodule périphérique : penser adénocarcinome avec mutations (EGFR, ALK) : thérapies ciblées efficaces : le bilan biologique est systématique, même sans tabagisme."
         }
       ]
     },
@@ -234,7 +265,8 @@
           "key": "A",
           "term": "Amaigrissement"
         }
-      ]
+      ],
+      "id": "mn-signes-d-appel"
     },
     {
       "label": "Types histologiques",
@@ -255,7 +287,8 @@
           "key": "P",
           "term": "Petites cellules (central)"
         }
-      ]
+      ],
+      "id": "mn-types-histologiques"
     },
     {
       "label": "Bilan",
@@ -269,14 +302,11 @@
           "term": "Endoscopie avec biopsies"
         },
         {
-          "key": "T",
-          "term": "TEP-TDM"
-        },
-        {
           "key": "C",
           "term": "Cerveau (imagerie)"
         }
-      ]
+      ],
+      "id": "mn-bilan"
     },
     {
       "label": "Facteurs de risque",
@@ -286,18 +316,11 @@
           "term": "Tabac (paquets-années)"
         },
         {
-          "key": "A",
-          "term": "Amiante"
-        },
-        {
-          "key": "R",
-          "term": "Radon"
-        },
-        {
           "key": "N",
           "term": "Nickel, chrome, arsenic"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     }
   ],
   "flashcards": [
@@ -385,7 +408,8 @@
   "mindmap": {
     "root": {
       "id": "cbp-root",
-      "label": "Cancers broncho-pulmonaires primitifs"
+      "label": "Cancers broncho-pulmonaires primitifs",
+      "detail": "Cancers broncho-pulmonaires primitifs : Terrain, Signes, Diagnostic, Histologie, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -414,7 +438,8 @@
             "id": "cbp-b1-l4",
             "label": "Nickel, chrome"
           }
-        ]
+        ],
+        "detail": "Terrain : Facteurs de risque"
       },
       {
         "id": "cbp-b2",
@@ -442,7 +467,8 @@
             "id": "cbp-b2-l4",
             "label": "Métastases, paranéoplasie"
           }
-        ]
+        ],
+        "detail": "Signes : Appel clinique"
       },
       {
         "id": "cbp-b3",
@@ -470,7 +496,8 @@
             "id": "cbp-b3-l4",
             "label": "Cerveau, opérabilité"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Bilan — Diagnostic"
       },
       {
         "id": "cbp-b4",
@@ -498,7 +525,8 @@
             "id": "cbp-b4-l4",
             "label": "Petites cellules"
           }
-        ]
+        ],
+        "detail": "Histologie : Deux familles"
       },
       {
         "id": "cbp-b5",
@@ -526,7 +554,8 @@
             "id": "cbp-b5-l4",
             "label": "Soins de support, sevrage"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le stade"
       }
     ]
   },

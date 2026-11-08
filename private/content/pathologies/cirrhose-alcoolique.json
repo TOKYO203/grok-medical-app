@@ -134,14 +134,42 @@
         },
         {
           "type": "table",
-          "columns": ["Examen", "Apport", "Limite"],
+          "columns": [
+            "Examen",
+            "Apport",
+            "Limite"
+          ],
           "rows": [
-            ["Échographie abdominale", "Foie nodulaire, splénomégalie, ascite, circulation collatérale", "Opérateur dépendant"],
-            ["Elastographie", "Estimer la fibrose, aide au diagnostic non invasif", "Moins fiable en cas de congestion ou d'inflammation"],
-            ["Biologie", "Fonction hépatique, cytolyse, cholestase, coagulation, numération", "Ne fait pas le diagnostic à elle seule"],
-            ["Endoscopie digestive", "Recherche et gradation des varices", "Indication selon le stade et le risque"],
-            ["Scanner ou IRM", "Complications, carcinome hépatocellulaire, thrombose portale", "Disponibilité variable"],
-            ["Biopsie hépatique", "Diagnostic de certitude ou doute étiologique", "Invasive, risque hémorragique"]
+            [
+              "Échographie abdominale",
+              "Foie nodulaire, splénomégalie, ascite, circulation collatérale",
+              "Opérateur dépendant"
+            ],
+            [
+              "Elastographie",
+              "Estimer la fibrose, aide au diagnostic non invasif",
+              "Moins fiable en cas de congestion ou d'inflammation"
+            ],
+            [
+              "Biologie",
+              "Fonction hépatique, cytolyse, cholestase, coagulation, numération",
+              "Ne fait pas le diagnostic à elle seule"
+            ],
+            [
+              "Endoscopie digestive",
+              "Recherche et gradation des varices",
+              "Indication selon le stade et le risque"
+            ],
+            [
+              "Scanner ou IRM",
+              "Complications, carcinome hépatocellulaire, thrombose portale",
+              "Disponibilité variable"
+            ],
+            [
+              "Biopsie hépatique",
+              "Diagnostic de certitude ou doute étiologique",
+              "Invasive, risque hémorragique"
+            ]
           ]
         },
         {
@@ -365,11 +393,26 @@
       "label": "Les 5 complications de la cirrhose",
       "intro": "Ce qui tue et ce qu'il faut dépister.",
       "entries": [
-        { "key": "A", "term": "Ascite : rétention hydrosodée et hypertension portale." },
-        { "key": "H", "term": "Hémorragie : rupture de varices œsogastriques." },
-        { "key": "E", "term": "Encéphalopathie : confusion, astérixis, coma." },
-        { "key": "P", "term": "Péritonite spontanée : infection du liquide d'ascite." },
-        { "key": "C", "term": "Carcinome hépatocellulaire : dépistage semestriel." }
+        {
+          "key": "A",
+          "term": "Ascite : rétention hydrosodée et hypertension portale."
+        },
+        {
+          "key": "H",
+          "term": "Hémorragie : rupture de varices œsogastriques."
+        },
+        {
+          "key": "E",
+          "term": "Encéphalopathie : confusion, astérixis, coma."
+        },
+        {
+          "key": "P",
+          "term": "Péritonite spontanée : infection du liquide d'ascite."
+        },
+        {
+          "key": "C",
+          "term": "Carcinome hépatocellulaire : dépistage semestriel."
+        }
       ],
       "note": "Le syndrome hépatorénal complète le tableau : insuffisance rénale fonctionnelle sur cirrhose décompensée, de pronostic sombre."
     },
@@ -378,11 +421,26 @@
       "label": "Child-Pugh — les 5 paramètres",
       "intro": "Un score qui résume la gravité hépatique.",
       "entries": [
-        { "key": "B", "term": "Bilirubine." },
-        { "key": "A", "term": "Albumine." },
-        { "key": "P", "term": "Prothrombine (temps de Quick)." },
-        { "key": "A", "term": "Ascite à l'examen clinique." },
-        { "key": "E", "term": "Encéphalopathie." }
+        {
+          "key": "B",
+          "term": "Bilirubine."
+        },
+        {
+          "key": "A",
+          "term": "Albumine."
+        },
+        {
+          "key": "P",
+          "term": "Prothrombine (temps de Quick)."
+        },
+        {
+          "key": "A",
+          "term": "Ascite à l'examen clinique."
+        },
+        {
+          "key": "E",
+          "term": "Encéphalopathie."
+        }
       ],
       "note": "Le score MELD utilise la bilirubine, la créatinine et le rapport international normalisé : il sert notamment à la priorisation pour la greffe."
     },
@@ -391,9 +449,18 @@
       "label": "Ponction d'ascite : 3 questions",
       "intro": "Un geste simple qui change la prise en charge.",
       "entries": [
-        { "key": "1", "term": "Y a-t-il une infection ? Polynucléaires ≥ 250/mm³." },
-        { "key": "2", "term": "Y a-t-il une complication ? Hémorragie, perforation, tumeur." },
-        { "key": "3", "term": "Faut-il évacuer ? Ascite tendue, gêne respiratoire ou compression." }
+        {
+          "key": "1",
+          "term": "Y a-t-il une infection ? Polynucléaires ≥ 250/mm³."
+        },
+        {
+          "key": "2",
+          "term": "Y a-t-il une complication ? Hémorragie, perforation, tumeur."
+        },
+        {
+          "key": "3",
+          "term": "Faut-il évacuer ? Ascite tendue, gêne respiratoire ou compression."
+        }
       ],
       "note": "La ponction d'ascite est un geste sûr, indispensable devant toute première ascite ou toute décompensation."
     }
@@ -403,67 +470,90 @@
       "id": "fc-01",
       "front": "Quelles sont les deux grandes conséquences de la cirrhose ?",
       "back": "L'hypertension portale et l'insuffisance hépatocellulaire. Elles expliquent l'ascite, les varices, l'encéphalopathie et les troubles de la coagulation.",
-      "tags": ["physiopathologie"]
+      "tags": [
+        "physiopathologie"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quels sont les stigmates cliniques d'une cirrhose ?",
       "back": "Angiomes stellaires, érythrose palmaire, gynécomastie, atrophie testiculaire, ascite, œdèmes, circulation collatérale et splénomégalie.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quels signes biologiques évoquent une cirrhose ?",
       "back": "Thrombopénie, hypoalbuminémie, hyperbilirubinémie, allongement du temps de prothrombine et hyponatrémie.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quel est le traitement de fond le plus efficace de la cirrhose alcoolique ?",
       "back": "L'abstinence alcoolique. Elle améliore la survie et réduit les décompensations, même à un stade avancé.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quel est le seuil de polynucléaires pour diagnostiquer une péritonite bactérienne spontanée ?",
       "back": "Un taux supérieur ou égal à 250 polynucléaires par millimètre cube dans le liquide d'ascite. L'antibiothérapie est débutée même si la culture est négative.",
-      "tags": ["urgence", "ascite"]
+      "tags": [
+        "urgence",
+        "ascite"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Comment traiter une hémorragie variqueuse ?",
       "back": "Stabilisation hémodynamique, vasoactif, antibiothérapie prophylactique, puis endoscopie avec ligature ou sclérose. La prévention secondaire associe bêta-bloquant et ligature.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quels sont les facteurs déclenchants d'une encéphalopathie hépatique ?",
       "back": "Infection, hémorragie digestive, constipation, déshydratation, médicaments sédatifs, insuffisance rénale et écart de régime. Leur correction est essentielle.",
-      "tags": ["encéphalopathie"]
+      "tags": [
+        "encéphalopathie"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Quel est le traitement de l'encéphalopathie hépatique ?",
       "back": "Lactulose et rifaximine, associés au traitement du facteur déclenchant. Une alimentation protéique suffisante ne doit pas être supprimée.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Comment surveiller une cirrhose ?",
       "back": "Échographie hépatique tous les six mois pour le carcinome hépatocellulaire, endoscopie selon le risque de varices, et surveillance du poids, de la fonction rénale, des électrolytes et de la coagulation.",
-      "tags": ["suivi"]
+      "tags": [
+        "suivi"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quels médicaments sont à éviter chez le cirrhotique ?",
       "back": "Les anti-inflammatoires non stéroïdiens, les benzodiazépines, les opioïdes et les sédatifs, qui peuvent précipiter une encéphalopathie ou une insuffisance rénale.",
-      "tags": ["iatrogénie"]
+      "tags": [
+        "iatrogénie"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quel est le score pronostique le plus utilisé pour la cirrhose ?",
       "back": "Le score de Child-Pugh (bilirubine, albumine, prothrombine, ascite, encéphalopathie) et le score MELD (bilirubine, créatinine, rapport international normalisé).",
-      "tags": ["pronostic"]
+      "tags": [
+        "pronostic"
+      ]
     }
   ],
   "mindmap": {
@@ -479,9 +569,44 @@
         "tone": "reflexe",
         "detail": "Clinique, biologie, imagerie et elastographie. La biopsie n'est pas systématique.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Angiomes" }, { "id": "diag-clinique-2", "label": "Ascite" }] },
-          { "id": "diag-bio", "label": "Biologie", "leaves": [{ "id": "diag-bio-1", "label": "Thrombopénie" }, { "id": "diag-bio-2", "label": "Hypoalbuminémie" }] },
-          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Foie nodulaire" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Angiomes"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Ascite"
+              }
+            ]
+          },
+          {
+            "id": "diag-bio",
+            "label": "Biologie",
+            "leaves": [
+              {
+                "id": "diag-bio-1",
+                "label": "Thrombopénie"
+              },
+              {
+                "id": "diag-bio-2",
+                "label": "Hypoalbuminémie"
+              }
+            ]
+          },
+          {
+            "id": "diag-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "diag-imagerie-1",
+                "label": "Foie nodulaire"
+              }
+            ]
+          }
         ]
       },
       {
@@ -490,9 +615,44 @@
         "tone": "urgence",
         "detail": "Ascite, hémorragie variqueuse, encéphalopathie, péritonite spontanée, syndrome hépatorénal et carcinome hépatocellulaire.",
         "children": [
-          { "id": "comp-ascite", "label": "Ascite", "leaves": [{ "id": "comp-ascite-1", "label": "Ponction" }, { "id": "comp-ascite-2", "label": "Diurétiques" }] },
-          { "id": "comp-hemorragie", "label": "Hémorragie", "leaves": [{ "id": "comp-hemorragie-1", "label": "Vasoactif" }, { "id": "comp-hemorragie-2", "label": "Ligature" }] },
-          { "id": "comp-encephalopathie", "label": "Encéphalopathie", "leaves": [{ "id": "comp-encephalopathie-1", "label": "Lactulose" }] }
+          {
+            "id": "comp-ascite",
+            "label": "Ascite",
+            "leaves": [
+              {
+                "id": "comp-ascite-1",
+                "label": "Ponction"
+              },
+              {
+                "id": "comp-ascite-2",
+                "label": "Diurétiques"
+              }
+            ]
+          },
+          {
+            "id": "comp-hemorragie",
+            "label": "Hémorragie",
+            "leaves": [
+              {
+                "id": "comp-hemorragie-1",
+                "label": "Vasoactif"
+              },
+              {
+                "id": "comp-hemorragie-2",
+                "label": "Ligature"
+              }
+            ]
+          },
+          {
+            "id": "comp-encephalopathie",
+            "label": "Encéphalopathie",
+            "leaves": [
+              {
+                "id": "comp-encephalopathie-1",
+                "label": "Lactulose"
+              }
+            ]
+          }
         ]
       },
       {
@@ -501,9 +661,40 @@
         "tone": "memo",
         "detail": "Toute ascite se ponctionne. Le seuil de 250 polynucléaires/mm³ définit la péritonite spontanée et impose l'antibiotique.",
         "children": [
-          { "id": "ascite-ponction", "label": "Ponction", "leaves": [{ "id": "ascite-ponction-1", "label": "Analyse" }] },
-          { "id": "ascite-traitement", "label": "Traitement", "leaves": [{ "id": "ascite-traitement-1", "label": "Sel" }, { "id": "ascite-traitement-2", "label": "Diurétiques" }] },
-          { "id": "ascite-pbs", "label": "Infection", "leaves": [{ "id": "ascite-pbs-1", "label": "Antibiotiques" }] }
+          {
+            "id": "ascite-ponction",
+            "label": "Ponction",
+            "leaves": [
+              {
+                "id": "ascite-ponction-1",
+                "label": "Analyse"
+              }
+            ]
+          },
+          {
+            "id": "ascite-traitement",
+            "label": "Traitement",
+            "leaves": [
+              {
+                "id": "ascite-traitement-1",
+                "label": "Sel"
+              },
+              {
+                "id": "ascite-traitement-2",
+                "label": "Diurétiques"
+              }
+            ]
+          },
+          {
+            "id": "ascite-pbs",
+            "label": "Infection",
+            "leaves": [
+              {
+                "id": "ascite-pbs-1",
+                "label": "Antibiotiques"
+              }
+            ]
+          }
         ]
       },
       {
@@ -512,9 +703,36 @@
         "tone": "retenir",
         "detail": "Abstinence, nutrition, traitement des complications et vaccination. Le suivi est multidisciplinaire.",
         "children": [
-          { "id": "ttt-abstinence", "label": "Abstinence", "leaves": [{ "id": "ttt-abstinence-1", "label": "Soutien" }] },
-          { "id": "ttt-nutrition", "label": "Nutrition", "leaves": [{ "id": "ttt-nutrition-1", "label": "Protéines" }] },
-          { "id": "ttt-vaccins", "label": "Vaccins", "leaves": [{ "id": "ttt-vaccins-1", "label": "Hépatite A et B" }] }
+          {
+            "id": "ttt-abstinence",
+            "label": "Abstinence",
+            "leaves": [
+              {
+                "id": "ttt-abstinence-1",
+                "label": "Soutien"
+              }
+            ]
+          },
+          {
+            "id": "ttt-nutrition",
+            "label": "Nutrition",
+            "leaves": [
+              {
+                "id": "ttt-nutrition-1",
+                "label": "Protéines"
+              }
+            ]
+          },
+          {
+            "id": "ttt-vaccins",
+            "label": "Vaccins",
+            "leaves": [
+              {
+                "id": "ttt-vaccins-1",
+                "label": "Hépatite A et B"
+              }
+            ]
+          }
         ]
       },
       {
@@ -522,8 +740,26 @@
         "label": "Dépistage",
         "detail": "Échographie hépatique tous les six mois pour le carcinome hépatocellulaire, endoscopie selon le risque de varices.",
         "children": [
-          { "id": "dep-chc", "label": "Carcinome", "leaves": [{ "id": "dep-chc-1", "label": "Tous les 6 mois" }] },
-          { "id": "dep-varices", "label": "Varices", "leaves": [{ "id": "dep-varices-1", "label": "Endoscopie" }] }
+          {
+            "id": "dep-chc",
+            "label": "Carcinome",
+            "leaves": [
+              {
+                "id": "dep-chc-1",
+                "label": "Tous les 6 mois"
+              }
+            ]
+          },
+          {
+            "id": "dep-varices",
+            "label": "Varices",
+            "leaves": [
+              {
+                "id": "dep-varices-1",
+                "label": "Endoscopie"
+              }
+            ]
+          }
         ]
       },
       {
@@ -531,8 +767,26 @@
         "label": "Pronostic",
         "detail": "Child-Pugh et MELD guident la gravité et l'accès à la greffe. Chaque décompensation aggrave le pronostic.",
         "children": [
-          { "id": "pron-child", "label": "Child-Pugh", "leaves": [{ "id": "pron-child-1", "label": "5 paramètres" }] },
-          { "id": "pron-meld", "label": "MELD", "leaves": [{ "id": "pron-meld-1", "label": "Greffe" }] }
+          {
+            "id": "pron-child",
+            "label": "Child-Pugh",
+            "leaves": [
+              {
+                "id": "pron-child-1",
+                "label": "5 paramètres"
+              }
+            ]
+          },
+          {
+            "id": "pron-meld",
+            "label": "MELD",
+            "leaves": [
+              {
+                "id": "pron-meld-1",
+                "label": "Greffe"
+              }
+            ]
+          }
         ]
       },
       {
@@ -540,9 +794,36 @@
         "label": "Contexte malgache",
         "detail": "Alcool et hépatite B sont des causes majeures. L'accès à l'endoscopie, à l'albumine et à la greffe est limité.",
         "children": [
-          { "id": "mada-alcool", "label": "Alcool", "leaves": [{ "id": "mada-alcool-1", "label": "Prévention" }] },
-          { "id": "mada-hepatite", "label": "Hépatite B", "leaves": [{ "id": "mada-hepatite-1", "label": "Vaccination" }] },
-          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Endoscopie" }] }
+          {
+            "id": "mada-alcool",
+            "label": "Alcool",
+            "leaves": [
+              {
+                "id": "mada-alcool-1",
+                "label": "Prévention"
+              }
+            ]
+          },
+          {
+            "id": "mada-hepatite",
+            "label": "Hépatite B",
+            "leaves": [
+              {
+                "id": "mada-hepatite-1",
+                "label": "Vaccination"
+              }
+            ]
+          },
+          {
+            "id": "mada-acces",
+            "label": "Accès",
+            "leaves": [
+              {
+                "id": "mada-acces-1",
+                "label": "Endoscopie"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -613,5 +894,6 @@
         "Cofacteurs viraux"
       ]
     }
-  ]
+  ],
+  "specialty": "Gastro-entérologie"
 }

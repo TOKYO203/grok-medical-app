@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Infections cutanéo-muqueuses à Candida albicans : levure saprophyte du microbiote devenant pathogène sous l'effet de facteurs favorisants (humidité, macération, antibiotiques, corticoïdes, diabète, immunodépression, grossesse) ; formes cliniques : muguet buccal ( enduit blanchâtre), perlèche, glossite, candidose œsophagienne (alerte VIH), candidose vulvovaginale (leucorrhées, prurit, œdème), balanite, intertrigo des grands plis (fond rouge suintant, collerette desquamative, pustules en satellites), onyxis et paronychie, granulome candidosique de l'enfant ; diagnostic clinique + prélèvement (examen direct, culture) si doute ou récidive ; traitement : azolés topiques (éconazole, miconazole) ou fluconazole oral selon l'étendue, correction systématique des facteurs favorisants, traitement du partenaire si candidose génitale récidivante ; contextes d'alerte : candidose buccale de l'adulte = dépister VIH et diabète ; fièvre chez un patient neutropénique = candidose invasive possible.",
@@ -82,8 +83,10 @@
       "title": "Formes cliniques",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Muqueuses"
+          "type": "list",
+          "items": [
+            "Muqueuses"
+          ]
         },
         {
           "type": "list",
@@ -96,8 +99,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Peau et phanères"
+          "type": "list",
+          "items": [
+            "Peau et phanères"
+          ]
         },
         {
           "type": "list",
@@ -316,7 +321,8 @@
           "key": "O",
           "term": "Ovules azolés ou fluconazole 150 mg : la vaginite aiguë ; entretien hebdomadaire si récidives"
         }
-      ]
+      ],
+      "id": "mn-c-a-n-d-i-d-o"
     }
   ],
   "flashcards": [
@@ -389,7 +395,8 @@
   "mindmap": {
     "root": {
       "id": "candidose",
-      "label": "Candidoses cutanéo-muqueuses"
+      "label": "Candidoses cutanéo-muqueuses",
+      "detail": "Candidoses cutanéo-muqueuses : Agent, Muqueuses, Peau, Diagnostic, Traitement, Terrain — synthèse du référentiel."
     },
     "branches": [
       {
@@ -414,7 +421,8 @@
             "id": "b1l1",
             "label": "Tube germinatif en sérum"
           }
-        ]
+        ],
+        "detail": "Agent : Candida albicans : levure saprophyte, Filamentation = pathogénicité, Non-albicans : glabrata, krusei"
       },
       {
         "id": "b2",
@@ -442,7 +450,8 @@
             "id": "b2l1",
             "label": "Dentier : désinfection"
           }
-        ]
+        ],
+        "detail": "Muqueuses : Muguet : enduit blanchâtre, Perlèche commissurale, Vaginite : leucorrhées lactescentes, Balanite, œsophagite (VIH)"
       },
       {
         "id": "b3",
@@ -470,7 +479,8 @@
             "id": "b3l1",
             "label": "Sécher les plis, gants humides"
           }
-        ]
+        ],
+        "detail": "Peau : Intertrigo : collerette + satellites, Erosion interdigitale, Onyxis + paronychie, Granulome du nourrisson"
       },
       {
         "id": "b4",
@@ -494,7 +504,8 @@
             "id": "b4l1",
             "label": "Glycémie, VIH devant rechute"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique le plus souvent, Prélèvement : KOH + Sabouraud, Hémocultures si invasive"
       },
       {
         "id": "b5",
@@ -518,7 +529,8 @@
             "id": "b5l1",
             "label": "Corriger le terrain = guérir"
           }
-        ]
+        ],
+        "detail": "Traitement : Azolés topiques, Fluconazole oral si étendu, Échinocandine si invasive"
       },
       {
         "id": "b6",
@@ -542,7 +554,8 @@
             "id": "b6l1",
             "label": "Récidive = cause retrouvable"
           }
-        ]
+        ],
+        "detail": "Terrain : Diabète, obésité, grossesse, VIH, neutropénie, corticoïdes, Antibiothérapie, macération"
       }
     ]
   },
