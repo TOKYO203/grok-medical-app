@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -131,7 +132,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Angiocholite",
-          "text": "Triade de Charcot : fièvre, douleur de l'hypochondre droit, ictère, avec frissons : drainage biliaire urgent (endoscopique) et antibiothérapie ; pronostic vital en jeu."
+          "text": "Triade de Charcot : fièvre, douleur de l'hypochondre droit, ictère, avec frissons : drainage biliaire urgent (endoscopique) et antibiothérapie ; pronostic vital en jeu.",
+          "type": "callout"
         }
       ]
     },
@@ -235,23 +237,6 @@
   ],
   "mnemonics": [
     {
-      "label": "Triade de Charcot",
-      "entries": [
-        {
-          "key": "F",
-          "term": "Fièvre"
-        },
-        {
-          "key": "D",
-          "term": "Douleur hypochondre droit"
-        },
-        {
-          "key": "I",
-          "term": "Ictère"
-        }
-      ]
-    },
-    {
       "label": "Causes d'obstacle",
       "entries": [
         {
@@ -270,7 +255,8 @@
           "key": "S",
           "term": "Sténose, parasitose"
         }
-      ]
+      ],
+      "id": "mn-causes-d-obstacle"
     },
     {
       "label": "Bilan de première intention",
@@ -291,7 +277,8 @@
           "key": "E",
           "term": "Échographie abdominale"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-premi-re-intention"
     },
     {
       "label": "Cholestase intra-hépatique",
@@ -312,7 +299,8 @@
           "key": "G",
           "term": "Grossesse (cholestase gravidique)"
         }
-      ]
+      ],
+      "id": "mn-cholestase-intra-h-patique"
     }
   ],
   "flashcards": [
@@ -400,7 +388,8 @@
   "mindmap": {
     "root": {
       "id": "ict-root",
-      "label": "Ictère à bilirubine conjuguée de l'adulte"
+      "label": "Ictère à bilirubine conjuguée de l'adulte",
+      "detail": "Ictère à bilirubine conjuguée de l'adulte : Signes, Extra-hépatique, Intra-hépatique, Démarche, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -429,7 +418,8 @@
             "id": "ict-b1-l4",
             "label": "GGT et PAL élevées"
           }
-        ]
+        ],
+        "detail": "Signes : Cholestase — Signes"
       },
       {
         "id": "ict-b2",
@@ -457,7 +447,8 @@
             "id": "ict-b2-l4",
             "label": "Sténose, parasitose"
           }
-        ]
+        ],
+        "detail": "Extra-hépatique : Obstacle"
       },
       {
         "id": "ict-b3",
@@ -485,7 +476,8 @@
             "id": "ict-b3-l4",
             "label": "Cholestase gravidique"
           }
-        ]
+        ],
+        "detail": "Intra-hépatique : Parenchyme"
       },
       {
         "id": "ict-b4",
@@ -513,7 +505,8 @@
             "id": "ict-b4-l4",
             "label": "Biopsie si intra-hépatique"
           }
-        ]
+        ],
+        "detail": "Démarche : Étape par étape"
       },
       {
         "id": "ict-b5",
@@ -541,7 +534,8 @@
             "id": "ict-b5-l4",
             "label": "Cholestyramine, vitamines"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

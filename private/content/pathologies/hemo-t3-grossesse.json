@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -131,7 +132,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Jamais de toucher vaginal avant l'échographie",
-          "text": "Devant une hémorragie du troisième trimestre, le toucher vaginal est contre-indiqué tant qu'un placenta praevia n'est pas éliminé : risque d'hémorragie cataclysmique."
+          "text": "Devant une hémorragie du troisième trimestre, le toucher vaginal est contre-indiqué tant qu'un placenta praevia n'est pas éliminé : risque d'hémorragie cataclysmique.",
+          "type": "callout"
         }
       ]
     },
@@ -258,7 +260,8 @@
           "key": "L",
           "term": "Cause Locale"
         }
-      ]
+      ],
+      "id": "mn-deux-grandes-causes"
     },
     {
       "label": "Praevia vs HRP",
@@ -279,7 +282,8 @@
           "key": "C",
           "term": "Constants fœtaux vs souffrance"
         }
-      ]
+      ],
+      "id": "mn-praevia-vs-hrp"
     },
     {
       "label": "Gestes immédiats",
@@ -300,7 +304,8 @@
           "key": "E",
           "term": "Échographie, pas de toucher"
         }
-      ]
+      ],
+      "id": "mn-gestes-imm-diats"
     },
     {
       "label": "Décision obstétricale",
@@ -321,7 +326,8 @@
           "key": "K",
           "term": "Korticothérapie avant 34 SA"
         }
-      ]
+      ],
+      "id": "mn-d-cision-obst-tricale"
     }
   ],
   "flashcards": [
@@ -409,7 +415,8 @@
   "mindmap": {
     "root": {
       "id": "ht3-root",
-      "label": "Hémorragie du troisième trimestre de grossesse"
+      "label": "Hémorragie du troisième trimestre de grossesse",
+      "detail": "Hémorragie du troisième trimestre de grossesse : Praevia, HRP, Rupture utérine, Gestes, Décision — synthèse du référentiel."
     },
     "branches": [
       {
@@ -438,7 +445,8 @@
             "id": "ht3-b1-l4",
             "label": "Césarienne si recouvrant"
           }
-        ]
+        ],
+        "detail": "Praevia : Indolore — Praevia"
       },
       {
         "id": "ht3-b2",
@@ -466,7 +474,8 @@
             "id": "ht3-b2-l4",
             "label": "Extraction rapide"
           }
-        ]
+        ],
+        "detail": "HRP : Douloureux — HRP"
       },
       {
         "id": "ht3-b3",
@@ -494,7 +503,8 @@
             "id": "ht3-b3-l4",
             "label": "Laparotomie immédiate"
           }
-        ]
+        ],
+        "detail": "Rupture utérine : Uterus cicatriciel"
       },
       {
         "id": "ht3-b4",
@@ -522,7 +532,8 @@
             "id": "ht3-b4-l4",
             "label": "Échographie d'abord"
           }
-        ]
+        ],
+        "detail": "Gestes : Toujours — Gestes"
       },
       {
         "id": "ht3-b5",
@@ -550,7 +561,8 @@
             "id": "ht3-b5-l4",
             "label": "Surveillance rapprochée"
           }
-        ]
+        ],
+        "detail": "Décision : Selon l'étiologie"
       }
     ]
   },

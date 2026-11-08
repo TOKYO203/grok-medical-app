@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "pathology",
   "slug": "hepatomegalie",
-  "title": "Foie augmenté de volume (hépatomégalie)",
+  "title": "Hépatomégalie",
   "specialty": "Gastro-entérologie",
   "language": "fr",
   "updatedAt": "2026-11-01",
@@ -17,12 +17,13 @@
       "ordinal": 8,
       "localNumber": 8,
       "sectionLabel": "Sémiologie",
-      "title": "Foie augmenté de volume (hépatomégalie)",
+      "title": "Hépatomégalie",
       "specialty": "Gastro-entérologie"
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -132,13 +133,15 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Gros foie douloureux avec fièvre et choc",
-          "text": "Douleur de l'hypochondre droit, fièvre, ictère ou hypotension : abcès hépatique (amibien ou bactérien) ou cholangite aiguë — imagerie et traitement sans délai."
+          "text": "Douleur de l'hypochondre droit, fièvre, ictère ou hypotension : abcès hépatique (amibien ou bactérien) ou cholangite aiguë — imagerie et traitement sans délai.",
+          "type": "callout"
         },
         {
           "id": "c2",
           "tone": "urgence",
           "title": "Budd-Chiari",
-          "text": "Gros foie douloureux, ascite rapide, insuffisance hépatique d'installation rapide : thrombose des veines sus-hépatiques — imagerie des veines sus-hépatiques en urgence, anticoagulation et avis spécialisé."
+          "text": "Gros foie douloureux, ascite rapide, insuffisance hépatique d'installation rapide : thrombose des veines sus-hépatiques — imagerie des veines sus-hépatiques en urgence, anticoagulation et avis spécialisé.",
+          "type": "callout"
         }
       ]
     },
@@ -253,7 +256,8 @@
           "key": "D",
           "term": "Douleur : hépatalgie, signe de l'ourse"
         }
-      ]
+      ],
+      "id": "mn-s-miologie-du-foie"
     },
     {
       "label": "Causes hépatiques",
@@ -274,7 +278,8 @@
           "key": "C",
           "term": "Congestif : cardiaque, Budd-Chiari"
         }
-      ]
+      ],
+      "id": "mn-causes-h-patiques"
     },
     {
       "label": "Causes infectieuses",
@@ -295,7 +300,8 @@
           "key": "H",
           "term": "Hépatite aiguë virale"
         }
-      ]
+      ],
+      "id": "mn-causes-infectieuses"
     },
     {
       "label": "Bilan de première intention",
@@ -316,7 +322,8 @@
           "key": "H",
           "term": "Hémogramme, CRP"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-premi-re-intention"
     }
   ],
   "flashcards": [
@@ -404,7 +411,8 @@
   "mindmap": {
     "root": {
       "id": "hep-root",
-      "label": "Foie augmenté de volume"
+      "label": "Foie augmenté de volume",
+      "detail": "Foie augmenté de volume : Examen, Causes hépatiques, Causes extra-hépatiques, Bilan, Prise en charge — synthèse du référentiel."
     },
     "branches": [
       {
@@ -433,7 +441,8 @@
             "id": "hep-b1-l4",
             "label": "Reflux hépato-jugulaire"
           }
-        ]
+        ],
+        "detail": "Examen : Sémiologie codifiée"
       },
       {
         "id": "hep-b2",
@@ -461,7 +470,8 @@
             "id": "hep-b2-l4",
             "label": "Carcinome, métastases"
           }
-        ]
+        ],
+        "detail": "Causes hépatiques : Parenchymateuses"
       },
       {
         "id": "hep-b3",
@@ -489,7 +499,8 @@
             "id": "hep-b3-l4",
             "label": "Abcès, kyste hydatique"
           }
-        ]
+        ],
+        "detail": "Causes extra-hépatiques : Systémiques et cardiaques"
       },
       {
         "id": "hep-b4",
@@ -517,7 +528,8 @@
             "id": "hep-b4-l4",
             "label": "Biopsie hépatique"
           }
-        ]
+        ],
+        "detail": "Bilan : Démarche — Bilan"
       },
       {
         "id": "hep-b5",
@@ -545,7 +557,8 @@
             "id": "hep-b5-l4",
             "label": "Surveillance des cirrhoses"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Traitement et suivi"
       }
     ]
   },

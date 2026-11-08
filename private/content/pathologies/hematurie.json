@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -142,7 +143,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Hématurie macroscopique avec caillots",
-          "text": "Retention urinaire par caillots, douleur, anémie : saignement urologique abondant — sondage avec irrigation, imagerie urgente, avis urologique ; dépister une tumeur de vessie."
+          "text": "Retention urinaire par caillots, douleur, anémie : saignement urologique abondant — sondage avec irrigation, imagerie urgente, avis urologique ; dépister une tumeur de vessie.",
+          "type": "callout"
         }
       ]
     },
@@ -261,7 +263,8 @@
           "key": "T",
           "term": "Terminal (jet) : prostate, col vésical"
         }
-      ]
+      ],
+      "id": "mn-localiser-l-h-maturie"
     },
     {
       "label": "Causes urologiques",
@@ -282,7 +285,8 @@
           "key": "T",
           "term": "Traumatisme, tuberculose, bilharziose"
         }
-      ]
+      ],
+      "id": "mn-causes-urologiques"
     },
     {
       "label": "Causes glomérulaires",
@@ -303,7 +307,8 @@
           "key": "S",
           "term": "Syndrome d'Alport, purpura rhumatoïde"
         }
-      ]
+      ],
+      "id": "mn-causes-glom-rulaires"
     },
     {
       "label": "Bilan de l'hématurie de l'adulte",
@@ -324,7 +329,8 @@
           "key": "C",
           "term": "Cystoscopie"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-l-h-maturie-de-l-adulte"
     }
   ],
   "flashcards": [
@@ -412,7 +418,8 @@
   "mindmap": {
     "root": {
       "id": "hem-root",
-      "label": "Hématurie"
+      "label": "Hématurie",
+      "detail": "Hématurie : Confirmer, Localiser, Étiologies, Bilan, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -441,7 +448,8 @@
             "id": "hem-b1-l4",
             "label": "Éliminer règles, effort"
           }
-        ]
+        ],
+        "detail": "Confirmer : Premier temps"
       },
       {
         "id": "hem-b2",
@@ -469,7 +477,8 @@
             "id": "hem-b2-l4",
             "label": "Moment du jet"
           }
-        ]
+        ],
+        "detail": "Localiser : Glomérulaire ou non"
       },
       {
         "id": "hem-b3",
@@ -497,7 +506,8 @@
             "id": "hem-b3-l4",
             "label": "Infection, prostate"
           }
-        ]
+        ],
+        "detail": "Étiologies : Selon l'âge"
       },
       {
         "id": "hem-b4",
@@ -525,7 +535,8 @@
             "id": "hem-b4-l4",
             "label": "Biopsie rénale si glomérulaire"
           }
-        ]
+        ],
+        "detail": "Bilan : Imagerie et endoscopie"
       },
       {
         "id": "hem-b5",
@@ -553,7 +564,8 @@
             "id": "hem-b5-l4",
             "label": "Irrigation-lavage si caillots"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

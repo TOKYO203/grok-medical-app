@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -44,6 +45,12 @@
         {
           "type": "paragraph",
           "text": "Deux situations se rencontrent au cours de la grossesse : le diabète prégestationnel (diabète de type 1 ou de type 2 connu avant la grossesse), qui expose surtout l'embryon à des malformations si l'équilibre glycémique est mauvais en début de grossesse ; et le diabète gestationnel, intolérance au glucose apparue au cours de la grossesse, liée à l'insulinorésistance des hormones placentaires et découverte le plus souvent au deuxième trimestre. Le diabète gestationnel touche environ 14 % des grossesses dans le monde ; son enjeu principal est la macrosomie fœtale et ses complications obstétricales, toutes réduites par une prise en charge active."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hypoglycémie néonatale",
+          "text": "Tout nouveau-né de mère diabétique traitée par insuline, macrosome ou hypotrophe, doit bénéficier d'une surveillance glycémique précoce et d'une tétée précoce : l'hyperinsulinisme fœtal expose à une hypoglycémie néonatale dans les premières heures de vie."
         }
       ]
     },
@@ -58,6 +65,12 @@
         {
           "type": "paragraph",
           "text": "Conséquences. Maternelles : hypertension gravidique et pré-éclampsie, césarienne, traumatisme périnéal, hémorragie de la délivrance, risque accru de diabète de type 2 dans les années suivantes (jusqu'à 50 % à 10–20 ans selon les populations). Fœtales et néonatales : macrosomie et dystocie des épaules, hypoglycémie néonatale, hyperbilirubinémie, détresse respiratoire, prématurité, mort fœtale in utero (rare) ; en cas de diabète prégestationnel mal équilibré en début de grossesse : malformations congénitales (cardiaques, neurales), fausses couches. À long terme chez l'enfant : obésité et risque métabolique accru."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Dystocie des épaules",
+          "text": "Devant une macrosomie (plus de 4 kg, surtout au-delà de 4 250 g), anticiper la dystocie des épaules : manœuvres d'urgence prêtes, appel de l'équipe, et césarienne prophylactique discutée en cas de macrosomie sévère chez une femme insulinotraitée."
         }
       ]
     },
@@ -68,6 +81,12 @@
         {
           "type": "paragraph",
           "text": "Le dépistage est ciblé sur les facteurs de risque suivants (un seul suffit) : âge supérieur ou égal à 35 ans, indice de masse corporelle supérieur ou égal à 25, antécédent familial de diabète de type 2 au premier degré, antécédent personnel de diabète gestationnel ou de macrosomie (enfant de 4 kg ou plus), syndrome des ovaires polykystiques, antécédent de chirurgie bariatrique, origine à haut risque (Asie, Afrique subsaharienne). Une glycosurie répétée ou une macrosomie découverte à l'échographie motive aussi un dépistage. En l'absence de tout facteur de risque, la stratégie de dépistage universel entre 24 et 28 SA relève des politiques nationales."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe dépistage",
+          "text": "Femme enceinte à risque (âge ≥ 35 ans, IMC ≥ 25, antécédent de macrosomie ou de diabète gestationnel, diabète familial) : glycémie à jeun au 1er trimestre, puis HGPO 75 g entre 24 et 28 SA si la glycémie était normale — une seule valeur ≥ 0,92 / 1,80 / 1,53 g/L suffit."
         }
       ]
     },
@@ -94,6 +113,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Diabète gestationnel : HGPO 75 g entre 24 et 28 SA, seuils 0,92 g/L à jeun, 1,80 g/L à H1, 1,53 g/L à H2. Objectifs : à jeun < 0,95 g/L, post-prandiale < 1,20 g/L. Régime d'abord (efficace dans 80–90 % des cas), insuline si échec à 10 jours. Post-partum : HGPO à 6–12 semaines, puis dépistage du diabète de type 2 à vie."
         }
       ]
     },
@@ -128,6 +153,12 @@
             "s1",
             "s4"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo complications",
+          "text": "Maternelles : pré-éclampsie, césarienne, hémorragie de la délivrance, diabète de type 2 ultérieur. Fœtales et néonatales : macrosomie, dystocie des épaules, hypoglycémie, hyperbilirubinémie, détresse respiratoire ; si diabète prégestationnel déséquilibré : malformations et fausses couches précoces."
         }
       ]
     },
@@ -227,7 +258,8 @@
           "key": "A",
           "term": "Antécédent familial de diabète type 2 (et SOPK, chirurgie bariatrique)"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque-du-d-pistage-amma"
     },
     {
       "label": "Seuils de l'HGPO 75 g (0,92-1,80-1,53)",
@@ -248,7 +280,8 @@
           "key": "R",
           "term": "Règle : une seule valeur suffit au diagnostic"
         }
-      ]
+      ],
+      "id": "mn-seuils-de-l-hgpo-75-g-0-92-1-80-1-53"
     },
     {
       "label": "Complications fœtales (MMDH)",
@@ -269,7 +302,8 @@
           "key": "H",
           "term": "Hypoglycémie et hyperbilirubinémie néonatales"
         }
-      ]
+      ],
+      "id": "mn-complications-f-tales-mmdh"
     },
     {
       "label": "Prise en charge (REIN)",
@@ -290,7 +324,8 @@
           "key": "N",
           "term": "Naissance programmée selon équilibre et croissance fœtale"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge-rein"
     }
   ],
   "flashcards": [
@@ -378,7 +413,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Grossesse et diabète"
+      "label": "Grossesse et diabète",
+      "detail": "Grossesse et diabète : Dépistage, Diagnostic, Traitement, Complications, Accouchement et suite — synthèse du référentiel."
     },
     "branches": [
       {
@@ -407,7 +443,8 @@
             "id": "b1l1",
             "label": "≥ 1,26 g/L × 2 : diabète avéré"
           }
-        ]
+        ],
+        "detail": "Dépistage : Facteurs de risque : AMMA, Glycémie à jeun T1, HGPO 75 g : 24–28 SA, Une valeur ≥ seuil suffit"
       },
       {
         "id": "b2",
@@ -435,7 +472,8 @@
             "id": "b2l1",
             "label": "Macrosomie > 90e percentile"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Seuils : 0,92 / 1,80 / 1,53, Autosurveillance glycémique, Bilan du diabète avéré, Échographie : croissance fœtale"
       },
       {
         "id": "b3",
@@ -463,7 +501,8 @@
             "id": "b3l1",
             "label": "80–90 % : régime seul suffit"
           }
-        ]
+        ],
+        "detail": "Traitement : Règles diététiques 10 j, Insuline si échec, Objectifs : 0,95 / 1,20, Éducation, activité physique"
       },
       {
         "id": "b4",
@@ -491,7 +530,8 @@
             "id": "b4l1",
             "label": "Diabète de type 2 ultérieur"
           }
-        ]
+        ],
+        "detail": "Complications : Maternelles : pré-éclampsie, césarienne, Fœtales : macrosomie, dystocie, Néonatales : hypoglycémie, Malformations si prégestationnel"
       },
       {
         "id": "b5",
@@ -519,7 +559,8 @@
             "id": "b5l1",
             "label": "Dépistage du diabète de type 2 à vie"
           }
-        ]
+        ],
+        "detail": "Accouchement et suite : Régime seul : comme grossesse normale, Insuline : RCF 2–3/semaine dès 32–34 SA, Naissance 38–39 SA si insulinotraité, Post-partum : HGPO 6–12 semaines"
       }
     ]
   },

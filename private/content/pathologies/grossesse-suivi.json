@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -44,6 +45,12 @@
         {
           "type": "paragraph",
           "text": "Le suivi de la grossesse (soins prénatals) a pour but d'assurer la santé de la mère et de l'enfant à naître : confirmer et dater la grossesse, dépister précocement les pathologies maternelles et fœtales, prévenir les complications (anémie, paludisme, tétanos, infection à VIH) et préparer l'accouchement. La qualité du suivi prénatal est un déterminant majeur de la mortalité maternelle et périnatale, en particulier dans les pays à ressources limitées comme Madagascar."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de danger immédiat",
+          "text": "Métrorragies du deuxième ou troisième trimestre, céphalées avec troubles visuels, convulsion, fièvre, rupture des membranes avant terme ou diminution des mouvements actifs : orientation urgente vers la maternité de référence, sans attendre la consultation suivante."
         }
       ]
     },
@@ -58,6 +65,12 @@
         {
           "type": "paragraph",
           "text": "L'OMS recommande depuis 2016 un modèle de soins prénatals à au moins 8 contacts : avant 12 SA, à 20, 26, 30, 34, 36, 38 et 40 SA. Ce calendrier resserré remplace l'ancien modèle ciblé à 4 consultations ; là où les ressources sont limitées, un minimum de 4 contacts reste recommandé, avec un premier contact avant le quatrième mois."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Suspicion de grossesse extra-utérine",
+          "text": "Retard des règles avec douleur pelvienne latéralisée, spotting et malaise : test de grossesse positif avec utérus plus petit que le terme impose une échographie en urgence ; c'est une urgence chirurgicale potentielle (fiche Grossesse extra-utérine)."
         }
       ]
     },
@@ -77,6 +90,12 @@
             "Pathologies chroniques : hypertension artérielle, diabète, drépanocytose, cardiopathie, néphropathie, épilepsie, infection à VIH, tuberculose.",
             "Pathologies de la grossesse en cours : hypertension gravidique, diabète gestationnel, anémie sévère, paludisme, grossesse gémellaire, présentation anormale, menace d'accouchement prématuré, hémorragie."
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe du premier contact",
+          "text": "Toute grossesse confirmée déclenche : bilan du premier trimestre (groupe et rhésus, NFS, sérologies), supplémentation fer et acide folique, mise à jour de l'anatoxine tétanique, déclaration de grossesse et plan d'accouchement."
         }
       ]
     },
@@ -111,6 +130,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Modèle OMS 2016 : au moins 8 contacts prénatals (avant 12 SA, puis 20, 26, 30, 34, 36, 38 et 40 SA) ; minimum 4 contacts en contexte à ressources limitées, avec un premier avant le quatrième mois. Trois échographies : 11–13 SA (datation et clarté nucale), 20–24 SA (morphologie), 30–34 SA (croissance)."
         }
       ]
     },
@@ -142,6 +167,12 @@
         {
           "type": "paragraph",
           "text": "Conduite devant une grossesse à risque. Toute pathologie dépistée (hypertension, anémie sévère, diabète, paludisme confirmé, grossesse gémellaire, utérus cicatriciel, présentation transversale en fin de grossesse) entraîne un rapprochement des consultations, des examens complémentaires ciblés et une orientation vers une structure obstétricale capable de prendre en charge une urgence (accord avec les fiches Grossesse et hypertension artérielle, Éclampsie, Menace d'accouchement prématuré, Grossesse et diabète)."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo du calendrier",
+          "text": "Fer et acide folique quotidiens ; anatoxine tétanique selon le statut ; moustiquaire imprégnée et traitement préventif intermittent du paludisme dès le 2e trimestre en zone d'endémie ; tension artérielle et protéinurie à chaque contact ; mouvements actifs comptés dès 28 SA."
         }
       ]
     },
@@ -249,7 +280,8 @@
           "key": "D6",
           "term": "Décider du lieu et du plan d'accouchement"
         }
-      ]
+      ],
+      "id": "mn-objectifs-du-suivi-pr-natal-6-d"
     },
     {
       "label": "Bilan du premier trimestre (SERO-GN)",
@@ -278,7 +310,8 @@
           "key": "N",
           "term": "Numération formule sanguine (anémie)"
         }
-      ]
+      ],
+      "id": "mn-bilan-du-premier-trimestre-sero-gn"
     },
     {
       "label": "Signes de danger (CHAMPS)",
@@ -307,7 +340,8 @@
           "key": "S",
           "term": "Sensation de malaise, œdèmes du visage"
         }
-      ]
+      ],
+      "id": "mn-signes-de-danger-champs"
     },
     {
       "label": "Préventions systématiques (FATMI)",
@@ -332,7 +366,8 @@
           "key": "I",
           "term": "Infection à VIH : dépistage et prévention de la transmission mère-enfant"
         }
-      ]
+      ],
+      "id": "mn-pr-ventions-syst-matiques-fatmi"
     }
   ],
   "flashcards": [
@@ -420,7 +455,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Suivi de grossesse"
+      "label": "Suivi de grossesse",
+      "detail": "Suivi de grossesse : Diagnostic, Calendrier, Examens, Préventions, Signes de danger — synthèse du référentiel."
     },
     "branches": [
       {
@@ -449,7 +485,8 @@
             "id": "b1l1",
             "label": "Éliminer la grossesse extra-utérine"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique : aménorrhée, utérus augmenté, hCG urinaire, Échographie : sac 5 SA, cœur 6–7 SA, Datation : Naegele, cranio-caudale 11–13 SA"
       },
       {
         "id": "b2",
@@ -477,7 +514,8 @@
             "id": "b2l1",
             "label": "Carnet de santé maternelle"
           }
-        ]
+        ],
+        "detail": "Calendrier : OMS 2016 : 8 contacts, Minimum : 4 consultations, Premier contact avant 12 SA, Déclaration avant la fin du 3e mois"
       },
       {
         "id": "b3",
@@ -505,7 +543,8 @@
             "id": "b3l1",
             "label": "TA + protéinurie à chaque contact"
           }
-        ]
+        ],
+        "detail": "Examens : Bilan T1 : groupe, NFS, sérologies, Écho 11–13 SA : clarté nucale, Écho morphologique 20–24 SA, Écho croissance 30–34 SA"
       },
       {
         "id": "b4",
@@ -533,7 +572,8 @@
             "id": "b4l1",
             "label": "Plan d'accouchement"
           }
-        ]
+        ],
+        "detail": "Préventions : Fer 30–60 mg + folique 400 µg, Anatoxine tétanique, Paludisme : moustiquaire + SP, VIH : dépistage, PTME"
       },
       {
         "id": "b5",
@@ -561,7 +601,8 @@
             "id": "b5l1",
             "label": "Orientation vers maternité de référence"
           }
-        ]
+        ],
+        "detail": "Signes de danger : Métrorragies, Céphalées, convulsion, Rupture des membranes, Diminution des mouvements actifs"
       }
     ]
   },

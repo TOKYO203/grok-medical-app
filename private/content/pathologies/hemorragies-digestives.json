@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -130,7 +131,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Hémorragie avec choc",
-          "text": "Tachycardie, hypotension, marbrures, oligurie : choc hémorragique — remplissage par cristalloïdes, deux voies veineuses de gros calibre, groupe et RAI, transfusion, avis endoscopique urgent, rien par voie orale."
+          "text": "Tachycardie, hypotension, marbrures, oligurie : choc hémorragique — remplissage par cristalloïdes, deux voies veineuses de gros calibre, groupe et RAI, transfusion, avis endoscopique urgent, rien par voie orale.",
+          "type": "callout"
         }
       ]
     },
@@ -256,7 +258,8 @@
           "key": "T",
           "term": "Tumeurs, Mallory-Weiss"
         }
-      ]
+      ],
+      "id": "mn-causes-hautes"
     },
     {
       "label": "Causes basses",
@@ -277,7 +280,8 @@
           "key": "C",
           "term": "Colites (infectieuse, inflammatoire, ischémique)"
         }
-      ]
+      ],
+      "id": "mn-causes-basses"
     },
     {
       "label": "Signes de gravité",
@@ -298,7 +302,8 @@
           "key": "A",
           "term": "Anémie, anticoagulants, âge"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Prise en charge",
@@ -319,7 +324,8 @@
           "key": "P",
           "term": "Prévention de la récidive"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge"
     }
   ],
   "flashcards": [
@@ -407,7 +413,8 @@
   "mindmap": {
     "root": {
       "id": "hgd-root",
-      "label": "Hémorragies digestives"
+      "label": "Hémorragies digestives",
+      "detail": "Hémorragies digestives : Formes, Gravité, Causes hautes, Causes basses, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -436,7 +443,8 @@
             "id": "hgd-b1-l4",
             "label": "Rectorragies"
           }
-        ]
+        ],
+        "detail": "Formes : Extériorisation"
       },
       {
         "id": "hgd-b2",
@@ -464,7 +472,8 @@
             "id": "hgd-b2-l4",
             "label": "Récidive précoce"
           }
-        ]
+        ],
+        "detail": "Gravité : À évaluer — Gravité"
       },
       {
         "id": "hgd-b3",
@@ -492,7 +501,8 @@
             "id": "hgd-b3-l4",
             "label": "Tumeurs, Mallory-Weiss"
           }
-        ]
+        ],
+        "detail": "Causes hautes : Endoscopie"
       },
       {
         "id": "hgd-b4",
@@ -520,7 +530,8 @@
             "id": "hgd-b4-l4",
             "label": "Colites, parasitoses"
           }
-        ]
+        ],
+        "detail": "Causes basses : Coloscopie"
       },
       {
         "id": "hgd-b5",
@@ -548,7 +559,8 @@
             "id": "hgd-b5-l4",
             "label": "Prévention de la récidive"
           }
-        ]
+        ],
+        "detail": "Traitement : Trois temps"
       }
     ]
   },

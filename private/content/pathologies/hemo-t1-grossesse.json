@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -139,7 +140,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Saignement + instabilité = GEU rompue",
-          "text": "Toute femme qui saigne au premier trimestre est une GEU jusqu'à preuve du contraire ; hypotension et douleur latéro-utérine : chirurgie en urgence, sans attendre l'imagerie."
+          "text": "Toute femme qui saigne au premier trimestre est une GEU jusqu'à preuve du contraire ; hypotension et douleur latéro-utérine : chirurgie en urgence, sans attendre l'imagerie.",
+          "type": "callout"
         }
       ]
     },
@@ -261,7 +263,8 @@
           "key": "L",
           "term": "Cause Locale (ectropion, polype)"
         }
-      ]
+      ],
+      "id": "mn-causes-d-h-morragie-du-t1"
     },
     {
       "label": "Formes de fausse couche",
@@ -282,7 +285,8 @@
           "key": "I",
           "term": "Incomplète, Hémissée"
         }
-      ]
+      ],
+      "id": "mn-formes-de-fausse-couche"
     },
     {
       "label": "Premiers gestes",
@@ -303,7 +307,8 @@
           "key": "D",
           "term": "Immunoglobulines anti-D si Rh négatif"
         }
-      ]
+      ],
+      "id": "mn-premiers-gestes"
     },
     {
       "label": "Traitement de la GEU",
@@ -324,7 +329,8 @@
           "key": "H",
           "term": "Hémocompensation si rupture"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-la-geu"
     }
   ],
   "flashcards": [
@@ -412,7 +418,8 @@
   "mindmap": {
     "root": {
       "id": "ht1-root",
-      "label": "Hémorragie du premier trimestre de grossesse"
+      "label": "Hémorragie du premier trimestre de grossesse",
+      "detail": "Hémorragie du premier trimestre de grossesse : Réflexe initial, Fausse couche, GEU, Môle, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -441,7 +448,8 @@
             "id": "ht1-b1-l4",
             "label": "Échographie endovaginale"
           }
-        ]
+        ],
+        "detail": "Réflexe initial : Toujours"
       },
       {
         "id": "ht1-b2",
@@ -469,7 +477,8 @@
             "id": "ht1-b2-l4",
             "label": "Hémissée (double sac)"
           }
-        ]
+        ],
+        "detail": "Fausse couche : Formes"
       },
       {
         "id": "ht1-b3",
@@ -497,7 +506,8 @@
             "id": "ht1-b3-l4",
             "label": "Méthotrexate ou chirurgie"
           }
-        ]
+        ],
+        "detail": "GEU : Danger vital — GEU"
       },
       {
         "id": "ht1-b4",
@@ -525,7 +535,8 @@
             "id": "ht1-b4-l4",
             "label": "Surveillance hCG prolongée"
           }
-        ]
+        ],
+        "detail": "Môle : À surveiller — Môle"
       },
       {
         "id": "ht1-b5",
@@ -553,7 +564,8 @@
             "id": "ht1-b5-l4",
             "label": "Anti-D si Rh négatif"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le tableau"
       }
     ]
   },

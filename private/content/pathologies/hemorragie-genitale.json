@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -133,7 +134,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Choc hémorragique",
-          "text": "Saignement massif avec instabilité : deux voies veineuses, remplacement volémique, produits sanguins, utérotoniques si cause utérine, avis chirurgical urgent."
+          "text": "Saignement massif avec instabilité : deux voies veineuses, remplacement volémique, produits sanguins, utérotoniques si cause utérine, avis chirurgical urgent.",
+          "type": "callout"
         }
       ]
     },
@@ -263,7 +265,8 @@
           "key": "E",
           "term": "Échographie pelvienne"
         }
-      ]
+      ],
+      "id": "mn-premiers-gestes"
     },
     {
       "label": "Causes organiques utérines",
@@ -284,7 +287,8 @@
           "key": "C",
           "term": "Cancer de l'endomètre"
         }
-      ]
+      ],
+      "id": "mn-causes-organiques-ut-rines"
     },
     {
       "label": "Causes selon l'âge",
@@ -305,7 +309,8 @@
           "key": "M",
           "term": "Ménopause : endomètre à explorer"
         }
-      ]
+      ],
+      "id": "mn-causes-selon-l-ge"
     },
     {
       "label": "Traitements médicaux",
@@ -326,7 +331,8 @@
           "key": "F",
           "term": "Fer (correction anémie)"
         }
-      ]
+      ],
+      "id": "mn-traitements-m-dicaux"
     }
   ],
   "flashcards": [
@@ -414,7 +420,8 @@
   "mindmap": {
     "root": {
       "id": "hge-root",
-      "label": "Hémorragie génitale après la puberté (hors grossesse)"
+      "label": "Hémorragie génitale après la puberté (hors grossesse)",
+      "detail": "Hémorragie génitale après la puberté (hors grossesse) : Caractériser, Éliminer, Causes, Bilan, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -443,7 +450,8 @@
             "id": "hge-b1-l4",
             "label": "Saignement de contact"
           }
-        ]
+        ],
+        "detail": "Caractériser : Le saignement"
       },
       {
         "id": "hge-b2",
@@ -471,7 +479,8 @@
             "id": "hge-b2-l4",
             "label": "Rétention trophoblastique"
           }
-        ]
+        ],
+        "detail": "Éliminer : En premier"
       },
       {
         "id": "hge-b3",
@@ -499,7 +508,8 @@
             "id": "hge-b3-l4",
             "label": "Endomètre post-ménopause"
           }
-        ]
+        ],
+        "detail": "Causes : Selon l'âge"
       },
       {
         "id": "hge-b4",
@@ -527,7 +537,8 @@
             "id": "hge-b4-l4",
             "label": "Hystéroscopie, biopsies"
           }
-        ]
+        ],
+        "detail": "Bilan : Étape par étape"
       },
       {
         "id": "hge-b5",
@@ -555,7 +566,8 @@
             "id": "hge-b5-l4",
             "label": "Cancer : chirurgie, radiochimio"
           }
-        ]
+        ],
+        "detail": "Traitement : Médical puis chirurgical"
       }
     ]
   },

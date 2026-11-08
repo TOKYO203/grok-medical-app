@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -135,7 +136,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Hémoptysie grave",
-          "text": "Sang abondant, dyspnée, encombrement : position latérale du côté qui saigne, aspiration, oxygène, voie veineuse, appel du réanimateur — l'asphyxie tue avant l'hémorragie."
+          "text": "Sang abondant, dyspnée, encombrement : position latérale du côté qui saigne, aspiration, oxygène, voie veineuse, appel du réanimateur — l'asphyxie tue avant l'hémorragie.",
+          "type": "callout"
         }
       ]
     },
@@ -249,7 +251,8 @@
           "key": "N",
           "term": "Nette distinction avec hématémèse (vomissement, sang sombre, acide)"
         }
-      ]
+      ],
+      "id": "mn-diagnostic-positif"
     },
     {
       "label": "Causes principales",
@@ -270,7 +273,8 @@
           "key": "E",
           "term": "Embolie pulmonaire"
         }
-      ]
+      ],
+      "id": "mn-causes-principales"
     },
     {
       "label": "Signes de gravité",
@@ -291,7 +295,8 @@
           "key": "E",
           "term": "Encombrement trachéobronchique actif"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Bilan",
@@ -312,7 +317,8 @@
           "key": "B",
           "term": "Bilan d'hémostase, groupe sanguin, crachats (BAAR)"
         }
-      ]
+      ],
+      "id": "mn-bilan"
     }
   ],
   "flashcards": [
@@ -400,7 +406,8 @@
   "mindmap": {
     "root": {
       "id": "hpt-root",
-      "label": "Hémoptysie"
+      "label": "Hémoptysie",
+      "detail": "Hémoptysie : Diagnostic positif, Gravité, Causes, Bilan, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -429,7 +436,8 @@
             "id": "hpt-b1-l4",
             "label": "Quantifier l'abondance"
           }
-        ]
+        ],
+        "detail": "Diagnostic positif : Définition et pièges"
       },
       {
         "id": "hpt-b2",
@@ -457,7 +465,8 @@
             "id": "hpt-b2-l4",
             "label": "Embolisation artérielle"
           }
-        ]
+        ],
+        "detail": "Gravité : Urgence vitale"
       },
       {
         "id": "hpt-b3",
@@ -485,7 +494,8 @@
             "id": "hpt-b3-l4",
             "label": "Embolie pulmonaire, sténose mitrale"
           }
-        ]
+        ],
+        "detail": "Causes : Étiologies — Causes"
       },
       {
         "id": "hpt-b4",
@@ -513,7 +523,8 @@
             "id": "hpt-b4-l4",
             "label": "Crachats (BAAR), hémostase"
           }
-        ]
+        ],
+        "detail": "Bilan : Examens clés"
       },
       {
         "id": "hpt-b5",
@@ -541,7 +552,8 @@
             "id": "hpt-b5-l4",
             "label": "Anticoagulation réévaluée"
           }
-        ]
+        ],
+        "detail": "Traitement : Étiologique et urgent"
       }
     ]
   },

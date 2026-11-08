@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -133,7 +134,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Coma hypoglycémique",
-          "text": "Glycémie capillaire devant tout coma ou malaise, toute convulsion : glucose intraveineux immédiat si Trouble de conscience ; ne jamais attendre le résultat biologique."
+          "text": "Glycémie capillaire devant tout coma ou malaise, toute convulsion : glucose intraveineux immédiat si Trouble de conscience ; ne jamais attendre le résultat biologique.",
+          "type": "callout"
         }
       ]
     },
@@ -251,28 +253,22 @@
           "key": "R",
           "term": "Régression après Resucage"
         }
-      ]
+      ],
+      "id": "mn-triade-de-whipple"
     },
     {
       "label": "Signes adrénergiques",
       "entries": [
         {
-          "key": "S",
-          "term": "Sueurs"
-        },
-        {
           "key": "T",
           "term": "Tremblements"
-        },
-        {
-          "key": "F",
-          "term": "Faim"
         },
         {
           "key": "P",
           "term": "Palpitations"
         }
-      ]
+      ],
+      "id": "mn-signes-adr-nergiques"
     },
     {
       "label": "Signes neuroglucopéniques",
@@ -288,12 +284,9 @@
         {
           "key": "C",
           "term": "Convulsions"
-        },
-        {
-          "key": "C",
-          "term": "Coma"
         }
-      ]
+      ],
+      "id": "mn-signes-neuroglucop-niques"
     },
     {
       "label": "Causes chez le non-diabétique",
@@ -314,7 +307,8 @@
           "key": "M",
           "term": "Médicaments, factice"
         }
-      ]
+      ],
+      "id": "mn-causes-chez-le-non-diab-tique"
     }
   ],
   "flashcards": [
@@ -402,7 +396,8 @@
   "mindmap": {
     "root": {
       "id": "hyp-root",
-      "label": "Hypoglycémie"
+      "label": "Hypoglycémie",
+      "detail": "Hypoglycémie : Signes, Urgence, Causes, Bilan, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -431,7 +426,8 @@
             "id": "hyp-b1-l4",
             "label": "Hypoglycémie sévère"
           }
-        ]
+        ],
+        "detail": "Signes : Deux étages"
       },
       {
         "id": "hyp-b2",
@@ -459,7 +455,8 @@
             "id": "hyp-b2-l4",
             "label": "Réévaluation à 15 minutes"
           }
-        ]
+        ],
+        "detail": "Urgence : Resucage — Urgence"
       },
       {
         "id": "hyp-b3",
@@ -487,7 +484,8 @@
             "id": "hyp-b3-l4",
             "label": "Insuffisances d'organe, sepsis"
           }
-        ]
+        ],
+        "detail": "Causes : Chez qui ? — Causes"
       },
       {
         "id": "hyp-b4",
@@ -515,7 +513,8 @@
             "id": "hyp-b4-l4",
             "label": "Imagerie pancréatique"
           }
-        ]
+        ],
+        "detail": "Bilan : Au moment de la crise"
       },
       {
         "id": "hyp-b5",
@@ -543,7 +542,8 @@
             "id": "hyp-b5-l4",
             "label": "Kit de resucage, proches informés"
           }
-        ]
+        ],
+        "detail": "Prévention : Au long cours"
       }
     ]
   },

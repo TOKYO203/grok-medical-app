@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Les trois principaux types : hématome extradural (entre l'os et la dure-mère, le plus souvent artériel), hématome sous-dural (entre la dure-mère et l'arachnoïde, veineux) et les hémorragies intracérébrales de contusion."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Mydriase aréactive + bradycardie",
+          "text": "Signes d'engagement cérébral : osmothérapie immédiate, scanner sans délai, chirurgie d'évacuation en urgence : chaque minute compte."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Patient anticoagulé",
+          "text": "Tout traumatisme crânien, même minime, sous anticoagulants ou antiagrégants : bilan d'hémostase urgent, antidotes si besoin (vitamine K, PCC, plaquettes), scanner discuté largement."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Score de Glasgow répété, pupilles, motricité ; scanner cérébral devant tout trouble de conscience, déficit ou anisocorie ; jamais de ponction lombaire devant un effet de masse."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Extradural : sujet jeune, fracture temporale, interval lucide, biconvexe au scanner, urgence chirurgicale absolue.Sous-dural aigu : sujet âgé, anticoagulé, coma d'emblée, en croissant.Sous-dural chronique : déficit progressif des semaines après un traumatisme minime, hypodense, drainage par trépanation."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Glasgow (œil, verbal, moteur)",
+          "text": "Ouverture des yeux : 1 à 4 ; réponse verbale : 1 à 5 ; réponse motrice : 1 à 6 ; total sur 15 : coma si inférieur ou égal à 8 : intubation, scanner, neurochirurgie."
         }
       ]
     },
@@ -242,7 +273,8 @@
           "key": "I",
           "term": "Intracérébral (contusion)"
         }
-      ]
+      ],
+      "id": "mn-types-d-h-matome"
     },
     {
       "label": "Signes d'engagement",
@@ -263,7 +295,8 @@
           "key": "H",
           "term": "Hypertension (Cushing)"
         }
-      ]
+      ],
+      "id": "mn-signes-d-engagement"
     },
     {
       "label": "Diagnostic",
@@ -284,7 +317,8 @@
           "key": "P",
           "term": "Pupilles chaque heure"
         }
-      ]
+      ],
+      "id": "mn-diagnostic"
     },
     {
       "label": "Prise en charge",
@@ -305,7 +339,8 @@
           "key": "E",
           "term": "Evacuation chirurgicale"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge"
     }
   ],
   "flashcards": [
@@ -393,7 +428,8 @@
   "mindmap": {
     "root": {
       "id": "hi-root",
-      "label": "Hématome intracrânien post-traumatique"
+      "label": "Hématome intracrânien post-traumatique",
+      "detail": "Hématome intracrânien post-traumatique : Types, Signes, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -422,7 +458,8 @@
             "id": "hi-b1-l4",
             "label": "Contusions cérébrales"
           }
-        ]
+        ],
+        "detail": "Types : Selon la localisation"
       },
       {
         "id": "hi-b2",
@@ -450,7 +487,8 @@
             "id": "hi-b2-l4",
             "label": "Bradycardie + hypertension"
           }
-        ]
+        ],
+        "detail": "Signes : Hypertension intracrânienne"
       },
       {
         "id": "hi-b3",
@@ -478,7 +516,8 @@
             "id": "hi-b3-l4",
             "label": "Hémostase, INR"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Scanner urgent"
       },
       {
         "id": "hi-b4",
@@ -506,7 +545,8 @@
             "id": "hi-b4-l4",
             "label": "Évacuation chirurgicale"
           }
-        ]
+        ],
+        "detail": "Traitement : Étagé — Traitement"
       },
       {
         "id": "hi-b5",
@@ -534,7 +574,8 @@
             "id": "hi-b5-l4",
             "label": "Consultation si signes"
           }
-        ]
+        ],
+        "detail": "Prévention : Terrain et sécurité"
       }
     ]
   },
