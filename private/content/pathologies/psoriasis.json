@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Psoriasis : dermatose inflammatoire chronique à renouvellement épidermique accéléré (hyperprolifération kératinocytaire + infiltrat Th17/IL-23), plaques érythémato-squameuses bien délimitées des zones de friction (coudes, genoux, cuir chevelu), signes Auspitz et Koebner, comorbidités (rhumatisme psoriasique, syndrome métabolique, cardiovasculaire, dépression), formes graves (psoriasis pustuleux généralisé, érythrodermie) comme urgences dermatologiques, stratégie thérapeutique graduée : dermocorticoïdes + analogues de la vitamine D, photothérapie UV, méthotrexate/rétinoïdes/ciclosporine, puis biothérapies anti-TNF, anti-IL-17, anti-IL-23 — applicables selon les ressources (Madagascar).",
@@ -132,8 +133,10 @@
           "text": "Ne pas confondre avec : un eczéma (prurit intense, bord flou, vésicules), une dermatite séborrhéique (cuir chevelu et sillons naso-géniens, squames grasses jaunâtres), un lichen plan (papules polygonales violacées prurigineuses), un pityriasis rosé de Gibert (plaque héraldique, squame en collerette), une syphilis secondaire (éruption palmoplantaire, adénopathies, sérologie positive). En cas de doute : biopsie et sérologie."
         },
         {
-          "type": "heading",
-          "text": "Évaluer la sévérité et le retentissement"
+          "type": "list",
+          "items": [
+            "Évaluer la sévérité et le retentissement"
+          ]
         },
         {
           "type": "list",
@@ -306,7 +309,8 @@
           "key": "S",
           "term": "Stratégie graduée : topiques → photothérapie → méthotrexate → biothérapies ; jamais de corticoïdes oraux prolongés"
         }
-      ]
+      ],
+      "id": "mn-p-s-o-r-i-a-s"
     }
   ],
   "flashcards": [
@@ -374,7 +378,8 @@
   "mindmap": {
     "root": {
       "id": "psoria",
-      "label": "Psoriasis"
+      "label": "Psoriasis",
+      "detail": "Psoriasis : Physiopathologie, Clinique, Diagnostic, Urgences, Traitement, Comorbidités et suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -399,7 +404,8 @@
             "id": "b1l1",
             "label": "Déclencheurs : stress, strepto, Koebner, médicaments"
           }
-        ]
+        ],
+        "detail": "Physiopathologie : IL-23 / Th17 / IL-17, Kératinocytes : 3-4 jours, HLA-Cw6, terrain familial"
       },
       {
         "id": "b2",
@@ -423,7 +429,8 @@
             "id": "b2l1",
             "label": "Ongles : dé à coudre, onycholyse"
           }
-        ]
+        ],
+        "detail": "Clinique : Plaques coudes/genoux/cuir chevelu, Auspitz, bougie, Koebner, Goutteux, pustuleux, érythrodermie"
       },
       {
         "id": "b3",
@@ -447,7 +454,8 @@
             "id": "b3l1",
             "label": "Différentiel : eczéma, séborrhéique, lichen, syphilis II"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique avant tout, Biopsie si atypique, Surface (règle de la main) + retentissement"
       },
       {
         "id": "b4",
@@ -467,7 +475,8 @@
             "id": "b4l1",
             "label": "Sepsis, hypocalcémie, défaillance"
           }
-        ]
+        ],
+        "detail": "Urgences : Pustuleux généralisé, Érythrodermie"
       },
       {
         "id": "b5",
@@ -495,7 +504,8 @@
             "id": "b5l1",
             "label": "Jamais de corticoïdes oraux"
           }
-        ]
+        ],
+        "detail": "Traitement : Topiques : dermocorticoïdes + vitamine D, UVB / soleil encadré, Méthotrexate, acitrétine, ciclosporine, Biothérapies anti-TNF/IL-17/IL-23"
       },
       {
         "id": "b6",
@@ -519,7 +529,8 @@
             "id": "b6l1",
             "label": "Madagascar : soleil allié, biothérapies rares"
           }
-        ]
+        ],
+        "detail": "Comorbidités et suivi : Rhumatisme psoriasique, Syndrome métabolique, CV, Dépression, qualité de vie"
       }
     ]
   },

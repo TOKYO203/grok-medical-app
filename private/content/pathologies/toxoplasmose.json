@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Toxoplasmose. Infection parasitaire cosmopolite due au protozoaire Toxoplasma gondii, dont l'hôte définitif est le CHAT (excrétion d'OOCYSTES dans les fèces) ; l'homme se contamine par ingestion de KYSTES tissulaires (viande crue ou mal cuite : mouton, porc, gibier) ou d'oocystes (aliments ou eau souillés, mains sales après jardinage, litière de chat), par voie TRANSPLACENTAIRE (fœtus) et rarement par transfusion ou greffe. L'infection de l'IMMUNOCOMPÉTENT est le plus souvent INAPPARENTE, parfois adénopathies cervicales ou syndrome mononucléosique avec cytolyse modérée, toujours bénigne ; le parasite persiste à vie sous forme de KYSTES (encéphale, muscle). FORMES GRAVES : 1) TOXOPLASMOSE CONGÉNITALE par séroconversion maternelle en cours de grossesse — risque de transmission croissant avec l'âge gestationnel et gravité inverse (premier trimestre : faible transmission mais lésions graves ; fin de grossesse : transmission élevée mais forme le plus souvent infraclinique avec risque de rétinochoroïdite tardive) : hydrocéphalie, calcifications intracrâniennes, rétinochoroïdite, hépatosplénomégalie ; 2) TOXOPLASMOSE de l'IMMUNODÉPRIMÉ (VIH avancé CD4 inférieurs à 100/mm3, greffes, hémopathies) : réactivation à partir des kystes — ABCÈS CÉRÉBRAL (fièvre, céphalées, déficits focaux, convulsions ; lésions en cocarde à l'imagerie) ; 3) RÉTINOCHOROÏDITE (uvéite postérieure, flou visuel, foyer rétinien adjacent à une cicatrice pigmentée) ; formes disséminées rares (myocardite, pneumopathie). DIAGNOSTIC : SÉROLOGIE (ELISA) — IgG (infection ancienne, protectrice), IgM (infection récente MAIS persistance possible plusieurs mois : ne pas conclure seule, tester l'AVIDITÉ des IgG : avidité élevée = infection de plus de 3-4 mois, écartant une séroconversion récente en début de grossesse) ; PCR (liquide amniotique : forme congénitale, LCR, humeur aqueuse) ; chez l'immunodéprimé : séropositivité + imagerie cérébrale typique, épreuve thérapeutique à 10-14 jours. TRAITEMENT : formes bénignes de l'immunocompétent : aucun traitement antiparasitaire ; ATTEINTES GRAVES : PYRIMÉTHAMINE + SULFADIAZINE + ACIDE FOLINIQUE (au moins 4-6 semaines ; forme congénitale plusieurs mois selon les protocoles) ; alternatives : pyriméthamine + clindamycine ; SPIRAMYCINE en grossesse tant que le statut fœtal est inconnu (réduit la transmission, passe mal le placenta) ; corticoïdes si atteinte visuelle ou œdème cérébral ; ENTRETIEN chez l'immunodéprimé jusqu'à la restauration immunitaire (CD4 supérieurs à 200/mm3 pendant plus de 6 mois) ; prophylaxie primaire chez le VIH CD4 inférieurs à 100/mm3 séropositif (cotrimoxazole). PRÉVENTION : PRIMAIRE de la femme enceinte séronégative : viande bien cuite, lavage des légumes et fruits, gants pour le jardinage, litière de chat changée quotidiennement, hygiène des mains ; dépistage prénatal selon les politiques locales ; SUIVI de la séroconversion : amniocentèse PCR à partir de 18 semaines d'aménorrhée, échographies rapprochées, traitement maternel, suivi pédiatrique prolongé (examen ophtalmologique).",
@@ -332,7 +333,8 @@
           "key": "PCR +",
           "term": "Amniotique (dès 18 SA) : infection fœtale = pyriméthamine + sulfadiazine"
         }
-      ]
+      ],
+      "id": "mn-s-rologies-de-la-femme-enceinte"
     }
   ],
   "flashcards": [
@@ -420,7 +422,8 @@
   "mindmap": {
     "root": {
       "id": "toxoplasmose",
-      "label": "Toxoplasmose"
+      "label": "Toxoplasmose",
+      "detail": "Toxoplasmose : Cycle et contamination, Clinique, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -445,7 +448,8 @@
             "id": "b1l1",
             "label": "Lavage crudités, gants, litière quotidienne"
           }
-        ]
+        ],
+        "detail": "Cycle et contamination : Chat (hôte définitif) : oocystes, Viande crue : kystes tissulaires, Transplacentaire, greffe, transfusion"
       },
       {
         "id": "b2",
@@ -469,7 +473,8 @@
             "id": "b2l1",
             "label": "Rétinochoroïdite de l'adulte jeune"
           }
-        ]
+        ],
+        "detail": "Clinique : Immunocompétent : adénopathies, bénin, Congénitale : hydrocéphalie + calcifications + rétinochoroïdite, Immunodéprimé : abcès cérébral"
       },
       {
         "id": "b3",
@@ -493,7 +498,8 @@
             "id": "b3l1",
             "label": "Néonatal : IgM/IgA + PCR + fond d'œil"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Sérologie IgG/IgM + AVIDITÉ, PCR : amniotique, LCR, humeur aqueuse, Imagerie cérébrale (cocarde)"
       },
       {
         "id": "b4",
@@ -517,7 +523,8 @@
             "id": "b4l1",
             "label": "Entretien VIH jusqu'à CD4 supérieurs à 200 pendant 6 mois"
           }
-        ]
+        ],
+        "detail": "Traitement : Immunocompétent : aucun (bénin), Grave : pyriméthamine + sulfadiazine + acide folinique, Grossesse : spiramycine puis pyriméthamine-sulfadiazine"
       },
       {
         "id": "b5",
@@ -541,7 +548,8 @@
             "id": "b5l1",
             "label": "Suivi de la séroconversion : amniocentèse PCR dès 18 SA"
           }
-        ]
+        ],
+        "detail": "Prévention : Enceinte séronégative : viande cuite, hygiène, VIH : prophylaxie cotrimoxazole si CD4 inférieurs à 100, Sérologie avant greffe/immunosuppression"
       }
     ]
   },

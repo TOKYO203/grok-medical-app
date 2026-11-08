@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche centrée sur les deux espèces présentes à Madagascar (S. haematobium urinaire, S. mansoni intestinal) : cycle avec mollusques d'eau douce, physiopathologie granulomateuse autour des œufs (fibrose périportale, lésions vésicales), clinique (hématurie terminale, hypertension portale), diagnostic (Kato-Katz, œufs urinaires, échographie) et praziquantel en prise unique, avec la prévention de masse OMS.",
@@ -68,8 +69,10 @@
       "title": "Cycle et physiopathologie",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Cycle"
+          "type": "list",
+          "items": [
+            "Cycle"
+          ]
         },
         {
           "type": "list",
@@ -99,16 +102,20 @@
           "text": "L'endémie dépend de la conjonction : eaux douces contaminées + mollusques hôtes + comportements d'exposition (bains, lavage, riziculture) + défécation et miction dans l'eau. En Afrique subsaharienne et à Madagascar, l'infection s'acquiert souvent dans l'enfance et la charge parasitaire cumulée explique les complications de l'adolescent et de l'adulte jeune."
         },
         {
-          "type": "heading",
-          "text": "Phase d'invasion"
+          "type": "list",
+          "items": [
+            "Phase d'invasion"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Dermatite des nageurs (prurit papuleux aux points de pénétration, dans les heures suivant le bain). Après 2 à 8 semaines, possible syndrome de Katayama : fièvre, frissons, toux, myalgies, hépato-splénomégalie, hyperéosinophilie majeure (réaction immune aux premiers œufs, surtout décrit avec S. japonicum, possible avec S. mansoni)."
         },
         {
-          "type": "heading",
-          "text": "Phase d'état — bilharziose urinaire (S. haematobium)"
+          "type": "list",
+          "items": [
+            "Phase d'état — bilharziose urinaire (S. haematobium)"
+          ]
         },
         {
           "type": "list",
@@ -120,8 +127,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Phase d'état — bilharziose intestinale (S. mansoni)"
+          "type": "list",
+          "items": [
+            "Phase d'état — bilharziose intestinale (S. mansoni)"
+          ]
         },
         {
           "type": "list",
@@ -324,7 +333,8 @@
           "key": "O",
           "term": "Œufs piégés = morbidité ; ver adulte = bien toléré des années"
         }
-      ]
+      ],
+      "id": "mn-s-c-h-i-s-t-o"
     }
   ],
   "flashcards": [
@@ -392,7 +402,8 @@
   "mindmap": {
     "root": {
       "id": "schisto",
-      "label": "Schistosomiase"
+      "label": "Schistosomiase",
+      "detail": "Schistosomiase : Parasitologie, Physiopathologie, Clinique, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -417,7 +428,8 @@
             "id": "b1l1",
             "label": "2e parasitose mondiale (~230 M de personnes)"
           }
-        ]
+        ],
+        "detail": "Parasitologie : S. haematobium : urinaire, éperon terminal, Bulinus, S. mansoni : intestinal, éperon latéral, Biomphalaria, Cycle : œufs → mollusque → cercaires → peau → veines"
       },
       {
         "id": "b2",
@@ -441,7 +453,8 @@
             "id": "b2l1",
             "label": "Ver adulte = bien toléré"
           }
-        ]
+        ],
+        "detail": "Physiopathologie : Granulomes autour des œufs, Fibrose périportale → hypertension portale, Fibrose vésicale et urétérale"
       },
       {
         "id": "b3",
@@ -465,7 +478,8 @@
             "id": "b3l1",
             "label": "Schistosomiase génitale féminine"
           }
-        ]
+        ],
+        "detail": "Clinique : Invasion : dermatite des nageurs, Katayama : fièvre + hyperéosinophilie, État : hématurie terminale / diarrhée sanglante, hypertension portale"
       },
       {
         "id": "b4",
@@ -489,7 +503,8 @@
             "id": "b4l1",
             "label": "Éperon terminal vs latéral"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Kato-Katz (selles), Filtration des urines + bandelette, Échographie (REI, vessie), sérologie, test CCA"
       },
       {
         "id": "b5",
@@ -513,7 +528,8 @@
             "id": "b5l1",
             "label": "Contrôle des œufs à 4-6 semaines"
           }
-        ]
+        ],
+        "detail": "Traitement : Praziquantel 40 mg/kg dose unique, Katayama : corticoïdes d'abord, Complications : varices, chirurgie urologique"
       },
       {
         "id": "b6",
@@ -537,7 +553,8 @@
             "id": "b6l1",
             "label": "Pas de vaccin disponible"
           }
-        ]
+        ],
+        "detail": "Prévention : Chimiothérapie de masse (écoles), Eau potable, latrines, Protection cutanée, contrôle des mollusques"
       }
     ]
   },
