@@ -2028,9 +2028,7 @@
         "choices": [
           "La TDM abdominale injectée d'emblée",
           "L'échographie abdominale : dilatation des voies biliaires ?",
-          [
-            "La coloscopie"
-          ],
+          "La coloscopie",
           "L'IRM biliaire systématique"
         ],
         "correct": 1,
@@ -4050,27 +4048,29 @@
         "id": "paraclinique",
         "title": "5. Examens complémentaires",
         "lead": "Dans notre contexte, l'examen à demander si fièvre élevée et contexte est :",
-        "prompt": [
+        "prompt": "Vous demandez :",
+        "choices": [
           "La goutte épaisse (paludisme), sans oublier l'examen otoscopique comme référence",
           "Une IRM cérébrale systématique",
           "Une audiométrie en urgence",
           "Un scanner des rochers d'emblée"
         ],
-        "choices": 0,
-        "correct": "Fièvre élevée = éliminer le paludisme ; l'imagerie est réservée aux complications (mastoïdite, abcès cérébral suspects). L'audiométrie se fait à froid."
+        "correct": 0,
+        "explanation": "Fièvre élevée = éliminer le paludisme ; l'imagerie est réservée aux complications (mastoïdite, abcès cérébral suspects). L'audiométrie se fait à froid."
       },
       {
         "id": "traitement",
         "title": "6. Traitement",
         "lead": "Comment traitez-vous l'OMA purulente de l'enfant ?",
-        "prompt": [
+        "prompt": "Votre conduite :",
+        "choices": [
           "Antalgiques, antipyrétiques, antibiothérapie orale adaptée (amoxicilline), éducation, réévaluation à 48-72 h",
           "Antibiotiques locaux seuls",
           "Aucun traitement, ça passera",
           "Corticoïdes oraux systématiques"
         ],
-        "choices": 0,
-        "correct": "L'OMA se traite par antalgiques + amoxicilline ; réévaluer à 48-72 h. Les gouttes locales seules ne traitent pas l'otite moyenne."
+        "correct": 0,
+        "explanation": "L'OMA se traite par antalgiques + amoxicilline ; réévaluer à 48-72 h. Les gouttes locales seules ne traitent pas l'otite moyenne."
       },
       {
         "id": "complications",
@@ -4206,27 +4206,29 @@
         "id": "interrogatoire",
         "title": "1. Interrogatoire",
         "lead": "Que recherchez-vous ?",
-        "prompt": [
+        "prompt": "Vous recherchez :",
+        "choices": [
           "Signes de dysthyroïdie (palpitations, amaigrissement, frilosité), croissance rapide du goitre, irradiation cervicale, histoire familiale",
           "Son groupe sanguin uniquement",
           "Ses habitudes de sommeil",
           "Sa couleur préférée de vêtements"
         ],
-        "choices": 0,
-        "correct": "Dysthyroïdie, croissance rapide, irradiation, antécédents familiaux (cancer médullaire) orientent le bilan et l'urgence."
+        "correct": 0,
+        "explanation": "Dysthyroïdie, croissance rapide, irradiation, antécédents familiaux (cancer médullaire) orientent le bilan et l'urgence."
       },
       {
         "id": "examen",
         "title": "2. Examen clinique",
         "lead": "À l'examen, vous évaluez :",
-        "prompt": [
+        "prompt": "Vous évaluez :",
+        "choices": [
           "La consistance, la mobilité, les adénopathies cervicales, les signes d'hyperthyroïdie, la compression (dysphonie, dysphagie, dyspnée)",
           "Seulement la taille du goitre",
           "Uniquement la peau",
           "Les réflexes patellaires"
         ],
-        "choices": 0,
-        "correct": "Nodule dur, fixé, adénopathie, paralysie récurrentielle (dysphonie) = suspicion de cancer ; goitre compressif = urgence chirurgicale."
+        "correct": 0,
+        "explanation": "Nodule dur, fixé, adénopathie, paralysie récurrentielle (dysphonie) = suspicion de cancer ; goitre compressif = urgence chirurgicale."
       },
       {
         "id": "urgence",
@@ -4274,14 +4276,15 @@
         "id": "paraclinique",
         "title": "6. Examens",
         "lead": "Dans notre contexte, le bilan de base comprend :",
-        "prompt": [
+        "prompt": "Le bilan comprend :",
+        "choices": [
           "TSH si disponible, échographie cervicale si accessible, cytoponction des nodules suspects ; la scintigraphie est rarement accessible",
           "Une TDM thoracique systématique",
           "Un scanner cérébral",
           "Une radiographie des mains"
         ],
-        "choices": 0,
-        "correct": "TSH + échographie + cytoponction (Bethesda si accessible) : les examens accessibles orientent vers surveillance, traitement médical ou chirurgie."
+        "correct": 0,
+        "explanation": "TSH + échographie + cytoponction (Bethesda si accessible) : les examens accessibles orientent vers surveillance, traitement médical ou chirurgie."
       },
       {
         "id": "pec",
@@ -4310,27 +4313,29 @@
         "id": "interrogatoire",
         "title": "1. Interrogatoire",
         "lead": "Que précisez-vous d'abord ?",
-        "prompt": [
+        "prompt": "Vous précisez :",
+        "choices": [
           "Le caractère (couleur, odeur, prurit), les rapports sexuels, les partenaires, les symptômes associés (douleur pelvienne, fièvre), les gestes locaux",
           "Sa consommation de thé",
           "Son groupe sanguin",
           "Son poids de naissance"
         ],
-        "choices": 0,
-        "correct": "Caractéristiques, contexte sexuel (IST) et signes associés (fièvre, douleur = salpingite) orientent le diagnostic."
+        "correct": 0,
+        "explanation": "Caractéristiques, contexte sexuel (IST) et signes associés (fièvre, douleur = salpingite) orientent le diagnostic."
       },
       {
         "id": "examen",
         "title": "2. Examen clinique",
         "lead": "L'examen comprend :",
-        "prompt": [
+        "prompt": "Vous examinez :",
+        "choices": [
           "Examen vulvaire, spéculum (aspect du col, glaire), toucher pelvien (douleur à la mobilisation utérine, masse), température",
           "Une échographie d'emblée",
           "Un frottis du col uniquement",
           "Aucun examen"
         ],
-        "choices": 0,
-        "correct": "Le spéculum voit la leucorrhée et l'aspect du col ; le toucher pelvien cherche une douleur latéro-utérine (annexite) qui change le pronostic de fertilité."
+        "correct": 0,
+        "explanation": "Le spéculum voit la leucorrhée et l'aspect du col ; le toucher pelvien cherche une douleur latéro-utérine (annexite) qui change le pronostic de fertilité."
       },
       {
         "id": "candidose",
@@ -4392,14 +4397,15 @@
         "id": "pec",
         "title": "7. Prise en charge et prévention",
         "lead": "Comment complétez-vous ?",
-        "prompt": [
+        "prompt": "Vous complétez par :",
+        "choices": [
           "Dépistage IST et VIH chez la patiente et le(s) partenaire(s), préservatifs, éducation à l'hygiène, suivi et contrôle après traitement",
           "Antibiotiques au hasard",
           "Pas de suivi",
           "Examen du partenaire inutile"
         ],
-        "choices": 0,
-        "correct": "Le traitement du partenaire et le dépistage (VIH, syphilis, hépatites) complètent la guérison ; les récidives orientent vers un partenaire non traité ou un diabète."
+        "correct": 0,
+        "explanation": "Le traitement du partenaire et le dépistage (VIH, syphilis, hépatites) complètent la guérison ; les récidives orientent vers un partenaire non traité ou un diabète."
       }
     ],
     "synthesis": "Leucorrhées = spéculum + toucher pelvien. Prurit + blanc grumeleux = candidose (antifongique). Odeur de poisson = vaginose (métronidazole). Purulente + douleur + fièvre = cervicite/salpingite : antibiothérapie, dépistage VIH/syphilis, partenaire traité. Fièvre + défense + masse = hospitalisation (abcès). Toujours dépister les IST."
@@ -4414,27 +4420,29 @@
         "id": "premiere",
         "title": "1. Première cause",
         "lead": "Le premier examen à faire ou à refaire est :",
-        "prompt": [
+        "prompt": "Vous demandez :",
+        "choices": [
           "Un test de grossesse (ou échographie) : la grossesse est la première cause d'aménorrhée secondaire",
           "Une IRM hypophysaire d'emblée",
           "Un bilan thyroïdien en premier",
           "Un caryotype"
         ],
-        "choices": 0,
-        "correct": "Toute aménorrhée secondaire = éliminer une grossesse avant tout autre bilan ; c'est l'erreur classique."
+        "correct": 0,
+        "explanation": "Toute aménorrhée secondaire = éliminer une grossesse avant tout autre bilan ; c'est l'erreur classique."
       },
       {
         "id": "interrogatoire",
         "title": "2. Interrogatoire",
         "lead": "Après avoir éliminé la grossesse, vous cherchez :",
-        "prompt": [
+        "prompt": "Vous cherchez :",
+        "choices": [
           "Contraception (pilule, injectable), allaitement, stress, amaigrissement, exercice intense, galactorrhée, hirsutisme, céphalées",
           "Sa pointure",
           "Ses déplacements récents",
           "Son groupe sanguin"
         ],
-        "choices": 0,
-        "correct": "La cause est souvent dans l'histoire : contraception, post-partum/allaitement (hyperprolactinémie physiologique), stress, anorexie, SOPK (hirsutisme)."
+        "correct": 0,
+        "explanation": "La cause est souvent dans l'histoire : contraception, post-partum/allaitement (hyperprolactinémie physiologique), stress, anorexie, SOPK (hirsutisme)."
       },
       {
         "id": "lactation",
@@ -4496,14 +4504,15 @@
         "id": "pec",
         "title": "7. Prise en charge",
         "lead": "La conduite globale comprend :",
-        "prompt": [
+        "prompt": "La conduite est :",
+        "choices": [
           "Éliminer la grossesse, traiter la cause (médicament, nutrition, prolactine, SOPK), règles progestatives si aménorrhée prolongée, avis selon désir de grossesse",
           "Induire l'ovulation d'emblée",
           "Hystérectomie",
           "Un bilan complet systématique coûteux"
         ],
-        "choices": 0,
-        "correct": "Aménorrhée prolongée = protéger l'endomètre (progestatifs), corriger la cause ; l'infertilité éventuelle se discute après le bilan étiologique."
+        "correct": 0,
+        "explanation": "Aménorrhée prolongée = protéger l'endomètre (progestatifs), corriger la cause ; l'infertilité éventuelle se discute après le bilan étiologique."
       }
     ],
     "synthesis": "Aménorrhée secondaire = test de grossesse d'abord. Puis : contraception/allaitement (bénin), galactorrhée (prolactine, IRM si élevée), hirsutisme + surpoids (SOPK), amaigrissement/sport (hypothalamique, renutrition), médicaments. Traiter la cause, protéger l'endomètre si aménorrhée prolongée, avis endocrino-gynéco pour l'infertilité."
@@ -4532,14 +4541,15 @@
         "id": "examen",
         "title": "2. Examen clinique",
         "lead": "L'examen cherche :",
-        "prompt": [
+        "prompt": "Vous examinez :",
+        "choices": [
           "Ouverture buccale mesurée, dents et gingives, plancher buccal, amygdale, parotide, plaie et statut vaccinal, raideur, spasmes",
           "Uniquement la gorge",
           "Le seul abdomen",
           "La peau des bras"
         ],
-        "choices": 0,
-        "correct": "Mesurer l'ouverture (normale 3-4 cm), chercher la cause locale (dent, Ludwig, amygdale) et la porte d'entrée + vaccin antitétanique."
+        "correct": 0,
+        "explanation": "Mesurer l'ouverture (normale 3-4 cm), chercher la cause locale (dent, Ludwig, amygdale) et la porte d'entrée + vaccin antitétanique."
       },
       {
         "id": "tetanos",
@@ -4624,27 +4634,29 @@
         "id": "interrogatoire",
         "title": "1. Interrogatoire",
         "lead": "Que précisez-vous ?",
-        "prompt": [
+        "prompt": "Vous précisez :",
+        "choices": [
           "Le mode d'installation (aigu ou progressif), les craquements, le serrement des dents (bruxisme), les soins dentaires anciens, les médicaments",
           "Son périmètre de marche",
           "Ses loisirs",
           "Sa tension artérielle"
         ],
-        "choices": 0,
-        "correct": "Le contraste aigu (urgence) vs progressif (chronique) décide : bruxisme, dysfonction ATM et ankyloses dominent les formes chroniques."
+        "correct": 0,
+        "explanation": "Le contraste aigu (urgence) vs progressif (chronique) décide : bruxisme, dysfonction ATM et ankyloses dominent les formes chroniques."
       },
       {
         "id": "examen",
         "title": "2. Examen clinique",
         "lead": "L'examen comprend :",
-        "prompt": [
+        "prompt": "Vous examinez :",
+        "choices": [
           "Mesure de l'ouverture, palpation des ATM (craquements, douleur), muscles masticateurs, occlusion dentaire, état dentaire, recherche de causes générales (tétanos, méningite)",
           "Uniquement la luette",
           "L'abdomen seul",
           "Les genoux"
         ],
-        "choices": 0,
-        "correct": "Palpation des ATM et masticateurs, mesure de l'ouverture, examen dentaire : le contraste entre la douleur articulaire et la contracture musculaire oriente."
+        "correct": 0,
+        "explanation": "Palpation des ATM et masticateurs, mesure de l'ouverture, examen dentaire : le contraste entre la douleur articulaire et la contracture musculaire oriente."
       },
       {
         "id": "atm",
@@ -4692,27 +4704,29 @@
         "id": "urgences",
         "title": "6. Éliminer l'urgence",
         "lead": "À chaque consultation vous vérifiez :",
-        "prompt": [
+        "prompt": "Les points de contrôle sont :",
+        "choices": [
           "L'absence de fièvre, de raideur de nuque, de spasmes au stimulus, de gêne respiratoire (tétanos, Ludwig)",
           "Seulement les craquements",
           "Les caries",
           "La langue"
         ],
-        "choices": 0,
-        "correct": "Toute contracture d'allure nouvelle avec raideur, spasmes ou fièvre repart vers le bilan du trismus aigu : tétanos et infection profonde d'abord."
+        "correct": 0,
+        "explanation": "Toute contracture d'allure nouvelle avec raideur, spasmes ou fièvre repart vers le bilan du trismus aigu : tétanos et infection profonde d'abord."
       },
       {
         "id": "pec",
         "title": "7. Prise en charge",
         "lead": "La conduite pour une DTM comprend :",
-        "prompt": [
+        "prompt": "La conduite est :",
+        "choices": [
           "Information, antalgiques, alimentation molle, gouttière occlusale si disponible, kinésithérapie articulaire, avis si échec",
           "Chirurgie d'emblée",
           "Antibiothérapie systématique",
           "Corticoïdes injectables systématiques"
         ],
-        "choices": 0,
-        "correct": "La DTM se traite médicalement et fonctionnellement ; la chirurgie est exceptionnelle ; l'éducation (mastication, stress, bruxisme) prévient les récidives."
+        "correct": 0,
+        "explanation": "La DTM se traite médicalement et fonctionnellement ; la chirurgie est exceptionnelle ; l'éducation (mastication, stress, bruxisme) prévient les récidives."
       }
     ],
     "synthesis": "Contracture chronique = DTM d'abord (craquements, bruxisme, stress : antalgiques, gouttière, alimentation molle). Enfance + traumatisme = ankylose (chirurgie). Microstomie + sclérose cutanée = sclérodermie. Toujours éliminer les urgences du trismus aigu (tétanos, Ludwig, fièvre). Avis stomatologique si blocage fixe ou échec."
@@ -4727,27 +4741,29 @@
         "id": "premiere",
         "title": "1. Premier réflexe",
         "lead": "Quel examen faites-vous systématiquement en premier ?",
-        "prompt": [
+        "prompt": "Vous faites :",
+        "choices": [
           "L'acuité visuelle des deux yeux",
           "Une prise de sang",
           "Une radiographie du crâne",
           "Un EEG"
         ],
-        "choices": 0,
-        "correct": "La baisse d'acuité change tout (compression du nerf optique) : acuité visuelle + réflexes pupillaires + motilité + cornée + fond d'œil à chaque consultation."
+        "correct": 0,
+        "explanation": "La baisse d'acuité change tout (compression du nerf optique) : acuité visuelle + réflexes pupillaires + motilité + cornée + fond d'œil à chaque consultation."
       },
       {
         "id": "laterabilite",
         "title": "2. Latéralité",
         "lead": "Qu'est-ce qui oriente le diagnostic ?",
-        "prompt": [
+        "prompt": "Le critère décisif est :",
+        "choices": [
           "Bilatérale + signes thyroïdiens = orbitopathie de Basedow ; unilatérale = cellulite, tumeur ou pseudo-tumeur jusqu'à preuve du contraire",
           "La couleur de l'iris",
           "L'âge du patient uniquement",
           "La tension artérielle"
         ],
-        "choices": 0,
-        "correct": "La latéralité est le premier triage : bilatérale évoque le Basedow, unilatérale impose d'éliminer l'infection (urgence) et la tumeur."
+        "correct": 0,
+        "explanation": "La latéralité est le premier triage : bilatérale évoque le Basedow, unilatérale impose d'éliminer l'infection (urgence) et la tumeur."
       },
       {
         "id": "urgence",
