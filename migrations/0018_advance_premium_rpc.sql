@@ -68,7 +68,17 @@ $$;
 -- ⚠️  PUBLIC : à durcir dans une PR dédiée (voir en-tête).
 GRANT EXECUTE ON FUNCTION public.advance_premium_purchase_order(text, text, text) TO PUBLIC;
 GRANT EXECUTE ON FUNCTION public.advance_premium_purchase_order(text, text, text) TO postgres;
-GRANT EXECUTE ON FUNCTION public.advance_premium_purchase_order(text, text, text) TO service_role;
+-- `service_role` existe sur Supabase mais est ABSENT de PGLite (dev/preview,
+-- bootstrap src/lib/db.ts) comme du PostgreSQL jetable de CI : un GRANT direct
+-- y fait échouer la migration — et avec elle le démarrage du serveur de dev
+-- (le webServer Playwright sort en code 1). Même correctif que 0019.
+DO $grant$
+BEGIN
+  IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'service_role') THEN
+    GRANT EXECUTE ON FUNCTION public.advance_premium_purchase_order(text, text, text) TO service_role;
+  END IF;
+END
+$grant$;
 
 COMMENT ON FUNCTION public.advance_premium_purchase_order(text, text, text)
   IS 'Avance une commande premium (state machine : created → instructions_requested). Extraite de la prod le 2026-11-06 ; ajout de pg_temp au search_path.';
