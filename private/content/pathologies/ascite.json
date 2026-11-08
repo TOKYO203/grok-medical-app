@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -147,7 +148,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Ascite fébrile du cirrhotique",
-          "text": "Fièvre, douleur abdominale ou syndrome inflammatoire chez un patient cirrhotique avec ascite : suspecter une infection du liquide d'ascite, ponction en urgence, antibiothérapie immédiate (céphalosporine troisième génération) et expandeur."
+          "text": "Fièvre, douleur abdominale ou syndrome inflammatoire chez un patient cirrhotique avec ascite : suspecter une infection du liquide d'ascite, ponction en urgence, antibiothérapie immédiate (céphalosporine troisième génération) et expandeur.",
+          "type": "callout"
         }
       ]
     },
@@ -273,7 +275,8 @@
           "key": "B",
           "term": "Budd-Chiari"
         }
-      ]
+      ],
+      "id": "mn-causes-transsudatives"
     },
     {
       "label": "Causes exsudatives",
@@ -294,7 +297,8 @@
           "key": "H",
           "term": "Hémopéritoine, chylopéritoine"
         }
-      ]
+      ],
+      "id": "mn-causes-exsudatives"
     },
     {
       "label": "Bilan de la ponction",
@@ -315,7 +319,8 @@
           "key": "G",
           "term": "Glucose, amylase, germe"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-la-ponction"
     },
     {
       "label": "Traitement",
@@ -336,7 +341,8 @@
           "key": "E",
           "term": "Étiologie à traiter"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -424,7 +430,8 @@
   "mindmap": {
     "root": {
       "id": "asc-root",
-      "label": "Ascite"
+      "label": "Ascite",
+      "detail": "Ascite : Sémiologie, Étiologies, Complications, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -453,7 +460,8 @@
             "id": "asc-b1-l4",
             "label": "Échographie"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Clinique"
       },
       {
         "id": "asc-b2",
@@ -481,7 +489,8 @@
             "id": "asc-b2-l4",
             "label": "Pancréatite, hémopéritoine"
           }
-        ]
+        ],
+        "detail": "Étiologies : Ponction"
       },
       {
         "id": "asc-b3",
@@ -509,7 +518,8 @@
             "id": "asc-b3-l4",
             "label": "Dysfonction post-paracentèse"
           }
-        ]
+        ],
+        "detail": "Complications : Redoutées"
       },
       {
         "id": "asc-b4",
@@ -537,7 +547,8 @@
             "id": "asc-b4-l4",
             "label": "TIPS, transplantation"
           }
-        ]
+        ],
+        "detail": "Traitement : Étape par étape"
       },
       {
         "id": "asc-b5",
@@ -565,7 +576,8 @@
             "id": "asc-b5-l4",
             "label": "Prophylaxie infectieuse"
           }
-        ]
+        ],
+        "detail": "Prévention : Fond — Prévention"
       }
     ]
   },

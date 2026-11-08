@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Angines. Inflammation aiguë de l'oropharynx et des amygdales, très fréquente : VIRALES dans la grande majorité des cas (rhinovirus, adénovirus, EBV mononucléose, herpès) ; BACTÉRIENNES dominées par le STREPTOCOQUE BÊTA-HÉMOLYTIQUE DU GROUPE A (SGA). Le problème clinique : reconnaître l'angine à SGA (à traiter par antibiotique pour éviter le RHUMATISME ARTICULAIRE AIGU — endémique à Madagascar — et la glomérulonéphrite) sans donner d'antibiotique aux angines virales. Démarche : SCORE de CENTOR/McISAAC (fièvre > 38 °C, absence de toux, adénopathies cervicales antérieures douloureuses, exsudat ou hypertrophie amygdalienne ; ajusté à l'âge) → TEST RAPIDE de diagnostic (TDR streptococcique) si disponible ; antibiothérapie seulement si SGA confirmé ou fortement probable. Clinique : fièvre, dysphagie, odynophagie, halitose, amygdales rouges œdématiées ± exsudat blancâtre, adénopathies ; formes : érythémateuse, exsudative (pultacée), pseudo-membraneuse (mononucléose, diphtérie : fausses membranes adhérentes + croup), ulcéro-nécrotique (Vincent, immunodépression), herpétique (vésicules). Complications SUPPURATIVES : abcès péri-amygdalien (trismus, uvule déviée, bombement unilatéral), abcès rétropharyngien, ANGINE DE LUDWIG (cellulite des espaces sous-mandibulaires : trismus, œdème du plancher buccal, langue surélevée — URGENCE VITALE, obstruction des voies aériennes), ÉPIGLOTTITE (douleur laryngée, voix étouffée, hypersialorrhée, position assise — URGENCE), complications à distance : RAA (cardite ++, arthrite, chorée), glomérulonéphrite aiguë, scarlatine. Traitement : angine virale = traitement symptomatique ; angine à SGA = AMOXICILLINE ou PÉNICILLINE V (10 jours, ou benzathine-pénicilline IM en dose unique selon les protocoles — utile pour l'observance et le RAA), alternatives si allergie (macrolides si non résistants, céphalosporines de 1re génération selon contexte) ; ABCÈS : antibiothérapie IV ± drainage ; Ludwig/épiglottite : hospitalisation URGENTE, protection des voies aériennes. Prévention : hygiène, traitement complet du SGA, prophylaxie secondaire du RAA (benzathine-pénicilline mensuelle), pas de vaccination anti-SGA.",
@@ -336,7 +337,8 @@
           "key": "R",
           "term": "RAA : la raison profonde de tout traitement antibiotique"
         }
-      ]
+      ],
+      "id": "mn-c-e-n-t-o-r"
     },
     {
       "label": "A.N.G.I.N.E.",
@@ -365,7 +367,8 @@
           "key": "E",
           "term": "Endiguement : 10 jours complets de pénicilline, pas de sulfamides ni de tétracyclines"
         }
-      ]
+      ],
+      "id": "mn-a-n-g-i-n-e"
     }
   ],
   "flashcards": [
@@ -453,7 +456,8 @@
   "mindmap": {
     "root": {
       "id": "angines",
-      "label": "Angines"
+      "label": "Angines",
+      "detail": "Angines : Étiologies, Diagnostic, Urgences, Traitement, Complications post-SGA, Pièges — synthèse du référentiel."
     },
     "branches": [
       {
@@ -478,7 +482,8 @@
             "id": "b1l1",
             "label": "SGA rare avant 3 ans"
           }
-        ]
+        ],
+        "detail": "Étiologies : Virales : majorité des cas, SGA : la cible antibiotique, EBV, diphtérie, Fusobacterium"
       },
       {
         "id": "b2",
@@ -502,7 +507,8 @@
             "id": "b2l1",
             "label": "Culture : référence si pas de TDR"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Score Centor/McIsaac, Test rapide streptococcique, Hémogramme + EBV si atypique"
       },
       {
         "id": "b3",
@@ -530,7 +536,8 @@
             "id": "b3l1",
             "label": "Obstruction des voies aériennes = mort"
           }
-        ]
+        ],
+        "detail": "Urgences : Angine de Ludwig (plancher buccal), Épiglottite (hypersialorrhée), Abcès péri-amygdalien (trismus), Diphtérie (membranes adhérentes)"
       },
       {
         "id": "b4",
@@ -558,7 +565,8 @@
             "id": "b4l1",
             "label": "Tétracyclines/sulfamides : jamais"
           }
-        ]
+        ],
+        "detail": "Traitement : Virale : symptomatique, SGA : pénicilline 10 j / benzathine IM, Abcès : IV + drainage, Mononucléose : PAS d'amoxicilline"
       },
       {
         "id": "b5",
@@ -582,7 +590,8 @@
             "id": "b5l1",
             "label": "Prophylaxie secondaire : benzathine mensuelle"
           }
-        ]
+        ],
+        "detail": "Complications post-SGA : RAA : arthrite + CARDITE, Glomérulonéphrite aiguë, Scarlatine"
       },
       {
         "id": "b6",
@@ -606,7 +615,8 @@
             "id": "b6l1",
             "label": "Splénomégalie : pas de sport"
           }
-        ]
+        ],
+        "detail": "Pièges : EBV + amoxicilline = éruption, Angine unilatérale chronique du fumeur = cancer, Lemierre : jugulaire + emboles"
       }
     ]
   },

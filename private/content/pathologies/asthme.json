@@ -22,7 +22,9 @@
     }
   },
   "related": {
-    "deckIds": ["semio"],
+    "deckIds": [
+      "semio"
+    ],
     "caseIds": []
   },
   "editorial": {
@@ -91,11 +93,27 @@
         },
         {
           "type": "table",
-          "columns": ["Sévérité (rétrospective)", "Définition pratique", "Conséquence"],
+          "columns": [
+            "Sévérité (rétrospective)",
+            "Définition pratique",
+            "Conséquence"
+          ],
           "rows": [
-            ["Intermittent / léger", "Symptômes peu fréquents, fonction respiratoire normale entre les épisodes", "Traitement de secours contenant un corticoïde inhalé, ou faible dose de fond"],
-            ["Modéré", "Symptômes pluri-hebdomadaires ou réveils nocturnes", "Corticoïde inhalé à dose faible ou moyenne, souvent en association"],
-            ["Sévère", "Symptômes quotidiens, exacerbations répétées, limitation d'activité", "Traitement de fond renforcé, avis spécialisé et recherche de facteurs aggravants"]
+            [
+              "Intermittent / léger",
+              "Symptômes peu fréquents, fonction respiratoire normale entre les épisodes",
+              "Traitement de secours contenant un corticoïde inhalé, ou faible dose de fond"
+            ],
+            [
+              "Modéré",
+              "Symptômes pluri-hebdomadaires ou réveils nocturnes",
+              "Corticoïde inhalé à dose faible ou moyenne, souvent en association"
+            ],
+            [
+              "Sévère",
+              "Symptômes quotidiens, exacerbations répétées, limitation d'activité",
+              "Traitement de fond renforcé, avis spécialisé et recherche de facteurs aggravants"
+            ]
           ]
         },
         {
@@ -143,12 +161,32 @@
         },
         {
           "type": "table",
-          "columns": ["Examen", "Résultat évocateur", "Limite"],
+          "columns": [
+            "Examen",
+            "Résultat évocateur",
+            "Limite"
+          ],
           "rows": [
-            ["Spirométrie", "Rapport VEMS/CVF abaissé, puis VEMS augmenté d'au moins 12 % et 200 mL après bêta-2-agoniste de courte durée", "Normale entre deux crises : ne pas conclure à l'absence d'asthme"],
-            ["Débit expiratoire de pointe", "Variabilité de plus de 10 % chez l'adulte, sur des mesures répétées", "Dépend de la technique et de l'appareil"],
-            ["Test de provocation", "Hyperréactivité à la méthacholine ou à l'exercice", "À réserver aux spirométries normales avec forte suspicion"],
-            ["Radiographie thoracique", "Souvent normale, utile pour écarter un autre diagnostic", "Jamais diagnostique d'asthme"]
+            [
+              "Spirométrie",
+              "Rapport VEMS/CVF abaissé, puis VEMS augmenté d'au moins 12 % et 200 mL après bêta-2-agoniste de courte durée",
+              "Normale entre deux crises : ne pas conclure à l'absence d'asthme"
+            ],
+            [
+              "Débit expiratoire de pointe",
+              "Variabilité de plus de 10 % chez l'adulte, sur des mesures répétées",
+              "Dépend de la technique et de l'appareil"
+            ],
+            [
+              "Test de provocation",
+              "Hyperréactivité à la méthacholine ou à l'exercice",
+              "À réserver aux spirométries normales avec forte suspicion"
+            ],
+            [
+              "Radiographie thoracique",
+              "Souvent normale, utile pour écarter un autre diagnostic",
+              "Jamais diagnostique d'asthme"
+            ]
           ]
         },
         {
@@ -246,13 +284,37 @@
         },
         {
           "type": "table",
-          "columns": ["Palier", "Traitement de fond", "Traitement de secours"],
+          "columns": [
+            "Palier",
+            "Traitement de fond",
+            "Traitement de secours"
+          ],
           "rows": [
-            ["1 — symptômes rares", "Faible dose de corticoïde inhalé, ou association corticoïde-formotérol à la demande selon la stratégie retenue", "Association corticoïde-formotérol à la demande"],
-            ["2 — symptômes fréquents", "Faible dose de corticoïde inhalé", "Association corticoïde-formotérol à la demande"],
-            ["3 — contrôle insuffisant", "Faible dose de corticoïde inhalé + bêta-2-agoniste de longue durée", "Association corticoïde-formotérol à la demande ou secours séparé"],
-            ["4 — contrôle insuffisant", "Dose moyenne ou forte de corticoïde inhalé + bêta-2-agoniste de longue durée", "Avis spécialisé, recherche de phénotype"],
-            ["5 — asthme sévère", "Traitement spécialisé, biothérapie ou corticoïde oral au long cours en dernier recours", "Plan d'action personnalisé"]
+            [
+              "1 — symptômes rares",
+              "Faible dose de corticoïde inhalé, ou association corticoïde-formotérol à la demande selon la stratégie retenue",
+              "Association corticoïde-formotérol à la demande"
+            ],
+            [
+              "2 — symptômes fréquents",
+              "Faible dose de corticoïde inhalé",
+              "Association corticoïde-formotérol à la demande"
+            ],
+            [
+              "3 — contrôle insuffisant",
+              "Faible dose de corticoïde inhalé + bêta-2-agoniste de longue durée",
+              "Association corticoïde-formotérol à la demande ou secours séparé"
+            ],
+            [
+              "4 — contrôle insuffisant",
+              "Dose moyenne ou forte de corticoïde inhalé + bêta-2-agoniste de longue durée",
+              "Avis spécialisé, recherche de phénotype"
+            ],
+            [
+              "5 — asthme sévère",
+              "Traitement spécialisé, biothérapie ou corticoïde oral au long cours en dernier recours",
+              "Plan d'action personnalisé"
+            ]
           ]
         },
         {
@@ -386,10 +448,22 @@
       "label": "Les 4 questions du contrôle",
       "intro": "Sur les quatre dernières semaines — aucune réponse positive = contrôlé.",
       "entries": [
-        { "key": "1", "term": "Symptômes diurnes plus de deux fois par semaine." },
-        { "key": "2", "term": "Réveil nocturne attribuable à l'asthme." },
-        { "key": "3", "term": "Recours au traitement de secours plus de deux fois par semaine." },
-        { "key": "4", "term": "Limitation de l'activité physique ou des activités quotidiennes." }
+        {
+          "key": "1",
+          "term": "Symptômes diurnes plus de deux fois par semaine."
+        },
+        {
+          "key": "2",
+          "term": "Réveil nocturne attribuable à l'asthme."
+        },
+        {
+          "key": "3",
+          "term": "Recours au traitement de secours plus de deux fois par semaine."
+        },
+        {
+          "key": "4",
+          "term": "Limitation de l'activité physique ou des activités quotidiennes."
+        }
       ],
       "note": "Une réponse positive suffit à classer l'asthme comme partiellement contrôlé ; trois ou quatre réponses positives signifient qu'il n'est pas contrôlé."
     },
@@ -398,9 +472,18 @@
       "label": "Les 3 preuves de la variabilité",
       "intro": "Le diagnostic ne repose jamais sur la seule clinique.",
       "entries": [
-        { "key": "R", "term": "Réversibilité : VEMS augmenté d'au moins 12 % et 200 mL après bronchodilatateur." },
-        { "key": "V", "term": "Variabilité du débit expiratoire de pointe de plus de 10 % chez l'adulte." },
-        { "key": "H", "term": "Hyperréactivité bronchique démontrée par un test de provocation lorsque la spirométrie est normale." }
+        {
+          "key": "R",
+          "term": "Réversibilité : VEMS augmenté d'au moins 12 % et 200 mL après bronchodilatateur."
+        },
+        {
+          "key": "V",
+          "term": "Variabilité du débit expiratoire de pointe de plus de 10 % chez l'adulte."
+        },
+        {
+          "key": "H",
+          "term": "Hyperréactivité bronchique démontrée par un test de provocation lorsque la spirométrie est normale."
+        }
       ],
       "note": "Une spirométrie normale entre deux épisodes n'élimine pas le diagnostic : répéter l'examen à distance de la crise."
     },
@@ -409,10 +492,22 @@
       "label": "Les 4 gestes de la crise",
       "intro": "Évaluer la gravité, puis traiter sans délai.",
       "entries": [
-        { "key": "O", "term": "Oxygène : maintenir une saturation habituellement visée entre 93 et 95 %." },
-        { "key": "B", "term": "Bronchodilatateur de courte durée répété, par nébulisation ou chambre d'inhalation." },
-        { "key": "C", "term": "Corticoïde systémique précoce, sans attendre l'hospitalisation." },
-        { "key": "S", "term": "Surveillance rapprochée : signes de gravité, réévaluation, avis réanimatoire si échec." }
+        {
+          "key": "O",
+          "term": "Oxygène : maintenir une saturation habituellement visée entre 93 et 95 %."
+        },
+        {
+          "key": "B",
+          "term": "Bronchodilatateur de courte durée répété, par nébulisation ou chambre d'inhalation."
+        },
+        {
+          "key": "C",
+          "term": "Corticoïde systémique précoce, sans attendre l'hospitalisation."
+        },
+        {
+          "key": "S",
+          "term": "Surveillance rapprochée : signes de gravité, réévaluation, avis réanimatoire si échec."
+        }
       ],
       "note": "Le sulfate de magnésium intraveineux et les traitements de seconde ligne se discutent en milieu hospitalier devant une crise sévère réfractaire."
     }
@@ -422,73 +517,103 @@
       "id": "fc-01",
       "front": "Quels sont les deux piliers du diagnostic d'asthme ?",
       "back": "Des symptômes respiratoires typiques et variables dans le temps, ET une preuve objective de variabilité de l'obstruction : réversibilité spirométrique ou variabilité du débit expiratoire de pointe.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quel critère spirométrique définit une réversibilité significative chez l'adulte ?",
       "back": "Une augmentation du VEMS d'au moins 12 % ET d'au moins 200 mL après administration d'un bêta-2-agoniste de courte durée.",
-      "tags": ["diagnostic", "spirométrie"]
+      "tags": [
+        "diagnostic",
+        "spirométrie"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Que signifie un asthme « contrôlé » selon les quatre questions de GINA ?",
       "back": "Aucun symptôme diurne plus de deux fois par semaine, aucun réveil nocturne, aucun recours au traitement de secours plus de deux fois par semaine et aucune limitation d'activité.",
-      "tags": ["contrôle"]
+      "tags": [
+        "contrôle"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Pourquoi un bêta-2-agoniste de courte durée seul est-il dangereux dans l'asthme ?",
       "back": "Il soulage le bronchospasme sans traiter l'inflammation sous-jacente. La monothérapie par bronchodilatateur augmente le risque d'exacerbation sévère et de décès.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quel est le traitement de secours recommandé par GINA chez l'adulte ?",
       "back": "Une association corticoïde inhalé-formotérol à la demande, plutôt qu'un bêta-2-agoniste de courte durée seul.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quelles sont les deux premières causes d'un asthme apparemment résistant au traitement ?",
       "back": "Une mauvaise observance et une mauvaise technique d'inhalation. Elles doivent être vérifiées avant d'intensifier le traitement.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quel est le traitement initial d'une exacerbation d'asthme ?",
       "back": "Bronchodilatateur de courte durée répété, oxygène pour une saturation habituellement visée entre 93 et 95 %, et corticothérapie systémique précoce (par exemple prednisolone 40 à 50 mg par jour pendant 5 à 7 jours).",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Quels signes imposent une prise en charge en urgence d'une crise d'asthme ?",
       "back": "Parole hachée, orthopnée, cyanose, silence auscultatoire, confusion, épuisement, saturation basse malgré l'oxygène. Ces signes traduisent une crise sévère ou menaçante.",
-      "tags": ["urgence", "gravité"]
+      "tags": [
+        "urgence",
+        "gravité"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Faut-il prescrire des antibiotiques devant toute exacerbation d'asthme ?",
       "back": "Non. La majorité des exacerbations est virale. Les antibiotiques ne sont justifiés qu'en cas de suspicion ou de documentation d'infection bactérienne.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quel est le principal diagnostic différentiel de l'asthme après 40 ans chez un fumeur ?",
       "back": "La bronchopneumopathie chronique obstructive. La spirométrie et le test de réversibilité permettent de les distinguer, mais les deux maladies peuvent coexister.",
-      "tags": ["diagnostic différentiel"]
+      "tags": [
+        "diagnostic différentiel"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quel rôle joue la chambre d'inhalation dans l'asthme ?",
       "back": "Elle améliore la déposition bronchique du médicament et réduit les dépôts oropharyngés. Une chambre artisanale fabriquée à partir d'une bouteille plastique de 500 mL peut être utilisée lorsque les spacers commerciaux sont indisponibles.",
-      "tags": ["traitement", "Madagascar"]
+      "tags": [
+        "traitement",
+        "Madagascar"
+      ]
     },
     {
       "id": "fc-12",
       "front": "Que faire dans les semaines qui suivent une exacerbation ?",
       "back": "Réévaluer le contrôle, l'observance, la technique d'inhalation et le traitement de fond. Une exacerbation est un signal d'échec du contrôle et un facteur de risque de récidive.",
-      "tags": ["suivi"]
+      "tags": [
+        "suivi"
+      ]
     }
   ],
   "mindmap": {
@@ -504,9 +629,44 @@
         "tone": "reflexe",
         "detail": "La clinique évoque, la spirométrie confirme. Aucun diagnostic d'asthme ne doit rester sans preuve objective de variabilité.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Sifflements variables" }, { "id": "diag-clinique-2", "label": "Toux nocturne" }] },
-          { "id": "diag-spiro", "label": "Spirométrie", "leaves": [{ "id": "diag-spiro-1", "label": "Réversibilité 12 % + 200 mL" }, { "id": "diag-spiro-2", "label": "Répéter si normale" }] },
-          { "id": "diag-dep", "label": "Débit de pointe", "leaves": [{ "id": "diag-dep-1", "label": "Variabilité > 10 %" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Sifflements variables"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Toux nocturne"
+              }
+            ]
+          },
+          {
+            "id": "diag-spiro",
+            "label": "Spirométrie",
+            "leaves": [
+              {
+                "id": "diag-spiro-1",
+                "label": "Réversibilité 12 % + 200 mL"
+              },
+              {
+                "id": "diag-spiro-2",
+                "label": "Répéter si normale"
+              }
+            ]
+          },
+          {
+            "id": "diag-dep",
+            "label": "Débit de pointe",
+            "leaves": [
+              {
+                "id": "diag-dep-1",
+                "label": "Variabilité > 10 %"
+              }
+            ]
+          }
         ]
       },
       {
@@ -515,8 +675,34 @@
         "tone": "retenir",
         "detail": "Quatre questions sur les quatre dernières semaines : symptômes diurnes, réveils nocturnes, recours au secours, limitation d'activité.",
         "children": [
-          { "id": "ctrl-4q", "label": "4 questions", "leaves": [{ "id": "ctrl-4q-1", "label": "Symptômes > 2×/sem" }, { "id": "ctrl-4q-2", "label": "Réveil nocturne" }] },
-          { "id": "ctrl-exac", "label": "Exacerbations", "leaves": [{ "id": "ctrl-exac-1", "label": "Corticoïdes oraux" }, { "id": "ctrl-exac-2", "label": "Hospitalisation" }] }
+          {
+            "id": "ctrl-4q",
+            "label": "4 questions",
+            "leaves": [
+              {
+                "id": "ctrl-4q-1",
+                "label": "Symptômes > 2×/sem"
+              },
+              {
+                "id": "ctrl-4q-2",
+                "label": "Réveil nocturne"
+              }
+            ]
+          },
+          {
+            "id": "ctrl-exac",
+            "label": "Exacerbations",
+            "leaves": [
+              {
+                "id": "ctrl-exac-1",
+                "label": "Corticoïdes oraux"
+              },
+              {
+                "id": "ctrl-exac-2",
+                "label": "Hospitalisation"
+              }
+            ]
+          }
         ]
       },
       {
@@ -525,9 +711,44 @@
         "tone": "memo",
         "detail": "Toujours un corticoïde inhalé. Les paliers s'adaptent au contrôle, pas à la sévérité ressentie le jour de la consultation.",
         "children": [
-          { "id": "tf-csi", "label": "Corticoïde inhalé", "leaves": [{ "id": "tf-csi-1", "label": "Jamais seul" }, { "id": "tf-csi-2", "label": "Vérifier la technique" }] },
-          { "id": "tf-paliers", "label": "Paliers", "leaves": [{ "id": "tf-paliers-1", "label": "1 à 5" }, { "id": "tf-paliers-2", "label": "Réévaluer 3 mois" }] },
-          { "id": "tf-observance", "label": "Observance", "leaves": [{ "id": "tf-observance-1", "label": "Compter les prises" }] }
+          {
+            "id": "tf-csi",
+            "label": "Corticoïde inhalé",
+            "leaves": [
+              {
+                "id": "tf-csi-1",
+                "label": "Jamais seul"
+              },
+              {
+                "id": "tf-csi-2",
+                "label": "Vérifier la technique"
+              }
+            ]
+          },
+          {
+            "id": "tf-paliers",
+            "label": "Paliers",
+            "leaves": [
+              {
+                "id": "tf-paliers-1",
+                "label": "1 à 5"
+              },
+              {
+                "id": "tf-paliers-2",
+                "label": "Réévaluer 3 mois"
+              }
+            ]
+          },
+          {
+            "id": "tf-observance",
+            "label": "Observance",
+            "leaves": [
+              {
+                "id": "tf-observance-1",
+                "label": "Compter les prises"
+              }
+            ]
+          }
         ]
       },
       {
@@ -536,9 +757,44 @@
         "tone": "urgence",
         "detail": "Bronchodilatateur répété, oxygène, corticoïde systémique précoce et surveillance. Rechercher les signes de gravité avant qu'il ne soit trop tard.",
         "children": [
-          { "id": "crise-gravite", "label": "Signes de gravité", "leaves": [{ "id": "crise-gravite-1", "label": "Parole hachée" }, { "id": "crise-gravite-2", "label": "Silence auscultatoire" }] },
-          { "id": "crise-traitement", "label": "Traitement", "leaves": [{ "id": "crise-traitement-1", "label": "SABA répété" }, { "id": "crise-traitement-2", "label": "Prednisolone 40-50 mg" }] },
-          { "id": "crise-revoir", "label": "Après la crise", "leaves": [{ "id": "crise-revoir-1", "label": "Revoir le fond" }] }
+          {
+            "id": "crise-gravite",
+            "label": "Signes de gravité",
+            "leaves": [
+              {
+                "id": "crise-gravite-1",
+                "label": "Parole hachée"
+              },
+              {
+                "id": "crise-gravite-2",
+                "label": "Silence auscultatoire"
+              }
+            ]
+          },
+          {
+            "id": "crise-traitement",
+            "label": "Traitement",
+            "leaves": [
+              {
+                "id": "crise-traitement-1",
+                "label": "SABA répété"
+              },
+              {
+                "id": "crise-traitement-2",
+                "label": "Prednisolone 40-50 mg"
+              }
+            ]
+          },
+          {
+            "id": "crise-revoir",
+            "label": "Après la crise",
+            "leaves": [
+              {
+                "id": "crise-revoir-1",
+                "label": "Revoir le fond"
+              }
+            ]
+          }
         ]
       },
       {
@@ -546,9 +802,36 @@
         "label": "Phénotypes",
         "detail": "Le phénotype guide la recherche des facteurs modifiables et, en cas d'asthme sévère, le choix des biothérapies.",
         "children": [
-          { "id": "pheno-allergique", "label": "Allergique", "leaves": [{ "id": "pheno-allergique-1", "label": "Rhinite associée" }] },
-          { "id": "pheno-eosino", "label": "Éosinophilique", "leaves": [{ "id": "pheno-eosino-1", "label": "Polypose nasale" }] },
-          { "id": "pheno-prof", "label": "Professionnel", "leaves": [{ "id": "pheno-prof-1", "label": "Amélioré au repos" }] }
+          {
+            "id": "pheno-allergique",
+            "label": "Allergique",
+            "leaves": [
+              {
+                "id": "pheno-allergique-1",
+                "label": "Rhinite associée"
+              }
+            ]
+          },
+          {
+            "id": "pheno-eosino",
+            "label": "Éosinophilique",
+            "leaves": [
+              {
+                "id": "pheno-eosino-1",
+                "label": "Polypose nasale"
+              }
+            ]
+          },
+          {
+            "id": "pheno-prof",
+            "label": "Professionnel",
+            "leaves": [
+              {
+                "id": "pheno-prof-1",
+                "label": "Amélioré au repos"
+              }
+            ]
+          }
         ]
       },
       {
@@ -556,9 +839,36 @@
         "label": "Comorbidités",
         "detail": "Traiter ce qui aggrave le contrôle : rhinosinusite, reflux, obésité, apnées du sommeil, anxiété et tabagisme.",
         "children": [
-          { "id": "comorb-rhino", "label": "Rhinosinusite", "leaves": [{ "id": "comorb-rhino-1", "label": "Traiter le nez" }] },
-          { "id": "comorb-rgo", "label": "Reflux", "leaves": [{ "id": "comorb-rgo-1", "label": "Interroger le pyrosis" }] },
-          { "id": "comorb-tabac", "label": "Tabac", "leaves": [{ "id": "comorb-tabac-1", "label": "Arrêt indispensable" }] }
+          {
+            "id": "comorb-rhino",
+            "label": "Rhinosinusite",
+            "leaves": [
+              {
+                "id": "comorb-rhino-1",
+                "label": "Traiter le nez"
+              }
+            ]
+          },
+          {
+            "id": "comorb-rgo",
+            "label": "Reflux",
+            "leaves": [
+              {
+                "id": "comorb-rgo-1",
+                "label": "Interroger le pyrosis"
+              }
+            ]
+          },
+          {
+            "id": "comorb-tabac",
+            "label": "Tabac",
+            "leaves": [
+              {
+                "id": "comorb-tabac-1",
+                "label": "Arrêt indispensable"
+              }
+            ]
+          }
         ]
       },
       {
@@ -566,9 +876,36 @@
         "label": "Contexte malgache",
         "detail": "La disponibilité des corticoïdes inhalés et des associations fixes est variable. Le traitement de fond ne doit jamais être remplacé par un bronchodilatateur seul.",
         "children": [
-          { "id": "mada-dispo", "label": "Disponibilité", "leaves": [{ "id": "mada-dispo-1", "label": "Vérifier la liste essentielle" }] },
-          { "id": "mada-spacer", "label": "Chambre d'inhalation", "leaves": [{ "id": "mada-spacer-1", "label": "Bouteille 500 mL" }] },
-          { "id": "mada-protocole", "label": "Protocole national", "leaves": [{ "id": "mada-protocole-1", "label": "Prévaloir sur la fiche" }] }
+          {
+            "id": "mada-dispo",
+            "label": "Disponibilité",
+            "leaves": [
+              {
+                "id": "mada-dispo-1",
+                "label": "Vérifier la liste essentielle"
+              }
+            ]
+          },
+          {
+            "id": "mada-spacer",
+            "label": "Chambre d'inhalation",
+            "leaves": [
+              {
+                "id": "mada-spacer-1",
+                "label": "Bouteille 500 mL"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole national",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "Prévaloir sur la fiche"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -623,5 +960,6 @@
         "Contexte français"
       ]
     }
-  ]
+  ],
+  "specialty": "Pneumologie"
 }

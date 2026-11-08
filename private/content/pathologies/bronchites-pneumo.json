@@ -22,8 +22,12 @@
     }
   },
   "related": {
-    "deckIds": ["infectio"],
-    "caseIds": ["INF-PAC-001"]
+    "deckIds": [
+      "infectio"
+    ],
+    "caseIds": [
+      "INF-PAC-001"
+    ]
   },
   "editorial": {
     "sourceDocument": null,
@@ -87,14 +91,35 @@
         },
         {
           "type": "table",
-          "columns": ["Terrain", "Germes à évoquer en priorité"],
+          "columns": [
+            "Terrain",
+            "Germes à évoquer en priorité"
+          ],
           "rows": [
-            ["Adulte sain, ambulatoire", "Streptococcus pneumoniae, Mycoplasma pneumoniae, virus respiratoires"],
-            ["Comorbidité cardiopulmonaire", "S. pneumoniae, Haemophilus influenzae, Moraxella catarrhalis"],
-            ["Sujet âgé institutionnalisé", "S. pneumoniae, bacilles Gram négatif, Staphylococcus aureus"],
-            ["Fausses déglutitions", "Anaerobies, bacilles Gram négatif"],
-            ["Immunodépression", "Pneumocystis jirovecii, champignons, germes opportunistes"],
-            ["Après grippe", "S. aureus, S. pneumoniae, surinfection bactérienne"]
+            [
+              "Adulte sain, ambulatoire",
+              "Streptococcus pneumoniae, Mycoplasma pneumoniae, virus respiratoires"
+            ],
+            [
+              "Comorbidité cardiopulmonaire",
+              "S. pneumoniae, Haemophilus influenzae, Moraxella catarrhalis"
+            ],
+            [
+              "Sujet âgé institutionnalisé",
+              "S. pneumoniae, bacilles Gram négatif, Staphylococcus aureus"
+            ],
+            [
+              "Fausses déglutitions",
+              "Anaerobies, bacilles Gram négatif"
+            ],
+            [
+              "Immunodépression",
+              "Pneumocystis jirovecii, champignons, germes opportunistes"
+            ],
+            [
+              "Après grippe",
+              "S. aureus, S. pneumoniae, surinfection bactérienne"
+            ]
           ]
         },
         {
@@ -130,14 +155,42 @@
         },
         {
           "type": "table",
-          "columns": ["Examen", "Indication", "Apport"],
+          "columns": [
+            "Examen",
+            "Indication",
+            "Apport"
+          ],
           "rows": [
-            ["Radiographie thoracique", "Systématique en cas de suspicion", "Confirme l'opacité, recherche un épanchement"],
-            ["Numération, CRP", "Aide au diagnostic et au suivi", "Ne distingue pas bactérie et virus"],
-            ["Hémocultures", "Formes graves ou hospitalisées", "Documentation microbiologique"],
-            ["Antigénurie pneumocoque", "Formes graves", "Orientation thérapeutique"],
-            ["PCR respiratoire", "Formes graves ou contexte épidémique", "Virus, atypiques"],
-            ["Scanner thoracique", "Doute diagnostique ou complication", "Opacités, abcès, embolie"]
+            [
+              "Radiographie thoracique",
+              "Systématique en cas de suspicion",
+              "Confirme l'opacité, recherche un épanchement"
+            ],
+            [
+              "Numération, CRP",
+              "Aide au diagnostic et au suivi",
+              "Ne distingue pas bactérie et virus"
+            ],
+            [
+              "Hémocultures",
+              "Formes graves ou hospitalisées",
+              "Documentation microbiologique"
+            ],
+            [
+              "Antigénurie pneumocoque",
+              "Formes graves",
+              "Orientation thérapeutique"
+            ],
+            [
+              "PCR respiratoire",
+              "Formes graves ou contexte épidémique",
+              "Virus, atypiques"
+            ],
+            [
+              "Scanner thoracique",
+              "Doute diagnostique ou complication",
+              "Opacités, abcès, embolie"
+            ]
           ]
         },
         {
@@ -179,11 +232,27 @@
         },
         {
           "type": "table",
-          "columns": ["CRB-65", "Interprétation", "Conduite"],
+          "columns": [
+            "CRB-65",
+            "Interprétation",
+            "Conduite"
+          ],
           "rows": [
-            ["0", "Mortalité faible", "Traitement ambulatoire possible si le contexte le permet"],
-            ["1 ou 2", "Risque intermédiaire", "Évaluation hospitalière ou surveillance rapprochée"],
-            ["3 ou 4", "Risque élevé", "Hospitalisation, avis réanimatoire"]
+            [
+              "0",
+              "Mortalité faible",
+              "Traitement ambulatoire possible si le contexte le permet"
+            ],
+            [
+              "1 ou 2",
+              "Risque intermédiaire",
+              "Évaluation hospitalière ou surveillance rapprochée"
+            ],
+            [
+              "3 ou 4",
+              "Risque élevé",
+              "Hospitalisation, avis réanimatoire"
+            ]
           ]
         },
         {
@@ -359,10 +428,22 @@
       "label": "C.R.B.-65",
       "intro": "Quatre items, un point chacun, pour décider du lieu de prise en charge.",
       "entries": [
-        { "key": "C", "term": "Confusion nouvelle ou aggravée." },
-        { "key": "R", "term": "Respiration : fréquence respiratoire supérieure ou égale à 30 par minute." },
-        { "key": "B", "term": "Blood pressure : systolique inférieure à 90 mmHg ou diastolique inférieure ou égale à 60 mmHg." },
-        { "key": "65", "term": "Âge supérieur ou égal à 65 ans." }
+        {
+          "key": "C",
+          "term": "Confusion nouvelle ou aggravée."
+        },
+        {
+          "key": "R",
+          "term": "Respiration : fréquence respiratoire supérieure ou égale à 30 par minute."
+        },
+        {
+          "key": "B",
+          "term": "Blood pressure : systolique inférieure à 90 mmHg ou diastolique inférieure ou égale à 60 mmHg."
+        },
+        {
+          "key": "65",
+          "term": "Âge supérieur ou égal à 65 ans."
+        }
       ],
       "note": "Un score de 0 permet souvent le domicile ; 1 ou 2 justifient une évaluation hospitalière ; 3 ou 4 imposent l'hospitalisation."
     },
@@ -371,10 +452,22 @@
       "label": "Les 4 temps de la pneumonie",
       "intro": "Reconnaître, confirmer, grader, traiter.",
       "entries": [
-        { "key": "1", "term": "Reconnaître le tableau clinique, y compris les présentations atypiques du sujet âgé." },
-        { "key": "2", "term": "Confirmer par une opacité radiologique nouvelle." },
-        { "key": "3", "term": "Grader avec CRB-65 et les critères de gravité." },
-        { "key": "4", "term": "Traiter par une antibiothérapie probabiliste et réévaluer à 48-72 heures." }
+        {
+          "key": "1",
+          "term": "Reconnaître le tableau clinique, y compris les présentations atypiques du sujet âgé."
+        },
+        {
+          "key": "2",
+          "term": "Confirmer par une opacité radiologique nouvelle."
+        },
+        {
+          "key": "3",
+          "term": "Grader avec CRB-65 et les critères de gravité."
+        },
+        {
+          "key": "4",
+          "term": "Traiter par une antibiothérapie probabiliste et réévaluer à 48-72 heures."
+        }
       ],
       "note": "Un patient qui ne s'améliore pas à 72 heures doit faire rediscuter le diagnostic : tuberculose, embolie, cancer, épanchement compliqué."
     },
@@ -383,9 +476,18 @@
       "label": "Bronchite : ce qu'il ne faut pas faire",
       "intro": "Trois erreurs fréquentes devant une toux aiguë.",
       "entries": [
-        { "key": "A", "term": "Antibiotique systématique : inutile chez l'adulte sain, il favorise les résistances." },
-        { "key": "R", "term": "Radiographie systématique : elle n'est pas nécessaire devant une bronchite typique sans signe de gravité." },
-        { "key": "C", "term": "Corticoïdes ou antitussifs systématiques : bénéfice limité, à réserver aux situations gênantes." }
+        {
+          "key": "A",
+          "term": "Antibiotique systématique : inutile chez l'adulte sain, il favorise les résistances."
+        },
+        {
+          "key": "R",
+          "term": "Radiographie systématique : elle n'est pas nécessaire devant une bronchite typique sans signe de gravité."
+        },
+        {
+          "key": "C",
+          "term": "Corticoïdes ou antitussifs systématiques : bénéfice limité, à réserver aux situations gênantes."
+        }
       ],
       "note": "La toux peut persister plusieurs semaines après une bronchite virale : c'est l'évolution naturelle, pas un échec du traitement."
     }
@@ -395,67 +497,92 @@
       "id": "fc-01",
       "front": "Quel est le traitement d'une bronchite aiguë chez un adulte sain ?",
       "back": "Un traitement symptomatique. Les antibiotiques ne sont pas indiqués : la majorité des bronchites aiguës est virale et l'antibiothérapie n'accélère pas la guérison.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quel examen confirme une pneumonie ?",
       "back": "La radiographie thoracique, qui montre une opacité parenchymateuse nouvelle. La clinique évoque le diagnostic mais ne le confirme pas seule.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Que signifie le score CRB-65 ?",
       "back": "Confusion, fréquence respiratoire ≥ 30/min, pression artérielle basse et âge ≥ 65 ans. Chaque item vaut un point et aide à décider du lieu de prise en charge.",
-      "tags": ["gravité"]
+      "tags": [
+        "gravité"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quels sont les principaux germes d'une pneumonie aiguë communautaire de l'adulte ?",
       "back": "Streptococcus pneumoniae en premier lieu, puis Haemophilus influenzae, Mycoplasma pneumoniae, les virus respiratoires et, selon le terrain, les bacilles Gram négatif ou les anaérobies.",
-      "tags": ["microbiologie"]
+      "tags": [
+        "microbiologie"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quelle est la durée habituelle d'une antibiothérapie pour une pneumonie communautaire non compliquée ?",
       "back": "Cinq à sept jours si le patient est cliniquement stable et afébrile depuis 48 à 72 heures. Une durée plus longue n'est pas nécessaire en cas d'évolution favorable.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quand faut-il hospitaliser un patient avec une pneumonie ?",
       "back": "En cas de score CRB-65 ≥ 1-2 selon le contexte, de signes de gravité, d'hypoxémie, de comorbidité décompensée, d'incapacité à prendre le traitement oral ou d'isolement social.",
-      "tags": ["gravité"]
+      "tags": [
+        "gravité"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quels signes imposent une prise en charge en réanimation ?",
       "back": "Confusion, détresse respiratoire, hypotension nécessitant des vasopresseurs, hypoxémie sévère, atteinte multilobaire, insuffisance rénale aiguë ou épuisement respiratoire.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Pourquoi réévaluer un patient à 48-72 heures ?",
       "back": "Pour vérifier la réponse clinique, confirmer la tolérance du traitement et rediscuter le diagnostic en cas d'absence d'amélioration : tuberculose, embolie pulmonaire, cancer, épanchement compliqué.",
-      "tags": ["suivi"]
+      "tags": [
+        "suivi"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Quel diagnostic différentiel est indispensable à Madagascar devant une opacité pulmonaire ?",
       "back": "La tuberculose pulmonaire. Toute opacité persistante malgré une antibiothérapie, une toux de plus de deux semaines ou un contexte d'entourage tuberculeux doit faire réaliser les examens appropriés.",
-      "tags": ["Madagascar", "diagnostic différentiel"]
+      "tags": [
+        "Madagascar",
+        "diagnostic différentiel"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quelles sont les mesures de prévention des pneumonies ?",
       "back": "Vaccination contre la grippe et le pneumocoque selon le calendrier local, arrêt du tabac, réduction de la pollution domestique, hygiène des mains et prise en charge des comorbidités.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Un patient âgé se présente avec une confusion et une chute : faut-il évoquer une pneumonie ?",
       "back": "Oui. Chez le sujet âgé, la pneumonie peut se présenter sans fièvre ni toux, sous forme de confusion, de chute ou de décompensation d'une comorbidité. La radiographie thoracique est alors indispensable.",
-      "tags": ["diagnostic", "gériatrie"]
+      "tags": [
+        "diagnostic",
+        "gériatrie"
+      ]
     }
   ],
   "mindmap": {
@@ -471,9 +598,48 @@
         "tone": "reflexe",
         "detail": "Clinique + opacité radiologique nouvelle. Chez le sujet âgé, penser aux présentations atypiques : confusion, chute, décompensation.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Fièvre + toux" }, { "id": "diag-clinique-2", "label": "Foyers de crépitants" }] },
-          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Radiographie" }, { "id": "diag-imagerie-2", "label": "Scanner si doute" }] },
-          { "id": "diag-differ", "label": "Différentiels", "leaves": [{ "id": "diag-differ-1", "label": "Tuberculose" }, { "id": "diag-differ-2", "label": "Embolie" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Fièvre + toux"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Foyers de crépitants"
+              }
+            ]
+          },
+          {
+            "id": "diag-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "diag-imagerie-1",
+                "label": "Radiographie"
+              },
+              {
+                "id": "diag-imagerie-2",
+                "label": "Scanner si doute"
+              }
+            ]
+          },
+          {
+            "id": "diag-differ",
+            "label": "Différentiels",
+            "leaves": [
+              {
+                "id": "diag-differ-1",
+                "label": "Tuberculose"
+              },
+              {
+                "id": "diag-differ-2",
+                "label": "Embolie"
+              }
+            ]
+          }
         ]
       },
       {
@@ -482,9 +648,48 @@
         "tone": "urgence",
         "detail": "CRB-65 et critères cliniques : confusion, fréquence respiratoire, pression artérielle, oxygénation, atteinte multilobaire, comorbidités.",
         "children": [
-          { "id": "grav-crb", "label": "CRB-65", "leaves": [{ "id": "grav-crb-1", "label": "0 = domicile" }, { "id": "grav-crb-2", "label": "≥ 3 = hôpital" }] },
-          { "id": "grav-signes", "label": "Signes", "leaves": [{ "id": "grav-signes-1", "label": "Hypotension" }, { "id": "grav-signes-2", "label": "Hypoxémie" }] },
-          { "id": "grav-lieu", "label": "Lieu", "leaves": [{ "id": "grav-lieu-1", "label": "Ambulatoire" }, { "id": "grav-lieu-2", "label": "Réanimation" }] }
+          {
+            "id": "grav-crb",
+            "label": "CRB-65",
+            "leaves": [
+              {
+                "id": "grav-crb-1",
+                "label": "0 = domicile"
+              },
+              {
+                "id": "grav-crb-2",
+                "label": "≥ 3 = hôpital"
+              }
+            ]
+          },
+          {
+            "id": "grav-signes",
+            "label": "Signes",
+            "leaves": [
+              {
+                "id": "grav-signes-1",
+                "label": "Hypotension"
+              },
+              {
+                "id": "grav-signes-2",
+                "label": "Hypoxémie"
+              }
+            ]
+          },
+          {
+            "id": "grav-lieu",
+            "label": "Lieu",
+            "leaves": [
+              {
+                "id": "grav-lieu-1",
+                "label": "Ambulatoire"
+              },
+              {
+                "id": "grav-lieu-2",
+                "label": "Réanimation"
+              }
+            ]
+          }
         ]
       },
       {
@@ -492,9 +697,40 @@
         "label": "Microbiologie",
         "detail": "Le germe dépend du terrain. Streptococcus pneumoniae domine, mais les virus et les atypiques sont fréquents.",
         "children": [
-          { "id": "micro-pneumo", "label": "Pneumocoque", "leaves": [{ "id": "micro-pneumo-1", "label": "Premier germe" }] },
-          { "id": "micro-atyp", "label": "Atypiques", "leaves": [{ "id": "micro-atyp-1", "label": "Mycoplasma" }, { "id": "micro-atyp-2", "label": "Legionella" }] },
-          { "id": "micro-virus", "label": "Virus", "leaves": [{ "id": "micro-virus-1", "label": "Grippe" }] }
+          {
+            "id": "micro-pneumo",
+            "label": "Pneumocoque",
+            "leaves": [
+              {
+                "id": "micro-pneumo-1",
+                "label": "Premier germe"
+              }
+            ]
+          },
+          {
+            "id": "micro-atyp",
+            "label": "Atypiques",
+            "leaves": [
+              {
+                "id": "micro-atyp-1",
+                "label": "Mycoplasma"
+              },
+              {
+                "id": "micro-atyp-2",
+                "label": "Legionella"
+              }
+            ]
+          },
+          {
+            "id": "micro-virus",
+            "label": "Virus",
+            "leaves": [
+              {
+                "id": "micro-virus-1",
+                "label": "Grippe"
+              }
+            ]
+          }
         ]
       },
       {
@@ -503,9 +739,36 @@
         "tone": "retenir",
         "detail": "Antibiothérapie probabiliste adaptée au terrain et à la gravité, réévaluation à 48-72 heures, durée courte si évolution favorable.",
         "children": [
-          { "id": "ttt-ambu", "label": "Ambulatoire", "leaves": [{ "id": "ttt-ambu-1", "label": "Amoxicilline" }] },
-          { "id": "ttt-hop", "label": "Hospitalisé", "leaves": [{ "id": "ttt-hop-1", "label": "Bêta-lactame + macrolide" }] },
-          { "id": "ttt-duree", "label": "Durée", "leaves": [{ "id": "ttt-duree-1", "label": "5 à 7 jours" }] }
+          {
+            "id": "ttt-ambu",
+            "label": "Ambulatoire",
+            "leaves": [
+              {
+                "id": "ttt-ambu-1",
+                "label": "Amoxicilline"
+              }
+            ]
+          },
+          {
+            "id": "ttt-hop",
+            "label": "Hospitalisé",
+            "leaves": [
+              {
+                "id": "ttt-hop-1",
+                "label": "Bêta-lactame + macrolide"
+              }
+            ]
+          },
+          {
+            "id": "ttt-duree",
+            "label": "Durée",
+            "leaves": [
+              {
+                "id": "ttt-duree-1",
+                "label": "5 à 7 jours"
+              }
+            ]
+          }
         ]
       },
       {
@@ -514,8 +777,30 @@
         "tone": "prudence",
         "detail": "Le plus souvent virale. Pas d'antibiotique chez l'adulte sain ; réévaluer si la toux persiste ou si des signes de gravité apparaissent.",
         "children": [
-          { "id": "bronch-virale", "label": "Virale", "leaves": [{ "id": "bronch-virale-1", "label": "Pas d'antibiotique" }] },
-          { "id": "bronch-signes", "label": "Signes d'alerte", "leaves": [{ "id": "bronch-signes-1", "label": "Dyspnée" }, { "id": "bronch-signes-2", "label": "Fièvre persistante" }] }
+          {
+            "id": "bronch-virale",
+            "label": "Virale",
+            "leaves": [
+              {
+                "id": "bronch-virale-1",
+                "label": "Pas d'antibiotique"
+              }
+            ]
+          },
+          {
+            "id": "bronch-signes",
+            "label": "Signes d'alerte",
+            "leaves": [
+              {
+                "id": "bronch-signes-1",
+                "label": "Dyspnée"
+              },
+              {
+                "id": "bronch-signes-2",
+                "label": "Fièvre persistante"
+              }
+            ]
+          }
         ]
       },
       {
@@ -523,9 +808,40 @@
         "label": "Prévenir",
         "detail": "Vaccination, sevrage tabagique, réduction des expositions et prise en charge des comorbidités.",
         "children": [
-          { "id": "prev-vaccins", "label": "Vaccins", "leaves": [{ "id": "prev-vaccins-1", "label": "Grippe" }, { "id": "prev-vaccins-2", "label": "Pneumocoque" }] },
-          { "id": "prev-tabac", "label": "Tabac", "leaves": [{ "id": "prev-tabac-1", "label": "Sevrage" }] },
-          { "id": "prev-env", "label": "Environnement", "leaves": [{ "id": "prev-env-1", "label": "Pollution domestique" }] }
+          {
+            "id": "prev-vaccins",
+            "label": "Vaccins",
+            "leaves": [
+              {
+                "id": "prev-vaccins-1",
+                "label": "Grippe"
+              },
+              {
+                "id": "prev-vaccins-2",
+                "label": "Pneumocoque"
+              }
+            ]
+          },
+          {
+            "id": "prev-tabac",
+            "label": "Tabac",
+            "leaves": [
+              {
+                "id": "prev-tabac-1",
+                "label": "Sevrage"
+              }
+            ]
+          },
+          {
+            "id": "prev-env",
+            "label": "Environnement",
+            "leaves": [
+              {
+                "id": "prev-env-1",
+                "label": "Pollution domestique"
+              }
+            ]
+          }
         ]
       },
       {
@@ -533,9 +849,36 @@
         "label": "Contexte malgache",
         "detail": "La tuberculose est un diagnostic différentiel majeur. L'accès à la radiographie et aux antibiotiques varie selon les structures.",
         "children": [
-          { "id": "mada-tb", "label": "Tuberculose", "leaves": [{ "id": "mada-tb-1", "label": "Toux > 2 semaines" }] },
-          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Radiographie" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "Résistances locales" }] }
+          {
+            "id": "mada-tb",
+            "label": "Tuberculose",
+            "leaves": [
+              {
+                "id": "mada-tb-1",
+                "label": "Toux > 2 semaines"
+              }
+            ]
+          },
+          {
+            "id": "mada-acces",
+            "label": "Accès",
+            "leaves": [
+              {
+                "id": "mada-acces-1",
+                "label": "Radiographie"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "Résistances locales"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -590,5 +933,6 @@
         "Contexte français"
       ]
     }
-  ]
+  ],
+  "specialty": "Pneumologie"
 }

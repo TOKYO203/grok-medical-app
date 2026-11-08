@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux enjeux : la réanimation hydro-électrolytique du brûlé grave (capitalisation liquidienne massive) et la limitation de l'extension en profondeur par un refroidissement rapide puis des soins adaptés ; la couverture vaccinale antitétanique et la prévention de l'infection sont systématiques."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Voies aériennes brûlées",
+          "text": "Fumées d'incendie, suies, expectoration carbonée, voix enrouée : intubation précoce avant l'œdème : le retard peut rendre l'intubation impossible."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Refroidir d'abord",
+          "text": "Eau tempérée (15 à 25 degrés) pendant 15 minutes : arrête la propagation en profondeur ; jamais de glace (brûlure additive) ni de produits gras."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe devant une brûlure",
+          "text": "Retirer vêtements et bagues, refroidir, évaluer surface (paume = 1 pour cent), chercher des critères de gravité (circulaire, visage, mains, périnée, fumées) : décider du transfert ; antalgie et tétanos systématiques."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Parkland : Ringer lactate 4 mL par kilo et par pour-cent de surface brûlée sur 24 h, la moitié dans les 8 premières heures, dès l'heure de la brûlure ; objectif diurèse 0,5 à 1 mL par kilo et par heure ; jamais d'antibiothérapie prophylactique systématique."
         }
       ]
     },
@@ -155,6 +180,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Transfert en centre de brûlés",
+          "text": "Surface supérieure à 10 pour-cent chez l'enfant ou 20 pour cent chez l'adulte, brûlure de la face, des mains, des pieds, du périnée, circulaire, électrique, chimique, ou association à des fumées : appel et transfert sans délai."
         }
       ]
     },
@@ -250,7 +281,8 @@
           "key": "4",
           "term": "Profonde, carbonisée"
         }
-      ]
+      ],
+      "id": "mn-profondeur"
     },
     {
       "label": "Règle des neuf (adulte)",
@@ -271,7 +303,8 @@
           "key": "J",
           "term": "Chaque jambe : 18 pour cent"
         }
-      ]
+      ],
+      "id": "mn-r-gle-des-neuf-adulte"
     },
     {
       "label": "Critères de gravité",
@@ -292,7 +325,8 @@
           "key": "F",
           "term": "Fumées, voie aérienne"
         }
-      ]
+      ],
+      "id": "mn-crit-res-de-gravit"
     },
     {
       "label": "Premiers gestes",
@@ -313,7 +347,8 @@
           "key": "A",
           "term": "Antalgiques, tétanos"
         }
-      ]
+      ],
+      "id": "mn-premiers-gestes"
     }
   ],
   "flashcards": [
@@ -401,7 +436,8 @@
   "mindmap": {
     "root": {
       "id": "br-root",
-      "label": "Brûlures : traitement précoce"
+      "label": "Brûlures : traitement précoce",
+      "detail": "Brûlures : traitement précoce : Évaluation, Gravité, Premiers gestes, Réanimation, Soins et chirurgie — synthèse du référentiel."
     },
     "branches": [
       {
@@ -430,7 +466,8 @@
             "id": "br-b1-l4",
             "label": "Cartographie, photos"
           }
-        ]
+        ],
+        "detail": "Évaluation : Profondeur et surface"
       },
       {
         "id": "br-b2",
@@ -458,7 +495,8 @@
             "id": "br-b2-l4",
             "label": "Fumées, électricité"
           }
-        ]
+        ],
+        "detail": "Gravité : Transfert en centre"
       },
       {
         "id": "br-b3",
@@ -486,7 +524,8 @@
             "id": "br-b3-l4",
             "label": "Antalgie, tétanos"
           }
-        ]
+        ],
+        "detail": "Premiers gestes : Sur place"
       },
       {
         "id": "br-b4",
@@ -514,7 +553,8 @@
             "id": "br-b4-l4",
             "label": "Voies aériennes"
           }
-        ]
+        ],
+        "detail": "Réanimation : Brûlé grave"
       },
       {
         "id": "br-b5",
@@ -542,7 +582,8 @@
             "id": "br-b5-l4",
             "label": "Rééducation"
           }
-        ]
+        ],
+        "detail": "Soins et chirurgie : Secondaire"
       }
     ]
   },

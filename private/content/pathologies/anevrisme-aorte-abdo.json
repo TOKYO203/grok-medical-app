@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Le message central : le dépistage échographique simple des populations à risque, la surveillance réglée des petits anévrysmes et la réparation élective avant la rupture ; la rupture opérée reste mortelle dans environ la moitié des cas, la réparation élective dans moins de 5 pour cent."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rupture d'anévrysme",
+          "text": "Douleur abdominale ou lombaire brutale, masse battante, choc hémorragique chez un homme de plus de 60 ans : diagnostic clinique : bloc opératoire immédiat : chaque minute perdue augmente la mortalité ; pas de TDM si instable."
         }
       ]
     },
@@ -76,6 +83,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Menace de rupture",
+          "text": "Anévrysme connu avec douleur nouvelle ou sensibilité : rupture imminente : hospitalisation et réparation urgente, sans attendre le diamètre habituel."
         }
       ]
     },
@@ -94,6 +107,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Devant une douleur abdomino-lombaire brutale de l'homme âgé : palper l'abdomen à la recherche d'une masse battante, prendre la tension : masse battante avec hypotension : rupture : chirurgie immédiate ; masse battante sans hypotension : imagerie et réparation rapide."
         }
       ]
     },
@@ -116,6 +135,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Seuil de réparation : 55 mm (homme), 50 mm (femme), ou croissance rapide (plus de 10 mm par an), ou symptôme. Surveillance échographique des petits diamètres. EVAR : convalescence courte, surveillance à vie. Rupture : chirurgie immédiate, mortalité environ 50 pour cent."
         }
       ]
     },
@@ -138,6 +163,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Palper sans écraser",
+          "text": "Un anévrysme connu ne se palpe que doucement : une palpation brutale ou une échographie appuyée peuvent précipiter la rupture ; noter la battance et le diamètre, orienter vers l'échographie."
         }
       ]
     },
@@ -222,26 +253,15 @@
           "term": "Âge (> 60 ans)"
         },
         {
-          "key": "T",
-          "term": "Tabac"
-        },
-        {
           "key": "H",
           "term": "Hypertension"
-        },
-        {
-          "key": "F",
-          "term": "Famille"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     },
     {
       "label": "Complications",
       "entries": [
-        {
-          "key": "R",
-          "term": "Rupture"
-        },
         {
           "key": "T",
           "term": "Thrombose, embolies"
@@ -254,7 +274,8 @@
           "key": "F",
           "term": "Fistule (cave, duodénale)"
         }
-      ]
+      ],
+      "id": "mn-complications"
     },
     {
       "label": "Indications de réparation",
@@ -275,7 +296,8 @@
           "key": "E",
           "term": "Embolies distales"
         }
-      ]
+      ],
+      "id": "mn-indications-de-r-paration"
     },
     {
       "label": "Surveillance échographique",
@@ -296,7 +318,8 @@
           "key": "E",
           "term": "EVAR : imagerie à vie"
         }
-      ]
+      ],
+      "id": "mn-surveillance-chographique"
     }
   ],
   "flashcards": [
@@ -384,7 +407,8 @@
   "mindmap": {
     "root": {
       "id": "aaa-root",
-      "label": "Anévrysme de l'aorte abdominale"
+      "label": "Anévrysme de l'aorte abdominale",
+      "detail": "Anévrysme de l'aorte abdominale : Terrain, Découverte, Bilan, Traitement, Suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -413,7 +437,8 @@
             "id": "aaa-b1-l4",
             "label": "Antécédents familiaux"
           }
-        ]
+        ],
+        "detail": "Terrain : Facteurs de risque"
       },
       {
         "id": "aaa-b2",
@@ -441,7 +466,8 @@
             "id": "aaa-b2-l4",
             "label": "Rupture : choc"
           }
-        ]
+        ],
+        "detail": "Découverte : Modes — Découverte"
       },
       {
         "id": "aaa-b3",
@@ -469,7 +495,8 @@
             "id": "aaa-b3-l4",
             "label": "Diamètre, croissance"
           }
-        ]
+        ],
+        "detail": "Bilan : Imagerie — Bilan"
       },
       {
         "id": "aaa-b4",
@@ -497,7 +524,8 @@
             "id": "aaa-b4-l4",
             "label": "Immédiate si rupture"
           }
-        ]
+        ],
+        "detail": "Traitement : Réparation"
       },
       {
         "id": "aaa-b5",
@@ -525,7 +553,8 @@
             "id": "aaa-b5-l4",
             "label": "Récidive, endofuite"
           }
-        ]
+        ],
+        "detail": "Suivi : Long terme — Suivi"
       }
     ]
   },

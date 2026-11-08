@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -133,7 +134,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Ne pas vérifier le pouls plus de dix secondes",
-          "text": "Devant une perte de connaissance avec respiration absente ou agonique : arrêt circulatoire — alerter et masser immédiatement, ne pas perdre de temps à chercher un pouls incertain."
+          "text": "Devant une perte de connaissance avec respiration absente ou agonique : arrêt circulatoire — alerter et masser immédiatement, ne pas perdre de temps à chercher un pouls incertain.",
+          "type": "callout"
         }
       ]
     },
@@ -252,7 +254,8 @@
           "key": "S",
           "term": "Soins avancés post-arrêt"
         }
-      ]
+      ],
+      "id": "mn-cha-ne-de-survie"
     },
     {
       "label": "Rythmes choquables",
@@ -273,15 +276,12 @@
           "key": "A",
           "term": "Amiodarone si réfractaire"
         }
-      ]
+      ],
+      "id": "mn-rythmes-choquables"
     },
     {
       "label": "4H",
       "entries": [
-        {
-          "key": "H",
-          "term": "Hypoxie"
-        },
         {
           "key": "H",
           "term": "Hypovolémie"
@@ -294,7 +294,8 @@
           "key": "H",
           "term": "Hypothermie"
         }
-      ]
+      ],
+      "id": "mn-4h"
     },
     {
       "label": "4H (suite)",
@@ -315,7 +316,8 @@
           "key": "T",
           "term": "Thrombose pulmonaire"
         }
-      ]
+      ],
+      "id": "mn-4h-suite"
     }
   ],
   "flashcards": [
@@ -403,7 +405,8 @@
   "mindmap": {
     "root": {
       "id": "arr-root",
-      "label": "Arrêt circulatoire"
+      "label": "Arrêt circulatoire",
+      "detail": "Arrêt circulatoire : Reconnaissance, Réanimation, Causes (4H-4H), Soins post-arrêt, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -432,7 +435,8 @@
             "id": "arr-b1-l4",
             "label": "Alerter et masser"
           }
-        ]
+        ],
+        "detail": "Reconnaissance : Moins de dix secondes"
       },
       {
         "id": "arr-b2",
@@ -460,7 +464,8 @@
             "id": "arr-b2-l4",
             "label": "Amiodarone après 3 chocs"
           }
-        ]
+        ],
+        "detail": "Réanimation : Algorithme"
       },
       {
         "id": "arr-b3",
@@ -488,7 +493,8 @@
             "id": "arr-b3-l4",
             "label": "Thromboses coronaire, pulmonaire"
           }
-        ]
+        ],
+        "detail": "Causes (4H-4H) : Réversibles"
       },
       {
         "id": "arr-b4",
@@ -516,7 +522,8 @@
             "id": "arr-b4-l4",
             "label": "Contrôle glycémique"
           }
-        ]
+        ],
+        "detail": "Soins post-arrêt : Après circulation spontanée"
       },
       {
         "id": "arr-b5",
@@ -544,7 +551,8 @@
             "id": "arr-b5-l4",
             "label": "Dépistage familial"
           }
-        ]
+        ],
+        "detail": "Prévention : Population"
       }
     ]
   },

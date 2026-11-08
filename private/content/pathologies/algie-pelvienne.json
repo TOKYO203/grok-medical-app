@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -139,7 +140,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Douleur pelvienne + test de grossesse positif",
-          "text": "Grossesse extra-utérine jusqu'à preuve du contraire : échographie urgente, groupe sanguin, avis ; le risque vital est hémorragique."
+          "text": "Grossesse extra-utérine jusqu'à preuve du contraire : échographie urgente, groupe sanguin, avis ; le risque vital est hémorragique.",
+          "type": "callout"
         }
       ]
     },
@@ -262,7 +264,8 @@
           "key": "A",
           "term": "Appendicite"
         }
-      ]
+      ],
+      "id": "mn-urgences-de-la-douleur-pelvienne-aigu"
     },
     {
       "label": "Causes chroniques",
@@ -276,14 +279,11 @@
           "term": "Adénomyose"
         },
         {
-          "key": "F",
-          "term": "Fibrome"
-        },
-        {
           "key": "I",
           "term": "Intestin irritable, cystite"
         }
-      ]
+      ],
+      "id": "mn-causes-chroniques"
     },
     {
       "label": "Démarche",
@@ -304,7 +304,8 @@
           "key": "B",
           "term": "Bilan IST si fièvre"
         }
-      ]
+      ],
+      "id": "mn-d-marche"
     },
     {
       "label": "Traitement de l'endométriose",
@@ -325,7 +326,8 @@
           "key": "P",
           "term": "Prise en charge de l'infertilité"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-l-endom-triose"
     }
   ],
   "flashcards": [
@@ -413,7 +415,8 @@
   "mindmap": {
     "root": {
       "id": "alp-root",
-      "label": "Algie pelvienne"
+      "label": "Algie pelvienne",
+      "detail": "Algie pelvienne : Aiguë, Cyclique, Chronique, Démarche, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -442,7 +445,8 @@
             "id": "alp-b1-l4",
             "label": "Appendicite, colique néphrétique"
           }
-        ]
+        ],
+        "detail": "Aiguë : Urgences à éliminer"
       },
       {
         "id": "alp-b2",
@@ -470,7 +474,8 @@
             "id": "alp-b2-l4",
             "label": "Dyspareunie profonde"
           }
-        ]
+        ],
+        "detail": "Cyclique : Liée au cycle"
       },
       {
         "id": "alp-b3",
@@ -498,7 +503,8 @@
             "id": "alp-b3-l4",
             "label": "Plancher pelvien, psychisme"
           }
-        ]
+        ],
+        "detail": "Chronique : Plus de six mois"
       },
       {
         "id": "alp-b4",
@@ -526,7 +532,8 @@
             "id": "alp-b4-l4",
             "label": "PCR IST, IRM, cœlioscopie"
           }
-        ]
+        ],
+        "detail": "Démarche : Étape par étape"
       },
       {
         "id": "alp-b5",
@@ -554,7 +561,8 @@
             "id": "alp-b5-l4",
             "label": "Multidisciplinaire si chronique"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "pathology",
   "slug": "adenopathie",
-  "title": "Adénopathie",
+  "title": "Adénopathie superficielle",
   "specialty": "Hématologie",
   "language": "fr",
   "updatedAt": "2026-11-01",
@@ -17,12 +17,13 @@
       "ordinal": 4,
       "localNumber": 4,
       "sectionLabel": "Sémiologie",
-      "title": "Adénopathie",
+      "title": "Adénopathie superficielle",
       "specialty": "Hématologie"
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -121,13 +122,15 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Syndrome cave supérieur",
-          "text": "Adénopathies médiastinales avec œdème et cyanose de la face, dyspnée, distension des veines du cou : obstruction de la veine cave supérieure, urgence thérapeutique, imaging et prise en charge oncologique en urgence."
+          "text": "Adénopathies médiastinales avec œdème et cyanose de la face, dyspnée, distension des veines du cou : obstruction de la veine cave supérieure, urgence thérapeutique, imaging et prise en charge oncologique en urgence.",
+          "type": "callout"
         },
         {
           "id": "c2",
           "tone": "urgence",
           "title": "Adénopathie sus-claviculaire",
-          "text": "Une adénopathie sus-claviculaire, notamment gauche (ganglion de Troisier), est suspecte jusqu'à preuve du contraire : bilan à la recherche d'un cancer digestif, pulmonaire ou pelvien."
+          "text": "Une adénopathie sus-claviculaire, notamment gauche (ganglion de Troisier), est suspecte jusqu'à preuve du contraire : bilan à la recherche d'un cancer digestif, pulmonaire ou pelvien.",
+          "type": "callout"
         }
       ]
     },
@@ -245,7 +248,8 @@
           "key": "P",
           "term": "Persistance et croissance"
         }
-      ]
+      ],
+      "id": "mn-crit-res-de-malignit"
     },
     {
       "label": "Causes infectieuses",
@@ -266,7 +270,8 @@
           "key": "P",
           "term": "Parasitoses (toxoplasmose, leishmaniose)"
         }
-      ]
+      ],
+      "id": "mn-causes-infectieuses"
     },
     {
       "label": "Bilan de première intention",
@@ -287,7 +292,8 @@
           "key": "R",
           "term": "Radiographie de thorax"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-premi-re-intention"
     },
     {
       "label": "Examens de deuxième intention",
@@ -308,7 +314,8 @@
           "key": "B",
           "term": "Biopsie ganglionnaire (référence)"
         }
-      ]
+      ],
+      "id": "mn-examens-de-deuxi-me-intention"
     }
   ],
   "flashcards": [
@@ -396,7 +403,8 @@
   "mindmap": {
     "root": {
       "id": "adt-root",
-      "label": "Adénopathie"
+      "label": "Adénopathie",
+      "detail": "Adénopathie : Examen, Causes bénignes, Causes graves, Bilan, Prise en charge — synthèse du référentiel."
     },
     "branches": [
       {
@@ -425,7 +433,8 @@
             "id": "adt-b1-l4",
             "label": "Aires de drainage"
           }
-        ]
+        ],
+        "detail": "Examen : Critères codifiés"
       },
       {
         "id": "adt-b2",
@@ -453,7 +462,8 @@
             "id": "adt-b2-l4",
             "label": "Systémiques (lupus, Kikuchi)"
           }
-        ]
+        ],
+        "detail": "Causes bénignes : Réactionnelles"
       },
       {
         "id": "adt-b3",
@@ -481,7 +491,8 @@
             "id": "adt-b3-l4",
             "label": "Tuberculose ganglionnaire"
           }
-        ]
+        ],
+        "detail": "Causes graves : À éliminer"
       },
       {
         "id": "adt-b4",
@@ -509,7 +520,8 @@
             "id": "adt-b4-l4",
             "label": "Biopsie ganglionnaire"
           }
-        ]
+        ],
+        "detail": "Bilan : Par étapes — Bilan"
       },
       {
         "id": "adt-b5",
@@ -537,7 +549,8 @@
             "id": "adt-b5-l4",
             "label": "Surveillance à 4-6 semaines"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Selon la cause"
       }
     ]
   },

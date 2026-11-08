@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -273,7 +274,8 @@
           "key": "D",
           "term": "Direct : le test de Coombs fait le diagnostic"
         }
-      ]
+      ],
+      "id": "mn-type-d-anticorps"
     },
     {
       "label": "Causes à chercher",
@@ -298,7 +300,8 @@
           "key": "L",
           "term": "Lupus et connectivites"
         }
-      ]
+      ],
+      "id": "mn-causes-chercher"
     },
     {
       "label": "Traitement des formes chaudes",
@@ -315,7 +318,8 @@
           "key": "3",
           "term": "Splénectomie en dernier recours"
         }
-      ]
+      ],
+      "id": "mn-traitement-des-formes-chaudes"
     },
     {
       "label": "Mesures systématiques",
@@ -336,7 +340,8 @@
           "key": "C",
           "term": "Carte du patient : mention de l'allo-immunisation possible"
         }
-      ]
+      ],
+      "id": "mn-mesures-syst-matiques"
     }
   ],
   "flashcards": [
@@ -424,7 +429,8 @@
   "mindmap": {
     "root": {
       "id": "ahai-root",
-      "label": "Anémie hémolytique auto-immune"
+      "label": "Anémie hémolytique auto-immune",
+      "detail": "Anémie hémolytique auto-immune : Définition et typologie, Étiologies, Diagnostic, Traitement, Urgences et suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -453,7 +459,8 @@
             "id": "ai-l1-4",
             "label": "5 % de Coombs négatifs"
           }
-        ]
+        ],
+        "detail": "Définition et typologie : Auto-anticorps"
       },
       {
         "id": "ai-b2",
@@ -481,7 +488,8 @@
             "id": "ai-l2-4",
             "label": "Lupus, médicaments"
           }
-        ]
+        ],
+        "detail": "Étiologies : À chercher systématiquement"
       },
       {
         "id": "ai-b3",
@@ -509,7 +517,8 @@
             "id": "ai-l3-4",
             "label": "Bilan étiologique complet"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique et biologie"
       },
       {
         "id": "ai-b4",
@@ -537,7 +546,8 @@
             "id": "ai-l4-4",
             "label": "Acide folique, thromboprophylaxie"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon le type"
       },
       {
         "id": "ai-b5",
@@ -565,7 +575,8 @@
             "id": "ai-l5-4",
             "label": "Surveillance à long terme des hémopathies"
           }
-        ]
+        ],
+        "detail": "Urgences et suivi : Points de vigilance"
       }
     ]
   },
