@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "La mortalité dépend de la rapidité et de l'organisation de la prise en charge : gestes de sauvetage immédiats, bilan lésionnel complet sans négliger une lésion, traitement d'hémostase précoce et prévention de la triade létale."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Glasgow inférieur ou égal à 8 : intuber",
+          "text": "Traumatisé crânien grave : oxygénation et intubation avec protection du rachis ; chaque épisode d'hypoxie ou d'hypotension aggrave le pronostic neurologique."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Choc hémorragique",
+          "text": "Pression directe, garrot si membres, acide tranexamique, produits sanguins précoces ; scanner seulement si stabilité, sinon écho FAST et chirurgie d'hémostase sans délai."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "ABCDE dans l'ordre, revenir à A si aggravation : voies aériennes et rachis, ventilation et drainage, circulation et hémostase, Glasgow et pupilles, dénudement sans oublier l'hypothermie."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Polytrauma : plusieurs lésions, dont au moins une menace vitale.ABCDE et hémostase d'abord.Scanner corps entier si stable, FAST et chirurgie si instable.Triade létale : hypothermie, acidose, coagulopathie.Damage control : stopper l'hémorragie, réchauffer, réanimer."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Triade létale",
+          "text": "H (Hypothermie) + A (Acidose) + C (Coagulopathie) : chaque élément aggrave les autres et mène à l'hémorragie incontrôlable : réchauffer, ventiler, transfuser équilibré, calcium."
         }
       ]
     },
@@ -246,7 +277,8 @@
           "key": "E",
           "term": "Exposure (hypothermie)"
         }
-      ]
+      ],
+      "id": "mn-abcde"
     },
     {
       "label": "Lésions à ne pas manquer",
@@ -267,7 +299,8 @@
           "key": "A",
           "term": "Aorte (lésion traumatique)"
         }
-      ]
+      ],
+      "id": "mn-l-sions-ne-pas-manquer"
     },
     {
       "label": "Lutte contre l'hémorragie",
@@ -288,7 +321,8 @@
           "key": "E",
           "term": "Embolisation ou chirurgie"
         }
-      ]
+      ],
+      "id": "mn-lutte-contre-l-h-morragie"
     },
     {
       "label": "Triade létale",
@@ -298,10 +332,6 @@
           "term": "Hypothermie"
         },
         {
-          "key": "A",
-          "term": "Acidose"
-        },
-        {
           "key": "C",
           "term": "Coagulopathie"
         },
@@ -309,7 +339,8 @@
           "key": "C",
           "term": "Calcium, réchauffement"
         }
-      ]
+      ],
+      "id": "mn-triade-l-tale"
     }
   ],
   "flashcards": [
@@ -397,7 +428,8 @@
   "mindmap": {
     "root": {
       "id": "pt-root",
-      "label": "Polytraumatisme"
+      "label": "Polytraumatisme",
+      "detail": "Polytraumatisme : Définition, ABCDE, Bilan, Hémostase, Complications — synthèse du référentiel."
     },
     "branches": [
       {
@@ -426,7 +458,8 @@
             "id": "pt-b1-l4",
             "label": "Bilan complet requis"
           }
-        ]
+        ],
+        "detail": "Définition : Gravité"
       },
       {
         "id": "pt-b2",
@@ -454,7 +487,8 @@
             "id": "pt-b2-l4",
             "label": "Disability, Exposure"
           }
-        ]
+        ],
+        "detail": "ABCDE : Séquencé — ABCDE"
       },
       {
         "id": "pt-b3",
@@ -482,7 +516,8 @@
             "id": "pt-b3-l4",
             "label": "Rachis, aorte"
           }
-        ]
+        ],
+        "detail": "Bilan : Adapté à l'état"
       },
       {
         "id": "pt-b4",
@@ -510,7 +545,8 @@
             "id": "pt-b4-l4",
             "label": "Damage control"
           }
-        ]
+        ],
+        "detail": "Hémostase : Priorité"
       },
       {
         "id": "pt-b5",
@@ -538,7 +574,8 @@
             "id": "pt-b5-l4",
             "label": "Infections, thrombose"
           }
-        ]
+        ],
+        "detail": "Complications : À prévenir"
       }
     ]
   },

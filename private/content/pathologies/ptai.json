@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -277,15 +278,12 @@
           "key": "F",
           "term": "Frottis : ni agrégats, ni schizocytes, ni blastes"
         }
-      ]
+      ],
+      "id": "mn-crit-res-diagnostiques"
     },
     {
       "label": "Causes à dépister",
       "entries": [
-        {
-          "key": "V",
-          "term": "VIH"
-        },
         {
           "key": "H",
           "term": "Hépatite C"
@@ -302,7 +300,8 @@
           "key": "M",
           "term": "Médicaments"
         }
-      ]
+      ],
+      "id": "mn-causes-d-pister"
     },
     {
       "label": "Traitement de première ligne",
@@ -319,7 +318,8 @@
           "key": "R",
           "term": "Réévaluation à 48-72 heures"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-premi-re-ligne"
     },
     {
       "label": "Options du PTI chronique",
@@ -340,7 +340,8 @@
           "key": "E",
           "term": "Éradication de Helicobacter pylori si documentée"
         }
-      ]
+      ],
+      "id": "mn-options-du-pti-chronique"
     }
   ],
   "flashcards": [
@@ -428,7 +429,8 @@
   "mindmap": {
     "root": {
       "id": "ptai-root",
-      "label": "Purpura thrombopénique immunologique"
+      "label": "Purpura thrombopénique immunologique",
+      "detail": "Purpura thrombopénique immunologique : Définition, Diagnostic, Gravité, Traitement, Prévention et suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -453,7 +455,8 @@
             "id": "pt-l1-3",
             "label": "Mégacaryocytes normaux ou augmentés"
           }
-        ]
+        ],
+        "detail": "Définition : Diagnostic d'élimination"
       },
       {
         "id": "pt-b2",
@@ -477,7 +480,8 @@
             "id": "pt-l2-3",
             "label": "Myélogramme si doute ou avant splénectomie"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Démarche obligatoire"
       },
       {
         "id": "pt-b3",
@@ -505,7 +509,8 @@
             "id": "pt-l3-4",
             "label": "Hémorragie viscérale : hospitalisation"
           }
-        ]
+        ],
+        "detail": "Gravité : Seuils à connaître"
       },
       {
         "id": "pt-b4",
@@ -533,7 +538,8 @@
             "id": "pt-l4-4",
             "label": "Traiter les causes associées"
           }
-        ]
+        ],
+        "detail": "Traitement : Ligne par ligne"
       },
       {
         "id": "pt-b5",
@@ -561,7 +567,8 @@
             "id": "pt-l5-4",
             "label": "Suivi hématologique"
           }
-        ]
+        ],
+        "detail": "Prévention et suivi : Au long cours"
       }
     ]
   },

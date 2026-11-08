@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -44,6 +45,12 @@
         {
           "type": "paragraph",
           "text": "Le post-partum (ou période postnatale) couvre les six semaines qui suivent l'accouchement, avec le retour de couches et l'involution utérine comme points d'achèvement. C'est une période critique : la majorité des décès maternels y surviennent, surtout dans les premiers jours, dominés par l'hémorragie et l'infection. Elle est aussi la période de l'initiation de l'allaitement, du lien mère-enfant et de la planification familiale postnatale."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie du post-partum immédiat",
+          "text": "Saignement abondant ou signes de choc dans les 2 heures : massage utérin, ocytocine, vidange vésicale, voies veineuses, révision utérine et examen des lésions sans délai ; c'est la première cause de mort maternelle — toute minute compte."
         }
       ]
     },
@@ -58,6 +65,12 @@
         {
           "type": "paragraph",
           "text": "Physiologie de l'involution : l'utérus, pesant environ 1 000 g à l'accouchement, retrouve son poids de repos (60–80 g) en six semaines ; la lochiosécrétion (pertes sanglantes puis brunâtres, dites lochies) dure 3 à 4 semaines. L'OMS recommande au moins quatre contacts postnatux pour toute mère et son nouveau-né : dans les 24 heures si l'accouchement a eu lieu en formation sanitaire, un contact entre 48 et 72 heures, entre 7 et 14 jours, puis à six semaines."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Psychose du post-partum",
+          "text": "Début brutal d'idées délirantes, d'hallucinations ou de confusion dans les jours suivant l'accouchement : urgence psychiatrique avec protection de la mère et de l'enfant ; ne jamais laisser la mère seule avec le nouveau-né (fiche Trouble psychique de la grossesse et du postpartum)."
         }
       ]
     },
@@ -78,6 +91,12 @@
             "Troubles psychiques (baby-blues, dépression, psychose du post-partum) : antécédents psychiatriques, grossesse non désirée, isolement social, événements de vie défavorables.",
             "Retard de montée lactée et échec d'allaitement : séparation mère-enfant, prématurité, césarienne, mauvaise prise du sein, croyances et pratiques locales."
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe des 2 premières heures",
+          "text": "Après la délivrance : utérotonique systématique, surveillance toutes les 15 minutes (pouls, tension, saignement, globe utérin, vessie), contact peau à peau et première tétée. Pas de sortie de salle de naissance avant cette stabilisation."
         }
       ]
     },
@@ -108,6 +127,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Post-partum = 6 semaines ; immédiat (2 h, hémorragie), précoce (J1–J7, infection et montée lactée), tardif (jusqu'à 6 semaines, involution et retour de couches). Quatre contacts postnatals OMS : 24 h, 48–72 h, J7–J14, 6 semaines. Allaitement exclusif 6 mois, poursuivi jusqu'à 2 ans ou plus."
         }
       ]
     },
@@ -138,6 +163,12 @@
         {
           "type": "paragraph",
           "text": "Thromboprophylaxie et contraception. En cas de facteurs de risque thromboembolique (césarienne, antécédent, obésité, immobilisation), mobilisation précoce et héparine de bas poids moléculaire selon les protocoles. La contraception postnatale s'organise avant la sortie : méthode de l'aménorrhée lactationnelle (efficace jusqu'à 6 mois si allaitement exclusif, aménorrhée et avant le retour de couches), progestatifs microdosés, implant ou dispositif intra-utérin immédiatement ou différés, œstroprogestatifs seulement après 6 semaines et en l'absence d'allaitement (lien avec la fiche Contraception)."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo des lochies",
+          "text": "Lochies normales : rouge vif pendant 3–4 jours, puis brunâtres (lochies séro-sanglantes) vers J5–J10, puis blanchâtres, s'arrêtant vers 3–4 semaines. Abondantes, fétides ou prolongées : rechercher rétention, endométrite ou hémorragie secondaire."
         }
       ]
     },
@@ -237,7 +268,8 @@
           "key": "T",
           "term": "Tétées et seins : montée lactée, fissures"
         }
-      ]
+      ],
+      "id": "mn-surveillance-de-l-accouch-e-tout"
     },
     {
       "label": "Causes d'hémorragie du post-partum (4 T)",
@@ -258,7 +290,8 @@
           "key": "T4",
           "term": "Thrombine — troubles de la coagulation"
         }
-      ]
+      ],
+      "id": "mn-causes-d-h-morragie-du-post-partum-4-t"
     },
     {
       "label": "Fièvre du post-partum (6 causes)",
@@ -287,7 +320,8 @@
           "key": "F6",
           "term": "Thrombose veineuse profonde"
         }
-      ]
+      ],
+      "id": "mn-fi-vre-du-post-partum-6-causes"
     },
     {
       "label": "Allaitement réussi (BIEN)",
@@ -308,7 +342,8 @@
           "key": "N",
           "term": "Nombreuses tétées : 8 à 12 par jour, à la demande"
         }
-      ]
+      ],
+      "id": "mn-allaitement-r-ussi-bien"
     }
   ],
   "flashcards": [
@@ -396,7 +431,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Post-partum"
+      "label": "Post-partum",
+      "detail": "Post-partum : Découpage, Surveillance, Complications, Allaitement, Prévention et suite — synthèse du référentiel."
     },
     "branches": [
       {
@@ -425,7 +461,8 @@
             "id": "b1l1",
             "label": "4 contacts postnatals OMS"
           }
-        ]
+        ],
+        "detail": "Découpage : Immédiat : 2 premières heures, Précoce : jusqu'à J7, Tardif : jusqu'à 6 semaines, Fin : involution, retour de couches"
       },
       {
         "id": "b2",
@@ -453,7 +490,8 @@
             "id": "b2l1",
             "label": "Globe de sécurité"
           }
-        ]
+        ],
+        "detail": "Surveillance : Constantes : pouls, tension, fièvre, Utérus : tonicité, hauteur, Lochies : abondance, odeur, Seins, vessie, veines, psychisme"
       },
       {
         "id": "b3",
@@ -481,7 +519,8 @@
             "id": "b3l1",
             "label": "Orientation rapide en référence"
           }
-        ]
+        ],
+        "detail": "Complications : Hémorragie : atonie (4 T), Endométrite : lochies fétides, Mastite, thrombose, Baby-blues, dépression, psychose"
       },
       {
         "id": "b4",
@@ -509,7 +548,8 @@
             "id": "b4l1",
             "label": "Méthode de l'aménorrhée lactationnelle"
           }
-        ]
+        ],
+        "detail": "Allaitement : Mise au sein < 1 heure, Exclusif 6 mois, Poursuite jusqu'à 2 ans ou plus, Engorgement, fissures : conduites"
       },
       {
         "id": "b5",
@@ -537,7 +577,8 @@
             "id": "b5l1",
             "label": "Visite postnatale à 6 semaines"
           }
-        ]
+        ],
+        "detail": "Prévention et suite : Ocytocine systématique à la naissance, Hygiène et mobilisation précoce, Soutien psychologique et social, Contraception postnatale avant la sortie"
       }
     ]
   },

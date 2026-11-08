@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -135,7 +136,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Syndrome néphrotique",
-          "text": "Protéinurie supérieure à trois grammes par vingt-quatre heures avec œdèmes blancs et hypoalbuminémie : syndrome néphrotique — urgence diagnostique (biopsie), anticoagulation si albuminémie inférieure à vingt, recherche de complications (thrombose, infection)."
+          "text": "Protéinurie supérieure à trois grammes par vingt-quatre heures avec œdèmes blancs et hypoalbuminémie : syndrome néphrotique — urgence diagnostique (biopsie), anticoagulation si albuminémie inférieure à vingt, recherche de complications (thrombose, infection).",
+          "type": "callout"
         }
       ]
     },
@@ -261,7 +263,8 @@
           "key": "3 g",
           "term": "3 g : syndrome néphrotique"
         }
-      ]
+      ],
+      "id": "mn-seuils-de-la-prot-inurie"
     },
     {
       "label": "Causes glomérulaires",
@@ -282,7 +285,8 @@
           "key": "A",
           "term": "Amylose, glomérulonéphrites"
         }
-      ]
+      ],
+      "id": "mn-causes-glom-rulaires"
     },
     {
       "label": "Démarche diagnostique",
@@ -303,7 +307,8 @@
           "key": "B",
           "term": "Biopsie si indiquée"
         }
-      ]
+      ],
+      "id": "mn-d-marche-diagnostique"
     },
     {
       "label": "Traitement néphroprotecteur",
@@ -324,7 +329,8 @@
           "key": "S",
           "term": "Statines, sevrage toxique"
         }
-      ]
+      ],
+      "id": "mn-traitement-n-phroprotecteur"
     }
   ],
   "flashcards": [
@@ -412,7 +418,8 @@
   "mindmap": {
     "root": {
       "id": "pro-root",
-      "label": "Protéinurie"
+      "label": "Protéinurie",
+      "detail": "Protéinurie : Dépistage, Seuils, Étiologies, Traitement, Suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -441,7 +448,8 @@
             "id": "pro-b1-l4",
             "label": "Microalbuminurie"
           }
-        ]
+        ],
+        "detail": "Dépistage : Outils — Dépistage"
       },
       {
         "id": "pro-b2",
@@ -469,7 +477,8 @@
             "id": "pro-b2-l4",
             "label": "30 mg : microalbuminurie"
           }
-        ]
+        ],
+        "detail": "Seuils : À retenir — Seuils"
       },
       {
         "id": "pro-b3",
@@ -497,7 +506,8 @@
             "id": "pro-b3-l4",
             "label": "Dépassement : myélome"
           }
-        ]
+        ],
+        "detail": "Étiologies : Selon le mécanisme"
       },
       {
         "id": "pro-b4",
@@ -525,7 +535,8 @@
             "id": "pro-b4-l4",
             "label": "Immunosuppresseurs si cause immune"
           }
-        ]
+        ],
+        "detail": "Traitement : Néphroprotection"
       },
       {
         "id": "pro-b5",
@@ -553,7 +564,8 @@
             "id": "pro-b5-l4",
             "label": "Prévention de l'insuffisance rénale"
           }
-        ]
+        ],
+        "detail": "Suivi : Chronique — Suivi"
       }
     ]
   },
