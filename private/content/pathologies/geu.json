@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Toute femme en âge de procréer présentant des douleurs pelviennes ou des métrorragies doit avoir un test de grossesse : c'est la règle qui sauve des vies."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "GEU rompue : choc hémorragique",
+          "text": "Douleur brutale, malaise, pâleur, tachycardie, hypotension, défense : réanimation et cœlioscopie immédiate ; ne pas attendre l'échographie chez une patiente instable avec β-hCG positifs."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Toute femme en âge de procréer + douleur pelvienne",
+          "text": "Test de grossesse systématique avant tout autre bilan : une GEU peut se présenter sans retard de règles connu et simuler une appendicite, une salpingite ou un avortement."
         }
       ]
     },
@@ -101,6 +114,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Retard de règles + douleur latérale + métrorragies noirâtres : β-hCG + échographie pelvienne endovaginale ; examiner la tolérance hémodynamique ; toucher vaginal : Douglas douloureux ; groupe sanguin et RAI."
         }
       ]
     },
@@ -123,6 +142,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Première cause de mortalité du premier trimestre.Triade : aménorrhée + douleur latérale + métrorragies.β-hCG + utérus vide à l'écho = GEU jusqu'à preuve du contraire.Rupture : cœlioscopie urgente.Stable : salpingotomie ou méthotrexate.Surveillance β-hCG jusqu'à négativation."
         }
       ]
     },
@@ -145,6 +170,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Conditions du méthotrexate",
+          "text": "Stable, non rompue, petit volume, β-hCG bas, pas d'activité cardiaque, trompe intacte, patiente compliant et joignable ; contre-indiqué si hémo péritonéum, activité cardiaque ou douleur importante."
         }
       ]
     },
@@ -236,7 +267,8 @@
           "key": "M",
           "term": "Métrorragies noirâtres"
         }
-      ]
+      ],
+      "id": "mn-triade-de-la-geu"
     },
     {
       "label": "Signes de rupture",
@@ -257,7 +289,8 @@
           "key": "D",
           "term": "Défense, Douglas criard"
         }
-      ]
+      ],
+      "id": "mn-signes-de-rupture"
     },
     {
       "label": "Facteurs de risque",
@@ -271,14 +304,11 @@
           "term": "Chirurgie tubaire"
         },
         {
-          "key": "T",
-          "term": "Tabac"
-        },
-        {
           "key": "G",
           "term": "GEU antérieure"
         }
-      ]
+      ],
+      "id": "mn-facteurs-de-risque"
     },
     {
       "label": "Traitement",
@@ -299,7 +329,8 @@
           "key": "M",
           "term": "Méthotrexate si conditions"
         }
-      ]
+      ],
+      "id": "mn-traitement"
     }
   ],
   "flashcards": [
@@ -387,7 +418,8 @@
   "mindmap": {
     "root": {
       "id": "geu-root",
-      "label": "Grossesse extra-utérine"
+      "label": "Grossesse extra-utérine",
+      "detail": "Grossesse extra-utérine : Terrain, Signes, Diagnostic, Traitement, Suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -416,7 +448,8 @@
             "id": "geu-b1-l4",
             "label": "GEU antérieure"
           }
-        ]
+        ],
+        "detail": "Terrain : À risque — Terrain"
       },
       {
         "id": "geu-b2",
@@ -444,7 +477,8 @@
             "id": "geu-b2-l4",
             "label": "Rupture : choc"
           }
-        ]
+        ],
+        "detail": "Signes : Triade + rupture"
       },
       {
         "id": "geu-b3",
@@ -472,7 +506,8 @@
             "id": "geu-b3-l4",
             "label": "Cinétique des β-hCG"
           }
-        ]
+        ],
+        "detail": "Diagnostic : β-hCG + échographie"
       },
       {
         "id": "geu-b4",
@@ -500,7 +535,8 @@
             "id": "geu-b4-l4",
             "label": "Méthotrexate si conditions"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la stabilité"
       },
       {
         "id": "geu-b5",
@@ -528,7 +564,8 @@
             "id": "geu-b5-l4",
             "label": "Écho précoce si grossesse"
           }
-        ]
+        ],
+        "detail": "Suivi : Jusqu'à négativation"
       }
     ]
   },

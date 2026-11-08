@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -117,7 +118,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Fièvre prolongée avec souffle nouveau",
-          "text": "Toute fièvre prolongée avec un souffle cardiaque, une prothèse valvulaire ou un portail d'entrée dentaire : hémocultures répétées et échocardiogramme — l'endocardite est la cause infectieuse à ne pas manquer."
+          "text": "Toute fièvre prolongée avec un souffle cardiaque, une prothèse valvulaire ou un portail d'entrée dentaire : hémocultures répétées et échocardiogramme — l'endocardite est la cause infectieuse à ne pas manquer.",
+          "type": "callout"
         }
       ]
     },
@@ -227,7 +229,8 @@
           "key": "O",
           "term": "Orienter le bilan vers les hypothèses issues de la clinique"
         }
-      ]
+      ],
+      "id": "mn-les-trois-temps"
     },
     {
       "label": "Causes infectieuses",
@@ -252,7 +255,8 @@
           "key": "V",
           "term": "VIH et virus"
         }
-      ]
+      ],
+      "id": "mn-causes-infectieuses"
     },
     {
       "label": "Causes non infectieuses",
@@ -273,7 +277,8 @@
           "key": "M",
           "term": "Maladie thrombo-embolique et médicaments"
         }
-      ]
+      ],
+      "id": "mn-causes-non-infectieuses"
     },
     {
       "label": "Examens de deuxième intention",
@@ -294,7 +299,8 @@
           "key": "F",
           "term": "Fibroscopies selon les points d'appel"
         }
-      ]
+      ],
+      "id": "mn-examens-de-deuxi-me-intention"
     }
   ],
   "flashcards": [
@@ -382,7 +388,8 @@
   "mindmap": {
     "root": {
       "id": "fp-root",
-      "label": "Fièvre persistante (plus de vingt jours)"
+      "label": "Fièvre persistante (plus de vingt jours)",
+      "detail": "Fièvre persistante (plus de vingt jours) : Définition, Causes infectieuses, Causes non infectieuses, Stratégie, Évolution — synthèse du référentiel."
     },
     "branches": [
       {
@@ -411,7 +418,8 @@
             "id": "fp-b1-l4",
             "label": "Anamnèse refaite intégralement"
           }
-        ]
+        ],
+        "detail": "Définition : Cadre et préalables"
       },
       {
         "id": "fp-b2",
@@ -439,7 +447,8 @@
             "id": "fp-b2-l4",
             "label": "Urinaire, biliaire, VIH"
           }
-        ]
+        ],
+        "detail": "Causes infectieuses : Noyau à connaître"
       },
       {
         "id": "fp-b3",
@@ -467,7 +476,8 @@
             "id": "fp-b3-l4",
             "label": "Thrombose, médicaments"
           }
-        ]
+        ],
+        "detail": "Causes non infectieuses : Penser large"
       },
       {
         "id": "fp-b4",
@@ -495,7 +505,8 @@
             "id": "fp-b4-l4",
             "label": "Pas d'antibiothérapie aveugle"
           }
-        ]
+        ],
+        "detail": "Stratégie : Par paliers"
       },
       {
         "id": "fp-b5",
@@ -523,7 +534,8 @@
             "id": "fp-b5-l4",
             "label": "Traitement = celui de la cause"
           }
-        ]
+        ],
+        "detail": "Évolution : Surveiller"
       }
     ]
   },

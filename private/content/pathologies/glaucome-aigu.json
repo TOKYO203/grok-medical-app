@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Il survient typiquement chez un sujet âgé, hypermétrope, à chambre antérieure étroite ; l'atteinte est unilatérale mais l'œil controlatéral, dit œil adhérent, présente le même risque et doit être traité en prévention."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Urgence visuelle absolue",
+          "text": "Toute douleur oculaire brutale avec baisse d'acuité, œil rouge et mydriase aréactive : mesure du tonus immédiate, traitement hypotonisant sans délai, avis ophtalmologique urgent."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Ne pas se tromper de diagnostic",
+          "text": "Vomissements et douleurs abdominales peuvent faire errer le diagnostic ; toujours examiner les yeux (rougeur, mydriase, acuité) avant de conclure à une cause digestive."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Acuité visuelle, tonus oculaire aux deux yeux, pupille (mydriase aréactive ?), chambre antérieure (étroite ?), œil controlatéral adhérent : prévoir l'iridotomie préventive."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Sujet âgé hypermétrope. Douleur intense + halos colorés.Œil rouge, cornée voilée, mydriase moyenne fixée.Tonus supérieur à 40 mmHg.Traitement : acétazolamide, hypotonisants, pilocarpine puis iridotomie laser.Iridotomie préventive de l'œil adhérent."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Règle de la crise",
+          "text": "D (Douleur) + R (Rougeur) + M (Mydriase) + H (Hypertonie) = Glaucome aigu. Traiter hypotonie puis ouvrir l'angle (iridotomie), et protéger l'œil adhérent."
         }
       ]
     },
@@ -242,15 +273,12 @@
           "key": "H",
           "term": "Hypertonie majeure"
         }
-      ]
+      ],
+      "id": "mn-signes-de-la-crise"
     },
     {
       "label": "Terrain",
       "entries": [
-        {
-          "key": "A",
-          "term": "Âgé"
-        },
         {
           "key": "H",
           "term": "Hypermétrope"
@@ -263,7 +291,8 @@
           "key": "M",
           "term": "Mydriatiques déclenchants"
         }
-      ]
+      ],
+      "id": "mn-terrain"
     },
     {
       "label": "Traitement médical",
@@ -284,7 +313,8 @@
           "key": "P",
           "term": "Pilocarpine (myotique)"
         }
-      ]
+      ],
+      "id": "mn-traitement-m-dical"
     },
     {
       "label": "Suivi",
@@ -305,7 +335,8 @@
           "key": "E",
           "term": "Éviter mydriatiques"
         }
-      ]
+      ],
+      "id": "mn-suivi"
     }
   ],
   "flashcards": [
@@ -393,7 +424,8 @@
   "mindmap": {
     "root": {
       "id": "ga-root",
-      "label": "Glaucome aigu à angle fermé"
+      "label": "Glaucome aigu à angle fermé",
+      "detail": "Glaucome aigu à angle fermé : Terrain, Signes, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -422,7 +454,8 @@
             "id": "ga-b1-l4",
             "label": "Mydriatiques déclenchants"
           }
-        ]
+        ],
+        "detail": "Terrain : À risque — Terrain"
       },
       {
         "id": "ga-b2",
@@ -450,7 +483,8 @@
             "id": "ga-b2-l4",
             "label": "Tonus supérieur à 40 mmHg"
           }
-        ]
+        ],
+        "detail": "Signes : Crise typique"
       },
       {
         "id": "ga-b3",
@@ -478,7 +512,8 @@
             "id": "ga-b3-l4",
             "label": "Œil controlatéral"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Confirmer"
       },
       {
         "id": "ga-b4",
@@ -506,7 +541,8 @@
             "id": "ga-b4-l4",
             "label": "Iridotomie laser"
           }
-        ]
+        ],
+        "detail": "Traitement : Urgent — Traitement"
       },
       {
         "id": "ga-b5",
@@ -534,7 +570,8 @@
             "id": "ga-b5-l4",
             "label": "Éducation du patient"
           }
-        ]
+        ],
+        "detail": "Prévention : Protéger"
       }
     ]
   },

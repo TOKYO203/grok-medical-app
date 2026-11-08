@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -115,7 +116,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Signes de gravité immédiate",
-          "text": "Fièvre avec hypotension, marbrures, confusion, polypnée, purpura ou syndrome méningé : sepsis probable — hémocultures, antibiothérapie et remplissage sans délai, hospitalisation."
+          "text": "Fièvre avec hypotension, marbrures, confusion, polypnée, purpura ou syndrome méningé : sepsis probable — hémocultures, antibiothérapie et remplissage sans délai, hospitalisation.",
+          "type": "callout"
         }
       ]
     },
@@ -232,7 +234,8 @@
           "key": "P",
           "term": "Polypnée, détresse respiratoire"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Six points d'appel à examiner",
@@ -261,7 +264,8 @@
           "key": "C",
           "term": "Cœur : souffle, endocardite"
         }
-      ]
+      ],
+      "id": "mn-six-points-d-appel-examiner"
     },
     {
       "label": "Terrain à risque",
@@ -282,7 +286,8 @@
           "key": "A",
           "term": "Âges extrêmes : nourrisson, sujet âgé fébricule"
         }
-      ]
+      ],
+      "id": "mn-terrain-risque"
     },
     {
       "label": "Causes à ne pas manquer",
@@ -303,7 +308,8 @@
           "key": "A",
           "term": "Abcès profond, pyélonéphrite"
         }
-      ]
+      ],
+      "id": "mn-causes-ne-pas-manquer"
     }
   ],
   "flashcards": [
@@ -391,7 +397,8 @@
   "mindmap": {
     "root": {
       "id": "fa-root",
-      "label": "Fièvre aiguë (moins de cinq jours)"
+      "label": "Fièvre aiguë (moins de cinq jours)",
+      "detail": "Fièvre aiguë (moins de cinq jours) : Définition, Démarche clinique, Examens ciblés, Traitement, Terrains particuliers — synthèse du référentiel."
     },
     "branches": [
       {
@@ -420,7 +427,8 @@
             "id": "fa-b1-l4",
             "label": "Sujet âgé : fébricule trompeuse"
           }
-        ]
+        ],
+        "detail": "Définition : Mécanismes"
       },
       {
         "id": "fa-b2",
@@ -448,7 +456,8 @@
             "id": "fa-b2-l4",
             "label": "Signes de choc"
           }
-        ]
+        ],
+        "detail": "Démarche clinique : Interroger, examiner"
       },
       {
         "id": "fa-b3",
@@ -476,7 +485,8 @@
             "id": "fa-b3-l4",
             "label": "Imagerie selon le point d'appel"
           }
-        ]
+        ],
+        "detail": "Examens ciblés : Première intention"
       },
       {
         "id": "fa-b4",
@@ -504,7 +514,8 @@
             "id": "fa-b4-l4",
             "label": "Réévaluation à quarante-huit heures"
           }
-        ]
+        ],
+        "detail": "Traitement : Cause et gêne"
       },
       {
         "id": "fa-b5",
@@ -532,7 +543,8 @@
             "id": "fa-b5-l4",
             "label": "Retour de voyage : paludisme d'abord"
           }
-        ]
+        ],
+        "detail": "Terrains particuliers : Vigilance accrue"
       }
     ]
   },
