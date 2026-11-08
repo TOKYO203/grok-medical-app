@@ -34,6 +34,14 @@ import splenomegalie from "@/content/data/demarches/splenomegalie.json";
 import hepatomegalie from "@/content/data/demarches/hepatomegalie.json";
 import syndromePolyuropolydipsique from "@/content/data/demarches/syndrome-polyuropolydipsique.json";
 import lombalgie from "@/content/data/demarches/lombalgie.json";
+import ecoulementOreilleOtalgie from "@/content/data/demarches/ecoulement-oreille-otalgie.json";
+import dysphonie from "@/content/data/demarches/dysphonie.json";
+import goitreNoduleThyroidien from "@/content/data/demarches/goitre-nodule-thyroidien.json";
+import leucorrhee from "@/content/data/demarches/leucorrhee.json";
+import amenorrheeSecondaire from "@/content/data/demarches/amenorrhee-secondaire.json";
+import trismus from "@/content/data/demarches/trismus.json";
+import contractureMachoires from "@/content/data/demarches/contracture-machoires.json";
+import exophtalmie from "@/content/data/demarches/exophtalmie.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -80,6 +88,14 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "hepatomegalie.json": hepatomegalie,
   "syndrome-polyuropolydipsique.json": syndromePolyuropolydipsique,
   "lombalgie.json": lombalgie,
+  "ecoulement-oreille-otalgie.json": ecoulementOreilleOtalgie,
+  "dysphonie.json": dysphonie,
+  "goitre-nodule-thyroidien.json": goitreNoduleThyroidien,
+  "leucorrhee.json": leucorrhee,
+  "amenorrhee-secondaire.json": amenorrheeSecondaire,
+  "trismus.json": trismus,
+  "contracture-machoires.json": contractureMachoires,
+  "exophtalmie.json": exophtalmie,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
