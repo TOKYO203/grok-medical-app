@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -128,13 +129,15 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Fausse route et pneumonie de déglutition",
-          "text": "Toux ou fièvre après les repas, encombrement : pneumonie d'inhalation sur dysphagie haute — adaptation alimentaire, avis orthophonique et pneumologique urgents."
+          "text": "Toux ou fièvre après les repas, encombrement : pneumonie d'inhalation sur dysphagie haute — adaptation alimentaire, avis orthophonique et pneumologique urgents.",
+          "type": "callout"
         },
         {
           "id": "c2",
           "tone": "urgence",
           "title": "Dysphagie avec amaigrissement et tabac",
-          "text": "Un homme de plus de cinquante ans, tabagique et alcoolique, avec dysphagie progressive aux solides et amaigrissement : cancer de l'œsophage probable — endoscopie sans délai."
+          "text": "Un homme de plus de cinquante ans, tabagique et alcoolique, avec dysphagie progressive aux solides et amaigrissement : cancer de l'œsophage probable — endoscopie sans délai.",
+          "type": "callout"
         }
       ]
     },
@@ -240,7 +243,8 @@
           "key": "B",
           "term": "Basse : blocage rétrosternal quelques secondes après, causes obstructives et motrices de l'œsophage"
         }
-      ]
+      ],
+      "id": "mn-dysphagie-haute-ou-basse"
     },
     {
       "label": "Causes obstructives",
@@ -261,7 +265,8 @@
           "key": "A",
           "term": "Anneau de Schatzki"
         }
-      ]
+      ],
+      "id": "mn-causes-obstructives"
     },
     {
       "label": "Causes motrices",
@@ -282,7 +287,8 @@
           "key": "E",
           "term": "Œsophagite à éosinophiles"
         }
-      ]
+      ],
+      "id": "mn-causes-motrices"
     },
     {
       "label": "Examens clés",
@@ -303,7 +309,8 @@
           "key": "T",
           "term": "Tomodensitométrie et écho-endoscopie (stadification)"
         }
-      ]
+      ],
+      "id": "mn-examens-cl-s"
     }
   ],
   "flashcards": [
@@ -391,7 +398,8 @@
   "mindmap": {
     "root": {
       "id": "dys-root",
-      "label": "Dysphagie"
+      "label": "Dysphagie",
+      "detail": "Dysphagie : Sémiologie, Causes hautes, Causes basses, Examens, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -416,7 +424,8 @@
             "id": "dys-b1-l3",
             "label": "Évolution : progressive ou paroxystique"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Trois questions"
       },
       {
         "id": "dys-b2",
@@ -444,7 +453,8 @@
             "id": "dys-b2-l4",
             "label": "Diverticule de Zenker"
           }
-        ]
+        ],
+        "detail": "Causes hautes : Neurologiques et ORL"
       },
       {
         "id": "dys-b3",
@@ -472,7 +482,8 @@
             "id": "dys-b3-l4",
             "label": "Sclérodermie"
           }
-        ]
+        ],
+        "detail": "Causes basses : Obstacles et moteurs"
       },
       {
         "id": "dys-b4",
@@ -500,7 +511,8 @@
             "id": "dys-b4-l4",
             "label": "Écho-endoscopie, scanner"
           }
-        ]
+        ],
+        "detail": "Examens : Démarche clé"
       },
       {
         "id": "dys-b5",
@@ -528,7 +540,8 @@
             "id": "dys-b5-l4",
             "label": "Rééducation, nutrition entérale"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

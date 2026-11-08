@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -133,7 +134,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Détresse respiratoire",
-          "text": "Polypnée avec tirage, cyanose, saturation basse, troubles de conscience : urgence vitale — oxygène, position assise, appel du réanimateur, recherche de la cause (œdème aigu du poumon, asthme grave, embolie, pneumothorax)."
+          "text": "Polypnée avec tirage, cyanose, saturation basse, troubles de conscience : urgence vitale — oxygène, position assise, appel du réanimateur, recherche de la cause (œdème aigu du poumon, asthme grave, embolie, pneumothorax).",
+          "type": "callout"
         }
       ]
     },
@@ -247,7 +249,8 @@
           "key": "M",
           "term": "Mixte : parenchymateuse ou cardiaque avancée"
         }
-      ]
+      ],
+      "id": "mn-type-de-dyspn-e"
     },
     {
       "label": "Causes aiguës brutales",
@@ -268,7 +271,8 @@
           "key": "C",
           "term": "Corps étranger"
         }
-      ]
+      ],
+      "id": "mn-causes-aigu-s-brutales"
     },
     {
       "label": "Causes chroniques",
@@ -289,7 +293,8 @@
           "key": "A",
           "term": "Anémies chroniques"
         }
-      ]
+      ],
+      "id": "mn-causes-chroniques"
     },
     {
       "label": "Bilan de première intention",
@@ -310,7 +315,8 @@
           "key": "H",
           "term": "Hémogramme, peptide natriurétique selon orientation"
         }
-      ]
+      ],
+      "id": "mn-bilan-de-premi-re-intention"
     }
   ],
   "flashcards": [
@@ -398,7 +404,8 @@
   "mindmap": {
     "root": {
       "id": "dsp-root",
-      "label": "Dyspnée"
+      "label": "Dyspnée",
+      "detail": "Dyspnée : Sémiologie, Causes aiguës, Causes chroniques, Bilan, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -427,7 +434,8 @@
             "id": "dsp-b1-l4",
             "label": "NYHA pour le cœur"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Analyse codifiée"
       },
       {
         "id": "dsp-b2",
@@ -455,7 +463,8 @@
             "id": "dsp-b2-l4",
             "label": "Asthme grave, pneumopathie"
           }
-        ]
+        ],
+        "detail": "Causes aiguës : Urgences"
       },
       {
         "id": "dsp-b3",
@@ -483,7 +492,8 @@
             "id": "dsp-b3-l4",
             "label": "Anémies (paludisme)"
           }
-        ]
+        ],
+        "detail": "Causes chroniques : Progressives"
       },
       {
         "id": "dsp-b4",
@@ -511,7 +521,8 @@
             "id": "dsp-b4-l4",
             "label": "Scanner, échocardiogramme"
           }
-        ]
+        ],
+        "detail": "Bilan : Examens — Bilan"
       },
       {
         "id": "dsp-b5",
@@ -539,7 +550,8 @@
             "id": "dsp-b5-l4",
             "label": "Réhabilitation, sevrage tabagique"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

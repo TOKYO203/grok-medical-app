@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -127,7 +128,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Purged de plus de trois jours ou déshydratation sévère",
-          "text": "Perte de poids supérieure à 5 %, hypotension, oligurie, troubles de conscience : déshydratation sévère, réhydratation intraveineuse en urgence."
+          "text": "Perte de poids supérieure à 5 %, hypotension, oligurie, troubles de conscience : déshydratation sévère, réhydratation intraveineuse en urgence.",
+          "type": "callout"
         }
       ]
     },
@@ -247,7 +249,8 @@
           "key": "I",
           "term": "Invasive : selles glairo-sanglantes, fièvre élevée, douleurs, causes bactériennes et parasitaires"
         }
-      ]
+      ],
+      "id": "mn-les-deux-types-de-diarrh-e"
     },
     {
       "label": "Signes de gravité",
@@ -268,7 +271,8 @@
           "key": "T",
           "term": "Terrain fragile : diabète, immunodépression, sujet âgé"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Causes infectieuses",
@@ -289,7 +293,8 @@
           "key": "T",
           "term": "Toxines alimentaires"
         }
-      ]
+      ],
+      "id": "mn-causes-infectieuses"
     },
     {
       "label": "Mesures hygiéno-diététiques",
@@ -310,7 +315,8 @@
           "key": "T",
           "term": "Toilettes propres et lavage des mains"
         }
-      ]
+      ],
+      "id": "mn-mesures-hygi-no-di-t-tiques"
     }
   ],
   "flashcards": [
@@ -398,7 +404,8 @@
   "mindmap": {
     "root": {
       "id": "dia-root",
-      "label": "Diarrhée aiguë"
+      "label": "Diarrhée aiguë",
+      "detail": "Diarrhée aiguë : Définition, Types, Causes, Prise en charge, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -423,7 +430,8 @@
             "id": "dia-b1-l3",
             "label": "Causes infectieuses dominantes"
           }
-        ]
+        ],
+        "detail": "Définition : Cadre et durée"
       },
       {
         "id": "dia-b2",
@@ -447,7 +455,8 @@
             "id": "dia-b2-l3",
             "label": "Déshydratation = complication"
           }
-        ]
+        ],
+        "detail": "Types : Deux présentations"
       },
       {
         "id": "dia-b3",
@@ -475,7 +484,8 @@
             "id": "dia-b3-l4",
             "label": "Toxines alimentaires, médicaments"
           }
-        ]
+        ],
+        "detail": "Causes : Étiologies — Causes"
       },
       {
         "id": "dia-b4",
@@ -503,7 +513,8 @@
             "id": "dia-b4-l4",
             "label": "Antipyrétiques, racécadotril"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Traitement"
       },
       {
         "id": "dia-b5",
@@ -531,7 +542,8 @@
             "id": "dia-b5-l4",
             "label": "Prévention du voyageur"
           }
-        ]
+        ],
+        "detail": "Prévention : Mesures clés"
       }
     ]
   },

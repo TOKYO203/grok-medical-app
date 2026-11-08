@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -131,13 +132,15 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Douleur constrictive avec sueurs",
-          "text": "Douleur rétrosternale constrictive prolongée, sueurs, dyspnée, terrain athéromateux : syndrome coronarien aigu — électrocardiogramme en douze dérivations immédiat, troponine, transfert orienté."
+          "text": "Douleur rétrosternale constrictive prolongée, sueurs, dyspnée, terrain athéromateux : syndrome coronarien aigu — électrocardiogramme en douze dérivations immédiat, troponine, transfert orienté.",
+          "type": "callout"
         },
         {
           "id": "c2",
           "tone": "urgence",
           "title": "Douleur déchirante dorsale avec asymétrie des pouls",
-          "text": "Douleur en coup de poignard migratrice, asymétrie tensionnelle entre les deux bras, pouls abolis ou signes neurologiques : dissection aortique — scanner aortique en urgence, contrôle tensionnel, avis chirurgical."
+          "text": "Douleur en coup de poignard migratrice, asymétrie tensionnelle entre les deux bras, pouls abolis ou signes neurologiques : dissection aortique — scanner aortique en urgence, contrôle tensionnel, avis chirurgical.",
+          "type": "callout"
         }
       ]
     },
@@ -252,7 +255,8 @@
           "key": "P",
           "term": "Pneumothorax"
         }
-      ]
+      ],
+      "id": "mn-les-quatre-urgences"
     },
     {
       "label": "Analyse sémiologique",
@@ -273,7 +277,8 @@
           "key": "S",
           "term": "Signes associés"
         }
-      ]
+      ],
+      "id": "mn-analyse-s-miologique"
     },
     {
       "label": "Causes pariétales",
@@ -294,7 +299,8 @@
           "key": "F",
           "term": "Fracture costale"
         }
-      ]
+      ],
+      "id": "mn-causes-pari-tales"
     },
     {
       "label": "Examens de première ligne",
@@ -315,7 +321,8 @@
           "key": "D",
           "term": "D-dimères si faible probabilité d'embolie"
         }
-      ]
+      ],
+      "id": "mn-examens-de-premi-re-ligne"
     }
   ],
   "flashcards": [
@@ -403,7 +410,8 @@
   "mindmap": {
     "root": {
       "id": "dt-root",
-      "label": "Douleur thoracique"
+      "label": "Douleur thoracique",
+      "detail": "Douleur thoracique : Sémiologie, Urgences vitales, Autres causes, Examens, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -432,7 +440,8 @@
             "id": "dt-b1-l4",
             "label": "Terrain"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Analyse codifiée"
       },
       {
         "id": "dt-b2",
@@ -460,7 +469,8 @@
             "id": "dt-b2-l4",
             "label": "Pneumothorax"
           }
-        ]
+        ],
+        "detail": "Urgences vitales : À éliminer d'abord"
       },
       {
         "id": "dt-b3",
@@ -488,7 +498,8 @@
             "id": "dt-b3-l4",
             "label": "Paroi : Tietze, névralgies, zona"
           }
-        ]
+        ],
+        "detail": "Autres causes : Diagnostics différentiels"
       },
       {
         "id": "dt-b4",
@@ -516,7 +527,8 @@
             "id": "dt-b4-l4",
             "label": "Troponine, d-dimères, scanner orienté"
           }
-        ]
+        ],
+        "detail": "Examens : Triage — Examens"
       },
       {
         "id": "dt-b5",
@@ -544,7 +556,8 @@
             "id": "dt-b5-l4",
             "label": "Antalgiques, inhibiteurs de la pompe à protons"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

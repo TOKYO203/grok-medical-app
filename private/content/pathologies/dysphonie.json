@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -142,7 +143,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Dysphonie + signes d'alarme",
-          "text": "Enrouement de plus de trois semaines chez un fumeur, otalgie de réflexion, dysphagie, adénopathie cervicale ou amagrissement : visualisation du larynx sans délai, biopsies si lésion."
+          "text": "Enrouement de plus de trois semaines chez un fumeur, otalgie de réflexion, dysphagie, adénopathie cervicale ou amagrissement : visualisation du larynx sans délai, biopsies si lésion.",
+          "type": "callout"
         }
       ]
     },
@@ -268,7 +270,8 @@
           "key": "C",
           "term": "Cancer (tabac, alcool)"
         }
-      ]
+      ],
+      "id": "mn-causes-de-dysphonie-chronique"
     },
     {
       "label": "Signes d'alerte oncologique",
@@ -289,7 +292,8 @@
           "key": "A",
           "term": "Adénopathie cervicale"
         }
-      ]
+      ],
+      "id": "mn-signes-d-alerte-oncologique"
     },
     {
       "label": "Hygiène vocale",
@@ -310,7 +314,8 @@
           "key": "R",
           "term": "Rééducation orthophonique"
         }
-      ]
+      ],
+      "id": "mn-hygi-ne-vocale"
     },
     {
       "label": "Traitement selon la lésion",
@@ -331,7 +336,8 @@
           "key": "T",
           "term": "Traitement oncologique (cancer)"
         }
-      ]
+      ],
+      "id": "mn-traitement-selon-la-l-sion"
     }
   ],
   "flashcards": [
@@ -419,7 +425,8 @@
   "mindmap": {
     "root": {
       "id": "dys-root",
-      "label": "Dysphonie"
+      "label": "Dysphonie",
+      "detail": "Dysphonie : Causes, Signes, Examens, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -448,7 +455,8 @@
             "id": "dys-b1-l4",
             "label": "Paralysie, cancer"
           }
-        ]
+        ],
+        "detail": "Causes : Par mécanisme"
       },
       {
         "id": "dys-b2",
@@ -476,7 +484,8 @@
             "id": "dys-b2-l4",
             "label": "Fausses routes, toux"
           }
-        ]
+        ],
+        "detail": "Signes : Ce qu'on entend"
       },
       {
         "id": "dys-b3",
@@ -504,7 +513,8 @@
             "id": "dys-b3-l4",
             "label": "Bilan orthophonique"
           }
-        ]
+        ],
+        "detail": "Examens : Visualiser le larynx"
       },
       {
         "id": "dys-b4",
@@ -532,7 +542,8 @@
             "id": "dys-b4-l4",
             "label": "Oncologie, médialisation"
           }
-        ]
+        ],
+        "detail": "Traitement : Étage par étage"
       },
       {
         "id": "dys-b5",
@@ -560,7 +571,8 @@
             "id": "dys-b5-l4",
             "label": "Contrôle laryngé post-chirurgie"
           }
-        ]
+        ],
+        "detail": "Prévention : Protéger la voix"
       }
     ]
   },
