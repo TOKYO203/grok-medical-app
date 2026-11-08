@@ -43,7 +43,7 @@ const OFFERS = [
 ];
 
 const PROOFS = [
-  "667 questions expliquées et sourcées",
+  "817 questions expliquées et sourcées",
   "78 calculateurs cliniques",
   "Protocole de relecture v2026.10-Mada",
   "Conseil éditorial et registre publics",

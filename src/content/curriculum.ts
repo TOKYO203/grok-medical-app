@@ -5,7 +5,7 @@ import type { CurriculumSpecialty } from "@/core/curriculum";
  * Chaque spécialité est découpée en branches (pathologie, urgence, etc.)
  * qui regroupent des decks progressifs par niveau.
  *
- * Répartition cible (64 decks, 667 questions, zéro orphelin) :
+ * Répartition cible (79 decks, 817 questions, zéro orphelin) :
  *   cardio=36 · fondamentaux=4 · neuro=10 · infectio=7 · dermato=1 · urgences=6
  * Les branches encore vides portent `skeleton: true` (exclues de l'audit).
  */
