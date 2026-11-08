@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Lock, X } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
@@ -7,7 +7,8 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
 import { getDiagnostic, useCatalogVersion } from "@/content/catalog";
 import { PRICES_MGA, formatPrice } from "@/content/pricing";
-import { getDemarcheContent } from "@/lib/demarches/catalog";
+import { loadDemarcheContent } from "@/lib/demarches/catalog";
+import type { DemarcheContent } from "@/core/demarche";
 import { FlashcardsView } from "@/components/demarche/flashcards-view";
 import { FicheView } from "@/components/demarche/fiche-view";
 import { MindmapView } from "@/components/demarche/mindmap-view";
@@ -31,7 +32,18 @@ function DemarchePage() {
   const { id } = Route.useParams();
   const { vue } = Route.useSearch();
   const dx = getDiagnostic(id);
-  const enriched = getDemarcheContent(id);
+  // Fiche enrichie : actif statique public chargé à la demande (migration du
+  // 2026-11-08 — le contenu ne vit plus dans le bundle client ni serveur).
+  const [enriched, setEnriched] = useState<DemarcheContent | undefined>(undefined);
+  useEffect(() => {
+    let cancelled = false;
+    void loadDemarcheContent(id).then((content) => {
+      if (!cancelled) setEnriched(content);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
   const navigate = useNavigate();
   const complete = useOptimus((s) => s.completeDiagnostic);
   const entitlements = useOptimus((s) => s.entitlements);

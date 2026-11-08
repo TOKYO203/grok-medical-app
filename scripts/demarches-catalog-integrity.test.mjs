@@ -2,11 +2,12 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const dir = new URL("../src/content/data/demarches/", import.meta.url);
-const readJson = (name) => readFile(new URL(name, dir), "utf8").then(JSON.parse);
+const indexDir = new URL("../src/content/data/demarches/", import.meta.url);
+const assetDir = new URL("../public/content/demarches/", import.meta.url);
+const readJson = (dir, name) => readFile(new URL(name, dir), "utf8").then(JSON.parse);
 
 const [index, diagnostics] = await Promise.all([
-  readJson("_index.json"),
+  readJson(indexDir, "_index.json"),
   readFile(new URL("../src/content/data/diagnostics.json", import.meta.url), "utf8").then(
     JSON.parse,
   ),
@@ -17,7 +18,7 @@ const DIAGNOSTIC_IDS = new Set(diagnostics.map((diagnostic) => diagnostic.id));
 
 /** Fichiers réellement présents dans le dossier (hors manifeste). */
 const presentFiles = new Set(
-  (await readdir(dir)).filter((name) => name.endsWith(".json") && name !== "_index.json"),
+  (await readdir(assetDir)).filter((name) => name.endsWith(".json") && name !== "_index.json"),
 );
 
 const availableEntries = index.demarches.filter((entry) => entry.status === "available");
@@ -49,7 +50,7 @@ test("chaque démarche disponible est complète et rattachée au bon QCM", async
   assert.ok(availableEntries.length >= 1, "aucune démarche disponible");
 
   for (const entry of availableEntries) {
-    const content = await readJson(entry.file);
+    const content = await readJson(assetDir, entry.file);
 
     assert.equal(content.diagnosticId, entry.diagnosticId, `${entry.file}: diagnosticId divergent`);
     assert.equal(content.slug, entry.slug, `${entry.file}: slug divergent`);

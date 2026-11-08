@@ -72,9 +72,8 @@ const CONTENT_ASSET_PATH = "private/content/pathologies";
  * `servedAs` décide de la règle :
  * • `asset`  — fichier JSON statique : le payload ne doit apparaître dans AUCUN
  *   chunk JS et le fichier doit être publié tel quel dans le dossier statique ;
- * • `module` — contenu encore importé par le registre (limitation connue des
- *   démarches) : le payload doit rester hors du chunk initial, dans un chunk
- *   unique nommé d'après la fiche.
+ * • `module` — plus aucune famille dans ce mode depuis le 2026-11-08
+ *   (démarches migrées en actifs statiques publics).
  */
 const CONTENT_FAMILIES = [
   {
@@ -89,15 +88,17 @@ const CONTENT_FAMILIES = [
   },
   {
     name: "démarches enrichies",
-    dir: join(ROOT, "src/content/data/demarches"),
+    dir: join(ROOT, "public/content/demarches"),
     registry: join(ROOT, "src/lib/demarches/catalog.ts"),
     /**
-     * Le registre des démarches importe encore son JSON statiquement : le
-     * contenu atterrit dans le chunk de la route `/demarche/$id` (46 Kio), pas
-     * dans le chunk initial. La règle stricte « actif statique » ne s'applique
-     * donc qu'aux fiches — cf. LIMITATION en fin de fichier.
+     * Migrées en actifs statiques publics le 2026-11-08 (déblocage du bundle
+     * Functions Cloudflare Pages, plafond 25 Mo) : le contenu quittait le chunk
+     * SSR `/demarche/$id` (~1 Mo pour 43 fiches). Le verrouillage Premium des
+     * vues fiche/flashcards/mindmap reste côté client, comme avant la migration
+     * (le contenu était déjà publié dans le chunk client).
      */
-    servedAs: "module",
+    servedAs: "asset",
+    published: true,
   },
 ];
 
@@ -131,6 +132,7 @@ async function loadContents() {
         file,
         id,
         sentinels: payloadSentinels(content),
+        published: family.published === true,
       });
     }
   }
@@ -336,7 +338,7 @@ test("le registre des fiches n'importe plus aucun JSON de contenu", async () => 
 
 test("les fiches protégées vivent dans private/ et plus dans public/", async () => {
   const contents = await loadContents();
-  const assets = contents.filter((content) => content.servedAs === "asset");
+  const assets = contents.filter((content) => content.servedAs === "asset" && content.published !== true);
   assert.ok(assets.length >= 1, "aucune fiche protégée trouvée");
 
   assert.equal(
@@ -504,7 +506,7 @@ test(
   { skip: noStatic },
   async () => {
     const contents = await loadContents();
-    const assets = contents.filter((content) => content.servedAs === "asset");
+    const assets = contents.filter((content) => content.servedAs === "asset" && content.published !== true);
     assert.ok(assets.length >= 1, "aucune fiche protégée trouvée");
 
     // ⚠️ Le cœur de la session S1 : un fichier publié est servi par le CDN
@@ -565,9 +567,10 @@ test(
 /* ------------------------------------------------------------------ */
 
 /*
- * Les DÉMARCHES enrichies (`src/content/data/demarches/*.json`) sont encore
- * importées statiquement par `src/lib/demarches/catalog.ts` : leur contenu vit
- * dans le chunk de la route `/demarche/$id`, jamais dans le chunk initial. Le
- * coût est borné (une démarche pilote), mais la même migration vers des actifs
- * statiques est la suite logique si le catalogue de démarches s'étoffe.
+ * Les DÉMARCHES enrichies sont des actifs statiques publics depuis le
+ * 2026-11-08 (`public/content/demarches/`) : leur payload ne doit apparaître
+ * dans AUCUN chunk JS (client ou serveur), et le verrouillage Premium des vues
+ * reste appliqué côté client. L'ancienne « LIMITATION ASSUMÉE » (imports
+ * statiques dans catalog.ts) est résolue — elle avait fait dépasser au bundle
+ * Functions Pages le plafond de 25 Mo (production figée le 2026-11-08).
  */
