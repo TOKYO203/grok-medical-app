@@ -15,9 +15,7 @@ import {
   HelpCircle,
   Info,
   Library,
-  MapPin,
   Medal,
-  Pencil,
   Search,
   Share2,
   ShieldCheck,
@@ -26,7 +24,7 @@ import {
   Trophy,
   type LucideIcon,
 } from "lucide-react";
-import { UserAvatar, USER_AVATARS } from "@/components/user-avatar";
+import { USER_AVATARS } from "@/components/user-avatar";
 import ProfileHeader from "@/components/profile-header";
 import { ExperienceControls } from "@/components/experience-controls";
 import { AccentSelector, ThemeSelector } from "@/components/theme-toggle";
@@ -215,10 +213,6 @@ function ProfilPage() {
     }
   }
 
-  const studyLabel =
-    (profile.studyLevel && STUDY_LEVEL_LABEL[profile.studyLevel]) ??
-    YEARS.find((item) => item.year === profile.studyYear)?.label ??
-    "Médecine";
   /**
    * Un compte est « connecté » dès qu'une identité RÉELLE existe. `useAppUser()`
    * est la seule source : il n'y a plus de second fournisseur susceptible de

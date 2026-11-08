@@ -115,7 +115,7 @@ export function TorsoView({
   mode,
   activeFoyer,
   onFoyerClick,
-  height = 260,
+  height: _height = 260,
 }: {
   mode: "cardiaque" | "pulmonaire";
   activeFoyer?: FoyerId;

@@ -57,14 +57,12 @@ export function ExamenModeEcg() {
   const fiche = useMemo(() => (entry ? getEcg(entry.id) : undefined), [entry?.id]);
   const deformation = useMemo(
     () => (fiche ? buildDeformation(fiche) : undefined),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [fiche],
   );
 
   const options = useMemo(
     () => (entry ? buildOptions(entry, session) : []),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [entry?.id, session],
+    [entry, session],
   );
 
   function start() {

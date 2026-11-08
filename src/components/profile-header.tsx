@@ -3,7 +3,6 @@ import { Camera } from "lucide-react";
 import { UserAvatar } from '@/components/user-avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
 
 interface ProfileHeaderProps {
   name: string;
@@ -15,7 +14,7 @@ interface ProfileHeaderProps {
 }
 
 const ProfileHeader = ({ name, avatarSrc, onAvatarFile, onNameChange, onEditToggle, editing }: ProfileHeaderProps) => {
-  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  const [avatarPreview] = useState<string | null>(null);
   const avatarInputRef = useRef<HTMLInputElement>(null);
 
   const handleAvatarClick = () => {

@@ -51,14 +51,6 @@ function base64urlToBytes(b64url: string): ArrayBuffer {
   return buffer;
 }
 
-function base64ToBytes(b64: string): ArrayBuffer {
-  const binary = atob(b64);
-  const buffer = new ArrayBuffer(binary.length);
-  const bytes = new Uint8Array(buffer);
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  return buffer;
-}
-
 /** Parse et decoupe le token sans verification. */
 function splitToken(token: string): { payloadB64: string; sigB64: string } | null {
   if (!token.startsWith(TOKEN_PREFIX)) return null;

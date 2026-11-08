@@ -260,6 +260,3 @@ export function ensureDbReady(): Promise<void> {
 // module (seulement dans le handler). Un bootstrap eager ici déclencherait PGLite
 // sur le top-level → "Disallowed operation called within global scope".
 // Le bootstrap PGLite se fait donc à la première requête via getSql().
-const globalBoot = globalThis as typeof globalThis & {
-  __pgBootstrapPromise__?: Promise<void>;
-};

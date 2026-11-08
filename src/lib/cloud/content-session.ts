@@ -7,7 +7,7 @@ import {
   setToken,
   tokenExpiresAt,
 } from "@/lib/auth/session";
-import { verifyLocalLicenseToken, peekLocalLicenseToken } from "@/lib/cloud/verify-receipt-local";
+import { verifyLocalLicenseToken } from "@/lib/cloud/verify-receipt-local";
 import {
   activeLicence,
   isVerifiableLicenceKey,

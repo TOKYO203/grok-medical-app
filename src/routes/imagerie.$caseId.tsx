@@ -45,7 +45,6 @@ function ImagerieCasePage() {
   const done = stepIndex >= c.steps.length;
   const step = done ? null : c.steps[stepIndex];
   const isCorrect = step !== null && validated && answer === step.correctIndex;
-  const isWrong = step !== null && validated && answer !== step.correctIndex;
   const isLast = stepIndex === c.steps.length - 1;
   const score = results.filter(Boolean).length;
   const total = c.steps.length;

@@ -227,7 +227,6 @@ export function ExamenMode() {
 
   /* ─── Question en cours ─── */
   const isCorrect = validated && answer === question.label;
-  const isWrong = validated && answer !== question.label;
   const isLast = index === session.length - 1;
 
   return (
