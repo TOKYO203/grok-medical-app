@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -49,6 +50,12 @@
         {
           "type": "paragraph",
           "text": "Comme l'ulcère duodénal, il relève de la maladie acidopeptique et de ses deux grands pourvoyeurs : Helicobacter pylori et les anti-inflammatoires non stéroïdiens (AINS). Mais la part des AINS y est plus importante, la douleur est déclenchée par les repas, la cicatrisation plus lente, et la surveillance endoscopique jusqu'à cicatrisation complète est la règle."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Hémorragie ulcéreuse",
+          "text": "Hématémèse ou méléna chez un ulcéreux : hospitalisation urgente, deux voies veineuses, remplacement volémique prudent (cible modeste de tension), FOGD pour hémostase endoscopique dans les 24 heures, puis IPP intraveineux à forte dose. Sujet âgé sous AINS : grande prudence au remplissage."
         }
       ]
     },
@@ -67,6 +74,12 @@
         {
           "type": "paragraph",
           "text": "À Madagascar, où la prévalence de H. pylori dépasse la moitié de la population adulte et où le cancer de l'estomac figure parmi les cancers digestifs fréquents, tout ulcère gastrique doit être considéré comme potentiellement malin jusqu'à preuve histologique du contraire. La rareté des centres d'endoscopie en dehors des grandes villes rend d'autant plus nécessaire un adressage adapté dès la suspicion."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Perforation ulcéreuse",
+          "text": "Douleur épigastrique brutale en coup de poignard, contracture générale, abdomen de bois, état de choc : urgence chirurgicale absolue. Ne jamais se contenter d'un traitement médical de l'ulcère devant ce tableau, et ne pas retarder la décision opératoire pour un examen complémentaire discutable."
         }
       ]
     },
@@ -90,6 +103,12 @@
         {
           "type": "paragraph",
           "text": "Particularité : l'ulcère gastrique « bénin » et le cancer gastrique ulcéré peuvent être cliniquement et endoscopiquement indiscernables. Seule l'histologie tranche — et elle exige des biopsies nombreuses (au moins six, sur les quatre quadrants et le fond de l'ulcère) car la composante maligne peut être focale."
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe : biopsier avant de traiter",
+          "text": "Devant toute perte de substance gastrique à l'endoscopie : biopsies multiples (au moins six, berges et fond) avant tout traitement antisécrétoire, et FOGD de contrôle à 6–8 semaines avec nouvelles biopsies si la cicatrisation est incomplète. Aucun ulcère gastrique n'est bénin tant que l'histologie n'est pas rendue."
         }
       ]
     },
@@ -130,6 +149,12 @@
             "Transit baryté : alternative radiologique, sans valeur histologique",
             "Signes d'alerte de malignité : masse épigastrique, adénopathie sus-claviculaire gauche, anémie profonde, amaigrissement"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Douleur déclenchée par les repas + anorexie ou amaigrissement = ulcère gastrique jusqu'à preuve du contraire. IPP double dose 6–8 semaines + éradication de H. pylori + arrêt des AINS, et contrôle endoscopique systématique avec biopsies."
         }
       ]
     },
@@ -179,6 +204,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Mémo : piège du transit baryté",
+          "text": "Une niche ulcéreuse gastrique vue au transit baryté n'est jamais un diagnostic définitif : sans biopsie, un cancer ulcéré peut avoir exactement le même aspect. Toute image ulcéreuse au transit impose, dès que possible, une endoscopie avec prélèvements histologiques."
         }
       ]
     },
@@ -278,7 +309,8 @@
           "key": "C",
           "term": "Contrôle endoscopique systématique (gastrique)"
         }
-      ]
+      ],
+      "id": "mn-diff-rencier-ulc-re-gastrique-et-duod-nal"
     },
     {
       "label": "Complications de l'ulcère gastrique",
@@ -299,7 +331,8 @@
           "key": "M",
           "term": "Malignité : la complication à éliminer par l'histologie"
         }
-      ]
+      ],
+      "id": "mn-complications-de-l-ulc-re-gastrique"
     },
     {
       "label": "Signes d'alerte de malignité",
@@ -320,7 +353,8 @@
           "key": "E",
           "term": "Épanchement (adénopathie sus-claviculaire gauche, ombilicale) ou anémie profonde"
         }
-      ]
+      ],
+      "id": "mn-signes-d-alerte-de-malignit"
     },
     {
       "label": "Traitement de l'ulcère gastrique",
@@ -341,7 +375,8 @@
           "key": "C",
           "term": "Contrôler par FOGD à la fin de la cure, avec biopsies si non cicatrisé"
         }
-      ]
+      ],
+      "id": "mn-traitement-de-l-ulc-re-gastrique"
     }
   ],
   "flashcards": [
@@ -429,7 +464,8 @@
   "mindmap": {
     "root": {
       "id": "root",
-      "label": "Ulcère gastrique chronique"
+      "label": "Ulcère gastrique chronique",
+      "detail": "Ulcère gastrique chronique : Définition et particularités, Causes, Diagnostic, Complications, Traitement et suivi — synthèse du référentiel."
     },
     "branches": [
       {
@@ -458,7 +494,8 @@
             "id": "l2",
             "label": "Part plus grande des AINS"
           }
-        ]
+        ],
+        "detail": "Définition et particularités : Perte de substance gastrique franchissant la musculeuse, petite courbure et angle, Sécrétion acide normale ou basse : défaut de défense muqueuse, Cicatrisation plus lente que le duodénal"
       },
       {
         "id": "b2",
@@ -482,7 +519,8 @@
             "id": "l3",
             "label": "Tabac et alcool retardent la cicatrisation"
           }
-        ]
+        ],
+        "detail": "Causes : Helicobacter pylori (≈ 2/3 des cas), AINS et aspirine (sujet âgé), À éliminer : adénocarcinome ulcéré, lymphome MALT, Zollinger-Ellison"
       },
       {
         "id": "b3",
@@ -506,7 +544,8 @@
             "id": "l4",
             "label": "Anémie isolée du sujet âgé sous AINS"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Douleur déclenchée par les repas + anorexie, amaigrissement, FOGD + biopsies multiples (≥ 6) : jamais de traitement sans histologie, Recherche de H. pylori : histologie, test à l'uréase (antrum + fundus)"
       },
       {
         "id": "b4",
@@ -530,7 +569,8 @@
             "id": "l5",
             "label": "Malignité : la « complication » à éliminer par les biopsies"
           }
-        ]
+        ],
+        "detail": "Complications : Hémorragie : hémostase endoscopique urgente, Perforation : chirurgie en urgence, Sténose : dilatation ou chirurgie"
       },
       {
         "id": "b5",
@@ -554,7 +594,8 @@
             "id": "l6",
             "label": "Éducation : signes d'alerte hématémèse, méléna, douleur brutale"
           }
-        ]
+        ],
+        "detail": "Traitement et suivi : IPP double dose 6–8 semaines + arrêt AINS, Éradication H. pylori : quadrithérapie 10–14 j ou schéma local, FOGD de contrôle avec biopsies si cicatrisation incomplète"
       }
     ]
   },
