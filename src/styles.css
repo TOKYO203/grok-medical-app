@@ -1010,7 +1010,7 @@ html[data-optimus-focus="on"] [data-mobile-navigation] {
 html[data-accent="navy"] {
   /* Navy + Or — bleu marine profond + or (Oxbridge). */
   --app-accent: #1E3A8A;
-  --app-gold: #B8860B;
+  --app-gold: #886308;
   --app-gold-soft: #E0B14D;
   --app-ring: #1E3A8A;
   --app-bg: #F0EDE5;
@@ -1033,7 +1033,7 @@ html[data-theme="dark"][data-accent="navy"] {
 html[data-accent="cuivre"] {
   /* Marine + Cuivre — bleu nuit + cuivre rosé (moderne luxe). */
   --app-accent: #0F172A;
-  --app-gold: #B87333;
+  --app-gold: #935C29;
   --app-gold-soft: #E09B5F;
   --app-ring: #0F172A;
   --app-bg: #E8ECF0;
@@ -1056,7 +1056,7 @@ html[data-theme="dark"][data-accent="cuivre"] {
 html[data-accent="emeraude"] {
   /* Émeraude + Or — vert émeraude profond + or (bijou). */
   --app-accent: #065F46;
-  --app-gold: #A16207;
+  --app-gold: #9B5E07;
   --app-gold-soft: #D4A348;
   --app-ring: #065F46;
   --app-bg: #ECF1EC;
@@ -1124,20 +1124,14 @@ html[data-theme="dark"][data-accent]:not([data-accent="defaut"]) {
    --accent-swatch-<palette>. */
 :root {
   --accent-swatch-defaut: #A67C1E;
-  --accent-swatch-rose: #E11D48;
-  --accent-swatch-marron: #8B5A2B;
-  --accent-swatch-marine: #1D4ED8;
-  --accent-swatch-vert: #059669;
-  --accent-swatch-violet: #7C3AED;
-  --accent-swatch-royal: #6D28D9;
+  --accent-swatch-navy: #1E3A8A;
+  --accent-swatch-cuivre: #B87333;
+  --accent-swatch-emeraude: #065F46;
 }
 
 html[data-theme="dark"] {
   --accent-swatch-defaut: #D4A648;
-  --accent-swatch-rose: #F43F5E;
-  --accent-swatch-marron: #C08552;
-  --accent-swatch-marine: #60A5FA;
-  --accent-swatch-vert: #34D399;
-  --accent-swatch-violet: #A78BFA;
-  --accent-swatch-royal: #A78BFA;
+  --accent-swatch-navy: #93A5E8;
+  --accent-swatch-cuivre: #E09B5F;
+  --accent-swatch-emeraude: #34D399;
 }

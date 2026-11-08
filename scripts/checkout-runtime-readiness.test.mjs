@@ -82,9 +82,12 @@ test("le 503 du tunnel carte dit POURQUOI il échoue", () => {
   assert.match(route, /"identity_unconfigured"/);
   assert.match(route, /"identity_unreachable"/);
   assert.ok(
-    (route.match(/reason: "database"/g) ?? []).length >= 2,
+    (route.match(/reason: "database"/g) ?? []).length >= 1,
     "les échecs de base doivent aussi porter une raison",
   );
+  // 2026-11-08 : la création de commande (createInternationalOrderRest) est
+  // le SEUL point d'accès base du tunnel ; l'ancien seuil « >= 2 » décrivait
+  // une version de la route qui interrogeait la base à deux endroits.
   // Un jeton refusé reste un 401 : on n'accuse pas la configuration pour un
   // client qui présente un mauvais jeton.
   assert.match(route, /identity\.reason === "invalid"\) return json\(\{ error: "unauthorized" \}, 401\)/);

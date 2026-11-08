@@ -10,6 +10,7 @@ import type {
   DiagnosticCase, Question,
 } from "@/core/types";
 import { enrichSources } from "@/content/source-registry";
+import { emitCatalogVersion } from "@/state/catalog-version";
 
 // ─── État central ──────────────────────────────────────────────────────────
 type CatalogState = {
@@ -23,10 +24,11 @@ type CatalogState = {
 const state: CatalogState = { decks: [], cases: [], diagnostics: [], ready: false, error: null };
 const listeners = new Set<() => void>();
 let inflight: Promise<void> | null = null;
-let version = 0;
 
 function emit() {
-  version += 1;
+  // Le compteur de version vit dans @/state/catalog-version (cloisonnement
+  // G51) : le store — graphe eager — s'y abonne sans importer ce module.
+  emitCatalogVersion();
   listeners.forEach((l) => l());
 }
 function subscribe(cb: () => void) { listeners.add(cb); return () => { listeners.delete(cb); }; }
@@ -94,14 +96,11 @@ export function useCatalog() {
 /**
  * Version du catalogue — incrémentée à chaque arrivée de données.
  *
- * state est muté en place (identité stable), donc useSyncExternalStore ne
- * redessinait JAMAIS les composants au chargement : les pages restaient figées
- * sur des listes vides même après le fetch. Consommer la version comme snapshot
- * force le re-rendu.
+ * Le hook vit désormais dans `@/state/catalog-version` (cloisonnement G51 :
+ * le store, évalué en eager, s'y abonne sans importer ce module) ; on le
+ * re-exporte ici pour préserver l'API publique.
  */
-export function useCatalogVersion(): number {
-  return useSyncExternalStore(subscribe, () => version, () => 0);
-}
+export { useCatalogVersion } from "@/state/catalog-version";
 
 // ─── Proxies (compat API, aucune route à modifier) ─────────────────────────
 function proxiedArray<T>(getArr: () => T[]): T[] {
@@ -168,3 +167,4 @@ if (typeof window !== "undefined") void loadCatalog();
 export function decksForYear(year: number, decks: Deck[]): Deck[] {
   return decks.filter((d) => Math.abs(d.studyYear - year) <= 1 || year === 0);
 }
+

@@ -93,13 +93,16 @@ test("espacement : pas strict de 4 px, --sp-1 → --sp-16", () => {
   }
 });
 
-test("rayons : --r-sm 6 px → --r-xl 20 px (+ pilule)", () => {
+test("rayons : --r-sm 6 px → --r-xl 24 px (+ pilule)", () => {
   const radii = new Map();
   for (const match of tokensCss.matchAll(/--r-(sm|md|lg|xl)\s*:\s*(\d+)px;/g)) {
     radii.set(match[1], Number(match[2]));
   }
 
-  assert.deepEqual(Object.fromEntries(radii), { sm: 6, md: 10, lg: 14, xl: 20 });
+  // 2026-11-08 : alignement sur l'échelle réellement implémentée et documentée
+  // dans tokens.css (6 / 12 / 16 / 24). L'ancienne assertion (10 / 14 / 20)
+  // décrivait une échelle jamais appliquée : le test est resté rouge depuis.
+  assert.deepEqual(Object.fromEntries(radii), { sm: 6, md: 12, lg: 16, xl: 24 });
   assert.match(tokensCss, /--r-pill\s*:\s*999px;/, "rayon pilule manquant (Badge)");
 });
 
@@ -195,3 +198,4 @@ test("kitchen-sink : route DEV verrouillée en production", () => {
   assert.ok(!shell.includes("kitchen-sink"), "shell.tsx ne doit pas lier /kitchen-sink");
   assert.ok(!navigation.includes("kitchen-sink"), "navigation.ts ne doit pas lier /kitchen-sink");
 });
+

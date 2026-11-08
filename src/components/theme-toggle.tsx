@@ -11,10 +11,12 @@ const MODES: { id: ThemeMode; label: string; icon: typeof Sun }[] = [
 ];
 
 const ACCENTS: { id: AccentPalette; label: string; swatch: string }[] = [
-  { id: "defaut", label: "Défaut", swatch: "#A67C1E" },
-  { id: "navy", label: "Navy", swatch: "#1E3A8A" },
-  { id: "cuivre", label: "Cuivre", swatch: "#B87333" },
-  { id: "emeraude", label: "Émeraude", swatch: "#065F46" },
+  // La pastille consomme --accent-swatch-<palette> (styles.css) : le composant
+  // ne code aucun hex, et suit le thème clair/sombre automatiquement.
+  { id: "defaut", label: "Défaut", swatch: "var(--accent-swatch-defaut)" },
+  { id: "navy", label: "Navy", swatch: "var(--accent-swatch-navy)" },
+  { id: "cuivre", label: "Cuivre", swatch: "var(--accent-swatch-cuivre)" },
+  { id: "emeraude", label: "Émeraude", swatch: "var(--accent-swatch-emeraude)" },
 ];
 
 /** Ancrage du panneau déroulant : position `fixed` calculée à l'ouverture. */

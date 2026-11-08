@@ -44,7 +44,7 @@ import {
   replaceImportedDecks,
 } from "@/lib/imported-deck-storage";
 import { todayKey, uid } from "@/lib/utils";
-import { useCatalogVersion } from "@/content/catalog";
+import { useCatalogVersion } from "@/state/catalog-version";
 import { getBuiltinDecks } from "@/state/builtin-decks";
 import {
   migrateOptimusPersistedState,
@@ -950,3 +950,4 @@ export function deckStats(deck: Deck, progress: DeckProgress | undefined) {
 
 export { BADGE_CATALOG };
 export type { CoverId };
+

@@ -83,6 +83,7 @@ const CONTENT_FAMILIES = [
     /** Unique point d'entrée autorisé vers les actifs de la famille. */
     registry: join(ROOT, "src/lib/pathologies/catalog.ts"),
     servedAs: "asset",
+    marker: "content/pathologies/",
     /** Servi sous jeton par `/content/$type/$file` : rien dans le statique. */
     published: false,
   },
@@ -90,6 +91,7 @@ const CONTENT_FAMILIES = [
     name: "démarches enrichies",
     dir: join(ROOT, "public/content/demarches"),
     registry: join(ROOT, "src/lib/demarches/catalog.ts"),
+    marker: "content/demarches/",
     /**
      * Migrées en actifs statiques publics le 2026-11-08 (déblocage du bundle
      * Functions Cloudflare Pages, plafond 25 Mo) : le contenu quittait le chunk
@@ -131,6 +133,7 @@ async function loadContents() {
         servedAs: family.servedAs,
         file,
         id,
+        marker: family.marker,
         sentinels: payloadSentinels(content),
         published: family.published === true,
       });
@@ -296,12 +299,26 @@ test("aucun module de src/ n'importe un contenu de cours (statique ou dynamique)
 
       const name = escapeRegExp(content.file);
       // Import statique : `import x from "…/<file>.json"`.
-      const staticImport = new RegExp(`import\\s+(?:[\\w*{][^;]*?from\\s+)?["'\`][^"'\`]*${name}["'\`]`);
+      const staticImport = new RegExp(`import\\s+(?:[\\w*{][^;]*?from\\s+)?["'\`][^"'\`]*${name}["'\`]`, "g");
       // Import dynamique : `import("…/<file>.json")` — interdit AUSSI pour les
       // actifs statiques : le bundle recompilerait la fiche en chunk JS.
-      const dynamicImport = new RegExp(`import\\s*\\([^)]*${name}[^)]*\\)`);
-      if (staticImport.test(source) || dynamicImport.test(source)) {
-        offenders.push(`${file.replace(ROOT + "/", "")} importe ${content.file}`);
+      const dynamicImport = new RegExp(`import\\s*\\([^)]*${name}[^)]*\\)`, "g");
+      // 2026-11-08 : un import ne compte que s'il désigne le DOSSIER de la
+      // famille (content.marker). `insuffisance-aortique.json` existe à la
+      // fois comme fiche de nosographie (private/content/pathologies) et
+      // comme son d'auscultation (@/content/data/auscultation/…) : matcher sur
+      // le seul nom de fichier produisait des faux positifs sur les catalogues
+      // auscultation/ECG. Un import réel de la fiche protégée, lui, passe
+      // forcément par le dossier de sa famille.
+      for (const match of source.matchAll(staticImport)) {
+        if (match[0].includes(content.marker)) {
+          offenders.push(`${file.replace(ROOT + "/", "")} importe ${content.file}`);
+        }
+      }
+      for (const match of source.matchAll(dynamicImport)) {
+        if (match[0].includes(content.marker)) {
+          offenders.push(`${file.replace(ROOT + "/", "")} importe ${content.file}`);
+        }
       }
     }
   }

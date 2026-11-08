@@ -49,7 +49,13 @@ test("aucun fichier de démarche n'est orphelin (tout fichier est déclaré)", (
 test("chaque démarche disponible est complète et rattachée au bon QCM", async () => {
   assert.ok(availableEntries.length >= 1, "aucune démarche disponible");
 
+  // 2026-11-08 : les vérifications par fiche sont AGRÉGÉES (une violation
+  // signalée par fiche) au lieu de s'arrêter à la première fiche en échec —
+  // un parcours fiche par fiche rendait chaque correctif aveugle au suivant.
+  const ficheFailures = [];
+
   for (const entry of availableEntries) {
+  try {
     const content = await readJson(assetDir, entry.file);
 
     assert.equal(content.diagnosticId, entry.diagnosticId, `${entry.file}: diagnosticId divergent`);
@@ -176,4 +182,14 @@ test("chaque démarche disponible est complète et rattachée au bon QCM", async
       }
     }
   }
+  } catch (error) {
+    ficheFailures.push(`${entry.file}: ${String(error.message).split("\n")[0]}`);
+  }
+  }
+
+  assert.deepEqual(
+    ficheFailures,
+    [],
+    "démarches incomplètes (une ligne par fiche) :\n" + ficheFailures.join("\n"),
+  );
 });

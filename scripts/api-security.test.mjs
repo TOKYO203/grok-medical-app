@@ -117,6 +117,13 @@ test("application identity columns migrate to Better Auth text ids", () => {
 });
 
 test("GitHub CI runs the complete release readiness gate", () => {
+  // Post-mortem 2026-11-07 (docs/PREVENTION-DEPLOIEMENT.md, R7) : le job
+  // BLOQUANT est le build exact du chemin de production (`build:cloudflare`
+  // : budget, garde-fous stubs, assert Supabase). La suite de tests tourne à
+  // chaque push (non bloquante tant que la dette RPC/webhook n'est pas
+  // réparée) — l'ancienne commande `release:check` n'existe plus dans ci.yml.
   assert.match(workflow, /run: npm ci/);
-  assert.match(workflow, /run: npm run release:check/);
+  assert.match(workflow, /run: npm run build:cloudflare/);
+  assert.match(workflow, /run: npm test/);
 });
+
