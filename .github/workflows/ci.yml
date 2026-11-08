@@ -15,10 +15,10 @@ permissions:
 # déploiement. Réparation :
 #  • le job BLOQUANT est le build exact du chemin de production
 #    (`npm run build:cloudflare` : budget, garde-fous stubs, assert Supabase) ;
-#  • la suite de tests reste exécutée à chaque push mais en NON BLOQUANT
-#    (continue-on-error) : un échec s'affiche en avertissement au lieu de
-#    faire mentir la croix rouge. À remettre en bloquant une fois la suite
-#    RPC/webhook réparée (voir docs/PREVENTION-DEPLOIEMENT.md, R7).
+#  • la suite de tests a été remise BLOQUANTE le 2026-11-08 après la
+#    réparation complète de la dette R7 (10 fichiers de tests, fiches
+#    pathologies, fichiers morts de src/, lint). Un échec de Tests,
+#    Typecheck ou Lint fait de nouveau échouer la CI.
 
 jobs:
   build-cloudflare:
@@ -31,9 +31,8 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: 'npm'
+        node-version: '22'
+        cache: 'npm'
 
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
@@ -42,31 +41,26 @@ jobs:
         run: npm run build:cloudflare
 
   tests:
-    name: Suite de tests (non bloquante)
+    name: Suite de tests (bloquante)
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    continue-on-error: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: 'npm'
+        node-version: '22'
+        cache: 'npm'
 
       - name: Install locked dependencies
         run: npm ci --legacy-peer-deps
 
       - name: Tests
         run: npm test
-        continue-on-error: true
 
       - name: Typecheck
         run: npm run typecheck
-        continue-on-error: true
 
       - name: Lint
         run: npm run lint
-        continue-on-error: true
