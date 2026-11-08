@@ -23,7 +23,13 @@
 -- (bonne pratique anti-injection sur SECURITY DEFINER, ne change rien
 -- au comportement observable).
 
-BEGIN;
+-- NOTE 2026-11-08 : les BEGIN/COMMIT hérités de l'extrait de prod sont
+-- supprimés. Le répétiteur de staging (scripts/staging-migration.mjs) possède
+-- déjà la transaction : un COMMIT imbriqué la validait en pleine répétition,
+-- détruisait les tables preuves (ON COMMIT DROP) et rendait son ROLLBACK
+-- inopérant. Hors répétiteur, chaque instruction reste atomique en autocommit
+-- (npm run db:migrate, bootstrap PGlite) — l'état final est identique.
+
 
 CREATE OR REPLACE FUNCTION public.advance_premium_purchase_order(
   p_user_id text,
@@ -83,4 +89,3 @@ $grant$;
 COMMENT ON FUNCTION public.advance_premium_purchase_order(text, text, text)
   IS 'Avance une commande premium (state machine : created → instructions_requested). Extraite de la prod le 2026-11-06 ; ajout de pg_temp au search_path.';
 
-COMMIT;
