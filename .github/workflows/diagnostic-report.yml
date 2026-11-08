@@ -1,0 +1,48 @@
+name: R7 diagnostic
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Tests
+        run: |
+          set +e
+          npm test > /tmp/tests.log 2>&1
+          code=$?
+          {
+            echo "## Tests (exit $code)"
+            echo ""
+            echo "### Tests en échec"
+            echo ""
+            echo "```"
+          } > /tmp/report.md
+          grep -E -A 25 '^not ok' /tmp/tests.log | head -n 500 >> /tmp/report.md || true
+          {
+            echo "```"
+            echo ""
+            echo "### Fin du log"
+            echo ""
+            echo "```"
+            tail -n 30 /tmp/tests.log
+            echo "```"
+          } >> /tmp/report.md
+          exit 0
+      - name: Publie l'issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          short=$(git rev-parse --short HEAD)
+          gh issue create --title "R7 diagnostic $short" --body-file /tmp/report.md || true
