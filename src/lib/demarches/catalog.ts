@@ -22,6 +22,12 @@ import proteinurie from "@/content/data/demarches/proteinurie.json";
 import hematurie from "@/content/data/demarches/hematurie.json";
 import anomalieMiction from "@/content/data/demarches/anomalie-miction.json";
 import agitation from "@/content/data/demarches/agitation.json";
+import epanchementPleural from "@/content/data/demarches/epanchement-pleural.json";
+import syndromeMediastinal from "@/content/data/demarches/syndrome-mediastinal.json";
+import baisseAcuiteVisuelle from "@/content/data/demarches/baisse-acuite-visuelle.json";
+import oeilRougeDouloureux from "@/content/data/demarches/oeil-rouge-douloureux.json";
+import algiePelvienne from "@/content/data/demarches/algie-pelvienne.json";
+import hemorragieGenitale from "@/content/data/demarches/hemorragie-genitale.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -56,6 +62,12 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "hematurie.json": hematurie,
   "anomalie-miction.json": anomalieMiction,
   "agitation.json": agitation,
+  "epanchement-pleural.json": epanchementPleural,
+  "syndrome-mediastinal.json": syndromeMediastinal,
+  "baisse-acuite-visuelle.json": baisseAcuiteVisuelle,
+  "oeil-rouge-douloureux.json": oeilRougeDouloureux,
+  "algie-pelvienne.json": algiePelvienne,
+  "hemorragie-genitale.json": hemorragieGenitale,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
