@@ -41,7 +41,9 @@ jobs:
             echo "# Rapport R7 — commit ${GITHUB_SHA}"
             echo '## Tests en échec (lignes TAP `not ok`)'
             echo '```'
-            grep -E '^(not ok|# (tests|suites|pass|fail|cancelled|skipped|todo))' /tmp/tests.log | head -n 80 || true
+            grep -E -A 20 '^not ok' /tmp/tests.log | head -n 260 || true
+            echo ''
+            grep -E '^# (tests|suites|pass|fail|cancelled|skipped|todo)' /tmp/tests.log || true
             echo '```'
             echo '## Tests (queue du log)'
             echo '```'
