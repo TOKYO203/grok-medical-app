@@ -28,6 +28,12 @@ import baisseAcuiteVisuelle from "@/content/data/demarches/baisse-acuite-visuell
 import oeilRougeDouloureux from "@/content/data/demarches/oeil-rouge-douloureux.json";
 import algiePelvienne from "@/content/data/demarches/algie-pelvienne.json";
 import hemorragieGenitale from "@/content/data/demarches/hemorragie-genitale.json";
+import erythemes from "@/content/data/demarches/erythemes.json";
+import dysphagie from "@/content/data/demarches/dysphagie.json";
+import splenomegalie from "@/content/data/demarches/splenomegalie.json";
+import hepatomegalie from "@/content/data/demarches/hepatomegalie.json";
+import syndromePolyuropolydipsique from "@/content/data/demarches/syndrome-polyuropolydipsique.json";
+import lombalgie from "@/content/data/demarches/lombalgie.json";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -68,6 +74,12 @@ const CONTENT_BY_FILE: Record<string, DemarcheContent> = {
   "oeil-rouge-douloureux.json": oeilRougeDouloureux,
   "algie-pelvienne.json": algiePelvienne,
   "hemorragie-genitale.json": hemorragieGenitale,
+  "erythemes.json": erythemes,
+  "dysphagie.json": dysphagie,
+  "splenomegalie.json": splenomegalie,
+  "hepatomegalie.json": hepatomegalie,
+  "syndrome-polyuropolydipsique.json": syndromePolyuropolydipsique,
+  "lombalgie.json": lombalgie,
 };
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
