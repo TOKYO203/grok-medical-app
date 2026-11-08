@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Polynévrites : syndrome neurogène périphérique distal, symétrique, à prédominance sensitive (fourmillements, hypoesthésie en chaussettes/gants, abolition des réflexes achilléens), élargi aux grandes causes — diabète, alcool et carences (B1, B12), lèpre, VIH, médicamenteuses, dysimmunitaires (Guillain-Barré aigu, PIDC chronique) — avec démarche diagnostique simplifiée adaptée aux ressources, ENMG, bilan minimal (glycémie, NFS, B12, VIH, lèpre) et traitements : cause + douleurs neuropathiques + soins des pieds.",
@@ -86,8 +87,10 @@
       "title": "Étiologies",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Par fréquence et contexte local"
+          "type": "list",
+          "items": [
+            "Par fréquence et contexte local"
+          ]
         },
         {
           "type": "list",
@@ -137,8 +140,10 @@
           "text": "Trois examens à demander systématiquement en pratique locale : glycémie à jeun (diabète), NFS + bilan martial (carences), et examen cutané avec palpation des nerfs (lèpre). Ajouter B12, TSH, VIH, fonction rénale selon le contexte."
         },
         {
-          "type": "heading",
-          "text": "Bilan étiologique minimal"
+          "type": "list",
+          "items": [
+            "Bilan étiologique minimal"
+          ]
         },
         {
           "type": "list",
@@ -288,7 +293,8 @@
           "key": "Y",
           "term": "ENMG : axonal vs démyélinisant — et Guillain-Barré si installation aiguë"
         }
-      ]
+      ],
+      "id": "mn-p-o-l-y"
     }
   ],
   "flashcards": [
@@ -356,7 +362,8 @@
   "mindmap": {
     "root": {
       "id": "polynev",
-      "label": "Polynévrites"
+      "label": "Polynévrites",
+      "detail": "Polynévrites : Syndrome, Mécanismes, Causes, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -381,7 +388,8 @@
             "id": "b1l1",
             "label": "Dysautonomie : sécheresse, orthostatisme"
           }
-        ]
+        ],
+        "detail": "Syndrome : Chaussettes/gants, distal symétrique, Achilléens abolis, Steppage si atteinte motrice"
       },
       {
         "id": "b2",
@@ -401,7 +409,8 @@
             "id": "b2l1",
             "label": "ENMG : amplitude vs vitesse"
           }
-        ]
+        ],
+        "detail": "Mécanismes : Axonal (dying back), Démyélinisant (blocs)"
       },
       {
         "id": "b3",
@@ -429,7 +438,8 @@
             "id": "b3l1",
             "label": "Iatrogène : isoniazide → pyridoxine"
           }
-        ]
+        ],
+        "detail": "Causes : Diabète, IRC, hypothyroïdie, Alcool, B1, B12, toxiques, Lèpre, VIH, GBS / PIDC, CMT héréditaire"
       },
       {
         "id": "b4",
@@ -453,7 +463,8 @@
             "id": "b4l1",
             "label": "LCR : dissociation albumino-cytologique (GBS)"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Clinique + monofilament, ENMG, Glycémie, NFS, B12, VIH, lèpre"
       },
       {
         "id": "b5",
@@ -477,7 +488,8 @@
             "id": "b5l1",
             "label": "Rééducation, orthèses, pieds"
           }
-        ]
+        ],
+        "detail": "Traitement : Causal : glycémie, vitamines, PCT, Douleur : gabapentinoïdes, duloxétine, GBS : IgIV / plasmaphérèse"
       },
       {
         "id": "b6",
@@ -501,7 +513,8 @@
             "id": "b6l1",
             "label": "Madagascar : diabète + lèpre à l'esprit"
           }
-        ]
+        ],
+        "detail": "Prévention : Éducation podologique, Sevrage + B1, Dépistage lèpre/diabète"
       }
     ]
   },

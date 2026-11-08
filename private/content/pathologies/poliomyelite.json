@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche sur l'atteinte des cornes antérieures de la moelle par le poliovirus : phases cliniques (abortive, méningée, paralytique), critères de paralysie flasque aiguë, surveillance OMS (toute PFA de l'enfant = notification immédiate), prise en charge symptomatique et rééducative, vaccination (VPO/IPV) et enjeu des poliovirus dérivés du vaccin en contexte de faible couverture comme à Madagascar.",
@@ -89,24 +90,30 @@
       "title": "Formes cliniques",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Forme abortive (4-8 % des infections symptomatiques)"
+          "type": "list",
+          "items": [
+            "Forme abortive (4-8 % des infections symptomatiques)"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Syndrome fébrile non spécifique : fièvre, malaise, anorexie, pharyngite, nausées, résolution spontanée en quelques jours."
         },
         {
-          "type": "heading",
-          "text": "Forme méningée non paralytique"
+          "type": "list",
+          "items": [
+            "Forme méningée non paralytique"
+          ]
         },
         {
           "type": "paragraph",
           "text": "Fièvre, céphalées, raideur de nuque, vomissements — liquide céphalorachidien lymphocytaire. Régression habituelle en une semaine."
         },
         {
-          "type": "heading",
-          "text": "Forme paralytique (< 1 %)"
+          "type": "list",
+          "items": [
+            "Forme paralytique (< 1 %)"
+          ]
         },
         {
           "type": "list",
@@ -141,8 +148,10 @@
           "text": "Définition OMS de surveillance : toute paralysie flasque aiguë chez un enfant de moins de 15 ans (ou tout âge si polio suspectée) doit être NOTIFIÉE immédiatement, investiguée (examen, 2 prises de selles) et suivie à 60 jours. Ne jamais attendre la confirmation pour notifier."
         },
         {
-          "type": "heading",
-          "text": "Diagnostics différentiels"
+          "type": "list",
+          "items": [
+            "Diagnostics différentiels"
+          ]
         },
         {
           "type": "list",
@@ -317,7 +326,8 @@
           "key": "O",
           "term": "Orage respiratoire : forme bulbaire = urgence de ventilation"
         }
-      ]
+      ],
+      "id": "mn-p-o-l-i-o"
     }
   ],
   "flashcards": [
@@ -385,7 +395,8 @@
   "mindmap": {
     "root": {
       "id": "polio",
-      "label": "Poliomyélite antérieure aiguë"
+      "label": "Poliomyélite antérieure aiguë",
+      "detail": "Poliomyélite antérieure aiguë : Agent et cycle, Physiopathologie, Clinique, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -410,7 +421,8 @@
             "id": "b1l1",
             "label": "Plus de 90 % d'infections inapparentes"
           }
-        ]
+        ],
+        "detail": "Agent et cycle : Poliovirus : 3 sérotypes, Transmission fécale-orale, Incubation 7-14 jours"
       },
       {
         "id": "b2",
@@ -434,7 +446,8 @@
             "id": "b2l1",
             "label": "Atteinte motrice pure"
           }
-        ]
+        ],
+        "detail": "Physiopathologie : Réplication intestinale → virémie, Cornes antérieures de la moelle, Destruction des motoneurones"
       },
       {
         "id": "b3",
@@ -458,7 +471,8 @@
             "id": "b3l1",
             "label": "Forme bulbaire = urgence respiratoire"
           }
-        ]
+        ],
+        "detail": "Clinique : Abortive : fièvre banale, Méningée : LCR lymphocytaire, Paralytique < 1 % : flasque asymétrique"
       },
       {
         "id": "b4",
@@ -482,7 +496,8 @@
             "id": "b4l1",
             "label": "Suivi à 60 jours"
           }
-        ]
+        ],
+        "detail": "Diagnostic : PFA < 15 ans : notification immédiate, Selles ×2 : isolement/PCR, Différentiel : Guillain-Barré"
       },
       {
         "id": "b5",
@@ -506,7 +521,8 @@
             "id": "b5l1",
             "label": "Séquelles : déformations, syndrome post-polio"
           }
-        ]
+        ],
+        "detail": "Traitement : Pas d'antiviral, Repos au lit + surveillance respiratoire, Kinésithérapie, appareillage, chirurgie"
       },
       {
         "id": "b6",
@@ -530,7 +546,8 @@
             "id": "b6l1",
             "label": "Madagascar : flambées cVDPV en zones sous-vaccinées"
           }
-        ]
+        ],
+        "detail": "Prévention : VPO + IPV, couverture très élevée, cVDPV : riposte nOPV2, Surveillance PFA et environnementale"
       }
     ]
   },
