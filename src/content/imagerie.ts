@@ -85,3 +85,21 @@ export function findImagingCaseBySlug(slug: string): ImagingCase | null {
   }
   return null;
 }
+
+/**
+ * Tous les cas d'imagerie publiés, triés par identifiant : alimente l'index
+ * `/imagerie/` (le lien « Tous les cas » de la visionneuse pointait vers une
+ * route non déclarée, scripts/navigation-system.test.mjs).
+ */
+export function listImagingCases(): ImagingCase[] {
+  const modules = import.meta.glob<{ default: ImagingCase }>(
+    "./data/imagerie/*.json",
+    { eager: true },
+  );
+  const cases: ImagingCase[] = [];
+  for (const [path, mod] of Object.entries(modules)) {
+    if (path.includes("_index")) continue;
+    if (mod.default) cases.push(mod.default);
+  }
+  return cases.sort((a, b) => a.id.localeCompare(b.id));
+}

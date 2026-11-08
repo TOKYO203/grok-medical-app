@@ -1,6 +1,8 @@
 name: Diagnostic tests
 
 # TEMPORAIRE — à supprimer une fois la suite réparée (R7).
+# v4 : UNE annotation par fichier en échec (fichier + tests + 1re ligne
+# d'erreur fusionnés), pour tenir dans le cap de 10 annotations.
 on:
   push:
     branches: [main]
@@ -32,15 +34,16 @@ jobs:
           for f in scripts/*.test.mjs; do
             node --test "$f" > /tmp/one.log 2>&1 || true
             if grep -qE '^not ok ' /tmp/one.log; then
-              names=$(grep -E '^not ok ' /tmp/one.log | sed 's/^not ok [0-9]* - //' | head -n 4 | tr '\n' ';' | cut -c1-220)
-              echo "::error::FICHIER $f :: TESTS $names"
-              # Blocs d'erreur YAML : erreur + expected + actual (multi-lignes)
-              awk '/^ *error:/{c=8} c&&c--' /tmp/one.log | head -n 14 | sed 's/^ */ /' > /tmp/errblock
-              paste -sd '|' /tmp/errblock | cut -c1-1400 | sed 's/^/::error::DETAIL /'
+              names=$(grep -E '^not ok ' /tmp/one.log | sed 's/^not ok [0-9]* - //' | head -n 4 | tr '\n' ';' | cut -c1-200)
+              err=$(grep -E '^\s+error:' /tmp/one.log | head -n 1 | sed 's/^\s*//' | cut -c1-320)
+              if [ -z "$err" ]; then
+                err=$(grep -B1 -E '^\s+(expected|actual):' /tmp/one.log | grep -vE '^\s*$' | head -n 1 | sed 's/^\s*//' | cut -c1-320)
+              fi
+              echo "::error::FICHIER $f :: TESTS $names :: ERR $err"
             fi
           done
 
       - name: Lint
         run: |
           npx eslint . -f unix > /tmp/lint.log 2>&1 || true
-          sed 's|/home/runner/work/grok-medical-app/grok-medical-app/||' /tmp/lint.log | grep -E ' error ' | head -n 20 | cut -c1-250 | sed 's/^/::error::ESLint /'
+          sed 's|/home/runner/work/grok-medical-app/grok-medical-app/||' /tmp/lint.log | grep -E ' error ' | head -n 5 | cut -c1-250 | sed 's/^/::error::ESLint /'

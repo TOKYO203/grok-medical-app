@@ -343,12 +343,12 @@ export function AuthScreen() {
                 Voir les offres Optimus
               </Link>
               <span aria-hidden="true"> · </span>
-              <a
-                href="/decouvrir"
+              <Link
+                to="/decouvrir"
                 className="underline decoration-border-strong underline-offset-4 hover:text-fg"
               >
                 Découvrir sans compte
-              </a>
+              </Link>
             </p>
           </div>
         </section>
