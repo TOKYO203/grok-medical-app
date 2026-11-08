@@ -22,8 +22,13 @@
     }
   },
   "related": {
-    "deckIds": ["cardio-ic-l5", "cardio-ic-int"],
-    "caseIds": ["CARDIO-IC-001"]
+    "deckIds": [
+      "cardio-ic-l5",
+      "cardio-ic-int"
+    ],
+    "caseIds": [
+      "CARDIO-IC-001"
+    ]
   },
   "editorial": {
     "sourceDocument": null,
@@ -91,11 +96,27 @@
         },
         {
           "type": "table",
-          "columns": ["Catégorie", "Fraction d'éjection", "Traitements à bénéfice démontré"],
+          "columns": [
+            "Catégorie",
+            "Fraction d'éjection",
+            "Traitements à bénéfice démontré"
+          ],
           "rows": [
-            ["Réduite", "≤ 40 %", "Inhibiteur du système rénine-angiotensine, bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes, inhibiteur de SGLT2"],
-            ["Modérément réduite", "41-49 %", "Inhibiteur de SGLT2, diurétiques, traitement de la cause et des comorbidités"],
-            ["Préservée", "≥ 50 %", "Inhibiteur de SGLT2, diurétiques pour la congestion, traitement des comorbidités"]
+            [
+              "Réduite",
+              "≤ 40 %",
+              "Inhibiteur du système rénine-angiotensine, bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes, inhibiteur de SGLT2"
+            ],
+            [
+              "Modérément réduite",
+              "41-49 %",
+              "Inhibiteur de SGLT2, diurétiques, traitement de la cause et des comorbidités"
+            ],
+            [
+              "Préservée",
+              "≥ 50 %",
+              "Inhibiteur de SGLT2, diurétiques pour la congestion, traitement des comorbidités"
+            ]
           ]
         },
         {
@@ -136,14 +157,42 @@
         },
         {
           "type": "table",
-          "columns": ["Examen", "Rôle", "Limite"],
+          "columns": [
+            "Examen",
+            "Rôle",
+            "Limite"
+          ],
           "rows": [
-            ["Peptides natriurétiques", "Éliminer le diagnostic lorsque le taux est bas", "Élevés dans l'insuffisance rénale, l'âge, la fibrillation atriale"],
-            ["Électrocardiogramme", "Rechercher une cardiopathie, un trouble du rythme", "Souvent anormal mais non spécifique"],
-            ["Radiographie thoracique", "Évaluer la congestion, écarter une autre cause", "Peut être normale"],
-            ["Échocardiographie", "Mesurer la fraction d'éjection, les valves, les pressions", "Examen clé du diagnostic et de l'étiologie"],
-            ["Bilan biologique", "Fonction rénale, ionogramme, numération, thyroïde, fer", "Rechercher une cause et une comorbidité"],
-            ["Coronarographie", "Rechercher une maladie coronarienne", "Selon le contexte et la faisabilité"]
+            [
+              "Peptides natriurétiques",
+              "Éliminer le diagnostic lorsque le taux est bas",
+              "Élevés dans l'insuffisance rénale, l'âge, la fibrillation atriale"
+            ],
+            [
+              "Électrocardiogramme",
+              "Rechercher une cardiopathie, un trouble du rythme",
+              "Souvent anormal mais non spécifique"
+            ],
+            [
+              "Radiographie thoracique",
+              "Évaluer la congestion, écarter une autre cause",
+              "Peut être normale"
+            ],
+            [
+              "Échocardiographie",
+              "Mesurer la fraction d'éjection, les valves, les pressions",
+              "Examen clé du diagnostic et de l'étiologie"
+            ],
+            [
+              "Bilan biologique",
+              "Fonction rénale, ionogramme, numération, thyroïde, fer",
+              "Rechercher une cause et une comorbidité"
+            ],
+            [
+              "Coronarographie",
+              "Rechercher une maladie coronarienne",
+              "Selon le contexte et la faisabilité"
+            ]
           ]
         },
         {
@@ -361,10 +410,22 @@
       "label": "Les 4 piliers de la fraction d'éjection réduite",
       "intro": "Quatre classes, un bénéfice sur la mortalité.",
       "entries": [
-        { "key": "A", "term": "Inhibiteur du système rénine-angiotensine : inhibiteur de l'enzyme de conversion ou sacubitril-valsartan." },
-        { "key": "B", "term": "Bêta-bloquant : un des quatre ayant démontré un bénéfice dans l'insuffisance cardiaque." },
-        { "key": "M", "term": "Antagoniste des récepteurs minéralocorticoïdes : spironolactone ou éplérénone." },
-        { "key": "S", "term": "Inhibiteur de SGLT2 : dapagliflozine ou empagliflozine, même sans diabète." }
+        {
+          "key": "A",
+          "term": "Inhibiteur du système rénine-angiotensine : inhibiteur de l'enzyme de conversion ou sacubitril-valsartan."
+        },
+        {
+          "key": "B",
+          "term": "Bêta-bloquant : un des quatre ayant démontré un bénéfice dans l'insuffisance cardiaque."
+        },
+        {
+          "key": "M",
+          "term": "Antagoniste des récepteurs minéralocorticoïdes : spironolactone ou éplérénone."
+        },
+        {
+          "key": "S",
+          "term": "Inhibiteur de SGLT2 : dapagliflozine ou empagliflozine, même sans diabète."
+        }
       ],
       "note": "Les quatre classes doivent être introduites et titrées selon la tolérance : pression artérielle, fonction rénale et potassium."
     },
@@ -373,10 +434,22 @@
       "label": "N.Y.H.A. — les 4 classes",
       "intro": "Décrire le retentissement fonctionnel, pas la gravité anatomique.",
       "entries": [
-        { "key": "I", "term": "Aucune limitation : l'activité ordinaire ne provoque pas de symptômes." },
-        { "key": "II", "term": "Limitation légère : symptômes pour une activité ordinaire." },
-        { "key": "III", "term": "Limitation marquée : symptômes pour une activité modérée." },
-        { "key": "IV", "term": "Symptômes au repos ou pour le moindre effort." }
+        {
+          "key": "I",
+          "term": "Aucune limitation : l'activité ordinaire ne provoque pas de symptômes."
+        },
+        {
+          "key": "II",
+          "term": "Limitation légère : symptômes pour une activité ordinaire."
+        },
+        {
+          "key": "III",
+          "term": "Limitation marquée : symptômes pour une activité modérée."
+        },
+        {
+          "key": "IV",
+          "term": "Symptômes au repos ou pour le moindre effort."
+        }
       ],
       "note": "La classe NYHA peut changer avec le traitement : elle se réévalue, elle n'est pas une étiquette définitive."
     },
@@ -385,11 +458,26 @@
       "label": "Les 5 causes de décompensation",
       "intro": "Chercher le facteur déclenchant avant d'augmenter les diurétiques.",
       "entries": [
-        { "key": "I", "term": "Infection, en particulier respiratoire." },
-        { "key": "R", "term": "Rythme : fibrillation atriale rapide ou autre tachycardie." },
-        { "key": "T", "term": "Traitement interrompu ou inadapté, écart de régime." },
-        { "key": "E", "term": "Embolie pulmonaire ou ischémie myocardique." },
-        { "key": "H", "term": "Hypertension artérielle non contrôlée." }
+        {
+          "key": "I",
+          "term": "Infection, en particulier respiratoire."
+        },
+        {
+          "key": "R",
+          "term": "Rythme : fibrillation atriale rapide ou autre tachycardie."
+        },
+        {
+          "key": "T",
+          "term": "Traitement interrompu ou inadapté, écart de régime."
+        },
+        {
+          "key": "E",
+          "term": "Embolie pulmonaire ou ischémie myocardique."
+        },
+        {
+          "key": "H",
+          "term": "Hypertension artérielle non contrôlée."
+        }
       ],
       "note": "Chez le patient âgé, une infection urinaire ou une anémie peuvent suffire à décompenser une insuffisance cardiaque jusque-là stable."
     }
@@ -399,73 +487,101 @@
       "id": "fc-01",
       "front": "Comment définit-on l'insuffisance cardiaque ?",
       "back": "Un syndrome associant des symptômes et des signes liés à une anomalie structurelle ou fonctionnelle du cœur, avec congestion et/ou diminution du débit cardiaque.",
-      "tags": ["définition"]
+      "tags": [
+        "définition"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quelles sont les trois catégories selon la fraction d'éjection ?",
       "back": "Fraction d'éjection réduite (≤ 40 %), modérément réduite (41-49 %) et préservée (≥ 50 %).",
-      "tags": ["classification"]
+      "tags": [
+        "classification"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quel est l'examen clé du diagnostic d'insuffisance cardiaque ?",
       "back": "L'échocardiographie, qui mesure la fraction d'éjection, évalue les valves et les pressions de remplissage, et oriente vers la cause.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quelle est la valeur des peptides natriurétiques ?",
       "back": "Un taux bas rend le diagnostic peu probable. Un taux élevé est évocateur mais non spécifique : il peut être élevé avec l'âge, l'insuffisance rénale ou la fibrillation atriale.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quels sont les quatre piliers du traitement de la fraction d'éjection réduite ?",
       "back": "Inhibiteur du système rénine-angiotensine (ou sacubitril-valsartan), bêta-bloquant, antagoniste des récepteurs minéralocorticoïdes et inhibiteur de SGLT2.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quel est le rôle des diurétiques dans l'insuffisance cardiaque ?",
       "back": "Soulager la congestion et améliorer les symptômes. Ils n'ont pas démontré de bénéfice sur la mortalité et doivent être utilisés à la dose minimale efficace.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-07",
       "front": "L'inhibiteur de SGLT2 est-il réservé aux diabétiques ?",
       "back": "Non. Son bénéfice est démontré dans l'insuffisance cardiaque indépendamment du statut diabétique.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Quels paramètres surveiller lors de la titration des traitements ?",
       "back": "La pression artérielle, la fréquence cardiaque, la fonction rénale et le potassium. La titration se fait progressivement, selon la tolérance clinique et biologique.",
-      "tags": ["surveillance"]
+      "tags": [
+        "surveillance"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Quel est le traitement initial d'une insuffisance cardiaque aiguë congestive ?",
       "back": "Oxygène si hypoxémie, diurétique intraveineux, vasodilatateur si la pression artérielle le permet, ventilation non invasive si détresse respiratoire. Traiter le facteur déclenchant.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Quelles sont les causes fréquentes de décompensation ?",
       "back": "Infection, trouble du rythme, arrêt du traitement ou écart de régime, embolie pulmonaire, ischémie myocardique et poussée hypertensive.",
-      "tags": ["urgence", "étiologie"]
+      "tags": [
+        "urgence",
+        "étiologie"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quand discuter un défibrillateur implantable ou une resynchronisation ?",
       "back": "Selon la fraction d'éjection, les symptômes persistants malgré un traitement optimisé, la présence d'un bloc de branche et le pronostic. La décision est multidisciplinaire.",
-      "tags": ["traitement", "dispositifs"]
+      "tags": [
+        "traitement",
+        "dispositifs"
+      ]
     },
     {
       "id": "fc-12",
       "front": "Quelles mesures non médicamenteuses améliorent la qualité de vie ?",
       "back": "Réadaptation cardiaque, éducation sur le poids et les signes d'alerte, régime adapté, activité physique, arrêt du tabac et de l'alcool, vaccination et prise en charge des comorbidités.",
-      "tags": ["prévention", "suivi"]
+      "tags": [
+        "prévention",
+        "suivi"
+      ]
     }
   ],
   "mindmap": {
@@ -481,9 +597,44 @@
         "tone": "reflexe",
         "detail": "Symptômes et signes de congestion, peptides natriurétiques et échocardiographie. Toujours rechercher la cause.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Dyspnée" }, { "id": "diag-clinique-2", "label": "Œdèmes" }] },
-          { "id": "diag-bnp", "label": "Peptides natriurétiques", "leaves": [{ "id": "diag-bnp-1", "label": "Valeur d'exclusion" }] },
-          { "id": "diag-echo", "label": "Échocardiographie", "leaves": [{ "id": "diag-echo-1", "label": "Fraction d'éjection" }, { "id": "diag-echo-2", "label": "Valves" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Dyspnée"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Œdèmes"
+              }
+            ]
+          },
+          {
+            "id": "diag-bnp",
+            "label": "Peptides natriurétiques",
+            "leaves": [
+              {
+                "id": "diag-bnp-1",
+                "label": "Valeur d'exclusion"
+              }
+            ]
+          },
+          {
+            "id": "diag-echo",
+            "label": "Échocardiographie",
+            "leaves": [
+              {
+                "id": "diag-echo-1",
+                "label": "Fraction d'éjection"
+              },
+              {
+                "id": "diag-echo-2",
+                "label": "Valves"
+              }
+            ]
+          }
         ]
       },
       {
@@ -492,9 +643,36 @@
         "tone": "memo",
         "detail": "Fraction d'éjection réduite, modérément réduite ou préservée ; classe NYHA pour le retentissement fonctionnel.",
         "children": [
-          { "id": "class-hfref", "label": "HFrEF", "leaves": [{ "id": "class-hfref-1", "label": "≤ 40 %" }] },
-          { "id": "class-hfmref", "label": "HFmrEF", "leaves": [{ "id": "class-hfmref-1", "label": "41-49 %" }] },
-          { "id": "class-hfpef", "label": "HFpEF", "leaves": [{ "id": "class-hfpef-1", "label": "≥ 50 %" }] }
+          {
+            "id": "class-hfref",
+            "label": "HFrEF",
+            "leaves": [
+              {
+                "id": "class-hfref-1",
+                "label": "≤ 40 %"
+              }
+            ]
+          },
+          {
+            "id": "class-hfmref",
+            "label": "HFmrEF",
+            "leaves": [
+              {
+                "id": "class-hfmref-1",
+                "label": "41-49 %"
+              }
+            ]
+          },
+          {
+            "id": "class-hfpef",
+            "label": "HFpEF",
+            "leaves": [
+              {
+                "id": "class-hfpef-1",
+                "label": "≥ 50 %"
+              }
+            ]
+          }
         ]
       },
       {
@@ -502,9 +680,36 @@
         "label": "Étiologies",
         "detail": "Coronaropathie, hypertension, valvulopathies, cardiomyopathies, toxiques et troubles du rythme.",
         "children": [
-          { "id": "etio-coronaire", "label": "Coronaropathie", "leaves": [{ "id": "etio-coronaire-1", "label": "Ischémie" }] },
-          { "id": "etio-hta", "label": "Hypertension", "leaves": [{ "id": "etio-hta-1", "label": "HVG" }] },
-          { "id": "etio-valve", "label": "Valvulopathie", "leaves": [{ "id": "etio-valve-1", "label": "Chirurgie à discuter" }] }
+          {
+            "id": "etio-coronaire",
+            "label": "Coronaropathie",
+            "leaves": [
+              {
+                "id": "etio-coronaire-1",
+                "label": "Ischémie"
+              }
+            ]
+          },
+          {
+            "id": "etio-hta",
+            "label": "Hypertension",
+            "leaves": [
+              {
+                "id": "etio-hta-1",
+                "label": "HVG"
+              }
+            ]
+          },
+          {
+            "id": "etio-valve",
+            "label": "Valvulopathie",
+            "leaves": [
+              {
+                "id": "etio-valve-1",
+                "label": "Chirurgie à discuter"
+              }
+            ]
+          }
         ]
       },
       {
@@ -513,9 +718,40 @@
         "tone": "retenir",
         "detail": "Quatre piliers dans la fraction d'éjection réduite, diurétiques pour la congestion, traitement de la cause et des comorbidités.",
         "children": [
-          { "id": "ttt-piliers", "label": "4 piliers", "leaves": [{ "id": "ttt-piliers-1", "label": "ARNI / IEC" }, { "id": "ttt-piliers-2", "label": "BB, MRA, SGLT2" }] },
-          { "id": "ttt-diur", "label": "Diurétiques", "leaves": [{ "id": "ttt-diur-1", "label": "Congestion" }] },
-          { "id": "ttt-dispositifs", "label": "Dispositifs", "leaves": [{ "id": "ttt-dispositifs-1", "label": "ICD / CRT" }] }
+          {
+            "id": "ttt-piliers",
+            "label": "4 piliers",
+            "leaves": [
+              {
+                "id": "ttt-piliers-1",
+                "label": "ARNI / IEC"
+              },
+              {
+                "id": "ttt-piliers-2",
+                "label": "BB, MRA, SGLT2"
+              }
+            ]
+          },
+          {
+            "id": "ttt-diur",
+            "label": "Diurétiques",
+            "leaves": [
+              {
+                "id": "ttt-diur-1",
+                "label": "Congestion"
+              }
+            ]
+          },
+          {
+            "id": "ttt-dispositifs",
+            "label": "Dispositifs",
+            "leaves": [
+              {
+                "id": "ttt-dispositifs-1",
+                "label": "ICD / CRT"
+              }
+            ]
+          }
         ]
       },
       {
@@ -524,9 +760,40 @@
         "tone": "urgence",
         "detail": "Oxygène, diurétique IV, vasodilatateur, ventilation non invasive. Chercher le facteur déclenchant.",
         "children": [
-          { "id": "aigu-congestion", "label": "Congestion", "leaves": [{ "id": "aigu-congestion-1", "label": "Diurétique IV" }] },
-          { "id": "aigu-choc", "label": "Bas débit", "leaves": [{ "id": "aigu-choc-1", "label": "Inotropes" }] },
-          { "id": "aigu-facteur", "label": "Facteur déclenchant", "leaves": [{ "id": "aigu-facteur-1", "label": "Infection" }, { "id": "aigu-facteur-2", "label": "Rythme" }] }
+          {
+            "id": "aigu-congestion",
+            "label": "Congestion",
+            "leaves": [
+              {
+                "id": "aigu-congestion-1",
+                "label": "Diurétique IV"
+              }
+            ]
+          },
+          {
+            "id": "aigu-choc",
+            "label": "Bas débit",
+            "leaves": [
+              {
+                "id": "aigu-choc-1",
+                "label": "Inotropes"
+              }
+            ]
+          },
+          {
+            "id": "aigu-facteur",
+            "label": "Facteur déclenchant",
+            "leaves": [
+              {
+                "id": "aigu-facteur-1",
+                "label": "Infection"
+              },
+              {
+                "id": "aigu-facteur-2",
+                "label": "Rythme"
+              }
+            ]
+          }
         ]
       },
       {
@@ -534,9 +801,40 @@
         "label": "Surveiller",
         "detail": "Poids, pression artérielle, fonction rénale, potassium, symptômes et observance. L'éducation du patient fait partie du traitement.",
         "children": [
-          { "id": "surv-poids", "label": "Poids", "leaves": [{ "id": "surv-poids-1", "label": "Prise rapide" }] },
-          { "id": "surv-bio", "label": "Biologie", "leaves": [{ "id": "surv-bio-1", "label": "Créatinine" }, { "id": "surv-bio-2", "label": "Kaliémie" }] },
-          { "id": "surv-education", "label": "Éducation", "leaves": [{ "id": "surv-education-1", "label": "Signes d'alerte" }] }
+          {
+            "id": "surv-poids",
+            "label": "Poids",
+            "leaves": [
+              {
+                "id": "surv-poids-1",
+                "label": "Prise rapide"
+              }
+            ]
+          },
+          {
+            "id": "surv-bio",
+            "label": "Biologie",
+            "leaves": [
+              {
+                "id": "surv-bio-1",
+                "label": "Créatinine"
+              },
+              {
+                "id": "surv-bio-2",
+                "label": "Kaliémie"
+              }
+            ]
+          },
+          {
+            "id": "surv-education",
+            "label": "Éducation",
+            "leaves": [
+              {
+                "id": "surv-education-1",
+                "label": "Signes d'alerte"
+              }
+            ]
+          }
         ]
       },
       {
@@ -544,9 +842,36 @@
         "label": "Contexte malgache",
         "detail": "Accès limité aux molécules récentes et aux dispositifs. Les traitements de base restent efficaces s'ils sont titrés et suivis.",
         "children": [
-          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "SGLT2 / ARNI" }] },
-          { "id": "mada-base", "label": "Traitement de base", "leaves": [{ "id": "mada-base-1", "label": "IEC, BB, MRA" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+          {
+            "id": "mada-acces",
+            "label": "Accès",
+            "leaves": [
+              {
+                "id": "mada-acces-1",
+                "label": "SGLT2 / ARNI"
+              }
+            ]
+          },
+          {
+            "id": "mada-base",
+            "label": "Traitement de base",
+            "leaves": [
+              {
+                "id": "mada-base-1",
+                "label": "IEC, BB, MRA"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "National"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -601,5 +926,6 @@
         "Éducation du patient"
       ]
     }
-  ]
+  ],
+  "specialty": "Cardiologie"
 }

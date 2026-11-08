@@ -22,7 +22,9 @@
     }
   },
   "related": {
-    "deckIds": ["infectio"],
+    "deckIds": [
+      "infectio"
+    ],
     "caseIds": []
   },
   "editorial": {
@@ -134,13 +136,37 @@
         },
         {
           "type": "table",
-          "columns": ["Paramètre", "Méningite bactérienne", "Méningite virale"],
+          "columns": [
+            "Paramètre",
+            "Méningite bactérienne",
+            "Méningite virale"
+          ],
           "rows": [
-            ["Cellules", "Pléiocytose à prédominance polynucléaire", "Pléiocytose à prédominance lymphocytaire"],
-            ["Glucose", "Diminué, rapport glucorachie/glycémie abaissé", "Souvent normal"],
-            ["Protéines", "Augmentées", "Modérément augmentées"],
-            ["Gram", "Peut identifier le germe", "Négatif"],
-            ["Culture et PCR", "Positives selon le germe", "PCR virale positive si recherchée"]
+            [
+              "Cellules",
+              "Pléiocytose à prédominance polynucléaire",
+              "Pléiocytose à prédominance lymphocytaire"
+            ],
+            [
+              "Glucose",
+              "Diminué, rapport glucorachie/glycémie abaissé",
+              "Souvent normal"
+            ],
+            [
+              "Protéines",
+              "Augmentées",
+              "Modérément augmentées"
+            ],
+            [
+              "Gram",
+              "Peut identifier le germe",
+              "Négatif"
+            ],
+            [
+              "Culture et PCR",
+              "Positives selon le germe",
+              "PCR virale positive si recherchée"
+            ]
           ]
         },
         {
@@ -182,12 +208,32 @@
         },
         {
           "type": "table",
-          "columns": ["Terrain", "Germes probables", "Particularité thérapeutique"],
+          "columns": [
+            "Terrain",
+            "Germes probables",
+            "Particularité thérapeutique"
+          ],
           "rows": [
-            ["Nouveau-né", "Streptocoque B, E. coli, Listeria", "Ampicilline + céfotaxime + aminoside"],
-            ["Enfant et adulte jeune", "Pneumocoque, méningocoque", "Céphalosporine de 3e génération"],
-            ["Sujet âgé ou immunodéprimé", "Pneumocoque, Listeria, Gram négatif", "Ajouter l'amoxicilline pour Listeria"],
-            ["Post-traumatique ou post-opératoire", "Staphylocoque, Gram négatif", "Adapter à la chirurgie et à l'écologie locale"]
+            [
+              "Nouveau-né",
+              "Streptocoque B, E. coli, Listeria",
+              "Ampicilline + céfotaxime + aminoside"
+            ],
+            [
+              "Enfant et adulte jeune",
+              "Pneumocoque, méningocoque",
+              "Céphalosporine de 3e génération"
+            ],
+            [
+              "Sujet âgé ou immunodéprimé",
+              "Pneumocoque, Listeria, Gram négatif",
+              "Ajouter l'amoxicilline pour Listeria"
+            ],
+            [
+              "Post-traumatique ou post-opératoire",
+              "Staphylocoque, Gram négatif",
+              "Adapter à la chirurgie et à l'écologie locale"
+            ]
           ]
         },
         {
@@ -391,10 +437,22 @@
       "label": "Les 4 gestes de la méningite",
       "intro": "Reconnaître, ponctionner, traiter, surveiller.",
       "entries": [
-        { "key": "R", "term": "Reconnaître les signes : fièvre, céphalées, raideur de nuque, troubles de conscience." },
-        { "key": "P", "term": "Ponction lombaire dès que possible, après avoir écarté les contre-indications." },
-        { "key": "A", "term": "Antibiothérapie immédiate, sans attendre le résultat du liquide." },
-        { "key": "S", "term": "Surveillance en réanimation si purpura, choc, convulsions ou troubles de conscience." }
+        {
+          "key": "R",
+          "term": "Reconnaître les signes : fièvre, céphalées, raideur de nuque, troubles de conscience."
+        },
+        {
+          "key": "P",
+          "term": "Ponction lombaire dès que possible, après avoir écarté les contre-indications."
+        },
+        {
+          "key": "A",
+          "term": "Antibiothérapie immédiate, sans attendre le résultat du liquide."
+        },
+        {
+          "key": "S",
+          "term": "Surveillance en réanimation si purpura, choc, convulsions ou troubles de conscience."
+        }
       ],
       "note": "Chez un patient avec purpura fulminans, la séquence est : antibiotique et réanimation d'abord, ponction lombaire ensuite si elle est encore utile."
     },
@@ -403,10 +461,22 @@
       "label": "Listeria : quand y penser ?",
       "intro": "Une question qui change l'antibiothérapie.",
       "entries": [
-        { "key": "Â", "term": "Âge supérieur à 50 ans." },
-        { "key": "I", "term": "Immunodépression : corticothérapie, chimiothérapie, greffe, VIH." },
-        { "key": "G", "term": "Grossesse et post-partum." },
-        { "key": "N", "term": "Nouveau-né." }
+        {
+          "key": "Â",
+          "term": "Âge supérieur à 50 ans."
+        },
+        {
+          "key": "I",
+          "term": "Immunodépression : corticothérapie, chimiothérapie, greffe, VIH."
+        },
+        {
+          "key": "G",
+          "term": "Grossesse et post-partum."
+        },
+        {
+          "key": "N",
+          "term": "Nouveau-né."
+        }
       ],
       "note": "Listeria est résistante aux céphalosporines de 3e génération : l'amoxicilline doit être ajoutée lorsqu'elle est possible."
     },
@@ -415,9 +485,18 @@
       "label": "Prophylaxie des contacts",
       "intro": "Trois questions : qui, quand, avec quoi ?",
       "entries": [
-        { "key": "Q", "term": "Qui : contacts du même foyer, collectivité proche, soignants exposés sans protection." },
-        { "key": "T", "term": "Quand : le plus tôt possible, idéalement dans les 24 à 48 heures." },
-        { "key": "M", "term": "Molécules : rifampicine, ciprofloxacine ou ceftriaxone selon le protocole." }
+        {
+          "key": "Q",
+          "term": "Qui : contacts du même foyer, collectivité proche, soignants exposés sans protection."
+        },
+        {
+          "key": "T",
+          "term": "Quand : le plus tôt possible, idéalement dans les 24 à 48 heures."
+        },
+        {
+          "key": "M",
+          "term": "Molécules : rifampicine, ciprofloxacine ou ceftriaxone selon le protocole."
+        }
       ],
       "note": "La prophylaxie ne dispense pas de surveiller les contacts fébriles : toute suspicion de méningite reste une urgence."
     }
@@ -427,67 +506,90 @@
       "id": "fc-01",
       "front": "Quelle est la triade classique de la méningite ?",
       "back": "Fièvre, céphalées et raideur de nuque. Les troubles de la conscience, les convulsions et le purpura sont des signes de gravité.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-02",
       "front": "Quels sont les germes les plus fréquents chez l'adulte ?",
       "back": "Streptococcus pneumoniae et Neisseria meningitidis. Chez le sujet âgé ou immunodéprimé, Listeria monocytogenes et les bacilles Gram négatif doivent aussi être évoqués.",
-      "tags": ["microbiologie"]
+      "tags": [
+        "microbiologie"
+      ]
     },
     {
       "id": "fc-03",
       "front": "Quand faut-il réaliser une imagerie cérébrale avant la ponction lombaire ?",
       "back": "En cas de signes focaux, de convulsion récente, de trouble de la conscience, d'immunodépression ou de suspicion d'hypertension intracrânienne. L'antibiothérapie ne doit pas être retardée pour autant.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-04",
       "front": "Quel est le profil du liquide céphalorachidien dans une méningite bactérienne ?",
       "back": "Une pléiocytose à prédominance polynucléaire, une hypoglycorachie avec un rapport glucorachie/glycémie abaissé, et une hyperprotéinorachie.",
-      "tags": ["diagnostic"]
+      "tags": [
+        "diagnostic"
+      ]
     },
     {
       "id": "fc-05",
       "front": "Quel est le traitement antibiotique probabiliste de l'adulte ?",
       "back": "Une céphalosporine de 3e génération (ceftriaxone ou céfotaxime), avec ajout d'amoxicilline si Listeria est possible. Le traitement débute sans attendre la confirmation.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-06",
       "front": "Quelle est la place de la dexaméthasone ?",
       "back": "Elle est administrée avant ou avec la première dose d'antibiotique, surtout en cas de suspicion de pneumocoque, et poursuivie quelques jours. Elle réduit la mortalité et les séquelles auditives.",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-07",
       "front": "Quelle est la durée de traitement d'une méningite à méningocoque ?",
       "back": "Sept jours de céphalosporine de 3e génération. La durée est plus longue pour le pneumocoque (10 à 14 jours) et pour Listeria (21 jours).",
-      "tags": ["traitement"]
+      "tags": [
+        "traitement"
+      ]
     },
     {
       "id": "fc-08",
       "front": "Que faire devant un purpura fébrile ?",
       "back": "C'est une urgence vitale : antibiothérapie immédiate, remplissage vasculaire et transfert en réanimation, sans attendre la ponction lombaire.",
-      "tags": ["urgence"]
+      "tags": [
+        "urgence"
+      ]
     },
     {
       "id": "fc-09",
       "front": "Pourquoi Listeria change-t-elle l'antibiothérapie ?",
       "back": "Listeria est naturellement résistante aux céphalosporines de 3e génération. Il faut ajouter l'amoxicilline chez les patients à risque : sujet âgé, immunodéprimé, femme enceinte, nouveau-né.",
-      "tags": ["traitement", "piège"]
+      "tags": [
+        "traitement",
+        "piège"
+      ]
     },
     {
       "id": "fc-10",
       "front": "Qui doit recevoir une chimioprophylaxie autour d'un cas de méningite à méningocoque ?",
       "back": "Les personnes vivant sous le même toit, les contacts proches en collectivité et les soignants exposés sans protection. La prophylaxie doit être débutée rapidement.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     },
     {
       "id": "fc-11",
       "front": "Quelles vaccinations réduisent le risque de méningite bactérienne ?",
       "back": "Les vaccins contre le méningocoque, le pneumocoque et Haemophilus influenzae de type b, selon les calendriers nationaux et les souches circulantes.",
-      "tags": ["prévention"]
+      "tags": [
+        "prévention"
+      ]
     }
   ],
   "mindmap": {
@@ -503,9 +605,44 @@
         "tone": "reflexe",
         "detail": "Fièvre, céphalées, raideur de nuque. La ponction lombaire confirme, mais ne doit jamais retarder l'antibiotique.",
         "children": [
-          { "id": "diag-clinique", "label": "Clinique", "leaves": [{ "id": "diag-clinique-1", "label": "Raideur de nuque" }, { "id": "diag-clinique-2", "label": "Troubles de conscience" }] },
-          { "id": "diag-pl", "label": "Ponction lombaire", "leaves": [{ "id": "diag-pl-1", "label": "Contre-indications" }, { "id": "diag-pl-2", "label": "Biochimie et culture" }] },
-          { "id": "diag-imagerie", "label": "Imagerie", "leaves": [{ "id": "diag-imagerie-1", "label": "Avant PL si signes focaux" }] }
+          {
+            "id": "diag-clinique",
+            "label": "Clinique",
+            "leaves": [
+              {
+                "id": "diag-clinique-1",
+                "label": "Raideur de nuque"
+              },
+              {
+                "id": "diag-clinique-2",
+                "label": "Troubles de conscience"
+              }
+            ]
+          },
+          {
+            "id": "diag-pl",
+            "label": "Ponction lombaire",
+            "leaves": [
+              {
+                "id": "diag-pl-1",
+                "label": "Contre-indications"
+              },
+              {
+                "id": "diag-pl-2",
+                "label": "Biochimie et culture"
+              }
+            ]
+          },
+          {
+            "id": "diag-imagerie",
+            "label": "Imagerie",
+            "leaves": [
+              {
+                "id": "diag-imagerie-1",
+                "label": "Avant PL si signes focaux"
+              }
+            ]
+          }
         ]
       },
       {
@@ -513,9 +650,40 @@
         "label": "Germes",
         "detail": "Pneumocoque et méningocoque chez l'adulte ; Listeria chez le sujet âgé, l'immunodéprimé, la femme enceinte et le nouveau-né.",
         "children": [
-          { "id": "germ-pneumo", "label": "Pneumocoque", "leaves": [{ "id": "germ-pneumo-1", "label": "Otite, sinusite" }] },
-          { "id": "germ-meningo", "label": "Méningocoque", "leaves": [{ "id": "germ-meningo-1", "label": "Purpura" }, { "id": "germ-meningo-2", "label": "Prophylaxie" }] },
-          { "id": "germ-listeria", "label": "Listeria", "leaves": [{ "id": "germ-listeria-1", "label": "Amoxicilline" }] }
+          {
+            "id": "germ-pneumo",
+            "label": "Pneumocoque",
+            "leaves": [
+              {
+                "id": "germ-pneumo-1",
+                "label": "Otite, sinusite"
+              }
+            ]
+          },
+          {
+            "id": "germ-meningo",
+            "label": "Méningocoque",
+            "leaves": [
+              {
+                "id": "germ-meningo-1",
+                "label": "Purpura"
+              },
+              {
+                "id": "germ-meningo-2",
+                "label": "Prophylaxie"
+              }
+            ]
+          },
+          {
+            "id": "germ-listeria",
+            "label": "Listeria",
+            "leaves": [
+              {
+                "id": "germ-listeria-1",
+                "label": "Amoxicilline"
+              }
+            ]
+          }
         ]
       },
       {
@@ -524,9 +692,40 @@
         "tone": "retenir",
         "detail": "Céphalosporine de 3e génération, ajout d'amoxicilline si Listeria possible, dexaméthasone selon le contexte.",
         "children": [
-          { "id": "ttt-antibio", "label": "Antibiothérapie", "leaves": [{ "id": "ttt-antibio-1", "label": "Ceftriaxone" }, { "id": "ttt-antibio-2", "label": "Amoxicilline" }] },
-          { "id": "ttt-dexa", "label": "Dexaméthasone", "leaves": [{ "id": "ttt-dexa-1", "label": "Avant la 1re dose" }] },
-          { "id": "ttt-duree", "label": "Durée", "leaves": [{ "id": "ttt-duree-1", "label": "Selon le germe" }] }
+          {
+            "id": "ttt-antibio",
+            "label": "Antibiothérapie",
+            "leaves": [
+              {
+                "id": "ttt-antibio-1",
+                "label": "Ceftriaxone"
+              },
+              {
+                "id": "ttt-antibio-2",
+                "label": "Amoxicilline"
+              }
+            ]
+          },
+          {
+            "id": "ttt-dexa",
+            "label": "Dexaméthasone",
+            "leaves": [
+              {
+                "id": "ttt-dexa-1",
+                "label": "Avant la 1re dose"
+              }
+            ]
+          },
+          {
+            "id": "ttt-duree",
+            "label": "Durée",
+            "leaves": [
+              {
+                "id": "ttt-duree-1",
+                "label": "Selon le germe"
+              }
+            ]
+          }
         ]
       },
       {
@@ -535,9 +734,36 @@
         "tone": "urgence",
         "detail": "Purpura fulminans, choc, convulsions et troubles de la conscience imposent la réanimation et l'antibiotique immédiat.",
         "children": [
-          { "id": "urg-purpura", "label": "Purpura fulminans", "leaves": [{ "id": "urg-purpura-1", "label": "Réanimation" }] },
-          { "id": "urg-choc", "label": "Choc", "leaves": [{ "id": "urg-choc-1", "label": "Remplissage" }] },
-          { "id": "urg-convulsions", "label": "Convulsions", "leaves": [{ "id": "urg-convulsions-1", "label": "Traiter" }] }
+          {
+            "id": "urg-purpura",
+            "label": "Purpura fulminans",
+            "leaves": [
+              {
+                "id": "urg-purpura-1",
+                "label": "Réanimation"
+              }
+            ]
+          },
+          {
+            "id": "urg-choc",
+            "label": "Choc",
+            "leaves": [
+              {
+                "id": "urg-choc-1",
+                "label": "Remplissage"
+              }
+            ]
+          },
+          {
+            "id": "urg-convulsions",
+            "label": "Convulsions",
+            "leaves": [
+              {
+                "id": "urg-convulsions-1",
+                "label": "Traiter"
+              }
+            ]
+          }
         ]
       },
       {
@@ -545,9 +771,44 @@
         "label": "Prévenir",
         "detail": "Vaccination, prophylaxie des contacts et déclaration obligatoire.",
         "children": [
-          { "id": "prev-vaccins", "label": "Vaccins", "leaves": [{ "id": "prev-vaccins-1", "label": "Méningocoque" }, { "id": "prev-vaccins-2", "label": "Pneumocoque" }] },
-          { "id": "prev-contacts", "label": "Contacts", "leaves": [{ "id": "prev-contacts-1", "label": "Rifampicine" }, { "id": "prev-contacts-2", "label": "Ciprofloxacine" }] },
-          { "id": "prev-declaration", "label": "Déclaration", "leaves": [{ "id": "prev-declaration-1", "label": "Investigation" }] }
+          {
+            "id": "prev-vaccins",
+            "label": "Vaccins",
+            "leaves": [
+              {
+                "id": "prev-vaccins-1",
+                "label": "Méningocoque"
+              },
+              {
+                "id": "prev-vaccins-2",
+                "label": "Pneumocoque"
+              }
+            ]
+          },
+          {
+            "id": "prev-contacts",
+            "label": "Contacts",
+            "leaves": [
+              {
+                "id": "prev-contacts-1",
+                "label": "Rifampicine"
+              },
+              {
+                "id": "prev-contacts-2",
+                "label": "Ciprofloxacine"
+              }
+            ]
+          },
+          {
+            "id": "prev-declaration",
+            "label": "Déclaration",
+            "leaves": [
+              {
+                "id": "prev-declaration-1",
+                "label": "Investigation"
+              }
+            ]
+          }
         ]
       },
       {
@@ -555,8 +816,26 @@
         "label": "Séquelles",
         "detail": "Surdité, troubles cognitifs, épilepsie et déficits neurologiques : la surveillance ne s'arrête pas à la sortie.",
         "children": [
-          { "id": "seq-auditive", "label": "Audition", "leaves": [{ "id": "seq-auditive-1", "label": "Audiogramme" }] },
-          { "id": "seq-neuro", "label": "Neurologique", "leaves": [{ "id": "seq-neuro-1", "label": "Suivi" }] }
+          {
+            "id": "seq-auditive",
+            "label": "Audition",
+            "leaves": [
+              {
+                "id": "seq-auditive-1",
+                "label": "Audiogramme"
+              }
+            ]
+          },
+          {
+            "id": "seq-neuro",
+            "label": "Neurologique",
+            "leaves": [
+              {
+                "id": "seq-neuro-1",
+                "label": "Suivi"
+              }
+            ]
+          }
         ]
       },
       {
@@ -564,9 +843,36 @@
         "label": "Contexte malgache",
         "detail": "Risque de flambées de méningite à méningocoque, accès variable à la ceftriaxone et importance de la surveillance épidémiologique.",
         "children": [
-          { "id": "mada-epidemies", "label": "Épidémies", "leaves": [{ "id": "mada-epidemies-1", "label": "Surveillance" }] },
-          { "id": "mada-acces", "label": "Accès", "leaves": [{ "id": "mada-acces-1", "label": "Ceftriaxone" }] },
-          { "id": "mada-protocole", "label": "Protocole", "leaves": [{ "id": "mada-protocole-1", "label": "National" }] }
+          {
+            "id": "mada-epidemies",
+            "label": "Épidémies",
+            "leaves": [
+              {
+                "id": "mada-epidemies-1",
+                "label": "Surveillance"
+              }
+            ]
+          },
+          {
+            "id": "mada-acces",
+            "label": "Accès",
+            "leaves": [
+              {
+                "id": "mada-acces-1",
+                "label": "Ceftriaxone"
+              }
+            ]
+          },
+          {
+            "id": "mada-protocole",
+            "label": "Protocole",
+            "leaves": [
+              {
+                "id": "mada-protocole-1",
+                "label": "National"
+              }
+            ]
+          }
         ]
       }
     ]
@@ -622,5 +928,6 @@
         "Durées de traitement"
       ]
     }
-  ]
+  ],
+  "specialty": "Infectiologie"
 }

@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche sur la lèpre (maladie de Hansen) : Mycobacterium leprae à tropisme cutanéo-nerveux, spectre clinique tuberculoïde-lépromateux, lésions anesthésiques hypopigmentées + atteinte des nerfs périphériques, classement OMS PB/MB par nombre de lésions, polychimiothérapie (rifampicine + clofazimine ± dapsone), réactions lépreuses (type 1 et 2, érythème noueux lépreux) comme urgences, prévention par dépistage des contacts et chimioprophylaxie, élimination et stigmatisation.",
@@ -90,8 +91,10 @@
       "title": "Clinique",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Lésions élémentaires"
+          "type": "list",
+          "items": [
+            "Lésions élémentaires"
+          ]
         },
         {
           "type": "list",
@@ -103,8 +106,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Classement opérationnel OMS"
+          "type": "list",
+          "items": [
+            "Classement opérationnel OMS"
+          ]
         },
         {
           "type": "paragraph",
@@ -147,8 +152,10 @@
           "text": "Une lèpre précoce peut ressembler à une simple macule hypopigmentée (teigne, vitiligo, pityriasis). Toujours tester au coton, à la piqûre ou au monofilament ET palper les nerfs (ulnaire au coude, grand auriculaire au cou, péronier au col de la fibula) : l'anesthésie d'une macule est la clé."
         },
         {
-          "type": "heading",
-          "text": "Diagnostics différentiels"
+          "type": "list",
+          "items": [
+            "Diagnostics différentiels"
+          ]
         },
         {
           "type": "list",
@@ -302,7 +309,8 @@
           "key": "E",
           "term": "Dépistage des contacts et éducation contre la stigmatisation"
         }
-      ]
+      ],
+      "id": "mn-l-e-p-r-e"
     }
   ],
   "flashcards": [
@@ -370,7 +378,8 @@
   "mindmap": {
     "root": {
       "id": "lepre",
-      "label": "Lèpre"
+      "label": "Lèpre",
+      "detail": "Lèpre : Agent et transmission, Physiopathologie, Clinique, Diagnostic, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -395,7 +404,8 @@
             "id": "b1l1",
             "label": "Contacts étroits et prolongés"
           }
-        ]
+        ],
+        "detail": "Agent et transmission : M. leprae, non cultivable, Gouttelettes nasales, Incubation ~5 ans"
       },
       {
         "id": "b2",
@@ -419,7 +429,8 @@
             "id": "b2l1",
             "label": "Peau + nerfs = cibles"
           }
-        ]
+        ],
+        "detail": "Physiopathologie : Cellules de Schwann, Spectre immunitaire Th1, Nerfs tronculaires épaissis"
       },
       {
         "id": "b3",
@@ -443,7 +454,8 @@
             "id": "b3l1",
             "label": "Nerfs : ulnaire, péronier, auriculaire"
           }
-        ]
+        ],
+        "detail": "Clinique : Tuberculoïde : macule unique anesthésique, Lépromateux : symétrique, faciès léonin, Classement OMS : PB ≤ 5 / MB > 5"
       },
       {
         "id": "b4",
@@ -467,7 +479,8 @@
             "id": "b4l1",
             "label": "Différentiel : teignes, vitiligo, pityriasis"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Macule hypoesthésique, Palper les nerfs, Frottis cutané / PCR / biopsie"
       },
       {
         "id": "b5",
@@ -491,7 +504,8 @@
             "id": "b5l1",
             "label": "Réhabilitation et auto-soins"
           }
-        ]
+        ],
+        "detail": "Traitement : PCT PB : 6 mois, PCT MB : 12 mois, Réactions : prednisone / thalidomide"
       },
       {
         "id": "b6",
@@ -515,7 +529,8 @@
             "id": "b6l1",
             "label": "Madagascar : pays très touché"
           }
-        ]
+        ],
+        "detail": "Prévention : Dépistage des contacts, SDR-PEP + BCG partiel, Détection précoce, anti-stigmatisation"
       }
     ]
   },
