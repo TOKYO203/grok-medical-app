@@ -39,7 +39,7 @@ jobs:
           set +e
           npm test > /tmp/tests.log 2>&1
           code=$?
-          fence=```
+          fence=$(printf '\\140\\140\\140')
           {
             printf '## Tests (exit %s, %s lignes)\n\n' "$code" "$(wc -l < /tmp/tests.log)"
             printf '### Tests en echec\n\n'
