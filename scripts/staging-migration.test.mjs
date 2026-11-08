@@ -82,7 +82,7 @@ async function withDb(fn) {
         tx: async (work) => {
           await client.query("BEGIN");
           try {
-            const result = await work((sql, params) => client.query(sql, params));
+            const result = await work({ query: (sql, params) => client.query(sql, params) });
             await client.query("COMMIT");
             return result;
           } catch (error) {
@@ -108,10 +108,12 @@ async function withDb(fn) {
       // multi-instructions) — `query` (protocole étendu) les refuse.
       tx: (work) =>
         db.transaction(async (tx) =>
-          work(async (sql, params) => {
-            if (params) return tx.query(sql, params);
-            const results = await tx.exec(sql);
-            return results.at(-1) ?? { rows: [] };
+          work({
+            query: async (sql, params) => {
+              if (params) return tx.query(sql, params);
+              const results = await tx.exec(sql);
+              return results.at(-1) ?? { rows: [] };
+            },
           }),
         ),
     });
@@ -154,8 +156,8 @@ test("empty database rehearsal rolls back schema, apply and rerun are valid", as
     // Une répétition annulée ne laisse AUCUN schéma derrière elle.
     class RollbackSignal extends Error {}
     await assert.rejects(
-      h.tx(async (query) => {
-        const empty = await proveMigration(query, migrations);
+      h.tx(async (client) => {
+        const empty = await proveMigration(client, migrations);
         assert.equal(empty.scenario, "empty-database");
         throw new RollbackSignal("annulation volontaire de la répétition");
       }),
@@ -166,11 +168,11 @@ test("empty database rehearsal rolls back schema, apply and rerun are valid", as
       null,
     );
     // Application réelle (commitée), puis re-répétition : plus rien à appliquer.
-    await h.tx(async (query) => {
-      await proveMigration(query, migrations);
+    await h.tx(async (client) => {
+      await proveMigration(client, migrations);
     });
-    await h.tx(async (query) => {
-      const again = await proveMigration(query, migrations);
+    await h.tx(async (client) => {
+      const again = await proveMigration(client, migrations);
       assert.deepEqual(again.migrationsApplied, []);
     });
   }));
@@ -180,14 +182,14 @@ test("legacy upgrade preserves rows, clears only approved orphans and supports n
     await seedLegacy(h);
     // Sans budget, les orphelins bloquent toute application (et rien n'est écrit).
     await assert.rejects(
-      h.tx(async (query) => {
-        await proveMigration(query, migrations);
+      h.tx(async (client) => {
+        await proveMigration(client, migrations);
       }),
       /orphan budget/,
     );
     // Avec budget approuvé : orphelins nettoyés, tout le reste préservé.
-    const result = await h.tx(async (query) =>
-      proveMigration(query, migrations, { maxOrphans: 3 }),
+    const result = await h.tx(async (client) =>
+      proveMigration(client, migrations, { maxOrphans: 3 }),
     );
     assert.equal(result.orphanReferencesCleared, 3);
     assert.equal(result.dataPreserved, true);
@@ -212,7 +214,7 @@ test("unexpected content mutation is caught before commit and can be rolled back
         : m,
     );
     await assert.rejects(
-      h.tx(async (query) => proveMigration(query, changed, { maxOrphans: 3 })),
+      h.tx(async (client) => proveMigration(client, changed, { maxOrphans: 3 })),
       /unexpected data change/,
     );
     assert.equal(
