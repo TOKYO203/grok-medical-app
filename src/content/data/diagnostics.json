@@ -2615,5 +2615,647 @@
       }
     ],
     "synthesis": "Agitation → sécuriser + glycémie + constantes → fièvre en zone d'endémie : paludisme cérébral à écarter (TDR, goutte épaisse, artésunate) → début brutal sans antécédent = organique : sepsis, métabolique, toxique, traumatique → sédation titrée et surveillée, jamais avant l'évaluation → anamnèse familiale essentielle → synthèse écrite et suivi."
+  },
+  {
+    "id": "DX-EPANCHEMENT-PLEURAL-001",
+    "title": "Épanchement pleural — démarche",
+    "specialty": "Pneumologie / Infectiologie",
+    "vignette": "Homme de 24 ans, fièvre depuis 2 semaines, douleur thoracique droite augmentée à l'inspiration, dyspnée d'effort. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe",
+        "lead": "Quel examen confirme l'épanchement ?",
+        "prompt": "Devant cette douleur pleurale fébrile, le premier examen est :",
+        "choices": [
+          "Une TDM thoracique d'emblée",
+          "Une radiographie thoracique de face",
+          "Une bronchoscopie",
+          "Un ECG"
+        ],
+        "correct": 1,
+        "explanation": "La radiographie confirme l'opacité avec ligne bordante concave et guide la ponction. La TDM vient après, si accessible."
+      },
+      {
+        "id": "ponction",
+        "title": "2. Ponction exploratrice",
+        "lead": "Le réflexe devant un épanchement de moyenne abondance non évidemment transsudatif ?",
+        "prompt": "Le geste systématique est :",
+        "choices": [
+          "Attendre l'évolution sous antalgiques",
+          "Une ponction pleurale exploratrice avec analyse du liquide",
+          "Drainer systématiquement",
+          "Mettre sous antituberculeux d'emblée"
+        ],
+        "correct": 1,
+        "explanation": "La ponction analyse : protides, LDH, glucose, pH, cytologie, Gram, Ziehl, ADA. Le liquide classe l'épanchement ; on ne traite pas sans avoir vu le liquide, sauf transsudat cliniquement évident."
+      },
+      {
+        "id": "liquide",
+        "title": "3. Analyser le liquide",
+        "lead": "Liquide jaune citron, protides 45 g/L, lymphocytes 80 %, ADA 62 UI/L, Ziehl négatif.",
+        "prompt": "Cette analyse évoque :",
+        "choices": [
+          "Un transsudat d'insuffisance cardiaque",
+          "Une tuberculose pleurale",
+          "Un empyème",
+          "Un chylothorax"
+        ],
+        "correct": 1,
+        "explanation": "Exsudat lymphocytaire + ADA > 40 UI/L + sujet jeune fébrile en zone d'endémie = tuberculose pleurale ; le Ziehl est souvent négatif (forme paucibacillaire)."
+      },
+      {
+        "id": "criticite",
+        "title": "4. Critères de Light",
+        "lead": "Comment confirmer qu'il s'agit d'un exsudat ?",
+        "prompt": "Un seul critère de Light suffit :",
+        "choices": [
+          "Protides pleuraux/sérum > 0,5, LDH pleurale/sérum > 0,6 ou LDH > 2/3 de la limite sérique",
+          "Couleur jaune uniquement",
+          "Un volume supérieur à 1 litre",
+          "Une fièvre supérieure à 38 °C"
+        ],
+        "correct": 0,
+        "explanation": "Les critères de Light séparent transsudat et exsudat : un seul critère positif classe l'épanchement en exsudat."
+      },
+      {
+        "id": "urgences",
+        "title": "5. Urgences",
+        "lead": "Quelle urgence ne pas manquer dans les épanchements pleuraux ?",
+        "prompt": "Le liquide trouble, pH < 7,2, glucose < 2,8 mmol/L impose :",
+        "choices": [
+          "Des ponctions itératives seules",
+          "Un drainage thoracique de gros calibre + antibiothérapie IV",
+          "Un traitement antituberculeux seul",
+          "Une corticothérapie"
+        ],
+        "correct": 1,
+        "explanation": "Empyème = collection septique : drainage immédiate, jamais d'antibiotiques oraux seuls ; retarder = pachypleurite et décortication chirurgicale."
+      },
+      {
+        "id": "diagnostic",
+        "title": "6. Diagnostic",
+        "lead": "Quelle conclusion pour ce patient ?",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Pleurésie tuberculeuse",
+          "Pleurésie néoplasique",
+          "Pleurésie para-pneumonique",
+          "Insuffisance cardiaque"
+        ],
+        "correct": 0,
+        "explanation": "Sujet jeune, fièvre prolongée, exsudat lymphocytaire, ADA élevée : tuberculose pleurale ; compléments possibles : culture, biopsie pleurale, IDR."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge",
+        "lead": "Quel traitement et quelles consignes ?",
+        "prompt": "La prise en charge comprend :",
+        "choices": [
+          "Quadrithérapie antituberculeuse 6 mois + contrôle radiographique de fin de traitement",
+          "Antibiothérapie orale 7 jours",
+          "Ponctions évacuatrices quotidiennes",
+          "Corticoïdes seuls"
+        ],
+        "correct": 0,
+        "explanation": "2 RHZE / 4 RH selon protocole national, observance complète, évacuation initiale de confort, contrôle clinique et radiographique de fin de traitement."
+      }
+    ],
+    "synthesis": "Douleur pleurale fébrile → radiographie → ponction exploratrice (protides, Light, cytologie, Ziehl, ADA) → exsudat lymphocytaire du sujet jeune en zone d'endémie = tuberculose pleurale → quadrithérapie 6 mois. Pus ou pH < 7,2 = empyème = drainage, toujours."
+  },
+  {
+    "id": "DX-MEDIASTIN-001",
+    "title": "Syndrome médiastinal — démarche",
+    "specialty": "Pneumologie / Oncologie",
+    "vignette": "Femme de 26 ans, toux sèche depuis 1 mois, dyspnée progressive, œdème du visage le matin, adénopathie sus-claviculaire. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "syndrome",
+        "title": "1. Syndrome",
+        "lead": "Œdème facial matinal + dilatation des veines du cou + dyspnée :",
+        "prompt": "Vous identifiez :",
+        "choices": [
+          "Un syndrome de la veine cave supérieure",
+          "Une crise d'asthme",
+          "Une péricardite",
+          "Une hyperthyroïdie"
+        ],
+        "correct": 0,
+        "explanation": "L'obstruction de la veine cave supérieure (œdème du visage, circulation collatérale cervico-thoracique, céphalées) fait partie du syndrome médiastinal."
+      },
+      {
+        "id": "compressions",
+        "title": "2. Compressions",
+        "lead": "Quelles structures le médiastin comprime-t-il ?",
+        "prompt": "Les quatre cibles à rechercher sont :",
+        "choices": [
+          "Trachée, œsophage, veine cave, nerf récurrent",
+          "Rein, foie, rate, pancréas",
+          "Moelle, nerf sciatique, plexus brachial",
+          "Estomac, duodénum, côlon, rectum"
+        ],
+        "correct": 0,
+        "explanation": "Dyspnée/stridor (trachée), dysphagie (œsophage), syndrome cave (VCS), voix bitonale (récurrent) : quatre signes qui orientent l'examen."
+      },
+      {
+        "id": "etages",
+        "title": "3. Étages",
+        "lead": "L'imagerie montre des adénopathies médiastinales moyennes.",
+        "prompt": "Chez le sujet jeune en zone d'endémie, les deux diagnostics dominants sont :",
+        "choices": [
+          "Tuberculose ganglionnaire et lymphome",
+          "Thymome et goître plongeant",
+          "Anévrisme et dissection",
+          "Kyste bronchogénique et hernie"
+        ],
+        "correct": 0,
+        "explanation": "Adénopathies médiastinales du sujet jeune : tuberculose et lymphome dominent ; la distinction est histologique, jamais sur la clinique seule."
+      },
+      {
+        "id": "biopsie",
+        "title": "4. Histologie",
+        "lead": "Quelle est la voie diagnostique la plus simple ici ?",
+        "prompt": "Devant l'adénopathie sus-claviculaire accessible :",
+        "choices": [
+          "Attendre l'évolution sous antibiotiques",
+          "Une biopsie du ganglion périphérique",
+          "Une médiastinoscopie d'emblée",
+          "Une corticothérapie d'épreuve"
+        ],
+        "correct": 1,
+        "explanation": "Le ganglion périphérique accessible donne l'histologie et évite la médiastinoscopie ; jamais de corticoïdes avant biopsie : ils font fondre un lymphome et faussent l'histologie."
+      },
+      {
+        "id": "bilan",
+        "title": "5. Bilan",
+        "lead": "Quels marqueurs et examens demander ?",
+        "prompt": "Le bilan comprend :",
+        "choices": [
+          "LDH, NFS/VS/CRP, sérologie VIH, recherche de BAAR, ACE et marqueurs germinaux selon contexte, TDM si accessible",
+          "Seule une glycémie",
+          "Un frottis sanguin seul",
+          "Aucun examen avant le traitement"
+        ],
+        "correct": 0,
+        "explanation": "LDH (lymphome), bilan tuberculeux et VIH, marqueurs (AFP, bêta-HCG chez le sujet jeune), radiographie puis TDM si disponible, avis oncologique et pneumologique."
+      },
+      {
+        "id": "anesthesie",
+        "title": "6. Prudence anesthésique",
+        "lead": "L'équipe propose une anesthésie générale pour les biopsies profondes.",
+        "prompt": "Le risque majeur est :",
+        "choices": [
+          "Une intubation impossible sur compression trachéale et collapsus à l'induction",
+          "Une allergie au latex",
+          "Un saignement de biopsie cutanée",
+          "Une infection du site"
+        ],
+        "correct": 0,
+        "explanation": "Toute anesthésie générale d'un syndrome médiastinal compressif relève d'un centre entraîné : intubation impossible, collapsus ; privilégier les biopsies sous anesthésie locale."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en cause",
+        "lead": "La biopsie conclut à un lymphome de Hodgkin.",
+        "prompt": "Avant la première chimiothérapie, il faut :",
+        "choices": [
+          "Prévenir le syndrome de lyse tumorale : hydratation, allopurinol, surveillance rénale",
+          "Transfuser systématiquement",
+          "Opérer d'emblée",
+          "Irradier le médiastin seul"
+        ],
+        "correct": 0,
+        "explanation": "Masse volumineuse + LDH élevées = risque de lyse tumorale : hydratation abondante, allopurinol, ionogramme ; chimiothérapie selon protocole en oncologie."
+      }
+    ],
+    "synthesis": "Syndrome médiastinal → quatre compressions (trachée, œsophage, cave, récurrent) → sujet jeune d'endémie : tuberculose ou lymphome → biopsie du ganglion périphérique accessible, jamais de corticoïdes avant → anesthésie générale dangereuse → preuve histologique puis traitement, avec prévention du syndrome de lyse si lymphome."
+  },
+  {
+    "id": "DX-ACUITE-VISUELLE-001",
+    "title": "Baisse de l'acuité visuelle — démarche",
+    "specialty": "Ophtalmologie / Urgences",
+    "vignette": "Homme de 68 ans, hypertendu, cécité de l'œil droit survenue en quelques minutes ce matin, indolore, œil blanc. Vous construisez le raisonnement, une étape à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe",
+        "lead": "Quel examen de base, non négociable ?",
+        "prompt": "Le premier geste est :",
+        "choices": [
+          "Une TDM cérébrale immédiate",
+          "La mesure de l'acuité visuelle des deux yeux",
+          "Un collyre antibiotique",
+          "Rassurer et donner rendez-vous"
+        ],
+        "correct": 1,
+        "explanation": "L'acuité visuelle œil par œil quantifie le déficit ; l'œil adelphe conditionne le pronostic et la démarche. Sans acuité, aucun tri n'est possible."
+      },
+      {
+        "id": "profil",
+        "title": "2. Profil de la baisse",
+        "lead": "Cécité brutale, indolore, œil blanc, sujet âgé :",
+        "prompt": "Ce profil évoque en priorité :",
+        "choices": [
+          "Une cause vasculaire : occlusion de l'artère centrale de la rétine ou neuropathie optique ischémique",
+          "Une conjonctivite",
+          "Une cataracte",
+          "Une migraine ophtalmique"
+        ],
+        "correct": 0,
+        "explanation": "Brutal + indolore + œil blanc = urgence vasculaire de l'œil ; le pronostic visuel se joue en moins de 90 minutes."
+      },
+      {
+        "id": "examen",
+        "title": "3. Examen ciblé",
+        "lead": "Que recherchez-vous à l'examen ?",
+        "prompt": "L'examen comprend :",
+        "choices": [
+          "Pupilles (déficit afférent), tonus oculaire, cornée au reflet, fond d'œil",
+          "Seule la tension artérielle",
+          "Un champ visuel complet d'abord",
+          "Une radiographie de l'orbite"
+        ],
+        "correct": 0,
+        "explanation": "Pupilles (déficit afférent = atteinte rétinienne ou nerveuse), tonus (glaucome aigu si dur), cornée (kératite), fond d'œil (rétine blanche, tache rouge maculaire, papille pâle)."
+      },
+      {
+        "id": "fondo",
+        "title": "4. Interpréter le fond d'œil",
+        "lead": "Fond d'œil : rétine blanche œdémateuse, tache rouge maculaire, vaisseaux grêles.",
+        "prompt": "Vous concluez :",
+        "choices": [
+          "Occlusion de l'artère centrale de la rétine",
+          "Décollement de rétine",
+          "Rétinopathie diabétique",
+          "Névrite optique"
+        ],
+        "correct": 0,
+        "explanation": "Rétine blanche avec tache rouge maculaire = occlusion artérielle rétinienne : c'est un AVC de l'œil, urgence absolue."
+      },
+      {
+        "id": "horton",
+        "title": "5. Pister une Horton",
+        "lead": "Le patient a aussi des céphalées et une claudication de la mâchoire.",
+        "prompt": "Le bilan urgent comprend :",
+        "choices": [
+          "VS et CRP, puis corticothérapie forte immédiate sans attendre la biopsie",
+          "Une antibiothérapie",
+          "Un collyre corticoïde",
+          "Rien, c'est de l'âge"
+        ],
+        "correct": 0,
+        "explanation": "Artérite à cellules géantes (sujet > 50 ans, céphalées, claudication de la mâchoire) : VS/CRP, corticothérapie forte immédiate pour protéger l'œil adelphe, biopsie de l'artère temporale ensuite."
+      },
+      {
+        "id": "pec-aigu",
+        "title": "6. Prise en charge immédiate",
+        "lead": "Que faire dans l'heure ?",
+        "prompt": "La conduite comprend :",
+        "choices": [
+          "Massage oculaire, acétazolamide pour abaisser la pression intraoculaire, avis ophtalmologique immédiat, bilan embolique",
+          "Attendre la récupération spontanée",
+          "Antibiotiques oraux",
+          "Panneau occlusif seul"
+        ],
+        "correct": 0,
+        "explanation": "Occlusion artérielle : mesures de reperméabilisation (massage, hypotonisants), avis immédiat, bilan de l'embol (cardiopathie, carotide) et prévention secondaire."
+      },
+      {
+        "id": "secondaire",
+        "title": "7. Prévention secondaire",
+        "lead": "Quelle prévention après l'épisode ?",
+        "prompt": "La prévention comprend :",
+        "choices": [
+          "Traitement des facteurs de risque, antiagrégants selon avis, contrôle tensionnel et glycémie",
+          "Aucune surveillance",
+          "Corticoïdes à vie",
+          "Collyres myotiques"
+        ],
+        "correct": 0,
+        "explanation": "L'occlusion rétinienne est un équivalent d'AVC : écho-doppler carotidien si accessible, bilan cardiovasculaire, contrôle de la tension, du diabète, du tabac."
+      }
+    ],
+    "synthesis": "BAV brutale → acuité visuelle des deux yeux → brutale, indolore, œil blanc = vasculaire → pupilles, tonus, fond d'œil (rétine blanche + tache rouge maculaire = occlusion artérielle) → écarter une maladie de Horton (VS, corticoïdes immédiats) → avis ophtalmologique en urgence + prévention secondaire de l'AVC."
+  },
+  {
+    "id": "DX-OEIL-ROUGE-001",
+    "title": "Œil rouge et douloureux — démarche",
+    "specialty": "Ophtalmologie / Urgences",
+    "vignette": "Femme de 35 ans, œil droit rouge et douloureux depuis 2 jours après instillation d'un jus de plante pour une « poussière » ; photophobie intense, vision floue. Vous construisez la conduite, une étape à la fois.",
+    "steps": [
+      {
+        "id": "tri",
+        "title": "1. Grille de tri",
+        "lead": "Quatre éléments classent tout œil rouge.",
+        "prompt": "La grille de tri est :",
+        "choices": [
+          "Acuité visuelle, cornée, pupille, tonus",
+          "Fièvre, VS, NFS, CRP",
+          "Tension, pouls, température, SpO2",
+          "Paupières, cils, sourcils, larmes"
+        ],
+        "correct": 0,
+        "explanation": "Acuité visuelle (baissée = urgence), cornée (ulcère, Seidel), pupille (mydriase aréflexique du glaucome), tonus (œil dur). La conjonctivite ne baisse pas l'acuité et ne fait pas mal."
+      },
+      {
+        "id": "acuite",
+        "title": "2. Acuité",
+        "lead": "L'acuité est diminuée à 3/10, la douleur est profonde.",
+        "prompt": "Ce simple fait signifie :",
+        "choices": [
+          "Ce n'est probablement pas une conjonctivite : urgence ophtalmologique",
+          "C'est une allergie banale",
+          "C'est une fatigue visuelle",
+          "C'est un orgelet"
+        ],
+        "correct": 0,
+        "explanation": "Une rougeur unilatérale avec baisse d'acuité et douleur profonde n'est jamais une conjonctivite : chercher kératite, uvéite ou glaucome."
+      },
+      {
+        "id": "cornee",
+        "title": "3. Cornée",
+        "lead": "À la lampe poche ou à fente, on note une opacité avec infiltration.",
+        "prompt": "Devant ce contexte de jus de plante :",
+        "choices": [
+          "Penser à une kératite ulcéreuse : avis urgent, prélèvement, collyres antibiotiques renforcés, jamais de corticoïdes",
+          "Prescrire un collyre corticoïde",
+          "Continuer les plantes",
+          "Mettre un pansement occlusif"
+        ],
+        "correct": 0,
+        "explanation": "Traumatisme ou plante traditionnelle + cornée lésée = kératite bactérienne ou fongique, risque de perforation en 24-48 h ; les corticoïdes locaux aggravent l'ulcère."
+      },
+      {
+        "id": "tonus",
+        "title": "4. Pupille et tonus",
+        "lead": "La pupille est réactive, l'œil est mou, pas d'hypopion.",
+        "prompt": "Cela élimine surtout :",
+        "choices": [
+          "Un glaucome aigu par fermeture de l'angle (mydriase aréflexique, œil dur)",
+          "Une cataracte",
+          "Un ptérygion",
+          "Une myopie"
+        ],
+        "correct": 0,
+        "explanation": "Glaucome aigu : douleur violente, halos, mydriase aréflexique, œil dur, nausées ; ici l'œil est mou et la pupille réactive : le tableau est cornéen."
+      },
+      {
+        "id": "gravite",
+        "title": "5. Signes de gravité",
+        "lead": "Quels signes imposent l'hospitalisation ?",
+        "prompt": "Hospitaliser si :",
+        "choices": [
+          "Abcès cornéen, hypopion, perforation (Seidel), ou œil unique",
+          "Simple larmoiement",
+          "Prurit léger",
+          "Sécrétions matinales"
+        ],
+        "correct": 0,
+        "explanation": "Abcès, hypopion (pus en chambre antérieure), Seidel positif ou œil unique : hospitalisation, collyres à haute fréquence, avis chirurgical si perforation."
+      },
+      {
+        "id": "pec",
+        "title": "6. Prise en charge",
+        "lead": "Quel traitement pour cette kératite ?",
+        "prompt": "Le traitement comprend :",
+        "choices": [
+          "Collyres antibiotiques renforcés à haute fréquence, cycloplégique, avis ophtalmologique, arrêt immédiat des plantes",
+          "Corticoïdes locaux d'emblée",
+          "Antibiotiques oraux seuls",
+          "Lavages au citron"
+        ],
+        "correct": 0,
+        "explanation": "Collyres renforcés (selon disponibilité), cycloplégique pour l'œil, surveillance rapprochée ; éducation formelle contre l'automédication oculaire traditionnelle."
+      },
+      {
+        "id": "education",
+        "title": "7. Prévention",
+        "lead": "Quels conseils pour l'avenir ?",
+        "prompt": "La prévention comprend :",
+        "choices": [
+          "Interdire plantes et collyres périmés, protections lors des travaux végétatifs, consulter le jour même devant douleur ou baisse de vision",
+          "Porter des lunettes de soleil la nuit",
+          "Laver à l'eau de mer",
+          "Automédication au premier épisode"
+        ],
+        "correct": 0,
+        "explanation": "Les kératites graves viennent presque toujours d'une instillation inappropriée ou d'un traumatisme végétatif : éducation du patient et de l'entourage, consultation rapide devant tout œil rouge douloureux."
+      }
+    ],
+    "synthesis": "Œil rouge → tri : acuité, cornée, pupille, tonus → acuité baissée = urgence, pas une conjonctivite → rougeur périlikératique + plantes = kératite ulcéreuse → jamais de corticoïdes locaux → collyres renforcés + cycloplégique + avis → éducation contre l'automédication traditionnelle."
+  },
+  {
+    "id": "DX-ALGIE-PELVIENNE-001",
+    "title": "Algie pelvienne — démarche",
+    "specialty": "Gynécologie / Urgences",
+    "vignette": "Femme de 27 ans, retard de règles de 6 semaines, douleur pelvienne droite depuis 48 heures, métrorragies de sang noir, lipothymie à l'orthostatisme. Vous construisez la conduite, une étape à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe",
+        "lead": "Quel est le premier geste ?",
+        "prompt": "Chez cette femme en âge de procréer :",
+        "choices": [
+          "Un test de grossesse immédiat",
+          "Un antalgique et la sortie",
+          "Une échographie dans un mois",
+          "Un traitement anti-infectieux"
+        ],
+        "correct": 0,
+        "explanation": "Toute algie pelvienne chez une femme en âge de procréer impose un test de grossesse : la GEU est une cause majeure de mortalité maternelle évitable."
+      },
+      {
+        "id": "constantes",
+        "title": "2. Constantes",
+        "lead": "Lipothymie : pouls 110, tension 90/60, pâleur.",
+        "prompt": "Cette instabilité impose :",
+        "choices": [
+          "Deux voies veineuses, remplissage, groupe, avis chirurgical urgent",
+          "Attendre le résultat du test de grossesse tranquillement",
+          "Un antalgique seul",
+          "Une marche à pied pour « vérifier »"
+        ],
+        "correct": 0,
+        "explanation": "Retard de règles + douleur + instabilité hémodynamique = GEU rompue jusqu'à preuve du contraire : réanimation et chirurgie en urgence, sans attendre les résultats biologiques."
+      },
+      {
+        "id": "examen",
+        "title": "3. Examen",
+        "lead": "Que recherche-t-on au toucher pelvien et au speculum ?",
+        "prompt": "Les signes évocateurs d'une GEU comprennent :",
+        "choices": [
+          "Douleur latéro-utérine, masse annexielle, douleur à la mobilisation utérine, métrorragies",
+          "Un utérus augmenté et régulier uniquement",
+          "Une leucorrhée abondante",
+          "Une cicatrice de césarienne douloureuse"
+        ],
+        "correct": 0,
+        "explanation": "Triade classique (rarement complète) : retard de règles, douleur latéralisée, métrorragies de sang noir ; la scapulalgie réflexe signe l'irritation péritonéale par le sang."
+      },
+      {
+        "id": "echo",
+        "title": "4. Imagerie",
+        "lead": "Quelle est la clé du diagnostic ?",
+        "prompt": "Le couple test positif + échographie montre :",
+        "choices": [
+          "Vacuité utérine + masse latéro-utérine = GEU jusqu'à preuve du contraire",
+          "Un sac avec embryon = GEU exclue",
+          "Un utérus myomateux",
+          "Un DIU en place"
+        ],
+        "correct": 0,
+        "explanation": "Test de grossesse positif + vacuité utérine + masse latéro-utérine (± épanchement du Douglas) = GEU ; β-HCG quantitatif utile pour le suivi et le choix thérapeutique."
+      },
+      {
+        "id": "differentiel",
+        "title": "5. Différentiel",
+        "lead": "Quelles autres urgences envisager ?",
+        "prompt": "Les diagnostics à ne pas manquer :",
+        "choices": [
+          "Salpingite, torsion d'annexe, appendicite",
+          "Colite et ballonnement",
+          "Cystite simple seule",
+          "Règles douloureuses simples"
+        ],
+        "correct": 0,
+        "explanation": "Fièvre + leucorrhées + douleur à la mobilisation utérine = salpingite (ATB couvrant gonocoques et chlamydiae) ; douleur brutale + masse = torsion (chirurgie) ; défense droite = appendicite."
+      },
+      {
+        "id": "pec",
+        "title": "6. Prise en charge de la GEU",
+        "lead": "GEU rompue avec instabilité :",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Chirurgie urgente (salpingectomie en général) avec transfusion si nécessaire",
+          "Méthotrexate à haute dose",
+          "Traitement médical et sortie",
+          "Surveillance à domicile"
+        ],
+        "correct": 0,
+        "explanation": "Rupture ou instabilité = chirurgie en urgence ; le méthotrexate est réservé aux formes stables, pauci-symptomatiques, β-HCG bas et GEU non rompue, sous surveillance stricte."
+      },
+      {
+        "id": "suivi",
+        "title": "7. Prévention des récidives",
+        "lead": "Quelles suites et quelle prévention ?",
+        "prompt": "La prévention comprend :",
+        "choices": [
+          "Dépistage et traitement des IST, information sur la GEU et la fertilité, contraception adaptée, suivi du β-HCG jusqu'à négativation",
+          "Aucune surveillance",
+          "Hystérectomie systématique",
+          "Antibiotiques à vie"
+        ],
+        "correct": 0,
+        "explanation": "Après une GEU : surveillance β-HCG jusqu'à négativation (trophoblaste persistant), information sur le risque de récidive et la fertilité, dépistage IST, planification familiale."
+      }
+    ],
+    "synthesis": "Algie pelvienne → test de grossesse systématique → instabilité + retard de règles = GEU rompue : réanimation + chirurgie → touche pelvien et speculum → échographie : vacuité + masse = GEU → différentiels : salpingite (ATB), torsion (chirurgie), appendicite → suivi du β-HCG et prévention des IST."
+  },
+  {
+    "id": "DX-HEMORRAGIE-GENITALE-001",
+    "title": "Hémorragie génitale — démarche",
+    "specialty": "Gynécologie / Urgences",
+    "vignette": "Femme de 32 ans, 5e jour de règles très abondantes avec caillots, asthénie et pâleur ; elle rapporte aussi des saignements après chaque rapport depuis 3 mois. Vous construisez la conduite, une étape à la fois.",
+    "steps": [
+      {
+        "id": "reflexe",
+        "title": "1. Réflexe",
+        "lead": "Quel est le premier réflexe ?",
+        "prompt": "Chez cette femme en âge de procréer :",
+        "choices": [
+          "Un test de grossesse",
+          "Un traitement ferrique seul",
+          "Rassurer : ce sont les règles",
+          "Une hystérectomie"
+        ],
+        "correct": 0,
+        "explanation": "Toute hémorragie génitale de la femme en âge de procréer impose un test de grossesse : fausse couche, GEU, môle et rétention saignent, y compris « pendant les règles »."
+      },
+      {
+        "id": "retentissement",
+        "title": "2. Retentissement",
+        "lead": "Pâleur, asthénie, pouls 100.",
+        "prompt": "Le bilan de retentissement comprend :",
+        "choices": [
+          "NFS (hémoglobine), groupe, constantes ; voies veineuses si instabilité",
+          "Rien, c'est chronique",
+          "Seulement une glycémie",
+          "Une radiographie du bassin"
+        ],
+        "correct": 0,
+        "explanation": "Quantifier : l'anémie ferriprive est quasi constante dans ce contexte ; hémoglobine < 7 g/dL avec saignement actif = transfusion et urgence."
+      },
+      {
+        "id": "speculum",
+        "title": "3. Speculum",
+        "lead": "Quel examen oriente l'origine du saignement ?",
+        "prompt": "Le speculum permet :",
+        "choices": [
+          "De visualiser le col (saignement de contact, lésion, ectropion) et l'origine du saignement",
+          "De mesurer l'utérus",
+          "De doser les hormones",
+          "De vérifier les ovaires"
+        ],
+        "correct": 0,
+        "explanation": "Sang venant du col = cervicite, ectropion, polype, dysplasie ou cancer du col ; col propre avec sang endométrial = cause utérine (fibrome, endomètre, môle). Le toucher pelvien complète (masse, taille utérine)."
+      },
+      {
+        "id": "contact",
+        "title": "4. Saignement de contact",
+        "lead": "Le col présente une lésion bourgeonnante saignant au contact.",
+        "prompt": "La conduite est :",
+        "choices": [
+          "Biopsie immédiate du col (cancer du col jusqu'à preuve du contraire) et dépistage à promouvoir",
+          "Cautérisation à l'acide acétique seul",
+          "Un collyre antibiotique local",
+          "Rassurer, c'est un ectropion"
+        ],
+        "correct": 0,
+        "explanation": "Saignement de contact + lésion bourgeonnante du col = biopsie sans attendre ; le cancer du col est fréquent là où le dépistage est peu diffusé (frottis, IVV à l'acide acétique)."
+      },
+      {
+        "id": "echo",
+        "title": "5. Échographie",
+        "lead": "Test de grossesse négatif, utérus polymyomateux.",
+        "prompt": "Les ménorragies avec utérus augmenté évoquent :",
+        "choices": [
+          "Fibrome (myome) : fer, acide tranexamique, traitement hormonal ou chirurgical selon retentissement",
+          "Une grossesse molaire",
+          "Un cancer de l'endomètre obligatoirement",
+          "Une GEU"
+        ],
+        "correct": 0,
+        "explanation": "Fibrome : ménorragies, utérus augmenté, masse ; traitement : corriger l'anémie d'abord, acide tranexamique pendant les règles, progestatif ou chirurgie selon cas."
+      },
+      {
+        "id": "fonctionnel",
+        "title": "6. Éliminer le fonctionnel",
+        "lead": "Si l'examen et l'échographie sont normaux ?",
+        "prompt": "Le saignement fonctionnel est un diagnostic :",
+        "choices": [
+          "D'élimination, typique de l'adolescente et de la péri-ménopause",
+          "Posé d'emblée sans examen",
+          "Rare avant 40 ans",
+          "Synonyme de cancer"
+        ],
+        "correct": 0,
+        "explanation": "Le saignement anovulatoire (fonctionnel) se diagnostique après avoir éliminé grossesse, lésion cervicale, fibrome, endomètre : traitement hormonal + fer."
+      },
+      {
+        "id": "pec",
+        "title": "7. Prise en charge globale",
+        "lead": "Comment traiter et suivre ?",
+        "prompt": "La prise en charge comprend :",
+        "choices": [
+          "Arrêter le saignement (hormonal, acide tranexamique), traiter la cause, corriger l'anémie (fer 3 mois), dépister le cancer du col",
+          "Une transfusion à vie",
+          "Une hystérectomie d'emblée",
+          "Des plantes emménagogues"
+        ],
+        "correct": 0,
+        "explanation": "Trois axes : stopper le saignement, traiter la cause (biopsie du col, fibrome, fonctionnel), corriger l'anémie ; éducation : consulter si saignement > 7 jours, serviettes plus d'une par heure, ou après la ménopause."
+      }
+    ],
+    "synthesis": "Hémorragie génitale → test de grossesse systématique → quantifier le retentissement (hémoglobine, constantes) → speculum : saignement de contact = examiner le col et biopsier toute lésion (cancer du col) → échographie : fibrome, môle, rétention → fonctionnel = élimination → stopper le saignement, traiter la cause, corriger l'anémie."
   }
 ]
