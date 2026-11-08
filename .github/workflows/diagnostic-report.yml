@@ -39,22 +39,19 @@ jobs:
           set +e
           npm test > /tmp/tests.log 2>&1
           code=$?
+          fence=```
           {
-            echo "## Tests (exit $code, $(wc -l < /tmp/tests.log) lignes)"
-            echo ""
-            echo "### Tests en échec"
-            echo ""
-            echo "```"
+            printf '## Tests (exit %s, %s lignes)\n\n' "$code" "$(wc -l < /tmp/tests.log)"
+            printf '### Tests en echec\n\n'
+            printf '%s\n' "$fence"
           } > /tmp/report.md
           grep -E -A 30 '^not ok' /tmp/tests.log | head -n 600 >> /tmp/report.md
           {
-            echo "```"
-            echo ""
-            echo "### Queue du log"
-            echo ""
-            echo "```"
-            tail -n 60 /tmp/tests.log
-            echo "```"
+            printf '%s\n' "$fence"
+            printf '\n### Queue du log\n\n'
+            printf '%s\n' "$fence"
+            tail -n 80 /tmp/tests.log
+            printf '%s\n' "$fence"
           } >> /tmp/report.md
           exit 0
       - name: Publie l'issue
