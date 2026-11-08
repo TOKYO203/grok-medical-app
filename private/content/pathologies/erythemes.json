@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Les trois grands aspects à connaître sont l'érythème scarlatiniforme (fin, granité, diffus), l'érythème morbilliforme (maculo-papuleux, évoque la rougeole) et l'érythème rubéoliforme (roséoliforme, macules pâles fugaces). Chacun oriente vers un groupe de causes infectieuses et impose des mesures spécifiques, en particulier le diagnostic de rougeole à déclaration obligatoire."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Rougeole suspectée",
+          "text": "Fièvre + catarrhe + éruption descendante chez un non-vacciné : isolement immédiat, déclaration obligatoire, confirmation par sérologie ou PCR."
         }
       ]
     },
@@ -69,6 +76,12 @@
         {
           "type": "paragraph",
           "text": "Le rythme de l'éruption, sa topographie de départ, l'existence d'un prodrome et d'un énanthème (Koplik sur la muqueuse buccale de la rougeole), d'une desquamation secondaire (scarlatine) ou d'adénopathies satellites (rubéole) constituent les clés de lecture."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Scarlatine + signes de choc",
+          "text": "Éruption scarlatiniforme avec hypotension, confusion, atteinte multiviscérale : évoquer un choc toxique — réanimation."
         }
       ]
     },
@@ -88,6 +101,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe devant tout exanthème fébrile",
+          "text": "Vaccinations ? Contage ? Prise médicamenteuse récente ? Rapport sexuel à risque (VIH) ? Muqueuse buccale (Koplik) ? Pli de flexion (signe du pli) ?"
         }
       ]
     },
@@ -109,6 +128,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Scarlatiniforme = granité, plis, desquamation. Morbilliforme = rougeole jusqu'à preuve du contraire (Koplik, déclaration). Rubéoliforme = macules pâles fugaces, rubéole et herpèsvirus humain 6."
         }
       ]
     },
@@ -127,6 +152,12 @@
         {
           "type": "paragraph",
           "text": "Le traitement symptomatique associe antipyrétiques en cas de gêne, hydratation, repos, soins locaux éventuels. Les corticoïdes locaux sont inutiles et les antihistaminiques ne servent qu'en cas de prurit. Toute toxidermie doit faire interrompre la médication en cause et être déclarée."
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "C.A.R.T.E. des causes",
+          "text": "Contage (rougeole), Angine streptococcique (scarlatine), Réaction médicamenteuse (toxidermie), Terme de la grossesse (rubéole chez la femme enceinte), Exposition VIH (primo-infection)."
         }
       ]
     },
@@ -225,7 +256,8 @@
           "key": "A",
           "term": "Associés : angine, catarrhe, Koplik, adénopathies"
         }
-      ]
+      ],
+      "id": "mn-lecture-de-l-ryth-me"
     },
     {
       "label": "Scarlatine",
@@ -250,7 +282,8 @@
           "key": "S",
           "term": "Suivi : desquamation en doigts de gant, amoxicilline six jours"
         }
-      ]
+      ],
+      "id": "mn-scarlatine"
     },
     {
       "label": "Rougeole : 3C + 1K",
@@ -271,7 +304,8 @@
           "key": "K",
           "term": "Koplik : taches blanches sur muqueuse jugale, pathognomonique"
         }
-      ]
+      ],
+      "id": "mn-rougeole-3c-1k"
     },
     {
       "label": "Causes d'exanthème fébrile",
@@ -292,7 +326,8 @@
           "key": "I",
           "term": "Immunodépression : primo-infection VIH"
         }
-      ]
+      ],
+      "id": "mn-causes-d-exanth-me-f-brile"
     }
   ],
   "flashcards": [
@@ -380,7 +415,8 @@
   "mindmap": {
     "root": {
       "id": "ery-root",
-      "label": "Érythèmes fébriles"
+      "label": "Érythèmes fébriles",
+      "detail": "Érythèmes fébriles : Définitions, Scarlatiniforme, Morbilliforme, Rubéoliforme, Prise en charge — synthèse du référentiel."
     },
     "branches": [
       {
@@ -409,7 +445,8 @@
             "id": "ery-b1-l4",
             "label": "Rubéoliforme : macules pâles fugaces"
           }
-        ]
+        ],
+        "detail": "Définitions : Aspects morphologiques"
       },
       {
         "id": "ery-b2",
@@ -437,7 +474,8 @@
             "id": "ery-b2-l4",
             "label": "Choc toxique à éliminer si gravité"
           }
-        ]
+        ],
+        "detail": "Scarlatiniforme : Scarlatine et au-delà"
       },
       {
         "id": "ery-b3",
@@ -465,7 +503,8 @@
             "id": "ery-b3-l4",
             "label": "Sérologies ciblées, isolement"
           }
-        ]
+        ],
+        "detail": "Morbilliforme : Rougeole d'abord"
       },
       {
         "id": "ery-b4",
@@ -493,7 +532,8 @@
             "id": "ery-b4-l4",
             "label": "Grossesse : sérologie, risque foetal"
           }
-        ]
+        ],
+        "detail": "Rubéoliforme : Virus de l'enfant"
       },
       {
         "id": "ery-b5",
@@ -521,7 +561,8 @@
             "id": "ery-b5-l4",
             "label": "Déclaration et enquête autour des cas"
           }
-        ]
+        ],
+        "detail": "Prise en charge : Traiter et prévenir"
       }
     ]
   },

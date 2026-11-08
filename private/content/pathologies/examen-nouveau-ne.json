@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -251,10 +252,6 @@
           "term": "Respiration"
         },
         {
-          "key": "T",
-          "term": "Tonus"
-        },
-        {
           "key": "R",
           "term": "Réactivité (grimace)"
         },
@@ -262,7 +259,8 @@
           "key": "C",
           "term": "Coloration"
         }
-      ]
+      ],
+      "id": "mn-score-d-apgar"
     },
     {
       "label": "Examen de la tête aux pieds",
@@ -287,7 +285,8 @@
           "key": "M",
           "term": "Membres, rachis, hanches, peau, réflexes"
         }
-      ]
+      ],
+      "id": "mn-examen-de-la-t-te-aux-pieds"
     },
     {
       "label": "Manœuvres de la hanche",
@@ -304,7 +303,8 @@
           "key": "P",
           "term": "Plis de l'aine asymétriques, inégalité des membres"
         }
-      ]
+      ],
+      "id": "mn-man-uvres-de-la-hanche"
     },
     {
       "label": "Dépistages avant la sortie",
@@ -329,7 +329,8 @@
           "key": "V",
           "term": "Vitamine K1 à la naissance"
         }
-      ]
+      ],
+      "id": "mn-d-pistages-avant-la-sortie"
     }
   ],
   "flashcards": [
@@ -417,7 +418,8 @@
   "mindmap": {
     "root": {
       "id": "en-root",
-      "label": "Examen du nouveau-né (1re semaine)"
+      "label": "Examen du nouveau-né (1re semaine)",
+      "detail": "Examen du nouveau-né (1re semaine) : Conditions et mesures, Examen tête aux pieds, Hanches, Dépistages systématiques, Signes d'alerte — synthèse du référentiel."
     },
     "branches": [
       {
@@ -446,7 +448,8 @@
             "id": "en-l4",
             "label": "Score d'Apgar à 1, 5, 10 min"
           }
-        ]
+        ],
+        "detail": "Conditions et mesures : Base de l'examen"
       },
       {
         "id": "en-b2",
@@ -474,7 +477,8 @@
             "id": "en-l8",
             "label": "Membres, rachis, peau, réflexes archaïques"
           }
-        ]
+        ],
+        "detail": "Examen tête aux pieds : Systématique"
       },
       {
         "id": "en-b3",
@@ -498,7 +502,8 @@
             "id": "en-l11",
             "label": "Plis asymétriques : échographie"
           }
-        ]
+        ],
+        "detail": "Hanches : Dépistage orthopédique"
       },
       {
         "id": "en-b4",
@@ -522,7 +527,8 @@
             "id": "en-l14",
             "label": "Vitamine K1, vaccination hépatite B"
           }
-        ]
+        ],
+        "detail": "Dépistages systématiques : Avant la sortie"
       },
       {
         "id": "en-b5",
@@ -546,7 +552,8 @@
             "id": "en-l17",
             "label": "Souffle, fontanelle bombée, absence de selles"
           }
-        ]
+        ],
+        "detail": "Signes d'alerte : Transfert"
       }
     ]
   },

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "pathology",
   "slug": "epistaxis",
-  "title": "Épistaxis",
+  "title": "Epistaxis",
   "specialty": "ORL",
   "language": "fr",
   "updatedAt": "2026-11-01",
@@ -17,12 +17,13 @@
       "ordinal": 40,
       "localNumber": 40,
       "sectionLabel": "Sémiologie",
-      "title": "Épistaxis",
+      "title": "Epistaxis",
       "specialty": "ORL"
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "La prise en charge suit une progression logique : gestes simples, examen de la cavité nasale, tamponnement antérieur puis postérieur en cas d'échec, gestes chirurgicaux en dernier recours."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Signes de gravité",
+          "text": "Saignement abondant bilatéral ou dégluti, tuméfaction latéro-pharyngée, pâleur, tachycardie, hypotension : épistaxis postérieure : tamponnement postérieur, hospitalisation, surveillance hémodynamique."
         }
       ]
     },
@@ -86,6 +93,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Épistaxis sous anticoagulants",
+          "text": "Épistaxis abondante ou prolongée sous AVK ou antiagrégants : bilan d'hémostase urgent, réévaluation du traitement, avis ORL ; risque de récidive majoré."
         }
       ]
     },
@@ -103,6 +116,12 @@
             "s1",
             "s2"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Position assise, mouchage, compression des ailes du nez 10 à 15 minutes ; évaluer la tolérance ; chercher la zone de Kiesselbach ; récidives ou terrain particulier : bilan complet."
         }
       ]
     },
@@ -125,6 +144,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Antérieure, zone de Kiesselbach, récidivante, bénigne : cautérisation. Postérieure, abondante, déglutie, signes de choc : tamponnement postérieur, hospitalisation. Enfant : corps étranger. Adulte, récidivant, unilatéral persistant : tumeur jusqu'à preuve du contraire."
         }
       ]
     },
@@ -147,6 +172,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Épistaxis en 3 temps",
+          "text": "1 : geste simple (compression, glace, mouchage). 2 : tamponnement antérieur. 3 : tamponnement postérieur puis chirurgie ou embolisation."
         }
       ]
     },
@@ -234,7 +265,8 @@
           "key": "P",
           "term": "Postérieure (sphéno-palatine, grave)"
         }
-      ]
+      ],
+      "id": "mn-localisation"
     },
     {
       "label": "Causes générales",
@@ -255,7 +287,8 @@
           "key": "R",
           "term": "Rendu-Osler"
         }
-      ]
+      ],
+      "id": "mn-causes-g-n-rales"
     },
     {
       "label": "Prise en charge en 3 temps",
@@ -272,7 +305,8 @@
           "key": "3",
           "term": "Tamponnement postérieur, chirurgie"
         }
-      ]
+      ],
+      "id": "mn-prise-en-charge-en-3-temps"
     },
     {
       "label": "Examen",
@@ -293,7 +327,8 @@
           "key": "B",
           "term": "Bilan (NFS, hémostase)"
         }
-      ]
+      ],
+      "id": "mn-examen"
     }
   ],
   "flashcards": [
@@ -381,7 +416,8 @@
   "mindmap": {
     "root": {
       "id": "epi-root",
-      "label": "Épistaxis"
+      "label": "Épistaxis",
+      "detail": "Épistaxis : Diagnostic, Types, Causes, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -410,7 +446,8 @@
             "id": "epi-b1-l4",
             "label": "Tolérance hémodynamique"
           }
-        ]
+        ],
+        "detail": "Diagnostic : Positif"
       },
       {
         "id": "epi-b2",
@@ -438,7 +475,8 @@
             "id": "epi-b2-l4",
             "label": "Terrain : anticoagulants"
           }
-        ]
+        ],
+        "detail": "Types : Antérieure vs postérieure"
       },
       {
         "id": "epi-b3",
@@ -466,7 +504,8 @@
             "id": "epi-b3-l4",
             "label": "Rendu-Osler, hémostase"
           }
-        ]
+        ],
+        "detail": "Causes : Locales et générales"
       },
       {
         "id": "epi-b4",
@@ -494,7 +533,8 @@
             "id": "epi-b4-l4",
             "label": "Chirurgie, embolisation"
           }
-        ]
+        ],
+        "detail": "Traitement : 3 temps"
       },
       {
         "id": "epi-b5",
@@ -522,7 +562,8 @@
             "id": "epi-b5-l4",
             "label": "Éducation patient"
           }
-        ]
+        ],
+        "detail": "Prévention : Éviter récidives"
       }
     ]
   },

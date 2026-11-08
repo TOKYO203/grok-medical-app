@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -131,7 +132,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Pleurésie purulente",
-          "text": "Fièvre, épanchement trouble ou purulent : drainage thoracique obligatoire, antibiothérapie parentérale, imagerie ; un purulent non drainé évolue vers le cloisonnement et la pachypleurite."
+          "text": "Fièvre, épanchement trouble ou purulent : drainage thoracique obligatoire, antibiothérapie parentérale, imagerie ; un purulent non drainé évolue vers le cloisonnement et la pachypleurite.",
+          "type": "callout"
         }
       ]
     },
@@ -258,7 +260,8 @@
           "key": "D",
           "term": "Douleur en point de côté"
         }
-      ]
+      ],
+      "id": "mn-s-miologie-pleurale"
     },
     {
       "label": "Causes de transsudat",
@@ -279,7 +282,8 @@
           "key": "H",
           "term": "Hypoalbuminémie"
         }
-      ]
+      ],
+      "id": "mn-causes-de-transsudat"
     },
     {
       "label": "Causes d'exsudat",
@@ -300,7 +304,8 @@
           "key": "E",
           "term": "Embolie pulmonaire"
         }
-      ]
+      ],
+      "id": "mn-causes-d-exsudat"
     },
     {
       "label": "Bilan du liquide",
@@ -321,7 +326,8 @@
           "key": "S",
           "term": "Spécifiques : adenosine désaminase, amylase"
         }
-      ]
+      ],
+      "id": "mn-bilan-du-liquide"
     }
   ],
   "flashcards": [
@@ -409,7 +415,8 @@
   "mindmap": {
     "root": {
       "id": "epl-root",
-      "label": "Épanchement pleural liquidien"
+      "label": "Épanchement pleural liquidien",
+      "detail": "Épanchement pleural liquidien : Sémiologie, Imagerie, Ponction, Étiologies, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -438,7 +445,8 @@
             "id": "epl-b1-l4",
             "label": "Douleur en point de côté"
           }
-        ]
+        ],
+        "detail": "Sémiologie : Signes — Sémiologie"
       },
       {
         "id": "epl-b2",
@@ -466,7 +474,8 @@
             "id": "epl-b2-l4",
             "label": "Scanner"
           }
-        ]
+        ],
+        "detail": "Imagerie : Outils — Imagerie"
       },
       {
         "id": "epl-b3",
@@ -494,7 +503,8 @@
             "id": "epl-b3-l4",
             "label": "Germes, adénosine désaminase"
           }
-        ]
+        ],
+        "detail": "Ponction : Clé de voûte"
       },
       {
         "id": "epl-b4",
@@ -522,7 +532,8 @@
             "id": "epl-b4-l4",
             "label": "Chylothorax, hémothorax"
           }
-        ]
+        ],
+        "detail": "Étiologies : Transsudat / exsudat"
       },
       {
         "id": "epl-b5",
@@ -550,7 +561,8 @@
             "id": "epl-b5-l4",
             "label": "Pleurodèse, antituberculeux"
           }
-        ]
+        ],
+        "detail": "Traitement : Selon la cause"
       }
     ]
   },

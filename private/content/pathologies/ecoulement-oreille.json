@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -140,7 +141,8 @@
           "id": "c1",
           "tone": "urgence",
           "title": "Otorrhée claire post-traumatique",
-          "text": "Pensez à une fuite de liquide céphalorachidien : pas de gouttes, pas de mouchage, avis spécialisé urgent."
+          "text": "Pensez à une fuite de liquide céphalorachidien : pas de gouttes, pas de mouchage, avis spécialisé urgent.",
+          "type": "callout"
         }
       ]
     },
@@ -266,7 +268,8 @@
           "key": "L",
           "term": "Liquide céphalorachidien (post-traumatique)"
         }
-      ]
+      ],
+      "id": "mn-causes-d-otorrh-e"
     },
     {
       "label": "Signes de gravité",
@@ -287,7 +290,8 @@
           "key": "C",
           "term": "Complications intracrâniennes (céphalées, raideur)"
         }
-      ]
+      ],
+      "id": "mn-signes-de-gravit"
     },
     {
       "label": "Examen ORL",
@@ -308,7 +312,8 @@
           "key": "B",
           "term": "Bilan neurologique et facial"
         }
-      ]
+      ],
+      "id": "mn-examen-orl"
     },
     {
       "label": "Traitement selon la cause",
@@ -329,7 +334,8 @@
           "key": "S",
           "term": "Chirurgie (cholestéatome)"
         }
-      ]
+      ],
+      "id": "mn-traitement-selon-la-cause"
     }
   ],
   "flashcards": [
@@ -417,7 +423,8 @@
   "mindmap": {
     "root": {
       "id": "oro-root",
-      "label": "Écoulement d'oreille (otorrhée)"
+      "label": "Écoulement d'oreille (otorrhée)",
+      "detail": "Écoulement d'oreille (otorrhée) : Causes, Examen, Gravité, Traitement, Prévention — synthèse du référentiel."
     },
     "branches": [
       {
@@ -446,7 +453,8 @@
             "id": "oro-b1-l4",
             "label": "Liquide céphalorachidien"
           }
-        ]
+        ],
+        "detail": "Causes : Selon le segment"
       },
       {
         "id": "oro-b2",
@@ -474,7 +482,8 @@
             "id": "oro-b2-l4",
             "label": "Examen facial et neurologique"
           }
-        ]
+        ],
+        "detail": "Examen : Démarche ORL"
       },
       {
         "id": "oro-b3",
@@ -502,7 +511,8 @@
             "id": "oro-b3-l4",
             "label": "Céphalées, méningite"
           }
-        ]
+        ],
+        "detail": "Gravité : À ne pas manquer"
       },
       {
         "id": "oro-b4",
@@ -530,7 +540,8 @@
             "id": "oro-b4-l4",
             "label": "Chirurgie du cholestéatome"
           }
-        ]
+        ],
+        "detail": "Traitement : Adapté à la cause"
       },
       {
         "id": "oro-b5",
@@ -558,7 +569,8 @@
             "id": "oro-b5-l4",
             "label": "Révision chirurgicale programmée"
           }
-        ]
+        ],
+        "detail": "Prévention : Au long cours"
       }
     ]
   },

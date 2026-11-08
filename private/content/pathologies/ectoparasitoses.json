@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reformulation": "Fiche Ectoparasitoses cutanées : gale et pédiculose. Gale : Sarcoptes scabiei var. hominis, acarien fouisseur, transmission par contact cutané direct prolongé (couche, lit, collectivité) ; incubation 3-6 semaines ; PRURIT NOCTURNE épargnant la face, SILLONS scabieux, lésions typiques des espaces interdigitaux, poignets, aréoles, organes génitaux ; gale profuse (norvégienne) : croûtes épaisses très contagieuses de l'immunodéprimé ; critères IACS 2020 (3 niveaux de certitude : confirmée/clinique/soupçonnée) ; complications : surinfection à streptocoque/impétigo, glomérulonéphrite aiguë post-streptococcique. Traitement : perméthrine crème 5 % (8-14 h puis rinçage) ou ivermectine orale 200 µg/kg (à répéter à J7-J14) ; traiter TOUS les contacts proches le même jour, linge et literie lavés à 60 °C ou isolés 3-7 jours. Pédiculoses : Pediculus humanus capitis (lentes blanches adhérentes, prurit occipital, surinfection, adénopathies cervicales ; traitement topique pédiculicide + peigne fin, 2 passages à 8-10 jours d'intervalle) ; Pediculus corporis (vivant dans les vêtements, le traitement est la décontamination du linge) ; Pthirus pubis (transmission sexuelle, traitement des partenaires).",
@@ -98,8 +99,10 @@
       "title": "Clinique",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Gale commune"
+          "type": "list",
+          "items": [
+            "Gale commune"
+          ]
         },
         {
           "type": "list",
@@ -112,8 +115,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Pédiculoses"
+          "type": "list",
+          "items": [
+            "Pédiculoses"
+          ]
         },
         {
           "type": "list",
@@ -178,8 +183,10 @@
       "title": "Traitement",
       "blocks": [
         {
-          "type": "heading",
-          "text": "Traitement de la gale"
+          "type": "list",
+          "items": [
+            "Traitement de la gale"
+          ]
         },
         {
           "type": "list",
@@ -207,8 +214,10 @@
           ]
         },
         {
-          "type": "heading",
-          "text": "Traitement des pédiculoses"
+          "type": "list",
+          "items": [
+            "Traitement des pédiculoses"
+          ]
         },
         {
           "type": "list",
@@ -342,7 +351,8 @@
           "key": "E",
           "term": "Entourage traité le même jour + 2e passage du scabicide + linge à 60 °C"
         }
-      ]
+      ],
+      "id": "mn-g-a-l-e"
     },
     {
       "label": "P.O.U.",
@@ -359,7 +369,8 @@
           "key": "U",
           "term": "Urgence de traiter l'entourage scolaire et familial, linge et bonnets non partagés"
         }
-      ]
+      ],
+      "id": "mn-p-o-u"
     }
   ],
   "flashcards": [
@@ -442,7 +453,8 @@
   "mindmap": {
     "root": {
       "id": "ecto",
-      "label": "Ectoparasitoses : gale et pédiculose"
+      "label": "Ectoparasitoses : gale et pédiculose",
+      "detail": "Ectoparasitoses : gale et pédiculose : Gale — parasite, Gale — clinique, Gale — traitement, Complications, Pédiculoses, Diagnostic — synthèse du référentiel."
     },
     "branches": [
       {
@@ -467,7 +479,8 @@
             "id": "b1l1",
             "label": "Incubation 3-6 semaines"
           }
-        ]
+        ],
+        "detail": "Gale — parasite : Sarcoptes scabiei var. hominis, Sillons, ponte dans la couche cornée, Contact prolongé ; 24-48 h hors de l'hôte"
       },
       {
         "id": "b2",
@@ -491,7 +504,8 @@
             "id": "b2l1",
             "label": "Nourrisson : paumes, plantes, visage"
           }
-        ]
+        ],
+        "detail": "Gale — clinique : Prurit nocturne, face épargnée, Doigts, poignets, aréoles, verge, Gale profuse : croûtes, immunodépression"
       },
       {
         "id": "b3",
@@ -515,7 +529,8 @@
             "id": "b3l1",
             "label": "Linge 60 °C ou isolé 3-7 jours"
           }
-        ]
+        ],
+        "detail": "Gale — traitement : Perméthrine 5 % ×2 (J0, J7), Ivermectine 200 µg/kg ×2, Entourage le même jour"
       },
       {
         "id": "b4",
@@ -539,7 +554,8 @@
             "id": "b4l1",
             "label": "Enfant : bandelette urinaire, tension"
           }
-        ]
+        ],
+        "detail": "Complications : Impétigo de surinfection, Glomérulonéphrite post-streptococcique, Gale cortico-modifiée"
       },
       {
         "id": "b5",
@@ -563,7 +579,8 @@
             "id": "b5l1",
             "label": "Peigne fin + bonnets non partagés"
           }
-        ]
+        ],
+        "detail": "Pédiculoses : Capitis : lentes, 2 passages à 8-10 j, Corporis : pou dans le linge, Pubis : partenaire, dépistage IST"
       },
       {
         "id": "b6",
@@ -587,7 +604,8 @@
             "id": "b6l1",
             "label": "Prurit familial = gale jusqu'à preuve du contraire"
           }
-        ]
+        ],
+        "detail": "Diagnostic : IACS 2020 : confirmée/clinique/soupçonnée, Microscope : sarcopte, œuf, crotte, Dermoscopie : delta jet sign"
       }
     ]
   },

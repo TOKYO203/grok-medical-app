@@ -22,7 +22,8 @@
     }
   },
   "related": {
-    "deckIds": []
+    "deckIds": [],
+    "caseIds": []
   },
   "editorial": {
     "reviewStatus": "pending-medical-review",
@@ -51,6 +52,12 @@
         {
           "type": "paragraph",
           "text": "Deux situations urgentes dominent la prise en charge : la neuropathie optique compressive et la kératite par exposition (lagophtalmie), qui menacent la vision et imposent un traitement immédiat."
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Neuropathie optique compressive",
+          "text": "Baisse d'acuité visuelle, dyschromatopsie, déficit pupillaire, œdème papillaire dans une orbitopathie : corticoïdes intraveineux urgents puis décompression orbitaire : menace visuelle."
         }
       ]
     },
@@ -84,6 +91,12 @@
             "s1",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "urgence",
+          "title": "Kératite d'exposition",
+          "text": "Lagophtalmie avec ulcération cornéenne à la fluorescéine : lubrification intensive, occlusion palpébrale nocturne, tarsorraphie ou décompression si échec ; risque de cécité par atteinte cornéenne."
         }
       ]
     },
@@ -105,6 +118,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "reflexe",
+          "title": "Réflexe clinique",
+          "text": "Mesurer l'exophtalmie (Hertel), vérifier acuité visuelle, motilité, cornée à la fluorescéine ; chercher des signes de thyrotoxicose et un tabagisme ; TSHus et IRM orbitaire si doute ; avis ophtalmologique."
         }
       ]
     },
@@ -127,6 +146,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "retenir",
+          "title": "À retenir",
+          "text": "Bilatérale, axile, avec signes de Basedow : orbitopathie dysthyroidienne. Unilatérale, progressive : tumeur jusqu'à preuve du contraire. Fébrile, douloureuse, œdème : cellulite orbitaire. Pulsatile avec souffle : fistule carotido-caverneuse. Tabac : facteur aggravant, sevrage impératif."
         }
       ]
     },
@@ -149,6 +174,12 @@
             "s2",
             "s3"
           ]
+        },
+        {
+          "type": "callout",
+          "tone": "memo",
+          "title": "Prise en charge de l'orbitopathie",
+          "text": "T (Tabac : arrêt), T (Thyroïde : équilibrer), L (Lubrifier la cornée), C (Corticoïdes si active), C (Chirurgie si séquelles ou urgence)."
         }
       ]
     },
@@ -244,7 +275,8 @@
           "key": "F",
           "term": "Fistule carotido-caverneuse"
         }
-      ]
+      ],
+      "id": "mn-causes-d-exophtalmie"
     },
     {
       "label": "Signes de thyrotoxicose",
@@ -265,7 +297,8 @@
           "key": "G",
           "term": "Goitre, Gêne à la chaleur"
         }
-      ]
+      ],
+      "id": "mn-signes-de-thyrotoxicose"
     },
     {
       "label": "Évaluation de l'orbitopathie",
@@ -279,14 +312,11 @@
           "term": "Sévérité (vision, diplopie, cornée)"
         },
         {
-          "key": "T",
-          "term": "Tabac"
-        },
-        {
           "key": "I",
           "term": "Imagerie (IRM orbitaire)"
         }
-      ]
+      ],
+      "id": "mn-valuation-de-l-orbitopathie"
     },
     {
       "label": "Urgences visuelles",
@@ -307,7 +337,8 @@
           "key": "D",
           "term": "Décompression si échec"
         }
-      ]
+      ],
+      "id": "mn-urgences-visuelles"
     }
   ],
   "flashcards": [
@@ -395,7 +426,8 @@
   "mindmap": {
     "root": {
       "id": "exo-root",
-      "label": "Exophtalmie"
+      "label": "Exophtalmie",
+      "detail": "Exophtalmie : Cause principale, Autres causes, Évaluation, Urgences, Traitement — synthèse du référentiel."
     },
     "branches": [
       {
@@ -424,7 +456,8 @@
             "id": "exo-b1-l4",
             "label": "Tabac aggravant"
           }
-        ]
+        ],
+        "detail": "Cause principale : Orbitopathie basedowienne"
       },
       {
         "id": "exo-b2",
@@ -452,7 +485,8 @@
             "id": "exo-b2-l4",
             "label": "Myosite, pseudotumeur"
           }
-        ]
+        ],
+        "detail": "Autres causes : À écarter"
       },
       {
         "id": "exo-b3",
@@ -480,7 +514,8 @@
             "id": "exo-b3-l4",
             "label": "IRM orbitaire"
           }
-        ]
+        ],
+        "detail": "Évaluation : Activité et sévérité"
       },
       {
         "id": "exo-b4",
@@ -508,7 +543,8 @@
             "id": "exo-b4-l4",
             "label": "Décompression urgente"
           }
-        ]
+        ],
+        "detail": "Urgences : Menace visuelle"
       },
       {
         "id": "exo-b5",
@@ -536,7 +572,8 @@
             "id": "exo-b5-l4",
             "label": "Chirurgie séquentielle"
           }
-        ]
+        ],
+        "detail": "Traitement : Étagé — Traitement"
       }
     ]
   },
