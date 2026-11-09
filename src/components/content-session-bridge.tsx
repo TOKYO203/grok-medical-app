@@ -68,6 +68,28 @@ export function ContentSessionBridge() {
     void ensureContentSession().then((result) => {
       if (cancelled) return;
       if (result.status !== "ready" || hadToken) return;
+
+      // OPTIMUS_PRO-injected-by-bridge : licence serveur validée, on propage.
+      useOptimus.setState((s) => {
+        const now = Date.now();
+        const already = s.entitlements.some(
+          (e) => e.product === "OPTIMUS_PRO" && (e.expiresAt === null || e.expiresAt > now)
+        );
+        if (already) return s;
+        return {
+          ...s,
+          entitlements: [
+            ...s.entitlements,
+            {
+              id: "license-" + Date.now(),
+              product: "OPTIMUS_PRO",
+              issuedAt: now,
+              expiresAt: null,
+            },
+          ],
+          profile: { ...s.profile, tier: "pro" },
+        };
+      });
       // Jeton tout neuf : la page affichée a été rendue sans lui.
       void router.invalidate();
     });
