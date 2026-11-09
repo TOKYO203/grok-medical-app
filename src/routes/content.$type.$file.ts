@@ -35,6 +35,13 @@ import type { SigneCategory } from "@/core/signes/types";
  * 110 fiches, ce qui évite 110 allers-retours vers la fonction serveur.
  */
 
+/**
+ * Familles servies aussi en catalogue groupé `_catalog.json`.
+ * Pentest §1/§14/§15 : le client charge l'index public (projections), puis
+ * complète par ces catalogues sous jeton — un seul aller-retour par famille.
+ */
+const GROUPED_FAMILIES = new Set<ProtectedFamily>(["signes", "decks", "cases", "diagnostics"]);
+
 /** Ordre éditorial des catégories « Signes » (le manifeste n'est pas lisible ici). */
 const SIGNE_CATEGORY_ORDER: SigneCategory[] = [
   "syndrome",
@@ -148,9 +155,10 @@ export const Route = createFileRoute("/content/$type/$file")({
 
         const family = type as ProtectedFamily;
 
-        // Catalogue groupé « Signes » : une requête pour tout le catalogue.
-        const isCatalog = family === "signes" && file === "_catalog.json";
-        if (!isCatalog && !/^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/.test(file)) {
+        // Catalogues groupés (signes, decks, cas, diagnostics) : une requête
+        // pour toute la famille au lieu d'un aller-retour par fiche.
+        const isCatalog = GROUPED_FAMILIES.has(family) && file === "_catalog.json";
+        if (!isCatalog && !/^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*\.json$/.test(file)) {
           return notFoundResponse();
         }
 
@@ -161,9 +169,19 @@ export const Route = createFileRoute("/content/$type/$file")({
         }
 
         if (isCatalog) {
-          return jsonResponse(await buildSignesCatalog(), 200, {
-            "Cache-Control": "private, max-age=60",
-          });
+          if (family === "signes") {
+            return jsonResponse(await buildSignesCatalog(), 200, {
+              "Cache-Control": "private, max-age=60",
+            });
+          }
+          // Pentest §1/§14/§15 : decks Pro, cas cliniques Pro et démarches,
+          // regroupés dans UNE réponse privée (jamais de cache partagé).
+          const assets = await readAllProtectedAssets(family);
+          return jsonResponse(
+            { schemaVersion: 1, items: Object.values(assets) },
+            200,
+            { "Cache-Control": "private, max-age=60" },
+          );
         }
 
         const asset = await readProtectedAsset(family, file);
