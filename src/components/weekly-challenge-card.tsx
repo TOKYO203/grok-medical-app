@@ -78,7 +78,7 @@ export function WeeklyChallengeCard() {
         <div>
           <h2 className="text-lg font-medium">{deck.title}</h2>
           <p className="text-xs text-muted">
-            {deck.questions.length} questions · semaine {weekKey} · le même défi pour tout le monde
+            {deck.questionCount ?? deck.questions.length} questions · semaine {weekKey} · le même défi pour tout le monde
           </p>
         </div>
         <div className="flex gap-2">
