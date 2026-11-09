@@ -97,7 +97,7 @@ function DeckPage() {
               {yearLabel(deck.studyYear)}
             </span>
             <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
-              {deck.questions.length} questions
+              {deck.questionCount ?? deck.questions.length} questions
             </span>
             <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
               {LESSONS.length} étapes
