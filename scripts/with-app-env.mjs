@@ -13,7 +13,7 @@
  *
  * That precedence also means the file governs this workspace only. A deployed
  * build runs with the provider's project env, where the deployer sets
- * `VITE_AUTH_ENABLED` itself (today unconditionally `"true"`), so the deployed
+ * `VITE_AUTH_ENABLED` itself (today unconditionally "true"), so the deployed
  * flag is the platform's, not this file's.
  *
  * Vite picks the values up because `loadEnv` prefix-matches entries already in
@@ -22,7 +22,7 @@
 import { spawn } from "node:child_process";
 import { readFileSync, realpathSync, existsSync } from "node:fs";
 import { constants as osConstants } from "node:os";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const APP_ENV_REL_PATH = ".grok/app-env.json";
@@ -110,7 +110,7 @@ function resolveCommand(cmd) {
   return existsSync(local) ? local : cmd;
 }
 
-function main(argv) {
+async function main(argv) {
   const [command, ...args] = argv;
   if (!command) {
     console.error("usage: node scripts/with-app-env.mjs <command> [args…]");
@@ -136,6 +136,21 @@ function main(argv) {
   const appEnv = readAppEnv(projectRoot());
   const env = { ...fileEnv, ...appEnv, ...process.env };
   const resolved = resolveCommand(command);
+  // __CATALOG_SYNC__ — resynchronise `public/data/**` depuis la source
+  // `src/content/data/**` AVANT de démarrer Vite : la copie publique est un
+  // dérivé servi à l'app (fetch("/data/…") dans src/content/catalog.ts) et un
+  // retard sur la source affiche des chapitres « En préparation » en
+  // production. Cf. scripts/sync-catalog-data.mjs. Limité aux commandes Vite :
+  // la wrapper enveloppe aussi des commandes arbitraires (tests, scripts
+  // node) qui ne doivent pas réécrire le check-out.
+  if (basename(resolved).startsWith("vite")) {
+    try {
+      const { syncCatalogData } = await import("./sync-catalog-data.mjs");
+      syncCatalogData({ log: console.error });
+    } catch (err) {
+      console.error("[with-app-env] catalog sync failed:", err?.message || err);
+    }
+  }
   const child = spawn(resolved, args, { stdio: "inherit", env });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
@@ -151,5 +166,5 @@ function main(argv) {
 }
 
 if (isMainModule(import.meta.url)) {
-  main(process.argv.slice(2));
+  void main(process.argv.slice(2));
 }
