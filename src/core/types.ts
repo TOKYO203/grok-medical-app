@@ -135,6 +135,12 @@ export type Deck = {
   competencies: Competency[];
   icon: string;
   questions: Question[];
+  /**
+   * Nombre de questions annoncé par la projection publique (`/data/decks.json`),
+   * qui ne transporte plus les questions des decks pro — le contenu est servi
+   * par le garde de contenu (pentest 2026-11-09 §1). Absent = deck complet.
+   */
+  questionCount?: number;
   sources: Source[];
   access_policy: AccessPolicy;
   status?: DeckStatus;
