@@ -10,6 +10,7 @@ import type {
   DiagnosticCase, Question,
 } from "@/core/types";
 import { enrichSources } from "@/content/source-registry";
+import { fetchWithAuth, requestTrialToken } from "@/lib/auth/session";
 import { emitCatalogVersion } from "@/state/catalog-version";
 
 // ─── État central ──────────────────────────────────────────────────────────
@@ -61,6 +62,9 @@ function asDeck(raw: Record<string, any>): Deck {
     sources: enrichSources(raw.sources ?? []),
     access_policy: (raw.access_policy as AccessPolicy) ?? { tier: "free", entitlement: "OPTIMUS_FREE" },
     chapters: raw.chapters ?? [],
+    // Pentest §1 : l'index public porte le NOMBRE de questions (compteur UI),
+    // jamais les questions elles-mêmes (servies sous jeton).
+    questionCount: typeof raw.questionCount === "number" ? raw.questionCount : undefined,
   } as Deck;
 }
 
@@ -84,9 +88,57 @@ export function loadCatalog(): Promise<void> {
       state.diagnostics = diag as DiagnosticCase[];
       state.ready = true;
       emit();
+      // Pentest §1/§14/§15 : l'index public est une PROJECTION (questions,
+      // dossiers et étapes retirés du contenu Pro). Le contenu complet vit
+      // derrière le garde /content/<famille>/_catalog.json, sous jeton —
+      // sans session, on tente le jeton d'essai serveur (une fois).
+      void loadPremiumCatalogs();
     })
     .catch((err) => { state.error = err; inflight = null; emit(); });
   return inflight;
+}
+
+/** Catalogues Premium groupés, complétés sous jeton (echec = teaser conservé). */
+async function loadPremiumCatalogs(): Promise<void> {
+  const fetchCatalog = async (url: string) => {
+    try {
+      const response = await fetchWithAuth(url, { headers: { accept: "application/json" } });
+      if (!response.ok) return null;
+      return (await response.json()) as { items?: unknown[] };
+    } catch {
+      return null;
+    }
+  };
+
+  const urls = [
+    "/content/decks/_catalog.json",
+    "/content/cases/_catalog.json",
+    "/content/diagnostics/_catalog.json",
+  ];
+  let [decks, cases, diagnostics] = await Promise.all(urls.map(fetchCatalog));
+
+  if (decks === null && cases === null && diagnostics === null) {
+    // Aucun jeton (ou garde indisponible) : un seul essai de jeton d'essai,
+    // puis on retente. Echec => l'app reste sur l'index public (paywall).
+    const trial = await requestTrialToken();
+    if (trial.ok) {
+      [decks, cases, diagnostics] = await Promise.all(urls.map(fetchCatalog));
+    }
+  }
+
+  if (Array.isArray(decks?.items)) {
+    const full = new Map(decks.items.map((raw: any) => [raw.id, asDeck(raw)]));
+    state.decks = state.decks.map((deck) => full.get(deck.id) ?? deck);
+  }
+  if (Array.isArray(cases?.items)) {
+    const full = new Map(cases.items.map((raw: any) => [raw.id, asCase(raw)]));
+    state.cases = state.cases.map((item) => full.get(item.id) ?? item);
+  }
+  if (Array.isArray(diagnostics?.items)) {
+    const full = new Map(diagnostics.items.map((raw: any) => [raw.id, raw]));
+    state.diagnostics = state.diagnostics.map((item) => (full.get(item.id) as DiagnosticCase) ?? item);
+  }
+  emit();
 }
 
 export function useCatalog() {
