@@ -13,10 +13,10 @@
  *
  * Tout démarrage Vite (dev, build, preview — les variantes :cloudflare,
  * :netlify et :worker comprises) resynchronise la copie AVANT que Vite ne
- * copie `public/` vers la sortie : le dérive ne peut plus jamais déployer un
+ * copie `public/` vers la sortie : le dérivé ne peut plus jamais déployer un
  * catalogue périmé.
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -26,6 +26,13 @@ const CATALOG_FILES = ["decks.json", "cases.json", "diagnostics.json"];
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
 export function projectRoot() {
   return dirname(dirname(fileURLToPath(import.meta.url)));
+}
+
+/** Copie atomique : un lecteur parallèle voit l'ancien ou le nouveau fichier. */
+function atomicWrite(src, dest) {
+  const tmp = `${dest}.catalog-sync-tmp`;
+  writeFileSync(tmp, readFileSync(src, "utf8"));
+  renameSync(tmp, dest);
 }
 
 /**
@@ -43,7 +50,7 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
     // Pas de source : on ne touche jamais la copie (repli explicite).
     if (!existsSync(src)) continue;
     if (existsSync(dest) && readFileSync(dest, "utf8") === readFileSync(src, "utf8")) continue;
-    copyFileSync(src, dest);
+    atomicWrite(src, dest);
     synced.push(name);
   }
   if (synced.length > 0) {
