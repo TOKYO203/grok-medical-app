@@ -1,4 +1,5 @@
 import indexJson from "@/content/data/demarches/_index.json";
+import { fetchWithAuth } from "@/lib/auth/session";
 import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
 
 /**
@@ -13,15 +14,19 @@ import type { DemarcheContent, DemarcheIndexEntry } from "@/core/demarche";
  * chargent à la demande — c'est la « suite logique » documentée dans
  * scripts/bundle-content.test.mjs.
  *
- * ⚠️ SÉCURITÉ, AU MÊME NIVEAU QU'AVANT : les vues fiche/flashcards/mindmap
- * restent verrouillées côté client (entitlements), exactement comme avant la
- * migration — le contenu était déjà publié en clair dans le chunk client JS.
- * `scripts/demarches-catalog-integrity.test.mjs` verrouille manifeste ↔ actifs
- * publics ; `scripts/bundle-content.test.mjs` interdit le retour du payload
+ * ⚠️ SÉCURITÉ — PENTEST 2026-11-09 §15 : les fiches ne sont plus des actifs
+ * statiques publics. Elles vivent copiées dans `private/content/demarches/`
+ * (générées par `scripts/sync-catalog-data.mjs`) et sont retirées de
+ * l'artefact publié par `scripts/strip-demarches-from-dist.mjs` : la route
+ * `/content/$type/$file` ne les sert que contre un jeton de contenu, comme
+ * les pathologies et les signes. `fetchWithAuth` joint le jeton ; un 401
+ * retombe sur le stepper QCM seul (pas d'exception).
+ * `scripts/demarches-catalog-integrity.test.mjs` verrouille manifeste ↔
+ * actifs ; `scripts/bundle-content.test.mjs` interdit le retour du payload
  * dans un chunk JS.
  */
 
-/** Base des fiches de démarches (actifs statiques publics). */
+/** Base des fiches de démarches (servies par le garde de contenu). */
 export const DEMARCHE_ASSET_BASE = "/content/demarches";
 
 const INDEX: DemarcheIndexEntry[] = (indexJson as { demarches: DemarcheIndexEntry[] }).demarches;
@@ -50,7 +55,7 @@ export async function loadDemarcheContent(idOrSlug: string): Promise<DemarcheCon
   const entry = demarcheIndexEntry(idOrSlug);
   if (!entry || entry.status !== "available") return undefined;
   try {
-    const response = await fetch(`${DEMARCHE_ASSET_BASE}/${entry.file}`, {
+    const response = await fetchWithAuth(`${DEMARCHE_ASSET_BASE}/${entry.file}`, {
       headers: { accept: "application/json" },
     });
     if (!response.ok) return undefined;
