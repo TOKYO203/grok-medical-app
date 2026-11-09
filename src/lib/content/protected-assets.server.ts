@@ -30,8 +30,22 @@
  *   • `public/content/signes/_index.json` (actif statique, listage public).
  */
 
-/** Familles protégées : un dossier de `private/content/` chacune. */
-export type ProtectedFamily = "pathologies" | "signes";
+/**
+ * Familles protégées : un dossier de `private/content/` chacune.
+ *
+ * Pentest 2026-11-09 §1/§14/§15 : `decks`, `cases` et `diagnostics` sont
+ * des PROJECTIONS générées par `scripts/sync-catalog-data.mjs` depuis la
+ * source gelée `src/content/data/*.json` (dossiers gitignorés) ; `demarches`
+ * est la copie générée des fiches enrichies. Tous passent par le même garde
+ * `/content/$type/$file` (jeton de contenu obligatoire).
+ */
+export type ProtectedFamily =
+  | "pathologies"
+  | "signes"
+  | "decks"
+  | "cases"
+  | "diagnostics"
+  | "demarches";
 
 /**
  * Glob Vite des actifs privés. Chemins absolus (préfixe `/`) = relatifs à la
@@ -52,6 +66,22 @@ const FAMILY_GLOBS: Record<ProtectedFamily, Record<string, RawLoader>> = {
     query: "?raw",
     import: "default",
   }) as unknown as Record<string, RawLoader>,
+  decks: import.meta.glob("/private/content/decks/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
+  cases: import.meta.glob("/private/content/cases/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
+  diagnostics: import.meta.glob("/private/content/diagnostics/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
+  demarches: import.meta.glob("/private/content/demarches/*.json", {
+    query: "?raw",
+    import: "default",
+  }) as unknown as Record<string, RawLoader>,
 };
 
 /** Garde-fou : un actif de contenu ne doit jamais peser plus que du texte. */
@@ -62,11 +92,23 @@ const assetCache = new Map<string, unknown>();
 
 const cacheKey = (family: ProtectedFamily, file: string) => `${family}/${file}`;
 
-/** Nom de fichier accepté (aucune traversée de chemin possible). */
-export const PROTECTED_FILE_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/;
+/**
+ * Nom de fichier accepté (aucune traversée de chemin possible).
+ * Les ids de cas cliniques et de démarches sont en MAJUSCULES avec des
+ * tirets bas (`CARDIO-FA-001`, `DX-THORAX-001`) : la classe accepte les
+ * deux casses, sans point ni barre.
+ */
+export const PROTECTED_FILE_PATTERN = /^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*\.json$/;
 
 export function isProtectedFamily(value: string): value is ProtectedFamily {
-  return value === "pathologies" || value === "signes";
+  return (
+    value === "pathologies" ||
+    value === "signes" ||
+    value === "decks" ||
+    value === "cases" ||
+    value === "diagnostics" ||
+    value === "demarches"
+  );
 }
 
 /** Noms de fichiers privés publiés pour une famille (tri stable). */
