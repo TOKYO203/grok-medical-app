@@ -14,7 +14,7 @@ const cdnHeaders = readFileSync(
 
 /**
  * Politique CSP de référence — pentest 2026-11-09 §3 (docs/PENTEST-2026-11-09.md).
- * Le middleware Nitro et le bloc `/*` de `public/_headers` doivent poser la
+ * Le middleware Nitro et le bloc /* de public/_headers doivent poser la
  * MÊME politique : un écart créerait deux comportements selon que la réponse
  * vient du CDN (statique) ou du worker (dynamique). Ce test verrouille le
  * miroir directive par directive.
@@ -68,12 +68,12 @@ test("CSP : le middleware et le _headers CDN posent exactement la même politiqu
 });
 
 test("_headers CDN : baseline anti-clickjacking + HSTS sur /*, cache SW intact", () => {
-  assert.match(cdnHeaders, /\/\*\n  Content-Security-Policy: default-src 'self'/);
+  assert.match(cdnHeaders, /\/\*\n {2}Content-Security-Policy: default-src 'self'/);
   assert.match(cdnHeaders, /X-Frame-Options: DENY/);
   assert.match(cdnHeaders, /X-Content-Type-Options: nosniff/);
   assert.match(cdnHeaders, /Strict-Transport-Security: max-age=31536000; includeSubDomains/);
   // S1 : le service worker n'est jamais figé dans un cache immuable.
-  assert.match(cdnHeaders, /\/sw\.js\n  Cache-Control: public, max-age=0, must-revalidate/);
+  assert.match(cdnHeaders, /\/sw\.js\n {2}Cache-Control: public, max-age=0, must-revalidate/);
   // S1 : aucun Cache-Control public sur /content/* (fuites de cache CDN).
   assert.doesNotMatch(cdnHeaders, /\/content\/[^\n]*\n[^\n]*Cache-Control: public/);
 });
