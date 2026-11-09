@@ -13,7 +13,7 @@
  *
  * That precedence also means the file governs this workspace only. A deployed
  * build runs with the provider's project env, where the deployer sets
- * `VITE_AUTH_ENABLED` itself (today unconditionally `"true"`), so the deployed
+ * `VITE_AUTH_ENABLED` itself (today unconditionally \"true\"), so the deployed
  * flag is the platform's, not this file's.
  *
  * Vite picks the values up because `loadEnv` prefix-matches entries already in
@@ -110,11 +110,22 @@ function resolveCommand(cmd) {
   return existsSync(local) ? local : cmd;
 }
 
-function main(argv) {
+async function main(argv) {
   const [command, ...args] = argv;
   if (!command) {
     console.error("usage: node scripts/with-app-env.mjs <command> [args…]");
     process.exit(2);
+  }
+  // __CATALOG_SYNC__ — resynchronise `public/data/**` depuis la source
+  // `src/content/data/**` AVANT de démarrer Vite : la copie publique est un
+  // dérivé servi à l'app (fetch("/data/…") dans src/content/catalog.ts) et un
+  // retard sur la source affiche des chapitres « En préparation » en
+  // production. Cf. scripts/sync-catalog-data.mjs.
+  try {
+    const { syncCatalogData } = await import("./sync-catalog-data.mjs");
+    syncCatalogData({ log: console.error });
+  } catch (err) {
+    console.error("[with-app-env] catalog sync failed:", err?.message || err);
   }
   // __LOAD_DOTENV__ — lit .env.local pour les server functions
   const fileEnv = (() => {
@@ -151,5 +162,5 @@ function main(argv) {
 }
 
 if (isMainModule(import.meta.url)) {
-  main(process.argv.slice(2));
+  void main(process.argv.slice(2));
 }
