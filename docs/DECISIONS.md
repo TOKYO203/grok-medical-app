@@ -822,3 +822,11 @@ une affectation de `VITE_AUTH_ENABLED` sur `process.env` dans le lanceur.
 - **Anonymat** : pseudonymes CHOISIS (table `leaderboard_pseudo`, repli sur le nom d'affichage) ; les user_id ne sont jamais exposés dans les lignes (seulement is_self). Classement visible par tous les utilisateurs connectés (authMiddleware).
 - **Hors ligne** : /classement retombe sur la progression locale (XP, streak, cas, score Optimus) avec un bandeau « mode local ».
 - **Futur (hors périmètre LB-1)** : classe hebdo collective, défis hebdo, rivaux silencieux, duels (le moteur WebRTC `src/lib/multiplayer/p2p.ts` existe déjà).
+
+
+## LB-2 — Couche compétition : défi hebdo, rivaux silencieux, classe des facultés (2026-11-08)
+
+- **Défi hebdo** : le deck désigné est une fonction DÉTERMINISTE de la clé de semaine (src/lib/weekly-challenge-model.ts, pur et testable) — le serveur ne connaît jamais le catalogue. La run publiée est un score de MAÎTRISE du deck (bonnes réponses cumulées / questions posées), pas de vélocité ; la RPC (migration 0024) n'accepte QUE la semaine en cours (pas de backfill), plafonne 0 <= score <= total <= 500 et conserve le meilleur score de la semaine.
+- **Rivaux silencieux** : des COMPTEURS calculés depuis les lignes du classement (« N étudiants te devancent »), jamais d'identités — la compétition sans exposition.
+- **Classe des facultés** : somme des XP hebdo par faculté, agrégée côté client depuis le classement (top 200) — aucune donnée serveur supplémentaire.
+- **Délibérément absent de LB-2** : badges collectifs de promo et duels 1v1 (le moteur WebRTC src/lib/multiplayer/p2p.ts existe déjà pour la Phase 3).
