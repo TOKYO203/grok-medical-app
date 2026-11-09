@@ -49,6 +49,9 @@ export function WeeklyChallengeCard() {
   const { score, total } = challengeScore(deck, seen);
 
   async function publish() {
+    // Les déclarations de fonctions sont hoistées : le narrowing du return
+    // ci-dessus ne s'applique pas ici, d'où la garde explicite.
+    if (!deck) return;
     setBusy(true);
     setMsg(null);
     try {
