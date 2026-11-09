@@ -21,6 +21,25 @@
 # projection titre/objectif). Elles sont servies par le worker avec un cache
 # court côté fonction.
 
+# ── Baseline sécurité (pentest 2026-11-09 §3) ────────────────────────────────
+# Posée sur TOUTES les réponses du CDN. Le middleware Nitro
+# (server/middleware/security-headers.ts) pose la même baseline sur les réponses
+# dynamiques : les DEUX doivent rester alignées — miroir exact de
+# CONTENT_SECURITY_POLICY dans ce middleware.
+#   - frame-ancestors 'none' + X-Frame-Options: DENY : l'app n'a pas vocation à
+#     être encadrée (anti-clickjacking sur les écrans de paiement/activation).
+#   - script-src 'self' : le shell SPA ne charge que des modules du domaine,
+#     aucun script inline (voir docs/PENTEST-2026-11-09.md §3).
+#   - connect-src : Supabase (REST + Realtime wss) et l'API LemonSqueezy.
+#   - HSTS : HTTPS, 1 an, sous-domaines inclus.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.lemonsqueezy.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
 # Manifeste PWA et service worker : jamais figés dans un cache immuable.
 /sw.js
   Cache-Control: public, max-age=0, must-revalidate
