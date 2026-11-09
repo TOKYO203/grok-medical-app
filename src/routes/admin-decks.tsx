@@ -139,7 +139,7 @@ function AdminDecksPage() {
                         <DeckStatusBadge status={s} size="sm" />
                       </div>
                       <p className="mt-0.5 truncate text-[11px] text-subtle">
-                        {deck.id} · {deck.questions.length} questions ·{" "}
+                        {deck.id} · {deck.questionCount ?? deck.questions.length} questions ·{" "}
                         {deck.access_policy.tier === "free" ? "Gratuit" : "Premium"}
                       </p>
                       {deck.review ? (
