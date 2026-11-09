@@ -7,6 +7,7 @@ import { BUILTIN_DECKS } from "@/content/catalog";
 import { currentLeague, useAllDecks, useOptimus } from "@/state/store";
 import { useAppUser } from "@/hooks/useAppUser";
 import { getLeaderboard, setLeaderboardPseudo, type LeaderboardRow } from "@/lib/leaderboard";
+import { WeeklyChallengeCard } from "@/components/weekly-challenge-card";
 import { cn } from "@/lib/utils";
 
 // G51 — code-splitting : le store ne charge plus le catalogue ; cette route
@@ -91,6 +92,20 @@ function BoardPage() {
   if (scope === "year") scoped = scoped.filter((row) => row.year === profile.studyYear);
   const selfRow = rows.find((row) => row.self);
 
+  // Rivaux silencieux (LB-2) : des compteurs, jamais d'identités.
+  const ahead = rows.filter((row) => !row.self && row.weeklyXp > weeklyXp).length;
+  const behind = rows.filter((row) => !row.self && row.weeklyXp < weeklyXp).length;
+  // Classe des facultés (LB-2) : somme des XP hebdo par faculté.
+  const facultyTotals = new Map<string, number>();
+  for (const row of rows) {
+    if (!row.faculty) continue;
+    facultyTotals.set(row.faculty, (facultyTotals.get(row.faculty) ?? 0) + row.weeklyXp);
+  }
+  const faculties = [...facultyTotals.entries()].sort((a, b) => b[1] - a[1]);
+  const myFacultyRank = profile.faculty
+    ? faculties.findIndex(([name]) => name === profile.faculty) + 1
+    : 0;
+
   return (
     <Shell title="Classement">
       <Page>
@@ -162,6 +177,8 @@ function BoardPage() {
             </button>
           ))}
         </div>
+
+        <WeeklyChallengeCard />
 
         {status === "ok" ? (
           <ol className="mt-6 space-y-1">
@@ -238,6 +255,55 @@ function BoardPage() {
             </p>
           </div>
         )}
+
+        {status === "ok" && rows.length > 0 ? (
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
+              <p className="text-xs uppercase tracking-wide text-muted">Rivaux cette semaine</p>
+              <p className="mt-2 text-sm">
+                {rows.length <= 1 ? (
+                  "Tu es le premier étudiant classé de la beta — les autres arrivent."
+                ) : (
+                  <>
+                    {ahead === 0
+                      ? "Personne ne te devance cette semaine. 🏆"
+                      : `${ahead} étudiant${ahead > 1 ? "s" : ""} te devanc${ahead > 1 ? "ent" : "e"} en XP hebdo.`}{" "}
+                    {behind > 0 ? `Tu en devances ${behind}.` : ""}
+                  </>
+                )}
+              </p>
+              <p className="mt-1 text-xs text-muted">Des compteurs, jamais d'identités.</p>
+            </div>
+            <div className="rounded-[var(--radius-xl)] bg-card p-5 shadow-[var(--shadow-border)]">
+              <p className="text-xs uppercase tracking-wide text-muted">Classe des facultés</p>
+              {faculties.length === 0 ? (
+                <p className="mt-2 text-sm">
+                  Aucune faculté renseignée pour l'instant — remplis ton profil pour compter pour la tienne.
+                </p>
+              ) : (
+                <>
+                  <ol className="mt-2 space-y-1 text-sm">
+                    {faculties.slice(0, 3).map(([name, total], index) => (
+                      <li key={name} className="flex items-center justify-between gap-2">
+                        <span className="truncate">
+                          {index + 1}. {name}
+                          {name === profile.faculty ? " (ta promo)" : ""}
+                        </span>
+                        <span className="font-mono text-xs tabular-nums">{total} XP</span>
+                      </li>
+                    ))}
+                  </ol>
+                  {profile.faculty && myFacultyRank > 3 ? (
+                    <p className="mt-1 text-xs text-muted">
+                      Ta faculté est {myFacultyRank}
+                      {myFacultyRank === 1 ? "re" : "e"} avec {facultyTotals.get(profile.faculty) ?? 0} XP cumulés.
+                    </p>
+                  ) : null}
+                </>
+              )}
+            </div>
+          </div>
+        ) : null}
       </Page>
     </Shell>
   );
