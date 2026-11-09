@@ -35,16 +35,15 @@ async function supabaseAdmin() {
 
 export const getWeeklyChallenge = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
-  .handler(async () => {
+  .handler(async ({ context }) => {
     const supabase = await supabaseAdmin();
     const { currentWeekKey } = await import("@/lib/weekly-challenge-model");
     const { data, error } = await supabase.rpc("get_weekly_challenge", {
       p_week_key: currentWeekKey(),
       p_limit: 50,
-      p_self: "",
+      p_self: context.userId,
     });
     if (error || !Array.isArray(data)) throw new Error("Défi indisponible.");
-    // p_self est marqué côté RPC par le contexte authentifié ci-dessous.
     return { rows: data as WeeklyChallengeRow[] };
   });
 
