@@ -226,3 +226,39 @@ export async function requestContentToken(
     return { ok: false, error: "network" };
   }
 }
+
+/**
+ * Demande un JETON D'ESSAI au serveur (pentest §14) et l'enregistre.
+ *
+ * L'essai Premium n'est plus un simple drapeau client : le contenu Pro vit
+ * derrière le garde `/content/$type/$file`, et c'est ce jeton court (2 h,
+ * quota par IP) qui le rend réel. Aucune clé, aucun compte requis — le client
+ * l'appelle quand un catalogue Premium répond 401 sans session active.
+ */
+export async function requestTrialToken(): Promise<ContentTokenResult> {
+  try {
+    const response = await fetch("/api/licenses/trial-token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const payload = (await response.json().catch(() => ({}))) as {
+      token?: unknown;
+      expiresAt?: unknown;
+      error?: unknown;
+    };
+
+    if (!response.ok || typeof payload.token !== "string") {
+      return {
+        ok: false,
+        error: typeof payload.error === "string" ? payload.error : `http_${response.status}`,
+      };
+    }
+
+    const expiresAt = typeof payload.expiresAt === "number" ? payload.expiresAt : null;
+    setToken(payload.token, expiresAt);
+    return { ok: true, expiresAt };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
