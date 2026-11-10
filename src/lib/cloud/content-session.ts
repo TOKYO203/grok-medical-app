@@ -40,10 +40,11 @@ import { useOptimus } from "@/state/store";
  *      Supabase à `POST /api/licenses/session`, qui le fait vérifier par
  *      Supabase puis signe un jeton de contenu si une licence est ACTIVE.
  *
- * Le jeton obtenu est écrit par `setToken()` dans `localStorage` ET dans le
- * cookie `optimus_session` : le rendu SERVEUR des fiches de nosographie le voit
- * donc dès la requête suivante (c'est pourquoi les pages rechargent leur loader
- * quand la session passe de « absente » à « prête »).
+ * Le jeton obtenu est écrit par `setToken()` dans `localStorage`, et le
+ * serveur pose le cookie `optimus_session` (HttpOnly, pentest §4) : le rendu
+ * SERVEUR des fiches de nosographie le voit donc dès la requête suivante
+ * (c'est pourquoi les pages rechargent leur loader quand la session passe de
+ * « absente » à « prête »).
  *
  * ⚠️ Rien ici n'est une frontière de sécurité : la décision d'accorder le jeton
  * est prise côté serveur. Ce module ne fait que TRANSPORTER la demande, et il
@@ -274,7 +275,7 @@ async function requestSessionToken(accessToken: string): Promise<SessionTokenRes
         error: typeof payload.error === "string" ? payload.error : `http_${response.status}`,
       };
     }
-    setToken(payload.token, typeof payload.expiresAt === "number" ? payload.expiresAt : null);
+    setToken(payload.token);
     return { ok: true };
   } catch {
     return { ok: false, status: 0, error: "network" };
@@ -484,7 +485,7 @@ export function getContentServerSnapshot(): ContentSessionSnapshot {
  * Referme la session de contenu (déconnexion explicite).
  *
  * Trois choses à oublier, et rien d'autre :
- *   · le jeton (localStorage + cookie `optimus_session`), sinon le SSR
+ *   · le jeton (localStorage ; le cookie HttpOnly expire de lui-même), sinon le SSR
  *     continuerait de servir les fiches à un appareil déconnecté ;
  *   · le mémo négatif, sinon un compte qui se reconnecte avec un abonnement
  *     resterait « sans licence » jusqu'à la fin de la fenêtre de 60 s ;
