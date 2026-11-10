@@ -22,6 +22,9 @@ import { signContentToken } from "@/server/jwt";
  *   200 `{ token, expiresAt, tier: "trial", expiresIn }`
  *   429 `rate_limited` (+ `Retry-After`)
  *   503 `license_verification_unavailable` (`LICENSE_JWT_SECRET` absent)
+ *
+ * Depuis le pentest §4, la réponse 200 pose AUSSI le cookie de session
+ * `optimus_session` (HttpOnly, Secure, SameSite=Lax, Max-Age = TTL du jeton).
  */
 
 /** Durée de vie d'un jeton d'essai : assez pour une session d'entraînement. */
@@ -30,6 +33,9 @@ export const TRIAL_TOKEN_TTL_SECONDS = 2 * 60 * 60;
 /** 5 jetons d'essai par IP de confiance et par 24 h. */
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+/** Cookie de session posé par le serveur (pentest §4) : jamais lisible en JS. */
+const SESSION_COOKIE_NAME = "optimus_session";
 
 function json(body: unknown, status = 200, headers: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), {
@@ -67,6 +73,12 @@ export const Route = createFileRoute("/api/licenses/trial-token")({
           return json({ error: "license_verification_unavailable" }, 503);
         }
 
+        // Cookie de session HttpOnly (pentest §4) : posé par le serveur,
+        // jamais lisible ni modifiable en JavaScript côté client.
+        const sessionCookie =
+          `${SESSION_COOKIE_NAME}=${encodeURIComponent(signed.token)};` +
+          ` Path=/; Max-Age=${TRIAL_TOKEN_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`;
+
         return json(
           {
             token: signed.token,
@@ -75,7 +87,7 @@ export const Route = createFileRoute("/api/licenses/trial-token")({
             tier: "trial",
           },
           200,
-          { "Cache-Control": "no-store, max-age=0" },
+          { "Cache-Control": "no-store, max-age=0", "Set-Cookie": sessionCookie },
         );
       },
     },

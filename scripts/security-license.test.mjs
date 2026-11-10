@@ -206,9 +206,9 @@ test("la session de contenu est stockée dans localStorage et envoyée en Bearer
   assert.match(session, /SESSION_STORAGE_KEY = "optimus_session"/);
   assert.match(session, /headers\.set\("authorization", `Bearer \$\{token\}`\)/);
   assert.match(session, /response\.status === 401 && token\) clearToken\(\)/);
-  // Copie en cookie : indispensable au rendu serveur (localStorage y est absent).
-  assert.match(session, /document\.cookie = `\$\{SESSION_COOKIE_NAME\}/);
-  assert.match(session, /SameSite=Lax/);
+  // Pentest §4 : le cookie de session est posé par le SERVEUR (HttpOnly) ;
+  // le client n'écrit plus `document.cookie` (voir security-cookie.test.mjs).
+  assert.doesNotMatch(session, /document\.cookie/);
 });
 
 test("le serveur lit le jeton dans l'en-tête ou dans le cookie, jamais ailleurs", () => {

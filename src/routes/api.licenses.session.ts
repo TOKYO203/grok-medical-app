@@ -24,6 +24,9 @@ import { verifyLicenceSession } from "@/server/licence-session.server";
  *   403 `licence_required`    — utilisateur valide, aucune licence active
  *   429 `rate_limited`
  *   503 `license_verification_unavailable` — Supabase ou secret non configuré
+ *
+ * Depuis le pentest §4, la réponse 200 pose AUSSI le cookie de session
+ * `optimus_session` (HttpOnly, Secure, SameSite=Lax, Max-Age = TTL du jeton).
  */
 
 /** Un pont automatique se déclenche à chaque démarrage : quota plus large. */
@@ -32,6 +35,9 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
 /** Le corps ne porte qu'un jeton d'accès (~1 Ko) : au-delà on refuse. */
 const MAX_BODY_BYTES = 8 * 1024;
+
+/** Cookie de session posé par le serveur (pentest §4) : jamais lisible en JS. */
+const SESSION_COOKIE_NAME = "optimus_session";
 
 function json(body: unknown, status = 200, headers: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), {
@@ -103,6 +109,12 @@ export const Route = createFileRoute("/api/licenses/session")({
           return json({ error: "license_verification_unavailable" }, 503);
         }
 
+        // Cookie de session HttpOnly (pentest §4) : posé par le serveur,
+        // jamais lisible ni modifiable en JavaScript côté client.
+        const sessionCookie =
+          `${SESSION_COOKIE_NAME}=${encodeURIComponent(signed.token)};` +
+          ` Path=/; Max-Age=${CONTENT_TOKEN_TTL_SECONDS}; SameSite=Lax; HttpOnly; Secure`;
+
         return json(
           {
             token: signed.token,
@@ -111,7 +123,7 @@ export const Route = createFileRoute("/api/licenses/session")({
             tier: "premium",
           },
           200,
-          { "Cache-Control": "no-store, max-age=0" },
+          { "Cache-Control": "no-store, max-age=0", "Set-Cookie": sessionCookie },
         );
       },
     },
