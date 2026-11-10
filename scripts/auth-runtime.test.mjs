@@ -24,6 +24,15 @@ test("auth readiness only enables broker sign-in with credentials plus a public 
   assert.match(runtimeStatus, /providers:\s*\[\]/);
 });
 
+test("Supabase-configured deployments are ready without the Better Auth broker", () => {
+  // Production (Worker optimus-medical-prod) : Supabase est la source d'auth
+  // (email/mot de passe). La sonde ne doit PAS exiger le broker GROK_AUTH_*.
+  assert.match(runtimeStatus, /SUPABASE_SERVICE_ROLE_KEY/);
+  assert.match(runtimeStatus, /VITE_SUPABASE_URL/);
+  assert.match(runtimeStatus, /supabaseUrl && supabaseKey/);
+  assert.match(runtimeStatus, /mode: "configured"/);
+});
+
 test("Vercel and Cloudflare Pages deployments derive a HTTPS Better Auth origin only when a deployed broker client exists", () => {
   assert.match(authServer, /deployedBrokerClientConfigured/);
   assert.match(authServer, /VERCEL_BRANCH_URL/);
