@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 import { Page, Shell } from "@/components/shell";
 import { DeckStatusBadge } from "@/components/deck-status-badge";
+import { deckQuestionCount } from "@/lib/deck-question-count";
 import { BUILTIN_DECKS } from "@/content/catalog";
 import { verifyAdminKey } from "@/lib/content-reports-admin";
 import { getAdminKey } from "@/routes/admin-login";
@@ -139,7 +140,7 @@ function AdminDecksPage() {
                         <DeckStatusBadge status={s} size="sm" />
                       </div>
                       <p className="mt-0.5 truncate text-[11px] text-subtle">
-                        {deck.id} · {deck.questions.length} questions ·{" "}
+                        {deck.id} · {deckQuestionCount(deck)} questions ·{" "}
                         {deck.access_policy.tier === "free" ? "Gratuit" : "Premium"}
                       </p>
                       {deck.review ? (

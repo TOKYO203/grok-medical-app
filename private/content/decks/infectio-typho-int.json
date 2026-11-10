@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "infectio-typho-int",
+  "questions": [
+    {
+      "id": "typho-int-1",
+      "prompt": "Homme de 22 ans : huit jours de fièvre puis douleur brutale de la fosse iliaque droite, radiographie avec pneumopéritoine. Conduite ?",
+      "choices": [
+        "Antalgiques et réhydratation seuls",
+        "Chirurgie urgente avec antibiothérapie IV couvrant les anaérobies",
+        "Drainage percutané en première intention",
+        "Traitement médical 48 heures avant décision"
+      ],
+      "correct": 1,
+      "explanation": "Perforation typhique de l'iléon : laparotomie en urgence, réanimation, antibiothérapie à large spectre ; attendre tue le patient.",
+      "sources": [
+        {
+          "title": "Wain J et al.",
+          "citation": "Typhoid fever. Lancet 2015;385:1136-1145.",
+          "organization": "Lancet",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "typho-int-2",
+      "prompt": "Enfant de 4 ans : fièvre à 39,5 °C, convulsions, test de paludisme négatif. Quel prélèvement prioritaire ?",
+      "choices": [
+        "Hémoculture avant tout antibiotique",
+        "Scanner cérébral en premier",
+        "Ponction lombaire au lit sans autre bilan",
+        "Aucun prélèvement, traiter d'emblée"
+      ],
+      "correct": 0,
+      "explanation": "La typhoïde de l'enfant se présente avec fièvre, convulsions et diarrhée ; l'hémoculture avant antibiothérapie garde la preuve, la ponction lombaire se discute selon l'examen neurologique.",
+      "sources": [
+        {
+          "title": "OMS — Typhoïde",
+          "citation": "Typhoid fever. WHO fact sheet, 2023.",
+          "organization": "OMS",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "typho-int-3",
+      "prompt": "Cinq jours de ciprofloxacine achetée en rue : la fièvre tient à 39 °C. Explication la plus probable ?",
+      "choices": [
+        "Dose trop faible pour le poids",
+        "Souche résistante type H58",
+        "Observance imparfaite du patient",
+        "Évolution normale de la maladie"
+      ],
+      "correct": 1,
+      "explanation": "Les souches locales sont largement résistantes aux fluoroquinolones : hémoculture, antibiogramme, relais par azithromycine ou ceftriaxone.",
+      "sources": [
+        {
+          "title": "Wain J et al.",
+          "citation": "Typhoid fever. Lancet 2015;385:1136-1145.",
+          "organization": "Lancet",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "typho-int-4",
+      "prompt": "À J3 d'une chirurgie de perforation, la fièvre repart à 39 °C avec douleur diffuse : que suspecter ?",
+      "choices": [
+        "Une simple réaction au fil",
+        "Un abcès ou une péritonite résiduelle",
+        "Une allergie aux antibiotiques",
+        "Une rechute virale banale"
+      ],
+      "correct": 1,
+      "explanation": "Pense-bête post-opératoire : imagerie (échographie ou TDM) à la recherche d'un abcès ou d'une fistule, drainage, antibiothérapie adaptée aux prélèvements.",
+      "sources": [
+        {
+          "title": "Wain J et al.",
+          "citation": "Typhoid fever. Lancet 2015;385:1136-1145.",
+          "organization": "Lancet",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "typho-int-5",
+      "prompt": "Un cuisinier de cantine, typhoïde traitée, reste excréteur à 3 mois : quelle conduite ?",
+      "choices": [
+        "Reprise du travail sans contrôle",
+        "Éviction professionnelle et traitement du portage chronique",
+        "Vaccination seule du personnel",
+        "Filtration de l'eau du restaurant uniquement"
+      ],
+      "correct": 1,
+      "explanation": "Porteur chronique : éviction jusqu'à coprocultures négatives, antibiothérapie prolongée, cholécystectomie si lithiase ; un porteur en cuisine relance l'éclosion.",
+      "sources": [
+        {
+          "title": "CDC Yellow Book",
+          "citation": "Typhoid and paratyphoid fever. CDC, 2026.",
+          "organization": "CDC",
+          "year": 2026
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "typho-int-6",
+      "prompt": "Une éclosion de fièvres touche un quartier après les pluies : première action de santé publique ?",
+      "choices": [
+        "Vacciner immédiatement tout le quartier",
+        "Enquêter sur la source d'eau, la traiter, chercher les cas actifs",
+        "Distribuer des antibiotiques à tous",
+        "Fermer le marché principal"
+      ],
+      "correct": 1,
+      "explanation": "Recherche de la source (forage souillé, latrines), chloration d'urgence, détection des cas et des porteurs, puis vaccination ciblée avec le TCV.",
+      "sources": [
+        {
+          "title": "OMS — Typhoïde",
+          "citation": "Typhoid fever. WHO fact sheet, 2023.",
+          "organization": "OMS",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "typho-int-7",
+      "prompt": "Goutte épaisse positive à P. falciparum, mais fièvre en plateau depuis 12 jours avec tuphos : conduite ?",
+      "choices": [
+        "Traiter le paludisme et prescrire une hémoculture pour la typhoïde",
+        "Se contenter du traitement antipaludique",
+        "Attendre la fin du traitement du palu pour explorer",
+        "Prescrire seulement du paracétamol"
+      ],
+      "correct": 0,
+      "explanation": "Co-infection possible : antipaludique selon le protocole ET hémoculture ; une typhoïde non traitée derrière un palu traité tue.",
+      "sources": [
+        {
+          "title": "OMS — Typhoïde",
+          "citation": "Typhoid fever. WHO fact sheet, 2023.",
+          "organization": "OMS",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "typho-int-8",
+      "prompt": "La famille d'un patient tuphos exige sa sortie immédiate. Quelle réponse soignante ?",
+      "choices": [
+        "Faire signer la sortie et laisser partir",
+        "Refuser sans explication et fermer la porte",
+        "Expliquer le risque vital immédiat et construire un accord avec la famille",
+        "Appeler la police pour faire évacuer la famille"
+      ],
+      "correct": 2,
+      "explanation": "Communication : nommer le danger (perforation, coma), expliquer le traitement en cours, proposer de revoir la décision ensemble ; la confiance garde le patient à l'hôpital.",
+      "sources": [
+        {
+          "title": "CDC Yellow Book",
+          "citation": "Typhoid and paratyphoid fever. CDC, 2026.",
+          "organization": "CDC",
+          "year": 2026
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_communicator"
+    },
+    {
+      "id": "typho-int-9",
+      "prompt": "Femme enceinte de 5 mois, typhoïde confirmée, vomissements incoercibles : quelle voie thérapeutique ?",
+      "choices": [
+        "Ceftriaxone IV",
+        "Azithromycine orale malgré les vomissements",
+        "Ciprofloxacine orale",
+        "Attente de la fin des vomissements"
+      ],
+      "correct": 0,
+      "explanation": "Intolérance orale ou forme grave : ceftriaxone IV, sûre pendant la grossesse ; l'azithromycine orale reste la règle des formes simples tolérées.",
+      "sources": [
+        {
+          "title": "CDC Yellow Book",
+          "citation": "Typhoid and paratyphoid fever. CDC, 2026.",
+          "organization": "CDC",
+          "year": 2026
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "typho-int-10",
+      "prompt": "Deux semaines après un traitement complet, la fièvre revient : que suspecter d'abord ?",
+      "choices": [
+        "Une nouvelle infection obligatoire",
+        "Une immunité défaillante définitive",
+        "Une rechute possible, à redocumenter par hémoculture",
+        "Un portage aigu permanent"
+      ],
+      "correct": 2,
+      "explanation": "Jusqu'à 10 % des cas rechutent dans les semaines qui suivent, surtout après un traitement court : refaire l'antibiogramme et retraiter.",
+      "sources": [
+        {
+          "title": "CDC Yellow Book",
+          "citation": "Typhoid and paratyphoid fever. CDC, 2026.",
+          "organization": "CDC",
+          "year": 2026
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    }
+  ]
+}

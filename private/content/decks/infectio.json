@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "infectio",
+  "questions": [
+    {
+      "id": "in-1",
+      "prompt": "Selon Sepsis-3, le sepsis est :",
+      "choices": [
+        "Toute fièvre supérieure à 38,5 °C",
+        "Une dysfonction d'organe menaçante due à une réponse dérégulée à l'infection",
+        "Une bactériémie documentée",
+        "Un syndrome inflammatoire isolé (CRP > 50)"
+      ],
+      "correct": 1,
+      "explanation": "Le sepsis n'est plus « SIRS + infection ». C'est une dysfonction d'organe (Δ SOFA ≥ 2) secondaire à l'infection. Le choc septique y ajoute vasopresseurs et lactates.",
+      "sources": [
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd."
+        },
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "in-2",
+      "prompt": "Avant toute antibiothérapie d'une endocardite suspectée, il faut :",
+      "choices": [
+        "Poser d'emblée un cathéter central",
+        "Prélever plusieurs hémocultures",
+        "Débuter une corticothérapie",
+        "Réaliser une scintigraphie osseuse"
+      ],
+      "correct": 1,
+      "explanation": "Les hémocultures (idéalement 3 séries, sites différents) sont le pilier diagnostique (critères de Duke). L'ATB ne doit pas les précéder hors choc.",
+      "sources": [
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "in-3",
+      "prompt": "Le paludisme grave à P. falciparum se traite en première intention par :",
+      "choices": [
+        "Chloroquine orale",
+        "Artésunate IV",
+        "Doxycycline seule",
+        "Métronidazole"
+      ],
+      "correct": 1,
+      "explanation": "L'artésunate IV a supplanté la quinine dans le paludisme grave. La chloroquine est inefficace sur la plupart des falciparum.",
+      "sources": [
+        {
+          "title": "OMS",
+          "citation": "WHO guidelines for malaria, 13 August 2025."
+        },
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "in-4",
+      "prompt": "Un purpura fébrile extensif chez un adolescent évoque en premier :",
+      "choices": [
+        "Un purpura rhumatoïde isolé",
+        "Un purpura fulminans à méningocoque",
+        "Une thrombopénie immune chronique",
+        "Une carence en vitamine C"
+      ],
+      "correct": 1,
+      "explanation": "Urgence vitale : ceftriaxone (ou céfotaxime) immédiate, même avant le transfert, et notification. Ne pas attendre le LCR si le tableau est franc.",
+      "sources": [
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        },
+        {
+          "title": "SFAR",
+          "citation": "Recommandations formalisées d'experts — urgences vitales."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "in-5",
+      "prompt": "Concernant la durée du traitement d'une tuberculose pulmonaire sensible, quelle proposition est exacte ?",
+      "choices": [
+        "Dix jours suffisent après disparition de la fièvre",
+        "Toute tuberculose impose exactement six mois, sans exception",
+        "Le schéma 2HRZE/4HR dure six mois, mais un schéma de quatre mois peut convenir à certains patients éligibles",
+        "Une monothérapie par rifampicine pendant quatre mois est suffisante"
+      ],
+      "correct": 2,
+      "explanation": "Le schéma de référence 2HRZE/4HR dure six mois. Selon l'OMS, certains adultes et adolescents d'au moins 12 ans atteints d'une tuberculose pulmonaire sensible peuvent recevoir un schéma de quatre mois associant notamment rifapentine et moxifloxacine. L'éligibilité, les résistances, l'âge et la localisation doivent être vérifiés dans le programme national : on ne raccourcit jamais le traitement de façon improvisée.",
+      "sources": [
+        {
+          "title": "Organisation mondiale de la Santé",
+          "citation": "WHO consolidated guidelines on tuberculosis, Module 4: treatment and care, 2025.",
+          "url": "https://www.who.int/publications/i/item/9789240107243",
+          "verifiedAt": "2026-09-14"
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "in-6",
+      "prompt": "La colite à Clostridioides difficile est particulièrement associée à :",
+      "choices": [
+        "L'amoxicilline et la clindamycine, entre autres",
+        "Les inhibiteurs de la pompe à protons uniquement",
+        "Les vaccins vivants",
+        "Le paracétamol au long cours"
+      ],
+      "correct": 0,
+      "explanation": "Tout ATB peut sélectionner C. difficile ; clindamycine, céphalosporines, fluoroquinolones et amoxicilline sont souvent citées. Traitement : fidaxomicine ou vancomycine orale.",
+      "sources": [
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        },
+        {
+          "title": "Vidal",
+          "citation": "Monographies thérapeutiques, éd. 2024."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "in-7",
+      "prompt": "Le score CURB-65 évalue :",
+      "choices": [
+        "La gravité d'une pneumonie communautaire",
+        "Le risque d'endocardite sur pacemaker",
+        "La réponse au BCG",
+        "La cirrhose Child-Pugh"
+      ],
+      "correct": 0,
+      "explanation": "Confusion, Urea, Respiratory rate, Blood pressure, âge ≥ 65 ans. Il aide à décider ambulatoire vs hospitalisation, en plus du jugement clinique.",
+      "sources": [
+        {
+          "title": "SPLF",
+          "citation": "Prise en charge des infections respiratoires basses de l'adulte."
+        },
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "in-8",
+      "prompt": "Un vaccin vivant atténué est contre-indiqué en cas de :",
+      "choices": [
+        "Allaitement maternel exclusif",
+        "Immunodépression sévère",
+        "Antécédent de grippe",
+        "Vaccination antigrippale l'année précédente"
+      ],
+      "correct": 1,
+      "explanation": "ROR, varicelle, fièvre jaune, BCG : contre-indiqués si immunodépression profonde (dont certains biothérapies). Les vaccins inactivés restent possibles.",
+      "sources": [
+        {
+          "title": "Collège d'Infectiologie",
+          "citation": "Référentiel Pilly / CMIT."
+        },
+        {
+          "title": "Harrison's",
+          "citation": "Principles of Internal Medicine, 21e éd."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    }
+  ]
+}

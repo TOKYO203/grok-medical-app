@@ -122,6 +122,18 @@ async function buildSignesCatalog() {
   return { schemaVersion: 1, items };
 }
 
+/**
+ * Catalogue groupé des questions Premium : une requête rend les questions de
+ * TOUS les decks protégés, indexées par nom de fichier (`<deck-id>.json`).
+ *
+ * Une requête plutôt que 74 : le catalogue complet pèse ce que pesait
+ * l'ancien `decks.json` public, mais il n'est servi QU'À un client porteur d'un
+ * jeton de contenu, et en `Cache-Control: private`.
+ */
+async function buildDecksCatalog() {
+  return { schemaVersion: 1, decks: await readAllProtectedAssets("decks") };
+}
+
 export const Route = createFileRoute("/content/$type/$file")({
   server: {
     handlers: {
@@ -148,8 +160,11 @@ export const Route = createFileRoute("/content/$type/$file")({
 
         const family = type as ProtectedFamily;
 
-        // Catalogue groupé « Signes » : une requête pour tout le catalogue.
-        const isCatalog = family === "signes" && file === "_catalog.json";
+        // Catalogues groupés : une seule requête pour toutes les fiches d'une
+        // famille (Signes) ou toutes les questions des decks premium.
+        const isSignesCatalog = family === "signes" && file === "_catalog.json";
+        const isDecksCatalog = family === "decks" && file === "_catalog.json";
+        const isCatalog = isSignesCatalog || isDecksCatalog;
         if (!isCatalog && !/^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/.test(file)) {
           return notFoundResponse();
         }
@@ -161,7 +176,8 @@ export const Route = createFileRoute("/content/$type/$file")({
         }
 
         if (isCatalog) {
-          return jsonResponse(await buildSignesCatalog(), 200, {
+          const catalog = isDecksCatalog ? await buildDecksCatalog() : await buildSignesCatalog();
+          return jsonResponse(catalog, 200, {
             "Cache-Control": "private, max-age=60",
           });
         }

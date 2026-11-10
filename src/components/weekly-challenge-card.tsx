@@ -9,6 +9,7 @@ import {
   type WeeklyChallengeRow,
 } from "@/lib/weekly-challenge";
 import { cn } from "@/lib/utils";
+import { deckQuestionCount } from "@/lib/deck-question-count";
 
 /**
  * Défi hebdomadaire (LB-2) : un deck désigné par semaine, le même pour tout le
@@ -78,7 +79,7 @@ export function WeeklyChallengeCard() {
         <div>
           <h2 className="text-lg font-medium">{deck.title}</h2>
           <p className="text-xs text-muted">
-            {deck.questions.length} questions · semaine {weekKey} · le même défi pour tout le monde
+            {deckQuestionCount(deck)} questions · semaine {weekKey} · le même défi pour tout le monde
           </p>
         </div>
         <div className="flex gap-2">

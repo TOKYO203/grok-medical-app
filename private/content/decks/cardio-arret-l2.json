@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-arret-l2",
+  "questions": [
+    {
+      "id": "arret-l2-1",
+      "prompt": "Définition de l'arrêt cardiaque ?",
+      "choices": [
+        "Absence d'activité cardiaque efficace (pas de pouls, pas de respiration)",
+        "Perte de connaissance seule",
+        "Bradycardie sévère",
+        "HTA sévère"
+      ],
+      "correct": 0,
+      "explanation": "Arrêt cardiaque : absence d'activité mécanique cardiaque → pas de pouls + apnée (ou gasps). Perte de connaissance en 10-20 sec.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "arret-l2-2",
+      "prompt": "Comment reconnaître un arrêt cardiaque ?",
+      "choices": [
+        "Convulsions",
+        "Douleur thoracique",
+        "Inconscient + pas de respiration normale (gasps) + pas de pouls",
+        "Cyanose seule"
+      ],
+      "correct": 2,
+      "explanation": "Reconnaissance en <10 sec : inconscient, pas de respiration normale (gasps = agonal), pas de pouls. Ne pas perdre de temps.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "arret-l2-3",
+      "prompt": "Première action devant un arrêt cardiaque ?",
+      "choices": [
+        "Alerter + débuter compressions thoraciques immédiatement",
+        "Chercher un médecin",
+        "Attendre l'ambulance",
+        "Faire un ECG"
+      ],
+      "correct": 0,
+      "explanation": "Alerter + massages immédiats. Zéro délai. La RCP précoce double voire triple la survie.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "arret-l2-4",
+      "prompt": "Fréquence des compressions thoraciques ?",
+      "choices": [
+        "100-120/min",
+        "60/min",
+        "150/min",
+        "200/min"
+      ],
+      "correct": 0,
+      "explanation": "RCP adulte : 100-120/min, profondeur 5-6 cm, retour complet du thorax, interruptions <10 sec.",
+      "sources": [
+        {
+          "title": "ERC 2021 ACLS",
+          "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "arret-l2-5",
+      "prompt": "Position des mains pour la RCP adulte ?",
+      "choices": [
+        "Sur le côté gauche",
+        "Centre du thorax, moitié inférieure du sternum",
+        "Sur l'abdomen",
+        "Sur la thyroïde"
+      ],
+      "correct": 1,
+      "explanation": "Mains au centre du thorax (moitié inférieure du sternum), bras tendus, épaules au-dessus des mains.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "arret-l2-6",
+      "prompt": "Ratio compressions/ventilations en RCP adulte ?",
+      "choices": [
+        "30:2 (30 compressions, 2 insufflations)",
+        "15:2",
+        "5:1",
+        "10:2"
+      ],
+      "correct": 0,
+      "explanation": "Adulte : 30:2. Enfant : 15:2 (sauf nouveau-né 3:1). Compression-only si pas de dispositif.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "arret-l2-7",
+      "prompt": "Quand défibriller ?",
+      "choices": [
+        "Attendre le médecin",
+        "Après 10 min de RCP",
+        "Dès qu'un DAE est disponible si rythme choquable (FV/TV sans pouls)",
+        "Jamais"
+      ],
+      "correct": 2,
+      "explanation": "Défibrillation précoce = survie x2-3 si FV/TV. Dès que DAE disponible, sans interrompre la RCP >10 sec.",
+      "sources": [
+        {
+          "title": "ERC 2021 ACLS",
+          "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "arret-l2-8",
+      "prompt": "Quels sont les 4 rythmes d'arrêt cardiaque ?",
+      "choices": [
+        "FV, TV sans pouls, asystolie, activité électrique sans pouls (AESP)",
+        "Tachycardie, bradycardie, FA, flutter",
+        "BAV3, TV, FV, asystolie",
+        "Asystolie, AESP, BAV3, fibrillation auriculaire"
+      ],
+      "correct": 0,
+      "explanation": "Rythmes d'arrêt : FV et TV sans pouls (choquables) ; asystolie et AESP (non choquables). Identifier sur le moniteur.",
+      "sources": [
+        {
+          "title": "ERC 2021 ACLS",
+          "citation": "ERC Guidelines 2021 — Adult advanced life support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "arret-l2-9",
+      "prompt": "Qui appeler en premier ?",
+      "choices": [
+        "Le médecin de famille",
+        "SAMU (numéro d'urgence) + demander un DAE",
+        "La famille",
+        "Aucun appel"
+      ],
+      "correct": 1,
+      "explanation": "Alerter SAMU + demander un DAE. Si plusieurs témoins : un appelle, un masse, un cherche le DAE.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "canmeds_leader"
+    },
+    {
+      "id": "arret-l2-10",
+      "prompt": "Conduite L2 devant une personne inconsciente ?",
+      "choices": [
+        "Vérifier conscience + respiration + appeler + débuter RCP",
+        "Attendre",
+        "Chercher du pouls 2 min",
+        "Donner à boire"
+      ],
+      "correct": 0,
+      "explanation": "Séquence : vérifier inconscience + respiration (≤10 sec) → appeler → débuter RCP. Ne pas retarder.",
+      "sources": [
+        {
+          "title": "ERC 2021 BLS",
+          "citation": "ERC 2021 — Basic Life Support.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "base",
+      "competency": "clinical_reasoning"
+    }
+  ]
+}

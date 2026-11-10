@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-sca-l4",
+  "questions": [
+    {
+      "id": "sca-l4-1",
+      "prompt": "Critère ECG du STEMI (sus-décalage) ?",
+      "choices": [
+        "ST ≥1 mm dans 2 dérivations contiguës (seuils V2-V3 selon âge/sexe)",
+        "ST ≥0,5 mm dans 1 dérivation",
+        "Sus-décalage de T uniquement",
+        "Toute anomalie ST"
+      ],
+      "correct": 0,
+      "explanation": "Seuil ≥1 mm en périphériques. V2-V3 : homme ≥40 ans 2 mm, <40 ans 2,5 mm, femme 1,5 mm. 2 dérivations contiguës.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-l4-2",
+      "prompt": "Sus-décalage V1-V3 avec miroir inférieur : quelle artère ?",
+      "choices": [
+        "Coronaire droite",
+        "IVA",
+        "Circonflexe",
+        "Tronc commun"
+      ],
+      "correct": 1,
+      "explanation": "STEMI antérieur (V1-V3 ± V4) = occlusion IVA. Territoire le plus étendu, pronostic grave.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-l4-3",
+      "prompt": "Sus-décalage V1-V2 + BBG connu depuis 5 ans ?",
+      "choices": [
+        "STEMI certain",
+        "Comparer à tracé antérieur + critères Sgarbossa modifiés",
+        "NSTEMI",
+        "Angor stable"
+      ],
+      "correct": 1,
+      "explanation": "BBG ancien : comparer à antérieur + Sgarbossa (ratio ST/S >0,25). En cas de doute : coronarographie.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "sca-l4-4",
+      "prompt": "Définition universelle de l'IDM (4e) ?",
+      "choices": [
+        "Troponine >99e percentile + ischémie clinique/ECG/imagerie",
+        "Douleur + troponine élevée",
+        "Sus-décalage ST uniquement",
+        "CPK-MB élevée"
+      ],
+      "correct": 0,
+      "explanation": "Élévation/chute troponine hs >99e percentile + ≥1 critère d'ischémie.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-l4-5",
+      "prompt": "Algorithme troponine hs recommandé ESC 2023 ?",
+      "choices": [
+        "0h/3h uniquement",
+        "0h/1h ou 0h/2h selon test",
+        "Dosage unique",
+        "Troponine conventionnelle H0/H6"
+      ],
+      "correct": 1,
+      "explanation": "ESC 2023 : 0h/1h ou 0h/2h selon le test. Le dosage unique ne détecte pas la cinétique.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-l4-6",
+      "prompt": "Troponine élevée stable à 2 dosages, sans douleur ?",
+      "choices": [
+        "STEMI",
+        "NSTEMI",
+        "Élévation chronique (IRC, IC, myocardite, EP)",
+        "Angor instable"
+      ],
+      "correct": 2,
+      "explanation": "Troponine stable ≠ IDM. Causes : IRC, IC chronique, myocardite, EP, sepsis.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "sca-l4-7",
+      "prompt": "Territoire des dérivations V7-V9 ?",
+      "choices": [
+        "Antérieur",
+        "Latéral haut",
+        "Postérieur",
+        "Inférieur"
+      ],
+      "correct": 2,
+      "explanation": "V7-V9 = paroi postérieure. Systématiques devant suspicion STEMI postérieur.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-l4-8",
+      "prompt": "Score de mortalité à 6 mois dans le SCA ?",
+      "choices": [
+        "GRACE",
+        "Killip",
+        "Wells",
+        "CHA2DS2-VASc"
+      ],
+      "correct": 0,
+      "explanation": "GRACE : âge, FC, PAS, créatinine, Killip, arrêt cardiaque, déviation ST, enzymes.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "sca-l4-9",
+      "prompt": "NSTEMI : coronarographie en urgence (<2h) quand ?",
+      "choices": [
+        "Toujours",
+        "Instabilité HD, choc, angor réfractaire, arythmie menaçante",
+        "À distance systématiquement",
+        "Jamais"
+      ],
+      "correct": 1,
+      "explanation": "Très haut risque <2h. Haut risque <24h. Bas risque <72h.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-l4-10",
+      "prompt": "STEMI à 90 min du centre PCI, transfert 60 min ?",
+      "choices": [
+        "Fibrinolyse immédiate (délai >120 min)",
+        "PCI primaire directe (délai <120 min)",
+        "Traitement médical seul",
+        "Attente avis"
+      ],
+      "correct": 0,
+      "explanation": "Délai PCI >120 min → fibrinolyse + transfert (pharmaco-invasive). 90+60=150 >120.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "sca-l4-11",
+      "prompt": "Contre-indications absolues fibrinolyse ?",
+      "choices": [
+        "Âge >75 ans",
+        "AVC hémorragique (tout moment), AVC ischémique <6 mois, saignement actif, dissection aortique",
+        "Diabète",
+        "HTA contrôlée"
+      ],
+      "correct": 1,
+      "explanation": "CI absolues : AVC hémorragique, AVC ischémique <6 mois, néoplasie/malformation intracrânienne, saignement actif, dissection aortique.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-l4-12",
+      "prompt": "45 ans, SCA troponine élevée, coronarographie normale ?",
+      "choices": [
+        "MINOCA",
+        "Angor stable",
+        "Péricardite",
+        "EP"
+      ],
+      "correct": 0,
+      "explanation": "MINOCA : SCA + troponine élevée + coronaires sans sténose ≥50 %. Causes : spasme, embolie, dissection coronaire, Tako-Tsubo, myocardite.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    }
+  ]
+}

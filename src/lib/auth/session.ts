@@ -121,6 +121,20 @@ export function consumeExpiredSessionFlag(): boolean {
   return seen;
 }
 
+/**
+ * Événement « un jeton de contenu a changé ».
+ *
+ * Le catalogue écoute pour recharger les questions Premium : sans lui, un
+ * client qui active sa clé devrait recharger la page pour voir ses decks, et
+ * un jeton expiré laisserait des questions en mémoire.
+ */
+const CONTENT_SESSION_EVENT = "optimus:content-session";
+
+function emitContentSession(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(CONTENT_SESSION_EVENT));
+}
+
 /** Enregistre le jeton (localStorage + cookie pour le rendu serveur). */
 export function setToken(token: string, expiresAt?: number | null): void {
   const trimmed = token.trim();
@@ -134,6 +148,7 @@ export function setToken(token: string, expiresAt?: number | null): void {
       ? DEFAULT_MAX_AGE_SECONDS
       : Math.max(0, Math.floor((expires - Date.now()) / 1000));
   writeCookie(trimmed, maxAge || DEFAULT_MAX_AGE_SECONDS);
+  emitContentSession();
 }
 
 /** Purge complète : localStorage ET cookie (401, déconnexion, licence révoquée). */
@@ -144,6 +159,7 @@ export function clearToken(): void {
     // stockage indisponible : rien à purger
   }
   clearCookie();
+  emitContentSession();
 }
 
 /** Vrai si une session contenu est active (jeton présent et non expiré). */

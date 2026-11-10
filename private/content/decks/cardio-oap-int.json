@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-oap-int",
+  "questions": [
+    {
+      "id": "oap-int-1",
+      "prompt": "OAP réfractaire : conduite ?",
+      "choices": [
+        "Escalade thérapeutique (VNI, inotropes, ultrafiltration, assistance circulatoire), recherche étiologique active",
+        "Traitement standard",
+        "Attente",
+        "Arrêt thérapeutique"
+      ],
+      "correct": 0,
+      "explanation": "OAP réfractaire : escalade progressive — VNI, inotropes (dobutamine), ultrafiltration/dialyse, assistance circulatoire (ECMO-VA). Recherche active de la cause.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Refractory acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-2",
+      "prompt": "OAP + choc cardiogénique : conduite ?",
+      "choices": [
+        "Diurétiques seuls",
+        "Inotropes (dobutamine) + vasopresseurs + recherche cause + assistance circulatoire si besoin",
+        "Bêtabloquants IV",
+        "Attente"
+      ],
+      "correct": 1,
+      "explanation": "OAP + choc cardiogénique : inotropes (dobutamine) + noradrénaline, recherche cause (SCA, valvulopathie), assistance circulatoire si réfractaire. Pas de bêtabloquant IV.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Cardiogenic shock management.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-3",
+      "prompt": "OAP et SCA compliqué : priorité ?",
+      "choices": [
+        "Traitement OAP seul",
+        "Revascularisation urgente (PCI) + traitement OAP + anticoagulation + antiagrégants",
+        "Attente",
+        "Chirurgie"
+      ],
+      "correct": 1,
+      "explanation": "OAP + SCA : revascularisation urgente (PCI dans <120 min), traitement OAP, anticoagulation, antiagrégants, contrôle tensionnel. Pronostic sévère.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "ACS with acute HF.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-4",
+      "prompt": "OAP et IM aiguë sur rupture de pilier : conduite ?",
+      "choices": [
+        "Traitement médical prolongé",
+        "Chirurgie valvulaire urgente + traitement OAP + assistance circulatoire si besoin",
+        "Attente 48h",
+        "Ablation"
+      ],
+      "correct": 1,
+      "explanation": "IM aiguë sur rupture de pilier : chirurgie urgente (réparation/remplacement mitral) + traitement OAP + assistance circulatoire en pont. Mortalité élevée.",
+      "sources": [
+        {
+          "title": "ESC 2021 Valves",
+          "citation": "Acute mitral regurgitation.",
+          "organization": "ESC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-5",
+      "prompt": "OAP et grossesse sévère : conduite ?",
+      "choices": [
+        "Approche obstétrico-cardio, extracion fœtale si nécessaire, éviction IEC/ARA2",
+        "Traitement standard",
+        "Diurétiques seuls",
+        "Attente accouchement spontané"
+      ],
+      "correct": 0,
+      "explanation": "OAP + grossesse : équipe obstétrico-cardio, extraction fœtale si nécessaire (après 32 SA ou si décompensation), éviction IEC/ARA2, digoxine/bêtabloquant/labétalol.",
+      "sources": [
+        {
+          "title": "ESC 2021 HF",
+          "citation": "HF in pregnancy.",
+          "organization": "ESC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-6",
+      "prompt": "OAP et éthique : quand discuter limitation ?",
+      "choices": [
+        "Jamais",
+        "Décision collégiale en cas de mauvais pronostic, comorbidités majeures, échec thérapeutique — directives anticipées",
+        "Décision unilatérale",
+        "Uniquement famille"
+      ],
+      "correct": 1,
+      "explanation": "Limitation thérapeutique en OAP : décision collégiale (mauvais pronostic, comorbidités, échec des traitements), directives anticipées, personne de confiance, traçabilité. Rôle Professionnel.",
+      "sources": [
+        {
+          "title": "CanMEDS Framework",
+          "citation": "Professional role.",
+          "organization": "Royal College of Physicians and Surgeons of Canada",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_professional"
+    },
+    {
+      "id": "oap-int-7",
+      "prompt": "OAP et annonce famille : comment ?",
+      "choices": [
+        "Ne rien dire",
+        "Annonce claire et empathique, expliquer la gravité, options thérapeutiques, soutien",
+        "Uniquement par écrit",
+        "Au téléphone"
+      ],
+      "correct": 1,
+      "explanation": "Annonce famille en OAP grave : information claire, empathie, explication des options, soutien psychologique, personne de confiance. Rôle Communicateur.",
+      "sources": [
+        {
+          "title": "CanMEDS Framework",
+          "citation": "Communicator role.",
+          "organization": "Royal College of Physicians and Surgeons of Canada",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_communicator"
+    },
+    {
+      "id": "oap-int-8",
+      "prompt": "OAP post-opératoire : particularité ?",
+      "choices": [
+        "Identique",
+        "Causes spécifiques (surcharge hydrique, ischémie, valvulopathie, cardioplégie) — coordination chirurgicale",
+        "Aucun traitement",
+        "Attente"
+      ],
+      "correct": 1,
+      "explanation": "OAP post-opératoire : causes spécifiques (surcharge, ischémie, dysfonction valvulaire, cardioplégie). Coordination chirurgien-anesthésiste-réanimateur-cardiologue.",
+      "sources": [
+        {
+          "title": "ESC 2021 HF",
+          "citation": "Post-operative acute HF.",
+          "organization": "ESC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-int-9",
+      "prompt": "OAP et cancer : conduite ?",
+      "choices": [
+        "Systématiquement palliatif",
+        "Coordination onco-cardio, évaluer pronostic, cardioprotection, options percutanées si besoin",
+        "Aucun traitement",
+        "Attente"
+      ],
+      "correct": 1,
+      "explanation": "OAP + cancer : coordination onco-cardio, évaluation pronostique, cardioprotection (anthracyclines, trastuzumab), options percutanées si haut risque chirurgical.",
+      "sources": [
+        {
+          "title": "ESC 2022 Cardio-Oncology",
+          "citation": "Cardio-oncology HF.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_collaborator"
+    },
+    {
+      "id": "oap-int-10",
+      "prompt": "OAP et transports/urgences pré-hospitalières ?",
+      "choices": [
+        "RCP seule",
+        "Position assise + O2 + VNI + diurétique IV (si médecin) + orientation USIC/cardio",
+        "Attente SAMU sans geste",
+        "Uniquement transport"
+      ],
+      "correct": 1,
+      "explanation": "Pré-hospitalier OAP : position assise, O2, VNI si disponible, furosémide IV (si médecin), orientation vers USIC/cardio. Coordination avec régulateur. Rôle Collaborateur.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Prehospital management.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_collaborator"
+    },
+    {
+      "id": "oap-int-11",
+      "prompt": "OAP et registre/qualité ?",
+      "choices": [
+        "Aucun intérêt",
+        "Registre systématique, audit des pratiques, feedback équipes, amélioration continue",
+        "Uniquement statistiques",
+        "Pas de débriefing"
+      ],
+      "correct": 1,
+      "explanation": "Registre OAP : recueil systématique, analyse des pratiques, feedback, amélioration continue. Rôle Leader. Améliore la prise en charge et le pronostic.",
+      "sources": [
+        {
+          "title": "CanMEDS Framework",
+          "citation": "Leader role.",
+          "organization": "Royal College of Physicians and Surgeons of Canada",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_leader"
+    },
+    {
+      "id": "oap-int-12",
+      "prompt": "OAP et éducation des équipes ?",
+      "choices": [
+        "Aucune formation",
+        "Simulation régulière, formation continue, protocoles actualisés, audit",
+        "Uniquement médecins",
+        "Uniquement infirmiers"
+      ],
+      "correct": 1,
+      "explanation": "Formation équipes OAP : simulation (VNI, intubation, gestion du choc), formation continue, protocoles actualisés, audit des pratiques. Rôle Leader + Scholar.",
+      "sources": [
+        {
+          "title": "CanMEDS Framework",
+          "citation": "Scholar role.",
+          "organization": "Royal College of Physicians and Surgeons of Canada",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_scholar"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import type { ClinicalCase, Competency, Deck, DiagnosticCase, Entitlement } from
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
 import { hasEntitlement } from "@/state/store";
+import { deckQuestionCount } from "@/lib/deck-question-count";
 
 export type ContentKind = "deck" | "case" | "diagnostic" | "tool";
 export type ContentLevel = "intro" | "intermediate" | "advanced";
@@ -82,7 +83,7 @@ export function caseAccessible(clinical: ClinicalCase, entitlements: Entitlement
 }
 
 function deckToItem(deck: Deck, entitlements: Entitlement[], tier: string): ContentItem {
-  const count = deck.questions.length;
+  const count = deckQuestionCount(deck);
   return {
     id: `deck:${deck.id}`,
     kind: "deck",

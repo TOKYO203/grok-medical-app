@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "urgences-choc-l4",
+  "questions": [
+    {
+      "id": "choc-l4-1",
+      "prompt": "Selon Sepsis-3, le choc septique exige des vasopresseurs pour une PAM d'au moins 65 mmHg avec un lactate qui demeure :",
+      "choices": [
+        "Supérieur à 2 mmol/L malgré un remplissage adéquat",
+        "Négatif",
+        "Normal à tout prix",
+        "Inférieur à 1 mmol/L"
+      ],
+      "correct": 0,
+      "explanation": "La définition Sepsis-3 est double : besoin de vasopresseurs pour tenir la PAM à 65 mmHg ET lactate > 2 mmol/L persistant après remplissage. Les deux critères se lisent ensemble.",
+      "sources": [
+        {
+          "title": "Sepsis-3",
+          "citation": "Singer et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), JAMA 2016;315:801-810.",
+          "organization": "JAMA / ESICM",
+          "year": 2016
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "choc-l4-2",
+      "prompt": "Une fois le choc septique reconnu, l'antibiothérapie doit être administrée :",
+      "choices": [
+        "Dans l'heure qui suit, après les hémocultures si possible",
+        "Dans les six heures, après toutes les cultures",
+        "Seulement sur avis bactériologique",
+        "Après l'imagerie abdominale systématique"
+      ],
+      "correct": 0,
+      "explanation": "Chaque heure de retard de l'antibiotique augmente la mortalité : on prélève deux hémocultures sans retarder la première dose, qui se donne dans l'heure.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-3",
+      "prompt": "Quel volume de cristalloïdes la Surviving Sepsis Campaign recommande-t-elle en remplissage initial devant une hypoperfusion ?",
+      "choices": [
+        "30 mL/kg",
+        "5 mL/kg maximum",
+        "100 mL chez l'adulte",
+        "Aucun avant l'échographie"
+      ],
+      "correct": 0,
+      "explanation": "Le remplissage initial de 30 mL/kg de cristalloïdes se donne dans les premières heures devant l'hypotension ou un lactate ≥ 4 mmol/L, puis se réévalue dynamiquement.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-4",
+      "prompt": "Chez un polytraumatisé qui saigne activement, que prime le remplissage massif ?",
+      "choices": [
+        "Le contrôle rapide de la source du saignement",
+        "La transfusion systématique sans diagnostic",
+        "L'attente du bilan lésionnel complet",
+        "La montée de catécholamines"
+      ],
+      "correct": 0,
+      "explanation": "Aucun remplissage ne remplace l'hémostase : compression directe, garrot de membre ou bloc opératoire priment — remplir à perte fermée noie le patient.",
+      "sources": [
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-5",
+      "prompt": "Selon CRASH-2, dans quelle fenêtre de temps l'acide tranexamique conserve-t-il son bénéfice après un traumatisme ?",
+      "choices": [
+        "Les 3 premières heures",
+        "Les 12 premières heures",
+        "Les 24 premières heures",
+        "Aucune limite de temps"
+      ],
+      "correct": 0,
+      "explanation": "L'essai CRASH-2 montre un bénéfice de survie quand l'acide tranexamique est donné tôt — idéalement dans l'heure — et au plus tard dans les trois heures ; après, le risque surpasse le bénéfice.",
+      "sources": [
+        {
+          "title": "CRASH-2",
+          "citation": "CRASH-2 Collaborators — Effects of tranexamic acid on death and vascular occlusion in trauma patients, The Lancet 2010;376:23-32.",
+          "organization": "LSHTM",
+          "year": 2010
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-6",
+      "prompt": "Un choc complique un infarctus récent avec jugulaires pleines et crépitants. Quel traitement décisif les lignes ESC 2023 demandent-elles ?",
+      "choices": [
+        "La revascularisation coronaire urgente",
+        "Un diurétique seul",
+        "Le repos au lit",
+        "Un anticoagulant à dose préventive"
+      ],
+      "correct": 0,
+      "explanation": "Le choc cardiogénique post-IDM meurt d'une pompe privée de muscle : seule la reperfusion coronaire urgente traite le mécanisme, les catécholamines ne font que soutenir l'attente.",
+      "sources": [
+        {
+          "title": "ESC 2023 — SCA",
+          "citation": "Byrne et al. — 2023 ESC Guidelines for the management of acute coronary syndromes, European Heart Journal 2023;44:3720-3826.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "choc-l4-7",
+      "prompt": "La tamponnade est confirmée par échographie. Quel geste libère le cœur ?",
+      "choices": [
+        "La péricardocentèse en urgence",
+        "Le remplissage rapide seul",
+        "La digitalisation",
+        "Le drain thoracique antérieur"
+      ],
+      "correct": 0,
+      "explanation": "Le péricarde plein comprime les cavités : seul le drainage péricardique (péricardocentèse échoguidée) lève l'obstacle — le remplissage, lui, est vain.",
+      "sources": [
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-8",
+      "prompt": "Quelle est la voie et la dose d'adrénaline recommandées en première intention devant une anaphylaxie de l'adulte (EAACI) ?",
+      "choices": [
+        "Intramusculaire, 0,5 mg, dans la face antéro-latérale de la cuisse",
+        "Orale, 1 mg, à répéter toutes les heures",
+        "Intraveineuse lente sans dilution",
+        "Sublinguale, 0,1 mg"
+      ],
+      "correct": 0,
+      "explanation": "L'EAACI 2021 confirme l'adrénaline IM 0,5 mg dans la cuisse comme premier geste : elle se répète toutes les 5 à 15 minutes. Corticoïdes et antihistaminiques viennent après, jamais à sa place.",
+      "sources": [
+        {
+          "title": "EAACI — Anaphylaxie",
+          "citation": "Muraro et al. — EAACI Guidelines: Anaphylaxis (2021 update), Allergy 2022;77:357-377.",
+          "organization": "EAACI",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l4-9",
+      "prompt": "Après une chute de hauteur avec traumatisme médullaire, la peau est chaude et la fréquence cardiaque basse. Quel choc redouter ?",
+      "choices": [
+        "Neurogène (distributif)",
+        "Hypovolémique pur",
+        "Septique",
+        "Anaphylactique"
+      ],
+      "correct": 0,
+      "explanation": "La rupture du tonus sympathique dilate le lit vasculaire (peau chaude) et supprime la tachycardie de compensation (bradycardie relative) : tout saignement associé peut le masquer — chercher les deux.",
+      "sources": [
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "choc-l4-10",
+      "prompt": "Trois jours de diarrhée profuse ont précédé l'effondrement d'un adulte déshydraté. Quelle famille de choc est la plus probable ?",
+      "choices": [
+        "Hypovolémique",
+        "Cardiogénique",
+        "Obstructif",
+        "Neurogène"
+      ],
+      "correct": 0,
+      "explanation": "Les pertes digestives vident le secteur extracellulaire : c'est un choc hypovolémique de perte, fréquent dans notre contexte — le remplissage et la correction des troubles ioniques font le traitement.",
+      "sources": [
+        {
+          "title": "OMS — Sepsis",
+          "citation": "Organisation mondiale de la Santé — Sepsis, aide-mémoire, 2020.",
+          "organization": "OMS",
+          "year": 2020
+        },
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnostic_orientation"
+    }
+  ]
+}

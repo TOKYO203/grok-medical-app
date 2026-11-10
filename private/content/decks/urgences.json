@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "urgences",
+  "questions": [
+    {
+      "id": "ur-1",
+      "prompt": "En ACR adulte, l'adrénaline IV/IO se répète toutes les :",
+      "choices": [
+        "30 secondes",
+        "1 minute",
+        "3 à 5 minutes",
+        "10 minutes"
+      ],
+      "correct": 2,
+      "explanation": "1 mg toutes les 3–5 minutes pendant la RCP, en plus de compressions de qualité et d'une défibrillation précoce si rythme choquable.",
+      "sources": [
+        {
+          "title": "ERC / ILCOR",
+          "citation": "Resuscitation Council UK Guidelines, 2025 — Adult advanced life support.",
+          "url": "https://www.resus.org.uk/library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+          "verifiedAt": "2026-09-14"
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "ur-2",
+      "prompt": "Le traitement de première ligne d'un choc anaphylactique est :",
+      "choices": [
+        "Méthylprednisolone IV",
+        "Adrénaline intramusculaire",
+        "Salbutamol nébulisé seul",
+        "Dexchlorphéniramine orale"
+      ],
+      "correct": 1,
+      "explanation": "Adrénaline IM (face antérolatérale de cuisse), 0,5 mg adulte, répétée si besoin. Les corticoïdes et antihistaminiques sont adjuvants, jamais premiers.",
+      "sources": [
+        {
+          "title": "ERC / ILCOR",
+          "citation": "Resuscitation Council UK — Emergency treatment of anaphylaxis.",
+          "url": "https://www.resus.org.uk/library/additional-guidance/guidance-anaphylaxis",
+          "verifiedAt": "2026-09-14"
+        },
+        {
+          "title": "SFAR",
+          "citation": "Recommandations formalisées d'experts — urgences vitales."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "ur-3",
+      "prompt": "Un pneumothorax suffocant se décomprime en urgence :",
+      "choices": [
+        "Par une thoracotomie de sauvetage d'emblée",
+        "Par exsufflation à l'aiguille puis drainage",
+        "Par oxygénothérapie nasale seule",
+        "Par une fibroscopie bronchique"
+      ],
+      "correct": 1,
+      "explanation": "Détresse + distension + jugulaires : aiguille (2e EIC medioclaviculaire ou 5e EIC Ligne médio-axillaire) puis drain. Ne pas attendre le cliché.",
+      "sources": [
+        {
+          "title": "SFAR",
+          "citation": "Recommandations formalisées d'experts — urgences vitales."
+        },
+        {
+          "title": "ERC / ILCOR",
+          "citation": "European Resuscitation Council Guidelines, 2021."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "management"
+    },
+    {
+      "id": "ur-4",
+      "prompt": "Une hypoglycémie sévère avec troubles de conscience se traite par :",
+      "choices": [
+        "Insuline rapide",
+        "Glucose IV (G30 %) ou glucagon IM si pas d'abord",
+        "Metformine",
+        "Jeûne prolongé"
+      ],
+      "correct": 1,
+      "explanation": "Resucrage IV immédiat. Le glucagon est une alternative si voie veineuse impossible (moins efficace si les stocks hépatiques sont vides).",
+      "sources": [
+        {
+          "title": "SFAR",
+          "citation": "Recommandations formalisées d'experts — urgences vitales."
+        },
+        {
+          "title": "Vidal",
+          "citation": "Monographies thérapeutiques, éd. 2024."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "ur-5",
+      "prompt": "Devant une hémorragie externe grave d'un membre, le premier geste de contrôle est :",
+      "choices": [
+        "Un remplissage massif avant tout",
+        "Une pression manuelle directe ferme sur la plaie",
+        "Un scanner corps entier",
+        "Une suture au fil résorbable"
+      ],
+      "correct": 1,
+      "explanation": "Alerter et appliquer immédiatement une pression manuelle directe ferme sur la plaie. Si une hémorragie de membre menaçant la vie n'est pas contrôlée ainsi, poser rapidement un garrot 5 à 7 cm au-dessus de la lésion, hors articulation, noter l'heure et ne pas le desserrer soi-même.",
+      "sources": [
+        {
+          "title": "Resuscitation Council UK",
+          "citation": "2025 Resuscitation Guidelines — First Aid: control of life-threatening bleeding.",
+          "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/first-aid-guidelines",
+          "verifiedAt": "2026-09-14"
+        }
+      ],
+      "difficulty": "base",
+      "competency": "recognize"
+    },
+    {
+      "id": "ur-6",
+      "prompt": "Un ECG doit être réalisé devant une douleur thoracique évocatrice en moins de :",
+      "choices": [
+        "10 minutes",
+        "45 minutes",
+        "2 heures",
+        "24 heures"
+      ],
+      "correct": 0,
+      "explanation": "Objectif < 10 min à l'arrivée. C'est le seul moyen de ne pas rater un ST+ dont la filière de reperfusion est minute-dépendante.",
+      "sources": [
+        {
+          "title": "ESC",
+          "citation": "Guidelines for the management of acute coronary syndromes, 2023."
+        },
+        {
+          "title": "Collège de Cardiologie",
+          "citation": "Référentiel national DES / EDN de cardiologie."
+        }
+      ],
+      "difficulty": "base",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "ur-7",
+      "prompt": "Chez l'adulte avec une brûlure ≥ 20 % de la surface corporelle, quel volume initial sur 24 h recommande l'ABA avant titration clinique ?",
+      "choices": [
+        "2 mL × kg × % surface brûlée",
+        "4 mL × kg × % surface brûlée",
+        "10 mL/kg fixe",
+        "20 mL/kg de colloïdes"
+      ],
+      "correct": 0,
+      "explanation": "L'ABA recommande de débuter à 2 mL × kg × % de surface corporelle brûlée chez l'adulte avec ≥ 20 % de surface atteinte, puis d'ajuster heure par heure selon la réponse, notamment la diurèse. La formule historique de Parkland utilise 4 mL/kg/%, mais ne doit pas être appliquée comme un volume fixe automatique.",
+      "sources": [
+        {
+          "title": "American Burn Association",
+          "citation": "Clinical Practice Guidelines on Burn Shock Resuscitation. Journal of Burn Care & Research, 2024;45(3):565–589.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+          "verifiedAt": "2026-09-14"
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "ur-8",
+      "prompt": "Un corps étranger des VAS avec victime inconsciente impose :",
+      "choices": [
+        "Une série de claques dorsales uniquement",
+        "Le début de la RCP (compressions) après avoir appelé à l'aide",
+        "De faire boire de l'eau",
+        "Un scanner cervical avant tout geste"
+      ],
+      "correct": 1,
+      "explanation": "Si la victime devient inconsciente, appeler les secours et commencer la RCP sans délai. Retirer uniquement un objet clairement visible dans la bouche : ne jamais effectuer de balayage digital à l'aveugle.",
+      "sources": [
+        {
+          "title": "Resuscitation Council UK",
+          "citation": "2025 Resuscitation Guidelines — choking guidance.",
+          "url": "https://www.resus.org.uk/additional-guidance/guidance-choking",
+          "verifiedAt": "2026-09-14"
+        }
+      ],
+      "difficulty": "base",
+      "competency": "clinical_reasoning"
+    }
+  ]
+}

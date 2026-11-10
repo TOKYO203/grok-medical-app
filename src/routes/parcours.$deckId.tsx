@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { ContentTrustCard } from "@/components/content-trust";
 import { DeckIcon } from "@/components/deck-icon";
+import { deckQuestionCount } from "@/lib/deck-question-count";
 import { Page, SectionTitle, Shell } from "@/components/shell";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { BUILTIN_DECKS, YEARS } from "@/content/catalog";
@@ -97,7 +98,7 @@ function DeckPage() {
               {yearLabel(deck.studyYear)}
             </span>
             <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
-              {deck.questions.length} questions
+              {deckQuestionCount(deck)} questions
             </span>
             <span className="rounded-full border border-current/10 bg-bg/15 px-3 py-1.5">
               {LESSONS.length} étapes

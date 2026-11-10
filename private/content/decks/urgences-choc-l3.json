@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "urgences-choc-l3",
+  "questions": [
+    {
+      "id": "choc-l3-1",
+      "prompt": "Comment calcule-t-on l'index de choc et à partir de quelle valeur devient-il alarmant ?",
+      "choices": [
+        "Fréquence cardiaque divisée par la PAS : alarmant au-delà de 1",
+        "PAS divisée par la fréquence cardiaque : alarmant sous 0,5",
+        "Fréquence cardiaque multipliée par la PAS",
+        "Fréquence cardiaque divisée par la diastolique"
+      ],
+      "correct": 0,
+      "explanation": "Index de choc = FC/PAS : supérieur à 1 chez l'adulte, il signe un choc débutant ou constitué, avant même la chute franche de la tension.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "choc-l3-2",
+      "prompt": "Peau froide et moite, veines jugulaires vides au repos : de quelle famille de choc s'approche-t-on ?",
+      "choices": [
+        "Hypovolémique",
+        "Cardiogénique",
+        "Obstructif",
+        "Distributif"
+      ],
+      "correct": 0,
+      "explanation": "Peau froide + jugulaires vides = réservoir vide : hémorragie, déshydratation, diarrhée profuse ou brûlure. Le remplissage est le geste-clé, après contrôle de la source.",
+      "sources": [
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "choc-l3-3",
+      "prompt": "Jugulaires turgescentes, crépitants aux deux bases et bruit de galop (B3) orientent vers quelle famille ?",
+      "choices": [
+        "Cardiogénique",
+        "Hypovolémique",
+        "Anaphylactique",
+        "Neurogène"
+      ],
+      "correct": 0,
+      "explanation": "La pompe est en panne : le sang s'accumule en amont (jugulaires pleines, œdème pulmonaire) tandis que la perfusion périphérique s'effondre. Penser infarctus, arythmie, myocardite.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "choc-l3-4",
+      "prompt": "Hypotension, veines jugulaires distendues et bruits du cœur assourdis forment quel syndrome ?",
+      "choices": [
+        "La triade de Beck : tamponnade péricardique",
+        "Le syndrome de Cushing",
+        "La triade de Charcot",
+        "Le syndrome de Budd-Chiari"
+      ],
+      "correct": 0,
+      "explanation": "La triade de Beck signe la tamponnade : le péricarde plein comprime le cœur, aucun remplissage ne décomprime — la péricardocentèse est la seule issue.",
+      "sources": [
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "choc-l3-5",
+      "prompt": "Fièvre avec frissons, hypotension et peau paradoxalement chaude dessinent quelle étiologie de choc ?",
+      "choices": [
+        "Septique",
+        "Hémorragique",
+        "Cardiogénique",
+        "Médullaire"
+      ],
+      "correct": 0,
+      "explanation": "Le choc septique est distributif : la vasodilatation donne une peau chaude sèche, contrastant avec la gravité. Hémocultures, antibiotiques et recherche de la source s'imposent.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "OMS — Sepsis",
+          "citation": "Organisation mondiale de la Santé — Sepsis, aide-mémoire, 2020.",
+          "organization": "OMS",
+          "year": 2020
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "choc-l3-6",
+      "prompt": "Quelques minutes après une piqûre de guêpe apparaissent urticaire généralisé, sibilants et malaise : de quelle urgence s'agit-il ?",
+      "choices": [
+        "D'un choc anaphylactique",
+        "D'une simple urticaire virale",
+        "D'une crise d'asthme isolée",
+        "D'une syncope vaso-vagale"
+      ],
+      "correct": 0,
+      "explanation": "Urticaire + signes respiratoires + hypotension dans un contexte immédiat = anaphylaxie : l'adrénaline intramusculaire se donne sans délai, avant tout autre traitement.",
+      "sources": [
+        {
+          "title": "EAACI — Anaphylaxie",
+          "citation": "Muraro et al. — EAACI Guidelines: Anaphylaxis (2021 update), Allergy 2022;77:357-377.",
+          "organization": "EAACI",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "recognize"
+    },
+    {
+      "id": "choc-l3-7",
+      "prompt": "Que traduit un lactate plasmatique supérieur à 2 mmol/L chez un patient en détresse circulatoire ?",
+      "choices": [
+        "Le passage des cellules en métabolisme anaérobie",
+        "Une insuffisance hépatique isolée",
+        "Un excès d'apport glucidique",
+        "Une erreur de prélèvement fréquente"
+      ],
+      "correct": 0,
+      "explanation": "Le lactate monte quand les cellules travaillent sans oxygène : c'est le témoin biologique de l'hypoperfusion. Au-delà de 4 mmol/L, la mortalité augmente nettement.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "Sepsis-3",
+          "citation": "Singer et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), JAMA 2016;315:801-810.",
+          "organization": "JAMA / ESICM",
+          "year": 2016
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "choc-l3-8",
+      "prompt": "Quels sont les trois items cliniques du score qSOFA ?",
+      "choices": [
+        "PAS ≤ 100 mmHg, FR ≥ 22/min, Glasgow < 15",
+        "Fièvre, tachycardie, hypotension",
+        "Glycémie, lactate, diurèse",
+        "Marbrures, TRC, score de Glasgow"
+      ],
+      "correct": 0,
+      "explanation": "Le qSOFA se calcule au lit en 30 secondes : pression ≤ 100, fréquence respiratoire ≥ 22, conscience altérée. Deux items sur trois = patient à haut risque de mauvaise issue.",
+      "sources": [
+        {
+          "title": "Sepsis-3",
+          "citation": "Singer et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), JAMA 2016;315:801-810.",
+          "organization": "JAMA / ESICM",
+          "year": 2016
+        },
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "semiology"
+    },
+    {
+      "id": "choc-l3-9",
+      "prompt": "Quelle surveillance clinique horaire guide le mieux la réévaluation d'un choc traité ?",
+      "choices": [
+        "Diurèse, temps de recoloration et état de conscience",
+        "La courbe de poids quotidienne",
+        "La tension une fois par jour",
+        "La température toutes les quatre heures"
+      ],
+      "correct": 0,
+      "explanation": "Diurèse ≥ 0,5 mL/kg/h, TRC qui se raccourcit et conscience qui s'éclaircissent disent que la perfusion se corrige : ce trio se réévalue d'heure en heure.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "management"
+    },
+    {
+      "id": "choc-l3-10",
+      "prompt": "Pourquoi la fréquence cardiaque s'élève-t-elle dès les premiers instants du choc ?",
+      "choices": [
+        "Pour compenser la chute du volume d'éjection systolique",
+        "Pour éliminer la fièvre",
+        "Par effet du seul stress psychique",
+        "Pour augmenter la saturation en oxygène"
+      ],
+      "correct": 0,
+      "explanation": "La tachycardie de compensation maintient le débit cardiaque malgré la baisse du volume éjecté : sa disparition chez un sujet âgé ou sous bêtabloquant est un piège, pas un encouragement.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "recognize"
+    }
+  ]
+}

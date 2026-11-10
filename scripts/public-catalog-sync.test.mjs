@@ -5,8 +5,6 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { projectRoot, syncCatalogData } from "./sync-catalog-data.mjs";
 
-const CATALOGS = ["decks.json", "cases.json", "diagnostics.json"];
-
 /**
  * `public/data/*.json` est un DÉRIVÉ de `src/content/data/*.json`, servi à
  * l'app par fetch("/data/…") — cf. src/content/catalog.ts. Un retard de la
@@ -15,8 +13,17 @@ const CATALOGS = ["decks.json", "cases.json", "diagnostics.json"];
  * démarches (source à 245 Ko / 43 cas, copie publique restée à ~6 cas).
  * Ce test verrouille le contrat du resynchroniseur, sur des espaces de
  * travail temporaires : la suite ne doit jamais réécrire le check-out.
+ *
+ * ⚠️ `decks.json` est un cas à part depuis le correctif P0 du pentest : il n'est
+ * pas recopié tel quel mais SPLITÉ (index public sans les questions premium +
+ * actifs dans `private/content/decks/`). Les deux contrats sont testés
+ * séparément, exprès : un deck premium publié en clair est le défaut qu'on
+ * cherche à rendre impossible.
  */
-function makeWorkspace({ stale = false } = {}) {
+const COPIED_CATALOGS = ["cases.json", "diagnostics.json"];
+const CATALOGS = ["decks.json", ...COPIED_CATALOGS];
+
+function makeWorkspace() {
   const root = mkdtempSync(join(tmpdir(), "catalog-sync-"));
   const srcDir = join(root, "src", "content", "data");
   const destDir = join(root, "public", "data");
@@ -25,22 +32,23 @@ function makeWorkspace({ stale = false } = {}) {
   for (const name of CATALOGS) {
     const source = join(projectRoot(), "src", "content", "data", name);
     writeFileSync(join(srcDir, name), readFileSync(source, "utf8"));
-    if (stale) {
-      // Copie publique volontairement périmée : un préfixe de la source.
-      const text = readFileSync(source, "utf8");
-      writeFileSync(join(destDir, name), text.slice(0, Math.floor(text.length / 2)));
-    } else {
-      copyFileSync(source, join(destDir, name));
-    }
   }
   return { root, srcDir, destDir };
 }
 
 test("resynchronise une copie publique périmée depuis la source", () => {
-  const { root, srcDir, destDir } = makeWorkspace({ stale: true });
+  const { root, srcDir, destDir } = makeWorkspace();
+  // Copies publiques volontairement périmées : un préfixe de la source.
+  for (const name of CATALOGS) {
+    const text = readFileSync(join(srcDir, name), "utf8");
+    writeFileSync(join(destDir, name), text.slice(0, Math.floor(text.length / 2)));
+  }
+
   const synced = syncCatalogData({ root });
   assert.deepEqual(synced.sort(), [...CATALOGS].sort());
-  for (const name of CATALOGS) {
+
+  // Cas / démarches : copie à l'octet.
+  for (const name of COPIED_CATALOGS) {
     assert.equal(
       readFileSync(join(destDir, name), "utf8"),
       readFileSync(join(srcDir, name), "utf8"),
@@ -49,15 +57,29 @@ test("resynchronise une copie publique périmée depuis la source", () => {
     // Écriture atomique : aucun fichier temporaire ne traîne à côté de la copie.
     assert.equal(existsSync(`${join(destDir, name)}.catalog-sync-tmp`), false);
   }
+
+  // Decks : index SANS les questions premium + actifs protégés.
+  const published = JSON.parse(readFileSync(join(destDir, "decks.json"), "utf8"));
+  const leaked = published.filter(
+    (deck) => (deck.access_policy?.tier ?? "free") !== "free" && deck.questions.length > 0,
+  );
+  assert.deepEqual(leaked.map((deck) => deck.id), [], "questions premium publiées par le sync");
+  assert.ok(
+    existsSync(join(root, "private", "content", "decks")),
+    "les actifs protégés doivent être écrits par le sync",
+  );
 });
 
 test("est idempotent : une copie à jour n'est pas réécrite", () => {
   const { root } = makeWorkspace();
+  // Première passe : la copie publique brute de la source doit être splitée.
+  syncCatalogData({ root });
   assert.deepEqual(syncCatalogData({ root }), []);
 });
 
 test("préserve la copie quand la source est absente (repli explicite)", () => {
   const { root, destDir } = makeWorkspace();
+  syncCatalogData({ root });
   const before = readFileSync(join(destDir, "diagnostics.json"), "utf8");
   assert.deepEqual(syncCatalogData({ root: join(root, "absent") }), []);
   assert.equal(readFileSync(join(destDir, "diagnostics.json"), "utf8"), before);

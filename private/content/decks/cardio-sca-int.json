@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-sca-int",
+  "questions": [
+    {
+      "id": "sca-int-1",
+      "prompt": "STEMI antérieur J3 : dyspnée + souffle holosystolique + OAP ?",
+      "choices": [
+        "Rupture de paroi libre",
+        "CIV ischémique",
+        "Anévrisme VG",
+        "Péricardite de Dressler"
+      ],
+      "correct": 1,
+      "explanation": "CIV ischémique J3-J5 d'IDM antérieur étendu. Souffle holosystolique + OAP + choc. Écho-Doppler. Chirurgie urgente.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-int-2",
+      "prompt": "Triade du choc cardiogénique post-IDM ?",
+      "choices": [
+        "Fièvre, toux, dyspnée",
+        "Hypotension, oligurie, marbrures (FEVG effondrée)",
+        "HTA, céphalées, confusion",
+        "Bradycardie, syncope, vomissements"
+      ],
+      "correct": 1,
+      "explanation": "PAS <90 mmHg, hypoperfusion (oligurie <0,5 mL/kg/h, marbrures, lactates >2, confusion). FEVG effondrée.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-int-3",
+      "prompt": "STEMI pluritronculaire hors choc : stratégie ?",
+      "choices": [
+        "PCI coupable seul",
+        "PCI complète immédiate",
+        "PCI coupable puis complète staged <45 jours",
+        "Pontage systématique"
+      ],
+      "correct": 2,
+      "explanation": "ESC 2023 : PCI coupable en urgence + revascularisation complète staged <45 j (COMPLETE). En choc : coupable seule (CULPRIT-SHOCK).",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-int-4",
+      "prompt": "Post-fibrinolyse 60 min : ESV en salves ?",
+      "choices": [
+        "Arrêt perfusion + PCI immédiate",
+        "Surveillance rapprochée (arythmies de reperfusion)",
+        "Amiodarone IV systématique",
+        "CEE"
+      ],
+      "correct": 1,
+      "explanation": "Arythmies de reperfusion 30-90 min post-fibrinolyse = marqueur de reperfusion réussie. Transitoires, pas de traitement systématique.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-int-5",
+      "prompt": "STEMI inférieur : BAV complet FC 35 + hypotension ?",
+      "choices": [
+        "Atropine IV + préparer sonde d'entraînement",
+        "Amiodarone IV",
+        "Bêtabloquant IV",
+        "Surveillance seule"
+      ],
+      "correct": 0,
+      "explanation": "BAV complet du STEMI inférieur (coronaire droite) souvent transitoire, répond à l'atropine. Échec → entraînement électrosystolique. Bêtabloquant CI.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-int-6",
+      "prompt": "Choc cardiogénique réfractaire aux inotropes ?",
+      "choices": [
+        "Bêtabloquant IV",
+        "Assistance circulatoire (ECMO-VA, Impella) en centre expert",
+        "Diurétiques seuls",
+        "AINS"
+      ],
+      "correct": 1,
+      "explanation": "Choc réfractaire : ECMO-VA ou Impella en centre expert, en vue d'une revascularisation ou récupération.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-int-7",
+      "prompt": "Fibrinolyse 82 ans + HTA 200/110 : risque principal ?",
+      "choices": [
+        "Aucun",
+        "Hémorragie intracrânienne",
+        "Insuffisance rénale",
+        "Hyperkaliémie"
+      ],
+      "correct": 1,
+      "explanation": "Âge >75 + HTA non contrôlée : risque significatif d'ICH. CI relatives : privilégier PCI primaire.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "sca-int-8",
+      "prompt": "Complication tardive après IDM antérieur étendu ?",
+      "choices": [
+        "Anévrisme VG avec thrombus mural",
+        "Péricardite constrictive",
+        "Myocardite",
+        "Endocardite"
+      ],
+      "correct": 0,
+      "explanation": "Anévrisme VG : 5-10 % des IDM antérieurs étendus. Complications : thrombus mural, TV, IC.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-int-9",
+      "prompt": "Tako-Tsubo : facteur déclenchant ?",
+      "choices": [
+        "Stress physique/émotionnel intense",
+        "Effort modéré",
+        "Repas copieux",
+        "Voyage récent"
+      ],
+      "correct": 0,
+      "explanation": "Femme ménopausée après stress intense. SCA avec coronaires normales, akinésie apicale + hyperkinésie basale.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-int-10",
+      "prompt": "Choc cardiogénique post-IDM pluritronculaire ?",
+      "choices": [
+        "PCI complète immédiate",
+        "PCI limitée au coupable (CULPRIT-SHOCK)",
+        "Pontage urgence",
+        "Médical seul"
+      ],
+      "correct": 1,
+      "explanation": "CULPRIT-SHOCK : surmortalité à 30 j avec PCI complète immédiate. Revascularisation différée.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-int-11",
+      "prompt": "Communication famille en choc cardiogénique ?",
+      "choices": [
+        "Uniquement par écrit",
+        "Annonce gravité + options + personne de confiance + tracé dossier",
+        "Éviter le pronostic",
+        "Ne parler qu'au patient"
+      ],
+      "correct": 1,
+      "explanation": "Communication claire, empathique, tracée. Rôle CanMEDS Communicateur + Professionnel.",
+      "sources": [
+        {
+          "title": "CanMEDS Framework",
+          "citation": "Communicator and Professional roles.",
+          "organization": "Royal College of Physicians and Surgeons of Canada",
+          "year": 2015
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_communicator"
+    },
+    {
+      "id": "sca-int-12",
+      "prompt": "Transfert centre expert en SCA : quand ?",
+      "choices": [
+        "Jamais",
+        "Choc, assistance circulatoire, complication mécanique, revascularisation complexe",
+        "Systématiquement",
+        "Si patient demande"
+      ],
+      "correct": 1,
+      "explanation": "Centre expert (chirurgie cardiaque, assistance, salle hybride) : choc réfractaire, CIV/rupture, tronc/pluritronculaire.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "2023 ESC Guidelines for ACS.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "canmeds_collaborator"
+    }
+  ]
+}

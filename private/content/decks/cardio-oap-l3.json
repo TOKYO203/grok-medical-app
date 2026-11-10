@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-oap-l3",
+  "questions": [
+    {
+      "id": "oap-l3-1",
+      "prompt": "Aspect radiologique typique de l'OAP ?",
+      "choices": [
+        "Pneumothorax",
+        "Opacités alvéolaires bilatérales en ailes de papillon, prédominant aux hiles",
+        "Épanchement unilatéral",
+        "Cavernes"
+      ],
+      "correct": 1,
+      "explanation": "Radio OAP : opacités alvéolaires bilatérales, symétriques, prédominant aux bases puis aux hiles ('ailes de papillon'). Cardiomégalie fréquente.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Imaging in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "oap-l3-2",
+      "prompt": "Étiologie la plus fréquente de l'OAP ?",
+      "choices": [
+        "HTA sévère (poussée hypertensive)",
+        "Coronaropathie aiguë",
+        "Valvulopathie décompensée",
+        "Trouble du rythme"
+      ],
+      "correct": 0,
+      "explanation": "Poussée hypertensive = cause la plus fréquente d'OAP. Suivie du SCA, valvulopathie décompensée, FA rapide.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Aetiologies of acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "oap-l3-3",
+      "prompt": "OAP et valvulopathie : quelle valve la plus souvent responsable ?",
+      "choices": [
+        "Mitrale (sténose ou insuffisance)",
+        "Aortique isolée",
+        "Tricuspide",
+        "Pulmonaire"
+      ],
+      "correct": 0,
+      "explanation": "Valvulopathie mitrale (sténose ++, ou IM aiguë sur rupture de cordage) = cause classique d'OAP. Aussi fuite aortique aiguë.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Valvular causes of acute pulmonary oedema.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "oap-l3-4",
+      "prompt": "OAP et SCA : mécanisme ?",
+      "choices": [
+        "Effet direct sur le poumon",
+        "Vasoconstriction pulmonaire seule",
+        "Défaillance VG aiguë sur ischémie étendue ou IM aiguë sur rupture de pilier",
+        "Aucun lien"
+      ],
+      "correct": 2,
+      "explanation": "SCA compliqué d'OAP : défaillance VG aiguë (nécrose étendue) ou IM aiguë (rupture de pilier mitral), parfois rupture septale.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Ischaemic causes of acute pulmonary oedema.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "oap-l3-5",
+      "prompt": "Signe ECG évoquant une étiologie hypertensive ?",
+      "choices": [
+        "HVG (Sokolow), ondes T négatives latérales",
+        "Sus-décalage ST antérieur",
+        "BBG complet",
+        "Ondes P amples"
+      ],
+      "correct": 0,
+      "explanation": "HVG avec troubles de repolarisation (Sokolow, T négatives latérales) = argument pour étiologie hypertensive.",
+      "sources": [
+        {
+          "title": "Collège Cardiologie EDN",
+          "citation": "ECG dans l'OAP.",
+          "organization": "Collège des Enseignants",
+          "year": 2023
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "oap-l3-6",
+      "prompt": "Signe ECG évoquant une étiologie SCA ?",
+      "choices": [
+        "HVG isolée",
+        "Sus-décalage ST dans 2 dérivations contiguës ou sous-décalage dynamique",
+        "Ondes T plates",
+        "Rythme sinusal"
+      ],
+      "correct": 1,
+      "explanation": "SCA : sus-décalage ST (STEMI) ou sous-décalage dynamique (NSTEMI). Indication de coronarographie urgente.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "ECG in acute coronary syndrome.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "oap-l3-7",
+      "prompt": "OAP et FA rapide : mécanisme ?",
+      "choices": [
+        "Aucun lien",
+        "Effet protecteur",
+        "Perte de la systole auriculaire + FC rapide → baisse remplissage VG → congestion",
+        "Tachycardie isolée"
+      ],
+      "correct": 2,
+      "explanation": "FA rapide : perte de systole auriculaire (jusqu'à 20-30 % du débit) + FC rapide → baisse remplissage → congestion → OAP. Contrôle FC urgent.",
+      "sources": [
+        {
+          "title": "ESC 2024 FA",
+          "citation": "AF and acute heart failure.",
+          "organization": "ESC",
+          "year": 2024
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "oap-l3-8",
+      "prompt": "Échographie cardiaque urgente : quand ?",
+      "choices": [
+        "Uniquement après stabilisation",
+        "Jamais urgente",
+        "Systématique en OAP pour évaluer la FEVG, valvulopathie, IM aiguë",
+        "Uniquement chez l'enfant"
+      ],
+      "correct": 2,
+      "explanation": "Écho urgente en OAP : FEVG, cinétique, valvulopathie, IM aiguë, épanchement, veine cave. Guide la prise en charge.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Echocardiography in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l3-9",
+      "prompt": "Différencier OAP et exacerbation asthme ?",
+      "choices": [
+        "Identiques",
+        "Toux identique",
+        "Aucune différence clinique",
+        "Asthme : sibilants, sujet jeune, terrain allergique, ATCD ; OAP : crépitants, orthopnée, cardiopathie"
+      ],
+      "correct": 3,
+      "explanation": "Asthme : sibilants expiratoires, sujet jeune, terrain allergique. OAP : crépitants, orthopnée, cardiopathie, expectoration mousseuse.",
+      "sources": [
+        {
+          "title": "Collège Cardiologie EDN",
+          "citation": "Diagnostic différentiel dyspnée aiguë.",
+          "organization": "Collège des Enseignants",
+          "year": 2023
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnostic_orientation"
+    },
+    {
+      "id": "oap-l3-10",
+      "prompt": "OAP et insuffisance rénale : particularité ?",
+      "choices": [
+        "Aucun lien",
+        "Protecteur",
+        "OAP par surcharge hydrosodée (souvent chez dialysés ou insuffisants rénaux)",
+        "OAP rare"
+      ],
+      "correct": 2,
+      "explanation": "OAP et IRC : surcharge hydrosodée, souvent chez dialysés. Traitement : ultrafiltration/dialyse urgente si besoin, plus diurétiques.",
+      "sources": [
+        {
+          "title": "ESC 2021 HF",
+          "citation": "HF and renal dysfunction.",
+          "organization": "ESC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "intermediate",
+      "competency": "diagnosis"
+    }
+  ]
+}

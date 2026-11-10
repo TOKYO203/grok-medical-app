@@ -11,6 +11,13 @@
  * src/content/data/diagnostics.json (245 Ko, 43 cas) servait via une copie
  * publique restée à 6 cas.
  *
+ * ⚠️ `decks.json` n'est PLUS copié tel quel : depuis le correctif P0 du
+ * pentest, les questions des decks premium ne doivent pas être publiées. La
+ * copie publique est produite par `scripts/split-decks.mjs` (index sans
+ * questions + actifs dans `private/content/decks/`). Le resynchroniseur garde
+ * donc un seul rôle par fichier : copie à l'octet (cas, démarches) ou split
+ * déterministe (decks).
+ *
  * Tout démarrage Vite (dev, build, preview — les variantes :cloudflare,
  * :netlify et :worker comprises) resynchronise la copie AVANT que Vite ne
  * copie `public/` vers la sortie : le dérivé ne peut plus jamais déployer un
@@ -19,9 +26,10 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { splitDecks } from "./split-decks.mjs";
 
-/** Catalogues servis à l'app — mêmes noms des deux côtés. */
-const CATALOG_FILES = ["decks.json", "cases.json", "diagnostics.json"];
+/** Catalogues recopiés à l'octet depuis la source. */
+const COPIED_CATALOG_FILES = ["cases.json", "diagnostics.json"];
 
 /** Le workspace root (ce fichier vit dans `<root>/scripts/`). */
 export function projectRoot() {
@@ -37,6 +45,7 @@ function atomicWrite(src, dest) {
 
 /**
  * Recopie chaque catalogue src → public si, et seulement si, il diverge.
+ * `decks.json` passe par le split (jamais les questions premium en clair).
  * Retourne la liste des fichiers resynchronisés (vide = déjà à jour).
  */
 export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
@@ -44,7 +53,11 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
   const destDir = join(root, "public", "data");
   mkdirSync(destDir, { recursive: true });
   const synced = [];
-  for (const name of CATALOG_FILES) {
+
+  // Decks : index public sans les questions premium + actifs protégés.
+  if (splitDecks({ root, log }).indexChanged) synced.push("decks.json");
+
+  for (const name of COPIED_CATALOG_FILES) {
     const src = join(srcDir, name);
     const dest = join(destDir, name);
     // Pas de source : on ne touche jamais la copie (repli explicite).
@@ -53,6 +66,7 @@ export function syncCatalogData({ root = projectRoot(), log = () => {} } = {}) {
     atomicWrite(src, dest);
     synced.push(name);
   }
+
   if (synced.length > 0) {
     log(`[catalog-sync] ${synced.join(", ")} resynchronisé(s) depuis src/content/data`);
   }

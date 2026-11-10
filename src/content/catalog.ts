@@ -10,6 +10,7 @@ import type {
   DiagnosticCase, Question,
 } from "@/core/types";
 import { enrichSources } from "@/content/source-registry";
+import { fetchWithAuth } from "@/lib/auth/session";
 import { emitCatalogVersion } from "@/state/catalog-version";
 
 // ─── État central ──────────────────────────────────────────────────────────
@@ -33,6 +34,83 @@ function emit() {
 }
 function subscribe(cb: () => void) { listeners.add(cb); return () => { listeners.delete(cb); }; }
 
+/**
+ * QUESTIONS PREMIUM — chargées hors de l'index public.
+ *
+ * `public/data/decks.json` ne contient plus les questions d'un deck payant
+ * (correctif P0 du pentest) : il ne porte que `questionCount`. Les questions
+ * vivent dans `private/content/decks/<id>.json` et ne sortent que sous jeton
+ * de contenu. Elles arrivent donc APRÈS le catalogue, en une seule requête vers
+ * `/content/decks/_catalog.json` — jamais 74 allers-retours.
+ *
+ * Sans jeton (ou jeton expiré) la requête répond 401 : on ne fait rien, les
+ * decks premium s'affichent verrouillés avec leur nombre de questions.
+ */
+const PROTECTED_DECK_CATALOG_URL = "/content/decks/_catalog.json";
+
+/** Événement émis par `@/lib/auth/session` quand un jeton change. */
+const CONTENT_SESSION_EVENT = "optimus:content-session";
+
+let deckHydration: Promise<void> | null = null;
+
+function asQuestion(raw: Record<string, any>): Question {
+  return {
+    id: raw.id,
+    prompt: raw.prompt,
+    choices: raw.choices,
+    correct: raw.correct,
+    explanation: raw.explanation,
+    sources: enrichSources(raw.sources ?? []),
+    difficulty: (raw.difficulty as Question["difficulty"]) ?? "base",
+    competency: (raw.competency as Competency) ?? "diagnosis",
+  };
+}
+
+function asQuestionList(value: unknown): Question[] {
+  return Array.isArray(value) ? value.map(asQuestion) : [];
+}
+
+/**
+ * Récupère les questions protégées et les fusionne dans l'état du catalogue.
+ * Idempotent : un deck qui a déjà ses questions n'est jamais réécrit.
+ */
+export function hydrateProtectedDecks(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (deckHydration) return deckHydration;
+
+  deckHydration = (async () => {
+    try {
+      const response = await fetchWithAuth(PROTECTED_DECK_CATALOG_URL, {
+        headers: { accept: "application/json" },
+      });
+      if (!response.ok) return;
+
+      const payload = (await response.json()) as {
+        decks?: Record<string, { questions?: unknown }>;
+      };
+      const assets = payload?.decks ?? {};
+
+      let changed = false;
+      state.decks = state.decks.map((deck) => {
+        if (deck.questions.length > 0) return deck;
+        const asset = assets[`${deck.id}.json`];
+        const questions = asQuestionList(asset?.questions);
+        if (questions.length === 0) return deck;
+        changed = true;
+        return { ...deck, questions };
+      });
+      if (changed) emit();
+    } catch {
+      // Hors ligne, garde non configuré, jeton absent : les decks premium
+      // restent verrouillés, aucune autre partie du catalogue n'est touchée.
+    } finally {
+      deckHydration = null;
+    }
+  })();
+
+  return deckHydration;
+}
+
 // ─── Transformations (identiques à avant) ──────────────────────────────────
 function asDeck(raw: Record<string, any>): Deck {
   return {
@@ -48,16 +126,8 @@ function asDeck(raw: Record<string, any>): Deck {
     difficulty: (raw.difficulty as DeckDifficulty) ?? "intermediate",
     competencies: (raw.competencies ?? ["diagnosis"]) as Competency[],
     icon: raw.icon ?? "book",
-    questions: ((raw.questions ?? []) as any[]).map((q) => ({
-      id: q.id,
-      prompt: q.prompt,
-      choices: q.choices,
-      correct: q.correct,
-      explanation: q.explanation,
-      sources: enrichSources(q.sources ?? []),
-      difficulty: (q.difficulty as Question["difficulty"]) ?? "base",
-      competency: (q.competency as Competency) ?? "diagnosis",
-    })),
+    questions: asQuestionList(raw.questions),
+    questionCount: typeof raw.questionCount === "number" ? raw.questionCount : undefined,
     sources: enrichSources(raw.sources ?? []),
     access_policy: (raw.access_policy as AccessPolicy) ?? { tier: "free", entitlement: "OPTIMUS_FREE" },
     chapters: raw.chapters ?? [],
@@ -78,11 +148,15 @@ export function loadCatalog(): Promise<void> {
     fetch("/data/cases.json").then((r) => r.json()),
     fetch("/data/diagnostics.json").then((r) => r.json()),
   ])
-    .then(([d, c, diag]: [any[], any[], any[]]) => {
+    .then(async ([d, c, diag]: [any[], any[], any[]]) => {
       state.decks = d.map(asDeck);
       state.cases = c.map(asCase);
       state.diagnostics = diag as DiagnosticCase[];
       state.ready = true;
+      // Les questions Premium vivent hors de `public/data` : on les demande au
+      // garde AVANT le premier rendu, pour qu'aucun écran ne montre un deck
+      // « 0 question » à un client qui a payé.
+      await hydrateProtectedDecks();
       emit();
     })
     .catch((err) => { state.error = err; inflight = null; emit(); });
@@ -163,6 +237,15 @@ export const GOALS = [
 // une seule fois, côté navigateur uniquement (en SSR les listes restent vides
 // par contrat).
 if (typeof window !== "undefined") void loadCatalog();
+
+// Un jeton de contenu arrive (activation d'une clé) ou disparaît (expiration,
+// déconnexion) : on relance l'hydratation des questions premium pour que le
+// catalogue reflète l'accès réel sans rechargement de page.
+if (typeof window !== "undefined") {
+  window.addEventListener(CONTENT_SESSION_EVENT, () => {
+    if (state.ready) void hydrateProtectedDecks();
+  });
+}
 
 export function decksForYear(year: number, decks: Deck[]): Deck[] {
   return decks.filter((d) => Math.abs(d.studyYear - year) <= 1 || year === 0);

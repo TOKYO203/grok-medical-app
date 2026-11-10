@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "urgences-choc-int",
+  "questions": [
+    {
+      "id": "choc-int-1",
+      "prompt": "Patient sous bêtabloquant : urticaire massif et hypotension après piqûre, mais la FC reste à 76/min. Quelle conduite tenir ?",
+      "choices": [
+        "Adrénaline intramusculaire immédiate malgré l'absence de tachycardie",
+        "Écarter l'anaphylaxie car il n'y a pas de tachycardie",
+        "Attendre une réaction cutanée plus grave",
+        "Antihistaminique seul puis réévaluation"
+      ],
+      "correct": 0,
+      "explanation": "Le bêtabloquant masque la tachycardie de compensation : l'anaphylaxie se juge sur l'association contexte + urticaire + hypotension, et l'adrénaline IM se donne sans délai, quelle que soit la fréquence cardiaque.",
+      "sources": [
+        {
+          "title": "EAACI — Anaphylaxie",
+          "citation": "Muraro et al. — EAACI Guidelines: Anaphylaxis (2021 update), Allergy 2022;77:357-377.",
+          "organization": "EAACI",
+          "year": 2022
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "choc-int-2",
+      "prompt": "Hémorragie du post-partum immédiat : quel adjuvant médicamenteux, administré tôt, a réduit la mortalité dans l'essai WOMAN ?",
+      "choices": [
+        "L'acide tranexamique",
+        "L'aspirine à faible dose",
+        "L'héparine non fractionnée",
+        "L'oxytocine intramusculaire seule"
+      ],
+      "correct": 0,
+      "explanation": "Le WOMAN Trial (Lancet 2017) montre que l'acide tranexamique précoce réduit la mortalité par hémorragie du post-partum, sans excès thrombotique : il se donne le plus tôt possible, avec la prise en charge obstétricale.",
+      "sources": [
+        {
+          "title": "WOMAN Trial",
+          "citation": "WOMAN Trial Collaborators — Effect of early tranexamic acid on death from post-partum haemorrhage, The Lancet 2017;389:2105-2116.",
+          "organization": "LSHTM",
+          "year": 2017
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-int-3",
+      "prompt": "Coma fébrile au retour d'une zone d'endémie : P. falciparum à 8 %, lactate élevé, tension basse. Quel antipaludique s'impose en priorité ?",
+      "choices": [
+        "L'artésunate par voie intraveineuse",
+        "La quinine orale",
+        "Une association artéméther-luméfantrine per os",
+        "Aucun traitement avant la goutte épaisse de contrôle"
+      ],
+      "correct": 0,
+      "explanation": "Le paludisme grave à P. falciparum se traite par artésunate injectable en première intention, sans attendre ; la forme grave avec choc impose en outre les mesures de réanimation du choc septique associé.",
+      "sources": [
+        {
+          "title": "OMS — Paludisme",
+          "citation": "WHO guidelines for malaria.",
+          "organization": "OMS",
+          "year": 2026
+        },
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-int-4",
+      "prompt": "Fièvre typhoïde compliquée : douleur abdominale depuis une semaine, défense généralisée, perforation iléale vue au scanner avec choc septique. Que décider ?",
+      "choices": [
+        "Antibiothérapie intraveineuse et chirurgie sans délai",
+        "Antibiothérapie seule pendant 48 h",
+        "Lavement et réhydratation orale",
+        "Attente de la mise au point bactériologique"
+      ],
+      "correct": 0,
+      "explanation": "La perforation d'organe est une source non contrôlée : l'antibiothérapie ne suffit jamais, l'intervention (ou le drainage) fait partie du traitement du choc septique.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "Sepsis-3",
+          "citation": "Singer et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), JAMA 2016;315:801-810.",
+          "organization": "JAMA / ESICM",
+          "year": 2016
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-int-5",
+      "prompt": "Trois jours après un infarctus : dyspnée brutale, jugulaires pleines, pouls paradoxal. Quel examen confirme la compression cardiaque au lit du patient ?",
+      "choices": [
+        "L'échocardiographie au lit, avant le drainage péricardique",
+        "La radiographie thoracique seule",
+        "L'ECG à la recherche d'un sus-décalage",
+        "La troponine répétée"
+      ],
+      "correct": 0,
+      "explanation": "La tamponnade post-IDM (rupture de paroi ou péricardite) se confirme à l'échographie au lit (épanchement, collapsus des cavités droites) et se traite par drainage péricardique en urgence.",
+      "sources": [
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        },
+        {
+          "title": "ESC 2023 — SCA",
+          "citation": "Byrne et al. — 2023 ESC Guidelines for the management of acute coronary syndromes, European Heart Journal 2023;44:3720-3826.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "choc-int-6",
+      "prompt": "Polytraumatisé avec traumatisme crânien grave : quel objectif tensionnel privilégier pendant la réanimation ?",
+      "choices": [
+        "Une cible plus haute que 65 mmHg, pour préserver la perfusion cérébrale",
+        "La cible standard suffit",
+        "Une tension la plus basse possible, pour limiter les saignements",
+        "Aucune cible avant l'imagerie"
+      ],
+      "correct": 0,
+      "explanation": "Chez le traumatisé crânien, l'hypotension aggrave les lésions secondaires : la pression de perfusion cérébrale exige une PAM nettement au-dessus du seuil habituel du choc septique.",
+      "sources": [
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-int-7",
+      "prompt": "Sujet âgé confus, PA à 80/50, température à 35,2 °C, pas de fièvre. Comment lire cette hypothermie ?",
+      "choices": [
+        "Comme un signe de gravité possible du choc septique",
+        "Comme une simple exposition au froid sans gravité",
+        "Comme un argument contre l'infection",
+        "Comme un effet banal de l'âge"
+      ],
+      "correct": 0,
+      "explanation": "Chez le sujet âgé, l'hypothermie (ou une température normale) accompagne souvent les sepsis les plus graves : elle ne rassure jamais et impose la même antibiothérapie dans l'heure.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "OMS — Sepsis",
+          "citation": "Organisation mondiale de la Santé — Sepsis, aide-mémoire, 2020.",
+          "organization": "OMS",
+          "year": 2020
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "choc-int-8",
+      "prompt": "Pyélonéphrite obstructive : le choc persiste sous antibiothérapie correcte depuis 24 h. Quelle mesure manque-t-il au bundle ?",
+      "choices": [
+        "Le drainage de l'obstacle urinaire",
+        "Une augmentation simple des doses d'antibiotique",
+        "Un traitement par corticoïdes",
+        "Une restriction hydrique"
+      ],
+      "correct": 0,
+      "explanation": "L'obstacle sur les voies urinaires entretient la source infectieuse : le drainage (sonde JJ ou néphrostomie) est le contrôle de la source — sans lui, l'antibiotique ne peut pas gagner.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        },
+        {
+          "title": "Sepsis-3",
+          "citation": "Singer et al. — The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3), JAMA 2016;315:801-810.",
+          "organization": "JAMA / ESICM",
+          "year": 2016
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    },
+    {
+      "id": "choc-int-9",
+      "prompt": "Sous noradrénaline, la PAM est tenue à 68 mmHg mais les marbrures persistent et le débit cardiaque mesuré est effondré. Quelle adjonction discuter en réanimation ?",
+      "choices": [
+        "La dobutamine pour soutenir le débit",
+        "Un bolus de cristalloïdes supplémentaire systématique",
+        "L'arrêt de la noradrénaline",
+        "Un diurétique de haute dose"
+      ],
+      "correct": 0,
+      "explanation": "La perfusion dépend du débit autant que de la pression : quand la PAM est correcte mais le débit cardiaque bas, la dobutamine restaure la contractilité — après avoir vérifié l'absence d'hypovolémie résiduelle.",
+      "sources": [
+        {
+          "title": "Surviving Sepsis Campaign 2021",
+          "citation": "Evans et al. — Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock, Intensive Care Medicine 2021;47:1181-1247.",
+          "organization": "SCCM / ESICM",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "choc-int-10",
+      "prompt": "FAST positif chez un polytraumatisé dont l'hypotension persiste après le remplissage initial. Quelle décision s'impose ?",
+      "choices": [
+        "Le bloc opératoire sans délai : le contrôle chirurgical prime",
+        "Un deuxième remplissage massif",
+        "La noradrénaline seule et l'observation",
+        "Un angioscanner complet avant tout"
+      ],
+      "correct": 0,
+      "explanation": "Un épanchement abdominal avec hypotension réfractaire signe un saignement actif : chaque litre perfusé à ventre fermé dilue la coagulation — l'hémostase chirurgicale prime sur le remplissage.",
+      "sources": [
+        {
+          "title": "ATLS",
+          "citation": "American College of Surgeons — Advanced Trauma Life Support, 10e édition.",
+          "organization": "ACS",
+          "year": 2018
+        },
+        {
+          "title": "ERC 2021",
+          "citation": "European Resuscitation Council Guidelines 2021 — cardiac arrest in special circumstances and periarrest care.",
+          "organization": "ERC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "clinical_reasoning"
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-oap-l4",
+  "questions": [
+    {
+      "id": "oap-l4-1",
+      "prompt": "Position du patient en OAP ?",
+      "choices": [
+        "Décubitus dorsal strict",
+        "Assis jambes pendantes (réduit retour veineux)",
+        "Trendelenburg",
+        "Décubitus latéral droit"
+      ],
+      "correct": 1,
+      "explanation": "Position assise jambes pendantes : réduit le retour veineux, améliore la ventilation. Ne pas allonger (aggrave).",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Management of acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-2",
+      "prompt": "Oxygénothérapie : objectif ?",
+      "choices": [
+        "SpO2 ≥90 % (94-98 % hors BPCO)",
+        "SpO2 100 % systématique",
+        "Aucune",
+        "SpO2 <80 %"
+      ],
+      "correct": 0,
+      "explanation": "Objectif SpO2 : ≥90 % (94-98 % hors BPCO). Éviter hyperoxie (délétère). VNI si détresse respiratoire.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Oxygen therapy in acute HF.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-3",
+      "prompt": "VNI dans l'OAP : indication et bénéfice ?",
+      "choices": [
+        "Systématique chez tous",
+        "CPAP ou BiPAP si détresse respiratoire (FR >25, SpO2 <90 %, tirage) — réduit mortalité et intubation",
+        "Contre-indiquée",
+        "Uniquement si coma"
+      ],
+      "correct": 1,
+      "explanation": "VNI (CPAP ++) : détresse respiratoire modérée-sévère. Réduction mortalité, intubation, durée hospitalisation. CI : coma, vomissements, pneumothorax.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Non-invasive ventilation in acute pulmonary oedema.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-4",
+      "prompt": "Furosémide IV : dose initiale ?",
+      "choices": [
+        "20-40 mg IV (ou 1-2x dose orale habituelle)",
+        "500 mg IV",
+        "5 mg IV",
+        "10 mg SC"
+      ],
+      "correct": 0,
+      "explanation": "Furosémide : 20-40 mg IV, ou 1-2x la dose orale habituelle. Effet veino-dilatateur rapide (15 min) + diurétique (30 min).",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Diuretics in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-5",
+      "prompt": "Dérivés nitrés : indication ?",
+      "choices": [
+        "Systématique",
+        "OAP avec PAS >110 mmHg, par voie IV (isosorbide, nitroglycérine)",
+        "Contre-indiqués toujours",
+        "Uniquement si bradycardie"
+      ],
+      "correct": 1,
+      "explanation": "Dérivés nitrés : OAP si PAS >110 mmHg. Vasodilatation veineuse (réduit précharge) + artérielle. CI : PAS <90, sténose aortique serrée.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Vasodilators in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-6",
+      "prompt": "Morphine dans l'OAP : place actuelle ?",
+      "choices": [
+        "1ère ligne systématique",
+        "Contre-indiquée",
+        "2e ligne, si anxiété majeure ou douleur — attention dépression respiratoire",
+        "Uniquement en IV à haute dose"
+      ],
+      "correct": 2,
+      "explanation": "Morphine : 2e ligne, si anxiété/douleur majeure. Attention : dépression respiratoire, nausées. Utilisée à faible dose (2-4 mg IV titré).",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Opiates in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-7",
+      "prompt": "Quand intuber un OAP ?",
+      "choices": [
+        "Systématique",
+        "Épuisement respiratoire, coma, échec VNI, hypoxémie réfractaire",
+        "Jamais",
+        "Si SpO2 <95 %"
+      ],
+      "correct": 1,
+      "explanation": "Intubation : épuisement respiratoire, troubles de conscience, échec VNI, hypoxémie réfractaire, arrêt cardiaque imminent.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Invasive ventilation in acute HF.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-8",
+      "prompt": "Monitorage minimal en OAP ?",
+      "choices": [
+        "Aucun",
+        "Uniquement SpO2",
+        "Uniquement ECG",
+        "SpO2, ECG continu, PA, FC, conscience, diurèse"
+      ],
+      "correct": 3,
+      "explanation": "Monitorage : SpO2 continu, ECG, PA (invasive si instable), conscience, diurèse, score de détresse.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Monitoring in acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-9",
+      "prompt": "OAP et SCA : spécificité du traitement ?",
+      "choices": [
+        "Traitement OAP seul",
+        "Traitement OAP + revascularisation urgente (PCI) + aspirine + anticoagulation",
+        "Attente",
+        "Diurétiques seuls"
+      ],
+      "correct": 1,
+      "explanation": "OAP + SCA : traitement OAP + revascularisation urgente (PCI), aspirine, héparine, contrôle tensionnel. Coronarographie rapide.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS",
+          "citation": "ACS complicated by acute heart failure.",
+          "organization": "ESC",
+          "year": 2023
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-10",
+      "prompt": "OAP et poussée hypertensive : traitement ?",
+      "choices": [
+        "Dérivés nitrés IV + furosémide, contrôle PA prudente (réduction 20-25 %)",
+        "Nicardipine en 1ère intention",
+        "Diurétiques seuls",
+        "Antihypertenseur oral"
+      ],
+      "correct": 0,
+      "explanation": "Poussée hypertensive + OAP : dérivés nitrés IV (1ère ligne) + furosémide. Réduction PA prudente (20-25 %). Éviter chute brutale.",
+      "sources": [
+        {
+          "title": "ESC 2022 OAP",
+          "citation": "Hypertensive acute heart failure.",
+          "organization": "ESC",
+          "year": 2022
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-11",
+      "prompt": "OAP et FA rapide : priorité ?",
+      "choices": [
+        "Cardioversion systématique",
+        "Ablation en urgence",
+        "Contrôle FC + anticoagulation si indiquée + traiter la congestion",
+        "Aucune action"
+      ],
+      "correct": 2,
+      "explanation": "FA rapide + OAP : contrôle FC (bêtabloquant, digoxine, amiodarone selon FEVG) + anticoagulation + congestion. Cardioversion si mal toléré.",
+      "sources": [
+        {
+          "title": "ESC 2024 FA",
+          "citation": "AF and acute heart failure management.",
+          "organization": "ESC",
+          "year": 2024
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "oap-l4-12",
+      "prompt": "OAP sur valvulopathie : spécificité ?",
+      "choices": [
+        "Traitement médical seul",
+        "Chirurgie valvulaire rapide (rupture de cordage, IM aiguë) ou traitement médical + chirurgie différée",
+        "Attente prolongée",
+        "Aucune spécificité"
+      ],
+      "correct": 1,
+      "explanation": "OAP valvulopathie : IM aiguë sur rupture de cordage → chirurgie urgente. Sténose mitrale → traitement médical + commissurotomie/chirurgie différée.",
+      "sources": [
+        {
+          "title": "ESC 2021 Valves",
+          "citation": "Valvular acute heart failure.",
+          "organization": "ESC",
+          "year": 2021
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    }
+  ]
+}

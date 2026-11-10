@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "deck_id": "cardio-sca-l5",
+  "questions": [
+    {
+      "id": "sca-1",
+      "prompt": "Homme 58 ans, tabagique (30 PA), HTA, dyslipidémie. Douleur thoracique constrictive rétrosternale depuis 2h, irradiant bras gauche, sueurs profuses. PA 145/85, FC 95, SpO2 97%. Quel diagnostic suspectez-vous en priorité ?",
+      "choices": [
+        "Embolie pulmonaire",
+        "Syndrome coronarien aigu",
+        "Dissection aortique",
+        "Péricardite aiguë"
+      ],
+      "correct": 1,
+      "explanation": "Tableau typique de SCA : douleur constrictive, irradiée, sueurs, terrain à risque. Durée > 20 min élimine l'angor stable. La dissection aortique et l'EP restent les principaux diagnostics différentiels.\n\n⚠️ Pièges : ne pas éliminer la dissection sans y penser ; ne pas attendre la troponine pour débuter la prise en charge.",
+      "sources": [
+        {
+          "title": "ESC 2023 ACS Guidelines",
+          "citation": "European Society of Cardiology, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-2",
+      "prompt": "Même patient. ECG à 8 min : sus-décalage ST de 3 mm en V1-V4 avec miroir en DII-DIII-aVF. Quelle conduite ?",
+      "choices": [
+        "Angioplastie en urgence (< 120 min)",
+        "Thrombolyse systématique",
+        "AINS (péricardite)",
+        "Surveillance simple"
+      ],
+      "correct": 0,
+      "explanation": "Sus-décalage ST en V1-V4 = SCA ST+ antérieur (IVA). Angioplastie = gold standard si < 120 min. Le miroir en territoire inférieur confirme.\n\n⚠️ Pièges : le miroir est un argument fort ; attention aux formes atypiques chez la femme et le diabétique.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-3",
+      "prompt": "Troponine ultrasensible initiale normale chez ce patient en SCA ST+ antérieur. Que concluez-vous ?",
+      "choices": [
+        "Diagnostic éliminé",
+        "Une seule troponine normale n'élimine pas le SCA — répéter à H3",
+        "Coronarographie immédiate",
+        "Attendre H6"
+      ],
+      "correct": 1,
+      "explanation": "Troponine US peut être normale < 2h. En SCA ST+, on n'attend PAS la troponine pour reperfuser. En SCA ST-, stratégie H0-H3.\n\n⚠️ Piège : ne pas retarder la reperfusion.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-4",
+      "prompt": "Patient en SCA ST+ antérieur à 30 min du début. Centre à 45 min d'un plateau de coronarographie. Stratégie optimale ?",
+      "choices": [
+        "Angioplastie dans les 120 min",
+        "Thrombolyse immédiate puis transfert",
+        "Angioplastie dans les 12h",
+        "Traitement médical seul"
+      ],
+      "correct": 0,
+      "explanation": "ESC 2023 : angioplastie si délai < 120 min. Ici 45 min + procédure < 120 min. Si > 120 min : thrombolyse < 30 min puis transfert.\n\n⚠️ Piège : ne pas confondre délai total et porte-ballon.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-5",
+      "prompt": "Homme 65 ans, douleur depuis 6h, sous-décalage ST V4-V6, troponine 45 ng/L (N<14). Conduite ?",
+      "choices": [
+        "Urgence absolue — coro < 2h",
+        "Score GRACE — coro < 24h si haut risque",
+        "Traitement médical seul",
+        "Thrombolyse"
+      ],
+      "correct": 1,
+      "explanation": "NSTEMI. Stratégie par score GRACE. Score > 140 : coro < 24h. Très haut risque (instabilité, choc) : < 2h. Thrombolyse CONTRE-INDIQUÉE en SCA ST-.\n\n⚠️ Pièges : jamais de thrombolyse en ST-.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-6",
+      "prompt": "Dégradation à H6 : dyspnée brutale, orthopnée, crépitants jusqu'aux sommets, SpO2 88%, FC 120, TA 160/95. Diagnostic et prise en charge ?",
+      "choices": [
+        "OAP cardiogénique — O2, dérivés nitrés, diurétiques, VNI",
+        "Pneumopathie — antibiothérapie",
+        "EP — anticoagulation",
+        "Choc cardiogénique — dobutamine"
+      ],
+      "correct": 0,
+      "explanation": "OAP cardiogénique (ICA gauche). Prise en charge : position demi-assise, O2, dérivés nitrés (si TA > 100), diurétiques IV, VNI.\n\n⚠️ Pièges : pas de nitrés si TA < 90 ; VNI réduit l'intubation.",
+      "sources": [
+        {
+          "title": "ESC 2023 / SFC 2023",
+          "citation": "ESC Guidelines on Heart Failure, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-7",
+      "prompt": "En réa, perte de connaissance brutale. Monitorage : tracé en dents de scie, pas de QRS. Diagnostic et PEC ?",
+      "choices": [
+        "FV — CEE immédiat",
+        "TV — amiodarone",
+        "Asystolie — adrénaline",
+        "FA — bêtabloquant"
+      ],
+      "correct": 0,
+      "explanation": "Dents de scie + pas de QRS = FV. RCP + CEE immédiat. Cause principale de mort subite post-IDM précoce. Amiodarone après 3e choc.\n\n⚠️ Pièges : CEE avant tout médicament ; ne pas intuber avant le choc.",
+      "sources": [
+        {
+          "title": "ERC 2021 / ESC 2023",
+          "citation": "ERC Guidelines, 2021."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-8",
+      "prompt": "Femme 62 ans HTA. Douleur brutale transfixiante migratrice vers le dos. Asymétrie TA : 180/95 à droite, 140/85 à gauche. ECG normal. D-dimères élevés. Diagnostic prioritaire ?",
+      "choices": [
+        "SCA",
+        "Dissection aortique",
+        "EP",
+        "Péricardite"
+      ],
+      "correct": 1,
+      "explanation": "Triade : douleur brutale + migratrice + asymétrie TA. ECG normal n'élimine pas. Angio-TDM thoracique urgent.\n\n⚠️ Pièges : jamais éliminer dissection devant ECG normal.",
+      "sources": [
+        {
+          "title": "ESC 2024 Aortic Diseases",
+          "citation": "ESC Guidelines on Aortic Diseases, 2024."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-9",
+      "prompt": "Homme 70 ans diabétique T2 depuis 20 ans, neuropathie autonome. Dyspnée et vomissements depuis 24h, pas de douleur thoracique. Troponine 180 ng/L. Diagnostic ?",
+      "choices": [
+        "Gastro-entérite",
+        "SCA atypique (formes frustres du diabétique)",
+        "EP",
+        "Pneumopathie"
+      ],
+      "correct": 1,
+      "explanation": "Diabétique avec neuropathie autonome : SCA sans douleur (dyspnée, vomissements, syncope). Troponine élevée = argument fort. ECG systématique.\n\n⚠️ Pièges : ne pas éliminer SCA devant absence de douleur chez diabétique.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-10",
+      "prompt": "Femme 55 ans ménopausée, sans FDR classique. Douleur atypique depuis 3h, asthénie, nausées, dyspnée. ECG : sous-décalage ST V4-V6. Conduite ?",
+      "choices": [
+        "Origine anxieuse",
+        "SCA à présentation atypique — PEC urgente",
+        "Spasme œsophagien",
+        "Attendre H6"
+      ],
+      "correct": 1,
+      "explanation": "Femme : SCA atypique fréquent (asthénie, dyspnée, nausées). Sous-décalage latéral = SCA. Retard diagnostique = surmortalité féminine.\n\n⚠️ Pièges : ne pas banaliser les douleurs atypiques chez la femme.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-11",
+      "prompt": "Homme 28 ans sportif, pas de FDR. Douleur thoracique brutale à l'effort, soulagée par repos. Troponine normale, ECG normal. ATCD familial de mort subite. Diagnostic ?",
+      "choices": [
+        "SCA athéromateux",
+        "Anomalie coronaire congénitale ou spasme coronaire",
+        "Angor stable",
+        "Péricardite virale"
+      ],
+      "correct": 1,
+      "explanation": "Sujet jeune sans FDR : anomalies coronaires congénitales, spasme, embolie coronaire, dissection coronaire spontanée.\n\n⚠️ Pièges : ne pas éliminer SCA devant âge jeune.",
+      "sources": [
+        {
+          "title": "ESC 2023 / SFC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-12",
+      "prompt": "Homme 72 ans, IRC stade 4 (DFG 25 mL/min). SCA ST- confirmé. Troponine H0 50, H3 95. Adaptation thérapeutique ?",
+      "choices": [
+        "Aucune adaptation",
+        "Éviter contraste iodé, adapter énoxaparine, préférer HNF",
+        "Contre-indication à la coronarographie",
+        "Dialyse préventive"
+      ],
+      "correct": 1,
+      "explanation": "IRC : hydratation, limiter contraste, préférer HNF. Énoxaparine à adapter (risque hémorragique). Ticagrélor préféré au clopidogrel.\n\n⚠️ Pièges : ne pas oublier l'hydratation avant contraste.",
+      "sources": [
+        {
+          "title": "ESC 2023 / KDIGO 2024",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-13",
+      "prompt": "Femme 32 ans enceinte 28 SA. Douleur typique depuis 1h, sus-décalage ST DII-DIII-aVF. Stratégie ?",
+      "choices": [
+        "Traitement médical seul",
+        "Coronarographie avec protection fœtale + équipe multidisciplinaire",
+        "Thrombolyse systématique",
+        "Césarienne en urgence"
+      ],
+      "correct": 1,
+      "explanation": "SCA en grossesse rare et grave. Coronarographie faisable avec tablier de plomb. Équipe multidisciplinaire. Aspirine faible dose OK. IEC/ARA2 contre-indiqués.\n\n⚠️ Pièges : ne pas retarder la reperfusion pour le fœtus.",
+      "sources": [
+        {
+          "title": "ESC 2023 / RCOG 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "management"
+    },
+    {
+      "id": "sca-14",
+      "prompt": "Homme 50 ans tabagique. Douleur typique depuis 30 min. ECG initial normal. Troponine normale. Que faites-vous ?",
+      "choices": [
+        "Rassurer, retour domicile",
+        "Répéter ECG à 15-30 min, monitorage, troponine H3, hospitalisation USIC",
+        "Attendre H6",
+        "Test d'effort"
+      ],
+      "correct": 1,
+      "explanation": "ECG normal précoce n'élimine pas un SCA. Répéter ECG, surveillance, troponine H0-H3. Hospitalisation USIC.\n\n⚠️ Pièges : ECG normal n'élimine pas ; test d'effort contre-indiqué.",
+      "sources": [
+        {
+          "title": "ESC 2023",
+          "citation": "ESC Guidelines for ACS, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    },
+    {
+      "id": "sca-15",
+      "prompt": "Femme 68 ans IRC. Douleur atypique. Troponine US 30 ng/L sans cinétique à H3. ECG sans anomalie. Conclusion ?",
+      "choices": [
+        "SCA ST- certain",
+        "Élévation non ischémique possible (IRC) — interpréter avec cinétique et contexte",
+        "SCA ST+ masqué",
+        "Péricardite"
+      ],
+      "correct": 1,
+      "explanation": "IRC : troponine élevée sans SCA (accumulation). Sans cinétique + pas de clinique typique + ECG normal : penser aux causes non ischémiques. La cinétique H0-H3 est essentielle.\n\n⚠️ Pièges : toute troponine élevée n'est pas un SCA.",
+      "sources": [
+        {
+          "title": "ESC 2023 / ESC 2021 Troponin",
+          "citation": "ESC Guidelines, 2023."
+        }
+      ],
+      "difficulty": "avance",
+      "competency": "diagnosis"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import { ContentCard } from "@/components/content/content-card";
 import { DeckIcon } from "@/components/deck-icon";
 import { Page, PageHeader, SectionTitle, Shell } from "@/components/shell";
 import { ScrollToTopButton } from "@/components/scroll-to-top";
+import { deckQuestionCount } from "@/lib/deck-question-count";
 import { buildContentIndex } from "@/lib/library/content-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Progress } from "@/components/ui/progress";
@@ -165,7 +166,7 @@ function toLevel(studyLevel: unknown): Level {
                   </span>
                   <span className="mt-1 block text-sm text-muted">{current.subtitle}</span>
                   <span className="mt-2 block text-[11px] font-medium uppercase tracking-wider text-primary">
-                    {yearLabel(current.studyYear)} · {current.questions.length} questions
+                    {yearLabel(current.studyYear)} · {deckQuestionCount(current)} questions
                   </span>
                 </span>
               </div>

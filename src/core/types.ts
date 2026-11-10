@@ -135,6 +135,12 @@ export type Deck = {
   competencies: Competency[];
   icon: string;
   questions: Question[];
+  /**
+   * Nombre de questions annoncé par l'index public. Les questions des decks
+   * premium ne sont pas publiées : `questions` reste vide tant qu'aucun jeton
+   * de contenu n'a été présenté (cf. scripts/split-decks.mjs).
+   */
+  questionCount?: number;
   sources: Source[];
   access_policy: AccessPolicy;
   status?: DeckStatus;
