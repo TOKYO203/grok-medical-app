@@ -36,8 +36,29 @@ jobs:
         run: |
           node -e "const fs=require('fs');const p='.output/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.name='optimus-medical-prod';j.assets=j.assets||{};j.assets.not_found_handling='single-page-application';fs.writeFileSync(p,JSON.stringify(j,null,2));"
           node -e "console.log('name =', JSON.parse(require('fs').readFileSync('.output/server/wrangler.json','utf8')).name)"
+      # Variables d'authentification injectées au déploiement (pas dans le
+      # dashboard) : sur un Worker, CF_PAGES_URL n'existe pas, donc
+      # BETTER_AUTH_URL doit être explicite. Les secrets absents sont simplement
+      # omis (l'app retombe alors sur son mode « profil local » documenté).
       - name: Deploy with Wrangler
-        run: npx wrangler deploy --config .output/server/wrangler.json
+        run: |
+          ARGS="--config .output/server/wrangler.json"
+          ARGS="$ARGS --var BETTER_AUTH_URL:https://optimus-medical-prod.onjaandrianantenainafetramandr.workers.dev"
+          ARGS="$ARGS --var TRUST_PROXY_HEADERS:true"
+          ARGS="$ARGS --var VITE_AUTH_ENABLED:true"
+          if [ -n "$GROK_AUTH_CLIENT_ID" ]; then
+            ARGS="$ARGS --var GROK_AUTH_CLIENT_ID:$GROK_AUTH_CLIENT_ID"
+          fi
+          if [ -n "$GROK_AUTH_CLIENT_SECRET" ]; then
+            ARGS="$ARGS --var GROK_AUTH_CLIENT_SECRET:$GROK_AUTH_CLIENT_SECRET"
+          fi
+          if [ -n "$BETTER_AUTH_SECRET" ]; then
+            ARGS="$ARGS --var BETTER_AUTH_SECRET:$BETTER_AUTH_SECRET"
+          fi
+          npx wrangler deploy $ARGS
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GROK_AUTH_CLIENT_ID: ${{ secrets.GROK_AUTH_CLIENT_ID }}
+          GROK_AUTH_CLIENT_SECRET: ${{ secrets.GROK_AUTH_CLIENT_SECRET }}
+          BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
