@@ -24,6 +24,11 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       - name: Clean stale wrangler redirections
         run: rm -rf .wrangler
+      - name: Override worker name
+        run: |
+          node -e "const fs=require(fs);const p=.output/server/wrangler.json;const j=JSON.parse(fs.readFileSync(p,utf8));j.name=optimus-medical-prod;fs.writeFileSync(p,JSON.stringify(j,null,2));"
+          grep -E 
+ame .output/server/wrangler.json | head -1
       - name: Deploy with Wrangler
         run: npx wrangler deploy --config .output/server/wrangler.json
         env:
