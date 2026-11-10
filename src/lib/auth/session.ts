@@ -10,11 +10,13 @@
  * lit seulement `exp` pour purger un jeton périmé AVANT de faire un aller-retour
  * réseau voué au 401.
  *
- * ⚠️ Le jeton est écrit à DEUX endroits, volontairement :
- *   • `localStorage["optimus_session"]` — contrat produit, survit au rechargement ;
- *   • cookie `optimus_session` (SameSite=Lax, non HttpOnly) — permet au rendu
- *     SERVEUR de la fiche d'avoir le jeton dès la première requête, donc pas de
- *     flash « Premium requis » chez un client qui a payé.
+ * ⚠️ Depuis le pentest §4, le jeton vit dans `localStorage["optimus_session"]`
+ * (contrat produit, repli hors-ligne explicite) et le cookie `optimus_session`
+ * est posé par le SERVEUR (endpoints `/api/licenses/*`) en HttpOnly : le
+ * client ne peut ni le lire, ni l'écrire, ni l'effacer. Le rendu serveur
+ * reçoit toujours le jeton dès la requête suivante (pas de flash « Premium
+ * requis ») ; un cookie périmé est inoffensif (le garde répond 401) et expire
+ * au Max-Age fixé par le serveur.
  */
 
 export const SESSION_STORAGE_KEY = "optimus_session";
@@ -22,9 +24,6 @@ export const SESSION_COOKIE_NAME = "optimus_session";
 
 /** Drapeau mémoire : un jeton expiré a été purgé (lu par le bandeau Premium). */
 let expiredSessionSeen = false;
-
-/** Durée de vie par défaut, alignée sur `CONTENT_TOKEN_TTL_SECONDS` (24 h). */
-const DEFAULT_MAX_AGE_SECONDS = 24 * 60 * 60;
 
 function storage(): Storage | null {
   try {
@@ -58,26 +57,6 @@ export function tokenExpiresAt(token: string): number | null {
     return typeof exp === "number" && Number.isFinite(exp) ? exp * 1000 : null;
   } catch {
     return null;
-  }
-}
-
-function writeCookie(token: string, maxAgeSeconds: number): void {
-  if (typeof document === "undefined") return;
-  try {
-    const secure = window.location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = `${SESSION_COOKIE_NAME}=${encodeURIComponent(token)}; Path=/; Max-Age=${maxAgeSeconds}; SameSite=Lax${secure}`;
-  } catch {
-    // Cookie refusé : le jeton reste utilisable via l'en-tête Authorization.
-  }
-}
-
-function clearCookie(): void {
-  if (typeof document === "undefined") return;
-  try {
-    const secure = window.location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = `${SESSION_COOKIE_NAME}=; Path=/; Max-Age=0; SameSite=Lax${secure}`;
-  } catch {
-    // rien à faire
   }
 }
 
@@ -121,29 +100,33 @@ export function consumeExpiredSessionFlag(): boolean {
   return seen;
 }
 
-/** Enregistre le jeton (localStorage + cookie pour le rendu serveur). */
-export function setToken(token: string, expiresAt?: number | null): void {
+/**
+ * Enregistre le jeton dans `localStorage`.
+ *
+ * Pentest §4 : le cookie de session (HttpOnly) est posé par le SERVEUR, dans
+ * la réponse des endpoints `/api/licenses/*` — le client ne peut pas écrire un
+ * cookie HttpOnly, et ne doit plus écrire de cookie lisible par le JavaScript.
+ * `expiresAt` reste disponible via `tokenExpiresAt()` pour la purge locale.
+ */
+export function setToken(token: string): void {
   const trimmed = token.trim();
   if (!trimmed) return;
-
   storage()?.setItem(SESSION_STORAGE_KEY, trimmed);
-
-  const expires = expiresAt ?? tokenExpiresAt(trimmed);
-  const maxAge =
-    expires === null || expires === undefined
-      ? DEFAULT_MAX_AGE_SECONDS
-      : Math.max(0, Math.floor((expires - Date.now()) / 1000));
-  writeCookie(trimmed, maxAge || DEFAULT_MAX_AGE_SECONDS);
 }
 
-/** Purge complète : localStorage ET cookie (401, déconnexion, licence révoquée). */
+/**
+ * Purge le jeton local (401, déconnexion, licence révoquée).
+ *
+ * Pentest §4 : le cookie HttpOnly ne peut pas être effacé par le client. Il
+ * est inoffensif (le garde répond 401 à un jeton périmé ou révoqué) et le
+ * navigateur l'efface au Max-Age fixé par le serveur à l'émission.
+ */
 export function clearToken(): void {
   try {
     storage()?.removeItem(SESSION_STORAGE_KEY);
   } catch {
     // stockage indisponible : rien à purger
   }
-  clearCookie();
 }
 
 /** Vrai si une session contenu est active (jeton présent et non expiré). */
@@ -220,7 +203,7 @@ export async function requestContentToken(
     }
 
     const expiresAt = typeof payload.expiresAt === "number" ? payload.expiresAt : null;
-    setToken(payload.token, expiresAt);
+    setToken(payload.token);
     return { ok: true, expiresAt };
   } catch {
     return { ok: false, error: "network" };
@@ -256,7 +239,7 @@ export async function requestTrialToken(): Promise<ContentTokenResult> {
     }
 
     const expiresAt = typeof payload.expiresAt === "number" ? payload.expiresAt : null;
-    setToken(payload.token, expiresAt);
+    setToken(payload.token);
     return { ok: true, expiresAt };
   } catch {
     return { ok: false, error: "network" };
