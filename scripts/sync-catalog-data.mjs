@@ -21,6 +21,9 @@
  * source de vérité éditoriale) sont COPIÉES vers `private/content/demarches/`
  * et retirées de l'artefact publié par `scripts/strip-demarches-from-dist.mjs`.
  *
+ * Déploiement 2026-11-10 : prod = Worker `optimus-medical-prod` (64 MiB) ;
+ * le projet Pages (25 MiB) ne peut plus embarquer ce contenu et est à pause.
+ *
  * Tout démarrage Vite (dev, build, preview — variantes :cloudflare/:netlify/
  * :worker comprises) régénère les dérivés AVANT que Vite ne copie `public/`
  * vers la sortie : le déploiement ne peut plus jamais publier le contenu
