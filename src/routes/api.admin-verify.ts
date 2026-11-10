@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getSql } from "@/lib/db";
 import { rateLimitRequest, retryAfterSeconds } from "@/lib/security/rate-limit.server";
+import {
+  adminSessionCookie,
+  signAdminSessionToken,
+} from "@/lib/security/admin-auth.server";
 
 const HASH_BYTES = 32;
 const MAX_BODY_BYTES = 4 * 1024;
@@ -144,9 +148,20 @@ export const Route = createFileRoute("/api/admin-verify")({
               return secretsMatch(key, expected);
             })();
 
+        // Pentest §5 : la session admin est aussi posée en cookie HttpOnly par
+        // le serveur ; le garde /admin* (server/middleware/admin-guard.ts)
+        // refuse les pages back-office en 403 sans cookie valide. Le jeton est
+        // un HMAC horodaté dérivé du secret — jamais le mot de passe.
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-store",
+        };
+        const sessionToken = signAdminSessionToken();
+        if (sessionToken) headers["Set-Cookie"] = adminSessionCookie(sessionToken);
+
         return new Response(JSON.stringify({ valid }), {
           status: 200,
-          headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+          headers,
         });
       },
     },
