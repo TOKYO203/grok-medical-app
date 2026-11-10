@@ -47,6 +47,28 @@ export const getAuthRuntimeStatus = createServerFn({ method: "GET" }).handler(
       };
     }
 
+    // Supabase est la source d'authentification de production (email/mot de
+    // passe, écran `AuthScreen` de /login) : dès que sa configuration serveur
+    // est présente, la connexion est PRÊTE — avec ou sans broker Better Auth
+    // (Google/X). Avant ce correctif, la sonde ne regardait QUE le broker :
+    // un déploiement Supabase parfaitement configuré affichait « Cette version
+    // a été compilée sans configuration cloud » sur /profil, alors que la
+    // connexion fonctionnait. (Audit 2026-11-10, Worker optimus-medical-prod.)
+    const supabaseUrl = env("SUPABASE_URL") ?? env("VITE_SUPABASE_URL");
+    const supabaseKey =
+      env("SUPABASE_SERVICE_ROLE_KEY") ??
+      env("SUPABASE_ANON_KEY") ??
+      env("VITE_SUPABASE_ANON_KEY");
+    if (supabaseUrl && supabaseKey) {
+      return {
+        enabled: true,
+        ready: true,
+        mode: "configured",
+        providers: [],
+        message: null,
+      };
+    }
+
     const hostname = requestHostname();
     if (hostname?.endsWith(".grok-sandbox.com")) {
       return {
