@@ -1,9 +1,16 @@
 name: Deploy Worker
 
-# Déclenchement manuel uniquement : la prod vit sur Cloudflare Pages
-# (déploiement confirmé le 2026-11-07, worker 23,63 MiB < 25 MiB).
-# La voie Workers reste disponible pour un futur besoin (64 MiB).
+# Déploiement automatique sur main : le contenu Premium vit désormais dans le
+# graphe serveur (pentest 2026-11-09 §1/§14/§15) et porte le worker à ~29 MiB,
+# au-dessus de la limite Pages (25 MiB). La prod est donc le Worker
+# (limite 64 MiB, tous plans depuis sept. 2026) ; le projet Pages est à mettre
+# en pause une fois le Worker validé.
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
   workflow_dispatch:
 
 jobs:
