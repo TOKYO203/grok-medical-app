@@ -116,10 +116,13 @@ test("le garde refuse /admin* sans cookie valide et épargne /admin-login et /ap
   assert.match(source, /ADMIN_PASSWORD/);
 });
 
-test("admin-verify pose le cookie HttpOnly ; admin-logout l'efface ; le client l'appelle", () => {
+test("admin-verify pose le cookie de session ; admin-logout l'efface ; le client l'appelle", () => {
+  // Les attributs HttpOnly/Secure/SameSite sont construits par
+  // adminSessionCookie() (déjà épinglés au test précédent) : la route doit
+  // brancher ce constructeur sur l'en-tête Set-Cookie de sa réponse 200.
   assert.match(code(adminVerify), /Set-Cookie/);
-  assert.match(code(adminVerify), /HttpOnly/);
-  assert.match(code(adminVerify), /signAdminSessionToken/);
-  assert.match(code(adminLogout), /clearAdminSessionCookie/);
+  assert.match(code(adminVerify), /adminSessionCookie\(/);
+  assert.match(code(adminVerify), /signAdminSessionToken\(/);
+  assert.match(code(adminLogout), /clearAdminSessionCookie\(/);
   assert.match(code(adminLogin), /\/api\/admin-logout/);
 });
