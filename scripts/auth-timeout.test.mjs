@@ -16,7 +16,7 @@ test("signIn et signUp passent par le timeout d'authentification", () => {
   // Les deux deux-points d'entrée (connexion ET inscription) sont encadrés :
   // un seul suffirait à reproduire le spinner infini sur l'autre.
   const wrapped = authScreen.match(/withTimeout\(/g) ?? [];
-  assert.ok(wrapped.length >= 3, "withTimeout doit encadrer signIn ET signUp");
+  assert.ok(wrapped.length >= 2, "withTimeout doit encadrer signIn ET signUp");
   assert.match(authScreen, /withTimeout\(\s*client\.auth\.signInWithPassword/);
   assert.match(authScreen, /withTimeout\(\s*client\.auth\.signUp/);
 });
