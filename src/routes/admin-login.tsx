@@ -82,6 +82,9 @@ export function clearAdminKey(): void {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(STORAGE_KEY);
   window.localStorage.removeItem(LEGACY_KEY);
+  // Pentest §5 : le cookie de session admin est HttpOnly — le client ne peut
+  // pas l'effacer lui-même, il demande au serveur de le révoquer.
+  void fetch("/api/admin-logout", { method: "POST" }).catch(() => {});
 }
 
 function AdminLoginPage() {
