@@ -2,15 +2,17 @@
  * Extraction du jeton de session côté SERVEUR.
  *
  * Le jeton vit dans `localStorage["optimus_session"]` (contrat produit), mais
- * `localStorage` n'existe pas pendant le rendu serveur. `setToken()` en écrit
- * donc AUSSI une copie dans un cookie `optimus_session` (SameSite=Lax) : c'est
- * ce cookie qui permet au SSR de rendre la fiche complète dès le premier
- * octet, sans écran « Premium requis » qui clignote avant l'hydratation.
+ * `localStorage` n'existe pas pendant le rendu serveur. Les endpoints
+ * `/api/licenses/*` posent donc AUSSI une copie dans un cookie
+ * `optimus_session` (SameSite=Lax, HttpOnly depuis le pentest §4) : c'est ce
+ * cookie qui permet au SSR de rendre la fiche complète dès le premier octet,
+ * sans écran « Premium requis » qui clignote avant l'hydratation.
  *
  * ⚠️ Ce module ne lit que des en-têtes : il ne contient aucun secret et peut
- * être importé par du code isomorphe. Le cookie n'est PAS HttpOnly (le client
- * doit pouvoir le poser/l'effacer) : il ne porte qu'un jeton de 24 h, révocable
- * par expiration, et n'ouvre aucun droit d'écriture.
+ * être importé par du code isomorphe. Depuis le pentest §4, le cookie est posé
+ * par le SERVEUR (endpoints `/api/licenses/*`) en HttpOnly : le client ne peut
+ * ni le lire, ni l'écrire. Il ne porte qu'un jeton court, révocable par
+ * expiration, et n'ouvre aucun droit d'écriture.
  */
 
 export const SESSION_COOKIE_NAME = "optimus_session";
