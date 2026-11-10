@@ -165,7 +165,7 @@ function toLevel(studyLevel: unknown): Level {
                   </span>
                   <span className="mt-1 block text-sm text-muted">{current.subtitle}</span>
                   <span className="mt-2 block text-[11px] font-medium uppercase tracking-wider text-primary">
-                    {yearLabel(current.studyYear)} · {current.questions.length} questions
+                    {yearLabel(current.studyYear)} · {current.questionCount ?? current.questions.length} questions
                   </span>
                 </span>
               </div>

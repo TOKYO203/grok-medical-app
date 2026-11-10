@@ -1,4 +1,4 @@
-import type { ClinicalCase, Competency, Deck, DiagnosticCase, Entitlement } from "@/core/types";
+import type { CaseStep, ClinicalCase, Competency, Deck, DiagnosticCase, DiagnosticStep, Entitlement } from "@/core/types";
 import { CLINICAL_CASES, DIAGNOSTIC_CASES } from "@/content/catalog";
 import { specialtyCodeFromLabel } from "@/lib/library/specialty-label";
 import { hasEntitlement } from "@/state/store";
@@ -82,7 +82,9 @@ export function caseAccessible(clinical: ClinicalCase, entitlements: Entitlement
 }
 
 function deckToItem(deck: Deck, entitlements: Entitlement[], tier: string): ContentItem {
-  const count = deck.questions.length;
+  // Pentest §1 : la projection publique ne porte plus les questions Pro — le
+  // compteur vient de `questionCount` (l'actif complet fusionne ensuite).
+  const count = deck.questionCount ?? deck.questions.length;
   return {
     id: `deck:${deck.id}`,
     kind: "deck",
@@ -110,7 +112,8 @@ function isDeckAccessible(deck: Deck, entitlements: Entitlement[], tier: string)
 }
 
 function caseToItem(clinical: ClinicalCase, entitlements: Entitlement[]): ContentItem {
-  const steps = clinical.steps.length;
+  // Pentest §14 : la projection publique d'un cas Pro n'a pas de `steps`.
+  const steps = ((clinical as { steps?: CaseStep[] }).steps ?? []).length;
   return {
     id: `case:${clinical.id}`,
     kind: "case",
@@ -126,7 +129,7 @@ function caseToItem(clinical: ClinicalCase, entitlements: Entitlement[]): Conten
           : "intermediate",
     competencies: ["clinical_reasoning", "diagnosis"],
     icon: "stethoscope",
-    metric: `${steps} étape${steps > 1 ? "s" : ""}`,
+    metric: steps > 0 ? `${steps} étape${steps > 1 ? "s" : ""}` : "Cas clinique",
     minutes: Math.max(4, steps * 2),
     link: { to: "/cas/$caseId", params: { caseId: clinical.id } },
     locked: !caseAccessible(clinical, entitlements),
@@ -134,7 +137,8 @@ function caseToItem(clinical: ClinicalCase, entitlements: Entitlement[]): Conten
 }
 
 function diagnosticToItem(diagnostic: DiagnosticCase): ContentItem {
-  const steps = diagnostic.steps.length;
+  // Pentest §15 : la projection publique d'une démarche n'a pas de `steps`.
+  const steps = ((diagnostic as { steps?: DiagnosticStep[] }).steps ?? []).length;
   return {
     id: `diagnostic:${diagnostic.id}`,
     kind: "diagnostic",
@@ -145,7 +149,7 @@ function diagnosticToItem(diagnostic: DiagnosticCase): ContentItem {
     level: "intermediate",
     competencies: ["diagnostic_orientation", "clinical_reasoning"],
     icon: "scan",
-    metric: `${steps} étape${steps > 1 ? "s" : ""}`,
+    metric: steps > 0 ? `${steps} étape${steps > 1 ? "s" : ""}` : "Démarche",
     minutes: Math.max(4, steps * 2),
     // Une démarche diagnostique s'ouvre sur sa propre page `/demarche/$id`.
     // (Historiquement branchée sur `/calculateurs` : la carte promettait une

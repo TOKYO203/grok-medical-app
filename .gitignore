@@ -104,3 +104,10 @@ public/logo/
 scripts/sanity-index.sh
 .output/
 .wrangler/
+
+# Pentest 2026-11-09 §1/§14/§15 : actifs de contenu privés, générés par
+# scripts/sync-catalog-data.mjs depuis src/content/data (jamais committés).
+/private/content/decks/
+/private/content/cases/
+/private/content/diagnostics/
+/private/content/demarches/

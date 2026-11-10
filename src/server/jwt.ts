@@ -51,12 +51,14 @@ export function contentJwtSecret(): Uint8Array | null {
 export async function signContentToken(
   licenseId: string,
   now = Date.now(),
+  /** TTL spécifique (jeton d'essai, pentest §14) ; 24 h par défaut. */
+  ttlSeconds = CONTENT_TOKEN_TTL_SECONDS,
 ): Promise<{ token: string; expiresAt: number } | null> {
   const secret = contentJwtSecret();
   if (!secret || !licenseId) return null;
 
   const issuedAt = Math.floor(now / 1000);
-  const expiresAt = issuedAt + CONTENT_TOKEN_TTL_SECONDS;
+  const expiresAt = issuedAt + ttlSeconds;
 
   const token = await new SignJWT({ tier: "premium", licenseId })
     .setProtectedHeader({ alg: "HS256", typ: "JWT" })
