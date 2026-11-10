@@ -27,6 +27,30 @@ import { track } from "@/lib/analytics/client";
 
 type AuthMode = "signin" | "signup";
 
+/**
+ * Délai maximal d'un appel d'authentification. Supabase-js n'en impose AUCUN :
+ * sur une connexion mobile qui stalle (réseau malgache, portail captif), la
+ * promesse ne se règle jamais et le bouton reste bloqué sur « Connexion… »
+ * sans aucun message — constaté en production le 2026-11-10. Le dépassement
+ * lève une erreur réseau explicite, affichée par friendlyAuthError().
+ */
+const AUTH_TIMEOUT_MS = 15_000;
+
+class AuthTimeoutError extends Error {
+  constructor() {
+    super("fetch failed: auth request timed out");
+    this.name = "AuthTimeoutError";
+  }
+}
+
+function withTimeout<T>(promise: Promise<T>): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new AuthTimeoutError()), AUTH_TIMEOUT_MS);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
 function friendlyAuthError(error: unknown): string {
   const message =
     typeof error === "object" && error !== null && "message" in error
@@ -92,16 +116,20 @@ export function AuthScreen() {
       }
 
       if (mode === "signin") {
-        const { error: signInError } = await client.auth.signInWithPassword({
-          email: email.trim(),
-          password,
-        });
+        const { error: signInError } = await withTimeout(
+          client.auth.signInWithPassword({
+            email: email.trim(),
+            password,
+          }),
+        );
         if (signInError) throw signInError;
       } else {
-        const { data, error: signUpError } = await client.auth.signUp({
-          email: email.trim(),
-          password,
-        });
+        const { data, error: signUpError } = await withTimeout(
+          client.auth.signUp({
+            email: email.trim(),
+            password,
+          }),
+        );
         if (signUpError) throw signUpError;
         // MESURE-1 : le compte est créé (session immédiate ou confirmation par
         // e-mail) — c'est l'événement d'entrée du tunnel d'activation.
