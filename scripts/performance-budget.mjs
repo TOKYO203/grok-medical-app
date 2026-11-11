@@ -30,7 +30,9 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // sélecteur ajoutent ~1,2 KiB compilées ; la feuille était au plafond exact.
   // Mesure CI : 121,2 KiB. Marge volontairement faible (~6,8 KiB), même
   // philosophie que les relevés précédents.
-  maxStylesheetBytes: 128 * 1024,
+  // Relevé 128 → 144 KiB (enrichissement CSS Design System & modules visuels
+  // histologie/imagerie, mesuré 132,8 KiB). Marge volontairement faible (~11,2 KiB).
+  maxStylesheetBytes: 144 * 1024,
   // Plafond global : relevé 1536 → 1664 KiB (chantier « Calculateurs ») puis
   // 1664 → 1704 KiB après le moteur ECG multi-cycles (chunk EcgMonitor ≈ 54 KiB)
   // et le moniteur auscultation — total mesuré 1677,4 KiB. Marge volontairement
@@ -194,9 +196,12 @@ export const PERFORMANCE_BUDGET = Object.freeze({
   // le total ; la croissance est du contenu légitime, pas une dérive de code.
   // Marge volontairement faible à recalibrer au prochain relevé : le garde-fou
   // rapporte le total exact dans le log de chaque build.
+  // Relevé des actifs publics pour tenir compte de la croissance légitime de decks.json
+  // (843.8 KiB pour 667 questions, plafond relevé 512 -> 1024 KiB) et du total
+  // des actifs publics (2758.3 KiB mesurés, plafond relevé 2048 -> 3072 KiB).
   maxTotalJavascriptBytes: 2560 * 1024,
-  maxPublicAssetBytes: 512 * 1024,
-  maxTotalPublicAssetBytes: 2 * 1024 * 1024,
+  maxPublicAssetBytes: 1024 * 1024,
+  maxTotalPublicAssetBytes: 3072 * 1024,
   // Actifs de CONTENU (`public/content/**`). ⚠️ Depuis la session Sécurité
   // Premium S1 (2026-10-18), il ne devrait PLUS y en avoir : les 133 fiches
   // vivent dans `private/content/**` et sont compilées dans le bundle SERVEUR,

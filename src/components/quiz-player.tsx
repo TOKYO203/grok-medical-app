@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {ArrowRight, Check, Flame, Maximize2, Minimize2, X, Lightbulb } from "lucide-react";
+import { ArrowRight, Check, Flame, Maximize2, Minimize2, X, Lightbulb, Share2 } from "lucide-react";
 import { MedicalSources, ReportContentError } from "@/components/content-trust";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -109,6 +109,9 @@ export function QuizPlayer({
   const { preferences } = useExperiencePreferences();
   const { t } = useI18n();
   const focusMode = useFocusMode();
+  const [copied, setCopied] = useState(false);
+  const optimusId = useOptimus((s) => s.profile.optimusId);
+  const streak = useOptimus((s) => s.streak);
   const item = sessionItems[index];
   const done = index >= sessionItems.length;
   const order = useMemo(() => {
@@ -195,6 +198,33 @@ export function QuizPlayer({
   }
 
   if (done || !item) {
+    const handleShare = async () => {
+      const shareUrl = typeof window !== "undefined"
+        ? `${window.location.origin}/?ref=${encodeURIComponent(optimusId || "OM-MEMBER")}`
+        : "https://optimusmedical.pages.dev";
+      const shareText = `🎯 Session terminée sur Optimus : ${correctCount}/${sessionItems.length} bonnes réponses ! 🔥 Série : ${streak} j. Réviser l'internat avec des sources : ${shareUrl}`;
+
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({
+            title: "Ma session de révision Optimus",
+            text: shareText,
+            url: shareUrl,
+          });
+          return;
+        } catch {
+          /* refus ou annulation du partage natif */
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(shareText);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      } catch {
+        /* clipboard indisponible */
+      }
+    };
+
     return (
       <div
         className={cn(
@@ -209,21 +239,51 @@ export function QuizPlayer({
           {correctCount}/{sessionItems.length}
         </h2>
         <p className="mt-2 text-sm text-muted">{t("quiz.summary", { max: maxCombo })}</p>
-        <Button
-          className="mt-6"
-          onClick={() => {
-            // MESURE-1 : une session terminée est l'unité d'engagement. Le
-            // déclencheur est le clic sur « Terminer », jamais le rendu.
-            track("session_completed", {
-              surface: "qcm",
-              count: sessionItems.length,
-              minutes: Math.max(1, Math.round((Date.now() - studyStartedAt.current) / 60_000)),
-            });
-            onFinish({ correct: correctCount, total: sessionItems.length, maxCombo });
-          }}
-        >
-          {finishLabel ?? t("quiz.finish")}
-        </Button>
+
+        {/* Carte de partage / réussite pour statut WhatsApp & réseaux */}
+        <div className="mt-6 rounded-[var(--radius-xl)] bg-card p-5 text-left shadow-[var(--shadow-border)]">
+          <div className="flex items-center justify-between gap-3 border-b border-border/40 pb-3">
+            <span className="text-xs font-semibold tracking-wide text-primary">Optimus Formation Médicale</span>
+            <span className="inline-flex items-center gap-1 font-mono text-xs text-warn">
+              <Flame className="size-3.5" />
+              {streak} j
+            </span>
+          </div>
+          <div className="mt-3 flex items-baseline justify-between">
+            <span className="text-sm font-medium text-fg">Précision de la session</span>
+            <span className="font-mono text-lg font-bold text-fg">
+              {Math.round((correctCount / sessionItems.length) * 100)}%
+            </span>
+          </div>
+          <p className="mt-1 text-xs text-muted">
+            {correctCount} sur {sessionItems.length} questions réussies • Max combo x{maxCombo}
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:justify-center">
+          <Button
+            variant="outline"
+            onClick={handleShare}
+            className="flex items-center justify-center gap-2"
+          >
+            <Share2 className="size-4" />
+            {copied ? "Résumé copié !" : "Partager ma session"}
+          </Button>
+          <Button
+            onClick={() => {
+              // MESURE-1 : une session terminée est l'unité d'engagement. Le
+              // déclencheur est le clic sur « Terminer », jamais le rendu.
+              track("session_completed", {
+                surface: "qcm",
+                count: sessionItems.length,
+                minutes: Math.max(1, Math.round((Date.now() - studyStartedAt.current) / 60_000)),
+              });
+              onFinish({ correct: correctCount, total: sessionItems.length, maxCombo });
+            }}
+          >
+            {finishLabel ?? t("quiz.finish")}
+          </Button>
+        </div>
       </div>
     );
   }
